@@ -1,10 +1,11 @@
 # Creating a queue for the support team
 
 
+
 1. If your organization doesn't have {{ tracker-name }} yet, [activate it](enable-tracker.md).
 
 1. [Add users to {{ tracker-name }}](add-users.md).
-
+
 
 1. [Create a queue](manager/create-queue.md) using the <q>Basic support</q> or <q>Multi-tiered support</q> template.
 

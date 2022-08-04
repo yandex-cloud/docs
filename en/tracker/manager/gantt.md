@@ -1,6 +1,6 @@
 # Gantt charts
 
-The Gantt chart in {{ tracker-name }} is a tool for planning work on issues in the calendar. You can create a Gantt chart for issue lists found in your queue or by using filters.
+A Gantt chart in {{ tracker-name }} is a calendar tool for planning your workflow. You can create a Gantt chart for an issue list within a queue or a filtered list of issues.
 
 ![](../../_assets/tracker/gantt.png)
 
@@ -12,33 +12,33 @@ The bar color indicates the status of the issue:
 - Red: the deadline has already passed, but the issue is not closed.
 - Grey: the issue is closed.
 
-## Create a chart for filtered issues {#section_pwy_tgx_tdb}
+## Creating a chart for a filter {#section_pwy_tgx_tdb}
 
-To build a Gantt chart:
+To create a Gantt chart:
 
-1. Choose an existing [system issue filter](../user/default-filters.md) or [create a new one](../user/create-filter.md).
+1. Choose a [system issue filter](../user/default-filters.md) or [create a new one](../user/create-filter.md).
 
-1. Configure filter parameters and select issues you want to create a Gantt chart for.
+1. Configure filter parameters to find the issues you want to create a Gantt chart for.
 
 1. On the top panel, click ![](../../_assets/tracker/gantt-ico.png).
 
-A Gantt chart is created for the selected issues. If there are too many issues on the chart, use the quick filters or issue grouping:
+A Gantt chart will be created for the selected issues. If there are too many issues on the chart, use the quick filters or issue grouping:
 
 ![image](../../_assets/tracker/gantt-filters.png)
 
-## Create a queue chart {#sec_queue}
+## Creating a queue chart {#sec_queue}
 
-1. Open the [list of queue issues](../user/queue.md).
+1. Open the [queue issue list](../user/queue.md).
 
-1. Use [quick filters](quick-filters.md#section_y5w_chh_11b) to select the issues to create a Gantt chart for.
+1. Use [quick filters](quick-filters.md#section_y5w_chh_11b) to select the issues you want to create a Gantt chart for.
 
-1. Go to the **Gantt chart** tab.
+1. Go to the **Gantt Chart** tab.
 
-A Gantt chart is created based on the filters configured on the **Issues** tab. If there are too many issues on the chart, use the quick filters or grouping:
+The Gantt chart is created using the filters set up in the **Issues** tab. If there are too many issues on the chart, use the quick filters or grouping:
 
 ![image](../../_assets/tracker/gantt-filters.png)
 
-## Manage deadlines {#section_yz2_xgx_tdb}
+## Managing deadlines {#section_yz2_xgx_tdb}
 
 If no start or end dates are set, select an appropriate time interval on the chart with the mouse.
 
@@ -48,13 +48,13 @@ You can also click an issue name and change the following field values on the is
 
 ## Unsorted issues {#section_p5k_ygx_tdb}
 
-Issues that do not have start and end dates set are grouped under **Unsorted issues**. Quick filters and grouping settings are not applied to these issues.
+Issues that have no start and end dates set are grouped under **Unsorted issues**. Quick filters and grouping settings are not applied to these issues.
 
 If you want to set deadlines using the chart, do the following:
 
 1. Use your mouse to select an appropriate time interval on the chart.
 
-1. In the window that appears, edit the field values for **Start date** and **End date**, and set the **Deadline** if necessary.
+1. In the window that appears, edit the field values for **Start date**, **End date**, and **Deadline** if necessary.
 
 1. Click **Save**.
 

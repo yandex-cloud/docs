@@ -234,6 +234,8 @@
 
      {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
+     {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
+
      Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
   1. Проверьте корректность настроек.
@@ -265,6 +267,10 @@
     
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
+
+  Чтобы активировать [сбор статистики](./performance-diagnostics.md#activate-stats-collector):
+
+  {% include [Performance diagnostic API](../../_includes/mdb/mpg/performance-diagnostics-api.md) %}
 
 {% endlist %}
 

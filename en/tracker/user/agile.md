@@ -94,7 +94,7 @@ The issue on the board will be placed in the sprint you've picked. To remove an 
 
 To add multiple issues to the board at once, use the [bulk change](../manager/bulk-change.md) feature:
 
-1. Select the issues you need using [filters](../user/create-filter.md).
+1. Select the issues you need using [filters](create-filter.md).
 
 1. Choose the issues you want to add to the board and click **Edit fields**.
 
@@ -114,7 +114,7 @@ To attach a note to a column, do the following:
 
 1. Open the board page.
 
-1. Select  ![](../../_assets/tracker/icon-dots.png) → **Add note** at the top of the column.
+1. Select ![](../../_assets/tracker/icon-dots.png) → **Add note** at the top of the column.
 
 1. Enter the text for your note. To format the text, use [YFM markup](markup.md).
 

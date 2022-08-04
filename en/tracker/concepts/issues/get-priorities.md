@@ -32,7 +32,7 @@ Authorization: OAuth <OAuth token>
 
 > Example: Request for priorities
 >
->- An HTTP GET method is used.
+>- Use the HTTP GET method.
 >
 >```
 >GET /v2/priorities?localized=false HTTP/1.1
@@ -45,7 +45,7 @@ Authorization: OAuth <OAuth token>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -78,7 +78,7 @@ Authorization: OAuth <OAuth token>
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

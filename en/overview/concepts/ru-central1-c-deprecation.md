@@ -11,7 +11,7 @@
 
 * In `{{ region-id }}-c`, new {{ yandex-cloud }} zonal features are unavailable. You can't create:
 
-   * {{ compute-name }} VMs with GPU and vGPU.
+   * {{ compute-name }} VMs with GPU.
    * {{ compute-name }} dedicated hosts on Intel Ice Lake.
    * {{ mgp-name }} database hosts.
 

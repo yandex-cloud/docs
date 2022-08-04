@@ -1,4 +1,4 @@
-# Delete a template
+# Deleting a template
 
 {% note alert %}
 
@@ -14,13 +14,13 @@ To delete a template for an issue or comment:
     - **Issues** to edit issue templates.
     - **Comments** to edit comment templates.
 
-1. If necessary, filter out extra templates by clicking ![](../../_assets/tracker/queue-filter.png).
+1. You can filter out the templates you don't need by clicking ![](../../_assets/tracker/queue-filter.png).
 
-1. Next to the desired template, click ![](../../_assets/tracker/button-delete.png) and confirm your action.
+1. Next to the desired template, click ![](../../_assets/tracker/button-delete.png) and confirm the deletion.
 
-## How to disable a template {#section_dmz_p1t_zz}
+## Disabling a template {#section_dmz_p1t_zz}
 
-If you don&apos;t plan on using the template any time soon, you can disable it. The disabled template is saved in {{ tracker-name }}, but it is not displayed when creating a new issue.
+If you don&apos;t plan on using the template any time soon, you can disable it. Disabled templates are saved in {{ tracker-name }}, but they aren't displayed when creating new issues.
 
 To disable a template:
 
@@ -30,9 +30,7 @@ To disable a template:
     - **Issues** to edit issue templates.
     - **Comments** to edit comment templates.
 
-1. If necessary, filter out extra templates by clicking ![](../../_assets/tracker/queue-filter.png).
+1. You can filter out the templates you don't need by clicking ![](../../_assets/tracker/queue-filter.png).
 
 1. Find the switch next to the desired template and set it to ![](../../_assets/tracker/disabled-switch-2.png).
-
-
 

@@ -30,7 +30,7 @@ To clone an issue:
 
     - **Issue name**: The same issue name is used by default, but you can change it.
 
-    - **Type**: Select the type of issue. The issue types available depend on the settings of the target queue.
+    - **Type**: Select the type of issue. The issue types available depend on the target queue settings.
 
     - **Status**: Select the issue status. The available issue statuses depend on the settings of the target queue for the selected issue type.
 

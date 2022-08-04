@@ -92,7 +92,7 @@ Complex tasks can be divided into simpler sub-issues and tracked separately. Aft
 
     1. Go to the **Related** tab.
 
-    1. Next to the linked issue, click ![](../../_assets/tracker/dots.png) → **Change link type** and choose a new type.
+    1. Next to the linked issue, tap ![](../../_assets/tracker/dots.png) → **Change link type** and choose a new type.
 
 {% endlist %}
 
@@ -118,7 +118,7 @@ Complex tasks can be divided into simpler sub-issues and tracked separately. Aft
 
     1. Go to the **Related** tab.
 
-    1. Next to the linked issue, click ![](../../_assets/tracker/dots.png) and select **Remove link**.
+    1. Next to the linked issue, tap ![](../../_assets/tracker/dots.png) and select **Remove link**.
 
 {% endlist %}
 

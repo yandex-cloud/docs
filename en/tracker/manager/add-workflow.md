@@ -6,9 +6,11 @@ By default, [only the queue owner](queue-access.md) can configure a queue.
 
 {% endnote %}
 
-Your workflow sets acceptable issue statuses and their sequence. To add a new workflow to the queue, copy an existing one and edit the [available issue statuses](workflow-status-edit.md) and [status transition rules](workflow-action-edit.md).
+Your workflow sets acceptable issue statuses and their sequence.
 
-## Copy a workflow {#section_osf_wz5_vbb}
+{{ tracker-name }} includes some preset workflow templates that cannot be edited or removed. If you need more features to track your team's issues, you can create a new workflow based on a template. To do this, copy an existing workflow and edit [available issue statuses](workflow-status-edit.md) and [status transition rules](workflow-action-edit.md).
+
+## Copying a workflow {#section_osf_wz5_vbb}
 
 1. Open the queue page.
 
@@ -18,13 +20,13 @@ Your workflow sets acceptable issue statuses and their sequence. To add a new wo
 
 1. Click ![](../../_assets/tracker/button-copy.png) to copy the workflow.
 
-1. Enter a name for the new workflow. If you leave this box empty, the new workflow will have the name `Copy of ...`.
+1. Enter a name for the new workflow. If you leave this box empty, the new workflow will have a name like `Copy of ...`.
 
 1. Click **Copy**.
 
 1. If you need to edit the new workflow, click ![](../../_assets/tracker/button-edit.png).
 
-## Copy a workflow from a different queue {#section_pcf_xz5_vbb}
+## Copying a workflow from a different queue {#section_pcf_xz5_vbb}
 
 If you have already set up a suitable workflow in another queue, you can copy it:
 
@@ -38,13 +40,13 @@ If you have already set up a suitable workflow in another queue, you can copy it
 
 1. Select the queue and the workflow you want to copy.
 
-1. Enter a name for the new workflow. If you leave this box empty, the new workflow will have the name `Copy of ...`.
+1. Enter a name for the new workflow. If you leave this box empty, the new workflow will have a name like `Copy of ...`.
 
 1. Click **Copy**.
 
 1. If you need to edit the new workflow, click ![](../../_assets/tracker/button-edit.png).
 
-## Delete a workflow {#section_s35_xz5_vbb}
+## Deleting a workflow {#section_s35_xz5_vbb}
 
 {% note warning %}
 

@@ -28,7 +28,7 @@ To start working on a project in {{ tracker-name }}, create a new project and ad
 
     - **Start date** and **End date**.
 
-    - **Queues**: List the keys for queues that include issues you plan to add to the project. This list can always be changed later.
+    - **Queues**: List the keys for queues that include issues you plan to add to the project. You can change this list any time later.
 
 1. Click **Create**.
 
@@ -70,11 +70,11 @@ To add multiple issues to a project at once, use the [bulk change](bulk-change.m
 
 1. Make sure that all queues associated with the issues you want to add are linked to the project.
 
-1. Select the issues you need using [filters](../user/create-filter.md).
+1. Find the issues you need using [filters](../user/create-filter.md).
 
 1. Choose the issues you want to add to the project and click **Edit fields** on the bottom panel.
 
-1. Start typing the project name in the **Project** field and pick the right option from the list of suggestions. If you don't see the **Project** field, add it by clicking **Select fields**.
+1. Start typing the project name in the **Project** field and pick the right option from the list of suggestions. If you don't see the **Project** field, add it by clicking **Choose fields**.
 
 1. Click **Continue** and wait until your issues are processed.
 
@@ -86,7 +86,7 @@ To add multiple issues to a project at once, use the [bulk change](bulk-change.m
 
 1. Click the project name to view that project's issue list.
 
-1. If you want to create a [Gantt chart](gantt.md) for your project's issue list, in the upper-right corner, click ![](../../_assets/tracker/gantt-ico.png).
+1. To create a [Gantt chart](gantt.md) for your project's issue list, go to the upper-right corner and click ![](../../_assets/tracker/gantt-ico.png).
 
 ## Deleting a project
 

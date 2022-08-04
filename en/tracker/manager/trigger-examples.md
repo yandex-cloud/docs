@@ -14,6 +14,8 @@ Let's look at some examples of how triggers work in {{ tracker-name }}:
 
 - How to [automatically add a form](#insert_form) to the issue comment.
 
+- How to [automatically add issues to the board](#board).
+
 - How to [set up notifications in messengers](#section_vsn_mb2_d3b) via HTTP requests.
 
 ## Picking assignees automatically {#assign_ticket}
@@ -84,7 +86,7 @@ After completing an issue, the assignee may forget to specify some important inf
 
     1. Add the **Add comment** action.
 
-    1. Click ![](../../_assets/tracker/summon.png), find the line **Invite users from a field**, and enter <q>Assignee</q>.
+    1. Tap ![](../../_assets/tracker/summon.png), find the line **Invite users from a field**, and enter <q>Assignee</q>.
 
     1. Enter the comment to be displayed to the assignee and choose **Send as robot**.
 
@@ -120,7 +122,7 @@ Let's set up a trigger that will change an issue's status and add a comment for 
 
     1. Add the **Add comment** action.
 
-    1. Click ![](../../_assets/tracker/summon.png), find the line **Invite users from a field**, and enter <q>Reporter</q>.
+    1. Tap ![](../../_assets/tracker/summon.png), find the line **Invite users from a field**, and enter <q>Reporter</q>.
 
     1. Enter the comment to be displayed to the issue reporter and choose **Send as robot**. Otherwise, the comment is sent on behalf of the user who initiates the trigger action by adding the link.
 
@@ -140,7 +142,7 @@ You need to set up email integration if you want to send emails right from {{ tr
 
 1. [Set up an email address for the queue](queue-mail.md#section_gwv_hqb_hgb) to store issues created based on user requests.
 
-    If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in Yandex 360 for Business]({{ support-business-domain }}).
+    If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in {{ ya-360 }}]({{ support-business-domain }}).
 
 1. [Set up sender names and signatures](queue-mail.md#send_outside) if needed.
 
@@ -201,11 +203,11 @@ You need to set up email integration if you want to send emails from {{ tracker-
 
 1. [Set up an email address for the queue](queue-mail.md#section_gwv_hqb_hgb) to store issues created based on user requests.
 
-   If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in Yandex 360 for Business]({{ support-business-domain }}).
+   If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in {{ ya-360 }}]({{ support-business-domain }}).
 
 1. [Set up sender names and signatures](queue-mail.md#send_outside) if needed.
 
-1. If the users aren't your company's employees, [allow sending emails from issue pages to external addresses](queue-mail.md#send_outside).
+1. If the users aren't your organization's employees, [allow sending emails from issue pages to external addresses](queue-mail.md#send_outside).
 
 #### Step 2. Set up a form to register requests
 
@@ -225,7 +227,7 @@ To create issues from requests sent through forms:
 
     1. Use the **Issue description** field to add answers to the questions included in your form.
 
-    1. To save the user's email address in the issue settings, add the **From** field and select **Variables** → **Answer** → **Email**.
+    1. To save the user's email address in the issue settings, add the **From** field and select **Variables** → **Answer to question** → **Email**.
 
     1. Save your integration settings.
 
@@ -235,7 +237,7 @@ To create issues from requests sent through forms:
 
 #### Step 3. Set up a trigger for sending email
 
-Set up a trigger that automatically notifies users by email when a new issue is created from a form:
+Set up a trigger that sends automatic email notifications via a form when a new issue is created:
 
 1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
 
@@ -295,7 +297,7 @@ Let's set up a trigger that adds a feedback form to the comments and invites an 
 
 1. In the comment text, insert the code:
 
-   
+    
 
     ```
     {{=<% %>=}}/iframe/(src="https://forms.yandex.ru/surveys/<form_id>/?iframe=1&<question_id>=<value>" frameborder=0 width=500)
@@ -304,21 +306,21 @@ Let's set up a trigger that adds a feedback form to the comments and invites an 
 
     - `<form id>` is the ID of the form to be added.
 
-    - `<question_id>` — [question_id](../../forms/question-id.md#sec_question).
+    - `<question_id>`is the [ID of the question](../../forms/question-id.md#sec_question).
 
     - `<value>` is the value to populate the form field.
 
-      To transfer issue parameters to the form, use [variables](../user/vars.md) as values: click **Add variable** and choose your issue parameter. Then replace the `not_var{{ }}` characters around the name of the variable with `<% %>`.
+      To transfer issue parameters to the form, use [ variables](../user/vars.md)   as values: click **Add variable** and choose your issue parameter. Then replace the `not_var{{ }}` characters around the name of the variable with `<% %>`.
 
       For example, to pass an issue key, use the `<%issue.key%>` value. To pass the username of an assignee, use the `<%issue.assignee.login%>` value.
 
     Code example where an issue key is passed to the form field:
 
-    
+     
 
-    ```
-    {{=<% %>=}}/iframe/(src="https://forms.yandex.ru/surveys/68417/?iframe=1&answer_short_text_584943=<%issue.key%>" frameborder=0 width=100% height=660px scrolling=no}}
-    ```
+     ```
+     {{=<% %>=}}/iframe/(src="https://forms.yandex.ru/surveys/68417/?iframe=1&answer_short_text_584943=<%issue.key%>" frameborder=0 width=100% height=660px scrolling=no}}
+     ```
 
 
 1. Click ![](../../_assets/tracker/summon.png), find the line **Invite users from a field**, and enter <q>Assignee</q>.
@@ -336,6 +338,44 @@ To ensure the form is inserted correctly, provide access to the queue for the yn
 
 
 Once the issue is closed, the robot will create a comment with the form and invite the assignee.
+
+## Automatically adding issues to the board {#board}
+
+The [new version of the issue board](agile-new.md) currently doesn't support filters that let you add issues to the board automatically. However, you can set up a trigger as a substitute for the feature.
+
+You can also [set up an auto action](../user/create-autoaction.md) with similar conditions and outcomes. When using an auto action, issues that fit your desired conditions will be added to the board at preset intervals rather than all at once.
+
+{% note warning %}
+
+Triggers and auto actions work only for issues within the queue they were configured in.
+
+{% endnote %}
+
+Let's look at an example of a trigger that adds an issue to the board once a specific user is selected as the assignee for the issue:
+
+1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
+
+1. Enter the trigger name.
+
+1. Set the condition: **Assignee** → **equals** → `<User's name>`.
+
+   {% note info %}
+
+   A trigger with this condition will also activate when a new issue with the selected assignee is created.
+
+   {% endnote %}
+
+1. Set the action:
+
+    1. Select the action **Update fields**.
+
+    1. Select the **Boards** field.
+
+    1. Select **Add to list** and choose the board to add the issue to.
+
+    ![](../../_assets/tracker/trigger-example-board.png)
+
+1. Save your trigger.
 
 ## Sending notifications to instant messengers {#section_vsn_mb2_d3b}
 

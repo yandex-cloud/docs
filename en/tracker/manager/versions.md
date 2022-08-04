@@ -18,13 +18,13 @@ To create a new version:
 
 1. Click **Create version**.
 
-1. Enter a **Name** for the version.
+1. **Name** the version.
 
 1. If necessary, enter the start and end dates and fill in the version description. This information is optional.
 
 1. Click **Create**.
 
-## Switching versions {#section_fkv_bfl_xz}
+## Change a version {#section_fkv_bfl_xz}
 
 To change an existing version:
 
@@ -32,7 +32,7 @@ To change an existing version:
 
 1. Go to the **Versions** tab.
 
-1. Hold the cursor over the version.
+1. Put the cursor over the version.
 
 1. Select ![](../../_assets/tracker/icon-settings.png) → **Edit**.
 
@@ -58,7 +58,7 @@ To change the version status:
 
 1. Go to the **Versions** tab.
 
-1. Hold the cursor over the version.
+1. Put the cursor over the version.
 
 1. Click ![](../../_assets/tracker/icon-settings.png) and select a new status.
 
@@ -70,7 +70,7 @@ If you want to be notified of changes to issues related to a particular version,
 
 1. Go to the **Versions** tab.
 
-1. Hold the cursor over the version.
+1. Put the cursor over the version.
 
 1. Select ![](../../_assets/tracker/icon-settings.png) → **Subscribe**.
 

@@ -10,7 +10,7 @@ To get global company fields, use an HTTP `GET` request:
 ```json
 GET /{{ ver }}/fields
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <token> 
 {{ org-id }}
 ```
 
@@ -69,15 +69,15 @@ Authorization: OAuth <token>
     | name | Field name. | String |
     | key | Field key. | String |
     | version | Field version. Each change to the field increases the version number. | Number |
-    | [schema](#schema) | Object with information about the field value's data type. | Objects |
-    | readonly | Shows if the field value is editable:<ul><li>`true`: Non-editable.</li><li>`false`: Editable.</li></ul> | Logical |
-    | options | Shows if the list of values is restricted:<ul><li>`true`: The list of values is not restricted, you can set any value.</li><li>`false`: The list of values is restricted by the organization's settings.</li></ul> | Logical |
-    | suggest | Enables/disables search suggestions when entering field values:<ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> | Logical |
-    | [suggestProvider](#suggestProvider) | Object with information about the search suggestion class.<br/>You can't change the class using the API. | Objects |
-    | [optionsProvider](#optionsProvider) | Object with information about allowed field values. | Objects |
-    | [queryProvider](#queryProvider) | Object with information about the query language class.<br/>You can't change the class using the API. | Objects |
+    | [schema](#schema) | Object with information about the field value's data type. | Object |
+    | readonly | Shows if the field value is editable:<ul><li>`true`: Non-editable.</li><li>`false`: Editable.</li></ul> | Boolean |
+    | options | Shows if the list of values is restricted:<ul><li>`true`: The list of values is not restricted, you can set any value.</li><li>`false`: The list of values is restricted by the organization's settings.</li></ul> | Boolean |
+    | suggest | Enables/disables search suggestions when entering field values:<ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> | Boolean |
+    | [suggestProvider](#suggestProvider) | Object with information about the search suggestion class.<br/>You can't change the class using the API. | Object |
+    | [optionsProvider](#optionsProvider) | Object with information about allowed field values. | Object |
+    | [queryProvider](#queryProvider) | Object with information about the query language class.<br/>You can't change the class using the API. | Object |
     | order | Sequence number in the list of organization fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Number |
-    | [category](#category) | Object with information about the field category.<br/>To get a list of all categories, use the HTTP request:<br/>`GET /v2/fields/categories` | Objects |
+    | [category](#category) | Object with information about the field category.<br/>To get a list of all categories, use the HTTP request:<br/>`GET /v2/fields/categories` | Object |
     | type | Field type. | String |
 
     **Object fields** `schema` {#schema}
@@ -86,7 +86,7 @@ Authorization: OAuth <token>
     | -------- | -------- | ---------- |
     | type | Field value type. Possible data types:<ul><li>`string`: String. Available for fields with a single value.</li><li>`array`: Array. Available for fields with multiple values.</li></ul> | String |
     | items | Value type. Available for fields with multiple values. | String |
-    | required | Shows if the field is required:<ul><li>`true`: Required.</li><li>`false`: Optional.</li></ul> | Logical |
+    | required | Shows if the field is required:<ul><li>`true`: Required.</li><li>`false`: Optional.</li></ul> | Boolean |
 
     **Object fields** `suggestProvider` {#suggestProvider}
 

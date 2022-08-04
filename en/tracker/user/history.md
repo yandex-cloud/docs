@@ -15,7 +15,7 @@ The history saves:
 - Names of the users who made the changes.
 - Date and time when the changes were made.
 
-##  Sorting entries {#section_s1l_3k5_xgb}
+## Sorting entries {#section_s1l_3k5_xgb}
 
 History entries are listed chronologically by default. To change the entry order, do the following:
 

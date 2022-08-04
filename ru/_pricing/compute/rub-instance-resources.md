@@ -4,7 +4,6 @@
 | vCPU 20% | {{ sku|RUB|compute.vm.cpu.c20|string }} | {{ sku|RUB|compute.vm.cpu.c20.preemptible|string }} |
 | vCPU 100% | {{ sku|RUB|compute.vm.cpu.c100|string }} | {{ sku|RUB|compute.vm.cpu.c100.preemptible|string }} |
 | 1 GPU Nvidia V100 | {{ sku|RUB|compute.vm.gpu.gpu-standard|string }} | {{ sku|RUB|compute.vm.gpu.gpu-standard.preemptible|string }} |
-| 1 vGPU Nvidia V100 | {{ sku|RUB|compute.vm.gpu.vgpu-standard.v1|string }} | {{ sku|RUB|compute.vm.gpu.vgpu-standard.v1.preemptible|string }} |
 | RAM (за 1 ГБ) | {{ sku|RUB|compute.vm.ram|string }} | {{ sku|RUB|compute.vm.ram.preemptible|string }} |
 
 <br>

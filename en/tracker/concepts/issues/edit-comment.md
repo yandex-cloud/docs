@@ -53,7 +53,7 @@ Authorization: OAuth <OAuth token>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -65,7 +65,7 @@ Authorization: OAuth <OAuth token>
     "self" : "{{ host }}/v2/issues/TREK-1/comments/684",
     "id" : "684",  
     "longId" : "5fc4bc634e121b12f44a0488",  
-    "text" : "<comment text>",
+    "text": "<comment text>",
     "createBody" : {
      "self" : "{{ host }}/v2/users/1120000000016876",
      "id" : "<user ID>",
@@ -139,7 +139,7 @@ Authorization: OAuth <OAuth token>
 
   {% endcut %}
 
-- The request failed
+- Request failed
 
   If the request is processed incorrectly, the API returns a response with an error code:
 

@@ -17,7 +17,7 @@ In requests to the {{ api-short-name }} API, specify the following headers:
 
 - `X-Org-ID: <organization ID>`
 
-   To find out the organization ID, go to the [{{ tracker-name }} settings page]({{ link-settings }}). The ID is shown in **Organization ID for API**.
+   To find out the organization ID, go to the [{{ tracker-name }}]({{ link-settings }}). The ID is shown in **Organization ID for API**.
 
 
 ## Get access to the API over the OAuth 2.0 protocol {#section_about_OAauth}
@@ -94,7 +94,7 @@ The IAM token is valid for no more than {{iam-token-lifetime}} and is limited by
   1. Exchange the received token for an IAM token. To do this, use an HTTP `POST` request:
 
      ```json
-      POST https://iam.api.cloud.yandex.net/iam/v1/tokens
+      POST https://iam.{{ api-host }}/iam/v1/tokens
      
        {
           "yandexPassportOauthToken": "<OAUTH-token>"

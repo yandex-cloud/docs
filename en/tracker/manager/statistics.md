@@ -16,12 +16,12 @@ To generate a report:
 1. Click **Time Spent Report**.
 
 1. Select the type of report:
-    - **Timesheet report**: For each assignee, the table lists the issues they worked on, their type, queue, priority, and data on time spent.
+    - **Assignee report**: For each assignee, the table lists the issues they worked on, their type, queue, priority, and data on time spent.
     - **Pivot report**: Report grouped by issue. For each issue, the table lists the people who worked on the issue, along with the type, priority, and time spent.
 
 1. Specify the period for which you want to get a report.
 
-1. Select the desired queue. To do this, start typing the queue key in the **Queue** field and select a queue from the drop-down list. You can select multiple queues at once.
+1. Select a queue. To do this, start typing the queue key in the **Queue** field and select a queue from the drop-down list. You can select multiple queues at once.
 
 1. Specify the users or group of users for which you want to get a report.
 

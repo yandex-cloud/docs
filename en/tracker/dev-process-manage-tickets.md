@@ -22,7 +22,7 @@ In {{ tracker-name }}, you can [link issues to each other](user/ticket-links.md)
 
 ### Components
 
-[Components](manager/components.md) help you group issues in a queue that relate to the same topic. When managing issues with components, you can set up a default assignee and [access rights](manager/queue-access.md#section_tbh_cs5_qbb).
+[Components](manager/components.md) help you group issues in a queue that are related to the same subject. When managing issues with components, you can set up a default assignee and [access rights](manager/queue-access.md#section_tbh_cs5_qbb).
 
 ### Versions
 

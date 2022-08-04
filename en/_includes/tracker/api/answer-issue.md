@@ -97,25 +97,25 @@
    | version | Issue version. Each change to the issue parameters increases its version number. | Number |
    | lastCommentUpdatedAt | Date and time when the last comment was added. | String |
    | summary | Issue name. | String |
-   | [parent](#parent) | Object with information about the parent issue. | Objects |
+   | [parent](#parent) | Object with information about the parent issue. | Object |
    | aliases | Array with information about alternative issue keys. | Array of strings |
-   | [updatedBy](#updated-by) | Object with information about the employee who edited the issue last. | Objects |
+   | [updatedBy](#updated-by) | Object with information about the employee who edited the issue last. | Object |
    | description | Issue description. | String |
    | [sprint](#sprint) | Array of objects with information about the sprint. | Array of objects |
-   | [type](#type) | Object with information about the issue type. | Objects |
-   | [priority](#priority) | Object with information about the priority. | Objects |
+   | [type](#type) | Object with information about the issue type. | Object |
+   | [priority](#priority) | Object with information about the priority. | Object |
    | createdAt | Issue creation date and time. | String |
    | [followers](#followers) | Array of objects with information about issue followers. | Array of objects |
-   | [createdBy](#created-by) | Object with information about the user who created the issue. | Objects |
+   | [createdBy](#created-by) | Object with information about the user who created the issue. | Object |
    | votes | Number of votes for the issue. | Number |
-   | [assignee](#assignee) | Object with information about the issue's assignee. | Objects |
-   | [queue](#queue) | Object with information about the issue queue. | Objects |
+   | [assignee](#assignee) | Object with information about the issue's assignee. | Object |
+   | [queue](#queue) | Object with information about the issue queue. | Object |
    | updatedAt | Date and time when the issue was last updated. | String |
-   | [status](#status) | Object with information about the issue status. | Objects |
-   | [previousStatus](#previous-status) | Object with information about the previous status of the issue. | Objects |
-   | favorite | Flag indicating a favorite issue:<ul><li>`true`: The user added the issue to favorites.</li><li>`false`: The issue is not added to favorites.</li></ul> | Logical |
+   | [status](#status) | Object with information about the issue status. | Object |
+   | [previousStatus](#previous-status) | Object with information about the previous status of the issue. | Object |
+   | favorite | Flag indicating a favorite issue:<ul><li>`true`: The user added the issue to favorites.</li><li>`false`: The issue is not added to favorites.</li></ul> | Boolean |
 
-   **Object fields** `parent` {#parent}
+   **Object fields** `parent`{#parent}
 
    | Parameter | Description | Data type |
    | ----- | ----- | ----- |

@@ -3,7 +3,7 @@ sourcePath: en/tracker/api-ref/post-macros.md
 ---
 # Create a macro
 
-Use this request to create macros.
+Use this request to create [macros](manager/create-macroses.md).
 
 ## Request format {#section_sw2_w4f_sfb}
 
@@ -52,7 +52,7 @@ Authorization: OAuth <token>
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| body | [Message](manager/create-macroses.md) to be created when executing the macro. Format: ``` <Message text>\n<variable> ```<br/>where:<ul><li> `<Message text>`: Text to be created in the **Comment** field when executing the macro.</li><li> ``\n``: Line break symbol.</li><li> Variable that may contain:<br/>`not_var{{currentUser}}`: Name of the user who ran the macro.<br/> `not_var{{currentDateTime.date}}`: Macro execution date. <br/>`not_var{{currentDateTime}}`: Macro execution date and time.<br/>`{{issue.<field_key>}}`: Key of the issue field to be displayed in the message. Full list of issue fields: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>To delete the message, use the construction `"body": {"unset":1}` | String |
+| body | Message to be created when executing the macro. Use [special formatting](common-format.md#text-format) to format your message.<br/>To delete a message, use the `"body": {"unset":1}` string. | String |
 | [fieldChanges](#fieldChanges) | Array with information about the issue fields that the macro will trigger changes to. | Array of objects |
 
 **Array objects** `fieldChanges` {#fieldChanges}
@@ -68,7 +68,7 @@ value | Issue field value. | String
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 
@@ -108,9 +108,9 @@ value | Issue field value. | String
     | ----- | ----- | ----- |
     | self | Address of the API resource with macro parameters. | String |
     | id | Macro ID. | Number |
-    | [queue](#queue) | Object with information about the queue whose issues that the macro is applied to. | Objects |
+    | [queue](#queue) | Object with information about the queue whose issues that the macro is applied to. | Object |
     | name | Macro name. | String |
-    | body | [Message](manager/create-macroses.md) to be created when executing the macro. Format: ``` <Message text>\n<variable> ```<br/>where:<ul><li> `<Message text>`: Text to be created in the **Comment** field when executing the macro.</li><li> ``\n``: Line break symbol.</li><li> Variable that may contain:<br/>`not_var{{currentUser}}`: Name of the user who ran the macro.<br/> `not_var{{currentDateTime.date}}`: Macro execution date. <br/>`not_var{{currentDateTime}}`: Macro execution date and time.<br/>`{{issue.<field_key>}}`: Key of the issue field to be displayed in the message. Full list of issue fields: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>To delete the message, use the construction `"body": {"unset":1}` | String |
+    | body | Message to be created when executing the macro. | String |
     | [fieldChanges](#fieldChanges) | Array with information about the issue fields that the macro will trigger changes to. | Array of objects |
 
     **Object fields** `queue`{#queue}
@@ -121,7 +121,7 @@ value | Issue field value. | String
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | [field](#field) | Object with information about the issue field. | Objects |
+    | [field](#field) | Object with information about the issue field. | Object |
     | value | Array of issue field values. | Array of objects |
 
     **Object fields** `field` {#field}
@@ -134,7 +134,7 @@ value | Issue field value. | String
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

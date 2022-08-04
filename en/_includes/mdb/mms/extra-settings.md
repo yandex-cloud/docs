@@ -1,4 +1,4 @@
-- **Connections to replicas**:
+- **Connecting to replicas**:
 
    - `OFF`: Secondary replicas aren't readable and can't be connected to.
    - `READ_ONLY`: Secondary replicas are readable, but connections are only allowed for read operations.

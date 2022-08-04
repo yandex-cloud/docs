@@ -2,7 +2,7 @@
 
 - **Host**
 
-    Address of the node that provides the API:
+    API host address:
 
     ```
     {{ host }}
@@ -17,10 +17,11 @@
     ```
 
 
+
 - **X-Org-ID**
 
     Organization ID.
-
+
 
 {% endcut %}
 

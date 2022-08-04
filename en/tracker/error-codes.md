@@ -4,7 +4,7 @@ sourcePath: en/tracker/api-ref/error-codes.md
 # Possible response codes
 
 200
-:   Successful execution of the request.
+:  Successful execution of the request.
 
 201
 :  The `POST` request resulted in creating a new object.

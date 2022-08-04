@@ -14,9 +14,9 @@ To create a dashboard:
     - [Statistics widget](widgets.md#section_htb_kvp_pz): This type of widget shows issue statistics as a chart or graph.
     - [Notes](widgets.md#section_rtw_3gr_pz): This type of widget is for your notes.
 
-    - [Invitation form](widgets.md#invite_form): This type of widget lets you invite your colleagues to {{ tracker-name }}.
+- [Invitation form](widgets.md#invite_form): This type of widget lets you invite your colleagues to {{ tracker-name }}.
 
-    Most widgets contain information about a specific set of issues. The list of issues to include in the widget is set using a filter. You can set a filter via a [direct link](create-filter.md), a [name](create-filter.md), or the [query language](query-filter.md).
+    Most widgets contain information about a specific set of issues. The list of issues to include in the widget is set using a filter. You can set filters using [direct links, names](create-filter.md) or the [query language](query-filter.md).
 
 1. Arrange the widgets however you like and click **Save**.
 

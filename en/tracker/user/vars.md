@@ -24,6 +24,7 @@ The names of variables that correspond to their issue fields follow the format: 
 
 You can get a user's first and last name using default variables. To get specific user attributes, specify a variable using the format `{{issue.<role>.<attribute>}}`, where `<role>` is the role and name used for the user field and `<attribute>` is the attribute indicator.
 
+
 User roles:
 
 * `assignee` — the assignee.
@@ -53,13 +54,17 @@ Some issue parameters are not displayed in any fields, but you can still get the
 | `not_var{{issue.checklistDone}}` | Number of completed checklist items |
 | `not_var{{issue.votes}}` | Number of votes for the issue |
 
+### Local fields {#local-fields}
+
+The names of variables that correspond to their local issue fields follow the format: `{{issue.local.<field_ID>}}`.
+
 ### Date and time modifiers {#date-time}
 
 By default, the date and time follow the format of `DD month YYYY`. Example: `07 December 2021`. You can enable modifiers to display date and time in other formats:
 
 * `iso8601` — the ISO 8601 standard.
 * `unixEpoch` — the Unix Time standard.
-* ` date` —  only display the date in the date and time fields.
+* `date` —  only display the date in the date and time fields.
 
 Examples of formatting used for variables with date and time modifiers:
 
@@ -77,7 +82,7 @@ Fields can include multiple values. To receive or send the values used for such 
 
 Examples of JSON formatting in variables:
 
-| Variable | Value | Format |
+| Variable | Value | Record format |
 | ----- | ----- | ----- |
 | `not_var{{issue.summary.json}}` | Issue name | `"Issue name"` |
 | `not_var{{issue.description.json}}` | Issue description | `"Description"` |

@@ -9,12 +9,6 @@ You can manage {{ tracker-name }} using HTTP requests to the REST API.
 
 {{ api-name }} is designed for web services and apps that work with your organization's issues on behalf of a user. The actions available in the API depend on the access rights of the user on whose behalf requests are made.
 
-{% note info %}
-
-{{ api-name }} sends and receives date and time parameters in the UTC±00:00 time zone. Therefore, the time and date received may differ from the time zone of the client that the request is made from.
-
-{% endnote %}
-
 {{ api-name }} lets you:
 
 - Search, create, and edit issues.
@@ -22,5 +16,7 @@ You can manage {{ tracker-name }} using HTTP requests to the REST API.
 - View queue settings.
 - Add and edit issue fields.
 
-For information on how to get started with {{ api-name }}, see [{#T}](concepts/access.md).
+Before getting started with {{ api-name }}, familiarize yourself with the [general query format](common-format.md).
+
+To learn about allowing apps access to {{ api-name }}, see [{#T}](concepts/access.md).
 

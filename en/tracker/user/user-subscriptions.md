@@ -4,8 +4,9 @@ For subscriptions that inform you about changes to queues, components, or versio
 To do this:
 
 
-1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Notification settings**, and choose the **Subscriptions** tab. You can also follow this link: [https://tracker.yandex.com/subscriptions/manage]({{ link-sub-manage }}).
 
+1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Notification settings**, and choose the **Subscriptions** tab. You can also follow this link: [https://tracker.yandex.com/subscriptions/manage]({{ link-sub-manage }}).
+
 
 1. Choose the role you want to set up an event list for, which can be found next to the name of the queue, component, or version.
 
@@ -17,7 +18,7 @@ To do this:
 
 1. To add a role, click ![](../../_assets/tracker/button-plus.png).
 
-1. [Configure the list of events](user-notifications.md#section_iqn_y55_xgb) you want to be notified about for the selected role.
+1. [Configure the list of events](user-notifications.md#section_iqn_y55_xgb) you want to be notified about for the selected role. For example, notifications about issue status updates or new comments.
 
    {% note info %}
 

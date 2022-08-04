@@ -12,9 +12,9 @@ To vote for an issue, click ![](../../_assets/tracker/vote.png). If you want to 
 
 {% note tip %}
 
-To find the issues that you voted for, use the [query language](query-filter.md):
+To find issues that you have voted for, use the [query language](query-filter.md):
 
-1. On the top panel in {{ tracker-name }}, choose **Issues** → **Find issues**.
+1. On the {{ tracker-name }} top panel, select **Issues** → **Find issues**.
 
 1. Click **Query language** in the upper-right corner.
 
@@ -33,6 +33,4 @@ To find the issues that you voted for, use the [query language](query-filter.md)
 - All users who have access to the issue can vote.
 
 - If an issue that received votes is closed as a duplicate, all the votes will be transferred to the original issue.
-
-
 

@@ -2,15 +2,16 @@
 
 Each team has their own established way of planning their workload, solving issues, and releasing products. If you need {{ tracker-name }} to set up a familiar workflow for the team, use an [issue queue](queue-intro.md). A queue is an area shared by related issues being worked on under a single product or pipeline.
 
-We recommend setting up a standalone queue for each team. You can also create several queues if you want to split the workflow into multiple pipelines. For instance, this can be useful if your development team has multiple assigned sub-teams, each performing their own tasks independently.
+We recommend setting up a standalone queue for each team. You can also create several queues if you want to split the workflow into multiple pipelines. For instance, this can be useful if your development team has multiple assigned sub-teams, each performing their own issues independently.
 
 To create a queue for the development team, do the following:
+
 
 
 1. If your organization doesn't have {{ tracker-name }} yet, [activate it](enable-tracker.md).
 
 1. Make sure all members of the development team have [full access to {{ tracker-name }}](access.md).
-
+
 
 1. [Create an issue queue.](manager/create-queue.md) Select a [queue template](manager/workflows.md) with statuses and issue types that are best suited to your workflow:
 

@@ -1,20 +1,38 @@
 # Configuring access to {{ tracker-name }}
 
-All employees in your company automatically get free access to {{ tracker-name }} in [<q>Read only</q>](#readonly) mode. Employees will need full access to {{ tracker-name }} to manage issues without restrictions.
+A user's access level determines whether they can create and edit issues in {{ tracker-full-name }}. All company employees are automatically assigned the [<q>Read only</q>](#readonly) access mode. Employees will need full access to {{ tracker-name }} to manage issues without restrictions.
 
-You can grant full access to [each user individually](#set) or automatically grant [full access to all new employees](#access-new-users) who joined {{ tracker-name }}.
+You can grant full access to {{ tracker-name }} to [individual users](#set) or enable [full access to all new employees](#access-new-users) joining your company.
 
-The cost of using {{ tracker-name }} depends on the number of users with full access. Teams of up to five employees can use {{ tracker-name }} for free. To grant full access to six or more users, you need to [add a billing account](#billing).
+{% note info %}
 
-You can grant and revoke full access to {{ tracker-name }} at any time. The total cost is automatically recalculated as the number of users with full access changes. To learn more, see [Tracker cost calculation](pricing.md#sec_calculate).
+Teams of up to five employees with full access can use {{ tracker-name }} for free.
 
-## Configuring access {#set}
+{% endnote %}
 
-1. Go to the [{{ tracker-name }}]({{ link-tracker }}) and [log in to your organization's admin account](user/login.md).
+You have to pay for {{ tracker-name }} if more than five users in your company have full access rights. Before granting full access to {{ tracker-name }} for six and more users, you will need to [set up a billing account](#billing) so you can pay for the service.
+
+You can grant and revoke full access to {{ tracker-name }} at any time. The service cost depends on the number of users with full access and is recalculated automatically. For more information about service plans and cost calculation, see [Pricing policy](pricing.md).
+
+{% note info %}
+
+A user's access level applies to all company pages in {{ tracker-name }}. However, you can also restrict access to specific issues, components, dashboards, and filters. For more information, see [{#T}](role-model.md).
+
+{% endnote %}
+
+## Configure access {#set}
+
+1. Open [{{ tracker-name }} main page]({{ link-tracker }}) and [log in as an administrator](user/login.md).
 
 1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Manage users**.
 
 1. For all employees who need {{ tracker-name }} to manage issues, in the **Access** column, select **Full access**.
+
+{% note info %}
+
+To grant full access to six or more users, you need to [add a billing account](#billing).
+
+{% endnote %}
 
 Once you set up access to {{ tracker-name }}, the total number of employees with full access to it and the total monthly cost of using the platform will be displayed in the lower-left corner of the page. For more information about cost calculation, see [Pricing policy](pricing.md).
 
@@ -22,7 +40,7 @@ Once you set up access to {{ tracker-name }}, the total number of employees with
 
 To make sure all new users added to {{ tracker-name }} automatically get full access, select **Full access for all new users**. To enable this option, you need a [billing account](#billing) linked to {{ tracker-name }}.
 
-1. Go to the [{{ tracker-name }}]({{ link-tracker }}) and [log in to your organization's admin account](user/login.md).
+1. Open [{{ tracker-name }} main page]({{ link-tracker }}) and [log in as an administrator](user/login.md).
 
 1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Manage users**.
 
@@ -54,7 +72,7 @@ If you already have a billing account in {{ yandex-cloud }}, you can link it to 
 
    If you're planning to pay for the service as an individual, link your bank card.
 
-1. Click the **Create** button.
+1. Click **Create**.
 
 To learn more about creating billing accounts, go to the [{#T}](billing-account.md) section.
 
@@ -72,9 +90,9 @@ Access to the following features is restricted in <q>Read only</q> mode:
 
 However, you can still do everything related to viewing {{ tracker-name }} issues, such as:
 
-- Viewing issues, [dashboards](user/dashboard.md), and [issue boards](manager/agile.md#sec_boards).
+- View issues, [dashboards](user/dashboard.md), and [issue boards](manager/agile.md#sec_boards).
 
-- Searching for issues using the [filter builder](user/create-filter.md) and the [query language](user/query-filter.md).
+- Search for issues using the [filter builder](user/create-filter.md) and [query language](user/query-filter.md).
 
 - View [queue pages](manager/quick-filters.md), [statistics](manager/statistics.md), and more.
 

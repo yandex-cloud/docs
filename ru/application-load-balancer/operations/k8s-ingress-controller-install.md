@@ -40,6 +40,12 @@
      --version v{{ alb-ingress-version }} \
      oci://{{ registry }}/yc/yc-alb-ingress-controller-chart
    ```
+
+   {% note info %}
+
+    Если команда возвращает ошибку о медиатипе `manifest does not contain a layer with mediatype application/tar+gzip`, убедитесь, что [установили менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) версии не ниже {{ alb-ingress-helm-version }}. Чтобы проверить установленную версию, [выполните команду](https://helm.sh/docs/helm/helm_version/) `helm version`.
+
+    {% endnote %}
    
 1. Установите чарт в кластер:
 

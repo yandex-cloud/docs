@@ -26,7 +26,7 @@ To change the fields of issues on the queue or filter pages, do the following:
 
 1. Check the box ![](../../_assets/tracker/bulk-checkmark.png) next to the issues you want to change.
 
-   If you want to select all the issues on the queue or filter page at once, check the box ![](../../_assets/tracker/bulk-checkmark.png) at the top of the issue list.
+   If you want to select all the issues on the queue or filter page at once, check the box ![](../../_assets/tracker/bulk-checkmark.png) label above the issue list.
 
 1. Click **Change fields** on the bottom panel.
 

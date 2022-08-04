@@ -9,17 +9,18 @@ By default, [only the queue owner](queue-access.md) can configure a queue.
 A queue may include different types of issues, such as <q>New feature</q>, <q>Improvement</q>, or <q>Bug</q>. Each type of issue has its own workflow and set of resolutions. You can change the parameters of the available types of issues in the queue settings.
 
 
+
 ## Creating an issue type {#create-ticket-type}
 
 {% note warning %}
 
-Only the company admin can create new issue types. Once created, an issue type can't be deleted or edited.
+Only the [administrator](../role-model.md) can create new issue types. Once created, an issue type can't be deleted or edited.
 
 {% endnote %}
 
 The most popular issue types are available in {{ tracker-name }} by default. If you need something different, create a new one:
 
-1. Make sure that you are logged in as an administrator in {{ tracker-full-name }}.
+1. Make sure you are logged in to {{ tracker-full-name }} as an [administrator](../role-model.md).
 
 1. On the {{ tracker-name }} top panel, select ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
 
@@ -28,9 +29,9 @@ The most popular issue types are available in {{ tracker-name }} by default. If 
 1. Click **Add issue type**.
 
 1. Fill in the fields and click **Create**.
+
 
-
-## Adding an issue type to a queue{#section_mvh_5yb_gz}
+## Adding an issue type to a queue {#section_mvh_5yb_gz}
 
 To create a new issue type:
 
@@ -42,14 +43,15 @@ To create a new issue type:
 
 1. Click **Add issue type**.
 
-1. Configure settings:
+1. Configure the settings:
     - **Issue type**: Select one of the available types.
-    The most popular issue types are available in {{ tracker-name }} by default. If you don't see the type you need, your company's admin can [create it](#create-ticket-type).
-    - **Workflow**: Set the workflow to apply to this type of issue. Select one of the available workflows or [create a new one](add-workflow.md) based on one of them.
+    The most popular issue types are available in {{ tracker-name }} by default. If you don't see the type you need, your admin can [create one](#create-ticket-type).
+    - **Workflow**: Set the workflow to apply to this type of issue. Select one of the available workflows or [create a new one](add-workflow.md) based on any of them.
     - **Resolutions**: Select possible resolutions.
-    The most popular resolutions are available in {{ tracker-name }} by default. If you don't see the resolution you need, your company's admin can [create it](create-resolution.md).
+    The most popular resolutions are available in {{ tracker-name }} by default. If you don't see the resolution you need, your admin can [create one](create-resolution.md).
 
-1. The **Statuses and transitions** section shows the main parameters of the selected workflow. If necessary, you can edit it or create a copy.
+
+1. The **Statuses and transitions** section shows the main settings of the selected workflow. If necessary, you can edit it or create a copy.
 
 1. Click **Save** at the bottom of the tab.
 

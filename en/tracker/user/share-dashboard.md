@@ -24,13 +24,13 @@ If you want to restrict users&apos; access to your dashboard, you can change acc
 
 1. Set permissions to **Read**, **Write**, and **Grant** for the following categories of users:
 
-    - **Users and robots**: Individual settings for individual users. To add a user to this category, enter the login or the user&apos;s name in the search bar at the top of the table.
+    - **Users and robots**: Individual settings for individual users. To add a user to this category, enter the login or the user's name in the search bar at the top of the table.
 
     - **Groups**: Settings for all employees.
 
         {% note tip %}
 
-        To add all of your company's employees, select the `All employees` group.
+        To add all of your organization's employees, select the `All employees` group.
 
         {% endnote %}
 
@@ -40,7 +40,7 @@ If you want to restrict users&apos; access to your dashboard, you can change acc
 
             {% note alert %}
 
-            Try not to change the access settings for the dashboard owner unless necessary. If you accidentally revoked grant permissions from the owner, contact your company's admin.
+            Try not to change the access settings for the dashboard owner unless necessary. If you accidentally revoked grant permissions from the owner, contact your organization's admin.
 
             {% endnote %}
 
@@ -55,3 +55,4 @@ If a dashboard was shared with you, you can add it to Favorites so that it&apos;
 1. Click ![](../../_assets/tracker/add-to-favorites.png) to the right of the dashboard name.
 
 Your favorite dashboards are available in the **Dashboards** menu on the top panel in {{ tracker-name }}.
+

@@ -1,6 +1,6 @@
 # Creating issues
 
-You can create issues in any of the available [queues](../queue-intro.md). Select the queue that best matches the topic of the issue. If you don't know which queue to create your issue in, check with the project manager or your company's admin.
+You can create issues in any of the available [queues](../queue-intro.md). Select the queue that best matches the topic of the issue. If you don't know which queue to create your issue in, check with the project manager or your organization's admin.
 
 
 
@@ -143,3 +143,4 @@ Clicking this link sends you to an issue creation window with its fields filled 
 #### Next step
 
 [Viewing my issues](my-tickets.md)
+

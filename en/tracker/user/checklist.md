@@ -10,7 +10,7 @@ A checklist is a list of items that need to be completed for an issue to be solv
 
   1. Open the issue page.
 
-  1. Click ![](../../_assets/tracker/checklist-create.png).
+  1. Tap ![](../../_assets/tracker/checklist-create.png).
 
   1. Enter the name of the first item in the list.
 
@@ -42,7 +42,7 @@ A checklist is a list of items that need to be completed for an issue to be solv
   * To change an item's name, assignee, or deadline, click ![](../../_assets/tracker/checklist-edit.png).
   * To delete an item, click ![](../../_assets/tracker/checklist-delete.png) to the right of its name.
   * To mark an item as completed, check the box ![](../../_assets/tracker/checklist-checkbox.png).
-  * To uncheck an item, click the checkbox ![](../../_assets/tracker/checklist-checkmark.png).
+  * To uncheck an item, tap the checkbox ![](../../_assets/tracker/checklist-checkmark.png).
   * To move an item up or down the list, click ![](../../_assets/tracker/checklist-replace.png) and drag the item to the desired location in the list.
   * To hide or display checklist items, use the ![](../../_assets/tracker/checklist-close.png) or ![](../../_assets/tracker/checklist-open.png) icons.
   * To add an item to the checklist, click **Add item** at the bottom of the list.
@@ -51,7 +51,7 @@ A checklist is a list of items that need to be completed for an issue to be solv
 - Mobile app
   * To change an item name, expand the checklist and tap the item description. Edit the name and press Enter on the phone keyboard.
   * To change the assignee or deadline, tap ![](../../_assets/tracker/dots.png) to the right of the item name. Select the desired action and specify a new value.
-  * To mark an item as completed, check the box ![](../../_assets/tracker/checklist-checkbox.png).
+  * To mark an item as completed, check the checkbox ![](../../_assets/tracker/checklist-checkbox.png).
   * To uncheck an item, tap the checkbox ![](../../_assets/tracker/checklist-checkmark.png).
   * To add an item to the checklist, tap **Add item** at the bottom of the list.
   * To delete a checklist item, tap ![](../../_assets/tracker/dots.png) to the right of its name and select **Delete item**.

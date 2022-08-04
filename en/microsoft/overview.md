@@ -27,15 +27,9 @@ When creating VMs, you should specify their [performance level](../compute/conce
 
 {% include [initialization-windows-vm](../_includes/initialization-windows-vm.md) %}
 
-### Graphics accelerators (GPUs and vGPUs) {#gpus}
+### Graphics accelerators (GPUs) {#gpus}
 
-Windows Server 2016 and Windows Server 2019 Datacenter edition are available with GPUs and vGPUs.
-
-
-{% include [gpu-comparation](../_includes/compute/gpu-comparation.md) %}
-
-The performance of vGPUs running on {{ yandex-cloud }} has some specifics. For more information, see [{#T}](../compute/concepts/gpus.md).
-
+Windows Server 2016 and Windows Server 2019 Datacenter edition are available with GPUs.
 
 
 

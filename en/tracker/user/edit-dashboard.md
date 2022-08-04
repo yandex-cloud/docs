@@ -12,7 +12,7 @@ To edit a dashboard:
 
 1. Click **Save**.
 
-## How to edit a widget {#section_xz4_bk4_mz}
+## Editing a widget {#section_xz4_bk4_mz}
 
 To change the settings of a widget:
 
@@ -20,9 +20,12 @@ To change the settings of a widget:
 
 1. Make changes and click **Save widget**.
 
-## How to delete a dashboard {#delete_dashboard}
+## Deleting a dashboard {#delete_dashboard}
 
-A dashboard can only be deleted by its owner, your organization's administrator, or a user who has **Write** [permission](share-dashboard.md#section_k2z_1nk_pz) granted via the dashboard settings.
+
+
+A dashboard can only be deleted by its owner, the [administrator](../role-model.md), or a user who has [permission](share-dashboard.md#section_k2z_1nk_pz) to **Write** granted in the dashboard settings.
+
 
 To delete a dashboard:
 

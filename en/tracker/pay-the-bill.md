@@ -46,7 +46,7 @@ To check your account balance:
 
 ## Viewing your payment history {#history}
 
-You can view the full deposit history of your billing account by going to the **Payment history** page or opening Yandex.Balance. How you're going to track the deposit history will depend on the payer type.
+You can view the full deposit history of your billing account on the **Payment history** page or in Yandex&#160;Balance. How you're going to track the deposit history will depend on the payer type.
 
 {% list tabs %}
 

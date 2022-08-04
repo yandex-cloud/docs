@@ -32,9 +32,9 @@ Authorization: OAuth <OAuth token>
 
 {% endcut %}
 
-> Example: Request for a single issue with the required fields specified:
+> Example: Request for a single issue with the required fields specified
 >
->- An HTTP GET method is used.
+>- Use the HTTP GET method.
 >- The response will display attachments.
 >
 >```
@@ -48,7 +48,7 @@ Authorization: OAuth <OAuth token>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -56,7 +56,7 @@ Authorization: OAuth <OAuth token>
 
     {% include [answer-issue](../../../_includes/tracker/api/answer-issue.md) %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

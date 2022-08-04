@@ -7,10 +7,11 @@ If you know the name of an issue or its key, you can search for it using the que
 - Web interface
 
     
+
     To find issues by their key or name, use the following [query language](query-filter.md) parameters:
     * `Key:` to search for an issue by the exact key value.
     * `Summary:` to search for an issue by [name](query-filter.md#query-text).
-
+
 
 - Mobile app
 

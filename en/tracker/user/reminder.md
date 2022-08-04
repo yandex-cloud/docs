@@ -8,7 +8,7 @@ To set up a reminder:
 
 1. Open the issue page.
 
-1. Click ![](../../_assets/tracker/reminder2.png).
+1. Tap ![](../../_assets/tracker/reminder2.png).
 
 1. Click **Add reminder**.
 
@@ -32,7 +32,7 @@ To change or delete a reminder, do the following:
 
 1. Open the issue page.
 
-1. Click ![](../../_assets/tracker/reminder2.png)
+1. Tap ![](../../_assets/tracker/reminder2.png)
 
 1. Click ![](../../_assets/tracker/icon-edit.png) to edit or ![](../../_assets/tracker/icon-delete.png) to delete a reminder.
 

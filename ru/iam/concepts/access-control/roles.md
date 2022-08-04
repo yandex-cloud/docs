@@ -80,6 +80,10 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [mdb.admin](../../../_includes/iam/roles/mdb.admin.md) %}
 
+{% include [mdb.viewer](../../../_includes/iam/roles/mdb.viewer.md) %}
+
+{% include [mdb.auditor](../../../_includes/iam/roles/mdb.auditor.md) %}
+
 
 
 ## {{ dataproc-short-name }} {#dataproc-roles}

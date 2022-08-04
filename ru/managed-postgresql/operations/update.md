@@ -350,7 +350,10 @@
             --websql-access=<true или false> \
             --deletion-protection=<защита от удаления кластера: true или false> \
             --connection-pooling-mode=<режим работы менеджера соединений> \
-            --serverless-access=<true или false>
+            --serverless-access=<true или false> \
+            --performance-diagnostics enabled=<true или false>,`
+                                     `sessions-sampling-interval=<интервал сбора сессий (в секундах)>,`
+                                     `statements-sampling-interval=<интервал сбора запросов (в секундах)>
         ```
 
     Вы можете изменить следующие настройки:
@@ -371,6 +374,12 @@
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+    * `--performance-diagnostics` — настройки [сбора статистики](./performance-diagnostics.md#activate-stats-collector):
+
+        * `enabled` — значение `true` активирует сбор статистики. Значение по умолчанию — `false`.
+        * `sessions-sampling-interval` — интервал сбора сессий, в секундах. Допустимые значения — от `1` до `86400`.
+        * `statements-sampling-interval` — интервал сбора запросов, в секундах. Допустимые значения — от `60` до `86400`.
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -429,6 +438,8 @@
 
   1. {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
+  1. {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
+
   1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
       ```hcl
@@ -470,6 +481,10 @@
     
     Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
+
+  Чтобы активировать [сбор статистики](./performance-diagnostics.md#activate-stats-collector):
+
+  {% include [Performance diagnostic API](../../_includes/mdb/mpg/performance-diagnostics-api.md) %}
 
   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 

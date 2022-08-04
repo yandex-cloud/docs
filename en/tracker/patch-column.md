@@ -24,12 +24,12 @@ If-Match: "<version number>"
 {% cut "Headers" %}
 
 - **Host**
-        Address of the node that provides the API:
+
+    API host address:
 
     ```
     {{ host }}
     ```
-
 
 - **Authorization**
 
@@ -40,10 +40,11 @@ If-Match: "<version number>"
     ```
 
 
+
 - **X-Org-ID**
 
     Organization ID.
-
+
 
 - **If-Match**
 
@@ -97,7 +98,7 @@ If-Match: "<version number>"
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 
@@ -136,7 +137,7 @@ If-Match: "<version number>"
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

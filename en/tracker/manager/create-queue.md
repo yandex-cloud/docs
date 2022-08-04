@@ -1,9 +1,16 @@
-# How to create a queue
+# Creating queues
 
 Each issue belongs to one of the queues. Issues with a common theme are usually grouped together in a queue. They might be issues for a specific project, department, or team.
 
 
+
 ## Creating a queue {#section_mvh_5yb_gz}
+
+{% note warning %}
+
+The user who created the queue becomes its owner. The owner can configure the queue on their own or grant other users [access to edit queue settings](queue-access#set-access).
+
+{% endnote %}
 
 To create a new queue:
 
@@ -20,11 +27,13 @@ To create a new queue:
 
 1. Enter the name of the queue.
 
-1. Enter a unique [key for the queue](#key). The key can consist only of Latin letters and must not contain spaces or special symbols. If you delete a queue, you can't reuse its key.
-
-    {% note tip %}
+1. Enter a [queue key](#key). The key can consist only of Latin letters and must not contain spaces or special symbols.
 
     Try to use keys that reflect the purpose of the queue. For example, the `HR` key is suitable for issues in the Human Resources department, while `SUPPORT` is good for Support issues.
+
+    {% note warning %}
+
+    The queue key must be unique. You can't assign a queue key that's already been used for a queue that has been deleted.
 
     {% endnote %}
 
@@ -51,7 +60,15 @@ If you want to apply settings used in an existing queue, just copy the queue:
 
 1. Enter the name of your new queue.
 
-1. Enter a unique [key for the queue](#key).
+1. Enter a [queue key](#key). The key can consist only of Latin letters and must not contain spaces or special symbols.
+
+    Try to use keys that reflect the purpose of the queue. For example, the `HR` key is suitable for issues in the Human Resources department, while `SUPPORT` is good for Support issues.
+
+    {% note warning %}
+
+    The queue key must be unique. You can't assign a queue key that's already been used for a queue that has been deleted.
+
+    {% endnote %}
 
 1. Enter the key or name of the original queue.
 
@@ -66,11 +83,13 @@ parameters for your new queue manually:
 
 1. Enter the name of the queue.
 
-1. Enter a unique [key for the queue](#key). The key can consist only of Latin letters and must not contain spaces or special symbols. If you delete a queue, you can't reuse its key.
-
-    {% note tip %}
+1. Enter a [queue key](#key). The key can consist only of Latin letters and must not contain spaces or special symbols.
 
     Try to use keys that reflect the purpose of the queue. For example, the `HR` key is suitable for issues in the Human Resources department, while `SUPPORT` is good for Support issues.
+
+    {% note warning %}
+
+    The queue key must be unique. You can't assign a queue key that's already been used for a queue that has been deleted.
 
     {% endnote %}
 
@@ -85,9 +104,10 @@ Fill in the list of team members if you want to [configure special access rights
 
 1. Set up [issue types and statuses](workflow.md) for your queue.
 
-1. Configure the queue's [general settings](edit-queue-general.md). For example:
+1. Configure the queue's [general settings](edit-queue-general.md). Example:
     - Default issue type and priority.
     - **Required fields for the queue**: Issue fields that are always displayed on the issue page, regardless of [user settings](../user/edit-ticket.md#section_jqw_ppn_jz).
+
 
     - **Show "Commits" tab**: Show or hide the **Commits** tab on the queue and issue pages. The tab displays all commits linked to your issue.
 

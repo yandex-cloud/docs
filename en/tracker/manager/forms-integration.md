@@ -8,7 +8,7 @@ If you want to use a form as a template for quickly creating standardized issues
 
 To set up forms for issue creation:
 
-1. Go to [{{ forms-full-name }}]({{ link-forms }}). If the service hasn't been activated, contact your company's administrator.
+1. Go to [{{ forms-full-name }}]({{ link-forms }}). If the service hasn't been activated, contact your organization's administrator.
 
 1. [Create](../../forms/new-form.md) a new form.
 Set up your form to collect data needed for issue creation.
@@ -27,9 +27,11 @@ The form will send user answers to {{ tracker-name }} and {{ tracker-name }} wil
 
 
 
+
+
 1. Configure [access rights to the form](../../forms/restrictions.md#restrictions__sec_access).
 Any user can fill out the form by default. If you want, you can reserve this right for just your organization's employees.
-
+
 
 1. [Publish](../../forms/publish.md) your form. Your form will be accessible via a link specified in the **Link** field.
 

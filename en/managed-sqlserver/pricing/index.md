@@ -37,7 +37,7 @@ You're charged for using licenses on an pre-payment basis. This means that a fee
 * The first time a cluster that was stopped prior to the current billing cycle is restarted, you will be charged the full cost of the licenses for the entire billing cycle. If you stop and start a cluster multiple times within one period, you need to pay the license cost only at the first start.
 * If you change a cluster configuration and reduce resource usage during a billing cycle, the cost of the licenses released in this period is not subject to refund. The new pricing will take effect on the first day of the following billing cycle.
 * If you change your cluster configuration and increase resource usage during a billing cycle, you will need additional licenses. If this is the case, you will be charged the full cost of these licenses for the entire billing cycle regardless of the date you made the changes.
-* Multi-host {{ MS }} clusters with [unreadable secondary replicas](../concepts/replication.md#readable-and-non-readable-replicas) require only one Microsoft SQL Server Enterprise license: for the primary replica.
+* Multi-host {{ MS }} clusters with [non-readable secondary replicas](../concepts/replication.md#readable-and-non-readable-replicas) only require a Microsoft SQL Server Enterprise license for the primary replica.
 * Multi-host {{ MS }} clusters with [readable secondary replicas](../concepts/replication.md#readable-and-non-readable-replicas) require a Microsoft SQL Server Enterprise license for each replica.
 
 ### DB host usage {#rules-hosts-uptime}
@@ -86,4 +86,5 @@ All prices are shown without VAT.
 
 
 {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
+
 

@@ -1,6 +1,6 @@
 # Accepting requests by mail and via forms
 
-User requests are converted to {{ tracker-name }} issues before they are processed. Most users tend to send their requests via email or a website. In any case, users outside your organization and don't have access to {{ tracker-name }}.
+User requests are converted to {{ tracker-name }} issues before they are processed. Most users tend to send their requests via email or a website. In any case, users outside your company don't have access to {{ tracker-name }}.
 
 This is why we recommend setting up your request processing pipeline in a way that lets you receive requests via email or forms created in [{{ forms-full-name }}]({{ link-forms }}).
 
@@ -9,12 +9,13 @@ This is why we recommend setting up your request processing pipeline in a way th
 To accept user requests by email, set up the email address of the queue. All emails sent to this address will automatically be converted to {{ tracker-name }} issues.
 
 
+
 1. Go to **Mailboxes** in the queue settings and [add a queue address](manager/queue-mail.md#section_gwv_hqb_hgb).
 
-   If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in Yandex.Mail 360 for Business]({{ support-business-domain }}).
+    If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in {{ ya-360 }}]({{ support-business-domain }}).
 
 1. If the users sending you requests are not your organization's employees, [allow receiving emails from external addresses](manager/queue-mail.md#mail_tasks).
-
+
 
 If the issue was created from an email, you can respond to the requester right from the issue page (for example, you can ask for additional information or notify them when the issue is solved). To do this, [configure sending emails from issue pages](#send_mail).
 

@@ -1,4 +1,4 @@
-# Setting up Yandex Tracker for a support team
+# Setting up {{ tracker-full-name }} for a support team
 
 Let's see how we can use {{ tracker-name }} to set up a workflow for the support team.
 
@@ -13,3 +13,4 @@ Let's create a dedicated {{ tracker-name }} [queue](queue-intro.md) for the supp
 - [Track the time it takes to process a request.](support-process-sla.md)
 - [Collect request statistics.](support-process-dashboards.md)
 - [Configure integration with third-party platforms.](support-process-integration.md)
+

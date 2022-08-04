@@ -1,6 +1,7 @@
 # Working with issues
 
-By default, the list of your issues is available [on your home page](startpage.md) or in the **Issues** → **All issues** menu. To start working with an issue, go to its page.
+By default, your list of issues is available [on your home page](startpage.md) or in the **Issues** → **All my issues** menu. To start working with an issue, go to its page.
+
 
 
 ## Starting work on an issue {#section_qpp_5rn_jz}
