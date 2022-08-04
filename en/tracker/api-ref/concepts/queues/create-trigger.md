@@ -1,4 +1,4 @@
-# Creating triggers
+# Creating a trigger
 
 Use this request to create [triggers](../../user/trigger.md).
 
@@ -50,34 +50,34 @@ Authorization: OAuth <OAuth token>
 
 > Example: Creating a trigger that activates when a set condition is met and changes the issue status.
 >
-> - An HTTP POST method is used.
-> - A trigger is created for the DESIGN queue.
-> - Trigger condition: the comment body matches <q>Open</q>.
-> - Trigger action: the issue status is set to <q>Open</q>.
-> 
-> ```json
-> POST /v2/queues/DESIGN/triggers
-> Host: {{ host }}
-> Authorization: OAuth <OAuth token>
-> {{ org-id }}
-> {
->   "name": "TriggerName",
->   "actions": [
+>- An HTTP POST method is used.
+>- A trigger is created for the DESIGN queue.
+>- Trigger condition: the comment body matches <q>Open</q>.
+>- Trigger action: the issue status is set to <q>Open</q>.
+>
+>```json
+>POST /v2/queues/DESIGN/triggers
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>{
+>  "name": "TriggerName",
+>  "actions": [
+>      {
+>          "type": "Transition",
+>          "status": {
+>              "key": "open"
+>              }
+>      }
+>  ],
+>  "conditions": [
 >       {
->           "type": "Transition",
->           "status": {
->               "key": "open"
->               }
+>          "type": "CommentFullyMatchCondition",
+>          "word": "Open"
 >       }
->   ],
->   "conditions": [
->        {
->           "type": "CommentFullyMatchCondition",
->           "word": "Open"
->        }
->    ]
-> }
-> ```
+>   ]
+>}
+>```
 
 ## Response format {#answer}
 

@@ -1,8 +1,8 @@
-# Create an issue on the board
+# Creating an issue on a board
 
 {% note warning %}
 
-Make sure that the issue creation queue is specified in the [board](../manager/edit-agile-board.md#table_fjy_kh1_2gb) settings. The new issue will be created in the specified queue.
+Make sure that the issue creation order is specified in the [board settings](../manager/edit-agile-board.md#table_fjy_kh1_2gb). The new issue will be created in the specified queue.
 
 {% endnote %}
 
@@ -20,7 +20,7 @@ If you use issue boards, it might be convenient for you to create issues right o
 
 The created issue will be placed in the queue you specified in the [settings](../manager/edit-agile-board.md#section_ft1_3l3_3z). To view the issue, refresh the board page.
 
-#### Create an issue in a sprint
+#### Creating an issue in a sprint
 
 1. Click **Sprints** in the upper-right corner.
 
@@ -32,7 +32,7 @@ The created issue will be placed in the queue you specified in the [settings](..
 
 The created issue will be placed in the queue you specified in the [settings](../manager/edit-agile-board.md#section_ft1_3l3_3z). To view the issue, refresh the board page.
 
-#### Create an issue in the backlog
+#### Creating an issue in the backlog
 
 1. Click **Sprints** in the upper-right corner.
 
@@ -41,6 +41,4 @@ The created issue will be placed in the queue you specified in the [settings](..
 1. Select the issue type and click **Create**.
 
 The created issue will be placed in the queue you specified in the [settings](../manager/edit-agile-board.md#section_ft1_3l3_3z). To view the issue, refresh the board page.
-
-
 

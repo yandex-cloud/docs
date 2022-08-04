@@ -37,7 +37,7 @@ Authorization: OAuth <OAuth token>
 | name | Field name:<ul><li>`en`: In English.</li><li>`ru`: In Russian.</li></ul> | String |
 | id | Field ID. | String |
 | category | Object with information about the field category.<br/>To get a list of all categories, use the HTTP request:<br/>`GET /v2/fields/categories` | String |
-| type | Field type:<ul><li>`ru.yandex.startrek.core.fields.DateFieldType`: Date.</li><li>`ru.yandex.startrek.core.fields.DateTimeFieldType`: Date/Time.</li><li>`ru.yandex.startrek.core.fields.StringFieldType`: One-line text field.</li><li>`ru.yandex.startrek.core.fields.TextFieldType`: Multi-line text field.</li><li>`ru.yandex.startrek.core.fields.FloatFieldType`: Fractional number.</li><li>`ru.yandex.startrek.core.fields.IntegerFieldType`: Integer.</li><li>`ru.yandex.startrek.core.fields.UserFieldType`: User's name.</li><li>`ru.yandex.startrek.core.fields.UriFieldType`: Link.</li> | String |
+| type | Field type:<ul><li>`ru.yandex.startrek.core.fields.DateFieldType`: Date.</li><li>`ru.yandex.startrek.core.fields.DateTimeFieldType`: Date/Time.</li><li>`ru.yandex.startrek.core.fields.StringFieldType`: One-line text field.</li><li>`ru.yandex.startrek.core.fields.TextFieldType`: Multi-line text field.</li><li>`ru.yandex.startrek.core.fields.FloatFieldType`: Fractional number.</li><li>`ru.yandex.startrek.core.fields.IntegerFieldType`: Integer</li><li>`ru.yandex.startrek.core.fields.UserFieldType`: User's name.</li><li>`ru.yandex.startrek.core.fields.UriFieldType`: Link.</li> | String |
 
 **Additional parameters**
 
@@ -87,7 +87,7 @@ Authorization: OAuth <OAuth token>
 >           "the first list item",
 >           "the second list item",
 >           "the third list item"
->       ]
+>      ]
 >   }
 >}
 >```
@@ -96,7 +96,7 @@ Authorization: OAuth <OAuth token>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -192,7 +192,7 @@ Authorization: OAuth <OAuth token>
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

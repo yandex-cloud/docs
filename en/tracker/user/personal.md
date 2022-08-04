@@ -4,7 +4,7 @@ You can manage your issues more easily by adjusting the {{ tracker-name }} inter
 
 ## Customizing your home page {#sec_my_page}
 
-You can set {% if audience == "external" %}your [home page](startpage.md){% else %}the [**My page** tab](startpage.md){% endif %} to display any [filter](create-filter.md), [dashboard](dashboard.md), or [issue board](../manager/create-agile-board.md):
+You can set {% if audience == "external" %}your [home page](startpage.md){% else %}the [**My page**](startpage.md) tab{% endif %} to display any [filter](create-filter.md), [dashboard](dashboard.md), or [issue board](../manager/create-agile-board.md):
 
 1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
@@ -28,7 +28,7 @@ By default, the **Author**, **Assignee**, and **Followers** fields display the u
 
 {% cut "Screenshot" %}
 
-![image](../../_assets/tracker/followers-disp-style-3.png)
+![](../../_assets/tracker/followers-disp-style-3.png)
 
 {% endcut %}
 
@@ -46,7 +46,7 @@ To change the display method, do the following:
 
         {% endcut %}
 
-    - Select **Show avatars instead of names** to display profile pictures instead of names and usernames in the **Followers** field.
+    - Select **Show avatars instead of names** to only display user avatars in the user list fields. This setting doesn't affect the **Author** and **Assignee** fields.
 
         {% cut "Screenshot" %}
 
@@ -84,7 +84,7 @@ If you want to change the display type for these values, do the following:
 To learn more about notifications, see the following sections:
 
 - [{#T}](subscribe.md)
-- [Notification settings](notification-settings.md)
+- [Notification settings ](notification-settings.md)
 
 ## Setting comment display order {#sec_mssg_sort}
 
@@ -95,4 +95,12 @@ By default, issue comments are sorted from oldest to newest. You can change the 
 1. Under **Message order in issues**, select **Newest first**.
 
 1. Click **Save**.
+
+## Enabling the beta version of the new interface {#sec_beta}
+
+To switch to the new interface:
+
+1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
+
+1. Enable the **New interface beta version**.
 

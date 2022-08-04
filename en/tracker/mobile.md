@@ -1,4 +1,4 @@
-# {{ tracker-name }} mobile app
+# Mobile app {{ tracker-name }}
 
 You can use the {{ tracker-full-name }} mobile app to manage your issues when you don't have access to a computer. You can create issues, change their parameters, and leave comments.
 
@@ -44,7 +44,7 @@ When launching the app for the first time, tap **Log in** and enter your usernam
 
 {% endif %}
 
-## Limitations {#restrictions}
+## Restrictions {#restrictions}
 
  Some {{ tracker-name }} features are not available in the mobile app. To use them, go to the [web intrface]({{ link-tracker }}).
 
@@ -61,3 +61,4 @@ When launching the app for the first time, tap **Log in** and enter your usernam
   This includes setting up [triggers](user/trigger.md), [auto actions](user/autoactions.md), and [macros](manager/create-macroses.md).
 
 {% if audience == "external" %} - [Managing user access rights](access.md) in {{ tracker-name }}. {% endif %}
+

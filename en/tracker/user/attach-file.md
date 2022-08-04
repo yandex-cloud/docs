@@ -1,7 +1,7 @@
 # Attaching images and files to an issue
 
 You can attach multiple files in any format to an issue. The maximum size of a single file is 128 MB.
-Files added to {{ tracker-name }} don't take up space on Yandex.Disk. {{ tracker-name }} doesn't restrict the amount of stored data.
+Files added to {{ tracker-name }} don't take up space on Yandex&#160;Disk. {{ tracker-name }} doesn't restrict the amount of stored data.
 
 {% list tabs %}
 
@@ -9,7 +9,7 @@ Files added to {{ tracker-name }} don't take up space on Yandex.Disk. {{ tracker
 
     To attach a file to an issue description:
 
-    1. Click ![](../../_assets/tracker/icon-edit.png) next to the issue description.
+    1. Tap ![](../../_assets/tracker/icon-edit.png) next to the issue description.
 
     1. Drag the files to the area under the description or click **Choose files**.
 To insert images attached to the issue in the description text, click ![](../../_assets/tracker/add-image.png).
@@ -34,7 +34,7 @@ To insert images attached to the issue in the description text, click ![](../../
 
         * To attach files from your phone, tap **Files** and select them.
 
-    1. Click **Save**.
+    1. Tap **Save**.
 
     You can use the same method to attach files to comments.
 

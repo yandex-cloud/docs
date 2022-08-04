@@ -89,111 +89,66 @@ Authorization: OAuth <OAuth token>
 
 {% cut "Request body format" %}
 
-The request body passes a JSON object with the IDs of updated fields and their values.
-
-- To add or remove an array value, use the `add` or `remove` command:
-
-  - ```json
-    {
-          "followers": { "add": ["<user1 ID>", "<user2 ID>"] }
-    }
-    ```
-
-{% note info %}
-
-The `add` command adds new values to the array. To overwrite the array (delete the old values and add new ones), use the `set` command.
-
-{% endnote %}
-
-- To reset the field value, set it to `null`. To reset the array, use an empty array `[]`. You can change individual values in the array using the `target` and `replacement` commands:
-  - `{"followers": null}`
-  - ```json
-    {
-      "followers": {
-        "replace": [
-            {"target": "&lt;ID1&gt;", "replacement": "&lt;ID2&gt;"},
-            {"target": "&lt;ID3&gt;", "replacement": "&lt;ID4&gt;"}]
-      }
-    }
-    ```
-
-- For example, to change the issue type to <q>Bug</q>, use one of these methods:
-  - `{"type": 1}`
-  - `{"type": "bug"}`
-  - ```json
-    {
-        "type": { "id": "1" }
-    }
-    ```
-  - ```json
-    {
-        "type": { "name": "Bug" }
-    }
-    ```
-  - ```json
-    {
-        "type": {"set": "bug"}
-    }
-    ```
+The request body passes a JSON object with the [IDs of updated fields and their values](../../common-format.md#body).
 
 {% endcut %}
 
-> Example 1: Change the name, description, type, and priority of an issue.
+>Example 1: Change the name, description, type, and priority of an issue.
 >
-> - An HTTP PATCH method is used.
-> - We're editing the TEST-1 issue.
-> - New issue type: <q>Bug</q>.
-> - New issue priority: <q>Low</q>.
-> 
-> ```
-> PATCH /v2/issues/TEST-1
-> Host: {{ host }}
-> Authorization: OAuth <OAuth token>
-> {{ org-id }}
-> 
-> {
->     "summary": "New issue name",
->     "description": "New issue description",
->     "type": {
->         "id": "1",
->         "key": "bug"
->         },
->     "priority": {
->         "id": "2",
->         "key": "minor"
->         }
-> }
-> ```
+>- An HTTP PATCH method is used.
+>- We're editing the TEST-1 issue.
+>- New issue type: <q>Bug</q>.
+>- New issue priority: <q>Low</q>.
+>
+>```
+>PATCH /v2/issues/TEST-1
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>
+>{
+>    "summary": "New issue name",
+>    "description": "New issue description",
+>    "type": {
+>        "id": "1",
+>        "key": "bug"
+>        },
+>    "priority": {
+>        "id": "2",
+>        "key": "minor"
+>        }
+>}
+>```
 
 > Example 2: Change the parent issue, add it to sprints, and add followers.
-> 
-> - An HTTP PATCH method is used.
-> - We're editing the TEST-1 issue.
-> - New parent issue: TEST-2.
-> - The issue is added to sprints with ID 3 and ID 2. The sprints must be on different boards.
-> - Followers added: `userlogin-1` and `userlogin-2`.
-> 
-> ```
-> PATCH /v2/issues/TEST-1
-> Host: {{ host }}
-> Authorization: OAuth <OAuth token>
-> {{ org-id }}
-> 
-> {
->     "parent": {
->         "key": "TEST-2"},
->     "sprint": [{"id": "3"}, {"id": "2"}],
->     "followers": {
->         "add": ["userlogin-1", "userlogin-2"]
->         }
-> }
-> ```
+>
+>- An HTTP PATCH method is used.
+>- We're editing the TEST-1 issue.
+>- New parent issue: TEST-2.
+>- The issue is added to sprints with ID 3 and ID 2. The sprints must be on different boards.
+>- Followers added: `userlogin-1` and `userlogin-2`.
+>
+>```
+>PATCH /v2/issues/TEST-1
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>
+>{
+>    "parent": {
+>        "key": "TEST-2"},
+>    "sprint": [{"id": "3"}, {"id": "2"}],
+>    "followers": {
+>        "add": ["userlogin-1", "userlogin-2"]
+>        }
+>}
+>```
 
 ## Response format {#section_xc3_53j_p1b}
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -201,7 +156,7 @@ The `add` command adds new values to the array. To overwrite the array (delete t
 
   {% include [answer-issue](../../../_includes/tracker/api/answer-issue.md) %}
 
-- The request failed
+- Request failed
 
   If the request is processed incorrectly, the API returns a response with an error code:
 

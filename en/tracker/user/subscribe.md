@@ -50,7 +50,7 @@ To subscribe to a component:
 
 1. Go to the **Components** tab.
 
-1. Hold the cursor over the component.
+1. Put the cursor over the component.
 
 1. Select ![](../../_assets/tracker/icon-settings.png) → **Subscribe**.
 
@@ -66,7 +66,7 @@ To track issues associated with a specific version, subscribe to it:
 
 1. Go to the **Versions** tab.
 
-1. Hold the cursor over the version.
+1. Put the cursor over the version.
 
 1. Select ![](../../_assets/tracker/icon-settings.png) → **Subscribe**.
 

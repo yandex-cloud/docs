@@ -12,7 +12,7 @@ Git repositories hosted on your own private server can't be linked to {{ tracker
 
 To connect a repository, do the following:
 
-1. Make sure that you are logged in as your organization's administrator.
+1. Make sure you are logged in to {{ tracker-name }} as an [administrator](role-model.md).
 
 1. In the {{ tracker-name }} settings, go to the [Repositories]({{ link-repositories }}) tab and click **Connect repository**.
 
@@ -31,3 +31,4 @@ To connect a repository, do the following:
 To link a commit to an issue in {{ tracker-name }}, specify your [issue key](user/create-ticket.md#key) in a comment under the commit.
 
 {% endif %}
+

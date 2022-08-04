@@ -21,7 +21,7 @@ Authorization: OAuth <OAuth token>
 
 > Example: Request for issue links
 >
->- An HTTP GET method is used.
+>- Use the HTTP GET method.
 >
 >```
 >GET /v2/issues/JUNE-2/links HTTP/1.1
@@ -34,7 +34,7 @@ Authorization: OAuth <OAuth token>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -131,7 +131,7 @@ Authorization: OAuth <OAuth token>
 
     {% include [status](../../../_includes/tracker/api/status.md) %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

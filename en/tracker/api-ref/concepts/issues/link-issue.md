@@ -36,26 +36,26 @@ Authorization: OAuth <OAuth token>
 {% endcut %}
 
 > Example: Creating a link
-> 
-> - An HTTP POST method is used.
-> 
-> ```
-> POST /v2/issues/TEST-1/?links HTTP/1.1
-> Host: {{ host }}
-> Authorization: OAuth <OAuth token>
-> {{ org-id }}
-> 
-> {
->     "relationship": "relates",
->     "issue": "TREK-2"
-> }
-> ```
+>
+>- An HTTP POST method is used.
+>
+>```
+>POST /v2/issues/TEST-1/?links HTTP/1.1
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>
+>{
+>    "relationship": "relates",
+>    "issue": "TREK-2"
+>}
+>```
 
 ## Response format {#section_xpm_q1y_51b}
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
 
@@ -140,7 +140,7 @@ Authorization: OAuth <OAuth token>
 
   {% endcut %}
 
-- The request failed
+- Request failed
 
   If the request is processed incorrectly, the API returns a response with an error code:
 

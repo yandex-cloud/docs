@@ -32,11 +32,14 @@ default:
   link-passport: https://passport.yandex.com/
   link-500-users: https://cloud.yandex.com/services/tracker#contact-form
   link-tracker-support: https://support.cloud.yandex.com/?referral=tracker
+  link-migration-form: https://cloud.yandex.com/en-ru/services/tracker#tracker-form
   link-billing: https://billing.cloud.yandex.com/
+  link-bind-ba: https://tracker.yandex.com/admin/licenses/users?billing-account=1
   link-tracker-example-1: https://tracker.yandex.com/TEST-1234
   link-tracker-example-2: https://tracker.yandex.com/queueKey
   link-cloud-oferta: https://yandex.ru/legal/cloud_oferta/?lang=en
-  link-balance-invoices: https://balance.yandex.ru/invoices.xml
+  link-balance-invoices: https://balance.yandex.com/invoices.xml
+  link-ya-360: https://admin.yandex.ru/?lang=en
   
   #Ссылки на справку на yandex.ru/support
   #И на справку Организации, пока она в Preview
@@ -48,6 +51,7 @@ default:
   support-passport-create: https://yandex.com/support/passport/authorization/registration.html
   support-business-domain: https://yandex.com/support/business/domains.html
   support-business-users: https://yandex.com/support/business/add-users.html
+  support-business-admin: https://yandex.com/support/business/admin.html
   
   #Внешние ссылки
   link-wiki-scrum: https://en.wikipedia.org/wiki/Scrum_(software_development)
@@ -63,13 +67,13 @@ default:
   link-get-token: https://oauth.yandex.com/
   link-OAuth-dev-guide: https://yandex.com/dev/oauth/doc/dg/concepts/about.html
   link-register-application: https://yandex.com/dev/oauth/doc/dg/tasks/register-client.html
-  link-oauth-token: https://yandex.ru/dev/oauth/doc/dg/tasks/get-oauth-token.html
-  link-web-oauth: https://yandex.ru/dev/oauth/doc/dg/reference/web-client.html#web-client__request-url
+  link-oauth-token: https://yandex.com/dev/oauth/doc/dg/tasks/get-oauth-token.html
+  link-web-oauth: https://yandex.com/dev/oauth/doc/dg/reference/web-client.html#web-client__request-url
   link-yandex_tracker_client: https://github.com/yandex/yandex_tracker_client
   link-python-official: https://www.python.org/downloads/
 
   #Ссылки на сервисы
-  link-yandex: https://yandex.ru
+  link-yandex: https://yandex.com
 
   #Интерфейс
   tracker-settings: Tracker settings
@@ -77,6 +81,8 @@ default:
   #Другое
   release-date: March 1
   example-account: login@yandex.com
+  yfm: Yandex Flavored Markdown
+  ya-360: Yandex 360 for Business
 
 #external:
 

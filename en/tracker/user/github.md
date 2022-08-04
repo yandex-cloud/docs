@@ -5,7 +5,7 @@
 Follow these steps to link tickets, pull requests, and new repository branches to your {{ tracker-name }} issues:
 
 1. Configure the webhook for the repository with these settings:
-    - **Payload URL** — `https://st-api.yandex-team.ru/v2/system/github/receive`.
+    - **Payload URL** — `{{ host }}/v2/system/github/receive`.
     - **Content type** — `application/json`.
     - **Events** — `Pull Request` or `Issues` or `Branch or tag creation`.
 

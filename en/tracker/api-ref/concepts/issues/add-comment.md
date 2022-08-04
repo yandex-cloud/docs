@@ -1,4 +1,4 @@
-# Add a comment
+# Add comment
 
 Use this request to add a comment to an issue.
 
@@ -55,7 +55,7 @@ Authorization: OAuth <OAuth token>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
 
@@ -67,7 +67,7 @@ Authorization: OAuth <OAuth token>
       "self" : "{{ host }}/v2/issues/TREK-1/comments/626",
       "id" : 626,  
       "longId" : "5fa15a24ac894475dd14ff07",  
-      "text" : "<comment text>",
+      "text": "<comment text>",
       "createBody" : {
        "self" : "{{ host }}/v2/users/1120000000016876",
        "id" : "<user ID>",
@@ -141,7 +141,7 @@ Authorization: OAuth <OAuth token>
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

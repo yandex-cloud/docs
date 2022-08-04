@@ -28,20 +28,11 @@ If-Match: "<version number>"
 
 - **Host**
 
-    {% if audience == "external" %}
-    Address of the node that provides the API:
+    API host address:
 
     ```
     {{ host }}
     ```
-
-    {% else %}
-
-    ```
-    https://st-api.yandex-team.ru/
-    ```
-
-    {% endif %}
 
 - **Authorization**
 
@@ -88,7 +79,7 @@ If-Match: "<version number>"
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 
@@ -127,7 +118,7 @@ If-Match: "<version number>"
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

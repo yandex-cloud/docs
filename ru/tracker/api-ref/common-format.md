@@ -18,7 +18,7 @@ Authorization: OAuth <токен>
 
 {% endnote %}
 
-## Методы {#metods}
+## Методы {#methods}
 
 Запросы к {{ api-short-name }} используют один из HTTP-методов:
 

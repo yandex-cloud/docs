@@ -1,10 +1,14 @@
 # Setting up a billing account
 
-You need a {{ yandex-cloud }} billing account to pay your invoices for using {{ tracker-name }} if [full access](access.md)  to the platform is granted to six or more users. To learn more about service plans and take a look at some examples of how to calculate monthly costs, see [Pricing policy](pricing.md).
+You need a {{ yandex-cloud }} billing account to pay your invoices for using {{ tracker-name }} if [full access](access.md) to the platform is granted to six or more users. Payments for the service are automatically debited from the billing account linked to {{ tracker-name }} on the first day of every month. To learn more about service plans and take a look at some examples of how to calculate monthly costs, see [Pricing policy](pricing.md).
+
+You can find the FAQ for payments in [{#T}](payment.md).
 
 ## Linking a billing account to {{ tracker-name }} {#bind}
 
-To use {{ tracker-name }} paid features, you first need to link a billing account. A window that prompts you to link your billing account to {{ tracker-name }} appears when [granting full access](access.md#set) to a new user (if five of your employees already have full access) or when enabling [automatic full access](access.md#access-new-users) for all new users.
+If you want to use paid features in {{ tracker-name }}, you first need to link a billing account. To do this, [follow the link]({{ link-bind-ba }}).
+
+A window that prompts you to link your billing account to {{ tracker-name }} appears when you [grant full access](access.md#set) to a new user (if five of your employees already have full access) or when enabling [automatic full access](access.md#access-new-users) for all new users.
 
 * If you already have a {{ yandex-cloud }} billing account, select it from the list and click **Link**.
 
@@ -20,6 +24,8 @@ If you linked a billing account with an active trial period or created a new acc
 
 ## Creating a billing account {#create}
 
+1. Open [{{ tracker-name }} main page]({{ link-tracker }}) and [log in as an administrator](user/login.md).
+
 1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
 
 1. Go to the **Account list** and click **Create an account**.
@@ -28,13 +34,13 @@ If you linked a billing account with an active trial period or created a new acc
 
 1. {% include [choose-name-step](../_includes/billing/choose-name-step.md) %}
 
-1. If you have existing billing accounts, you can choose one of the available payers in the **Payers** section. To add a new payer, select **New payer**.
+1. If you have existing billing accounts, you can choose one of the available payers in the **Payers** section . To add a new payer, select **New payer**.
 
 1. If you add a new payer:
 
    1. {% include [choose-type-step](../_includes/billing/choose-type-step.md) %}
 
-   1. Enter your details or your company's details.
+   1. Enter your details or your organization's details.
 
    {% include [contacts-note](../_includes/billing/contacts-note.md) %}
 
@@ -54,7 +60,7 @@ If you linked a billing account with an active trial period or created a new acc
 
    {% include [payment-card-validation](../_includes/billing/payment-card-validation.md) %}
 
-1. Click the **Create** button.
+1. Click **Create**.
 
    {% note info %}
 
@@ -109,7 +115,7 @@ You must activate the paid version in your account within 30 days after the tria
 
    * To change the payment method for a legal entity or individual entrepreneur, contact [technical support]({{ link-tracker-support}}).
 
-   * To change a payer's details, click **Edit in Yandex.Balance** at the bottom of the page, then select the **Payers** section on the Yandex.Balance page.
+   * To change payer details, click **Edit in Yandex Balance** at the bottom of the page, then select the **Payers** section on the Yandex Balance page.
 
    {% note info %}
 

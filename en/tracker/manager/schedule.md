@@ -6,7 +6,7 @@ By default, [only the queue owner](queue-access.md) can configure a queue.
 
 {% endnote %}
 
-Work schedules allow you to set up the timeframe for when [the SLA rule](sla.md) applies. The SLA timer will not work during non-work hours. You can select one of the pre-set schedules for the rule or create your own.
+Work schedules let you set up the timeframe for when the [SLA rule](sla.md) applies. The SLA timer will not work during non-work hours. You can select one of the pre-set schedules for the rule or create your own.
 
 ## Creating work schedules {#section_rlk_hkg_x2b}
 
@@ -18,7 +18,7 @@ Work schedules allow you to set up the timeframe for when [the SLA rule](sla.md)
 
 1. Click **Create schedule**.
 
-1. Click ![](../../_assets/tracker/icon-edit.png) and enter a name for the schedule. Click ![](../../_assets/tracker/approve-checkmark.png) to save the name.
+1. Click ![](../../_assets/tracker/icon-edit.png) and name the schedule. Click ![](../../_assets/tracker/approve-checkmark.png) to save the name.
 
 1. Select your time zone.
 
@@ -32,7 +32,7 @@ Work schedules allow you to set up the timeframe for when [the SLA rule](sla.md)
 
 1. Click **Save**.
 
-The schedule you created will be available in the **My schedules** section. Other users will not be able to view or use your schedule.
+You can view the schedule you created in the **My schedules** section. Other users will not be able to view or use your schedule.
 
 ## Editing work schedules {#section_vkm_flh_x2b}
 

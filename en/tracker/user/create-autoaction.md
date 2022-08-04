@@ -1,6 +1,6 @@
 # Automatic issue updates
 
-You can use {{ tracker-name }} to regularly update issues that match a certain filter. For example, you can use an auto action to automatically check all issues containing a desired component every hour and set an assignee if one isn't set. You can also invite users responsible for the issue to the comments if you need a progress update.
+You can use {{ tracker-name }} to automatically update issues that match a certain filter. For example, you can use an auto action to automatically check all issues containing a desired component every hour and set an assignee if one isn't set. You can also invite users responsible for the issue to the comments if you need a progress update.
 
 {% note warning %}
 
@@ -8,7 +8,7 @@ When an auto action is triggered, only the first 100 issues that meet the specif
 
 {% endnote %}
 
-## Configure automatic issue updates {#section_eh1_zlr_kgb}
+## Configuring automatic issue updates {#section_eh1_zlr_kgb}
 
 1. Open the [queue page](../user/queue.md).
 
@@ -67,13 +67,13 @@ You can add multiple conditions if you want. The auto action will only work if a
 
 If you want an issue to be completed by a particular date, you can specify it in the **Deadline** field. If you want to make sure assignees finish their issues on time, you can use auto updates to send them reminders a few days before the deadline.
 
-Let's set up a daily auto update that invites the assignee to comments and only triggers if there is 3 days or fewer left before the deadline:
+Let's set up a daily auto update that invites the assignee to the comments and only triggers if there are 3 days left before the deadline or less:
 
 1. Select the queue you want to create an automatic reminder for and open its settings.
 
-1. In the **Auto actions** section, click [**Create auto action**](create-autoaction.md#section_eh1_zlr_kgb).
+1. Go to **Auto actions** and click [**Create auto action**](create-autoaction.md#section_eh1_zlr_kgb).
 
-1. Select **Update issues** and enter a name for the auto action.
+1. Select **Update issues** and name the auto action.
 
 1. Set the update frequency to once a day.
 
@@ -93,9 +93,9 @@ Let's set up a daily auto update that invites the assignee to comments and only 
 
     1. Write the text of your comment. You can add issue fields to the comment by clicking **Add variable**.
 
-    ![](../../_assets/tracker/autoaction-example-action.png)
+   ![](../../_assets/tracker/autoaction-example-action.png)
 
 1. Save the auto action.
 
-The created auto action will then check issues in the queue once a day. If the issue remains unsolved when there are less than 3 days until the deadline, the assignee is automatically invited to the comments.
+The created auto action then checks issues in the queue once a day. If the issue remains unsolved when there are less than 3 days until the deadline, the assignee is automatically invited to the comments.
 

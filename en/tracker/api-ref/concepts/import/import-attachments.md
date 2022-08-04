@@ -108,7 +108,7 @@ To import a file, use an HTTP `POST` request. Files are passed in the request bo
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -116,7 +116,7 @@ To import a file, use an HTTP `POST` request. Files are passed in the request bo
 
     ```json
     	{
-    	"self" : "{{ host }}/v2/issues/JUNE-2/attachments/123",
+    	  "self" : "{{ host }}/v2/issues/JUNE-2/attachments/123",
       "id" : "123",
       "name" : "pic.png",
       "content" : "{{ host }}/v2/issues/JUNE-2/attachments/123/pic.png",
@@ -147,7 +147,7 @@ To import a file, use an HTTP `POST` request. Files are passed in the request bo
     | [createdBy](#createdBy) | Object with information about the user who attached the file. | JSON object |
     | createdAt | Date and time when the file is uploaded, in <br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` format | String |
     | mimetype | File type, for example:<ul><li>`text/plain`: Text file.</li><li>`image/png`: Image in PNG format.</li></ul> | String |
-    | size | File size in bytes. | Integer. |
+    | size | File size in bytes. | Integer |
     | [metadata](#metadata) | Object with file metadata. | JSON object |
 
     **Object fields** `createdBy` {#createdBy}
@@ -166,9 +166,9 @@ To import a file, use an HTTP `POST` request. Files are passed in the request bo
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
-    If the request is processed incorrectly, the API returns a message with error details:
+    If a request fails, the response message contains details of the errors encountered:
 
     {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 

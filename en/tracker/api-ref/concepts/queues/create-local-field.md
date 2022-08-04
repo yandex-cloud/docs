@@ -45,7 +45,7 @@ Authorization: OAuth <OAuth token>
 | name | Local field name:<ul><li>`en`: In English.</li><li>`ru`: In Russian.</li></ul> | String |
 | id | Local field ID. | String |
 | category | Object with information about the field category.<br/>To get a list of all categories, use the HTTP request:<br/>`GET /v2/fields/categories` | String |
-| type | Local field type:<ul><li>`ru.yandex.startrek.core.fields.DateFieldType`: Date.</li><li>`ru.yandex.startrek.core.fields.DateTimeFieldType`: Date/Time.</li><li>`ru.yandex.startrek.core.fields.StringFieldType`: Single-line text field.</li><li>`ru.yandex.startrek.core.fields.TextFieldType`: Multi-line text field.</li><li>`ru.yandex.startrek.core.fields.FloatFieldType`: Fractional number.</li><li>`ru.yandex.startrek.core.fields.IntegerFieldType`: Integer.</li><li>`ru.yandex.startrek.core.fields.UserFieldType`: User's name.</li><li>`ru.yandex.startrek.core.fields.UriFieldType`: Link.</li> | String |
+| type | Local field type:<ul><li>`ru.yandex.startrek.core.fields.DateFieldType`: Date.</li><li>`ru.yandex.startrek.core.fields.DateTimeFieldType`: Date/Time.</li><li>`ru.yandex.startrek.core.fields.StringFieldType`: Single-line text field.</li><li>`ru.yandex.startrek.core.fields.TextFieldType`: Multi-line text field.</li><li>`ru.yandex.startrek.core.fields.FloatFieldType`: Fractional number.</li><li>`ru.yandex.startrek.core.fields.IntegerFieldType`: Integer</li><li>`ru.yandex.startrek.core.fields.UserFieldType`: User's name.</li><li>`ru.yandex.startrek.core.fields.UriFieldType`: Link.</li> | String |
 
 **Additional parameters**
 

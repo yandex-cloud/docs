@@ -26,7 +26,7 @@ The plugin only allows you to work with issues that you are assigned to.
 
 #### From a file
 
-1. Download the plugin from the official [plugin marketplace](https://plugins.jetbrains.com/plugin/10549-yandex-tracker-integration).
+1. Download the plugin from the official [plugin directory](https://plugins.jetbrains.com/plugin/10549-yandex-tracker-integration).
 
 1. Open the settings window in IntelliJ: **File** → **Settings**.
 
@@ -80,7 +80,7 @@ To make the plugin work, link it to your yandex-team account:
 
 1. Click **Authorize** and wait for the browser window to appear.
 
-1. {% if audience == "external" %}Allow the <q>Yandex Tracker IntelliJ Plugin</q> to access your data on Yandex.{% else %}Allow the <q>Yandex Tracker IntelliJ Plugin</q> to access your yandex-team data.{% endif %}
+1. {% if audience == "external" %} Allow the <q>Yandex.Tracker IntelliJ Plugin</q> to access your data on Yandex.{% else %}Allow the <q>Yandex Tracker IntelliJ Plugin</q> to access your yandex-team data.{% endif %}
 
 1. Copy the authentication code.
 
@@ -90,4 +90,5 @@ To make the plugin work, link it to your yandex-team account:
 
 1. Select the queue that you want to work in.
 
-1. Press **OK**.
+1. Click **OK**.
+

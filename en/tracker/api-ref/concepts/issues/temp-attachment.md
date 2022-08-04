@@ -21,22 +21,12 @@ Content-Type: multipart/form-data
 {% cut "Headers" %}
 
 - **Host**
-    
-    {% if audience == "external" %}
 
     Address of the node that provides the API:
 
     ```
     {{ host }}
     ```
-
-    {% else %}
-
-    ```
-    https://st-api.yandex-team.ru/
-    ```
-
-    {% endif %}
 
 - **Authorization**
 
@@ -84,7 +74,7 @@ Content-Type: multipart/form-data
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
 
@@ -142,7 +132,7 @@ Content-Type: multipart/form-data
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

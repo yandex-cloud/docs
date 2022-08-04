@@ -1,6 +1,6 @@
 # Notifications about your issues
 
-For each role in {{ tracker-name }}, you can configure a list of events you want to be notified about.
+For each role in {{ tracker-name }}, you can configure a list of events you want to be notified about. For example, you can receive notifications about issue status updates or new comments.
 
 ## Configuring event lists {#section_iqn_y55_xgb}
 
@@ -21,7 +21,7 @@ For each role in {{ tracker-name }}, you can configure a list of events you want
 
     {% note info %}
 
-    You can't disable notifications for the most important events.
+    You can't disable notifications for important events, such as changes of assignees or deadlines.
 
     {% endnote %}
 

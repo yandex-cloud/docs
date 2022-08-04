@@ -22,7 +22,7 @@ Authorization: OAuth <OAuth token>
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| \<project-id> | Project ID. | Number |
+| \<project-id> | Project ID | Number |
 
 {% endcut %}
 
@@ -40,7 +40,7 @@ Authorization: OAuth <OAuth token>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -88,8 +88,8 @@ Authorization: OAuth <OAuth token>
     display | User's name displayed. | String
 
     {% endcut %}
-    
-- The request failed
+
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

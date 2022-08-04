@@ -3,7 +3,7 @@
 Configure one or more actions under **Actions** by clicking **Add new action**:
 
 - [Change issue status](set-action.md#section_change_status)
-- [Change field values](set-action.md#section_mod_fields)
+- [Update fields](set-action.md#section_mod_fields)
 - [Add a comment](set-action.md#create-comment)
 - [Create checklist](set-action.md#create-checklist)
 - [Calculate value](set-action.md#section_calc_field)
@@ -17,7 +17,7 @@ Set a new issue status. The available statuses depend on the [workflow](../manag
 
 If you set up a [transition screen](../manager/workflow-action-edit.md#section_uf2_sks_gcb) for a status update, make sure it doesn't have required fields. Otherwise, it won't be possible to change the status using a trigger.
 
-## Change field values {#section_mod_fields}
+## Update fields {#section_mod_fields}
 
 Set new values for one or more fields:
 
@@ -38,7 +38,7 @@ Set new values for one or more fields:
 
 Enter the comment you wish to add to the issue.
 
-You can also enter issue field values in your comment. To do this, click **Add variable** and select one or more values. The **Comment** field will show a sequence like `not_var{{issue.field_ID}}`.
+You can also enter [issue field values in your comments](vars.md). To do this, click **Add variable** and select one or more values. The **Comment** field will show a sequence like `not_var{{issue.<field_ID>}}`.
 
 ## Create a checklist {#create-checklist}
 
@@ -84,7 +84,11 @@ To automatically calculate the value of a field:
 
 ## Move issue {#sec_move}
 
-Specify the queue to move the issue to.
+1. Add the trigger action **Move issue**.
+
+1. Specify the queue to move the issue to.
+
+The issue will only be moved if the user initiating the trigger has the permission to create issues in the selected queue.
 
 ## Create an issue {#sec_create_issue}
 
@@ -104,7 +108,7 @@ To configure issue creation:
 
 1. If you want the {% if audience == "external" %}Tracker robot{% else %}Yandex Tracker robot{% endif %} to be the issue reporter, select **Create as robot**. Make sure the robot has permission to create issues in the queue.
 
-   If this option is disabled, the user who triggered the action becomes the issue reporter instead.
+   If this option is disabled, the user who triggered the action becomes the issue reporter instead. In this case, the issue will only be created if the user has the permission to create issues in the selected queue.
 
 1. If you want to link the issue that enabled the trigger to the issue created by that trigger, select **Link with initial issue**.
 
@@ -134,7 +138,7 @@ If you want the trigger to send an HTTP request:
 
 1. Enter request body.
 
-   You can insert [field values](vars.md) and user variables in your request body. To do this, click **{ }** to the right of the field and choose the name for the field or value. The request body will include a sequence like `not_var{{variable_name}}`.
+   You can insert [field values](vars.md) and user variables in your request body. To do this, click **{ }** to the right of the field and choose the name for the field or value. The request body will include a sequence like `not_var{{variable name}}`.
 
    {% note info %}
 

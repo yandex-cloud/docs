@@ -24,13 +24,13 @@ If you want to restrict users&apos; access to your dashboard, you can change acc
 
 1. Set permissions to **Read**, **Write**, and **Grant** for the following categories of users:
 
-    - **Users and robots**: Individual settings for individual users. To add a user to this category, enter the login or the user&apos;s name in the search bar at the top of the table.
+    - **Users and robots**: Individual settings for individual users. To add a user to this category, enter the login or the user's name in the search bar at the top of the table.
 
     - **Groups**: Settings for {% if audience == "external" %}all employees.{% else %} departments and teams. To add a new department, enter its name in the search bar at the top of the table.{% endif %}
 
         {% note tip %}
 
-        To add all {% if audience == "external" %}of your company's{% else %}Yandex{% endif %} employees, select the {% if audience == "external" %}`All employees`{% else %}`Yandex`{% endif %} group.
+        To add all {% if audience == "external" %}of your organization's{% else %}Yandex{% endif %} employees, select the {% if audience == "external" %}`All employees`{% else %}`Yandex`{% endif %} group.
 
         {% endnote %}
 
@@ -40,7 +40,7 @@ If you want to restrict users&apos; access to your dashboard, you can change acc
 
             {% note alert %}
 
-            Try not to change the access settings for the dashboard owner unless necessary. If you accidentally revoked grant permissions from the owner, contact your {% if audience == "external" %}company's{% endif %} admin.
+            Try not to change the access settings for the dashboard owner unless necessary. If you accidentally revoked grant permissions from the owner, contact your {% if audience == "external" %}organization's{% endif %} admin.
 
             {% endnote %}
 
@@ -55,3 +55,4 @@ If a dashboard was shared with you, you can add it to Favorites so that it&apos;
 1. Click ![](../../_assets/tracker/add-to-favorites.png) to the right of the dashboard name.
 
 Your favorite dashboards are available in the **Dashboards** menu on the top panel in {{ tracker-name }}.
+

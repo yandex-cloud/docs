@@ -4,7 +4,7 @@ Use this request to fetch data about the time spent by a specific user or during
 
 ## GET request format {#section_nvm_kth_jfb}
 
-To get records of time spent, use the HTTP `GET` request:
+To get records of time spent, use the HTTP `GET` request method:
 
 ```json
 GET /{{ ver }}/worklog?createdBy=<user ID or name>&createdAt=from:<start of the time range>&createdAt=to:<end of the time range>
@@ -21,7 +21,7 @@ Authorization: OAuth <token>
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| createdBy | ID or username of the record author. Optional. | String |
+| createdBy | ID or username of the record author. Optional parameter. | String |
 | createdAt=from | Start of the time range the records are created in. Format: ```YYYY-MM-DDThh:mm:ss.sss±hhmm```</br>Optional parameter. | String |
 | createdAt=to | End of the time range the records are created in. Format: ```YYYY-MM-DDThh:mm:ss.sss±hhmm```</br>Optional parameter. | String |
 
@@ -52,8 +52,8 @@ Authorization: OAuth <token>
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| createdBy | ID or username of the record author. Optional. | String |
-| [createdAt](#createdAt) | Object with information about the record creation date and time. Optional. | Object |
+| createdBy | ID or username of the record author. Optional parameter. | String |
+| [createdAt](#createdAt) | Object with information about the record creation date and time. Optional parameter. | Object |
 
 **Object fields** `createdAt` {#createdAt}
 
@@ -68,7 +68,7 @@ Authorization: OAuth <token>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -77,23 +77,23 @@ Authorization: OAuth <token>
     ```json
     [
     {
-      "self": "https://st-api.yandex-team.ru/v2/issues/TEST-324/worklog/1",
+      "self": "{{ host }}/v2/issues/TEST-324/worklog/1",
       "id": 1,
       "version": 1402121720882,
       "issue": {
-        "self": "https://st-api.yandex-team.ru/v2/issues/TEST-324",
+        "self": "{{ host }}/v2/issues/TEST-324",
         "id": "515ec9eae4b09cfa984e2047",
         "key": "TEST-324",
         "display": "important issue"
       },
       "comment": "important comment",
       "createdBy": {
-        "self": "https://st-api.yandex-team.ru/v2/users/1120000000014909",
+        "self": "{{ host }}/v2/users/1120000000014909",
         "id": "veikus",
         "display": "Artem Veikus"
       },
       "updatedBy": {
-        "self": "https://st-api.yandex-team.ru/v2/users/1120000000014909",
+        "self": "{{ host }}/v2/users/1120000000014909",
         "id": "veikus",
         "display": "Artem Veikus"
       },
@@ -149,9 +149,9 @@ Authorization: OAuth <token>
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
-    If the request is processed incorrectly, the API returns a message with error details:
+    If a request fails, the response message contains details of the errors encountered:
 
     {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 

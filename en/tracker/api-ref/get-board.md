@@ -29,7 +29,7 @@ Authorization: OAuth <token>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 
@@ -46,7 +46,7 @@ Authorization: OAuth <token>
        {
         "self" : "{{ host }}/v2/boards/1/columns/1387461731452",
         "id" : "1387461731452",
-        "display" : "Open"
+        "display": "Open"
        },
        ...
       ],
@@ -92,15 +92,15 @@ Authorization: OAuth <token>
     | id | Board ID. | Number |
     | version | Board version. Each change to the board increases its version number. | Number |
     | name | Board name. | String |
-    | [columns](#columns) | Object with information about board columns. | Objects |
-    | [filter](#filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values. | Objects |
+    | [columns](#columns) | Object with information about board columns. | Object |
+    | [filter](#filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values. | Object |
     | orderBy | Field key.<br/>The field is used as a parameter for sorting board issues.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
     | orderAsc | Field value sorting order:<ul><li>`true`: Ascending.</li><li>`false`: Descending.</li></ul> | Boolean |
     | query | Parameters of the filter used to select issues for the board.<br/>The parameters are specified in the [query language](user/query-filter.md). | String |
-    | useRanking | Shows if you can change the order of issues on the board:<ul><li>`true`: Yes.</li><li>`false`: No.</li></ul> | Objects |
-    | [estimateBy](#estimateBy) | Object with information about the parameter that issues on the board are estimated by. <br/>Defaults to `Story Points`. | Objects |
-    | [country](#country) | Object with information about the country. Data of a country's business calendar is used in the [Burndown chart](manager/burndown.md).<br/>To get a list of countries, use an HTTP request: `GET /v2/countries` | Objects |
-    | [defaultQueue](#defaultQueue) | Object with information about the default queue for creating issues. | Objects |
+    | useRanking | Shows if you can change the order of issues on the board:<ul><li>`true`: Yes.</li><li>`false`: No.</li></ul> | Object |
+    | [estimateBy](#estimateBy) | Object with information about the parameter that issues on the board are estimated by. <br/>Defaults to `Story Points`. | Object |
+    | [country](#country) | Object with information about the country. Data of a country's business calendar is used in the [Burndown chart](manager/burndown.md).<br/>To get a list of countries, use an HTTP request: `GET /v2/countries` | Object |
+    | [defaultQueue](#defaultQueue) | Object with information about the default queue for creating issues. | Object |
     | [calendar](#calendar) | Object with information about the business calendar used for the board. The calendar is used to count working and non-working days in the [Burndown chart](manager/burndown.md). | Number |
 
     **Object fields** `columns` {#columns}
@@ -151,7 +151,7 @@ Authorization: OAuth <token>
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

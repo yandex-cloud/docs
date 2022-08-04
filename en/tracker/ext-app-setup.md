@@ -52,24 +52,24 @@ To enable the {{ tracker-name }} interface to display detailed information about
 
 - URL: `scheme://host:port*not_var{{remoteKey}}*`
 
-  where:
-  - `remoteKey` is the key of the linked object in the application.
-  - `*` is any sequence of characters.
+where:
+- `remoteKey` is the key of the linked object in the application.
+- `*` is any sequence of characters.
 
-  For example: `https://my-app.ru:8080/1234/info`
+For example: `https://my-app.ru:8080/1234/info`
 
 Expected response format: A list of parameters in JSON format
 
 | Parameter | Type | Description |
 | -------- | -------- | ---------- |
-| `Key` | String. | Object key. Required. |
-| `summary` | String. | Object name. Required. |
-| `iconUrl` | String. | Icon URL. Optional.<br/>Used if a different icon needs to be displayed for objects in a certain status. |
-| `status` | Objects | Object status. Optional.<br/>Contains the following fields: <ul><li>`name` (string): Name.</li><li>`description` (string, optional): Description.</li></ul> |
-| `resolution` | Objects | Resolution. Optional.<br/>Contains the following fields: <ul><li>`name` (string): Name.</li><li>`description` (string, optional): Description.</li></ul> |
-| `assignee` | Objects | Assignee. Optional.<br/>Contains the following fields:<ul><li>`trackerUid`(long integer, optional): {{ tracker-name }} user ID.</li><li>`passportUid` (long integer, optional): Yandex ID (previously Yandex.Passport) user ID.</li><li>`login` (string, optional): Username.</li></ul> |
-| `updated` | String. | Update date and time in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. Optional. |
-| `deadline` | String. | Deadline in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. Optional. |
+| `key` | String | Object key. Required. |
+| `summary` | String | Object name. Required. |
+| `iconUrl` | String | Icon URL. Optional.<br/>Used if a different icon needs to be displayed for objects in a certain status. |
+| `status` | Object | Object status. Optional.<br/>Contains the following fields: <ul><li>`name` (string): Name.</li><li>`description` (string, optional): Description.</li></ul> |
+| `resolution` | Object | Resolution. Optional.<br/>Contains the following fields: <ul><li>`name` (string): Name.</li><li>`description` (string, optional): Description.</li></ul> |
+| `assignee` | Object | Assignee. Optional.<br/>Contains the following fields:<ul><li>`trackerUid`(long integer, optional): {{ tracker-name }} user ID.</li><li>`passportUid` (long integer, optional): Yandex ID (previously Yandex.Passport) user ID.</li><li>`login` (string, optional): Username.</li></ul> |
+| `updated` | String | Update date and time in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. Optional. |
+| `deadline` | String | Deadline in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. Optional. |
 
 ## Creating links in an application upon request from {{ tracker-name }} {#create}
 
@@ -81,10 +81,10 @@ When a link to an external object is created in {{ tracker-name }}, {{ tracker-n
 
 - Request body: A list of parameters in JSON format
 
-    Parameter | Type | Description
-    -------- | -------- | ----------
-    `issueKey` | String. | {{ tracker-name }} issue key.
-    `entityIds` | Array of strings. | IDs of application objects linked to the issue.
+    | Parameter | Type | Description |
+    | -------- | -------- | ---------- |
+    | `issueKey` | String | {{ tracker-name }} issue key. |
+    | `entityIds` | Array of strings | IDs of application objects linked to the issue. |
 
 ## Removing links in an application upon request from {{ tracker-name }} {#delete}
 
@@ -116,11 +116,11 @@ If {{ tracker-name }} allows creating links to external applications through the
 
 - URL: `scheme://host:port*not_var{{suggestInput}}*`
 
-  where:
-  - `suggestInput` is the text entered by the user.
-  - `*` is any sequence of characters.
+where:
+- `suggestInput` is the text entered by the user.
+- `*` is any sequence of characters.
 
-  For example: `https://my-app.ru:8080/suggest/?input=12`
+For example: `https://my-app.ru:8080/suggest/?input=12`
 
 {% endif %}
 

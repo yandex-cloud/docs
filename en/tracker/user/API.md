@@ -1,8 +1,8 @@
-# {{ tracker-name }} API
+# API {{ tracker-name }}
 
 Manage your {{ tracker-name }} issues using HTTP requests to the [{{ tracker-full-name }} REST API](../about-api.md).
 
-The {{ tracker-full-name }} API is designed for web services and apps that work with your organization's issues on behalf of a user. The API features depend on the access rights of the user on whose behalf requests are made.
+The {{ tracker-full-name }} API is designed for web services and apps that work with your organization's issues on behalf of a user. Users may have different features available in the API depending on their access rights.
 
 Use the {{ tracker-name }} API to:
 
@@ -15,7 +15,7 @@ For more information about how to use the {{ tracker-name }} API, see the [Refer
 
 {% if audience == "internal" %}
 
-You can also find information about the API [in automatically generated documents.](https://st-api.yandex-team.ru/docs/)
+You can also find information about the API [in automatically generated documents.]({{ host }}/docs/)
 
 {% endif %}
 

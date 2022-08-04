@@ -1,4 +1,4 @@
-# Move an issue to another queue
+# Moving an issue to another queue
 
 Use this request to move an issue to a different queue.
 
@@ -57,7 +57,7 @@ You can use the request body if you need to change the parameters of the issue b
 
 {% endcut %}
 
-> Example: Move an issue
+>Example: Move an issue
 >
 >- An HTTP POST method is used.
 >- We're moving the <q>TEST-1</q> issue to the <q>NEW</q> queue.
@@ -73,7 +73,7 @@ You can use the request body if you need to change the parameters of the issue b
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -220,7 +220,7 @@ You can use the request body if you need to change the parameters of the issue b
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 
@@ -231,3 +231,4 @@ You can use the request body if you need to change the parameters of the issue b
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
+

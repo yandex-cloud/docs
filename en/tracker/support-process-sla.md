@@ -54,7 +54,7 @@ If you want to measure the total request processing time, set up a timer that tr
 
     - Set the time limit for resolving the issue in the **Time until expiration** field. For example, specify `8h` if you want the limit to be 8 working hours.
 
-    - In the **Time until warning** field, choose a time limit which triggers an automatic email reminder after expiring. For example, specify `6h` if you want the limit to be 6 working hours.
+    - In **Time until warning**, choose a time limit which triggers an automatic email reminder after expiring. For example, specify `6h` if you want the limit to be 6 working hours.
 
     {% note info %}
 

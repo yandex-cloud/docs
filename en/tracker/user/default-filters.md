@@ -32,7 +32,7 @@ Find your issues using preset system filters:
 
   * To group issues by a certain field, click **No grouping** to the right of the list and select the desired field.
 
-  * To create a [Gantt chart](../manager/gantt.md) for your issue list, in the upper-right corner, click ![](../../_assets/tracker/gantt-ico.png).
+  * To create a [Gantt chart](../manager/gantt.md) for your issue list, go to the upper-right corner and click ![](../../_assets/tracker/gantt-ico.png).
 
   * To save an issue list, click ![](../../_assets/tracker/icon-download.png) to the right above the list and select the format of the file to download or simply copy the list to the clipboard.
 

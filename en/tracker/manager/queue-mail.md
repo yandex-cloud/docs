@@ -1,4 +1,4 @@
-# Email
+# Mail
 
 You can use {{ tracker-name }} to [create issues from emails sent to the queue mailbox](../user/create-ticket-by-mail.md) or [communicate with external users](../user/comments.md#send-comment) from the issue page. This lets you [register user requests sent to the support team](../support-process-send-mail.md).
 
@@ -14,7 +14,7 @@ To set up email integration{% if audience == "external" %}:{% else %}, [add an e
 
 {% note warning %}
 
-You can only set up an email address for the queue if your organization has a [domain]({{ support-business-domain }}) in Yandex 360 for Business. If you already have a mail domain set up in another service, you can create a subdomain for it and [add a domain]({{ support-business-domain }}).
+You can only set up an email address for the queue if your organization has a [domain]({{ support-business-domain }}) in {{ ya-360 }}. If you already have a mail domain set up in another service, you can create a subdomain for it and [add a domain]({{ support-business-domain }}).
 By default, [only the queue owner](queue-access.md) can configure a queue.
 
 {% endnote %}
@@ -29,8 +29,8 @@ To add an email address to your queue, follow these steps:
 
 1. Go to the **Mailboxes** tab.
 
-1. Click **Create address**.
-If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in Yandex 360 for Business]({{ support-business-domain }}).
+1. Click **Add email address**.
+If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in {{ ya-360 }}]({{ support-business-domain }}).
 
 1. Enter the address to assign to the queue in the **Email** field.
 
@@ -39,6 +39,12 @@ If you can't create such an address, this means your organization doesn't have i
     - **Advanced**: Lets you hide the sender's real name and place one or several [custom sender names](#section_ffq_gqb_hgb) instead.
 
 1. Click **Save**.
+
+{% note warning %}
+
+The email address you've generated for the queue will become available within an hour after the queue's creation.
+
+{% endnote %}
 
 {% note info %}
 
@@ -87,7 +93,7 @@ Each email address can have multiple sender names associated with it.
 
 1. Open your queue email settings or [set up a new email address](#section_gwv_hqb_hgb).
 
-1. In the **Signature type** section, choose **Custom**.
+1. In the **Signature type** section, specify **Advanced**.
 
 1. Click **Add a custom sender name and signature**.
 

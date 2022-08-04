@@ -83,3 +83,4 @@ In the support team queue, create two triggers that will be fired if the **Line*
 1. Create a similar trigger for the second support line.
 
 Issues created via the form will now automatically be distributed between the two support lines based on their subject.
+

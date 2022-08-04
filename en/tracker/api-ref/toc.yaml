@@ -3,34 +3,40 @@ items:
   href: about-api.md
 - name: API access
   href: concepts/access.md
+- name: General query format
+  href: common-format.md
 - name: Issues
   items:  
     - name: Get issue parameters
       href: concepts/issues/get-issue.md
-    - name: Editing an issue
+    - name: Edit an issue
       href: concepts/issues/patch-issue.md
-    - name: Creating an issue
+    - name: Create an issue
       href: concepts/issues/create-issue.md
     - name: Moving an issue to another queue
       href: concepts/issues/move-issue.md
     - name: Find out the number of issues
       href: concepts/issues/count-issues.md
-    - name: Find issues
+    - name: Search for issues
       href: concepts/issues/search-issues.md
     - name: Release scroll view resources
       href: concepts/issues/search-release.md
     - name: Get priorities
       href: concepts/issues/get-priorities.md
-    - name: Get issue links
-      href: concepts/issues/get-links.md
-    - name: Link issues
-      href: concepts/issues/link-issue.md
     - name: Get transitions
       href: concepts/issues/get-transitions.md
     - name: Make a status transition
       href: concepts/issues/new-transition.md
     - name: Get the history of issue changes
       href: concepts/issues/get-changelog.md
+    - name: Issue links
+      items: 
+        - name: Link issues
+          href: concepts/issues/link-issue.md
+        - name: Get issue links
+          href: concepts/issues/get-links.md
+        - name: Remove issue links
+          href: concepts/issues/delete-link-issue.md
 - name: Checklists
   items:
     - name: Create a checklist or add items to it
@@ -43,7 +49,7 @@ items:
       href: concepts/issues/delete-checklist.md
 - name: Projects
   items:
-    - name: Creating a project
+    - name: Create a project
       href: concepts/projects/create-project.md
     - name: Get project parameters
       href: concepts/projects/get-project.md
@@ -53,7 +59,7 @@ items:
       href: concepts/projects/get-project-queues.md
     - name: Edit a project
       href: concepts/projects/update-project.md
-    - name: Deleting a project
+    - name: Delete a project
       href: concepts/projects/delete-project.md
 - name: Comments
   items:
@@ -71,7 +77,7 @@ items:
       href: get-macroses.md
     - name: Get a macro
       href: get-macros.md
-    - name: Creating a macro
+    - name: Create a macro
       href: post-macros.md
     - name: Edit a macro
       href: patch-macros.md
@@ -95,7 +101,7 @@ items:
       href: concepts/issues/get-attachment.md
     - name: Download a thumbnail
       href: concepts/issues/get-attachment-preview.md
-    - name: Attaching a file
+    - name: Attach a file
       href: concepts/issues/post-attachment.md
     - name: Upload a temporary file
       href: concepts/issues/temp-attachment.md
@@ -103,7 +109,7 @@ items:
       href: concepts/issues/delete-attachment.md
 - name: Queues
   items:  
-    - name: Creating a queue
+    - name: Create a queue
       href: concepts/queues/create-queue.md
     - name: Get queue parameters
       href: concepts/queues/get-queue.md
@@ -113,7 +119,7 @@ items:
       href: concepts/queues/get-versions.md
     - name: Get required fields for the queue
       href: concepts/queues/get-fields.md
-    - name: Deleting a queue
+    - name: Delete a queue
       href: concepts/queues/delete-queue.md
       when: audience == "external"
     - name: Restore a queue
@@ -123,17 +129,25 @@ items:
       href: concepts/queues/delete-tag.md
     - name: Automation
       items:
-        - name: Receiving triggers
-          href: concepts/queues/get-trigger.md
-        - name: Creating triggers
-          href: concepts/queues/create-trigger.md
+        - name: Auto actions
+          items:
+            - name: Create an auto action
+              href: concepts/queues/create-autoaction.md
+            - name: Get auto action parameters
+              href: concepts/queues/get-autoaction.md
+        - name: Triggers
+          items:              
+            - name: Creating a trigger
+              href: concepts/queues/create-trigger.md
+            - name: Get trigger parameters
+              href: concepts/queues/get-trigger.md
 - name: Issue boards
   items:
     - name: Get parameters of all boards
       href: get-boards.md
     - name: Get board parameters
       href: get-board.md
-    - name: Creating a board
+    - name: Create a board
       href: post-board.md
     - name: Edit a board
       href: patch-board.md
@@ -159,6 +173,10 @@ items:
           href: get-sprint.md
         - name: Create a sprint
           href: post-sprint.md
+- name: Components
+  items:
+    - name: Get a list of components
+      href: get-components.md
 - name: Import
   items:
     - name: Import an issue

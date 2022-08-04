@@ -25,7 +25,7 @@ To do this:
 
 1. To add a role, click ![](../../_assets/tracker/button-plus.png).
 
-1. [Configure the list of events](user-notifications.md#section_iqn_y55_xgb) you want to be notified about for the selected role.
+1. [Configure the list of events](user-notifications.md#section_iqn_y55_xgb) you want to be notified about for the selected role. For example, notifications about issue status updates or new comments.
 
    {% note info %}
 

@@ -18,7 +18,7 @@ To configure email forwarding for mailboxes hosted on your domain, connect the d
 
 1. [Confirm]({{ support-connect-domains }}) domain ownership, but do not delegate it to Yandex servers.
 
-1. Wait for your domain to be verified and click **Make this the primary domain**. Now all emails sent to your company's mailbox in Yandex 360 will be forwarded to the mailbox hosted on your domain.
+1. Wait for your domain to be verified and click **Make this the primary domain**. Now all emails sent to your organization's mailbox in Yandex 360 will be forwarded to the mailbox hosted on your domain.
 
 1. Make sure that your domain&apos;s MX records continue to point to the mail servers you are using.
 

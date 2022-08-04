@@ -14,7 +14,7 @@ Organizing your workflow in {{ tracker-name }} requires managing two crucial ele
 
 There are other optional elements, such as components, issue boards, and dashboards, which help users manage issues, track their status, and monitor results. You can find an overview of all these features below.
 
- ![](../_assets/tracker/concept-structure.png)
+![](../_assets/tracker/concept-structure.png)
 
 #### Issue
 
@@ -26,11 +26,11 @@ If you want to give your employee a task to do, create an issue and make them an
 
 #### Queue
 
-Queues combine issues that share a common topic (be it a process, product, and so on) and let users configure a [workflow](#process) for the issues. Each queue can have its own issue completion stages, rules for automatic issue processing, and access rights to issues.
+Queues combine issues that share a common topic (be it a process, product, and so on) and let users configure a [workflow](#process) for the issues. Each queue can have its own issue completion stages, rules for automated issue processing, and access rights to issues.
 
 As a rule, each team has their own workflow, so we recommend creating standalone queries for each team or company division. You can create a queue for your development department, design team, or legal department. This will turn a queue into an issue feed for a particular team. As an example, you should create an issue in the designers' queue if you need to design a new logo.
 
- ![](../_assets/tracker/que.png)
+![](../_assets/tracker/que.png)
 
 ## Organizing your workflow in {{ tracker-name }} {#process}
 
@@ -42,11 +42,11 @@ Your workflow is linked to your issue queue. If you need to set up multiple work
 
 {{ tracker-name }} also provides [queue templates](manager/workflows.md) with preset workflows tailored for various processes to help you get started. Here's what a versatile workflow looks like:
 
- ![](../_assets/tracker/Workflow.png)
+![](../_assets/tracker/Workflow.png)
 
 You can [create unique workflows](manager/add-workflow.md) tailored for specific issues. Try not to overload them with needless statuses. The simpler a workflow is, the easier it is to work with.
 
-In addition to setting up workflows, you can also use queues to configure [access rights to issues](manager/queue-access.md), [automated issue processing](./automation.md), integration with {% if audience == "internal" %}[email](manager/queue-mail.md) and{% endif %} [Yandex.Forms](manager/forms-integration.md), and so on. These features will allow you to tailor queues to the needs of your team.
+In addition to setting up workflows, you can also use queues to configure [access rights to issues](manager/queue-access.md), [automated issue processing](./automation.md), integration with {% if audience == "internal" %}[email](manager/queue-mail.md) and{% endif %} [{{ forms-full-name }}](manager/forms-integration.md), and so on. These features will allow you to tailor queues to the needs of your team.
 
 For some examples on how you can set up workflows in {{ tracker-name }}, see the following sections:
 
@@ -57,7 +57,7 @@ For some examples on how you can set up workflows in {{ tracker-name }}, see the
 
 Grouping issues can prove useful for determining your workload at various stages of the project or for indicating responsibilities of your various teams or individual employees.
 
- ![](../_assets/tracker/concept-group.png)
+![](../_assets/tracker/concept-group.png)
 
 You can use {{ tracker-name }} to group issues by the following criteria:
 
@@ -96,17 +96,17 @@ In [Scrum]({{ link-wiki-scrum }}), sprints are small iterative cycles of develop
 
 To use this planning strategy, first [create a <q>Scrum</q>](manager/create-agile-board.md) issue board. Using the board, you can [manage sprints](manager/create-agile-sprint.md), [estimate issues with planning poker](manager/planning-poker.md), and use [burn down charts](manager/burndown.md).
 
-#### Planning deadlines using a Gantt chart {#in-order-gantt}
+#### Planning deadlines on a Gantt chart {#in-order-gantt}
 
-You can use a [Gantt chart](manager/gantt.md) to plan and monitor deadlines for multiple issues on a single page. This can be helpful if you want issues to be solved in a specific order or if one employee is responsible for multiple issues.
+You can use a [Gantt chart](manager/gantt.md) to plan and keep track of deadlines for multiple issues on a single page. This can be helpful if you want issues to be solved in a specific order or if one employee is responsible for multiple issues.
 
-You can create a Gantt chart for a project, your queue, or a filtered issue list. The start and end dates for your issue or project are displayed as horizontal lines and can be set or edited right on the chart.
+You can create a Gantt chart for a project, a queue, or a filtered issue list. The start and end dates for your issue or project are displayed as horizontal lines and can be set or edited right on the chart.
 
 ## Monitoring results {#control}
 
 {{ tracker-name }} offers several tools that let users view all issue-related data quickly and easily, monitor progress, and keep track of results.
 
- ![](../_assets/tracker/concept-control.png)
+![](../_assets/tracker/concept-control.png)
 
 #### Dashboards {#dash}
 

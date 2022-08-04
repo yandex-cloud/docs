@@ -7,7 +7,7 @@ To edit possible values of an issue field, use an HTTP `PATCH` request:
 ```json
 PATCH /{{ ver }}/fields/<field-id>?version=<field-version>
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <token> 
 {{ org-id }}
 
 {"optionsProvider":
@@ -51,7 +51,7 @@ Authorization: OAuth <token>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -150,9 +150,9 @@ Authorization: OAuth <token>
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
-    If the request is processed incorrectly, the API returns a message with error details:
+    If a request fails, the response message contains details of the errors encountered:
 
     {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 

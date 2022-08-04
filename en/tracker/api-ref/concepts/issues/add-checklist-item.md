@@ -15,7 +15,7 @@ Authorization: OAuth <OAuth token>
 {{ org-id }}
 
 {
-    "text": "<item text>",
+    "text": "<Item text>",
     "checked": true,
     "assignee" : "1134669209",
     "deadline": {
@@ -49,7 +49,7 @@ The request body contains the information required to create a checklist or add 
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| date | Deadline in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | Date. |
+| date | Deadline in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | Date |
 | deadlineType | The `deadline` parameter data type. | String |
 
 {% endcut %}
@@ -58,7 +58,7 @@ The request body contains the information required to create a checklist or add 
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -290,7 +290,7 @@ The request body contains the information required to create a checklist or add 
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

@@ -15,7 +15,7 @@ Authorization: OAuth <OAuth token>
 {{ org-id }}
 
 {
-    "name: "Project name",
+    "name": "Project name",
     "queues": "<queue key>"
 }
 ```
@@ -49,7 +49,7 @@ The request body contains the information required to create a new project:
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
 
@@ -99,7 +99,7 @@ The request body contains the information required to create a new project:
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

@@ -58,7 +58,7 @@ Authorization: OAuth <token>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
 
@@ -136,9 +136,9 @@ Authorization: OAuth <token>
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
-    If the request is processed incorrectly, the API returns a message with error details:
+    If a request fails, the response message contains details of the errors encountered:
 
     {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 

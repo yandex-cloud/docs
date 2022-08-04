@@ -37,7 +37,7 @@ items:
       href: disable-tracker.md
 - name: Yandex Tracker mobile app
   href: mobile.md
-- name: Practical guidelines
+- name: Practical guides
   items:
     - name: Setting up Yandex Tracker for a development team
       items:
@@ -74,16 +74,19 @@ items:
           href: support-process-group.md
         - name: Tracking the time it takes to process a request
           href: support-process-sla.md
-        - name: Collect requests statistics
+        - name: Collecting requests statistics
           href: support-process-dashboards.md
         - name: Configuring integration with third-party platforms
           href: support-process-integration.md
 - name: Concepts
   items:
-    - name: Yandex Tracker overview
+    - name: Service overview
       href: about-tracker.md
     - name: Concepts
       href: glossary.md
+    - name: Roles and access rights
+      when: audience == "external"
+      href: role-model.md
 #    - name: Обучающие материалы
 #      href: education.md
 #      when: locale == "ru"
@@ -111,8 +114,7 @@ items:
           href: manager/workflow-status-edit.md
         - name: Configuring transitions
           href: manager/workflow-action-edit.md
-        - name: Creating a resolution
-          when: audience == "external"
+        - name: Configuring resolutions
           href: manager/create-resolution.md
     - name: Local issue fields
       href: local-fields.md
@@ -163,7 +165,7 @@ items:
           href: manager/bulk-change.md
     - name: Setting up an issue reminder
       href: user/reminder.md
-    - name: Registering time spent
+    - name: Specifying time spent
       href: user/time-spent.md
     - name: Adding issue fields
       href: user/create-param.md
@@ -185,6 +187,16 @@ items:
       href: manager/components.md
     - name: Versions
       href: manager/versions.md
+- name: Projects (beta)
+  items:
+    - name: Overview
+      href: manager/project-new.md
+    - name: Create a project
+      href: manager/create-project.md
+    - name: List of project issues
+      href: manager/project-list.md
+    - name: Gantt charts
+      href: manager/gantt-project.md
 - name: Agile development tools
   items:
     - name: Overview
@@ -201,11 +213,21 @@ items:
       href: manager/epic.md
     - name: Collaborative workload estimation
       href: manager/planning-poker.md
-    - name: Burn down charts
+    - name: Burn down chart
       href: manager/burndown.md
-- name: Searching issues
+- name: Issue boards (beta)
+  items: 
+    - name: Overview
+      href: manager/agile-new.md
+    - name: Creating a board
+      href: manager/agile-new-create.md
+    - name: Working with an agile board
+      href: manager/agile-new-use.md
+    - name: Configuring boards
+      href: manager/agile-new-set.md
+- name: Searching for issues
   items:
-    - name: Finding issues by key or name
+    - name: Searching for issues by key or name
       href: user/search-task.md
     - name: Searching for my issues
       href: user/default-filters.md
@@ -266,7 +288,7 @@ items:
       items:
         - name: Overview
           href: user/trigger.md
-        - name: Creating triggers
+        - name: Creating a trigger
           href: user/create-trigger.md
         - name: Setting trigger conditions
           href: user/set-condition.md
@@ -292,6 +314,8 @@ items:
       items:
         - name: Overview
           href: user/ticket-template.md
+        - name: Creating a template in {{ forms-full-name }} (beta)
+          href: user/forms-template.md
         - name: Creating a template
           href: user/create-template.md
         - name: Editing a template
@@ -328,7 +352,7 @@ items:
           href: slack.md
         - name: Telegram
           href: telegram.md
-        - name: Yandex.Messenger
+        - name: Yandex Messenger
           when: audience == "internal"
           href: yamessenger.md
     - name: Samsara
@@ -371,7 +395,7 @@ items:
     - name: Connecting repositories
       when: audience == "external"
       href: manager/add-repository.md
-- name: Pricing policy
+- name: Pricing
   when: audience == "external"
   items:
     - name: Pricing
@@ -388,6 +412,14 @@ items:
     repo: docs
     path: en/tracker/api-ref/toc.yaml
 - name: FAQ
+  when: audience == "external"
+  items:
+    - name: General questions
+      href: faq.md
+    - name: Payments
+      href: payment.md
+- name: FAQ
+  when: audience == "internal"
   href: faq.md
 - name: Support
   href: troubleshooting.md

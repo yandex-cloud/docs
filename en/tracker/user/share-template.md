@@ -21,16 +21,16 @@ To change the access settings for a template:
 1. Click **Access rights** next to the desired template.
 
 1. Configure the **Read**, **Write**, and **Grant** permissions for the following categories:
-    - **Users and robots**: Individual settings for individual users. To add a user to this category, enter the login or the user&apos;s name in the search bar at the top of the table.
+    - **Users and robots**: Individual settings for individual users. To add a user to this category, enter the login or the user's name in the search bar at the top of the table.
     - **Groups**: Settings for {% if audience == "external" %}all employees.{% else %} departments and teams. To add a new department, enter its name in the search bar at the top of the table.{% endif %}
 
     {% if audience == "internal" %}
 
-    {% note tip %}
+ {% note tip %}
 
-    To add all Yandex employees, select the `Yandex` group.
+ To add all Yandex employees, select the `Yandex` group.
 
-    {% endnote %}
+ {% endnote %}
 
     {% endif %}
     - **Roles**: Settings for users who have specific roles for the template:
@@ -53,7 +53,7 @@ To share a template with a coworker, send a link to the template:
 
 1. Next to the desired template, select ![](../../_assets/tracker/share.png) → **Link to template**.
 
-1. Copy the contents of the browser&apos;s address bar and send it to the person you want to share it with.
+1. Copy the contents of the browser's address bar and send it to the person you want to share it with.
 
 {% note info %}
 
@@ -73,6 +73,5 @@ If you have [read access](#section_nmn_prs_zz) to the desired template, you can 
 
 1. You can filter out the templates you don't need by clicking ![](../../_assets/tracker/queue-filter.png).
 
-1. Find the switch next to the desired template and set it to ![](../../_assets/tracker/enabled-switch-2.png).
-
+1. Find a switch next to the desired template and set it to ![](../../_assets/tracker/enabled-switch-2.png).
 

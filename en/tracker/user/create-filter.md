@@ -12,7 +12,7 @@ On the {{ tracker-name }} top panel, select **Issues** → **Find issues**.
 
 ### Step 2. Set filter criteria {#set-conditions}
 
-There are several ways to set filter conditions:
+There are several ways to set filter parameters:
 
 - **Quick filters**
 

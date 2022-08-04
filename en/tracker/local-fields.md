@@ -32,7 +32,7 @@ By default, [only the queue owner](manager/queue-access.md) can configure a queu
 
     - **Category**. All {{ tracker-name }} fields are grouped into categories. Select the category that best suits the new field.
 
-    - **Name**. Try to give the fields short and informative names.
+    - **Name in Russian**. Try to give the fields short and informative names.
 
     - **Name in English**. This name is shown in the English interface of {{ tracker-name }}.
 
@@ -66,11 +66,15 @@ Requests are reviewed within 2-3 business days. If the issue is urgent, set its 
 
 - When you [move](user/move-ticket.md) or [clone](user/clone.md) issues with local fields to a different queue, the local field values are automatically deleted.
 
+- When using [macros](manager/create-macroses.md), [triggers](user/trigger.md), or [auto actions](user/autoactions.md) to insert a local field value into a [comment](user/set-action.md#create-comment), [formula](user/set-action.md#section_calc_field), or [HTTP request](user/set-action.md#create-http) via a[variable](user/vars.md#local-fields), use the entry format `{{issue.local.<field key>}}`.
+
 #### Where you can't use local fields
 
-Local fields are temporarily not supported in certain cases. They will be implemented later.
+Local fields are temporarily not supported in some issue use scenarios. They will be implemented later.
 
-- On issue boards, local fields are not displayed on [cards](manager/edit-agile-board.md#sec_layout). Also, local fields can't be used in [filters on issue boards](user/agile.md#section_cxl_x31_2gb).
+- You won't be able to add issues by local field value when creating an Agile board. You can add this condition later on your Agile board's [edit page](manager/edit-agile-board.md#section_ft1_3l3_3z) by using the [query language](user/query-filter.md).
+
+- Local fields are not displayed in [cards on issue boards](manager/edit-agile-board.md#sec_layout).
 
 - You can't use local fields in [SLA rules](sla-head.md).
 
@@ -86,5 +90,5 @@ The following two types of actions are supported when working with local fields 
 
   To find out the ID of a local field, run a query that lets you get [a list of local fields in a certain queue](concepts/queues/get-local-fields.md).
 
-- Change a local field's parameter, such as its name or description, or add multiple parameter values. For more information, see the [{{ tracker-name }} API reference](concepts/queues/edit-local-field.md).
+- Change a local field's parameters, such as its name, description, or multiple parameter values. For more information, see the [{{ tracker-name }} API reference](concepts/queues/edit-local-field.md).
 

@@ -1,6 +1,6 @@
 # Get a list of queues
 
-Use this request to get a list of available queues. If there are more than 50 queues in the response, use [pagination](#view-pages).
+Use this request to get a list of available queues. If there are more than 50 queues in the response, use [pagination](../../common-format.md#displaying-results).
 
 ## Request format {#query}
 
@@ -149,7 +149,7 @@ Authorization: OAuth <OAuth token>
 | [lead](#lead) | Block with information about the queue owner. | Object |
 | assignAuto | Automatically assign new issues in the queue:<ul><li>`true`: Assign.</li><li>`false`: Do not assign.</li></ul> | Boolean |
 | [defaultType](#default-type) | Block with information about the default issue type. | Object |
-| [defaultPriority](#default-priority) | Block with information about the default issue priority | Object |
+| [defaultPriority](#default-priority) | Block with information about the default issue priority. | Object |
 | [teamUsers](#team-users) | Array with information about queue team members | Array of objects |
 | [issueTypes](#issue-types) | Array with information about queue issue types. | Array of objects |
 | [versions](#versions) | Array with information about queue versions | Array of objects |
@@ -246,26 +246,4 @@ Authorization: OAuth <OAuth token>
 | display | Resolution name displayed | String |
 
 {% endcut %}
-
-## Paginated result output {#view-pages}
-
-If more than 50 queues meet the request criteria, you should use the scrolling mechanism to output the results page by page. To enable scrolling, use the following parameters in the request:
-
-- **perPage (optional)**
-
-    Number of queues per page. Default: 50.
-
-- **page (optional)**
-
-    Response page number. The default value is 1.
-
-The response will contain the following headers:
-
-- **X-Total-Pages**
-
-    Total number of pages with entries.
-
-- **X-Total-Count**
-
-    Total number of entries in the response.
 

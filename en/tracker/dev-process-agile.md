@@ -1,6 +1,6 @@
-# Use Agile methodologies
+# Using Agile methodologies
 
-If your team's work is organized around [Agile software development]({{ link-wiki-agile }}), it can be a good idea to try issue boards in {{ tracker-name }}. Boards help you keep track of tasks laid out for the team (such as during daily meetups). Issues are displayed on the board as cards sorted into columns based on their status.
+If your team's work is organized around [Agile software development]({{ link-wiki-agile }}), it can be a good idea to try issue boards in {{ tracker-name }}. Boards help you keep track of issues laid out for the team (such as during daily meetups). Issues are displayed on the board as cards sorted into columns based on their status.
 
 {% if audience == "external" %}
 

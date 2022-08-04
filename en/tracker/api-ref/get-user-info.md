@@ -21,7 +21,7 @@ Authorization: OAuth <OAuth token>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 
@@ -65,7 +65,7 @@ Authorization: OAuth <OAuth token>
           "display": "<First and Last name>",
           "email": "<login@yandex-team.ru>",
           "office": {
-             "self": "https://st-api.test.yandex-team.ru/v2/offices/1",
+             "self": "{{ host }}/v2/offices/1",
              "id": "1",
              "display": "Moscow, Morozov Business Center"
           },
@@ -104,7 +104,7 @@ Authorization: OAuth <OAuth token>
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     {% include [answer-error-401](../_includes/tracker/api/answer-error-401.md) %}
 

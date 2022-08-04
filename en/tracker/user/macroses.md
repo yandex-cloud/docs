@@ -1,4 +1,4 @@
-# Running a macro
+# Executing macros
 
 In {{ tracker-name }}, macros are scripted algorithms that can be executed on the issue page. You can use macros to automate repeating actions. Macros let you change {% if audience == "internal" %} issue fields, create automated comments, and send{% else %} messages{% endif %}.
 

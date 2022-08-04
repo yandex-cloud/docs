@@ -9,6 +9,7 @@ Let's look at how we can set up triggers that send notifications to:
 
 {% if audience == "internal" %}
 
-- [Yandex.Messenger](yamessenger.md)
+- [Yandex Messenger](yamessenger.md)
 
 {% endif %}
+

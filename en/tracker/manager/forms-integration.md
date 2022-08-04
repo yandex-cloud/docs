@@ -8,7 +8,7 @@ If you want to use a form as a template for quickly creating standardized issues
 
 To set up forms for issue creation:
 
-1. {% if audience == "external" %}Go to [{{ forms-full-name }}]({{ link-forms }}). If the service hasn't been activated, contact your company's administrator.{% else %}Go to [{{ forms-full-name }}]({{ link-forms }}).{% endif %}
+1. {% if audience == "external" %}Go to [{{ forms-full-name }}]({{ link-forms }}). If the service hasn't been activated, contact your organization's administrator.{% else %}Go to [{{ forms-full-name }}]({{ link-forms }}).{% endif %}
 
 1. [Create](../../forms/new-form.md) a new form.
 Set up your form to collect data needed for issue creation.

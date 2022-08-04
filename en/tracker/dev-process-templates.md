@@ -16,7 +16,7 @@ To create an issue template for your queue and grant access rights to it for you
 
 1. To configure template access, click **Access rights** next to the template and add the desired groups or users.
 
-1. To let the members of your team use your template, do the following:
+1. To let the members of your team use your template:
 
     - Make sure the employees have read-only access to the template.
 

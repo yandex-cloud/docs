@@ -1,33 +1,202 @@
 # Formatting text in issues
 
-To format text in issue descriptions or comments, use Yandex Flavored Markdown syntax. For example, you can format text with italics or bold, as well as add lists and tables.
+Use the {{ yfm }} syntax when formatting text in issue descriptions or comments. For example, you can format text with italics or bold, as well as add lists and tables.
 
 If you want to see a preview of how the issue description or comment would look after formatting, click **Preview**. Click **Edit** to resume formatting.
 
-The basic markup options are listed below.
+## Lowercase formatting {#line}
 
 | Element | Markup | Result |
 | ----- | ----- | ----- |
-| Headings | ```# First level header```<br/>```## Second level header```<br/>```### Third level header``` | ![](../../_assets/tracker/format/h1-h3.png) |
 | Bold | ```**Bold**``` | **Bold** |
 | Italics | ```_Italics_``` | _Italics_ |
 | Bold italics | ```**_Bold italics_**``` | **_Bold italics_** |
 | Also bold italics | ```_**Also bold italics**_``` | _**Also bold italics**_ |
 | Strikethrough | ```~~Strikethrough~~``` | ~~Strikethrough~~ |
-| Underline | ```++Underlined text++``` | ![](../../_assets/tracker/format/underlined.png) |
+| Underline | ```++Underlined++``` | <u>Underlined</u> |
 | Superscript | ```Super^script^``` | Super^script^ |
-| Monospaced text | ```##Monospaced text##``` | ![](../../_assets/tracker/format/monospaced.png) |
-| Colored text.<br/><br/>Supported colors:<br/><br/>`red`;<br/>`green`;<br/>`blue`;<br/>`gray`;<br/>`yellow`. | ```{blue}(Blue text)``` | ![](../../_assets/tracker/format/colored.png) |
-| Numbered list | ```1. List item.```<br/>```1. List item.```<br/>&nbsp;&nbsp;&nbsp;&nbsp;`1. Nested list item.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`1. Nested list item.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`1. Nested list item.`<br/>```1. List item.``` | ![](../../_assets/tracker/format/ol.png) |
-| Bulleted list | ```* List item.```<br/>```* List item:```<br/>&nbsp;&nbsp;&nbsp;&nbsp;`* Nested list item.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`* Nested list item.`<br/>```* List item.``` | ![](../../_assets/tracker/format/ul.png) |
-| Link | ```[link_text]({{ link-yandex }})``` | [link_text]({{ link-yandex }}) |
-| URL | To convert a URL or email address into a link, add angle brackets on both sides <>.<br/>```<{{ link-yandex }}>``` | <{{ link-yandex }}> |
-| Issue link | ``` TEST-123 ``` | ![](../../_assets/tracker/format/tracker-magic-link.png) |
-| Quoted text | ```> Quoting```<br/>```>> Nested quotes``` | ![](../../_assets/tracker/format/quote.png) |
-| Collapsed text | ```{% cut "Read the entire text" %}```<br/>```The content that's displayed on click.```<br/>```{% endcut %}``` | ![](../../_assets/tracker/format/cut.png) |
-| Table | ```\| Heading1 \| Heading2  \|```<br/>```\| ---------- \| ---------- \|```<br/>```\| Text       \| Text       \|```<br/>```\| Text       \| Text       \|``` | ![](../../_assets/tracker/format/table.png) |
-| Multiple-line table | ```#\|```<br/>```\|\| **Heading1** \| **Heading2** \|\|```<br/>```\|\| Text ```<br/>```on two lines```<br/>```\| Text \|\|```<br/>```\|#``` | ![](../../_assets/tracker/format/table2.png) |
+| Subscript | ```Subvvscriptvv``` | Sub<sub>script</sub> |
+| Monospaced text | ```##Monospaced text##``` | <samp>Monospaced text</samp> |
+| Colored text:<br/><ul><li>`red`{% if locale == "ru" %} — color red{% endif %};<li>`green`{% if locale == "ru" %} — color green{% endif %};<li>`blue`{% if locale == "ru" %} — color blue{% endif %};<li>`gray`{% if locale == "ru" %} — color gray{% endif %};<li>`yellow`{% if locale == "ru" %} — color yellow{% endif %}. | ```{blue}(Blue text)``` | <font color="blue">Blue text</font> |
 | Source code | ``` `code snippet` ``` | `code snippet` |
-| Multiple-line code block | ` ```php`<br/>`<?`<br/>`phpinfo();`<br/>`$s = "Hello, World!\n";`<br/>`print $s;`<br/>` ``` ` | ![](../../_assets/tracker/format/source-code-3.png) |
 | Escaping markup elements | ```\*\*escaping** _markup elements_``` | \*\*escaping** _markup elements_ |
+
+## Headers {#headers}
+
+```
+# First-level heading 
+
+#### Fourth-level heading
+
+##### Fifth-level heading
+```
+
+{% cut "See the result" %}
+
+# First-level heading
+
+#### Fourth-level heading
+
+##### Fifth-level heading
+
+{% endcut %}
+
+## Links {#links}
+
+| Element | Markup | Result |
+| ----- | ----- | ----- |
+| Link | ```[link_text]({{ link-yandex }})``` | [link_text]({{ link-yandex }}) |
+| URL | To convert a URL or email<br/>address into a link,<br/>add angle brackets on both sides `<>`:<br/>```<{{ link-yandex }}>``` | <{{ link-yandex }}> |
+| Issue link | ``` TEST-123 ``` | ![](../../_assets/tracker/format/tracker-magic-link.png) |
+
+## Lists {#lists}
+
+#|
+|| **Element** | **Markup** | **Result** ||
+|| Numbered list |
+
+```
+1. List item.
+1. List item:
+    1. Nested list item.
+    1. Nested list item.
+1. List item.
+```
+
+|
+
+1. Nested list item.
+1. List item:
+    1. Nested list item.
+    1. Nested list item.
+1. List item. ||
+||Bulleted list |
+
+```
+* List item.
+* List item:
+    * Nested list item.
+    * Nested list item.
+* List item.
+```
+
+|
+
+* Nested list item.
+* List item:
+    * Nested list item.
+    * Nested list item.
+* List item. ||
+|| Issue list |
+
+```
+[ ] List item.
+[x] List item.
+[ ] List item.
+[ ] List item.
+```
+
+|
+![](../../_assets/tracker/format/check.png) ||
+|#
+
+## Block formatting {#blocks}
+
+#|
+|| **Element** | **Markup** | **Result** ||
+|| Quotation |
+
+```
+> Quotations
+>> Nested quote
+```
+
+|
+
+> Quotations
+>> Nested quote ||
+|| Multiple-line code block |
+
+````
+```php
+<?
+phpinfo();
+$s = "Hello, World!\n";
+print $s;
+``` 
+````
+
+|
+
+```php
+<?
+phpinfo();
+$s = "Hello, World!\n";
+print $s;
+```
+
+||
+|| Collapsed text |
+
+```
+{% cut "Cut header" %}
+
+Text displayed
+on click
+
+{% endcut %}
+```
+
+| {% cut "Cut header" %}
+
+Text displayed on click
+
+{% endcut %} ||
+|#
+
+## Tables {#tables}
+
+### Simple table {#simple-table}
+
+The cells of this table type can only include one line of text or one image.
+
+```
+| Header1 | Header2 |
+| ---------- | ---------- |
+| Text     | Text      |
+| Text     | Text      |
+```
+
+{% cut "See the result" %}
+
+| Header1 | Header2 |
+| ---------- | ---------- |
+| Text | Text |
+| Text | Text |
+
+{% endcut %}
+
+### Multiple-line table {#multiline-table}
+
+The cells of this table type can include multiple lines of text, an image, lists, tables, or source code.
+
+```
+#|
+|| **Header1** | **Header2**||
+|| Text
+on two lines | Text ||
+|| Text | Text ||
+|#
+```
+
+{% cut "See the result" %}
+
+#|
+|| **Header1** | **Header2** ||
+|| Text
+on two lines | Text ||
+|| Text | Text ||
+|#
+
+{% endcut %}
 

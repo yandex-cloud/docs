@@ -14,13 +14,13 @@ A queue may include different types of issues, such as <q>New feature</q>, <q>Im
 
 {% note warning %}
 
-Only the company admin can create new issue types. Once created, an issue type can't be deleted or edited.
+Only the [administrator](../role-model.md) can create new issue types. Once created, an issue type can't be deleted or edited.
 
 {% endnote %}
 
 The most popular issue types are available in {{ tracker-name }} by default. If you need something different, create a new one:
 
-1. Make sure that you are logged in as an administrator in {{ tracker-full-name }}.
+1. Make sure you are logged in to {{ tracker-full-name }} as an [administrator](../role-model.md).
 
 1. On the {{ tracker-name }} top panel, select ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
 
@@ -32,7 +32,7 @@ The most popular issue types are available in {{ tracker-name }} by default. If 
 
 {% endif %}
 
-## Adding an issue type to a queue{#section_mvh_5yb_gz}
+## Adding an issue type to a queue {#section_mvh_5yb_gz}
 
 To create a new issue type:
 
@@ -44,15 +44,15 @@ To create a new issue type:
 
 1. Click **Add issue type**.
 
-1. Configure settings:
+1. Configure the settings:
     - **Issue type**: Select one of the available types.
-    {% if audience == "external" %}The most popular issue types are available in {{ tracker-name }} by default. If you don't see the type you need, your company's admin can [create it](#create-ticket-type).{% endif %}
-    - **Workflow**: Set the workflow to apply to this type of issue. Select one of the available workflows or [create a new one](add-workflow.md) based on one of them.
+    {% if audience == "external" %}The most popular issue types are available in {{ tracker-name }} by default. If you don't see the type you need, your admin can [create one](#create-ticket-type).{% endif %}
+    - **Workflow**: Set the workflow to apply to this type of issue. Select one of the available workflows or [create a new one](add-workflow.md) based on any of them.
     - **Resolutions**: Select possible resolutions.
-    {% if audience == "external" %}The most popular resolutions are available in {{ tracker-name }} by default. If you don't see the resolution you need, your company's admin can [create it](create-resolution.md).{% endif %}
-    {% if audience == "internal" %} If the issue type or resolution you need is missing in {{ tracker-name }}, send a request to create them via the [form](../user/create-param.md#section_bjz_3p4_xgb).{% endif %}
+    {% if audience == "external" %}The most popular resolutions are available in {{ tracker-name }} by default. If you don't see the resolution you need, your admin can [create one](create-resolution.md).{% endif %}
+    {% if audience == "internal" %}If the desired issue type or resolution isn't available in {{ tracker-name }}, send a request to create them via the [form](../user/create-param.md#section_bjz_3p4_xgb).{% endif %}
 
-1. The **Statuses and transitions** section shows the main parameters of the selected workflow. If necessary, you can edit it or create a copy.
+1. The **Statuses and transitions** section shows the main settings of the selected workflow. If necessary, you can edit it or create a copy.
 
 1. Click **Save** at the bottom of the tab.
 

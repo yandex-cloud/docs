@@ -6,7 +6,7 @@ To start using the client:
 
 1. Download and install the latest Python version from [https://www.python.org/downloads/](https://www.python.org/downloads/).
 
-1. From your OS command line, run:
+1. Run the following command in your OS command line:
 
     {% if audience == "external" %}
 
@@ -30,16 +30,16 @@ To start using the client:
 
 {% if audience == "external" %}
 
-1. Get an OAuth token and your organization ID to access the API. To learn more, see the [API reference](../concepts/access.md).
+1. Receive your OAuth token and organization ID to access the API. For more information about how to do this, see the [API reference](../concepts/access.md).
 
-1. Initialize the client in your program code:
+1. Initialize the client in your program's code:
 
     ```
     from yandex_tracker_client import TrackerClient
-    client = TrackerClient(token=<token>, org_id=<org_id>)
+    client = TrackerClient(token='<token>', org_id='<org_id>')
     ```
 
-    Here, `<token>` is your OAuth token and `<org_id>` is your organization ID.
+    Here `<token>` is your OAuth token, and `<org_id>` is your organization ID.
 
 In the client, use the same data format as in the [{{ tracker-name }} API](../concepts/access.md).
 
@@ -49,7 +49,7 @@ For more information about how the client works and its terms of use, see its pa
 
 1. Get an OAuth token. To do this, follow the link and log in: [https://oauth.yandex-team.ru/authorize?response_type=token&client_id=5f671d781aca402ab7460fde4050267b](https://oauth.yandex-team.ru/authorize?response_type=token&client_id=5f671d781aca402ab7460fde4050267b).
 
-1. Initialize the client in your program code:
+1. Initialize the client in your program's code:
 
     ```
     from startrek_client import Startrek

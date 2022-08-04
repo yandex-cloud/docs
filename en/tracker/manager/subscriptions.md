@@ -46,7 +46,7 @@ To configure notifications for issue updates within a queue:
 
           - **All events**: Users are notified of any changes to issues.
 
-    **About issues related to a particular component**
+    **About issues related to a specific component**
 
       You can set up notifications for issues that specify the component you are interested in:
 
