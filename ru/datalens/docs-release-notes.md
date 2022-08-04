@@ -1,5 +1,17 @@
 # Релизы документации
 
+## Август 2022 {#august2022}
+
+### Пошаговые инструкции {#operations082022}
+
+* Обновлена инструкция [{#T}](operations/chart/create-pivot-table.md).
+* Обновлена инструкция [{#T}](operations/chart/create-column-chart.md).
+* Обновлена инструкция [{#T}](operations/chart/create-bar-chart.md).
+
+### ChartEditor {#charteditor082022}
+
+* Обновлен раздел [{#T}](editor/index.md).
+
 ## Июль 2022 {#july2022}
 
 ### Решение проблем {#troubleshooting072022}
