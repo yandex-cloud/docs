@@ -12,7 +12,7 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, {{ data-transfer-
 
 {% if product == "yandex-cloud" %}
 
-Until July 30, 2022 inclusive, {{ data-transfer-name }} resource consumption will not be charged.
+Until September 30, 2022 inclusive, {{ data-transfer-name }} resource consumption will not be charged.
 
 For the consumption of other {{ yandex-cloud }} resources used during transfers (for example, managed database services), you will be charged according to their pricing policy.
 
