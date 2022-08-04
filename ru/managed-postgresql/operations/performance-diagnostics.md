@@ -4,9 +4,73 @@
 
 ## Активировать сбор статистики {#activate-stats-collector}
 
-Включите опцию **Сбор статистики** при [создании кластера](cluster-create.md) или [изменении его настроек](update.md#change-additional-settings) (по умолчанию опция отключена).
+{% list tabs %}
 
-Настройте **Интервал сбора сессий** и **Интервал сбора запросов**. Единицы измерения обеих настроек — секунды.
+* Консоль управления
+
+    Включите опцию **Сбор статистики** при [создании кластера](cluster-create.md) или [изменении его настроек](update.md#change-additional-settings) (по умолчанию опция отключена).
+
+* CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы включить сбор статистики, передайте параметр `--performance-diagnostics` в команде изменения кластера:
+
+    ```bash
+    {{ yc-mdb-pg }} cluster update <идентификатор или имя кластера> \
+        ...
+        --performance-diagnostics enabled=true,`
+                                 `sessions-sampling-interval=<интервал сбора сессий>,`
+                                 `statements-sampling-interval=<интервал сбора запросов> \
+        ...
+    ```
+
+    Допустимые значения параметров:
+
+    - `sessions-sampling-interval` — от `1` до `86400` секунд.
+    - `statements-sampling-interval` — от `60` до `86400` секунд.
+
+* Terraform
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+        Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+
+    1. {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
+
+    1. Проверьте корректность настроек.
+  
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+    1. Подтвердите изменение ресурсов.
+  
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
+* API
+
+    Воспользуйтесь методом API [create](../api-ref/Cluster/create.md) или [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`.
+    * Значение `true` в параметре `config.performanceDiagnostics.enabled`.
+    * Интервал сбора сессий в параметре `config.performanceDiagnostics.sessionsSamplingInterval`. Допустимые значения — от `1` до `86400` секунд.
+    * Интервал сбора запросов в параметре `config.performanceDiagnostics.statementsSamplingInterval`. Допустимые значения — от `60` до `86400` секунд.
+    * Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
+
+    Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    {% note warning %}
+
+    Этот метод API сбросит все настройки кластера, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, обязательно передайте название полей, подлежащих изменению, в параметре `updateMask`.
+
+    {% endnote %}
+
+{% endlist %}
 
 ## Получить статистику по сессиям {#get-sessions}
 

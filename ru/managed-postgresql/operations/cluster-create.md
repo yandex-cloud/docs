@@ -341,6 +341,8 @@
 
      {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
+     {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
+
      Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
   1. Проверьте корректность настроек.
@@ -380,6 +382,10 @@
 
   {% endif %}
   {% endif %}
+
+  Чтобы активировать [сбор статистики](./performance-diagnostics.md#activate-stats-collector):
+
+  {% include [Performance diagnostic API](../../_includes/mdb/mpg/performance-diagnostics-api.md) %}
 
 {% endlist %}
 
