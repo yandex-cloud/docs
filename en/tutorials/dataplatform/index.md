@@ -20,6 +20,7 @@
 * [{#T}](kafka-cdc.md)
 * [{#T}](./kafka-cdc-data-transfer.md)
 * [Migrating databases to {{ mms-name }}](mssql-data-migration.md)
+* [{#T}](mssql-outbound-migration.md)
 {% endif %}
 * [Migrating data from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}](rdbms-to-clickhouse.md)
 * [Configuring {{ dns-full-name }} for access to managed database clusters from other cloud networks](mdb-dns-peering.md)
