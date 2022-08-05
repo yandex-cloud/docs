@@ -196,6 +196,8 @@ description: "Как получить логи моей работы в серв
 
 {% include [object-id](../../_includes/datalens/qa/object-id.md) %}
 
+{% include [network-error](../../_includes/datalens/qa/network-error.md) %}
+
 ## Как сообщить о проблеме {#how-to-resolve-problem}
 
 Сообщить о проблеме можно двумя способами:

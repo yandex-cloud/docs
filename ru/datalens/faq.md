@@ -223,6 +223,8 @@
 
 {% include [object-id](../_includes/datalens/qa/object-id.md) %}
 
+{% include [network-error](../_includes/datalens/qa/network-error.md) %}
+
 ## Как сообщить о проблеме {#how-to-resolve-problem}
 
 Мы всегда поможем, если у вас возникнут трудности и проблемы.
