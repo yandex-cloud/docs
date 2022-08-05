@@ -185,6 +185,8 @@
 
     - Подключение без TLS
 
+        {% include [Install requirements](../../_includes/mdb/mrd/connect/bash/install-requirements.md) %}
+
         **Подключение с помощью Sentinel**
 
         ```bash
@@ -241,6 +243,8 @@
             Во время работы скрипта будут выводиться сообщения об ошибках вставки данных. Это нормальное поведение команды `redis-cli`, связанное с тем, что в шардированном кластере каждый шард хранит только часть данных. Подробнее см. в разделе [{#T}](../../managed-redis/concepts/sharding.md).
 
     - Подключение с TLS
+
+        {% include [Install requirements SSL](../../_includes/mdb/mrd/connect/bash/install-requirements-ssl.md) %}
 
         **Подключение с помощью Sentinel**
 
