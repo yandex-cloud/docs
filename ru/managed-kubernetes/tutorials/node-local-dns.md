@@ -89,7 +89,7 @@
    kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
    ```
 
-## Подготовьте спецификацию для Node Local DNS и запустите DaemonSet {#daemonset}
+## Подготовьте спецификацию для NodeLocal DNS и запустите DaemonSet {#daemonset}
 
 1. Создайте файл `node-local-dns.yaml`. В настройках DaemonSet `node-local-dns` укажите IP-адрес сервиса `kube-dns`:
 
@@ -302,7 +302,7 @@
        k8s-app: node-local-dns
    ```
 
-1. Создайте ресурсы для Node Local DNS:
+1. Создайте ресурсы для NodeLocal DNS:
 
    ```bash
    kubectl apply -f node-local-dns.yaml
