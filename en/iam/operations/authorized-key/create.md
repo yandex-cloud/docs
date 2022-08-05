@@ -55,7 +55,6 @@ To create [authorized keys](../../concepts/authorization/key.md):
    ```
 
    Where:
-
    * `<iam-token>`: The IAM token of the user who has rights to view service accounts in the folder.
    * `<service-account-id>`: The `ID` of the service account that the keys are created for.
 
@@ -77,8 +76,57 @@ To create [authorized keys](../../concepts/authorization/key.md):
    }
    ```
 
+- {{ TF }}
+
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. In the configuration file, describe the parameters of resources that you want to create:
+
+      * `service_account_id` = service account [ID](../sa/get-id.md). Required parameter.
+      * `description`: Key description. Optional.
+      * `key_algorithm`: A key generation algorithm. Optional. The default algorithm is `RSA_2048`. For more information about the acceptable parameter values, see the [API documentation](../../api-ref/Key/index.md).
+      * `pgp_key`: An additional PGP key for encrypting a private key. Optional. A public part of the key in base64 encoding or in the `keybase:keybaseusername` form is specified.
+
+      ```
+      resource "yandex_iam_service_account_key" "sa-auth-key" {
+        service_account_id = "<service account ID>"
+        description        = "<key description>"
+        key_algorithm      = "<key generation algorithm>"
+        pgp_key            = "<pgp key>"
+      }
+      ```
+
+      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_key).
+
+   1. Make sure that the configuration files are correct.
+
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run the check using the command:
+
+         ```
+         terraform plan
+         ```
+
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+
+   1. Deploy the cloud resources.
+
+      1. If the configuration doesn't contain any errors, run the command:
+
+         ```
+         terraform apply
+         ```
+
+      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+
+      Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following CLI command:
+
+      ```
+      yc iam key list --service-account-id <service account ID>
+      ```
+
 {% endlist %}
 
 #### What's next {#what-is-next}
 
-* [Get an IAM token for the service account](../iam-token/create-for-sa.md)
+* [Get an IAM token for the service account](../iam-token/create-for-sa.md).

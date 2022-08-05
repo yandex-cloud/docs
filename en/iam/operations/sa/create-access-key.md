@@ -14,6 +14,7 @@ To create a static access key:
    1. Go to the **Service accounts** tab.
    1. Choose a service account and click the line with its name.
    1. Click **Create new key** in the top panel.
+   1. Select **Create static access key**.
    1. Specify the key description and click **Create**.
    1. Save the ID and private key.
 
@@ -51,7 +52,6 @@ To create a static access key:
       | aje9sda1ufvqcmfksd3f | blabla           | bla bla bla is my description |
       +----------------------+------------------+-------------------------------+
       ```
-
    1. Create an access key for the `my-robot` service account:
 
       ```bash
@@ -110,4 +110,4 @@ Add a description when creating an access key.
 #### What's next {#what-is-next}
 
 * [Configuring tools to work with {{ objstorage-name }}](../../../storage/tools/)
-* [{#T}](assign-role-for-sa.md)
+* [{#T}](assign-role-for-sa.md).

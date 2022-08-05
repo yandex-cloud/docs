@@ -1,13 +1,5 @@
 # Updating a service account
 
-You can use the management console to immediately add or remove [roles](../../concepts/access-control/roles.md) of the service account:
-
-* For the folder that the service account belongs to.
-* For folders that are located in the same cloud as the folder where the service account was created.
-* For the cloud that the service account was created in.
-
-To assign the service account a role for another resource, use the CLI or API by following the instructions in [{#T}](assign-role-for-sa.md).
-
 {% list tabs %}
 
 - Management console
@@ -16,7 +8,12 @@ To assign the service account a role for another resource, use the CLI or API by
    1. Go to the **Service accounts** tab.
    1. Click ![image](../../../_assets/options.svg) next to the service account and select **Edit**.
    1. Change the name of your service account.
-   1. Add or remove roles assigned to the service account. The roles will be assigned for the folder where the service account was created.
+
+      Name format requirements:
+
+      {% include [name-format](../../../_includes/name-format.md) %}
+
+   1. Change the description of your service account.
    1. Click **Save**.
 
 - CLI
@@ -37,7 +34,7 @@ To assign the service account a role for another resource, use the CLI or API by
 
       Result:
 
-      ```
+      ```bash
       +----------------------+------------------+-------------------------------+
       |          ID          |       NAME       |          DESCRIPTION          |
       +----------------------+------------------+-------------------------------+

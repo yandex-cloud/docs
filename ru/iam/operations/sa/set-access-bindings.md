@@ -158,40 +158,40 @@
 
     1. Назначьте пользователю роль `editor` на сервисный аккаунт `my-robot`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} и ID пользователя:
 
-        {% if product == "yandex-cloud" %}
-        ```bash
-        curl -X POST \
-          -H 'Content-Type: application/json' \
-          -H "Authorization: Bearer <IAM-TOKEN>" \
-          -d '{
-          "accessBindingDeltas": [{
-              "action": "ADD",
-              "accessBinding": {
-                  "roleId": "editor",
-                  "subject": {
-                      "id": "gfei8n54hmfhuk5nogse",
-                      "type": "userAccount"
-          }}}]}' \
-          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+{% if product == "yandex-cloud" %}
+       ```bash
+       curl -X POST \
+         -H 'Content-Type: application/json' \
+         -H "Authorization: Bearer <IAM-TOKEN>" \
+         -d '{
+         "accessBindingDeltas": [{
+             "action": "ADD",
+             "accessBinding": {
+                 "roleId": "editor",
+                 "subject": {
+                     "id": "gfei8n54hmfhuk5nogse",
+                     "type": "userAccount"
+         }}}]}' \
+         https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
         ```
-        {% endif %}
-        {% if product == "cloud-il" %}
-         ```bash
-        curl -X POST \
-          -H 'Content-Type: application/json' \
-          -H "Authorization: Bearer <IAM-TOKEN>" \
-          -d '{
-          "accessBindingDeltas": [{
-              "action": "ADD",
-              "accessBinding": {
-                  "roleId": "editor",
-                  "subject": {
-                      "id": "<ID пользователя>",
-                      "type": "federatedUser"
-          }}}]}' \
-          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
-        ```
-        {% endif %}
+{% endif %}
+{% if product == "cloud-il" %}
+       ```bash
+       curl -X POST \
+         -H 'Content-Type: application/json' \
+         -H "Authorization: Bearer <IAM-TOKEN>" \
+         -d '{
+         "accessBindingDeltas": [{
+             "action": "ADD",
+             "accessBinding": {
+                 "roleId": "editor",
+                 "subject": {
+                     "id": "<ID пользователя>",
+                     "type": "federatedUser"
+         }}}]}' \
+         https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+       ```
+{% endif %}
 
 - {{ TF }}
 
