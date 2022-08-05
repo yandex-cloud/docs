@@ -6,7 +6,9 @@
 
     Автоматические резервные копии кластера хранятся заданное количество дней, а созданные вручную — бессрочно. После удаления кластера все копии хранятся 7 дней.
 
-- {% include [Maintenance window](../console/maintenance-window.md) %}
+- **Окно обслуживания** — настройки времени [технического обслуживания](../../../managed-postgresql/concepts/maintenance.md):
+
+    {% include [Maintenance window](../console/maintenance-window-description.md) %}
 
 {% if product == "yandex-cloud" %}
 - **Доступ из {{ datalens-name }}** — опция разрешает анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../../datalens/concepts/index.md).

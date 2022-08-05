@@ -362,7 +362,7 @@ keywords:
     * Идентификатор сети в параметре `networkId`.
     * Идентификаторы групп безопасности в параметре `securityGroupIds`.
     * Список плагинов в параметре `configSpec.elasticsearchSpec.plugins`.
-    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
+    * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
 
 {% endlist %}
 

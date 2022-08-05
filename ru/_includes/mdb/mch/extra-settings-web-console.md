@@ -1,6 +1,8 @@
 * **Начало резервного копирования (UTC)** — время по UTC в 24-часовом формате, в которое начинается резервное копирование кластера. Если время не задано, резервное копирование начинается в 22:00 UTC.
 
-* {% include [Maintenance window](../console/maintenance-window.md) %}
+* **Окно обслуживания** — настройки времени [технического обслуживания](../../../managed-clickhouse/concepts/maintenance.md):
+
+   {% include [Maintenance window](../console/maintenance-window-description.md) %}
 
 * **Гибридное хранилище** — включите эту опцию, чтобы кластер использовал [гибридное хранилище](../../../managed-clickhouse/concepts/storage.md#hybrid-storage-features). Тип хранилища и его размер укажите в блоке **Размер хранилища**.
 

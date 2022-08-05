@@ -549,7 +549,9 @@
 
     {% if product == "yandex-cloud" %}* `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [{#T}](datalens-connect.md).{% endif %}
 
-    * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
+    * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров):
+  
+        {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
     * `--metrika-access` — разрешает [импорт данных из AppMetrika в кластер]{% if lang == "ru" %}(https://appmetrica.yandex.ru/docs/common/cloud/about.html){% endif %}{% if lang == "en" %}(https://appmetrica.yandex.com/docs/common/cloud/about.html){% endif %}. Значение по умолчанию — `false`.
 
@@ -659,7 +661,7 @@
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
     * Настройки доступа из других сервисов и к SQL-запросам из консоли управления в параметре `configSpec.access`.
     * Настройки окна резервного копирования в параметре `configSpec.backupWindowStart`.
-    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
+    * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}

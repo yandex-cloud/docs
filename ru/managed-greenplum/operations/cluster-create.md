@@ -56,7 +56,10 @@
     1. При необходимости задайте дополнительные настройки кластера:
 
         * {% include [Backup time](../../_includes/mdb/console/backup-time.md) %}
-        * {% include [Maintenance window](../../_includes/mdb/console/maintenance-window.md) %}
+        * **Окно обслуживания** — настройки времени [технического обслуживания](../concepts/maintenance.md):
+
+            {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
+
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
         * {% include [DataTransfer access](../../_includes/mdb/console/datatransfer-access.md) %}
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
@@ -239,7 +242,7 @@
 
     {% endif %}
 
-    1. Чтобы настроить время технического обслуживания (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window` при создании кластера:
+    1. Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window` при создании кластера:
 
         ```bash
         {{ yc-mdb-gp }} cluster create <имя кластера> \
@@ -286,7 +289,7 @@
     * Настройки публичного доступа в параметре `assignPublicIp`.
     * Настройки окна резервного копирования в параметре `config.backupWindowStart`.
     * Настройки доступа из [{{ datalens-full-name }}](../../datalens/concepts/index.md) в параметре `config.access.dataLens`.
-    * {% include [Maintenance window](../../_includes/mdb/api/maintenance-window.md) %}
+    * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
     * [Настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings) в параметре `configSpec.greenplumConfig_<версия>`.
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 

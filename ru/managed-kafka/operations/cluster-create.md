@@ -163,7 +163,7 @@
 
       При необходимости здесь же можно задать [настройки {{ KF }}](../concepts/settings-list.md#cluster-settings).
 
-  1. Чтобы настроить время технического обслуживания (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window` при создании кластера:
+  1. Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window` при создании кластера:
 
       ```bash
       {{ yc-mdb-kf }} cluster create \
@@ -379,7 +379,7 @@
     * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
     * Имя кластера в параметре `name`.
     * Идентификаторы групп безопасности в параметре `securityGroupIds`.
-    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
+    * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}

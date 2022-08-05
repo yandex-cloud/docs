@@ -17,7 +17,9 @@
 
   Для существующего кластера автоматически созданные копии хранятся заданное количество дней, а созданные вручную — бессрочно. После удаления кластера все копии хранятся {{ mmg-backup-retention }} дней.
 
-- {% include [Maintenance window](console/maintenance-window.md) %}
+- **Окно обслуживания** — настройки времени [технического обслуживания](../../managed-mongodb/concepts/maintenance.md):
+
+    {% include [Maintenance window](console/maintenance-window-description.md) %}
 
 - {% include [datatransfer access](console/datatransfer-access.md) %}
 
