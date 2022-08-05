@@ -645,6 +645,9 @@ items:
         when: audience == "internal"
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md
+      - name: Не удалось создать <тип объекта>
+        hidden: true
+        href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
   - name: История изменений
     href: release-notes.md
     when: audience == "draft"

@@ -48,4 +48,5 @@
 [ERR.DS_API.SOURCE_ACCESS_DENIED.INVALID_TOKEN](ERR-DS_API-SOURCE_ACCESS_DENIED-INVALID_TOKEN.md) | Invalid user token |
 [ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED](ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md) | Table is not ready yet |
 [ERR.DS_API.US.ACCESS_DENIED](ERR-DS_API-US-ACCESS_DENIED.md) | Access denied |
+[ERR.US.BAD_REQUEST.ALREADY_EXISTS](ERR-US-BAD_REQUEST-ALREADY_EXISTS.md) | Не удалось создать <тип объекта> |
 {% if audience == "internal" %}[Нет прав на просмотр данных](no-access-to-read-this-operation.md) | You have no access to read this operation |{% endif %}

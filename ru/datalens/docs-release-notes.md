@@ -27,14 +27,13 @@
 ### Решение проблем {#troubleshooting072022}
 
 * Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md) и рекомендации по исправлению.
+* Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md) и рекомендации по исправлению.
+* Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-BFB_UNSELECTED_DIMENSION.md) и рекомендации по исправлению.
 
 ### Пошаговые инструкции {#operations072022}
 
 * Обновлена инструкция [{#T}](operations/chart/create-table.md).
 
-### Решение проблем {#troubleshooting072022}
-
-* Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-BFB_UNSELECTED_DIMENSION.md) и рекомендации по исправлению.
 
 ## Июнь 2022 {#june2022}
 
