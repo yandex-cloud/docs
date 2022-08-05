@@ -416,7 +416,9 @@
 
     Вы можете изменить следующие настройки:
 
-    * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
+    * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров):
+
+        {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
     * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
 
@@ -463,7 +465,7 @@
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
 
-    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
+    * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
 
     * Настройки доступа к кластеру из сервиса [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) в Serverless-режиме в параметре `configSpec.access.dataTransfer`.
 

@@ -53,6 +53,7 @@
 - [{#T}](chart/manage-access.md)
 - [{#T}](chart/add-guid.md)
 - [{#T}](chart/add-parameter-chart.md)
+- [{#T}](chart/chart-null-settings.md)
 
 ## Работа с дашбордами {#working-with-dashboards}
 

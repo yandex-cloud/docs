@@ -47,6 +47,8 @@ items:
         href: operations/shards.md
       - name: Managing groups of shards
         href: operations/shard-groups.md
+      - name: Viewing cluster logs
+        href: operations/cluster-logs.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
       - name: Monitoring the state of clusters and hosts

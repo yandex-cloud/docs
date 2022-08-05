@@ -10,3 +10,7 @@
    {% include [chart-signature-note](../../../_includes/datalens/operations/datalens-chart-signature-note.md) %}
 
 Подробное описание секций чарта см. в разделах [{#T}](../../concepts/chart/types.md#area-chart) и [{#T}](../../concepts/chart/types.md#normalized-area-chart).
+
+## Настройка отображения пустых (`null`) значений {#null-settings}
+
+{% include [datalens-chart-null-settings](../../../_includes/datalens/datalens-chart-null-settings.md) %}

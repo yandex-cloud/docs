@@ -33,9 +33,7 @@ items:
             href: operations/calico.md
           - name: Configuring the Cilium network policy controller
             href: operations/cilium.md
-          - name: >-
-              Configuring Node Local DNS for the Cilium network policy
-              controller
+          - name: Configuring NodeLocal DNS for the Cilium network policy controller
             href: operations/cilium-node-local-dns.md
       - name: Encrypting secrets
         href: operations/encrypting-secrets.md

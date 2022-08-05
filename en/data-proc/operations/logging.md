@@ -13,7 +13,7 @@ For more information, see [{#T}](../concepts/logs.md).
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-   2. Click on the name of the cluster and select the **Logs** tab.
+   2. Click the name of the desired cluster and select the ![image](../../_assets/logs.svg) **Logs** tab.
    3. (optional) Specify the output settings:
       * [Message filter](../concepts/logs.md):
          * Getting the job start output {{ dataproc-name }}:
@@ -80,11 +80,11 @@ For more information, see [{#T}](../concepts/logs.md).
 
 {% list tabs %}
 
-- Management console
+* Management console
 
    When [creating](cluster-create.md) or [updating the cluster](cluster-update.md), add the `dataproc:disable_cloud_logging` property set to `true`.
 
-- CLI
+* CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -93,13 +93,13 @@ For more information, see [{#T}](../concepts/logs.md).
    When [creating](cluster-create.md) or [updating the cluster](cluster-update.md) pass the `dataproc:disable_cloud_logging=true` value in the `--property` parameter or pass an empty string (`""`) instead of the log group ID in the `--log-group-id` parameter:
 
    ```bash
-   yc dataproc cluster create <cluster name> \
-     ... \
+   {{ yc-dp }} cluster create <cluster name> \
+      ... \
      --log-group-id=""
    ```
 
    ```bash
-   yc dataproc cluster update <cluster ID or name> \
+   {{ yc-dp }} cluster update <cluster ID or name> \
      --property dataproc:disable_cloud_logging=true
    ```
 

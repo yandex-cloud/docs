@@ -1,11 +1,6 @@
 # Viewing cluster logs
 
-{{ mkf-name }} allows you to get cluster logs for viewing and analysis.
-
-You can get:
-
-* [Simple log snippet](#get-log).
-* A [log entry stream](#get-log-stream) in the cluster (`tail -f` command semantics are supported).
+{{ mkf-name }} lets you [get a cluster log snippet](#get-log) for the selected period and [view logs in real time](#get-log-stream).
 
 {% note info %}
 
@@ -19,9 +14,9 @@ Here, the log is the system log of the cluster and its hosts. This log isn't rel
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
+   1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
-   1. Click on the name of the cluster and select the **Logs** tab.
+   1. Click the name of the desired cluster and select the ![image](../../_assets/logs.svg) **Logs** tab.
    1. Select the **Source**, **Host**, and **Logging level**.
    1. Specify the time period for which you want to display the log.
 
@@ -37,7 +32,7 @@ Here, the log is the system log of the cluster and its hosts. This log isn't rel
 
 ## Getting a log entry stream {#get-log-stream}
 
-This method differs from [getting a simple log snippet](#get-log) because the server can send more log entries as they appear. This behavior is the same as the semantics of the `tail -f` command for working with logs.
+This method lets you get cluster logs in real time.
 
 {% list tabs %}
 

@@ -183,6 +183,8 @@ items:
             href: operations/chart/add-guid.md
           - name: Добавление параметра в чарт
             href: operations/chart/add-parameter-chart.md
+          - name: Настройка отображения пустых (null) значений
+            href: operations/chart/chart-null-settings.md
       - name: Работа с дашбордами
         items:
           - name: Создание дашборда
@@ -704,6 +706,9 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
+      - name: Invalid grouping configuration
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-INVALID_GROUP_BY_CONFIGURATION.md
       - name: Invalid top-level LOD dimension found in expression
         hidden: true
         href: >-
@@ -760,4 +765,7 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-NO_AGG.md
+      - name: Не удалось создать <тип объекта>
+        hidden: true
+        href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
 base: ru/datalens

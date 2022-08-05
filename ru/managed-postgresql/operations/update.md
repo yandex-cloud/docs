@@ -362,7 +362,9 @@
 
     * `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [{#T}](datalens-connect.md).
 
-    * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
+    * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров):
+
+        {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
     * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
         
@@ -469,7 +471,7 @@
     * Настройки доступа из других сервисов и к SQL-запросам из консоли управления в параметре `configSpec.access`.
     * Настройки окна резервного копирования в параметре `configSpec.backupWindowStart`.
     * [Режим работы менеджера соединений](../concepts/pooling.md) в параметре `configSpec.poolerConfig.poolingMode`.
-    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
+    * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}

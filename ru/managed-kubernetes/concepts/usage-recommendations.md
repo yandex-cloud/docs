@@ -7,7 +7,7 @@
 
 ## Высокая доступность и отказоустойчивость {#high-availability}
 
-* Используйте версию {{ k8s }} не ниже 1.20 и [релизный канал](../concepts/release-channels-and-updates.md) `REGULAR` или `STABLE`. Для версии {{ k8s }} 1.20 доступны [Node Local DNS](../tutorials/node-local-dns.md) и [Pod Topology Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/).
+* Используйте версию {{ k8s }} не ниже 1.20 и [релизный канал](../concepts/release-channels-and-updates.md) `REGULAR` или `STABLE`. Для версии {{ k8s }} 1.20 доступны [NodeLocal DNS](../tutorials/node-local-dns.md) и [Pod Topology Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/).
 
 {% note tip %}
 
@@ -40,7 +40,7 @@
 
 Используйте эти рекомендации, если нагрузка на ваш кластер {{ managed-k8s-name }} постоянно растет:
 * Для повышения надежности кластера [создавайте группы узлов](../operations/node-group/node-group-create.md) с [автоматическим масштабированием](autoscale.md) в нескольких зонах доступности.
-* Для снижения нагрузки на {{ k8s }} DNS используйте [Node Local DNS](../tutorials/node-local-dns.md). Если кластер содержит более 50 узлов, используйте [автоматическое масштабирование DNS](../tutorials/dns-autoscaler.md).
+* Для снижения нагрузки на {{ k8s }} DNS используйте [NodeLocal DNS](../tutorials/node-local-dns.md). Если кластер содержит более 50 узлов, используйте [автоматическое масштабирование DNS](../tutorials/dns-autoscaler.md).
 * Чтобы снизить горизонтальный трафик внутри кластера, используйте [Сетевой балансировщик нагрузки](../operations/create-load-balancer.md) и [правило `externalTrafficPolicy:Local`](../operations/create-load-balancer.md#advanced), если это возможно.
 * Заранее продумайте требования к хранилищам узлов:
   * Изучите [лимиты дисков](../../compute/concepts/limits.md) для {{ compute-full-name }}.

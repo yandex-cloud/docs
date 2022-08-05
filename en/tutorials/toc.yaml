@@ -142,6 +142,10 @@ items:
       - name: Migrating databases to {{ mms-full-name }}
         href: dataplatform/mssql-data-migration.md
       - name: >-
+          Migrating databases from {{ mms-full-name }} to a third-party {{ MS }}
+          cluster
+        href: dataplatform/mssql-outbound-migration.md
+      - name: >-
           Transferring data from {{ PG }} to {{ CH }} using {{
           data-transfer-full-name }}
         href: dataplatform/rdbms-to-clickhouse.md

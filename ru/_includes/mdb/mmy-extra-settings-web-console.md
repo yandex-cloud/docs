@@ -2,7 +2,9 @@
 
   Время по UTC (в 24-часовом формате), когда начинается [резервное копирование](../../managed-mysql/operations/cluster-backups.md) кластера. Если время не задано, резервное копирование начинается в 22:00 UTC.
 
-- {% include [Maintenance window](console/maintenance-window.md) %}
+- **Окно обслуживания** — настройки времени [технического обслуживания](../../managed-mysql/concepts/maintenance.md):
+
+  {% include [Maintenance window](console/maintenance-window-description.md) %}
 
 - **Доступ из {{ datalens-name }}**{#setting-datalens-access}
   

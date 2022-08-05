@@ -412,7 +412,9 @@
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
+    * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров):
+
+        {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 

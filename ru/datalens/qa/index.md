@@ -138,6 +138,7 @@ description: "Как получить логи моей работы в серв
 
 {% include [rename-column](../../_includes/datalens/qa/rename-column.md) %}
 
+{% include [null-setting-in-charts](../../_includes/datalens/qa/null-setting-in-charts.md) %}
 
 ## Вычисляемые поля {#calculation-fields}
 
@@ -194,6 +195,8 @@ description: "Как получить логи моей работы в серв
 Подробнее о блокировке можно прочитать в разделе [Автоматическая блокировка облака](../../overview/concepts/data-deletion.md#block).
 
 {% include [object-id](../../_includes/datalens/qa/object-id.md) %}
+
+{% include [network-error](../../_includes/datalens/qa/network-error.md) %}
 
 ## Как сообщить о проблеме {#how-to-resolve-problem}
 

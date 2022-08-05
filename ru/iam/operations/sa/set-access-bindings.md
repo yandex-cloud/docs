@@ -137,20 +137,20 @@
 
     1. Назначьте пользователю роль `editor` на сервисный аккаунт `my-robot`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
 
-                ```bash
-        curl -X POST \
-          -H 'Content-Type: application/json' \
-          -H "Authorization: Bearer <IAM-TOKEN>" \
-          -d '{
-          "accessBindingDeltas": [{
-              "action": "ADD",
-              "accessBinding": {
-                  "roleId": "editor",
-                  "subject": {
-                      "id": "gfei8n54hmfhuk5nogse",
-                      "type": "userAccount"
-          }}}]}' \
-          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+       ```bash
+       curl -X POST \
+         -H 'Content-Type: application/json' \
+         -H "Authorization: Bearer <IAM-TOKEN>" \
+         -d '{
+         "accessBindingDeltas": [{
+             "action": "ADD",
+             "accessBinding": {
+                 "roleId": "editor",
+                 "subject": {
+                     "id": "gfei8n54hmfhuk5nogse",
+                     "type": "userAccount"
+         }}}]}' \
+         https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
         ```
 
 - {{ TF }}

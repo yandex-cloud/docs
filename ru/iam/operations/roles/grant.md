@@ -138,9 +138,9 @@
 
         После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
-            ```
-            yc resource-manager folder list-access-bindings <имя каталога>|<идентификатор каталога>
-            ```
+        ```
+        yc resource-manager folder list-access-bindings <имя каталога>|<идентификатор каталога>
+        ```
 
 {% endlist %}
 

@@ -35,6 +35,8 @@ items:
             href: operations/applications/alb-ingress-controller.md
           - name: Установка Metrics Provider
             href: operations/applications/metrics-provider.md
+          - name: Установка NodeLocal DNS
+            href: operations/applications/node-local-dns.md
       - name: Сетевые сценарии
         items:
           - name: Обеспечение доступа к приложению, запущенному в кластере {{ k8s }}
@@ -43,7 +45,7 @@ items:
             href: operations/calico.md
           - name: Настройка контроллера сетевых политик Cilium
             href: operations/cilium.md
-          - name: Настройка Node Local DNS для контроллера сетевых политик Cilium
+          - name: Настройка NodeLocal DNS для контроллера сетевых политик Cilium
             href: operations/cilium-node-local-dns.md
       - name: Работа с постоянными томами
         items:

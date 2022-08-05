@@ -2,6 +2,16 @@
 
 {% list tabs %}
 
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
+   1. Go to the **Service accounts** tab.
+   1. Choose a service account and click the line with its name.
+   1. In the **Authorized keys** list, find an API key to be deleted.
+   1. Click ![image](../../../_assets/options.svg) in the row of the key.
+   1. Select **Delete**.
+   1. In the window that opens, click **Delete**.
+
 - CLI
 
    1. Get a list of API key `IDs` for a specific service account. Specify the service account name in the `--service-account-name` parameter:
@@ -40,13 +50,13 @@
           https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
       ```
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. Open the Terraform configuration file and delete the fragment with the API key description.
+   1. Open the {{ TF }} configuration file and delete the fragment with the API key description.
 
-      Example API key description in the Terraform configuration:
+      Example API key description in the {{ TF }} configuration:
 
       ```
       resource "yandex_iam_service_account_api_key" "sa-api-key" {
@@ -58,7 +68,7 @@
 
    1. Delete the record with information about the resource.
 
-      For more information about the resources that you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
+      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
 
    1. Make sure that the configuration files are correct.
 
@@ -69,7 +79,7 @@
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 

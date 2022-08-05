@@ -29,6 +29,16 @@
 1. {% include [Install and configure kubectl](../_includes/managed-kubernetes/kubectl-install.md) %}
 
 
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки инфраструктуры входит:
+
+* использование мастера и исходящий трафик {{ managed-k8s-short-name }} (см. [тарифы {{ managed-k8s-short-name }}](../managed-kubernetes/pricing.md));
+* использование узлов кластера {{ managed-k8s-short-name }} (см. [тарифы {{ compute-name }}](../compute/pricing.md));
+* использование публичных IP-адресов (см. [тарифы {{ vpc-name }}](../vpc/pricing.md));
+* входящий трафик, обработанный балансировщиком, и использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-short-name }}](../network-load-balancer/pricing.md)).
+
+
 ## Создайте сертификат в {{ certificate-manager-name }}
 
 1. [Создайте](../certificate-manager/operations/managed/cert-create.md) сертификат Let's Encrypt<sup>®</sup> или загрузите собственный сертификат.
@@ -395,3 +405,12 @@ spec:
 Сертификат от Let's Encrypt<sup>®</sup> должен обновляться автоматически вслед за [обновлением сертификата](https://cloud.yandex.ru/docs/certificate-manager/operations/managed/cert-update) в {{ certificate-manager-name }}.
 
 Вы можете задать таймаут синхронизации в параметре `refreshInterval` объекта [ExternalSecret](#create-externalsecret).
+
+## Удалите созданные ресурсы {#clear-out}
+
+Если созданные ресурсы вам больше не нужны, удалите их:
+
+1. [Удалите](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) кластер {{ k8s }}.
+1. [Удалите](../network-load-balancer/operations/load-balancer-delete.md) {{ network-load-balancer-short-name }}.
+1. [Удалите](../certificate-manager/operations/managed/cert-delete.md) сертификат.
+1. Если для доступа к кластеру или узлам использовались статические публичные IP-адреса, освободите и [удалите](../vpc/operations/address-delete.md) их.

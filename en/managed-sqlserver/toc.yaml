@@ -43,6 +43,8 @@ items:
         href: tutorials/index.md
       - name: Migrating databases to Managed Service for Microsoft SQL Server
         href: tutorials/data-migration.md
+      - name: Migrating databases to a third-party {{ MS }} cluster
+        href: tutorials/outbound-migration.md
   - name: Concepts
     items:
       - name: Relationships between service resources

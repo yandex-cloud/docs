@@ -58,7 +58,7 @@ You can find the most detailed information about {{ MG }} performance in the log
 - Management console
 
     1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-    1. Click on the name of the cluster and select the **Logs** tab.
+    1. Click on the name of the cluster and select the ![image](../../_assets/logs.svg) **Logs** tab.
 
 - CLI
 

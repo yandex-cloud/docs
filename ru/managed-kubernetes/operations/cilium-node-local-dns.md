@@ -1,11 +1,11 @@
-# Настройка Node Local DNS для контроллера сетевых политик Cilium
+# Настройка NodeLocal DNS для контроллера сетевых политик Cilium
 
 Из этой статьи вы узнаете, как настроить локальный DNS для [контроллера сетевых политик Cilium](../concepts/network-policy.md#cilium) с помощью [Local Redirect Policy](https://docs.cilium.io/en/v1.9/gettingstarted/local-redirect-policy/).
 
 Чтобы настроить локальный DNS в кластере {{ k8s }}:
-1. [Подготовьте спецификации для Node Local DNS и Local Redirect Policy](#create-manifests).
+1. [Подготовьте спецификации для NodeLocal DNS и Local Redirect Policy](#create-manifests).
 1. [Создайте тестовое окружение](#create-test-environment).
-1. [Проверьте работу Node Local DNS](#test-nodelocaldns).
+1. [Проверьте работу NodeLocal DNS](#test-nodelocaldns).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -24,7 +24,7 @@
    kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
    ```
 
-## Подготовьте спецификации для Node Local DNS и Local Redirect Policy {#create-manifests}
+## Подготовьте спецификации для NodeLocal DNS и Local Redirect Policy {#create-manifests}
 
 1. Создайте файл `node-local-dns.yaml`. В настройках DaemonSet `node-local-dns` укажите IP-адрес сервиса `kube-dns`:
 
@@ -231,7 +231,7 @@
 
    {% endcut %}
 
-1. Создайте ресурсы для Node Local DNS:
+1. Создайте ресурсы для NodeLocal DNS:
 
    ```bash
    kubectl apply -f node-local-dns.yaml
@@ -255,7 +255,7 @@
    Результат:
 
    ```text
-   ciliumlocalredirectpolicy.cilium.io/Node Local DNS created
+   ciliumlocalredirectpolicy.cilium.io/NodeLocal DNS created
    ```
 
 ## Создайте тестовое окружение {#create-test-environment}
@@ -286,7 +286,7 @@
    nettool  1/1    Running  0         23h  10.1.0.68  <имя узла>  <none>          <none>
    ```
 
-1. Узнайте IP-адрес пода, на котором развернут Node Local DNS:
+1. Узнайте IP-адрес пода, на котором развернут NodeLocal DNS:
 
    ```bash
    kubectl get pod -o wide -n kube-system | grep 'node-local.*<имя узла>'
@@ -298,9 +298,9 @@
    node-local-dns-gv68c  1/1  Running  0  26m  <IP-адрес пода>  <имя узла>  <none>  <none>
    ```
 
-## Проверьте работу Node Local DNS {#test-nodelocaldns}
+## Проверьте работу NodeLocal DNS {#test-nodelocaldns}
 
-Для проверки работы локального DNS с пода `nettool` будут выполнены несколько DNS-запросов. При этом будут изменяться метрики количества DNS-запросов на поде, обслуживающем Node Local DNS.
+Для проверки работы локального DNS с пода `nettool` будут выполнены несколько DNS-запросов. При этом будут изменяться метрики количества DNS-запросов на поде, обслуживающем NodeLocal DNS.
 1. Узнайте значение метрик для DNS-запросов до начала проверки:
 
    ```bash
