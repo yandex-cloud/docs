@@ -30,10 +30,13 @@
 * Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md) и рекомендации по исправлению.
 * Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-BFB_UNSELECTED_DIMENSION.md) и рекомендации по исправлению.
 
+### Концепции {#concepts072022}
+
+* Добавлен раздел [{#T}](concepts/chart/measure-values.md).
+
 ### Пошаговые инструкции {#operations072022}
 
 * Обновлена инструкция [{#T}](operations/chart/create-table.md).
-
 
 ## Июнь 2022 {#june2022}
 
