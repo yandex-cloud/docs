@@ -2,6 +2,10 @@
 
 ## Август 2022 {#august2022}
 
+### Решение проблем {#troubleshooting082022}
+
+* Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-DS_API-INVALID_GROUP_BY_CONFIGURATION.md) и рекомендации по исправлению.
+
 ### Пошаговые инструкции {#operations082022}
 
 * Обновлена инструкция [{#T}](operations/chart/create-pivot-table.md).
