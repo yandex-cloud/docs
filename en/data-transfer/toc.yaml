@@ -107,6 +107,8 @@ items:
       - name: "{{ ydb-full-name }} and {{ yds-full-name }}"
         href: troubleshooting/ydb.md
         when: product == "yandex-cloud"
+      - name: Network
+        href: troubleshooting/network.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
