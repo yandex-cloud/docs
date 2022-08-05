@@ -60,6 +60,7 @@
 - [{#T}](chart/add-guid.md)
 - [{#T}](chart/add-parameter-chart.md)
 {% if audience == "internal" %} - [{#T}](chart/export-from-monitoring.md) {% endif %}
+- [{#T}](chart/chart-null-settings.md)
 
 ## Работа с дашбордами {#working-with-dashboards}
 

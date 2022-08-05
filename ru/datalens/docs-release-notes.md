@@ -5,12 +5,18 @@
 ### Решение проблем {#troubleshooting082022}
 
 * Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-DS_API-INVALID_GROUP_BY_CONFIGURATION.md) и рекомендации по исправлению.
+* Добавлен вопрос [Почему соединяется линия на графике при отсутствующих значениях с включенной настройкой **Отображать как 0**?](faq.md#null-setting-in-charts) и рекомендации по его решению.
 
 ### Пошаговые инструкции {#operations082022}
 
 * Обновлена инструкция [{#T}](operations/chart/create-pivot-table.md).
 * Обновлена инструкция [{#T}](operations/chart/create-column-chart.md).
 * Обновлена инструкция [{#T}](operations/chart/create-bar-chart.md).
+* Обновлена инструкция [{#T}](operations/chart/create-area-chart.md).
+* Обновлена инструкция [{#T}](operations/chart/create-bar-chart.md).
+* Обновлена инструкция [{#T}](operations/chart/create-column-chart.md).
+* Обновлена инструкция [{#T}](operations/chart/create-line-chart.md).
+* Обновлена инструкция [{#T}](operations/chart/create-scatter-chart.md).
 
 ### ChartEditor {#charteditor082022}
 

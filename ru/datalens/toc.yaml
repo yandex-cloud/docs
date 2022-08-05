@@ -238,6 +238,8 @@ items:
             href: operations/chart/export-from-monitoring.md
           - name: Добавление параметра в чарт
             href: operations/chart/add-parameter-chart.md
+          - name: Настройка отображения пустых (null) значений
+            href: operations/chart/chart-null-settings.md
       - name: Работа с дашбордами
         items:
           - name: Создание дашборда

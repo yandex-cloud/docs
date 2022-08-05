@@ -138,6 +138,8 @@
 
 {% include [cell-image](../_includes/datalens/qa/cell-image.md) %}
 
+{% include [null-setting-in-charts.md](../_includes/datalens/qa/null-setting-in-charts.md) %}
+
 ### Как выгрузить из таблицы все значения, а не только первые 100 строк? {#pagination}
 
 1. Перейдите в [настройки чарта](concepts/chart/settings.md#common-settings).

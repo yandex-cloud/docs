@@ -138,6 +138,7 @@ description: "Как получить логи моей работы в серв
 
 {% include [rename-column](../../_includes/datalens/qa/rename-column.md) %}
 
+{% include [null-setting-in-charts](../../_includes/datalens/qa/null-setting-in-charts.md) %}
 
 ## Вычисляемые поля {#calculation-fields}
 
