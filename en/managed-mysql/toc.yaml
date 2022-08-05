@@ -38,6 +38,8 @@ items:
         href: operations/grant.md
       - name: Managing backups
         href: operations/cluster-backups.md
+      - name: Viewing cluster logs
+        href: operations/cluster-logs.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
       - name: Performance diagnostics

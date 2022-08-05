@@ -9,13 +9,13 @@
 {% endif %}
 
 - [{#T}](cluster-create.md)
-{% if content != "noshow" %}
+   {% if content != "noshow" %}
 - [{#T}](data-migration.md)
-{% endif %}
+   {% endif %}
 - [{#T}](connect.md)
-{% if audience != "internal" %}
+   {% if audience != "internal" %}
 - [{#T}](cluster-stop.md)
-{% endif %}
+   {% endif %}
 - [{#T}](web-sql-query.md)
 - [{#T}](insert.md)
 - [{#T}](update.md)
@@ -24,9 +24,9 @@
 - [{#T}](internal-dictionaries.md)
 - [{#T}](ml-models.md)
 - [{#T}](format-schemas.md)
-{% if product == "yandex-cloud" %}
+   {% if product == "yandex-cloud" %}
 - [{#T}](datalens-connect.md)
-{% endif %}
+   {% endif %}
 - [{#T}](cluster-version-update.md)
 - [{#T}](zk-hosts.md)
 - [{#T}](hosts.md)
@@ -35,5 +35,6 @@
 - [{#T}](cluster-backups.md)
 - [{#T}](shards.md)
 - [{#T}](shard-groups.md)
+- [{#T}](cluster-logs.md)
 - [{#T}](cluster-delete.md)
 - [{#T}](monitoring.md)
