@@ -86,6 +86,9 @@ Available configurations of computing resources:
 
    | Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB |
    --- | --- | --- | ---
+   | 1 | 16 | 4 | 16 |
+   | 1 | 16 | 8 | 32 |
+   | 1 | 16 | 16 | 64 |
    | 1 | 16 | 32 | 128 |
 
 {% include [gpu-zones](../../_includes/compute/gpu-zones.md) %}
