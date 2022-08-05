@@ -29,5 +29,5 @@ OAuth-токен недоступен для федеративных польз
 {% if product == "yandex-cloud" %}
 #### См. также {#see-also}
 
-* [Подробнее о сервисе Яндекс.OAuth](https://yandex.ru/dev/oauth/).
+* [Подробнее о сервисе Яндекс.OAuth]{% if lang == "ru" %}(https://yandex.ru/dev/oauth/){% endif %}{% if lang == "en" %}(https://yandex.com/dev/id/doc/dg/oauth/concepts/about.html){% endif %}.
 {% endif %}
