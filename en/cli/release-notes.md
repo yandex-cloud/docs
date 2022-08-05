@@ -1,14 +1,66 @@
 # YC CLI Releases
 
-## Version 0.92.0 (05.06.22) {#latest-release}
-
-### Changes to the CLI {#cli}
-
-* Fixed the error running `yc` with a large number of arguments passed.
+## Version 0.93.0 (19.07.22) {#latest-release}
 
 ### Changes to {{ yandex-cloud }} services {#services}
 
-#### {{ certificate-manager-name }} {#certificate-manager}
+#### Managed database services {#managed-db}
+
+**{{ mch-name }}**
+
+* In the `yc managed-clickhouse cluster restore` command, the following arguments were made optional:
+
+   * `--name`
+   * `--description`
+   * `--host`
+   * `--user`
+
+   If these parameters are not specified, they are taken from the original cluster.
+   **{{ CH }}** and **{{ ZK }}** hosts will be restored with the same configuration as in the source cluster.
+   **{{ CH }}** hosts will only be restored for the shards whose backups are specified for restoration.
+
+**{{ mpg-name }}**
+
+* Commands `yc managed-postgresql database create`, `yc managed-postgresql database list`, and `yc managed-postgresql database get` commands
+
+   Added support for templates when creating a database using `--template-db string`.
+
+{% if product == "yandex-cloud" %}
+
+**{{ mmg-name }}**
+
+* When creating a new cluster, MongoDB version 5.0 is selected by default.
+
+{% endif %}
+
+#### {{ managed-k8s-name }} {#k8s}
+
+* Commands `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update`.
+
+
+   * Added the `--node-name` flag that can be used to specify a node name template within a group.
+
+   * Added the `--template-labels` and `--template-labels-from-files` flags that can be used to specify [{{ yandex-cloud }} resource labels](../overview/concepts/services.md#labels) for VMs — group nodes (not to be confused with [{{ k8s }} node labels](../managed-kubernetes/concepts/index.md#node-labels)).
+
+{% if product == "yandex-cloud" %}
+
+#### {{ serverless-containers-name }} {#serverless-containers}
+
+* Added the `--network-id` and `--network-name` flags to the `yc serverless container revision deploy` command to specify the network that the container revision will use. Also added the `--subnets` flag, which can be used to get a detailed list of subnets, to the command.
+
+{% endif %}
+
+## Previous releases {#previous-releases}
+
+### Version 0.92.0 (05.07.22) {#version0.92.0}
+
+#### Changes to the CLI {#cli}
+
+* Fixed the error running `yc` with a large number of arguments passed.
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ certificate-manager-name }} {#certificate-manager}
 
 * Added the `--deletion-protection` flag to the `yc certificate-manager certificate create` command to enable certificate deletion protection.
 
@@ -16,7 +68,10 @@
 
 * Added the `--deletion-protection` and `--no-deletion-protection` flags to the `yc certificate-manager certificate update` command to enable and disable certificate deletion protection, respectively.
 
-#### Managed database services {#managed-db}
+
+{% if product == "yandex-cloud" %}
+
+##### Managed database services {#managed-db}
 
 **{{ mrd-name }}**
 
@@ -32,41 +87,52 @@ Added commands for {{ mgp-name }} primary support:
 
 * Added the `yc managed-sqlserver hosts update <HOST> --assign-public-ip=true|false` command that assigns or deletes a host's public IP address.
 
-## Version 0.91.0 (12.05.22){#version0.91.0}
+{% endif %}
 
-### Changes to {{ yandex-cloud }} services {#services}
+### Version 0.91.0 (12.05.22){#version0.91.0}
 
-#### {{ alb-name }} {#alb}
+{% if product == "cloud-il" %}
+
+This is the first CLI version available for {{ yandex-cloud }}.
+
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ alb-name }} {#alb}
 
 * In the `yc alb lb add-location` and `yc alb lb target-states` commands, fixed the error that occurred when processing the `--name` parameter. Now the parameter lets you search for a load balancer by name correctly.
 
-#### {{ cloud-desktop-name }} {#cloud-desktop}
+##### {{ cloud-desktop-name }} {#cloud-desktop}
 
 * Added a group of `yc cloud-desktop group` commands to manage desktop groups.
 * Added a group of `yc cloud-desktop desktop` commands to manage desktops.
 
-#### {{ sf-name }} {#functions}
+##### {{ sf-name }} {#functions}
 
 * Added the `--max-response-size` parameter to the `yc serverless function logs` and `yc serverless function version logs` commands to limit the size of logs received.
 
-#### {{ cloud-logging-name }} {#cloud-logging}
+##### {{ cloud-logging-name }} {#cloud-logging}
 
 * Added the `--max-response-size` parameter to the `yc logging read` command to limit the size of logs received.
 
-#### {{ dns-name }} {#dns}
+##### {{ dns-name }} {#dns}
 
 * Added the `yc dns bind-file migrate-to-terraform` command that generates a specification for {{ TF }} from the BIND file and prints it to standard output.
 
-#### {{ serverless-containers-name }} {#serverless-containers}
+##### {{ serverless-containers-name }} {#serverless-containers}
 
 * Added the `yc serverless containers rollback` command that rolls a container back to the specified revision.
 
-#### {{ ydb-name }} {#ydb}
+##### {{ ydb-name }} {#ydb}
 
 * Added the `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding` commands to the `yc ydb database` command group to set and view a list of DB roles.
 * Added the `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding` commands to the `yc ydb backup` command group to set and view a list of roles for DB backups.
 
-#### Managed database services {#managed-db}
+##### Managed database services {#managed-db}
 
 **{{ mes-name }}**
 
@@ -98,7 +164,10 @@ Added commands for {{ mgp-name }} primary support:
 
 * Added the `--assign-public-ip` flag to the `yc managed-kafka cluster update` command to manage public access to brokers.
 
-## Previous releases {#previous-releases}
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
 
 ### Version 0.90.0 (13.04.22) {#version0.90.0}
 
@@ -2072,3 +2141,5 @@ Use the keys to protect your secrets, private data, and other confidential infor
    * If the `--host` flag is not specified, the shard parameters are copied from the old shard.
    * If the `--host` flag is specified, all parameters must be entered.
    * If there are no shards, all parameters have to be entered to create a shard.
+
+{% endif %}

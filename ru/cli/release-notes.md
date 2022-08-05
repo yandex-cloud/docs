@@ -21,7 +21,7 @@
 
 **{{ mpg-name }}**
 
-* Команды `yc managed-postgresql database crete`, `yc managed-postgresql database list` и `yc managed-postgresql database get`
+* Команды `yc managed-postgresql database create`, `yc managed-postgresql database list` и `yc managed-postgresql database get`
 
   Добавлена поддержка шаблонов при создании базы с помощью `--template-db string`.
 
@@ -129,7 +129,7 @@
 ##### {{ ydb-name }} {#ydb}
 
 * В группу команд `yc ydb database` добавлены команды `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`, позволяющие устанавливать и просматривать список ролей для баз данных.
-* В группу команд `yc ydb backup` добавлены команды  `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`, позволяющие устанавливать и просматривать список ролей для бекапов баз данных.
+* В группу команд `yc ydb backup` добавлены команды `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`, позволяющие устанавливать и просматривать список ролей для бекапов баз данных.
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
