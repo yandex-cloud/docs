@@ -144,7 +144,7 @@ The template contains the NodeLocal DNS Cache configuration. To change the confi
 * `__PILLAR__DNS__SERVER__`
   Address `ClusterIp` [of the service](../concepts/service.md) `kube-dns`. Queries from user pods at this IP address will also be forwarded to NodeLocal DNS Cache using the iptables rules.
 * `__PILLAR__CLUSTER__DNS__`
-  Upstream server for requests within the cluster zone. When starting Node Local DNS Cache, a new service `kube-dns-upstream` with `ClusterIP` is created. You can use this IP address to access `kube-dns` bypassing the caching agent. This variable must be filled in automatically.
+  Upstream server for requests within the cluster zone. When starting NodeLocal DNS Cache, a new service `kube-dns-upstream` with `ClusterIP` is created. You can use this IP address to access `kube-dns` bypassing the caching agent. This variable must be filled in automatically.
 * `__PILLAR__UPSTREAM__SERVERS__`
   Upstream servers for requests outside the cluster zone. The variable should be filled in automatically from `configmap` of `kube-dns`.
 

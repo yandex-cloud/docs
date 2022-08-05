@@ -26,7 +26,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 
    ```
    {{ yc-mdb-pg }} cluster list
-   
+
    +----------------------+---------------+-----------------------------+--------+---------+
    |          ID          |     NAME      |         CREATED AT          | HEALTH | STATUS  |
    +----------------------+---------------+-----------------------------+--------+---------+
@@ -35,7 +35,12 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
    +----------------------+---------------+-----------------------------+--------+---------+
    ```
 
+- API
+
+   Use the [list](../api-ref/Cluster/list.md) API method and pass the folder ID in the `folderId` request parameter.
+
 {% endlist %}
+
 
 ## Getting detailed information about a cluster {#get-cluster}
 
@@ -59,6 +64,12 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
    ```
 
    You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
+
+- API
+
+   Use the [get](../api-ref/Cluster/get.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+   You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -90,6 +101,8 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 
 - API
 
-   To get a list of operations, use the [listOperations](../api-ref/Cluster/listOperations.md) method.
+   Use the [listOperations](../api-ref/Cluster/listOperations.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+   You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}

@@ -6,10 +6,10 @@ For example, allow any authenticated user to view information about a folder and
 
 - Management console
 
-   1. Open the folder page. You can select a folder on the [home page]({{ link-console-main }}) of the management console. This page displays folders for the selected cloud.
-   1. Go to **Access bindings in folder** (the **Access bindings** button in the left panel).
+   1. In the [management console]({{ link-console-main }}), go to Billing.
+   1. Go to **Access rights**.
    1. Click **Assign roles**.
-   1. In the folder's **Field permission** settings window, click **Select user**.
+   1. In the folder's **Configure access rights** window, click **Select subject**.
    1. Select the **Groups** section.
    1. Select the **All authenticated users** group.
    1. Click **Add role**.
@@ -18,7 +18,7 @@ For example, allow any authenticated user to view information about a folder and
 
 - CLI
 
-  {% include [cli-install](../cli-install.md) %}
+   {% include [cli-install](../cli-install.md) %}
 
    Assign the `viewer` for the `my-folder` folder. Set the subject type to `system` and its ID to `allAuthenticatedUsers`:
 
@@ -75,7 +75,7 @@ For example, allow any authenticated user to view information about a folder and
 
       * `members`: List of users to assign the role to. To add all users, create an entry in the format `system:<allUsers|allAuthenticatedUsers>`, where `<allUsers|allAuthenticatedUsers>` is one of [system groups](../../iam/concepts/access-control/system-group.md). Required parameter.
 
-      Example configuration file structure:
+      {% cut "Example of assigning roles for the folder using {{ TF }}" %}
 
       ```hcl
       ...
@@ -95,10 +95,11 @@ For example, allow any authenticated user to view information about a folder and
       ...
       ```
 
-      For more detailed information about the `yandex_resourcemanager_folder_iam_binding` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
+      {% endcut %}
+
+      For more information about the parameters of the `yandex_resourcemanager_folder_iam_binding` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
 
    1. Check the configuration using the command:
-
       ```
       terraform validate
       ```
@@ -110,7 +111,6 @@ For example, allow any authenticated user to view information about a folder and
       ```
 
    1. Run the command:
-
       ```
       terraform plan
       ```
@@ -118,7 +118,6 @@ For example, allow any authenticated user to view information about a folder and
       The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
-
       ```
       terraform apply
       ```

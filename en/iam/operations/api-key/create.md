@@ -84,6 +84,53 @@ To create an API key:
         https://iam.{{ api-host }}/iam/v1/apiKeys
       ```
 
+- {{ TF }}
+
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. Add parameters of resource to the configuration file:
+
+      * `service_account_id` = service account [ID](../sa/get-id.md). Required parameter.
+      * `description`: Key description. Optional.
+      * `pgp_key`: An additional PGP key for encrypting a private key. Optional. A public part of the key in base64 encoding or in the `keybase:keybaseusername` form is specified.
+
+      ```
+      resource "yandex_iam_service_account_api_key" "sa-api-key" {
+        service_account_id = "<service account ID>"
+        description        = "<key description>"
+        pgp_key            = "<PGP key>"
+      }
+      ```
+
+      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
+
+   1. Make sure that the configuration files are correct.
+
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run the check using the command:
+
+         ```
+         terraform plan
+         ```
+
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+
+   1. Deploy the cloud resources.
+
+      1. If the configuration doesn't contain any errors, run the command:
+
+         ```
+         terraform apply
+         ```
+
+      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+
+      Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following CLI command:
+
+      ```
+      yc iam key list --service-account-id <service account ID>
+      ```
+
 {% endlist %}
 
 ## Examples {#examples}
@@ -115,6 +162,49 @@ To make it easier to find an API key without knowing its ID, add a description w
      }" \
      https://iam.{{ api-host }}/iam/v1/apiKeys
    ```
+
+- {{ TF }}
+
+   1. Add parameters of resource to the configuration file:
+
+      * `service_account_id` = service account ID. Required parameter.
+      * `-description`: Key description. Optional.
+
+      {% cut "Example of adding a description when creating a service account API key using {{ TF }}" %}
+
+      ```
+      resource "yandex_iam_service_account_api_key" "sa-api-key" {
+        service_account_id = "aje82upckiqhi3943ekr"
+        description        = "this API-key is for my-robot"
+      }
+      ```
+
+      {% endcut %}
+
+      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
+
+   1. Make sure that the configuration files are correct.
+
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run the check using the command:
+
+         ```
+         terraform plan
+         ```
+
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+
+   1. Deploy the cloud resources.
+
+      1. If the configuration doesn't contain any errors, run the command:
+
+         ```
+         terraform apply
+         ```
+
+      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+
+      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

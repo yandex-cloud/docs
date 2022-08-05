@@ -95,6 +95,8 @@ items:
         href: troubleshooting/postgresql.md
       - name: '{{ ydb-full-name }} and {{ yds-full-name }}'
         href: troubleshooting/ydb.md
+      - name: Network
+        href: troubleshooting/network.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

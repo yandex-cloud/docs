@@ -1,3 +1,3 @@
-1. Select a user to assign a role to.
-1. Click ![image](../../_assets/options.svg).
-1. Select **Configure access**.
+1. On the left-hand panel, select a cloud.
+1. Go to **Access rights**.
+1. Find the required user in the list. Assigned roles are specified in the **Roles** column.

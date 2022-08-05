@@ -324,7 +324,9 @@ keywords:
 
     * `--plugins` — список [плагинов {{ ES }}](cluster-plugins.md#elasticsearch), доступных в кластере. При этом плагины, не упомянутые в списке, будут выключены.
 
-    * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
+    * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров):
+
+        {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -344,7 +346,7 @@ keywords:
     * Идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), используемого для работы с кластером, в параметре `serviceAccountId`.
 
 
-    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
+    * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
 
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 

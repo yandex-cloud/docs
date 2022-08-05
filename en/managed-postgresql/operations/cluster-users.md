@@ -37,6 +37,12 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
+- API
+
+   Use the [list](../api-ref/User/list.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+   You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
 {% endlist %}
 
 ## Adding a user {#adduser}
@@ -121,7 +127,20 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+      {% include [{{ TF }} timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
+- API
+
+   Use the [create](../api-ref/User/create.md) API method and pass the following information in the request:
+
+   * The ID of the cluster where you want to create a user, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Username, in the `userSpec.name` parameter.
+   * User password, in the `userSpec.password` parameter.
+
+      {% include [username-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
+
+   * One or more databases that the user must have access to, in one or more `userSpec.permissions.databaseName` parameters.
+   * Maximum number of connections for the user in the `userSpec.connLimit` parameter.
 
 {% endlist %}
 
@@ -188,7 +207,18 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+      {% include [{{ TF }} timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
+- API
+
+   Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
+
+   * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Username, in the `userName` parameter. To get the username, [retrieve a list of users in the cluster](#list-users).
+   * New user password, in the `password` parameter.
+   * List of user configuration fields to be changed (in this case, `password`), in the `updateMask` parameter.
+
+   {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -306,7 +336,18 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+      {% include [{{ TF }} timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
+- API
+
+   Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
+
+   * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Username, in the `userName` parameter. To get the username, [retrieve a list of users in the cluster](#list-users).
+   * New values for user settings.
+   * List of user configuration fields to be changed, in the `updateMask` parameter.
+
+   {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -353,7 +394,14 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+      {% include [{{ TF }} timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
+- API
+
+   Use the [delete](../api-ref/User/delete.md) API method and pass the following in the request:
+
+   * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Username, in the `userName` parameter. To get the username, [retrieve a list of users in the cluster](#list-users).
 
 {% endlist %}
 

@@ -3,9 +3,11 @@
 * [{#T}](cluster-list.md)
 * [{#T}](calculate-specs.md)
 * [{#T}](cluster-create.md)
-* [Connecting to a database in a {{ GP }} cluster](connect.md)
+* [{#T}](connect.md)
 * [{#T}](cluster-hosts.md)
+* [{#T}](update.md)
 * [{#T}](external-tables.md)
+* [{#T}](cluster-logs.md)
 * [{#T}](cluster-delete.md)
 * [{#T}](monitoring.md)
 

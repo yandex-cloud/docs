@@ -1,8 +1,8 @@
 # OAuth token
 
-In {{ yandex-cloud }}, an OAuth token is used to authenticate when [getting an IAM token](../../operations/iam-token/create.md).
+In {{ yandex-cloud }}, an OAuth token is used in the authentication process [to get an IAM token](../../operations/iam-token/create.md).
 
-You can get an OAuth token to work with {{ yandex-cloud }} by sending a [request]({{ link-cloud-oauth }}) to the Yandex.OAuth service.
+You can get an OAuth token to work with {{ yandex-cloud }} using a [request]({{ link-cloud-oauth }}) to the Yandex.OAuth service.
 
 ## Lifetime {#lifetime}
 
@@ -10,7 +10,7 @@ You can get an OAuth token to work with {{ yandex-cloud }} by sending a [request
 
 {% note alert %}
 
-If someone might have discovered your OAuth token, [revoke it](https://tech.yandex.com/oauth/doc/dg/reference/token-invalidate-docpage/) and request a new one.
+If someone could have learned your OAuth token, revoke it and get a new one by following the [instructions](../../operations/compromised-credentials.md#oauth-reissue).
 
 {% endnote %}
 
@@ -26,5 +26,4 @@ These services and utilities can request an IAM token automatically, so you can 
 
 #### See also {#see-also}
 
-* [Learn more about Yandex.OAuth](https://tech.yandex.com/oauth/).
-
+* [Learn more about Yandex.OAuth](https://yandex.com/dev/id/doc/dg/oauth/concepts/about.html).

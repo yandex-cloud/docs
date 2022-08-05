@@ -1,4 +1,6 @@
-* {% include [Maintenance window](../console/maintenance-window.md) %}
+* **Окно обслуживания** — настройки времени [технического обслуживания](../../../managed-elasticsearch/concepts/maintenance.md):
+
+    {% include [Maintenance window](../console/maintenance-window-description.md) %}
 
 * {% include [Deletion protection](../console/deletion-protection.md) %}
 

@@ -7,7 +7,7 @@ Use these recommendations for your `PRODUCTION` applications that require:
 
 ## High availability and fault tolerance {#high-availability}
 
-* Use {{ k8s }} version 1.20 or higher and a [release channel](../concepts/release-channels-and-updates.md): `REGULAR` or `STABLE`. [Node Local DNS](../tutorials/node-local-dns.md) and [Pod Topology Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) are available in {{ k8s }} version 1.20.
+* Use {{ k8s }} version 1.20 or higher and a [release channel](../concepts/release-channels-and-updates.md): `REGULAR` or `STABLE`. [NodeLocal DNS](../tutorials/node-local-dns.md) and [Pod Topology Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) are available in {{ k8s }} version 1.20.
 
 {% note tip %}
 
@@ -40,7 +40,7 @@ Use the `RAPID` release channel for test environments to more quickly test {{ k8
 
 Use these recommendations if the load on your {{ managed-k8s-name }} cluster is constantly growing:
 * To make your cluster more robust, [create node groups](../operations/node-group/node-group-create.md) with automatic scaling in multiple availability zones.
-* To reduce the load on the {{ k8s }} DNS, use [Node Local DNS](../tutorials/node-local-dns.md). If a cluster is made up of over 50 nodes, use [automatic DNS scaling](../tutorials/dns-autoscaler.md).
+* To reduce the load on the {{ k8s }} DNS, use [NodeLocal DNS](../tutorials/node-local-dns.md). If a cluster is made up of over 50 nodes, use [automatic DNS scaling](../tutorials/dns-autoscaler.md).
 * To reduce horizontal traffic within a cluster, use the [Network Load Balancer](../operations/create-load-balancer.md) and the [`externalTrafficPolicy:Local` rule](../operations/create-load-balancer.md#advanced) if possible.
 * Consider node storage requirements in advance:
   * Review [disk limits](../../compute/concepts/limits.md) for {{ compute-full-name }}.

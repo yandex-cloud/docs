@@ -102,7 +102,7 @@ When restoring to the current state, the new cluster will reflect the state of:
       - Named `mynewpg`.
       - In the `PRODUCTION` environment.
       - In the `{{ network-name }}` network.
-      - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ region-id }}-a` availability zone.
+      - With one `{{ host-class }}` host in the `b0rcctk2rvtr8efcch63` subnet, in the `{{ region-id }}-a` availability zone.
       - With databases and users that existed in the cluster at the time of recovery.
       - With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
 
@@ -129,7 +129,7 @@ When restoring to the current state, the new cluster will reflect the state of:
    +--------------------------+----------------------+----------------------+----------------------+
    ```
 
-   {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+   {% include [{{ TF }} timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
    **To restore an existing cluster from a backup:**
 
@@ -222,6 +222,14 @@ When restoring to the current state, the new cluster will reflect the state of:
 
    {{ TF }} creates a new cluster. The databases and users are deployed from the backup.
 
+- API
+
+   Use the [restore](../api-ref/Cluster/restore.md) API method and pass the following in the request:
+
+   * ID of the desired backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
+   * The timestamp of the point to which you want to recover the cluster, in the `time` parameter.
+   * The name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. The cluster name must be unique within the folder.
+
 {% endlist %}
 
 ## Creating a backup {#create-backup}
@@ -254,6 +262,12 @@ When restoring to the current state, the new cluster will reflect the state of:
       ```
 
       The cluster name and ID can be retrieved with the [list of clusters](cluster-list.md#list-clusters).
+
+- API
+
+   Use the [backup](../api-ref/Cluster/backup.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+   You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -291,6 +305,14 @@ When restoring to the current state, the new cluster will reflect the state of:
    +----------+----------------------+----------------------+----------------------+
    ```
 
+- API
+
+   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+   To get a list of backups for all the {{ mpg-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` request parameter.
+
+   You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
 {% endlist %}
 
 
@@ -319,6 +341,12 @@ When restoring to the current state, the new cluster will reflect the state of:
    ```
    {{ yc-mdb-pg }} backup get <backup ID>
    ```
+
+   You can retrieve the backup ID with a [list of backups](#list-backups).
+
+- API
+
+   Use the [get](../api-ref/Backup/get.md) API method and pass the backup ID in the `backupId` request parameter.
 
    You can retrieve the backup ID with the [backup list](#list-backups).
 
@@ -389,6 +417,16 @@ When restoring to the current state, the new cluster will reflect the state of:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+      {% include [{{ TF }} timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
+- API
+
+   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
+   * The cluster ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * The new backup start time, in the `configSpec.backupWindowStart` parameter.
+   * List of cluster configuration fields to be edited (in this case, `configSpec.backupWindowStart`) in the `updateMask` parameter.
+
+   {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}

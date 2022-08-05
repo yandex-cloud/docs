@@ -33,6 +33,8 @@ items:
         href: operations/cluster-users.md
       - name: Managing backups
         href: operations/cluster-backups.md
+      - name: Viewing cluster logs
+        href: operations/cluster-logs.md
       - name: Deleting a cluster
         href: operations/cluster-delete.md
       - name: Monitoring the state of a cluster and hosts

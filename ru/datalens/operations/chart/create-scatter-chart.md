@@ -14,3 +14,7 @@
 1. Указать дополнительное измерение. Для этого перетащите измерение в секцию **Точки**.
 
 Подробное описание секций чарта см. в разделе [{#T}](../../concepts/chart/types.md#scatter-chart).
+
+## Настройка отображения пустых (`null`) значений {#null-settings}
+
+{% include [datalens-chart-null-settings](../../../_includes/datalens/datalens-chart-null-settings.md) %}

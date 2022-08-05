@@ -3,7 +3,8 @@
 - [{#T}](cluster-list.md)
 - [{#T}](cluster-create.md)
 - [{#T}](connect/index.md)
-- [{#T}](cluster-stop.md)
+
+- [{#T}](cluster-stop.md)
 - [{#T}](update.md)
 - [{#T}](stepdown.md)
 - [{#T}](cluster-version-update.md)
