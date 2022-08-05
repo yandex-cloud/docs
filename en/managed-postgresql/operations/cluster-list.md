@@ -37,7 +37,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 
 - API
 
-   Use the [list](../../api-ref/Cluster/list.md) API method and pass the folder ID in the `folderId` request parameter.
+   Use the [list](../api-ref/Cluster/list.md) API method and pass the folder ID in the `folderId` request parameter.
 
 {% endlist %}
 
@@ -67,7 +67,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 
 - API
 
-   Use the [get](../../api-ref/Cluster/get.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [get](../api-ref/Cluster/get.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
