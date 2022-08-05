@@ -8,7 +8,35 @@
 
 ## Доступные классы хостов {#available-flavors}
 
-{% if audience == "external" %}
+{% if audience == "internal" %}
+
+Имя класса хостов | Количество CPU | RAM, ГБ | Ограничение <br>ввода-вывода, МБ/с | Максимальная <br>скорость связи, МБ/с
+----- | ----- | ----- | ----- | -----
+**Cascade Lake** |
+s3.small | 4 | 16 | 64 | 64
+s3.medium | 8 | 32 | 128 | 128
+s3.large | 12 | 48 | 192 | 192
+s3.xlarge | 16 | 64  | 256 | 256
+s3.2xlarge | 24 | 96 | 384 | 384
+s3.3xlarge | 32 | 128 | 512 | 512
+s3.4xlarge | 40 | 160 | 640 | 640
+s3.5xlarge | 48 | 192 | 768 | 768
+s3.6xlarge | 64 | 256 | 1024 | 1024
+m3.medium | 4 | 24 | 48 | 96
+m3.large | 4 | 32 | 64 | 128
+m3.xlarge | 6 | 48 | 96 | 128
+m3.2xlarge | 8 | 64 | 128 | 256
+m3.3xlarge | 10 | 80 | 160 | 256
+m3.4xlarge | 12 | 96 | 192 | 256
+m3.5xlarge | 16 | 128 | 256 | 256
+m3.6xlarge | 20 | 160 | 256 | 320
+m3.7xlarge | 24 | 192 | 256 | 384
+m3.8xlarge | 28 | 224 | 256 | 384
+m3.9xlarge | 32 | 256 | 256 | 512
+m3.10xlarge | 40 | 320 | 320 | 640
+m3.11xlarge | 48 | 384 | 384 | 768
+
+{% else %}
 
 Хосты в кластерах {{ mgp-name }} разворачиваются на базе виртуальных машин {{ compute-full-name }} на [платформах](../../compute/concepts/vm-platforms.md){% if product == "yandex-cloud" %} Intel Cascade Lake и{% endif %} Intel Ice Lake с гарантированной долей vCPU 100%. Ниже приведен полный список возможных конфигураций хостов.
 
