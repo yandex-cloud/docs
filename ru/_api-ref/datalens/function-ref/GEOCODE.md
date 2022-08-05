@@ -15,11 +15,11 @@ GEOCODE( address )
 
 #### Описание {#description}
 {% if audience == "internal" %} Устаревшая функция. С 1 июня поля с этой функцией перестанут обновляться. Вместо значений будет возвращаться NULL. Подробности https://clubs.at.yandex-team.ru/datalens/132.{% endif %}
-{% if audience == "internal" %} Преобразует адрес `address` в координаты. {% endif %}
-{% if audience == "internal" %} Результаты выполнения функции кешируются, поэтому при повторном запросе {{ datalens-short-name }} не выполнит геокодирование. Время хранения кеша — 30 дней.
-{% endif %} {% if audience == "internal" %} После 30 дней {{ datalens-short-name }} автоматически вызовет функцию `GEOCODE` для преобразования адреса. {% endif %}
-{% if audience == "internal" %} Вычисляемое поле с этой функцией создается на уровне датасета. {% endif %}
-{% if audience == "internal" %} Чтобы подключить функцию, перейдите на страницу [Настройки сервиса]({{ link-datalens-settings }}). {% endif %}
+{% if audience != "internal" %} Преобразует адрес `address` в координаты. {% endif %}
+{% if audience != "internal" %} Результаты выполнения функции кешируются, поэтому при повторном запросе {{ datalens-short-name }} не выполнит геокодирование. Время хранения кеша — 30 дней. {% endif %}
+{% if audience != "internal" %} После 30 дней {{ datalens-short-name }} автоматически вызовет функцию `GEOCODE` для преобразования адреса. {% endif %}
+{% if audience != "internal" %} Вычисляемое поле с этой функцией создается на уровне датасета. {% endif %}
+{% if audience != "internal" %} Чтобы подключить функцию, перейдите на страницу [Настройки сервиса]({{ link-datalens-settings }}). {% endif %}
 
 **Типы аргументов:**
 - `address` — `Строка`
