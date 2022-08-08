@@ -23,14 +23,17 @@
     1. Скопируйте адрес репозитория:
     
         ```bash
-        ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "cat /etc/apt/sources.list.d/yandex-dataproc.list" | sudo tee /etc/apt/sources.list.d/yandex-dataproc.list
+        ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} \
+        "cat /etc/apt/sources.list.d/yandex-dataproc.list" | \
+        sudo tee /etc/apt/sources.list.d/yandex-dataproc.list && \
         deb [arch=amd64] http://{{ s3-storage-host }}/dataproc/releases/0.2.10 xenial main
         ```
 
     1. Скопируйте gpg-ключ для верификации подписей deb-пакетов:
     
         ```bash
-        ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "cat /srv/dataproc.gpg" | sudo apt-key add -
+        ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} \
+        "cat /srv/dataproc.gpg" | sudo apt-key add -
         ```
 
     1. Обновите кэш репозиториев:
@@ -48,16 +51,22 @@
 1. Скопируйте конфигурационные файлы Hadoop и Spark:
 
     ```bash
-    sudo -E scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:/etc/hadoop/conf/* /etc/hadoop/conf/
-    sudo -E scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:/etc/spark/conf/* /etc/spark/conf/
+    sudo -E scp -r \
+        root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:/etc/hadoop/conf/* \
+        /etc/hadoop/conf/ && \
+    sudo -E scp -r \
+        root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:/etc/spark/conf/* \
+        /etc/spark/conf/
     ```
 
 1. Создайте нового пользователя, от имени которого будут запускаться задания:
 
     ```bash
-    sudo useradd sparkuser
-    ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "sudo -u hdfs hdfs dfs -ls /user/sparkuser"
-    ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "sudo -u hdfs hdfs dfs -chown sparkuser:sparkuser /user/sparkuser"
+    sudo useradd sparkuser && \
+    ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} \
+    "sudo -u hdfs hdfs dfs -ls /user/sparkuser" && \
+    ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} \
+    "sudo -u hdfs hdfs dfs -chown sparkuser:sparkuser /user/sparkuser"
     ```
 
 Хост готов к удаленному запуску заданий на кластере {{ dataproc-name }}.
@@ -67,8 +76,16 @@
 Запустите задание с помощью команды:
 
 ```bash
-sudo -u sparkuser spark-submit --master yarn --deploy-mode cluster --class org.apache.spark.examples.SparkPi /usr/lib/spark/examples/jars/spark-examples.jar 1000
-...
+sudo -u sparkuser spark-submit \
+     --master yarn \
+     --deploy-mode cluster \
+     --class org.apache.spark.examples.SparkPi \
+         /usr/lib/spark/examples/jars/spark-examples.jar 1000
+```
+
+Результат:
+
+```text
 20/04/19 16:43:58 INFO client.RMProxy: Connecting to ResourceManager at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/10.13.13.18:8032
 20/04/19 16:43:58 INFO client.AHSProxy: Connecting to Application History server at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/10.13.13.18:10200
 20/04/19 16:43:58 INFO yarn.Client: Requesting a new application from cluster with 4 NodeManagers
@@ -126,6 +143,11 @@ sudo -u sparkuser spark-submit --master yarn --deploy-mode cluster --class org.a
 
 ```bash
 yarn application -status application_1586176069782_0003
+```
+
+Результат:
+
+```text
 20/04/19 16:47:03 INFO client.RMProxy: Connecting to ResourceManager at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/10.13.13.18:8032
 20/04/19 16:47:03 INFO client.AHSProxy: Connecting to Application History server at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/10.13.13.18:10200
 Application Report :
@@ -158,6 +180,12 @@ Application Report :
 Просмотрите журналы со всех запущенных контейнеров c помощью утилиты [yarn logs](https://hadoop.apache.org/docs/r2.10.0/hadoop-yarn/hadoop-yarn-site/YarnCommands.html#logs):
 
 ```bash
-sudo -u sparkuser yarn logs -applicationId application_1586176069782_0003 | grep "Pi is"
+sudo -u sparkuser yarn logs \
+     -applicationId application_1586176069782_0003 | grep "Pi is"
+```
+
+Результат:
+
+```text
 Pi is roughly 3.14164599141646
 ```

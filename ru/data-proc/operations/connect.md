@@ -126,15 +126,23 @@
 
    ```bash
    ssh ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz.{{ dns-zone }}
+   ```
 
+   Результат:
+
+   ```text
    ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz:~#
    ```
 
 1. Проверьте, что команды Hadoop выполняются, например:
 
     ```bash
-    ~# hadoop version
-    
+    hadoop version
+    ```
+
+    Результат:
+
+    ```text
     Hadoop 2.8.5
     Subversion https://github.yandex-team.ru/mdb/bigtop.git -r 78508f2a4b4f3dc8b3d295ccb50a45a4d24e81b5
     Compiled by robot-pgaas-ci on 2019-04-16T10:35Z

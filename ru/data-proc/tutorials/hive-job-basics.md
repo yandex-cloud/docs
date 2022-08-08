@@ -84,17 +84,17 @@
     {% cut "cities.sql" %}
 
     ```sql
-    -- создать внешнюю таблицу с данными, которые содержатся в CSV-файлах
+    /* Создать внешнюю таблицу с данными, которые содержатся в CSV-файлах: */
     CREATE EXTERNAL TABLE IF NOT EXISTS cities
     (city_name string, population decimal)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
     STORED AS TEXTFILE
     LOCATION 's3a://<бакет для исходных данных>/cities';
 
-    -- показать количество городов и суммарную численность населения в них
+    /* Показать количество городов и суммарную численность населения в них: */
     SELECT COUNT(*) num_cities, SUM(population) sum_populataion FROM cities;
 
-    -- показать минимальную и максимальную численность населения
+    /* Показать минимальную и максимальную численность населения: */
     SELECT MIN(population) min_population, MAX(population) max_population FROM cities;
     ```
 
