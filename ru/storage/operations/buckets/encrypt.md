@@ -10,6 +10,12 @@
 
 {% endnote %}
 
+{% if audience != "internal" %}
+
+Чтобы расшифровывать объекты, у пользователя бакета вместе с ролью {{ objstorage-name }} должна быть роль на чтение ключа шифрования — `kms.keys.encrypterDecrypter` (см. [описание роли](../../../kms/security/index.md#service)).
+
+{% endif %}
+
 ## Добавить шифрование бакету {#add}
 
 {% list tabs %}
@@ -22,7 +28,7 @@
   1. В поле **Ключ {{ kms-short-name }}** выберите ключ или создайте новый:
 
      {% include [storage-create-kms](../../_includes_service/storage-create-kms.md) %}
-    
+
   1. Нажмите кнопку **Сохранить**.
 
 - {{ TF }}
@@ -42,15 +48,15 @@
        zone      = "{{ region-id }}-a"
        service_account_key_file = "key.json"
        }
-     
-     
+
+
      resource "yandex_kms_symmetric_key" "key-a" {
        name              = "<имя ключа>"
        description       = "<описание ключа>"
        default_algorithm = "AES_128"
        rotation_period   = "8760h" // 1 год
      }
-     
+
      resource "yandex_storage_bucket" "test" {
        bucket = "<имя бакета>"
        access_key = "<идентификатор статического ключа>"
@@ -78,15 +84,15 @@
        service_account_key_file = "key.json"
        endpoint  = "{{ api-host }}:443"
        }
-     
-     
+
+
      resource "yandex_kms_symmetric_key" "key-a" {
        name              = "<имя ключа>"
        description       = "<описание ключа>"
        default_algorithm = "AES_128"
        rotation_period   = "8760h" // 1 год
      }
-     
+
      resource "yandex_storage_bucket" "test" {
        bucket = "<имя бакета>"
        access_key = "<идентификатор статического ключа>"
@@ -121,7 +127,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -129,7 +135,7 @@
      ```
      terraform apply
      ```
-   
+
      1. Подтвердите создание ресурсов.
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
