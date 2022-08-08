@@ -22,6 +22,13 @@ Expands the `array` array expression to a set of rows.
 
 **Return type**: Depends on argument types
 
+{% note info %}
+
+`PostgreSQL` doesn't allow filtering fields containing the UNNEST function. If the data source is `PostgreSQL`, do not use such fields in selectors.
+
+{% endnote %}
+
+
 #### Example {#examples}
 
 
