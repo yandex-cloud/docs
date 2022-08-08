@@ -17,6 +17,30 @@
   1. Выберите нужный кластер в списке, нажмите значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Остановить**.
   1. Подтвердите остановку кластера и нажмите кнопку **Остановить**.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    1. Посмотрите описание команды CLI для остановки кластера:
+
+        ```bash
+        {{ yc-mdb-my }} cluster stop --help
+        ```
+
+    1. Чтобы узнать идентификатор и имя кластера, запросите список кластеров в каталоге:
+
+        ```bash
+        {{ yc-mdb-my }} cluster list
+        ```
+
+    1. Чтобы остановить кластер, выполните команду:
+
+        ```bash
+        {{ yc-mdb-my }} cluster stop <идентификатор или имя кластера>
+        ```
+
 - API
 
   Воспользуйтесь методом API [stop](../api-ref/Cluster/stop.md) и передайте идентификатор кластера в параметре `clusterId` запроса.
@@ -24,7 +48,6 @@
   {% include [Получение идентификатора кластера](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
 {% endlist %}
-
 
 ## Запустить кластер {#start-cluster}
 
@@ -37,6 +60,30 @@
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmy-name }}**.
   1. Выберите остановленный кластер в списке, нажмите значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Запустить**.
   1. Подтвердите запуск кластера — нажмите кнопку **Запустить** в открывшемся диалоге.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    1. Посмотрите описание команды CLI для запуска кластера:
+
+        ```bash
+        {{ yc-mdb-my }} cluster start --help
+        ```
+
+    1. Чтобы узнать идентификатор и имя кластера, запросите список кластеров в каталоге:
+
+        ```bash
+        {{ yc-mdb-my }} cluster list
+        ```
+
+    1. Чтобы запустить кластер, выполните команду:
+
+        ```bash
+        {{ yc-mdb-my }} cluster start <идентификатор или имя кластера>
+        ```
 
 - API
 

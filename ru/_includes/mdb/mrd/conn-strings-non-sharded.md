@@ -1,10 +1,10 @@
 ### Bash {#bash}
 
-{% include [Install requirements](./connect/bash/install-requirements.md) %}
-
 {% list tabs %}
 
 * Подключение без SSL
+
+    {% include [Install requirements](./connect/bash/install-requirements.md) %}
 
     **Подключение с помощью Sentinel:**
 
@@ -35,6 +35,10 @@
     ```
 
 * Подключение с SSL
+
+    {% include [Install requirements SSL](./connect/bash/install-requirements-ssl.md) %}
+
+    **Подключение напрямую к мастеру:**
 
     {% include [default-connstring](default-connstring.md) %}
 

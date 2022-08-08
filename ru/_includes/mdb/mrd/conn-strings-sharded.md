@@ -1,10 +1,12 @@
 ### Bash {#bash}
 
-{% include [Install requirements](./connect/bash/install-requirements.md) %}
-
 {% list tabs %}
 
 - Подключение без SSL
+
+    {% include [Install requirements](./connect/bash/install-requirements.md) %}
+
+    **Подключение напрямую к мастеру:**
 
     Укажите FQDN хоста-мастера в нужном шарде:
 
@@ -16,6 +18,10 @@
     ```
 
 - Подключение с SSL
+
+    {% include [Install requirements SSL](./connect/bash/install-requirements-ssl.md) %}
+
+    **Подключение напрямую к мастеру:**
 
     Укажите FQDN хоста-мастера в нужном шарде:
 
