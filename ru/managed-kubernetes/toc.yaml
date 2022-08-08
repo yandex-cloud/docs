@@ -35,6 +35,8 @@ items:
             href: operations/applications/marketplace.md
           - name: Установка Crossplane
             href: operations/applications/crossplane.md
+          - name: Установка Fluent Bit
+            href: operations/applications/fluentbit.md
           - name: Установка Jaeger
             href: operations/applications/jaeger.md
           - name: Установка Ingress-контроллера {{ alb-name }}
