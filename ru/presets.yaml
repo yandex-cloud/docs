@@ -20,6 +20,7 @@ default:
   mgl-full-name: Yandex Managed Service for GitLab
   vpc-full-name: Yandex Virtual Private Cloud
   ddos-protection-full-name: Yandex DDoS Protection
+  adv-ddos-protection: Advanced Yandex DDoS Protection
   monitoring-full-name: Yandex Monitoring
   unified-agent-full-name: Yandex Unified Agent
   prometheus-name: Prometheus

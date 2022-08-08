@@ -22,7 +22,7 @@ editable: false
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-## Цены {#prices}
+## Цены {{ vpc-short-name }} {#prices}
 
 ### Публичные IP-адреса {#prices-public-ip}
 
@@ -36,6 +36,16 @@ editable: false
    Например, при стоимости часа использования публичного IP-адреса, равной 0,1524 ₽, и стоимости часа резервирования неактивного публичного статического IP-адреса, равной 0,1980 ₽, цена неактивного публичного статического адреса составит:
    
    >0,1524 + 0,1980 = 0,3504 ₽ за час, вкл. НДС
+
+{% endif %}
+
+{% if region != "int" %}
+
+Все цены указаны с учетом НДС.
+
+{% else %}
+
+Все цены указаны без НДС.
 
 {% endif %}
 
@@ -57,10 +67,51 @@ editable: false
 
 {% endif %}
 
+### Использование групп безопасности {#prices-security-groups}
 
-{% if product == "yandex-cloud" %}
+Функциональность [групп безопасности](concepts/security-groups.md) находится на стадии [Preview](../overview/concepts/launch-stages.md) и ее использование не тарифицируется.
 
-### Защита от DDoS-атак {#prices-ddos-protection}
+### Исходящий трафик {#prices-traffic}
+
+{% if region != "int" %}
+
+Все цены указаны с учетом НДС.
+
+{% else %}
+
+Все цены указаны без НДС.
+
+{% endif %}
+
+{% if region == "ru" %}
+
+{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "kz" %}
+
+{% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}
+
+## Цены {{ ddos-protection-full-name }} {#prices-ddos-protection}
+
+{% if region != "int" %}
+
+Все цены указаны с учетом НДС.
+
+{% else %}
+
+Все цены указаны без НДС.
+
+{% endif %}
 
 {% if region == "ru"%}
 
@@ -86,30 +137,35 @@ editable: false
 
 В этом случае тарифицируются только 4 ГБ полезного трафика: 2 ГБ, который система DDoS Protection допустила к облачным ресурсам во время атаки, и 2 ГБ, которые были загружены, когда атака не велась. Вредоносный трафик отфильтровывается и не тарифицируется.
 
-{% endif %}
-
-
-### Использование групп безопасности {#prices-security-groups}
-
-Функциональность [групп безопасности](concepts/security-groups.md) находится на стадии [Preview](../overview/concepts/launch-stages.md) и ее использование не тарифицируется.
-
-### Исходящий трафик {#prices-traffic}
-
 {% if region == "ru" %}
 
-{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+## Цены {{ adv-ddos-protection }} {#prices-ddos-advanced}
 
-{% endif %}
+{% note warning "Важно" %}
 
-{% if region == "kz" %}
+Обратите внимание, что абонентская плата за услуги {{ adv-ddos-protection }} и Managed Web Application Firewall списывается сразу за весь месяц и не рассчитывается пропорционально дням. Например, если вы подключили или отключили услуги в середине месяца, абонентская плата все равно спишется полностью.
 
-{% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
+Оплата услуг сверх абонентской платы происходит в следующем отчетном месяце. Например, услуги, потребленные в июле, учитываются в потреблении августа.
 
-{% endif %}
+{% endnote %}
 
-{% if region == "int" %}
+Все цены указаны с учетом НДС.
 
-{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+{% include [rub-advanced-ddos.md](../_pricing/vpc/rub-advanced-ddos.md) %}
+
+В тариф {{ adv-ddos-protection }} включены следующие услуги:
+
+{% include [rub-advanced-ddos-services.md](../_pricing/vpc/rub-advanced-ddos-services.md) %}
+
+## Цены Managed Web Application Firewall {#prices-waf}
+
+Все цены указаны с учетом НДС.
+
+{% include [rub-waf.md](../_pricing/vpc/rub-waf.md) %}
+
+В тариф Managed Web Application Firewall включены следующие услуги:
+
+{% include [waf-services.md](../_pricing/vpc/waf-services.md) %}
 
 {% endif %}
 
