@@ -173,6 +173,7 @@ A set of methods for managing databases.
       }
     ]
   },
+  "deletionProtection": true,
 
   //  includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`
   "zonalDatabase": {
@@ -309,6 +310,7 @@ monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>textListParameterValue.<
 monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>labelListParameterValue | **object** <br>`monitoringConfig.alerts[].alertThresholds[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br>
 monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>labelListParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
 monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>labelListParameterValue.<br>values[] | **string**<br><p>Required. Parameter value</p> 
+deletionProtection | **boolean** (boolean)
 zonalDatabase | **object** <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br>
 zonalDatabase.<br>zoneId | **string**<br><p>Required.</p> 
 regionalDatabase | **object** <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br>
@@ -340,6 +342,7 @@ Method | Description
 [delete](delete.md) | Deletes the specified database.
 [get](get.md) | Returns the specified database.
 [list](list.md) | Retrieves a list of databases.
+[move](move.md) | 
 [restore](restore.md) | Restores the specified backup
 [start](start.md) | Starts the specified database.
 [stop](stop.md) | Stops the specified database.

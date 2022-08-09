@@ -29,7 +29,7 @@ Returns information about an Apache Kafka® connector.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster the connector belongs to. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster the connector belongs to. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 connector_name | **string**<br>Required. Name of the Apache Kafka® connector to return information about. <br>To get this name, make a [ConnectorService.List](#List) request. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
@@ -45,7 +45,7 @@ status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNK
 cluster_id | **string**<br>ID of the Apache Kafka® cluster that the connector belongs to. 
 connector_config | **oneof:** `connector_config_mirrormaker` or `connector_config_s3_sink`<br>Additional settings for the connector.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker)**<br>Configuration of the MirrorMaker connector. 
-&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3Sink](#ConnectorConfigS3Sink)**<br>Additional settings for the connector. 
+&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3Sink](#ConnectorConfigS3Sink)**<br>Configuration of S3-Sink connector. 
 
 
 ### ConnectorConfigMirrorMaker {#ConnectorConfigMirrorMaker}
@@ -86,10 +86,10 @@ security_protocol | **string**<br>Security protocol to use for connection to the
 
 Field | Description
 --- | ---
-topics | **string**<br>List of Kafka topics, separated by ',' 
+topics | **string**<br>List of Kafka topics, separated by ','. 
 file_compression_type | **string**<br>The compression type used for files put on GCS. The supported values are: `gzip`, `snappy`, `zstd`, `none`. Optional, the default is `none`. 
 file_max_records | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Max records per file. 
-s3_connection | **[S3Connection](#S3Connection)**<br>Credentials for connecting to S3 storage 
+s3_connection | **[S3Connection](#S3Connection)**<br>Credentials for connecting to S3 storage. 
 
 
 ### S3Connection {#S3Connection}
@@ -145,7 +145,7 @@ status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNK
 cluster_id | **string**<br>ID of the Apache Kafka® cluster that the connector belongs to. 
 connector_config | **oneof:** `connector_config_mirrormaker` or `connector_config_s3_sink`<br>Additional settings for the connector.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker1)**<br>Configuration of the MirrorMaker connector. 
-&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3Sink](#ConnectorConfigS3Sink1)**<br>Additional settings for the connector. 
+&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3Sink](#ConnectorConfigS3Sink1)**<br>Configuration of S3-Sink connector. 
 
 
 ### ConnectorConfigMirrorMaker {#ConnectorConfigMirrorMaker1}
@@ -186,10 +186,10 @@ security_protocol | **string**<br>Security protocol to use for connection to the
 
 Field | Description
 --- | ---
-topics | **string**<br>List of Kafka topics, separated by ',' 
+topics | **string**<br>List of Kafka topics, separated by ','. 
 file_compression_type | **string**<br>The compression type used for files put on GCS. The supported values are: `gzip`, `snappy`, `zstd`, `none`. Optional, the default is `none`. 
 file_max_records | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Max records per file. 
-s3_connection | **[S3Connection](#S3Connection1)**<br>Credentials for connecting to S3 storage 
+s3_connection | **[S3Connection](#S3Connection1)**<br>Credentials for connecting to S3 storage. 
 
 
 ### S3Connection {#S3Connection1}
@@ -237,7 +237,7 @@ tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protoco
 properties | **map<string,string>**<br>A set of properties passed to Managed Service for Apache Kafka® with the connector configuration. Example: `sync.topics.config.enabled: true`. 
 connector_config | **oneof:** `connector_config_mirrormaker` or `connector_config_s3_sink`<br>Additional settings for the connector.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMakerSpec](#ConnectorConfigMirrorMakerSpec)**<br>Configuration of the MirrorMaker connector. 
-&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3SinkSpec](#ConnectorConfigS3SinkSpec)**<br>Configuration of S3-Sink connector 
+&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3SinkSpec](#ConnectorConfigS3SinkSpec)**<br>Configuration of S3-Sink connector. 
 
 
 ### ConnectorConfigMirrorMakerSpec {#ConnectorConfigMirrorMakerSpec}
@@ -283,7 +283,7 @@ Field | Description
 topics | **string**<br>List of Kafka topics, separated by ','. 
 file_compression_type | **string**<br>The compression type used for files put on GCS. The supported values are: `gzip`, `snappy`, `zstd`, `none`. Optional, the default is `none`. 
 file_max_records | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Max records per file. 
-s3_connection | **[S3ConnectionSpec](#S3ConnectionSpec)**<br>Credentials for connecting to S3 storage 
+s3_connection | **[S3ConnectionSpec](#S3ConnectionSpec)**<br>Credentials for connecting to S3 storage. 
 
 
 ### S3ConnectionSpec {#S3ConnectionSpec}
@@ -302,7 +302,7 @@ Field | Description
 access_key_id | **string**<br> 
 secret_access_key | **string**<br> 
 endpoint | **string**<br> 
-region | **string**<br>Default is 'us-east-1' 
+region | **string**<br>Default is 'us-east-1'. 
 
 
 ### Operation {#Operation}
@@ -341,7 +341,7 @@ status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNK
 cluster_id | **string**<br>ID of the Apache Kafka® cluster that the connector belongs to. 
 connector_config | **oneof:** `connector_config_mirrormaker` or `connector_config_s3_sink`<br>Additional settings for the connector.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker2)**<br>Configuration of the MirrorMaker connector. 
-&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3Sink](#ConnectorConfigS3Sink2)**<br>Additional settings for the connector. 
+&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3Sink](#ConnectorConfigS3Sink2)**<br>Configuration of S3-Sink connector. 
 
 
 ### ConnectorConfigMirrorMaker {#ConnectorConfigMirrorMaker2}
@@ -382,10 +382,10 @@ security_protocol | **string**<br>Security protocol to use for connection to the
 
 Field | Description
 --- | ---
-topics | **string**<br>List of Kafka topics, separated by ',' 
+topics | **string**<br>List of Kafka topics, separated by ','. 
 file_compression_type | **string**<br>The compression type used for files put on GCS. The supported values are: `gzip`, `snappy`, `zstd`, `none`. Optional, the default is `none`. 
 file_max_records | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Max records per file. 
-s3_connection | **[S3Connection](#S3Connection2)**<br>Credentials for connecting to S3 storage 
+s3_connection | **[S3Connection](#S3Connection2)**<br>Credentials for connecting to S3 storage. 
 
 
 ### S3Connection {#S3Connection2}
@@ -479,7 +479,7 @@ Field | Description
 --- | ---
 topics | **string**<br>List of Kafka topics, separated by ','. 
 file_max_records | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Max records per file. 
-s3_connection | **[S3ConnectionSpec](#S3ConnectionSpec1)**<br>Credentials for connecting to S3 storage 
+s3_connection | **[S3ConnectionSpec](#S3ConnectionSpec1)**<br>Credentials for connecting to S3 storage. 
 
 
 ### S3ConnectionSpec {#S3ConnectionSpec1}
@@ -498,7 +498,7 @@ Field | Description
 access_key_id | **string**<br> 
 secret_access_key | **string**<br> 
 endpoint | **string**<br> 
-region | **string**<br>Default is 'us-east-1' 
+region | **string**<br>Default is 'us-east-1'. 
 
 
 ### Operation {#Operation1}
@@ -522,7 +522,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster the connector is being updated in. The maximum string length in characters is 50.
-connector_name | **string**<br>Required. Name of the Apache Kafka connector that is being updated. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+connector_name | **string**<br>Required. Name of the Apache Kafka® connector that is being updated. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Connector {#Connector3}
@@ -537,7 +537,7 @@ status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNK
 cluster_id | **string**<br>ID of the Apache Kafka® cluster that the connector belongs to. 
 connector_config | **oneof:** `connector_config_mirrormaker` or `connector_config_s3_sink`<br>Additional settings for the connector.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker3)**<br>Configuration of the MirrorMaker connector. 
-&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3Sink](#ConnectorConfigS3Sink3)**<br>Additional settings for the connector. 
+&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3Sink](#ConnectorConfigS3Sink3)**<br>Configuration of S3-Sink connector. 
 
 
 ### ConnectorConfigMirrorMaker {#ConnectorConfigMirrorMaker3}
@@ -578,10 +578,10 @@ security_protocol | **string**<br>Security protocol to use for connection to the
 
 Field | Description
 --- | ---
-topics | **string**<br>List of Kafka topics, separated by ',' 
+topics | **string**<br>List of Kafka topics, separated by ','. 
 file_compression_type | **string**<br>The compression type used for files put on GCS. The supported values are: `gzip`, `snappy`, `zstd`, `none`. Optional, the default is `none`. 
 file_max_records | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Max records per file. 
-s3_connection | **[S3Connection](#S3Connection3)**<br>Credentials for connecting to S3 storage 
+s3_connection | **[S3Connection](#S3Connection3)**<br>Credentials for connecting to S3 storage. 
 
 
 ### S3Connection {#S3Connection3}
@@ -698,7 +698,7 @@ status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNK
 cluster_id | **string**<br>ID of the Apache Kafka® cluster that the connector belongs to. 
 connector_config | **oneof:** `connector_config_mirrormaker` or `connector_config_s3_sink`<br>Additional settings for the connector.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker4)**<br>Configuration of the MirrorMaker connector. 
-&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3Sink](#ConnectorConfigS3Sink4)**<br>Additional settings for the connector. 
+&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3Sink](#ConnectorConfigS3Sink4)**<br>Configuration of S3-Sink connector. 
 
 
 ### ConnectorConfigMirrorMaker {#ConnectorConfigMirrorMaker4}
@@ -739,10 +739,10 @@ security_protocol | **string**<br>Security protocol to use for connection to the
 
 Field | Description
 --- | ---
-topics | **string**<br>List of Kafka topics, separated by ',' 
+topics | **string**<br>List of Kafka topics, separated by ','. 
 file_compression_type | **string**<br>The compression type used for files put on GCS. The supported values are: `gzip`, `snappy`, `zstd`, `none`. Optional, the default is `none`. 
 file_max_records | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Max records per file. 
-s3_connection | **[S3Connection](#S3Connection4)**<br>Credentials for connecting to S3 storage 
+s3_connection | **[S3Connection](#S3Connection4)**<br>Credentials for connecting to S3 storage. 
 
 
 ### S3Connection {#S3Connection4}
@@ -817,7 +817,7 @@ status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNK
 cluster_id | **string**<br>ID of the Apache Kafka® cluster that the connector belongs to. 
 connector_config | **oneof:** `connector_config_mirrormaker` or `connector_config_s3_sink`<br>Additional settings for the connector.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker5)**<br>Configuration of the MirrorMaker connector. 
-&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3Sink](#ConnectorConfigS3Sink5)**<br>Additional settings for the connector. 
+&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3Sink](#ConnectorConfigS3Sink5)**<br>Configuration of S3-Sink connector. 
 
 
 ### ConnectorConfigMirrorMaker {#ConnectorConfigMirrorMaker5}
@@ -858,10 +858,10 @@ security_protocol | **string**<br>Security protocol to use for connection to the
 
 Field | Description
 --- | ---
-topics | **string**<br>List of Kafka topics, separated by ',' 
+topics | **string**<br>List of Kafka topics, separated by ','. 
 file_compression_type | **string**<br>The compression type used for files put on GCS. The supported values are: `gzip`, `snappy`, `zstd`, `none`. Optional, the default is `none`. 
 file_max_records | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Max records per file. 
-s3_connection | **[S3Connection](#S3Connection5)**<br>Credentials for connecting to S3 storage 
+s3_connection | **[S3Connection](#S3Connection5)**<br>Credentials for connecting to S3 storage. 
 
 
 ### S3Connection {#S3Connection5}

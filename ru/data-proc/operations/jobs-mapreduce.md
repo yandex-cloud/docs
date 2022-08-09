@@ -45,13 +45,13 @@
 
         ```bash
         {{ yc-dp }} job create-mapreduce \
-          --cluster-name <имя кластера> \
-          --name <имя задания> \
-          --main-class <имя основного класса> \
-          --file-uris <путь к файлу> \
-          --archive-uris <пути к архивам> \
-          --properties <ключ-значение> \
-          --args <аргумент> \
+           --cluster-name=<имя кластера> \
+           --name=<имя задания> \
+           --main-class=<имя основного класса> \
+           --file-uris=<путь к файлу> \
+           --archive-uris=<пути к архивам> \
+           --properties=<ключ-значение> \
+           --args=<аргумент>
         ```
 
         Пути к необходимым для выполнения задания файлам передавайте в формате:
@@ -88,3 +88,4 @@
 ## Получить логи выполнения задания {#get-logs}
 
 {% include [jobs-get-logs](../../_includes/data-proc/jobs-get-logs.md) %}
+

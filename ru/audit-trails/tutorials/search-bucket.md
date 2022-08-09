@@ -1,4 +1,4 @@
-# Поиск в бакете
+# Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
 
 ## Перед началом работы {#before-you-begin}
 1. Установите и настройте программу [s3fs](../../storage/tools/s3fs.md) или [goofys](../../storage/tools/goofys.md), позволяющую монтировать бакеты {{ objstorage-name }} через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).

@@ -60,18 +60,18 @@
 
       ```bash
       yc logging read \
-        --group-id "<идентификатор лог-группы>" \
-        --resource-ids "<идентификатор кластера>" \
-        --filter "log_type=hadoop-hdfs-namenode"
+         --group-id=<идентификатор лог-группы> \
+         --resource-ids=<идентификатор кластера> \
+         --filter=log_type=hadoop-hdfs-namenode
       ```
 
     * Чтобы получить логи за последние два часа от всех кластеров {{ dataproc-name }}, связанных с определенной лог-группой, выполните команду:
 
       ```bash
       yc logging read \
-        --group-id "<идентификатор лог-группы>" \
-        --resource-types "dataproc.cluster" \
-        --since 2h
+         --group-id=<идентификатор лог-группы> \
+         --resource-types=dataproc.cluster \
+         --since=2h
       ```
 
 {% endlist %}
@@ -94,13 +94,13 @@
     
     ```bash
     {{ yc-dp }} cluster create <имя кластера> \
-      ... \
-      --log-group-id=""
+       ... \
+       --log-group-id=""
     ```
     
     ```bash
     {{ yc-dp }} cluster update <идентификатор или имя кластера> \
-      --property dataproc:disable_cloud_logging=true
+       --property dataproc:disable_cloud_logging=true
     ```
 
 {% endlist %}

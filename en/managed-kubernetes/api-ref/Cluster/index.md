@@ -81,7 +81,8 @@ A set of methods for managing Kubernetes cluster.
     "regionalMaster": {
       "regionId": "string",
       "internalV4Address": "string",
-      "externalV4Address": "string"
+      "externalV4Address": "string",
+      "externalV6Address": "string"
     },
     // end of the list of possible fields`master`
 
@@ -163,6 +164,7 @@ master.<br>regionalMaster | **object** <br>`master` includes only one of the fie
 master.<br>regionalMaster.<br>regionId | **string**<br><p>ID of the region where the master resides.</p> 
 master.<br>regionalMaster.<br>internalV4Address | **string**<br><p>IPv4 internal network address that is assigned to the master.</p> 
 master.<br>regionalMaster.<br>externalV4Address | **string**<br><p>IPv4 external network address that is assigned to the master.</p> 
+master.<br>regionalMaster.<br>externalV6Address | **string**<br><p>IPv6 external network address that is assigned to the master.</p> 
 ipAllocationPolicy | **object**
 ipAllocationPolicy.<br>clusterIpv4CidrBlock | **string**<br><p>CIDR block. IP range for allocating pod addresses.</p> <p>It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets.</p> 
 ipAllocationPolicy.<br>nodeIpv4CidrMaskSize | **string** (int64)<br><p>Size of the masks that are assigned for each node in the cluster.</p> <p>If not specified, 24 is used.</p> <p>Value must be one of 0, 24, 25, 26, 27 or 28.</p> 

@@ -3,9 +3,9 @@
 ## {{ KF }} {#kafka}
 
 * [{#T}](kafka-connector.md)
-* [{#T}](kafka-cdc/data-transfer-mpg.md)
-* [{#T}](kafka-cdc/debezium-mmy.md)
-* [{#T}](kafka-cdc/debezium-mpg.md)
+* [{#T}](data-transfer-mpg.md)
+* [{#T}](debezium-mmy.md)
+* [{#T}](debezium-mpg.md)
 * [{#T}](kafka-connect.md)
 * Использование реестра схем форматов данных с {{ mkf-name }}:
 
@@ -44,13 +44,13 @@
 * [{#T}](sync-mysql.md)
 * [{#T}](mmy-to-mysql-migration.md)
 * [{#T}](sqoop-mmy.md)
-* [{#T}](./kafka-cdc/debezium-mmy.md)
+* [{#T}](./debezium-mmy.md)
 
 ## {{ PG }} {#postgresql}
 
 * [{#T}](rdbms-to-clickhouse.md)
-* [{#T}](./kafka-cdc/data-transfer-mpg.md)
-* [{#T}](./kafka-cdc/debezium-mpg.md)
+* [{#T}](./data-transfer-mpg.md)
+* [{#T}](./debezium-mpg.md)
 * [{#T}](sqoop-mpg.md)
 
 ## {{ RD }} {#redis}

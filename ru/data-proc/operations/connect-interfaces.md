@@ -31,7 +31,7 @@
 
     ```bash
     {{ yc-dp }} cluster update <идентификатор или имя кластера> \
-        --ui-proxy=<включение опции UI Proxy: true или false>
+       --ui-proxy=<включение опции UI Proxy: true или false>
     ```
 
     Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list).
