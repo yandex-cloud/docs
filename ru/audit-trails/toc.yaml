@@ -12,7 +12,7 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Загрузка аудитных логов в лог-группу
+      - name: Загрузка аудитных логов в {{ cloud-logging-name }}
         when: product == "yandex-cloud"
         items: 
            - name: Организация
@@ -21,7 +21,7 @@ items:
              href: operations/export-cloud-logging.md
            - name: Каталог    
              href: operations/export-folder-logging.md
-      - name: Загрузка аудитных логов в поток данных
+      - name: Загрузка аудитных логов в {{ yds-name }}
         when: product == "yandex-cloud"
         items: 
            - name: Организация
@@ -30,7 +30,7 @@ items:
              href: operations/export-cloud-data-streams.md
            - name: Каталог
              href: operations/export-folder-data-streams.md    
-      - name: Загрузка аудитных логов в бакет
+      - name: Загрузка аудитных логов в {{ objstorage-name }}
         items: 
            - name: Организация
              href: operations/export-organization-bucket.md
@@ -40,14 +40,14 @@ items:
              href: operations/export-folder-bucket.md
   - name: Практические руководства
     items:
-      - name: Поиск в бакете
+      - name: Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
         href: tutorials/search-bucket.md
-      - name: Поиск в лог-группе
+      - name: Поиск событий {{ yandex-cloud }} в {{ cloud-logging-name }}
         href: tutorials/search-cloud-logging.md
-        when: product == "yandex-cloud"  
+        when: product == "yandex-cloud"
       - name: Настройка алертов в {{ monitoring-name }}
         href: tutorials/alerts-monitoring.md
-      - name: Настройка реагирования в Cloud Functions
+      - name: Настройка реагирования в {{ sf-name }}
         href: tutorials/logging-functions.md
         when: product == "yandex-cloud"
       - name: Загрузка аудитных логов в {{ mch-full-name }} и визуализация данных в {{ datalens-full-name }}

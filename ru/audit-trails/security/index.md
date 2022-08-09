@@ -47,5 +47,5 @@
 
 * Ознакомьтесь со структурой [аудитного лога](../concepts/format.md).
 {% if product == "yandex-cloud" %}
-* Ознакомьтесь с примером [загрузки аудитных логов в лог-группу](../operations/export-cloud-logging.md).
+* Ознакомьтесь с примером [загрузки аудитных логов в {{ cloud-logging-name }}](../operations/export-cloud-logging.md).
 {% endif %}

@@ -1,21 +1,21 @@
-# Поиск в лог-группе
+# Поиск событий {{ yandex-cloud }} в {{ cloud-logging-name }}
 
 ## Кто удалил каталог
 
 Поиск по идентификатору:
 ```json
-json_payload.event_type="yandex.cloud.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_id="<идентификатор каталога>"
+json_payload.event_type="yandex.cloud.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_id="<идентификатор_каталога>"
 ```
 Поиск по названию:
 ```json
-json_payload.event_type="yandex.cloud.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_name="<название каталога>"
+json_payload.event_type="yandex.cloud.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_name="<название_каталога>"
 ```
 
 ## Кто создал/остановил/перезапустил/удалил виртуальную машину
 
 Поиск по идентификатору виртуальной машины:
 ```json
-json_payload.details.instance_id="<<идентификатор виртуальной машины>>" and (json_payload.event_type="yandex.cloud.audit.compute.CreateInstance" or json_payload.event_type="yandex.cloud.audit.compute.UpdateInstance" or json_payload.event_type="yandex.cloud.audit.compute.DeleteInstance" or json_payload.event_type="yandex.cloud.audit.compute.StartInstance" or json_payload.event_type="yandex.cloud.audit.compute.StopInstance" or json_payload.event_type="yandex.cloud.audit.compute.RestartInstance")
+json_payload.details.instance_id="<<идентификатор_виртуальной_машины>>" and (json_payload.event_type="yandex.cloud.audit.compute.CreateInstance" or json_payload.event_type="yandex.cloud.audit.compute.UpdateInstance" or json_payload.event_type="yandex.cloud.audit.compute.DeleteInstance" or json_payload.event_type="yandex.cloud.audit.compute.StartInstance" or json_payload.event_type="yandex.cloud.audit.compute.StopInstance" or json_payload.event_type="yandex.cloud.audit.compute.RestartInstance")
 ```
 
 ## Какие действия совершал конкретный пользователь за период времени
@@ -33,10 +33,20 @@ json_payload.authentication.subject_name="<имя_пользователя>" and
 
 Поиск по идентификатору каталога:
 ```json
-json_payload.resource_metadata.path[1].resource_type="resource-manager.folder" and json_payload.resource_metadata.path[1].resource_id="<идентификатор каталога>") or (json_payload.resource_metadata.path[2].resource_type="resource-manager.folder" and json_payload.resource_metadata.path[2].resource_id="<идентификатор каталога>"
+json_payload.resource_metadata.path[1].resource_type="resource-manager.folder" and json_payload.resource_metadata.path[1].resource_id="<идентификатор_каталога>") or (json_payload.resource_metadata.path[2].resource_type="resource-manager.folder" and json_payload.resource_metadata.path[2].resource_id="<идентификатор_каталога>"
 ```
 
 Поиск по имени каталога:
 ```json
-json_payload.resource_metadata.path[1].resource_type="resource-manager.folder" and json_payload.resource_metadata.path[1].resource_name="<имя каталога>") or (json_payload.resource_metadata.path[2].resource_type="resource-manager.folder" and json_payload.resource_metadata.path[2].resource_name="<имя каталога>"
+json_payload.resource_metadata.path[1].resource_type="resource-manager.folder" and json_payload.resource_metadata.path[1].resource_name="<имя_каталога>") or (json_payload.resource_metadata.path[2].resource_type="resource-manager.folder" and json_payload.resource_metadata.path[2].resource_name="<имя_каталога>"
 ```
+
+{% if product == "yandex-cloud" %}
+
+## Что дальше {#whats-next}
+
+Ознакомьтесь с примерами событий в [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/_use_cases_and_searches/Use-casesANDsearches_RU.pdf).
+
+{% include [Yc-solution-library-for-security](../../_includes/security-solution-library.md) %}
+
+{% endif %}
