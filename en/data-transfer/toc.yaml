@@ -34,9 +34,8 @@ items:
                 href: operations/endpoint/source/oracle.md
               - name: PostgreSQL
                 href: operations/endpoint/source/postgresql.md
-              - name: Yandex Data Streams
+              - name: "{{ yds-full-name }}"
                 href: operations/endpoint/source/data-streams.md
-                when: product == "yandex-cloud"
           - name: Configuring target endpoints
             items:
               - name: ClickHouse
@@ -51,9 +50,8 @@ items:
                 href: operations/endpoint/target/object-storage.md
               - name: PostgreSQL
                 href: operations/endpoint/target/postgresql.md
-              - name: YDB
+              - name: "{{ ydb-full-name }}"
                 href: operations/endpoint/target/yandex-database.md
-                when: product == "yandex-cloud"
       - name: Managing the transfer process
         href: operations/transfer.md
       - name: Working with databases during the transfer
@@ -106,7 +104,6 @@ items:
         href: troubleshooting/postgresql.md
       - name: "{{ ydb-full-name }} and {{ yds-full-name }}"
         href: troubleshooting/ydb.md
-        when: product == "yandex-cloud"
       - name: Network
         href: troubleshooting/network.md
   - name: Access management

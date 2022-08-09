@@ -23,10 +23,8 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ MY }}](source/mysql.md).
          * [Oracle](source/oracle.md).
          * [{{ PG }}](source/postgresql.md).
-         {% if product == "yandex-cloud" %}
-
          * [{{ yds-full-name }}](source/data-streams.md).
-         {% endif %}
+         
       * For targets:
          * [{{ CH }}](target/clickhouse.md).
          * [{{ GP }}](target/greenplum.md).
@@ -34,10 +32,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ MY }}](target/mysql.md).
          * [{{ objstorage-name }}](target/object-storage.md).
          * [{{ PG }}](target/postgresql.md).
-         {% if product == "yandex-cloud" %}
-
          * [{{ ydb-name }}](target/yandex-database.md).
-         {% endif %}
 
    1. Click **Create**.
 
@@ -181,9 +176,8 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ MG }}](source/mongodb.md).
          * [{{ MY }}](source/mysql.md).
          * [{{ PG }}](source/postgresql.md).
-            {% if product == "yandex-cloud" %}
          * [{{ yds-name }}](source/data-streams.md).
-            {% endif %}
+           
       * Targets:
          * [{{ CH }}](target/clickhouse.md).
          * [{{ GP }}](target/greenplum.md).
@@ -191,10 +185,8 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ MY }}](target/mysql.md).
          * [{{ objstorage-name }}](target/object-storage.md).
          * [{{ PG }}](target/postgresql.md).
-            {% if product == "yandex-cloud" %}
          * [{{ ydb-name }}](target/yandex-database.md).
-            {% endif %}
-
+            
    1. Click **Apply**.
 
 - {{ TF }}

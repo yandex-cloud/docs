@@ -6,5 +6,5 @@ It results from a limitation on the cloud quota for the number of transactions w
 
 To resolve the problem:
 
-1. Increase the **Number of schema transactions per minute** property in the [{{ ydb-name }} quotas](../../ydb/concepts/limits.md) for the cloud with the required database.
+1. Increase the **Number of schema transactions per minute** property in the {{ ydb-name }} quotas for the cloud with the required database.
 1. [Restart](../operations/transfer.md#reupload) the transfer.

@@ -5,9 +5,7 @@
 * [{#T}](mongodb.md);
 * [{#T}](mysql.md);
 * [{#T}](postgresql.md);
-{% if product == "yandex-cloud" %}
 * [{#T}](ydb.md);
-{% endif %}
 * [{#T}](network.md).
 
 Особенности подготовки источников и приемников к трансферу описаны в [соответствующем разделе](../operations/prepare.md).
