@@ -54,8 +54,12 @@
 1. Укажите `access key` и `secret key`, например:
 
     ```bash
-    hadoop credential create fs.s3a.access.key -value <access key> -provider localjceks://file/home/jack/yc.jceks
-    hadoop credential create fs.s3a.secret.key -value <secret key> -provider localjceks://file/home/jack/yc.jceks
+    hadoop credential create fs.s3a.access.key \
+           -value <access key> \
+           -provider localjceks://file/home/jack/yc.jceks && \
+    hadoop credential create fs.s3a.secret.key \
+           -value <secret key> \
+           -provider localjceks://file/home/jack/yc.jceks
     ```
 
 1. Перенесите файл секрета в локальный HDFS:

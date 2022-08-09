@@ -14,7 +14,8 @@ The following example demonstrates how to configure CDC using [Debezium](https:/
    * With the `user1` user.
 
 1. Create a [{{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) *target cluster* in any applicable configuration with publicly available hosts.
-   
+
+
 1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) for Debezium with [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }}and with a public IP address.
 
 
@@ -23,14 +24,18 @@ The following example demonstrates how to configure CDC using [Debezium](https:/
    * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups);
    * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
 
+
 1. [Connect to a virtual machine](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH and set the dependencies:
 
-```bash
+
+    ```bash
     sudo apt update && \
     sudo apt install -y git docker.io kafkacat postgresql-client
     ```
 
+
 1. [Connect to the VM instance](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH and check access to the clusters:
+
 
     * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#connection-string) (use `psql`).
     * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#connection-string) (use `kafkacat`).
@@ -85,6 +90,7 @@ The following example demonstrates how to configure CDC using [Debezium](https:/
 
 
 ## Configure Debezium {#setup-debezium}
+
 
 1. [Connect to the virtual machine](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
 
@@ -295,6 +301,7 @@ The target cluster settings depend on the source cluster type:
 ## Delete the resources you created {#clear-out}
 
 If you no longer need these resources, delete them:
+
 
 1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
 

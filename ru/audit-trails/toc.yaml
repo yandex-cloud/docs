@@ -8,7 +8,7 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Загрузка аудитных логов в лог-группу
+      - name: Загрузка аудитных логов в {{ cloud-logging-name }}
         items:
           - name: Организация
             href: operations/export-organization-logging.md
@@ -16,7 +16,7 @@ items:
             href: operations/export-cloud-logging.md
           - name: Каталог
             href: operations/export-folder-logging.md
-      - name: Загрузка аудитных логов в поток данных
+      - name: Загрузка аудитных логов в {{ yds-name }}
         items:
           - name: Организация
             href: operations/export-organization-data-streams.md
@@ -24,7 +24,7 @@ items:
             href: operations/export-cloud-data-streams.md
           - name: Каталог
             href: operations/export-folder-data-streams.md
-      - name: Загрузка аудитных логов в бакет
+      - name: Загрузка аудитных логов в {{ objstorage-name }}
         items:
           - name: Организация
             href: operations/export-organization-bucket.md
@@ -34,13 +34,13 @@ items:
             href: operations/export-folder-bucket.md
   - name: Практические руководства
     items:
-      - name: Поиск в бакете
+      - name: Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
         href: tutorials/search-bucket.md
-      - name: Поиск в лог-группе
+      - name: Поиск событий {{ yandex-cloud }} в {{ cloud-logging-name }}
         href: tutorials/search-cloud-logging.md
       - name: Настройка алертов в {{ monitoring-name }}
         href: tutorials/alerts-monitoring.md
-      - name: Настройка реагирования в Cloud Functions
+      - name: Настройка реагирования в {{ sf-name }}
         href: tutorials/logging-functions.md
       - name: >-
           Загрузка аудитных логов в {{ mch-full-name }} и визуализация данных в

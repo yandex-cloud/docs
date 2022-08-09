@@ -18,5 +18,6 @@ Resource | Description
 [Instance](Instance/index.md) | A set of methods for managing Instance resources.
 [PlacementGroup](PlacementGroup/index.md) | A set of methods for managing placement groups.
 [Snapshot](Snapshot/index.md) | A set of methods for managing Snapshot resources.
+[SnapshotSchedule](SnapshotSchedule/index.md) | A set of methods for managing SnapshotSchedule resources.
 [Zone](Zone/index.md) | A set of methods to retrieve information about availability zones.
 [InstanceGroup](InstanceGroup/index.md) | A set of methods for managing InstanceGroup resources.

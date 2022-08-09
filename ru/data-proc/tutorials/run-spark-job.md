@@ -24,7 +24,11 @@ keywords:
 
 ```bash
 s3cmd ls s3://yc-mdb-examples/dataproc/example01/set01/
+```
 
+Результат:
+
+```text
 2019-09-13 17:17  19327838   s3://yc-mdb-examples/dataproc/example01/set01/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2018_1.parquet
 2019-09-13 17:17  21120204   s3://yc-mdb-examples/dataproc/example01/set01/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2018_10.parquet
 ...
@@ -57,7 +61,7 @@ s3cmd ls s3://yc-mdb-examples/dataproc/example01/set01/
 
 1. Чтобы увидеть схему полученного DataFrame, выполните команду:
 
-   ```
+   ```python
    df.printSchema()
    ```
 
@@ -88,24 +92,24 @@ Spark Submit позволяет запускать заранее написан
   1. На мастер-хосте создайте файл `month_stat.py` со следующим кодом:
   
      ```python
-      import sys
-      
-      from pyspark import SparkContext, SparkConf
-      from pyspark.sql import SQLContext
-      
-      def main():
-              conf = SparkConf().setAppName("Month Stat - Python")
-              conf.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider")
-              sc = SparkContext(conf=conf)
-      
-              sql = SQLContext(sc)
-              df = sql.read.parquet("s3a://yc-mdb-examples/dataproc/example01/set01")
-              defaultFS = sc._jsc.hadoopConfiguration().get("fs.defaultFS")
-              month_stat = df.groupBy("Month").count()
-              month_stat.repartition(1).write.format("csv").save(defaultFS+"/tmp/month_stat")
-      
-      if __name__ == "__main__":
-              main()
+     import sys
+     
+     from pyspark import SparkContext, SparkConf
+     from pyspark.sql import SQLContext
+     
+     def main():
+         conf = SparkConf().setAppName("Month Stat - Python")
+         conf.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider")
+         sc = SparkContext(conf=conf)
+     
+         sql = SQLContext(sc)
+         df = sql.read.parquet("s3a://yc-mdb-examples/dataproc/example01/set01")
+         defaultFS = sc._jsc.hadoopConfiguration().get("fs.defaultFS")
+         month_stat = df.groupBy("Month").count()
+         month_stat.repartition(1).write.format("csv").save(defaultFS+"/tmp/month_stat")
+     
+     if __name__ == "__main__":
+             main()
      ```
      
   1. Запустите приложение:
@@ -173,14 +177,15 @@ Spark Submit позволяет запускать заранее написан
   1. Скомпилируйте и соберите jar-файл:
   
       ```bash
-      sbt compile
-      sbt package
+      sbt compile && sbt package
       ```
 
   1. Запустите получившееся приложение:
   
       ```bash
-      /usr/bin/spark-submit --class com.yandex.cloud.dataproc.scala.Main ./target/scala-2.11/scala-app_2.11-0.1-SNAPSHOT.jar
+      /usr/bin/spark-submit \
+          --class com.yandex.cloud.dataproc.scala.Main \
+              ./target/scala-2.11/scala-app_2.11-0.1-SNAPSHOT.jar
       ```
 
   1. Результат работы приложения будет выгружен в HDFS. Список получившихся файлов можно вывести командой:
@@ -217,7 +222,7 @@ Spark Submit позволяет запускать заранее написан
 
 Результат расчета приложение сохраняет либо с помощью компонента HDFS в кластере {{ dataproc-name }}, либо в указанный вами бакет {{objstorage-name}}.
 
-Служебная и отладочная информация сохраняется в бакете {{objstorage-name}}, который был указан при создании кластера {{ dataproc-name }}. Для каждого задания агент {{ dataproc-name }} создает отдельную папку с путем вида `dataproc/clusters/<ID кластера>/jobs/{job_id}`. Перед первым запуском следует назначить права `WRITE` на бакет для сервисного аккаунта, под которым будут запускаться задания.
+Служебная и отладочная информация сохраняется в бакете {{objstorage-name}}, который был указан при создании кластера {{ dataproc-name }}. Для каждого задания агент {{ dataproc-name }} создает отдельную папку с путем вида `dataproc/clusters/<идентификатор кластера>/jobs/<идентификатор задачи>`. Перед первым запуском следует назначить права `WRITE` на бакет для сервисного аккаунта, под которым будут запускаться задания.
 
 Ниже приведены два варианта приложения — для Scala и Python.
 
@@ -237,7 +242,7 @@ Spark Submit позволяет запускать заранее написан
 
 Структура приложения:
 
-```
+```text
 spark-app
 |-project
 |  |-plugins.sbt
@@ -335,8 +340,9 @@ spark-app
 
 Чтобы Spark имел доступ к собранному JAR-файлу, загрузите файл в бакет {{objstorage-name}}, к которому есть доступ у сервисного аккаунта кластера {{ dataproc-name }}. Загрузить файл можно с помощью [s3cmd](../../storage/tools/s3cmd.md):
 
-```
-s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar s3://<ваш бакет>/bin/
+```bash
+s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar \
+    s3://<ваш бакет>/bin/
 ```
 
 Для текущего примера файл загружается по адресу `s3://<ваш бакет>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar`.
@@ -353,12 +359,12 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar s3://<ваш б�
 
   ```bash
   {{ yc-dp }} job create-spark \
-      --cluster-id <ID кластера> \
-      --name <имя задачи> \
-      --main-class "com.yandex.cloud.dataproc.scala.Main" \
-      --main-jar-file-uri "s3a://<ваш бакет>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar" \
-      --args "s3a://yc-mdb-examples/dataproc/example01/set01" \
-      --args "s3a://<ваш бакет>/jobs_results/"
+     --cluster-id=<идентификатор кластера> \
+     --name=<имя задачи> \
+     --main-class="com.yandex.cloud.dataproc.scala.Main" \
+     --main-jar-file-uri="s3a://<ваш бакет>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar" \
+     --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
+     --args="s3a://<ваш бакет>/jobs_results/"
   ```
   
 - HDFS
@@ -366,12 +372,18 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar s3://<ваш б�
   CSV-файл с результатом создается в папке `/tmp/jobs/<идентификатор задачи>/` в HDFS.
 
   ```bash
-  {{ yc-dp }} job create-spark --cluster-id <ID кластера> --name <имя задачи> --main-class "com.yandex.cloud.dataproc.scala.Main" --main-jar-file-uri "s3a://<ваш бакет>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar" --args "s3a://yc-mdb-examples/dataproc/example01/set01" --args "tmp/jobs/"
+  {{ yc-dp }} job create-spark \
+     --cluster-id=<идентификатор кластера> \
+     --name=<имя задачи> \
+     --main-class="com.yandex.cloud.dataproc.scala.Main" \
+     --main-jar-file-uri="s3a://<ваш бакет>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar" \
+     --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
+     --args="tmp/jobs/"
   ```
   
   Пример сообщения об успешном запуске задачи:
   
-  ```txt
+  ```text
   done (1m2s)
   id: {your_job_id}
   cluster_id: {your_cluster_id}
@@ -444,13 +456,23 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar s3://<ваш б�
    * В бакет {{objstorage-name}}:
 
       ```bash
-      {{ yc-dp }} job create-pyspark --cluster-id <ID кластера> --name <имя задачи> --main-python-file-uri "s3a://<ваш бакет>/bin/job.py" --args "s3a://yc-mdb-examples/dataproc/example01/set01" --args "s3a://<ваш бакет>/jobs_results/"
+      {{ yc-dp }} job create-pyspark \
+         --cluster-id=<идентификатор кластера> \
+         --name=<имя задачи> \
+         --main-python-file-uri="s3a://<ваш бакет>/bin/job.py" \
+         --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
+         --args="s3a://<ваш бакет>/jobs_results/"
       ```
 
    * В HDFS:
 
       ```bash
-      {{ yc-dp }} job create-pyspark --cluster-id <ID кластера> --name <имя задачи> --main-python-file-uri "s3a://<ваш бакет>/bin/job.py" --args "s3a://yc-mdb-examples/dataproc/example01/set01" --args "tmp/jobs/"
+      {{ yc-dp }} job create-pyspark \
+         --cluster-id=<идентификатор кластера> \
+         --name=<имя задачи> \
+         --main-python-file-uri="s3a://<ваш бакет>/bin/job.py" \
+         --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
+         --args="tmp/jobs/"
       ```
     
      CSV-файл с результатом создается в папке `/tmp/jobs/<идентификатор задачи>/` в HDFS.
@@ -458,5 +480,6 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar s3://<ваш б�
 1. Чтобы посмотреть логи задачи:
 
    ```bash
-   {{ yc-dp }} job log <имя задачи> --cluster-id <ID кластера>
+   {{ yc-dp }} job log <имя задачи> \
+      --cluster-id=<идентификатор кластера>
    ```

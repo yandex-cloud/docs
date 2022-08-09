@@ -393,6 +393,8 @@ items:
             href: api-ref/grpc/instance_service.md
           - name: PlacementGroupService
             href: api-ref/grpc/placement_group_service.md
+          - name: SnapshotScheduleService
+            href: api-ref/grpc/snapshot_schedule_service.md
           - name: SnapshotService
             href: api-ref/grpc/snapshot_service.md
           - name: ZoneService
@@ -571,6 +573,32 @@ items:
                 href: api-ref/PlacementGroup/listOperations.md
               - name: update
                 href: api-ref/PlacementGroup/update.md
+          - name: SnapshotSchedule
+            items:
+              - name: Overview
+                href: api-ref/SnapshotSchedule/index.md
+              - name: create
+                href: api-ref/SnapshotSchedule/create.md
+              - name: delete
+                href: api-ref/SnapshotSchedule/delete.md
+              - name: disable
+                href: api-ref/SnapshotSchedule/disable.md
+              - name: enable
+                href: api-ref/SnapshotSchedule/enable.md
+              - name: get
+                href: api-ref/SnapshotSchedule/get.md
+              - name: list
+                href: api-ref/SnapshotSchedule/list.md
+              - name: listDisks
+                href: api-ref/SnapshotSchedule/listDisks.md
+              - name: listOperations
+                href: api-ref/SnapshotSchedule/listOperations.md
+              - name: listSnapshots
+                href: api-ref/SnapshotSchedule/listSnapshots.md
+              - name: update
+                href: api-ref/SnapshotSchedule/update.md
+              - name: updateDisks
+                href: api-ref/SnapshotSchedule/updateDisks.md
           - name: Snapshot
             items:
               - name: Overview

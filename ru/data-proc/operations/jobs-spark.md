@@ -44,18 +44,18 @@
 
         ```bash
         {{ yc-dp }} job create-spark \
-          --cluster-name <имя кластера> \
-          --name <имя задания> \
-          --main-class <имя основного класса приложения> \
-          --main-jar-file-uri <путь к основному jar-файлу> \
-          --jar-file-uris <путь к jar-файлу> \
-          --file-uris <путь к файлу> \
-          --archive-uris <путь к архиву> \
-          --properties <ключ-значение> \
-          --args <аргументы, передаваемые заданию> \
-          --packages <Maven координаты jar-файлов в формате groupId:artifactId:version> \
-          --repositories <дополнительные репозитории для поиска packages> \
-          --exclude-packages <пакеты в формате groupId:artifactId, которые надо исключить>
+           --cluster-name=<имя кластера> \
+           --name=<имя задания> \
+           --main-class=<имя основного класса приложения> \
+           --main-jar-file-uri=<путь к основному jar-файлу> \
+           --jar-file-uris=<путь к jar-файлу> \
+           --file-uris=<путь к файлу> \
+           --archive-uris=<путь к архиву> \
+           --properties=<ключ-значение> \
+           --args=<аргументы, передаваемые заданию> \
+           --packages=<Maven координаты jar-файлов в формате groupId:artifactId:version> \
+           --repositories=<дополнительные репозитории для поиска packages> \
+           --exclude-packages=<пакеты в формате groupId:artifactId, которые надо исключить>
         ```
 
         Пути к необходимым для выполнения задания файлам передавайте в формате:
@@ -92,3 +92,4 @@
 ## Получить логи выполнения задания {#get-logs}
 
 {% include [jobs-get-logs](../../_includes/data-proc/jobs-get-logs.md) %}
+

@@ -1227,6 +1227,7 @@ Method | Description
 [stop](stop.md) | Stops the specified ClickHouse cluster.
 [streamLogs](streamLogs.md) | Same as ListLogs but using server-side streaming. Also allows for `tail -f` semantics.
 [update](update.md) | Updates the specified ClickHouse cluster.
+[updateExternalDictionary](updateExternalDictionary.md) | Updates an external dictionary for the specified ClickHouse cluster.
 [updateHosts](updateHosts.md) | Updates the specified hosts.
 [updateShard](updateShard.md) | Modifies the specified shard.
 [updateShardGroup](updateShardGroup.md) | Updates the specified shard group.

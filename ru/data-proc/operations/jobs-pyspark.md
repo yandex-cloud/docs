@@ -44,17 +44,17 @@
 
         ```bash
         {{ yc-dp }} job create-pyspark \
-          --cluster-name <имя кластера> \
-          --name <имя задания> \
-          --main-python-file-uri <путь к основному py-файлу приложения> \
-          --python-file-uris <пути к дополнительным py-файлам> \
-          --jar-file-uris <пути к jar-файлам> \
-          --archive-uris <пути к архивам> \
-          --properties <ключ-значение> \
-          --args <аргументы, передаваемые заданию> \
-          --packages <Maven координаты jar-файлов в формате groupId:artifactId:version> \
-          --repositories <дополнительные репозитории для поиска packages> \
-          --exclude-packages <пакеты в формате groupId:artifactId, которые надо исключить>
+           --cluster-name=<имя кластера> \
+           --name=<имя задания> \
+           --main-python-file-uri=<путь к основному py-файлу приложения> \
+           --python-file-uris=<пути к дополнительным py-файлам> \
+           --jar-file-uris=<пути к jar-файлам> \
+           --archive-uris=<пути к архивам> \
+           --properties=<ключ-значение> \
+           --args=<аргументы, передаваемые заданию> \
+           --packages=<Maven координаты jar-файлов в формате groupId:artifactId:version> \
+           --repositories=<дополнительные репозитории для поиска packages> \
+           --exclude-packages=<пакеты в формате groupId:artifactId, которые надо исключить>
         ```
 
         Пути к необходимым для выполнения задания файлам передавайте в формате:
@@ -91,3 +91,4 @@
 ## Получить логи выполнения задания {#get-logs}
 
 {% include [jobs-get-logs](../../_includes/data-proc/jobs-get-logs.md) %}
+

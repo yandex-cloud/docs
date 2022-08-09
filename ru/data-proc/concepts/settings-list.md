@@ -14,7 +14,7 @@
 
 Например:
 
-```
+```text
 hdfs:dfs.replication : 2
 hdfs:dfs.blocksize : 1073741824
 spark:spark.driver.cores : 1

@@ -115,17 +115,17 @@ connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalClust
 connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>sslTruststoreCertificates | **string**<br><p>CA in PEM format to connect to external cluster. Lines of certificate separated by '\n' symbol.</p> 
 connectorSpec.<br>connectorConfigMirrormaker.<br>topics | **string**<br><p>List of Kafka topics, separated by ``,``.</p> 
 connectorSpec.<br>connectorConfigMirrormaker.<br>replicationFactor | **integer** (int64)<br><p>Replication factor for automatically created topics.</p> 
-connectorSpec.<br>connectorConfigS3Sink | **object**<br>Configuration of S3-Sink connector <br>`connectorSpec` includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`<br>
+connectorSpec.<br>connectorConfigS3Sink | **object**<br>Configuration of S3-Sink connector. <br>`connectorSpec` includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`<br>
 connectorSpec.<br>connectorConfigS3Sink.<br>topics | **string**<br><p>List of Kafka topics, separated by ','.</p> 
 connectorSpec.<br>connectorConfigS3Sink.<br>fileCompressionType | **string**<br><p>The compression type used for files put on GCS. The supported values are: ``gzip``, ``snappy``, ``zstd``, ``none``. Optional, the default is ``none``.</p> 
 connectorSpec.<br>connectorConfigS3Sink.<br>fileMaxRecords | **integer** (int64)<br><p>Max records per file.</p> 
-connectorSpec.<br>connectorConfigS3Sink.<br>s3Connection | **object**<br><p>Credentials for connecting to S3 storage</p> <p>Specification for S3Connection - settings of connection to AWS-compatible S3 storage, that are source or target of Kafka S3-connectors. YC Object Storage is AWS-compatible.</p> 
+connectorSpec.<br>connectorConfigS3Sink.<br>s3Connection | **object**<br><p>Credentials for connecting to S3 storage.</p> <p>Specification for S3Connection - settings of connection to AWS-compatible S3 storage, that are source or target of Kafka S3-connectors. YC Object Storage is AWS-compatible.</p> 
 connectorSpec.<br>connectorConfigS3Sink.<br>s3Connection.<br>bucketName | **string**
 connectorSpec.<br>connectorConfigS3Sink.<br>s3Connection.<br>externalS3 | **object**
 connectorSpec.<br>connectorConfigS3Sink.<br>s3Connection.<br>externalS3.<br>accessKeyId | **string**
 connectorSpec.<br>connectorConfigS3Sink.<br>s3Connection.<br>externalS3.<br>secretAccessKey | **string**
 connectorSpec.<br>connectorConfigS3Sink.<br>s3Connection.<br>externalS3.<br>endpoint | **string**
-connectorSpec.<br>connectorConfigS3Sink.<br>s3Connection.<br>externalS3.<br>region | **string**<br><p>Default is 'us-east-1'</p> 
+connectorSpec.<br>connectorConfigS3Sink.<br>s3Connection.<br>externalS3.<br>region | **string**<br><p>Default is 'us-east-1'.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

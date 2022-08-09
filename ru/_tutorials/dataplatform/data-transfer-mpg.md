@@ -13,18 +13,18 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте кластер-источник {{ mpg-name }}](../../../managed-postgresql/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
+1. [Создайте кластер-источник {{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
 
     * с базой данных `db1`;
     * с пользователем `pg-user`;
     * с хостами в публичном доступе.
 
-1. [Создайте кластер-приемник {{ mkf-name }}](../../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
+1. [Создайте кластер-приемник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
 1. Настройте группы безопасности кластеров, чтобы к ним можно было подключаться из интернета:
 
-    * [Инструкция для {{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups).
-    * [Инструкция для {{ mkf-name }}](../../../managed-kafka/operations/connect.md#configuring-security-groups).
+    * [Инструкция для {{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
+    * [Инструкция для {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
 
 1. Установите на локальный компьютер [утилиту](https://github.com/edenhill/kcat) `kcat` (`kafkacat`) и [клиент командной строки PostgreSQL](https://www.postgresql.org/download/). Например, в Ubuntu 20.04 выполните команду:
 
@@ -34,9 +34,9 @@
 
 ## Подготовьте кластер-источник {#prepare-source}
 
-1. Чтобы сервис {{ data-transfer-name }} мог получать от кластера {{ mpg-name }} уведомления об изменениях в данных, в кластере-источнике необходимо создать публикацию (publication). Чтобы пользователь `pg-user` мог создать публикацию, [назначьте](../../../managed-postgresql/operations/grant.md) ему роль роль `mdb_replication`.
+1. Чтобы сервис {{ data-transfer-name }} мог получать от кластера {{ mpg-name }} уведомления об изменениях в данных, в кластере-источнике необходимо создать публикацию (publication). Чтобы пользователь `pg-user` мог создать публикацию, [назначьте](../../managed-postgresql/operations/grant.md) ему роль роль `mdb_replication`.
 
-1. [Подключитесь к базе данных](../../../managed-postgresql/operations/connect.md) `db1` от имени пользователя `pg-user`.
+1. [Подключитесь к базе данных](../../managed-postgresql/operations/connect.md) `db1` от имени пользователя `pg-user`.
 
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица, содержащая информацию с некоторых датчиков автомобиля.
 
@@ -67,7 +67,7 @@
 
 ## Подготовьте кластер-приемник {#prepare-target}
 
-Настройки различаются в зависимости от используемого [способа управления топиками](../../../managed-kafka/concepts/topics.md#management). При этом имена топиков для данных конструируются по тому же принципу, что и в [Debezium](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-topic-names) — `<префикс топика>.<имя схемы>.<имя таблицы>`. В этом руководстве в качестве примера будет использоваться префикс `cdc`.
+Настройки различаются в зависимости от используемого [способа управления топиками](../../managed-kafka/concepts/topics.md#management). При этом имена топиков для данных конструируются по тому же принципу, что и в [Debezium](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-topic-names) — `<префикс топика>.<имя схемы>.<имя таблицы>`. В этом руководстве в качестве примера будет использоваться префикс `cdc`.
 
 {% list tabs %}
 
@@ -75,28 +75,28 @@
 
     Если управление топиками осуществляется с помощью стандартных интерфейсов {{ yandex-cloud }} (Консоль управления, YC CLI, {{ TF }}, API):
 
-    1. [Создайте топик](../../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `cdc.public.measurements`.
+    1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `cdc.public.measurements`.
 
         Если необходимо отслеживать изменения в нескольких таблицах, создайте для каждой из них отдельный топик.
 
-    1. [Создайте пользователя](../../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `kafka-user` и ролями `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER`, действующими на созданные топики.
+    1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `kafka-user` и ролями `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER`, действующими на созданные топики.
 
 * Admin API
 
     Если для управления топиками используется Kafka Admin API:
 
-    1. Создайте [пользователя-администратора](../../../managed-kafka/operations/cluster-accounts.md) с именем `kafka-user`.
+    1. Создайте [пользователя-администратора](../../managed-kafka/operations/cluster-accounts.md) с именем `kafka-user`.
 
     1. Помимо роли `ACCESS_ROLE_ADMIN` назначьте пользователю-администратору роли `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER` на топики, имена которых начинаются с префикса `cdc`.
 
-        Необходимые топики будут созданы автоматически при первом событии изменения в отслеживаемых таблицах кластера-источника. Такое решение может быть удобным для отслеживания изменений во множестве таблиц, однако, требует запас свободного места в хранилище кластера. Подробнее см. в разделе [{#T}](../../../managed-kafka/concepts/storage.md).
+        Необходимые топики будут созданы автоматически при первом событии изменения в отслеживаемых таблицах кластера-источника. Такое решение может быть удобным для отслеживания изменений во множестве таблиц, однако, требует запас свободного места в хранилище кластера. Подробнее см. в разделе [{#T}](../../managed-kafka/concepts/storage.md).
 
 {% endlist %}
 
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинты](../../../data-transfer/operations/endpoint/index.md#create).
+1. [Создайте эндпоинты](../../data-transfer/operations/endpoint/index.md#create).
 
     * Эндпоинт для источника:
 
@@ -126,14 +126,14 @@
             * **Настройки кафка-топика** — `Префикс топика`.
             * **Префикс топика** — укажите префикс `cdc`, использованный при формировании имен топиков.
 
-1. [Создайте трансфер](../../../data-transfer/operations/transfer.md#create) со следующими настройками:
+1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) со следующими настройками:
 
     * **Эндпоинты**:
         * **Источник** — созданный ранее эндпоинт для источника.
         * **Приемник** — созданный ранее эндпоинт для приемника.
     * **Тип трансфера** — `{{ dt-type-repl }}`.
 
-1. [Активируйте трансфер](../../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус {{ dt-status-repl }}.
+1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус {{ dt-status-repl }}.
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
@@ -153,7 +153,7 @@
         -K:
     ```
 
-    FQDN хостов-брокеров можно получить со [списком хостов в кластере {{ mkf-name }}](../../../managed-kafka/operations/cluster-hosts.md#list-hosts).
+    FQDN хостов-брокеров можно получить со [списком хостов в кластере {{ mkf-name }}](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
 
     Будет выведена схема формата данных таблицы `public.measurements` и данные о добавленных в нее ранее строках.
 
@@ -215,13 +215,13 @@
 
 Если созданные ресурсы вам больше не нужны, удалите их:
 
-1. [Деактивируйте](../../../data-transfer/operations/transfer.md#deactivate) и [удалите](../../../data-transfer/operations/transfer.md#delete) трансфер.
+1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) и [удалите](../../data-transfer/operations/transfer.md#delete) трансфер.
 
-1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete).
+1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete).
 
 1. Удалите кластеры:
 
-    * [{{ mkf-name }}](../../../managed-kafka/operations/cluster-delete.md).
-    * [{{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
+    * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+    * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
 
-1. Если для доступа к хостам кластеров использовались статические публичные IP-адреса, освободите и [удалите](../../../vpc/operations/address-delete.md) их.
+1. Если для доступа к хостам кластеров использовались статические публичные IP-адреса, освободите и [удалите](../../vpc/operations/address-delete.md) их.

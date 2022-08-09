@@ -32,7 +32,12 @@ routeTableId | <p>Required. ID of the RouteTable resource to update.</p> <p>The 
     {
       "labels": "object",
       "destinationPrefix": "string",
-      "nextHopAddress": "string"
+
+      // `staticRoutes[]` includes only one of the fields `nextHopAddress`, `gatewayId`
+      "nextHopAddress": "string",
+      "gatewayId": "string",
+      // end of the list of possible fields`staticRoutes[]`
+
     }
   ]
 }
@@ -41,14 +46,15 @@ routeTableId | <p>Required. ID of the RouteTable resource to update.</p> <p>The 
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>Field mask that specifies which fields of the RouteTable resource are going to be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+updateMask | **string**<br><p>Field mask that specifies which fields of the RouteTable resource are going to be updated.</p> <p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
 name | **string**<br><p>Name of the route table. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 description | **string**<br><p>Description of the route table.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 staticRoutes[] | **object**<br><p>List of static routes.</p> 
 staticRoutes[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 staticRoutes[].<br>destinationPrefix | **string**<br><p>Destination subnet in CIDR notation</p> 
-staticRoutes[].<br>nextHopAddress | **string**<br><p>Next hop IP address</p> 
+staticRoutes[].<br>nextHopAddress | **string** <br>`staticRoutes[]` includes only one of the fields `nextHopAddress`, `gatewayId`<br><br><p>Next hop IP address</p> 
+staticRoutes[].<br>gatewayId | **string** <br>`staticRoutes[]` includes only one of the fields `nextHopAddress`, `gatewayId`<br><br><p>Next hop gateway id</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

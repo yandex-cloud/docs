@@ -6,22 +6,22 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте _кластер-источник_](../../../managed-mysql/operations/cluster-create.md) со следующими настройками:
+1. [Создайте _кластер-источник_](../../managed-mysql/operations/cluster-create.md) со следующими настройками:
 
     * с хостами в публичном доступе;
     * с базой данных `db1`;
     * с пользователем `user1`.
 
-1. [Создайте _кластер-приемник_ {{ mkf-name }}](../../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
+1. [Создайте _кластер-приемник_ {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
-1. [Создайте виртуальную машину](../../../compute/operations/vm-create/create-linux-vm.md) с Ubuntu 20.04 и публичным IP-адресом.
+1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с Ubuntu 20.04 и публичным IP-адресом.
 
 1. Настройте группы безопасности так, чтобы к кластерам можно было подключаться из интернета и созданной виртуальной машины, а к ней — из интернета по SSH:
 
-    * [Настройка групп безопасности кластера {{ mkf-name }}](../../../managed-kafka/operations/connect.md#configuring-security-groups).
-    * [Настройка групп безопасности кластера {{ mmy-name }}](../../../managed-mysql/operations/connect.md#configure-security-groups).
+    * [Настройка групп безопасности кластера {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
+    * [Настройка групп безопасности кластера {{ mmy-name }}](../../managed-mysql/operations/connect.md#configure-security-groups).
 
-1. [Подключитесь к виртуальной машине по SSH](../../../compute/operations/vm-connect/ssh.md#vm-connect) и выполните ее предварительную настройку:
+1. [Подключитесь к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) и выполните ее предварительную настройку:
 
     1. Установите зависимости:
 
@@ -47,8 +47,8 @@
 
     1. Установите на виртуальную машину сертификаты и убедитесь в доступности кластеров:
 
-        * [{{ mkf-name }}](../../../managed-kafka/operations/connect.md) (используйте утилиту `kafkacat`).
-        * [{{ mmy-name }}](../../../managed-mysql/operations/connect.md#get-ssl-cert) (используйте утилиту `mysql`).
+        * [{{ mkf-name }}](../../managed-kafka/operations/connect.md) (используйте утилиту `kafkacat`).
+        * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#get-ssl-cert) (используйте утилиту `mysql`).
 
     1. Создайте директорию, в которой будут храниться файлы, необходимые для работы коннектора Debezium:
 
@@ -69,9 +69,9 @@
 
 ## Подготовка кластера-источника {#prepare-source}
 
-1. [Назначьте пользователю](../../../managed-mysql/operations/cluster-users.md#update-settings) `user1` глобальные привилегии `REPLICATION CLIENT` и `REPLICATION SLAVE`.
+1. [Назначьте пользователю](../../managed-mysql/operations/cluster-users.md#update-settings) `user1` глобальные привилегии `REPLICATION CLIENT` и `REPLICATION SLAVE`.
 
-1. [Подключитесь к базе данных](../../../managed-mysql/operations/connect.md) `db1` от имени пользователя `user1`.
+1. [Подключитесь к базе данных](../../managed-mysql/operations/connect.md) `db1` от имени пользователя `user1`.
 
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица, содержащая информацию с некоторых датчиков автомобиля.
 
@@ -111,7 +111,7 @@
     ```bash
     VERSION="1.9.4.Final"
     wget https://repo1.maven.org/maven2/io/debezium/debezium-connector-mysql/${VERSION}/debezium-connector-mysql-${VERSION}-plugin.tar.gz && \
-        sudo tar -xzvf debezium-connector-mysql-${VERSION}-plugin.tar.gz -C /etc/debezium/plugins/
+    sudo tar -xzvf debezium-connector-mysql-${VERSION}-plugin.tar.gz -C /etc/debezium/plugins/
     ```
 
 1. Создайте файл `/etc/debezium/mdb-connector.conf` с настройками коннектора Debezium для подключения к кластеру-источнику:
@@ -155,9 +155,9 @@
     Здесь:
 
     * `name` — логическое имя коннектора Debezium. Используется для внутренних нужд коннектора.
-    * `database.hostname` — [особый FQDN](../../../managed-mysql/operations/connect.md#fqdn-master) для подключения к хосту-мастеру кластера-источника.
+    * `database.hostname` — [особый FQDN](../../managed-mysql/operations/connect.md#fqdn-master) для подключения к хосту-мастеру кластера-источника.
 
-        Идентификатор кластера можно получить со [списком кластеров в каталоге](../../../managed-mysql/operations/cluster-list.md#list-clusters).
+        Идентификатор кластера можно получить со [списком кластеров в каталоге](../../managed-mysql/operations/cluster-list.md#list-clusters).
 
     * `database.user` — имя пользователя {{ MY }}.
     * `database.dbname` — имя базы данных {{ MY }}.
@@ -168,7 +168,7 @@
 
 ## Подготовьте кластер-приемник {#prepare-target}
 
-1. [Создайте топик](../../../managed-kafka/operations/cluster-topics.md#create-topic), в который будут помещаться данные, поступающие от кластера-источника:
+1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic), в который будут помещаться данные, поступающие от кластера-источника:
 
     * **Имя** — `mmy.db1.measurements`.
 
@@ -177,7 +177,7 @@
         Согласно [файлу настроек коннектора Debezium](#setup-debezium):
 
         * Имя сервера `mmy` указано в параметре `database.server.name`.
-        * Имя базы данных `db1` указано вместо с именем таблицы `measurements` в параметре `table.include.list`.
+        * Имя базы данных `db1` указано вместе с именем таблицы `measurements` в параметре `table.include.list`.
 
     Если необходимо отслеживать изменения в нескольких таблицах, создайте для каждой из них отдельный топик.
 
@@ -202,9 +202,9 @@
     * **Политика очистки лога** — `Delete`.
     * **Количество разделов** — `1`.
 
-1. [Создайте пользователя](../../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `debezium`.
+1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `debezium`.
 
-1. [Выдайте пользователю `debezium` права](../../../managed-kafka/operations/cluster-accounts.md#grant-permission) `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER` на созданные топики.
+1. [Выдайте пользователю `debezium` права](../../managed-kafka/operations/cluster-accounts.md#grant-permission) `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER` на созданные топики.
 
 ## Запустите коннектор Debezium {#run-connector}
 
@@ -219,7 +219,7 @@
     security.protocol=SASL_SSL
     ssl.truststore.location=/etc/debezium/keystore.jks
     ssl.truststore.password=<пароль JKS>
-    sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<пароль учетной записи debezium>";
+    sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<пароль пользователя debezium>";
 
     # Producer connect properties
     producer.sasl.mechanism=SCRAM-SHA-512
@@ -307,7 +307,7 @@
 
     {% endcut %}
 
-1. [Подключитесь к кластеру-источнику](../../../managed-mysql/operations/connect.md) и добавьте еще одну строку в таблицу `measurements`:
+1. [Подключитесь к кластеру-источнику](../../managed-mysql/operations/connect.md) и добавьте еще одну строку в таблицу `measurements`:
 
     ```sql
     INSERT INTO measurements VALUES ('iv7b74th678tooxh5ur2', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
@@ -319,11 +319,11 @@
 
 Если созданные ресурсы вам больше не нужны, удалите их:
 
-1. [Удалите виртуальную машину](../../../compute/operations/vm-control/vm-delete.md).
+1. [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
 
-    Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, освободите и [удалите его](../../../vpc/operations/address-delete.md).
+    Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, освободите и [удалите его](../../vpc/operations/address-delete.md).
 
 1. Удалите кластеры:
 
-    * [{{ mkf-name }}](../../../managed-kafka/operations/cluster-delete.md).
-    * [{{ mmy-name }}](../../../managed-mysql/operations/cluster-delete.md).
+    * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+    * [{{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).

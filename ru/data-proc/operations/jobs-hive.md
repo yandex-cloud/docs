@@ -46,10 +46,10 @@
 
         ```bash
         {{ yc-dp }} job create-hive \
-          --cluster-name <имя кластера> \
-          --name <имя задания> \
-          --query-file-uri <URI файла запроса> \
-          --script-variables <список значений переменных, разделенных запятыми>
+           --cluster-name=<имя кластера> \
+           --name=<имя задания> \
+           --query-file-uri=<URI файла запроса> \
+           --script-variables=<список значений переменных, разделенных запятыми>
         ```
 
         Пути к необходимым для выполнения задания файлам передавайте в формате:
@@ -84,3 +84,4 @@
 ## Получить логи выполнения задания {#get-logs}
 
 {% include [jobs-get-logs](../../_includes/data-proc/jobs-get-logs.md) %}
+
