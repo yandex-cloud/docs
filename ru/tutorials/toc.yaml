@@ -131,11 +131,11 @@ items:
         href: dataplatform/kafka-connector.md
       - name: >-
           Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}
-        href: dataplatform/kafka-cdc/data-transfer-mpg.md
+        href: dataplatform/data-transfer-mpg.md
       - name: Поставка данных из {{ mmy-full-name }} в {{ mkf-full-name }} с помощью Debezium
-        href: dataplatform/kafka-cdc/debezium-mmy.md
+        href: dataplatform/debezium-mmy.md
       - name: Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью Debezium
-        href: dataplatform/kafka-cdc/debezium-mpg.md
+        href: dataplatform/debezium-mpg.md
       - name: Настройка Kafka Connect для работы с кластером {{ mkf-full-name }}
         href: dataplatform/kafka-connect.md
       - name: Управление схемами данных в {{ mkf-full-name }}
@@ -185,15 +185,15 @@ items:
         href: dataplatform/sqoop-mmy.md
         when: product == "yandex-cloud"
       - name: Поставка данных из {{ mmy-full-name }} в {{ mkf-full-name }} с помощью Debezium
-        href: dataplatform/kafka-cdc/debezium-mmy.md
+        href: dataplatform/debezium-mmy.md
         # PG
       - name: Миграция базы данных из {{ PG }} в {{ CH }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/rdbms-to-clickhouse.md
       - name: >-
           Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}
-        href: dataplatform/kafka-cdc/data-transfer-mpg.md
+        href: dataplatform/data-transfer-mpg.md
       - name: Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью Debezium
-        href: dataplatform/kafka-cdc/debezium-mpg.md
+        href: dataplatform/debezium-mpg.md
       - name: Импорт данных из {{ mpg-full-name }} в {{ dataproc-full-name }} с помощью Sqoop
         href: dataplatform/sqoop-mpg.md
         when: product == "yandex-cloud"

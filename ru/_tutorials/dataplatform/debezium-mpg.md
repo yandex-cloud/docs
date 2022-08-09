@@ -6,24 +6,24 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте _кластер-источник_](../../../managed-postgresql/operations/cluster-create.md) со следующими настройками:
+1. [Создайте _кластер-источник_](../../managed-postgresql/operations/cluster-create.md) со следующими настройками:
 
     * с хостами в публичном доступе;
     * с базой данных `db1`;
     * с пользователем `user1`.
 
-1. [Создайте _кластер-приемник_ {{ mkf-name }}](../../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
+1. [Создайте _кластер-приемник_ {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
-1. {% if audience == "external" %}[Создайте виртуальную машину](../../../compute/operations/vm-create/create-linux-vm.md){% else %}Создайте виртуальную машину{% endif %} с Ubuntu 20.04 и публичным IP-адресом.
+1. {% if audience == "external" %}[Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md){% else %}Создайте виртуальную машину{% endif %} с Ubuntu 20.04 и публичным IP-адресом.
 
 1. Настройте группы безопасности так, чтобы к кластерам можно было подключаться из интернета и созданной виртуальной машины, а к ней — из интернета по SSH:
 
-    * [Настройка групп безопасности кластера {{ mkf-name }}](../../../managed-kafka/operations/connect.md#configuring-security-groups).
-    * [Настройка групп безопасности кластера {{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups).
+    * [Настройка групп безопасности кластера {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
+    * [Настройка групп безопасности кластера {{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
 
-1. {% if audience != "internal" %}[Подключитесь к виртуальной машине по SSH](../../../compute/operations/vm-connect/ssh.md#vm-connect){% else %}Подключитесь к виртуальной машине по SSH{% endif %} и выполните ее предварительную настройку:
+1. {% if audience != "internal" %}[Подключитесь к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md#vm-connect){% else %}Подключитесь к виртуальной машине по SSH{% endif %} и выполните ее предварительную настройку:
 
-    1. Установите зависимости, соответствующие типу источника:
+    1. Установите зависимости:
 
         ```bash
         sudo apt update && \
@@ -36,7 +36,7 @@
         sudo mkdir -p /opt/kafka/
         ```
 
-    1. Загрузите и распакуйте в эту директорию архив с исполняемыми файлами {{ KF }}. Например, для загрузки и распаковки {{ KF }} версии 3.0 выполните команду:
+    1. Скачайте и распакуйте в эту директорию архив с исполняемыми файлами {{ KF }}. Например, для загрузки и распаковки {{ KF }} версии 3.0 выполните команду:
 
         ```bash
         wget https://archive.apache.org/dist/kafka/3.0.0/kafka_2.13-3.0.0.tgz && \
@@ -47,8 +47,8 @@
 
     1. Установите на виртуальную машину сертификаты и убедитесь в доступности кластеров:
 
-        * [{{ mkf-name }}](../../../managed-kafka/operations/connect.md) (используйте утилиту `kafkacat`).
-        * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#get-ssl-cert) (используйте утилиту `psql`).
+        * [{{ mkf-name }}](../../managed-kafka/operations/connect.md) (используйте утилиту `kafkacat`).
+        * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#get-ssl-cert) (используйте утилиту `psql`).
 
     1. Создайте директорию, в которой будут храниться файлы, необходимые для работы коннектора Debezium:
 
@@ -56,7 +56,7 @@
         sudo mkdir -p /etc/debezium/plugins/
         ```
 
-    1. Чтобы коннектор Debezium мог подключаться к хостам-брокерам {{ mkf-full-name }}, добавьте SSL-сертификат в защищенное хранилище сертификатов Java (Java Key Store). Для дополнительной защиты хранилища в параметре `-storepass` укажите пароль длиной не меньше 6 символов:
+    1. Чтобы коннектор Debezium мог подключаться к хостам-брокерам {{ mkf-name }}, добавьте SSL-сертификат в защищенное хранилище сертификатов Java (Java Key Store). Для дополнительной защиты хранилища в параметре `-storepass` укажите пароль длиной не меньше 6 символов:
 
         ```bash
         sudo keytool \
@@ -69,11 +69,11 @@
 
 ## Подготовка кластера-источника {#prepare-source}
 
-1. [Назначьте пользователю](../../../managed-postgresql/operations/grant.md) `user1` роль `mdb_replication`.
+1. [Назначьте пользователю](../../managed-postgresql/operations/grant.md) `user1` роль `mdb_replication`.
 
     Это нужно для создания публикации (publication), с помощью которой Debezium будет отслеживать изменения в кластере {{ mpg-name }}.
 
-1. [Подключитесь к базе данных](../../../managed-postgresql/operations/connect.md) `db1` от имени пользователя `user1`.
+1. [Подключитесь к базе данных](../../managed-postgresql/operations/connect.md) `db1` от имени пользователя `user1`.
 
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица, содержащая информацию с некоторых датчиков автомобиля.
 
@@ -110,7 +110,7 @@
 
 ## Настройте коннектор Debezium {#setup-debezium}
 
-1. Подключитесь к виртуальной машине по SSH
+1. Подключитесь к виртуальной машине по SSH.
 
 1. Скачайте и распакуйте актуальный [Debezium-коннектор](https://debezium.io/releases/) в директорию `/etc/debezium/plugins/`.
 
@@ -144,40 +144,40 @@
     Здесь:
 
     * `name` — логическое имя коннектора Debezium. Используется для внутренних нужд коннектора.
-    * `database.hostname` — [особый FQDN](../../../managed-postgresql/operations/connect.md#fqdn-master) для подключения к хосту-мастеру кластера-источника.
+    * `database.hostname` — [особый FQDN](../../managed-postgresql/operations/connect.md#fqdn-master) для подключения к хосту-мастеру кластера-источника.
 
-        Идентификатор кластера можно получить со [списком кластеров в каталоге](../../../managed-postgresql/operations/cluster-list.md#list).
+        Идентификатор кластера можно получить со [списком кластеров в каталоге](../../managed-postgresql/operations/cluster-list.md#list).
 
     * `database.user` — имя пользователя {{ PG }}.
     * `database.dbname` — имя базы данных {{ PG }}.
     * `database.server.name` — имя сервера баз данных, которое [Debezium будет использовать](#prepare-target) при выборе топика для отправки сообщений.
-    * `table.include.list` — список имен таблиц, для которых Debezium должен отслеживать изменения. Укажите полные имена, включающие в себя имя схемы (по умолчанию `public`). [Debezium будет использовать](#prepare-target) значения настроек из этого поля при выборе топика для отправки сообщений.
+    * `table.include.list` — имена таблиц, для которых Debezium должен отслеживать изменения. Укажите полные имена, включающие в себя имя схемы (по умолчанию `public`). [Debezium будет использовать](#prepare-target) значения настроек из этого поля при выборе топика для отправки сообщений.
     * `publication.name` — имя публикации, [созданной на кластере-источнике](#prepare-source).
     * `slot.name` — имя слота репликации, который будет создан Debezium при работе с публикацией.
     * `heartbeat.interval.ms` и `heartbeat.topics.prefix` — настройки heartbeat, [необходимые для работы](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-wal-disk-space) Debezium.
 
 ## Подготовьте кластер-приемник {#prepare-target}
 
-1. [Создайте топик](../../../managed-kafka/operations/cluster-topics.md#create-topic), в который будут помещаться данные, поступающие от кластера-источника:
+1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic), в который будут помещаться данные, поступающие от кластера-источника:
 
     * **Имя** — `mpg.public.measurements`.
 
         Имена топиков для данных [конструируются](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-topic-names) по принципу `<имя сервера>.<имя схемы>.<имя таблицы>`.
 
-        Согласно [файлу настроек Debezium](#setup-debezium):
+        Согласно [файлу настроек коннектора Debezium](#setup-debezium):
 
         * Имя сервера `mpg` указано в параметре `database.server.name`.
         * Имя схемы `public` указано вместе с именем таблицы `measurements` в параметре `table.include.list`.
 
     Если необходимо отслеживать изменения в нескольких таблицах, создайте для каждой из них отдельный топик.
 
-1. Создайте служебный топик:
+1. Создайте служебный топик для отслеживания состояния коннектора:
 
     * **Имя** — `__debezium-heartbeat.mpg`.
 
-        Имена служебных топиков [конструируются](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-property-heartbeat-topics-prefix) по принципу: `<префикс для heartbeat>.<имя сервера>`.
+        Имена служебных топиков [конструируются](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-property-heartbeat-topics-prefix) по принципу `<префикс для heartbeat>.<имя сервера>`.
 
-        Согласно [файлу настроек Debezium](#setup-debezium):
+        Согласно [файлу настроек коннектора Debezium](#setup-debezium):
 
         * Префикс `__debezium-heartbeat` указан в параметре `heartbeat.topics.prefix`.
         * Имя сервера `mpg` указано в параметре `database.server.name`.
@@ -186,9 +186,9 @@
 
     Если необходимо получать данные из нескольких кластеров-источников, создайте для каждого из них отдельный служебный топик.
 
-1. [Создайте пользователя](../../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `debezium`.
+1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `debezium`.
 
-1. [Выдайте пользователю `debezium` права](../../../managed-kafka/operations/cluster-accounts.md#grant-permission) `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER` на созданные топики.
+1. [Выдайте пользователю `debezium` права](../../managed-kafka/operations/cluster-accounts.md#grant-permission) `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER` на созданные топики.
 
 ## Запустите коннектор Debezium {#run-connector}
 
@@ -210,7 +210,7 @@
     producer.security.protocol=SASL_SSL
     producer.ssl.truststore.location=/etc/debezium/keystore.jks
     producer.ssl.truststore.password=<пароль JKS>
-    producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<пароль учетной записи debezium>";
+    producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<пароль пользователя debezium>";
 
     # Worker properties
     plugin.path=/etc/debezium/plugins/
@@ -292,7 +292,7 @@
 
     {% endcut %}
 
-1. [Подключитесь к кластеру-источнику](../../../managed-postgresql/operations/connect.md) и добавьте еще одну строку в таблицу `measurements`:
+1. [Подключитесь к кластеру-источнику](../../managed-postgresql/operations/connect.md) и добавьте еще одну строку в таблицу `measurements`:
 
     ```sql
     INSERT INTO public.measurements VALUES ('iv7b74th678tooxh5ur2', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
@@ -304,11 +304,11 @@
 
 Если созданные ресурсы вам больше не нужны, удалите их:
 
-1. {% if audience != "internal" %}[Удалите виртуальную машину](../../../compute/operations/vm-control/vm-delete.md).{% else %}Удалите виртуальную машину.{% endif %}
+1. {% if audience != "internal" %}[Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).{% else %}Удалите виртуальную машину.{% endif %}
 
-    Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, освободите и {% if audience != "internal" %}[удалите его](../../../vpc/operations/address-delete.md){% else %}удалите его{% endif %}.
+    Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, освободите и {% if audience != "internal" %}[удалите его](../../vpc/operations/address-delete.md){% else %}удалите его{% endif %}.
 
 1. Удалите кластеры:
 
-    * [{{ mkf-name }}](../../../managed-kafka/operations/cluster-delete.md).
-    * [{{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
+    * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+    * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).

@@ -14,7 +14,8 @@ The following example demonstrates how to configure CDC using [Debezium](https:/
    * With the `user1` user.
 
 1. Create a [{{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) *target cluster* in any applicable configuration with publicly available hosts.
-   {% if audience != "internal" %}
+
+{% if audience != "internal" %}
 
 1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) for Debezium with [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }}and with a public IP address.
 
@@ -28,6 +29,7 @@ The following example demonstrates how to configure CDC using [Debezium](https:/
 
    * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups);
    * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
+
 {% if audience != "internal" %}
 
 1. [Connect to a virtual machine](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH and set the dependencies:
@@ -37,10 +39,12 @@ The following example demonstrates how to configure CDC using [Debezium](https:/
 1. Connect to a virtual machine over SSH and set the dependencies:
 
 {% endif %}
-```bash
+
+    ```bash
     sudo apt update && \
     sudo apt install -y git docker.io kafkacat postgresql-client
     ```
+
 {% if audience != "internal" %}
 
 1. [Connect to the VM instance](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH and check access to the clusters:
@@ -50,6 +54,7 @@ The following example demonstrates how to configure CDC using [Debezium](https:/
 1. Connect to the VM instance over SSH and check access to the clusters:
 
 {% endif %}
+
     * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#connection-string) (use `psql`).
     * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#connection-string) (use `kafkacat`).
 
@@ -103,6 +108,7 @@ The following example demonstrates how to configure CDC using [Debezium](https:/
 
 
 ## Configure Debezium {#setup-debezium}
+
 {% if audience != "internal" %}
 
 1. [Connect to the virtual machine](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
@@ -319,6 +325,7 @@ The target cluster settings depend on the source cluster type:
 ## Delete the resources you created {#clear-out}
 
 If you no longer need these resources, delete them:
+
 {% if audience != "internal" %}
 
 1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
