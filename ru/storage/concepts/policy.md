@@ -207,23 +207,23 @@
           }
         }
       }
-    }
-  ]
-}
-```
+    ]
+  }
+  ```
+
 * Политика дает каждому пользователю и сервисному аккаунту полный доступ к папке с названием, равным [идентификатору пользователя](../../iam/operations/users/get.md) или [сервисного аккаунта](../../iam/operations/sa/get-id.md):
 
-```json
-{
-  "Version":"2012-10-17",
-  "Statement":[
-    {
-      "Sid":"OwnDirPermissions",
-      "Effect":"Allow",
-      "Principal": "*",
-      "Action": "*",
-      "Resource":["arn:aws:s3:::<имя бакета>/${aws:userid}/*"]
-    }
-  ]
-}
-```
+  ```json
+  {
+    "Version":"2012-10-17",
+    "Statement":[
+      {
+        "Sid": "OwnDirPermissions",
+        "Effect": "Allow",
+        "Principal": "*",
+        "Action": "*",
+        "Resource": ["arn:aws:s3:::<имя бакета>/${aws:userid}/*"]
+      }
+    ]
+  }
+  ```
