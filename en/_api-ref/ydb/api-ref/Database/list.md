@@ -192,6 +192,7 @@ pageToken | <p>Page token. Set ``page_token`` to the ``next_page_token`` returne
           }
         ]
       },
+      "deletionProtection": true,
 
       // `databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`
       "zonalDatabase": {
@@ -333,6 +334,7 @@ databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>textList
 databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>labelListParameterValue | **object** <br>`databases[].monitoringConfig.alerts[].alertThresholds[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br>
 databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>labelListParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
 databases[].<br>monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>labelListParameterValue.<br>values[] | **string**<br><p>Required. Parameter value</p> 
+databases[].<br>deletionProtection | **boolean** (boolean)
 databases[].<br>zonalDatabase | **object**<br>deprecated field <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br>
 databases[].<br>zonalDatabase.<br>zoneId | **string**<br><p>Required.</p> 
 databases[].<br>regionalDatabase | **object**<br>deprecated field <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br>

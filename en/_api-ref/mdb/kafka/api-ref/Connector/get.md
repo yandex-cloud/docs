@@ -16,7 +16,7 @@ GET https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}/connectors/
  
 Parameter | Description
 --- | ---
-clusterId | <p>Required. ID of the cluster the connector belongs to.</p> <p>To get this ID, make a <a href="/docs/managed-kafka/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+clusterId | <p>Required. ID of the Apache Kafka® cluster the connector belongs to.</p> <p>To get this ID, make a <a href="/docs/managed-kafka/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 connectorName | <p>Required. Name of the Apache Kafka® connector to return information about.</p> <p>To get this name, make a <a href="/docs/managed-kafka/api-ref/Connector/list">list</a> request.</p> <p>The maximum string length in characters is 256. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
  
 ## Response {#responses}
@@ -110,11 +110,11 @@ connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>saslMechani
 connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>securityProtocol | **string**<br><p>Security protocol to use for connection to the cluster.</p> 
 connectorConfigMirrormaker.<br>topics | **string**<br><p>List of Kafka topics, separated by ``,``.</p> 
 connectorConfigMirrormaker.<br>replicationFactor | **integer** (int64)<br><p>Replication factor for automatically created topics.</p> 
-connectorConfigS3Sink | **object** <br> includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`<br><br><p>An Apache Kafka® S3-Sink connector resource.</p> 
-connectorConfigS3Sink.<br>topics | **string**<br><p>List of Kafka topics, separated by ','</p> 
+connectorConfigS3Sink | **object**<br>Configuration of S3-Sink connector. <br> includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`<br>
+connectorConfigS3Sink.<br>topics | **string**<br><p>List of Kafka topics, separated by ','.</p> 
 connectorConfigS3Sink.<br>fileCompressionType | **string**<br><p>The compression type used for files put on GCS. The supported values are: ``gzip``, ``snappy``, ``zstd``, ``none``. Optional, the default is ``none``.</p> 
 connectorConfigS3Sink.<br>fileMaxRecords | **integer** (int64)<br><p>Max records per file.</p> 
-connectorConfigS3Sink.<br>s3Connection | **object**<br><p>Credentials for connecting to S3 storage</p> <p>Resource for S3Connection - settings of connection to AWS-compatible S3 storage, that are source or target of Kafka S3-connectors. YC Object Storage is AWS-compatible.</p> 
+connectorConfigS3Sink.<br>s3Connection | **object**<br><p>Credentials for connecting to S3 storage.</p> <p>Resource for S3Connection - settings of connection to AWS-compatible S3 storage, that are source or target of Kafka S3-connectors. YC Object Storage is AWS-compatible.</p> 
 connectorConfigS3Sink.<br>s3Connection.<br>bucketName | **string**
 connectorConfigS3Sink.<br>s3Connection.<br>externalS3 | **object**
 connectorConfigS3Sink.<br>s3Connection.<br>externalS3.<br>accessKeyId | **string**

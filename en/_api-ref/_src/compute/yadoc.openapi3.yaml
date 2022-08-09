@@ -2350,6 +2350,357 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListPlacementGroupOperationsResponse'
       x-y-navtitle: listOperations
+  /compute/v1/snapshotSchedules/{snapshotScheduleId}:
+    get:
+      tags:
+      - SnapshotSchedule
+      summary: Returns the specified SnapshotSchedule resource.
+      description: To get the list of available SnapshotSchedule resources, make a
+        [list](/docs/compute/api-ref/SnapshotSchedule/list) request.
+      operationId: SnapshotScheduleGet
+      parameters:
+      - name: snapshotScheduleId
+        in: path
+        description: ID of the SnapshotSchedule resource to return.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SnapshotSchedule'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - SnapshotSchedule
+      summary: Deletes the specified snapshot schedule.
+      description: |-
+        Deleting a snapshot schedule removes its data permanently and is irreversible. However, deleting a schedule does not delete
+        any snapshots previously made by the schedule. You must delete snapshots separately.
+      operationId: SnapshotScheduleDelete
+      parameters:
+      - name: snapshotScheduleId
+        in: path
+        description: ID of the snapshot schedule to delete.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteSnapshotScheduleMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - SnapshotSchedule
+      summary: Updates the specified snapshot schedule.
+      operationId: SnapshotScheduleUpdate
+      parameters:
+      - name: snapshotScheduleId
+        in: path
+        description: ID of the SnapshotSchedule resource to update.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSnapshotScheduleRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateSnapshotScheduleMetadata'
+      x-y-operation-response: '[SnapshotSchedule](/docs/compute/api-ref/SnapshotSchedule#representation)'
+  /compute/v1/snapshotSchedules:
+    get:
+      tags:
+      - SnapshotSchedule
+      summary: Retrieves the list of SnapshotSchedule resources in the specified folder.
+      operationId: SnapshotScheduleList
+      parameters:
+      - name: folderId
+        in: query
+        description: ID of the folder to list snapshot schedules in.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/SnapshotSchedule/list#query_params),
+          the service returns a [nextPageToken](/docs/compute/api-ref/SnapshotSchedule/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/SnapshotSchedule/list#query_params) to the
+          [nextPageToken](/docs/compute/api-ref/SnapshotSchedule/list#responses) returned by a previous list request.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: |-
+          By which column the listing should be ordered and in which direction,
+          format is "createdAt desc". "id asc" if omitted.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListSnapshotSchedulesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - SnapshotSchedule
+      summary: Creates a snapshot schedule in the specified folder.
+      operationId: SnapshotScheduleCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSnapshotScheduleRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateSnapshotScheduleMetadata'
+      x-y-operation-response: '[SnapshotSchedule](/docs/compute/api-ref/SnapshotSchedule#representation)'
+  /compute/v1/snapshotSchedules/{snapshotScheduleId}:updateDisks:
+    patch:
+      tags:
+      - SnapshotSchedule
+      summary: UpdateDisks of schedule
+      operationId: SnapshotScheduleUpdateDisks
+      parameters:
+      - name: snapshotScheduleId
+        in: path
+        description: ID of the snapshot schedule to update.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSnapshotScheduleDisksRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateDisks
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateSnapshotScheduleDisksMetadata'
+      x-y-operation-response: '[SnapshotSchedule](/docs/compute/api-ref/SnapshotSchedule#representation)'
+  /compute/v1/snapshotSchedules/{snapshotScheduleId}:disable:
+    post:
+      tags:
+      - SnapshotSchedule
+      summary: Disable schedule sets status InActive.
+      description: When schedule os disabled snapshots will not be created or deleted
+        according to retention policy.
+      operationId: SnapshotScheduleDisable
+      parameters:
+      - name: snapshotScheduleId
+        in: path
+        description: ID of the snapshot schedule to disable.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DisableSnapshotScheduleRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: disable
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DisableSnapshotScheduleMetadata'
+      x-y-operation-response: '[SnapshotSchedule](/docs/compute/api-ref/SnapshotSchedule#representation)'
+  /compute/v1/snapshotSchedules/{snapshotScheduleId}:enable:
+    post:
+      tags:
+      - SnapshotSchedule
+      summary: Enable schedule sets status Active.
+      operationId: SnapshotScheduleEnable
+      parameters:
+      - name: snapshotScheduleId
+        in: path
+        description: ID of the snapshot schedule to enable.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnableSnapshotScheduleRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: enable
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/EnableSnapshotScheduleMetadata'
+      x-y-operation-response: '[SnapshotSchedule](/docs/compute/api-ref/SnapshotSchedule#representation)'
+  /compute/v1/snapshotSchedules/{snapshotScheduleId}/operations:
+    get:
+      tags:
+      - SnapshotSchedule
+      summary: Lists operations for the specified snapshot schedule.
+      operationId: SnapshotScheduleListOperations
+      parameters:
+      - name: snapshotScheduleId
+        in: path
+        description: ID of the SnapshotSchedule resource to list operations for.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/SnapshotSchedule/listOperations#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/SnapshotSchedule/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/SnapshotSchedule/listOperations#query_params) to the
+          [nextPageToken](/docs/compute/api-ref/SnapshotSchedule/listOperations#responses) returned by a previous list request.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListSnapshotScheduleOperationsResponse'
+      x-y-navtitle: listOperations
+  /compute/v1/snapshotSchedules/{snapshotScheduleId}/snapshots:
+    get:
+      tags:
+      - SnapshotSchedule
+      summary: List snapshot created by schedule.
+      operationId: SnapshotScheduleListSnapshots
+      parameters:
+      - name: snapshotScheduleId
+        in: path
+        description: ID of the SnapshotSchedule resource to list snapshots for.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/SnapshotSchedule/listSnapshots#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/SnapshotSchedule/listSnapshots#responses)
+          that can be used to get the next page of results in subsequent list requests.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/SnapshotSchedule/listSnapshots#query_params) to the
+          [nextPageToken](/docs/compute/api-ref/SnapshotSchedule/listSnapshots#responses) returned by a previous list request.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListSnapshotScheduleSnapshotsResponse'
+      x-y-navtitle: listSnapshots
+  /compute/v1/snapshotSchedules/{snapshotScheduleId}/disks:
+    get:
+      tags:
+      - SnapshotSchedule
+      summary: List disks that belong to schedule.
+      operationId: SnapshotScheduleListDisks
+      parameters:
+      - name: snapshotScheduleId
+        in: path
+        description: ID of the SnapshotSchedule resource to list disks for.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/SnapshotSchedule/listDisks#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/SnapshotSchedule/listDisks#responses)
+          that can be used to get the next page of results in subsequent list requests.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/SnapshotSchedule/listDisks#query_params) to the
+          [nextPageToken](/docs/compute/api-ref/SnapshotSchedule/listDisks#responses) returned by a previous list request.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListSnapshotScheduleDisksResponse'
+      x-y-navtitle: listDisks
   /compute/v1/snapshots/{snapshotId}:
     get:
       tags:
@@ -3018,6 +3369,11 @@ components:
           diskPlacementPolicy:
             $ref: '#/components/schemas/DiskPlacementPolicy'
             description: Placement policy configuration.
+          snapshotScheduleIds:
+            description: Snapshot schedules
+            type: array
+            items:
+              type: string
       - title: source
         type: object
         maxProperties: 1
@@ -3513,6 +3869,45 @@ components:
           type: object
           additionalProperties:
             type: string
+    CreateSnapshotScheduleMetadata:
+      type: object
+      properties:
+        snapshotScheduleId:
+          type: string
+    CreateSnapshotScheduleRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          folderId:
+            description: ID of the folder to create a snapshot schedule in.
+            type: string
+          name:
+            type: string
+          description:
+            type: string
+          labels:
+            type: object
+            additionalProperties:
+              type: string
+          schedulePolicy:
+            $ref: '#/components/schemas/SchedulePolicy'
+            description: schedule properties
+          snapshotSpec:
+            $ref: '#/components/schemas/SnapshotSpec'
+          diskIds:
+            type: array
+            items:
+              type: string
+      - title: retention_policy
+        type: object
+        maxProperties: 1
+        properties:
+          retentionPeriod:
+            type: string
+          snapshotCount:
+            type: string
+            format: int64
     DeleteDiskMetadata:
       type: object
       properties:
@@ -3560,6 +3955,11 @@ components:
       properties:
         snapshotId:
           description: ID of the snapshot that is being deleted.
+          type: string
+    DeleteSnapshotScheduleMetadata:
+      type: object
+      properties:
+        snapshotScheduleId:
           type: string
     DetachInstanceDiskMetadata:
       type: object
@@ -3618,6 +4018,14 @@ components:
 
               Value must match the regular expression `` [a-z][a-z0-9-_]{,19} ``.
             type: string
+    DisableSnapshotScheduleMetadata:
+      type: object
+      properties:
+        snapshotScheduleId:
+          type: string
+    DisableSnapshotScheduleRequest:
+      type: object
+      properties: {}
     Disk:
       description: A Disk resource. For more information, see [Disks](/docs/compute/concepts/disk).
       type: object
@@ -3827,10 +4235,18 @@ components:
       description: Empty JSON object `` {} ``.
       type: object
       maxProperties: 0
+    EnableSnapshotScheduleMetadata:
+      type: object
+      properties:
+        snapshotScheduleId:
+          type: string
+    EnableSnapshotScheduleRequest:
+      type: object
+      properties: {}
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -4269,6 +4685,21 @@ components:
             in the next list request. Each subsequent list request will have its own
             [nextPageToken](/docs/compute/api-ref/DiskPlacementGroup/list#responses) to continue paging through the results.
           type: string
+    ListDiskSnapshotSchedulesResponse:
+      type: object
+      properties:
+        snapshotSchedules:
+          description: List of snapshot schedules for the specified disk.
+          type: array
+          items:
+            $ref: '#/components/schemas/SnapshotSchedule'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [ListDiskSnapshotSchedulesRequest.page_size], use the [nextPageToken](/docs/compute/api-ref/Disk/listSnapshotSchedules#responses) as the value
+            for the [ListDiskSnapshotSchedulesRequest.page_token] query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/compute/api-ref/Disk/listSnapshotSchedules#responses) to continue paging through the results.
+          type: string
     ListDiskTypesResponse:
       type: object
       properties:
@@ -4543,6 +4974,68 @@ components:
             is larger than [pageSize](/docs/compute/api-ref/Snapshot/listOperations#query_params), use the [nextPageToken](/docs/compute/api-ref/Snapshot/listOperations#responses) as the value
             for the [pageToken](/docs/compute/api-ref/Snapshot/listOperations#query_params) query parameter in the next list request.
             Each subsequent list request will have its own [nextPageToken](/docs/compute/api-ref/Snapshot/listOperations#responses) to continue paging through the results.
+          type: string
+    ListSnapshotScheduleDisksResponse:
+      type: object
+      properties:
+        disks:
+          description: List of disks for the specified snapshot schedule.
+          type: array
+          items:
+            $ref: '#/components/schemas/Disk'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/SnapshotSchedule/listDisks#query_params), use the [nextPageToken](/docs/compute/api-ref/SnapshotSchedule/listDisks#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/SnapshotSchedule/listDisks#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/compute/api-ref/SnapshotSchedule/listDisks#responses) to continue paging through the results.
+          type: string
+    ListSnapshotScheduleOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified snapshot schedule.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/SnapshotSchedule/listOperations#query_params), use the [nextPageToken](/docs/compute/api-ref/SnapshotSchedule/listOperations#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/SnapshotSchedule/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/compute/api-ref/SnapshotSchedule/listOperations#responses) to continue paging through the results.
+          type: string
+    ListSnapshotScheduleSnapshotsResponse:
+      type: object
+      properties:
+        snapshots:
+          description: List of snapshots for the specified snapshot schedule.
+          type: array
+          items:
+            $ref: '#/components/schemas/Snapshot'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/SnapshotSchedule/listSnapshots#query_params), use the [nextPageToken](/docs/compute/api-ref/SnapshotSchedule/listSnapshots#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/SnapshotSchedule/listSnapshots#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/compute/api-ref/SnapshotSchedule/listSnapshots#responses) to continue paging through the results.
+          type: string
+    ListSnapshotSchedulesResponse:
+      type: object
+      properties:
+        snapshotSchedules:
+          description: List of SnapshotSchedule resources.
+          type: array
+          items:
+            $ref: '#/components/schemas/SnapshotSchedule'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/SnapshotSchedule/list#query_params), use
+            the [nextPageToken](/docs/compute/api-ref/SnapshotSchedule/list#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/SnapshotSchedule/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/compute/api-ref/SnapshotSchedule/list#responses) to continue paging through the results.
           type: string
     ListSnapshotsResponse:
       type: object
@@ -5002,6 +5495,19 @@ components:
         size:
           type: string
           format: int64
+    SchedulePolicy:
+      type: object
+      properties:
+        startAt:
+          description: |-
+            start time for the first run.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        expression:
+          description: cron format (* * * * *)
+          type: string
     SchedulingPolicy:
       type: object
       properties:
@@ -5063,6 +5569,72 @@ components:
         sourceDiskId:
           description: ID of the source disk used to create this snapshot.
           type: string
+    SnapshotSchedule:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the snapshot schedule policy.
+            type: string
+          folderId:
+            description: ID of the folder that the scheduler policy belongs to.
+            type: string
+          createdAt:
+            description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format.
+            type: string
+            format: date-time
+          name:
+            description: |-
+              Name of the schedule policy.
+              The name is unique within the folder.
+            type: string
+          description:
+            description: Description of the schedule policy.
+            type: string
+          labels:
+            description: Resource labels as `key:value` pairs.
+            type: object
+            additionalProperties:
+              type: string
+          status:
+            $ref: '#/components/schemas/SnapshotScheduleStatus'
+          schedulePolicy:
+            $ref: '#/components/schemas/SchedulePolicy'
+            description: schedule properties
+          snapshotSpec:
+            $ref: '#/components/schemas/SnapshotSpec'
+            description: properties to create snapshot with.
+      - title: retention_policy
+        type: object
+        maxProperties: 1
+        properties:
+          retentionPeriod:
+            type: string
+          snapshotCount:
+            type: string
+            format: int64
+    SnapshotScheduleStatus:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - INACTIVE
+      - DELETING
+      - UPDATING
+    SnapshotSpec:
+      description: Properties of created snapshot backup
+      type: object
+      properties:
+        description:
+          description: Description of the created snapshot.
+          type: string
+        labels:
+          description: Resource labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
     SnapshotStatus:
       description: |2-
          - CREATING: Snapshot is being created.
@@ -5497,6 +6069,60 @@ components:
           type: object
           additionalProperties:
             type: string
+    UpdateSnapshotScheduleDisksMetadata:
+      type: object
+      properties:
+        snapshotScheduleId:
+          type: string
+    UpdateSnapshotScheduleDisksRequest:
+      type: object
+      properties:
+        remove:
+          description: List of disk ids to remove from the specified schedule.
+          type: array
+          items:
+            type: string
+        add:
+          description: List of disk ids to add to the specified schedule
+          type: array
+          items:
+            type: string
+    UpdateSnapshotScheduleMetadata:
+      type: object
+      properties:
+        snapshotScheduleId:
+          type: string
+    UpdateSnapshotScheduleRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          updateMask:
+            $ref: '#/components/schemas/FieldMask'
+            description: Field mask that specifies which fields of the SnapshotSchedule
+              resource are going to be updated.
+          name:
+            description: schedule properties
+            type: string
+          description:
+            type: string
+          labels:
+            type: object
+            additionalProperties:
+              type: string
+          schedulePolicy:
+            $ref: '#/components/schemas/SchedulePolicy'
+          snapshotSpec:
+            $ref: '#/components/schemas/SnapshotSpec'
+      - title: retention_policy
+        type: object
+        maxProperties: 1
+        properties:
+          retentionPeriod:
+            type: string
+          snapshotCount:
+            type: string
+            format: int64
     Zone:
       description: Availability zone. For more information, see [Availability zones](/docs/overview/concepts/geo-scope).
       type: object
@@ -6169,7 +6795,7 @@ components:
         Field mask that specifies which fields of the DiskPlacementGroup resource are going to be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -6182,7 +6808,7 @@ components:
         Field mask that specifies which fields of the Disk resource are going to be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -6202,7 +6828,7 @@ components:
         Field mask that specifies which attributes of the filesystem should be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -6215,7 +6841,7 @@ components:
         Field mask that specifies which fields of the HostGroup resource are going to be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -6249,7 +6875,7 @@ components:
         Field mask that specifies which fields of the Image resource are going to be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -6262,7 +6888,7 @@ components:
         Field mask that specifies which attributes of the instance should be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -6309,7 +6935,7 @@ components:
         Field mask that specifies which fields of the Instance resource are going to be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -6402,7 +7028,7 @@ components:
         Field mask that specifies which fields of the PlacementGroup resource should be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -6415,7 +7041,7 @@ components:
         Field mask that specifies which fields of the Snapshot resource are going to be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -6452,6 +7078,8 @@ tags:
   description: A set of methods for managing Instance resources.
 - name: PlacementGroup
   description: A set of methods for managing placement groups.
+- name: SnapshotSchedule
+  description: A set of methods for managing SnapshotSchedule resources.
 - name: Snapshot
   description: A set of methods for managing Snapshot resources.
 - name: Zone

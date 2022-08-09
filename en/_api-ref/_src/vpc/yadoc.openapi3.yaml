@@ -2234,7 +2234,7 @@ components:
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -2930,6 +2930,9 @@ components:
           nextHopAddress:
             description: Next hop IP address
             type: string
+          gatewayId:
+            description: Next hop gateway id
+            type: string
     Subnet:
       description: A Subnet resource. For more information, see [Subnets](/docs/vpc/concepts/subnets).
       type: object
@@ -3371,7 +3374,7 @@ components:
         Field mask that specifies which attributes of the Address should be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -3384,7 +3387,7 @@ components:
         Field mask that specifies which fields of the Network resource are going to be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -3397,7 +3400,7 @@ components:
         Field mask that specifies which fields of the RouteTable resource are going to be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -3408,7 +3411,7 @@ components:
     FieldMask_in_UpdateSecurityGroupRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -3419,7 +3422,7 @@ components:
     FieldMask_in_UpdateSecurityGroupRuleRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -3432,7 +3435,7 @@ components:
         Field mask that specifies which fields of the Subnet resource are going to be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 

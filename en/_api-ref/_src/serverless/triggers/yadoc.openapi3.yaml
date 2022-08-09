@@ -462,7 +462,7 @@ components:
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -867,6 +867,30 @@ components:
       - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE
       - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG
       - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG
+    TriggerIoTBrokerMessage:
+      description: Rule for activating a IoT Core Broker trigger.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          brokerId:
+            description: |-
+              Required.
+              ID of the IoT Core broker.
+            type: string
+          mqttTopic:
+            description: MQTT topic whose messages activate the trigger.
+            type: string
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
+            description: Instructions for invoking a function with retries as needed.
+          invokeContainer:
+            $ref: '#/components/schemas/InvokeContainerWithRetry'
+            description: Instructions for invoking a container with retries as needed.
     TriggerIoTMessage:
       description: Rule for activating a IoT Core trigger.
       type: object
@@ -1034,6 +1058,8 @@ components:
           iotMessage:
             $ref: '#/components/schemas/TriggerIoTMessage'
             description: Rule for a IoT Core trigger.
+          iotBrokerMessage:
+            $ref: '#/components/schemas/TriggerIoTBrokerMessage'
           objectStorage:
             $ref: '#/components/schemas/TriggerObjectStorage'
           containerRegistry:
@@ -1157,6 +1183,8 @@ components:
           iotMessage:
             $ref: '#/components/schemas/TriggerIoTMessage'
             description: Rule for a IoT Core trigger.
+          iotBrokerMessage:
+            $ref: '#/components/schemas/TriggerIoTBrokerMessage'
           objectStorage:
             $ref: '#/components/schemas/TriggerObjectStorage'
           containerRegistry:
@@ -1258,6 +1286,8 @@ components:
           iotMessage:
             $ref: '#/components/schemas/TriggerIoTMessage'
             description: Rule for a IoT Core trigger.
+          iotBrokerMessage:
+            $ref: '#/components/schemas/TriggerIoTBrokerMessage'
           objectStorage:
             $ref: '#/components/schemas/TriggerObjectStorage'
           containerRegistry:
@@ -1283,7 +1313,7 @@ components:
         Field mask that specifies which attributes of the trigger should be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 

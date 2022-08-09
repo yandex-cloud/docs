@@ -34,7 +34,12 @@ routeTableId | <p>Required. ID of the RouteTable resource to return. To get the 
     {
       "labels": "object",
       "destinationPrefix": "string",
-      "nextHopAddress": "string"
+
+      // `staticRoutes[]` includes only one of the fields `nextHopAddress`, `gatewayId`
+      "nextHopAddress": "string",
+      "gatewayId": "string",
+      // end of the list of possible fields`staticRoutes[]`
+
     }
   ]
 }
@@ -53,4 +58,5 @@ networkId | **string**<br><p>ID of the network the route table belongs to.</p>
 staticRoutes[] | **object**<br><p>List of static routes.</p> 
 staticRoutes[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 staticRoutes[].<br>destinationPrefix | **string**<br><p>Destination subnet in CIDR notation</p> 
-staticRoutes[].<br>nextHopAddress | **string**<br><p>Next hop IP address</p> 
+staticRoutes[].<br>nextHopAddress | **string** <br>`staticRoutes[]` includes only one of the fields `nextHopAddress`, `gatewayId`<br><br><p>Next hop IP address</p> 
+staticRoutes[].<br>gatewayId | **string** <br>`staticRoutes[]` includes only one of the fields `nextHopAddress`, `gatewayId`<br><br><p>Next hop gateway id</p> 

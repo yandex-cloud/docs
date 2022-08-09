@@ -2112,7 +2112,7 @@ components:
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -3041,6 +3041,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
       - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
+      - SHARED_PRELOAD_LIBRARIES_PG_CRON
     PostgresqlConfig10SynchronousCommit:
       type: string
       enum:
@@ -3503,6 +3504,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
       - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
+      - SHARED_PRELOAD_LIBRARIES_PG_CRON
     PostgresqlConfig10_1CSynchronousCommit:
       type: string
       enum:
@@ -3985,6 +3987,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
       - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
+      - SHARED_PRELOAD_LIBRARIES_PG_CRON
     PostgresqlConfig11SynchronousCommit:
       type: string
       enum:
@@ -4467,6 +4470,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
       - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
+      - SHARED_PRELOAD_LIBRARIES_PG_CRON
     PostgresqlConfig11_1CSynchronousCommit:
       type: string
       enum:
@@ -4961,6 +4965,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
       - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
+      - SHARED_PRELOAD_LIBRARIES_PG_CRON
     PostgresqlConfig12SynchronousCommit:
       type: string
       enum:
@@ -5455,6 +5460,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
       - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
+      - SHARED_PRELOAD_LIBRARIES_PG_CRON
     PostgresqlConfig12_1CSynchronousCommit:
       type: string
       enum:
@@ -5996,6 +6002,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
       - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
+      - SHARED_PRELOAD_LIBRARIES_PG_CRON
     PostgresqlConfig13SynchronousCommit:
       type: string
       enum:
@@ -6554,6 +6561,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
       - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
+      - SHARED_PRELOAD_LIBRARIES_PG_CRON
     PostgresqlConfig14SynchronousCommit:
       type: string
       enum:
@@ -23182,7 +23190,7 @@ components:
         Field mask that specifies which fields of the PostgreSQL Cluster resource should be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -23281,7 +23289,7 @@ components:
         Field mask that specifies which fields of the Database resource should be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -23329,7 +23337,7 @@ components:
         Field mask that specifies which fields of the PostgreSQL host should be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -23342,7 +23350,7 @@ components:
         Field mask that specifies which fields of the PostgreSQL User resource should be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 

@@ -23,7 +23,9 @@ jobId |
 
 ```json 
 {
-  "signal": "string"
+  "signal": "string",
+  "waitDuration": "number",
+  "runIn": "number"
 }
 ```
 
@@ -31,3 +33,5 @@ jobId |
 Field | Description
 --- | ---
 signal | **string**
+waitDuration | **number** (double)
+runIn | **number** (double)

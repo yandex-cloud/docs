@@ -39,6 +39,7 @@ A set of methods for managing ClickHouse clusters.
 | [UpdateShardGroup](#UpdateShardGroup) | Updates the specified shard group. |
 | [DeleteShardGroup](#DeleteShardGroup) | Deletes the specified shard group. |
 | [CreateExternalDictionary](#CreateExternalDictionary) | Creates an external dictionary for the specified ClickHouse cluster. |
+| [UpdateExternalDictionary](#UpdateExternalDictionary) | Updates an external dictionary for the specified ClickHouse cluster. |
 | [DeleteExternalDictionary](#DeleteExternalDictionary) | Deletes the specified external dictionary. |
 
 ## Calls ClusterService {#calls}
@@ -3143,22 +3144,23 @@ info | **string**<br>Information about this maintenance operation. The maximum s
 delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
 
 
-## DeleteExternalDictionary {#DeleteExternalDictionary}
+## UpdateExternalDictionary {#UpdateExternalDictionary}
 
-Deletes the specified external dictionary.
+Updates an external dictionary for the specified ClickHouse cluster.
 
-**rpc DeleteExternalDictionary ([DeleteClusterExternalDictionaryRequest](#DeleteClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation21))**
+**rpc UpdateExternalDictionary ([UpdateClusterExternalDictionaryRequest](#UpdateClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation21))**
 
 Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterExternalDictionaryMetadata](#DeleteClusterExternalDictionaryMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterExternalDictionaryMetadata](#UpdateClusterExternalDictionaryMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster12)<br>
 
-### DeleteClusterExternalDictionaryRequest {#DeleteClusterExternalDictionaryRequest}
+### UpdateClusterExternalDictionaryRequest {#UpdateClusterExternalDictionaryRequest}
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the ClickHouse cluster to delete the external dictionary from. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
-external_dictionary_name | **string**<br>Name of the external dictionary to delete. 
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to update the external dictionary for. To get the cluster ID, use a [List](#List) request. The maximum string length in characters is 50.
+external_dictionary | **[config.ClickhouseConfig.ExternalDictionary](#ClickhouseConfig)**<br>Configuration of the external dictionary. 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the External Dictionary should be updated. 
 
 
 ### Operation {#Operation21}
@@ -3171,17 +3173,18 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterExternalDictionaryMetadata](#DeleteClusterExternalDictionaryMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterExternalDictionaryMetadata](#UpdateClusterExternalDictionaryMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster12)>**<br>if operation finished successfully. 
 
 
-### DeleteClusterExternalDictionaryMetadata {#DeleteClusterExternalDictionaryMetadata}
+### UpdateClusterExternalDictionaryMetadata {#UpdateClusterExternalDictionaryMetadata}
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the cluster where an external dictionary is being deleted. 
+cluster_id | **string**<br>ID of the cluster for which an external dictionary is being updated. 
+external_dictionary_name | **string**<br>Name of the external dictionary. 
 
 
 ### Cluster {#Cluster12}
@@ -3290,6 +3293,160 @@ hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values a
 
 
 ### MaintenanceOperation {#MaintenanceOperation12}
+
+Field | Description
+--- | ---
+info | **string**<br>Information about this maintenance operation. The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time until which this maintenance operation is delayed. 
+
+
+## DeleteExternalDictionary {#DeleteExternalDictionary}
+
+Deletes the specified external dictionary.
+
+**rpc DeleteExternalDictionary ([DeleteClusterExternalDictionaryRequest](#DeleteClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation22))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterExternalDictionaryMetadata](#DeleteClusterExternalDictionaryMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster13)<br>
+
+### DeleteClusterExternalDictionaryRequest {#DeleteClusterExternalDictionaryRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to delete the external dictionary from. To get the cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+external_dictionary_name | **string**<br>Name of the external dictionary to delete. 
+
+
+### Operation {#Operation22}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterExternalDictionaryMetadata](#DeleteClusterExternalDictionaryMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster13)>**<br>if operation finished successfully. 
+
+
+### DeleteClusterExternalDictionaryMetadata {#DeleteClusterExternalDictionaryMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the cluster where an external dictionary is being deleted. 
+
+
+### Cluster {#Cluster13}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the ClickHouse cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the ClickHouse cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the ClickHouse cluster. The name is unique within the folder. 1-63 characters long. 
+description | **string**<br>Description of the ClickHouse cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. 
+environment | enum **Environment**<br>Deployment environment of the ClickHouse cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
+monitoring[] | **[Monitoring](#Monitoring13)**<br>Description of monitoring systems relevant to the ClickHouse cluster. 
+config | **[ClusterConfig](#ClusterConfig13)**<br>Configuration of the ClickHouse cluster. 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host1) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host1) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host1) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host1) for at least one host in the cluster is not ALIVE).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow14)**<br>Maintenance window for the cluster. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation13)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
+security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+
+
+### Monitoring {#Monitoring13}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the ClickHouse cluster. 
+
+
+### ClusterConfig {#ClusterConfig13}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of the ClickHouse server software. 
+clickhouse | **[Clickhouse](#Clickhouse22)**<br>Configuration and resource allocation for ClickHouse hosts. 
+zookeeper | **[Zookeeper](#Zookeeper16)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access16)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage16)**<br> 
+sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
+sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
+embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
+
+
+### Clickhouse {#Clickhouse22}
+
+Field | Description
+--- | ---
+config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to ClickHouse hosts. 
+
+
+### Zookeeper {#Zookeeper16}
+
+Field | Description
+--- | ---
+resources | **[Resources](#Resources2)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### Access {#Access16}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+serverless | **bool**<br>Allow access to cluster for Serverless. 
+data_transfer | **bool**<br>Allow access for DataTransfer 
+yandex_query | **bool**<br>Allow access for Query 
+
+
+### CloudStorage {#CloudStorage16}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
+move_factor | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> Acceptable values are 0 to 1, inclusive.
+data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+
+
+### MaintenanceWindow {#MaintenanceWindow14}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow14)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow14)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow14}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow14}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation13}
 
 Field | Description
 --- | ---

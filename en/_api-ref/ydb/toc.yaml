@@ -27,6 +27,8 @@ items:
         href: api-ref/Database/get.md
       - name: list
         href: api-ref/Database/list.md
+      - name: move
+        href: api-ref/Database/move.md
       - name: restore
         href: api-ref/Database/restore.md
       - name: start

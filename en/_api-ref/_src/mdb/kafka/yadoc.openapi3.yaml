@@ -600,7 +600,7 @@ paths:
         in: path
         description: |-
           Required.
-          ID of the cluster the connector belongs to.
+          ID of the Apache Kafka® cluster the connector belongs to.
 
           To get this ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
@@ -1729,6 +1729,8 @@ components:
             $ref: '#/components/schemas/KafkaConfig2_6'
           kafkaConfig_2_8:
             $ref: '#/components/schemas/KafkaConfig2_8'
+          kafkaConfig_3:
+            $ref: '#/components/schemas/KafkaConfig3'
     ConfigSpecZookeeper:
       type: object
       properties:
@@ -1773,6 +1775,7 @@ components:
             description: Configuration of the MirrorMaker connector.
           connectorConfigS3Sink:
             $ref: '#/components/schemas/ConnectorConfigS3Sink'
+            description: Configuration of S3-Sink connector.
     ConnectorConfigMirrorMaker:
       type: object
       properties:
@@ -1808,7 +1811,7 @@ components:
       type: object
       properties:
         topics:
-          description: List of Kafka topics, separated by ','
+          description: List of Kafka topics, separated by ','.
           type: string
         fileCompressionType:
           description: |-
@@ -1823,7 +1826,7 @@ components:
         s3Connection:
           $ref: '#/components/schemas/S3Connection_in_ConnectorConfigS3Sink_s3Connection'
     ConnectorConfigS3SinkSpec:
-      description: Specification for Kafka S3-Sink Connector
+      description: Specification for Kafka S3-Sink Connector.
       type: object
       properties:
         topics:
@@ -1885,7 +1888,7 @@ components:
             description: Configuration of the MirrorMaker connector.
           connectorConfigS3Sink:
             $ref: '#/components/schemas/ConnectorConfigS3SinkSpec'
-            description: Configuration of S3-Sink connector
+            description: Configuration of S3-Sink connector.
     ConnectorStatus:
       description: |2-
          - STATUS_UNKNOWN: Connector state is unknown.
@@ -2137,12 +2140,12 @@ components:
         endpoint:
           type: string
         region:
-          description: Default is 'us-east-1'
+          description: Default is 'us-east-1'.
           type: string
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -2447,6 +2450,118 @@ components:
       properties:
         compressionType:
           $ref: '#/components/schemas/CompressionType_in_KafkaConfig2_8_compressionType'
+        logFlushIntervalMessages:
+          description: |-
+            The number of messages accumulated on a log partition before messages are flushed to disk.
+
+            This is the global cluster-level setting that can be overridden on a topic level by using the `flushMessages` setting.
+          type: integer
+          format: int64
+        logFlushIntervalMs:
+          description: |-
+            The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
+            If not set, the value of `logFlushSchedulerIntervalMs` is used.
+
+            This is the global cluster-level setting that can be overridden on a topic level by using the `flushMs` setting.
+          type: integer
+          format: int64
+        logFlushSchedulerIntervalMs:
+          description: |-
+            The frequency of checks (in milliseconds) for any logs that need to be flushed to disk.
+            This check is done by the log flusher.
+          type: integer
+          format: int64
+        logRetentionBytes:
+          description: |-
+            Partition size limit; Kafka will discard old log segments to free up space if `delete` `cleanupPolicy` is in effect.
+            This setting is helpful if you need to control the size of a log due to limited disk space.
+
+            This is the global cluster-level setting that can be overridden on a topic level by using the `retentionBytes` setting.
+          type: integer
+          format: int64
+        logRetentionHours:
+          description: The number of hours to keep a log segment file before deleting
+            it.
+          type: integer
+          format: int64
+        logRetentionMinutes:
+          description: |-
+            The number of minutes to keep a log segment file before deleting it.
+
+            If not set, the value of `logRetentionHours` is used.
+          type: integer
+          format: int64
+        logRetentionMs:
+          description: |-
+            The number of milliseconds to keep a log segment file before deleting it.
+
+            If not set, the value of `logRetentionMinutes` is used.
+
+            This is the global cluster-level setting that can be overridden on a topic level by using the `retentionMs` setting.
+          type: integer
+          format: int64
+        logSegmentBytes:
+          description: |-
+            The maximum size of a single log file.
+
+            This is the global cluster-level setting that can be overridden on a topic level by using the `segmentBytes` setting.
+          type: integer
+          format: int64
+        logPreallocate:
+          description: |-
+            Should pre allocate file when create new segment?
+
+            This is the global cluster-level setting that can be overridden on a topic level by using the `preallocate` setting.
+          type: boolean
+          format: boolean
+        socketSendBufferBytes:
+          description: The SO_SNDBUF buffer of the socket server sockets. If the value
+            is -1, the OS default will be used.
+          type: integer
+          format: int64
+        socketReceiveBufferBytes:
+          description: The SO_RCVBUF buffer of the socket server sockets. If the value
+            is -1, the OS default will be used.
+          type: integer
+          format: int64
+        autoCreateTopicsEnable:
+          description: Enable auto creation of topic on the server
+          type: boolean
+          format: boolean
+        numPartitions:
+          description: Default number of partitions per topic on the whole cluster
+          type: integer
+          format: int64
+        defaultReplicationFactor:
+          description: Default replication factor of the topic on the whole cluster
+          type: integer
+          format: int64
+        messageMaxBytes:
+          description: 'The largest record batch size allowed by Kafka. Default value:
+            1048588.'
+          type: integer
+          format: int64
+        replicaFetchMaxBytes:
+          description: 'The number of bytes of messages to attempt to fetch for each
+            partition. Default value: 1048576.'
+          type: integer
+          format: int64
+        sslCipherSuites:
+          description: A list of cipher suites.
+          type: array
+          items:
+            type: string
+        offsetsRetentionMinutes:
+          description: 'Offset storage time after a consumer group loses all its consumers.
+            Default: 10080.'
+          type: integer
+          format: int64
+    KafkaConfig3:
+      description: Kafka version 3.x broker configuration.
+      type: object
+      properties:
+        compressionType:
+          $ref: '#/components/schemas/CompressionType_in_KafkaConfig3_compressionType'
         logFlushIntervalMessages:
           description: |-
             The number of messages accumulated on a log partition before messages are flushed to disk.
@@ -3053,6 +3168,8 @@ components:
             $ref: '#/components/schemas/TopicConfig2_6'
           topicConfig_2_8:
             $ref: '#/components/schemas/TopicConfig2_8'
+          topicConfig_3:
+            $ref: '#/components/schemas/TopicConfig3'
     TopicConfig2_1:
       description: A topic settings for 2.1.
       type: object
@@ -3311,6 +3428,92 @@ components:
       - CLEANUP_POLICY_DELETE
       - CLEANUP_POLICY_COMPACT
       - CLEANUP_POLICY_COMPACT_AND_DELETE
+    TopicConfig3:
+      description: A topic settings for 3.x
+      type: object
+      properties:
+        cleanupPolicy:
+          $ref: '#/components/schemas/TopicConfig3CleanupPolicy_in_TopicConfig3_cleanupPolicy'
+        compressionType:
+          $ref: '#/components/schemas/CompressionType_in_TopicConfig3_compressionType'
+        deleteRetentionMs:
+          description: The amount of time in milliseconds to retain delete tombstone
+            markers for log compacted topics.
+          type: integer
+          format: int64
+        fileDeleteDelayMs:
+          description: The time to wait before deleting a file from the filesystem.
+          type: integer
+          format: int64
+        flushMessages:
+          description: |-
+            The number of messages accumulated on a log partition before messages are flushed to disk.
+
+            This setting overrides the cluster-level `logFlushIntervalMessages` setting on the topic level.
+          type: integer
+          format: int64
+        flushMs:
+          description: |-
+            The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk.
+
+            This setting overrides the cluster-level `logFlushIntervalMs` setting on the topic level.
+          type: integer
+          format: int64
+        minCompactionLagMs:
+          description: The minimum time in milliseconds a message will remain uncompacted
+            in the log.
+          type: integer
+          format: int64
+        retentionBytes:
+          description: |-
+            The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanupPolicy` is in effect.
+            It is helpful if you need to control the size of log due to limited disk space.
+
+            This setting overrides the cluster-level `logRetentionBytes` setting on the topic level.
+          type: integer
+          format: int64
+        retentionMs:
+          description: |-
+            The number of milliseconds to keep a log segment's file before deleting it.
+
+            This setting overrides the cluster-level `logRetentionMs` setting on the topic level.
+          type: integer
+          format: int64
+        maxMessageBytes:
+          description: The largest record batch size allowed in topic.
+          type: integer
+          format: int64
+        minInsyncReplicas:
+          description: |-
+            This configuration specifies the minimum number of replicas that must acknowledge a write to topic for the write
+            to be considered successful (when a producer sets acks to "all").
+          type: integer
+          format: int64
+        segmentBytes:
+          description: |-
+            This configuration controls the segment file size for the log. Retention and cleaning is always done a file
+            at a time so a larger segment size means fewer files but less granular control over retention.
+
+            This setting overrides the cluster-level `logSegmentBytes` setting on the topic level.
+          type: integer
+          format: int64
+        preallocate:
+          description: |-
+            True if we should preallocate the file on disk when creating a new log segment.
+
+            This setting overrides the cluster-level `logPreallocate` setting on the topic level.
+          type: boolean
+          format: boolean
+    TopicConfig3CleanupPolicy:
+      description: |2-
+         - CLEANUP_POLICY_DELETE: this policy discards log segments when either their retention time or log size limit is reached. See also: `logRetentionMs` and other similar parameters.
+         - CLEANUP_POLICY_COMPACT: this policy compacts messages in log.
+         - CLEANUP_POLICY_COMPACT_AND_DELETE: this policy use both compaction and deletion for messages and log segments.
+      type: string
+      enum:
+      - CLEANUP_POLICY_DELETE
+      - CLEANUP_POLICY_COMPACT
+      - CLEANUP_POLICY_COMPACT_AND_DELETE
     TopicSpec:
       type: object
       allOf:
@@ -3337,6 +3540,8 @@ components:
             $ref: '#/components/schemas/TopicConfig2_6'
           topicConfig_2_8:
             $ref: '#/components/schemas/TopicConfig2_8'
+          topicConfig_3:
+            $ref: '#/components/schemas/TopicConfig3'
     UpdateClusterMetadata:
       type: object
       properties:
@@ -3392,7 +3597,7 @@ components:
         maintenanceWindow:
           $ref: '#/components/schemas/MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow'
     UpdateConnectorConfigS3SinkSpec:
-      description: Specification for update Kafka S3-Sink Connector
+      description: Specification for update Kafka S3-Sink Connector.
       type: object
       properties:
         topics:
@@ -3417,7 +3622,7 @@ components:
         connectorName:
           description: |-
             Required.
-            Name of the Apache Kafka connector that is being updated.
+            Name of the Apache Kafka® connector that is being updated.
 
             The maximum string length in characters is 256.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
@@ -3705,6 +3910,8 @@ components:
             $ref: '#/components/schemas/KafkaConfig2_6'
           kafkaConfig_2_8:
             $ref: '#/components/schemas/KafkaConfig2_8'
+          kafkaConfig_3:
+            $ref: '#/components/schemas/KafkaConfig3'
     ConfigSpecZookeeper_in_ConfigSpec_zookeeper:
       description: Configuration and resource allocation for ZooKeeper hosts.
       type: object
@@ -3832,7 +4039,7 @@ components:
               the necessary credentials.
     S3Connection_in_ConnectorConfigS3Sink_s3Connection:
       description: |-
-        Credentials for connecting to S3 storage
+        Credentials for connecting to S3 storage.
 
         Resource for S3Connection -
         settings of connection to AWS-compatible S3 storage, that
@@ -3852,7 +4059,7 @@ components:
             $ref: '#/components/schemas/ExternalS3Storage'
     S3ConnectionSpec_in_ConnectorConfigS3SinkSpec_s3Connection:
       description: |-
-        Credentials for connecting to S3 storage
+        Credentials for connecting to S3 storage.
 
         Specification for S3Connection -
         settings of connection to AWS-compatible S3 storage, that
@@ -3965,7 +4172,7 @@ components:
             description: Configuration of the MirrorMaker connector.
           connectorConfigS3Sink:
             $ref: '#/components/schemas/ConnectorConfigS3SinkSpec'
-            description: Configuration of S3-Sink connector
+            description: Configuration of S3-Sink connector.
     TopicSpec_in_CreateTopicRequest_topicSpec:
       description: |-
         Required.
@@ -3995,6 +4202,8 @@ components:
             $ref: '#/components/schemas/TopicConfig2_6'
           topicConfig_2_8:
             $ref: '#/components/schemas/TopicConfig2_8'
+          topicConfig_3:
+            $ref: '#/components/schemas/TopicConfig3'
     UserSpec_in_CreateUserRequest_userSpec:
       description: |-
         Required.
@@ -4116,6 +4325,24 @@ components:
       - COMPRESSION_TYPE_GZIP
       - COMPRESSION_TYPE_PRODUCER
     CompressionType_in_KafkaConfig2_8_compressionType:
+      description: |-
+        Cluster topics compression type.
+
+         - COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).
+         - COMPRESSION_TYPE_ZSTD: Zstandard codec.
+         - COMPRESSION_TYPE_LZ4: LZ4 codec.
+         - COMPRESSION_TYPE_SNAPPY: Snappy codec.
+         - COMPRESSION_TYPE_GZIP: GZip codec.
+         - COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).
+      type: string
+      enum:
+      - COMPRESSION_TYPE_UNCOMPRESSED
+      - COMPRESSION_TYPE_ZSTD
+      - COMPRESSION_TYPE_LZ4
+      - COMPRESSION_TYPE_SNAPPY
+      - COMPRESSION_TYPE_GZIP
+      - COMPRESSION_TYPE_PRODUCER
+    CompressionType_in_KafkaConfig3_compressionType:
       description: |-
         Cluster topics compression type.
 
@@ -4281,10 +4508,40 @@ components:
       - COMPRESSION_TYPE_SNAPPY
       - COMPRESSION_TYPE_GZIP
       - COMPRESSION_TYPE_PRODUCER
+    TopicConfig3CleanupPolicy_in_TopicConfig3_cleanupPolicy:
+      description: |-
+        Retention policy to use on old log messages.
+
+         - CLEANUP_POLICY_DELETE: this policy discards log segments when either their retention time or log size limit is reached. See also: `logRetentionMs` and other similar parameters.
+         - CLEANUP_POLICY_COMPACT: this policy compacts messages in log.
+         - CLEANUP_POLICY_COMPACT_AND_DELETE: this policy use both compaction and deletion for messages and log segments.
+      type: string
+      enum:
+      - CLEANUP_POLICY_DELETE
+      - CLEANUP_POLICY_COMPACT
+      - CLEANUP_POLICY_COMPACT_AND_DELETE
+    CompressionType_in_TopicConfig3_compressionType:
+      description: |-
+        The compression type for a given topic.
+
+         - COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).
+         - COMPRESSION_TYPE_ZSTD: Zstandard codec.
+         - COMPRESSION_TYPE_LZ4: LZ4 codec.
+         - COMPRESSION_TYPE_SNAPPY: Snappy codec.
+         - COMPRESSION_TYPE_GZIP: GZip codec.
+         - COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).
+      type: string
+      enum:
+      - COMPRESSION_TYPE_UNCOMPRESSED
+      - COMPRESSION_TYPE_ZSTD
+      - COMPRESSION_TYPE_LZ4
+      - COMPRESSION_TYPE_SNAPPY
+      - COMPRESSION_TYPE_GZIP
+      - COMPRESSION_TYPE_PRODUCER
     FieldMask_in_UpdateClusterRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -4346,7 +4603,7 @@ components:
             $ref: '#/components/schemas/WeeklyMaintenanceWindow'
     S3ConnectionSpec_in_UpdateConnectorConfigS3SinkSpec_s3Connection:
       description: |-
-        Credentials for connecting to S3 storage
+        Credentials for connecting to S3 storage.
 
         Specification for S3Connection -
         settings of connection to AWS-compatible S3 storage, that
@@ -4369,7 +4626,7 @@ components:
         Field mask that specifies which settings of the connector should be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -4409,7 +4666,7 @@ components:
     FieldMask_in_UpdateTopicRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -4447,10 +4704,12 @@ components:
             $ref: '#/components/schemas/TopicConfig2_6'
           topicConfig_2_8:
             $ref: '#/components/schemas/TopicConfig2_8'
+          topicConfig_3:
+            $ref: '#/components/schemas/TopicConfig3'
     FieldMask_in_UpdateUserRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 

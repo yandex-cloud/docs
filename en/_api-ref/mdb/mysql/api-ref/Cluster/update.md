@@ -48,6 +48,7 @@ clusterId | <p>Required. ID of the cluster to update.</p> <p>To get this ID, mak
       "sessionsSamplingInterval": "string",
       "statementsSamplingInterval": "string"
     },
+    "backupRetainPeriodDays": "integer",
 
     // `configSpec` includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`
     "mysqlConfig_5_7": {
@@ -229,7 +230,7 @@ clusterId | <p>Required. ID of the cluster to update.</p> <p>To get this ID, mak
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>Field mask that specifies which settings of the cluster should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+updateMask | **string**<br><p>Field mask that specifies which settings of the cluster should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
 description | **string**<br><p>New description of the cluster.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>New set of custom labels for the cluster as ``key:value`` pairs.</p> <p>This set will completely replace the current one. To add a label, request the current label set with the <a href="/docs/managed-mysql/api-ref/Cluster/get">get</a> request, then send an <a href="/docs/managed-mysql/api-ref/Cluster/update">update</a> request with the new label added to the current set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 configSpec | **object**<br><p>New configuration of the cluster.</p> 
@@ -251,6 +252,7 @@ configSpec.<br>performanceDiagnostics | **object**<br>Configuration of the perfo
 configSpec.<br>performanceDiagnostics.<br>enabled | **boolean** (boolean)<br><p>Flag that shows if performance statistics gathering is enabled for the cluster.</p> 
 configSpec.<br>performanceDiagnostics.<br>sessionsSamplingInterval | **string** (int64)<br><p>Interval (in seconds) for ``my_session`` sampling.</p> <p>Acceptable values are 1 to 86400, inclusive.</p> 
 configSpec.<br>performanceDiagnostics.<br>statementsSamplingInterval | **string** (int64)<br><p>Interval (in seconds) for ``my_statements`` sampling.</p> <p>Acceptable values are 1 to 86400, inclusive.</p> 
+configSpec.<br>backupRetainPeriodDays | **integer** (int64)<br><p>Retention policy of automated backups.</p> <p>Acceptable values are 7 to 60, inclusive.</p> 
 configSpec.<br>mysqlConfig_5_7 | **object**<br>Configuration for a MySQL 5.7 cluster. <br>`configSpec` includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`<br>
 configSpec.<br>mysqlConfig_5_7.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation</a> for details.</p> <p>The minimum value is 5242880.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections">MySQL documentation</a> for details.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 

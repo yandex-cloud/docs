@@ -51,8 +51,9 @@ Field | Description
 --- | ---
 destination | **oneof:** `destination_prefix`<br>
 &nbsp;&nbsp;destination_prefix | **string**<br>Destination subnet in CIDR notation 
-next_hop | **oneof:** `next_hop_address`<br>
+next_hop | **oneof:** `next_hop_address` or `gateway_id`<br>
 &nbsp;&nbsp;next_hop_address | **string**<br>Next hop IP address 
+&nbsp;&nbsp;gateway_id | **string**<br>Next hop gateway id 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
@@ -100,8 +101,9 @@ Field | Description
 --- | ---
 destination | **oneof:** `destination_prefix`<br>
 &nbsp;&nbsp;destination_prefix | **string**<br>Destination subnet in CIDR notation 
-next_hop | **oneof:** `next_hop_address`<br>
+next_hop | **oneof:** `next_hop_address` or `gateway_id`<br>
 &nbsp;&nbsp;next_hop_address | **string**<br>Next hop IP address 
+&nbsp;&nbsp;gateway_id | **string**<br>Next hop gateway id 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
@@ -133,8 +135,9 @@ Field | Description
 --- | ---
 destination | **oneof:** `destination_prefix`<br>
 &nbsp;&nbsp;destination_prefix | **string**<br>Destination subnet in CIDR notation 
-next_hop | **oneof:** `next_hop_address`<br>
+next_hop | **oneof:** `next_hop_address` or `gateway_id`<br>
 &nbsp;&nbsp;next_hop_address | **string**<br>Next hop IP address 
+&nbsp;&nbsp;gateway_id | **string**<br>Next hop gateway id 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
@@ -181,8 +184,9 @@ Field | Description
 --- | ---
 destination | **oneof:** `destination_prefix`<br>
 &nbsp;&nbsp;destination_prefix | **string**<br>Destination subnet in CIDR notation 
-next_hop | **oneof:** `next_hop_address`<br>
+next_hop | **oneof:** `next_hop_address` or `gateway_id`<br>
 &nbsp;&nbsp;next_hop_address | **string**<br>Next hop IP address 
+&nbsp;&nbsp;gateway_id | **string**<br>Next hop gateway id 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
@@ -214,8 +218,9 @@ Field | Description
 --- | ---
 destination | **oneof:** `destination_prefix`<br>
 &nbsp;&nbsp;destination_prefix | **string**<br>Destination subnet in CIDR notation 
-next_hop | **oneof:** `next_hop_address`<br>
+next_hop | **oneof:** `next_hop_address` or `gateway_id`<br>
 &nbsp;&nbsp;next_hop_address | **string**<br>Next hop IP address 
+&nbsp;&nbsp;gateway_id | **string**<br>Next hop gateway id 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
@@ -262,8 +267,9 @@ Field | Description
 --- | ---
 destination | **oneof:** `destination_prefix`<br>
 &nbsp;&nbsp;destination_prefix | **string**<br>Destination subnet in CIDR notation 
-next_hop | **oneof:** `next_hop_address`<br>
+next_hop | **oneof:** `next_hop_address` or `gateway_id`<br>
 &nbsp;&nbsp;next_hop_address | **string**<br>Next hop IP address 
+&nbsp;&nbsp;gateway_id | **string**<br>Next hop gateway id 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
@@ -407,8 +413,9 @@ Field | Description
 --- | ---
 destination | **oneof:** `destination_prefix`<br>
 &nbsp;&nbsp;destination_prefix | **string**<br>Destination subnet in CIDR notation 
-next_hop | **oneof:** `next_hop_address`<br>
+next_hop | **oneof:** `next_hop_address` or `gateway_id`<br>
 &nbsp;&nbsp;next_hop_address | **string**<br>Next hop IP address 
+&nbsp;&nbsp;gateway_id | **string**<br>Next hop gateway id 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 

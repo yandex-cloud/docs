@@ -329,6 +329,39 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StopDatabaseMetadata'
       x-y-operation-response: '[Database](/docs/ydb/api-ref/Database#representation)'
+  /ydb/v1/databases/{databaseId}:move:
+    post:
+      tags:
+      - Database
+      operationId: DatabaseMove
+      parameters:
+      - name: databaseId
+        in: path
+        description: |-
+          Required.
+          ID of the YDB instance to move.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveDatabaseRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: move
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/MoveDatabaseMetadata'
+      x-y-operation-response: '[Database](/docs/ydb/api-ref/Database#representation)'
   /ydb/v1/databases:restore:
     post:
       tags:
@@ -893,6 +926,9 @@ components:
             $ref: '#/components/schemas/BackupConfig'
           monitoringConfig:
             $ref: '#/components/schemas/MonitoringConfig'
+          deletionProtection:
+            type: boolean
+            format: boolean
       - title: database_type
         type: object
         maxProperties: 1
@@ -964,6 +1000,9 @@ components:
             type: string
           monitoringConfig:
             $ref: '#/components/schemas/MonitoringConfig'
+          deletionProtection:
+            type: boolean
+            format: boolean
       - title: database_type
         type: object
         maxProperties: 1
@@ -1060,7 +1099,7 @@ components:
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -1186,6 +1225,23 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Alert'
+    MoveDatabaseMetadata:
+      type: object
+      properties:
+        databaseId:
+          type: string
+        databaseName:
+          type: string
+    MoveDatabaseRequest:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            Required.
+            ID of the destination folder.
+
+            The maximum string length in characters is 50.
+          type: string
     NotificationChannel:
       type: object
       properties:
@@ -1530,6 +1586,9 @@ components:
             $ref: '#/components/schemas/BackupConfig'
           monitoringConfig:
             $ref: '#/components/schemas/MonitoringConfig'
+          deletionProtection:
+            type: boolean
+            format: boolean
       - title: database_type
         type: object
         maxProperties: 1

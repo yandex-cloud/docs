@@ -343,6 +343,7 @@ components:
       - STOPPED
       - FAILED
       - AUTOSTOPPED
+      - WAITING_FOR_A_COMMAND_TO_RUN
     ClaimJobStatusResponse:
       type: object
       properties:
@@ -489,7 +490,7 @@ components:
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -523,10 +524,18 @@ components:
       properties:
         signal:
           $ref: '#/components/schemas/JobSignalResponseSignal_in_JobSignalResponse_signal'
+        waitDuration:
+          type: number
+          format: double
+        runIn:
+          type: number
+          format: double
     JobSignalResponseSignal:
       type: string
       enum:
       - STOP
+      - WAIT
+      - RUN_IN
     LoadSchedule:
       description: |-
         Load schedule string:
@@ -935,6 +944,7 @@ components:
       - STOPPED
       - FAILED
       - AUTOSTOPPED
+      - WAITING_FOR_A_COMMAND_TO_RUN
     ClaimTankStatusRequestStatus_in_ClaimTankStatusRequest_status:
       type: string
       enum:
@@ -993,6 +1003,8 @@ components:
       type: string
       enum:
       - STOP
+      - WAIT
+      - RUN_IN
     ScheduleType_in_LoadSchedule_type:
       description: |-
         Schedule type: phantom.load_profile.schedule,
@@ -1013,7 +1025,7 @@ components:
     FieldMask_in_UpdateTestRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 

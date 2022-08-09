@@ -15,6 +15,7 @@ editable: false
 | [Stop](#Stop) | Stops the specified test. |
 | [Delete](#Delete) | Deletes the specified test |
 | [ValidateConfig](#ValidateConfig) |  |
+| [GetSummary](#GetSummary) |  |
 
 ## Calls TestService {#calls}
 
@@ -59,7 +60,10 @@ errors[] | **string**<br>
 favorite | **bool**<br> 
 imbalance_point | **int64**<br> 
 imbalance_ts | **int64**<br> 
+imbalance_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+imbalance_comment | **string**<br> 
 autostops[] | **[Autostop](#Autostop)**<br> 
+user_id | **string**<br> 
 
 
 ### Autostop {#Autostop}
@@ -124,7 +128,10 @@ errors[] | **string**<br>
 favorite | **bool**<br> 
 imbalance_point | **int64**<br> 
 imbalance_ts | **int64**<br> 
+imbalance_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+imbalance_comment | **string**<br> 
 autostops[] | **[Autostop](#Autostop1)**<br> 
+user_id | **string**<br> 
 
 
 ### Autostop {#Autostop1}
@@ -219,7 +226,10 @@ errors[] | **string**<br>
 favorite | **bool**<br> 
 imbalance_point | **int64**<br> 
 imbalance_ts | **int64**<br> 
+imbalance_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+imbalance_comment | **string**<br> 
 autostops[] | **[Autostop](#Autostop2)**<br> 
+user_id | **string**<br> 
 
 
 ### Autostop {#Autostop2}
@@ -305,7 +315,10 @@ errors[] | **string**<br>
 favorite | **bool**<br> 
 imbalance_point | **int64**<br> 
 imbalance_ts | **int64**<br> 
+imbalance_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+imbalance_comment | **string**<br> 
 autostops[] | **[Autostop](#Autostop3)**<br> 
+user_id | **string**<br> 
 
 
 ### Autostop {#Autostop3}
@@ -385,7 +398,10 @@ errors[] | **string**<br>
 favorite | **bool**<br> 
 imbalance_point | **int64**<br> 
 imbalance_ts | **int64**<br> 
+imbalance_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+imbalance_comment | **string**<br> 
 autostops[] | **[Autostop](#Autostop4)**<br> 
+user_id | **string**<br> 
 
 
 ### Autostop {#Autostop4}
@@ -457,5 +473,92 @@ Field | Description
 --- | ---
 status | enum **Status**<br> 
 errors[] | **string**<br> 
+
+
+## GetSummary {#GetSummary}
+
+
+
+**rpc GetSummary ([GetSummaryRequest](#GetSummaryRequest)) returns ([TestSummary](#TestSummary))**
+
+### GetSummaryRequest {#GetSummaryRequest}
+
+Field | Description
+--- | ---
+folder_id | **string**<br> The maximum string length in characters is 50.
+test_id | **string**<br> The maximum string length in characters is 50.
+full | **bool**<br> 
+
+
+### TestSummary {#TestSummary}
+
+Field | Description
+--- | ---
+test_id | **[Test](#Test5)**<br> 
+errors[] | **string**<br> 
+results[] | **TestResults**<br> 
+
+
+### Test {#Test5}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+folder_id | **string**<br> 
+name | **string**<br> 
+description | **string**<br> 
+labels | **map<string,string>**<br> 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+generator | enum **Generator**<br> 
+agent_instance_id | **string**<br>AgentInstance ID where Test is running. 
+target_address | **string**<br>Target VM ID. 
+target_port | **int64**<br> 
+target_version | **string**<br>Version of object under test. 
+config | **string**<br>Test details 
+payload | **oneof:** `payload_urls` or `payload_id`<br>
+&nbsp;&nbsp;payload_urls | **string**<br> 
+&nbsp;&nbsp;payload_id | **string**<br> 
+cases[] | **string**<br> 
+status | enum **Status**<br> 
+errors[] | **string**<br> 
+favorite | **bool**<br> 
+imbalance_point | **int64**<br> 
+imbalance_ts | **int64**<br> 
+imbalance_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+imbalance_comment | **string**<br> 
+autostops[] | **[Autostop](#Autostop5)**<br> 
+user_id | **string**<br> 
+
+
+### Autostop {#Autostop5}
+
+Field | Description
+--- | ---
+autostop_type | enum **AutostopType**<br> 
+autostop_criteria | **string**<br> 
+autostop_case | **string**<br> 
+
+
+### TestResults {#TestResults}
+
+Field | Description
+--- | ---
+case_name | **string**<br> 
+quantiles | **map<string,double>**<br> 
+proto_codes | **map<string,CodeResults>**<br> 
+net_codes | **map<string,CodeResults>**<br> 
+max_rps | **int64**<br> 
+max_instances | **int64**<br> 
+
+
+### CodeResults {#CodeResults}
+
+Field | Description
+--- | ---
+amount | **int64**<br> 
+percentage | **double**<br> 
 
 

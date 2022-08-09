@@ -50,10 +50,11 @@ status | enum **Status**<br>Trigger status.
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream` or `mail`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream` or `mail`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage)**<br>Rule for a IoT Core trigger. 
+&nbsp;&nbsp;iot_broker_message | **[IoTBrokerMessage](#IoTBrokerMessage)**<br> 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs)**<br> 
@@ -93,6 +94,17 @@ Field | Description
 --- | ---
 registry_id | **string**<br>Required. ID of the IoT Core registry. 
 device_id | **string**<br>ID of the IoT Core device in the registry. 
+mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+
+
+### IoTBrokerMessage {#IoTBrokerMessage}
+
+Field | Description
+--- | ---
+broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
@@ -192,10 +204,11 @@ status | enum **Status**<br>Trigger status.
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream` or `mail`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream` or `mail`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer1)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue1)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage1)**<br>Rule for a IoT Core trigger. 
+&nbsp;&nbsp;iot_broker_message | **[IoTBrokerMessage](#IoTBrokerMessage1)**<br> 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage1)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry1)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs1)**<br> 
@@ -235,6 +248,17 @@ Field | Description
 --- | ---
 registry_id | **string**<br>Required. ID of the IoT Core registry. 
 device_id | **string**<br>ID of the IoT Core device in the registry. 
+mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+
+
+### IoTBrokerMessage {#IoTBrokerMessage1}
+
+Field | Description
+--- | ---
+broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
@@ -354,10 +378,11 @@ status | enum **Status**<br>Trigger status.
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream` or `mail`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream` or `mail`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer2)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue2)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage2)**<br>Rule for a IoT Core trigger. 
+&nbsp;&nbsp;iot_broker_message | **[IoTBrokerMessage](#IoTBrokerMessage2)**<br> 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage2)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry2)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs2)**<br> 
@@ -397,6 +422,17 @@ Field | Description
 --- | ---
 registry_id | **string**<br>Required. ID of the IoT Core registry. 
 device_id | **string**<br>ID of the IoT Core device in the registry. 
+mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+
+
+### IoTBrokerMessage {#IoTBrokerMessage2}
+
+Field | Description
+--- | ---
+broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
@@ -516,10 +552,11 @@ status | enum **Status**<br>Trigger status.
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream` or `mail`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream` or `mail`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer3)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue3)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage3)**<br>Rule for a IoT Core trigger. 
+&nbsp;&nbsp;iot_broker_message | **[IoTBrokerMessage](#IoTBrokerMessage3)**<br> 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage3)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry3)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs3)**<br> 
@@ -559,6 +596,17 @@ Field | Description
 --- | ---
 registry_id | **string**<br>Required. ID of the IoT Core registry. 
 device_id | **string**<br>ID of the IoT Core device in the registry. 
+mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+
+
+### IoTBrokerMessage {#IoTBrokerMessage3}
+
+Field | Description
+--- | ---
+broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
@@ -714,10 +762,11 @@ status | enum **Status**<br>Trigger status.
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream` or `mail`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream` or `mail`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer4)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue4)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage4)**<br>Rule for a IoT Core trigger. 
+&nbsp;&nbsp;iot_broker_message | **[IoTBrokerMessage](#IoTBrokerMessage4)**<br> 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage4)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry4)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs4)**<br> 
@@ -757,6 +806,17 @@ Field | Description
 --- | ---
 registry_id | **string**<br>Required. ID of the IoT Core registry. 
 device_id | **string**<br>ID of the IoT Core device in the registry. 
+mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+
+
+### IoTBrokerMessage {#IoTBrokerMessage4}
+
+Field | Description
+--- | ---
+broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
@@ -872,10 +932,11 @@ status | enum **Status**<br>Trigger status.
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream` or `mail`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream` or `mail`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer5)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue5)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage5)**<br>Rule for a IoT Core trigger. 
+&nbsp;&nbsp;iot_broker_message | **[IoTBrokerMessage](#IoTBrokerMessage5)**<br> 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage5)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry5)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs5)**<br> 
@@ -915,6 +976,17 @@ Field | Description
 --- | ---
 registry_id | **string**<br>Required. ID of the IoT Core registry. 
 device_id | **string**<br>ID of the IoT Core device in the registry. 
+mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+
+
+### IoTBrokerMessage {#IoTBrokerMessage5}
+
+Field | Description
+--- | ---
+broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 

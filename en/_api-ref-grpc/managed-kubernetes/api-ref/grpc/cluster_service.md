@@ -92,6 +92,7 @@ Field | Description
 region_id | **string**<br>ID of the region where the master resides. 
 internal_v4_address | **string**<br>IPv4 internal network address that is assigned to the master. 
 external_v4_address | **string**<br>IPv4 external network address that is assigned to the master. 
+external_v6_address | **string**<br>IPv6 external network address that is assigned to the master. 
 
 
 ### MasterEndpoints {#MasterEndpoints}
@@ -280,6 +281,7 @@ Field | Description
 region_id | **string**<br>ID of the region where the master resides. 
 internal_v4_address | **string**<br>IPv4 internal network address that is assigned to the master. 
 external_v4_address | **string**<br>IPv4 external network address that is assigned to the master. 
+external_v6_address | **string**<br>IPv6 external network address that is assigned to the master. 
 
 
 ### MasterEndpoints {#MasterEndpoints1}
@@ -644,6 +646,7 @@ Field | Description
 region_id | **string**<br>ID of the region where the master resides. 
 internal_v4_address | **string**<br>IPv4 internal network address that is assigned to the master. 
 external_v4_address | **string**<br>IPv4 external network address that is assigned to the master. 
+external_v6_address | **string**<br>IPv6 external network address that is assigned to the master. 
 
 
 ### MasterEndpoints {#MasterEndpoints2}
@@ -941,6 +944,7 @@ Field | Description
 region_id | **string**<br>ID of the region where the master resides. 
 internal_v4_address | **string**<br>IPv4 internal network address that is assigned to the master. 
 external_v4_address | **string**<br>IPv4 external network address that is assigned to the master. 
+external_v6_address | **string**<br>IPv6 external network address that is assigned to the master. 
 
 
 ### MasterEndpoints {#MasterEndpoints3}
@@ -1185,6 +1189,7 @@ Field | Description
 region_id | **string**<br>ID of the region where the master resides. 
 internal_v4_address | **string**<br>IPv4 internal network address that is assigned to the master. 
 external_v4_address | **string**<br>IPv4 external network address that is assigned to the master. 
+external_v6_address | **string**<br>IPv6 external network address that is assigned to the master. 
 
 
 ### MasterEndpoints {#MasterEndpoints4}
@@ -1389,6 +1394,7 @@ Field | Description
 region_id | **string**<br>ID of the region where the master resides. 
 internal_v4_address | **string**<br>IPv4 internal network address that is assigned to the master. 
 external_v4_address | **string**<br>IPv4 external network address that is assigned to the master. 
+external_v6_address | **string**<br>IPv6 external network address that is assigned to the master. 
 
 
 ### MasterEndpoints {#MasterEndpoints5}

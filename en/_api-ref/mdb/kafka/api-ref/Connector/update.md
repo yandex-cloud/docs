@@ -87,7 +87,7 @@ connectorName | <p>Required. Name of the connector to update.</p> <p>To get this
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>Field mask that specifies which settings of the connector should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+updateMask | **string**<br><p>Field mask that specifies which settings of the connector should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
 connectorSpec | **object**<br><p>Required. Configuration of the connector to update.</p> 
 connectorSpec.<br>tasksMax | **integer** (int64)<br><p>Maximum number of connector tasks to update.</p> 
 connectorSpec.<br>properties | **object**<br><p>A set of new or changed properties to update for the connector. They are passed with the connector configuration to Managed Service for Apache Kafka®. Example: ``sync.topics.config.enabled: false``.</p> 
@@ -117,13 +117,13 @@ connectorSpec.<br>connectorConfigMirrormaker.<br>replicationFactor | **integer**
 connectorSpec.<br>connectorConfigS3Sink | **object**<br>Update specification for S3-Sink Connector. <br>`connectorSpec` includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`<br>
 connectorSpec.<br>connectorConfigS3Sink.<br>topics | **string**<br><p>List of Kafka topics, separated by ','.</p> 
 connectorSpec.<br>connectorConfigS3Sink.<br>fileMaxRecords | **integer** (int64)<br><p>Max records per file.</p> 
-connectorSpec.<br>connectorConfigS3Sink.<br>s3Connection | **object**<br><p>Credentials for connecting to S3 storage</p> <p>Specification for S3Connection - settings of connection to AWS-compatible S3 storage, that are source or target of Kafka S3-connectors. YC Object Storage is AWS-compatible.</p> 
+connectorSpec.<br>connectorConfigS3Sink.<br>s3Connection | **object**<br><p>Credentials for connecting to S3 storage.</p> <p>Specification for S3Connection - settings of connection to AWS-compatible S3 storage, that are source or target of Kafka S3-connectors. YC Object Storage is AWS-compatible.</p> 
 connectorSpec.<br>connectorConfigS3Sink.<br>s3Connection.<br>bucketName | **string**
 connectorSpec.<br>connectorConfigS3Sink.<br>s3Connection.<br>externalS3 | **object**
 connectorSpec.<br>connectorConfigS3Sink.<br>s3Connection.<br>externalS3.<br>accessKeyId | **string**
 connectorSpec.<br>connectorConfigS3Sink.<br>s3Connection.<br>externalS3.<br>secretAccessKey | **string**
 connectorSpec.<br>connectorConfigS3Sink.<br>s3Connection.<br>externalS3.<br>endpoint | **string**
-connectorSpec.<br>connectorConfigS3Sink.<br>s3Connection.<br>externalS3.<br>region | **string**<br><p>Default is 'us-east-1'</p> 
+connectorSpec.<br>connectorConfigS3Sink.<br>s3Connection.<br>externalS3.<br>region | **string**<br><p>Default is 'us-east-1'.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

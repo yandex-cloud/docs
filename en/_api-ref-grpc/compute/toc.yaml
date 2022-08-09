@@ -19,6 +19,8 @@ items:
     href: api-ref/grpc/instance_service.md
   - name: PlacementGroupService
     href: api-ref/grpc/placement_group_service.md
+  - name: SnapshotScheduleService
+    href: api-ref/grpc/snapshot_schedule_service.md
   - name: SnapshotService
     href: api-ref/grpc/snapshot_service.md
   - name: ZoneService

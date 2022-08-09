@@ -43,7 +43,12 @@ pageToken | <p>Page token. Set <a href="/docs/vpc/api-ref/Network/listRouteTable
         {
           "labels": "object",
           "destinationPrefix": "string",
-          "nextHopAddress": "string"
+
+          // `routeTables[].staticRoutes[]` includes only one of the fields `nextHopAddress`, `gatewayId`
+          "nextHopAddress": "string",
+          "gatewayId": "string",
+          // end of the list of possible fields`routeTables[].staticRoutes[]`
+
         }
       ]
     }
@@ -66,5 +71,6 @@ routeTables[].<br>networkId | **string**<br><p>ID of the network the route table
 routeTables[].<br>staticRoutes[] | **object**<br><p>List of static routes.</p> 
 routeTables[].<br>staticRoutes[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 routeTables[].<br>staticRoutes[].<br>destinationPrefix | **string**<br><p>Destination subnet in CIDR notation</p> 
-routeTables[].<br>staticRoutes[].<br>nextHopAddress | **string**<br><p>Next hop IP address</p> 
+routeTables[].<br>staticRoutes[].<br>nextHopAddress | **string** <br>`routeTables[].staticRoutes[]` includes only one of the fields `nextHopAddress`, `gatewayId`<br><br><p>Next hop IP address</p> 
+routeTables[].<br>staticRoutes[].<br>gatewayId | **string** <br>`routeTables[].staticRoutes[]` includes only one of the fields `nextHopAddress`, `gatewayId`<br><br><p>Next hop gateway id</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/vpc/api-ref/Network/listRouteTables#query_params">pageSize</a>, use the <a href="/docs/vpc/api-ref/Network/listRouteTables#responses">nextPageToken</a> as the value for the <a href="/docs/vpc/api-ref/Network/listRouteTables#query_params">pageToken</a> query parameter in the next list request. Subsequent list requests will have their own <a href="/docs/vpc/api-ref/Network/listRouteTables#responses">nextPageToken</a> to continue paging through the results.</p> 

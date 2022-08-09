@@ -1316,6 +1316,41 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateClusterExternalDictionaryMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-clickhouse/api-ref/Cluster#representation)'
+  /managed-clickhouse/v1/clusters/{clusterId}:updateExternalDictionary:
+    post:
+      tags:
+      - Cluster
+      summary: Updates an external dictionary for the specified ClickHouse cluster.
+      operationId: ClusterUpdateExternalDictionary
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the ClickHouse cluster to update the external dictionary for.
+          To get the cluster ID, use a [List] request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateClusterExternalDictionaryRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateExternalDictionary
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateClusterExternalDictionaryMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-clickhouse/api-ref/Cluster#representation)'
   /managed-clickhouse/v1/clusters/{clusterId}:deleteExternalDictionary:
     post:
       tags:
@@ -3763,7 +3798,7 @@ components:
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -4607,6 +4642,23 @@ components:
           description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
           type: integer
           format: int32
+    UpdateClusterExternalDictionaryMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the cluster for which an external dictionary is being
+            updated.
+          type: string
+        externalDictionaryName:
+          description: Name of the external dictionary.
+          type: string
+    UpdateClusterExternalDictionaryRequest:
+      type: object
+      properties:
+        externalDictionary:
+          $ref: '#/components/schemas/ClickhouseConfigExternalDictionary_in_UpdateClusterExternalDictionaryRequest_externalDictionary'
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateClusterExternalDictionaryRequest_updateMask'
     UpdateClusterHostsMetadata:
       type: object
       properties:
@@ -7953,12 +8005,79 @@ components:
           type: object
           additionalProperties:
             type: string
+    ClickhouseConfigExternalDictionary_in_UpdateClusterExternalDictionaryRequest_externalDictionary:
+      description: Configuration of the external dictionary.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          name:
+            description: |-
+              Required.
+              Name of the external dictionary.
+            type: string
+          structure:
+            $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryStructure'
+            description: |-
+              Required.
+              Set of attributes for the external dictionary.
+              For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/).
+          layout:
+            $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryLayout'
+            description: |-
+              Required.
+              Layout for storing the dictionary in memory.
+              For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/).
+      - title: lifetime
+        type: object
+        maxProperties: 1
+        properties:
+          fixedLifetime:
+            description: Fixed interval between dictionary updates.
+            type: string
+            format: int64
+          lifetimeRange:
+            $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryRange'
+            description: Range of intervals between dictionary updates for ClickHouse
+              to choose from.
+      - title: source
+        type: object
+        maxProperties: 1
+        properties:
+          httpSource:
+            $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryHttpSource'
+            description: HTTP source for the dictionary.
+          mysqlSource:
+            $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryMysqlSource'
+            description: MySQL source for the dictionary.
+          clickhouseSource:
+            $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryClickhouseSource'
+            description: ClickHouse source for the dictionary.
+          mongodbSource:
+            $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryMongodbSource'
+            description: MongoDB source for the dictionary.
+          postgresqlSource:
+            $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryPostgresqlSource'
+            description: PostgreSQL source for the dictionary.
+    FieldMask_in_UpdateClusterExternalDictionaryRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the External Dictionary should be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Only the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
     FieldMask_in_UpdateClusterRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the ClickHouse Cluster resource should be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -8018,7 +8137,7 @@ components:
     FieldMask_in_UpdateClusterShardGroupRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -8031,7 +8150,7 @@ components:
         Field mask that specifies which attributes of the ClickHouse shard should be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -8048,7 +8167,7 @@ components:
     FieldMask_in_UpdateFormatSchemaRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -8061,7 +8180,7 @@ components:
         Field mask that specifies which fields of the ClickHouse host should be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -8072,7 +8191,7 @@ components:
     FieldMask_in_UpdateMlModelRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 
@@ -8085,7 +8204,7 @@ components:
         Field mask that specifies which attributes of the ClickHouse user should be updated.
 
         A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
+        Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
         the field's value will be reset to the default. The default value for most fields is null or 0.
 

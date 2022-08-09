@@ -122,11 +122,11 @@ connectors[].<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluste
 connectors[].<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>securityProtocol | **string**<br><p>Security protocol to use for connection to the cluster.</p> 
 connectors[].<br>connectorConfigMirrormaker.<br>topics | **string**<br><p>List of Kafka topics, separated by ``,``.</p> 
 connectors[].<br>connectorConfigMirrormaker.<br>replicationFactor | **integer** (int64)<br><p>Replication factor for automatically created topics.</p> 
-connectors[].<br>connectorConfigS3Sink | **object** <br>`connectors[]` includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`<br><br><p>An Apache Kafka® S3-Sink connector resource.</p> 
-connectors[].<br>connectorConfigS3Sink.<br>topics | **string**<br><p>List of Kafka topics, separated by ','</p> 
+connectors[].<br>connectorConfigS3Sink | **object**<br>Configuration of S3-Sink connector. <br>`connectors[]` includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`<br>
+connectors[].<br>connectorConfigS3Sink.<br>topics | **string**<br><p>List of Kafka topics, separated by ','.</p> 
 connectors[].<br>connectorConfigS3Sink.<br>fileCompressionType | **string**<br><p>The compression type used for files put on GCS. The supported values are: ``gzip``, ``snappy``, ``zstd``, ``none``. Optional, the default is ``none``.</p> 
 connectors[].<br>connectorConfigS3Sink.<br>fileMaxRecords | **integer** (int64)<br><p>Max records per file.</p> 
-connectors[].<br>connectorConfigS3Sink.<br>s3Connection | **object**<br><p>Credentials for connecting to S3 storage</p> <p>Resource for S3Connection - settings of connection to AWS-compatible S3 storage, that are source or target of Kafka S3-connectors. YC Object Storage is AWS-compatible.</p> 
+connectors[].<br>connectorConfigS3Sink.<br>s3Connection | **object**<br><p>Credentials for connecting to S3 storage.</p> <p>Resource for S3Connection - settings of connection to AWS-compatible S3 storage, that are source or target of Kafka S3-connectors. YC Object Storage is AWS-compatible.</p> 
 connectors[].<br>connectorConfigS3Sink.<br>s3Connection.<br>bucketName | **string**
 connectors[].<br>connectorConfigS3Sink.<br>s3Connection.<br>externalS3 | **object**
 connectors[].<br>connectorConfigS3Sink.<br>s3Connection.<br>externalS3.<br>accessKeyId | **string**
