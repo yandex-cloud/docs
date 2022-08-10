@@ -2,14 +2,14 @@
 
 There are two methods to connect a {{ captcha-name }} widget:
 
-* Regular or automatic connection method.
+* Automatic connection method.
 * Advanced connection method.
 
 Depending on the connection method you select, the method of transmitting parameters for the widget differs.
 
-## Regular or automatic connection method {#common-method}
+## Automatic connection method {#common-method}
 
-In the regular method, a JS script that loads the widget on the user page is added to the page by following an upload link:
+In the automatic method, the JS script that loads the widget on the user page is added to the page by following an upload link:
 
 ```html
 <script src="https://captcha-api.yandex.ru/captcha.js" defer></script>
@@ -35,7 +35,7 @@ Example of a container with parameters for rendering a widget:
 ></div>
 ```
 
-Where:
+Parameter descriptions:
 
 | Data attribute | Value | Default value |
 | --------------- | ---------------------------------------------------------------------------- | --------------------------- |
@@ -80,7 +80,6 @@ Where:
 
 {% endcut %}
 
-
 ## Advanced connection method {#extended-method}
 
 In the advanced method, a JS script that loads the widget on the user page is added to the page by a link:
@@ -122,7 +121,7 @@ The `render` method is used to draw the widget.
 
 ```ts
 (
-  container: HTMLElement \| string,
+  container: HTMLElement | string,
   params: {
       sitekey: string;
       callback?: (token: string) => void;
@@ -143,17 +142,72 @@ The `getResponse` method returns the current value of the user token.
 (widgetId: WidgetId | undefined) => string;
 ```
 
-As an argument, the method accepts `widgetId`, a unique identifier of the widget. If no argument is passed, the result of the first rendered widget is returned.
+`widgetId` argument: Unique widget ID. If no argument is passed, the result of the first rendered widget is returned.
 
 ### reset method {#reset}
 
 The `reset` method resets the widget to the initial state.
 
 ```ts
-(widgetId: WidgetId | undefined) => void
+(widgetId: WidgetId | undefined) => void;
 ```
 
-As an argument, the method accepts `widgetId`, a unique identifier of the widget. If no argument has been passed, the first rendered widget is reset.
+`widgetId` argument: Unique widget ID. If no argument has been passed, the first rendered widget is reset.
+
+### destroy method {#destroy}
+
+The `destroy` method deletes widgets and any listeners they create.
+
+```ts
+(widgetId: WidgetId | undefined) => void;
+```
+
+The `WidgetId` argument is a unique widget ID. If the argument is not passed, the first rendered widget will be deleted.
+
+### subscribe method {#subscribe}
+
+The `subscribe` method enables you to subscribe listeners to certain widget events.
+For instance, you can listen for the opening and closing of a task popup window. This may be useful for displaying the keyboard on mobile devices.
+
+```ts
+type SubscribeEvent =
+  | 'challenge-visible'
+  | 'challenge-hidden'
+  | 'network-error'
+  | 'success';
+
+(widgetId: widgetId, event: SubscribeEvent, callback: Function) =>
+  UnsubscribeFunction;
+```
+
+Usage example:
+
+```html
+<div id="container"></div>
+
+<script
+  src="https://captcha-api.yandex.ru/captcha.js?render=onload&onload=onloadFunction"
+  async
+  defer
+></script>
+
+<script>
+  function onload() {
+    if (window.smartCaptcha) {
+      const container = document.getElementById('container');
+      const widgetId = window.smartCaptcha.render(container, {
+        /* params */
+      });
+
+      const unsubscribe = window.smartCaptcha.subscribe(
+        widgetId,
+        'challenge-visible',
+        () => console.log('challenge is visible')
+      );
+    }
+  }
+</script>
+```
 
 {% cut "Example of embedding the widget" %}
 

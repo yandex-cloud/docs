@@ -2,45 +2,55 @@
 
 To get started with the service:
 
-1. [Create a captcha](#creat-captcha).
+1. [Create a CAPTCHA](#creat-captcha).
 1. [Get keys](#get-keys).
 1. [Add the widget to the page](#add-widget).
 1. [Check the user response](#check-answer).
 
-## Create a captcha {#creat-captcha}
+## Create a CAPTCHA {#creat-captcha}
 
-1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-1. Select **{{ captcha-full-name }}**.
-1. Click **Create captcha**.
-1. Enter a captcha name.
-1. Select the complexity:
-   * **Easy**: A simple captcha.
-   * **Medium**: A captcha of intermediate complexity.
-   * **Hard**: A difficult captcha.
-1. Specify a list of sites where the captcha will be placed.
-1. Click **Create**.
+{% list tabs %}
 
-## Get keys {#get-keys}
+- Management console
 
-To use {{ captcha-name }}, you need to get the keys for the client and server parts. Using a client key, you can [add the {{ captcha-name }} widget](#add-widget) on your page. You'll need a server key to [check the user response](#check-answer).
+   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+   1. Select **{{ captcha-full-name }}**.
+   1. Click **Create captcha**.
+   1. Enter a CAPTCHA name.
+   1. Select the complexity:
+      * **Easy**: A simple CAPTCHA.
+      * **Medium**: A CAPTCHA of intermediate complexity.
+      * **Hard**: A difficult CAPTCHA.
+   1. Specify a list of sites where the CAPTCHA will be placed.
+   1. Click **Create**.
 
-To get the keys:
+{% endlist %}
 
-1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-1. Select **{{ captcha-full-name }}**.
-1. Click the name of the captcha or [create](#creat-captcha) a new one.
-1. On the **Overview** tab, copy the client and the server keys.
+## Retrieve the CAPTCHA keys {#get-keys}
+
+{% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+   1. Select **{{ captcha-full-name }}**.
+   1. Click the name of the CAPTCHA or [create](#creat-captcha) a new one.
+   1. On the **Overview** tab, copy the `client` and the `server keys`.
+
+{% endlist %}
+
+With the client key, you can [add a widget](#add-widget) {{ captcha-name }} to your page. You'll need a server key to [check the user response](#check-answer).
 
 ## Add the widget to the page {#add-widget}
 
 Connect the {{ captcha-name }} widget using one of the methods:
 
-* A regular automatic method: to the user page, a JS script is added that automatically searches for every `div` block with a `smart-captcha` class and installs a widget to them.
+* Automatic method: a JS script is bound to a user page automatically to find every `div` block with the `smart-captcha` class and to install a widget in it.
 * Advanced method: you control the widget connection via the `window.smartCaptcha` object as the JS script is loaded.
 
 {% list tabs %}
 
-- Regular method
+- Automatic method
 
    1. Add the JS script to the user page. To do this, place the following code anywhere on the page (for example, inside the `<head>` tag):
 
@@ -60,7 +70,7 @@ Connect the {{ captcha-name }} widget using one of the methods:
 
       {% note info %}
 
-      During the upload, the widget changes the height of its host container to `100px`. This might result in an undesirable layout shift on the page because the container height has changed. To avoid this shift, set the `100px` container height before the widget is loaded.
+      During the upload, the widget changes the height of its host container to `100px`. This might result in an undesirable layout shift on the page because the container height has changed. To get rid of this shift, you can set the container height to `100px` before the widget loads.
 
       ```html
       <div ... style="height: 100px"></div>
@@ -120,7 +130,7 @@ Connect the {{ captcha-name }} widget using one of the methods:
 
 ## Check the user response {#check-answer}
 
-After the check is complete, the user is issued a unique token to be stored in a hidden field in the form. To validate the token, send a GET request to `https://captcha-api.yandex.ru/validate` with the following parameters:
+After the problem is solved, the user is issued a unique token to be stored in a hidden form field. To validate the token, send a GET request to `https://captcha-api.yandex.ru/validate` with the following parameters:
 
 * `secret`: The key for the server part.
 * `token`: The token received after the check has been passed.
@@ -146,8 +156,7 @@ Example of the token validation function:
            path: '/validate?' + querystring.stringify({
                secret: SMARTCAPTCHA_SERVER_KEY,
                token: token,
-               ip: '127.0.0.1', // Pass the user's IP.
-                                // How to get the IP properly depends on your framework and proxy.
+               ip: '<user IP>', // Method for retrieving the user IP depends on your framework and proxy.
            }),
            method: 'GET',
        };
@@ -182,15 +191,15 @@ Example of the token validation function:
 - PHP
 
    ```php
-   define('SMARTCAPTCHA_SERVER_KEY', '<Key for the server part>');
+   define('SMARTCAPTCHA_SERVER_KEY', '<Server-side key>');
 
    function check_captcha($token) {
        $ch = curl_init();
        $args = http_build_query([
            "secret" => SMARTCAPTCHA_SERVER_KEY,
            "token" => $token,
-           "ip" => $_SERVER['REMOTE_ADDR'], // Pass the user's IP.
-                                            // How to get the IP properly depends on your proxy.
+           "ip" => $_SERVER['REMOTE_ADDR'], // You need to pass the user IP.
+                                            // Method for retrieving the user IP depends on your proxy.
        ]);
        curl_setopt($ch, CURLOPT_URL, "https://captcha-api.yandex.ru/validate?$args");
        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -224,7 +233,7 @@ Example of the token validation function:
    import json
 
 
-   SMARTCAPTCHA_SERVER_KEY = "<Key for the server part>"
+   SMARTCAPTCHA_SERVER_KEY = "<Server-side key>"
 
 
    def check_captcha(token):
@@ -233,9 +242,8 @@ Example of the token validation function:
            {
                "secret": SMARTCAPTCHA_SERVER_KEY,
                "token": token,
-               "ip": "127.0.0.1"  # Pass the user's IP.
-                                  # How to get the IP properly depends on your framework and proxy.
-                                  # For example, in Flask, this can be request.remote_addr
+               "ip": "<User IP>"  # Method for retrieving the IP depends on your framework and proxy.                                   
+                                                # For example, in Flask, this can be request.remote_addr
            },
            timeout=1
        )

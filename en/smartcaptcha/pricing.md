@@ -11,7 +11,7 @@ The service will be charged when it enters the [General Availability](../overvie
 
 ## What will go into the cost of using {{ captcha-full-name }} {#rules}
 
-You're charged for the number of validation requests to the {{ captcha-name }} API.
+You are charged for [{{ captcha-name }} API requests](./quickstart.md#check-answer) at `https://captcha-api.yandex.ru/validate`.
 
 
 ## Pricing {#prices}
