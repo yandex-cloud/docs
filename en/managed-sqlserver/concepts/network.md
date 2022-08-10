@@ -14,7 +14,7 @@ You can create a cluster without specifying any subnets for the hosts, if the av
 
 {% else %}
 
-All clusters are created inside the `_MSAASINTERNALNETS_` network macro. To connect to the created database, request access in [Puncher](https://puncher.yandex-team.ru/). To connect to {{ MS }}, specify port 3306 in your request.
+All clusters are created from inside the `_MSAASINTERNALNETS_` network macro. To connect to the created database, request access through [Puncher](https://puncher.yandex-team.ru/). To connect to {{ MS }}, specify port 3306 in your request.
 
 {% endif %}
 
@@ -28,9 +28,7 @@ You can use the FQDN to access the host within a single cloud network. Read more
 
 ## Public access to a host {#public-access-to-a-host}
 
-Any cluster host can be accessible from outside {{ yandex-cloud }} if you requested public access when creating the host. To connect to such a host, use its FQDN.
-
-It is not possible to request a public address after creating a host, but you can replace one of the existing hosts with a new host that has a public address.
+Any cluster host can be accessible from outside {{ yandex-cloud }} if you requested public access when [creating the cluster](../operations/cluster-create.md#create-cluster) or [editing the host](../operations/hosts.md#update). To connect to this kind of host, use its FQDN.
 
 When deleting a host with a public FQDN, the assigned IP address is revoked.
 
@@ -42,7 +40,7 @@ When deleting a host with a public FQDN, the assigned IP address is revoked.
 
 {% note tip %}
 
-When connecting to a cluster from within its cloud network, be sure to [configure](../operations/connect.md#configure-security-groups) security groups both for the cluster and the connecting host.
+When connecting to a cluster from within its cloud network, be sure to [configure](../operations/connect.md#configuring-security-groups) security groups both for the cluster and the connecting host.
 
 {% endnote %}
 

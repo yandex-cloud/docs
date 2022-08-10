@@ -7,27 +7,25 @@ To get started with the service:
 1. [Create a cluster](#cluster-create).
 1. [Connect to the DB](#connect).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
-
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 1. If you don't have a folder yet, create one:
 
-    {% include [create-folder](../_includes/create-folder.md) %}
+   {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
-   - To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine, which must be in the same network as the DB cluster.
-   - To be able to connect to a cluster from the internet, request public access to hosts at cluster creation.
+   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based VM in the same network as the DB cluster.
+   * To be able to connect to the cluster from the internet, request public access to hosts when creating or modifying the cluster.
 
    {% note info %}
 
-   The next step assumes that the you connect to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
+   The next step assumes that you connect to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
-
-1. Install the dependencies and the `mssql-cli` client application:
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the virtual machine over SSH.
+1. Install the dependencies and the `mssql-cli` client:
 
    ```bash
    sudo apt update && \
@@ -38,7 +36,7 @@ To get started with the service:
 
 ## Create a cluster {#cluster-create}
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
 1. Select **{{ mms-name }}**.
 1. Click **Create cluster**.
 1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
@@ -50,15 +48,14 @@ To get started with the service:
 
    {% include [install-certificate](../_includes/mdb/mms/install-certificate.md) %}
 
-1. Use the `mssql-cli` command to connect:
+1. Use the `mssql-cli` command below to connect:
 
    {% include [default-connstring](../_includes/mdb/mms/default-connstring.md) %}
 
 1. After running the command, enter the user password to complete the connection procedure.
 
-## What's next
+## What's next {#whats-next}
 
-- Read about [service concepts](concepts/index.md).
-- Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to the database](operations/connect.md).
-- Read [questions and answers](qa/general.md).
-
+* Read about [service concepts](concepts/index.md).
+* Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to the database](operations/connect.md).
+* Read [questions and answers](qa/general.md).
