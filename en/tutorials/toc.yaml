@@ -113,6 +113,9 @@ items:
       - name: Fault protection with Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
         when: product == "yandex-cloud"
+      - name: Creating a VM backup with Hystax Acura Backup
+        href: infrastructure-management/hystax-backup.md
+        when: product == "yandex-cloud"
       - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
         href: infrastructure-management/fault-tolerance.md
         when: product == "yandex-cloud"

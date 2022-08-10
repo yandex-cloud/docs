@@ -14,6 +14,9 @@
 * [Emergency recovery to {{ yandex-cloud }} using Hystax Acura](hystax-disaster-recovery.md)
 {% endif %}
 {% if product == "yandex-cloud" %}
+* [Creating a VM backup with Hystax Acura Backup](hystax-backup.md)
+{% endif %}
+{% if product == "yandex-cloud" %}
 * [Configuring a fault-tolerant architecture in {{ yandex-cloud }}](fault-tolerance.md)
 {% endif %}
 {% if product == "yandex-cloud" %}
