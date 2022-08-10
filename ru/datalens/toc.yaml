@@ -137,8 +137,10 @@ items:
           - name: Создание подключения к Greenplum
             href: operations/connection/create-greenplum.md
           - name: Создание подключения к Prometheus
-            when: audience == "internal"
             href: operations/connection/create-prometheus.md
+          - name: Создание подключения к Yandex Monitoring
+            href: operations/connection/create-monitoring.md
+            when: audience == "external"
           - name: Создание подключения к ClickHouse over YT
             when: audience == "internal"
             items:
