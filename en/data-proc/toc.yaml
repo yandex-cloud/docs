@@ -125,11 +125,11 @@ items:
         include:
           repo: docs
           path: en/_api-ref/dataproc/toc.yaml
-  - name: Releases
+  - name: Revision history
+    when: product == "yandex-cloud"
     items:
       - name: Service updates
         href: release-notes/index.md
-        when: audience == "draft"
       - name: Images
         href: release-notes/images.md
   - name: Questions and answers
