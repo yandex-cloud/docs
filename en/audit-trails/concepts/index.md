@@ -4,6 +4,7 @@
 
 * [Uploading audit logs to a bucket](../operations/export-bucket.md).
 {% if product == "yandex-cloud" %}
+
 * [Uploading audit logs to Cloud Logging](../operations/export-cloud-logging.md).
 {% endif %}
 
@@ -11,8 +12,10 @@ Collecting audit logs lets you use analytical tools and rapidly respond to event
 
 * [Searching audit logs in a bucket](../tutorials/search-bucket.md)
 {% if product == "yandex-cloud" %}
+
 * [Searching audit logs in a log group](../tutorials/search-cloud-logging.md)
 {% endif %}
+
 * [Exporting audit logs to SIEM systems](./export-siem.md)
 * [Alert settings in {{ monitoring-full-name }}](../tutorials/alerts-monitoring.md)
 
@@ -21,26 +24,34 @@ Collecting audit logs lets you use analytical tools and rapidly respond to event
 * {{ at-full-name }}
 * {{ certificate-manager-full-name }}
 {% if product == "yandex-cloud" %}
+
 * {{ cloud-logging-full-name }}
 {% endif %}
+
 * {{ compute-full-name }}
 * {{ iam-full-name }}
 * {{ kms-full-name }}
-* {{ lockbox-name }}
+* {{ lockbox-full-name }}
 * {{ mch-full-name }}
 {% if product == "yandex-cloud" %}
+
 * {{ mmg-full-name }}
 {% endif %}
+
 * {{ mmy-full-name }}
 * {{ mpg-full-name }}
 {% if product == "yandex-cloud" %}
+
 * {{ mrd-full-name }}
 {% endif %}
+
 * {{ network-load-balancer-full-name }}
 * {{ objstorage-full-name }}
+* {{ org-full-name }}
 * {{ resmgr-full-name }}
 * {{ vpc-full-name }}
 {% if product == "yandex-cloud" %}
+
 * {{ ydb-full-name }}
 {% endif %}
 

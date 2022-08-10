@@ -37,6 +37,7 @@ Below are events for services:
 {% endif %}
 * [{{ network-load-balancer-name }}](#network-load-balancer)
 * [{{ objstorage-name }}](#objstorage)
+* [{{ org-name }}](#organization)
 * [{{ resmgr-name }}](#resmgr)
 * [{{ vpc-name }}](#vpc)
 {% if product == "yandex-cloud" %}
@@ -67,9 +68,7 @@ Service name: `certificatemanager`.
 | `UpdateCertificateAccessBindings` | Updating access bindings for a certificate |
 | `SetCertificateAccessBindings` | Setting access bindings for a certificate |
 
-
 {% if product == "yandex-cloud" %}
-
 ## {{ cloud-logging-name }} {#cloud-logging-name}
 
 Service name: `logging`.
@@ -387,6 +386,15 @@ Service name: `storage`.
 
 \* The audit log does not include the above events by default. To have these events added to the audit log, please contact [technical support]({{ link-console-support }}). Message template:
 "Please enable the recording of data plane object storage events in audit trail `<trail id>`."
+
+## {{ org-name }} {#organization}
+
+The name of the service is `organizationmanager`.
+
+| Event name | Description |
+--- | ---
+| `CreateMembership` | Adding a user to an organization |
+| `DeleteMembership` | Deleting a user from an organization |
 
 ## {{ resmgr-name }} {#resmgr}
 
