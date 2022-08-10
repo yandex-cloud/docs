@@ -23,6 +23,8 @@ items:
         href: operations/external-tables.md
       - name: Viewing cluster logs
         href: operations/cluster-logs.md
+      - name: Managing {{ GP }} extensions
+        href: operations/cluster-extensions.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
       - name: Monitoring the state of a cluster and hosts
