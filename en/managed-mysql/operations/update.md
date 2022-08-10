@@ -325,6 +325,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    1. Run the command with a list of settings to update:
 
+      {% if product == "yandex-cloud" %}
+
       ```bash
       {{ yc-mdb-my }} cluster update <cluster name> \
         --backup-window-start <backup start time> \
@@ -336,6 +338,21 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
         --deletion-protection=<protection from cluster deletion: true or false>
       ```
 
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```bash
+      {{ yc-mdb-my }} cluster update <cluster name> \
+        --backup-window-start <backup start time> \
+        --maintenance-window type=<maintenance type: anytime or weekly>,`
+                           `day=<day of the week for the weekly type>,`
+                           `hour=<hour of the day for the weekly type> \
+        --deletion-protection=<protection from cluster deletion: true or false>
+      ```
+
+      {% endif %}
+
    You can change the following settings:
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
@@ -344,7 +361,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
-   * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
+   {% if product == "yandex-cloud" %}* `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.{% endif %}
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -371,6 +388,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       }
       ```
 
+   {% if product == "yandex-cloud" %}
+
    1. To allow access to [SQL queries from the management console](web-sql-query.md){% if product == "yandex-cloud" %} and [DataLens](datalens-connect.md){% endif %}, add a block named `access` to the {{ mmy-name }} cluster description:
 
       ```hcl
@@ -378,16 +397,14 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
         ...
         access {
           web_sql   = <true or false>
-      {% if product == "yandex-cloud" %}
           data_lens = <true or false>
-      {% endif %}
           ...
         }
         ...
       }
       ```
 
-   1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
+   {% endif %}
 
    1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
@@ -419,7 +436,9 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
    * The cluster ID in the `clusterId` parameter.
+   {% if product == "yandex-cloud" %}
    * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
+   {% endif %}
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
    * Cluster deletion protection settings in the `deletionProtection` parameter.

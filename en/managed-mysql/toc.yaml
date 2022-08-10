@@ -23,6 +23,7 @@ items:
         href: operations/cluster-stop.md
       - name: SQL queries in the management console
         href: operations/web-sql-query.md
+        when: product == "yandex-cloud"
       - name: Updating clusters
         href: operations/update.md
       - name: Connecting to DataLens

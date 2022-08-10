@@ -331,6 +331,8 @@
 
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
+        {% if product == "yandex-cloud" %}
+        
         ```bash
         {{ yc-mdb-my }} cluster update <имя кластера> \
           --backup-window-start <время начала резервного копирования> \
@@ -341,7 +343,22 @@
           --websql-access=<true или false> \
           --deletion-protection=<защита от удаления кластера: true или fasle>
         ```
-
+        
+        {% endif %}
+        
+        {% if product == "cloud-il" %}
+        
+        ```bash
+        {{ yc-mdb-my }} cluster update <имя кластера> \
+          --backup-window-start <время начала резервного копирования> \
+          --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
+                              `day=<день недели для типа weekly>,`
+                              `hour=<час дня для типа weekly> \
+          --deletion-protection=<защита от удаления кластера: true или fasle>
+        ```
+        
+        {% endif %}
+    
     Вы можете изменить следующие настройки:
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
@@ -352,7 +369,7 @@
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-    * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
+    {% if product == "yandex-cloud" %}* `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.{% endif %}
 
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -378,7 +395,9 @@
         ...
       }
       ```
-  
+
+  {% if product == "yandex-cloud" %}
+
   1. Чтобы активировать доступ к [SQL-запросам из консоли управления](web-sql-query.md){% if product == "yandex-cloud" %} и доступ из [DataLens](datalens-connect.md){% endif %}, добавьте к описанию кластера {{ mmy-name }} блок `access`:
  
       ```hcl
@@ -386,14 +405,14 @@
         ...
         access {
           web_sql   = <true или false>
-     {% if product == "yandex-cloud" %}
           data_lens = <true или false>
-     {% endif %}
           ...
         }
         ...
       }
       ```
+
+  {% endif %}
 
   1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
@@ -425,7 +444,9 @@
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    {% if product == "yandex-cloud" %}
     * Настройки доступа из других сервисов и к SQL-запросам из консоли управления в параметре `configSpec.access`.
+    {% endif %}
     * Настройки окна резервного копирования в параметре `configSpec.backupWindowStart`.
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.

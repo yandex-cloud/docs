@@ -6,7 +6,9 @@
 {% if audience != "internal" %}
 - [{#T}](cluster-stop.md)
 {% endif %}
+{% if product == "yandex-cloud" %}
 - [{#T}](web-sql-query.md)
+{% endif %}
 - [{#T}](update.md)
 {% if product == "yandex-cloud" %}
 - [{#T}](datalens-connect.md)

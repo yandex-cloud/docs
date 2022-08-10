@@ -23,6 +23,7 @@ items:
         href: operations/cluster-stop.md
       - name: SQL-запросы в консоли управления
         href: operations/web-sql-query.md
+        when: product == "yandex-cloud"
       - name: Изменение кластера
         href: operations/update.md
       - name: Подключение к DataLens

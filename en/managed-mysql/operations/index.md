@@ -3,14 +3,16 @@
 - [{#T}](cluster-list.md)
 - [{#T}](cluster-create.md)
 - [{#T}](connect.md)
-   {% if audience != "internal" %}
+{% if audience != "internal" %}
 - [{#T}](cluster-stop.md)
-   {% endif %}
+{% endif %}
+{% if product == "yandex-cloud" %}
 - [{#T}](web-sql-query.md)
+{% endif %}
 - [{#T}](update.md)
-   {% if product == "yandex-cloud" %}
+{% if product == "yandex-cloud" %}
 - [{#T}](datalens-connect.md)
-   {% endif %}
+{% endif %}
 - [{#T}](hosts.md)
 - [{#T}](databases.md)
 - [{#T}](cluster-users.md)
