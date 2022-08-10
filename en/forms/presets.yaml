@@ -1,33 +1,24 @@
 default:
 
-  forms-full-name: Yandex Forms
-  forms-name: Forms
+  #Перенес в общий файл ru/presets.yaml
+  #forms-full-name: Yandex Forms
+  #forms-name: Forms
 
   locale: en
   
   #Ссылки на Формы:
-  link-forms: https://forms.yandex.ru/
   link-forms-admin: https://forms.yandex.com/admin/
   link-forms-admin-ya: https://forms.yandex-team.ru/admin/
   link-forms-ext-ya: https://forms.yandex-team.ru/ext/admin/
+  link-forms: https://forms.yandex.com/
   link-forms-b2b: https://forms.yandex.com/cloud/admin
   #на будущее docs-forms: https://cloud.yandex.ru/docs/forms/
-  
-  #Ссылки на Коннект
-  link-connect: https://connect.yandex.com/
-  link-connect-portal: https://connect.yandex.com/portal/home
 
-  #Ссылки на Tracker
-  link-tracker: https://tracker.yandex.com/
-  link-tracker-ya: https://st.yandex-team.ru/
-  docs-tracker-field-ya: https://doc.yandex-team.ru/tracker/external/user/create-param.html
-
-  #Ссылки на wiki
-  link-wiki: https://wiki.yandex.com/
-
+  #Ссылки на сервисы
+  link-passport: https://passport.yandex.com/auth
+  link-metrika: https://metrika.yandex.com
   
   #Ссылки на справку на yandex.ru/support и wiki.yandex-team.ru
-  support-connect-main: https://yandex.com/support/connect/
   support-disk-main: https://yandex.com/support/disk/
   support-passport-auth: https://yandex.com/support/passport/authorization/twofa-on.html
   support-metrica-counter: https://yandex.com/support/metrica/general/creating-counter.html
@@ -47,17 +38,9 @@ default:
   link-yoomoney: https://yoomoney.com/
 
   #Прочее
-  link-passport: https://passport.yandex.com/auth
-  link-metrika: https://metrika.yandex.com
   link-forms-legal: https://yandex.ru/legal/forms_creators/
   example-account: login@yandex.com
 
-  #Сервисы
-  #Должны быть в общем ru/presets.yaml
-  #tracker-full-name: Yandex Tracker
-  #tracker-name: Tracker
-  wiki-full-name: Yandex Wiki
-  wiki-name: Wiki
   
 external:
 # По дефолту
@@ -65,3 +48,4 @@ external:
 internal:
   link-tracker: https://st.yandex-team.ru/
   link-wiki: https://wiki.yandex-team.ru/
+  link-forms: https://forms.yandex-team.ru/

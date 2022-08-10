@@ -28,7 +28,5 @@ Select which data should be entered in this field:
 
 Turn this on to allow the user to select multiple employees or departments.
 
-### Validation {#validate}
-
 {% include [validate-blockrefs](../../_includes/forms/validate-blockrefs.md) %}
 

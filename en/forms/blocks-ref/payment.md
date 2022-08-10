@@ -1,8 +1,8 @@
 # Payment
 
-This block lets users transfer money to a wallet in the YooMoney payment system (previously, Yandex.Money). For example, as payment for attending an event.
+Using this block, a user can transfer money to a wallet in the YooMoney payment system (previously, Yandex&#160;Money). For example, as payment for attending an event.
 
-From the **Payment** block, the user is redirected to the company's website [ЮMoney]({{ link-yoomoney }}) to complete the payment. {{ forms-full-name }} only register the user's transition to the payment page. You can get information about payments and fees from YooMoney.
+From the **Payment** block, the user is redirected to the company's website [Yoomoney]({{ link-yoomoney }}) to complete the payment. {{ forms-full-name }} only register the user's transition to the payment page. You can get information about payments and fees from YooMoney.
 
 {% note warning %}
 

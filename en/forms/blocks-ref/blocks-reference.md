@@ -46,11 +46,7 @@ This section is about prompt blocks and parameters:
 
 - [One answer](radiobutton.md)
 
-{% if locale == "ru" %}
-
 - [Payment](payment.md)
-
-{% endif %}
 
 {% if audience == "external" %}
 

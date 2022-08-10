@@ -46,6 +46,8 @@ Turn on this option to suggest response options from a directory when the user e
 
 - **Email addresses**: The user's email address.
 
+- **Gender**: The user's gender.
+
 ### Validation {#param-validation}
 
 {% include [validate](../../_includes/forms/validate.md) %}

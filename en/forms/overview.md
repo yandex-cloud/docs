@@ -2,11 +2,11 @@
 
 {{ forms-full-name }} is a service where you can conduct surveys, tests, and quizzes, collect reviews, and accept requests and applications.
 
-In {{ forms-full-name }}, you can use different types of prompts to easily configure your survey or test. The form can be placed on the website or shared with users via a link. You can view the responses to the prompts in the {{ forms-name }} interface or have them sent to your email.
+In {{ forms-full-name }}, you can use various types of prompts to easily configure any survey or test. The form can be placed on the website or shared with users via a link. You can view the responses to the prompts in the {{ forms-name }} interface or have them sent to your email.
 
-Use {{ forms-full-name }} in personal matters, for example, to conduct a survey for your friends and make a menu for a New Year's party. You can also use forms for business, for example, to accept orders for your online store.
+Use {{ forms-full-name }} in personal matters, for example, to conduct a survey for your friends and make a menu for a New Year's party. You can also use forms for work or business: for example, to accept orders for your online store.
 
-If you want to use {{ forms-name }} together with your colleagues, create an organization in {{ yandex-cloud }} and enable {{ forms-name }} for business. You can give other users in the organization access to edit your forms and view responses. You can also set up integration with {{ tracker-full-name }} and {{ wiki-full-name }}. To learn more, go to [{#T}](forms-for-org.md).
+If you want to use {{ forms-name }} together with your colleagues, create an organization in {{ yandex-cloud }} and enable {{ forms-full-name }} for business. You can give other users in the organization access to edit your forms and view responses. You can also set up integration with {{ tracker-full-name }} and {{ wiki-full-name }}. To learn more, go to [{#T}](forms-for-org.md).
 
 ## How {{ forms-full-name }} works {#how-to}
 
@@ -48,7 +48,7 @@ There are [several ways to get](answers.md) user responses:
 
 - Download the file with responses.
 
-- Upload the file with responses to Yandex.Disk.
+- Upload the file with responses to Yandex&#160;Disk.
 
 - Set up forwarding responses to email.
 

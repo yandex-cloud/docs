@@ -48,7 +48,7 @@ Using the **Forms** widget, you can insert a test or a quiz in your article. Add
 
 1. Enter the response options and the number of points for each of them. Set 0 points for incorrect options.
 
-1. To add another question to the page, hover over the question you created and click ![](../_assets/forms/add-block.png). If you hover the mouse over the top of the block, a new question will appear above the current question.
+1. To add another question to the page, hover over the created question and click ![](../_assets/forms/add-block.png). If you hover the mouse over the top of the block, a new question will appear above the current question.
 
 1. At the bottom of the page, click **Score the test** and set the rules [for scoring the test](tests.md#test-result) in the panel on the right:
 

@@ -1,4 +1,4 @@
-# How to choose a version of {{ forms-full-name }}
+# How to choose a version {{ forms-full-name }}
 
 {% if audience == "external" %}
 
@@ -16,7 +16,7 @@ There are three admin panels {{ forms-full-name }}. To create a form, select the
 
 - If you're creating a form for external users (for example, a feedback form for a service) use the [{{ link-forms-ext-ya }}]({{ link-forms-ext-ya }}) external admin panel.
 
-  The form will be available on the `forms.yandex.ru` domain for all users.
+  This form will be available on the `forms.yandex.ru` domain for all users.
 
 - If you're creating a form for Yandex employees, use the internal admin panel [{{ link-forms-admin-ya }}]({{ link-forms-admin-ya }}).
 

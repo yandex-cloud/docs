@@ -48,7 +48,7 @@ items:
     - name: Отправить письмо
       href: send-mail.md
     - name: Опубликовать форму в Дзене
-      when: audience == "external"
+      when: audience == "external" and locale == "ru"
       href: forms-lite.md
     - name: Подключить Метрику
       href: metrica.md
@@ -125,7 +125,6 @@ items:
     - name: Один вариант
       href: blocks-ref/radiobutton.md
     - name: Оплата
-      when: locale == "ru"
       href: blocks-ref/payment.md
     - name: Отделы
       when: audience == "external"

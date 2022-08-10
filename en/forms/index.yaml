@@ -10,20 +10,27 @@ description:
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex.Forms"
-  # Блок со ссылками
+  keywords:
+    - keyword: yandex forms
+    - keyword: yandex form
+    - keyword: yandex create a test
+# Блок со ссылками
 links:
 - title: "Create a form"
   description: "To conduct a survey, collect votes, accept requests, or take orders, create a form."
-  href: new-form
-- title: "Make a test"
-  description: "You can use Yandex.Forms to make a test or a quiz."
-  href: tests
+  href: "new-form"
 - title: "Publish your form"
   description: "You can publish the form using a direct link, embed it in a site, or share a link to the form on social media. "
   href: publish
 - title: "Get responses"
-  description: "You can view responses in the Yandex.Forms interface, download them as a file, or save them to Yandex.Disk."
+  description: "You can view responses in the Yandex Forms interface, download them as a file, or save them to Yandex Disk."
   href: answers
+- title: "Make a test"
+  description: "You can use Yandex.Forms to make a test or a quiz."
+  href: "tests"
+- title: "Forms for business"
+  description: "Use the features of Yandex Forms for business: create and edit forms in collaboration with your colleagues."
+  href: forms-for-org
 - title: "Integration with other services"
-  description: "Connect a Yandex.Metrica tag, set up email notifications and create tasks in Yandex.Tracker."
+  description: "Connect a Yandex Metrica tag, set up email notifications, and create tasks in Yandex Tracker."
   href: notifications

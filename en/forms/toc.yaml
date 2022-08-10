@@ -48,7 +48,7 @@ items:
     - name: Send message
       href: send-mail.md
     - name: Publish the form on Yandex.Zen
-      when: locale == "ru"
+      when: audience == "external" and locale == "ru" 
       href: forms-lite.md
     - name: Connect Yandex.Metrica
       href: metrica.md
@@ -85,6 +85,8 @@ items:
   href: answers.md
 - name: Manage forms
   href: forms-settings.md
+- name: Configure access
+  href: access.md
 - name: Prompt blocks reference
   items:
     - name: Overview
@@ -118,7 +120,6 @@ items:
     - name: One answer
       href: blocks-ref/radiobutton.md
     - name: Payment
-      when: locale == "ru"
       href: blocks-ref/payment.md
     - name: People
       when: audience == "external"
@@ -159,6 +160,7 @@ items:
       when: audience == "internal"
       href: blocks-ref/yt.md
 - name: Pricing rules
+  when: audience == "external"
   href: pricing.md
 - name: Support
   href: feedback.md

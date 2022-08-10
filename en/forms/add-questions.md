@@ -4,17 +4,17 @@ A form consists of blocks of prompts — these are fields or lists where users c
 
 ## Add a prompt block {#section_zlk_g4z_sbb}
 
-1. Select a form and go to **Constructor**.
+1. Select a form. The **Constructor** tab will open.
 
 1. To add a prompt block to the form, select it from the list on the left and drag it to the workspace. To learn more about how different prompt blocks work, go to [{#T}](#sec_questions_ref).
 
-1. In the **Edit a response** window that opens, [set the parameters of the block](#section_jpy_2xg_qbb). To configure a previously added block, click it.
+1. In the **Edit a response** window that opens, [set the block parameters](#params). To configure a previously added block, click it.
 
 1. To change the order of prompts, hover over the block and drag the ![](../_assets/forms/drag-question.png) icon to where you want it.
 
     ![](../_assets/forms/tutorial-add-question.gif)
 
-1. If you want to show or hide a block depending on how the user responded to other prompts, [set the display conditions for it](#section_q2t_zqz_sbb).
+1. If you want to show or hide a block depending on how the user responded to other prompts, [set the block display conditions](#conditions).
 
 1. To remove a prompt block, click ![](../_assets/forms/remove.png).
 
@@ -36,7 +36,7 @@ To configure the parameters of the prompt block, click it. This opens the **Edit
 
 - In the right part of the window, you can see what the prompt looks like on the form.
 
-Depending on the prompt type, different parameters are available for editing. Block parameters are divided into three groups:
+Depending on the prompt type, different parameters are available for editing:
 
 - **Prompt**: The main text in the block. It is usually a field heading or a prompt for the user to respond to.
 
@@ -44,11 +44,13 @@ Depending on the prompt type, different parameters are available for editing. Bl
 
 - **Settings**: Parameters you can use to set limits or additional block properties. For instance, you can require the user to fill in a field or configure the sorting of response options.
 
+- **Validation**: works for some types of fields, such as Number or TIN. Use validation to check the response format. If the format is incorrect, the user sees a warning. To learn more, see [Response validation](option-validation).
+
 To learn more about parameters, go to [{#T}](blocks-ref/blocks-reference.md).
 
 ## Set conditions for showing a prompt {#conditions}
 
-You can show or hide any block depending on how the user responded to previous prompts:
+You can show or hide a block depending on how the user responded to previous prompts:
 
 1. Hover over the block and click the ![](../_assets/forms/conditions.png) icon that appears.
 
@@ -57,6 +59,8 @@ You can show or hide any block depending on how the user responded to previous p
 1. Set the condition for showing the prompt:
 
     - Select the prompt that determines whether to show or hide the block.
+        You can only pick a prompt that precedes the block being set up.
+        The condition for showing the first prompt cannot be configured.
 
     - Select a relational operator: **equal** or **not equal**.
 
@@ -114,7 +118,7 @@ If you aren't sure which prompt block is right for your form, use the table:
 | Phone number | [{#T}](blocks-ref/phone.md) |
 | A link, like the link to a social media profile. | [{#T}](blocks-ref/link.md) |
 | A file uploaded by the user, like a photo. | [{#T}](blocks-ref/file.md) |
-{% if locale == "ru" %}| Money transfer, For example, as payment for attending an event. | [{#T}](blocks-ref/payment.md) |{% endif %}
+| Money transfer, For example, as payment for attending an event. | [{#T}](blocks-ref/payment.md) |
 | A response selected from the suggested options, like a product color. | [{#T}](blocks-ref/dropdown.md)<br/> [{#T}](blocks-ref/radiobutton.md) |
 | Multiple responses selected from the suggested options, like a request for multiple services. | [{#T}](blocks-ref/multiple.md) |
 | A name of a city or country, like the user's place of residence. | [{#T}](blocks-ref/cities.md) |
@@ -126,8 +130,8 @@ If you aren't sure which prompt block is right for your form, use the table:
 | Responses to a group of repeating prompts. For example, you may need to specify the details of several participants to register them for an event. | [{#T}](blocks-ref/series.md) |
 | {% if audience == "external" %}The name of an employee of a {{ org-full-name }} organization | [{#T}](blocks-ref/people.md){% endif %} |
 | {% if audience == "external" %}The name of a department or team in a {{ org-full-name }} organization | [{#T}](blocks-ref/departments.md)<br/>[{#T}](blocks-ref/teams.md){% endif %} |
-{% if audience == "internal" %}| The name of an employee at Yandex or a Yandex department | [Staff data](blocks-ref/staff.md) |{% endif %}
-{% if audience == "internal" %}| [ABC service](https://abc.yandex-team.ru/) | [Service catalog](blocks-ref/abc.md) |{% endif %}
+| {% if audience == "internal" %}The name of an employee at Yandex or a Yandex department | [Staff data](blocks-ref/staff.md){% endif %} |
+| {% if audience == "internal" %}[ABC service](https://abc.yandex-team.ru/) | [Service catalog](blocks-ref/abc.md){% endif %} |
 | A block with response options that are loaded from a [dynamic {{ wiki-name }} table](../wiki/create-grid.md) | [{#T}](blocks-ref/wiki.md) |
-{% if audience == "internal" %}| A block with response options that are pulled from the [YT table](https://yt.yandex-team.ru/) | [YT list](blocks-ref/yt.md) |{% endif %}
+| {% if audience == "internal" %}A block with response options that are pulled from the [YT table](https://yt.yandex-team.ru/) | [YT list](blocks-ref/yt.md){% endif %} |
 

@@ -4,7 +4,9 @@
 
 - Чтобы создать личную форму, перейдите на страницу [{{ link-forms-admin }}]({{ link-forms-admin }}). Подробнее читайте в разделе [{#T}](quick-guide.md).
 
+{% if audience == "external" and locale == "ru" %}
 - Также можно создать форму с помощью [виджета в Яндекс&#160;Дзене](forms-lite.md).
+{% endif %}
 
 Пользователям личных форм недоступны [возможности для бизнеса](forms-for-org.md#business-features), такие как интеграция с сервисами [{{ tracker-name }}](create-task.md) и [{{ wiki-name }}](send-wiki.md).
 

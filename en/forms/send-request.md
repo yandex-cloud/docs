@@ -1,5 +1,15 @@
 # Send an HTTP request
 
+{% if audience == "external" %}
+
+{% note warning %}
+
+For HTTP requests to work correctly, you need to allow your service to accept packets from the {{ forms-full-name }} `2a02:6b8:c00::/40` network over the `IPv6` protocol. Otherwise, your service firewall may block data that's sent by the form.
+
+{% endnote %}
+
+{% endif %}
+
 To send data from your form to a web service via the API, use HTTP requests:
 
 {% if audience == "internal" %}
@@ -10,17 +20,17 @@ To send data from your form to a web service via the API, use HTTP requests:
 
 1. Select a form and go to **Integration**.
 
-1. Select the [group of actions](notifications.md#add-integration) to add an HTTP request to and click the button with the request type at the bottom of the group:
-    - **JSON-RPC.POST**: Send a request using the JSON-RPC protocol.
+1. Select the [group of actions](notifications.md#add-integration) to add an HTTP request, and click the button with the API {% if audience == "external" %}request type{% else %}(../_assets/forms/api-notification.png) at the bottom of the group. **After that, **select the request type{% endif %}:
+    - **JSON-RPC POST request**: Send a request using the JSON-RPC protocol.
 
     {% if audience == "internal" %}
 
-    - **HTTP.POST**: Send the user's responses in JSON or XML format using an HTTP request with the POST method.
+    - **Request with the POST method**: Send the user's responses in JSON or XML format using an HTTP request with the POST method.
 
-    - **HTTP.PUT**: Send the user's responses in JSON or XML format using an HTTP request with the PUT method.
+    - **Request with the PUT method**: Send the user's responses in JSON or XML format using an HTTP request with the PUT method.
 
     {% endif %}
-    - **HTTP.Request to endpoint**: Send any available form data with the option to set the request format and select the HTTP method.
+    - **Request with a set method**: Send any available form data with the option to set the request format and select the HTTP method.
 
     {% note info %}
 
@@ -28,11 +38,13 @@ To send data from your form to a web service via the API, use HTTP requests:
 
     {% endnote %}
 
-1. Specify the URL of the service.
+1. Specify the URL of the service. This is the URL of the node that provides the API.
 
 {% if audience == "internal" %}
 
-1. If necessary, turn on and set up authentication using [TVM2](https://wiki.yandex-team.ru/passport/tvm2/):
+1. If necessary, set up authentication using [TVM2](https://wiki.yandex-team.ru/passport/tvm2/):
+
+    1. Enable **Use TVM2**.
 
     1. In the **Client ID** field, specify the ID of your TVM application.
 
@@ -42,17 +54,17 @@ To send data from your form to a web service via the API, use HTTP requests:
 
 1. Set parameters that depend on your selected request type:
 
-    - JSON-RPC.POST
+    - JSON-RPC POST request
 
         - Specify the service method to which the request is sent.
 
         - Set the request parameters. Specify a name and value for each parameter.
 
-        - You can use [variables](vars.md) as parameter values. In this case, enable **Only when the value is received**.
+        - You can use [variables](vars.md) as parameter values. If you choose to do so, enable **Send if value is set**.
 
     {% if audience == "internal" %}
 
-    - HTTP.POST/PUT
+    - Request with the POST/PUT method
 
         - Select the questions for which responses should be sent in the request.
 
@@ -60,37 +72,48 @@ To send data from your form to a web service via the API, use HTTP requests:
 
         - If necessary, add headers to the request. Specify a name and value for each header.
 
-        - You can use [variables](vars.md) as header values. In this case, enable **Only when the value is received**.
+        - You can use [variables](vars.md) as header values. If you choose to do so, enable **Send if value is set**.
 
     {% endif %}
 
-    - HTTP.Request to endpoint
+    - Request with a set method
 
         - Select the HTTP method.
 
-        - Set the request body. To add form data to the request body, use [variables](vars.md).
+        - Set the request body: specify the parameters to be sent in JSON format. To add form data to the request body, use [variables](vars.md).
 
-        {% if audience == "internal" %}
+        - Add headers to the request. Specify a name and value for each header.
 
-        - If necessary, add headers to the request. Specify a name and value for each header.
-
-        - You can use [variables](vars.md) as header values. In this case, enable **Only when the value is received**.
-
-        {% endif %}
+        - You can use [variables](vars.md) as header values. If you choose to do so, enable **Send if value is set**.
 
 1. Click **Save**.
 
-{% if audience == "external" %}
+> Example: create a project in {{ tracker-full-name}} with a name and queue key you specify.
+>
+>Create a request to the [{{ tracker-name }} API](../tracker/about-api.md) by filling out the form as follows:
+>
+>* **URL**: {% if audience == "internal" %}`https://st-api.yandex-team.ru/v2/projects`{% else %}`https://api.tracker.yandex.net/v2/projects`{% endif %}.
+>
+>* **Request method**: `POST`.
+>
+>* **Request body**: project parameters in JSON format:
+>
+>   ```json
+>   
+>       {
+>          "name": "Project name",
+>          "queues": "<queue key>"
+>       }
+>   ```
+>
+>* **Headers**:
+>`Authorization`: `OAuth <your OAuth token>`. {% if audience == "external" %}
+>`X-Org-ID`: `<organization ID>`.
+>{% endif %}
+>
+>![](../_assets/forms/request-example-new.png)
 
-{% note warning %}
-
-For HTTP requests to work correctly, you need to allow your service to accept packets from the `2a02:6b8:c00::/40` form network over the `ipv6` protocol. Otherwise, your service firewall may block data that's sent by the form.
-
-{% endnote %}
-
-{% endif %}
-
-## Processing responses to HTTP requests.{% if audience == "internal" %}POST/PUT/{% endif %}Request to endpoint{#http-response}
+## Processing responses to HTTP requests (requests with the {% if audience == "internal" %}POST/PUT method{% endif %} or with a set method {#http-response})
 
 **Successful request**
 
@@ -114,7 +137,7 @@ All other errors cause the integration to fail.
 
 If the received response has the `307` code, the request is redirected to the URL that's specified in the `Location` header.
 
-## Processing responses to a JSON-RPC.POST request {#json-response}
+## Processing responses to a JSON-RPC POST request {#json-response}
 
 **Successful request**
 
@@ -152,33 +175,17 @@ In some cases, the HTTP request module doesn't wait for the external service to 
 
 ### Variable data is inserted in the wrong format
 
-If you add data from the form to the request using [variables](vars.md), invalid characters may get into the request body and cause an integration error. To remove invalid characters from the response or convert the response format, configure filters for variables in the old admin panel {{ forms-name }}.
+If you add data from the form to the request using [variables](vars.md), invalid characters may get into the request body and cause an integration error. To remove invalid characters from the response or convert the response format, configure [filters for variables](vars.md#var-filters).
 
 For example, you need to add a variable containing the response to the <q>Long text</q> question to the request body. If the response text contains line breaks, it will cause an integration error. To avoid this error, you need to convert the variable value to the JSON format.
 
-To set up filters for variables:
+To do this, select the **JSON** filter when adding the variable.
 
-1. Set up integration using variables in the form.
+### I can't attach a file to the task in {{ tracker-full-name }}
 
-1. Go to the old admin panel. To do this, click **Go to the old version** on the top panel.
+If you need to attach a file from the response to a prompt in the form to the task in {{ tracker-short-name }} using the API, the easiest way is to add the file to the comment. To do this, create a **Request with a set method** with the following parameters:
 
-1. In the old admin panel, click **Settings** at the top of the page, and then select **Integrations** in the left panel.
-
-1. In the integration settings, find the list of added variables and click the one you want to convert.
-
-![](../_assets/forms/var-old-admin.png)
-
-1. In the variable settings window, select the filter for data conversion and click **Add**.
-
-![](../_assets/forms/var-filters.png)
-
-1. Save the integration settings.
-
-### I can't attach a file to the issue in {{ tracker-full-name }}
-
-If you need to attach a file from the response to a question in the form to the issue in {{ tracker-short-name }}, the easiest way is to add the file to the comment. To do this, create a **HTTP.Request to endpoint** request with the following parameters:
-
-- URL: `https://st-api.yandex-team.ru/v2/issues/<issue_key>/comments`
+- URL: `https://st-api.yandex-team.ru/v2/issues/<task_name>/comments`
 
 - Request method: **POST**
 
@@ -186,27 +193,27 @@ If you need to attach a file from the response to a question in the form to the 
 
     ```
     {
-        "text":"<response_to_prompt>"
+        "text":"<a variable with the response to the prompt>"
     }
     ```
 
 - Headings: `Authorization: OAuth <token>`
 
-    ![](../_assets/forms/http-add-file.png)
+    ![](../_assets/forms/http-add-file-new.png)
 
-### I can't create an issue with a {#resolve-problems-checklist}  checklist in {{ tracker-full-name }}
+### I can't create a task with a {#resolve-problems-checklist}  checklist in {{ tracker-full-name }}
 
-To create an issue with a checklist in {{ tracker-short-name }}, use the **HTTP.Request to endpoint** integration with the following parameters:
+To create a task with a checklist in {{ tracker-short-name }}, use the **Request with a set method** integration with the following parameters:
 
 - URL: `https://st-api.yandex-team.ru/v2/issues`
 
 - Request method: **POST**
 
-- Request body: Specify the parameters of the issue in JSON format. Examples:
+- Request body: Specify the parameters of the task in JSON format. Examples:
 
     ```
     {"queue":"<Queue_key>",
-    "summary":"issue heading",     
+    "summary":"Task heading",     
     "checklistItems":[                     
         {"text":"Item 1"},
         {"text":"Item 2"},
@@ -214,15 +221,15 @@ To create an issue with a checklist in {{ tracker-short-name }}, use the **HTTP.
     }
     ```
 
-    To add form data to the request body, use [variables](vars.md). For example, to make the user who filled out the form the owner of the issue, add a variable as the `createdBy` parameter value
+    To add form data to the request body, use [variables](vars.md). For example, to make the user who filled out the form the owner of the task, add a variable as the `createdBy` parameter value
 
     {% note info %}
 
-    The `queue` and `summary` issue parameters are required. To learn more about the request structure [go to {{ wiki-name }}](https://wiki.yandex-team.ru/tracker/api/issues/create/).
+    The `queue` and `summary` task parameters are required. To learn more about the request structure, see the [documentation {{ tracker-name }}](https://docs.yandex-team.ru/cloud/tracker/concepts/issues/create-issue).
 
     {% endnote %}
 
-    ![](../_assets/forms/http-checklist.png)
+    ![](../_assets/forms/http-checklist-new.png)
 
     {% endif %}
 

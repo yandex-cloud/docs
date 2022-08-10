@@ -2,18 +2,16 @@ Use validation if you need to check that the entered response matches the specif
 
 Select a validation method:
 
-* **No validation**: The response can contain any characters. If you select this validation method, the prompt type changes to <q>Short text</q>.
+* **No validation**: The response can contain any characters. If you select this validation method, the entered data is not checked.
 
 {% if audience == "internal" %}
-
 * **External validator**: Validate the response using an external service. When selecting this option in the form settings, specify the [validation server address](../../forms/validation.md).
 {% endif %}
+* **Validation of fractional numbers**: The response must contain an integer or a decimal.
 
-* **Validation of fractional numbers**: The response must contain an integer or a decimal. If you select this validation method, the prompt type changes to <q>Number</q>.
+* **TIN validation**: The response must contain a valid taxpayer ID: 10 or 12 digits corresponding to the control checks. 
 
-* **TIN validation**: The response must contain a valid taxpayer ID. If you select this validation method, the prompt type changes to <q>TIN</q>.
-
-* **Validation of letters from the Cyrillic alphabet**: The response can only contain letters in the Russian alphabet, numbers, and spaces. If you select this validation method, the prompt type changes to <q>Short text</q>.
+* **Validation of letters from the Cyrillic alphabet**: The response can only contain letters in the Russian alphabet, numbers, spaces and symbols `. , ; ( )`. 
 
 * **Validation using regular expressions**: You can make your own [regular expression]({{  link-wikipedia-expressions }}) used to check responses. Examples:
     * A regular expression that only allows Latin letters, numbers, and spaces:
@@ -26,6 +24,3 @@ Select a validation method:
         ```
         ^[^0-9@#$%^&*]+$
         ```
-
-    If you select this validation method, the prompt type changes to <q>Short text</q>.
-

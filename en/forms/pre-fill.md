@@ -21,8 +21,8 @@ To set a field value or select a response option, send the [question ID](questio
 You can use hidden fields to automatically send technical or auxiliary parameters, such as [UTM tags]({{ link-wikipedia-utm }}), to the form. This way, you can add more information to user responses for analytics and statistics.
 
 > Let's say you created a form and posted it on different websites. Now you want to know which site the user filled the form out on. To do this, use the UTM tag `utm_source`.
-
-Add a hidden <q>Response source</q> field to the form. Add a GET parameter to the link, and the parameter value will automatically be sent to the hidden field. Then you can see where your user responses came from.
+>
+> Add a hidden <q>Response source</q> field to the form. Add a GET parameter to the link, and the parameter value will automatically be sent to the hidden field. Then you can see where your user responses came from.
 
 To configure a hidden parameter for this example:
 
@@ -35,11 +35,9 @@ To configure a hidden parameter for this example:
 1. [Get a link to the form](publish.md#section_link) and append it to the GET parameter `?utm_source=site_name_1`.
 
     - Example of a link to a form without a GET parameter:
-
     `{{ link-forms }}u/6191b18d99e21b1b45b9c82/`
 
     - Example of a link to a form with a GET parameter:
-
     `{{ link-forms }}u/6191b18d99e21b1b45b9c82?utm_source=site_name_1`
 
 1. Post a link to the form with the GET parameter on the website.
