@@ -42,4 +42,10 @@ description: "После удаления кластера баз данных P
 
   {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
+- API
+
+  Воспользуйтесь методом API [delete](../api-ref/Cluster/delete.md) и передайте идентификатор требуемого кластера в параметре `clusterId` запроса.
+
+  Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+
 {% endlist %}

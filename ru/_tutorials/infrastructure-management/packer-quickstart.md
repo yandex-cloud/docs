@@ -37,7 +37,7 @@ Packer создаст и запустит виртуальную машину с
 
 Скачайте дистрибутив Packer и установите его по [инструкции на официальном сайте](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
 
-Также вы можете скачать дистрибутив Packer для вашей платформы из [зеркала](https://hashicorp-releases.website.yandexcloud.net/packer/). После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`: 
+Также вы можете скачать дистрибутив Packer для вашей платформы из [зеркала](https://hashicorp-releases.yandexcloud.net/packer/). После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`: 
 
 ```
 export PATH=$PATH:/path/to/packer

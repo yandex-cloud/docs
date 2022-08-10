@@ -30,7 +30,7 @@ You can set button names on the form and the message that the user sees after su
 
 1. In the **Form submission button**, **Next page button**, **Previous page button** blocks, change the button names.
 
-1. In the **Message after form sent** block, enter the title and text of your message.
+1. In the **Event after submit** section, edit the title and text of your message.
 
 1. Click **Save**.
 

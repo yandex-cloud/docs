@@ -1,4 +1,4 @@
-# How to choose a version of {{ forms-full-name }}
+# How to choose a version {{ forms-full-name }}
 
 
 {{ forms-full-name }} can be used for personal matters, for example, to interview friends and make a menu for a New Year's party. Or you can use forms for business, for example, to accept orders for your online store.

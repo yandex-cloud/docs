@@ -237,6 +237,8 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: Revision history
+    href: release-notes.md
   - name: Questions and answers
     items:
       - name: General questions

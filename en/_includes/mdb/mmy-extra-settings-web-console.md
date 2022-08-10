@@ -4,6 +4,7 @@
 
 - {% include [Maintenance window](console/maintenance-window.md) %}
 
+
 - **Access from {{ datalens-name }}**{#setting-datalens-access}
 
    Allows you to analyze cluster data in [{{ datalens-full-name }}](../../datalens/concepts/index.md).
@@ -13,6 +14,7 @@
 - **Access from management console**{#setting-websql-access}
 
    It allows you to [execute SQL queries](../../managed-mysql/operations/web-sql-query.md) against the databases in the cluster from the dashboard {{ yandex-cloud }}.
+
 
 - {% include [datatransfer access](console/datatransfer-access.md) %}
 

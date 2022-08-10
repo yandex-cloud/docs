@@ -6,7 +6,7 @@ Question and response IDs are used for pre-filling forms. There are several ways
 
 You can find the question ID in the **Settings** section of the [question editing window](add-questions.md#section_jpy_2xg_qbb).
 
-![](../_assets/forms/question-id-new.png)
+![](../_assets/forms/question-id-new.png) 
 
 ## IDs for a series of questions {#series}
 
@@ -34,14 +34,13 @@ You can find out the response IDs in your browser by using developer tools.
 
 
 
-To learn about getting IDs, let's use Yandex Browser as an example:
+To learn about getting IDs, let's use Yandex&#160;Browser as an example:
 
 1. [Open the form via the link](publish.md#section_link).
 
 1. Open the developer tools using the keyboard shortcut **Ctrl+Shift+I** (for Windows and Linux) or **⌘ + Option + I** (for macOS).
 
 1. Select the ![](../_assets/forms/select-element.png) tool and click the necessary response field, list, or marker.
-
 ![](../_assets/forms/select-answer-dev.png)
 
 1. On the **Elements** tab, a fragment of the page code with the question or response parameters is highlighted.
@@ -51,21 +50,16 @@ To learn about getting IDs, let's use Yandex Browser as an example:
     * Question ID: Find the `name` parameter value (except for the <q>Rate on a scale</q> question type).
 
     * Response ID: Find the `value` parameter value.
-
     ![](../_assets/forms/checkbox-code.png)
 
-    
-    * For the <q>Drop-down list</q> question type, the code lists all available response options.
-
+        * For the <q>Drop-down list</q> question type, the code lists all available response options.
     ![](../_assets/forms/code-list.png)
 
 
-    * For the <q>Rate on a scale</q> question time, the `name` parameter has the question ID and criterion ID.
-
+    * For the <q>Rate on a scale</q> question type, the `name` parameter has the question ID and criterion ID.
     ![](../_assets/forms/answer-code.png)
 
-    * For the <q>Cities and countries</q> question times, enter the response you want first, and you'll see its ID in the code.
-    
+    * For the <q>Cities and countries</q> question types, first enter the response you want, then you'll see its ID in the code.
     ![](../_assets/forms/cities-code.png)
 
 

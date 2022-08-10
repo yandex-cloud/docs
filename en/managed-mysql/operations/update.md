@@ -306,6 +306,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    1. Run the command with a list of settings to update:
 
+      
       ```bash
       {{ yc-mdb-my }} cluster update <cluster name> \
         --backup-window-start <backup start time> \
@@ -316,6 +317,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
         --websql-access=<true or false> \
         --deletion-protection=<protection from cluster deletion: true or false>
       ```
+
+
 
    You can change the following settings:
 
@@ -352,6 +355,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       }
       ```
 
+   
    1. To allow access to [SQL queries from the management console](web-sql-query.md) and [DataLens](datalens-connect.md), add a block named `access` to the {{ mmy-name }} cluster description:
 
       ```hcl
@@ -359,16 +363,13 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
         ...
         access {
           web_sql   = <true or false>
-      {% if product == "yandex-cloud" %}
           data_lens = <true or false>
-      {% endif %}
           ...
         }
         ...
       }
       ```
 
-   1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
    1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
@@ -400,7 +401,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
    * The cluster ID in the `clusterId` parameter.
-   * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
+      * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
    * Cluster deletion protection settings in the `deletionProtection` parameter.

@@ -4,15 +4,13 @@
 
 To conduct a survey, collect votes, accept requests, or take orders, create a form:
 
-{% include [forms-versions](../_includes/forms/forms-versions.md) %}
+1. {% include [forms-versions](../_includes/forms/forms-versions.md) %}
 
-1. Select [template for your form](#section_dyd_dnx_cgb) or click **Create a form** in the top panel.
+1. Select a [template for your form](#section_dyd_dnx_cgb) or click **Create a form** on the top panel.
 
 1. To change the name of the form, hover over **New form** and click the ![](../_assets/forms/edit.png) icon.
 
 1. On the **Constructor** tab, [add prompts](add-questions.md) for the user to respond to.
-
-
 To [create a test or quiz](tests.md), use prompts from the **Tests and quizzes** category.
 
 1. Customize the [appearance of the form](appearance.md).
@@ -42,6 +40,9 @@ To create a new form based on an existing one, copy the form and edit it:
 1. Select a form and hover over it.
 
 1. Click ![](../_assets/forms/context-menu.png) and select **Copy**.
+A success message will appear at the top of the window.
+
+1. Click **Go to form**. A page for editing the form will open.
 
 1. [Edit prompts](add-questions.md) and adjust the settings for the new form.
 
@@ -52,14 +53,15 @@ To create a new form based on an existing one, copy the form and edit it:
 1. Go to [{{ forms-full-name }} home page]({{ link-forms-admin }}).
 
 1. Select a template:
-    - **Feedback form**: For collecting user reviews.
-    - **Questionnaire**: For surveys on any topic.
-    - **Application**: For collecting service requests or customer orders.
-    - **Registration for an event**: For collecting applications to take part in an event.
+    - **Feedback form**: collect user reviews.
+    - **Questionnaire**: conduct surveys on any topics.
+    - **Application**: accept requests for services and orders.
+    - **Registration for an event**: accept applications for event participation.
 
     To create a form from scratch, select **From scratch**.
 
 1. To see what the form with your selected template will look like after you publish it, click **For the user**.
 
 1. Click **Create form from template**.
+
 

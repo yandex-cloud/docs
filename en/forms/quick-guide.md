@@ -10,7 +10,7 @@ Learn your way around Yandex.Forms by creating a simple form:
 
 ## Step 1. Create a form {#create-form}
 
-{% include [forms-versions](../_includes/forms/forms-versions.md) %}
+1. {% include [forms-versions](../_includes/forms/forms-versions.md) %}
 
 1. In the top panel, click **Create a form**.
 

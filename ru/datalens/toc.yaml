@@ -29,6 +29,8 @@ items:
         href: tutorials/data-from-podcasts.md
       - name: Визуализация данных с помощью QL-чарта
         href: tutorials/data-from-ch-to-sql-chart.md
+      - name: Визуализация данных Yandex Monitoring
+        href: tutorials/data-from-monitoring-visualization.md
       - name: Построение чартов customer journeys на данных AppMetrica
         href: tutorials/data-from-appmetrica-yc-visualization.md
   - name: Концепции
@@ -107,6 +109,10 @@ items:
             href: operations/connection/create-ydb.md
           - name: Создание подключения к Greenplum
             href: operations/connection/create-greenplum.md
+          - name: Создание подключения к Prometheus
+            href: operations/connection/create-prometheus.md
+          - name: Создание подключения к Yandex Monitoring
+            href: operations/connection/create-monitoring.md
           - name: Создание подключения к Metrica API
             href: operations/connection/create-metrica-api.md
           - name: Создание подключения к AppMetrica

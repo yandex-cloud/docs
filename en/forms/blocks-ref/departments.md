@@ -1,10 +1,6 @@
 # Departments
 
-{% note warning %}
-
-This block is only available for [{{ forms-full-name }} for business](../forms-for-org.md) users.
-
-{% endnote %}
+{% include [staff-question-warning](../../_includes/forms/staff-question-warning.md) %}
 
 In this block, the user can specify a department in a {{ org-full-name }} organization. When they enter text in the field, hints with department names appear there. For example, you can use this block in an application form for a job in a specific department.
 

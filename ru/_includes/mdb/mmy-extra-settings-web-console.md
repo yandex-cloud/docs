@@ -6,6 +6,7 @@
 
   {% include [Maintenance window](console/maintenance-window-description.md) %}
 
+
 - **Доступ из {{ datalens-name }}**{#setting-datalens-access}
   
   Разрешает анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../datalens/concepts/index.md).
@@ -15,6 +16,7 @@
 - **Доступ из консоли управления**{#setting-websql-access}
 
   Разрешает [выполнять SQL-запросы](../../managed-mysql/operations/web-sql-query.md) к базам кластера из консоли управления {{ yandex-cloud }}.
+
 
 - {% include [datatransfer access](console/datatransfer-access.md) %}
 

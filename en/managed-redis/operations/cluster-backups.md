@@ -71,13 +71,13 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
       ```
       {{ yc-mdb-rd }} cluster restore \
-        --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
-        --cluster-name mynewrd \
-        --environment=PRODUCTION \
-        --network-name default \
-        --host zone-id=ru-central1-a,subnet-id=b0rcctk2rvtr8efcch63 \
-        --password P@ssWord \
-        --disk-size 20
+         --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
+         --cluster-name mynewrd \
+         --environment=PRODUCTION \
+         --network-name default \
+         --host zone-id=ru-central1-a,subnet-id=b0rcctk2rvtr8efcch63 \
+         --password P@ssWord \
+         --disk-size 20
       ```
 
       This results in a new {{ RD }} cluster with the following characteristics:
@@ -123,6 +123,12 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
       The cluster name and ID can be retrieved with the [list of clusters](cluster-list.md#list-clusters).
 
+- API
+
+   Use the [backup](../api-ref/Cluster/backup.md) API method and pass the cluster ID in the `clusterId` parameter.
+
+   You can fetch the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+
 {% endlist %}
 
 ## Getting a list of backups {#list-backups}
@@ -152,7 +158,6 @@ When you restore a cluster from a backup, you create a new cluster with data fro
    ```
    {{ yc-mdb-rd }} backup list
    ```
-
    Result:
 
    ```
@@ -163,6 +168,12 @@ When you restore a cluster from a backup, you create a new cluster with data fro
    | c9qpm... | 2018-10-31T22:01:04Z | c9qpm90p3pcg71jm7tqf | 2018-10-31T22:01:04Z |
    +----------+----------------------+----------------------+----------------------+
    ```
+
+- API
+
+   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and pass the cluster ID in the `clusterId` parameter. You can fetch the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+
+   To get a list of all backups in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` parameter.
 
 {% endlist %}
 
@@ -193,6 +204,12 @@ When you restore a cluster from a backup, you create a new cluster with data fro
    ```bash
    {{ yc-mdb-rd }} backup get <backup ID>
    ```
+
+   You can retrieve the backup ID with a [list of backups](#list-backups).
+
+- API
+
+   Use the [get](../api-ref/Backup/get.md) API method and pass the backup ID in the `backupId` parameter.
 
    You can retrieve the backup ID with the [backup list](#list-backups).
 

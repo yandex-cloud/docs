@@ -9,5 +9,6 @@
 * [Creating a cluster of 1C:Enterprise Windows servers with MS SQL Server](1c-mssql-windows.md)
 * [Migrating to {{ yandex-cloud }} using Hystax Acura](hystax-migration.md)
 * [Emergency recovery to {{ yandex-cloud }} using Hystax Acura](hystax-disaster-recovery.md)
+* [Creating a VM backup with Hystax Acura Backup](hystax-backup.md)
 * [Configuring a fault-tolerant architecture in {{ yandex-cloud }}](fault-tolerance.md)
 * [Creating an SAP program in {{ yandex-cloud }}](sap.md)

@@ -4,6 +4,8 @@ Use the question ID for [pre-filling forms](../../forms/pre-fill.md).
 
 You can edit the ID. All questions in the same form must have unique IDs.
 
+In the ID you can use uppercase and lowercase letters in the Latin alphabet, numbers, symbols `-` and `_`.
+
 ### Required prompt {#required}
 
 Turn this option on to mark required prompts with an <q>asterisk</q>. If the user doesn't respond to this prompt, they can't submit the completed form.

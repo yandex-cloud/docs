@@ -16,15 +16,23 @@ Enter the field name or the prompt.
 
 ### Responses {#answer}
 
-In the **Responses** section, select which type to use in this block: **Cities** or **Countries**.
+You can limit response options to a set list of countries or cities.
 
-To limit response options to a set list of countries:
+- To allow users to only select the countries that you specified:
 
-1. Turn on **Limit list of countries**.
+  1. Choose **Countries**.
 
-1. In the **Select countries** field, specify one or more countries.
+  1. Turn on **Limit list of countries**.
 
-For example, you can limit response options if you use a form to accept mail orders but can only deliver within Russia. In that case, select **Cities**, limit the list of countries, and specify Russia.
+  1. In the **Select countries** field, specify one or more countries.
+
+- To allow users to only select cities in the countries that you specified (for example, if you use a form to accept mail orders but can only deliver within Russia):
+
+  1. Choose **Cities**.
+
+  1. Enable the **Limit countries available for city selection** option.
+
+  1. In the **Select countries** field, specify one or more countries.
 
 {% include [id-required-hidden](../../_includes/forms/id-required-hidden.md) %}
 

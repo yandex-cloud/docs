@@ -1,10 +1,6 @@
 # People
 
-{% note warning %}
-
-This block is only available for [{{ forms-full-name }} for business](../forms-for-org.md) users.
-
-{% endnote %}
+{% include [staff-question-warning](../../_includes/forms/staff-question-warning.md) %}
 
 In this block, the user can specify the name of the employee in a {{ org-full-name }} organization. When they type text in the box, they see hints with employee names. For example, you can use this block in a form for registering an organization's employees for a training session.
 

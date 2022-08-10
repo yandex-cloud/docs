@@ -2,39 +2,47 @@
 
 ## Preparing a source {#source}
 
-### {{ KF }} source {#source-kf}
+### Airbyte® sources:
 
-{% list tabs %}
-
-- {{ mkf-name }}
-
-   [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_CONSUMER` role for the source topic.
-
-- {{ KF }}
-
-   1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
-
-   1. Configure the source cluster to allow connections from the internet.
-
-   1. [Configure user access rights](https://kafka.apache.org/documentation/#multitenancy-security) to the necessary topic.
-
-   1. (Optional) To log in with username and password, [configure SASL authentication](https://kafka.apache.org/documentation/#security_sasl).
-
-{% endlist %}
-
-### AWS CloudTrail source {#source-aws}
+#### AWS CloudTrail source {#source-aws}
 
 Get an AWS key ID and secret access key by following the [AWS instructions](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html).
 
 For more information, see the [Airbyte® documentation](https://docs.airbyte.com/integrations/sources/aws-cloudtrail/).
 
-### BigQuery source {#source-bigquery}
+#### BigQuery source {#source-bigquery}
 
 1. [Create a Google Cloud service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts).
 1. [Add the service account](https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console) as a participant to the Google Cloud project with the `BigQuery User` role.
 1. [Create a Google Cloud service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
 
 For more information, see the [Airbyte® documentation](https://docs.airbyte.com/integrations/sources/bigquery).
+
+#### S3 source {#source-s3}
+
+If you are using a private bucket as a source, grant `read` and `list` permissions to the account that you will use for connection.
+
+For more information, see the [Airbyte® documentation](https://docs.airbyte.com/integrations/sources/s3/).
+
+### {{ KF }} source {#source-kf}
+
+{% list tabs %}
+
+- {{ mkf-name }}
+
+  [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_CONSUMER` role for the source topic.
+
+- {{ KF }}
+
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
+    1. Configure the source cluster to allow connections from the internet.
+
+    1. [Configure user access rights](https://kafka.apache.org/documentation/#multitenancy-security) to the necessary topic.
+
+    1. (Optional) To log in with username and password, [configure SASL authentication](https://kafka.apache.org/documentation/#security_sasl).
+
+{% endlist %}
 
 ### {{ CH }} source {#source-ch}
 
@@ -529,16 +537,9 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
 {% endnote %}
 
-### S3 source {#source-s3}
-
-If you are using a private bucket as a source, grant `read` and `list` permissions to the account that you will use for connection.
-
-For more information, see the [Airbyte® documentation](https://docs.airbyte.com/integrations/sources/s3/).
-
-
 ### {{ yds-full-name }} source {#source-yds}
 
-1. [Create a data stream](../../data-streams/operations/manage-streams.md#create-data-stream).
+   1. [Create a data stream](../../data-streams/operations/manage-streams.md#create-data-stream).
 1. (optional) [Create a processing function](../../functions/operations/function/function-create.md).
 
    {% cut "Processing function example" %}
@@ -634,7 +635,6 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
    * `uint32`
    * `uint64`
    * `utf8`
-
 
 ## Preparing a target {#target}
 

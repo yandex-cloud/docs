@@ -1,9 +1,8 @@
 # Publish a form
 
-The form is available for filling out immediately after it's created. You can publish the form using a direct link, embed it in a site, or share a link to the form on social media. If you use [{{ forms-full-name }} for business](forms-for-org.md), you can embed the form on a {{ wiki-full-name }} page.
+The form is available for filling out immediately after it's created. You can publish the form using a direct link, embed it in a site, or share a link to the form on social media. If you use [{{ forms-full-name }} for business](forms-for-org.md), you can [embed the form on a {{ wiki-full-name }}](../wiki/actions/forms.md) page.
 
-
-When publishing a form, you can [limit](restrictions.md) the date range for submitting responses and the total number of responses. You can also restrict access by only allowing responses from employees in your {{ org-full-name }} organization.
+When publishing a form, you can [set restrictions](restrictions.md) by date and the total number of responses  or allow only employees of your organization to fill out the form {{ org-full-name }}.
 
 
 {% note info %}
@@ -19,7 +18,6 @@ The form is available via a direct link immediately after it's created. To get a
 1. Select the form and click **Share** above the prompt list.
 
 1. To copy the form address, click ![](../_assets/forms/icon-copy.png) in the **Link** field.
-
 
 1. To share a link on social media or in messengers, click the icon to the right of the **Link** field.
 
@@ -41,8 +39,7 @@ To publish a form on your site:
 
 1. Copy the form code from the **Iframe embed code** field.
 
-1. Paste it into the HTML code of the page where you want to place the form.
-
+1. Paste it into the HTML code of the page where you want to put the form.
 To adjust the size, change the `width` parameter value. You can specify the size in percentages or pixels. For example, if you want the form to fit the page width, specify `width="100%"`.
 
 ## Publish on {{ wiki-name }} {#section_xvx_g2c_tbb}
