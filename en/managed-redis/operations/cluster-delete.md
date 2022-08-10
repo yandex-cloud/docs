@@ -43,4 +43,10 @@ description: "After deleting a Redis database cluster, its backups are preserved
 
    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
+- API
+
+   Use the [delete](../api-ref/Cluster/delete.md) API method and pass the ID of the cluster to be deleted in the `clusterId` call parameter.
+
+   You can fetch the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+
 {% endlist %}

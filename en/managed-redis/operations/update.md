@@ -8,7 +8,7 @@ After creating a cluster, you can:
 
 * [{#T}](#change-disk-size){% if audience != "internal" %}  (unavailable for non-replicated SSD [storage](../concepts/storage.md)){% endif %}.
 
-* Configure [{{ RD }} servers](#change-redis-config) according to the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
+* [Configure {{ RD }} servers](#change-redis-config) according to the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
 
 * [{#T}](#change-additional-settings).
 
@@ -95,7 +95,7 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
 - API
 
-   Use the API [update](../api-ref/Cluster/update.md) method: pass the requisite values in the `name` and `description` parameters.
+   Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `name` and `description` request parameters.
 
 {% endlist %}
 
@@ -147,13 +147,13 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
       +-------------+--------------------------------+----------+
       |     ID      |            ZONE IDS            |  MEMORY  |
       +-------------+--------------------------------+----------+
-      | b1.nano     | ru-central1-a, ru-central1-b,  | 2.0 GB   |
-      |             | ru-central1-c                  |          |
-      | b1.small    | ru-central1-a, ru-central1-b,  | 4.0 GB   |
-      |             | ru-central1-c                  |          |
-      | hm1.nano    | ru-central1-a, ru-central1-b,  | 8.0 GB   |
-      |             | ru-central1-c                  |          |
-      | hm1.micro   | ru-central1-a, ru-central1-b,  | 12.0 GB  |
+      | b1.nano     | {{ region-id }}-a, {{ region-id }}-b,  | 2.0 GB   |
+      |             | {{ region-id }}-c                  |          |
+      | b1.small    | {{ region-id }}-a, {{ region-id }}-b,  | 4.0 GB   |
+      |             | {{ region-id }}-c                  |          |
+      | hm1.nano    | {{ region-id }}-a, {{ region-id }}-b,  | 8.0 GB   |
+      |             | {{ region-id }}-c                  |          |
+      | hm1.micro   | {{ region-id }}-a, {{ region-id }}-b,  | 12.0 GB  |
       | ...                                                     |
       +-----------+----------------------------------+----------+
       ```
@@ -345,7 +345,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 - API
 
-   You can change the DBMS settings for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the `configSpec.redisConfig_5_0` request parameter.
+   Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.redisConfig_5_0` request parameter.
 
 {% endlist %}
 
@@ -398,9 +398,22 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
+
+- API
+
+   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster deletion protection settings in the `deletionProtection` parameter.
+
+      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+   * List of cluster configuration fields to be changed in the `updateMask` parameter.
+
+   {% include [note-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -492,7 +505,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
       ```hcl
       resource "yandex_mdb_redis_cluster" "<cluster name>" {
         ...
-        security_group_ids  = ["<security group ID list>"]
+        security_group_ids = ["<security group ID list>"]
       }
       ```
 
