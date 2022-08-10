@@ -8,7 +8,7 @@ The submit button can be shown or hidden depending on how the user responded to 
 
 1. Select the form and go to **Settings** → **Text and submit logic**.
 
-1. Select **On condition**.
+1. In the **Form submission button** section, select the **On condition** option.
 
 1. Select the prompt that determines whether to show the button or hide it.
 
@@ -16,7 +16,7 @@ The submit button can be shown or hidden depending on how the user responded to 
 
 1. Select or enter a response that the user's response needs to match.
 
-1. Click **Save**.
+1. Click **Save** at the bottom of the page.
 
 ## Add a CAPTCHA to the form {#sec_captcha}
 
@@ -27,4 +27,3 @@ To prevent automated (robot) responses to your form, you can ask the user to ent
 1. Turn on the **Add captcha before submitting form** option.
 
 1. Click **Save**.
-

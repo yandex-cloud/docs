@@ -312,6 +312,7 @@
 
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
+                
         ```bash
         {{ yc-mdb-my }} cluster update <имя кластера> \
           --backup-window-start <время начала резервного копирования> \
@@ -322,7 +323,9 @@
           --websql-access=<true или false> \
           --deletion-protection=<защита от удаления кластера: true или fasle>
         ```
-
+        
+        
+    
     Вы можете изменить следующие настройки:
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
@@ -359,6 +362,7 @@
         ...
       }
       ```
+
   
   1. Чтобы активировать доступ к [SQL-запросам из консоли управления](web-sql-query.md) и доступ из [DataLens](datalens-connect.md), добавьте к описанию кластера {{ mmy-name }} блок `access`:
  
@@ -367,14 +371,13 @@
         ...
         access {
           web_sql   = <true или false>
-     {% if product == "yandex-cloud" %}
           data_lens = <true или false>
-     {% endif %}
           ...
         }
         ...
       }
       ```
+
 
   1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
@@ -406,7 +409,7 @@
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Настройки доступа из других сервисов и к SQL-запросам из консоли управления в параметре `configSpec.access`.
+        * Настройки доступа из других сервисов и к SQL-запросам из консоли управления в параметре `configSpec.access`.
     * Настройки окна резервного копирования в параметре `configSpec.backupWindowStart`.
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.

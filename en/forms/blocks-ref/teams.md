@@ -1,10 +1,6 @@
 # Teams
 
-{% note info %}
-
-This block is only available for [{{ forms-full-name }} for business](../forms-for-org.md) users.
-
-{% endnote %}
+{% include [staff-question-warning](../../_includes/forms/staff-question-warning.md) %}
 
 In this block, the user can specify a team in {{ org-full-name }}. When they type in the field, hints with team names are shown.
 

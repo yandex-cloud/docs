@@ -1,6 +1,6 @@
 # Customize the result page
 
-After filling out a form or taking a test, the user goes to the result page. You can customize its content:
+After filling out the form or completing the test, the user is taken to the results page, the contents of which can be customized:
 
 - Display a message, like to thank the user for filling out your form.
 
@@ -16,7 +16,7 @@ To show a message to the user after they fill out the form, like to thank them f
 
 1. Select the form and go to **Settings** → **Text and submit logic**.
 
-1. In the **Message after form sent** block, enter the title and text of your message.
+1. In the **Event after submit** section, type the title and text of your message.
 
 1. Click **Save**.
 
@@ -87,3 +87,4 @@ After the user fills out the form, you can suggest that they go to your site for
 1. Click **Save**.
 
 > Let's say you've embedded a form on your landing page for collecting customer requests. After the user fills out the request form, they must be redirected to a second form to confirm their phone number. You want the user to stay on your landing page instead of going to {{ forms-full-name }}. To do this, go to the settings for your request form and turn on **Redirect to form in the same frame**.
+

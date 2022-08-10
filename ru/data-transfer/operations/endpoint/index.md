@@ -16,26 +16,27 @@
     1. Выберите нужное значение в поле **Тип базы данных**. Будет создан эндпоинт соответствующего типа.
     1. Задайте параметры эндпоинта:
         * Источники:
+            * Airbyte®:
+              * [AWS CloudTrail](source/aws-cloudtrail.md)
+              * [BigQuery](source/bigquery.md)
+              * [S3](source/s3.md)
             * [{{ KF }}](source/kafka.md)
-            * [AWS CloudTrail](source/aws-cloudtrail.md)
-            * [BigQuery](source/bigquery.md)
             * [{{ CH }}](source/clickhouse.md)
             * [{{ GP }}](source/greenplum.md)
             * [{{ MG }}](source/mongodb.md)
             * [{{ MY }}](source/mysql.md)
             * [Oracle](source/oracle.md)
             * [{{ PG }}](source/postgresql.md)
-            
-            * [S3](source/s3.md)
             * [{{ yds-full-name }}](source/data-streams.md)
+            
         * Приемники:
+            * [{{ KF }}](target/kafka.md)
             * [{{ CH }}](target/clickhouse.md)
             * [{{ GP }}](target/greenplum.md)
             * [{{ MG }}](target/mongodb.md)
             * [{{ MY }}](target/mysql.md)
             * [{{ objstorage-name }}](target/object-storage.md)
             * [{{ PG }}](target/postgresql.md)
-            
             * [{{ ydb-name }}](target/yandex-database.md)
 
     1. Нажмите кнопку **Создать**.
@@ -176,16 +177,17 @@
     1. Выберите эндпоинт и нажмите кнопку ![pencil](../../../_assets/pencil.svg) **Редактировать** на панели сверху.
     1. Отредактируйте параметры эндпоинта:
         * Источники:
+            * Airbyte®:
+              * [AWS CloudTrail](source/aws-cloudtrail.md).
+              * [BigQuery](source/bigquery.md).
+              * [S3](source/s3.md).
             * [{{ KF }}](source/kafka.md).
-            * [AWS CloudTrail](source/aws-cloudtrail.md).
-            * [BigQuery](source/bigquery.md).
             * [{{ CH }}](source/clickhouse.md).
             * [{{ GP }}](source/greenplum.md).
             * [{{ MG }}](source/mongodb.md).
             * [{{ MY }}](source/mysql.md).
             * [Oracle](source/oracle.md).
             * [{{ PG }}](source/postgresql.md).
-            * [S3](source/s3.md).
             * [{{ yds-full-name }}](source/data-streams.md).
         * Приемники:
             * [{{ CH }}](target/clickhouse.md).

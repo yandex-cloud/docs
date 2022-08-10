@@ -70,6 +70,8 @@ items:
     href: answers.md
   - name: Manage forms
     href: forms-settings.md
+  - name: Configure access
+    href: access.md
   - name: Prompt blocks reference
     items:
       - name: Overview
@@ -98,6 +100,8 @@ items:
         href: blocks-ref/number.md
       - name: One answer
         href: blocks-ref/radiobutton.md
+      - name: Payment
+        href: blocks-ref/payment.md
       - name: People
         href: blocks-ref/people.md
       - name: Phone

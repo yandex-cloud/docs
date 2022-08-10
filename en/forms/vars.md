@@ -6,11 +6,15 @@ Use variables to do this:
 
 1. On the **Integration** tab in your form, [add an action](notifications.md#add-integration).
 
-1. Select a field and click **Variables** on the right.
+1. Select a field and click the ![](../_assets/forms/add-var.png) icon on the right.
 
 1. Select a variable from the list that you want to add.
 
-When data is sent to the service, the variable is automatically converted to a value — the response to a prompt, a test result, or technical data.
+1. If you're using <q>Prompt response</q>, <q>Response ID</q>, or other similar variables, then you can choose a [filter](#var-filters) for variable values if needed.
+
+1. Click **Save**.
+
+When data is sent to the service, the variable is automatically converted to a value — the response to a prompt, test result, or technical data.
 
 {% note warning %}
 
@@ -18,12 +22,28 @@ When [integrating the form with {{ tracker-short-name }}](create-task.md), you c
 
 {% endnote %}
 
+> For example, this is the text of an email containing all the user's responses to the form prompts.
+>
+>![](../_assets/forms/variables-example-new.png)
+
+## Filters {#var-filters}
+
+If integration settings contain prompt responses added using variables, errors may occur if responses do not match the format required for integration. For example, if you add a response to the <q>Long text</q> prompt to the HTTP request body and this response contains line breaks, the integration won't work.
+
+To avoid data format errors, use the following filters for variables:
+
+* **Sanitize string**: removes special characters from the text of a response.
+
+* **JSON**: converts the response text to a JSON-compatible format.
+
+
+## Variable guide {#section_wqx_1j2_p2b}
 
 You can use the following variables in action settings:
 
 | Variable | Description |
 | ----- | ----- |
-| **User data** | The personal data of the user who filled out the form<br/><br/><br/>Variables from this group are only converted to the user's personal data if the form is created in [{{ forms-full-name }} for business](forms-for-org.md) and the user who filled out the form is an employee of the organization. You can only get data from external users if they provide their data in response to the form prompts. |
+| **User data** | Personal data of the user who filled out the form<br/><br/><br/>Variables from this group are only converted to the user's personal data if the form is created in [{{ forms-full-name }} for business](forms-for-org.md) and the user who filled out the form is an employee of the organization. You can only get data from external users if they provide their data in response to the form prompts. |
 | Name | The user's name |
 | Login | The user's login |
 | Email | The user's email |
@@ -48,7 +68,7 @@ You can use the following variables in action settings:
 | Prompt response | A user response to a specific prompt in the form — select a prompt |
 | Responses to prompts | User responses to multiple prompts in the form — select prompts |
 | Response ID | A unique ID of a completed form |
-| Response option ID | The unique ID of a response option for multiple-choice prompts (such as <q>People</q> or <q>Drop-down list</q>).  |
+| Prompt response option ID | The unique ID of a response option for multiple-choice prompts (such as <q>People</q> or <q>Drop-down list</q>).  |
 | Response date | The date when the form was filled out |
 | Form author's email | The email of the user who created the form |
 | **Browser** | Information about the user's browser and operating system |
@@ -62,4 +82,3 @@ You can use the following variables in action settings:
 | URL | Form address |
 | All GET parameters | The values of all the request parameters.<br/><br/>Learn more about how to [use GET parameters to pre-fill a form](get-params.md). |
 | GET parameter | The value of a specific request parameter — specify the parameter name.<br/><br/>Learn more about how to [use GET parameters to pre-fill a form](get-params.md). |
-

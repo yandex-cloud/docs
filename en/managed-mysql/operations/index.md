@@ -3,12 +3,13 @@
 - [{#T}](cluster-list.md)
 - [{#T}](cluster-create.md)
 - [{#T}](connect.md)
-   
-- [{#T}](cluster-stop.md)
-- [{#T}](web-sql-query.md)
+
+- [{#T}](cluster-stop.md)
+
+- [{#T}](web-sql-query.md)
 - [{#T}](update.md)
-   
-- [{#T}](datalens-connect.md)
+
+- [{#T}](datalens-connect.md)
 - [{#T}](hosts.md)
 - [{#T}](databases.md)
 - [{#T}](cluster-users.md)

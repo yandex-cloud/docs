@@ -5,9 +5,7 @@ This section describes typical problems that may arise during [transfer](../conc
 * [{#T}](mongodb.md);
 * [{#T}](mysql.md);
 * [{#T}](postgresql.md);
-
 * [{#T}](ydb.md);
-
 * [{#T}](network.md).
 
 Key features about preparing sources and targets for a transfer are described in the [relevant section](../operations/prepare.md).

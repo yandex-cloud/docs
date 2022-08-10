@@ -1,19 +1,12 @@
 default:
-  forms-full-name: Yandex Forms
-  forms-name: Forms
   locale: en
-  link-forms: https://forms.yandex.ru/
   link-forms-admin: https://forms.yandex.com/admin/
   link-forms-admin-ya: https://forms.yandex-team.ru/admin/
   link-forms-ext-ya: https://forms.yandex-team.ru/ext/admin/
+  link-forms: https://forms.yandex.com/
   link-forms-b2b: https://forms.yandex.com/cloud/admin
-  link-connect: https://connect.yandex.com/
-  link-connect-portal: https://connect.yandex.com/portal/home
-  link-tracker: https://tracker.yandex.com/
-  link-tracker-ya: https://st.yandex-team.ru/
-  docs-tracker-field-ya: https://doc.yandex-team.ru/tracker/external/user/create-param.html
-  link-wiki: https://wiki.yandex.com/
-  support-connect-main: https://yandex.com/support/connect/
+  link-passport: https://passport.yandex.com/auth
+  link-metrika: https://metrika.yandex.com
   support-disk-main: https://yandex.com/support/disk/
   support-passport-auth: https://yandex.com/support/passport/authorization/twofa-on.html
   support-metrica-counter: https://yandex.com/support/metrica/general/creating-counter.html
@@ -29,9 +22,5 @@ default:
   link-wikipedia-captcha: https://en.wikipedia.org/wiki/CAPTCHA
   link-wikipedia-utm: https://en.wikipedia.org/wiki/UTM_parameters
   link-yoomoney: https://yoomoney.com/
-  link-passport: https://passport.yandex.com/auth
-  link-metrika: https://metrika.yandex.com
   link-forms-legal: https://yandex.ru/legal/forms_creators/
   example-account: login@yandex.com
-  wiki-full-name: Yandex Wiki
-  wiki-name: Wiki

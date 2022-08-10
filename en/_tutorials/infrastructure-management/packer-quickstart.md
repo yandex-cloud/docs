@@ -37,7 +37,7 @@ You pay for storing created images (see [pricing for {{ compute-full-name }}](..
 
 Download a Packer distribution and install it by following the [instructions on the official website](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
 
-You can also download a Packer distribution for your platform from a [mirror](https://hashicorp-releases.website.yandexcloud.net/packer/). When the download is complete, add the path to the folder with the executable to the `PATH` variable:
+You can also download a Packer distribution for your platform from a [mirror](https://hashicorp-releases.yandexcloud.net/packer/). When the download is complete, add the path to the folder with the executable to the `PATH` variable:
 
 ```
 export PATH=$PATH:/path/to/packer

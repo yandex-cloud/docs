@@ -30,7 +30,7 @@ To create a test, add prompt blocks from the **Tests and quizzes** category to t
 
     ![](../_assets/forms/tutorial-add-question.gif)
 
-1. If you want to show or hide a block depending on how the user responded to other prompts, [set the display conditions for the block](add-questions.md#section_q2t_zqz_sbb).
+1. If you want to show or hide a block depending on how the user responded to other prompts, [set the block display conditions](add-questions.md#conditions).
 
 1. Set up [rules for scoring the test](#test-result).
 
@@ -71,6 +71,12 @@ To set up rules for scoring:
     - To attach an image, click ![](../_assets/forms/add-picture.png).
 
 1. Click **Save**.
+
+{% note warning %}
+
+If you merge prompts from the **Tests and quizzes** category into a [series of prompts](blocks-ref/series.md), then scoring won't work.
+
+{% endnote %}
 
 ## Show correct and incorrect responses {#show-right-answ}
 

@@ -32,7 +32,9 @@
 
 - [Один вариант](radiobutton.md)
 
+
 - [Оплата](payment.md)
+
 
 
 - [Отделы](departments.md)

@@ -1,1 +1,1 @@
-_Greenplum<sup>®</sup> and Greenplum Database<sup>®</sup> are registered trademarks or trademarks of VMware, Inc in the United States and/or other countries._
+_Greenplum® and Greenplum Database® are registered trademarks or trademarks of VMware, Inc in the United States and/or other countries._

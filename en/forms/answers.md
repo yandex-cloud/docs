@@ -1,6 +1,6 @@
 # Get responses
 
-You can view responses in the {{ forms-full-name }} interface, download them as a file, or save them to Yandex.Disk.
+You can view responses in the {{ forms-full-name }} interface, download them as a file, or save them to Yandex&#160;Disk.
 
 To have responses sent to your mailbox, [set up integration with email](send-mail.md).
 
@@ -33,16 +33,23 @@ To have responses sent to your mailbox, [set up integration with email](send-mai
 
        {% endcut %}
 
+       {% cut "Save responses on Yandex Disk" %}
 
-       {% cut "Save responses on Yandex.Disk" %}
+       
+       {% note warning %}
 
-       Click **Upload to Yandex.Disk**. To save attachments from the form to Yandex.Disk, select **Save to Yandex.Disk with attached files**.
-       * If you choose the XLSX file format, the table with responses opens in the Yandex.Disk online editor.
+       If you have logged in to [{{ forms-full-name }} for business](forms-for-org.md) via an [identity federation](login.md), saving responses to Yandex&#160;Disk is unavailable.
+
+       {% endnote %}
+
+
+       Click **Save to Yandex Disk**. To save attachments from the form to Yandex Disk, select **Save to Yandex Disk with attached files**.
+       * If you choose the XLSX file format, the table with responses opens in the Yandex&#160;Disk online editor.
        * If you select the CSV or JSON format, a folder on Yandex.Disk containing the saved file opens.
-       * If new tabs are blocked from opening in your browser, a link to the saved file appears next to the **Upload to Yandex.Disk** button.
-       * The attached files will be available in the `Yandex.Forms/<Form ID>/Files` folder on Yandex.Disk and via the [link from the list of responses](#files).
+       * If new tabs are blocked from opening in your browser, a link to the saved file appears next to the **Save to Yandex Disk** button.
+       * The attached files will be available in the `Yandex.Forms/<Form ID>/Files` folder on Yandex&#160;Disk and via the [link from the list of responses](#files).
 
-       You can access the responses saved on Yandex.Disk from any device, and you can share them with other users. To learn more about using Yandex.Disk, go to [Help]({{ support-disk-main }}).
+       You can access the responses saved on Yandex.Disk from any device, and you can share them with other users. To learn more about using Yandex&#160;Disk, see [Documentation]({{ support-disk-main }}).
 
        {% endcut %}
 
@@ -70,24 +77,29 @@ Responses to [tests and quizzes](tests.md) are color-coded:
 
 1. To send a link to another user, select a response and click **Share**.
 
-   Any user will be able to access the response via the link without logging in.
+   
+   {% note info %}
+
+    In Yandex Forms for business, responses can be accessed via a link only to the organization employees. Responses to personal forms can be accessed via a link by any unauthorized users.
+
+   {% endnote %}
+
 
 ## Get files that are attached to the form {#files}
 
 Files that users attached to the form are available via links that you can find in the list of responses:
 
-1. [Open the list of recent responses, download the responses in a file, or save them to Yandex.Disk](#download).
+1. [Open the list of recent responses, download the responses in a file, or save them to Yandex Disk](#download).
 
 1. In the list, find the response that has a link to a file and click it.
 
 {% cut "If files are uploaded to Yandex.Disk" %}
 
-When you click the link, the file page opens on Yandex.Disk. In this case, image and document preview is unavailable.
+When you click the link, the file page opens on Yandex&#160;Disk. In this case, image and document preview is unavailable.
 
 Files are stored to Yandex.Disk for an indefinite length of time. You can share them with other users.
 
 - To download or share a file, click ![](../_assets/forms/drag-answer.png).
-
 - To view a list of all files attached to the form, go to the folder by clicking ![](../_assets/forms/icon-back.png).
 
 {% endcut %}
@@ -96,13 +108,15 @@ Files are stored to Yandex.Disk for an indefinite length of time. You can share 
 
 When you click the link, the file opens for viewing in your browser or downloads to your computer.
 
+
 If you send a link to another user, they'll need to [log in to their Yandex account]({{ link-passport }}) to view the file.
+
 
 {% endcut %}
 
 {% note warning %}
 
-Attached files are stored on the {{ forms-full-name }} server for 3 months, after which the files are deleted. We recommend [uploading files to Yandex.Disk](#download) or saving them to your computer.
+Attached files are stored on the {{ forms-full-name }} server for 3 months , after which the files are deleted. We recommend [uploading files to Yandex Disk](#download) or saving them to your computer.
 
 {% endnote %}
 
@@ -119,11 +133,11 @@ You can see how many responses each prompt has. For multiple-choice prompts, you
 
 ## Archiving responses {#archive}
 
-Responses for the form's prompts are automatically archived if you haven't viewed or downloaded them in more than three months. If the form is [linked to an organization](forms-settings.md#add-connect), responses are not archived.
+Responses for the form's prompts are automatically archived if you haven't viewed or downloaded them in more than three months. In [{{ forms-full-name }} for business](forms-for-org.md),  responses to forms are not archived.
 
 After archiving:
 
-* You can [view the list of recent responses, download them in a file, or save them to Yandex.Disk](#download). However, it takes several minutes to retrieve responses from the archive.
+* You can [view the list of recent responses, download them in a file, or save them to Yandex Disk](#download). However, it takes several minutes to retrieve responses from the archive.
 
 * [You can't view individual responses](#answer-in-detail) this way.
 

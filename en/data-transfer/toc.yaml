@@ -29,7 +29,7 @@ items:
                 href: operations/endpoint/source/oracle.md
               - name: PostgreSQL
                 href: operations/endpoint/source/postgresql.md
-              - name: Yandex Data Streams
+              - name: '{{ yds-full-name }}'
                 href: operations/endpoint/source/data-streams.md
           - name: Configuring target endpoints
             items:
@@ -45,7 +45,7 @@ items:
                 href: operations/endpoint/target/object-storage.md
               - name: PostgreSQL
                 href: operations/endpoint/target/postgresql.md
-              - name: YDB
+              - name: '{{ ydb-full-name }}'
                 href: operations/endpoint/target/yandex-database.md
       - name: Managing the transfer process
         href: operations/transfer.md
