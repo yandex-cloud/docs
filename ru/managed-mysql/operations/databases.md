@@ -90,14 +90,12 @@
 
       О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
 
-  1. Добавьте к описанию кластера {{ mmy-name }} блок описания базы данных `database`:
+  1. Добавьте ресурс `yandex_mdb_mysql_database`:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
-        ...
-        database {
-          name = "<имя базы данных>"
-        }
+      resource "yandex_mdb_mysql_database" "<имя базы данных>" {
+        cluster_id = "<идентификатор кластера>"
+        name       = "<имя базы данных>"
       }
       ```
 
@@ -111,9 +109,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
-
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mysql_database).
 
 - API
 
@@ -156,9 +152,7 @@
 
       О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
 
-  1. Удалите из описания кластера {{ mmy-name }} блок `database` с описанием базы данных.
-
-  1. Удалите из описания пользователей блоки `permission` с полем `database_name`, указывающим на удаляемую базу.
+  1. Удалите ресурс `yandex_mdb_mysql_database` с именем удаляемой базы данных.
 
   1. Проверьте корректность настроек.
 
@@ -168,9 +162,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
-
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mysql_database).
 
 - API
 
