@@ -55,7 +55,7 @@ There are two types of masters that differ by their location in [availability zo
 
 {% if product == "cloud-il" %}
 
-А master created in a subnet in one [availability zone](../../overview/concepts/geo-scope.md). It is called _zonal_.
+A master created in a subnet in one [availability zone](../../overview/concepts/geo-scope.md). It is called _zonal_.
 
 {% endif %}
 

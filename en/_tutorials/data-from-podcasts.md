@@ -207,7 +207,7 @@ Let's say we want to build a chart with the total number of times streams were l
 
    1. Click ![image](../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** field under **Chart filters**.
       1. In the **Preset** list, select **Last 365 days** and click **Apply filter**.
-1. Click ![image](../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** field under **Х**.
+1. Click ![image](../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** field under **X**.
    1. In the **Grouping** list, select **Month** and click **Apply**.
 1. Add a dimension named **Episode** to the **Colors** section.
 1. If you have too many episodes, hide the legend at the bottom of the chart. To do this, click ![image](../_assets/datalens/gear.svg) ⟶ **Hide**, then **Apply**.

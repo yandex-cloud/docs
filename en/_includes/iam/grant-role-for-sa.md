@@ -55,7 +55,7 @@ In the management console, you can assign a service account a role only for the 
 
       * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). Required parameter.
       * `role`: The role assigned. Required parameter.
-      * `members`: List of users or service account the role is being assigned to. Указывается в виде {% if product == "yandex-cloud" %}`userAccount:<user ID>`{% endif %}{% if product == "cloud-il" %}`federatedUser:<user ID>`{% endif %} или `serviceAccount:<service account ID>`. Required parameter.
+      * `members`: List of users or service account the role is being assigned to. Specified in the following format: {% if product == "yandex-cloud" %}`userAccount:<user ID>`{% endif %}{% if product == "cloud-il" %}`federatedUser:<user ID>`{% endif %} or `serviceAccount:<service account ID>`. Required parameter.
 
       ```
       resource "yandex_resourcemanager_folder_iam_binding" "admin-account-iam" {

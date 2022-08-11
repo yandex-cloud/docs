@@ -19,7 +19,7 @@
 
 {% if product == "cloud-il" %}
 
-Метод | Описание
+Method | Description
 ----- | -----
 [create](bucket/create.md) | Creates a bucket.
 [getMeta](bucket/getmeta.md) | Checks the existence of a bucket and access to it.

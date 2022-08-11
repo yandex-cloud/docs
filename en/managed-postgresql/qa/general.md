@@ -1,6 +1,6 @@
 ---
-title: "{{ mpg-name }}. Ответы на вопросы"
-description: "Что такое {{ mpg-name }}? Для каких задач стоит использовать {{ mpg-name }}, а для каких виртуальные машины с базами данных? Какую часть работы по управлению и сопровождению баз данных берет на себя {{ mpg-name }}? Ответы на эти и другие вопросы в данной статье."
+title: "Managed Service for PostgreSQL. FAQ"
+description: "What is Managed Service for PostgreSQL? For what tasks is it worth using Managed Service for PostgreSQL, and for which virtual machines with databases? What part of the management and maintenance of databases does Managed Service for PostgreSQL take on? Answers to these and other questions in this article."
 ---
 
 # General questions about {{ mpg-name }}
@@ -88,9 +88,9 @@ For more information, see [{#T}](../concepts/maintenance.md).
 
 {{ mpg-short-name }} supports {{ PG }} 10, 11, 12, 13, and 14, as well as PostgreSQL 10, 11, and 12 for 1C.
 
-#### Which {{ PG }} version and settings are best suited when creating databases for 1С? {#1c-version}
+#### Which {{ PG }} version and settings are best suited when creating databases for 1C? {#1c-version}
 
-We recommend using {{ PG }} version 12-1c (current as of March 2022). This version was tested with 1С version 8.3.18: compatibility with earlier 1С versions is not guaranteed.
+We recommend using {{ PG }} version 12-1c (current as of March 2022). This version was tested with 1C version 8.3.18: compatibility with earlier 1C versions is not guaranteed.
 
 Please contact 1C tech support for settings optimized for cluster operation.
 

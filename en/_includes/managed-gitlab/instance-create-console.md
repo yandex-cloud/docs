@@ -7,7 +7,7 @@
       {% include [name-foramt](../name-format.md) %}
 
    1. (Optional) Enter a description of the instance.
-1. Under **Сonfiguration**:
+1. Under **Configuration**:
    1. Select the instance type.
    1. Specify the [subnet](../../vpc/concepts/network.md#subnet) where the instance will be hosted.
 

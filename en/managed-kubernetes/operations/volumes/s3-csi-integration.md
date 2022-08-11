@@ -216,7 +216,7 @@ To use {{ CSI }} with a static `PersistentVolumeClaim`:
    1. [Configure {{ CSI }}](#configure-csi).
    1. Create a file named `pvc-static.yaml`containing a description of your static `PersistentVolumeClaim`:
 
-      {% cut "pvс-static.yaml" %}
+      {% cut "pvc-static.yaml" %}
 
       ```yaml
       ---

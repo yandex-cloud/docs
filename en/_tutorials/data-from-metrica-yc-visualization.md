@@ -89,7 +89,7 @@ To visualize and explore data, [set up your cloud](#before-you-begin), then foll
 1. Go to the [management console]({{ link-console-main }}).
 1. Select **{{ ml-platform-name }}** from the list on the left.
 1. In the window that opens, click **Create project**.
-1. Specify a name for the project and click **Сreate**.
+1. Specify a name for the project and click **Create**.
 1. Open the project. To do this, in the line with the project name, click ![image](../_assets/datalens/horizontal-ellipsis.svg) → **Open**.
 
 Now we see the JupyterLab development environment, where we'll continue to work.

@@ -44,7 +44,7 @@ _Yandex accounts_ are your accounts in Yandex.Passport or [Yandex 360](https://
 
 {% if product == "cloud-il" %}
 
-_Google accounts_ are your accounts в [Google Accounts](https://accounts.google.com).
+_Google accounts_ are your accounts in [Google Accounts](https://accounts.google.com).
 
 {% endif %}
 

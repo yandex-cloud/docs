@@ -92,7 +92,7 @@ The settings apply to {{ TF }} `0.13` and higher.
    * `source`: Provider's global [source address](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses).
    * `version`: The minimum provider version that the module is compatible with. You can find the version number on the [provider's page]({{ tf-provider-link }}) (click **USE PROVIDER** in the top right corner).
    * `provider`: The provider name.
-   {% if product == "cloud-il" %}* `endpoint`: Вomain name and port for {{ yandex-cloud }} API: `{{ api-host }}:443`.{% endif %}
+   {% if product == "cloud-il" %}* `endpoint`: Domain name and port for {{ yandex-cloud }} API: `{{ api-host }}:443`.{% endif %}
    * `token`: {% if product == "yandex-cloud" %}[OAuth token](../iam/concepts/authorization/oauth-token.md){% endif %}{% if product == "cloud-il" %}static key (`secret`) of the service account{% endif %} for {{ yandex-cloud }} access.
    * `cloud_id`: ID of the cloud where {{ TF }} will create resources.
    * `folder_id`: [ID of the folder](../resource-manager/operations/folder/get-id.md) where resources will be created by default.
