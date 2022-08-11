@@ -44,7 +44,7 @@
 
 Да, вы можете [приобрести](/marketplace?categories=databases&operationSystems=WINDOWS) виртуальную машину с предустановленным образом Windows Server 2012 R2, Windows Server 2016 или Windows Server 2019 у {{ yandex-cloud }}. Лицензия на Windows Server входит в стоимость.
 
-#### Как активировать Windows Server {#activate-windows-server}
+#### Как активировать Windows Server? {#activate-windows-server}
 
 Проблемы с активацией могут возникнуть, если у ВМ нет доступа в интернет.
 
