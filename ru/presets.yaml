@@ -611,6 +611,7 @@ default:
   tf-provider-mms: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_sqlserver_cluster
   tf-provider-mmy: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mysql_cluster
   tf-provider-mpg: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_postgresql_cluster
+  tf-provider-mgp: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_greenplum_cluster
   tf-provider-mrd: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_redis_cluster
   tf-provider-alb-targetgroup: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/alb_target_group
   tf-provider-alb-backendgroup: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/alb_backend_group
