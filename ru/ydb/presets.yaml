@@ -135,12 +135,12 @@ default:
   feature_map_tables: true
   feature_group_by_rollup_cube: true
   feature_window_functions: true
-  path-serverless: /ru-central1/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2
-  path-dedicated: /ru-central1/b1gia87mbaomkfvsleds/etnk1u65e4shtgj207sc
+  path-serverless: /ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
+  path-dedicated: /ru-central1/b1gia87mbaomkfvs6rgl/etnk1u65e4shtgj338va
   ep-serverless: grpcs://ydb.serverless.yandexcloud.net:2135
-  ep-dedicated: grpcs://lb.etnk1u65e4shtgj207sc.ydb.mdb.yandexcloud.net:2135
-  id-serverless: etnudu2n9ri35luqs9o2
-  id-dedicated: etnk1u65e4shtgj207sc
+  ep-dedicated: grpcs://lb.etnk1u65e4shtgj338va.ydb.mdb.yandexcloud.net:2135
+  id-serverless: etnudu2n9ri35luqe4h1
+  id-dedicated: etnk1u65e4shtgj338va
   name-serverless: ydb-serverless
   name-dedicated: ydb-dedicated
 external:
