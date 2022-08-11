@@ -101,6 +101,8 @@ items:
         href: operations/manage-database.md
       - name: Управление базами данных с помощью YC CLI
         href: operations/yc-cli.md
+      - name: Подключение к БД с помощью YDB CLI
+        href: operations/connection.md
       - name: Управление таблицами и директориями
         href: operations/schema.md
       # - name: Переименование
@@ -144,8 +146,6 @@ items:
         href: concepts/resources.md
       # - name: Термины и определения
       #   href: concepts/databases.md
-      - name: Соединение с БД и аутентификация с помощью IAM
-        href: concepts/connect.md
       # - name: Модель данных и схема
       #   href: concepts/datamodel.md
       # - name: Режимы работы Serverless и Dedicated

@@ -9,8 +9,6 @@
 * [AWS SDK](docapi/tools/aws-sdk/index.md).
 * [AWS CLI](docapi/tools/aws-cli/index.md).
 
-Установите нужные инструменты и настройте [соединение с БД](concepts/connect.md).
-
 ## Перед началом работы {#before-you-begin}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
@@ -258,7 +256,7 @@
 
   1. {% include [cli-install](../_includes/cli-install.md) %}
   1. Чтобы управлять вашими базами данных из командной строки, [установите](https://ydb.tech/ru/docs/reference/ydb-cli/install) YDB CLI.
-  1. Для авторизации YDB CLI в {{ yandex-cloud }} получите [IAM-токен](../iam/concepts/authorization/iam-token.md) и экспортируйте его в переменную окружения:
+  1. Для аутентификации YDB CLI в {{ yandex-cloud }} получите [IAM-токен](../iam/concepts/authorization/iam-token.md) и экспортируйте его в переменную окружения:
 
       ```bash
       export IAM_TOKEN=`yc iam create-token`
@@ -304,5 +302,5 @@
 ## Что дальше {#whats-next}
 
 * Узнайте подробнее о [работе с базами данных](operations/index.md).
-* Ознакомьтесь с языком запросов [YQL](https://ydb.tech/ru/docs/yql/reference/).
 * Изучите [концепции сервиса](concepts/index.md).
+* Ознакомьтесь с языком запросов [YQL](https://ydb.tech/ru/docs/yql/reference/).
