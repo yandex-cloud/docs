@@ -164,6 +164,10 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [kms-keys-encrypterdecrypter](../../../_includes/roles-kms-keys-encrypterdecrypter.md) %}
 
+{% include [kms-editor](../../../_includes/roles-kms-editor.md) %}
+
+{% include [kms-viewer](../../../_includes/roles-kms-viewer.md) %}
+
 ## {{ mes-name }} {#mes-roles}
 
 {% include [elasticsearch-viewer](../../../_includes/iam/roles/elasticsearch-viewer.md) %}
