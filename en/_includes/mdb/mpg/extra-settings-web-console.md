@@ -42,7 +42,7 @@
 
 {% if audience == "internal" %}
 
-- **SOX**: Enable this option to use the [SOX data access mechanism](https://en.wikipedia.org/wiki/Sarbanes–Oxley_Act). This option is required to assign persons responsible for a cluster and to provide cluster access in [Identity Management](https://idm.yandex-team.ru/) (IDM).
+- **IDM**: Enable this option to use the [SOX data access mechanism](https://en.wikipedia.org/wiki/Sarbanes–Oxley_Act). This option is required to assign persons responsible for a cluster and to provide cluster access in [Identity Management](https://idm.yandex-team.ru/) (IDM). This option is required for clusters which are deployed in `PRODUCTION` environment.
 
    {% note alert %}
 

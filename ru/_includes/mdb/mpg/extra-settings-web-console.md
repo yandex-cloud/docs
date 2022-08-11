@@ -46,13 +46,15 @@
 
 {% if audience == "internal" %}
 
-- **SOX** — включите эту опцию, чтобы задействовать [механизм доступа к данным SOX](https://ru.wikipedia.org/wiki/Закон_Сарбейнза_—_Оксли). Эта опция необходима для назначения ответственных за кластер и предоставления доступа к нему в сервисе [Identity Management](https://idm.yandex-team.ru/) (IDM).
+- **IDM** — включите эту опцию, чтобы задействовать [механизм доступа к данным SOX](https://ru.wikipedia.org/wiki/Закон_Сарбейнза_—_Оксли). Эта опция необходима для назначения ответственных за кластер и предоставления доступа к нему в сервисе [Identity Management](https://idm.yandex-team.ru/) (IDM). Эта опция обязательна для кластеров, создаваемых в окружении `PRODUCTION`.
 
    {% note alert %}
 
    Эту опцию невозможно выключить.
 
    {% endnote %}
+
+   Подробнее см. в разделе [Identity Management (IDM)](../../../managed-postgresql/security/index.md#idm).
 
 {% endif %}
 
