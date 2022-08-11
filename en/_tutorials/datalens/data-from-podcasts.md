@@ -5,7 +5,7 @@ Podcast analytics let you retrieve statistics and analyze podcast listening and 
 
 To visualize and analyze the data, follow these steps:
 
-1. [Set up a connection](#сonfigure-connection).
+1. [Set up a connection](#configure-connection).
    1. [Set up {{ datalens-short-name }}](#before-you-begin).
    1. [Create a connection](#create-connection).
    1. [Review podcast statistics in DataLens](#podcasts-in-datalens).
@@ -26,7 +26,7 @@ To visualize and analyze the data, follow these steps:
 
 We recommend that you review the [Questions and answers](#qa) section to help you get answers to the most common questions users of Yandex Music podcast statistics may have.
 
-## 1. Set up a connection {#сonfigure-connection}
+## 1. Set up a connection {#configure-connection}
 
 ### 1.1 Set up {{ datalens-short-name }} {#before-you-begin}
 
@@ -193,7 +193,7 @@ Let's say we want to build a chart with the total number of times streams were l
 
       1. In the **Preset** list, select **Last 365 days** and click **Apply filter**.
 
-1. Click ![image](../../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** under **Х**.
+1. Click ![image](../../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** under **X**.
 
    1. In the **Grouping** list, select **Month** and click **Apply**.
 

@@ -24,6 +24,7 @@ Below are events for services:
 * [{{ mrd-short-name }}](#managed-service-for-redis)
 * [{{ network-load-balancer-name }}](#network-load-balancer)
 * [{{ objstorage-name }}](#objstorage)
+* [{{ org-name }}](#organization)
 * [{{ resmgr-name }}](#resmgr)
 * [{{ vpc-name }}](#vpc)
 * [{{ ydb-short-name }}](#ydb)
@@ -51,8 +52,6 @@ Service name: `certificatemanager`.
 | `DeleteCertificate` | Delete a certificate |
 | `UpdateCertificateAccessBindings` | Updating access bindings for a certificate |
 | `SetCertificateAccessBindings` | Setting access bindings for a certificate |
-
-
 
 ## {{ cloud-logging-name }} {#cloud-logging-name}
 
@@ -366,6 +365,15 @@ Service name: `storage`.
 
 \* The audit log does not include the above events by default. To have these events added to the audit log, please contact [technical support]({{ link-console-support }}). Message template:
 "Please enable the recording of data plane object storage events in audit trail `<trail id>`."
+
+## {{ org-name }} {#organization}
+
+The name of the service is `organizationmanager`.
+
+| Event name | Description |
+--- | ---
+| `CreateMembership` | Adding a user to an organization |
+| `DeleteMembership` | Deleting a user from an organization |
 
 ## {{ resmgr-name }} {#resmgr}
 

@@ -30,7 +30,7 @@ Static routes can be used for routing between networks only if the next-hop inte
 
 {% endnote %}
 
-You currently can't use prefixes from address ranges that are allocated to subnets within a virtual network. Only destination prefixes outside the virtual network are supported, such as subnet prefixes from another {{ yandex-cloud }} network or your local network.
+You currently can't use prefixes from address ranges that are allocated to subnets within a virtual network. Only destination prefixes outside the virtual network are supported, such as subnet prefixes from another {{ yandex-cloud }} network or your local network. You also can't use link-local address prefixes which is `169.254.0.0/16` and smaller, for example `169.254.0.0/19`. 
 
 When creating a route, you can set an unused internal IP that isn't linked to any VM as the next hop. In this case, the route is only used after you run a VM with the appropriate IP address.
 

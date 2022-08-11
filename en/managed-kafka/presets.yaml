@@ -3,11 +3,11 @@ default:
   ui: noshow
   versions:
     tf:
-      latest: '3.0'
-      str: 2.8 or 3.0
+      latest: '3.1'
+      str: 2.8, 3.0, or 3.1
     cli:
-      latest: '3.0'
-      str: 2.8 or 3.0
+      latest: '3.1'
+      str: 2.8, 3.0, or 3.1
     console:
-      latest: '3.0'
-      str: 2.8 and 3.0
+      latest: '3.1'
+      str: 2.8, 3.0, and 3.1

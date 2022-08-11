@@ -138,7 +138,7 @@ Let:
 
 {% include [Check import](./check-import.md) %}
 
-## Deletе created resources {#clear-out}
+## Delete created resources {#clear-out}
 
 If you no longer need these resources, delete them:
 

@@ -5,7 +5,6 @@
 Подробнее о концепциях сервиса {{ ydb-full-name }} читайте в следующих статьях:
 
 * [{#T}](resources.md).
-* [{#T}](connect.md).
 * [{#T}](serverless-and-dedicated.md).
 * [{#T}](dynamodb-tables.md).
 * [{#T}](limits.md).

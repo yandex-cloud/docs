@@ -38,22 +38,21 @@
 
       О том, как создать такой файл, см. в разделе [{#T}](../../managed-mysql/operations/cluster-create.md).
 
-  1. Добавьте в описание кластера `cluster1` блок `user`:
+  1. Добавьте ресурс `yandex_mdb_mysql_user`:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "cluster1" {
+      resource "yandex_mdb_mysql_user" "user2" {
+        cluster_id = yandex_mdb_mysql_cluster.cluster1.id
+        name       = "user2"
+        password   = "SecretPassword"
+        permission {
+          database_name = "db1"
+          roles         = ["SELECT"]
         ...
-        user {
-          name     = "user2"
-          password = "SecretPassword"
-          permission {
-            database_name = "db1"
-            roles         = ["SELECT"]
-          }
         }
-        ...
       }
       ```
+
   1. Проверьте корректность настроек.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -62,6 +61,6 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mysql_user).
 
 {% endlist %}

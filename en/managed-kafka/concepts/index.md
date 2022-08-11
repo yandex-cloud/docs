@@ -1,11 +1,11 @@
 ---
 title: "Relationship between {{ mkf-full-name }} resources"
-description: "{{ KF }} is a distributed messaging system between applications on a publish-subscribe basis. The {{ mkf-full-name }} service helps you deploy and maintain {{ KF }} server clusters 2.1, 2.6 and 2.8 in the {{ yandex-cloud }} infrastructure. Each {{ mkf-name }} cluster consists of one or more broker hosts that host topics and their sections."
+description: "{{ KF }} is a distributed messaging system between applications on a publish-subscribe basis. The {{ mkf-full-name }} service helps you deploy and maintain {{ KF }} 2.8, 3.0, and 3.1 server clusters in the {{ yandex-cloud }} infrastructure. Each {{ mkf-name }} cluster consists of one or more broker hosts that host topics and their sections."
 ---
 
 # Relationships between resources in {{ mkf-name }}
 
-{{ mkf-full-name }} helps you deploy and maintain clusters of {{ KF }} 2.8 and 3.0 servers in the {{ yandex-cloud }} infrastructure.
+{{ mkf-full-name }} helps you deploy and maintain clusters of {{ KF }} {{ versions.console.str }} servers in the {{ yandex-cloud }} infrastructure.
 
 {{ KF }} is a distributed inter-application communication system that uses the "publication-subscription" principle.
 

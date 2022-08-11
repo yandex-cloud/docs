@@ -1,14 +1,14 @@
-# Creating a {{ PG }} cluster for <q>1С:Enterprise</q>
+# Creating a {{ PG }} cluster for <q>1C:Enterprise</q>
 
-{{ mpg-name }} allows you to create fault-tolerant {{ PG }} clusters optimized for <q>1С:Enterprise</q>. For this, the service supports PostgreSQL versions 10-1с, 11-1с, and 12-1c with all the necessary [extensions](#extensions) installed and the connection pooler configuration modified.
+{{ mpg-name }} allows you to create fault-tolerant {{ PG }} clusters optimized for <q>1C:Enterprise</q>. For this, the service supports PostgreSQL versions 10-1c, 11-1c, and 12-1c with all the necessary [extensions](#extensions) installed and the connection pooler configuration modified.
 
 {% note warning %}
 
-You can only connect <q>1С:Enterprise</q> to clusters that run 10-1с, 11-1с, and 12-1c.
+You can only connect <q>1C:Enterprise</q> to clusters that run 10-1c, 11-1c, and 12-1c.
 
 {% endnote %}
 
-Select your [host class](../concepts/instance-types.md) based on the number of users in your <q>1С:Enterprise</q> installation. The **s2.small** hosts can accommodate up to 50 users at once. We recommend using the **s2.medium** class if 50 or more users are going to access the database. Choose the storage size based on your expected data scope and allow for possible growth in your data volumes.
+Select your [host class](../concepts/instance-types.md) based on the number of users in your <q>1C:Enterprise</q> installation. The **s2.small** hosts can accommodate up to 50 users at once. We recommend using the **s2.medium** class if 50 or more users are going to access the database. Choose the storage size based on your expected data scope and allow for possible growth in your data volumes.
 
 ## Create a {{ mpg-name }} cluster {#create-cluster}
 
@@ -42,7 +42,7 @@ Select your [host class](../concepts/instance-types.md) based on the number of u
       * Network.
       * Subnet.
       * Default security group and rules required to connect to the cluster from the internet.
-      * {{ mpg-name }} cluster for <q>1С:Enterprise</q>.
+      * {{ mpg-name }} cluster for <q>1C:Enterprise</q>.
 
    1. In `postgresql-1c.tf`, specify the password for `user-1c` that will be used to access a {{ mpg-name }} cluster.
    1. Run the command `terraform init` in the directory with the configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
@@ -64,9 +64,9 @@ Select your [host class](../concepts/instance-types.md) based on the number of u
 
 Creating the DB cluster may take several minutes.
 
-## Connect the database to <q>1С:Enterprise</q> {#connect-to-1c}
+## Connect the database to <q>1C:Enterprise</q> {#connect-to-1c}
 
-Add the created database as an information base to <q>1С:Enterprise</q>. When adding the database, use the following parameters:
+Add the created database as an information base to <q>1C:Enterprise</q>. When adding the database, use the following parameters:
 
 * **Secure connection**: `Disabled`.
 * **DBMS type**: `PostgreSQL`.
@@ -76,9 +76,9 @@ Add the created database as an information base to <q>1С:Enterprise</q>. When a
 * **User password**: `<database user password>`.
 * **Create database if none present**: Disabled.
 
-### {{ PG }} extensions for <q>1С:Enterprise</q> support {#extensions}
+### {{ PG }} extensions for <q>1C:Enterprise</q> support {#extensions}
 
-List of extensions installed in PostgreSQL 10-1с, 11-1с, and 12-1c clusters:
+List of extensions installed in PostgreSQL 10-1c, 11-1c, and 12-1c clusters:
 
 * [online_analyze](https://postgrespro.ru/docs/postgrespro/10/online-analyze)
 

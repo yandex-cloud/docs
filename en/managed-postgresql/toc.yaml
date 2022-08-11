@@ -47,7 +47,7 @@ items:
     items:
       - name: All use cases
         href: tutorials/index.md
-      - name: Creating a {{ PG }} cluster for 1С
+      - name: Creating a {{ PG }} cluster for 1C
         href: tutorials/1c-postgresql.md
       - name: Exporting databases to {{ dataproc-full-name }}
         href: tutorials/sqoop.md

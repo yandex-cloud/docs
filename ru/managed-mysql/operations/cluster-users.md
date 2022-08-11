@@ -81,21 +81,18 @@
 
       О том, как создать такой файл, см. в разделе [{#T}](./cluster-create.md).
 
-  1. Добавьте к описанию кластера {{ mmy-name }} блок `user`:
+  1. Добавьте ресурс `yandex_mdb_mysql_user`:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
-        ...
-        user {
-          name     = "<имя пользователя>"
-          password = "<пароль>"
-          permission {
-            database_name = "<имя БД, к которой пользователь должен иметь доступ>"
-            roles         = [<список привилегий пользователя по отношению к БД>]
-            ...
-          }
-          ...
+      resource "yandex_mdb_mysql_user" "<имя пользователя>" {
+        cluster_id = "<идентификатор кластера>"
+        name       = "<имя пользователя>"
+        password   = "<пароль>"
+        permission {
+          database_name = "<имя БД, к которой пользователь должен иметь доступ>"
+          roles         = [<список привилегий пользователя по отношению к БД>]
         }
+        ...
       }
       ```
 
@@ -109,9 +106,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
-
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mysql_user).
 
 - API
 
@@ -165,18 +160,16 @@
 
       О том, как создать такой файл, см. в разделе [{#T}](./cluster-create.md).
 
-  1. Найдите в описании кластера {{ mmy-name }} блок `user` для нужного пользователя.
+  1. Найдите ресурс `yandex_mdb_mysql_user` нужного пользователя.
 
   1. Измените значение поля `password`:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
+      resource "yandex_mdb_mysql_user" "<имя пользователя>" {
+        cluster_id = "<идентификатор кластера>"
+        name       = "<имя пользователя>"
+        password   = "<новый пароль>"
         ...
-        user {
-          name     = "<имя пользователя>"
-          password = "<новый пароль>"
-          ...
-        }
       }
       ```
 
@@ -190,9 +183,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
-
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mysql_user).
 
 - API
 
@@ -255,22 +246,19 @@
 
       О том, как создать такой файл, см. в разделе [{#T}](./cluster-create.md).
 
-  1. Найдите в описании кластера {{ mmy-name }} блок `user` для нужного пользователя.
+  1. Найдите ресурс `yandex_mdb_mysql_user` нужного пользователя.
 
   1. Чтобы задать ограничения по количеству соединений и запросов, добавьте блок `connection_limits` к его описанию:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
+      resource "yandex_mdb_mysql_user" "<имя пользователя>" {
         ...
-        user {
+        connection_limits {
+          max_questions_per_hour   = <максимальное количество запросов в час>
+          max_updates_per_hour     = <максимальное количество запросов UPDATE час>
+          max_connections_per_hour = <максимальное количество соединений в час>
+          max_user_connections     = <максимальное количество одновременных единений>
           ...
-          connection_limits {
-            max_questions_per_hour   = <максимальное количество запросов в час>
-            max_updates_per_hour     = <максимальное количество запросов UPDATE в час>
-            max_connections_per_hour = <максимальное количество соединений в час>
-            max_user_connections     = <максимальное количество одновременных соединений>
-            ...
-          }
         }
       }
       ```
@@ -278,12 +266,9 @@
   1. Чтобы настроить плагин аутентификации пользователя, добавьте блок `authentication_plugin` к его описанию:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
+      resource "yandex_mdb_mysql_user" "<имя пользователя>" {
         ...
-        user {
-          ...
-          authentication_plugin = "<плагин аутентификации>"
-        }
+        authentication_plugin = "<плагин аутентификации>"
       }
       ```
 
@@ -295,9 +280,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
-
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mysql_user).
 
 - API
 
@@ -342,7 +325,7 @@
 
       О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
 
-  1. Удалите из описания кластера {{ mmy-name  }} блок `user` с описанием нужного пользователя.
+  1. Удалите ресурс `yandex_mdb_mysql_user` с описанием нужного пользователя.
 
   1. Проверьте корректность настроек.
 
@@ -352,9 +335,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
-
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mysql_user).
 
 - API
 

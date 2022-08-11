@@ -32,9 +32,8 @@
 
 Да, вы можете приобрести виртуальную машину с предустановленным образом [Windows Server 2012](/marketplace/products/yc/windows-server-2012r2-datacenter) или [Windows Server 2016](/marketplace/products/yc/windows-server-2016-datacenter) в {{ marketplace-full-name }}. Лицензия на Windows Server входит в стоимость.
 
-#### Как активировать Windows Server {#activate-windows-server}
+#### Как активировать Windows Server? {#activate-windows-server}
 
-Проблемы с активацией могут возникнуть, если у ВМ нет доступа в интернет.
 1. Убедитесь, что у ВМ есть доступ в интернет.
 1. Выполните в PowerShell от имени Администратора следующие команды:
 
