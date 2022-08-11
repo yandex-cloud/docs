@@ -6,7 +6,7 @@ If shielding is enabled for a [resource](resource.md), CDN servers request files
 
 The shielding servers are located in different geographical locations. You can select a suitable location when enabling or configuring shielding.
 
-Origin shielding is а paid function. See [{#T}](../pricing.md) for rates.
+Origin shielding is a paid function. See [{#T}](../pricing.md) for rates.
 
 #### See also {#see-also}
 

@@ -218,7 +218,7 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
    * New user password, in the `password` parameter.
    * List of user configuration fields to be changed (in this case, `password`), in the `updateMask` parameter.
 
-   {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -347,7 +347,7 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
    * New values for user settings.
    * List of user configuration fields to be changed, in the `updateMask` parameter.
 
-   {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 

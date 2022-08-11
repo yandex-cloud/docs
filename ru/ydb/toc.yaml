@@ -11,6 +11,8 @@ items:
         href: operations/manage-database.md
       - name: Управление базами данных с помощью YC CLI
         href: operations/yc-cli.md
+      - name: Подключение к БД с помощью YDB CLI
+        href: operations/connection.md
       - name: Управление таблицами и директориями
         href: operations/schema.md
       - name: Чтение и запись данных
@@ -39,8 +41,6 @@ items:
         href: concepts/index.md
       - name: Термины и определения
         href: concepts/resources.md
-      - name: Соединение с БД и аутентификация с помощью IAM
-        href: concepts/connect.md
       - name: Режимы работы Serverless и Dedicated
         href: concepts/serverless-and-dedicated.md
       - name: Таблицы DynamoDB

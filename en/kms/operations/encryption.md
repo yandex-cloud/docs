@@ -89,6 +89,6 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
 
 #### See also {#see-also}
 
-* [Сommand line interface (YC CLI)](../../cli).
+* [Command line interface (YC CLI)](../../cli).
 * [Encryption in Key Management Service](../concepts/encryption.md).
 * [Managing keys in KMS](./index.md).

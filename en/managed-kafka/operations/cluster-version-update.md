@@ -2,7 +2,7 @@
 
 You can upgrade a {{ mkf-name }} cluster to any supported version.
 
-You can only upgrade to a version that immediately follows the current one, such as version 2.6 to 2.8. Upgrades to higher versions are performed in steps. To upgrade {{ KF }} from 2.6 to 3.0, for instance, you have to follow the steps: 2.6 → 2.8 → 3.0.
+You can only upgrade to a version that immediately follows the current one, such as version 2.8 to 3.0. Upgrades to higher versions are performed in steps. To upgrade {{ KF }} from 2.8 to 3.1, for instance, you have to follow the steps: 2.8 → 3.0 → 3.1.
 
 To learn more about updates within one version and host maintenance, see [{#T}](../concepts/maintenance.md).
 

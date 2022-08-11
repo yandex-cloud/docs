@@ -55,8 +55,8 @@ Once connected to the DBMS, run `SELECT @@version;`.
 
    ```bash
    curl --header "X-ClickHouse-User: <DB username>" \
-        --header "X-ClickHouse-Key: <пароль пользователя БД>" \
-        'http://<FQDN любого хоста {{ CH }}>:8123/?database=<имя БД>&query=SELECT%20version()'
+        --header "X-ClickHouse-Key: <DB user password>" \
+        'http://<FQDN of any {{ CH }} host>:8123/?database=<DB name>&query=SELECT%20version()'
    ```
 
 * Connecting via SSL
@@ -65,7 +65,7 @@ Once connected to the DBMS, run `SELECT @@version;`.
    curl --cacert {{ crt-local-dir }}{{ crt-local-file }} \
         --header "X-ClickHouse-User: <DB username>" \
         --header "X-ClickHouse-Key: <DB user password>" \
-        'https://<FQDN of any host {{ CH }}>:8443/?database=<DB name>&query=SELECT%20version()'
+        'https://<FQDN of any {{ CH }} host>:8443/?database=<DB name>&query=SELECT%20version()'
    ```
 
 {% endlist %}
