@@ -107,7 +107,7 @@
   >Результат:
   >
   >```text
-  >User SID: aje6o75au36h5d0tnr8k@as
+  >User SID: aje6o75au36h5d0yuv2g@as
   >```
 
 - IAM-токен
@@ -149,7 +149,7 @@
       >Результат:
       >
       >```text
-      >User SID: aje6o75au36h5d0tnr8k@as
+      >User SID: aje6o75au36h5d0yuv2g@as
       >```
 
 - Авторизованный ключ доступа
@@ -198,7 +198,7 @@
       >Результата:
       >
       >```text
-      >User SID: aje6o75au36h5d0tnr8k@as
+      >User SID: aje6o75au36h5d0yuv2g@as
       >```
 
 - Сервис метаданных
@@ -234,7 +234,7 @@
   >Результат:
   >
   >```text
-  >User SID: aje6o75au36h5d0tnr8k@as
+  >User SID: aje6o75au36h5d0yuv2g@as
   >```
 
 {% endlist %}
