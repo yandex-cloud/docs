@@ -7,7 +7,7 @@ description:
   - text:
       - >-
         Сервис Managed Service for Apache Kafka<sup>®</sup> помогает разворачивать и
-        поддерживать кластеры серверов Apache Kafka<sup>®</sup> версий 2.8 и 3.0 в
+        поддерживать кластеры серверов Apache Kafka<sup>®</sup> версий 2.8, 3.0 и 3.1 в
         инфраструктуре Yandex Cloud.
       - >-
         Инфраструктура Yandex Cloud <a href="/docs/security/conform">
@@ -34,7 +34,7 @@ description:
   - text:
       - >-
         Сервис Managed Service for Apache Kafka<sup>®</sup> помогает разворачивать и
-        поддерживать кластеры серверов Apache Kafka<sup>®</sup> версий 2.8 и 3.0 в
+        поддерживать кластеры серверов Apache Kafka<sup>®</sup> версий 2.8, 3.0 и 3.1 в
         инфраструктуре CloudIL.
       - >-
         Инфраструктура CloudIL <a href="/docs/security/conform">
