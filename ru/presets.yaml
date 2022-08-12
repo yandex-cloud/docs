@@ -503,6 +503,7 @@ default:
   link-datalens-main: https://datalens.yandex.ru
   link-datalens-settings: https://datalens.yandex.ru/settings
   link-org-main: https://org.cloud.yandex.ru/
+  link-org-users: https://org.cloud.yandex.ru/users
   link-tracker: https://tracker.yandex.ru/
   link-wiki: https://wiki.yandex.ru/
   link-forms-b2b: https://forms.yandex.ru/cloud/admin
@@ -516,6 +517,7 @@ default:
       install: https://helm.sh/ru/docs/intro/install/
     wiki: # Wikipedia
       ci: https://ru.wikipedia.org/wiki/Непрерывная_интеграция
+  login-example: login@yandex.ru
   pg-docs: https://www.postgresql.org/docs/current
   link-datasphere-main: https://datasphere.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
@@ -821,8 +823,10 @@ cloud-il:
   link-cloud-notifications: https://console.cloudil.co.il/cloud?section=incident-notifications
   link-monitoring: https://monitoring.cloudil.co.il
   link-org-main: https://org.cloudil.co.il/
+  link-org-users: https://org.cloudil.co.il/users
   link-passport-login: https://accounts.google.com
   link-support-mail: support@cloudil.co.il
+  login-example: login@gmail.com
   dns-mx-host: mx.cloudil.com
   ms-kms-host: 46.243.144.12
   crt-local-dir: /usr/local/share/ca-certificates/CloudIL/

@@ -1,20 +1,24 @@
 # Добавление пользователя в облако
 
+Добавьте пользователя в вашу [организацию](../../../organization/index.yaml), чтобы [дать](../../../iam/operations/roles/grant.md) ему доступ к ресурсам {{ yandex-cloud }}.
+
+Добавить можно [пользователей с аккаунтом {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %}](#passport-user) и [федеративных пользователей](#federated-user). Для этого нужно быть администратором (роль `organization-manager.admin`) или владельцем (роль `organization-manager.organizations.owner`) организации.
+
+Пользователь станет участником организации, вы сможете дать ему доступ к ресурсам ваших облаков, [назначив](../roles/grant.md) ему [роль](../../concepts/access-control/roles.md). Новый участник организации не будет иметь доступа к ресурсам в облаках, пока вы не назначите ему роль.
+
+
+## Добавьте пользователя с аккаунтом {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %} {#add-useraccount}
+
+Пользователя можно добавить в организацию через консоль управления или сервис {{ org-full-name }}. Эти способы равнозначны.
+
+
 {% if product == "yandex-cloud" %}
 
-Добавлять в облако можно [пользователей с аккаунтом {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %}](#passport-user) и [федеративных пользователей](#federated-user).
+### Добавьте пользователя из интерфейса {{ org-full-name }} {#organization-user}
 
-## Добавить пользователя через {{ org-full-name }} {#organization-user}
+{% endif %}
 
-Через {{ org-full-name }} можно добавить только пользователя с аккаунтом {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %}.
-
-1. [Войдите в аккаунт]({{ link-passport-login }}) администратора организации.
-1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-1. В правом верхнем углу нажмите кнопку **Добавить пользователя**.
-1. Введите почтовый адрес пользователя Яндекса.
-1. Нажмите кнопку **Добавить**. Пользователь будет подключен к организации и получит доступ к ее сервисам.
-
-При добавлении нового пользователя в организацию ему автоматически назначается роль [роль участника облака](../../concepts/access-control/roles.md#member) — `{{ roles-cloud-member }}`. Эта роль необходима пользователю для доступа к ресурсам в облаке. Однако она не дает права выполнять какие-либо операции и используется только в сочетании с другими ролями,   например с ролями `admin`, `editor` или `viewer`.
+{% include [add-useraccount](../../../_includes/organization/add-useraccount.md) %}
 
 {% note info %}
 
@@ -22,93 +26,37 @@
 
 {% endnote %}
 
-## Добавить пользователя через консоль управления {#console-user}
 
-Через консоль управления можно добавить только пользователя с аккаунтом {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %}.
+{% if product == "yandex-cloud" %}
 
-1. [Войдите в аккаунт]({{ link-passport-login }}) администратора облака.
-1. Войдите в [консоль управления]({{ link-console-main }}).
-1. [Выберите](../../../resource-manager/operations/cloud/switch-cloud.md) облако.
-1. Перейдите на вкладку **Права доступа**.
-1. Нажмите значок ![image](../../../_assets/options.svg) в правом верхнем углу страницы.
-1. Нажмите **Добавить пользователя**.
-1. Введите электронную почту пользователя {% if product == "yandex-cloud" %}в Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %}.
-1. Нажмите кнопку **Добавить**.
+### Добавьте пользователя через консоль управления {#console-user}
 
-После этого пользователь получит роль [роль участника облака](../../concepts/access-control/roles.md#member) — `{{ roles-cloud-member }}`. Эта роль необходима пользователю для доступа к ресурсам в облаке. Однако она не дает права выполнять какие-либо операции и используется только в сочетании с другими ролями, например с ролями `admin`, `editor` или `viewer`.
+{% list tabs %}
 
-{% endif %}
-{% if product == "cloud-il" %}
-{% note info %}
+- Cloud Organization
 
-   На стадии [Preview](../../../overview/concepts/launch-stages.md) в облако можно добавить только [федеративных пользователей](../../concepts/federations.md).
+    1. [Войдите в аккаунт]({{ link-passport-login }}) администратора облака.
+    1. Войдите в [консоль управления]({{ link-console-main }}).
+    1. [Выберите](../../../resource-manager/operations/cloud/switch-cloud.md) облако.
+    1. Перейдите на вкладку **Права доступа**.
+    1. Нажмите значок ![image](../../../_assets/options.svg) в правом верхнем углу страницы.
+    1. Нажмите **Добавить пользователя**.
+    1. Введите электронную почту пользователя {% if product == "yandex-cloud" %}в Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %}.
+    1. Нажмите кнопку **Добавить**.
 
-{% endnote %}
+{% endlist %}
 
 {% endif %}
-## Добавить федеративных пользователей {#federated-user}
+
+
+## Добавьте федеративных пользователей {#federated-user}
 
 Для добавления федеративных пользователей вам необходимо знать Name ID пользователей, которые возвращает сервер поставщика удостоверений (IdP) вместе с ответом об успешной аутентификации. Обычно это основная электронная почта пользователя. Если вы не знаете, что возвращает сервер в качестве Name ID, обратитесь к администратору, который настраивал аутентификацию в вашей федерации.
 
 Чтобы добавить пользователей федерации в организацию:
 
-{% list tabs %}
+{% include [add-federateduser](../../../_includes/organization/add-federateduser.md) %}
 
-- Консоль управления
-
-  1. [Войдите в аккаунт]({{ link-passport-login }}) администратора организации.
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
-  1. В правом верхнем углу нажмите на стрелку возле кнопки **Добавить пользователя**. Выберите **Добавить федеративных пользователей**.
-  1. Выберите федерацию, из которой необходимо добавить пользователей.
-  1. Перечислите Name ID пользователей, разделяя их переносами строк.
-  1. Нажмите кнопку **Добавить**. Пользователи будут подключены к организации.
-
-- CLI
-
-  {% include [cli-install](../../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-  1. Посмотрите описание команды добавления пользователей:
-
-      ```bash
-      yc organization-manager federation saml add-user-accounts --help
-      ```
-
-  1. Добавьте пользователей, перечислив их Name ID через запятую:
-
-      ```bash
-      yc organization-manager federation saml add-user-accounts \
-        --name my-federation \
-        --name-ids=alice@example.com,bob@example.com,charlie@example.com
-      ```
-
-- API
-
-  Чтобы добавить пользователей федерации в облако:
-
-  1.  Сформируйте файл с телом запроса, например `body.json`. В теле запроса укажите массив Name ID пользователей, которых необходимо добавить:
-
-      ```json
-      {
-        "nameIds": [
-          "alice@example.com",
-          "bob@example.com",
-          "charlie@example.com"
-        ]
-      }
-      ```
-  1.  Отправьте запрос, указав в параметрах идентификатор федерации:
-
-      ```bash
-      curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer <IAM-токен>" \
-        -d '@body.json' \
-        https://iam.{{ api-host }}/iam/v1/saml/federations/<ID федерации>:addUserAccounts
-      ```
-
-{% endlist %}
 
 #### Что дальше {#what-is-next}
 
