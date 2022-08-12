@@ -100,12 +100,12 @@ You can create a VM with disks restored from the snapshots that exist in the fol
 
       ```
       yc compute instance create \
-          --name first-instance \
-          --zone {{ region-id }}-a \
-          --public-ip \
-          --create-boot-disk snapshot-name=first-snapshot \
-          --create-disk snapshot-name=second-snapshot \
-          --ssh-key ~/.ssh/id_rsa.pub
+        --name first-instance \
+        --zone {{ region-id }}-a \
+        --public-ip \
+        --create-boot-disk snapshot-name=first-snapshot \
+        --create-disk snapshot-name=second-snapshot \
+        --ssh-key ~/.ssh/id_rsa.pub
       ```
 
       This command creates a VM named `first-instance` in the `{{ region-id }}-a` availability zone, with a public IP and the disks from the snapshots.
@@ -122,6 +122,6 @@ You can create a VM with disks restored from the snapshots that exist in the fol
 
 - API
 
-   Use the [Create](../../api-ref/Instance/create.md) method for the `Instance` resource.
+   Use the [create](../../api-ref/Instance/create.md) method for the `Instance` resource.
 
 {% endlist %}

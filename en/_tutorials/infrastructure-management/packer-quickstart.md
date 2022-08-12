@@ -8,29 +8,29 @@ To create an image:
 
 1. [Install Packer](#install-packer).
 1. [Prepare the image configuration](#prepare-image-config).
-1. [Create the image](#create-image).
+1. [Create an image](#create-image).
 1. [Check the image](#check-image).
 
 If you no longer need a created image, [delete it](#clear-out).
 
-## Before you start {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 * Install the {{ yandex-cloud }} [command-line interface](../../cli/quickstart.md#install).
 * [Create](../../vpc/quickstart.md) a cloud network with a single subnet in your folder.
-{% if product == "yandex-cloud" %}
+   {% if product == "yandex-cloud" %}
 * [Get](../../iam/concepts/authorization/oauth-token.md) an OAuth token.
-{% endif %}
-{% if product == "cloud-il" %}
-* [Create](../../iam/operations/sa/create.md) a service account and [get](../../iam/operations/sa/create-access-key.md) a static key for it.
-{% endif %}
+   {% endif %}
+   {% if product == "cloud-il" %}
+* [Create](../../iam/operations/sa/create.md) a service account and [get](../../iam/operations/sa/create-access-key.md) a static access key.
+   {% endif %}
 
 {% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
-You pay for storing created images (see [pricing for {{ compute-full-name }}](../../compute/pricing#prices-storage)).
+You pay for storing created images (see [pricing](../../compute/pricing#prices-storage) for {{ compute-full-name }}).
 
 {% endif %}
 
@@ -92,7 +92,6 @@ export PATH=$PATH:/path/to/packer
     }
   ]
 }
-
 ```
 
 {% endif %}
@@ -105,7 +104,7 @@ export PATH=$PATH:/path/to/packer
     {
       "type":                     "yandex",
       "endpoint":                 "{{ api-host }}:443",
-      "service_account_key_file": "<path to the file with the service account static key>",
+      "service_account_key_file": "<path to the file with a static key of service account>",
       "folder_id":                "<folder ID>",
       "zone":                     "{{ region-id }}-a",
 
