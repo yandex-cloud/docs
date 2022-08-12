@@ -1,0 +1,1 @@
+Установите менеджер пакетов {{ k8s }} [Нelm 3](https://helm.sh/ru/docs/intro/install).
