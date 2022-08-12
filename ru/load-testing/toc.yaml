@@ -14,6 +14,8 @@ items:
         href: operations/security-groups-agent.md
       - name: Настроить группы безопасности цели тестирования
         href: operations/security-groups-target.md
+      - name: Создать тест с данными из бакета
+        href: operations/create-test-bucket.md
   - name: Практические руководства
     items:
       - name: Нагрузочное тестирование gRPC-сервиса
