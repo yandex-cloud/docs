@@ -56,6 +56,9 @@ items:
     items:
       - name: Обзор сервиса
         href: concepts/index.md
+      - name: Организации в DataLens
+        when: audience == "external"
+        href: concepts/organizations.md
       - name: Подключение
         href: concepts/connection.md
       - name: Типы данных
@@ -105,9 +108,6 @@ items:
         href: concepts/caching.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Организации в DataLens
-        when: audience == "external"
-        href: concepts/organizations.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
