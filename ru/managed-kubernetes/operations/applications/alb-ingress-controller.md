@@ -28,10 +28,10 @@
      --output sa-key.json
    ```
 
-## Установка Ingress-контроллер {{ alb-name }} с помощью {{ marketplace-full-name }} {#install-alb-marketplace}
+## Установка с помощью {{ marketplace-full-name }} {#install-alb-marketplace}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку **{{ marketplace-short-name }}**.
+1. Нажмите на имя нужного кластера и выберите вкладку ![Marketplace](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}**.
 1. В разделе **Доступные для установки приложения** выберите [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) и нажмите кнопку **Использовать**.
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
@@ -43,9 +43,15 @@
 
 ## Установка с помощью Helm-чарта {#install-alb-helm}
 
-1. {% include [Установка Helm](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
+1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. {% include [Настройка kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+
+1. Для потоковой обработки JSON-файлов установите [утилиту](https://stedolan.github.io/jq/) `jq`:
+
+   ```bash
+   sudo apt update && sudo apt install jq
+   ```
 
 1. Создайте [пространство имен](../../concepts/index.md#namespace):
 

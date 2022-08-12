@@ -1,5 +1,6 @@
 # Все руководства
 
+* [{#T}](new-kubernetes-project.md)
 * [{#T}](container-registry.md)
 * [{#T}](running-pod-gpu.md)
 * [{#T}](ingress-cert-manager.md)

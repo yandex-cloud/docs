@@ -11,17 +11,36 @@ Window functions are calculated in the same way as aggregations, but they do not
 Aggregate functions are calculated from groups of values that are determined by the dimension fields used in a data query: entries with matching dimension values are grouped. Window functions are also calculated over groups of entries called _windows_. In this case, you should specify grouping parameters in the function call as a list of dimensions to be included (`WITHIN ...`) or excluded (`AMONG ...`) from the grouping.
 ## Usage Restrictions {#usage-restrictions}
 
-1. Window functions can take as arguments only measures or more complex expressions dependent on measures.
-    Examples:
-    - Valid: `RANK(MAX([Profit]) TOTAL)`.
-    - Not valid: `MAX(RANK([Profit] TOTAL))`.
-    - Not valid: `RANK([Profit] TOTAL)`, where `[Profit]` is not an aggregate expression.
+1. The first argument in window functions can only be [measures](../concepts/dataset/data-model.md#field).
+For the `AVG_IF`, `COUNT_IF`, `SUM_IF` window functions, the first argument (`expression` in the function description) must always be a measure.
+    Example:
 
-1. Only [dimensions](../concepts/dataset/data-model.md#field) participating in the chart can be in the grouping of window functions.
-1. The `AMONG` keyword cannot be used with dimensions that are not included in the data query.
+    `AVG_IF([Profit], [Profit] > 5)`
+
+For other window functions, the first (and only) argument (`value` in the function description) must always be a measure, too.
+
+    Examples:
+    - Valid: `SUM(SUM([Profit]) TOTAL)`.
+    - Not valid: `RANK([Profit] TOTAL)`, where `[Profit]` is a non-aggregated expression.
+
+1. For grouping window functions, only the [dimensions](../concepts/dataset/data-model.md#field) used to build the chart can be applied. Only the dimensions used to build the chart set the [grouping when calculating a measure](../concepts/aggregation-tutorial.md#aggregation-in-charts). These dimensions define how values are split into groups and therefore have fixed values in each group.
+
+If you specify a dimension that was not used to build the chart, it won't have a fixed value and the value can be different in each group row. As a result, it will be impossible to determine which value of this dimension must be used to calculate the measure. This limitation applies to the `WITHIN` and `AMONG` grouping types.
+
+    Examples:
+    - Valid: `RANK(SUM([Profit]) WITHIN [Category])` in the chart with grouping by the `[Order Date]` and `[Category]` dimensions.
+    - Allowed: `RANK(SUM([Profit]) WITHIN [City])` in the chart with grouping by the `[Category]` dimension,       `[City]` does not participate in the grouping.
+    - Not valid: `RANK(SUM([Profit]) WITHIN [Category])` in a chart with grouping by the `[Order Date]` and `[City]` dimensions.
+    - Not valid: `RANK(SUM([Profit]) AMONG [City])` in a chart with grouping by the `[Order Date]` and `[Category]` dimensions.
+1. The **Filters** section doesn't affect the chart grouping, so if the dimension is only in this chart section, you can't use it in the window function.
 
     Example:
-    - Not valid: `RANK(SUM([Profit]) AMONG [City])` with dimensions `[Order Date]` and `[Category]`.
+    - Chart type: **Table**.
+    - In the **Columns** section, the `Category` dimension and the `SUM(SUM([Sales] BEFORE FILTER BY [Date])` expression are added.
+    - The `Date` dimension is added to the **Filters** section.
+
+    This will result in an error because the `Date` dimension isn't used to build the chart.
+1. If a window function is used to build a **Table** chart, we don't recommend enabling the display of **Total** in the settings. This may cause an error.
 
 ## Syntax {#syntax}
 
