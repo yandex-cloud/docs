@@ -22,8 +22,8 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](applications/marketplace.md)
 * [{#T}](applications/crossplane.md)
 * [{#T}](applications/fluentbit.md)
-* [{#T}](applications/jaeger.md)
 * [{#T}](applications/alb-ingress-controller.md)
+* [{#T}](applications/jaeger.md)
 * [{#T}](applications/metrics-provider.md)
 * [{#T}](applications/node-local-dns.md)
 

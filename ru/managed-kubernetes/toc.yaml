@@ -37,10 +37,10 @@ items:
             href: operations/applications/crossplane.md
           - name: Установка Fluent Bit
             href: operations/applications/fluentbit.md
-          - name: Установка Jaeger
-            href: operations/applications/jaeger.md
           - name: Установка Ingress-контроллера {{ alb-name }}
             href: operations/applications/alb-ingress-controller.md
+          - name: Установка Jaeger
+            href: operations/applications/jaeger.md
           - name: Установка Metrics Provider
             href: operations/applications/metrics-provider.md
           - name: Установка NodeLocal DNS
@@ -108,6 +108,8 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
+      - name: Создание нового {{ k8s }}-проекта в {{ yandex-cloud }}
+        href: tutorials/new-kubernetes-project.md
       - name: Интеграция с {{ container-registry-name }}
         href: tutorials/container-registry.md
       - name: Запуск рабочих нагрузок с GPU
