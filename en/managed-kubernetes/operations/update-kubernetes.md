@@ -238,7 +238,7 @@ Select automatic update mode for the cluster and set the update schedule:
 
 ### Manually updating the cluster version {#cluster-manual-upgrade}
 
-If necessary, update the {{ k8s }} cluster version manually. You can only update to the next major version following the current one. Updating to newer versions should be done in steps, for example: 1.17 → 1.18 → 1.19.
+If necessary, update the {{ k8s }} cluster version manually. You can only update to the next major version following the current one. Updating to newer versions should be done in steps, for example: 1.19 → 1.20 → 1.21.
 
 {% list tabs %}
 
@@ -535,7 +535,7 @@ Select automatic update mode for the node group and set the desired update sched
 
 ### Manually updating a node group version {#node-group-manual-upgrade}
 
-If necessary, update the {{ k8s }} node group version manually. You can only update to the next major version following the current one. Updating to newer versions should be done in steps, for example: 1.17 → 1.18 → 1.19.
+If necessary, update the {{ k8s }} node group version manually. You can only update to the next major version following the current one. Updating to newer versions should be done in steps, for example: 1.19 → 1.20 → 1.21.
 
 {% note warning %}
 
