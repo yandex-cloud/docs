@@ -48,8 +48,6 @@ The cost of one billing unit is the cost of using 1 CPU core per second. The num
 
 [Background operation costs](#async) are calculated separately.
 
-{% if region == "ru"%}
-
 #### Example of cost calculation {#price-example}
 
 Example of cost calculation
@@ -59,16 +57,14 @@ Example of cost calculation
 Cost calculation:
 
 > 72 × 2 = 144 units per computation 
-> 144 × 0.0012 = ₽1.728
+> 144 × {% if region == "ru"%}0.0012{% endif %}{% if region == "int"%}0.0000096{% endif %}{% if region == "kz"%}0.0060{% endif %} = {% if region == "ru"%}₽0.1728{% endif %}{% if region == "int"%}$0.0013824{% endif %}{% if region == "kz"%}₸0.8640{% endif %}
 >
-> Total: ₽1728
+> Total: {% if region == "ru"%}₽0.1728{% endif %}{% if region == "int"%}$0.0013824{% endif %}{% if region == "kz"%}₸0.8640{% endif %}
 
 Where:
 * 72 is the number of units per g1.1 configuration.
 * 2 is 1400 ms rounded up to the nearest second.
-* ₽0.0012 is the cost of 1 unit.
-
-{% endif %}
+* {% if region == "ru"%}₽0.0012{% endif %}{% if region == "int"%}$0.0000096{% endif %}{% if region == "kz"%}₸0.0060{% endif %} is the cost of 1 unit.
 
 ### Using {{ dataproc-name }} clusters {#data-proc}
 
