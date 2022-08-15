@@ -83,7 +83,7 @@ To test a backup:
 1. In the list of backup plans next to the `{{ yandex-cloud }}` plan, click **Run now**.
 1. Open the [management console]({{ link-console-main }}).
 1. Go to the folder containing the bucket where your backups are stored.
-1. Open the **Object Storage** service.
+1. Select the **{{ objstorage-short-name }}** service.
 1. Open the `backup` bucket and check whether all the necessary files have been copied.
 
 ## How to delete created resources {#clear-out}

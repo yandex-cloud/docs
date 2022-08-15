@@ -86,7 +86,7 @@
    * `version` — минимальная версия провайдера, с которой совместим модуль. Номер версии можно посмотреть на [странице провайдера]({{ tf-provider-link }}) (кнопка **USE PROVIDER** в верхнем правом углу).
    * `provider` — название провайдера.
    * `token` — [OAuth-токен](../iam/concepts/authorization/oauth-token.md) для доступа к {{ yandex-cloud }}.
-   * `cloud_id` — идентификатор облака, в котором {{ TF }} создаст ресурсы.
+   * `cloud_id` — [идентификатор облака](../resource-manager/operations/cloud/get-id.md), в котором {{ TF }} создаст ресурсы.
    * `folder_id` — [идентификатор каталога](../resource-manager/operations/folder/get-id.md), в котором по умолчанию будут создаваться ресурсы.
    * `zone` — [зона доступности](../overview/concepts/geo-scope.md), в которой по умолчанию будут создаваться все облачные ресурсы.
 

@@ -12,7 +12,7 @@
 
 - Management console
 
-  1. Open **{{ managed-k8s-name }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to delete the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) from.
+  1. Select **{{ managed-k8s-name }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to delete the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) from.
   1. Click ![image](../../../_assets/vertical-ellipsis.svg) in the row of the {{ k8s }} cluster to delete.
   1. In the resulting menu, click **Delete**.
   1. In the window that opens, click **Delete**.

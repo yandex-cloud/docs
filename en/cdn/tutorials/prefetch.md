@@ -47,7 +47,7 @@ You must create two buckets: one, `ycprojektblue-storage`, will store files, and
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ objstorage-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ objstorage-name }}**.
    1. Create a bucket for files:
 
       1. Click **Create bucket**.
@@ -188,7 +188,7 @@ You need to check that, when user requests are made, files are downloaded from t
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ objstorage-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ objstorage-name }}**.
    1. Select `ycprojektblue-storage`.
    1. Click **Upload**.
    1. In the window that opens, select the `ycgame-update-v1.1.exe` patch file and click **Open**.
@@ -266,7 +266,7 @@ You need to check that, when user requests are made, files are downloaded from t
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ cdn-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ cdn-name }}**.
    1. If the CDN provider hasn't been activated yet, click **Activate provider**.
    1. Create a CDN resource:
 
@@ -409,7 +409,7 @@ You need to check that, when user requests are made, files are downloaded from t
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), open **{{ cdn-name }}**.
+      1. In the [management console]({{ link-console-main }}), select **{{ cdn-name }}**.
       1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.ycprojektblue.example`).
       1. On the **Overview** tab, under **DNS settings**, copy the name generated on the `.gcdn.co` domain to the clipboard.
 
@@ -430,7 +430,7 @@ You need to check that, when user requests are made, files are downloaded from t
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), open **{{ dns-name }}**.
+      1. In the [management console]({{ link-console-main }}), select **{{ dns-name }}**.
       1. If you don't have a public DNS zone, create one:
 
          1. Click **Create zone**.
@@ -522,7 +522,7 @@ You need to check that, when user requests are made, files are downloaded from t
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ cdn-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ cdn-name }}**.
    1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.ycprojektblue.example`).
    1. Go to the **Content** tab.
    1. Click **Preload content**.
@@ -570,7 +570,7 @@ You need to check that, when user requests are made, files are downloaded from t
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), open **{{ objstorage-name }}**.
+      1. In the [management console]({{ link-console-main }}), select **{{ objstorage-name }}**.
       1. Select `ycprojektblue-logs`.
       1. Click on the name of the object corresponding to the `ycgame-update-v1.1.exe` download time.
       1. Click **Download**.

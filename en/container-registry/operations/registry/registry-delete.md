@@ -13,7 +13,7 @@ To access a [registry](../../concepts/registry.md), use its ID or name. For info
 - Management console
 
    To delete a [registry](../../concepts/registry.md):
-   1. Open **{{ container-registry-name }}** in the folder where you wish to delete a registry.
+   1. Select **{{ container-registry-name }}** in the folder where you wish to delete a registry.
    1. Click ![image](../../../_assets/vertical-ellipsis.svg) next to the registry to delete.
    1. In the resulting menu, click **Delete**.
    1. In the window that opens, click **Delete**.

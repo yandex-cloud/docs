@@ -254,7 +254,7 @@ yc compute instance create \
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder with the `default` log group whose ID you indicated in `spec.yaml`.
-   1. Open **{{ cloud-logging-name }}**.
+   1. Select **{{ cloud-logging-name }}**.
    1. Select the `default` log group. The page that opens will show the log group records.
 
 - CLI

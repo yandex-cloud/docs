@@ -11,7 +11,7 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
 - Management console
 
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a function.
-    1. Open **{{ sf-name }}**.
+    1. Select **{{ sf-name }}**.
     1. Click **Create function**.
     1. Enter a name for the function: `nodejs-function`.
     1. Click **Create**.

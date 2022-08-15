@@ -4,6 +4,44 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Uploading audit logs to a log group
+        items:
+          - name: Organization
+            href: operations/export-organization-logging.md
+          - name: Cloud
+            href: operations/export-cloud-logging.md
+          - name: Folders
+            href: operations/export-folder-logging.md
+      - name: Uploading audit logs to a data stream
+        items:
+          - name: Organization
+            href: operations/export-organization-data-streams.md
+          - name: Cloud
+            href: operations/export-cloud-data-streams.md
+          - name: Folders
+            href: operations/export-folder-data-streams.md
+      - name: Uploading audit logs to a bucket
+        items:
+          - name: Organization
+            href: operations/export-organization-bucket.md
+          - name: Cloud
+            href: operations/export-cloud-bucket.md
+          - name: Folders
+            href: operations/export-folder-bucket.md
+  - name: Practical guidelines
+    items:
+      - name: Searching a bucket
+        href: tutorials/search-bucket.md
+      - name: Searching a log group
+        href: tutorials/search-cloud-logging.md
+      - name: Setting up alerts in {{ monitoring-name }}
+        href: tutorials/alerts-monitoring.md
+      - name: Configuring a response in Cloud Functions
+        href: tutorials/logging-functions.md
   - name: Concepts
     expanded: true
     items:
@@ -21,24 +59,6 @@ items:
         href: concepts/limits.md
       - name: Metrics
         href: concepts/user-metrics.md
-  - name: Step-by-step instructions
-    items:
-      - name: Uploading audit logs to a log group
-        href: operations/export-cloud-logging.md
-      - name: Uploading audit logs to a data stream
-        href: operations/export-data-streams.md
-      - name: Uploading audit logs to a bucket
-        href: operations/export-bucket.md
-  - name: Practical guidelines
-    items:
-      - name: Searching a bucket
-        href: tutorials/search-bucket.md
-      - name: Searching a log group
-        href: tutorials/search-cloud-logging.md
-      - name: Setting up alerts in {{ monitoring-name }}
-        href: tutorials/alerts-monitoring.md
-      - name: Configuring a response in Cloud Functions
-        href: tutorials/logging-functions.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

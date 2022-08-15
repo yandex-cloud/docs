@@ -5,7 +5,7 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
-   1. Open **{{ serverless-containers-name }}**.
+   1. Select **{{ serverless-containers-name }}**.
    1. In the line with the container, click ![image](../../_assets/horizontal-ellipsis.svg).
    1. In the resulting menu, click **Delete**.
    1. In the window that opens, click **Delete**.

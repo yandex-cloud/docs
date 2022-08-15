@@ -2,9 +2,11 @@
 
 {{ at-full-name }} lets you collect audit logs of {{ yandex-cloud }} resources and upload them to a {{ objstorage-name }} bucket or {{ cloud-logging-name }} log group:
 
-* [Uploading audit logs to a bucket](../operations/export-bucket.md).
+* [Uploading audit logs to a bucket](../operations/index.md#bucket).
 
-* [Uploading audit logs to Cloud Logging](../operations/export-cloud-logging.md).
+* [Uploading audit logs to Cloud Logging](../operations/index.md#logging).
+* [Uploading audit logs to a data stream](../operations/index.md#data-streams).
+
 
 Collecting audit logs lets you use analytical tools and rapidly respond to events that occur to {{ yandex-cloud }} services:
 

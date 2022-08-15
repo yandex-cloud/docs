@@ -24,7 +24,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Open **{{ sf-name }}**.
+   1. Select **{{ sf-name }}**.
    1. Select a function.
    1. Under **Version history**, mouse over the version tag of the function (such as, ![image](../../../_assets/settings.svg) `$latest`) whose scaling settings you wish to view.
    1. Information on these scaling settings will be displayed in a pop-up window:
@@ -72,7 +72,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Open **{{ sf-name }}**.
+   1. Select **{{ sf-name }}**.
    1. Select a function.
    1. Under **Version history**, mouse over the version tag of the function (such as, ![image](../../../_assets/settings.svg) `$latest`) you wish to add scaling settings for.
    1. In the pop-up window, click **Add**.
@@ -186,7 +186,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Open **{{ sf-name }}**.
+   1. Select **{{ sf-name }}**.
    1. Select a function.
    1. Under **Version history**, mouse over the version tag of the function (such as, ![image](../../../_assets/settings.svg) `$latest`) which you wish to delete scaling settings for.
    1. In the pop-up window, click **Change**.

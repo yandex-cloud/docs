@@ -29,7 +29,7 @@ When you add environment variables, a new container revision is created. You can
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
-   1. Open **{{ serverless-containers-name }}**.
+   1. Select **{{ serverless-containers-name }}**.
    1. Select the container whose version you want to add an environment variable for.
    1. Go to the **Editor** tab.
    1. In the window that opens, under **Image parameters**, specify the environment variable and click **Add**. You can add multiple environment variables.

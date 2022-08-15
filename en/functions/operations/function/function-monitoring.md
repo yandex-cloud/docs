@@ -17,7 +17,7 @@ The chart update period is 15 seconds.
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
 
-   1. Open **{{ sf-name }}**.
+   1. Select **{{ sf-name }}**.
 
    1. Select a function to view its monitoring charts.
 

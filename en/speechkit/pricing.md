@@ -4,13 +4,17 @@ editable: false
 
 # Pricing for {{ speechkit-name }}
 
+
+
+
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 ## What goes into the cost of using {{ speechkit-short-name }} {#rules}
 
 ### Using speech synthesis {#rules-tts}
 
-The cost of using SpeechKit for speech synthesis depends on the version of the API used. For [API v1](tts/request.md), the cost is calculated based on the voice used and the total number of characters sent to generate speech from text in a calendar month ([Reporting period](../billing/concepts/glossary#period)).
+The cost of using SpeechKit for speech synthesis depends on the version of the API used. For [API v1](tts/request.md), the cost is calculated based on the total number of characters sent to generate speech from text in a calendar month ([Reporting period](../billing/concepts/glossary#period)).
 
 {% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 
@@ -18,7 +22,7 @@ The cost using [API v3](new-v3/api-ref/grpc/index.md) depends on the number of 
 
 ### Using speech recognition {#rules-stt}
 
-The cost of using {{ speechkit-name }} for speech recognition depends on the recognition type and duration of a recognized audio fragment. Cost is calculated for a calendar month ([Reporting period](https://cloud.yandex.com/docs/billing/concepts/glossary)).
+The cost of using {{ speechkit-name }} for speech recognition depends on the recognition type and duration of a recognized audio fragment. The cost is calculated for a calendar month ([Reporting period](https://cloud.yandex.com/docs/billing/concepts/glossary)).
 
 #### Streaming speech recognition {#rules-stt-streaming}
 
@@ -26,7 +30,7 @@ The cost of using {{ speechkit-name }} streaming recognition is calculated based
 
 #### Synchronous recognition {#rules-stt-short}
 
-These rules apply to [synchronous recognition](stt/request.md) and recognition in [streaming mode](stt/streaming.md) when using API v2.
+These rules apply to [synchronous recognition](stt/request.md) and [streaming mode](stt/streaming.md) recognition when using API v2 and API v3.
 
 Billable unit — a 15-second segment of single-channel audio. Shorter segments are rounded up (1 second becomes 15 seconds).
 
@@ -71,29 +75,42 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio that
 
 
 
-{% include [usd.md](../_pricing/speechkit/usd-tts.md) %}
 
+
+
+{% include [usd.md](../_pricing/speechkit/usd-tts.md) %}
+
 
 #### Brand Voice {#brand-voice}
 
 
 
 
-{% include [usd.md](../_pricing/speechkit/usd-brand.md) %}
 
+
+
+{% include [usd.md](../_pricing/speechkit/usd-brand.md) %}
+
 
 ### Hosting Brand Voice models {#hosting-brand-voice}
 
 
 
 
-{% include [usd.md](../_pricing/speechkit/usd-hosting.md) %}
 
+
+
+{% include [usd.md](../_pricing/speechkit/usd-hosting.md) %}
+
 
 ### Speech recognition {#prices-stt}
 
 
 
 
-{% include [usd.md](../_pricing/speechkit/usd-stt.md) %}
 
+
+
+{% include [usd.md](../_pricing/speechkit/usd-stt.md) %}
+
+
