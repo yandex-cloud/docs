@@ -31,12 +31,14 @@ items:
       href: tts/index.md
     - name: List of voices
       href: tts/voices.md
-    - name: Configuring speech generation
-      href: tts/tts-markup.md
-    - name: Using SSML
-      href: tts/ssml.md
-    - name: List of supported SSML phonemes
-      href: tts/supported-phonemes.md
+    - name: Text markup
+      items:
+      - name: TTS markup
+        href: tts/tts-markup.md
+      - name: SSML markup
+        href: tts/ssml.md
+      - name: List of supported SSML phonemes
+        href: tts/supported-phonemes.md
     - name: SpeechKit Brand Voice
       items:
       - name: About SpeechKit Brand Voice
@@ -91,12 +93,18 @@ items:
         - name: gRPC API v3 (eng)
           items: null
           include:
-           repo: docs
-           path: en/_api-ref-grpc/ai/tts/new-v3/toc.yaml
+            repo: docs
+            path: en/_api-ref-grpc/ai/tts/new-v3/toc.yaml
       - name: Example uses for the synthesis API
         items:
         - name: Synthesis API v3
           href: tts/api/tts-examples-v3.md
+        - name: Synthesize speech in WAV format using API v1
+          href: tts/api/tts-wav.md
+        - name: Synthesize speech in OggOpus format using API v1
+          href: tts/api/tts-ogg.md
+        - name: Synthesize SSML text using API v1
+          href: tts/api/tts-ssml.md
   - name: SpeechKit Hybrid
     items:
         - name: About the technology

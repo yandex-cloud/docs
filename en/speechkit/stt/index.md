@@ -2,8 +2,6 @@
 
 _Speech recognition (speech-to-text, STT)_ is the process of converting speech to text.
 
-With {{ speechkit-full-name }}, you can recognize Russian speech.
-
 {% include [api-concepts](../../_includes/speechkit/api-concepts.md) %}
 
 ## Recognition methods {#stt-ways}
@@ -18,7 +16,7 @@ With {{ speechkit-full-name }}, you can recognize Russian speech.
 ### Which recognition to choose {#choose-stt}
 
 |  | [Data streaming recognition](streaming.md) | [Synchronous recognition](request.md) | [Asynchronous recognition](transcribation.md) |
-|---|---|---|---|
+|---|---------|----------------------|----------------------|
 | **Use cases** | Telephone assistants and robots </br> Virtual assistants | Virtual assistants </br> Voice control </br> Recognition of short voice messages in messengers | Transcription of audio calls and presentations </br> Subtitling </br> Ensuring script adherence in call centers </br> Identifying successful scripts </br> Evaluating performance of call center operators. |
 | **Input data** | Real-time voice | Pre-recorded short single-channel audio files | Pre-recorded multi-channel and long audio files |
 | **How it works** | Exchanging messages with the server over a single connection | Request — quick response | Request — delayed response |
@@ -48,7 +46,7 @@ The accuracy of speech recognition is also affected by:
 
 {% include [accuracy](../../_includes/speechkit/accuracy.md)%}
 
-#### For details, see also {#see-also}
+#### See also {#see-also}
 
 * [{#T}](../formats.md)
 * [{#T}](models.md)

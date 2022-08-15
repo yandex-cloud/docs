@@ -32,7 +32,7 @@
 #### HTTP request {#sendfile-request}
 
 ```
-POST https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
+POST https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
 ```
 
 #### Parameters in the request body {#sendfile-params}
@@ -98,7 +98,7 @@ Recognition results are stored on the {{ stt-long-resultsStorageTime }} server. 
 #### HTTP request {#get-result-request}
 
 ```
-GET https://operation.api.cloud.yandex.net/operations/{operationId}
+GET https://operation.{{ api-host }}/operations/{operationId}
 ```
 
 #### {#get-result-params} path parameters
@@ -136,13 +136,13 @@ Each result in the `chunks[]` list contains the following fields:
        {
         "startTime": "0.879999999s",
         "endTime": "1.159999992s",
-        "word": "при",
+        "word": "when",
         "confidence": 1
        },
        {
         "startTime": "1.219999995s",
         "endTime": "1.539999988s",
-        "word": "написании",
+        "word": "writing",
         "confidence": 1
        },
        ...

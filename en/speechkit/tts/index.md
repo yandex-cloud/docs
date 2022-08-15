@@ -1,39 +1,54 @@
 # Speech synthesis
 
-_Speech synthesis_ in {{ speechkit-full-name }} lets you convert any text to speech in multiple languages. You can choose the voice and manage speech parameters.
+_Speech synthesis_ in {{ speechkit-full-name }} lets you convert any text to speech in multiple languages.
 
-During synthesis, {{ speechkit-name }} doesn't stitch fragments of real speech together, but trains an acoustic model on the speaker's voice using neural networks. As a result, the synthesized speech sounds smooth and has natural intonation.
+{{ speechkit-name }} voice models use deep neural network technology. When synthesizing speech, the model pays attention to many details in the original voice. The model evaluates the entire text, not individual sentences, before starting the synthesis. This enables the synthesized voice to sound clear and natural, without electronic distortion, and reproduce appropriate intonations of a real person's speech.
+
+## Synthesis options {#features}
 
 {% include [api-concepts](../../_includes/speechkit/api-concepts.md) %}
 
-## Languages {#langs}
+{{ speechkit-name }} synthesis has two APIs: [API v1](request.md) (REST) and [API v3](../new-v3/api-ref/grpc/) (gRPC).
 
-{{ speechkit-name }} models can synthesize Russian (`ru-RU`) speech.
+|                                                    | API v1 | API v3 |
+|----------------------------------------------------|---|----------------------------------------------|
+| Specification | REST | gRPC |
+| Selecting voice | `voice` parameter | `hint: voice` parameter |
+| Selecting language | Depends on the voice </br>`lang` parameter | Depends on the voice, not specified explicitly in the request |
+| Specifying mode | Depends on the voice </br>`emotion` parameter | Depends on the voice </br>`hint: role` parameter |
+| [Controlling pronunciation](#ssml-tts) | SSML </br> TTS | TTS |
+| [Pronunciation speed](#speed) | `speed` parameter | `hint: speed` parameter |
+| [Adjusting volume](#volume) | No | `loudness_normalization_type` parameter |
+| [Output audio format](#format) | `format` parameter | `output_audio_spec` parameter |
+| Specifying [LPCM](../formats.md#lpcm) parameters | `sampleRateHertz` parameter | `output_audio_spec: raw_audio` parameter |
+| [Template synthesis](brand-voice/index.md#adaptive) | No | ` text_template` parameter |
+| [Pricing method](../pricing.md#rules-tts) | Total number of characters in the requests | By request |
+| Automatic splitting of long phrases | Not required | `unsafe_mode` parameter |
 
-Some voices designed for speech synthesis in Russian can speak in English, but the synthesized text will be said with accent. For example, [try synthesizing](https://cloud.yandex.com/services/speechkit#demo) the phrase <q>Let me speak from my heart!</q> by selecting Russian in the language settings.
+## Languages and voices {#langs}
 
-## Voices and speech settings {#voices}
+You can select a voice to convert your text to speech. Each voice corresponds to a model trained on the speaker's speech pattern. Voices differ by tone, gender, and language. For a list of voices and their characteristics, see [{#T}](voices.md).
 
-Each voice corresponds to a model trained on the speaker's speech pattern. Voices differ by the tone, main language, and gender of the speaker (male or female). [Available voices](voices.md).
+If no voice suits your business, {{ speechkit-name }} can create a unique one specifically for you. For more information, see [{#T}](brand-voice/index.md).
 
-To keep the high quality of speech by the selected voice:
+{{ speechkit-name }} can synthesize speech in different languages:
 
-* Specify the recommended [speech settings](#settings).
-* Track the [quality of the text you transmit](#text-quality).
-* Try [premium voices](#premium) for communicating with clients.
+* Russian: `(ru-RU)`.
+* Kazakh: `kk-KK`.
+* English: `en-US`.
 
-### Speech settings {#settings}
+Each voice is designed to synthesize speech in a specific language. Voices can also read text in a <q>foreign</q> language, but the quality of the synthesized speech will be poorer in this case: <q>the speaker</q>> will pronounce the text with an accent, and there may be errors in word synthesis. 
 
-The quality of speech and voice depend on the speech settings:
+### Mode {#role}
 
-* Language: Each voice was created for a specific language that the speaker used. To get the desired quality, use a voice from the [list](voices.md) whose main language is the one selected.
+The synthesized speech will sound different, depending on the selected mode. Mode is the manner of pronunciation for the same speaker. Different sets of modes are available for different voices. Attempting to use a mode that the selected voice does not have will cause a service error.
 
-   If you don't choose the main language, the voice you selected and high quality of speech are not guaranteed.
-* Speech rate: If the speech is too fast or too slow, it sounds unnatural. However, this can be useful in commercials where every second of air time counts.
+## Controlling pronunciation {#ssml-tts}
 
-* Emotional tone is supported only for Russian (`ru-RU`) with `jane` or `omazh`. Don't use this parameter with other voices or languages, as the speech generated for individual phrases may be different from your settings.
+To control pronunciation in the synthesized text, mark up the source text. {{ speechkit-name }} can synthesize texts marked up using [Speech Synthesis Markup Language](https://en.wikipedia.org/wiki/Speech_Synthesis_Markup_Language) (SSML) or TTS markup. These markup methods enable you to set the length of pauses, the pronunciation of individual sounds, and more. SSML and TTS markup have different data transmission parameters:
 
-   For these voices, a neural network was trained on three different datasets where the speaker spoke samples with different intonations: cheerful, irritated, and neutral. We don't plan to support tones for other voices now. For premium voices, the tone is selected automatically.
+* SSML is only supported in API v1 requests. To transmit text in SSML format, include the `ssml` parameter in the call body and use the `<speak>` tag as a wrapper for the text. For more information about SSML tags, see [{#T}](ssml.md).
+* TTS markup is supported in API v1 and API v3. In API v1 requests, transmit the text marked up according to TTS rules in the `text` parameter in the request body. API v3 requires no special parameters and considers any transmitted text as marked up according to TTS rules. For more information about TTS markup, see [{#T}](tts-markup.md).
 
 ### Quality of transmitted text {#text-quality}
 
@@ -43,23 +58,43 @@ Sometimes the voice may change in the synthesized text. This happens if a low qu
 * Text with peculiar sentences and slang.
 * Text with a large number of words from other languages.
 
-### Premium voices {#premium}
+## Synthesis settings {#settings}
 
-[Premium voices](voices.md#premium) were trained using our new technology. Speech synthesized using the new technology sounds more natural.
+You can configure both pronunciation and technical characteristics of the synthesized speech.
 
-Key differences of premium voices:
+### Synthesized speech speed {#speed}
 
-* Understanding of context. Before starting speech synthesis, the premium voice engine evaluates the whole text rather than individual sentences. This allows for intonation that is more typical of human speech.
-* Attention to detail. By using deep neural networks for premium voice synthesis, we make a much deeper analysis of the original voice. This lets us generate a much clearer voice that is richer in detail and avoids various distortions typical in [standard voices](voices.md#standard).
+The speed of synthesized speech affects perception of information. If the speech is too fast or too slow, it sounds unnatural. However, this can be useful in commercials where every second of air time counts.
 
-## Controlling pronunciation {#ssml-tts}
+By default, the speed of generated speech corresponds to the average speed of human speech.
 
-To have more control over speech synthesis, you can use the [Speech Synthesis Markup Language](https://en.wikipedia.org/wiki/Speech_Synthesis_Markup_Language) (SSML) and TTS markup. These markup methods enable you to set the length of pauses, the pronunciation of individual sounds, and more. SSML and TTS markup have different data transmission parameters:
+### Volume normalization {#volume}
 
-* To transmit text in SSML format, include the `ssml` parameter in the call body and use the `<speak>` tag as a wrapper for the text. SSML is supported only when using API v1. For more information, see [{#T}](ssml.md).
-* To use TTS markup, include the `text` parameter in the API v1 call body. For more information, see [{#T}](tts-markup.md).
+In [API v3](../new-v3/api-ref/grpc/) requests, you can set the type and level of volume normalization. This can be useful if you are using {{ speechkit-name }} synthesis along with other sound sources. For example, so that the volume of the voice assistant does not differ from the phone notifications.
+
+{{ speechkit-name }} supports two normalization types:
+* [Peak normalization]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Нормализация_звука#Пиковая_нормализация){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Audio_normalization#Peak_normalization){% endif %} `MAX_PEAK`, at which the audio signal level rises to the maximum possible digital audio value without distortion.
+* `LUFS` normalization is weighted normalization based on the [EBU R 128](https://en.wikipedia.org/wiki/EBU_R_128) standard according to which volume is normalized relative to the full digital scale.
+
+You can set the normalization type in the `loudness_normalization_type` parameter. By default, {{ speechkit-name }} uses LUFS.
+
+The level of normalization is set in the `hint: volume` parameter. Possible values depend on the normalization type:
+* For `MAX_PEAK`, the parameter can have values in the `(0;1]` range, default value is `0.7`.
+* For `LUFS`, the parameter can change in the range `[-149;0)`, default value is `-19`.
+
+If the normalization level value does not fall within the range supported by the normalization level, the {{ speechkit-name }} server will return an `InvalidArgument` error.
+
+### Synthesized audio file format {#format}
+
+You can select the audio file format that will be used by {{ speechkit-name }} to synthesize speech.
+
+For a full list of available formats and their characteristics, see [{#T}](../formats.md).
 
 #### What's next {#what-is-next}
 
-* Try speech synthesis using the demo on the [service page]{% if lang == "ru" %}(https://cloud.yandex.ru/services/speechkit#demo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/speechkit#demo){% endif %}.
-* Make sure to review the [API v1](request.md) parameters.
+* Try synthesizing speech using demo on the [service page]{% if lang == "ru" %}(https://cloud.yandex.ru/services/speechkit#demo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/speechkit#demo){% endif %}.
+* Review the parameters of the [API v1](request.md) method and [API v3](../new-v3/api-ref/grpc/) requests.
+* See examples of using the {{ speechkit-name }} API:
+   * [{#T}](api/tts-ogg.md)
+   * [{#T}](api/tts-wav.md)
+   * [{#T}](api/tts-ssml.md)
