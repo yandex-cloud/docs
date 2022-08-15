@@ -35,11 +35,11 @@ To set up access to the applications running in your cluster via {{ alb-name }}:
 
 1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
-1. [Configure cluster security groups and node groups](../operations/security-groups.md). A security group for a group of nodes must allow incoming TCP traffic from the load balancer subnets on ports 10501 and 10502 or from the load balancer security group (you will need to specify the subnets and the group to [create an Ingress controller](#create-ingress-and-apps) later).
+1. [Configure cluster security groups and node groups](../operations/connect/security-groups.md). A security group for a group of nodes must allow incoming TCP traffic from the load balancer subnets on ports 10501 and 10502 or from the load balancer security group (you will need to specify the subnets and the group to [create an Ingress controller](#create-ingress-and-apps) later).
 
 1. {% include [k8s-ingress-controller-install-helm](../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
 
-1. {% include [kubectl-install-links](../../_includes/managed-kubernetes/kubectl-install-links.md) %}
+1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. Check that you can connect to the cluster using `kubectl`:
 
@@ -144,7 +144,6 @@ Result:
      ```
 
      Where:
-
      * `ingress.alb.yc.io/subnets`: One or more [subnets](../../vpc/concepts/network.md#subnet) that {{ alb-name }} is going to work with.
      * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If the parameter is omitted, the default security group is used. At least one of the security groups must allow outgoing TCP connections to ports 10501 and 10502 in the node group subnet or security group.
      * `ingress.alb.yc.io/external-ipv4-address`: Provide public online access to {{ alb-name }}. Enter [the IP address you obtained](../../vpc/operations/get-static-ip.md) or use the `auto` value to obtain a new IP address.

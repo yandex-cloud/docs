@@ -22,7 +22,8 @@ To set up transfer of logs:
 
 1. [Create a log group](../logging/operations/create-group.md).
 1. [Create a {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration with the {{ k8s }} version 1.21 or higher.
-1. [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) and [set it up for working with the created cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md).
+
+1. {% include [Install and configure kubectl](../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Prepare the {{ k8s}} cluster {#configure-cluster}
 

@@ -9,7 +9,14 @@ You can change the following parameters of a [node group](../../concepts/index.m
 * Description.
 * Number of nodes.
 * {{ k8s }} version.
-* List of [security groups](../../../vpc/concepts/security-groups.md).
+* List of [security groups](../connect/security-groups.md).
+
+  {% note alert %}
+
+  Do not delete the security groups bound to a running node group as this might result in disruptions in its operation and data loss.
+
+  {% endnote %}
+
 * Computing resources and node disk size.
 * [Update](../../concepts/release-channels-and-updates.md#updates) policy.
 
@@ -66,7 +73,7 @@ You can change the following parameters of a [node group](../../concepts/index.m
   * To manage SSH keys, [use the `ssh-keys` key](../../../compute/concepts/vm-metadata.md).
   * For post-configuring nodes, use privileged DaemonSets. For example, [sysctl-tuner](https://github.com/elemir/yc-recipes/tree/master/sysctl-tuner).
 
-  {% endnote %}
+   {% endnote %}
 
 - {{ TF }}
 
@@ -120,7 +127,7 @@ You can change the following parameters of a [node group](../../concepts/index.m
      ```bash
      {{ yc-k8s }} node-group update <node group ID or name> \
      ...
-       --network-interface subnets=<name of node group subnet>,ipv4-address=nat
+       --network-interface subnets=<name of node group subnet>, ipv4-address=nat
      ```
 
      You can find out the names and IDs of node groups in the [list of node groups in the folder](node-group-list.md#list).

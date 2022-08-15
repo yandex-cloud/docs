@@ -1,11 +1,11 @@
-# Installing the NGINX Ingress Controller with a Let's Encrypt® certificate manager
+# Installing the NGINX Ingress Controller with a Let's Encrypt® certificates manager
 
-To use [{{ k8s }}]{% if lang == "ru" %}(https://kubernetes.io/ru/){% endif %}{% if lang == "en" %}(https://kubernetes.io){% endif %} to create an [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/) and protect it with a [Let's Encrypt<sup>®</sup>]{% if lang == "ru" %}(https://letsencrypt.org/ru/){% endif %}{% if lang == "en" %}(https://letsencrypt.org/){% endif %} certificate, perform the following steps.
+To create [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/) using [{{ k8s }}]{% if lang == "ru" %}(https://kubernetes.io/ru/){% endif %}{% if lang == "en" %}(https://kubernetes.io){% endif %} and protect it with a [Let's Encrypt®]{% if lang == "ru" %}(https://letsencrypt.org/ru/){% endif %}{% if lang == "en" %}(https://letsencrypt.org/){% endif %} certificate, follow these steps.
 
-## Before you start {#before-begin}
+## Before you begin {#before-begin}
 
-1. Install the {{ k8s }} CLI [kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl).
-1. [Configure](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) kubectl.
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. Install the {{ k8s }} [Helm 3]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install){% endif %} package manager.
 1. Add a repository for NGINX to Helm:
 
@@ -15,7 +15,7 @@ To use [{{ k8s }}]{% if lang == "ru" %}(https://kubernetes.io/ru/){% endif %}{% 
 
    Result:
 
-   ```bash
+   ```text
    "ingress-nginx" has been added to your repositories
    ```
 
@@ -27,7 +27,7 @@ To use [{{ k8s }}]{% if lang == "ru" %}(https://kubernetes.io/ru/){% endif %}{% 
 
    Result:
 
-   ```bash
+   ```text
    Hang tight while we grab the latest from your chart repositories...
    ...Successfully got an update from the "ingress-nginx" chart repository
    Update Complete. ⎈Happy Helming!⎈
@@ -59,14 +59,14 @@ You can watch the status by running 'kubectl --namespace default get services -o
 
 The created controller will be installed behind {{ network-load-balancer-full-name }}.
 
-To set up the controller configuration yourself, follow the instructions provided in the [Helm documentation]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/using_helm/#настройка-chart-а-перед-установкой){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing){% endif %} and edit a file named [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml).
+To set up the controller configuration yourself, follow the instructions provided in the [Helm documentation]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/using_helm/#настройка-chart-а-перед-установкой){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing){% endif %} and edit the file named [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml).
 
 ## Install the certificate manager {#install-certs-manager}
 
 1. Install certificate manager v. 1.6.1 configured to issue Let's Encrypt<sup>®</sup> certificates (check for the latest version on the [project page](https://github.com/jetstack/cert-manager/releases/)):
 
    ```bash
-   kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.0.4/cert-manager.yaml
+   kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.6.1/cert-manager.yaml
    ```
 
    Result:
@@ -86,16 +86,16 @@ To set up the controller configuration yourself, follow the instructions provide
    Result:
 
    ```bash
-   NAME                                       READY   STATUS    RESTARTS   AGE
-   cert-manager-69cf79df7f-ghw6s              1/1     Running   0          54s
-   cert-manager-cainjector-7648dc6696-gnrzz   1/1     Running   0          55s
-   cert-manager-webhook-7746f64877-wz9bh      1/1     Running   0          54s
+   NAME                                      READY  STATUS   RESTARTS  AGE
+   cert-manager-69cf79df7f-ghw6s             1/1    Running  0         54s
+   cert-manager-cainjector-7648dc6696-gnrzz  1/1    Running  0         55s
+   cert-manager-webhook-7746f64877-wz9bh     1/1    Running  0         54s
    ```
 
-## Create an object {#install-objects}
+## Create objects {#install-objects}
 
-To test the certificate manager, you must create ClusterIssuer, Ingress, Service, and Deployment.
-1. Create a YAML file `acme-issuer.yaml` with the manifest of the `ClusterIssuer` object:
+To test the certificate manager, create the ClusterIssuer, Ingress, Service, and Deployment objects.
+1. Create the `acme-issuer.yaml` YAML file with the `ClusterIssuer` object manifest:
 
    ```yaml
    apiVersion: cert-manager.io/v1
@@ -115,7 +115,7 @@ To test the certificate manager, you must create ClusterIssuer, Ingress, Service
              class: nginx
    ```
 
-1. Create a YAML file `app.yaml` with the manifest objects `Ingress`, `Service` and `Deployment`:
+1. Create the `app.yaml` YAML file with the `Ingress`, `Service`, and `Deployment` object manifests:
 
    ```yaml
    apiVersion: networking.k8s.io/v1
@@ -132,15 +132,15 @@ To test the certificate manager, you must create ClusterIssuer, Ingress, Service
          secretName: letsencrypt
      rules:
        - host: <your domain URL>
-        http:
-          paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: app
-                port:
-                  number: 80
+         http:
+           paths:
+           - path: /
+             pathType: Prefix
+             backend:
+               service:
+                 name: app
+                 port:
+                   number: 80
    ---
    apiVersion: v1
    kind: Service
@@ -177,7 +177,7 @@ To test the certificate manager, you must create ClusterIssuer, Ingress, Service
            - containerPort: 80
    ```
 
-1. Create an application in {{ k8s }} cluster:
+1. Create objects in a {{ k8s }} cluster:
 
    ```bash
    kubectl apply -f acme-issuer.yaml && \
@@ -186,7 +186,7 @@ To test the certificate manager, you must create ClusterIssuer, Ingress, Service
 
 ## Configure a DNS record for the Ingress controller {#connecting-certs-manager}
 
-1. Get the controller's IP address:
+1. Find out the IP address of the Ingress controller (the value in the `EXTERNAL-IP` column):
 
    ```bash
    kubectl get svc
@@ -195,13 +195,13 @@ To test the certificate manager, you must create ClusterIssuer, Ingress, Service
    Result:
 
    ```bash
-   NAME                          TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)                      AGE
+   NAME                      TYPE          CLUSTER-IP     EXTERNAL-IP     PORT(S)                     AGE
    ...
-   nginx-ingress-nginx-ingress    LoadBalancer   10.96.164.252   84.201.153.122   80:31248/TCP,443:31151/TCP   2m19s
+   ingress-nginx-controller  LoadBalancer  10.96.164.252  84.201.153.122  80:31248/TCP,443:31151/TCP  2m19s
    ...
    ```
 
-1. Host an A record with your DNS provider or on your own DNS server:
+1. Host an A record with your DNS provider or on your own DNS server that will indicate the public IP address of the Ingress controller:
 
    ```bash
    <your domain> IN A 84.201.153.122
@@ -209,11 +209,11 @@ To test the certificate manager, you must create ClusterIssuer, Ingress, Service
 
 {% note info %}
 
-It may take several minutes to register the Let's Encrypt<sup>®</sup> certificate and the A-record.
+Registering the Let's Encrypt<sup>®</sup> certificate and an A record may take a few minutes.
 
 {% endnote %}
 
-## Test the controller {#test-controller}
+## Test how TLS works {#test-controller}
 
 ```bash
 curl https://<your domain>
@@ -221,4 +221,4 @@ curl https://<your domain>
 
 ## Delete the resources you created {#clear-out}
 
-If you no longer need these resources, [delete the cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) {{ managed-k8s-name }}.
+If you no longer need these resources, [delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).

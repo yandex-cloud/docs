@@ -13,6 +13,7 @@
 
 {% if product == "yandex-cloud" %}
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: создание site-to-site VPN-соединения с {{ yandex-cloud }} с помощью {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
+
 {% endif %}
 
 * **Безопасный удаленный доступ администраторов (VPN)**: настройте VPN-соединение между удаленными устройствами и {{ yandex-cloud }}, используя решения из {{ marketplace-name }}, см. [руководство по настройке](../../tutorials/routing/openvpn.md) на базе [OpenVPN](/marketplace/products/yc/openvpn-access-server).
@@ -73,7 +74,7 @@
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: развертывание Kaspersky Antivirus в {{ yandex-cloud }} ({{ compute-full-name }}, {{ coi }})](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/malware-defense/kaspersy-install-in-yc)
 {% endif %}
 * **Защита на уровне сети**: используйте NGFW/IDS/IPS{% if product == "yandex-cloud" %}, представленные в [{{ marketplace-name }}](/marketplace?categories=security) (некоторые из них имеют встроенные песочницы){% endif %}.
-* **Защита на уровне образов контейнеров**: используйте сканер уязвимостей в образах, встроенный в сервис {{ container-registry-full-name }}.<!-- tbd: вставить ссылку на инструкцию, когда она появится -->
+* **Защита на уровне образов контейнеров**: используйте сканер уязвимостей в образах, встроенный в сервис {{ container-registry-name }}.<!-- tbd: вставить ссылку на инструкцию, когда она появится -->
 
 ## Управление уязвимостями {#vulnerability-management}
 
@@ -170,7 +171,7 @@
 * **Сбор и анализ аудитных логов {{ k8s }} и инструментов защиты**.
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: анализ логов безопасности {{ k8s }} в {{ mes-name }}: аудитные логи, policy engine, Falco](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
 {% endif %}
-* **Сбор и анализ аудитных логов workloads и группы узлов**: например, с помощью открытых инструментов Fluentbit, Beats и др.
+* **Сбор и анализ аудитных логов workloads и группы узлов**: например, с помощью открытых инструментов Fluent Bit, Beats и др.
 
 {% if audience == "external" %}
 

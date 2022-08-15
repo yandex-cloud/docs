@@ -6,18 +6,19 @@ Jaeger is able to use the following types of data storage:
 * [{{ ydb-full-name }}](../../../ydb/) when installed from [{{ marketplace-full-name }}](/marketplace).
 * [Other data storage systems](https://github.com/jaegertracing/helm-charts/tree/main/charts/jaeger#storage) when installed via a Helm chart.
 
-## Installation using {{ marketplace-name }} {#marketplace-install}
+## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 ### Before you start {#before-you-begin}
 
-1. [Install kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl){% endif %} and [configure](../kubernetes-cluster/kubernetes-cluster-get-credetials.md) it to work with your [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. Install the [`jq` utility](https://stedolan.github.io/jq/) for JSON filtering:
 
    ```bash
    sudo apt update && sudo apt install jq
    ```
 
-1. To enable [pods](../../concepts/index.md#pod) in the {{ k8s }} cluster to connect to {{ ydb-name }}, configure [security groups](../security-groups.md). Add a rule for incoming traffic:
+1. To enable [pods](../../concepts/index.md#pod) in the {{ k8s }} cluster to connect to {{ ydb-name }}, configure [security groups](../connect/security-groups.md). Add a rule for incoming traffic:
    * Port range: `2135`.
    * Protocol: `TCP`.
    * Source type: `Security group`.
@@ -83,7 +84,7 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
    * **Application name**: Enter an application name.
-   * **{{ ydb-short-name }} endpoint**: Specify a name for the {{ ydb-name }} endpoint, for example, `lb.etnk1hv0jol3cu5pojp7.ydb.mdb.yandexcloud.net:2135`.
+   * **{{ ydb-name }} endpoint**: Specify a name for the {{ ydb-name }} endpoint, for example, `lb.etnk1hv0jol3cu5pojp7.ydb.mdb.yandexcloud.net:2135`.
    * **Database**: Specify a database name, for example, `/ru-central1/b1gkgm9daf4605njnmn8/etnk2hv0jol5cu5pojp7`.
    * **Database directory**: `jaeger`.
    * **Use metadata to authenticate from inside a VM**: Select this option if authentication in the virtual machine is required.
@@ -97,7 +98,8 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 
 ## Installation using a Helm chart {#helm-install}
 
-1. [Install kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl){% endif %} and [configure](../kubernetes-cluster/kubernetes-cluster-get-credetials.md) it to work with your {{ k8s }} cluster.
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. Install the {{ k8s }} [Helm 3]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install){% endif %} package manager.
 1. Add the `jaegertracing` repository:
 
