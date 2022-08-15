@@ -36,7 +36,7 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
 
    - Management console
 
-      1. Open the **Virtual Private Cloud** section in the folder where you want to create the cloud network.
+      1. Select **{{ vpc-short-name }}** section in the folder where you want to create the cloud network.
       1. Click **Create network**.
       1. Enter the network name: `rdgw-network`.
       1. Click **Create network**.
@@ -65,7 +65,7 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
 
    - Management console
 
-      1. Open **Virtual Private Cloud** in the folder where you want to create the subnet.
+      1. Select **{{ vpc-short-name }}** in the folder where you want to create the subnet.
       1. Click on the name of the cloud network.
       1. Click **Add subnet**.
       1. Fill out the form: enter `rdgw-subnet` as a subnet name and select the desired availability zone from the drop-down list (for example, `ru-central1-a`).
@@ -105,7 +105,7 @@ Create and set up a [security group](../../vpc/concepts/security-groups.md).
 
 - Management console
 
-   1. Open the **Virtual Private Cloud** section in the folder to create a security group in.
+   1. Select the **{{ vpc-short-name }}** section in the folder to create a security group in.
    1. Open the **Security groups** tab.
    1. Click **Create group**.
    1. Enter the security group name: `my-rdgw-sg`.

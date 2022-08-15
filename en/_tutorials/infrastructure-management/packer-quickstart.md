@@ -152,7 +152,7 @@ packer build image.json
 Make sure the image was created:
 
 1. Go to the [management console]({{ link-console-main }}).
-1. Open **Compute Cloud**.
+1. Select **{{ compute-short-name }}**.
 1. Open **Images**. Check if the new disk image is there.
 
 ### Delete the resources you created {#clear-out}

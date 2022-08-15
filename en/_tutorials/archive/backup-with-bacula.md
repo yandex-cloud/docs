@@ -326,7 +326,7 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
         sudo ls -la /tmp/bacula | grep test.test 
         ```
 
-    1. On the catalog page in the [management console]({{ link-console-main }}), open **Object Storage**. Make sure the file `test.test` is visible in the `bacula-bucket` bucket.
+    1. On the catalog page in the [management console]({{ link-console-main }}), select **{{ objstorage-short-name }}**. Make sure the file `test.test` is visible in the `bacula-bucket` bucket.
 
     1. Delete the test file:
 
@@ -645,7 +645,7 @@ To set passwords for Bacula components:
 
 To make sure that the backup is complete:
 
-1. On the catalog page in the [management console]({{ link-console-main }}), open **Object Storage**.
+1. On the catalog page in the [management console]({{ link-console-main }}), select **{{ objstorage-short-name }}**.
 1. Open the `bacula-bucket` bucket.
 1. Make sure it contains `MyVolume`.
 
@@ -831,7 +831,7 @@ To stop paying for data storage, delete the [VM](../../compute/operations/vm-con
 
 If you reserved a static public IP address specifically for this VM:
 
-1. Open the **Virtual Private Cloud** in your folder.
+1. Select the **{{ vpc-short-name }}** in your folder.
 2. Go to the **IP addresses** tab.
 3. Find the address you need, click ![ellipsis](../../_assets/options.svg), and select **Delete**.
 

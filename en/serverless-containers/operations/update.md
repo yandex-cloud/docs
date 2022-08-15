@@ -11,7 +11,7 @@ You can edit a [container name or description](#update-name) and [manage contain
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
-   1. Open **{{ serverless-containers-name }}**.
+   1. Select **{{ serverless-containers-name }}**.
    1. Select the container.
    1. Click **Edit**.
    1. Update a container's name or description Name format:

@@ -177,7 +177,7 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura may reboo
 
    To change a public IP address from dynamic to static:
    1. In the [management console]({{ link-console-main }}), open the page for the folder you are using.
-   1. Select **Virtual Private Cloud**.
+   1. Select **{{ vpc-short-name }}**.
    1. Go to the **IP addresses** tab.
    1. Click ![image](../../_assets/options.svg) in the row next to the address of your Hystax Acura VM.
    1. In the menu that opens, select **Make static**.

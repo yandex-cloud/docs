@@ -33,7 +33,7 @@ Before creating a VM:
 
 1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you will perform the operations.
 
-1. Make sure the selected folder has a network with a subnet that the VM can be connected to. To do this, select **Virtual Private Cloud** on the folder page. If the list contains a network, click on its name to see the list of subnets. If there is neither network nor subnet, [create them](../../vpc/quickstart.md).
+1. Make sure the selected folder has a network with a subnet that the VM can be connected to. To do this, select **{{ vpc-short-name }}** on the folder page. If the list contains a network, click on its name to see the list of subnets. If there is neither network nor subnet, [create them](../../vpc/quickstart.md).
 
 
 ## Create a virtual machine for your file server {#create-vm}
@@ -231,6 +231,6 @@ To stop paying for your deployed server, just delete the [created virtual machin
 
 If you reserved a static public IP address specifically for this VM:
 
-1. Open the **Virtual Private Cloud** in your folder.
+1. Select the **{{ vpc-short-name }}** in your folder.
 1. Go to the **IP addresses** tab.
 1. Find the required address, click ![ellipsis](../../_assets/options.svg), and select **Delete**.

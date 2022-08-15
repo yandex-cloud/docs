@@ -258,6 +258,6 @@ To stop paying for the deployed server, [delete the virtual machine](../../compu
 
 If you reserved a static public IP address specifically for this VM:
 
-1. Open the **Virtual Private Cloud** in your folder.
+1. Select the **{{ vpc-short-name }}** in your folder.
 1. Go to the **IP addresses** tab.
 1. Find the required address, click ![ellipsis](../../_assets/options.svg), and select **Delete**.

@@ -11,7 +11,7 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
 - Management console
 
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a function.
-    1. Open **{{ sf-name }}**.
+    1. Select **{{ sf-name }}**.
     1. Click **Create function**.
     1. Enter a name for the function: `java-function`.
     1. Click **Create**.

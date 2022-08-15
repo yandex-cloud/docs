@@ -3,7 +3,7 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Open **{{ sf-name }}**.
+   1. Select **{{ sf-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/functions/functions.svg) **Functions**.
    1. Select the function to get a list of versions for.
    1. Under **Version history**, you can find the list of function versions and their details.

@@ -12,7 +12,7 @@ Function execution logs are stored for 3 days. The log uses [UTC time]{% if lang
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Open **{{ sf-name }}**.
+   1. Select **{{ sf-name }}**.
    1. Click a function to view its runtime log.
    1. In the resulting window, go to **Logs** and specify the period for which you wish to view logs. The default time period is 1 hour.
 

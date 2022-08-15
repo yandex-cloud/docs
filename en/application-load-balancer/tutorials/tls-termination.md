@@ -44,7 +44,7 @@ To create a network:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
    1. Click **Create network**.
    1. Specify a network **Name**: `mysite-network`.
    1. In the **Advanced** field, select **Create subnets**.
@@ -62,7 +62,7 @@ To reserve an address:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
    1. Go to the **IP addresses** tab. Click **Reserve address**.
    1. In the window that opens, select the `{{ region-id }}-a` availability zone. Click **Reserve address**.
 
@@ -80,7 +80,7 @@ To create security groups:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
    1. Open the **Security groups** tab.
    1. Create a security group for the load balancer:
 
@@ -130,7 +130,7 @@ To import an existing certificate for `my-site.com`:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ certificate-manager-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ certificate-manager-name }}**.
    1. Click **Add certificate** and select **User certificate**.
    1. Specify a certificate **Name**: `mysite-cert`.
    1. In the **Certificate** field, click **Add certificate**. Upload the **File** with your certificate or enter its **Contents** and click **Add**.
@@ -148,7 +148,7 @@ To create a VM group for `my-site.com`:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ compute-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
    1. Open the **Instance groups** tab. Click **Create group**.
    1. Specify a VM group name: `mysite-ig`.
    1. Under **Allocation**, select multiple availability zones to ensure fault tolerance of your hosting.
@@ -224,7 +224,7 @@ To create a backend group for `my-site.com`:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
    1. Open the **Backend groups** tab. Click **Create backend group**.
    1. Specify a **Name** for the backend group: `my-site-bg`.
    1. Under **Backends**, click **Add**.
@@ -248,7 +248,7 @@ To create an HTTP router:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
    1. Open the **HTTP routers** tab. Click **Create HTTP router**.
    1. Specify a **Name** for the HTTP router: `mysite-router`.
    1. Click **Add virtual host**.
@@ -267,7 +267,7 @@ To create an HTTP router:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
    1. Click **Create L7 load balancer**.
    1. Specify a **Name** for the load balancer: `mysite-alb`.
    1. Under **Network settings**, select the `mysite-sg-balancer` security group that you [created previously](#create-security-groups).

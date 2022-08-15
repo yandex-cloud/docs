@@ -3,7 +3,7 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your container.
-   1. Open **{{ serverless-containers-name }}**.
+   1. Select **{{ serverless-containers-name }}**.
    1. Click **Create container**.
    1. Enter a name and a description for the container. Name format:
 

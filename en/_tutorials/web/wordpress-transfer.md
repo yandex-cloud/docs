@@ -106,7 +106,7 @@ To copy a VM's public address:
 
 1. Open the folder page in the [management console]({{ link-console-main }}).
 
-1. Select **Compute Cloud**.
+1. Select **{{ compute-short-name }}**.
 
 1. In the menu on the left, select **Virtual machines**.
 

@@ -11,7 +11,7 @@ The chart update period is 15 seconds.
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
-   1. Open **{{ serverless-containers-name }}**.
+   1. Select **{{ serverless-containers-name }}**.
    1. Select a container to view its monitoring charts.
    1. Go to the **Monitoring** tab.
    1. The following charts open on the page:

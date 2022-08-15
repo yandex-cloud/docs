@@ -12,7 +12,7 @@ You can filter log group records using the language of filter expressions. With 
 - Management console
 
     1. In the [management console]({{ link-console-main }}), go to the folder where the log group is located.
-    1. Open **{{ cloud-logging-name }}**.
+    1. Select **{{ cloud-logging-name }}**.
     1. Click the **Groups** tab.
     1. Click on the line with the log group you want to filter.
     1. Click the **Logs** tab.

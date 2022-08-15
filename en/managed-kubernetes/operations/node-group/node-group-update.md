@@ -18,7 +18,7 @@ You can change the following parameters of a [node group](../../concepts/index.m
 - Management console
 
   To change a [node group](../../concepts/index.md#node-group):
-  1. Open **{{ managed-k8s-name }}** in the folder where you want to change the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
+  1. Select **{{ managed-k8s-name }}** in the folder where you want to change the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
   1. Click on the name of the desired cluster.
   1. Go to the **Node group** tab.
   1. Click **Edit** in the upper-right corner.

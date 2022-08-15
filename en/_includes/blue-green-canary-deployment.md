@@ -464,7 +464,7 @@ To create security groups:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
    1. Click the **Security groups** tab.
    1. Click **Create group**.
    1. Enter the **Name** of the group: `canary-sg`.
@@ -1285,7 +1285,7 @@ To configure DNS:
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), open **{{ dns-name }}**.
+      1. In the [management console]({{ link-console-main }}), select **{{ dns-name }}**.
       1. If you don't have a public DNS zone, create one:
 
          1. Click **Create zone**.

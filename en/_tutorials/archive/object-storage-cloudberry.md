@@ -181,7 +181,7 @@ To test a backup:
   1. Next to the `yc-backup-plan` name, click the arrow button to manually start a backup.
   1. Open the [management console]({{ link-console-main }}).
   1. Go to the folder containing the bucket where your backups are stored.
-  1. Open the **Object Storage** service.
+  1. Select the **{{ objstorage-short-name }}** service.
   1. Open the `backup` bucket and check whether all the necessary files have been copied.
 
 - macOS/Linux
@@ -190,7 +190,7 @@ To test a backup:
   1. Click **Start** to manually start a backup.
   1. Open the [management console]({{ link-console-main }}).
   1. Go to the folder containing the bucket where your backups are stored.
-  1. Open the **Object Storage** service.
+  1. Select the **{{ objstorage-short-name }}** service.
   1. Open the `backup` bucket and check whether all the necessary files have been copied.
 
 {% endlist %}

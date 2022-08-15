@@ -11,7 +11,7 @@ You can change the [name](function-update.md#update-name) and [description](func
 - Management console
 
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to change the name of a [function](../../concepts/function.md).
-    1. Open **{{ sf-name }}**.
+    1. Select **{{ sf-name }}**.
     1. Select a function.
     1. In the upper-right corner, click **Edit**.
     1. In the window that opens, enter the desired function name.
@@ -60,7 +60,7 @@ You can change the [name](function-update.md#update-name) and [description](func
 - Management console
 
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to change the description of a [function](../../concepts/function.md).
-    1. Open **{{ sf-name }}**.
+    1. Select **{{ sf-name }}**.
     1. Select a function.
     1. In the upper-right corner, click **Edit**.
     1. In the window that opens, enter the description of the function.

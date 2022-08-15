@@ -53,7 +53,7 @@ To create a network:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
    1. Click **Create network**.
    1. Enter the network **Name**: `alb-logging-network`.
    1. In the **Advanced** field, select **Create subnets**.
@@ -77,7 +77,7 @@ To create security groups:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
    1. Open the **Security groups** tab.
    1. Create a security group for the load balancer:
 
@@ -133,7 +133,7 @@ To create a cluster and a database:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ mpg-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ mpg-name }}**.
    1. Click **Create cluster**.
    1. In the **Cluster name** field, enter `alb-logging-cluster`.
    1. In the **Environment** field, select `PRODUCTION`.
@@ -234,7 +234,7 @@ To create an instance group:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ compute-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
    1. Open the **Instance groups** tab. Click **Create group**.
    1. Enter the instance group name: `alb-logging-ig`.
    1. Under **Allocation**, select multiple availability zones to ensure fault tolerance of your hosting.
@@ -291,7 +291,7 @@ To create a backend group:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
    1. Open the **Backend groups** tab. Click **Create backend group**.
    1. Enter the **Name** for the backend group: `alb-logging-bg`.
    1. Under **Backends**, click **Add**.
@@ -315,7 +315,7 @@ To create an HTTP router:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
    1. Open the **HTTP routers** tab. Click **Create HTTP router**.
    1. Enter the **Name** of the HTTP router: `alb-logging-router`.
    1. Click **Add virtual host**.
@@ -335,7 +335,7 @@ To create a load balancer:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
    1. Click **Create L7 load balancer**.
    1. Enter the **Name** of the load balancer: `alb-logging-balancer`.
    1. Under **Network settings**, select the `alb-logging-network` network and the `alb-logging-sg-balancer` security group you created previously.
@@ -389,7 +389,7 @@ To create a function:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ sf-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ sf-name }}**.
    1. Click **Create function**.
    1. Enter the function name: `alb-logging-function`.
    1. Click **Create**. After creating the function, you'll be automatically redirected to the **Editor** page.
@@ -494,7 +494,7 @@ To create a function:
 
       To define the values of connection parameters:
 
-      1. In the [management console]({{ link-console-main }}), open **{{ mpg-name }}**.
+      1. In the [management console]({{ link-console-main }}), select **{{ mpg-name }}**.
       1. Select the cluster `alb-logging-cluster`.
       1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the line with the desired DB.
       1. Click **Connect**.
@@ -556,7 +556,7 @@ To create a trigger:
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
+      1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
       1. Find the load balancer `alb-logging-balancer` in the list and copy its IP address.
 
    {% endlist %}
@@ -568,7 +568,7 @@ To create a trigger:
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), open **{{ mpg-name }}**.
+      1. In the [management console]({{ link-console-main }}), select **{{ mpg-name }}**.
       1. Select the cluster `alb-logging-cluster`.
       1. Go to the **SQL** tab.
       1. Select the user that you [created together with the cluster](#set-up-db-create-cluster) and enter their password.
