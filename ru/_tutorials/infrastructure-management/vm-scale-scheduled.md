@@ -672,7 +672,7 @@
 1. В файле `vm-scale-scheduled.tf` вставьте в блок `locals` следующие значения:
 
    * `token` — [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) (если вы используете [аккаунт на Яндексе](../../iam/concepts/index.md#passport)) или [IAM-токен](../../iam/concepts/authorization/iam-token.md) (если вы используете аккаунт на Яндексе или [федеративный аккаунт](../../iam/concepts/index.md#saml-federation)) для доступа к {{ yandex-cloud }}. Время жизни IAM-токена — максимум 12 часов, но не больше времени жизни cookie у федерации.
-   * `cloud_id` — [идентификатор облака](../resource-manager/operations/cloud/get-id.md), в котором будут создаваться ресурсы.
+   * `cloud_id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md), в котором будут создаваться ресурсы.
    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будут создаваться ресурсы.
    * `username` — имя пользователя, который будет создан на ВМ. Придумайте имя самостоятельно.
    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Создать пару ключей можно по [инструкции](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
