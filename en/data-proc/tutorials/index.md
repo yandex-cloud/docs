@@ -1,6 +1,6 @@
 # All tutorials
 
-* [{#T}](./configure-network.md).
+{% if product == "yandex-cloud" %}* [{#T}](./configure-network.md).{% endif %}
 * [{#T}](./copy-files-from-object-storage.md).
 * [{#T}](./geesefs-init-actions.md).
 * [{#T}](./exchange-data-with-mch.md).
