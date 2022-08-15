@@ -181,22 +181,6 @@ items:
         href: dataplatform/sync-mysql.md
       - name: Миграция базы данных из {{ mmy-full-name }} в сторонний кластер {{ MY }}
         href: dataplatform/mmy-to-mysql-migration.md
-      - name: Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с помощью Sqoop
-        href: dataplatform/sqoop-mmy.md
-        when: product == "yandex-cloud"
-      - name: Поставка данных из {{ mmy-full-name }} в {{ mkf-full-name }} с помощью Debezium
-        href: dataplatform/debezium-mmy.md
-        # PG
-      - name: Миграция базы данных из {{ PG }} в {{ CH }} с помощью {{ data-transfer-full-name }}
-        href: dataplatform/rdbms-to-clickhouse.md
-      - name: >-
-          Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}
-        href: dataplatform/data-transfer-mpg.md
-      - name: Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью Debezium
-        href: dataplatform/debezium-mpg.md
-      - name: Импорт данных из {{ mpg-full-name }} в {{ dataproc-full-name }} с помощью Sqoop
-        href: dataplatform/sqoop-mpg.md
-        when: product == "yandex-cloud"
         # RD
       - name: Миграция базы данных из стороннего кластера {{ RD }} в {{ mrd-full-name }}
         href: dataplatform/redis-data-migration.md
