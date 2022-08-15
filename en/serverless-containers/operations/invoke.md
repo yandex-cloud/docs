@@ -27,7 +27,7 @@ curl -H "Authorization: Bearer $(yc iam create-token)" https://bba3fva6ka5g*****
 - Management console
 
   1. In the [management console]({{ link-console-main }}), go to the folder where the container is located.
-  1. Open **{{ serverless-containers-name }}**.
+  1. Select **{{ serverless-containers-name }}**.
   1. Select the container. The invocation link is in the **Link to invoke** field.
 
 - CLI

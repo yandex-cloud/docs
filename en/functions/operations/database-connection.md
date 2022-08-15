@@ -9,7 +9,7 @@ Create a connection to access {{ mpg-full-name }} and {{ mch-full-name }} cluste
 - Management console
 
    1. In [the management console]({{ link-console-main }}), select the folder where you want to create your connection.
-   1. Open **{{ sf-name }}**.
+   1. Select **{{ sf-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/functions/db-connections.svg) **Database connections**.
    1. Click **Create connection**.
    1. Enter a connection name and description. Name format:

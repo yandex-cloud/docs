@@ -291,7 +291,7 @@ To set up transfer of logs:
 - Management console
 
     1. In the [management console]({{ link-console-main }}), go to the folder that you specified in the `td-agent-bit` service settings.
-    1. Open **{{ cloud-logging-name }}**.
+    1. Select **{{ cloud-logging-name }}**.
     1. Click the **Groups** tab.
     1. Click on the line with the `default` log group.
     1. Click the **Logs** tab.

@@ -47,7 +47,7 @@ To create your first bucket in {{ objstorage-name }}:
 To upload an object to a bucket:
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. Select **Object Storage**.
+1. Select **{{ objstorage-short-name }}**.
 1. Click the name of the desired bucket.
 1. To upload files to the bucket, drag them to the bucket screen or click **Upload**.
 

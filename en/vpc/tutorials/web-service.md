@@ -41,7 +41,7 @@ For your internet service to run, you need two static public IP addresses: one t
 {% list tabs %}
 
 - Management console
-    1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}** in the folder where you want to reserve the IP addresses.
+    1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}** in the folder where you want to reserve the IP addresses.
     1. Go to the **IP addresses** tab. Click **Reserve address**.
     1. In the window that opens, select the `{{ region-id }}-b` availability zone. Click **Reserve**.
     1. Click **Reserve address** once again.
@@ -112,7 +112,7 @@ To use static routes, link the route table to a subnet. To do this:
 {% list tabs %}
 
 - Management console
-    1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}** in the folder where you want to configure routing.
+    1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}** in the folder where you want to configure routing.
     1. Select the network with the subnets to assign the route table to.
     1. In the line with the desired subnet, click ![image](../../_assets/options.svg).
     1. In the menu that opens, select **Link route table**.
@@ -133,7 +133,7 @@ For a VPN to work properly, allow traffic to be received and transmitted to UDP 
 {% list tabs %}
 
 - Management console
-    1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}** in the folder where you want to create a security group.
+    1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}** in the folder where you want to create a security group.
     1. Open the **Security groups** tab.
     1. Click **Create group**.
     1. Enter the security group name: `vpn-sg`.
@@ -203,7 +203,7 @@ For the security group rules to take effect, assign the groups to the VM network
 {% list tabs %}
 
 - Management console
-    1. In the [management console]({{ link-console-main }}), open **{{ compute-name }}**.
+    1. In the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
     1. Select the `vpn` VM.
     1. Under **Network**, click ![options](../../_assets/options.svg) and select **Edit security groups**.
     1. In the window that opens, select the `vpn-sg` security group.
@@ -221,7 +221,7 @@ The network load balancer will distribute the internet service's incoming traffi
 - Management console
 
     To create a network load balancer:
-    1. In the [management console]({{ link-console-main }}), open **{{ network-load-balancer-name }}** in the folder to create the load balancer.
+    1. In the [management console]({{ link-console-main }}), select **{{ network-load-balancer-name }}** in the folder to create the load balancer.
     1. Click **Create load balancer**.
     1. Enter the load balancer name: `web-service-lb`.
     1. In the **Public address** field, select **List** and specify a static public address.

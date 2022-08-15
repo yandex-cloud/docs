@@ -290,6 +290,6 @@ keywords:
 Чтобы перестать платить за развернутый сервер и БД, достаточно удалить [созданную ВМ](../../compute/operations/vm-control/vm-delete.md) `joomla-pg-tutorial-web` и [кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md) `joomla-pg-tutorial-db-cluster`.
 
 Если вы зарезервировали статический публичный IP-адрес специально для этой ВМ:
-1. Откройте сервис **{{ vpc-name }}** в вашем каталоге.
+1. Выберите сервис **{{ vpc-name }}** в вашем каталоге.
 1. Перейдите на вкладку **IP-адреса**.
 1. Найдите нужный адрес, нажмите значок ![ellipsis](../../_assets/options.svg) и выберите пункт **Удалить**.

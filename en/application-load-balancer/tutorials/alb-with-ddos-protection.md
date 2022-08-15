@@ -30,7 +30,7 @@ To create a network:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
    1. Click **Create network**.
    1. Name the network: `ddos-network`.
    1. In the **Advanced** field, select **Create subnets**.
@@ -93,7 +93,7 @@ To create security groups:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
    1. Open the **Security groups** tab.
    1. Create a security group for the load balancer:
 
@@ -167,7 +167,7 @@ To create an instance group:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ compute-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
    1. Open the **Instance groups** tab and click **Create group**.
    1. Under **Basic parameters**:
 
@@ -337,7 +337,7 @@ To protect a load balancer against DDoS attacks, you need to reserve a static pu
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
    1. Open the **IP addresses** tab and click **Reserve address**.
    1. Select the availability zone where you want to reserve the address.
    1. Enable the **DDoS protection** option.
@@ -357,7 +357,7 @@ To create a backend group:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
    1. Open the **Backend groups** tab. Click **Create backend group**.
    1. **Name** the backend group: `ddos-backend-group`.
    1. Under **Backends**, click **Add**.
@@ -456,7 +456,7 @@ To create an HTTP router and add a route to it:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
    1. Open the **HTTP routers** tab. Click **Create HTTP router**.
    1. **Name** the HTTP router: `ddos-router`.
    1. Click **Add virtual host**.
@@ -541,7 +541,7 @@ To create a load balancer:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
    1. In the menu on the left, select **Load balancers**.
    1. Click **Create L7 load balancer**.
    1. Name the load balancer: `ddos-protect-alb`.

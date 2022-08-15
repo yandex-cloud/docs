@@ -9,7 +9,7 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
-   1. Open **{{ sf-name }}**.
+   1. Select **{{ sf-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **Triggers**.
    1. Select the trigger you want to update.
    1. In the upper-right corner of the page, click **Delete**.

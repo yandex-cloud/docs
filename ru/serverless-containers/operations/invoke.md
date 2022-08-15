@@ -26,7 +26,7 @@ curl -H "Authorization: Bearer $(yc iam create-token)" https://bba3fva6ka5g*****
 - Консоль управления
 
 	1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-	1. Откройте сервис **{{ serverless-containers-name }}**.
+	1. Выберите сервис **{{ serverless-containers-name }}**.
 	1. Выберите контейнер. Ссылка для вызова будет в поле **Ссылка для вызова**.
 
 - CLI

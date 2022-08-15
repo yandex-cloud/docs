@@ -213,7 +213,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your trigger.
-   1. Open **{{ sf-name }}**.
+   1. Select **{{ sf-name }}**.
    1. Go to the **Triggers** tab.
    1. Click **Create trigger**.
    1. Under **Basic parameters**:

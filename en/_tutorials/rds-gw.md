@@ -84,7 +84,7 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
 
       To create a subnet:
 
-      1. Open **{{ vpc-name }}** in the folder to create a subnet in.
+      1. Select **{{ vpc-name }}** in the folder to create a subnet in.
 
       1. Click on the name of the cloud network.
 

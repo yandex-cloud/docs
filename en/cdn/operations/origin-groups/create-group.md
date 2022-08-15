@@ -7,7 +7,7 @@ To create an [origin group](../../concepts/origins.md):
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a resource group.
-   1. Select **Cloud CDN**.
+   1. Select **{{ cdn-short-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/cdn/origin-groups.svg) **Origin groups**.
    1. Click **Create origin group**.
    1. Enter the name of the group.

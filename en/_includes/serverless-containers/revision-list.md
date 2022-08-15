@@ -3,7 +3,7 @@
 - Management console
 
     1. In the [management console]({{ link-console-main }}), go to the folder where the container is located.
-    1. Open **{{ serverless-containers-name }}**.
+    1. Select **{{ serverless-containers-name }}**.
     1. Select the container to get a list of revisions for.
     1. Under **Revisions**, you can find the list of container revisions and their information.
 

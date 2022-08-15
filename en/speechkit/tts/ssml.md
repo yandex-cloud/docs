@@ -1,4 +1,4 @@
-# Using SSML
+# SSML markup
 
 With the Speech Synthesis Markup Language (SSML), you can control how {{ speechkit-name }} synthesizes speech from text.
 
@@ -10,12 +10,12 @@ To pass text in SSML format, use the `ssml` parameter in the request body and wr
 
 [Example of sending a request](request.md#ssml).
 
-## Supported SSML tags {#Supported-SSML-tags}
+## Supported SSML tags {#supported-SSML-tags}
 
 Currently, {{ speechkit-name }} supports the following SSML tags:
 
 | Description | Tag |
------ | -----
+|----------------------------------------------------|-------------|
 | [Add a pause](#break) | `<break>` |
 | [Add a pause between paragraphs](#p) | `<p>` |
 | [Use phonetic pronunciation](#phoneme) | `<phoneme>` |

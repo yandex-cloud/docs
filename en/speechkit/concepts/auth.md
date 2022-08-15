@@ -1,16 +1,49 @@
----
-title: Authentication in Yandex SpeechKit API
-description: "To perform operations via the Yandex SpeechKit API, you need to authenticate from your service, federated or Yandex account. Specify the received IAM token when accessing Yandex Cloud resources via the API in the format — Authorization: Bearer <IAM-TOKEN>"
----
 
-{% include [authentication-ml-services](../../_includes/authentication-ml-services.md) %}
 
-If you are using API v3, also pass `x-folder-id` with the [folder ID](../../resource-manager/operations/folder/get-id.md) in the header of each request.
+# Authentication in the API
 
-```
-Authorization: Bearer <IAM token>
-x-folder-id <folder ID>
-```
+To perform operations via the API, you need to authenticate using your account:
+
+{% list tabs %}
+
+- Yandex account
+
+   1. [Get an IAM token](../../iam/operations/iam-token/create.md).
+   1. Get [the ID of a folder](../../resource-manager/operations/folder/get-id.md) that your account has the `editor` or a higher role for.
+   1. {% include [iam-token-usage](../../_includes/iam-token-usage-speechkit-v3.md) %}
+
+- Service accounts
+
+   {{ speechkit-name }} supports two authentication methods based on service accounts:
+
+   * With [API keys](../../iam/concepts/authorization/api-key).
+
+      {% include [api-keys-disclaimer](../../_includes/iam/api-keys-disclaimer.md) %}
+
+      1. [Get an API key](../../iam/operations/api-key/create.md).
+      1. Pass the obtained API key in the `Authorization` header in the following format:
+
+         ```
+         Authorization: Api-Key <API key>
+         ```
+   * Using an [IAM token](../../iam/concepts/authorization/iam-token.md):
+
+      1. [Get an IAM token](../../iam/operations/iam-token/create-for-sa.md).
+      1. Pass the obtained IAM token in the `Authorization` header in the following format:
+
+         ```
+         Authorization: Bearer <IAM token>
+         ```
+
+   Don't specify the folder ID in your requests: the service uses the folder where the service account was created.
+
+- Federated account
+
+   1. [Get an IAM token](../../iam/operations/iam-token/create-for-federation.md).
+   1. {% include [iam-token-usage](../../_includes/iam-token-usage-speechkit-v3.md) %}
+
+{% endlist %}
+
 
 #### See also {#see-also}
 

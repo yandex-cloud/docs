@@ -42,6 +42,23 @@ The cost of one billing unit is the cost of using 1 CPU core per second. The num
 
 [Background operation costs](#async) are calculated separately.
 
+#### Example of cost calculation {#price-example}
+
+Example of cost calculation
+- **Computing resources:** g1.1 configuration with 8 CPUs and 1 GPU.
+- **Operation execution time:** 1400 ms (rounded up to an integer number of seconds).
+
+Cost calculation:
+
+> 72 × 2 = 144 units per computation 
+> 144 × 0.0000096 = $0.0013824
+>
+> Total: $0.0013824
+
+Where:
+* 72 is the number of units per g1.1 configuration.
+* 2 is 1400 ms rounded up to the nearest second.
+* $0.0000096 is the cost of 1 unit.
 
 ### Using {{ dataproc-name }} clusters {#data-proc}
 

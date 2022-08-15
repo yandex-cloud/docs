@@ -2,6 +2,8 @@
 
 To recognize speech in [LPCM](../../formats.md#lpcm) format, specify the file sampling frequency and the number of audio channels in the recognition settings. Set the recognition language in the `languageCode` field and the language model in the `model` field.
 
+{% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
+
 1. Create a request body and save it to a file (such as `body.json`).
 
    {% note info %}
@@ -34,8 +36,8 @@ To recognize speech in [LPCM](../../formats.md#lpcm) format, specify the file sa
    curl -X POST \
        -H "Authorization: Bearer ${IAM_TOKEN}" \
        -d '@body.json' \
-       https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
-
+       https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
+   
    {
        "done": false,
        "id": "e03sup6d5h1qr574ht99",
@@ -51,8 +53,8 @@ To recognize speech in [LPCM](../../formats.md#lpcm) format, specify the file sa
 
    ```bash
    curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-       https://operation.api.cloud.yandex.net/operations/e03sup6d5h1qr574ht99
-
+       https://operation.{{ api-host }}/operations/e03sup6d5h1qr574ht99
+   
    {
    "done": true, "response": {
     "@type": "type.googleapis.com/yandex.cloud.ai.stt.v2.LongRunningRecognitionResponse",
@@ -60,7 +62,7 @@ To recognize speech in [LPCM](../../formats.md#lpcm) format, specify the file sa
      {
       "alternatives": [
        {
-        "text": "Hello world!",
+        "text": "hello world",
         "confidence": 1
        }
       ],

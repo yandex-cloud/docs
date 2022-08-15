@@ -9,7 +9,7 @@ To delete an [origin group](../../concepts/origins.md):
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a resource group.
-   1. Select **Cloud CDN**.
+   1. Select **{{ cdn-short-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/cdn/origin-groups.svg) **Origin groups** and select the group you wish to delete.
    1. Click **Delete** on the bottom panel.
    1. Confirm the deletion.
@@ -102,7 +102,7 @@ To delete multiple origin groups:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to delete several resource groups.
-   1. Select **Cloud CDN**.
+   1. Select **{{ cdn-short-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/cdn/origin-groups.svg) **Origin group** and select the groups you wish to delete.
 
       To delete all the groups, select the relevant option in the table header next to the **Name** field.

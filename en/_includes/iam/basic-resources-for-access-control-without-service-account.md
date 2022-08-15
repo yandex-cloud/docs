@@ -1,0 +1,1 @@
+Like other services, roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). The roles assigned for clouds and folders also apply to nested resources.

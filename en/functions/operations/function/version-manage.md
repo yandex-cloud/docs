@@ -44,7 +44,7 @@ When creating a version, set the following parameters:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Open **{{ sf-name }}**.
+   1. Select **{{ sf-name }}**.
    1. Select the function to create a version of.
    1. Under **Latest version**, click **Create in editor**.
    1. Select the [runtime environment](../../concepts/runtime/index.md). Use the **Add files with code examples** option.
@@ -135,7 +135,7 @@ When you add environment variables, a new version of the function is created. Yo
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Open **{{ sf-name }}**.
+   1. Select **{{ sf-name }}**.
    1. Select the function whose version you want to add an environment variable for.
    1. Go to the **Editor** tab.
    1. Under **Parameters**, specify the environment variable and click **Add**. You can add multiple environment variables.

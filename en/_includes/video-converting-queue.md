@@ -143,7 +143,7 @@ A message queue is handled using a [trigger for {{ message-queue-name }}](../fun
 - Management console
 
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a trigger.
-    1. Open **{{ sf-name }}**.
+    1. Select **{{ sf-name }}**.
     1. Go to the **Triggers** tab.
     1. Click **Create trigger**.
     1. Under **Basic parameters**:
@@ -167,7 +167,7 @@ A message queue is handled using a [trigger for {{ message-queue-name }}](../fun
 - Management console
 
     1. In the [management console]({{ link-console-main }}), select the folder with the `ffmpeg-api` function.
-    1. Open **{{ sf-name }}**.
+    1. Select **{{ sf-name }}**.
     1. Select `ffmpeg-api`.
     1. Go to the **Testing** tab.
     1. In the **Input** field, enter:
@@ -191,7 +191,7 @@ After the task is created, the number of messages in the queue increases by one 
 - Management console
 
     1. In the [management console]({{ link-console-main }}), select the folder with `converter-queue`.
-    1. Open **{{ message-queue-name }}**.
+    1. Select **{{ message-queue-name }}**.
     1. Select `converter-queue`.
     1. Under **General information**, you can see the number of enqueued messages and those being handled.
     1. Go to **Monitoring**. View the **Overall queue stats** charts.
@@ -207,7 +207,7 @@ The trigger should invoke the converter function for each message in the queue. 
 - Management console
 
     1. In the [management console]({{ link-console-main }}), select the folder with the `ffmpeg-converter` function.
-    1. Open **{{ sf-name }}**.
+    1. Select **{{ sf-name }}**.
     1. Select `ffmpeg-converter`.
     1. Go to the **Logs** tab and specify the period to view them for.
 
@@ -220,7 +220,7 @@ The trigger should invoke the converter function for each message in the queue. 
 - Management console
 
     1. In the [management console]({{ link-console-main }}), select the folder with the `ffmpeg-api` function.
-    1. Open **{{ sf-name }}**.
+    1. Select **{{ sf-name }}**.
     1. Select `ffmpeg-api`.
     1. Go to the **Testing** tab.
     1. In the **Input** field, enter the following request:

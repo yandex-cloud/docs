@@ -17,7 +17,7 @@ You can change the following parameters of a [{{ k8s }} cluster](../../concepts/
 - Management console
 
   To change a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
-  1. Open **{{ managed-k8s-name }}** in the folder where you want to change the {{ k8s }} cluster.
+  1. Select **{{ managed-k8s-name }}** in the folder where you want to change the {{ k8s }} cluster.
   1. Click on the name of the {{ k8s }} cluster.
   1. Click **Edit** in the upper-right corner.
   1. Change the necessary parameters in the window that opens.

@@ -44,7 +44,7 @@ To create a trigger, you need:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your trigger.
 
-   1. Open **{{ sf-name }}**.
+   1. Select **{{ sf-name }}**.
 
    1. On the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **Triggers**.
 
@@ -106,7 +106,7 @@ To create a trigger, you need:
       To find out the queue ID:
 
       1. In the [management console]({{ link-console-main }}), select the folder containing the queue.
-      1. Open **{{ message-queue-name }}**.
+      1. Select **{{ message-queue-name }}**.
       1. Select the desired queue.
       1. You can see the queue ID under **General information** in the **ARN** field.
 
@@ -154,7 +154,7 @@ To create a trigger, you need:
 
    Check that the number of enqueued messages is decreasing. To do this, view the queue statistics:
 
-   1. In the [management console]({{ link-console-main }}), open **{{ message-queue-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ message-queue-name }}**.
    1. Select the queue that you created the trigger for.
    1. Go to **Monitoring**. View the **Messages in queue** chart.
 

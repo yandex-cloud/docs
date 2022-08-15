@@ -50,7 +50,7 @@ As an example, we use the function described in [{#T}](version-manage.md#func-ve
    {% endnote %}
 
    You can find the function invocation link in:
-   * The **Link to invoke** field. To do this, in the [management console]({{ link-console-main }}), open **{{ sf-name }}** and select the function.
+   * The **Link to invoke** field. To do this, in the [management console]({{ link-console-main }}), select **{{ sf-name }}** and select the function.
    * The `http_invoke_url` parameter. To do this, run the command:
       ```
       yc serverless function get <function name>

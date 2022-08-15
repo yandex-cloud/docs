@@ -11,7 +11,7 @@ The chart update period is 15 seconds.
 - Management console
 
   1. In the [management console]({{ link-console-main }}), go to the folder where the log group is located.
-  1. Open **{{ cloud-logging-name }}**.
+  1. Select **{{ cloud-logging-name }}**.
   1. Select a log group to view its monitoring charts.
   1. Go to the **Monitoring** tab.
   1. The following charts open on the page:

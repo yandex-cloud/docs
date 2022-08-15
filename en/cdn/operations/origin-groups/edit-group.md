@@ -9,7 +9,7 @@ To edit an [origin group](../../concepts/origins.md):
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a resource group.
-   1. Select **Cloud CDN**.
+   1. Select **{{ cdn-short-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/cdn/origin-groups.svg) **Origin groups**.
    1. Select the group you wish to edit.
    1. In the top right-hand corner, click ![image](../../../_assets/pencil.svg) **Edit**.
@@ -113,7 +113,7 @@ To remove an origin from an origin group:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a resource group.
-   1. Select **Cloud CDN**.
+   1. Select **{{ cdn-short-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/cdn/origin-groups.svg) **Origin groups** and click the name of the group to delete an origin from.
    1. Select the desired origin and click **Delete** on the bottom panel.
 
@@ -136,7 +136,7 @@ To remove multiple origins from a group:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a resource group.
-   1. Select **Cloud CDN**.
+   1. Select **{{ cdn-short-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/cdn/origin-groups.svg) **Origin groups** and click the name of the group to delete origins from.
    1. Select the desired origins and click **Delete** on the bottom panel.
 

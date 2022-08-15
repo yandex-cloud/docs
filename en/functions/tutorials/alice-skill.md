@@ -60,7 +60,7 @@ Choose the programming language and create a [version of the function](../concep
 {% list tabs %}
 
 - Python
-  1. In the [management console]({{ link-console-main }}), open **{{ sf-name }}** in the folder where you want to create the function version.
+  1. In the [management console]({{ link-console-main }}), select **{{ sf-name }}** in the folder where you want to create the function version.
   1. Select the function to create the version for.
   1. Under **Latest version**, click **Create in editor**.
   1. Set the version parameters:
@@ -75,7 +75,7 @@ Choose the programming language and create a [version of the function](../concep
   1. Click **Create version**.
 
 - Node.js
-  1. In the [management console]({{ link-console-main }}), open **{{ sf-name }}** in the folder where you want to create the function version.
+  1. In the [management console]({{ link-console-main }}), select **{{ sf-name }}** in the folder where you want to create the function version.
   1. Select the function to create the version for.
   1. Under **Latest version**, click **Create in editor**.
   1. Set the version parameters:

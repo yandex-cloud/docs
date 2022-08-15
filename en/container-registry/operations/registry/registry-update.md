@@ -13,7 +13,7 @@ To access a [registry](../../concepts/registry.md), use its ID or name. For info
 - Management console
 
    To update the name of a [registry](../../concepts/registry.md):
-   1. Open **{{ container-registry-name }}** in the folder where you wish to update the registry.
+   1. Select **{{ container-registry-name }}** in the folder where you wish to update the registry.
    1. Click ![image](../../../_assets/vertical-ellipsis.svg) next to the registry to update.
    1. In the menu that opens, click **Edit**.
    1. In the window that opens, enter the desired registry name.
