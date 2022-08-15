@@ -113,7 +113,7 @@
    * `provider` — название провайдера.
    {% if product == "cloud-il" %}* `endpoint` — доменное имя и порт для запросов к API {{ yandex-cloud }}: `{{ api-host }}:443`.{% endif %}
    * `token` — {% if product == "yandex-cloud" %}[OAuth-токен](../iam/concepts/authorization/oauth-token.md){% endif %}{% if product == "cloud-il" %}статический ключ (`secret`) сервисного аккаунта{% endif %} для доступа к {{ yandex-cloud }}.
-   * `cloud_id` — идентификатор облака, в котором {{ TF }} создаст ресурсы.
+   * `cloud_id` — [идентификатор облака](../resource-manager/operations/cloud/get-id.md), в котором {{ TF }} создаст ресурсы.
    * `folder_id` — [идентификатор каталога](../resource-manager/operations/folder/get-id.md), в котором по умолчанию будут создаваться ресурсы.
    * `zone` — [зона доступности](../overview/concepts/geo-scope.md), в которой по умолчанию будут создаваться все облачные ресурсы.
 
