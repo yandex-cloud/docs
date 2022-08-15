@@ -8,6 +8,8 @@ File storage is at the [Preview](../../overview/concepts/launch-stages.md) stage
 
 _File storage_ is a virtual file system that can be attached to multiple {{ compute-name }} [VMs](vm.md) in the same availability zone. Users can share files in storage and use them from different VMs.
 
+Each file storage is located in an availability zone, where it's replicated (excluding non-replicated storages) to provide data protection. File storages are not replicated to other zones.
+
 Storage is attached to a VM through the [Filesystem in Userspace]{% if lang == "en" %}(https://en.wikipedia.org/wiki/Filesystem_in_Userspace){% else %}(https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)){% endif %} (FUSE) interface as a [virtiofs](https://www.kernel.org/doc/html/latest/filesystems/virtiofs.html) device that is not linked to the host file system directly.
 
 By default, file storage has a zero [quota](limits.md#compute-quotas). To increase the [quota]({{ link-console-quotas }}), contact [support](../../support/overview.md).
