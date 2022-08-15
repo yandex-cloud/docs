@@ -1,8 +1,10 @@
 # OAuth token
 
-In {{ yandex-cloud }}, an OAuth token is used in the authentication process [to get an IAM token](../../operations/iam-token/create.md).
+In {{ yandex-cloud }}, an OAuth token is used to authenticate users with a Yandex account: the user exchanges an OAuth token for an [IAM token](iam-token.md).
 
-You can get an OAuth token to work with {{ yandex-cloud }} using a {% if product == "yandex-cloud" %}[request]({{ link-cloud-oauth }}) to the Yandex.OAuth service{% endif %}{% if product == "cloud-il" %}[request]({{ link-cloud-oauth }}) to the Google OAuth service{% endif %}.
+You can get an OAuth token to work with {{ yandex-cloud }} by sending a [request]({{ link-cloud-oauth }}) to {% if product == "yandex-cloud" %}Yandex OAuth{% endif %}{% if product == "cloud-il" %}Google OAuth{% endif %}.
+
+OAuth tokens are not available for federated users and service accounts.
 
 ## Lifetime {#lifetime}
 

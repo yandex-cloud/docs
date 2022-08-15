@@ -1,11 +1,10 @@
-# Uploading cloud audit logs to {{ cloud-logging-name }}
+# Uploading folder audit logs to {{ cloud-logging-name }}
 
-Follow these instructions to create a new trail that will upload audit logs of a single cloud's resources to a {{ cloud-logging-name }} log group.
-
+Follow these instructions to create a new trail that will upload audit logs of a single folder's resources to a {{ cloud-logging-name }} log group.
 
 ## Prepare the environment {#before-you-begin}
 
-To export audit logs of a cloud:
+To export folder audit logs:
 
 1. [Create](../../logging/operations/create-group.md) a log group to upload audit logs to.
 1. [Create](../../iam/operations/sa/create.md) a service account.
@@ -19,18 +18,18 @@ To export audit logs of a cloud:
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      * [`audit-trails.viewer`](../security/index.md#roles) for the cloud whose audit logs will be collected.
+      * `audit-trails.viewer` for the folder from which audit logs will be collected:
 
          ```
-         yc resource-manager cloud add-access-binding \
+         yc resource-manager folder add-access-binding \
            --role audit-trails.viewer \
-           --id <cloud ID> \
+           --id <folder ID> \
            --service-account-id <service account ID>
          ```
 
          Where:
          * `role`: The role assigned.
-         * `id`: The ID of the cloud whose audit logs will be collected.
+         * `id`: The ID of the folder from which audit logs will be collected.
          * `service-account-id`: The ID of your service account.
 
       * [`logging.writer`](../../logging/security/index.md#roles) for the folder to host the trail:
@@ -52,13 +51,12 @@ To export audit logs of a cloud:
 1. On the [Access bindings]({{ link-console-access-management }}) page, make sure you have the following roles:
    * `iam.serviceAccounts.user` for the service account.
    * `audit-trails.editor` for the folder to host the trail.
-   * `audit-trails.viewer` for the cloud whose audit logs will be collected.
+   * `audit-trails.viewer` for the folder from which audit logs will be collected.
    * `logging.viewer` for a log group in {{ cloud-logging-name }}.
-
 
 ## Create a trail {#the-trail-creation}
 
-To create a trail that exports audit logs from the cloud:
+To create a trail that exports folder audit logs:
 
 {% list tabs %}
 
@@ -70,9 +68,8 @@ To create a trail that exports audit logs from the cloud:
       * **Name**: The name of the trail being created.
       * **Description**: A description of the trail (optional).
    1. Under **Filter**, set up the audit log scope:
-      * **Resource**: Select `Cloud`.
-      * **Cloud**: An automatically populated field showing the name of the cloud to host the trail.
-      * **Folders**: Leave the default `all folders` value.
+      * **Resource**: Select `Folder`.
+      * **Folder**: An automatically populated field containing the name of the current folder.
    1. Under **Destination**, set up the destination object:
       * **Destination**: `{{ cloud-logging-name }}`.
       * **Log group**: Select a log group. You can also create a new log group. For this:
@@ -87,6 +84,7 @@ To create a trail that exports audit logs from the cloud:
 {% endlist %}
 
 The trail will be created and will start uploading audit logs to the log group.
+
 
 ## What's next {#whats-next}
 

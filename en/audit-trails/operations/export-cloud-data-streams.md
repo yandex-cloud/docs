@@ -1,13 +1,13 @@
-# Uploading cloud audit logs to {{ cloud-logging-name }}
+# Uploading cloud audit logs to {{ yds-name }}
 
-Follow these instructions to create a new trail that will upload audit logs of a single cloud's resources to a {{ cloud-logging-name }} log group.
+Create a new [trail](../concepts/trail.md) to upload audit logs for a single cloud's resources to a {{ yds-name }} data stream.
 
 
 ## Prepare the environment {#before-you-begin}
 
 To export audit logs of a cloud:
 
-1. [Create](../../logging/operations/create-group.md) a log group to upload audit logs to.
+1. [Create](../../data-streams/operations/manage-streams.md#create-data-stream) a data stream to upload audit logs.
 1. [Create](../../iam/operations/sa/create.md) a service account.
 1. Assign roles to the service account:
 
@@ -33,11 +33,11 @@ To export audit logs of a cloud:
          * `id`: The ID of the cloud whose audit logs will be collected.
          * `service-account-id`: The ID of your service account.
 
-      * [`logging.writer`](../../logging/security/index.md#roles) for the folder to host the trail:
+      * [`yds.writer`](../../logging/security/index.md#roles) for the folder to host the trail:
 
          ```
          yc resource-manager folder add-access-binding \
-           --role logging.writer \
+           --role yds.writer \
            --id <folder ID> \
            --service-account-id <service account ID>
          ```
@@ -53,7 +53,7 @@ To export audit logs of a cloud:
    * `iam.serviceAccounts.user` for the service account.
    * `audit-trails.editor` for the folder to host the trail.
    * `audit-trails.viewer` for the cloud whose audit logs will be collected.
-   * `logging.viewer` for a log group in {{ cloud-logging-name }}.
+   * `yds.viewer` for the {{ yds-name }} data stream.
 
 
 ## Create a trail {#the-trail-creation}
@@ -74,19 +74,14 @@ To create a trail that exports audit logs from the cloud:
       * **Cloud**: An automatically populated field showing the name of the cloud to host the trail.
       * **Folders**: Leave the default `all folders` value.
    1. Under **Destination**, set up the destination object:
-      * **Destination**: `{{ cloud-logging-name }}`.
-      * **Log group**: Select a log group. You can also create a new log group. For this:
-         * Click **Create**, then specify the parameters of the log group:
-            * **Name**: The name of the group being created.
-            * **Description**: An optional description of the log group.
-            * **Log retention**.
-         * Click **Create group**.
-   1. Under **Service account**, select the service account that the trail will use to upload audit log files to the log group.
+      * **Destination**: `{{ yds-name }}`.
+      * **Data stream**: Select a data stream. You can also create a new data stream by clicking **Create new** and [specifying](../../data-streams/operations/manage-streams.md#create-data-stream) data stream settings.
+   1. Under **Service account**, select the service account that the trail will use to upload audit log files to a data stream.
    1. Click **Create**.
 
 {% endlist %}
 
-The trail will be created and will start uploading audit logs to the log group.
+The trail will be created and will begin uploading audit logs to the data stream.
 
 ## What's next {#whats-next}
 
