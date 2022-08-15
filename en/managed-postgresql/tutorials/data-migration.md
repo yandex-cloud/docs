@@ -37,7 +37,7 @@ There are three ways to migrate data from a third-party _source cluster_ to a {{
    Migration with a {{ PG }} version downgrade is impossible.
 
 * When creating a cluster, specify the same database name as in the source cluster.
-* Enable the same [{{ PG }} extensions](../operations/cluster-extensions.md) as in the source cluster.
+* Enable the same [{{ PG }} extensions](../operations/extensions/cluster-extensions.md) as in the source cluster.
 
 ## Transferring data using {{ data-transfer-full-name }} {#data-transfer}
 
@@ -233,6 +233,12 @@ If you no longer need these resources, delete the [{{ mpg-full-name }} cluster](
 
 ## Transferring data by creating and restoring a logical dump {#backup}
 
+{% note warning %}
+
+Use this method only if it's not possible to migrate data using [{{ data-transfer-name }}](#data-transfer) or [logical replication](#logical-replication).
+
+{% endnote %}
+
 Create a dump of the necessary database in the source cluster using the `pg_dump` utility. To restore the dump in the target cluster, use the `pg_restore` utility.
 
 {% note info %}
@@ -251,7 +257,7 @@ If you no longer need these resources, [delete them](#clear-out-backup).
 
 ### Create a database dump {#dump}
 
-1. Switch the database to the <q>read-only</q>  mode.
+1. Switch the database to the <q>read-only</q> mode.
 1. Create a dump using the [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) utility. To speed up the process, run it in multithreaded mode by passing the number of available CPU cores in the `-j` argument:
 
    ```bash
@@ -280,11 +286,11 @@ The required amount of RAM and processor cores depends on the amount of data to 
 To prepare the virtual machine to restore the dump:
 {% if audience != "internal" %}
 
-1. In the management console, [create a new VM](../../compute/operations/vm-create/create-linux-vm.md) from an [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image in the **{{ marketplace-name }}**. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
+1. In the management console, [create a new VM](../../compute/operations/vm-create/create-linux-vm.md) from an [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image on **{{ marketplace-name }}**. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
 
 {% else %}
 
-1. In the management console, create a new VM from an [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
+1. In the management console, create a new VM from an [Ubuntu 20.04](/marketplace/products/f2eanb2gaki4us67hn9q) image. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
 
 {% endif %}
 
@@ -296,19 +302,19 @@ To prepare the virtual machine to restore the dump:
 
    ```bash
    sudo apt install postgresql-client-common
-
+   
    # For PostgreSQL 10
    sudo apt install postgresql-client-10
-
+   
    # For PostgreSQL 11
    sudo apt install postgresql-client-11
-
+   
    # For PostgreSQL 12
    sudo apt install postgresql-client-12
-
+   
    # For PostgreSQL 13
    sudo apt install postgresql-client-13
-
+   
    # For PostgreSQL 14
    sudo apt install postgresql-client-14
    ```

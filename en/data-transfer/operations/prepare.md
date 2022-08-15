@@ -404,7 +404,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
          * `USAGE` for the schemas of these tables and sequences.
          * `ALL PRIVILEGES` (`CREATE` and `USAGE`) to the housekeeping table schema defined by the [endpoint parameter](./endpoint/source/postgresql.md#additional-settings) if the endpoint is going to be used for the _{{ dt-type-repl }}_ or _{{ dt-type-copy-repl }}_ transfer types.
 
-   1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/cluster-extensions.md) the `pg_tm_aux` extension for it. This lets replication continue even after changing the master host.
+   1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This lets replication continue even after changing the master host.
 
    1. {% include [primary-keys-mysql](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
