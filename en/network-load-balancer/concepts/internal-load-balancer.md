@@ -1,15 +1,5 @@
 # Internal network load balancer
 
-{% if product == "yandex-cloud" %}
-
-{% note warning %}
-
-Internal load balancer will become [generally available](../../overview/concepts/launch-stages.md) and [paid](../pricing.md) on August 12th, 2022.
-
-{% endnote %}
-
-{% endif %}
-
 An internal network load balancer is used to balance traffic between resources that are connected:
 
 * To VPC subnets.

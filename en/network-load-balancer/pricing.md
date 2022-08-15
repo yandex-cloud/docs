@@ -21,16 +21,6 @@ Outgoing traffic is charged the same as for other {{ yandex-cloud }} services, s
 
 ### Incoming and outgoing traffic {#prices-traffic}
 
-{% if product == "yandex-cloud" %}
-
-{% note warning %}
-
-Prices for the incoming and outgoing traffic routed through load balancers will change on August 12th, 2022.
-
-{% endnote %}
-
-{% endif %}
-
 You are charged for traffic to the IP address and port specified as the network load balancer's listener. Any other traffic directed to the load balancer is not accepted and is not charged.
 
 {% if region == "ru"%}
@@ -52,16 +42,6 @@ You are charged for traffic to the IP address and port specified as the network 
 {% endif %}
 
 ### Network load balancers {#network-load-balancers}
-
-{% if product == "yandex-cloud" %}
-
-{% note warning %}
-
-Internal load balancer will become [generally available](../overview/concepts/launch-stages.md) and paid on August 12th, 2022.
-
-{% endnote %}
-
-{% endif %}
 
 You are charged for network load balancers if they have a listener and a non-empty target group attached.
 
