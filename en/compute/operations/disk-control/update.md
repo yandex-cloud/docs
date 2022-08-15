@@ -159,10 +159,18 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
       ├─vda1 252:1    0   1M  0 part
       └─vda2 252:2    0  25G  0 part /
       vdb    252:16   0  64G  0 disk
-      └─vdb1 252:17   0  32G  0 part
+      └─vdb1 252:17   0  32G  0 part /data
       ```
 
-      Disk partitions are listed in the `NAME` column.
+      Disk partitions are listed in the `NAME` column. Partition mount points are shown in the `MOUNTPOINT` column.
+
+   1. If the `MOUNTPOINT` column contains a value for your partition, the partition is mounted. Unmount it:
+
+      ```bash
+      sudo umount /data
+      ```
+
+      Where `/data` is the partition mount point.
 
    1. Check and restore the file system:
 
@@ -214,6 +222,12 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
       The filesystem on /dev/vdb1 is now 16776955 (4k) blocks long.
       ```
 
+   1. If you unmounted a partition before checking, remount it:
+
+      ```bash
+      sudo mount /data
+      ```
+
    1. Make sure that the partition increased:
 
       ```bash
@@ -228,7 +242,7 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
       ├─vda1 252:1    0   1M  0 part
       └─vda2 252:2    0  25G  0 part /
       vdb    252:16   0  64G  0 disk
-      └─vdb1 252:17   0  64G  0 part
+      └─vdb1 252:17   0  64G  0 part /data
       ```
 
 {% if product == "yandex-cloud" %}
