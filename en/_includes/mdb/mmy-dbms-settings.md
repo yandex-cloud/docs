@@ -137,7 +137,6 @@
 - **Innodb flush log at trx commit**{#setting-flush-log-commit} {{ tag-all }}
 
   Determines the behavior of {{ MY }} for a transaction's `COMMIT`:
-  - `0`: Logs are written and flushed to disk once a second. Transactions for which logs haven't been flushed can be lost in a crash.
   - `1` (default): Required for full [ACID](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_acid) compliance. Logs are written and flushed to disk at each transaction commit.
   - `2`: Logs are written after each transaction commit, but flushed to disk once a second. Transactions for which logs haven't been flushed can be lost in a crash.
 
