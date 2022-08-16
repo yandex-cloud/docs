@@ -20,6 +20,7 @@
 * [{#T}](mssql-outbound-migration.md)
 * [Migrating data from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}](rdbms-to-clickhouse.md)
 * [Configuring {{ dns-full-name }} for access to managed database clusters from other cloud networks](mdb-dns-peering.md)
+* [{#T}](redis-data-migration.md)
 * [Configuring GeeseFS in {{ dataproc-full-name }} using initialization actions](./data-proc-init-actions-geesefs.md).
 * [{#T}](migration-via-reindex-api.md)
 * [{#T}](mysql-data-migration.md)

@@ -40,7 +40,7 @@
 Настройте визуализацию графика продаж на дашборде, меняя уровень детализации с помощью селектора:
 
 1. В датасет [добавьте параметр](../operations/dataset/add-parameter-dataset.md) `scale`с типом `Строка` и значением по умолчанию `year`. Параметр будет доступен во всех чартах, созданных на основе этого датасета.
-1. Создайте на основе созданного датасета чарт с типом [Столбчатая диаграмма](../operations/chart/create-column-chart.md):
+1. Создайте на основе созданного датасета чарт с типом [Столбчатая диаграмма](../visualization-ref/column-chart.md#create-diagram):
    
    * В чарт [добавьте поле](../concepts/calculations/index.md#how-to-create-calculated-field) `period` с формулой `DATETRUNC([OrderDatetime], [scale])` и перетащите его в секцию **X**.
    * Перетащите измерение `Sales` в секцию **Y**. Автоматически измерение `Sales` будет преобразовано в показатель `SUM[Sales]`.
@@ -69,7 +69,7 @@
 
 Добавьте возможность выбора измерения с помощью селектора для отображения в диаграмме на дашборде:
 
-1. Создайте чарт с типом [Столбчатая диаграмма](../operations/chart/create-column-chart.md):
+1. Создайте чарт с типом [Столбчатая диаграмма](../visualization-ref/column-chart.md#create-diagram):
    
    * В чарт [добавьте параметр](../operations/chart/add-parameter-chart.md) `dimension_control`с типом `Строка` и значением по умолчанию `по магазинам`. Параметр будет доступен только в этом чарте.
    * В чарт [добавьте поле](../concepts/calculations/index.md#how-to-create-calculated-field) `shop_product_cat` с формулой `CASE([dimension_control], "по магазинам", [ShopName], "по категориям товаров",[ProductCategory], "по подкатегориям товаров", [ProductSubcategory], '')` и перетащите его в секцию **X**
@@ -91,7 +91,7 @@
 
 Добавьте возможность выбора измерения для раскрашивания в чарте с помощью селектора:
 
-1. Создайте чарт с типом [Круговая диаграмма](../operations/chart/create-pie-chart.md):
+1. Создайте чарт с типом [Круговая диаграмма](../visualization-ref/pie-chart.md#create-diagram):
    
    * В чарт [добавьте параметр](../operations/chart/add-parameter-chart.md) `colors`с типом `Строка` и значением по умолчанию `категории`. Параметр будет доступен только в этом чарте.
    * В чарт [добавьте поле](../concepts/calculations/index.md#how-to-create-calculated-field) `dimension_colors` с формулой `IF([colors]="категории", [ProductCategory], [ProductSubcategory])`и перетащите его в секцию **Цвет**.

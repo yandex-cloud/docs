@@ -10,46 +10,46 @@ Find out how to get:
 
 - CLI
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   * Retrieve a list of [lifecycle policies](../../concepts/lifecycle-policy.md) in a repository:
+  * Retrieve a list of [lifecycle policies](../../concepts/lifecycle-policy.md) in a repository:
 
-      ```bash
-      yc container repository lifecycle-policy list --repository-name crp2hlbs67tj4ggrfodb/ubuntu
-      ```
+    ```bash
+    yc container repository lifecycle-policy list --repository-name crp2hlbs67tj4ggrfodb/ubuntu
+    ```
 
-      Result:
+    Command output:
 
-      ```bash
-      +----------------------+-------------+----------------------+----------+---------------------+--------------------------------+
-      |          ID          |    NAME     |    REPOSITORY ID     |  STATUS  |       CREATED       |          DESCRIPTION           |
-      +----------------------+-------------+----------------------+----------+---------------------+--------------------------------+
-      | crp6lg1868p3i0emkv1b | test-policy | crp3cpm16edqql0t30s2 | DISABLED | 2020-05-28 15:05:58 | disabled lifecycle-policy for  |
-      |                      |             |                      |          |                     | tests                          |
-      +----------------------+-------------+----------------------+----------+---------------------+--------------------------------+
-      ```
+    ```bash
+    +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
+    |          ID          |    NAME     |    REPOSITORY ID     |  STATUS  |       CREATED       |          DESCRIPTION          |
+    +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
+    | crp6lg1868p3i0emkv1b | test-policy | crp3cpm16edqql0t30s2 | DISABLED | 2020-05-28 15:05:58 | disabled lifecycle-policy for |
+    |                      |             |                      |          |                     | tests                         |
+    +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
+    ```
 
-   * Retrieve a list of lifecycle policies in a registry:
+  * Retrieve a list of lifecycle policies in a registry:
 
-      ```bash
-      yc container repository lifecycle-policy list --registry-id crp2hlbs67tj4ggrfodb
-      ```
+    ```bash
+    yc container repository lifecycle-policy list --registry-id crp2hlbs67tj4ggrfodb
+    ```
 
-      Result:
+    Command output:
 
-      ```bash
-      +----------------------+-------------+----------------------+----------+---------------------+--------------------------------+
-      |          ID          |    NAME     |    REPOSITORY ID     |  STATUS  |       CREATED       |          DESCRIPTION           |
-      +----------------------+-------------+----------------------+----------+---------------------+--------------------------------+
-      | crp6lg1868p3i0emkv1b | test-policy | crp3cpm16edqql0t30s2 | DISABLED | 2020-05-28 15:05:58 | disabled lifecycle-policy for  |
-      |                      |             |                      |          |                     | tests                          |
-      | crpbia0qsdqpi28444jn |             | crpo17tgeemuto888jdh | DISABLED | 2020-05-28 08:06:14 |                                |
-      +----------------------+-------------+----------------------+----------+---------------------+--------------------------------+
-      ```
+    ```bash
+    +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
+    |          ID          |    NAME     |    REPOSITORY ID     |  STATUS  |       CREATED       |          DESCRIPTION          |
+    +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
+    | crp6lg1868p3i0emkv1b | test-policy | crp3cpm16edqql0t30s2 | DISABLED | 2020-05-28 15:05:58 | disabled lifecycle-policy for |
+    |                      |             |                      |          |                     | tests                         |
+    | crpbia0qsdqpi28444jn |             | crpo17tgeemuto888jdh | DISABLED | 2020-05-28 08:06:14 |                               |
+    +----------------------+-------------+----------------------+----------+---------------------+-------------------------------+
+    ```
 
 - API
 
-   To retrieve a list of lifecycle policies, use the [List](../../api-ref/grpc/lifecycle_policy_service.md#List) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource.
+  To retrieve a list of lifecycle policies, use the [List](../../api-ref/grpc/lifecycle_policy_service.md#List) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource.
 
 {% endlist %}
 
@@ -59,30 +59,28 @@ Find out how to get:
 
 - CLI
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  Get detailed information about a lifecycle policy using the `id` from the [previous](#lifecycle-policy-list) item:
 
-   Get detailed information about a lifecycle policy using the `id` from the [previous](#lifecycle-policy-list) item:
+  ```bash
+  yc container repository lifecycle-policy get crp6lg1868p3i0emkv1b
+  ```
 
-   ```bash
-   yc container repository lifecycle-policy get crp6lg1868p3i0emkv1b
-   ```
+  Command output:
 
-   Result:
-
-   ```bash
-   id: crp6lg1868p3i0emkv1b
-   name: test-policy
-   repository_id: crp3cpm16edqql0t30s2
-   ...
-     expire_period: 172800s
-     tag_regexp: test.*
-     untagged: true
-   ```
+  ```bash
+  id: crp6lg1868p3i0emkv1b
+  name: test-policy
+  repository_id: crp3cpm16edqql0t30s2
+  ...
+    expire_period: 172800s
+    tag_regexp: test.*
+    untagged: true
+  ```
 
 - API
 
-   To get detailed information about a lifecycle policy, use the [Get](../../api-ref/grpc/lifecycle_policy_service.md#Get) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource. In the `lifecycle_policy_id` parameter, specify a policy ID.
+  To get detailed information about a lifecycle policy, use the [Get](../../api-ref/grpc/lifecycle_policy_service.md#Get) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource. In the `lifecycle_policy_id` parameter, specify a policy ID.
 
-   You can retrieve a list of policies using the [List](../../api-ref/grpc/lifecycle_policy_service.md#List) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource.
+  You can retrieve a list of policies using the [List](../../api-ref/grpc/lifecycle_policy_service.md#List) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource.
 
 {% endlist %}

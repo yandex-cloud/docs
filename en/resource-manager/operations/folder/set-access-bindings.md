@@ -1,6 +1,6 @@
 # Setting up folder access rights
 
-To grant a user access to all the folder resources, assign the user a [role](../../../iam/concepts/access-control/roles.md) for this folder.
+To grant a user access to folder resources, assign the user a [role](../../../iam/concepts/access-control/roles.md) for the folder.
 
 ## Assign a role for a folder {#access-to-user}
 
@@ -226,13 +226,8 @@ To grant a user access to all the folder resources, assign the user a [role](../
 
 {% endlist %}
 
-## Examples {#examples}
 
-* [{#T}](#multiple-roles)
-* [{#T}](#access-to-sa)
-* [{#T}](#access-to-all)
-
-### Assign multiple roles {#multiple-roles}
+## Assign multiple roles {#multiple-roles}
 
 {% list tabs %}
 
@@ -342,7 +337,7 @@ To grant a user access to all the folder resources, assign the user a [role](../
 
       * `members`: List of users to assign the role to. To add a user to the list, create an entry in the format `userAccount:<user ID>` where `<user ID>` is the email address of the Yandex account (for example, `ivan@yandex.ru`). Required parameter.
 
-      {% cut "Example of assigning roles for the folder using {{ TF }}" %}
+      {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
       ```hcl
       ...
@@ -392,7 +387,7 @@ To grant a user access to all the folder resources, assign the user a [role](../
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -409,8 +404,7 @@ To grant a user access to all the folder resources, assign the user a [role](../
 
 {% endlist %}
 
-
-### Folder access for a service account {#access-to-sa}
+## Folder access for a service account {#access-to-sa}
 
 You can only use the management console to assign a service account a role for a folder in the same cloud as the service account folder.
 
@@ -513,7 +507,7 @@ You can only use the management console to assign a service account a role for a
 {% endlist %}
 
 
-### Folder access for a federated user {#access-to-federated-user}
+## Folder access for a federated user {#access-to-federated-user}
 
 {% list tabs %}
 
@@ -554,12 +548,12 @@ You can only use the management console to assign a service account a role for a
 
 
 
-### Access to a resource for all users {#access-to-all}
+## Access to a resource for all users {#access-to-all}
 
 {% include [grant-role-for-sa](../../../_includes/iam/grant-role-for-all.md) %}
 
 
-#### What's next {#what-is-next}
+## What's next {#what-is-next}
 
 * [{#T}](update.md)
 * [{#T}](../../concepts/resources-hierarchy.md)

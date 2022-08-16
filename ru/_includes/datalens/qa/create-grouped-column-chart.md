@@ -2,4 +2,4 @@
 
 По умолчанию отображается диаграмма с накоплением (см. [изображение](https://storage.yandexcloud.net/doc-files/bar-chart.png)).
 
-Воспользуйтесь [инструкцией](../../../datalens/operations/chart/create-column-chart.md#grouped-column-chart), чтобы отобразить столбчатую диаграмму с группировкой.
+Воспользуйтесь [инструкцией](../../../datalens/visualization-ref/column-chart.md#grouped-column-chart), чтобы отобразить столбчатую диаграмму с группировкой.

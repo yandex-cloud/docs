@@ -78,6 +78,8 @@ editable: false
 
 ## Цены {{ adv-ddos-protection }} {#prices-ddos-advanced}
 
+Услуга {{ adv-ddos-protection }} подключается по запросу через [форму](https://forms.yandex.ru/surveys/13203262.d03e905cf02195bec1093aa2b032802fe13caac0/).
+
 {% note warning "Важно" %}
 
 Обратите внимание, что абонентская плата за услуги {{ adv-ddos-protection }} и Managed Web Application Firewall списывается сразу за весь месяц и не рассчитывается пропорционально дням. Например, если вы подключили или отключили услуги в середине месяца, абонентская плата все равно спишется полностью.
