@@ -1,0 +1,1 @@
+`connection.connection_options.on_premise.tls_mode.enabled.ca_certificate`: CA certificate if the data to transfer must be encrypted to comply with [PCI DSS]({% if lang == "ru" %}{{ link-pci-dss-ru }}{% endif %}{% if lang =="en" %}{{ link-pci-dss-en }}{% endif %}) requirements.

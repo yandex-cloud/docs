@@ -50,7 +50,6 @@ The following charts open on the page:
 * **Transaction quantiles**: Transaction processing time by percentile.
 * **Transactions/statements per second**: Number of transactions and operators per second.
 
-
 ## Monitoring the state of hosts {#monitoring-hosts}
 
 To view detailed information about the status of individual {{ mpg-name }} hosts:
@@ -72,29 +71,25 @@ The **Disk read/write bytes** and the **Disk IOPS** charts show that the **Read*
 
 For hosts with the **Replica** role, it's normal that **Received** is greater than **Sent** on the **Network Bytes** and **Network Packets** charts.
 
-## Integration with {{ monitoring-full-name }} {#monitoring-integration}
+## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
-To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
+{% list tabs %}
 
-1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
-1. Click the ![image](../../_assets/ugly-sandwich.svg) icon and select **Monitoring**.
-1. Under **Service dashboards**, select:
-   * **{{ mpg-name }} — Cluster Overview** to configure cluster alerts.
-   * **{{ mpg-name }} — Host Overview** to configure host alerts.
-1. In the desired chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
-1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. {% if audience == "external" %}For more on the query language, [see the {{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). {% endif %}
-1. Set the `Alarm` and `Warning` notification threshold values.
-1. Click **Create alert**.
+* Management console
 
-To have other cluster health indicators monitored automatically:
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
+   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
+   1. Under **Service dashboards**, select:
+      * **{{ mpg-name }} — Cluster Overview **to configure cluster alerts.
+      * **{{ mpg-name }} — Host Overview **to configure host alerts.
+   1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
+   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. {% if audience == "external" %}For more on the query language, [see the {{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). {% endif %}
+   1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
+   1. Click **Create alert**.
 
-{% if audience == "external" %}
-1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
-   {% else %}
-1. Create an alert.
-   {% endif %}
-1. Add a status metric.
-1. Set the alert threshold values in the alert settings.
+{% endlist %}
+
+{% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
 Recommended threshold values:
 
@@ -106,6 +101,10 @@ Recommended threshold values:
 | Storage space used | `disk.used_bytes` | 90% of storage size | 80% of storage size |
 
 You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).
+
+{% if audience != "internal" %}
+For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-postgresql).
+{% endif %}
 
 ## Cluster state and status {#cluster-health-and-status}
 
