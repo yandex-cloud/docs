@@ -122,7 +122,7 @@ If you no longer need these resources, [delete them](#clear-out-logical).
 Use the `pg_dump` utility to create a file with the database schema to be applied in the target cluster.
 
 ```bash
-pg_dump -h <IP address or FQDN of source cluster's master host> \
+pg_dump -h <IP address or FQDN of source cluster’s master host> \
         -U <username> \
         -p <port> \
         --schema-only \
@@ -139,7 +139,7 @@ This export command skips all data associated with privileges and roles to avoid
 Using the `pg_restore` utility, restore the database schema in the target cluster:
 
 ```bash
-pg_restore -h <IP address or FQDN of target cluster's master host> \
+pg_restore -h <IP address or FQDN of target cluster’s master host> \
            -U <username> \
            -p {{ port-mpg }} \
            -Fd -v \
@@ -196,7 +196,7 @@ To complete synchronization of the source cluster and the target cluster:
 1. Create a dump with {{ PG }}-sequences in the source cluster:
 
    ```bash
-   pg_dump -h <IP address or FQDN of source cluster's master host> \
+   pg_dump -h <IP address or FQDN of source cluster’s master host> \
            -U <username> \
            -p <port> \
            -d <DB name> \
@@ -210,7 +210,7 @@ To complete synchronization of the source cluster and the target cluster:
 1. Restore the dump with sequences in the target cluster:
 
    ```bash
-   psql -h <IP address or FQDN of target cluster's master host> \
+   psql -h <IP address or FQDN of target cluster’s master host> \
         -U <username> \
         -p {{ port-mpg }} \
         -d <DB name> \
@@ -261,7 +261,7 @@ If you no longer need these resources, [delete them](#clear-out-backup).
 1. Create a dump using the [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) utility. To speed up the process, run it in multithreaded mode by passing the number of available CPU cores in the `-j` argument:
 
    ```bash
-   pg_dump -h <IP address or FQDN of source cluster's master host> \
+   pg_dump -h <IP address or FQDN of source cluster’s master host> \
            -U <username> \
            -j <number of processor cores> \
            -Fd -d <DB name> \
@@ -342,7 +342,7 @@ That is, to restore a dump of {{ PG }} 10, {{ PG }} 11, {{ PG }} 12, {{ PG }} 13
 If you only need to restore a single schema, add the `-n <schema name>` flag (without it, the command only runs on behalf of the database owner). Best practice is to restore data with the `--single-transaction` flag to avoid an inconsistent state of the database if an error occurs:
 
 ```bash
-pg_restore -h <IP address or FQDN of target cluster's master host> \
+pg_restore -h <IP address or FQDN of target cluster’s master host> \
            -U <username>
            -d <DB name> \
            -p {{ port-mpg }} \

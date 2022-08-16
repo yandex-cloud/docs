@@ -174,6 +174,12 @@ items:
         when: product == "yandex-cloud"
       - name: Migrating databases from a third-party {{ MY }} cluster to a {{ mmy-full-name }} cluster
         href: dataplatform/mysql-data-migration.md
+      - name: Importing data from {{ mmy-full-name }} to {{ dataproc-full-name }} using Sqoop
+        href: dataplatform/sqoop-mmy.md
+        when: product == "yandex-cloud"
+      - name: Importing data from {{ mpg-full-name }} to {{ dataproc-full-name }} using Sqoop
+        href: dataplatform/sqoop-mpg.md
+        when: product == "yandex-cloud"
   - name: Windows in {{ yandex-cloud }}
     when: product == "yandex-cloud"
     items:
