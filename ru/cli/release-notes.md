@@ -4,11 +4,17 @@
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+{% if product == "yandex-cloud" %}
+
 #### {{ cloud-logging-name }} {#cloud-logging}
 
 * В команды `yc logging read` и `yc logging write` добавлен параметр `--stream-name`.
 
+{% endif %}
+
 #### Сервисы управляемых баз данных {#managed-db}
+
+{% if product == "yandex-cloud" %}
 
 **{{ mgp-name }}**
 
@@ -19,6 +25,10 @@
 
 * В команду `yc managed-greenplum create cluster` добавлен флаг `--datatransfer-access` для разрешения доступа из {{ data-transfer-name }}.
 
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 **{{ mrd-name }}**
 
 * В команды `yc managed-redis cluster create`, `yc managed-redis cluster restore`,
@@ -26,6 +36,8 @@
 
   * `--assign-public-ip=true|false` — привязывает или удаляет публичный IP-адрес хоста.
   * `--replica-priority=50` — выставляет приоритет реплики (только для нешардированного кластера).
+
+{% endif %}
 
 **{{ mch-name }}**
 
