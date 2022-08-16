@@ -82,8 +82,9 @@
     * Установите сертификаты:
 
         ```bash
-        sudo mkdir -p {{ crt-local-dir }} && \
-        sudo wget "{{ s3-storage-host }}{{ pem-path }}" -O {{ crt-local-dir }}{{ crt-local-file }}
+        mkdir --parents {{ crt-local-dir }} && \
+        wget "{{ s3-storage-host }}{{ pem-path }}" \
+            --output-document {{ crt-local-dir }}{{ crt-local-file }}
         ```
 
     * Подготовьте окружение и установите библиотеку [phpredis](https://github.com/phpredis/phpredis) с помощью `pecl`:
