@@ -1,6 +1,58 @@
 # Релизы YC CLI
 
-## Версия 0.93.0 (19.07.22) {#latest-release}
+## Версия 0.94.0 (16.08.22) {#latest-release}
+
+### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+#### {{ cloud-logging-name }} {#cloud-logging}
+
+* В команды `yc logging read` и `yc logging write` добавлен параметр `--stream-name`.
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mgp-name }}**
+
+* Добавлена поддержка команд:
+
+  * `yc managed-greenplum cluster update` — позволяет изменять настройки уже созданных кластеров.
+  * `yc managed-greenplum cluster update-config` — позволяет изменять параметры конфигурации уже созданных кластеров.
+
+* В команду `yc managed-greenplum create cluster` добавлен флаг `--datatransfer-access` для разрешения доступа из {{ data-transfer-name }}.
+
+**{{ mrd-name }}**
+
+* В команды `yc managed-redis cluster create`, `yc managed-redis cluster restore`,
+  `yc managed-redis hosts add`, `yc managed-redis hosts update`, `yc managed-redis shards add` добавлены флаги:
+
+  * `--assign-public-ip=true|false` — привязывает или удаляет публичный IP-адрес хоста.
+  * `--replica-priority=50` — выставляет приоритет реплики (только для нешардированного кластера).
+
+**{{ mch-name }}**
+
+* В команды `yc managed-clickhouse cluster create` и `yc managed-clickhouse cluster update` добавлены флаги:
+
+  * `--cloud-storage-move-factor` — для указания доли свободного места на локальном диске, при котором начнется перенос данных на {{ objstorage-name }}.
+  * `--cloud-storage-data-cache` — для разрешения использования локального кеша для {{ objstorage-name }}.
+  * `--cloud-storage-data-cache-max-size` — для указания максимального объема локального кеша для {{ objstorage-name }}.
+
+**{{ mkf-name }}**
+
+* Добавлена группа команд `yc managed-kafka connector`, которая позволяет управлять коннекторами с помощью команд `get`, `list`, `delete`, `pause`, `resume`.
+* Добавлена группа команд `yc managed-kafka connector-mirrormaker`, которая позволяет управлять коннекторами типа MirrorMaker с помощью команд `create` и `update`.
+* В команды `yc managed-kafka cluster create` и `yc managed-kafka cluster update` добавлены параметры для задания и изменения конфигурационных настроек хостов-брокеров:
+  - `message-max-bytes`
+  - `replica-fetch-max-bytes`
+  - `offsets-retention-minutes`
+  - `ssl-cipher-suites`
+
+#### {{ vpc-name }} {#vpc}
+
+* Добавлена группа команд `yc vpc gateway` для управления шлюзами маршрутизации.
+* В команды группы `yc vpc route-table` добавлена возможность указать шлюз в качестве назначения маршрута.
+
+## Предыдущие релизы {#previous-releases}
+
+## Версия 0.93.0 (19.07.22) {#version0.93.0}
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
