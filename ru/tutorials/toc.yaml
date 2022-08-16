@@ -184,6 +184,7 @@ items:
         # RD
       - name: Миграция базы данных из стороннего кластера {{ RD }} в {{ mrd-full-name }}
         href: dataplatform/redis-data-migration.md
+        when: product == "yandex-cloud"
         # MS
       - name: Миграция базы данных из стороннего кластера {{ MS }} в {{ mms-full-name }}
         href: dataplatform/mssql-data-migration.md

@@ -159,6 +159,9 @@ items:
       - name: >-
           Configuring {{ dns-full-name }} for accessing managed database clusters from other cloud networks
         href: dataplatform/mdb-dns-peering.md
+      - name: Transferring a database to {{ mrd-full-name }}
+        href: dataplatform/redis-data-migration.md
+        when: product == "yandex-cloud"
       - name: Migrating to {{ mes-full-name }} using the Reindex API
         href: dataplatform/migration-via-reindex-api.md
         when: product == "yandex-cloud"
