@@ -17,13 +17,13 @@ There are two ways to send an SQL query to Hive:
 * In the run job command:
 
     ```bash
-    yc dataproc job create-hive --cluster-id <cluster ID> --name <job name> --query-list "SELECT Month, COUNT(*)  FROM flights GROUP BY Month;"
+    {{ yc-dp }} job create-hive --cluster-id <cluster ID> --name <job name> --query-list "SELECT Month, COUNT(*)  FROM flights GROUP BY Month;"
     ```
 
 * In the {{objstorage-name}} object that the {{dataproc-name}} cluster service account has read access to:
 
     ```bash
-    yc dataproc job create-hive --cluster-id <cluster ID> --name <job name> --query-file-uri "s3a://<your bucket>/hive-query.sql"
+    {{ yc-dp }} job create-hive --cluster-id <cluster ID> --name <job name> --query-file-uri "s3a://<your bucket>/hive-query.sql"
     ```
 
 You can find the query execution results and additional diagnostic information in the {{objstorage-name}} bucket that you specified when creating the cluster: `s3://<your bucket>/dataproc/clusters/<cluster ID>/jobs/<job ID>/`.

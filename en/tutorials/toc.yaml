@@ -199,6 +199,8 @@ items:
         href: routing/mikrotik.md
       - name: Connecting to a cloud network using OpenVPN
         href: routing/openvpn.md
+      - name: Configuring networks for {{ dataproc-full-name }}
+        href: routing/dataproc-nat-instance.md
   - name: Data visualization and analytics
     items:
       - name: All tutorials

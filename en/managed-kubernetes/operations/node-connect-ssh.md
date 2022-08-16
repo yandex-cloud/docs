@@ -1,18 +1,27 @@
 # Connecting to a node over SSH
 
-To connect to a node over SSH, you must add the public key to the metainformation when creating the node group.
+To connect to a {{ k8s }} [cluster](../concepts/index.md#kubernetes-cluster) [node](../concepts/index.md#node-group) over SSH:
+* Add the public key to the meta information when [creating a node group](node-group/node-group-create.md).
 
-{% note info %}
+  {% note info %}
 
-SSH connection using a login and password is disabled by default on Linux images that are used on nodes.
+  SSH connection using a login and password is disabled by default on Linux images that are used on nodes.
 
-{% endnote %}
+  {% endnote %}
 
-For more information about connecting over SSH, see [Connecting to a VM via SSH](../../compute/operations/vm-connect/ssh.md).
+* [Configure cluster security groups](connect/security-groups.md).
+
+  {% note warning %}
+
+  Security group settings may prevent connection to the cluster.
+
+  {% endnote %}
+
+For more information, see [Connecting to a VM via SSH](../../compute/operations/vm-connect/ssh.md).
 
 ## Create SSH key pairs {#creating-ssh-keys}
 
-Prepare the keys for use with your node. To do this:
+Prepare the keys for use with your {{ k8s }} cluster node. To do this:
 
 {% list tabs %}
 
@@ -25,7 +34,7 @@ Prepare the keys for use with your node. To do this:
      ssh-keygen -t rsa -b 2048
      ```
 
-     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `~./ssh` directory.
+     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `~/.ssh` directory.
 
      The public part of the key will be saved in a file with the name `<key name>.pub`.
 
@@ -38,14 +47,13 @@ Prepare the keys for use with your node. To do this:
      ssh-keygen -t rsa -b 2048
      ```
 
-     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `C:\Users\<username>\.ssh\` directory.
+     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `C:\Users\<user name>\.ssh\` directory.
 
      The public part of the key will be saved in a file with the name `<key name>.pub`.
 
 - Windows 7/8
 
   To create keys for Windows, use the PuTTY application.
-
   1. [Download](https://www.putty.org) and install PuTTY.
   1. Make sure that the directory where you installed PuTTY is included in `PATH`:
      1. Right-click on **My computer**. Click **Properties**.
@@ -73,7 +81,7 @@ The file with the public key is created in the format:
 ssh-rsa AAAAB3NzaC*********** rsa-key-20190412
 ```
 
-You need to convert the key to the format `<username>:ssh-rsa <key body> <username>`, so that it looks like this:
+You need to convert the key to the format `<user name>:ssh-rsa <key body> <user name>`, so that it looks like this:
 
 ```
 username:ssh-rsa AAAAB3NzaC***********zo/lP1ww== username
@@ -95,8 +103,7 @@ yc managed-kubernetes node-group create \
   --name <node group name> \
   --cluster-name <{{ k8s }} cluster name> \
   --fixed-size <number of nodes in the group> \
-  --location zone=<availability zone>,subnet-name=<subnet name> \
-  --public-ip \
+  --network-interface security-group-ids=[<list of security groups>],subnets=<subnet name>,ipv4-address=nat \
   --metadata-from-file ssh-keys=<name of the file with public keys>
 ```
 
@@ -114,7 +121,7 @@ yc managed-kubernetes node-group add-metadata \
 
 ## Get the public IP address of the node {#node-public-ip}
 
-To connect, specify the [public IP address](../../vpc/concepts/address.md#public-addresses) of the node. You can find it using one of the following methods.
+To connect, specify the node [public IP address](../../vpc/concepts/address.md#public-addresses). You can find it using one of the following methods.
 
 {% list tabs %}
 
@@ -135,6 +142,7 @@ To connect, specify the [public IP address](../../vpc/concepts/address.md#public
   ```
 
 - Management console
+
   1. Open the **{{ compute-name }}** section in the folder where you created your {{ k8s }} cluster.
   1. On the **Virtual machines** page, go to the **Instance groups** tab.
   1. Click on the instance group with the name that matches the node group ID.
@@ -185,7 +193,7 @@ To connect, specify the [public IP address](../../vpc/concepts/address.md#public
 
 ## Connect to the node {#node-connect}
 
-You can connect to a node over SSH once it is started (with the `RUNNING` status). You can use the `ssh` tool in Linux and macOS or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
+You can connect to a node over SSH once it is started (with the `RUNNING` status). You can use the `ssh` utility in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
 
 {% list tabs %}
 
@@ -194,7 +202,7 @@ You can connect to a node over SSH once it is started (with the `RUNNING` status
   In the terminal, run the following command:
 
   ```bash
-  ssh <username>@<public_IP_address_of_the_node>
+  ssh <username>@<public IP address of the node>
   ```
 
   If this is the first time you connect to the node, you might see a warning about an unknown host:

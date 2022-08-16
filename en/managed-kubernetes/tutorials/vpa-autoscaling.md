@@ -10,10 +10,10 @@
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. [Create security groups](../operations/security-groups.md) for the [{{ k8s }} master](../concepts/index.md#master) and its [nodes](../concepts/index.md#node-group):
-   * `sg-k8s`: For [master and node group](../operations/security-groups.md#rules-internal).
-   * `k8s-public-services`: For [public access to services from the internet](../operations/security-groups.md#rules-nodes).
-   * `k8s-master-whitelist`: For [accessing the {{ k8s }} API](../operations/security-groups.md#rules-master).
+1. [Create security groups](../operations/connect/security-groups.md) for the [{{ k8s }} master](../concepts/index.md#master) and its [nodes](../concepts/index.md#node-group):
+   * `sg-k8s`: For [master and node group](../operations/connect/security-groups.md#rules-internal).
+   * `k8s-public-services`: For [public access to services from the internet](../operations/connect/security-groups.md#rules-nodes).
+   * `k8s-master-whitelist`: For [accessing the {{ k8s }} API](../operations/connect/security-groups.md#rules-master).
 1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating a cluster and a group of nodes:
    * Use the previously created security groups.
    * Select automatic as your [public address](../../vpc/concepts/address.md#public-addresses) assignment method.

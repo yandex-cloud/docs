@@ -11,6 +11,7 @@
 
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: создание site-to-site VPN-соединения с {{ yandex-cloud }} с помощью {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
 
+
 * **Безопасный удаленный доступ администраторов (VPN)**: настройте VPN-соединение между удаленными устройствами и {{ yandex-cloud }}, используя решения из {{ marketplace-name }}, см. [руководство по настройке](../../tutorials/routing/openvpn.md) на базе [OpenVPN](/marketplace/products/yc/openvpn-access-server).
 * **Bastion host**: создайте бастионную ВМ для доступа в инфраструктуру по управляющим протоколам (например, SSH, RDP).
 * **Исходящий доступ (NAT)**: используйте [встроенный сервис NAT](../../vpc/operations/enable-nat.md) для безопасного исходящего доступа в интернет (egress NAT). Этот сервис делает трансляцию ваших IP-адресов в общий пул адресов. Если необходимо, чтобы выход в интернет был из вашего контролируемого пула IP-адресов, используйте [NAT-инстанс](../../tutorials/routing/nat-instance.md#create-nat-instance) (выделенную ВМ).
@@ -57,7 +58,7 @@
 * **Защита на уровне ОС**: устанавливайте на ВМ антивирусные решения из [{{ marketplace-name }}](/marketplace?categories=security).
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: развертывание Kaspersky Antivirus в {{ yandex-cloud }} ({{ compute-full-name }}, {{ coi }})](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/malware-defense/kaspersy-install-in-yc)
 * **Защита на уровне сети**: используйте NGFW/IDS/IPS, представленные в [{{ marketplace-name }}](/marketplace?categories=security) (некоторые из них имеют встроенные песочницы).
-* **Защита на уровне образов контейнеров**: используйте сканер уязвимостей в образах, встроенный в сервис {{ container-registry-full-name }}.<!-- tbd: вставить ссылку на инструкцию, когда она появится -->
+* **Защита на уровне образов контейнеров**: используйте сканер уязвимостей в образах, встроенный в сервис {{ container-registry-name }}.<!-- tbd: вставить ссылку на инструкцию, когда она появится -->
 
 ## Управление уязвимостями {#vulnerability-management}
 
@@ -133,7 +134,7 @@
 
 * **Сбор и анализ аудитных логов {{ k8s }} и инструментов защиты**.
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: анализ логов безопасности {{ k8s }} в {{ mes-name }}: аудитные логи, policy engine, Falco](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
-* **Сбор и анализ аудитных логов workloads и группы узлов**: например, с помощью открытых инструментов Fluentbit, Beats и др.
+* **Сбор и анализ аудитных логов workloads и группы узлов**: например, с помощью открытых инструментов Fluent Bit, Beats и др.
 
 
 * **Мониторинг аномальной нагрузки**: используйте [{{ monitoring-full-name }}](../../monitoring/).

@@ -9,8 +9,14 @@ You can change the following parameters of a [{{ k8s }} cluster](../../concepts/
 * Description.
 * [Service accounts](../../../iam/operations/sa/create.md).
 * {{ k8s }} version.
-* List of [security groups](../../../vpc/concepts/security-groups.md).
-* [Update](../../concepts/release-channels-and-updates.md) policy.
+* [Update](../../concepts/release-channels-and-updates.md#updates) policy.
+* List of [security groups](../connect/security-groups.md).
+
+  {% note alert %}
+
+  Do not delete the security groups bound to a running cluster as this might result in disruptions in its operation and data loss.
+
+  {% endnote %}
 
 {% list tabs %}
 
@@ -49,7 +55,6 @@ You can change the following parameters of a [{{ k8s }} cluster](../../concepts/
      ```
 
      Where:
-
      * `--new-name`: Cluster name.
      * `--description`: Cluster description.
      * `--service-account-id`, `--service-account-name`: Service account for managing the cluster.

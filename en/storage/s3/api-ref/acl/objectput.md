@@ -4,7 +4,7 @@ Uploads an access control list for an object.
 
 {% note info %}
 
-ACLs can be uploaded as XML documents or using special `x-amx-grant*` headers. Don't use XML documents and `x-amx-grant*` headers in the same request.
+ACLs can be uploaded as XML documents or using special `X-Amz-Grant*` headers. Don't use XML documents and `X-Amz-Grant*` headers in the same request.
 
 {% endnote %}
 
