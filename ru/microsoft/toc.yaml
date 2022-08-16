@@ -27,6 +27,10 @@ items:
         href: tutorials/rds-gw.md
       - name: Обновление редакции Windows Server до Datacenter
         href: tutorials/edition-update-datacenter.md
+      - name: Подготовка собственных образов с продуктами Microsoft
+        href: prepare-image.md
+      - name: Использование своей лицензии для продуктов Microsoft
+        href: byol.md
   - name: Лицензирование
     items:
       - name: Лицензии Microsoft в {{ yandex-cloud }}
