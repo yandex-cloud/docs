@@ -13,34 +13,79 @@ There are two ways to migrate topics from a {{ KF }} _source cluster_ to a {{ mk
 1. [Create a connector](#create-connector).
 1. [Check the target cluster topic for data](#check-data-mkf-connector).
 
-### Before you begin {#before-you-begin-connector}
+### Create a cluster and a connector {#create-cluster-connector}
 
-1. Prepare the target cluster:
-   * Enable [topic management](../managed-kafka/concepts/topics.md#management) via the Admin API.
-   * Create an [admin user](../managed-kafka/operations/cluster-accounts.md#create-account) named `admin-cloud`.
-   * Enable [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
-   * Configure [security groups](../managed-kafka/operations/connect.md#configuring-security-groups), if required, to connect to the target cluster.
+{% list tabs %}
 
-1. Create a source cluster user named `admin-source` that is authorized to manage topics via the Admin API.
-1. Configure a firewall in the source cluster, if required to connect to the cluster from outside.
+* Manually
 
-### Create a connector {#create-connector}
+   1. Prepare the target cluster:
+      * Enable [topic management](../managed-kafka/concepts/topics.md#management) via the Admin API.
+      * Create an [admin user](../managed-kafka/operations/cluster-accounts.md#create-account) named `admin-cloud`.
+      * Enable [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
+      * Configure [security groups](../managed-kafka/operations/connect.md#configuring-security-groups), if required, to connect to the target cluster.
 
-[For the target cluster, clreate a connector](../managed-kafka/operations/cluster-connector.md#create-connector) of the `MirrorMaker` type, configured as follows:
+   1. Create a source cluster user named `admin-source` that is authorized to manage topics via the Admin API.
+   1. Make sure that the network hosting the source cluster is configured to allow source cluster connections from the internet.
+   1. [For the target cluster, clreate a connector](../managed-kafka/operations/cluster-connector.md#create-connector) of the `MirrorMaker` type, configured as follows:
 
-* **Topics**: List of topics to migrate. You can also specify a regular expression for selecting topics. To migrate all topics, specify `.*`.
-* Under **Source cluster**, specify the parameters for connecting to the source cluster:
-   * **Alias**: A prefix to indicate the source cluster in the connector settings. Defaults to `source`. Topics in the target cluster are created with the indicated prefix.
-   * **Bootstrap servers**: A comma-separated list of the FQDNs of the source cluster's broker hosts with the port numbers to connect to.
-   * **SASL username**, **SASL password**: Username and password for the previously created `admin-source` user.
-   * **SASL mechanism**: `SCRAM-SHA-512` mechanism for username and password encryption.
-   * **Security protocol**: Select a protocol for connecting the connector:
-      * `SASL_PLAINTEXT`: For connecting to the source cluster without SSL.
-      * `SASL_SSL`: For SSL connections to the source cluster.
+      * **Topics**: List of topics to migrate. You can also specify a regular expression for selecting topics. To migrate all topics, specify `.*`.
+      * Under **Source cluster**, specify the parameters for connecting to the source cluster:
+         * **Alias**: A prefix to indicate the source cluster in the connector settings. Defaults to `source`. Topics in the target cluster are created with the indicated prefix.
+         * **Bootstrap servers**: Comma-separated list of source cluster broker host FQDNs with port numbers, for example:
 
-* Under **Target cluster**, select **Use this cluster**.
+            ```text
+            FQDN1:9091,FQDN2:9091,...,FQDN:9091
+            ```
+
+         * **SASL username**, **SASL password**: Username and password for the previously created `admin-source` user.
+         * **SASL mechanism**: `SCRAM-SHA-512` mechanism for username and password encryption.
+         * **Security protocol**: Select a protocol for connecting the connector:
+            * `SASL_PLAINTEXT`: For connecting to the source cluster without SSL.
+            * `SASL_SSL`: For SSL connections to the source cluster.
+
+      * Under **Target cluster**, select **Use this cluster**.
+
+* Using {{ TF }}
+
+   1. If you don't have {{ TF }}, [install it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. Download the [kafka-mirrormaker-connector.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/kafka-connectors/kafka-mirrormaker-connector.tf) configuration file to the same working directory.
+
+      This file describes:
+
+      * Network.
+      * Subnet.
+      * Default security group and rules required to connect to the cluster from the internet.
+      * {{ mkf-name }} cluster with [topic management](../managed-kafka/concepts/topics#management) via the Admin API, an [administrator user](../managed-kafka/operations/cluster-accounts.md#create-account) named `admin-cloud`, and the [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics) setting enabled.
+      * MirrorMaker connector.
+
+   1. In `kafka-mirrormaker-connector.tf`, specify:
+
+      * Usernames and passwords for the source and the target cluster users.
+      * Source cluster broker host FQDNs.
+      * Source and target cluster aliases.
+      * Filter template for the topics to be transferred.
+      * {{ KF }} version.
+
+   1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Make sure the {{ TF }} configuration files are correct using the command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If there are errors in the configuration files, {{ TF }} will point to them.
+
+   1. Create the required infrastructure:
+
+      {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../_includes/mdb/terraform/explore-resources.md) %}
 
 Once created, the connector is automatically activated and data migration begins.
+
+{% endlist %}
 
 ### Check the target cluster topic for data {#check-data-mkf-connector}
 
@@ -60,7 +105,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% list tabs %}
 
-* Manually
+- Manually
 
    1. [Create a {{ mkf-name }} target cluster](../managed-kafka/operations/cluster-create.md):
 
@@ -70,7 +115,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
    1. [Create a new Linux VM](../compute/operations/vm-create/create-linux-vm.md) for MirrorMaker on the same network the target cluster is on. To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access when creating it.
 
-* Using Terraform
+- Using {{ TF }}
 
    1. If you don't have {{ TF }}, [install it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
@@ -254,7 +299,7 @@ To learn more about MirrorMaker 2.0, see the [{{ KF }} documentation](https://cw
 
 {% list tabs %}
 
-* Manually
+- Manually
 
    If you no longer need these resources, delete them:
 
@@ -262,12 +307,12 @@ To learn more about MirrorMaker 2.0, see the [{{ KF }} documentation](https://cw
    * [Delete the virtual machine](../compute/operations/vm-control/vm-delete.md).
    * If you reserved public static IP addresses, release and [delete them](../vpc/operations/address-delete.md).
 
-* Using Terraform
+- Using {{ TF }}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
    1. In the terminal window, change to the directory containing the infrastructure plan.
-   1. Delete the `kafka-mirror-maker.tf` configuration file.
+   1. Delete the `kafka-mirror-maker.tf` or the `kafka-mirrormaker-connector.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using the command:
 
       ```bash
@@ -280,6 +325,6 @@ To learn more about MirrorMaker 2.0, see the [{{ KF }} documentation](https://cw
 
       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 
-      This will delete all the resources described in the `kafka-mirror-maker.tf` configuration file.
+      This will delete all the resources described in the `kafka-mirror-maker.tf` or the `kafka-mirrormaker-connector.tf` configuration file.
 
 {% endlist %}

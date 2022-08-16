@@ -893,7 +893,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. [Create a user](../../managed-mysql/operations/cluster-users.md#adduser) for connecting to the source.
 
-      1. [Assign the user](../../managed-mysql/operations/grant.md#grant-role) the `ALL_PRIVILEGES` role for the source database.
+      1. [Assign the user](../../managed-mysql/operations/grant.md#grant-role)the `ALL_PRIVILEGES` role for the source database.
 
 - {{ MY }}
 
@@ -943,6 +943,8 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
       {% endnote %}
 
+   1. In the target database, [enable the same extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md) that are enabled in the source database.
+
    1. [Create a user](../../managed-postgresql/operations/cluster-users.md#adduser) with access to the target database.
 
       Once started, the transfer will connect to the target on behalf of this user.
@@ -966,6 +968,8 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
       If you use the _{{ dt-type-copy-repl }}_ transfer type, you can enable the settings again after the [copy stage](../concepts/transfer-lifecycle.md#copy-and-replication) is completed.
 
       {% endnote %}
+
+   1. In the target database, enable the same extensions that are enabled in the source database.
 
    1. Create a user:
 
@@ -999,3 +1003,4 @@ To receive data in {{ ydb-full-name }}, no setup is necessary.
 {% include [airbyte-trademark](../../_includes/data-transfer/airbyte-trademark.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+

@@ -1,1 +1,3 @@
-{% include [kafka-connect](../../_tutorials/dataplatform/kafka-connect.md) %}
+# Configuring {{ KFC }} for {{ mkf-name }} clusters
+
+{% include [kafka-connect](../../_tutorials/mkf-kafka-connect.md) %}

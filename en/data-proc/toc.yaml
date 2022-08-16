@@ -27,10 +27,12 @@ items:
         href: tutorials/configure-network.md
       - name: Using {{ objstorage-full-name }} in {{ dataproc-name }}
         href: tutorials/copy-files-from-object-storage.md
-      - name: Exchanging data with {{ mch-name }}
+      - name: Exchanging data with {{ mch-full-name }}
         href: tutorials/exchange-data-with-mch.md
-      - name: Importing databases using Sqoop
-        href: tutorials/sqoop.md
+      - name: Importing data from {{ mmy-full-name }} clusters using Sqoop
+        href: tutorials/sqoop-mmy.md
+      - name: Importing data from {{ mpg-full-name }} clusters using Sqoop
+        href: tutorials/sqoop-mpg.md
       - name: >-
           Using initialization scripts to configure GeeseFS in {{ dataproc-name
           }}

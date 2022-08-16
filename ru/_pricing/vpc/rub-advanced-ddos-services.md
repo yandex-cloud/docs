@@ -9,4 +9,5 @@
 | Базовая балансировка очищенного трафика между IP-адресами (не более двух апстримов по алгоритму Round-robin) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Балансировка очищенного трафика между IP-адресами клиента QLB (Qrator Load Balancing), ежемесячно | ![image](../../_assets/common/no.svg) | 42 000 ₽ | 42 000 ₽ | ![image](../../_assets/common/yes.svg) |
 | Услуга защиты Websockets (проксирование TCP-соединений), ежемесячно | 18 000 ₽ | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Защита от ботов, ежемесячно, за каждый Мбит/с | 480 ₽ | 480 ₽ | 480 ₽ | Рассчитывается индивидуально |
 | Фильтрация трафика по геозонам, ежемесячно | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | 36 000 ₽ | ![image](../../_assets/common/yes.svg) |
