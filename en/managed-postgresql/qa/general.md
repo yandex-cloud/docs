@@ -160,7 +160,7 @@ For more information about {{ mpg-short-name }} limits, see [{#T}](../concepts/l
 
 #### What {{ PG }} extensions are supported in {{ mpg-short-name }}? {#pg-extension}
 
-The list of supported {{ PG }} extensions is provided in [{#T}](../operations/cluster-extensions.md).
+The list of supported {{ PG }} extensions is provided in [{#T}](../operations/extensions/cluster-extensions.md).
 
 #### Which data center stores {{ PG }} cluster backups? {#data-center}
 

@@ -34,7 +34,8 @@ To set up secret syncing:
    ```
 
 1. [Create a {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration.
-1. [Install the kubectl utility]({{ k8s-docs }}/tasks/tools/install-kubectl/) and [set it up for working with the created cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md).
+
+1. {% include [Install and configure kubectl](../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Install the External Secrets Operator {#install-eso}
 

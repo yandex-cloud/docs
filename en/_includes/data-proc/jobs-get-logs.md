@@ -17,7 +17,7 @@
    To get job execution logs, run the command:
 
    ```bash
-   yc dataproc job log \
+   {{ yc-dp }} job log \
       --cluster-name <cluster name> \
       --name <job name>
    ```

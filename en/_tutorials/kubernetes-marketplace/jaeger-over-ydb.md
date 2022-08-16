@@ -5,14 +5,15 @@ In this article, you will learn how to install the Jaeger platform in a [{{ mana
 1. [Install a test application](#hotrod-install) to create load on a {{ k8s }} cluster.
 1. [Test Jaeger](#jaeger-test) by making a few test requests.
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
 1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration with {{ k8s }} version 1.21 or higher.
-1. [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl) and [configure it to work with the created cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md).
+
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Install and configure Jaeger {#jaeger-install}
 
@@ -29,7 +30,7 @@ In this article, you will learn how to install the Jaeger platform in a [{{ mana
    kubectl get svc | grep ydb-store-agent
    ```
 
-   Result:
+   Expected result:
 
    ```text
    <jaeger-ydb-store-agent application name> ClusterIP 10.2.238.190 ...
@@ -82,7 +83,7 @@ To test Jaeger, use the [HotROD](https://github.com/jaegertracing/jaeger/tree/9f
    kubectl get svc | grep jaeger-ydb-store-query
    ```
 
-   Result:
+   Expected result:
 
    ```text
    <jaeger-ydb-store-query application name>  LoadBalancer  10.2.222.155  130.133.51.247  16686:31189/TCP ...
@@ -110,6 +111,6 @@ To test Jaeger, use the [HotROD](https://github.com/jaegertracing/jaeger/tree/9f
 ## Delete the resources you created {#clear-out}
 
 If you no longer need these resources, delete them:
-1. [Delete the database {{ ydb-name }}](../../ydb/operations/manage-database.md#delete-db).
+1. [Delete the database{{ ydb-name }}](../../ydb/operations/manage-database.md#delete-db).
 1. [Delete a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. If you reserved a public static IP address for the cluster, [delete it](../../vpc/operations/address-delete.md).

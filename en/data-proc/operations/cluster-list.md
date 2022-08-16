@@ -19,7 +19,7 @@ Detailed information about each {{ dataproc-name }} cluster created is available
     To request a list of {{ dataproc-name }} clusters in the default folder, run the command:
 
     ```bash
-    yc dataproc cluster list
+   {{ yc-dp }} cluster list
     ```
 
 - API
@@ -45,7 +45,7 @@ Detailed information about each {{ dataproc-name }} cluster created is available
     To get {{ dataproc-name }} cluster details, run the command:
 
     ```bash
-    yc dataproc cluster get <cluster name or ID>
+    {{ yc-dp }} cluster get <cluster name or ID>
     ```
 
     You can get the cluster ID and name with a [list of clusters in the folder](#list).
@@ -75,7 +75,7 @@ Detailed information about each {{ dataproc-name }} cluster created is available
     To get a list of operations, run the command:
 
     ```bash
-    yc dataproc cluster list-operations <cluster name or ID>
+    {{ yc-dp }} cluster list-operations <cluster name or ID>
     ```
 
     You can get the cluster ID and name with a [list of clusters in the folder](#list).

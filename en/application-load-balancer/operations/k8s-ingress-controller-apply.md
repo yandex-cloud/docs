@@ -4,14 +4,14 @@ The [{{ alb-name }} Ingress controller for {{ managed-k8s-full-name }}](../tools
 
 ## Before you start {#prerequisites}
 
-1. {% include [kubectl-install-links](../../_includes/managed-kubernetes/kubectl-install-links.md) %}
+1. {% include [kubectl-install-links](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. [Install the Ingress controller](k8s-ingress-controller-install.md).
 1. Creating a configuration. For more information, please see the [description](../tools/k8s-ingress-controller/index.md) and the controller reference.
 
 ## Applying a configuration {#apply}
 
 To apply a configuration:
-
 1. Select the folder with the configuration files.
 1. Run the following command:
 
@@ -20,7 +20,6 @@ To apply a configuration:
    ```
 
    Applying a configuration might take a few minutes.
-
 1. If a new `Ingress` resource has been added to the configuration, check that it is there and has a public IP address:
 
    ```bash
@@ -30,7 +29,7 @@ To apply a configuration:
    Result:
 
    ```
-   NAME           CLASS   HOSTS           ADDRESS     PORTS    AGE
+   NAME            CLASS   HOSTS          ADDRESS       PORTS    AGE
    <Ingress name>  <none>  <domain name>  <IP address>  80, 443  15h
    ```
 

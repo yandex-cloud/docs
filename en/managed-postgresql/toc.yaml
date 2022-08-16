@@ -27,8 +27,12 @@ items:
         href: operations/hosts.md
       - name: Managing databases
         href: operations/databases.md
-      - name: Managing PostgreSQL extensions
-        href: operations/cluster-extensions.md
+      - name: PostgreSQL extensions
+        items:
+          - name: Managing extensions
+            href: operations/extensions/cluster-extensions.md
+          - name: pg_cron
+            href: operations/extensions/pg_cron.md
       - name: Managing database users
         href: operations/cluster-users.md
       - name: Assigning privileges and roles

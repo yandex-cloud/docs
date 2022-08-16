@@ -17,7 +17,7 @@ To learn more about updates within one version and host maintenance, see [{#T}](
 
 Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
-1. Review the [change log](https://www.postgresql.org/docs/release/) for the {{ PG }} versions that you are upgrading your cluster to, and make sure they do not affect your applications or the {{ PG }} [extensions](cluster-extensions.md) installed.
+1. Review the [change log](https://www.postgresql.org/docs/release/) for the {{ PG }} versions that you are upgrading your cluster to, and make sure they do not affect your applications or the {{ PG }} [extensions](./extensions/cluster-extensions.md) installed.
 1. Try upgrading a test cluster (you can try [deploying](cluster-backups.md#restore) it from a backup of the main cluster).
 1. [Back up](cluster-backups.md#create-backup) the main cluster prior to upgrading.
 

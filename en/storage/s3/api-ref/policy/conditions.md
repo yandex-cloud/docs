@@ -16,14 +16,14 @@ Condition | Description
 `s3:signatureage` | Sets the length of time that a signature is valid in an authenticated request.
 `s3:signatureversion` | Identifies the version of AWS Signature for authenticated requests.
 `s3:versionid` | Filters access by a specific object version.
-`s3:x-amz-acl` | Requires the `x-amz-acl` request header with the ACL specified.
+`s3:x-amz-acl` | Requires the `X-Amz-Acl` request header with the ACL specified.
 `s3:x-amz-content-sha256` | Prohibits unsigned content in a request.
 `s3:x-amz-copy-source` | Restricts the copy source to a specific bucket, prefix, or object.
-`s3:x-amz-grant-full-control` | Requires the request to include the `x-amz-grant-full-control` (full control) header.
-`s3:x-amz-grant-read` | Requires the request to include the `x-amz-grant-read` (read access) header.
-`s3:x-amz-grant-read-acp` | Requires the request to include the `x-amz-grant-read` (read permissions for the ACL) header.
-`s3:x-amz-grant-write` | Requires the request to include the `x-amz-grant-write` (write access) header.
-`s3:x-amz-grant-write-acp` | Requires the request to include the `x-amz-grant-write` (write permissions for the ACL) header.
+`s3:x-amz-grant-full-control` | Requires the request to include the `X-Amz-Grant-Full-Control` (full control) header.
+`s3:x-amz-grant-read` | Requires the request to include the `X-Amz-Grant-Read` (read access) header.
+`s3:x-amz-grant-read-acp` | Requires the request to include the `X-Amz-Grant-Read` (read permissions for the ACL) header.
+`s3:x-amz-grant-write` | Requires the request to include the `X-Amz-Grant-Write` (write access) header.
+`s3:x-amz-grant-write-acp` | Requires the request to include the `X-Amz-Grant-Write` (write permissions for the ACL) header.
 `s3:x-amz-metadata-directive` | Sets the forced choice of COPY or REPLACE behavior when copying objects.
 `s3:x-amz-server-side-encryption` | Requires server-side encryption.
 `s3:x-amz-server-side-encryption-aws-kms-key-id` | Requires a specific key for server-side encryption.

@@ -21,7 +21,7 @@ For more information, see [What tasks is {{ data-transfer-full-name }} used for]
       Migration with a {{ PG }} version downgrade is impossible.
 
    * When creating a cluster, specify the same database name as in the source cluster.
-   * Enable the same [{{ PG }} extensions](../../managed-postgresql/operations/cluster-extensions.md) as in the source cluster.
+   * Enable the same [{{ PG }} extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md) as in the source cluster.
 
 ## Transferring data {#data-transfer}
 

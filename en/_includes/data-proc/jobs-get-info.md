@@ -15,7 +15,7 @@
    To get general information about the job, run the command:
 
    ```bash
-   yc dataproc job get \
+   {{ yc-dp }} job get \
       --cluster-name <cluster name> \
       --name <job name>
    ```

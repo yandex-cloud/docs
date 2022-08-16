@@ -1,3 +1,1 @@
-- By default, the credentials are added to `$HOME/.kube/config`.
-- If you need to change the configuration location, use the `--kubeconfig <file path>` parameter.
-
+By default, credentials are added to the `$HOME/.kube/config` file. If you need to change the configuration location, use the `--kubeconfig <file path>` parameter.

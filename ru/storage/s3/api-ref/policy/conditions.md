@@ -15,14 +15,14 @@
 `s3:signatureage` | Определяет продолжительность времени, в течение которого действительна подпись запроса аутентификации.
 `s3:signatureversion` | Задает версию подписки AWS для запросов аутентификации.
 `s3:versionid` | Задает доступ к определенной версии объекта.
-`s3:x-amz-acl` | Требует заголовок `x-amz-acl` с заданным ACL в запросе.
+`s3:x-amz-acl` | Требует заголовок `X-Amz-Acl` с заданным ACL в запросе.
 `s3:x-amz-content-sha256` | Запрещает неподписанное содержимое в запросе.
 `s3:x-amz-copy-source` | Ограничивает источник копирования определенным бакетом, префиксом или объектом.
-`s3:x-amz-grant-full-control` | Требует заголовок `x-amz-grant-full-control` (полный доступ) в запросе.
-`s3:x-amz-grant-read` | Требует заголовок `x-amz-grant-read` (доступ на чтение) в запросе.
-`s3:x-amz-grant-read-acp` | Требует заголовок `x-amz-grant-read` (доступ на чтение ACL) в запросе.
-`s3:x-amz-grant-write` | Требует заголовок `x-amz-grant-write` (доступ на запись) в запросе.
-`s3:x-amz-grant-write-acp` | Требует заголовок `x-amz-grant-write` (доступ на запись ACL) в запросе.
+`s3:x-amz-grant-full-control` | Требует заголовок `X-Amz-Grant-Full-Control` (полный доступ) в запросе.
+`s3:x-amz-grant-read` | Требует заголовок `X-Amz-Grant-Read` (доступ на чтение) в запросе.
+`s3:x-amz-grant-read-acp` | Требует заголовок `X-Amz-Grant-Read` (доступ на чтение ACL) в запросе.
+`s3:x-amz-grant-write` | Требует заголовок `X-Amz-Grant-Write` (доступ на запись) в запросе.
+`s3:x-amz-grant-write-acp` | Требует заголовок `X-Amz-Grant-Write` (доступ на запись ACL) в запросе.
 `s3:x-amz-metadata-directive` | Задает принудительный выбор копирования или замены при копировании объектов.
 `s3:x-amz-server-side-encryption` | Требует шифрования на стороне сервера.
 `s3:x-amz-server-side-encryption-aws-kms-key-id` | Требует определенный ключ для шифрования на стороне сервера.

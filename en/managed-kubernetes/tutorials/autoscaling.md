@@ -10,13 +10,14 @@ While running, the total number of [group nodes](../concepts/index.md#node-group
 
 {% endnote %}
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
 1. [Install the Helm package manager](https://helm.sh/docs/intro/install/).
+
 1. [Create service accounts](../../iam/operations/sa/create.md) for the [master](../concepts/index.md#master) and node groups and [assign them roles](../../iam/operations/sa/assign-role-for-sa.md).
    * The `sa-k8s-master` service account for managing clusters:
      * `k8s.clusters.agent`: For managing {{ k8s }} clusters.
@@ -24,10 +25,10 @@ While running, the total number of [group nodes](../concepts/index.md#node-group
    * The `sa-k8s-nodes` service account to manage a group of nodes:
      * `container-registry.images.puller`: For pulling images from [{{ container-registry-full-name }}](../../container-registry/).
 1. [Create a network](../../vpc/quickstart.md) named `k8s-network` to host your cluster. When creating your network, select the **Create subnets** option.
-1. [Create security groups](../operations/security-groups.md) for the master and the nodes:
-   * `sg-k8s`: For [master and node group](../operations/security-groups.md#rules-internal).
-   * `k8s-public-services`: For providing [public access to services from the Internet](../operations/security-groups.md#rules-nodes).
-   * `k8s-master-whitelist`: For [accessing the {{ k8s }} API](../operations/security-groups.md#rules-master).
+1. [Create security groups](../operations/connect/security-groups.md) for the master and the nodes:
+   * `sg-k8s`: For [master and node group](../operations/connect/security-groups.md#rules-internal).
+   * `k8s-public-services`: For providing [public access to services from the Internet](../operations/connect/security-groups.md#rules-nodes).
+   * `k8s-master-whitelist`: For [accessing the {{ k8s }} API](../operations/connect/security-groups.md#rules-master).
 1. [Create an encryption key](../../kms/operations/key.md#create):
    * **Key name**: `k8s-symetric-key`.
    * **Encryption algorithm**: `AES-128`.
@@ -54,13 +55,11 @@ While running, the total number of [group nodes](../concepts/index.md#node-group
      * **Public address**: `Auto`.
      * **Security groups**: `sg-k8s`, `k8s-public-services`.
      * **Location**: `{{ region-id }}-a` or `{{ region-id }}-b`.
-
-1. {% include [kubectl install](../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. {% include [install kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Scaling based on CPU utilization {#cpu-autoscaling}
 
 In this section, you will learn to configure cluster autoscaling based on CPU load.
-
 1. Create a file named `k8s-autoscale-CPU.yaml` containing the settings for a test application, a load balancer, and [{{ k8s-hpa }}](../concepts/autoscale.md#hpa):
 
    {% cut "k8s-autoscale-CPU.yaml" %}
@@ -147,13 +146,13 @@ In this section, you will learn to configure cluster autoscaling based on CPU lo
      while true; do wget -q -O- http://$URL; done
    ```
 
-  {% note tip %}
+{% note tip %}
 
-  To increase load and accelerate scenario progress, run several processes in separate windows.
+To increase load and accelerate scenario progress, run several processes in separate windows.
 
-  {% endnote %}
+{% endnote %}
 
-  In the span of several minutes, {{ k8s-hpa }} will increase the number of pods on the nodes as a result of CPU usage. When existing cluster resources become insufficient to satisfy the `requests` value, {{ k8s-ca}} will increase the number of nodes in the groups.
+In the span of several minutes, {{ k8s-hpa }} will increase the number of pods on the nodes as a result of CPU usage. When existing cluster resources become insufficient to satisfy the `requests` value, {{ k8s-ca}} will increase the number of nodes in the groups.
 1. Stop simulating the workload. Over the next few minutes, the number of nodes and pods will drop back to the initial state.
 
 ## Scaling based on application requests {#rps-autoscaling}
@@ -263,7 +262,7 @@ In this section, you will learn to configure cluster autoscaling based on the nu
      while true; do curl -H "Host: nginx.example.com" http://$URL; done
    ```
 
-   Over the next several minutes, {{ k8s-hpa }} will increase the number of pods on the nodes as a result of an increased number of application requests. When existing cluster resources become insufficient to satisfy the `requests` value, {{ k8s-ca}} will increase the number of nodes in the groups.
+   Over the next several minutes, {{ k8s-hpa }} will increase the number of pods on the nodes as a result of an increased number of application requests. When existing cluster resources become insufficient to satisfy the `requests` value, {{ k8s-ca }} will increase the number of nodes in the groups.
 1. Stop simulating the workload. Over the next few minutes, the number of nodes and pods will drop back to the initial state.
 
 ## Delete the resources you created {#clear-out}

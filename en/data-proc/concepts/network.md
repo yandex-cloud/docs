@@ -1,4 +1,4 @@
-# Networks, clusters, and subclusters
+# Network in {{ dataproc-name }}
 
 All the subclusters of a cluster belong to the same [cloud network](../../vpc/concepts/network.md), and all the hosts of each subcluster are in a certain subnet of that network.
 

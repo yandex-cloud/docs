@@ -49,7 +49,7 @@ A response may contain [common response headers](../common-response-headers.md) 
 
 | Header | Description |
 | ----- | ----- |
-| `x-amz-storage-class` | Object storage class.<br/>The value is `COLD` if the object is stored in cold storage.<br/><br/>If it is stored in standard storage, the header is omitted. |
+| `X-Amz-Storage-Class` | Object storage class.<br/>The value is `COLD` if the object is stored in cold storage.<br/><br/>If it is stored in standard storage, the header is omitted. |
 
 ### Response codes {#response-codes}
 

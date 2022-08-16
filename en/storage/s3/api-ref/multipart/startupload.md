@@ -31,8 +31,8 @@ You can also use the headers listed in the table below.
 
 | Header | Description |
 | ----- | ----- |
-| `x-amz-meta-*` | User-defined metadata of the object.<br/><br/> {{ objstorage-name }} treats all headers starting with `x-amz-meta-` as user-defined. It doesn't process these headers, but saves them in the original format.<br/><br/>The total size of user-defined headers must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. The header names and their values are included when calculating the size. |
-| `x-amz-storage-class` | Object storage class.<br/><br/>Possible values:<br/>- `STANDARD` for uploading an object to standard storage.<br/>- `COLD`, `STANDARD_IA`, and `NEARLINE` for uploading an object to cold storage.<br/><br/>If the header is omitted, the object is saved to the storage specified in the bucket settings. |
+| `X-Amz-Meta-*` | User-defined metadata of the object.<br/><br/> {{ objstorage-name }} treats all headers starting with `X-Amz-Meta-` as user-defined. It doesn't process these headers, but saves them in the original format.<br/><br/>The total size of user-defined headers must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. The header names and their values are included when calculating the size. |
+| `X-Amz-Storage-Class` | Object storage class.<br/><br/>Possible values:<br/>- `STANDARD` for uploading an object to standard storage.<br/>- `COLD`, `STANDARD_IA`, and `NEARLINE` for uploading an object to cold storage.<br/><br/>If the header is omitted, the object is saved to the storage specified in the bucket settings. |
 
 By using the headers listed below, you can set the [ACL](../../../concepts/acl.md) for an object to be uploaded.
 

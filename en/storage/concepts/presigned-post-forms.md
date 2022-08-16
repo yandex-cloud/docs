@@ -81,13 +81,13 @@ Generic form layout:
         Key in storage:
         <input type="input" name="key" value="object_key"> /><br />
         <!-- Request properties -->
-        <input type="hidden" name="x-amz-credential" value="access_key_id/date/{{ region-id }}/s3/aws4_request" />
+        <input type="hidden" name="X-Amz-Credential" value="access_key_id/date/{{ region-id }}/s3/aws4_request" />
         <input type="hidden" name="acl" value="predefined-acl-name" />
-        <input type="hidden" name="x-amz-algorithm" value="AWS4-HMAC-SHA256" />
-        <input type="hidden" name="x-amz-date" value="date" />
+        <input type="hidden" name="X-Amz-Algorithm" value="AWS4-HMAC-SHA256" />
+        <input type="hidden" name="X-Amz-Date" value="date" />
         <input type="hidden" name="success_action_redirect" value="some-URL" />
         <input type="hidden" name="policy" value="base64-encoded-policy-document" />
-        <input type="hidden" name="x-amz-signature" value="signature-string" />
+        <input type="hidden" name="X-Amz-Signature" value="signature-string" />
         <!-- Other required fields -->
         File to upload:
         <input type="file" name="file" /> <br />
@@ -138,15 +138,15 @@ Description of form fields:
 | `Expires` | Response expiration date. Complaint with [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21). | No |
 | `key` | [The object key](object.md#key).<br/><br/>You can enter your key completely or as a template in `prefix/${filename}` format. So, if you upload `some_file.jpg`, the final object key is `prefix/some_file.jpg`. | Yes |
 | `policy` | [Security policy](#policy) defining request permissions. Requests without a policy are treated as anonymous and are only processed for buckets with public write access. | Conditional |
-| `x-amz-signature` | The policy signature that has to be generated using the secret key.<br/><br/>It's required if the form has a security policy. | Conditional |
+| `X-Amz-Signature` | The policy signature that has to be generated using the secret key.<br/><br/>It's required if the form has a security policy. | Conditional |
 | `success_action_redirect` | The URL the user is redirected to when the file is successfully uploaded. If the value isn't set, {{ objstorage-name }} returns the response specified in the `success_action_status` field. | No |
 | `success_action_status` | The response status after a successful upload.<br/><br/>If `success_action_redirect` isn't specified, {{ objstorage-name }} returns `success_action_status`. The response body is empty.<br/><br/>Acceptable values: 200, 204 (default). | No |
-| `x-amz-algorithm` | The security policy signature algorithm. Value: `AWS4-HMAC-SHA256`.<br/><br/>Required if the form has a security policy. | Conditional |
-| `x-amz-credential` | Signature ID.<br/><br/>A string in `<access-key-id>/<date>/{{ region-id }}/s3/aws4_request` format, where `<date>` must match the `x-amz-date` field value and the date used to sign the policy.<br/><br/>Required if the form has a security policy. | Conditional |
-| `x-amz-date` | Date in ISO8601 format, for example: `20180719T000000Z`. It must match the date in the `x-amz-credential` field (by the value rather than format) and the date used to sign the policy.<br/><br/>Required if the form has a security policy. | Conditional |
-| `x-amz-storage-class` | [The storage class](storage-class.md) for the object. With an HTML form, you can only put an object in standard storage. | No |
-| `x-amz-meta-*` | User-defined object metadata.<br/><br/>{{ objstorage-name }} considers all headers starting with `x-amz-meta-` as user-defined. It doesn't process these headers. Instead, it saves them in their original format.<br/><br/>The total size of user-defined headers must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. The header names and their values are included when calculating the size. | No |
-| `x-amz-website-` `redirect-location` | If the bucket is configured as a [website](hosting.md), this field sets a redirect from the specified object to any other object in the bucket or any URL on the internet. The redirect is saved in the metadata of the object. | No |
+| `X-Amz-Algorithm` | The security policy signature algorithm. Value: `AWS4-HMAC-SHA256`.<br/><br/>Required if the form has a security policy. | Conditional |
+| `X-Amz-Credential` | Signature ID.<br/><br/>A string in `<access-key-id>/<date>/{{ region-id }}/s3/aws4_request` format, where `<date>` must match the `X-Amz-Date` field value and the date used to sign the policy.<br/><br/>Required if the form has a security policy. | Conditional |
+| `X-Amz-Date` | Date in ISO8601 format, for example: `20180719T000000Z`. It must match the date in the `X-Amz-Credential` field (by the value rather than format) and the date used to sign the policy.<br/><br/>Required if the form has a security policy. | Conditional |
+| `X-Amz-Storage-Class` | [The storage class](storage-class.md) for the object. With an HTML form, you can only put an object in standard storage. | No |
+| `X-Amz-Meta-*` | User-defined object metadata.<br/><br/>{{ objstorage-name }} considers all headers starting with `X-Amz-Meta-` as user-defined. It doesn't process these headers. Instead, it saves them in their original format.<br/><br/>The total size of user-defined headers must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. The header names and their values are included when calculating the size. | No |
+| `X-Amz-Website-` `redirect-location` | If the bucket is configured as a [website](hosting.md), this field sets a redirect from the specified object to any other object in the bucket or any URL on the internet. The redirect is saved in the metadata of the object. | No |
 | `file` | An input field that lets the user select a file to upload. This field must be the last field in the form. All fields given after `file` are ignored. You can't upload more than one file in a single request. | Yes |
 
 ## Security policy {#policy}
@@ -191,8 +191,8 @@ Possible restrictions:
 | `key` | Exact and partial match. | The `key` field in the form. It lets you set the object key or prefix. |
 | `success_action_redirect` | Exact and partial match. | The `success_action_redirect` field in the form. |
 | `success_action_status` | Exact and partial match. | The `success_action_status` field in the form. |
-| `x-amz-*` | Exact match. | The `x-amz-*` fields in the form, except `x-amz-meta-*`. |
-| `x-amz-meta-*` | Exact and partial match. | `x-amz-meta-*` fields in the form. |
+| `X-Amz-*` | Exact match. | The `X-Amz-*` fields in the form, except `X-Amz-Meta-*`. |
+| `X-Amz-Meta-*` | Exact and partial match. | `X-Amz-Meta-*` fields in the form. |
 | `Cache-Control`<br/>`Content-Disposition`<br/>`Content-Encoding`<br/>`Content-Type`<br/>`Expires` | Exact and partial match. | Form fields with the same names. |
 
 If `key` is a template field, the policy is applied after the user-specified file name is put into the template.
@@ -249,13 +249,13 @@ The script returns a JSON document in the following format:
 {
     'url': u'https://{{ s3-storage-host }}/user-data',
     'fields': {
-        'x-amz-algorithm': 'AWS4-HMAC-SHA256',
-        'x-amz-date': '20190722T153936Z',
+        'X-Amz-Algorithm': 'AWS4-HMAC-SHA256',
+        'X-Amz-Date': '20190722T153936Z',
         'success_action_redirect': 'https://example.com',
-        'x-amz-signature': '4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a2722859f96',
+        'X-Amz-Signature': '4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a2722859f96',
         'key': 'users/uploads/${filename}',
         'policy': u'eyJjb25kaXRpb25zIj...M5OjM2WiJ9',
-        'x-amz-credential': u'JK38EXAMPLEAKDID8/20190722/{{ region-id }}/s3/aws4_request'}
+        'X-Amz-Credential': u'JK38EXAMPLEAKDID8/20190722/{{ region-id }}/s3/aws4_request'}
 }
 ```
 
@@ -270,13 +270,13 @@ Using the values from the returned document, you can build an HTML page with a f
         <form action="https://{{ s3-storage-host }}/user-data" method="post" enctype="multipart/form-data">
             Key in storage:
             <input type="input"    name="key" value="users/uploads/${filename}" /><br />
-            <input type="hidden"   name="x-amz-credential" value="JK38EXAMPLEAKDID8/20190722/{{ region-id }}/s3/aws4_request" />
+            <input type="hidden"   name="X-Amz-Credential" value="JK38EXAMPLEAKDID8/20190722/{{ region-id }}/s3/aws4_request" />
             <input type="hidden"   name="acl" value="public-read" />
-            <input type="hidden"   name="x-amz-algorithm" value="AWS4-HMAC-SHA256" />
-            <input type="hidden"   name="x-amz-date" value="20190722T153936Z" />
+            <input type="hidden"   name="X-Amz-Algorithm" value="AWS4-HMAC-SHA256" />
+            <input type="hidden"   name="X-Amz-Date" value="20190722T153936Z" />
             <input type="hidden"   name="success_action_redirect" value="https://example.com" />
             <input type="hidden"   name="policy" value="eyJjb25kaXRpb25zIj...M5OjM2WiJ9" />
-            <input type="hidden" name="x-amz-signature" value="4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a2722859f96" />
+            <input type="hidden" name="X-Amz-Signature" value="4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a2722859f96" />
             File to upload:
             <input type="file"   name="file" /> <br />
             <input type="submit" name="submit" value="Upload" />

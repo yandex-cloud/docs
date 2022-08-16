@@ -1,5 +1,4 @@
 title: Yandex Data Proc
-stage: new
 href: index.yaml
 items:
   - name: Practical guidelines
@@ -18,24 +17,24 @@ items:
             href: tutorials/pyspark-job-basics.md
           - name: Working with Spark jobs
             href: tutorials/spark-job-basics.md
-          - name: Using Apache Hive
+          - name: Running Apache Hive jobs
             href: tutorials/how-to-use-hive.md
           - name: Running Spark applications
             href: tutorials/run-spark-job.md
-          - name: Running applications from a remote host
+          - name: Running jobs from a remote host
             href: tutorials/remote-run-job.md
-      - name: Configuring networks for Data Proc clusters
+      - name: Configuring networks for Data Proc
         href: tutorials/configure-network.md
       - name: Using {{ objstorage-full-name }} in {{ dataproc-name }}
         href: tutorials/copy-files-from-object-storage.md
-      - name: >-
-          Using initialization scripts to configure GeeseFS in {{ dataproc-name
-          }}
-        href: tutorials/geesefs-init-actions.md
       - name: Exchanging data with {{ mch-name }}
         href: tutorials/exchange-data-with-mch.md
       - name: Importing databases using Sqoop
         href: tutorials/sqoop.md
+      - name: >-
+          Using initialization scripts to configure GeeseFS in {{ dataproc-name
+          }}
+        href: tutorials/geesefs-init-actions.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -44,18 +43,18 @@ items:
         href: operations/cluster-list.md
       - name: Creating clusters
         href: operations/cluster-create.md
-      - name: Connecting to clusters
+      - name: Connecting to a cluster
         href: operations/connect.md
-      - name: Editing clusters
+      - name: Updating clusters
         href: operations/cluster-update.md
-      - name: Updating subclusters
-        href: operations/subcluster-update.md
       - name: Managing subclusters
         href: operations/subclusters.md
-      - name: Sqoop usage
-        href: operations/sqoop-usage.md
+      - name: Updating subclusters
+        href: operations/subcluster-update.md
       - name: Connecting to component interfaces
         href: operations/connect-interfaces.md
+      - name: How to use Sqoop
+        href: operations/sqoop-usage.md
       - name: Managing jobs
         items:
           - name: All jobs
@@ -76,16 +75,14 @@ items:
         href: operations/monitoring.md
   - name: Concepts
     items:
-      - name: Data Proc overview
+      - name: Relationships between service resources
         href: concepts/index.md
       - name: Host classes
         href: concepts/instance-types.md
-      - name: Hadoop and component versions
+      - name: Runtime environment
         href: concepts/environment.md
-      - name: Component interfaces and ports
+      - name: Data Proc component interfaces and ports
         href: concepts/interfaces.md
-      - name: Component web interfaces
-        href: concepts/ui-proxy.md
       - name: Jobs in Data Proc
         href: concepts/jobs.md
       - name: Automatic scaling

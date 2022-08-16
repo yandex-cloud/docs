@@ -2,7 +2,7 @@
 
 Перенести базу данных из _кластера-источника_ Amazon RDS для {{ PG }} в _кластер-приемник_ {{ mpg-name }} можно с помощью логической репликации.
 
-[Логическая репликация](https://www.postgresql.org/docs/current/logical-replication.html) использует механизм [подписки (subscription)](https://www.postgresql.org/docs/current/sql-createsubscription.html). Это позволяет перенести данные в кластер-приемник с минимальным временем простоя. Логическая репликация доступна в Amazon RDS для {{ PG }} версии 10.4 и выше.
+[Логическая репликация]({{ pg-docs }}/logical-replication.html) использует механизм [подписки (subscription)]({{ pg-docs }}/sql-createsubscription.html). Это позволяет перенести данные в кластер-приемник с минимальным временем простоя. Логическая репликация доступна в Amazon RDS для {{ PG }} версии 10.4 и выше.
 
 Используйте логическую репликацию в том случае, если [перенос данных с помощью Yandex Data Transfer](../tutorials/data-migration.md#data-transfer) по каким-либо причинам невозможен.
 
@@ -17,7 +17,7 @@
 
 * Изменения схемы базы данных и DDL не реплицируются.
 
-    В первую очередь применяйте новые изменения схемы на стороне [подписчика (subscription)](https://www.postgresql.org/docs/current/logical-replication-subscription.html), а потом — на стороне [публикации (publication)](https://www.postgresql.org/docs/current/logical-replication-publication.html).
+    В первую очередь применяйте новые изменения схемы на стороне [подписчика (subscription)]({{ pg-docs }}/logical-replication-subscription.html), а потом — на стороне [публикации (publication)]({{ pg-docs }}/logical-replication-publication.html).
 
 * Последовательности (`SEQUENCES`) не реплицируются.
 
@@ -168,7 +168,7 @@
     CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<адрес кластера-источника> port=<порт> user=<имя пользователя> sslmode=prefer dbname=<имя базы данных>' PUBLICATION pub;
     ```
 
-    Подробнее о создании подписок см. в [документации {{ PG }}](https://www.postgresql.org/docs/10/sql-createsubscription.html).
+    Подробнее о создании подписок см. в [документации {{ PG }}]({{ pg-docs }}/sql-createsubscription.html).
 
 1. Чтобы получить статус репликации, обратитесь к каталогам `pg_subscription_rel`.
 
@@ -196,7 +196,7 @@
 
     Обратите внимание на используемый паттерн `*.*_seq`. Если в переносимой базе есть не соответствующие ему последовательности, то для их выгрузки укажите другой паттерн.
 
-    Подробнее о паттернах см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-PATTERNS).
+    Подробнее о паттернах см. в [документации {{ PG }}]({{ pg-docs }}/app-psql.html#APP-PSQL-PATTERNS).
 
 1. Восстановите дамп с последовательностями в кластере-приемнике:
 

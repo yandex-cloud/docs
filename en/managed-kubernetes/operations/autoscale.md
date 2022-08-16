@@ -7,10 +7,11 @@
 
 For more information, see [{#T}](../concepts/autoscale.md).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 1. [Create a cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
-1. Install the [{{ k8s }} CLI (kubectl)]({{ k8s-docs }}/tasks/tools/install-kubectl/). And [configure](kubernetes-cluster/kubernetes-cluster-get-credetials.md) it to work with your cluster.
+
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Configuring cluster autoscaling {#ca}
 
@@ -48,7 +49,7 @@ To create an autoscalable node group:
 
      ```bash
      {{ yc-k8s }} node-group create \
-       ...
+     ...
        --auto-scale min=<minimum number of nodes>, max=<maximum number of nodes>, initial=<initial number of nodes>
      ```
 
@@ -66,7 +67,7 @@ To create an autoscalable node group:
 
      ```hcl
      resource "yandex_kubernetes_node_group" "<node group name>" {
-       ...
+     ...
        scale_policy {
          auto_scale {
            min     = <minimum number of nodes in group>
@@ -87,7 +88,7 @@ To create an autoscalable node group:
 
 {% endlist %}
 
-Learn more about {{ k8s-ca }} in [{#T}](../concepts/autoscale.md#ca).
+For more information about {{ k8s-ca }}, see [{#T}](../concepts/autoscale.md#ca).
 
 ## Configuring horizontal pod autoscaling {#hpa}
 
@@ -102,7 +103,6 @@ Learn more about {{ k8s-ca }} in [{#T}](../concepts/autoscale.md#ca).
      ```
 
      Where:
-
      * `--cpu-percent`: The desired pod load on the vCPU.
      * `--min`: The minimum number of pods.
      * `--max`: The maximum number of pods.
@@ -115,7 +115,7 @@ Learn more about {{ k8s-ca }} in [{#T}](../concepts/autoscale.md#ca).
 
 {% endlist %}
 
-Learn more about {{ k8s-hpa }} in [{#T}](../concepts/autoscale.md#hpa).
+For more information about {{ k8s-hpa }}, see [{#T}](../concepts/autoscale.md#hpa).
 
 ## Configuring vertical pod autoscaling {#vpa}
 
@@ -135,7 +135,6 @@ Learn more about {{ k8s-hpa }} in [{#T}](../concepts/autoscale.md#hpa).
   1. Create a configuration file called `vpa.yaml` for your application:
 
      ```yaml
-     ---
      apiVersion: autoscaling.k8s.io/v1
      kind: VerticalPodAutoscaler
      metadata:
@@ -145,8 +144,8 @@ Learn more about {{ k8s-hpa }} in [{#T}](../concepts/autoscale.md#hpa).
          apiVersion: "apps/v1"
          kind:       Deployment
          name:       <application name>
-       updatePolicy:
-         updateMode: "<VPA runtime mode: Auto or Off>"
+     updatePolicy:
+       updateMode: "<VPA runtime mode: Auto or Off>"
      ```
 
      Set the {{ k8s-vpa }} runtime mode in the `updateMode` parameter: `Auto` or `Off`.
@@ -165,4 +164,4 @@ Learn more about {{ k8s-hpa }} in [{#T}](../concepts/autoscale.md#hpa).
 
 {% endlist %}
 
-Learn more about {{ k8s-vpa }} in [{#T}](../concepts/autoscale.md#vpa).
+For more information about {{ k8s-vpa }}, see [{#T}](../concepts/autoscale.md#vpa).

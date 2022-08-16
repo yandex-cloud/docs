@@ -27,7 +27,7 @@ In case of an error, {{ objstorage-name }} returns a message with the appropriat
 | ----- | ----- |
 | `Code` | Error code.<br/><br/>A list of codes is given below. |
 | `Message` | Error description in English. |
-| `RequestId` | ID of the request that caused an error.<br/><br/>Same as the `x-amz-request-id` header value. |
+| `RequestId` | ID of the request that caused an error.<br/><br/>Same as the `X-Amz-Request-Id` header value. |
 | `Resource` | The bucket or object that led to the error. |
 
 ### Error codes {#error_codes}

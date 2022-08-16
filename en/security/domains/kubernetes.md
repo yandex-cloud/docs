@@ -47,7 +47,7 @@ Use firewall protection when needed (for example, [security groups](../../vpc/co
 
 #### Cloud level {#cloud-level}
 
-Restrict network access to the Kubernetes API (master) and node groups using [instructions for security groups](../../managed-kubernetes/operations/security-groups.md).
+Restrict network access to the Kubernetes API (master) and node groups using [instructions for security groups](../../managed-kubernetes/operations/connect/security-groups.md).
 
 When using an ALB as an [Ingress Gateway](../../managed-kubernetes/tutorials/alb-ingress-controller.md), also complete the following steps:
 
