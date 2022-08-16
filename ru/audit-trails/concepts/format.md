@@ -36,6 +36,13 @@
     "request_id": string
   },
   "event_status": string,
+  "error": {
+    "code": number,
+    "message": string,
+    "details": {
+      object
+    }
+  },
   "details": {
     object
   }
@@ -64,7 +71,8 @@
 `request_metadata.remote_address` | **string**<br>IP-адрес субъекта события.
 `request_metadata.user_agent` | **string**<br>User-Agent субъекта события.
 `request_metadata.request_id` | **string**<br>Идентификатор запроса.
-`event_status` | **string**<br>Статус события. Определяется сервисом-источником и типом события. Возможные значения:<ul><li>`STARTED` — операция начата;</li><li>`ERROR` — операция завершена с ошибкой;</li><li>`DONE` — операция завершена успешно;</li><li>`CANCELLED` — операция отменена.</li>
+`event_status` | **string**<br>Статус события. Определяется сервисом-источником и типом события. Возможные значения:<ul><li>`STARTED` — операция начата;</li><li>`ERROR` — операция завершена с ошибкой;</li><li>`DONE` — операция завершена успешно;</li><li>`CANCELLED` — операция отменена.</li></ul>
+`error` | **object**<br>Статус ошибки. Объект типа [google.rpc.Status](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto):<ul><li>`code` — [код ошибки](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto);</li><li>`message` — описание ошибки;</li><li>`details` — [детали ошибки](https://github.com/googleapis/googleapis/blob/master/google/rpc/error_details.proto).</li></ul>
 `details` | **object**<br>Детали события. Определяются сервисом-источником и типом события.
 
 {% if product == "yandex-cloud" %}
@@ -92,3 +100,5 @@
   * `INFO` — в остальных случаях.
 * **Сообщение** — содержит значения полей `event_status`, `event_type`, `subject_name`, `cloud_name`, `resource_name`.
 {% endif %}
+
+
