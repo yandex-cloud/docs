@@ -11,10 +11,10 @@ These instructions are intended for cloud [owners](../resource-manager/concepts/
 ## Before you start {#before-you-begin}
 
 1. Log in to the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
-   {% if product == "yandex-cloud" %}
+{% if product == "yandex-cloud" %}
 1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. If you don't have anyone to add to the cloud, you can {% if product == "yandex-cloud" %}[create a new account](https://passport.yandex.ru/registration) on Yandex{% endif %}{% if product == "cloud-il" %} [create a new account](https://support.google.com/accounts/answer/27441) on Google{% endif %} grant this account access to the cloud.
-   {% endif %}
+1. If you don't have anyone to add to the cloud, you can {% if product == "yandex-cloud" %}[create a new account](https://passport.yandex.com/registration) on Yandex{% endif %}{% if product == "cloud-il" %} [create a new account](https://support.google.com/accounts/answer/27441) on Google{% endif %} grant this account access to the cloud.
+{% endif %}
 
 ## Add a new user to the cloud {#add-user}
 {% if product == "yandex-cloud" %}
@@ -41,31 +41,19 @@ You can add a user to the cloud by using [{{ org-full-name }}](./operations/user
 {% endif %}
 ## Assign roles to the user {#assign-role}
 
-To specify which operations the user can perform, assign relevant roles to the user. For example, allow them to manage resources in a certain folder:
+To specify which operations the user can perform, assign relevant roles to the user. For example, allow the user to view cloud resources and manage folder resources:
 
 {% list tabs %}
 
 - Management console
 
    1. Assign the user a role in the cloud:
-      1. On the [start page]({{ link-console-main }}) of the management console, [select](../resource-manager/operations/cloud/switch-cloud.md) the cloud.
-      1. Go to **Access rights**.
-      1. Enable the **Inherited roles** option to display the users added to the organization.
-      1. Select a user from the list and click ![image](../_assets/options.svg) next to the username.
-      1. Click **Edit roles**.
-      1. In the **Configure access rights** window, click **Add role**.
-      1. Choose the `{{ roles-viewer }}` role. This role lets the user view resources in your cloud.
-      1. Click **Save**.
+
+      {% include [set-accessbinding-user-editor-folder-console](../_includes/resource-manager/set-accessbinding-user-viewer-cloud-console.md) %}
 
    1. Assign the user a role in the folder:
-      1. On the [start page]({{ link-console-main }}) of the management console, select the folder.
-      1. Go to **Access rights**.
-      1. Click **Assign roles**.
-      1. In the **Configure access rights** window, click **Select user**.
-      1. Select a user from the list or search for a user.
-      1. Click **Add role**.
-      1. Choose the `{{ roles-editor }}` role. This role allows the user to create and manage resources in this folder.
-      1. Click **Save**.
+
+      {% include [set-accessbinding-user-editor-folder-console](../_includes/resource-manager/set-accessbinding-user-editor-folder-console.md) %}
 
 {% endlist %}
 
@@ -79,23 +67,11 @@ If the user no longer needs the assigned roles, revoke them:
 
    * To revoke a role only in the folder:
 
-      1. On the [start page]({{ link-console-main }}) of the management console, select the folder.
-      1. Go to **Access rights**.
-      1. Select a user from the list and click ![image](../_assets/options.svg) next to the username.
-      1. Click **Edit roles**.
-      1. Click ![image](../_assets/cross.svg) next to the role you wish to revoke.
-      1. Click **Save**.
+      {% include [update-access-binding-user-console-folder](../_includes/resource-manager/update-access-binding-user-console-folder.md) %}
 
    * To revoke a role in the cloud:
 
-      1. On the [start page]({{ link-console-main }}) of the management console, [select](../resource-manager/operations/cloud/switch-cloud.md) the cloud.
-      1. Go to **Access rights**.
-      1. Select a user from the list and click ![image](../_assets/options.svg) next to the username.
-      1. If you want to revoke all of the user's roles in the cloud, click **Revoke roles** and confirm the revocation.
-      1. If you want to revoke individual roles in the cloud:
-         1. Click **Edit roles**.
-         1. In the **Configure access rights** window, click ![image](../_assets/cross.svg) next to each role you want to revoke.
-         1. Click **Save**.
+      {% include [update-access-binding-user-console-cloud](../_includes/resource-manager/update-access-binding-user-console-cloud.md) %}
 
 {% endlist %}
 

@@ -1,19 +1,19 @@
 {% include [set-access-to-all](set-access-to-all.md) %}
 
-For example, allow any authenticated user to view information about a folder and its resources:
+For example, allow any authenticated user to view folder information:
 
 {% list tabs %}
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
-   1. Go to **Access rights**.
-   1. Click **Assign roles**.
-   1. In the folder's **Configure access rights** window, click **Select subject**.
+   1. In the [management console]({{ link-console-main }}), go to the desired folder.
+   1. Go to the **Access bindings** tab.
+   1. Click **Assign bindings**.
+   1. In the **Configure access bindings** window, click **Select user**.
    1. Select the **Groups** section.
    1. Select the **All authenticated users** group.
    1. Click **Add role**.
-   1. Select a role in the folder.
+   1. Select the `resource-manager.viewer` role.
    1. Click **Save**.
 
 - CLI
@@ -60,7 +60,7 @@ For example, allow any authenticated user to view information about a folder and
 
    {% endnote %}
 
-   To assign a role for a folder created using {{ TF }}:
+   To assign a role to a folder created using {{ TF }}:
 
    1. Describe the parameters of the folder role in a configuration file:
 
@@ -75,7 +75,7 @@ For example, allow any authenticated user to view information about a folder and
 
       * `members`: List of users to assign the role to. To add all users, create an entry in the format `system:<allUsers|allAuthenticatedUsers>`, where `<allUsers|allAuthenticatedUsers>` is one of [system groups](../../iam/concepts/access-control/system-group.md). Required parameter.
 
-      {% cut "Example of assigning roles for the folder using {{ TF }}" %}
+      Example configuration file structure:
 
       ```hcl
       ...
@@ -95,8 +95,6 @@ For example, allow any authenticated user to view information about a folder and
       ...
       ```
 
-      {% endcut %}
-
       For more information about the parameters of the `yandex_resourcemanager_folder_iam_binding` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
 
    1. Check the configuration using the command:
@@ -115,7 +113,7 @@ For example, allow any authenticated user to view information about a folder and
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```

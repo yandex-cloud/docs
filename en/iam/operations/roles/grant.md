@@ -12,7 +12,7 @@ This section describes how to assign a role to a user with a Yandex account. The
 
 {% if product == "cloud-il" %}
 
-### Resource access for a federated user {#access-to-federated-user}
+## Resource access for a federated user {#access-to-federated-user}
 
 In the management console, you can assign a [federated user](../../../organization/add-federation.md) a role for an individual cloud or folder.
 
@@ -30,24 +30,12 @@ In the management console, you can assign a [federated user](../../../organizati
 
 {% endif %}
    1. Assign the user a role in the cloud:
-      1. In the [management console]({{ link-console-main }}), [select](../../../resource-manager/operations/cloud/switch-cloud.md) the cloud.
-      1. Go to the **Access bindings** tab.
-      1. Enable the **Inherited roles** option to display the users added to the organization.
-      1. Select a user from the list and click ![image](../../../_assets/options.svg) next to the username.
-      1. Click **Edit roles**.
-      1. In the **Configuring access bindings** window, click **Add role**.
-      1. Select a role in the cloud.
-      1. Click **Save**.
 
-   1. Assign the user a role in the folder:
-      1. In the [management console]({{ link-console-main }}), go to the desired folder.
-      1. Go to the **Access bindings** tab.
-      1. Click **Assign bindings**.
-      1. In the **Configuring access bindings** window, click **Select subject**.
-      1. Select a user from the list or search for a user.
-      1. Click **Add role**.
-      1. Select a role in the folder.
-      1. Click **Save**.
+      {% include [set-access-binding-user-cloud-console](../../../_includes/resource-manager/set-access-binding-user-cloud-console.md) %}
+
+   1. Grant the user a role to the folder:
+
+      {% include [set-access-binding-user-acc-abstract-console](../../../_includes/resource-manager/set-access-binding-user-acc-abstract-console.md) %}
 
 - CLI
 
@@ -61,8 +49,8 @@ In the management console, you can assign a [federated user](../../../organizati
 
       ```bash
       yc <service-name> <resource> add-access-binding <resource-name>|<resource-id> \
-        --role <role-id> \
-        --subject userAccount:<user-account-id>
+          --role <role-id> \
+          --subject userAccount:<user-account-id>
       ```
 
 {% endif %}
@@ -70,9 +58,9 @@ In the management console, you can assign a [federated user](../../../organizati
 {% if product == "cloud-il" %}
 
       ```bash
-      yc <service-name> <resource> add-access-binding <resource-name>|<resource-id> \
-        --role <role-id> \
-        --subject federatedUser:<user-account-id>
+      yc resource-manager cloud add-access-binding mycloud \
+        --role viewer \
+        --subject federatedUser:aje6o61dvog2h6g9a33s
       ```
 
 {% endif %}
@@ -87,13 +75,12 @@ In the management console, you can assign a [federated user](../../../organizati
       * `<user-account-id>`: The ID of the user account assigned the role.
 
       For example, assign the `viewer` role for the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
-
 {% if product == "yandex-cloud" %}
 
       ```bash
       yc resource-manager cloud add-access-binding mycloud \
-        --role viewer \
-        --subject userAccount:aje6o61dvog2h6g9a33s
+          --role viewer \
+          --subject userAccount:aje6o61dvog2h6g9a33s
       ```
 
 {% endif %}
@@ -101,8 +88,8 @@ In the management console, you can assign a [federated user](../../../organizati
 
       ```bash
       yc resource-manager cloud add-access-binding mycloud \
-        --role viewer \
-        --subject federatedUser:aje6o61dvog2h6g9a33s
+          --role viewer \
+          --subject federatedUser:aje6o61dvog2h6g9a33s
       ```
 
 {% endif %}
@@ -157,7 +144,8 @@ In the management console, you can assign a [federated user](../../../organizati
 
 {% endif %}
 
-    1. {% include [grant-role-folder-via-curl-step](../../../_includes/iam/grant-role-folder-via-curl-step.md) %}
+   1. {% include [grant-role-folder-via-curl-step](../../../_includes/iam/grant-role-folder-via-curl-step.md) %}
+
 
     For detailed instructions on how to assign a role for the corresponding resource, see:
     * [{#T}](../sa/set-access-bindings.md).
@@ -170,19 +158,21 @@ In the management console, you can assign a [federated user](../../../organizati
 
    1. Add the resource parameters to the configuration file, specify the required role and a list of cloud users:
 
-      * `cloud_id`: cloud ID. You can also assign a role in an individual folder. To do this, specify `folder_id` instead of `cloud_id` and the required folder ID in the resource parameters.
+      * `cloud_id`: Cloud ID. You can also assign a role in an individual folder. To do this, specify `folder_id` instead of `cloud_id` and the required folder ID in the resource parameters.
       * `role`: The role assigned. Required parameter.
-      * `members`: List of users or service account the role is being assigned to. Specified in the following format: {% if product == "yandex-cloud" %}`userAccount:<user ID>`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} or `serviceAccount:<service account ID>`. Required parameter.
-         {% if product == "yandex-cloud" %}
+      * `members`: List of users or service account the role is being assigned to. Specified in the following format: {% if product == "yandex-cloud" %}`userAccount:<user ID>`{% endif %}{% if product == "cloud-il" %}`federatedUser:<user ID>`{% endif %} or `serviceAccount:<service account ID>`. Required parameter.
+
+      Example configuration file structure:
+{% if product == "yandex-cloud" %}
 
       ```
       resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
-        cloud_id    = "<cloud ID>"
-        role        = "<role>"
-        members     = [
+          cloud_id    = "<cloud ID>"
+          role        = "<role>"
+          members     = [
           "serviceAccount:<service account ID>",
           "userAccount:<user ID>",
-        ]
+          ]
       }
       ```
 
@@ -214,7 +204,7 @@ In the management console, you can assign a [federated user](../../../organizati
           terraform plan
           ```
 
-       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
     1. Deploy the cloud resources.
 
@@ -224,7 +214,7 @@ In the management console, you can assign a [federated user](../../../organizati
           terraform apply
           ```
 
-        Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+       1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
        Afterwards, all the necessary resources are created in the specified folder. You can verify that the resource has been created in the [management console]({{ link-console-main }}) or with the following [CLI](../../../cli/quickstart.md) command:
 
@@ -234,22 +224,14 @@ In the management console, you can assign a [federated user](../../../organizati
 
 {% endlist %}
 
-## Examples {#examples}
 
-* [{#T}](#multiple-roles).
-* [{#T}](#access-to-sa).
-* [{#T}](#access-to-federated-user).
-* [{#T}](#access-to-all).
-
-### Assign multiple roles {#multiple-roles}
+## Assign multiple roles {#multiple-roles}
 
 {% list tabs %}
 
 - Management console
 
-   Follow the instructions at the [beginning of the section](#access-to-user) and assign the user multiple roles.
-
-   To assign a role to another user, repeat all the steps in the instructions.
+   {% include [set-access-binding](../../../_includes/resource-manager/set-access-binding-multiple-users-console.md) %}
 
 - CLI
 
@@ -350,7 +332,7 @@ In the management console, you can assign a [federated user](../../../organizati
 
 {% endif %}
 
-    1. Assign the specified roles, say, for the folder with the `b1gvmob95yysaplct532` ID:
+   1. Assign the specified roles, say, for the folder with the `b1gvmob95yysaplct532` ID:
 
        {% include [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md) %}
 
@@ -398,7 +380,7 @@ In the management console, you can assign a [federated user](../../../organizati
 
 {% endif %}
 
-    2. Assign roles:
+   2. Assign roles:
 
        ```bash
        export FOLDER_ID=b1gvmob95yysaplct532
@@ -412,13 +394,13 @@ In the management console, you can assign a [federated user](../../../organizati
 
 {% endlist %}
 
-### Resource access for a service account {#access-to-sa}
+## Resource access for a service account {#access-to-sa}
 
 {% include [grant-role-for-sa](../../../_includes/iam/grant-role-for-sa.md) %}
 
 {% if product == "yandex-cloud" %}
 
-### Resource access for a federated user {#access-to-federated-user}
+## Resource access for a federated user {#access-to-federated-user}
 
 {% include [saml-assign-role-note](../../../_includes/saml-assign-role-note.md) %}
 
@@ -428,62 +410,130 @@ In the management console, you can assign a [federated user](../../../organizati
 
 - Management console
 
-    The role assignment procedure is the same as for a user with a Yandex account. The user's federation name is shown next to the username.
+   The role assignment procedure is the same as for a user with a Yandex account. The user's federation name is shown next to the username.
 
-    In the management console, you can only assign a role for a cloud or folder:
+   In the management console, you can only assign a role for a cloud or folder:
 
-    1. Assign the user a role in the cloud:
-       1. In the [management console]({{ link-console-main }}), [select](../../../resource-manager/operations/cloud/switch-cloud.md) the cloud.
-       1. Go to the **Access bindings** tab.
-       1. Select a user from the list and click ![image](../../../_assets/options.svg) next to the username.
-       1. Click **Edit roles**.
-       1. In the **Configuring access bindings** window, click **Add role**.
-       1. Select a role in the cloud.
-       1. Click **Save**.
+   1. Assign the user a role in the cloud:
 
-    1. Assign the user a role in the folder:
-       1. In the [management console]({{ link-console-main }}), go to the desired folder.
-       1. Go to the **Access bindings** tab.
-       1. Click **Assign bindings**.
-       1. In the **Configuring access bindings** window, click **Select subject**.
-       1. Select a user from the list or search for a user.
-       1. Click **Add role**.
-       1. Select a role in the folder.
-       1. Click **Save**.
+      {% include [set-access-binding-user-cloud-console](../../../_includes/resource-manager/set-access-binding-user-cloud-console.md) %}
+
+   1. Assign the user a role in the folder:
+
+      {% include [set-access-binding-user-acc-abstract-console](../../../_includes/resource-manager/set-access-binding-user-acc-abstract-console.md) %}
 
 - CLI
 
-    1. Choose a role from the list in [Roles](../../concepts/access-control/roles.md).
-    1. [Get the user ID](../users/get.md).
-    1. Assign the role using the command:
+   1. Choose a role from the list in [Roles](../../concepts/access-control/roles.md).
+   1. [Get the user ID](../users/get.md).
+   1. Assign the role using the command:
 
-        ```bash
-        yc <service-name> <resource> add-access-binding <resource-name>|<resource-id> \
-            --role <role-id> \
-            --subject federatedUser:<federated-user-id>
-        ```
+      ```bash
+      yc <service-name> <resource> add-access-binding <resource-name>|<resource-id> \
+          --role <role-id> \
+          --subject federatedUser:<federated-user-id>
+      ```
 
-        Where:
+      Where:
 
-        * `<service-name>`: The name of the service whose resource a role is assigned for (for example, `resource-manager`).
-        * `<resource>`: The resource category, for example, `cloud`.
-        * `<resource-name>`: The name of the resource. You can specify a resource by its name or ID.
-        * `<resource-id>`: The resource ID.
-        * `<role-id>`: The role ID, for example, `{{ roles-cloud-owner }}`.
-        * `<federated-user-id>`: The ID of the user account assigned the role.
+      * `<service-name>`: The name of the service whose resource a role is assigned for (for example, `resource-manager`).
+      * `<resource>`: The resource category, for example, `cloud`.
+      * `<resource-name>`: The name of the resource. You can specify a resource by its name or ID.
+      * `<resource-id>`: The resource ID.
+      * `<role-id>`: The role ID, for example, `{{ roles-cloud-owner }}`.
+      * `<federated-user-id>`: The ID of the user account assigned the role.
 
-        For example, assign the `viewer` role for the `mycloud` [cloud](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+      For example, assign the `viewer` role for the `mycloud` [cloud](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
-        ```bash
-        yc resource-manager cloud add-access-binding mycloud \
-            --role viewer \
-            --subject federatedUser:aje6o61dvog2h6g9a33s
-        ```
+      ```bash
+      yc resource-manager cloud add-access-binding mycloud \
+          --role viewer \
+          --subject federatedUser:aje6o61dvog2h6g9a33s
+      ```
+
+- API
+
+   Use the `updateAccessBindings` method for the corresponding resource.
+
+   1. Choose a role from the list in [Roles](../../concepts/access-control/roles.md).
+   1. [Get the user ID](../users/get.md).
+   1. Create a request body, for example, in a `body.json` file. In the `action` property, specify `ADD`, and in the `subject` property, `federatedUser` as the type and the user ID:
+
+      **body.json:**
+
+      ```json
+      {
+          "accessBindingDeltas": [{
+              "action": "ADD",
+              "accessBinding": {
+                  "roleId": "editor",
+                  "subject": {
+                      "id": "gfei8n54hmfhuk5nogse",
+                      "type": "federatedUser"
+                      }
+                  }
+              }
+          ]
+      }
+      ```
+
+   1. {% include [grant-role-folder-via-curl-step](../../../_includes/iam/grant-role-folder-via-curl-step.md) %}
 
 {% endlist %}
 
 {% endif %}
 
-### Access to a resource for all users {#access-to-all}
+
+## Resource access for a group of users {##access-group}
+
+{% list tabs %}
+
+- Management console
+
+   Assign the group of users a role in the cloud:
+
+   1. In the [management console]({{ link-console-main }}), [select](../../../resource-manager/operations/cloud/switch-cloud.md) a cloud.
+   1. Click the **Access bindings** tab.
+   1. Click **Assign bindings**.
+   1. In the **Configuring access bindings** window, click **Select subject**.
+      1. Go to **Groups** or search for a group by name.
+      1. Click **Add role**.
+      1. Select a role in the cloud.
+      1. Click **Save**.
+
+   The group name will be displayed in **Access bindings** in the cloud along with the other users with roles in this cloud.
+
+- CLI
+
+   1. Choose a role from the list in [Roles](../../concepts/access-control/roles.md).
+   1. [Get the user ID](../users/get.md).
+   1. Assign the role using the command:
+
+      ```bash
+      yc <service-name> <resource> add-access-binding <resource-name>|<resource-id> \
+          --role <role-id> \
+          --subject group:<group-id>
+      ```
+
+      Where:
+
+      * `<service-name>`: The name of the service whose resource a role is assigned for (for example, `resource-manager`).
+      * `<resource>`: The resource category, for example, `cloud`.
+      * `<resource-name>`: The name of the resource. You can specify a resource by its name or ID.
+      * `<resource-id>`: The resource ID.
+      * `<role-id>`: The role ID, for example, `{{ roles-cloud-owner }}`.
+      * `<group-id>`: The ID of the group assigned the role.
+
+      For example, assign the `viewer` role for the `mycloud` [cloud](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+
+      ```bash
+      yc resource-manager cloud add-access-binding mycloud \
+          --role viewer \
+          --subject group:aje6o61dvog2h6g9a33s
+      ```
+
+{% endlist %}
+
+## Access to a resource for all users {#access-to-all}
 
 {% include [grant-role-for-all](../../../_includes/iam/grant-role-for-all.md) %}

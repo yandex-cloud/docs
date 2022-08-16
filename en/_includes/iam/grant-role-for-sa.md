@@ -1,20 +1,16 @@
 {% include [include](../sa-assign-role-note.md) %}
 
-In the management console, you can assign a service account a role only for the folders that are located in the same cloud as the folder where the service account was created. To assign it a role for another resource, use the CLI or API.
+In the management console, you can only grant a service account roles to folders in the same cloud as the service account's folder and to the cloud itself. To assign it a role for another resource, use the CLI or API.
 
 {% list tabs %}
 
 - Management console
 
+   You assign roles to a service account the same way as to a user account.
+
    To assign a service account a role for the folder:
 
-   1. In the [management console]({{ link-console-main }}), open the page of the folder to assign the role for.
-   1. Go to **Access rights**.
-   1. Enable the **Inherited roles** option so that the list shows service accounts that don't belong to the current folder.
-   1. Click ![image](../../_assets/options.svg) next to the name of the service account.
-   1. Click **Edit roles**.
-   1. Click **Add role** and select the role you'd like to add.
-   1. Click **Save**.
+   {% include [grant-role-console-sa](../grant-role-console-sa.md) %}
 
 - CLI
 
@@ -78,7 +74,7 @@ In the management console, you can assign a service account a role only for the 
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
