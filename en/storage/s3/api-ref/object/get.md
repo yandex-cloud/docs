@@ -49,10 +49,10 @@ In addition to [common response headers](../common-response-headers.md), respons
 
 | Header | Description |
 | ----- | ----- |
-| `x-amz-meta-*` | User-defined object metadata that is stored with the object. |
-| `x-amz-storage-class` | Object storage class.<br/>The value is `COLD` if the object is stored in cold storage.<br/><br/>If it is stored in standard storage, the header is omitted. |
-| `x-amz-server-side-encryption` | Encryption algorithm used to encrypt the object. Returned if the object was loaded with enabled [encryption](../../../operations/buckets/encrypt.md). |
-| `x-amz-server-side-encryption-aws-kms-key-id` | ID of the [{{ kms-short-name }} key](../../../../kms/concepts/key.md). Returned if the object was loaded with enabled [encryption](../../../operations/buckets/encrypt.md). |
+| `X-Amz-Meta-*` | User-defined object metadata that is stored with the object. |
+| `X-Amz-Storage-Class` | Object storage class.<br/>The value is `COLD` if the object is stored in cold storage.<br/><br/>If it is stored in standard storage, the header is omitted. |
+| `X-Amz-Server-Side-Encryption` | Encryption algorithm used to encrypt the object. Returned if the object was loaded with enabled [encryption](../../../operations/buckets/encrypt.md). |
+| `X-Amz-Server-Side-Encryption-Aws-Kms-Key-Id` | ID of the [{{ kms-short-name }} key](../../../../kms/concepts/key.md). Returned if the object was loaded with enabled [encryption](../../../operations/buckets/encrypt.md). |
 
 ### Response codes {#response-codes}
 

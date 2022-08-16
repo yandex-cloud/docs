@@ -86,7 +86,7 @@ ACL | Description
 
 Predefined ACLs can be applied to both objects and buckets. When applied to an object, the `public-read-write` ACL is the same as `public-read`.
 
-You can upload a predefined ACL using only an [Amazon S3-compatible HTTP API](../s3/api-ref/acl.md). When uploading an ACL, use the `x-amz-acl` HTTP header.
+You can upload a predefined ACL using only an [Amazon S3-compatible HTTP API](../s3/api-ref/acl.md). When uploading an ACL, use the `X-Amz-Acl` HTTP header.
 
 ## System groups {#system-groups}
 
