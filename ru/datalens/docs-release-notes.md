@@ -9,14 +9,16 @@
 
 ### Пошаговые инструкции {#operations082022}
 
-* Обновлена инструкция [{#T}](operations/chart/create-pivot-table.md).
-* Обновлена инструкция [{#T}](operations/chart/create-column-chart.md).
-* Обновлена инструкция [{#T}](operations/chart/create-bar-chart.md).
-* Обновлена инструкция [{#T}](operations/chart/create-area-chart.md).
-* Обновлена инструкция [{#T}](operations/chart/create-bar-chart.md).
-* Обновлена инструкция [{#T}](operations/chart/create-column-chart.md).
-* Обновлена инструкция [{#T}](operations/chart/create-line-chart.md).
-* Обновлена инструкция [{#T}](operations/chart/create-scatter-chart.md).
+* Обновлена инструкция [{#T}](visualization-ref/pivot-table-chart.md#create-diagram).
+* Обновлена инструкция [{#T}](visualization-ref/column-chart.md#create-diagram).
+* Обновлена инструкция [{#T}](visualization-ref/bar-chart.md#create-diagram).
+* Обновлена инструкция [{#T}](visualization-ref/area-chart.md#create-diagram).
+* Обновлена инструкция [{#T}](visualization-ref/line-chart.md#create-diagram).
+* Обновлена инструкция [{#T}](visualization-ref/scatter-chart.md#create-diagram).
+
+### Справочник визуализаций {#visualization-ref082022}
+
+* Добавлен [{#T}](visualization-ref/index.md)
 
 ### ChartEditor {#charteditor082022}
 
@@ -36,7 +38,7 @@
 
 ### Пошаговые инструкции {#operations072022}
 
-* Обновлена инструкция [{#T}](operations/chart/create-table.md).
+* Обновлена инструкция * Обновлена инструкция [{#T}](visualization-ref/table-chart.md#create-diagram).
 
 ## Июнь 2022 {#june2022}
 
@@ -82,7 +84,7 @@
 ### Концепции {#concepts022022}
 
 * Добавлен раздел [{#T}](concepts/dashboard.md#auto-update) для дашбордов.
-* Обновлен раздел [{#T}](concepts/chart/types.md).
+* Обновлен раздел [{#T}](concepts/chart/index.md).
 
 ### Пошаговые инструкции {#operations022022}
 

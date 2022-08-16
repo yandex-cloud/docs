@@ -75,8 +75,6 @@ items:
         items:
           - name: Обзор
             href: concepts/chart/index.md
-          - name: Типы чартов
-            href: concepts/chart/types.md
           - name: Настройки чарта
             href: concepts/chart/settings.md
           - name: Measure Values и Measure Names
@@ -190,30 +188,8 @@ items:
             href: operations/dataset/add-parameter-dataset.md
       - name: Работа с чартами
         items:
-          - name: Создание линейной диаграммы
-            href: operations/chart/create-line-chart.md
-          - name: Создание диаграммы с областями
-            href: operations/chart/create-area-chart.md
-          - name: Создание круговой диаграммы
-            href: operations/chart/create-pie-chart.md
-          - name: Создание кольцевой диаграммы
-            href: operations/chart/create-ring-chart.md
-          - name: Создание столбчатой диаграммы
-            href: operations/chart/create-column-chart.md
-          - name: Создание линейчатой диаграммы
-            href: operations/chart/create-bar-chart.md
-          - name: Создание точечной диаграммы
-            href: operations/chart/create-scatter-chart.md
-          - name: Создание карты
-            href: operations/chart/create-map-chart.md
-          - name: Создание таблицы
-            href: operations/chart/create-table.md
-          - name: Создание сводной таблицы
-            href: operations/chart/create-pivot-table.md
-          - name: Создание индикатора
-            href: operations/chart/create-indicator-chart.md
-          - name: Создание древовидной диаграммы
-            href: operations/chart/create-tree-chart.md
+          - name: Создание чарта
+            href: operations/chart/create-chart.md
           - name: Создание QL-чарта
             href: operations/chart/create-sql-chart.md
           - name: Создание мультидатасетного чарта
@@ -298,6 +274,53 @@ items:
   - name: Правила тарификации
     when: audience == "external"
     href: pricing.md
+  - name: Справочник визуализаций
+    items:
+      - name: Все визуализации
+        href: visualization-ref/index.md
+      - name: Линейная диаграмма
+        href: visualization-ref/line-chart.md
+      - name: Накопительная диаграмма с областями
+        href: visualization-ref/area-chart.md
+      - name: Нормированная диаграмма с областями
+        href: visualization-ref/normalized-area-chart.md
+      - name: Столбчатая диаграмма
+        href: visualization-ref/column-chart.md
+      - name: Нормированная столбчатая диаграмма
+        href: visualization-ref/normalized-column-chart.md
+      - name: Линейчатая диаграмма
+        href: visualization-ref/bar-chart.md
+      - name: Нормированная линейчатая диаграмма
+        href: visualization-ref/normalized-bar-chart.md
+      - name: Точечная диаграмма
+        href: visualization-ref/scatter-chart.md
+      - name: Круговая диаграмма
+        href: visualization-ref/pie-chart.md
+      - name: Индикатор
+        href: visualization-ref/indicator-chart.md
+      - name: Древовидная диаграмма
+        href: visualization-ref/tree-chart.md
+      - name: Кольцевая диаграмма
+        href: visualization-ref/ring-chart.md
+      - name: Таблица
+        href: visualization-ref/table-chart.md
+      - name: Сводная таблица
+        href: visualization-ref/pivot-table-chart.md
+      - name: Карта
+        items:
+          - name: Обзор
+            href: visualization-ref/map-chart.md
+          - name: Точечная карта
+            href: visualization-ref/point-map-chart.md
+          - name: Точечная карта с кластеризацией
+            when: audience == "internal"
+            href: visualization-ref/cluster-point-map-chart.md
+          - name: Полилинейная карта
+            href: visualization-ref/polyline-map-chart.md
+          - name: Фоновая карта
+            href: visualization-ref/choropleth-map-chart.md
+          - name: Тепловая карта
+            href: visualization-ref/heat-map-chart.md
   - name: Справочник функций
     items: null
     include:
@@ -641,7 +664,7 @@ items:
         href: troubleshooting/errors/ERR-DS_API-FORMULA-UNKNOWN_SOURCE_COLUMN.md
       - name: Window function has unselected dimension
         hidden: true
-        href: troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-BFB_UNSELECTED_DIMENSION.md 
+        href: troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-BFB_UNSELECTED_DIMENSION.md
       - name: Window function has no aggregated expressions among its arguments
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-NO_AGG.md
