@@ -1,8 +1,4 @@
-# Reporting documents
-
-The Billing service sends out financial documents regarding any and all payments made on behalf of individual entrepreneurs, individuals, and businesses.
-
-## Documents for businesses and individual entrepreneurs{#docs-for-business}
+# Reporting documents for businesses and individual entrepreneurs
 
 If you used funds from your [personal account](../concepts/personal-account.md) during the reporting period, [Yandex Balance](https://balance.yandex.com/) will generate the following reporting documents on the last day of the month:
 * [Report](../concepts/act.md)
@@ -23,12 +19,3 @@ Documents are sent to the email address and mailing address specified in the pay
 Russian residents can:
 * Receive documents by way of [electronic document management](../concepts/edo.md) (DMS).
 * [Download documents through the management console](../operations/download-reporting-docs.md).
-
-{% if region == "ru" %}
-
-## Documents for individuals {#docs-for-individual}
-
-Individuals shall be provided with a [payment receipt](../concepts/individual-bill.md) in accordance with Russian Federal Law No. [FZ-54 <q>On the use of cash registers</q>](http://base.garant.ru/12130951/). It is sent to the email address of the billing account owner. The original receipt is not sent.
-
-{% endif %}
-

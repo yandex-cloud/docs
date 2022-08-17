@@ -30,22 +30,22 @@ To go to the list of billing accounts:
 
 ## Billing account types {#ba-types}
 
-The billing account type defines the [method of paying](../payment/payment-methods.md) for resources in {{ yandex-cloud }}.
-
 {% list tabs %}
 
 - Individual account
 
    * Intended for residents of Russia or Kazakhstan.
-   * Resources are paid for using a bank card.
-   * Funds for the resources consumed are debited automatically. For more information, see [Billing cycle for individuals](../payment/billing-cycle-individual.md). 
-   {% if region == "ru" %}* Once the funds are debited from your bank card, a [payment receipt](individual-bill.md) is sent to your email address.{% endif %}
-      
+   * Resources are paid for using a [bank card](../payment/payment-methods-individual.md).
+   * Funds for the resources consumed are debited automatically. For more information, see [Billing cycle for individuals](../payment/billing-cycle-individual.md).
+      {% if region == "ru" %}
+   * Once the funds are debited from your bank card, a [payment receipt](individual-bill.md) is sent to your email address.
+      {% endif %}
+
 
 - Business account
 
    * Intended for residents and non-residents of Russia and Kazakhstan.
-   * Resources are paid for via bank transfer from a corporate bank account or bank card.
+   * Consumed resources are paid for by bank transfer from the [business's bank account](../payment/payment-methods-business.md) or a [corporate bank card](../payment/payment-methods-card-business.md).
    * Payments for resources consumed are made based on the [agreement](../concepts/contract.md) and [bank invoice](bill.md), or the amount is debited automatically from the linked bank card. For more information, see [Billing cycle for businesses](../payment/billing-cycle-business.md).
    * A statement of the services rendered (for residents of Russia and Kazakhstan) and an invoice (Russian residents only) are sent to your email address at the beginning of the next billing cycle. Invoices for residents of the Republic of Kazakhstan are generated electronically. For more information, see [Reporting documents](../payment/documents.md).
 

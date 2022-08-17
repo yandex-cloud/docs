@@ -94,7 +94,7 @@ However, if your [grant](../getting-started/usage-grant.md) has expired, access 
 
 #### I accidentally switched to a paid account. Did I lose my initial grant? Can I get it back?
 
-No, you can't switch back to the trial version, but the grant will not be lost. The initial grant will be spent first. For more information about the order in which funds are spent, see [{#T}](../billing/payment/billing-cycle.md).
+No, you can't switch back to the trial version, but the grant will not be lost. The initial grant will be spent first. For more information about the order in which funds are spent, see [Billing cycle for individuals](../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../billing/payment/billing-cycle-business.md).
 
 #### I haven't used up the entire initial grant, but my cloud is blocked. What should I do?
 
@@ -106,7 +106,7 @@ The cloud may be blocked for a few reasons:
 
 #### I couldn't use up the initial grant in 60 days. Can I use {{ yandex-cloud }}?
 
-When the initial grant expires, the total unused amount is offset, and the access to your resources is suspended for 30 days. To continue using {{ yandex-cloud }}, switch to a paid plan. 
+When the initial grant expires, the total unused amount is offset, and the access to your resources is suspended for 30 days. To continue using {{ yandex-cloud }}, switch to a paid plan.
 
 ### About the {#documents} documents
 
@@ -142,6 +142,6 @@ Start exploring {{ yandex-cloud }} services.
 
 {% if product == "cloud-il" %}
 
-An Intro to Cloud IL, re-written from scratch, will be posted here, and later translated into English. 
+An Intro to Cloud IL, re-written from scratch, will be posted here, and later translated into English.
 
 {% endif %}

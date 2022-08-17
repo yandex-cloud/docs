@@ -10,7 +10,7 @@ If a service receives a request to delete a resource via the API, the resource i
 
 {% if product == "yandex-cloud" %}
 
-Your cloud may be suspended if your account is in arrears, if your trial period is over, or if you are in violation of the [{{ yandex-cloud }} Terms of Use]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_termsofuse/){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_termsofuse/?lang=en){% endif %}. For more information about the payment process and possible suspension, see the [Billing documentation](../../billing/payment/billing-cycle.md).
+Your cloud may be suspended if your account is in arrears, if your trial period is over, or if you are in violation of the [{{ yandex-cloud }} Terms of Use]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_termsofuse/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_termsofuse/?lang=en){% endif %}. For more information about paying for resources and possible suspension, see the Billing documentation by billing cycle for [individuals](../../billing/payment/billing-cycle-individual.md) and [businesses and individual entrepreneurs](../../billing/payment/billing-cycle-business.md).
 
 {% endif %}
 
