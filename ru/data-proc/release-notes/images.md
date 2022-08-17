@@ -4,6 +4,11 @@
 
 {% if product == "yandex-cloud" %}
 
+## 2.0.47 {#2.0.47}
+
+* Устранена утечка TCP-сессий с сервисом метаданных на высоконагруженных кластерах. Утечка могла приводить к ситуации, когда не обновлялся IAM-токен для авторизации в {{ objstorage-name }} и других сервисах.
+* Исправлена ошибка, из-за которой могли не подгружаться таблицы из Hive Metastore: `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider`.
+
 ## 2.0.46 {#2.0.46}
 
 * Часть свойств Spark теперь применяется также и в Zeppelin: `spark.submit.deployMode`, `spark.driver.cores`, `spark.driver.memory`, `spark.executor.cores`, `spark.executor.memory`, `spark.files`, `spark.jars` и `spark.jars.packages`.
