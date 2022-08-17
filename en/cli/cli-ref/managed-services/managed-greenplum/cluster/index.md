@@ -18,6 +18,8 @@ Aliases:
 #### Command Tree
 
 - [yc managed-greenplum cluster get](get.md) — Show information about the specified Greenplum cluster
+- [yc managed-greenplum cluster update](update.md) — Update the specified Greenplum cluster
+- [yc managed-greenplum cluster update-config](update-config.md) — Update the specified Greenplum cluster config
 - [yc managed-greenplum cluster list](list.md) — List Greenplum clusters
 - [yc managed-greenplum cluster add-labels](add-labels.md) — Add labels to Greenplum cluster
 - [yc managed-greenplum cluster remove-labels](remove-labels.md) — Remove labels from Greenplum cluster

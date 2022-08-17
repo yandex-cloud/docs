@@ -30,7 +30,7 @@ The following charts are displayed on the tab:
 * **Is Alive**: Indicates cluster accessibility as the sum of its hosts' states.
 
    Each **Alive** host increases the overall availability by 1. When one of the hosts fails, the overall availability is reduced by 1.
-   
+
 
    To increase the availability of a cluster, [add hosts](hosts.md#add).
 
@@ -65,7 +65,7 @@ The **Master overview** section shows detailed information about the master:
 
       If the chart is close to the maximum value, it may mean that open connections can't be closed.
 
-      The maximum value is set by the `max_connections` [parameter](../concepts/settings-list.md#setting-max-connections).
+      The maximum value is set by the `max_connections` [parameter](../concepts/settings-list.md#setting-max-connections) .
 
    * **Threads running**: The number of running threads.
 
@@ -75,7 +75,7 @@ The **Master overview** section shows detailed information about the master:
 
 To view detailed information about the status of individual {{ mmy-name }} hosts:
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{mmy-name }}**.
 1. Click on the name of the cluster you need and select the **Hosts** tab.
 1. Go to the **Monitoring** page.
 1. Select the host from the drop-down list.
@@ -106,7 +106,7 @@ The **MySQL overview** section shows detailed information about the DBMS state o
 * **File IO read bytes**: Data read rate (bytes per second).
 * **File IO read operations**: The average number of file read operations (per second). For more information about operations, see the [{{ MY }} documentation]({{ mysql-vars-uri }}).
 * **File IO write bytes**: Data write rate (bytes per second).
-* **File IO write operations**: The average number of file write operations (per second). For more information about operations, see the [{{ MY }} documentation]({{ mysql-vars-uri }}).
+* **File IO write operations**: The  average number of file write operations (per second). For more information about operations, see the [{{ MY }} documentation]({{ mysql-vars-uri }}).
 * **Handlers**: The number of handlers of various operations. For more information, see the [{{ MY }} documentation]({{ mysql-vars-uri }}).
 * **InnoDB cache efficiency**: InnoDB cache performance indicators. For more information about metrics, see the [{{ MY }} documentation]({{ mysql-vars-uri }}).
 * **InnoDB data operations**: The number of InnoDB operations:
@@ -133,38 +133,38 @@ The **MySQL overview** section shows detailed information about the DBMS state o
 
       If the chart is close to the maximum value, it may mean that open connections can't be closed.
 
-      The maximum value is set by the `max_connections` [parameter](../concepts/settings-list.md#setting-max-connections).
+      The maximum value is set by the `max_connections` [parameter](../concepts/settings-list.md#setting-max-connections) .
 
    * **Threads running**: The number of running threads.
 
       As the load on the host increases, this value grows rapidly.
 
-## Integration with {{ monitoring-full-name }} {#monitoring-integration}
+## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
-To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
+{% list tabs %}
 
-1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
+* Management console
 
-1. Select **{{ monitoring-short-name }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
 
-1. Under **Service dashboards**, select.
+   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
 
-   * **{{ mmy-name }} — Cluster Overview** to configure cluster alerts.
-   * **{{ mmy-name }} — Host Overview** to configure host alerts.
+   1. Under **Service dashboards**, select.
 
-1. In the desired chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
+      * **{{ mmy-name }} — Cluster Overview **to configure cluster alerts.
+      * **{{ mmy-name }} — Host Overview **to configure host alerts.
 
-1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more on the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). 
+   1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
 
-1. Set the `Alarm` and `Warning` notification threshold values.
+   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more on the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). 
 
-1. Click **Create alert**.
+   1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
 
-To have other cluster health indicators monitored automatically:
+   1. Click **Create alert**.
 
-1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
-1. Add a status metric.
-1. Set the alert threshold values in the alert settings.
+{% endlist %}
+
+{% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
 Recommended threshold values:
 
@@ -177,6 +177,8 @@ Recommended threshold values:
 | CPU usage | `cpu.idle` | `10` | `20` |
 
 You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).
+
+For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-mysql).
 
 ## Cluster state and status {#cluster-health-and-status}
 

@@ -88,6 +88,7 @@
 
 {% endlist %}
 
+
 ## Интеграция с {{ monitoring-full-name }} {#monitoring-integration}
 
 Чтобы настроить алерты показателей состояния [кластера](#monitoring-cluster) и [хостов](#monitoring-hosts):
@@ -111,6 +112,7 @@
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
 Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#managed-greenplum).
+
 
 ## Состояние и статус кластера {#cluster-health-and-status}
 

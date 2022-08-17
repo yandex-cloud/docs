@@ -25,7 +25,7 @@ Syntax:
 |`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Individual configurations for hosts that should be created for the MongoDB cluster being restored.<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the new host should reside.</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>assign-public-ip</code>:     Assign a public IP address to the host being added.</li> </ul>|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of labels as key-value pairs to add for the cluster being restored.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the MongoDB cluster.|
-|`--mongodb-version`|<b>`string`</b><br/>Version of MongoDB used by the cluster. Supported value: 3.6, 4.0, 4.2, 4.4, 5.0|
+|`--mongodb-version`|<b>`string`</b><br/>Version of MongoDB used by the cluster. Supported value: 3.6, 4.0, 4.2, 4.4, 5.0, 6.0|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--backup-retain-period-days`|<b>`int`</b><br/>Retain period of automatically created backup in days.|
 |`--datalens-access`|Allow access for DataLens|

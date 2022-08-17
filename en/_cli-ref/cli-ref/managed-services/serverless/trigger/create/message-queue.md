@@ -14,7 +14,7 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/>Trigger name.|
 |`--description`|<b>`string`</b><br/>Trigger description.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--queue`|<b>`string`</b><br/>Message queue identifier.|
 |`--queue-service-account-id`|<b>`string`</b><br/>Service account to be used by the worker to access the Message Queue.|
 |`--queue-service-account-name`|<b>`string`</b><br/>Service account to be used by the worker to access the Message Queue.|

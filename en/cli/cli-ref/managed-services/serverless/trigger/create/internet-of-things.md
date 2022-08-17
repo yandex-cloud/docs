@@ -17,7 +17,7 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/>Trigger name.|
 |`--description`|<b>`string`</b><br/>Trigger description.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--registry-id`|<b>`string`</b><br/>Internet of Things registry ID.|
 |`--device-id`|<b>`string`</b><br/>Internet of Things device ID.|
 |`--mqtt-topic`|<b>`string`</b><br/>Internet of Things MQTT topic.|

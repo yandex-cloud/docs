@@ -14,7 +14,7 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/>A name of the target group.|
 |`--description`|<b>`string`</b><br/>A description of the target group.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--target`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>List of targets.<br/><br/>Possible property names:<br/><ul> <li><code>subnet-id</code>:     Subnet id.</li> <li><code>subnet-name</code>:     Subnet name.</li> <li><code>ip-address</code>:     IP Address.</li> <li><code>private-ip-address</code>:     Private IPv4 address.</li> </ul>|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 

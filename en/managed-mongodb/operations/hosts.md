@@ -72,14 +72,12 @@ You can add different types of hosts to a cluster. Their number depends on the [
 
    1. Click **Add host**.
 
-   
    1. Specify the host parameters:
 
       * Availability zone.
-      * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
+      * Subnet (if the required subnet is not on the list, create it).
       * Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
       * Host type and shard name, if [sharding](../concepts/sharding.md) is enabled for the cluster.
-
 
    1. Click **Save**.
 
@@ -91,7 +89,7 @@ You can add different types of hosts to a cluster. Their number depends on the [
 
    To add a host to the cluster:
 
-      1. Request a list of cluster subnets to select one for the new host:
+   1. Request a list of cluster subnets to select one for the new host:
 
       ```
       yc vpc subnet list
@@ -106,7 +104,7 @@ You can add different types of hosts to a cluster. Their number depends on the [
       +-----------+-----------+------------+---------------+------------------+
       ```
 
-      If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md). 
+      If the necessary subnet is not in the list, create it.
 
    1. View a description of the CLI command for adding a host:
 

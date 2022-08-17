@@ -10,5 +10,5 @@ To upgrade to the paid version:
 3. On the **Overview** page, click **Upgrade to the paid version**.
 4. Confirm the action by clicking **Upgrade to the paid version** again.
 
-Once you activate the paid version, your [personal account balance](../concepts/personal-account.md#balance) is set to zero by default. We recommend monitoring and [topping up](../operations/pay-the-bill.md) your balance so that it's always positive.
-<br/>If you fail to top up your account balance on time and incur arrears, your {{ yandex-cloud }} account may be suspended. For more information, see the section [Billing cycle](../payment/billing-cycle.md).
+Once you activate the paid version, your [personal account balance](../concepts/personal-account.md#balance) is set to zero by default. We recommend monitoring and [topping up](../operations/pay-the-bill.md) your personal account balance so that it is always positive.
+<br/>If you fail to top up your account balance on time and incur arrears, your {{ yandex-cloud }} account may be suspended. For more information, see [How to pay for resources](../payment/index.md).

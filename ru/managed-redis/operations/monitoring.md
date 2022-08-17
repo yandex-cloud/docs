@@ -175,6 +175,7 @@ description: "Вы можете отслеживать состояние кла
 
 {% endlist %}
 
+
 ## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
 
 Чтобы настроить алерты показателей состояния [кластера](#monitoring-cluster) и [хостов](#monitoring-hosts):
@@ -208,6 +209,7 @@ description: "Вы можете отслеживать состояние кла
 Текущий объем RAM на хостах можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster).
 
 Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#managed-redis).
+
 
 ## Состояние и статус кластера {#cluster-health-and-status}
 

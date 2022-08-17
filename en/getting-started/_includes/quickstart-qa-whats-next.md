@@ -20,7 +20,7 @@ However, if your [grant](../usage-grant.md) has expired, access to your resource
 
 #### I accidentally switched to a paid account. Did I lose my initial grant? Can I get it back? {#accidental-switching-trial}
 
-No, you can't switch back to the trial version, but the grant will not be lost. The initial grant will be spent first. For more information about the order in which funds are spent, see [{#T}](../../billing/payment/billing-cycle.md).
+No, you can't switch back to the trial version, but the grant will not be lost. The initial grant will be spent first. For more information about the order in which funds are spent, see [Billing cycle for individuals](../../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../../billing/payment/billing-cycle-business.md).
 
 #### I haven't used up the entire initial grant, but my cloud is blocked. What should I do? {#cloud-blocked-during-trial}
 
@@ -32,7 +32,7 @@ The cloud may be blocked for a few reasons:
 
 #### I couldn't use up the initial grant in 60 days. Can I use {{ yandex-cloud }}? {#initial-grant-expiring}
 
-When the initial grant expires, the total unused amount is offset, and the access to your resources is suspended for 30 days. To continue using {{ yandex-cloud }}, switch to a paid plan. 
+When the initial grant expires, the total unused amount is offset, and the access to your resources is suspended for 30 days. To continue using {{ yandex-cloud }}, switch to a paid plan.
 
 ### About the documents {#documents}
 
@@ -48,11 +48,11 @@ No printed offer is provided.
 
 No physical invoice is provided, but you can generate and print it out from the console.
 
-#### I need a bilateral contract rather than an offer. Can I have it? {#signed-agreement}
+#### I need a bilateral contract rather than an offer. Can I get it? {#signed-agreement}
 
 Yes, companies and individual entrepreneurs can sign a bilateral contract. Send a request using the [Message]({{ link-console-support }}) form. A {{ yandex-cloud }} manager will contact you to discuss the terms and conditions of signing the agreement.
 
-#### How can I get an invoice for payment? {#invoice}
+#### How do I get invoiced? {#invoice}
 
 To get an invoice for paying at a bank office, use instructions at [{#T}](../../billing/operations/pay-the-bill.md#legal-entities).
 

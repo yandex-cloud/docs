@@ -2,19 +2,19 @@
 
 #### Is there a trial period for {{ yandex-cloud }}?  {#trial}
 
-Yes. For more information, see the document [Trial period](../../getting-started/free-trial/concepts/quickstart.md).
+Yes. For more information, see the [Trial period](../../getting-started/free-trial/concepts/quickstart.md) document.
 
 #### Who can use the trial period? {#who-can-use-trial}
 
 All new {{ yandex-cloud }} customers.
 
-#### Can I upgrade to the paid version if the trial period hasn't expired yet?  {#activate-commercial}
+#### Can I upgrade to the paid version if the trial period period hasn't expired yet?  {#activate-commercial}
 
 Yes, you can. For more information, see [Activate the paid version](../operations/activate-commercial.md).
 
 #### What happens to my resources if I don't upgrade from the trial period to the paid version?  {#commercial}
 
-All your resources will be blocked. For more information, see the document [Trial period](../../getting-started/free-trial/concepts/quickstart.md).
+All your resources will be blocked. For more information, see the [Trial period](../../getting-started/free-trial/concepts/quickstart.md) document.
 
 #### Is there a free non-commercial version? {#commercial-nonpaid}
 
@@ -28,5 +28,6 @@ No.
 
 {% include [billing-how-to-use-grant](../../_includes/billing-how-to-use-grant.md) %}
 
-For more information, see [Billing cycle](../payment/billing-cycle.md).
-
+For more information, see the following sections:
+- [Billing cycle for individuals](../payment/billing-cycle-individual.md)
+- [Billing cycle for businesses and individual entrepreneurs](../payment/billing-cycle-business.md)

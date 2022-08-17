@@ -1,4 +1,4 @@
-# Payment methods for individuals
+# How resources are paid for and funds are debited
 
 Individuals can top up their personal account and pay for the resources they use with a [bank card](#debit-card) linked to their billing account.
 
@@ -14,15 +14,14 @@ Individuals are required to link a bank card to their billing account when [crea
 
 {% include [refill-by-card](../_includes/refill-by-card.md) %}
 
-For more information, see the section [Billing cycle](../payment/billing-cycle-individual.md).
+For more information, see [Billing cycle](../payment/billing-cycle-individual.md).
 
-## Debiting of funds {#write-off}
+## Debiting funds {#write-off}
 
 {% include [pay-by-card](../_includes/pay-by-card.md) %}
 
-<br/>For more information, see the section [Billing cycle](../payment/billing-cycle-individual.md).
+<br/>For more information, see [Billing cycle](../payment/billing-cycle-individual.md).
 
 ## Charged amount {#payment-amount}
 
 {% include [payment-amount](../_includes/payment-amount.md) %}
-

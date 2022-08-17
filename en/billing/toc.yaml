@@ -52,7 +52,7 @@ items:
         href: concepts/index.md
       - name: Promo code
         href: concepts/promo-code.md
-      - name: Billing threshold
+      - name: Credit limit
         href: concepts/credit-limit.md
       - name: Billing accounts
         items:
@@ -80,26 +80,22 @@ items:
     items:
       - name: General information
         href: payment/index.md
-      - name: Payment methods
+      - name: For individuals
         items:
-          - name: General information
-            href: payment/payment-methods.md
-          - name: For individuals
+          - name: How resources are paid for and funds are debited
             href: payment/payment-methods-individual.md
-          - name: For businesses and individual entrepreneurs
+          - name: Billing cycle
+            href: payment/billing-cycle-individual.md
+      - name: For businesses and individual entrepreneurs
+        items:
+          - name: Payment methods
             items:
               - name: Bank account transfers
                 href: payment/payment-methods-business.md
               - name: Bank card transfer
                 href: payment/payment-methods-card-business.md
       - name: Billing cycle
-        items:
-          - name: General information
-            href: payment/billing-cycle.md
-          - name: For individuals
-            href: payment/billing-cycle-individual.md
-          - name: For businesses and individual entrepreneurs
-            href: payment/billing-cycle-business.md
+        href: payment/billing-cycle-business.md
       - name: Reporting documents
         items:
           - name: General information

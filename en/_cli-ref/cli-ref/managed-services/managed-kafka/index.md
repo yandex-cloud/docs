@@ -1,6 +1,6 @@
 # yc managed-kafka
 
-Manage Apache Kafka clusters, brokers, topics and users.
+Manage Apache Kafka clusters, brokers, topics, users and connectors.
 
 #### Command Usage
 
@@ -39,6 +39,15 @@ Aliases:
 	- [yc managed-kafka user create](user/create.md) — Create a Kafka user.
 	- [yc managed-kafka user update](user/update.md) — Modify attributes of a Kafka user.
 	- [yc managed-kafka user delete](user/delete.md) — Delete a Kafka user.
+- [yc managed-kafka connector](connector/index.md) — Manage Kafka connectors.
+	- [yc managed-kafka connector get](connector/get.md) — Get information about a Kafka connector.
+	- [yc managed-kafka connector list](connector/list.md) — List connectors of a Kafka cluster.
+	- [yc managed-kafka connector delete](connector/delete.md) — Delete a Kafka connector.
+	- [yc managed-kafka connector pause](connector/pause.md) — Pause a Kafka connector.
+	- [yc managed-kafka connector resume](connector/resume.md) — Resume a Kafka connector.
+- [yc managed-kafka connector-mirrormaker](connector-mirrormaker/index.md) — Manage Kafka Mirrormaker connector.
+	- [yc managed-kafka connector-mirrormaker create](connector-mirrormaker/create.md) — Create a Kafka Mirrormaker connector.
+	- [yc managed-kafka connector-mirrormaker update](connector-mirrormaker/update.md) — Modify attributes of a Kafka Mirrormaker connector.
 
 #### Global Flags
 

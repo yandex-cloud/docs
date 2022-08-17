@@ -22,7 +22,7 @@ Aliases:
 |----|----|
 |`--name`|<b>`string`</b><br/>Specifies the name of the certificate.|
 |`--description`|<b>`string`</b><br/>Specifies the textual description of the certificate.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--domains`|<b>`value[,value]`</b><br/>Specifies the list of domains of the certificate.|
 |`--challenge`|<b>`string`</b><br/>Specifies the challenge type to validate ownership of the domains. Values: 'dns', 'http'|
 |`--deletion-protection`|Protects deletion of certificate.|

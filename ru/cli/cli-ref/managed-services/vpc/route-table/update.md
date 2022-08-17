@@ -22,7 +22,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/>New description for the route table.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>New set of labels for the route table as key-value pairs. Existing set of labels will be completely overwritten.|
 |`--clear-routes`|Clear all routes from a table.|
-|`--route`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>New list of static routes for table.<br/><br/>Possible property names:<br/><ul> <li><code>destination</code>:     Destination subnet in CIDR notation.</li> <li><code>next-hop</code>:     Next hop IP address.</li> </ul>|
+|`--route`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>New list of static routes for table.<br/><br/>Possible property names:<br/><ul> <li><code>destination</code>:     Destination subnet in CIDR notation.</li> <li><code>next-hop</code>:     Next hop IP address.</li> <li><code>gateway-id</code>:     ID of the gateway to use as next hop.</li> <li><code>gateway-name</code>:     Name of the gateway to use as next hop.</li> </ul>|
 
 #### Global Flags
 

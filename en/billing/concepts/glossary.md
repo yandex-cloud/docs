@@ -40,7 +40,7 @@ Personal account
 <br/>See the section [Personal account](personal-account.md).
 
 Reporting period
-: The reporting period is equal to one calendar month. At the beginning of each month, you are required to pay for the resources consumed in the previous period. The [payment method](../payment/payment-methods.md) depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
+: The reporting period is equal to one calendar month. At the beginning of each month, you are required to pay for the resources consumed in the previous period. The [payment method](../payment/index.md) depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
 
 Offer
 : A method for entering into an agreement.

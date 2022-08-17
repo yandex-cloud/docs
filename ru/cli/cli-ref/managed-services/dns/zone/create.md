@@ -17,7 +17,7 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/>A name of the dns zone.|
 |`--description`|<b>`string`</b><br/>Specifies a textual description of the dns zone.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--zone`|<b>`string`</b><br/>The zone domain of the dns zone to create.|
 |`--public-visibility`|Specifies whether or not dns zone records will be publicly visible.|
 |`--private-visibility`|Specifies whether or not dns zone records will be visible from private virtual networks.|

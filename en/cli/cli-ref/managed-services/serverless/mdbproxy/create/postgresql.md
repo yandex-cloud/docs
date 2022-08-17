@@ -17,7 +17,7 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/>Proxy name.|
 |`--description`|<b>`string`</b><br/>Proxy description.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--cluster-id`|<b>`string`</b><br/>Cluster identifier for PostgreSQL.|
 |`--cluster-name`|<b>`string`</b><br/>Cluster name for PostgreSQL.|
 |`--user`|<b>`string`</b><br/>PostgreSQL user.|

@@ -15,7 +15,7 @@ Syntax:
 |`--cluster-id`|<b>`string`</b><br/>Redis cluster id.|
 |`--cluster-name`|<b>`string`</b><br/>Redis cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Configurations for Redis hosts that should be added to the cluster.<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the host resides.</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>shard-name</code>:     Shard name host belong to.</li> </ul>|
+|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Configurations for Redis hosts that should be added to the cluster.<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the host resides.</li> <li><code>assign-public-ip</code>:     Whether the host should get a public IP address.</li> <li><code>replica-priority</code>:     Replica priority (100 by default)</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>shard-name</code>:     Shard name host belong to.</li> </ul>|
 
 #### Global Flags
 

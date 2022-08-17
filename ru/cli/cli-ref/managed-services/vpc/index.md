@@ -69,6 +69,16 @@ Syntax:
 	- [yc vpc address delete](address/delete.md) — Delete an address.
 	- [yc vpc address list-operations](address/list-operations.md) — List operations for an address.
 	- [yc vpc address move](address/move.md) — Move an address to another folder.
+- [yc vpc gateway](gateway/index.md) — Manage gateways.
+	- [yc vpc gateway get](gateway/get.md) — Get information about a gateway.
+	- [yc vpc gateway list](gateway/list.md) — List gateways in a folder.
+	- [yc vpc gateway create](gateway/create.md) — Create a gateway.
+	- [yc vpc gateway update](gateway/update.md) — Modify configuration or attributes of a gateway.
+	- [yc vpc gateway add-labels](gateway/add-labels.md) — Assign labels to a gateway.
+	- [yc vpc gateway remove-labels](gateway/remove-labels.md) — Remove labels from a gateway.
+	- [yc vpc gateway delete](gateway/delete.md) — Delete a gateway.
+	- [yc vpc gateway list-operations](gateway/list-operations.md) — List operations for a gateway.
+	- [yc vpc gateway move](gateway/move.md) — Move a gateway to another folder.
 
 #### Global Flags
 

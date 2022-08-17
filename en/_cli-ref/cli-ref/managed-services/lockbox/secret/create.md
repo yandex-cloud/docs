@@ -14,7 +14,7 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/>Secret name.|
 |`--description`|<b>`string`</b><br/>Secret description.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--kms-key-id`|<b>`string`</b><br/>KMS key ID will be used to encrypt the secret payload.|
 |`--version-description`|<b>`string`</b><br/>Description of the first version.|
 |`--payload`|<b>`string`</b><br/>YAML or JSON array defining the entries of the secret payload.<br/>Each item of the array must match the format: https://cloud.yandex.com/docs/lockbox/api-ref/grpc/secret_service#PayloadEntryChange<br/>For instance, the following payload JSON defines a payload containing two text value entries:<br/>[{"key": "username", "text_value": "alice"}, {"key": "password", "text_value": "p@$$w0rd"}]<br/>Use - value to pass payload string via stdin.|

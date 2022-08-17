@@ -10,16 +10,14 @@ You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }
 
 ## Monitoring the transfer status {#monitoring}
 
-To view information about the transfer status:
-
 {% list tabs %}
 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **Transfers**.
-   1. Click on the name of the transfer and open the **Monitoring** tab.
-   1. To get started with {{ monitoring-full-name }} metrics, dashboards, or alerts, click **Open in Monitoring** on the top panel.
+   1. Click on the name of the transfer and open the ![image](../../_assets/monitoring.svg) **Monitoring** tab.
+   1. To get started with {{ monitoring-full-name }} metrics, dashboards, or alerts, click **Open in Monitoring** in the top panel.
 
 {% endlist %}
 
@@ -28,15 +26,12 @@ The following charts open on the page:
 ### Data upload lag (histogram by seconds) {sinker.pusher.time.row_lag_sec}
 `sinker.pusher.time.row_lag_sec`
 
-Histogram showing the difference between the time records appear on the target and the time they appear on the source (in seconds). The histogram is broken down into `bins`.
-
-Let us assume, the histogram is showing two `bins` for 45 and 60 at a given point in time, with each containing a value equal to 50%. This means that half the records being transferred at the time had a delay of between 30 and 45 seconds, and the other half of between 45 and 60 seconds.
+The time difference between when the records appear on the target and when they appear on the source (in seconds). The histogram is broken down into `bins`. Let us assume, the histogram is showing two `bins` for 45 and 60 at a given point in time, with each containing a value equal to 50%. This means that half the records being transferred at the time had a delay of between 30 and 45 seconds, and the other half of between 45 and 60 seconds.
 
 ### Successfully pushed rows {sinker.pusher.data.row_events_pushed}
 `sinker.pusher.data.row_events_pushed`
 
-   * For table-based DBMS systems, table row insert performance.
-   * For non-relational DBMS systems, transfer performance for objects stored in collections (objects per second).
+For table-based DBMS, table row insert speed. For non-relational DBMS, this is the transfer speed for objects stored in collections (objects per second).
 
 ### Maximum lag on delivery {sinker.pusher.time.row_max_lag_sec}
 `sinker.pusher.time.row_max_lag_sec`
@@ -46,7 +41,7 @@ Maximum data lag (in seconds).
 ### Successfully pushed rows by tables (top-50 tables) {sinker.table.rows}
 `sinker.table.rows`
 
-Top 50 tables with the maximum number of rows written to the target.
+50 tables with the maximum number of rows written to the target.
 
 ### Read buffer size {publisher.consumer.log_usage_bytes}
 `publisher.consumer.log_usage_bytes`
@@ -76,30 +71,144 @@ The number of rows awaiting transfer.
 ### Snapshot task status {task.status}
 `task.status`
 
-The operation in progress (increment if `0`, and snapshot if `1` ).
+The operation in progress: `0` is replication, `1` is a snapshot.
 
-## Integration with {{ monitoring-full-name }} {#monitoring-integration}
-
-To set up alerts for transfer status indicators:
+## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
 {% list tabs %}
 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with the transfer you wish to set up alerts for.
-   1. In the list of services, select **Monitoring**.
+   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
    1. Under **Service dashboards**, select **{{ data-transfer-name }}**.
-   1. In the desired chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
-   1. If there is more than one metric on the chart, create a data query to generate a metric. For more information about the query language, [see the {{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). 
-   1. Set the `Alarm` and `Warning` notification threshold values.
+   1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
+   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+   1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
    1. Click **Create alert**.
 
 {% endlist %}
 
-Recommended threshold values:
+## Recommended alerts
 
-| Metric | Parameter | `Alarm` | `Warning` |
-|---------------------------------------|:------------------------------------:|:-------:|:-------------------------------------------------------------------------------------:|
-| Maximum data transfer delay | `sinker.pusher.time.row_max_lag_sec` | `15` | — |
-| Buffer size in the source | `publisher.consumer.log_usage_bytes` | — | Not less than the maximum amount of data received by the source within a single transaction |
-|                                       |                                      |         |                                                                                       |
+### Number of source events {#source-change-items}
+
+Alert triggering means that the source base generated no replicated {{ data-transfer-name }} events (individual data elements) during the evaluation window.
+
+Possible causes:
+
+* The source base is not available over the network for {{ data-transfer-name }}. For example, due to revoked accesses or a source base failure.
+* The source base has no data to replicate.
+
+Alert parameters:
+
+* Metrics:
+
+   ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = publisher.data.changeitems` `resource_type = -`
+
+   ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **Transformation** section)
+
+* Alert settings:
+
+   * Triggering condition: `Less than or equal to`.
+   * Alarm: `0`.
+   * Warning: `-`.
+
+   You can additionally set the `Warning` triggering condition for the situations when the number of replicated operations is below the expected value.
+
+   Additional settings:
+
+   * **Aggregation function**: `Maximum`.
+   * **Evaluation window**: `5 minutes`. If the source base changes less frequently than once every 5 minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
+
+### Number of target events {#target-change-items}
+
+Alert triggering means that the target base recorded no replicated {{ data-transfer-name }} events during the evaluation window.
+
+Possible causes:
+
+* The source or target base is not available over the network for {{ data-transfer-name }}. For example, due to revoked accesses or a source/target base failure.
+* The source base has no data to replicate.
+* Data from the source base cannot be replicated to the target base. For example, due to target data type limitations in the target base.
+
+Alert parameters:
+
+* Metrics:
+
+   ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = sinker.pusher.data.changeitems` `resource_type = -`
+   ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **Transformation** section)
+
+* Alert settings:
+
+   * Triggering condition: `Less than or equal to`.
+   * Alarm: `0`.
+   * Warning: `-`.
+
+   You can additionally set the `Warning` triggering condition for the situations when the number of replicated operations is below the expected value.
+
+   Additional settings:
+
+   * **Aggregation function**: `Maximum`.
+   * **Evaluation window**: `5 minutes`. If the source base changes less frequently than once every 5 minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
+
+### Maximum data transfer delay {#row-max-lag}
+
+Alert triggering means that the time difference between execution of the operation with rows in the source and the target has exceeded the specified threshold during the evaluation window.
+
+Possible causes:
+
+* The target base is not available over the network for {{ data-transfer-name }}. For example, due to revoked accesses or a target base failure.
+* Not enough resources for replication. For example, the load on the source base exceeds the capacity of the virtual machine on which {{ data-transfer-name }} replication is running.
+* Data from the source base cannot be replicated to the target base. For example, due to target data type limitations in the target base.
+
+Alert parameters:
+
+* Metrics:
+
+   ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec` `resource_type = -`
+
+* Alert settings:
+
+   * Triggering condition: `More than or equal to`.
+   * Alarm: `15`. If the target base is slow, or large blocks of data are being replicated at a time, set the maximum possible value.
+   * Warning: `-`.
+
+   Additional settings:
+
+   * **Aggregation function**: `Minimum`.
+   * **Evaluation window**: `1 minute`.
+
+### Reads {#reading}
+
+Alert triggering means that no bytes of data were read from the source during the evaluation window.
+
+Possible causes:
+
+* The source base is not available over the network for {{ data-transfer-name }}. For example, due to revoked accesses or a source base failure.
+* The source base has no data to replicate.
+
+Alert parameters:
+
+* Metrics:
+
+   ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = publisher.data.bytes` `resource_type = -`
+   ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **Transformation** section)
+
+* Alert settings:
+
+   * Trigger condition: `Equal`.
+   * Alarm: `0`.
+   * Warning: `-`.
+
+   Additional settings:
+
+   * **Aggregation function**: `Maximum`.
+   * **Evaluation window**: `15 minutes`. If the source base changes less frequently than once every 15 minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
+
+## Specifics of working with alerts {#alert-specifics}
+
+* To determine the causes of the transfer failure, check all available alerts. Information about which alerts worked and which did not will enable you to determine the cause more accurately. For example, if alert [{#T}](#source-change-items) is triggered, and alert[{#T}](#target-change-items) is not triggered, the problem is probably not on the source.
+
+* Alerts do not cover all transfer failures. Alert triggering does not always indicate a failure. If problems with the alerts recur, contact [technical support]({{ link-console-support }}) and specify the load, charts, metrics used, and the expected alert behavior.
+
+* Alerts can be triggered not only by transfer infrastructure problems, but also by {{ data-transfer-name }} problems. For example, due to an insufficiency of virtual machine resources for data replication. If this occurs, contact [technical support]({{ link-console-support }}).

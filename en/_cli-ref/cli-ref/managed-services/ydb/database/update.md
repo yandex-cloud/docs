@@ -15,7 +15,7 @@ Syntax:
 |`--new-name`|<b>`string`</b><br/>A new name of the database.|
 |`--description`|<b>`string`</b><br/>Description of the database.|
 |`--resource-preset`|<b>`string`</b><br/>Database resource preset ID.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--public-ip`|Assign public ips for the database.|
 |`--network-id`|<b>`string`</b><br/>Network id.|
 |`--network-name`|<b>`string`</b><br/>Network name.|

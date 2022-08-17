@@ -23,7 +23,7 @@ If you fail to top up your personal account on time, the use of the {{ yandex-cl
 
 ## Methods and terms of crediting funds to your personal account {#methods}
 
-The method of crediting funds to your personal account depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)). How fast the funds will be credited to your personal account depends on the payment method. For more information, see [Payment methods](../payment/payment-methods.md).
+The method of crediting funds to your personal account depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)). How fast the funds will be credited to your personal account depends on the payment method. For more information, see [Payment methods](../payment/index.md).
 
 {% note info %}
 

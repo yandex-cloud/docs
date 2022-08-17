@@ -27,7 +27,7 @@ A billing account can have one of the following statuses:
 Statuses are described in the table below.
 
 | Status | Balance | Description |
------ | ----- | ----- 
+----- | ----- | -----
 | `NEW` | None | The account is being created. |
 | `PENDING` | None | The use of {{ yandex-cloud }} services is not allowed.<br/>The status persists until the account is validated by a {{ yandex-cloud }} manager. |
 | `PAYMENT_NOT_CONFIRMED` | None | The use of {{ yandex-cloud }} services is not allowed. <br/>The status persists until the account is validated by a {{ yandex-cloud }} manager. |
@@ -36,8 +36,10 @@ Statuses are described in the table below.
 | `TRIAL_EXPIRED` | None | The use of {{ yandex-cloud }} services is not allowed. <br/>The trial period has ended and you have not upgraded to the paid version. <br/>You can upgrade to the paid version of {{ yandex-cloud }} at any time during the trial period or 30 days after it ends, with no data loss. |
 | `FIRST_PAYMENT_REQUIRED` | None | The use of {{ yandex-cloud }} services is not allowed. <br/>It's most likely that you previously created a billing account that activated the trial period. <br/>The status persists until you top up your personal account. |
 | `ACTIVE` | Positive | All {{ yandex-cloud }} services are available for use. <br/> The status persists until arrears for usage have accumulated. |
-| `PAYMENT_REQUIRED` | Negative | The account has arrears for service usage. <br/><br/>The use of the {{ yandex-cloud }} services may be suspended if you don't pay the amount owed in time. During the suspension period, a fee is charged for data storage services, in addition to a late payment fee. |
+| `PAYMENT_REQUIRED` | Negative | The account has arrears for service usage. <br/><br/>The use of {{ yandex-cloud }} services may be suspended if you don't pay the amount owed in time. During the suspension period, a fee is charged for data storage services, in addition to a late payment fee. |
 | `SUSPENDED` | Negative | Access to {{ yandex-cloud }} services is suspended.<br/><br/>The maximum data storage period after suspension is 30 calendar days.<br/><br/>For 30 days after the suspension, the system checks whether a payment is made: <br/> - If you pay the entire outstanding amount, access to resources is restored within 24 hours. <br/> - If you do not pay the entire outstanding amount, all data, including your billing account, is permanently blocked and deleted. |
 
 
-For more information, see [Billing cycle](../payment/billing-cycle.md).
+For more information, see the following sections:
+- [Billing cycle for individuals](../payment/billing-cycle-individual.md)
+- [Billing cycle for businesses and individual entrepreneurs](../payment/billing-cycle-business.md)

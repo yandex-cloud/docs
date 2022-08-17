@@ -21,7 +21,7 @@ Aliases:
 |----|----|
 |`--name`|<b>`string`</b><br/>Specifies the name of the certificate.|
 |`--description`|<b>`string`</b><br/>Specifies the textual description of the certificate.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--chain`|<b>`string`</b><br/>Path to PEM file with a chain of the certificate.|
 |`--key`|<b>`string`</b><br/>Path to PEM file with a private key of the certificate.|
 |`--deletion-protection`|Protects deletion of certificate.|
