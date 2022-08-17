@@ -53,6 +53,8 @@
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 ## Интеграция с {{ monitoring-full-name }} {#monitoring-integration}
 
 {% list tabs %}
@@ -74,6 +76,8 @@
 {% endlist %}
 
 Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#data-proc).
+
+{% endif %}
 
 ## Состояние и статус кластера {#cluster-health-and-status}
 

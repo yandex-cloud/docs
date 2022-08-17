@@ -87,6 +87,8 @@
 * **Network Bytes** — скорость обмена данными по сети (байт/с).
 * **Network Packets** — интенсивность обмена данными по сети (пакетов/с).
 
+{% if audience != "internal" %}
+
 ## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
 
 {% list tabs %}
@@ -104,7 +106,7 @@
 
     1. На нужном графике нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Создать алерт**.
 
-    1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. {% if audience == "external" %}Подробнее о языке запросов см. [документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md). {% endif %}
+    1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов см. [документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
 
     1. Задайте значения порогов `Alarm` и `Warning` для срабатывания алерта.
 
@@ -124,8 +126,8 @@
 
 Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster).
 
-{% if audience != "internal" %}
 Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#managed-mongodb).
+
 {% endif %}
 
 ### Отслеживание перехода в read-only {#read-only-alert}

@@ -88,6 +88,8 @@
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 ## Интеграция с {{ monitoring-full-name }} {#monitoring-integration}
 
 Чтобы настроить алерты показателей состояния [кластера](#monitoring-cluster) и [хостов](#monitoring-hosts):
@@ -102,7 +104,7 @@
       * **{{ mes-name }} — Cluster Overview** для настройки алертов кластера;
       * **{{ mes-name }} — Host Overview** для настройки алертов хостов.
   1. На нужном графике с показателями нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Создать алерт**.
-  1. Если показателей на графике больше одного, выберите запрос данных для формирования метрики и нажмите **Продолжить**. {% if audience == "external" %}Подробнее о языке запросов см. в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).{% endif %}
+  1. Если показателей на графике больше одного, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов см. в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
   1. Задайте значения порогов `Alarm` и `Warning` для оповещения.
   1. Нажмите кнопку **Создать алерт**.
 
@@ -110,8 +112,8 @@
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-{% if audience != "internal" %}
 Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#managed-greenplum).
+
 {% endif %}
 
 ## Состояние и статус кластера {#cluster-health-and-status}

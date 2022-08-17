@@ -133,6 +133,8 @@
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 ## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
 
 {% list tabs %}
@@ -146,7 +148,7 @@
       * **{{ mch-name }} — ZooKeeper** для настройки алертов хостов ZooKeeper.
       * **{{ mch-name }} — Host Overview** для настройки алертов хостов.
   1. На нужном графике с показателями нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите **Создать алерт**.
-  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. {% if audience == "external" %}Подробнее о языке запросов [см. в документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md). {% endif %}
+  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов [см. в документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
   1. Задайте значения порогов `Alarm` и `Warning` для срабатывания алерта.
   1. Нажмите кнопку **Создать алерт**.
 
@@ -167,8 +169,8 @@
 
 Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster).
 
-{% if audience != "internal" %}
 Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#managed-clickhouse).
+
 {% endif %}
 
 ## Состояние и статус кластера {#cluster-health-and-status}

@@ -4,7 +4,11 @@
 
 Отслеживать использование дискового пространства можно:
 * в консоли управления с помощью инструментов [мониторинга состояния кластера](../operations/monitoring.md#monitoring-cluster);
+{% if audience != "internal" %}
 * в сервисе [{{ monitoring-full-name }}]({{ link-monitoring }}) с возможностью [настроить уведомления](../operations/monitoring.md#monitoring-integration) по заданным метрикам.
+{% else %}
+* в сервисе [{{ monitoring-full-name }}]({{ link-monitoring }}).
+{% endif %}
 
 #### Логи хранятся на том же диске, что и данные {{ PG }}? Как они тарифицируются? {#logs-storage}
 
@@ -30,6 +34,10 @@ yc managed-postgresql cluster list-logs <идентификатор класте
 
 Подробнее о кешировании данных дисков в Linux см. в [документации](https://www.linuxatemyram.com/).
 
+{% if audience != "internal" %}
+
 #### Как получать уведомления о критических показателях кластера {{ PG }}? {#notifications}
 
 Воспользуйтесь сервисом [{{ monitoring-full-name }}]({{ link-monitoring }}) и [настройте уведомления](../operations/monitoring.md#monitoring-integration) по критичным для вас параметрам.
+
+{% endif %}
