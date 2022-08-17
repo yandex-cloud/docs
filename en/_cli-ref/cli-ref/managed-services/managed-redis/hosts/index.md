@@ -16,6 +16,7 @@ Aliases:
 
 - [yc managed-redis hosts list](list.md) — List hosts for the specified Redis cluster
 - [yc managed-redis hosts add](add.md) — Create new hosts for the cluster in the specified availability zones
+- [yc managed-redis hosts update](update.md) — Update the specified hosts
 - [yc managed-redis hosts delete](delete.md) — Delete the specified hosts
 
 #### Global Flags
