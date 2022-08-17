@@ -111,11 +111,15 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
       * Sources:
 
+         * [{{ CH }}](source/clickhouse.md).
+         * [{{ MG }}](source/mongodb.md).
          * [{{ MY }}](source/mysql.md).
          * [{{ PG }}](source/postgresql.md).
 
       * Targets:
 
+         * [{{ CH }}](target/clickhouse.md).
+         * [{{ MG }}](target/mongodb.md).
          * [{{ MY }}](target/mysql.md).
          * [{{ PG }}](target/postgresql.md).
 

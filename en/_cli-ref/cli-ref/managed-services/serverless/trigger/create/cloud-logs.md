@@ -14,7 +14,7 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/>Trigger name.|
 |`--description`|<b>`string`</b><br/>Trigger description.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--log-groups`|<b>`value[,value]`</b><br/>List of log groups to subscribe. A list can be specified by listing log groups separated by commas as well as passing this flag multiple times.<br/>|
 |`--batch-size`|<b>`int`</b><br/>Batch size, 1 - 100. Default: 1|
 |`--batch-cutoff`|<b>`duration`</b><br/>Batch cutoff. 1 - 60s. Default: 1s.|

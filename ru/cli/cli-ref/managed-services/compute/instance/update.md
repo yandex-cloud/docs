@@ -20,7 +20,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/>A new name of the instance.|
 |`--description`|<b>`string`</b><br/>Specifies a textual description of the instance.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--metadata`|<b>`key=value[,key=value...]`</b><br/>Metadata to be made available to the guest operating system running on the instance.<br/>See for details https://cloud.yandex.ru/docs/compute/concepts/vm-metadata|
 |`--metadata-from-file`|<b>`key=value[,key=value...]`</b><br/>Same as --metadata except that the value for the entry will be read from a local file.|
 |`--memory`|<b>`byteSize`</b><br/>Specifies how much memory instance should have.|

@@ -17,7 +17,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of route table labels as key-value pairs.|
 |`--network-id`|<b>`string`</b><br/>ID of the network to which the route table belongs.|
 |`--network-name`|<b>`string`</b><br/>Name of the network to which the route table belongs.|
-|`--route`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>A list of static routes in a table.<br/><br/>Possible property names:<br/><ul> <li><code>destination</code>:     Destination subnet in CIDR notation.</li> <li><code>next-hop</code>:     Next hop IP address.</li> </ul>|
+|`--route`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>A list of static routes in a table.<br/><br/>Possible property names:<br/><ul> <li><code>destination</code>:     Destination subnet in CIDR notation.</li> <li><code>next-hop</code>:     Next hop IP address.</li> <li><code>gateway-id</code>:     ID of the gateway to use as next hop.</li> <li><code>gateway-name</code>:     Name of the gateway to use as next hop.</li> </ul>|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

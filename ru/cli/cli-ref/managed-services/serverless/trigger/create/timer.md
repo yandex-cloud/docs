@@ -17,7 +17,7 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/>Trigger name.|
 |`--description`|<b>`string`</b><br/>Trigger description.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--cron-expression`|<b>`string`</b><br/>Timer cron expression. Example: '0/1 * * * ? *'.|
 |`--invoke-function-id`|<b>`string`</b><br/>Function to be invoked by worker on each Timer event.|
 |`--invoke-function-name`|<b>`string`</b><br/>Function to be invoked by worker on each Timer event.|

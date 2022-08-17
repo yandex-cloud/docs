@@ -21,6 +21,7 @@ Syntax:
 |`--json-file`|<b>`string`</b><br/>File containing json payload to be sent|
 |`--timestamp`|<b>`timestamp`</b><br/>Log entry creation time, default: now|
 |`--level`|<b>`string`</b><br/>Log level|
+|`--stream-name`|<b>`string`</b><br/>Stream name|
 
 #### Global Flags
 

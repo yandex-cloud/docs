@@ -26,6 +26,7 @@ Syntax:
 |`--max-response-size`|<b>`byteSize`</b><br/>Specifies the maximum response size in bytes. You can also use M and T suffixes to specify MiB or TiB respectively. Default is 3.5 MiB.|
 |`--resource-types`|<b>`value[,value]`</b><br/>Show logs with these resource types (comma-separated)|
 |`--resource-ids`|<b>`value[,value]`</b><br/>Show logs with these resource ids (comma-separated)|
+|`--stream-names`|<b>`value[,value]`</b><br/>Show logs with these stream names (comma-separated)|
 
 #### Global Flags
 

@@ -14,7 +14,7 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/>Name of a symmetric key.|
 |`--description`|<b>`string`</b><br/>Description of a symmetric key.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--default-algorithm`|<b>`string`</b><br/>Specifies default symmetric key version algorithm. Values: 'aes-128', 'aes-192', 'aes-256', 'aes-256-hsm'|
 |`--rotation-period`|<b>`duration`</b><br/>Rotation period for symmetric key version.|
 |`--deletion-protection`|Inhibits deletion of a symmetric key.|

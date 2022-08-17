@@ -29,7 +29,7 @@ Syntax:
 |`--disk-type`|<b>`string`</b><br/>Type of the storage environment for the host.|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--secondary-connections`|<b>`string`</b><br/>Secondary replicas connection mode Values: 'secondary-connections-off', 'secondary-connections-read-only'|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the SQLServer cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
 |`--host-group-ids`|<b>`value[,value]`</b><br/>A list of host groups to place VMs of cluster on.|

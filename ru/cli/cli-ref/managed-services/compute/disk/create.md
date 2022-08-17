@@ -17,7 +17,7 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/>A name of the disk.|
 |`--description`|<b>`string`</b><br/>Specifies a textual description of the disk.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--zone`|<b>`string`</b><br/>The zone of the disk to create.|
 |`--type`|<b>`string`</b><br/>Specifies the type of the disk to create.|
 |`--size`|<b>`byteSize`</b><br/>Specifies the size of the disk in GB. You can also use M and T suffixes to specify smaller or greater size respectively.|

@@ -87,39 +87,44 @@ This page displays charts showing the load on an individual host in the cluster:
 * **Network Bytes**: The speed of data exchange over the network (bytes per second).
 * **Network Packets**: The number of packets exchanged over the network per second.
 
-## Integration with {{ monitoring-full-name }} {#monitoring-integration}
+## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
-To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
+{% list tabs %}
 
-1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
+* Management console
 
-1. Click the ![image](../../_assets/ugly-sandwich.svg) icon and select **Monitoring**.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
 
-1. Under **Service dashboards**, select **{{ mmg-name }}**.
+   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
 
-1. In the desired chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
+   1. Under **Service dashboards**, select:
 
-1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more on the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). 
+      * **{{ mes-name }}** to configure cluster alerts.
+      * **{{ mes-name }} Host Overview** to configure host alerts.
 
-1. Set the `Alarm` and `Warning` notification threshold values.
+   1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
 
-1. Click **Create alert**.
+   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more on the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). 
 
-To have other cluster health indicators monitored automatically:
+   1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
 
-1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
-1. Add a status metric.
-1. Set the alert threshold values in the alert settings.
+   1. Click **Create alert**.
+
+{% endlist %}
+
+{% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
 Recommended threshold values:
 
 | Metric | Parameter                      | `Alarm`                   | `Warning`                 |
 |---------------------------------|:-------------------------------:|:------------------------:|:------------------------:|
 | DB write availability | `can_write`                      | `Equals 0`                 | —                         |
-| Replication delay              | `replset_status-replicationLag` | `180` | `30` |
+| Replication delay              | `replset_status-replicationLag` | `180`,,,,,,,,,,,,,,,,,,,, | `30`,,,,,,,,,,,,,,,,,,,,, |
 | Storage space used | `disk.used_bytes`                | 90% of storage size  | 70% of storage size  |
 
 You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).
+
+For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-mongodb).
 
 ### Monitoring the switch to read-only mode {#read-only-alert}
 

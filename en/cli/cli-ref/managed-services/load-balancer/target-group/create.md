@@ -17,7 +17,7 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/>A name of the target group.|
 |`--description`|<b>`string`</b><br/>A description of the target group.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--region-id`|<b>`string`</b><br/>A region id of the target group.|
 |`--target`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Adds a target to the target group.<br/><br/>Possible property names:<br/><ul> <li><code>subnet-name</code>:     Specifies the subnet that the target will connect to.</li> <li><code>subnet-id</code>:     Specifies the ID of the subnet that the target will connect to.</li> <li><code>address</code>:     Specifies the IP address that the target will connect to</li> </ul>|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|

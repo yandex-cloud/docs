@@ -111,6 +111,7 @@
 
 * **User connections** — количество подключений к хосту. Несколько подключений всегда будут активны. Они используются самим кластером и службами мониторинга {{ yandex-cloud }}.
 
+
 ## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
 
 {% list tabs %}
@@ -140,6 +141,7 @@
 | Количество запросов, ожидающих выделения RAM | `mdb_performance_counters.memory_grants_pending` | `2`                        | `1`                        |
 
 Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster).
+
 
 ## Состояние и статус кластера {#cluster-health-and-status}
 
