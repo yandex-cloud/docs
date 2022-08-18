@@ -126,6 +126,32 @@
 
 1. Укажите [полный адрес ресурса](https://tools.ietf.org/html/rfc3986), по которому будет отправлен запрос. Например: `http://example.org/newfolder/newfile`.
 
+    {% if audience == "internal" %}
+    
+    {% note alert %}
+
+    Внештатные сотрудники Яндекса могут отправлять HTTP-запросы только на разрешенные адреса.
+
+    {% cut "Список разрешенных адресов" %}
+
+    * `https://reactor.yandex-team.ru`
+    * `https://hitman.yandex-team.ru`
+    * `https://api.telegram.org`
+    * `https://botplatform.yandex.net`
+    * `https://bp.mssngr.yandex.net`
+    * `https://hooks.slack.com`
+    * `https://ok.yandex-team.ru`
+    * `https://slack.com`
+    * `https://st-api.yandex-team.ru`
+
+    {% endcut %}
+    
+    Чтобы настроить отправку запроса на другой адрес, создайте [обращение в службу поддержки](https://st.yandex-team.ru/createTicket?queue=TOOLSUP&_form=14549) или обратитесь к сотруднику из штата Яндекса.
+
+    {% endnote %}
+
+    {% endif %}
+
 1. Выберите способ авторизации:
     - **NoAuth**
 
