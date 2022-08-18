@@ -32,23 +32,7 @@ To connect to {{ MG }} hosts with public access, get an SSL certificate:
 
 - Linux (Bash)
 
-   {% if audience != "internal" %}
-
-   ```bash
-   mkdir ~/.mongodb && \
-   wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/root.crt && \
-   chmod 0644 ~/.mongodb/root.crt
-   ```
-
-   {% else %}
-
-   ```bash
-   mkdir ~/.mongodb && \
-   wget "{{ pem-path }}" -O ~/.mongodb/root.crt && \
-   chmod 0644 ~/.mongodb/root.crt
-   ```
-
-   {% endif %}
+    {% include [install-certificate](../../../_includes/mdb/mmg/install-certificate.md) %}
 
 - Windows (PowerShell)
 
