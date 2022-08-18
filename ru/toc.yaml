@@ -42,7 +42,7 @@ items:
     when: product == "yandex-cloud" or product == "cloud-il"
   - name: Data Streams
     href: data-streams/index.yaml
-    when: product == "yandex-cloud"
+    when: audience == "external" and product == "yandex-cloud"
   - name: DataLens
     href: datalens/index.yaml
     when: product == "yandex-cloud"
