@@ -1,12 +1,4 @@
-{% if audience != "internal" %}
-
-The `{{ roles-cloud-owner }}` role is assigned for a cloud and makes the user a [cloud owner](../resource-manager/concepts/resources-hierarchy.md#owner). The owner can perform any operation with the cloud and its resources.
-
-{% else %}
-
 The `{{ roles-cloud-owner }}` role is assigned for a cloud and makes the user a cloud owner. The owner can perform any operation with the cloud and its resources.
-
-{% endif %}
 
 Only a cloud owner can assign and revoke a user's `{{ roles-cloud-owner }}` role.
 
