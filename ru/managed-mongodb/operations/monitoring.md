@@ -58,8 +58,7 @@
 * **Scanned / returned** — показывает соотношения:
     * `scanned_docs / returned_docs` — количество просканированных документов к количеству возвращенных;
     * `scanned_keys / returned_docs` — количество просканированных ключей индекса к количеству возвращенных документов.
-* **TTL indexes activity** — использование индексов при обработке документов с истекшим сроком жизни (Time to Life, TTL).
-* **TTL indexes total** — общее количество [индексов TTL](https://docs.mongodb.com/manual/core/index-ttl/).
+* **TTL indexes activity** — общее количество [индексов TTL](https://docs.mongodb.com/manual/core/index-ttl/).
 * **Total operations count on cluster** — общее количество выполненных в кластере операций.
 * **Total operations time on cluster** — общее время выполнения операций в кластере (в миллисекундах).
 * **WiredTiger cache pages evicted on primary** — среднее количество страниц оперативной памяти, вытесненных на первичной реплике.

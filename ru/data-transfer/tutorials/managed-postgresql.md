@@ -27,6 +27,21 @@
 
 {% include notitle [MPG moving data with Data Transfer](../../_tutorials/datatransfer/managed-postgresql.md) %}
 
+## Перенос таблиц со столбцами tsvector {#tsvector}
+
+По умолчанию копирование таблиц с [типом данных `tsvector`]({{ pg-docs }}/datatype-textsearch.html#DATATYPE-TSVECTOR) выполняется при помощи команд `INSERT`, что значительно медленнее стандартного копирования. Для ускорения [переноса данных](#data-transfer) выполните действия:
+
+1. При [подготовке кластера-приемника](../../data-transfer/operations/prepare.md#target-pg) создайте таблицы со столбцами `tsvector` в кластере-приемнике вручную, но замените тип столбцов с `tsvector` на `text`.
+1. При [создании эндпоинта для приемника](../../data-transfer/operations/endpoint/index.md#create) установите в настройках для поля **Политика очистки** значение `Не очищать`.
+1. После [активации трансфера](../../data-transfer/operations/transfer.md#activate) и перехода его в статус {{ dt-status-repl }} приведите данные в нужных столбцах к типу `tsvector`:
+
+    ```sql
+    ALTER TABLE <имя таблицы>
+    ALTER COLUMN <имя столбца> SET DATA TYPE tsvector
+    USING
+    to_tsvector(<имя столбца>);
+    ```
+
 ## См. также {#see-also}
 
 Другие способы миграции описаны в [документации {{ mpg-full-name }}](../../managed-postgresql/tutorials/data-migration.md).

@@ -66,3 +66,7 @@
 Переход между статусами для трансферов типа _{{ dt-type-copy-repl }}_ показан на схеме:
 
 ![lifecycle-copy-and-replication](../../_assets/data-transfer/lifecycle/copy-and-replication.svg)
+
+### Выбор типа трансфера {#select-transfer-type}
+
+{% include [Репликация меняющихся таблиц](../../_includes/data-transfer/copying-changing-tables.md) %}

@@ -25,12 +25,16 @@ Connecting to the database with explicitly specified network addresses and ports
 
 - Management console
 
-   * **Buffer size limit**: The limit on the memory consumed by the transfer, in bytes. The higher is the buffer size, the faster is the data transfer. However, there exists a risk of transfer failure because the available memory is used up. We recommend that you use the default value.
+   * **Buffer size limit**: The limit on the memory consumed by the transfer, in  bytes. The higher is the buffer size, the faster is the data transfer. However, there exists a risk of transfer failure because the available memory is used up. We recommend that you use the default value.
 
    * **Auxiliary object schema** — a schema for placing auxiliary objects of the transfer.
 
-      For example, to ensure [snapshot consistency](https://docs.greenplum.org/6-16/admin_guide/dml.html) For [heap tables](https://docs.greenplum.org/6-8/admin_guide/ddl/ddl-storage.html#topic37), an auxiliary function is created when running the transfer to be placed in the specified schema.
-
 {% endlist %}
+
+## Specifics of working with the Greenplum source {#shard-copy-settings}
+
+When using the default sharded copying settings (sharded copying is disabled, meaning that the number of instances and processes is not specified) at startup, the service copies data only through interaction with the {{ GP }} cluster coordinator. The tables being copied are accessed in `ACCESS SHARE` [lock mode](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-sql_commands-LOCK.html).
+
+When using the preset sharded copying settings at startup, the service copies data by interacting with both the {{ GP }} cluster coordinator and its segments. The tables being copied are accessed in `SHARE` [lock mode](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-sql_commands-LOCK.html). If a transaction is interrupted in the Greenplum cluster coordinator, the consistency of copied data is not guaranteed.
 
 {% include [greenplum-trademark](../../../../_includes/mdb/mgp/trademark.md) %}
