@@ -132,9 +132,10 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 
    
    ```bash
-   sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-   sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
-   sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+    mkdir --parents {{ crt-local-dir }} && \
+    wget "https://{{ s3-storage-host }}{{ pem-path }}" \
+        --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
+    chmod 655 {{ crt-local-dir }}{{ crt-local-file }}
    ```
 
 

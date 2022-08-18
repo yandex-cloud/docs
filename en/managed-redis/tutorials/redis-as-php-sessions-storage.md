@@ -25,8 +25,9 @@ To configure a {{ mrd-name }} cluster as PHP session storage:
     * Install certificates:
 
         ```bash
-        sudo mkdir -p {{ crt-local-dir }} && \
-        sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O {{ crt-local-dir }}{{ crt-local-file }}
+        mkdir --parents {{ crt-local-dir }} && \
+        wget "{{ s3-storage-host }}{{ pem-path }}" \
+            --output-document {{ crt-local-dir }}{{ crt-local-file }}
         ```
 
     * Prepare the environment and install the [phpredis](https://github.com/phpredis/phpredis) library using `pecl`:
@@ -45,7 +46,7 @@ To configure a {{ mrd-name }} cluster as PHP session storage:
         rm /var/www/html/*
         ```
 
-1. [Create a {{ mrd-name }} cluster](../operations/cluster-create.md) with any suitable configuration. When creating a {{ mrd-name }} cluster, under **Network settings**, specify the same network and security groups as those of the VM hosting the web server.
+2. [Create a {{ mrd-name }} cluster](../operations/cluster-create.md) with any suitable configuration. When creating a {{ mrd-name }} cluster, under **Network settings**, specify the same network and security groups as those of the VM hosting the web server.
 
 ## Configure PHP to use the {{ mrd-name }} cluster as storage for sessions {#settings-php}
 
