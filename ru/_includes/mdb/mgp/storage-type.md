@@ -9,5 +9,11 @@
 * Хранилище на локальных SSD-дисках (`local-ssd`) — использует самые быстрые диски.
 
   Объем такого хранилища можно увеличивать:
-  {% if product == "yandex-cloud" %}* для платформы **Intel Cascade Lake** — только с шагом 100 ГБ;{% endif %}
-    * для платформы **Intel Ice Lake** — только с шагом {{ local-ssd-v3-step }}.
+  
+  {% if product == "yandex-cloud" %}
+  
+  * для платформы **Intel Cascade Lake** — только с шагом 100 ГБ;
+  
+  {% endif %}
+  
+  * для платформы **Intel Ice Lake** — только с шагом {{ local-ssd-v3-step }}.

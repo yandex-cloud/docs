@@ -9,5 +9,11 @@ When creating a cluster, you can choose between the following storage types:
 * Local SSD storage (`local-ssd`): The fastest disks.
 
   The size of this kind of storage can be increased:
-    {% if product == "yandex-cloud" %}* For **Intel Cascade Lake**: In increments of 100 GB.{% endif %}
-    * For **Intel Ice Lake**: Only in increments of {{ local-ssd-v3-step }}.
+  
+  {% if product == "yandex-cloud" %}
+  
+  * For **Intel Cascade Lake**: In increments of 100 GB.
+  
+  {% endif %}
+  
+  * For **Intel Ice Lake**: Only in increments of {{ local-ssd-v3-step }}.
