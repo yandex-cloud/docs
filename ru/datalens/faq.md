@@ -94,7 +94,7 @@
 
 ### Как связать два датасета через селектор? {#how-to-add-common-selector}
 
-См. пример на [дашборде](https://datalens.yandex-team.ru/vpcr34sjm4wmp-primer-svyazi-dvuh-datasetov-cherez-selektor?state=7ae8de37186).
+См. пример установления связи между виджетами в инструкции [{#T}](operations/dashboard/create-alias.md).
 
 {% include [add-line-numeration](../_includes/datalens/qa/add-line-numeration.md) %}
 
