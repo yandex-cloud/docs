@@ -1,5 +1,11 @@
 # Creating a multi-dataset chart
 
+{% note info %}
+
+In multi-dataset charts, only linked dimensions (available in all datasets) can be used.
+
+{% endnote %}
+
 To create a [multi-dataset chart](../../concepts/chart/index.md#multi-dataset-charts):
 
 1. On the {{ datalens-full-name }} homepage, click **Create chart**.

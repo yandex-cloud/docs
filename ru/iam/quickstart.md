@@ -1,38 +1,44 @@
 # Как начать работать c {{ iam-short-name }}
 
-Сервис {{ iam-short-name }} позволяет вам управлять доступом к ресурсам.
+Сервис {{ iam-short-name }} позволяет вам управлять доступом к ресурсам {{ yandex-cloud }}.
 
-Эта инструкция для [владельцев](../resource-manager/concepts/resources-hierarchy.md#owner) и [администраторов](concepts/access-control/roles.md#admin) облака. Вы научитесь:
+По этой инструкции вы добавите пользователя в [организацию](../organization/index.yaml) и дадите ему доступ к ресурсу в одном из ваших [облаков](../resource-manager/concepts/resources-hierarchy.md#cloud).
 
-* [добавлять пользователей в свое облако](#add-user);
-* [назначать пользователям роли](#assign-role);
-* [отнимать назначенные роли](#revoke-roles).
+Для выполнения инструкции потребуются [роли](./concepts/access-control/roles.md):
+
+* владельца (`organization-manager.organizations.owner`) или администратора (`organization-manager.admin`) организации;
+* владельца (`resource-manager.clouds.owner`) или администратора (`admin`) облака.
+
 
 ## Перед началом {#before-you-begin}
 
+
 1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
-1. Если вам некого добавить в облако, вы можете [создать новый аккаунт](https://passport.yandex.ru/registration) на Яндексе предоставить доступ в облако для этого аккаунта.
+1. Если вам некого добавить в облако, вы можете [создать новый аккаунт](https://passport.yandex.ru/registration) на Яндексе и предоставить доступ в облако для этого аккаунта.
 
-## Добавьте нового пользователя в облако {#add-user}
 
-Чтобы предоставить доступ к ресурсам облака пользователю с аккаунтом на Яндексе:
 
-1. [Войдите в аккаунт]({{ link-passport-login }}) администратора облака.
-1. [Выберите](../resource-manager/operations/cloud/switch-cloud.md) облако.
-1. Перейдите на вкладку [Права доступа]({{ link-console-cloud }}?section=resource-acl).
-1. Нажмите значок ![image](../_assets/options.svg) в правом верхнем углу страницы.
-1. Нажмите **Добавить пользователя**.
-1. Введите электронную почту пользователя в Яндексе.
-1. Нажмите кнопку **Добавить пользователя**.
+## Добавьте пользователя в организацию {#add-organization-member}
 
-После этого пользователь получит роль [роль участника облака](../iam/concepts/access-control/roles.md#member) — `{{ roles-cloud-member }}`. Эта роль необходима пользователю для доступа к ресурсам в облаке. Однако она не дает права выполнять какие-либо операции и используется только в сочетании с другими ролями, например с ролями `admin`, `editor` или `viewer`.
+Вы можете добавить в организацию пользователя с аккаунтом на Яндексе или [федеративного](../organization/add-federation.md) пользователя.
 
-Вы также можете добавить пользователя, используя сервис [{{ org-full-name }}](./operations/users/create.md#passport-user).
+Чтобы добавить пользователя с аккаунтом на Яндексе:
+
+{% include [add-useraccount](../_includes/organization/add-useraccount.md) %}
+
+{% note info %}
+
+Так же вы можете добавить пользователя в организацию прямо со страницы облака в консоли управления. Подробнее в [инструкции](./operations/users/create.md#add-useraccount).
+
+{% endnote %}
+
+Чтобы дать пользователю доступ к ресурсу в облаке, назначьте ему роль на сам ресурс или на его контейнер, например на каталог.
+
 
 ## Назначьте пользователю роли {#assign-role}
 
-Чтобы указать, какие операции можно выполнять пользователю, назначьте ему соответствующие роли. Например, разрешите ему просматривать ресурсы в облаке и управлять ресурсами в каталоге:
+Чтобы указать, какие операции можно выполнять пользователю, назначьте ему соответствующие роли. Например, разрешите ему просматривать ресурсы в облаке и управлять каталогом:
 
 {% list tabs %}
 
@@ -47,6 +53,7 @@
         {% include [set-accessbinding-user-editor-folder-console](../_includes/resource-manager/set-accessbinding-user-editor-folder-console.md) %}
 
 {% endlist %}
+
 
 ## Отнимите назначенные роли {#revoke-roles}
 
@@ -65,6 +72,7 @@
         {% include [update-access-binding-user-console-cloud](../_includes/resource-manager/update-access-binding-user-console-cloud.md) %}
 
 {% endlist %}
+
 
 ## Что дальше {#what-is-next}
 

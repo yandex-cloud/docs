@@ -50,6 +50,8 @@ items:
             href: concepts/payloads/http-json.md
       - name: Тестирующие потоки
         href: concepts/testing-stream.md
+      - name: Автостоп
+        href: concepts/auto-stop.md
       - name: Отчеты
         href: concepts/reports.md
       - name: Квоты и лимиты
