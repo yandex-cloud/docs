@@ -67,7 +67,7 @@ The minimum billing unit is a minute (for example, 1.5 minutes of host usage cos
 You pay for the storage allocated for DB clusters.
 
 * You can only order local SSD storage (`local-ssd`) for clusters with three or more broker hosts:
-   {% if product == "yandex-cloud" %}* For Intel Cascade Lake: In 100-GB increments.{% endif %}
+   {% if product == "yandex-cloud" %}* For Intel Cascade Lake: In 100 GB increments.{% endif %}
    * For Intel Ice Lake: In {{ local-ssd-v3-step }} increments.
 * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
 
@@ -83,17 +83,19 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
    For example, you created a cluster:
 
-   * With 3 {{ KF }} broker hosts with the `s2.micro` host class (Intel Cascade Lake, 2 vCPU, 100% vCPU, 8 GB RAM).
-   * With 3 automatically created {{ ZK }} hosts with the `b2.medium` class (Intel Cascade Lake, 2 vCPU, 50% vCPU, 4 GB RAM).
-   * With 100 GB of storage on HDD network drives.
+   * With 3 {{ KF }} broker hosts with the `s2.micro` class (Intel Cascade Lake, 2 vCPU, 100% vCPU, 8 GB RAM).
+   * With 3 automatically created {{ ZK }} hosts with the `b2.medium` class (Intel Cascade Lake, 2 vCPU, 50% vCPU, 4 GB RAM). Each {{ ZK }} host gets 10 GB of network SSD storage.
+   * With 100 GB of network HDD storage (allocated to each broker host).
 
-   Cost per hour for the hosts: `3 × (2 × ₽1.68 + 8 × ₽0.45) + 3 × (2 × ₽0.78 + 4 × ₽0.32) = ₽29.4`
+   Hourly cost to run hosts ({{ KF }} and {{ ZK }}): `3 × (2 × ₽1.68 + 8 × ₽0.45) + 3 × (2 × ₽0.78 + 4 × ₽0.32) = ₽29.4`
 
-   Total cluster cost per month (hosts and storage): `720 × ₽29.4 + 100 × ₽3.2 = ₽21488`
+   Storage cost (HDD and SSD): `3 × 100 × ₽3.2 + 3 × 10 × ₽13.01 = ₽1350.3`
 
-   {% endif %}
+   Total monthly cluster cost (hosts and storage): `720 × ₽29.4 + ₽1350.3 = ₽22518.3`
 
 {% endlist %}
+
+{% endif %}
 
 {% if audience == "cvos" %}
 
