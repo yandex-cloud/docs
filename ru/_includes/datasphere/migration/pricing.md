@@ -33,16 +33,17 @@
 
 #### Пример расчета стоимости {#price-example}
 
-Пример расчета стоимости:
+Стоимость использования {{ ml-platform-name }} со следующими параметрами:
+
 * **Вычислительные ресурсы:** конфигурация g1.1 с 8 CPU и 1 GPU.
 * **Время выполнения операций:** 1400 мс (округляется до целого числа секунд в большую сторону).
 
 Расчет стоимости:
 
 > 72 × 2 = 144 юнита за вычисление
-> 144 × {% if region == "ru"%}0,0012{% endif %}{% if region == "int"%}0,0000096{% endif %}{% if region == "kz"%}0,0060{% endif %} = {% if region == "ru"%}0,1728 ₽{% endif %}{% if region == "int"%}0,0013824 ${% endif %}{% if region == "kz"%}0,8640 ₸{% endif %}
+> 144 × {% if region == "ru"%}0,0012{% endif %}{% if region == "int"%}0,0000096{% endif %}{% if region == "kz"%}0,0060{% endif %} = {% if region == "ru"%}0,1728&nbsp;₽{% endif %}{% if region == "int"%}0,0013824&nbsp;${% endif %}{% if region == "kz"%}0,8640&nbsp;₸{% endif %}
 >
-> Итого: {% if region == "ru"%}0,1728 ₽{% endif %}{% if region == "int"%}0,0013824 ${% endif %}{% if region == "kz"%}0,8640 ₸{% endif %}
+> Итого: {% if region == "ru"%}0,1728&nbsp;₽{% endif %}{% if region == "int"%}0,0013824&nbsp;${% endif %}{% if region == "kz"%}0,8640&nbsp;₸{% endif %} – стоимость использования {{ ml-platform-name }}.
 
 Где:
 * 72 — количество юнитов за конфигурацию g1.1.
