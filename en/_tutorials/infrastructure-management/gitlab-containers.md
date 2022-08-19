@@ -44,7 +44,7 @@ To run the script, install the following in the local environment:
 
 Run GitLab on a VM with a public IP address:
 
-{% include [create-gitlab](../../_includes/gitlab/create.md) %}
+{% include [create-gitlab](../../_includes/managed-gitlab/create.md) %}
 
 ## Create a registry in {{ container-registry-name }} {#cr-create}
 
@@ -56,7 +56,7 @@ Save the registry ID: you'll need it for the next steps.
 
 ## Configure GitLab {#configure-gitlab}
 
-{% include [initialize-gitlab](../../_includes/gitlab/initialize.md) %}
+{% include [initialize-gitlab](../../_includes/managed-gitlab/initialize.md) %}
 
 ## Create a test application
 
@@ -134,15 +134,15 @@ It may take several minutes to create the {{ k8s }} cluster. When the cluster's 
 
 {% include [create-node-group](../../_includes/managed-kubernetes/node-group-create.md) %}
 
-{% include [k8s-get-token](../../_includes/gitlab/k8s-get-token.md) %}
+{% include [k8s-get-token](../../_includes/managed-gitlab/k8s-get-token.md) %}
 
 ## Connect the {{ k8s }} cluster to the GitLab build runners {#runners}
 
-{% include notitle [k8s-runner-gitlab](../../_includes/gitlab/k8s-runner.md) %}
+{% include notitle [k8s-runner-gitlab](../../_includes/managed-gitlab/k8s-runner.md) %}
 
 ## Configure a Docker image build and deployment from CI {#ci}
 
-{% include [configure-ci-gitlab](../../_includes/gitlab/configure-ci.md) %}
+{% include [configure-ci-gitlab](../../_includes/managed-gitlab/configure-ci.md) %}
 
 ## Delete the created resources {#clear-out}
 
