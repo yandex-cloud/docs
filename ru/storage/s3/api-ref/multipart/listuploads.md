@@ -121,7 +121,7 @@ GET /{bucket}?uploads HTTP/2
 `ID` | Идентификатор пользователя.<br/><br/>Возможные пути:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/ID`
 `DisplayName` | Отображаемое имя пользователя.<br/><br/>Возможные пути:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/DisplayName`
 `Owner` | Информация о владельце объекта, совпадает с `Initiator`.<br/><br/>Путь: `/ListMultipartUploadsResult/Owner`.
-`StorageClass` | Класс хранения объекта: `STANDARD` или `COLD`.<br/><br/>Путь: `/ListMultipartUploadsResult/Upload/StorageClass`.
+`StorageClass` | [Класс хранилища](../../../concepts/storage-class.md) объекта: {% if product == "yandex-cloud" and audience != "internal" %}`STANDARD`, `COLD` или `ICE`{% endif %}{% if product == "cloud-il" or audience == "internal" %}`STANDARD` или `COLD`{% endif %}.<br/><br/>Путь: `/ListMultipartUploadsResult/Upload/StorageClass`.
 `Initiated` | Дата и время запроса на [начало составной загрузки](startupload.md).
 `/ListMultipartUploadsResult/Prefix` | Префикс ключа.<br/><br/>Смотрите параметр запроса `prefix`.<br/><br/>Путь: `/ListMultipartUploadsResult/Prefix`.
 `Delimiter` | Символ-разделитель, который использовался при формировании выдачи.<br/><br/>Смотрите описание параметра запроса `delimiter`.<br/><br/>Путь: `/ListMultipartUploadsResult/Delimiter`.
