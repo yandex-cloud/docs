@@ -136,17 +136,28 @@
 
      ```bash
      {{ yc-mdb-my }} host add \
-       --cluster-name=<имя кластера> \
-       --host zone-id=<идентификатор зоны доступности>,
-       --subnet-id=<идентификатор подсети>,
-       --backup-priority=<приоритет хоста при резервном копировании>
-       --priority=<приоритет назначения хоста мастером: от 0 до 100>
-
+        --cluster-name=<имя кластера> \
+        --host zone-id=<идентификатор зоны доступности>,`
+              `subnet-id=<идентификатор подсети>,`
+              `assign-public-ip=<публичный доступ к хосту подкластера: true или false>,`
+              `replication-source=<имя хоста-источника>,`
+              `backup-priority=<приоритет хоста при резервном копировании>,`
+              `priority=<приоритет назначения хоста мастером: от 0 до 100>
      ```
 
-     {{ mmy-short-name }} запустит операцию добавления хоста.
+     Где:
+   
+     * `--cluster-name` — имя кластера {{ mmy-name }}.
+     * `--host` — параметры хоста:
 
-     Идентификатор подсети необходимо указать, если в зоне доступности больше одной подсети, в противном случае {{ mmy-short-name }} автоматически выберет единственную подсеть. Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+         * `zone-id` — {% if audience != "internal" %}[зона доступности](../../overview/concepts/geo-scope.md){% else %}зона доступности{% endif %}.
+         * `subnet-id` — {% if audience != "internal" %}[идентификатор подсети](../../vpc/concepts/network.md#subnet){% else %}идентификатор подсети{% endif %}. Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
+         * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу.
+         * `replication-source` — источник [репликации](../concepts/replication.md) для хоста.
+         * `backup-priority` — приоритет хоста при [резервном копировании](../concepts/backup.md#size).
+         * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
+
+     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -231,19 +242,18 @@
 
   ```bash
   {{ yc-mdb-my }} host update <имя хоста> \
-    --cluster-name=<имя кластера> \
-    --replication-source=<имя хоста-источника> \
-    --assign-public-ip=<публичный доступ к хосту: true или false> \
-    --backup-priority=<приоритет хоста при резервном копировании: от 0 до 100>
-    --priority=<приоритет назначения хоста мастером: от 0 до 100>
-
+     --cluster-name=<имя кластера> \
+     --replication-source=<имя хоста-источника> \
+     --assign-public-ip=<публичный доступ к хосту: true или false> \
+     --backup-priority=<приоритет хоста при резервном копировании: от 0 до 100> \
+     --priority=<приоритет назначения хоста мастером: от 0 до 100>
   ```
 
   Где:
 
-  * `--cluster-name` — имя кластера {{ mmy-name }};
-  * `--replication-source` — источник [репликации](../concepts/replication.md) для хоста;
-  * `--assign-public-ip` — доступность хоста из интернета по публичному IP-адресу;
+  * `--cluster-name` — имя кластера {{ mmy-name }}.
+  * `--replication-source` — источник [репликации](../concepts/replication.md) для хоста.
+  * `--assign-public-ip` — доступность хоста из интернета по публичному IP-адресу.
   * `--backup-priority` — приоритет хоста при [резервном копировании](../concepts/backup.md#size).
   * `--priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
 
