@@ -27,7 +27,7 @@ GET /{bucket}/{key}?uploadId=UploadId HTTP/2
 ----- | -----
 `encoding-type` | Кодировка ответа от сервера.<br/><br/>{{ objstorage-name }} по требованию клиента может закодировать ответ в требуемом виде.
 `max-parts` | Максимальное количество элементов в ответе за один запрос.<br/><br/>По умолчанию 1000.
-`part-number​-marker` | Номер части, с которого должен начинаться ответ.<br/><br/>{{ objstorage-name }} включит в ответ только части, номера которых больше указанного.
+`part-number-marker` | Номер части, с которого должен начинаться ответ.<br/><br/>{{ objstorage-name }} включит в ответ только части, номера которых больше указанного.
 `uploadId` | Идентификатор составной загрузки.
 
 
@@ -98,7 +98,7 @@ GET /{bucket}/{key}?uploadId=UploadId HTTP/2
 `ID` | Идентификатор пользователя.<br/><br/>Путь: `/ListPartsResult/Initiator/ID`.
 `DisplayName` | Отображаемое имя пользователя.<br/><br/>Путь: `/ListPartsResult/Initiator/DisplayName`.
 `Owner` | Информация о владельце объекта, совпадает с `Initiator`.<br/><br/>Путь: `/ListPartsResult/Owner`.
-`StorageClass` | Класс хранения объекта: `STANDARD` или `COLD`.<br/><br/>Путь: `/ListPartsResult/StorageClass`.
+`StorageClass` | [Класс хранилища](../../../concepts/storage-class.md) объекта: `STANDARD`, `COLD` или `ICE`.<br/><br/>Путь: `/ListPartsResult/StorageClass`.
 `PartNumberMarker` | Номер части, после которого начинается список.<br/><br/>Первый элемент списка имеет номер, следующий за `PartNumberMarker`.<br/><br/>Путь: `/ListPartsResult/PartNumberMarker`.
 `NextPartNumberMarker` | Номер части, которым заканчивается текущий список.<br/><br/>Присутствует в случае, когда в ответ не поместился весь перечень частей.<br/><br/>Путь: `/ListPartsResult/NextPartNumberMarker`.
 `MaxParts` | Максимальная длина списка для одного ответа.<br/><br/>Путь: `/ListPartsResult/MaxParts`.
