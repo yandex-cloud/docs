@@ -252,6 +252,41 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-greenplum/api-ref/Cluster#representation)'
+  /managed-greenplum/v1/clusters/{clusterId}/expand:
+    post:
+      tags:
+      - Cluster
+      summary: Expands the specified Greenplum® cluster.
+      operationId: ClusterExpand
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Greenplum Cluster resource to update.
+          To get the Greenplum cluster ID, use a [list](/docs/managed-greenplum/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExpandRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: expand
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AddClusterHostsMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-greenplum/api-ref/Cluster#representation)'
   /managed-greenplum/v1/clusters/{clusterId}:start:
     post:
       tags:
@@ -806,6 +841,12 @@ components:
           description: Allows access for DataTransfer.
           type: boolean
           format: boolean
+    AddClusterHostsMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the Greenplum Cluster resource that is being updated.
+          type: string
     AnytimeMaintenanceWindow:
       description: An any-time maintenance window.
       type: object
@@ -1159,6 +1200,21 @@ components:
       description: Empty JSON object `` {} ``.
       type: object
       maxProperties: 0
+    ExpandRequest:
+      type: object
+      properties:
+        segmentHostCount:
+          description: Number of hosts for add to the segment subcluster
+          type: string
+          format: int64
+        addSegmentsPerHostCount:
+          description: Number of segments per host to add
+          type: string
+          format: int64
+        duration:
+          description: Redistribute duration, in seconds
+          type: string
+          format: int64
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.

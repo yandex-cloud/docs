@@ -8,6 +8,37 @@ info:
   x-y-docUri: api-ref
   x-y-baseUrl: https://iot-broker.api.cloud.yandex.net
 paths:
+  /iot-broker/v1/brokers/{brokerId}/publish:
+    post:
+      tags:
+      - BrokerData
+      summary: Publishes message on behalf of specified registry
+      operationId: BrokerDataPublish
+      parameters:
+      - name: brokerId
+        in: path
+        description: |-
+          Required.
+          ID of broker publishing message
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublishBrokerDataRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublishBrokerDataResponse'
+      x-y-navtitle: publish
   /iot-broker/v1/brokers/{brokerId}:
     get:
       tags:
@@ -765,6 +796,26 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    PublishBrokerDataRequest:
+      type: object
+      properties:
+        topic:
+          description: |-
+            Required.
+            Topic where message should be published
+
+            The maximum string length in characters is 1024.
+          type: string
+        data:
+          description: |-
+            Content of the message
+
+            The maximum string length in characters is 262144.
+          type: string
+          format: byte
+    PublishBrokerDataResponse:
+      type: object
+      properties: {}
     UpdateBrokerMetadata:
       type: object
       properties:
@@ -845,5 +896,7 @@ components:
         The rest of the fields will be reset to the default.
       type: string
 tags:
+- name: BrokerData
+  description: A set of methods to work with IoT Core messages on behalf of broker
 - name: Broker
   description: A set of methods for managing broker.

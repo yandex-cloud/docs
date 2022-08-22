@@ -308,7 +308,7 @@ paths:
       x-y-navtitle: updateRecordSets
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateRecordSetsMetadata'
-      x-y-operation-response: Empty
+      x-y-operation-response: '`RecordSetDiff`'
   /dns/v1/zones/{dnsZoneId}:upsertRecordSets:
     post:
       tags:
@@ -342,7 +342,7 @@ paths:
       x-y-navtitle: upsertRecordSets
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpsertRecordSetsMetadata'
-      x-y-operation-response: Empty
+      x-y-operation-response: '`RecordSetDiff`'
   /dns/v1/zones/{dnsZoneId}/operations:
     get:
       tags:
@@ -830,6 +830,19 @@ components:
           type: array
           items:
             type: string
+    RecordSetDiff:
+      type: object
+      properties:
+        additions:
+          description: List of record sets that were added
+          type: array
+          items:
+            $ref: '#/components/schemas/RecordSet'
+        deletions:
+          description: List of record sets that were deleted
+          type: array
+          items:
+            $ref: '#/components/schemas/RecordSet'
     SetAccessBindingsMetadata:
       type: object
       properties:

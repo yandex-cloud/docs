@@ -48,7 +48,7 @@ id | **string**<br>ID of the bucket. Always equal to `name`, which has priority.
 name | **string**<br>Name of the bucket. <br>The name is unique within the platform. For naming limitations and rules, see [documentation](/docs/storage/concepts/bucket#naming). 
 folder_id | **string**<br>ID of the folder that the bucket belongs to. 
 anonymous_access_flags | **[AnonymousAccessFlags](#AnonymousAccessFlags)**<br>Flags for configuring public (anonymous) access to the bucket's content and settings. For details, see [documentation](/docs/storage/concepts/bucket#bucket-access). 
-default_storage_class | **string**<br>Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`) and cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
+default_storage_class | **string**<br>Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`), cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
 versioning | enum **Versioning**<br>Bucket versioning status. For details, see [documentation](/docs/storage/concepts/versioning). <ul><li>`VERSIONING_DISABLED`: The bucket is unversioned, i.e. versioning has never been enabled for the bucket, including at its creation. Objects that are stored in the bucket have a version ID of `null`. <br>To enable versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update](#Update) request. Note that this action is irreversible, and a bucket with versioning enabled can never return to `VERSIONING_DISABLED` state.</li><li>`VERSIONING_ENABLED`: Bucket versioning is enabled, i.e. all new objects are versioned and given a unique version ID, and objects that already existed at the time versioning was enabled will be versioned and given a unique version ID when modified by future requests. <br>To suspend versioning, change status to `VERSIONING_SUSPENDED` via a [BucketService.Update](#Update) request. You cannot disable versioning altogether for a bucket that already had it enabled; objects that had version IDs will keep them.</li><li>`VERSIONING_SUSPENDED`: Bucket versioning is suspended, i.e. new objects are not versioned, but objects that already existed at the time versioning was suspended are still versioned and keep their version IDs. <br>To resume versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update](#Update) request.</li></ul>
 max_size | **int64**<br>Maximum size of the bucket, in bytes. For details, see [documentation](/docs/storage/operations/buckets/limit-max-volume). 
 policy | **google.protobuf.Struct**<br>Bucket policies that set permissions for actions with the bucket, its objects, and groups of objects. For details, see [documentation](/docs/storage/concepts/policy). 
@@ -174,7 +174,7 @@ noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/p
 Field | Description
 --- | ---
 noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Time period, in number of days since the version of an object was classified as non-current, after which the version is transitioned. 
-storage_class | **string**<br>Required. Storage class to which a non-current version of an object is transitioned. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage are not allowed. 
+storage_class | **string**<br>Required. Storage class to which a non-current version of an object is transitioned from standard storage. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage and transitions to or from ice storage are not allowed. 
 
 
 ### Transition {#Transition}
@@ -183,7 +183,7 @@ Field | Description
 --- | ---
 date | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Specific date of object transition. <br>The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket are transitioned immediately. <br>At most one of `date` and `days` fields can be specified. 
 days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Time period, in number of days from the creation or modification of the object, after which an object is transitioned. <br>At most one of `days` and `date` fields can be specified. 
-storage_class | **string**<br>Required. Storage class to which an object is transitioned. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage are not allowed. 
+storage_class | **string**<br>Required. Storage class to which an object is transitioned from standard storage. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage and transitions to or from ice storage are not allowed. 
 
 
 ### Expiration {#Expiration}
@@ -224,7 +224,7 @@ id | **string**<br>ID of the bucket. Always equal to `name`, which has priority.
 name | **string**<br>Name of the bucket. <br>The name is unique within the platform. For naming limitations and rules, see [documentation](/docs/storage/concepts/bucket#naming). 
 folder_id | **string**<br>ID of the folder that the bucket belongs to. 
 anonymous_access_flags | **[AnonymousAccessFlags](#AnonymousAccessFlags1)**<br>Flags for configuring public (anonymous) access to the bucket's content and settings. For details, see [documentation](/docs/storage/concepts/bucket#bucket-access). 
-default_storage_class | **string**<br>Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`) and cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
+default_storage_class | **string**<br>Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`), cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
 versioning | enum **Versioning**<br>Bucket versioning status. For details, see [documentation](/docs/storage/concepts/versioning). <ul><li>`VERSIONING_DISABLED`: The bucket is unversioned, i.e. versioning has never been enabled for the bucket, including at its creation. Objects that are stored in the bucket have a version ID of `null`. <br>To enable versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update](#Update) request. Note that this action is irreversible, and a bucket with versioning enabled can never return to `VERSIONING_DISABLED` state.</li><li>`VERSIONING_ENABLED`: Bucket versioning is enabled, i.e. all new objects are versioned and given a unique version ID, and objects that already existed at the time versioning was enabled will be versioned and given a unique version ID when modified by future requests. <br>To suspend versioning, change status to `VERSIONING_SUSPENDED` via a [BucketService.Update](#Update) request. You cannot disable versioning altogether for a bucket that already had it enabled; objects that had version IDs will keep them.</li><li>`VERSIONING_SUSPENDED`: Bucket versioning is suspended, i.e. new objects are not versioned, but objects that already existed at the time versioning was suspended are still versioned and keep their version IDs. <br>To resume versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update](#Update) request.</li></ul>
 max_size | **int64**<br>Maximum size of the bucket, in bytes. For details, see [documentation](/docs/storage/operations/buckets/limit-max-volume). 
 policy | **google.protobuf.Struct**<br>Bucket policies that set permissions for actions with the bucket, its objects, and groups of objects. For details, see [documentation](/docs/storage/concepts/policy). 
@@ -350,7 +350,7 @@ noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/p
 Field | Description
 --- | ---
 noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Time period, in number of days since the version of an object was classified as non-current, after which the version is transitioned. 
-storage_class | **string**<br>Required. Storage class to which a non-current version of an object is transitioned. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage are not allowed. 
+storage_class | **string**<br>Required. Storage class to which a non-current version of an object is transitioned from standard storage. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage and transitions to or from ice storage are not allowed. 
 
 
 ### Transition {#Transition1}
@@ -359,7 +359,7 @@ Field | Description
 --- | ---
 date | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Specific date of object transition. <br>The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket are transitioned immediately. <br>At most one of `date` and `days` fields can be specified. 
 days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Time period, in number of days from the creation or modification of the object, after which an object is transitioned. <br>At most one of `days` and `date` fields can be specified. 
-storage_class | **string**<br>Required. Storage class to which an object is transitioned. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage are not allowed. 
+storage_class | **string**<br>Required. Storage class to which an object is transitioned from standard storage. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage and transitions to or from ice storage are not allowed. 
 
 
 ### Expiration {#Expiration1}
@@ -394,7 +394,7 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the bucket. <br>The name must be unique within the platform. For naming limitations and rules, see [documentation](/docs/storage/concepts/bucket#naming). 
 folder_id | **string**<br>Required. ID of the folder to create a bucket in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
-default_storage_class | **string**<br>Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`) and cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
+default_storage_class | **string**<br>Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`), cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
 max_size | **int64**<br>Maximum size of the bucket. For details, see [documentation](/docs/storage/operations/buckets/limit-max-volume). 
 anonymous_access_flags | **[AnonymousAccessFlags](#AnonymousAccessFlags2)**<br>Flags for configuring public (anonymous) access to the bucket's content and settings. For details, see [documentation](/docs/storage/concepts/bucket#bucket-access). 
 acl | **[ACL](#ACL2)**<br>Access control list (ACL) of the bucket. For details, see [documentation](/docs/storage/concepts/acl). 
@@ -456,7 +456,7 @@ id | **string**<br>ID of the bucket. Always equal to `name`, which has priority.
 name | **string**<br>Name of the bucket. <br>The name is unique within the platform. For naming limitations and rules, see [documentation](/docs/storage/concepts/bucket#naming). 
 folder_id | **string**<br>ID of the folder that the bucket belongs to. 
 anonymous_access_flags | **[AnonymousAccessFlags](#AnonymousAccessFlags3)**<br>Flags for configuring public (anonymous) access to the bucket's content and settings. For details, see [documentation](/docs/storage/concepts/bucket#bucket-access). 
-default_storage_class | **string**<br>Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`) and cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
+default_storage_class | **string**<br>Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`), cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
 versioning | enum **Versioning**<br>Bucket versioning status. For details, see [documentation](/docs/storage/concepts/versioning). <ul><li>`VERSIONING_DISABLED`: The bucket is unversioned, i.e. versioning has never been enabled for the bucket, including at its creation. Objects that are stored in the bucket have a version ID of `null`. <br>To enable versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update](#Update) request. Note that this action is irreversible, and a bucket with versioning enabled can never return to `VERSIONING_DISABLED` state.</li><li>`VERSIONING_ENABLED`: Bucket versioning is enabled, i.e. all new objects are versioned and given a unique version ID, and objects that already existed at the time versioning was enabled will be versioned and given a unique version ID when modified by future requests. <br>To suspend versioning, change status to `VERSIONING_SUSPENDED` via a [BucketService.Update](#Update) request. You cannot disable versioning altogether for a bucket that already had it enabled; objects that had version IDs will keep them.</li><li>`VERSIONING_SUSPENDED`: Bucket versioning is suspended, i.e. new objects are not versioned, but objects that already existed at the time versioning was suspended are still versioned and keep their version IDs. <br>To resume versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update](#Update) request.</li></ul>
 max_size | **int64**<br>Maximum size of the bucket, in bytes. For details, see [documentation](/docs/storage/operations/buckets/limit-max-volume). 
 policy | **google.protobuf.Struct**<br>Bucket policies that set permissions for actions with the bucket, its objects, and groups of objects. For details, see [documentation](/docs/storage/concepts/policy). 
@@ -582,7 +582,7 @@ noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/p
 Field | Description
 --- | ---
 noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Time period, in number of days since the version of an object was classified as non-current, after which the version is transitioned. 
-storage_class | **string**<br>Required. Storage class to which a non-current version of an object is transitioned. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage are not allowed. 
+storage_class | **string**<br>Required. Storage class to which a non-current version of an object is transitioned from standard storage. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage and transitions to or from ice storage are not allowed. 
 
 
 ### Transition {#Transition2}
@@ -591,7 +591,7 @@ Field | Description
 --- | ---
 date | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Specific date of object transition. <br>The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket are transitioned immediately. <br>At most one of `date` and `days` fields can be specified. 
 days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Time period, in number of days from the creation or modification of the object, after which an object is transitioned. <br>At most one of `days` and `date` fields can be specified. 
-storage_class | **string**<br>Required. Storage class to which an object is transitioned. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage are not allowed. 
+storage_class | **string**<br>Required. Storage class to which an object is transitioned from standard storage. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage and transitions to or from ice storage are not allowed. 
 
 
 ### Expiration {#Expiration2}
@@ -627,7 +627,7 @@ Field | Description
 name | **string**<br>Required. Name of the bucket to update. <br>The name cannot be updated. <br>To get the bucket name, make a [BucketService.List](#List) request. 
 field_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Required. Field mask that specifies which attributes of the bucket should be updated. 
 anonymous_access_flags | **[AnonymousAccessFlags](#AnonymousAccessFlags4)**<br>Flags for configuring public (anonymous) access to the bucket's content and settings. For details, see [documentation](/docs/storage/concepts/bucket#bucket-access). 
-default_storage_class | **string**<br>Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`) and cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
+default_storage_class | **string**<br>Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`), cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
 max_size | **int64**<br>Maximum size of the bucket, in bytes. For details, see [documentation](/docs/storage/operations/buckets/limit-max-volume). 
 cors[] | **[CorsRule](#CorsRule3)**<br>List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS). For details, see [documentation](/docs/storage/concepts/cors). 
 website_settings | **[WebsiteSettings](#WebsiteSettings3)**<br>Configuration for hosting a static website in the bucket. For details, see [documentation](/docs/storage/concepts/hosting). 
@@ -736,7 +736,7 @@ noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/p
 Field | Description
 --- | ---
 noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Time period, in number of days since the version of an object was classified as non-current, after which the version is transitioned. 
-storage_class | **string**<br>Required. Storage class to which a non-current version of an object is transitioned. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage are not allowed. 
+storage_class | **string**<br>Required. Storage class to which a non-current version of an object is transitioned from standard storage. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage and transitions to or from ice storage are not allowed. 
 
 
 ### Transition {#Transition3}
@@ -745,7 +745,7 @@ Field | Description
 --- | ---
 date | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Specific date of object transition. <br>The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket are transitioned immediately. <br>At most one of `date` and `days` fields can be specified. 
 days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Time period, in number of days from the creation or modification of the object, after which an object is transitioned. <br>At most one of `days` and `date` fields can be specified. 
-storage_class | **string**<br>Required. Storage class to which an object is transitioned. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage are not allowed. 
+storage_class | **string**<br>Required. Storage class to which an object is transitioned from standard storage. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage and transitions to or from ice storage are not allowed. 
 
 
 ### Expiration {#Expiration3}
@@ -811,7 +811,7 @@ id | **string**<br>ID of the bucket. Always equal to `name`, which has priority.
 name | **string**<br>Name of the bucket. <br>The name is unique within the platform. For naming limitations and rules, see [documentation](/docs/storage/concepts/bucket#naming). 
 folder_id | **string**<br>ID of the folder that the bucket belongs to. 
 anonymous_access_flags | **[AnonymousAccessFlags](#AnonymousAccessFlags5)**<br>Flags for configuring public (anonymous) access to the bucket's content and settings. For details, see [documentation](/docs/storage/concepts/bucket#bucket-access). 
-default_storage_class | **string**<br>Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`) and cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
+default_storage_class | **string**<br>Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`), cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
 versioning | enum **Versioning**<br>Bucket versioning status. For details, see [documentation](/docs/storage/concepts/versioning). <ul><li>`VERSIONING_DISABLED`: The bucket is unversioned, i.e. versioning has never been enabled for the bucket, including at its creation. Objects that are stored in the bucket have a version ID of `null`. <br>To enable versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update](#Update) request. Note that this action is irreversible, and a bucket with versioning enabled can never return to `VERSIONING_DISABLED` state.</li><li>`VERSIONING_ENABLED`: Bucket versioning is enabled, i.e. all new objects are versioned and given a unique version ID, and objects that already existed at the time versioning was enabled will be versioned and given a unique version ID when modified by future requests. <br>To suspend versioning, change status to `VERSIONING_SUSPENDED` via a [BucketService.Update](#Update) request. You cannot disable versioning altogether for a bucket that already had it enabled; objects that had version IDs will keep them.</li><li>`VERSIONING_SUSPENDED`: Bucket versioning is suspended, i.e. new objects are not versioned, but objects that already existed at the time versioning was suspended are still versioned and keep their version IDs. <br>To resume versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update](#Update) request.</li></ul>
 max_size | **int64**<br>Maximum size of the bucket, in bytes. For details, see [documentation](/docs/storage/operations/buckets/limit-max-volume). 
 policy | **google.protobuf.Struct**<br>Bucket policies that set permissions for actions with the bucket, its objects, and groups of objects. For details, see [documentation](/docs/storage/concepts/policy). 
@@ -937,7 +937,7 @@ noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/p
 Field | Description
 --- | ---
 noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Time period, in number of days since the version of an object was classified as non-current, after which the version is transitioned. 
-storage_class | **string**<br>Required. Storage class to which a non-current version of an object is transitioned. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage are not allowed. 
+storage_class | **string**<br>Required. Storage class to which a non-current version of an object is transitioned from standard storage. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage and transitions to or from ice storage are not allowed. 
 
 
 ### Transition {#Transition4}
@@ -946,7 +946,7 @@ Field | Description
 --- | ---
 date | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Specific date of object transition. <br>The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket are transitioned immediately. <br>At most one of `date` and `days` fields can be specified. 
 days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Time period, in number of days from the creation or modification of the object, after which an object is transitioned. <br>At most one of `days` and `date` fields can be specified. 
-storage_class | **string**<br>Required. Storage class to which an object is transitioned. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage are not allowed. 
+storage_class | **string**<br>Required. Storage class to which an object is transitioned from standard storage. <br>The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold to standard storage and transitions to or from ice storage are not allowed. 
 
 
 ### Expiration {#Expiration4}
@@ -1028,7 +1028,7 @@ used_size | **int64**<br>Size of used space in the bucket, in bytes.
 storage_class_max_sizes[] | **[OptionalSizeByClass](#OptionalSizeByClass)**<br>Size of available space in the bucket by storage class, in bytes. 
 storage_class_used_sizes[] | **[SizeByClass](#SizeByClass)**<br>Size of used space in the bucket by storage class, in bytes. 
 storage_class_counters[] | **[CountersByClass](#CountersByClass)**<br>Object-related statistics by storage class and type of upload (simple vs. multipart), in bytes. 
-default_storage_class | **google.protobuf.StringValue**<br>Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`) and cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
+default_storage_class | **google.protobuf.StringValue**<br>Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`), cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
 anonymous_access_flags | **[AnonymousAccessFlags](#AnonymousAccessFlags6)**<br>Flags for configuring public (anonymous) access to the bucket's content and settings. For details, see [documentation](/docs/storage/concepts/bucket#bucket-access). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Bucket creation timestamp. 
 updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Bucket latest update timestamp. 
@@ -1038,7 +1038,7 @@ updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 
 Field | Description
 --- | ---
-storage_class | **string**<br>Storage class. Supported classes are standard storage (`STANDARD`) and cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
+storage_class | **string**<br>Storage class. Supported classes are standard storage (`STANDARD`), cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
 class_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Size of available space in the bucket for the storage class. 
 
 
@@ -1046,7 +1046,7 @@ class_size | **[google.protobuf.Int64Value](https://developers.google.com/protoc
 
 Field | Description
 --- | ---
-storage_class | **string**<br>Storage class. Supported classes are standard storage (`STANDARD`) and cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
+storage_class | **string**<br>Storage class. Supported classes are standard storage (`STANDARD`), cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
 class_size | **int64**<br>Size of used space in the bucket for the storage class. 
 
 
@@ -1054,7 +1054,7 @@ class_size | **int64**<br>Size of used space in the bucket for the storage class
 
 Field | Description
 --- | ---
-storage_class | **string**<br>Storage class. Supported classes are standard storage (`STANDARD`) and cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
+storage_class | **string**<br>Storage class. Supported classes are standard storage (`STANDARD`), cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms), and ice storage (`ice` and `GLACIER` are synonyms). For details, see [documentation](/docs/storage/concepts/storage-class). 
 counters | **[Counters](#Counters)**<br>Object-related statistics for the storage class by type of upload. 
 
 

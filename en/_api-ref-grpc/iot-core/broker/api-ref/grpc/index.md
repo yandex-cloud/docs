@@ -5,5 +5,6 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 
 Service | Description
 --- | ---
+[BrokerDataService](./broker_data_service.md) | A set of methods to work with IoT Core messages on behalf of broker
 [BrokerService](./broker_service.md) | A set of methods for managing broker.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

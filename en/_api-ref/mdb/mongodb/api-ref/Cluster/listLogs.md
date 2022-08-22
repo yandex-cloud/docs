@@ -4,6 +4,7 @@ editable: false
 
 # Method listLogs
 Retrieves logs for the specified MongoDB cluster.
+See the [Logs](/yandex-mdb-guide/concepts/logs.html) section in the developers guide for detailed logs description.
  
 
  
@@ -26,7 +27,7 @@ columnFilter | <p>Columns from the logs table to request. If no columns are spec
 serviceType | <p>Type of the service to request logs about.</p> <ul> <li>MONGOD: Logs of MongoDB activity.</li> <li>AUDIT: MongoDB Enterprise audit logs</li> </ul> 
 fromTime | <p>Start timestamp for the logs request, in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 toTime | <p>End timestamp for the logs request, in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-mongodb/api-ref/Cluster/listLogs#query_params">pageSize</a>, the service returns a <a href="/docs/managed-mongodb/api-ref/Cluster/listLogs#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-mongodb/api-ref/Cluster/listLogs#query_params">pageSize</a>, the service returns a <a href="/docs/managed-mongodb/api-ref/Cluster/listLogs#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive. Default value: 100.</p> <p>The maximum value is 1000.</p> 
 pageToken | <p>Page token. To get the next page of results, set <a href="/docs/managed-mongodb/api-ref/Cluster/listLogs#query_params">pageToken</a> to the <a href="/docs/managed-mongodb/api-ref/Cluster/listLogs#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}

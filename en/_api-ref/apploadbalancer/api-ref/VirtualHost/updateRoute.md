@@ -34,9 +34,10 @@ virtualHostName | <p>Required. Name of the virtual host to update a route in.</p
       ],
       "path": {
 
-        // `http.match.path` includes only one of the fields `exactMatch`, `prefixMatch`
+        // `http.match.path` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
         "exactMatch": "string",
         "prefixMatch": "string",
+        "regexMatch": "string",
         // end of the list of possible fields`http.match.path`
 
       }
@@ -84,9 +85,10 @@ virtualHostName | <p>Required. Name of the virtual host to update a route in.</p
     "match": {
       "fqmn": {
 
-        // `grpc.match.fqmn` includes only one of the fields `exactMatch`, `prefixMatch`
+        // `grpc.match.fqmn` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
         "exactMatch": "string",
         "prefixMatch": "string",
+        "regexMatch": "string",
         // end of the list of possible fields`grpc.match.fqmn`
 
       }
@@ -124,8 +126,9 @@ http | **object**<br>New settings of the HTTP route. <br> includes only one of t
 http.<br>match | **object**<br>Condition (predicate) used to select the route.
 http.<br>match.<br>httpMethod[] | **string**<br><p>HTTP method specified in the request.</p> 
 http.<br>match.<br>path | **object**<br><p>Match settings for the path specified in the request.</p> <p>If not specified, the route matches all paths.</p> <p>A string matcher resource.</p> 
-http.<br>match.<br>path.<br>exactMatch | **string** <br>`http.match.path` includes only one of the fields `exactMatch`, `prefixMatch`<br><br><p>Exact match string.</p> 
-http.<br>match.<br>path.<br>prefixMatch | **string** <br>`http.match.path` includes only one of the fields `exactMatch`, `prefixMatch`<br><br><p>Prefix match string.</p> 
+http.<br>match.<br>path.<br>exactMatch | **string** <br>`http.match.path` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Exact match string.</p> 
+http.<br>match.<br>path.<br>prefixMatch | **string** <br>`http.match.path` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Prefix match string.</p> 
+http.<br>match.<br>path.<br>regexMatch | **string** <br>`http.match.path` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Regular expression match string.</p> 
 http.<br>route | **object**<br>Forwards the request to a backend group for processing as configured. <br>`http` includes only one of the fields `route`, `redirect`, `directResponse`<br>
 http.<br>route.<br>backendGroupId | **string**<br><p>Required. Backend group to forward requests to.</p> <p>Stream (TCP) backend groups are not supported.</p> 
 http.<br>route.<br>timeout | **string**<br><p>Overall timeout for an HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is kept alive for, regardless of whether data is transferred over it.</p> <p>If a connection times out, the load balancer responds to the client with a ``504 Gateway Timeout`` status code.</p> <p>Default value: ``60``.</p> 
@@ -149,8 +152,9 @@ http.<br>directResponse.<br>body.<br>text | **string**<br><p>Payload text.</p> <
 grpc | **object**<br>New settings of the gRPC route. <br> includes only one of the fields `http`, `grpc`<br>
 grpc.<br>match | **object**<br>Condition (predicate) used to select the route.
 grpc.<br>match.<br>fqmn | **object**<br><p>Match settings for gRPC service method called in the request.</p> <p>A match string must be a fully qualified method name, e.g. ``foo.bar.v1.BazService/Get``, or a prefix of such.</p> <p>If not specified, the route matches all methods.</p> <p>A string matcher resource.</p> 
-grpc.<br>match.<br>fqmn.<br>exactMatch | **string** <br>`grpc.match.fqmn` includes only one of the fields `exactMatch`, `prefixMatch`<br><br><p>Exact match string.</p> 
-grpc.<br>match.<br>fqmn.<br>prefixMatch | **string** <br>`grpc.match.fqmn` includes only one of the fields `exactMatch`, `prefixMatch`<br><br><p>Prefix match string.</p> 
+grpc.<br>match.<br>fqmn.<br>exactMatch | **string** <br>`grpc.match.fqmn` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Exact match string.</p> 
+grpc.<br>match.<br>fqmn.<br>prefixMatch | **string** <br>`grpc.match.fqmn` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Prefix match string.</p> 
+grpc.<br>match.<br>fqmn.<br>regexMatch | **string** <br>`grpc.match.fqmn` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Regular expression match string.</p> 
 grpc.<br>route | **object**<br>Forwards the request to a backend group for processing as configured. <br>`grpc` includes only one of the fields `route`, `statusResponse`<br>
 grpc.<br>route.<br>backendGroupId | **string**<br><p>Required. Backend group to forward requests to.</p> 
 grpc.<br>route.<br>maxTimeout | **string**<br><p>Overall timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is kept alive for, regardless of whether data is transferred over it.</p> <p>If a client specifies a lower timeout in HTTP ``grpc-timeout`` header, the ``max_timeout`` value is ignored.</p> <p>If a connection times out, the load balancer responds to the client with an ``UNAVAILABLE`` status code.</p> <p>Default value: ``60``.</p> 

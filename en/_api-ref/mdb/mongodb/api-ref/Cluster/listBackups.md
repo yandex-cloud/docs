@@ -22,7 +22,7 @@ clusterId | <p>Required. ID of the MongoDB cluster. To get the MongoDB cluster I
  
 Parameter | Description
 --- | ---
-pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-mongodb/api-ref/Cluster/listBackups#query_params">pageSize</a>, the service returns a <a href="/docs/managed-mongodb/api-ref/Cluster/listBackups#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-mongodb/api-ref/Cluster/listBackups#query_params">pageSize</a>, the service returns a <a href="/docs/managed-mongodb/api-ref/Cluster/listBackups#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive. Default value: 100.</p> <p>The maximum value is 1000.</p> 
 pageToken | <p>Page token.  To get the next page of results, set <a href="/docs/managed-mongodb/api-ref/Cluster/listBackups#query_params">pageToken</a> to the <a href="/docs/managed-mongodb/api-ref/Cluster/listBackups#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
@@ -52,7 +52,7 @@ pageToken | <p>Page token.  To get the next page of results, set <a href="/docs/
 Field | Description
 --- | ---
 backups[] | **object**<br><p>List of MongoDB Backup resources.</p> 
-backups[].<br>id | **string**<br><p>ID of the backup.</p> 
+backups[].<br>id | **string**<br><p>ID of the backup. Required.</p> 
 backups[].<br>folderId | **string**<br><p>ID of the folder that the backup belongs to.</p> 
 backups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format (i.e. when the backup operation was completed).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 backups[].<br>sourceClusterId | **string**<br><p>ID of the MongoDB cluster that the backup was created for.</p> 

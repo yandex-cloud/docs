@@ -42,7 +42,7 @@ Field | Description
 --- | ---
 name | **string**<br><p>Required. Name of the bucket.</p> <p>The name must be unique within the platform. For naming limitations and rules, see <a href="/docs/storage/concepts/bucket#naming">documentation</a>.</p> 
 folderId | **string**<br><p>Required. ID of the folder to create a bucket in.</p> <p>To get the folder ID, make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-defaultStorageClass | **string**<br><p>Default storage class for objects in the bucket. Supported classes are standard storage (``STANDARD``) and cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms). For details, see <a href="/docs/storage/concepts/storage-class">documentation</a>.</p> 
+defaultStorageClass | **string**<br><p>Default storage class for objects in the bucket. Supported classes are standard storage (``STANDARD``), cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms), and ice storage (``ICE`` and ``GLACIER`` are synonyms). For details, see <a href="/docs/storage/concepts/storage-class">documentation</a>.</p> 
 maxSize | **string** (int64)<br><p>Maximum size of the bucket. For details, see <a href="/docs/storage/operations/buckets/limit-max-volume">documentation</a>.</p> 
 anonymousAccessFlags | **object**<br><p>Flags for configuring public (anonymous) access to the bucket's content and settings. For details, see <a href="/docs/storage/concepts/bucket#bucket-access">documentation</a>.</p> 
 anonymousAccessFlags.<br>read | **boolean** (boolean)<br><p>Specifies whether public (anonymous) access to read objects in the bucket is enabled.</p> 

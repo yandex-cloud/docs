@@ -1,6 +1,12 @@
 items:
   - name: Overview
     href: api-ref/index.md
+  - name: BrokerData
+    items:
+      - name: Overview
+        href: api-ref/BrokerData/index.md
+      - name: publish
+        href: api-ref/BrokerData/publish.md
   - name: Broker
     items:
       - name: Overview

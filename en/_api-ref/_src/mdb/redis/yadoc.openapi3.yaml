@@ -1317,6 +1317,9 @@ components:
           redisConfig_6_2:
             $ref: '#/components/schemas/RedisConfigSet6_2'
             description: Configuration of a Redis 6.2 server.
+          redisConfig_7_0:
+            $ref: '#/components/schemas/RedisConfigSet7_0'
+            description: Configuration of a Redis 7.0 server.
     ClusterEnvironment:
       description: |2-
          - PRODUCTION: Stable environment with a conservative update policy:
@@ -1394,6 +1397,8 @@ components:
             $ref: '#/components/schemas/RedisConfig6_0'
           redisConfig_6_2:
             $ref: '#/components/schemas/RedisConfig6_2'
+          redisConfig_7_0:
+            $ref: '#/components/schemas/RedisConfig7_0'
     CreateClusterMetadata:
       type: object
       properties:
@@ -2198,6 +2203,103 @@ components:
       - ALLKEYS_RANDOM
       - VOLATILE_TTL
       - NOEVICTION
+    RedisConfig7_0:
+      description: |-
+        Fields and structure of `RedisConfig` reflects Redis configuration file
+        parameters.
+      type: object
+      properties:
+        maxmemoryPolicy:
+          $ref: '#/components/schemas/RedisConfig7_0MaxmemoryPolicy_in_RedisConfig7_0_maxmemoryPolicy'
+        timeout:
+          description: |-
+            Time that Redis keeps the connection open while the client is idle.
+            If no new command is sent during that time, the connection is closed.
+          type: integer
+          format: int64
+        password:
+          description: |-
+            Authentication password.
+
+            Value must match the regular expression `` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+          type: string
+        databases:
+          description: |-
+            Number of database buckets on a single redis-server process.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        slowlogLogSlowerThan:
+          description: |-
+            Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        slowlogMaxLen:
+          description: |-
+            Max slow requests number to log.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        notifyKeyspaceEvents:
+          description: |-
+            String setting for pub\sub functionality; subset of KEg$lshzxeAtm.
+
+            Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
+          type: string
+        clientOutputBufferLimitPubsub:
+          $ref: '#/components/schemas/RedisConfig7_0ClientOutputBufferLimit_in_RedisConfig7_0_clientOutputBufferLimitPubsub'
+        clientOutputBufferLimitNormal:
+          $ref: '#/components/schemas/RedisConfig7_0ClientOutputBufferLimit_in_RedisConfig7_0_clientOutputBufferLimitNormal'
+    RedisConfig7_0ClientOutputBufferLimit:
+      type: object
+      properties:
+        hardLimit:
+          description: |-
+            Total limit in bytes.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softLimit:
+          description: |-
+            Limit in bytes during certain time period.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softSeconds:
+          description: |-
+            Seconds for soft limit.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+    RedisConfig7_0MaxmemoryPolicy:
+      description: |2-
+         - VOLATILE_LRU: Try to remove less recently used (LRU) keys with `expire set`.
+         - ALLKEYS_LRU: Remove less recently used (LRU) keys.
+         - VOLATILE_LFU: Try to remove least frequently used (LFU) keys with `expire set`.
+         - ALLKEYS_LFU: Remove least frequently used (LFU) keys.
+         - VOLATILE_RANDOM: Try to remove keys with `expire set` randomly.
+         - ALLKEYS_RANDOM: Remove keys randomly.
+         - VOLATILE_TTL: Try to remove less recently used (LRU) keys with `expire set`
+        and shorter TTL first.
+         - NOEVICTION: Return errors when memory limit was reached and commands could require
+        more memory to be used.
+      type: string
+      enum:
+      - VOLATILE_LRU
+      - ALLKEYS_LRU
+      - VOLATILE_LFU
+      - ALLKEYS_LFU
+      - VOLATILE_RANDOM
+      - ALLKEYS_RANDOM
+      - VOLATILE_TTL
+      - NOEVICTION
     RedisConfigSet5_0:
       type: object
       properties:
@@ -2225,6 +2327,15 @@ components:
           $ref: '#/components/schemas/RedisConfig6_2_in_RedisConfigSet6_2_userConfig'
         defaultConfig:
           $ref: '#/components/schemas/RedisConfig6_2_in_RedisConfigSet6_2_defaultConfig'
+    RedisConfigSet7_0:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/RedisConfig7_0_in_RedisConfigSet7_0_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/RedisConfig7_0_in_RedisConfigSet7_0_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/RedisConfig7_0_in_RedisConfigSet7_0_defaultConfig'
     RescheduleMaintenanceMetadata:
       type: object
       properties:
@@ -2382,6 +2493,10 @@ components:
           format: boolean
         persistenceMode:
           $ref: '#/components/schemas/ClusterPersistenceMode_in_RestoreClusterRequest_persistenceMode'
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     Service:
       type: object
       properties:
@@ -2683,6 +2798,9 @@ components:
           redisConfig_6_2:
             $ref: '#/components/schemas/RedisConfigSet6_2'
             description: Configuration of a Redis 6.2 server.
+          redisConfig_7_0:
+            $ref: '#/components/schemas/RedisConfigSet7_0'
+            description: Configuration of a Redis 7.0 server.
     ClusterHealth_in_Cluster_health:
       description: |-
         Aggregated cluster health.
@@ -2808,6 +2926,8 @@ components:
             $ref: '#/components/schemas/RedisConfig6_0'
           redisConfig_6_2:
             $ref: '#/components/schemas/RedisConfig6_2'
+          redisConfig_7_0:
+            $ref: '#/components/schemas/RedisConfig7_0'
     ClusterPersistenceMode_in_CreateClusterRequest_persistenceMode:
       description: Persistence mode
       type: string
@@ -3073,6 +3193,84 @@ components:
           type: integer
           format: int64
     RedisConfig6_2ClientOutputBufferLimit_in_RedisConfig6_2_clientOutputBufferLimitNormal:
+      description: Redis connection output buffers limits for clients.
+      type: object
+      properties:
+        hardLimit:
+          description: |-
+            Total limit in bytes.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softLimit:
+          description: |-
+            Limit in bytes during certain time period.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softSeconds:
+          description: |-
+            Seconds for soft limit.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+    RedisConfig7_0MaxmemoryPolicy_in_RedisConfig7_0_maxmemoryPolicy:
+      description: |-
+        Redis key eviction policy for a dataset that reaches maximum memory,
+        available to the host. Redis maxmemory setting depends on Managed
+        Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
+
+        All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
+
+         - VOLATILE_LRU: Try to remove less recently used (LRU) keys with `expire set`.
+         - ALLKEYS_LRU: Remove less recently used (LRU) keys.
+         - VOLATILE_LFU: Try to remove least frequently used (LFU) keys with `expire set`.
+         - ALLKEYS_LFU: Remove least frequently used (LFU) keys.
+         - VOLATILE_RANDOM: Try to remove keys with `expire set` randomly.
+         - ALLKEYS_RANDOM: Remove keys randomly.
+         - VOLATILE_TTL: Try to remove less recently used (LRU) keys with `expire set`
+        and shorter TTL first.
+         - NOEVICTION: Return errors when memory limit was reached and commands could require
+        more memory to be used.
+      type: string
+      enum:
+      - VOLATILE_LRU
+      - ALLKEYS_LRU
+      - VOLATILE_LFU
+      - ALLKEYS_LFU
+      - VOLATILE_RANDOM
+      - ALLKEYS_RANDOM
+      - VOLATILE_TTL
+      - NOEVICTION
+    RedisConfig7_0ClientOutputBufferLimit_in_RedisConfig7_0_clientOutputBufferLimitPubsub:
+      description: Redis connection output buffers limits for pubsub operations.
+      type: object
+      properties:
+        hardLimit:
+          description: |-
+            Total limit in bytes.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softLimit:
+          description: |-
+            Limit in bytes during certain time period.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softSeconds:
+          description: |-
+            Seconds for soft limit.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+    RedisConfig7_0ClientOutputBufferLimit_in_RedisConfig7_0_clientOutputBufferLimitNormal:
       description: Redis connection output buffers limits for clients.
       type: object
       properties:
@@ -3577,6 +3775,166 @@ components:
           $ref: '#/components/schemas/RedisConfig6_2ClientOutputBufferLimit_in_RedisConfig6_2_clientOutputBufferLimitPubsub'
         clientOutputBufferLimitNormal:
           $ref: '#/components/schemas/RedisConfig6_2ClientOutputBufferLimit_in_RedisConfig6_2_clientOutputBufferLimitNormal'
+    RedisConfig7_0_in_RedisConfigSet7_0_effectiveConfig:
+      description: |-
+        Effective settings for a Redis 7.0 cluster (a combination of settings
+        defined in `userConfig` and `defaultConfig`).
+
+        Fields and structure of `RedisConfig` reflects Redis configuration file
+        parameters.
+      type: object
+      properties:
+        maxmemoryPolicy:
+          $ref: '#/components/schemas/RedisConfig7_0MaxmemoryPolicy_in_RedisConfig7_0_maxmemoryPolicy'
+        timeout:
+          description: |-
+            Time that Redis keeps the connection open while the client is idle.
+            If no new command is sent during that time, the connection is closed.
+          type: integer
+          format: int64
+        password:
+          description: |-
+            Authentication password.
+
+            Value must match the regular expression `` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+          type: string
+        databases:
+          description: |-
+            Number of database buckets on a single redis-server process.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        slowlogLogSlowerThan:
+          description: |-
+            Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        slowlogMaxLen:
+          description: |-
+            Max slow requests number to log.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        notifyKeyspaceEvents:
+          description: |-
+            String setting for pub\sub functionality; subset of KEg$lshzxeAtm.
+
+            Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
+          type: string
+        clientOutputBufferLimitPubsub:
+          $ref: '#/components/schemas/RedisConfig7_0ClientOutputBufferLimit_in_RedisConfig7_0_clientOutputBufferLimitPubsub'
+        clientOutputBufferLimitNormal:
+          $ref: '#/components/schemas/RedisConfig7_0ClientOutputBufferLimit_in_RedisConfig7_0_clientOutputBufferLimitNormal'
+    RedisConfig7_0_in_RedisConfigSet7_0_userConfig:
+      description: |-
+        User-defined settings for a Redis 7.0 cluster.
+
+        Fields and structure of `RedisConfig` reflects Redis configuration file
+        parameters.
+      type: object
+      properties:
+        maxmemoryPolicy:
+          $ref: '#/components/schemas/RedisConfig7_0MaxmemoryPolicy_in_RedisConfig7_0_maxmemoryPolicy'
+        timeout:
+          description: |-
+            Time that Redis keeps the connection open while the client is idle.
+            If no new command is sent during that time, the connection is closed.
+          type: integer
+          format: int64
+        password:
+          description: |-
+            Authentication password.
+
+            Value must match the regular expression `` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+          type: string
+        databases:
+          description: |-
+            Number of database buckets on a single redis-server process.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        slowlogLogSlowerThan:
+          description: |-
+            Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        slowlogMaxLen:
+          description: |-
+            Max slow requests number to log.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        notifyKeyspaceEvents:
+          description: |-
+            String setting for pub\sub functionality; subset of KEg$lshzxeAtm.
+
+            Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
+          type: string
+        clientOutputBufferLimitPubsub:
+          $ref: '#/components/schemas/RedisConfig7_0ClientOutputBufferLimit_in_RedisConfig7_0_clientOutputBufferLimitPubsub'
+        clientOutputBufferLimitNormal:
+          $ref: '#/components/schemas/RedisConfig7_0ClientOutputBufferLimit_in_RedisConfig7_0_clientOutputBufferLimitNormal'
+    RedisConfig7_0_in_RedisConfigSet7_0_defaultConfig:
+      description: |-
+        Default configuration for a Redis 7.0 cluster.
+
+        Fields and structure of `RedisConfig` reflects Redis configuration file
+        parameters.
+      type: object
+      properties:
+        maxmemoryPolicy:
+          $ref: '#/components/schemas/RedisConfig7_0MaxmemoryPolicy_in_RedisConfig7_0_maxmemoryPolicy'
+        timeout:
+          description: |-
+            Time that Redis keeps the connection open while the client is idle.
+            If no new command is sent during that time, the connection is closed.
+          type: integer
+          format: int64
+        password:
+          description: |-
+            Authentication password.
+
+            Value must match the regular expression `` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} ``.
+          type: string
+        databases:
+          description: |-
+            Number of database buckets on a single redis-server process.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        slowlogLogSlowerThan:
+          description: |-
+            Threshold for logging slow requests to server in microseconds (log only slower than it).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        slowlogMaxLen:
+          description: |-
+            Max slow requests number to log.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        notifyKeyspaceEvents:
+          description: |-
+            String setting for pub\sub functionality; subset of KEg$lshzxeAtm.
+
+            Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
+          type: string
+        clientOutputBufferLimitPubsub:
+          $ref: '#/components/schemas/RedisConfig7_0ClientOutputBufferLimit_in_RedisConfig7_0_clientOutputBufferLimitPubsub'
+        clientOutputBufferLimitNormal:
+          $ref: '#/components/schemas/RedisConfig7_0ClientOutputBufferLimit_in_RedisConfig7_0_clientOutputBufferLimitNormal'
     RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType:
       description: |-
         Required.
@@ -3633,6 +3991,8 @@ components:
             $ref: '#/components/schemas/RedisConfig6_0'
           redisConfig_6_2:
             $ref: '#/components/schemas/RedisConfig6_2'
+          redisConfig_7_0:
+            $ref: '#/components/schemas/RedisConfig7_0'
     ClusterPersistenceMode_in_RestoreClusterRequest_persistenceMode:
       description: Persistence mode
       type: string
@@ -3722,6 +4082,8 @@ components:
             $ref: '#/components/schemas/RedisConfig6_0'
           redisConfig_6_2:
             $ref: '#/components/schemas/RedisConfig6_2'
+          redisConfig_7_0:
+            $ref: '#/components/schemas/RedisConfig7_0'
     MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow:
       description: |-
         New maintenance window settings for the cluster.

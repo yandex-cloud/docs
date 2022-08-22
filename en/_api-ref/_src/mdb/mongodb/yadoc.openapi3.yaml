@@ -218,6 +218,7 @@ paths:
           The maximum number of results per page to return. If the number of available
           results is larger than [pageSize](/docs/managed-mongodb/api-ref/Cluster/list#query_params), the service returns a [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/list#responses)
           that can be used to get the next page of results in subsequent list requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
 
           The maximum value is 1000.
         schema:
@@ -454,7 +455,9 @@ paths:
     get:
       tags:
       - Cluster
-      summary: Retrieves logs for the specified MongoDB cluster.
+      summary: |-
+        Retrieves logs for the specified MongoDB cluster.
+        See the [Logs](/yandex-mdb-guide/concepts/logs.html) section in the developers guide for detailed logs description.
       operationId: ClusterListLogs
       parameters:
       - name: clusterId
@@ -506,6 +509,7 @@ paths:
           The maximum number of results per page to return. If the number of available
           results is larger than [pageSize](/docs/managed-mongodb/api-ref/Cluster/listLogs#query_params), the service returns a [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listLogs#responses)
           that can be used to get the next page of results in subsequent list requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
 
           The maximum value is 1000.
         schema:
@@ -630,6 +634,7 @@ paths:
           The maximum number of results per page to return. If the number of available
           results is larger than [pageSize](/docs/managed-mongodb/api-ref/Cluster/listOperations#query_params), the service returns a [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listOperations#responses)
           that can be used to get the next page of results in subsequent list requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
 
           The maximum value is 1000.
         schema:
@@ -676,6 +681,7 @@ paths:
           The maximum number of results per page to return. If the number of available
           results is larger than [pageSize](/docs/managed-mongodb/api-ref/Cluster/listBackups#query_params), the service returns a [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listBackups#responses)
           that can be used to get the next page of results in subsequent list requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
 
           The maximum value is 1000.
         schema:
@@ -722,6 +728,7 @@ paths:
           The maximum number of results per page to return. If the number of available
           results is larger than [pageSize](/docs/managed-mongodb/api-ref/Cluster/listHosts#query_params), the service returns a [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listHosts#responses)
           that can be used to get the next page of results in subsequent list requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
 
           The maximum value is 1000.
         schema:
@@ -819,7 +826,8 @@ paths:
       tags:
       - Cluster
       summary: |-
-        Enables sharding for the cluster: creates 3 mongoinfra (or 3 mongocfg and 2 mongos) hosts
+        Enables sharding for the cluster:
+        creates 3 mongoinfra (or 3 mongocfg and 2 mongos) hosts
         that would support adding and using shards in the cluster.
       operationId: ClusterEnableSharding
       parameters:
@@ -1308,6 +1316,7 @@ paths:
           The maximum number of results per page to return. If the number of available
           results is larger than [pageSize](/docs/managed-mongodb/api-ref/ResourcePreset/list#query_params), the service returns a [nextPageToken](/docs/managed-mongodb/api-ref/ResourcePreset/list#responses)
           that can be used to get the next page of results in subsequent list requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
 
           The maximum value is 1000.
         schema:
@@ -1634,7 +1643,7 @@ components:
       type: object
       properties:
         dataLens:
-          description: Allow access for DataLens
+          description: Allow access for DataLens.
           type: boolean
           format: boolean
         dataTransfer:
@@ -1702,7 +1711,7 @@ components:
       type: object
       properties:
         id:
-          description: ID of the backup.
+          description: ID of the backup. Required.
           type: string
         folderId:
           description: ID of the folder that the backup belongs to.
@@ -1823,7 +1832,8 @@ components:
         properties:
           version:
             description: 'Version of MongoDB server software. Possible values: `3.6`,
-              `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`.'
+              `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`,
+              `6.0-enterprise`.'
             type: string
           featureCompatibilityVersion:
             description: |-
@@ -1835,6 +1845,7 @@ components:
               * `4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower.
               * `4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower.
               * `5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 5.0 or lower.
+              * `6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 6.0 or lower.
             type: string
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
@@ -1843,6 +1854,9 @@ components:
             description: Retain period of automatically created backup in days
             type: integer
             format: int64
+          performanceDiagnostics:
+            $ref: '#/components/schemas/PerformanceDiagnosticsConfig'
+            description: Performance Diagnostic
           access:
             $ref: '#/components/schemas/Access'
             description: Access policy to DB
@@ -1865,6 +1879,9 @@ components:
           mongodb_5_0:
             $ref: '#/components/schemas/Mongodb5_0'
             description: Configuration and resource allocation for a MongoDB 5.0 cluster.
+          mongodb_6_0:
+            $ref: '#/components/schemas/Mongodb6_0'
+            description: Configuration and resource allocation for a MongoDB 6.0 cluster.
           mongodb_4_4Enterprise:
             $ref: '#/components/schemas/Mongodb4_4_enterprise'
             description: Configuration and resource allocation for a MongoDB 4.4 Enterprise
@@ -1873,8 +1890,14 @@ components:
             $ref: '#/components/schemas/Mongodb5_0_enterprise'
             description: Configuration and resource allocation for a MongoDB 5.0 Enterprise
               cluster.
+          mongodb_6_0Enterprise:
+            $ref: '#/components/schemas/Mongodb6_0_enterprise'
+            description: Configuration and resource allocation for a MongoDB 6.0 Enterprise
+              cluster.
     ClusterEnvironment:
-      description: |2-
+      description: |-
+        Deployment environment.
+
          - PRODUCTION: Stable environment with a conservative update policy: only hotfixes
         are applied during regular maintenance.
          - PRESTABLE: Environment with more aggressive update policy: new versions
@@ -1924,7 +1947,8 @@ components:
         properties:
           version:
             description: 'Version of MongoDB used in the cluster. Possible values:
-              `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`.'
+              `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`,
+              `6.0`, `6.0-enterprise`.'
             type: string
           featureCompatibilityVersion:
             description: |-
@@ -1936,6 +1960,7 @@ components:
               * `4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older.
               * `4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or older.
               * `5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 4.4 or older.
+              * `6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 5.0 or older.
             type: string
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
@@ -1947,6 +1972,9 @@ components:
               Acceptable values are 7 to 35, inclusive.
             type: integer
             format: int64
+          performanceDiagnostics:
+            $ref: '#/components/schemas/PerformanceDiagnosticsConfig'
+            description: Performance Diagnosics configuration
           access:
             $ref: '#/components/schemas/Access'
             description: Access policy to DB
@@ -1969,6 +1997,9 @@ components:
           mongodbSpec_5_0:
             $ref: '#/components/schemas/MongodbSpec5_0'
             description: Configuration and resource allocation for a MongoDB 5.0 cluster.
+          mongodbSpec_6_0:
+            $ref: '#/components/schemas/MongodbSpec6_0'
+            description: Configuration and resource allocation for a MongoDB 6.0 cluster.
           mongodbSpec_4_4Enterprise:
             $ref: '#/components/schemas/MongodbSpec4_4_enterprise'
             description: Configuration and resource allocation for a MongoDB 4.4 Enterprise
@@ -1976,6 +2007,10 @@ components:
           mongodbSpec_5_0Enterprise:
             $ref: '#/components/schemas/MongodbSpec5_0_enterprise'
             description: Configuration and resource allocation for a MongoDB 5.0 Enterprise
+              cluster.
+          mongodbSpec_6_0Enterprise:
+            $ref: '#/components/schemas/MongodbSpec6_0_enterprise'
+            description: Configuration and resource allocation for a MongoDB 6.0 Enterprise
               cluster.
     CreateClusterMetadata:
       type: object
@@ -1999,7 +2034,7 @@ components:
             Name of the MongoDB cluster. The name must be unique within the folder.
 
             The maximum string length in characters is 63.
-            Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
         description:
           description: |-
@@ -3007,6 +3042,130 @@ components:
             use for all data.
           type: number
           format: double
+    MongoCfgConfig6_0:
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig6_0Storage_in_MongoCfgConfig6_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig6_0OperationProfiling_in_MongoCfgConfig6_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig6_0Network_in_MongoCfgConfig6_0_net'
+    MongoCfgConfig6_0Network:
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            The maximum number of simultaneous connections that mongocfg will accept.
+
+            Acceptable values are 10 to 16384, inclusive.
+          type: integer
+          format: int64
+    MongoCfgConfig6_0OperationProfiling:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongoCfgConfig6_0OperationProfilingMode_in_MongoCfgConfig6_0OperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            The slow operation time threshold, in milliseconds. Operations that run
+            for longer than this threshold are considered slow, and are processed by the profiler
+            running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+    MongoCfgConfig6_0OperationProfilingMode:
+      description: |2-
+         - OFF: The profiler is off and does not collect any data.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+         - ALL: The profiler collects data for all operations.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongoCfgConfig6_0Storage:
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongoCfgConfig6_0StorageWiredTiger_in_MongoCfgConfig6_0Storage_wiredTiger'
+    MongoCfgConfig6_0StorageWiredTiger:
+      description: Configuration of WiredTiger storage engine.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0StorageWiredTigerEngineConfig_in_MongoCfgConfig6_0StorageWiredTiger_engineConfig'
+    MongoCfgConfig6_0StorageWiredTigerEngineConfig:
+      type: object
+      properties:
+        cacheSizeGb:
+          description: The maximum size of the internal cache that WiredTiger will
+            use for all data.
+          type: number
+          format: double
+    MongoCfgConfig6_0_enterprise:
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseStorage_in_MongoCfgConfig6_0_enterprise_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseOperationProfiling_in_MongoCfgConfig6_0_enterprise_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseNetwork_in_MongoCfgConfig6_0_enterprise_net'
+    MongoCfgConfig6_0_enterpriseNetwork:
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            The maximum number of simultaneous connections that mongocfg will accept.
+
+            Acceptable values are 10 to 16384, inclusive.
+          type: integer
+          format: int64
+    MongoCfgConfig6_0_enterpriseOperationProfiling:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseOperationProfilingMode_in_MongoCfgConfig6_0_enterpriseOperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            The slow operation time threshold, in milliseconds. Operations that run
+            for longer than this threshold are considered slow, and are processed by the profiler
+            running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+    MongoCfgConfig6_0_enterpriseOperationProfilingMode:
+      description: |2-
+         - OFF: The profiler is off and does not collect any data.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+         - ALL: The profiler collects data for all operations.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongoCfgConfig6_0_enterpriseStorage:
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseStorageWiredTiger_in_MongoCfgConfig6_0_enterpriseStorage_wiredTiger'
+    MongoCfgConfig6_0_enterpriseStorageWiredTiger:
+      description: Configuration of WiredTiger storage engine.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseStorageWiredTigerEngineConfig_in_MongoCfgConfig6_0_enterpriseStorageWiredTiger_engineConfig'
+    MongoCfgConfig6_0_enterpriseStorageWiredTigerEngineConfig:
+      type: object
+      properties:
+        cacheSizeGb:
+          description: The maximum size of the internal cache that WiredTiger will
+            use for all data.
+          type: number
+          format: double
     MongoCfgConfigSet3_6:
       type: object
       properties:
@@ -3070,6 +3229,24 @@ components:
           $ref: '#/components/schemas/MongoCfgConfig5_0_enterprise_in_MongoCfgConfigSet5_0_enterprise_userConfig'
         defaultConfig:
           $ref: '#/components/schemas/MongoCfgConfig5_0_enterprise_in_MongoCfgConfigSet5_0_enterprise_defaultConfig'
+    MongoCfgConfigSet6_0:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_in_MongoCfgConfigSet6_0_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_in_MongoCfgConfigSet6_0_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_in_MongoCfgConfigSet6_0_defaultConfig'
+    MongoCfgConfigSet6_0_enterprise:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterprise_in_MongoCfgConfigSet6_0_enterprise_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterprise_in_MongoCfgConfigSet6_0_enterprise_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterprise_in_MongoCfgConfigSet6_0_enterprise_defaultConfig'
     MongodConfig3_6:
       description: |-
         Configuration of a mongod daemon. Supported options are a limited subset of all
@@ -3350,11 +3527,13 @@ components:
          - NONE: No compression.
          - SNAPPY: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
          - ZLIB: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
+         - ZSTD: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
       type: string
       enum:
       - NONE
       - SNAPPY
       - ZLIB
+      - ZSTD
     MongodConfig4_2StorageWiredTigerEngineConfig:
       type: object
       properties:
@@ -3445,11 +3624,13 @@ components:
          - NONE: No compression.
          - SNAPPY: The [Snappy](https://docs.mongodb.com/v4.4/reference/glossary/#term-snappy) compression.
          - ZLIB: The [zlib](https://docs.mongodb.com/v4.4/reference/glossary/#term-zlib) compression.
+         - ZSTD: The [zstd](https://docs.mongodb.com/v4.4/reference/glossary/#term-zstd) compression.
       type: string
       enum:
       - NONE
       - SNAPPY
       - ZLIB
+      - ZSTD
     MongodConfig4_4StorageWiredTigerEngineConfig:
       type: object
       properties:
@@ -3587,11 +3768,13 @@ components:
          - NONE: No compression.
          - SNAPPY: The [Snappy](https://docs.mongodb.com/v4.4/reference/glossary/#term-snappy) compression.
          - ZLIB: The [zlib](https://docs.mongodb.com/v4.4/reference/glossary/#term-zlib) compression.
+         - ZSTD: The [zstd](https://docs.mongodb.com/v4.4/reference/glossary/#term-zstd) compression.
       type: string
       enum:
       - NONE
       - SNAPPY
       - ZLIB
+      - ZSTD
     MongodConfig4_4_enterpriseStorageWiredTigerEngineConfig:
       type: object
       properties:
@@ -3682,11 +3865,13 @@ components:
          - NONE: No compression.
          - SNAPPY: The [Snappy](https://docs.mongodb.com/v5.0/reference/glossary/#term-snappy) compression.
          - ZLIB: The [zlib](https://docs.mongodb.com/v5.0/reference/glossary/#term-zlib) compression.
+         - ZSTD: The [zstd](https://docs.mongodb.com/v5.0/reference/glossary/#term-zstd) compression.
       type: string
       enum:
       - NONE
       - SNAPPY
       - ZLIB
+      - ZSTD
     MongodConfig5_0StorageWiredTigerEngineConfig:
       type: object
       properties:
@@ -3828,12 +4013,259 @@ components:
          - NONE: No compression.
          - SNAPPY: The [Snappy](https://docs.mongodb.com/v5.0/reference/glossary/#term-snappy) compression.
          - ZLIB: The [zlib](https://docs.mongodb.com/v5.0/reference/glossary/#term-zlib) compression.
+         - ZSTD: The [zstd](https://docs.mongodb.com/v5.0/reference/glossary/#term-zstd) compression.
       type: string
       enum:
       - NONE
       - SNAPPY
       - ZLIB
+      - ZSTD
     MongodConfig5_0_enterpriseStorageWiredTigerEngineConfig:
+      type: object
+      properties:
+        cacheSizeGb:
+          description: The maximum size of the internal cache that WiredTiger will
+            use for all data.
+          type: number
+          format: double
+    MongodConfig6_0:
+      description: |-
+        Configuration of a mongod daemon. Supported options are a limited subset of all
+        options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig6_0Storage_in_MongodConfig6_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig6_0OperationProfiling_in_MongodConfig6_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig6_0Network_in_MongodConfig6_0_net'
+    MongodConfig6_0Network:
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            The maximum number of simultaneous connections that mongod will accept.
+
+            Acceptable values are 10 to 16384, inclusive.
+          type: integer
+          format: int64
+    MongodConfig6_0OperationProfiling:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongodConfig6_0OperationProfilingMode_in_MongodConfig6_0OperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            The slow operation time threshold, in milliseconds. Operations that run
+            for longer than this threshold are considered slow, and are processed by the profiler
+            running in the SLOW_OP mode.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+    MongodConfig6_0OperationProfilingMode:
+      description: |2-
+         - OFF: The profiler is off and does not collect any data.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+         - ALL: The profiler collects data for all operations.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongodConfig6_0Storage:
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongodConfig6_0StorageWiredTiger_in_MongodConfig6_0Storage_wiredTiger'
+        journal:
+          $ref: '#/components/schemas/MongodConfig6_0StorageJournal_in_MongodConfig6_0Storage_journal'
+    MongodConfig6_0StorageJournal:
+      type: object
+      properties:
+        commitInterval:
+          description: |-
+            Commit interval between journal operations, in milliseconds.
+            Default: 100.
+
+            Acceptable values are 1 to 500, inclusive.
+          type: integer
+          format: int64
+    MongodConfig6_0StorageWiredTiger:
+      description: Configuration of WiredTiger storage engine.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongodConfig6_0StorageWiredTigerEngineConfig_in_MongodConfig6_0StorageWiredTiger_engineConfig'
+        collectionConfig:
+          $ref: '#/components/schemas/MongodConfig6_0StorageWiredTigerCollectionConfig_in_MongodConfig6_0StorageWiredTiger_collectionConfig'
+    MongodConfig6_0StorageWiredTigerCollectionConfig:
+      type: object
+      properties:
+        blockCompressor:
+          $ref: '#/components/schemas/MongodConfig6_0StorageWiredTigerCollectionConfigCompressor_in_MongodConfig6_0StorageWiredTigerCollectionConfig_blockCompressor'
+    MongodConfig6_0StorageWiredTigerCollectionConfigCompressor:
+      description: |2-
+         - NONE: No compression.
+         - SNAPPY: The [Snappy](https://docs.mongodb.com/v6.0/reference/glossary/#term-snappy) compression.
+         - ZLIB: The [zlib](https://docs.mongodb.com/v6.0/reference/glossary/#term-zlib) compression.
+         - ZSTD: The [zstd](https://docs.mongodb.com/v6.0/reference/glossary/#term-zstd) compression.
+      type: string
+      enum:
+      - NONE
+      - SNAPPY
+      - ZLIB
+      - ZSTD
+    MongodConfig6_0StorageWiredTigerEngineConfig:
+      type: object
+      properties:
+        cacheSizeGb:
+          description: The maximum size of the internal cache that WiredTiger will
+            use for all data.
+          type: number
+          format: double
+    MongodConfig6_0_enterprise:
+      description: |-
+        Configuration of a mongod daemon. Supported options are a limited subset of all
+        options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseStorage_in_MongodConfig6_0_enterprise_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseOperationProfiling_in_MongodConfig6_0_enterprise_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseNetwork_in_MongodConfig6_0_enterprise_net'
+        security:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseSecurity_in_MongodConfig6_0_enterprise_security'
+        auditLog:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseAuditLog_in_MongodConfig6_0_enterprise_auditLog'
+        setParameter:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseSetParameter_in_MongodConfig6_0_enterprise_setParameter'
+    MongodConfig6_0_enterpriseAuditLog:
+      type: object
+      properties:
+        filter:
+          description: Audit filter
+          type: string
+        runtimeConfiguration:
+          description: Allows runtime configuration of audit filter and auditAuthorizationSuccess
+          type: boolean
+          format: boolean
+    MongodConfig6_0_enterpriseNetwork:
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            The maximum number of simultaneous connections that mongod will accept.
+
+            Acceptable values are 10 to 16384, inclusive.
+          type: integer
+          format: int64
+    MongodConfig6_0_enterpriseOperationProfiling:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseOperationProfilingMode_in_MongodConfig6_0_enterpriseOperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            The slow operation time threshold, in milliseconds. Operations that run
+            for longer than this threshold are considered slow, and are processed by the profiler
+            running in the SLOW_OP mode.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+    MongodConfig6_0_enterpriseOperationProfilingMode:
+      description: |2-
+         - OFF: The profiler is off and does not collect any data.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+         - ALL: The profiler collects data for all operations.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongodConfig6_0_enterpriseSecurity:
+      type: object
+      properties:
+        enableEncryption:
+          description: If encryption at rest should be enabled or not
+          type: boolean
+          format: boolean
+        kmip:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseSecurityKMIP_in_MongodConfig6_0_enterpriseSecurity_kmip'
+    MongodConfig6_0_enterpriseSecurityKMIP:
+      type: object
+      properties:
+        serverName:
+          description: KMIP server name
+          type: string
+        port:
+          description: KMIP server port
+          type: integer
+          format: int64
+        serverCa:
+          description: KMIP Server CA
+          type: string
+        clientCertificate:
+          description: KMIP client certificate + private key (unencrypted)
+          type: string
+        keyIdentifier:
+          description: KMIP Key identifier (if any)
+          type: string
+    MongodConfig6_0_enterpriseSetParameter:
+      type: object
+      properties:
+        auditAuthorizationSuccess:
+          description: Enables the auditing of authorization successes
+          type: boolean
+          format: boolean
+    MongodConfig6_0_enterpriseStorage:
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseStorageWiredTiger_in_MongodConfig6_0_enterpriseStorage_wiredTiger'
+        journal:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseStorageJournal_in_MongodConfig6_0_enterpriseStorage_journal'
+    MongodConfig6_0_enterpriseStorageJournal:
+      type: object
+      properties:
+        commitInterval:
+          description: |-
+            Commit interval between journal operations, in milliseconds.
+            Default: 100.
+
+            Acceptable values are 1 to 500, inclusive.
+          type: integer
+          format: int64
+    MongodConfig6_0_enterpriseStorageWiredTiger:
+      description: Configuration of WiredTiger storage engine.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseStorageWiredTigerEngineConfig_in_MongodConfig6_0_enterpriseStorageWiredTiger_engineConfig'
+        collectionConfig:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseStorageWiredTigerCollectionConfig_in_MongodConfig6_0_enterpriseStorageWiredTiger_collectionConfig'
+    MongodConfig6_0_enterpriseStorageWiredTigerCollectionConfig:
+      type: object
+      properties:
+        blockCompressor:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseStorageWiredTigerCollectionConfigCompressor_in_MongodConfig6_0_enterpriseStorageWiredTigerCollectionConfig_blockCompressor'
+    MongodConfig6_0_enterpriseStorageWiredTigerCollectionConfigCompressor:
+      description: |2-
+         - NONE: No compression.
+         - SNAPPY: The [Snappy](https://docs.mongodb.com/v6.0/reference/glossary/#term-snappy) compression.
+         - ZLIB: The [zlib](https://docs.mongodb.com/v6.0/reference/glossary/#term-zlib) compression.
+         - ZSTD: The [zstd](https://docs.mongodb.com/v6.0/reference/glossary/#term-zstd) compression.
+      type: string
+      enum:
+      - NONE
+      - SNAPPY
+      - ZLIB
+      - ZSTD
+    MongodConfig6_0_enterpriseStorageWiredTigerEngineConfig:
       type: object
       properties:
         cacheSizeGb:
@@ -3904,6 +4336,24 @@ components:
           $ref: '#/components/schemas/MongodConfig5_0_enterprise_in_MongodConfigSet5_0_enterprise_userConfig'
         defaultConfig:
           $ref: '#/components/schemas/MongodConfig5_0_enterprise_in_MongodConfigSet5_0_enterprise_defaultConfig'
+    MongodConfigSet6_0:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongodConfig6_0_in_MongodConfigSet6_0_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongodConfig6_0_in_MongodConfigSet6_0_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongodConfig6_0_in_MongodConfigSet6_0_defaultConfig'
+    MongodConfigSet6_0_enterprise:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongodConfig6_0_enterprise_in_MongodConfigSet6_0_enterprise_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongodConfig6_0_enterprise_in_MongodConfigSet6_0_enterprise_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongodConfig6_0_enterprise_in_MongodConfigSet6_0_enterprise_defaultConfig'
     Mongodb3_6:
       type: object
       properties:
@@ -4191,6 +4641,88 @@ components:
           $ref: '#/components/schemas/MongosConfigSet5_0_enterprise_in_Mongodb5_0_enterpriseMongos_config'
         resources:
           $ref: '#/components/schemas/Resources_in_Mongodb5_0_enterpriseMongos_resources'
+    Mongodb6_0:
+      type: object
+      properties:
+        mongod:
+          $ref: '#/components/schemas/Mongodb6_0Mongod_in_Mongodb6_0_mongod'
+        mongocfg:
+          $ref: '#/components/schemas/Mongodb6_0MongoCfg_in_Mongodb6_0_mongocfg'
+        mongos:
+          $ref: '#/components/schemas/Mongodb6_0Mongos_in_Mongodb6_0_mongos'
+        mongoinfra:
+          $ref: '#/components/schemas/Mongodb6_0MongoInfra_in_Mongodb6_0_mongoinfra'
+    Mongodb6_0MongoCfg:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfigSet6_0_in_Mongodb6_0MongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb6_0MongoCfg_resources'
+    Mongodb6_0MongoInfra:
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfigSet6_0_in_Mongodb6_0MongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfigSet6_0_in_Mongodb6_0MongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb6_0MongoInfra_resources'
+    Mongodb6_0Mongod:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfigSet6_0_in_Mongodb6_0Mongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb6_0Mongod_resources'
+    Mongodb6_0Mongos:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfigSet6_0_in_Mongodb6_0Mongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb6_0Mongos_resources'
+    Mongodb6_0_enterprise:
+      type: object
+      properties:
+        mongod:
+          $ref: '#/components/schemas/Mongodb6_0_enterpriseMongod_in_Mongodb6_0_enterprise_mongod'
+        mongocfg:
+          $ref: '#/components/schemas/Mongodb6_0_enterpriseMongoCfg_in_Mongodb6_0_enterprise_mongocfg'
+        mongos:
+          $ref: '#/components/schemas/Mongodb6_0_enterpriseMongos_in_Mongodb6_0_enterprise_mongos'
+        mongoinfra:
+          $ref: '#/components/schemas/Mongodb6_0_enterpriseMongoInfra_in_Mongodb6_0_enterprise_mongoinfra'
+    Mongodb6_0_enterpriseMongoCfg:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfigSet6_0_enterprise_in_Mongodb6_0_enterpriseMongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb6_0_enterpriseMongoCfg_resources'
+    Mongodb6_0_enterpriseMongoInfra:
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfigSet6_0_enterprise_in_Mongodb6_0_enterpriseMongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfigSet6_0_enterprise_in_Mongodb6_0_enterpriseMongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb6_0_enterpriseMongoInfra_resources'
+    Mongodb6_0_enterpriseMongod:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfigSet6_0_enterprise_in_Mongodb6_0_enterpriseMongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb6_0_enterpriseMongod_resources'
+    Mongodb6_0_enterpriseMongos:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfigSet6_0_enterprise_in_Mongodb6_0_enterpriseMongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb6_0_enterpriseMongos_resources'
     MongodbSpec3_6:
       type: object
       properties:
@@ -4478,6 +5010,88 @@ components:
           $ref: '#/components/schemas/MongosConfig5_0_enterprise_in_MongodbSpec5_0_enterpriseMongos_config'
         resources:
           $ref: '#/components/schemas/Resources_in_MongodbSpec5_0_enterpriseMongos_resources'
+    MongodbSpec6_0:
+      type: object
+      properties:
+        mongod:
+          $ref: '#/components/schemas/MongodbSpec6_0Mongod_in_MongodbSpec6_0_mongod'
+        mongocfg:
+          $ref: '#/components/schemas/MongodbSpec6_0MongoCfg_in_MongodbSpec6_0_mongocfg'
+        mongos:
+          $ref: '#/components/schemas/MongodbSpec6_0Mongos_in_MongodbSpec6_0_mongos'
+        mongoinfra:
+          $ref: '#/components/schemas/MongodbSpec6_0MongoInfra_in_MongodbSpec6_0_mongoinfra'
+    MongodbSpec6_0MongoCfg:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_in_MongodbSpec6_0MongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec6_0MongoCfg_resources'
+    MongodbSpec6_0MongoInfra:
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfig6_0_in_MongodbSpec6_0MongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_in_MongodbSpec6_0MongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec6_0MongoInfra_resources'
+    MongodbSpec6_0Mongod:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfig6_0_in_MongodbSpec6_0Mongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec6_0Mongod_resources'
+    MongodbSpec6_0Mongos:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfig6_0_in_MongodbSpec6_0Mongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec6_0Mongos_resources'
+    MongodbSpec6_0_enterprise:
+      type: object
+      properties:
+        mongod:
+          $ref: '#/components/schemas/MongodbSpec6_0_enterpriseMongod_in_MongodbSpec6_0_enterprise_mongod'
+        mongocfg:
+          $ref: '#/components/schemas/MongodbSpec6_0_enterpriseMongoCfg_in_MongodbSpec6_0_enterprise_mongocfg'
+        mongos:
+          $ref: '#/components/schemas/MongodbSpec6_0_enterpriseMongos_in_MongodbSpec6_0_enterprise_mongos'
+        mongoinfra:
+          $ref: '#/components/schemas/MongodbSpec6_0_enterpriseMongoInfra_in_MongodbSpec6_0_enterprise_mongoinfra'
+    MongodbSpec6_0_enterpriseMongoCfg:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterprise_in_MongodbSpec6_0_enterpriseMongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec6_0_enterpriseMongoCfg_resources'
+    MongodbSpec6_0_enterpriseMongoInfra:
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfig6_0_enterprise_in_MongodbSpec6_0_enterpriseMongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterprise_in_MongodbSpec6_0_enterpriseMongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec6_0_enterpriseMongoInfra_resources'
+    MongodbSpec6_0_enterpriseMongod:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfig6_0_enterprise_in_MongodbSpec6_0_enterpriseMongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec6_0_enterpriseMongod_resources'
+    MongodbSpec6_0_enterpriseMongos:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfig6_0_enterprise_in_MongodbSpec6_0_enterpriseMongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec6_0_enterpriseMongos_resources'
     MongosConfig3_6:
       type: object
       properties:
@@ -4583,6 +5197,36 @@ components:
             Acceptable values are 10 to 16384, inclusive.
           type: integer
           format: int64
+    MongosConfig6_0:
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig6_0Network_in_MongosConfig6_0_net'
+    MongosConfig6_0Network:
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            The maximum number of simultaneous connections that mongos will accept.
+
+            Acceptable values are 10 to 16384, inclusive.
+          type: integer
+          format: int64
+    MongosConfig6_0_enterprise:
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig6_0_enterpriseNetwork_in_MongosConfig6_0_enterprise_net'
+    MongosConfig6_0_enterpriseNetwork:
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            The maximum number of simultaneous connections that mongos will accept.
+
+            Acceptable values are 10 to 16384, inclusive.
+          type: integer
+          format: int64
     MongosConfigSet3_6:
       type: object
       properties:
@@ -4646,6 +5290,24 @@ components:
           $ref: '#/components/schemas/MongosConfig5_0_enterprise_in_MongosConfigSet5_0_enterprise_userConfig'
         defaultConfig:
           $ref: '#/components/schemas/MongosConfig5_0_enterprise_in_MongosConfigSet5_0_enterprise_defaultConfig'
+    MongosConfigSet6_0:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongosConfig6_0_in_MongosConfigSet6_0_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongosConfig6_0_in_MongosConfigSet6_0_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongosConfig6_0_in_MongosConfigSet6_0_defaultConfig'
+    MongosConfigSet6_0_enterprise:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongosConfig6_0_enterprise_in_MongosConfigSet6_0_enterprise_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongosConfig6_0_enterprise_in_MongosConfigSet6_0_enterprise_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongosConfig6_0_enterprise_in_MongosConfigSet6_0_enterprise_defaultConfig'
     Monitoring:
       description: Monitoring system.
       type: object
@@ -4738,6 +5400,12 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    PerformanceDiagnosticsConfig:
+      type: object
+      properties:
+        profilingEnabled:
+          type: boolean
+          format: boolean
     Permission:
       type: object
       properties:
@@ -4898,6 +5566,7 @@ components:
           description: |-
             Required.
             Name of the new MongoDB cluster. The name must be unique within the folder.
+            The name can't be changed after the MongoDB cluster is created.
 
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
@@ -4955,6 +5624,10 @@ components:
           type: array
           items:
             type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     RestoreClusterRequestRecoveryTargetSpec:
       type: object
       properties:
@@ -5277,6 +5950,8 @@ components:
       description: |-
         Deployment environment of the MongoDB cluster.
 
+        Deployment environment.
+
          - PRODUCTION: Stable environment with a conservative update policy: only hotfixes
         are applied during regular maintenance.
          - PRESTABLE: Environment with more aggressive update policy: new versions
@@ -5293,7 +5968,8 @@ components:
         properties:
           version:
             description: 'Version of MongoDB server software. Possible values: `3.6`,
-              `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`.'
+              `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`,
+              `6.0-enterprise`.'
             type: string
           featureCompatibilityVersion:
             description: |-
@@ -5305,6 +5981,7 @@ components:
               * `4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower.
               * `4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower.
               * `5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 5.0 or lower.
+              * `6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 6.0 or lower.
             type: string
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
@@ -5313,6 +5990,9 @@ components:
             description: Retain period of automatically created backup in days
             type: integer
             format: int64
+          performanceDiagnostics:
+            $ref: '#/components/schemas/PerformanceDiagnosticsConfig'
+            description: Performance Diagnostic
           access:
             $ref: '#/components/schemas/Access'
             description: Access policy to DB
@@ -5335,6 +6015,9 @@ components:
           mongodb_5_0:
             $ref: '#/components/schemas/Mongodb5_0'
             description: Configuration and resource allocation for a MongoDB 5.0 cluster.
+          mongodb_6_0:
+            $ref: '#/components/schemas/Mongodb6_0'
+            description: Configuration and resource allocation for a MongoDB 6.0 cluster.
           mongodb_4_4Enterprise:
             $ref: '#/components/schemas/Mongodb4_4_enterprise'
             description: Configuration and resource allocation for a MongoDB 4.4 Enterprise
@@ -5342,6 +6025,10 @@ components:
           mongodb_5_0Enterprise:
             $ref: '#/components/schemas/Mongodb5_0_enterprise'
             description: Configuration and resource allocation for a MongoDB 5.0 Enterprise
+              cluster.
+          mongodb_6_0Enterprise:
+            $ref: '#/components/schemas/Mongodb6_0_enterprise'
+            description: Configuration and resource allocation for a MongoDB 6.0 Enterprise
               cluster.
     ClusterHealth_in_Cluster_health:
       description: |-
@@ -5423,6 +6110,8 @@ components:
         Required.
         Deployment environment of the MongoDB cluster.
 
+        Deployment environment.
+
          - PRODUCTION: Stable environment with a conservative update policy: only hotfixes
         are applied during regular maintenance.
          - PRESTABLE: Environment with more aggressive update policy: new versions
@@ -5441,7 +6130,8 @@ components:
         properties:
           version:
             description: 'Version of MongoDB used in the cluster. Possible values:
-              `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`.'
+              `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`,
+              `6.0`, `6.0-enterprise`.'
             type: string
           featureCompatibilityVersion:
             description: |-
@@ -5453,6 +6143,7 @@ components:
               * `4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older.
               * `4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or older.
               * `5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 4.4 or older.
+              * `6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 5.0 or older.
             type: string
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
@@ -5464,6 +6155,9 @@ components:
               Acceptable values are 7 to 35, inclusive.
             type: integer
             format: int64
+          performanceDiagnostics:
+            $ref: '#/components/schemas/PerformanceDiagnosticsConfig'
+            description: Performance Diagnosics configuration
           access:
             $ref: '#/components/schemas/Access'
             description: Access policy to DB
@@ -5486,6 +6180,9 @@ components:
           mongodbSpec_5_0:
             $ref: '#/components/schemas/MongodbSpec5_0'
             description: Configuration and resource allocation for a MongoDB 5.0 cluster.
+          mongodbSpec_6_0:
+            $ref: '#/components/schemas/MongodbSpec6_0'
+            description: Configuration and resource allocation for a MongoDB 6.0 cluster.
           mongodbSpec_4_4Enterprise:
             $ref: '#/components/schemas/MongodbSpec4_4_enterprise'
             description: Configuration and resource allocation for a MongoDB 4.4 Enterprise
@@ -5493,6 +6190,10 @@ components:
           mongodbSpec_5_0Enterprise:
             $ref: '#/components/schemas/MongodbSpec5_0_enterprise'
             description: Configuration and resource allocation for a MongoDB 5.0 Enterprise
+              cluster.
+          mongodbSpec_6_0Enterprise:
+            $ref: '#/components/schemas/MongodbSpec6_0_enterprise'
+            description: Configuration and resource allocation for a MongoDB 6.0 Enterprise
               cluster.
     DatabaseSpec_in_CreateDatabaseRequest_databaseSpec:
       description: |-
@@ -6146,6 +6847,130 @@ components:
             use for all data.
           type: number
           format: double
+    MongoCfgConfig6_0Storage_in_MongoCfgConfig6_0_storage:
+      description: '`storage` section of mongocfg configuration.'
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongoCfgConfig6_0StorageWiredTiger_in_MongoCfgConfig6_0Storage_wiredTiger'
+    MongoCfgConfig6_0OperationProfiling_in_MongoCfgConfig6_0_operationProfiling:
+      description: '`operationProfiling` section of mongocfg configuration.'
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongoCfgConfig6_0OperationProfilingMode_in_MongoCfgConfig6_0OperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            The slow operation time threshold, in milliseconds. Operations that run
+            for longer than this threshold are considered slow, and are processed by the profiler
+            running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+    MongoCfgConfig6_0Network_in_MongoCfgConfig6_0_net:
+      description: '`net` section of mongocfg configuration.'
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            The maximum number of simultaneous connections that mongocfg will accept.
+
+            Acceptable values are 10 to 16384, inclusive.
+          type: integer
+          format: int64
+    MongoCfgConfig6_0OperationProfilingMode_in_MongoCfgConfig6_0OperationProfiling_mode:
+      description: |-
+        Mode which specifies operations that should be profiled.
+
+         - OFF: The profiler is off and does not collect any data.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+         - ALL: The profiler collects data for all operations.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongoCfgConfig6_0StorageWiredTiger_in_MongoCfgConfig6_0Storage_wiredTiger:
+      description: |-
+        Configuration of the WiredTiger storage engine.
+
+        Configuration of WiredTiger storage engine.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0StorageWiredTigerEngineConfig_in_MongoCfgConfig6_0StorageWiredTiger_engineConfig'
+    MongoCfgConfig6_0StorageWiredTigerEngineConfig_in_MongoCfgConfig6_0StorageWiredTiger_engineConfig:
+      description: Engine configuration for WiredTiger.
+      type: object
+      properties:
+        cacheSizeGb:
+          description: The maximum size of the internal cache that WiredTiger will
+            use for all data.
+          type: number
+          format: double
+    MongoCfgConfig6_0_enterpriseStorage_in_MongoCfgConfig6_0_enterprise_storage:
+      description: '`storage` section of mongocfg configuration.'
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseStorageWiredTiger_in_MongoCfgConfig6_0_enterpriseStorage_wiredTiger'
+    MongoCfgConfig6_0_enterpriseOperationProfiling_in_MongoCfgConfig6_0_enterprise_operationProfiling:
+      description: '`operationProfiling` section of mongocfg configuration.'
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseOperationProfilingMode_in_MongoCfgConfig6_0_enterpriseOperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            The slow operation time threshold, in milliseconds. Operations that run
+            for longer than this threshold are considered slow, and are processed by the profiler
+            running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+    MongoCfgConfig6_0_enterpriseNetwork_in_MongoCfgConfig6_0_enterprise_net:
+      description: '`net` section of mongocfg configuration.'
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            The maximum number of simultaneous connections that mongocfg will accept.
+
+            Acceptable values are 10 to 16384, inclusive.
+          type: integer
+          format: int64
+    MongoCfgConfig6_0_enterpriseOperationProfilingMode_in_MongoCfgConfig6_0_enterpriseOperationProfiling_mode:
+      description: |-
+        Mode which specifies operations that should be profiled.
+
+         - OFF: The profiler is off and does not collect any data.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+         - ALL: The profiler collects data for all operations.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongoCfgConfig6_0_enterpriseStorageWiredTiger_in_MongoCfgConfig6_0_enterpriseStorage_wiredTiger:
+      description: |-
+        Configuration of the WiredTiger storage engine.
+
+        Configuration of WiredTiger storage engine.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseStorageWiredTigerEngineConfig_in_MongoCfgConfig6_0_enterpriseStorageWiredTiger_engineConfig'
+    MongoCfgConfig6_0_enterpriseStorageWiredTigerEngineConfig_in_MongoCfgConfig6_0_enterpriseStorageWiredTiger_engineConfig:
+      description: Engine configuration for WiredTiger.
+      type: object
+      properties:
+        cacheSizeGb:
+          description: The maximum size of the internal cache that WiredTiger will
+            use for all data.
+          type: number
+          format: double
     MongoCfgConfig3_6_in_MongoCfgConfigSet3_6_effectiveConfig:
       description: |-
         Effective mongocfg settings for a MongoDB 3.6 cluster (a combination of settings defined
@@ -6370,6 +7195,70 @@ components:
           $ref: '#/components/schemas/MongoCfgConfig5_0_enterpriseOperationProfiling_in_MongoCfgConfig5_0_enterprise_operationProfiling'
         net:
           $ref: '#/components/schemas/MongoCfgConfig5_0_enterpriseNetwork_in_MongoCfgConfig5_0_enterprise_net'
+    MongoCfgConfig6_0_in_MongoCfgConfigSet6_0_effectiveConfig:
+      description: |-
+        Effective mongocfg settings for a MongoDB 6.0 cluster (a combination of settings defined
+        in `userConfig` and `defaultConfig`).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig6_0Storage_in_MongoCfgConfig6_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig6_0OperationProfiling_in_MongoCfgConfig6_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig6_0Network_in_MongoCfgConfig6_0_net'
+    MongoCfgConfig6_0_in_MongoCfgConfigSet6_0_userConfig:
+      description: User-defined mongocfg settings for a MongoDB 6.0 cluster.
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig6_0Storage_in_MongoCfgConfig6_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig6_0OperationProfiling_in_MongoCfgConfig6_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig6_0Network_in_MongoCfgConfig6_0_net'
+    MongoCfgConfig6_0_in_MongoCfgConfigSet6_0_defaultConfig:
+      description: Default mongocfg configuration for a MongoDB 6.0 cluster.
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig6_0Storage_in_MongoCfgConfig6_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig6_0OperationProfiling_in_MongoCfgConfig6_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig6_0Network_in_MongoCfgConfig6_0_net'
+    MongoCfgConfig6_0_enterprise_in_MongoCfgConfigSet6_0_enterprise_effectiveConfig:
+      description: |-
+        Effective mongocfg settings for a MongoDB 6.0 cluster (a combination of settings defined
+        in `userConfig` and `defaultConfig`).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseStorage_in_MongoCfgConfig6_0_enterprise_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseOperationProfiling_in_MongoCfgConfig6_0_enterprise_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseNetwork_in_MongoCfgConfig6_0_enterprise_net'
+    MongoCfgConfig6_0_enterprise_in_MongoCfgConfigSet6_0_enterprise_userConfig:
+      description: User-defined mongocfg settings for a MongoDB 6.0 cluster.
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseStorage_in_MongoCfgConfig6_0_enterprise_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseOperationProfiling_in_MongoCfgConfig6_0_enterprise_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseNetwork_in_MongoCfgConfig6_0_enterprise_net'
+    MongoCfgConfig6_0_enterprise_in_MongoCfgConfigSet6_0_enterprise_defaultConfig:
+      description: Default mongocfg configuration for a MongoDB 6.0 cluster.
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseStorage_in_MongoCfgConfig6_0_enterprise_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseOperationProfiling_in_MongoCfgConfig6_0_enterprise_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseNetwork_in_MongoCfgConfig6_0_enterprise_net'
     MongodConfig3_6Storage_in_MongodConfig3_6_storage:
       description: '`storage` section of mongod configuration.'
       type: object
@@ -6661,11 +7550,13 @@ components:
          - NONE: No compression.
          - SNAPPY: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
          - ZLIB: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
+         - ZSTD: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
       type: string
       enum:
       - NONE
       - SNAPPY
       - ZLIB
+      - ZSTD
     MongodConfig4_4Storage_in_MongodConfig4_4_storage:
       description: '`storage` section of mongod configuration.'
       type: object
@@ -6757,11 +7648,13 @@ components:
          - NONE: No compression.
          - SNAPPY: The [Snappy](https://docs.mongodb.com/v4.4/reference/glossary/#term-snappy) compression.
          - ZLIB: The [zlib](https://docs.mongodb.com/v4.4/reference/glossary/#term-zlib) compression.
+         - ZSTD: The [zstd](https://docs.mongodb.com/v4.4/reference/glossary/#term-zstd) compression.
       type: string
       enum:
       - NONE
       - SNAPPY
       - ZLIB
+      - ZSTD
     MongodConfig4_4_enterpriseStorage_in_MongodConfig4_4_enterprise_storage:
       description: '`storage` section of mongod configuration.'
       type: object
@@ -6898,11 +7791,13 @@ components:
          - NONE: No compression.
          - SNAPPY: The [Snappy](https://docs.mongodb.com/v4.4/reference/glossary/#term-snappy) compression.
          - ZLIB: The [zlib](https://docs.mongodb.com/v4.4/reference/glossary/#term-zlib) compression.
+         - ZSTD: The [zstd](https://docs.mongodb.com/v4.4/reference/glossary/#term-zstd) compression.
       type: string
       enum:
       - NONE
       - SNAPPY
       - ZLIB
+      - ZSTD
     MongodConfig5_0Storage_in_MongodConfig5_0_storage:
       description: '`storage` section of mongod configuration.'
       type: object
@@ -6994,11 +7889,13 @@ components:
          - NONE: No compression.
          - SNAPPY: The [Snappy](https://docs.mongodb.com/v5.0/reference/glossary/#term-snappy) compression.
          - ZLIB: The [zlib](https://docs.mongodb.com/v5.0/reference/glossary/#term-zlib) compression.
+         - ZSTD: The [zstd](https://docs.mongodb.com/v5.0/reference/glossary/#term-zstd) compression.
       type: string
       enum:
       - NONE
       - SNAPPY
       - ZLIB
+      - ZSTD
     MongodConfig5_0_enterpriseStorage_in_MongodConfig5_0_enterprise_storage:
       description: '`storage` section of mongod configuration.'
       type: object
@@ -7139,11 +8036,258 @@ components:
          - NONE: No compression.
          - SNAPPY: The [Snappy](https://docs.mongodb.com/v5.0/reference/glossary/#term-snappy) compression.
          - ZLIB: The [zlib](https://docs.mongodb.com/v5.0/reference/glossary/#term-zlib) compression.
+         - ZSTD: The [zstd](https://docs.mongodb.com/v5.0/reference/glossary/#term-zstd) compression.
       type: string
       enum:
       - NONE
       - SNAPPY
       - ZLIB
+      - ZSTD
+    MongodConfig6_0Storage_in_MongodConfig6_0_storage:
+      description: '`storage` section of mongod configuration.'
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongodConfig6_0StorageWiredTiger_in_MongodConfig6_0Storage_wiredTiger'
+        journal:
+          $ref: '#/components/schemas/MongodConfig6_0StorageJournal_in_MongodConfig6_0Storage_journal'
+    MongodConfig6_0OperationProfiling_in_MongodConfig6_0_operationProfiling:
+      description: '`operationProfiling` section of mongod configuration.'
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongodConfig6_0OperationProfilingMode_in_MongodConfig6_0OperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            The slow operation time threshold, in milliseconds. Operations that run
+            for longer than this threshold are considered slow, and are processed by the profiler
+            running in the SLOW_OP mode.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+    MongodConfig6_0Network_in_MongodConfig6_0_net:
+      description: '`net` section of mongod configuration.'
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            The maximum number of simultaneous connections that mongod will accept.
+
+            Acceptable values are 10 to 16384, inclusive.
+          type: integer
+          format: int64
+    MongodConfig6_0OperationProfilingMode_in_MongodConfig6_0OperationProfiling_mode:
+      description: |-
+        Mode which specifies operations that should be profiled.
+
+         - OFF: The profiler is off and does not collect any data.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+         - ALL: The profiler collects data for all operations.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongodConfig6_0StorageWiredTiger_in_MongodConfig6_0Storage_wiredTiger:
+      description: |-
+        Configuration of the WiredTiger storage engine.
+
+        Configuration of WiredTiger storage engine.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongodConfig6_0StorageWiredTigerEngineConfig_in_MongodConfig6_0StorageWiredTiger_engineConfig'
+        collectionConfig:
+          $ref: '#/components/schemas/MongodConfig6_0StorageWiredTigerCollectionConfig_in_MongodConfig6_0StorageWiredTiger_collectionConfig'
+    MongodConfig6_0StorageJournal_in_MongodConfig6_0Storage_journal:
+      description: Configuration of the MongoDB [journal](https://docs.mongodb.com/v6.0/reference/glossary/#term-journal).
+      type: object
+      properties:
+        commitInterval:
+          description: |-
+            Commit interval between journal operations, in milliseconds.
+            Default: 100.
+
+            Acceptable values are 1 to 500, inclusive.
+          type: integer
+          format: int64
+    MongodConfig6_0StorageWiredTigerEngineConfig_in_MongodConfig6_0StorageWiredTiger_engineConfig:
+      description: Engine configuration for WiredTiger.
+      type: object
+      properties:
+        cacheSizeGb:
+          description: The maximum size of the internal cache that WiredTiger will
+            use for all data.
+          type: number
+          format: double
+    MongodConfig6_0StorageWiredTigerCollectionConfig_in_MongodConfig6_0StorageWiredTiger_collectionConfig:
+      description: Collection configuration for WiredTiger.
+      type: object
+      properties:
+        blockCompressor:
+          $ref: '#/components/schemas/MongodConfig6_0StorageWiredTigerCollectionConfigCompressor_in_MongodConfig6_0StorageWiredTigerCollectionConfig_blockCompressor'
+    MongodConfig6_0StorageWiredTigerCollectionConfigCompressor_in_MongodConfig6_0StorageWiredTigerCollectionConfig_blockCompressor:
+      description: |-
+        Default type of compression to use for collection data.
+
+         - NONE: No compression.
+         - SNAPPY: The [Snappy](https://docs.mongodb.com/v6.0/reference/glossary/#term-snappy) compression.
+         - ZLIB: The [zlib](https://docs.mongodb.com/v6.0/reference/glossary/#term-zlib) compression.
+         - ZSTD: The [zstd](https://docs.mongodb.com/v6.0/reference/glossary/#term-zstd) compression.
+      type: string
+      enum:
+      - NONE
+      - SNAPPY
+      - ZLIB
+      - ZSTD
+    MongodConfig6_0_enterpriseStorage_in_MongodConfig6_0_enterprise_storage:
+      description: '`storage` section of mongod configuration.'
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseStorageWiredTiger_in_MongodConfig6_0_enterpriseStorage_wiredTiger'
+        journal:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseStorageJournal_in_MongodConfig6_0_enterpriseStorage_journal'
+    MongodConfig6_0_enterpriseOperationProfiling_in_MongodConfig6_0_enterprise_operationProfiling:
+      description: '`operationProfiling` section of mongod configuration.'
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseOperationProfilingMode_in_MongodConfig6_0_enterpriseOperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            The slow operation time threshold, in milliseconds. Operations that run
+            for longer than this threshold are considered slow, and are processed by the profiler
+            running in the SLOW_OP mode.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+    MongodConfig6_0_enterpriseNetwork_in_MongodConfig6_0_enterprise_net:
+      description: '`net` section of mongod configuration.'
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            The maximum number of simultaneous connections that mongod will accept.
+
+            Acceptable values are 10 to 16384, inclusive.
+          type: integer
+          format: int64
+    MongodConfig6_0_enterpriseSecurity_in_MongodConfig6_0_enterprise_security:
+      description: '`security` section of mongod configuration.'
+      type: object
+      properties:
+        enableEncryption:
+          description: If encryption at rest should be enabled or not
+          type: boolean
+          format: boolean
+        kmip:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseSecurityKMIP_in_MongodConfig6_0_enterpriseSecurity_kmip'
+    MongodConfig6_0_enterpriseAuditLog_in_MongodConfig6_0_enterprise_auditLog:
+      description: '`AuditLog` section of mongod configuration.'
+      type: object
+      properties:
+        filter:
+          description: Audit filter
+          type: string
+        runtimeConfiguration:
+          description: Allows runtime configuration of audit filter and auditAuthorizationSuccess
+          type: boolean
+          format: boolean
+    MongodConfig6_0_enterpriseSetParameter_in_MongodConfig6_0_enterprise_setParameter:
+      description: '`SetParameter` section of mongod configuration.'
+      type: object
+      properties:
+        auditAuthorizationSuccess:
+          description: Enables the auditing of authorization successes
+          type: boolean
+          format: boolean
+    MongodConfig6_0_enterpriseOperationProfilingMode_in_MongodConfig6_0_enterpriseOperationProfiling_mode:
+      description: |-
+        Mode which specifies operations that should be profiled.
+
+         - OFF: The profiler is off and does not collect any data.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+         - ALL: The profiler collects data for all operations.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongodConfig6_0_enterpriseSecurityKMIP_in_MongodConfig6_0_enterpriseSecurity_kmip:
+      description: '`kmip` section of mongod security config'
+      type: object
+      properties:
+        serverName:
+          description: KMIP server name
+          type: string
+        port:
+          description: KMIP server port
+          type: integer
+          format: int64
+        serverCa:
+          description: KMIP Server CA
+          type: string
+        clientCertificate:
+          description: KMIP client certificate + private key (unencrypted)
+          type: string
+        keyIdentifier:
+          description: KMIP Key identifier (if any)
+          type: string
+    MongodConfig6_0_enterpriseStorageWiredTiger_in_MongodConfig6_0_enterpriseStorage_wiredTiger:
+      description: |-
+        Configuration of the WiredTiger storage engine.
+
+        Configuration of WiredTiger storage engine.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseStorageWiredTigerEngineConfig_in_MongodConfig6_0_enterpriseStorageWiredTiger_engineConfig'
+        collectionConfig:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseStorageWiredTigerCollectionConfig_in_MongodConfig6_0_enterpriseStorageWiredTiger_collectionConfig'
+    MongodConfig6_0_enterpriseStorageJournal_in_MongodConfig6_0_enterpriseStorage_journal:
+      description: Configuration of the MongoDB [journal](https://docs.mongodb.com/v6.0/reference/glossary/#term-journal).
+      type: object
+      properties:
+        commitInterval:
+          description: |-
+            Commit interval between journal operations, in milliseconds.
+            Default: 100.
+
+            Acceptable values are 1 to 500, inclusive.
+          type: integer
+          format: int64
+    MongodConfig6_0_enterpriseStorageWiredTigerEngineConfig_in_MongodConfig6_0_enterpriseStorageWiredTiger_engineConfig:
+      description: Engine configuration for WiredTiger.
+      type: object
+      properties:
+        cacheSizeGb:
+          description: The maximum size of the internal cache that WiredTiger will
+            use for all data.
+          type: number
+          format: double
+    MongodConfig6_0_enterpriseStorageWiredTigerCollectionConfig_in_MongodConfig6_0_enterpriseStorageWiredTiger_collectionConfig:
+      description: Collection configuration for WiredTiger.
+      type: object
+      properties:
+        blockCompressor:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseStorageWiredTigerCollectionConfigCompressor_in_MongodConfig6_0_enterpriseStorageWiredTigerCollectionConfig_blockCompressor'
+    ? MongodConfig6_0_enterpriseStorageWiredTigerCollectionConfigCompressor_in_MongodConfig6_0_enterpriseStorageWiredTigerCollectionConfig_blockCompressor
+    : description: |-
+        Default type of compression to use for collection data.
+
+         - NONE: No compression.
+         - SNAPPY: The [Snappy](https://docs.mongodb.com/v6.0/reference/glossary/#term-snappy) compression.
+         - ZLIB: The [zlib](https://docs.mongodb.com/v6.0/reference/glossary/#term-zlib) compression.
+         - ZSTD: The [zstd](https://docs.mongodb.com/v6.0/reference/glossary/#term-zstd) compression.
+      type: string
+      enum:
+      - NONE
+      - SNAPPY
+      - ZLIB
+      - ZSTD
     MongodConfig3_6_in_MongodConfigSet3_6_effectiveConfig:
       description: |-
         Effective mongod settings for a MongoDB 3.6 cluster (a combination of settings defined
@@ -7481,6 +8625,110 @@ components:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseAuditLog_in_MongodConfig5_0_enterprise_auditLog'
         setParameter:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseSetParameter_in_MongodConfig5_0_enterprise_setParameter'
+    MongodConfig6_0_in_MongodConfigSet6_0_effectiveConfig:
+      description: |-
+        Effective mongod settings for a MongoDB 6.0 cluster (a combination of settings defined
+        in `userConfig` and `defaultConfig`).
+
+        Configuration of a mongod daemon. Supported options are a limited subset of all
+        options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig6_0Storage_in_MongodConfig6_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig6_0OperationProfiling_in_MongodConfig6_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig6_0Network_in_MongodConfig6_0_net'
+    MongodConfig6_0_in_MongodConfigSet6_0_userConfig:
+      description: |-
+        User-defined mongod settings for a MongoDB 6.0 cluster.
+
+        Configuration of a mongod daemon. Supported options are a limited subset of all
+        options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig6_0Storage_in_MongodConfig6_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig6_0OperationProfiling_in_MongodConfig6_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig6_0Network_in_MongodConfig6_0_net'
+    MongodConfig6_0_in_MongodConfigSet6_0_defaultConfig:
+      description: |-
+        Default mongod configuration for a MongoDB 6.0 cluster.
+
+        Configuration of a mongod daemon. Supported options are a limited subset of all
+        options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig6_0Storage_in_MongodConfig6_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig6_0OperationProfiling_in_MongodConfig6_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig6_0Network_in_MongodConfig6_0_net'
+    MongodConfig6_0_enterprise_in_MongodConfigSet6_0_enterprise_effectiveConfig:
+      description: |-
+        Effective mongod settings for a MongoDB 6.0 cluster (a combination of settings defined
+        in `userConfig` and `defaultConfig`).
+
+        Configuration of a mongod daemon. Supported options are a limited subset of all
+        options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseStorage_in_MongodConfig6_0_enterprise_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseOperationProfiling_in_MongodConfig6_0_enterprise_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseNetwork_in_MongodConfig6_0_enterprise_net'
+        security:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseSecurity_in_MongodConfig6_0_enterprise_security'
+        auditLog:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseAuditLog_in_MongodConfig6_0_enterprise_auditLog'
+        setParameter:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseSetParameter_in_MongodConfig6_0_enterprise_setParameter'
+    MongodConfig6_0_enterprise_in_MongodConfigSet6_0_enterprise_userConfig:
+      description: |-
+        User-defined mongod settings for a MongoDB 6.0 cluster.
+
+        Configuration of a mongod daemon. Supported options are a limited subset of all
+        options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseStorage_in_MongodConfig6_0_enterprise_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseOperationProfiling_in_MongodConfig6_0_enterprise_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseNetwork_in_MongodConfig6_0_enterprise_net'
+        security:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseSecurity_in_MongodConfig6_0_enterprise_security'
+        auditLog:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseAuditLog_in_MongodConfig6_0_enterprise_auditLog'
+        setParameter:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseSetParameter_in_MongodConfig6_0_enterprise_setParameter'
+    MongodConfig6_0_enterprise_in_MongodConfigSet6_0_enterprise_defaultConfig:
+      description: |-
+        Default mongod configuration for a MongoDB 6.0 cluster.
+
+        Configuration of a mongod daemon. Supported options are a limited subset of all
+        options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseStorage_in_MongodConfig6_0_enterprise_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseOperationProfiling_in_MongodConfig6_0_enterprise_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseNetwork_in_MongodConfig6_0_enterprise_net'
+        security:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseSecurity_in_MongodConfig6_0_enterprise_security'
+        auditLog:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseAuditLog_in_MongodConfig6_0_enterprise_auditLog'
+        setParameter:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseSetParameter_in_MongodConfig6_0_enterprise_setParameter'
     Mongodb3_6Mongod_in_Mongodb3_6_mongod:
       description: Configuration and resource allocation for mongod in a MongoDB 3.6
         cluster.
@@ -7629,7 +8877,7 @@ components:
         defaultConfig:
           $ref: '#/components/schemas/MongosConfig3_6_in_MongosConfigSet3_6_defaultConfig'
     Resources_in_Mongodb3_6Mongos_resources:
-      description: Resources allocated to mongocfg hosts.
+      description: Resources allocated to mongos hosts.
       type: object
       properties:
         resourcePresetId:
@@ -8649,6 +9897,346 @@ components:
         defaultConfig:
           $ref: '#/components/schemas/MongosConfig5_0_enterprise_in_MongosConfigSet5_0_enterprise_defaultConfig'
     Resources_in_Mongodb5_0_enterpriseMongos_resources:
+      description: Resources allocated to mongos hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd - network HDD drive,
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
+          type: string
+    Mongodb6_0Mongod_in_Mongodb6_0_mongod:
+      description: Configuration and resource allocation for mongod in a MongoDB 6.0
+        cluster.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfigSet6_0_in_Mongodb6_0Mongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb6_0Mongod_resources'
+    Mongodb6_0MongoCfg_in_Mongodb6_0_mongocfg:
+      description: Configuration and resource allocation for mongocfg in a MongoDB
+        6.0 cluster.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfigSet6_0_in_Mongodb6_0MongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb6_0MongoCfg_resources'
+    Mongodb6_0Mongos_in_Mongodb6_0_mongos:
+      description: Configuration and resource allocation for mongos in a MongoDB 6.0
+        cluster.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfigSet6_0_in_Mongodb6_0Mongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb6_0Mongos_resources'
+    Mongodb6_0MongoInfra_in_Mongodb6_0_mongoinfra:
+      description: Configuration and resource allocation for mongoinfra (mongos+mongocfg)
+        in a MongoDB 6.0 cluster.
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfigSet6_0_in_Mongodb6_0MongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfigSet6_0_in_Mongodb6_0MongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb6_0MongoInfra_resources'
+    MongoCfgConfigSet6_0_in_Mongodb6_0MongoCfg_config:
+      description: Configuration for mongocfg 6.0 hosts.
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_in_MongoCfgConfigSet6_0_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_in_MongoCfgConfigSet6_0_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_in_MongoCfgConfigSet6_0_defaultConfig'
+    Resources_in_Mongodb6_0MongoCfg_resources:
+      description: Resources allocated to mongocfg hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd - network HDD drive,
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
+          type: string
+    MongosConfigSet6_0_in_Mongodb6_0MongoInfra_configMongos:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongosConfig6_0_in_MongosConfigSet6_0_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongosConfig6_0_in_MongosConfigSet6_0_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongosConfig6_0_in_MongosConfigSet6_0_defaultConfig'
+    MongoCfgConfigSet6_0_in_Mongodb6_0MongoInfra_configMongocfg:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_in_MongoCfgConfigSet6_0_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_in_MongoCfgConfigSet6_0_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_in_MongoCfgConfigSet6_0_defaultConfig'
+    Resources_in_Mongodb6_0MongoInfra_resources:
+      description: Resources allocated to mongoinfra (mongos+mongocfg) hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd - network HDD drive,
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
+          type: string
+    MongodConfigSet6_0_in_Mongodb6_0Mongod_config:
+      description: Configuration for mongod 6.0 hosts.
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongodConfig6_0_in_MongodConfigSet6_0_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongodConfig6_0_in_MongodConfigSet6_0_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongodConfig6_0_in_MongodConfigSet6_0_defaultConfig'
+    Resources_in_Mongodb6_0Mongod_resources:
+      description: Resources allocated to mongod hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd - network HDD drive,
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
+          type: string
+    MongosConfigSet6_0_in_Mongodb6_0Mongos_config:
+      description: Configuration for mongos 6.0 hosts.
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongosConfig6_0_in_MongosConfigSet6_0_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongosConfig6_0_in_MongosConfigSet6_0_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongosConfig6_0_in_MongosConfigSet6_0_defaultConfig'
+    Resources_in_Mongodb6_0Mongos_resources:
+      description: Resources allocated to mongos hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd - network HDD drive,
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
+          type: string
+    Mongodb6_0_enterpriseMongod_in_Mongodb6_0_enterprise_mongod:
+      description: Configuration and resource allocation for mongod in a MongoDB 6.0
+        cluster.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfigSet6_0_enterprise_in_Mongodb6_0_enterpriseMongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb6_0_enterpriseMongod_resources'
+    Mongodb6_0_enterpriseMongoCfg_in_Mongodb6_0_enterprise_mongocfg:
+      description: Configuration and resource allocation for mongocfg in a MongoDB
+        6.0 cluster.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfigSet6_0_enterprise_in_Mongodb6_0_enterpriseMongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb6_0_enterpriseMongoCfg_resources'
+    Mongodb6_0_enterpriseMongos_in_Mongodb6_0_enterprise_mongos:
+      description: Configuration and resource allocation for mongos in a MongoDB 6.0
+        cluster.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfigSet6_0_enterprise_in_Mongodb6_0_enterpriseMongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb6_0_enterpriseMongos_resources'
+    Mongodb6_0_enterpriseMongoInfra_in_Mongodb6_0_enterprise_mongoinfra:
+      description: Configuration and resource allocation for mongoinfra (mongos+mongocfg)
+        in a MongoDB 6.0 cluster.
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfigSet6_0_enterprise_in_Mongodb6_0_enterpriseMongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfigSet6_0_enterprise_in_Mongodb6_0_enterpriseMongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb6_0_enterpriseMongoInfra_resources'
+    MongoCfgConfigSet6_0_enterprise_in_Mongodb6_0_enterpriseMongoCfg_config:
+      description: Configuration for mongocfg 6.0 hosts.
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterprise_in_MongoCfgConfigSet6_0_enterprise_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterprise_in_MongoCfgConfigSet6_0_enterprise_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterprise_in_MongoCfgConfigSet6_0_enterprise_defaultConfig'
+    Resources_in_Mongodb6_0_enterpriseMongoCfg_resources:
+      description: Resources allocated to mongocfg hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd - network HDD drive,
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
+          type: string
+    MongosConfigSet6_0_enterprise_in_Mongodb6_0_enterpriseMongoInfra_configMongos:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongosConfig6_0_enterprise_in_MongosConfigSet6_0_enterprise_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongosConfig6_0_enterprise_in_MongosConfigSet6_0_enterprise_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongosConfig6_0_enterprise_in_MongosConfigSet6_0_enterprise_defaultConfig'
+    MongoCfgConfigSet6_0_enterprise_in_Mongodb6_0_enterpriseMongoInfra_configMongocfg:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterprise_in_MongoCfgConfigSet6_0_enterprise_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterprise_in_MongoCfgConfigSet6_0_enterprise_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterprise_in_MongoCfgConfigSet6_0_enterprise_defaultConfig'
+    Resources_in_Mongodb6_0_enterpriseMongoInfra_resources:
+      description: Resources allocated to mongoinfra (mongos+mongocfg) hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd - network HDD drive,
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
+          type: string
+    MongodConfigSet6_0_enterprise_in_Mongodb6_0_enterpriseMongod_config:
+      description: Configuration for mongod 6.0 hosts.
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongodConfig6_0_enterprise_in_MongodConfigSet6_0_enterprise_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongodConfig6_0_enterprise_in_MongodConfigSet6_0_enterprise_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongodConfig6_0_enterprise_in_MongodConfigSet6_0_enterprise_defaultConfig'
+    Resources_in_Mongodb6_0_enterpriseMongod_resources:
+      description: Resources allocated to mongod hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd - network HDD drive,
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
+          type: string
+    MongosConfigSet6_0_enterprise_in_Mongodb6_0_enterpriseMongos_config:
+      description: Configuration for mongos 6.0 hosts.
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongosConfig6_0_enterprise_in_MongosConfigSet6_0_enterprise_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongosConfig6_0_enterprise_in_MongosConfigSet6_0_enterprise_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongosConfig6_0_enterprise_in_MongosConfigSet6_0_enterprise_defaultConfig'
+    Resources_in_Mongodb6_0_enterpriseMongos_resources:
       description: Resources allocated to mongos hosts.
       type: object
       properties:
@@ -9829,6 +11417,340 @@ components:
             * network-ssd - network SSD drive,
             * local-ssd - local SSD storage.
           type: string
+    MongodbSpec6_0Mongod_in_MongodbSpec6_0_mongod:
+      description: Configuration and resource allocation for mongod 6.0 hosts.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfig6_0_in_MongodbSpec6_0Mongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec6_0Mongod_resources'
+    MongodbSpec6_0MongoCfg_in_MongodbSpec6_0_mongocfg:
+      description: Configuration and resource allocation for mongocfg 6.0 hosts.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_in_MongodbSpec6_0MongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec6_0MongoCfg_resources'
+    MongodbSpec6_0Mongos_in_MongodbSpec6_0_mongos:
+      description: Configuration and resource allocation for mongos 6.0 hosts.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfig6_0_in_MongodbSpec6_0Mongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec6_0Mongos_resources'
+    MongodbSpec6_0MongoInfra_in_MongodbSpec6_0_mongoinfra:
+      description: Configuration and resource allocation for mongoinfra (mongos+mongocfg)
+        6.0 hosts.
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfig6_0_in_MongodbSpec6_0MongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_in_MongodbSpec6_0MongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec6_0MongoInfra_resources'
+    MongoCfgConfig6_0_in_MongodbSpec6_0MongoCfg_config:
+      description: Configuration for mongocfg 6.0 hosts.
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig6_0Storage_in_MongoCfgConfig6_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig6_0OperationProfiling_in_MongoCfgConfig6_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig6_0Network_in_MongoCfgConfig6_0_net'
+    Resources_in_MongodbSpec6_0MongoCfg_resources:
+      description: Resources allocated to each mongocfg host.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd - network HDD drive,
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
+          type: string
+    MongosConfig6_0_in_MongodbSpec6_0MongoInfra_configMongos:
+      description: Configuration for mongoinfra 6.0 hosts.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig6_0Network_in_MongosConfig6_0_net'
+    MongoCfgConfig6_0_in_MongodbSpec6_0MongoInfra_configMongocfg:
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig6_0Storage_in_MongoCfgConfig6_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig6_0OperationProfiling_in_MongoCfgConfig6_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig6_0Network_in_MongoCfgConfig6_0_net'
+    Resources_in_MongodbSpec6_0MongoInfra_resources:
+      description: Resources allocated to each mongoinfra (mongos+mongocfg) host.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd - network HDD drive,
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
+          type: string
+    MongodConfig6_0_in_MongodbSpec6_0Mongod_config:
+      description: |-
+        Configuration for mongod 6.0 hosts.
+
+        Configuration of a mongod daemon. Supported options are a limited subset of all
+        options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig6_0Storage_in_MongodConfig6_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig6_0OperationProfiling_in_MongodConfig6_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig6_0Network_in_MongodConfig6_0_net'
+    Resources_in_MongodbSpec6_0Mongod_resources:
+      description: Resources allocated to each mongod host.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd - network HDD drive,
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
+          type: string
+    MongosConfig6_0_in_MongodbSpec6_0Mongos_config:
+      description: Configuration for mongos 6.0 hosts.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig6_0Network_in_MongosConfig6_0_net'
+    Resources_in_MongodbSpec6_0Mongos_resources:
+      description: Resources allocated to each mongos host.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd - network HDD drive,
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
+          type: string
+    MongodbSpec6_0_enterpriseMongod_in_MongodbSpec6_0_enterprise_mongod:
+      description: Configuration and resource allocation for mongod 6.0 hosts.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfig6_0_enterprise_in_MongodbSpec6_0_enterpriseMongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec6_0_enterpriseMongod_resources'
+    MongodbSpec6_0_enterpriseMongoCfg_in_MongodbSpec6_0_enterprise_mongocfg:
+      description: Configuration and resource allocation for mongocfg 6.0 hosts.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterprise_in_MongodbSpec6_0_enterpriseMongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec6_0_enterpriseMongoCfg_resources'
+    MongodbSpec6_0_enterpriseMongos_in_MongodbSpec6_0_enterprise_mongos:
+      description: Configuration and resource allocation for mongos 6.0 hosts.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfig6_0_enterprise_in_MongodbSpec6_0_enterpriseMongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec6_0_enterpriseMongos_resources'
+    MongodbSpec6_0_enterpriseMongoInfra_in_MongodbSpec6_0_enterprise_mongoinfra:
+      description: Configuration and resource allocation for mongoinfra (mongos+mongocfg)
+        6.0 hosts.
+      type: object
+      properties:
+        configMongos:
+          $ref: '#/components/schemas/MongosConfig6_0_enterprise_in_MongodbSpec6_0_enterpriseMongoInfra_configMongos'
+        configMongocfg:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterprise_in_MongodbSpec6_0_enterpriseMongoInfra_configMongocfg'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec6_0_enterpriseMongoInfra_resources'
+    MongoCfgConfig6_0_enterprise_in_MongodbSpec6_0_enterpriseMongoCfg_config:
+      description: Configuration for mongocfg 6.0 hosts.
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseStorage_in_MongoCfgConfig6_0_enterprise_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseOperationProfiling_in_MongoCfgConfig6_0_enterprise_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseNetwork_in_MongoCfgConfig6_0_enterprise_net'
+    Resources_in_MongodbSpec6_0_enterpriseMongoCfg_resources:
+      description: Resources allocated to each mongocfg host.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd - network HDD drive,
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
+          type: string
+    MongosConfig6_0_enterprise_in_MongodbSpec6_0_enterpriseMongoInfra_configMongos:
+      description: Configuration for mongoinfra 6.0 hosts.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig6_0_enterpriseNetwork_in_MongosConfig6_0_enterprise_net'
+    MongoCfgConfig6_0_enterprise_in_MongodbSpec6_0_enterpriseMongoInfra_configMongocfg:
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseStorage_in_MongoCfgConfig6_0_enterprise_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseOperationProfiling_in_MongoCfgConfig6_0_enterprise_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig6_0_enterpriseNetwork_in_MongoCfgConfig6_0_enterprise_net'
+    Resources_in_MongodbSpec6_0_enterpriseMongoInfra_resources:
+      description: Resources allocated to each mongoinfra (mongos+mongocfg) host.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd - network HDD drive,
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
+          type: string
+    MongodConfig6_0_enterprise_in_MongodbSpec6_0_enterpriseMongod_config:
+      description: |-
+        Configuration for mongod 6.0 hosts.
+
+        Configuration of a mongod daemon. Supported options are a limited subset of all
+        options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseStorage_in_MongodConfig6_0_enterprise_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseOperationProfiling_in_MongodConfig6_0_enterprise_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseNetwork_in_MongodConfig6_0_enterprise_net'
+        security:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseSecurity_in_MongodConfig6_0_enterprise_security'
+        auditLog:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseAuditLog_in_MongodConfig6_0_enterprise_auditLog'
+        setParameter:
+          $ref: '#/components/schemas/MongodConfig6_0_enterpriseSetParameter_in_MongodConfig6_0_enterprise_setParameter'
+    Resources_in_MongodbSpec6_0_enterpriseMongod_resources:
+      description: Resources allocated to each mongod host.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd - network HDD drive,
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
+          type: string
+    MongosConfig6_0_enterprise_in_MongodbSpec6_0_enterpriseMongos_config:
+      description: Configuration for mongos 6.0 hosts.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig6_0_enterpriseNetwork_in_MongosConfig6_0_enterprise_net'
+    Resources_in_MongodbSpec6_0_enterpriseMongos_resources:
+      description: Resources allocated to each mongos host.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd - network HDD drive,
+            * network-ssd - network SSD drive,
+            * local-ssd - local SSD storage.
+          type: string
     MongosConfig3_6Network_in_MongosConfig3_6_net:
       description: Network settings for mongos.
       type: object
@@ -9896,6 +11818,28 @@ components:
           type: integer
           format: int64
     MongosConfig5_0_enterpriseNetwork_in_MongosConfig5_0_enterprise_net:
+      description: Network settings for mongos.
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            The maximum number of simultaneous connections that mongos will accept.
+
+            Acceptable values are 10 to 16384, inclusive.
+          type: integer
+          format: int64
+    MongosConfig6_0Network_in_MongosConfig6_0_net:
+      description: Network settings for mongos.
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            The maximum number of simultaneous connections that mongos will accept.
+
+            Acceptable values are 10 to 16384, inclusive.
+          type: integer
+          format: int64
+    MongosConfig6_0_enterpriseNetwork_in_MongosConfig6_0_enterprise_net:
       description: Network settings for mongos.
       type: object
       properties:
@@ -10046,6 +11990,46 @@ components:
       properties:
         net:
           $ref: '#/components/schemas/MongosConfig5_0_enterpriseNetwork_in_MongosConfig5_0_enterprise_net'
+    MongosConfig6_0_in_MongosConfigSet6_0_effectiveConfig:
+      description: |-
+        Effective mongos settings for a MongoDB 6.0 cluster (a combination of settings defined
+        in `userConfig` and `defaultConfig`).
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig6_0Network_in_MongosConfig6_0_net'
+    MongosConfig6_0_in_MongosConfigSet6_0_userConfig:
+      description: User-defined mongos settings for a MongoDB 6.0 cluster.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig6_0Network_in_MongosConfig6_0_net'
+    MongosConfig6_0_in_MongosConfigSet6_0_defaultConfig:
+      description: Default mongos configuration for a MongoDB 6.0 cluster.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig6_0Network_in_MongosConfig6_0_net'
+    MongosConfig6_0_enterprise_in_MongosConfigSet6_0_enterprise_effectiveConfig:
+      description: |-
+        Effective mongos settings for a MongoDB 6.0 cluster (a combination of settings defined
+        in `userConfig` and `defaultConfig`).
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig6_0_enterpriseNetwork_in_MongosConfig6_0_enterprise_net'
+    MongosConfig6_0_enterprise_in_MongosConfigSet6_0_enterprise_userConfig:
+      description: User-defined mongos settings for a MongoDB 5.0 cluster.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig6_0_enterpriseNetwork_in_MongosConfig6_0_enterprise_net'
+    MongosConfig6_0_enterprise_in_MongosConfigSet6_0_enterprise_defaultConfig:
+      description: Default mongos configuration for a MongoDB 5.0 cluster.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig6_0_enterpriseNetwork_in_MongosConfig6_0_enterprise_net'
     RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType:
       description: |-
         Required.
@@ -10063,6 +12047,8 @@ components:
       description: |-
         Required.
         Deployment environment of the new MongoDB cluster.
+
+        Deployment environment.
 
          - PRODUCTION: Stable environment with a conservative update policy: only hotfixes
         are applied during regular maintenance.
@@ -10082,7 +12068,8 @@ components:
         properties:
           version:
             description: 'Version of MongoDB used in the cluster. Possible values:
-              `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`.'
+              `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`,
+              `6.0`, `6.0-enterprise`.'
             type: string
           featureCompatibilityVersion:
             description: |-
@@ -10094,6 +12081,7 @@ components:
               * `4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older.
               * `4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or older.
               * `5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 4.4 or older.
+              * `6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 5.0 or older.
             type: string
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
@@ -10105,6 +12093,9 @@ components:
               Acceptable values are 7 to 35, inclusive.
             type: integer
             format: int64
+          performanceDiagnostics:
+            $ref: '#/components/schemas/PerformanceDiagnosticsConfig'
+            description: Performance Diagnosics configuration
           access:
             $ref: '#/components/schemas/Access'
             description: Access policy to DB
@@ -10127,6 +12118,9 @@ components:
           mongodbSpec_5_0:
             $ref: '#/components/schemas/MongodbSpec5_0'
             description: Configuration and resource allocation for a MongoDB 5.0 cluster.
+          mongodbSpec_6_0:
+            $ref: '#/components/schemas/MongodbSpec6_0'
+            description: Configuration and resource allocation for a MongoDB 6.0 cluster.
           mongodbSpec_4_4Enterprise:
             $ref: '#/components/schemas/MongodbSpec4_4_enterprise'
             description: Configuration and resource allocation for a MongoDB 4.4 Enterprise
@@ -10134,6 +12128,10 @@ components:
           mongodbSpec_5_0Enterprise:
             $ref: '#/components/schemas/MongodbSpec5_0_enterprise'
             description: Configuration and resource allocation for a MongoDB 5.0 Enterprise
+              cluster.
+          mongodbSpec_6_0Enterprise:
+            $ref: '#/components/schemas/MongodbSpec6_0_enterprise'
+            description: Configuration and resource allocation for a MongoDB 6.0 Enterprise
               cluster.
     RestoreClusterRequestRecoveryTargetSpec_in_RestoreClusterRequest_recoveryTargetSpec:
       description: Specification of the moment to which the MongoDB cluster should
@@ -10209,7 +12207,8 @@ components:
         properties:
           version:
             description: 'Version of MongoDB used in the cluster. Possible values:
-              `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`.'
+              `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`,
+              `6.0`, `6.0-enterprise`.'
             type: string
           featureCompatibilityVersion:
             description: |-
@@ -10221,6 +12220,7 @@ components:
               * `4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older.
               * `4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or older.
               * `5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 4.4 or older.
+              * `6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 5.0 or older.
             type: string
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
@@ -10232,6 +12232,9 @@ components:
               Acceptable values are 7 to 35, inclusive.
             type: integer
             format: int64
+          performanceDiagnostics:
+            $ref: '#/components/schemas/PerformanceDiagnosticsConfig'
+            description: Performance Diagnosics configuration
           access:
             $ref: '#/components/schemas/Access'
             description: Access policy to DB
@@ -10254,6 +12257,9 @@ components:
           mongodbSpec_5_0:
             $ref: '#/components/schemas/MongodbSpec5_0'
             description: Configuration and resource allocation for a MongoDB 5.0 cluster.
+          mongodbSpec_6_0:
+            $ref: '#/components/schemas/MongodbSpec6_0'
+            description: Configuration and resource allocation for a MongoDB 6.0 cluster.
           mongodbSpec_4_4Enterprise:
             $ref: '#/components/schemas/MongodbSpec4_4_enterprise'
             description: Configuration and resource allocation for a MongoDB 4.4 Enterprise
@@ -10261,6 +12267,10 @@ components:
           mongodbSpec_5_0Enterprise:
             $ref: '#/components/schemas/MongodbSpec5_0_enterprise'
             description: Configuration and resource allocation for a MongoDB 5.0 Enterprise
+              cluster.
+          mongodbSpec_6_0Enterprise:
+            $ref: '#/components/schemas/MongodbSpec6_0_enterprise'
+            description: Configuration and resource allocation for a MongoDB 6.0 Enterprise
               cluster.
     MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow:
       description: |-

@@ -3847,6 +3847,9 @@ components:
           prefixMatch:
             description: Prefix match string.
             type: string
+          regexMatch:
+            description: Regular expression match string.
+            type: string
     Target:
       description: |-
         A target resource.
@@ -4696,6 +4699,9 @@ components:
           prefixMatch:
             description: Prefix match string.
             type: string
+          regexMatch:
+            description: Regular expression match string.
+            type: string
     GrpcStatusResponseActionStatus_in_GrpcStatusResponseAction_status:
       description: |-
         gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses.
@@ -4827,6 +4833,9 @@ components:
             type: string
           prefixMatch:
             description: Prefix match string.
+            type: string
+          regexMatch:
+            description: Regular expression match string.
             type: string
     RouteOptions_in_HttpRouter_routeOptions:
       type: object
