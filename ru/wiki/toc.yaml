@@ -156,7 +156,7 @@ items:
     href: office365/ms-office.md
   - name: Создать документ Microsoft Office 365 в {{ wiki-name }}
     href: office365/create-ms-office.md
-  - name: Создать документ Office 365 на общем сайте Sharepoint
+  - name: Создать документ Office 365 на портале Sharepoint
     href: office365/create-sharepoint.md
   - name: Совместное редактирование документов
     href: office365/co-edit.md
