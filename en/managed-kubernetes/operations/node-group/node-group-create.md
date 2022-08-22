@@ -39,7 +39,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
        --name <node group name> \
        --network-acceleration-type <standard or software-accelerated> \
        --network-interface security-group-ids=[<security group IDs>],subnets=[<subnet names>],ipv4-address=<nat or auto> \
-       --platform-id <platform ID> \
+       --platform <platform ID> \
        --preemptible \
        --public-ip \
        --version <{{ k8s }} version on group nodes> \
@@ -66,7 +66,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
 
        {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
-     * `--platform-id` [platform](../../../compute/concepts/vm-platforms.md) for nodes.
+     * `--platform` [platform](../../../compute/concepts/vm-platforms.md) for nodes.
      * `--preemptible`: Flag specified if the VM instances should be [preemptible](../../../compute/concepts/preemptible-vm.md).
      * `--public-ip`: Flag specified if the node group needs a [public IP address](../../../vpc/concepts/address.md#public-addresses).
      * `--version`: version {{ k8s }} on group nodes.

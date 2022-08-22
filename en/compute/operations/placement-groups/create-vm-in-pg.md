@@ -41,7 +41,7 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
    1. Create a virtual machine:
 
       ```
-      yc compute instance create --zone {{ region-id }}-b --name instance-in-group-1 --placement-group-name my-group
+      yc compute instance create --zone {{ region-id }}-a --name instance-in-group-1 --placement-group-name my-group
       id: epdep2kq6dt5uekuhcrd
       ...
       placement_policy:
@@ -51,7 +51,7 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
       This command creates a VM instance with the following characteristics:
 
       - Named `instance-in-group-1`.
-      - In the `{{ region-id }}-b` availability zone.
+      - In the `{{ region-id }}-a` availability zone.
       - In the `my-group` placement group.
 
    1. Check that the instance was created and added to the placement group:
@@ -66,7 +66,7 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
-      | epdep2kq6dt5uekuhcrd | instance-in-group-1 | {{ region-id }}-b | RUNNING |             | 10.129.0.5  |
+      | epdep2kq6dt5uekuhcrd | instance-in-group-1 | {{ region-id }}-a | RUNNING |             | 10.129.0.5  |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       ```
 

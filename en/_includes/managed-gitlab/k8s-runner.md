@@ -1,55 +1,58 @@
-## Connect the {{ k8s }} cluster to the GitLab builds {#runners}
+## Create a {{ GL }} Runner {#runners}
 
-To run your build tasks on a {{ k8s }} cluster, connect the cluster in the GitLab settings.
+To run build jobs on a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), create a [{{ GL }} Runner](https://docs.gitlab.com/runner/install/kubernetes.html).
 
-1. In the browser, open a link in the format `http://<public GitLab VM IP address>/root`.
+1. Connect a Helm repository containing the {{ GL }} Runner distribution:
 
-1. Select the project named `gitlab-test`.
+   ```bash
+   helm repo add gitlab https://charts.gitlab.io
+   ```
 
-1. In the window that opens on the left, click **Operations** and select **Kubernetes**.
+1. Retrieve the {{ GL }} Runner settings:
+   1. In the browser, open a link in the format `http://<Public {{ GL }} VM IP address>/root`.
+   1. Select the project named `gitlab-test`.
+   1. On the left-hand side of the resulting window, click **Setting** and select the **CI/CD** option.
+   1. Under **Runners**, click **Expand**.
+   1. Save the `URL` and the `registration token` values as you will need them in the next step.
+1. Create a file called `values.yaml` with the {{ GL }} Runner settings:
 
-1. Click **Add Kubernetes cluster**.
+   ```yaml
+   imagePullPolicy: IfNotPresent
+   gitlabUrl: <{{ mgl-name }} instance URL>
+   runnerRegistrationToken: "<registration token>"
+   terminationGracePeriodSeconds: 3600
+   concurrent: 10
+   checkInterval: 30
+   sessionServer:
+    enabled: false
+   rbac:
+     create: true
+     clusterWideAccess: true
+     podSecurityPolicy:
+       enabled: false
+       resourceNames:
+         - gitlab-runner
+   runners:
+     config: |
+       [[runners]]
+         [runners.kubernetes]
+           namespace = "{{.Release.Namespace}}"
+           image = "ubuntu:20.04"
+           privileged = true
+   ```
 
-1. In the window that opens click **Add existing cluster**.
+1. Install {{ GL }} Runner using the following command:
 
-1. In the **Kubernetes cluster name** field, enter the cluster name.
+   ```bash
+   helm install --namespace default gitlab-runner -f values.yaml gitlab/gitlab-runner
+   ```
 
-1. In the **URL API** field, enter the [master](../../managed-kubernetes/concepts/index.md#master) node address. Retrieve it using the command:
+1. Make sure that the {{ GL }} Runner pod status has changed to `Running`:
 
-    {% list tabs %}
-
-    - Bash
-
-      ```
-      yc managed-kubernetes cluster get <cluster-id> --format=json \
-      | jq -r .master.endpoints.external_v4_endpoint
-      ```
-
-    {% endlist %}
-
-1. In the **CA Certificate** field, enter the master certificate. Retrieve it using the command:
-
-    {% list tabs %}
-
-    - Bash
-
-      ```
-      yc managed-kubernetes cluster get <cluster-id> --format=json \
-      | jq -r .master.master_auth.cluster_ca_certificate
-      ```
-
-    {% endlist %}
-
-1. In the **Service Token** field, enter the token GitLab will use to create the {{ k8s }} resources.
-Use the token you received before you started.
-
-1. Click **Add Kubernetes cluster**.
-
-1. Install the applications required for proper operation of GitLab Runner on the {{ k8s }} cluster:
-    - Click **Install** next to **Helm Tiller**.
-    - Click **Install** next to **GitLab Runner**.
+   ```bash
+   kubectl get pods -n default | grep gitlab-runner
+   ```
 
 Now you can run automated builds inside your {{ k8s }} cluster.
 
-Read more about {{ k8s }} cluster connection settings for GitLab builds in the [GitLab documentation](https://docs.gitlab.com/ee/user/project/clusters/#add-existing-kubernetes-cluster).
-
+For more information about installing and running {{ GL }} Runner, see the [{{ GL }} documentation](https://docs.gitlab.com/runner/install/).

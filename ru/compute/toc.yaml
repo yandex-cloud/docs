@@ -250,7 +250,7 @@ items:
       - name: Обновление группы ВМ под нагрузкой
         href: tutorials/updating-under-load.md
       - name: Развертывание Remote Desktop Gateway
-        href: tutorials/rds-gw
+        href: tutorials/rds-gw.md
       - name: Передача логов с ВМ в Yandex Cloud Logging
         href: tutorials/vm-fluent-bit-logging.md
       - name: >-

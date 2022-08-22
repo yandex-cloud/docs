@@ -9,7 +9,7 @@
 
 1. Узнайте настройки {{ GLR }}:
    1. Откройте в браузере административную панель {{ GL }}:
-      * Если {{ GL }} развернут на [виртуальной машине](../../compute/concepts/vm.md) {{ compute-name }}, используйте ее [публичный IP-адрес](../../compute/concepts/network.md#public-ip).
+      * Если {{ GL }} развернут на [виртуальной машине](../../compute/concepts/vm.md) {{ compute-full-name }}, используйте ее [публичный IP-адрес](../../compute/concepts/network.md#public-ip).
       * Если {{ GL }} развернут в сервисе {{ mgl-name }}, используйте [FQDN инстанса](../../compute/concepts/network.md##hostname).
    1. Выберите проект с именем `gitlab-test`.
    1. В открывшемся окне слева нажмите кнопку **Settings** и выберите пункт **CI/CD**.

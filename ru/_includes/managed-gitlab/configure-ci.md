@@ -55,7 +55,7 @@
    1. Нажмите кнопку **Commit changes**.
 
    В файле `.gitlab-ci.yml` описаны два шага сборки проекта:
-   * Сборка Docker-образа с использованием `Dockerfile` из предыдущего этапа и загрузка образа в [{{ container-registry-name }}](../../container-registry/).
+   * Сборка Docker-образа с использованием `Dockerfile` из предыдущего этапа и загрузка образа в [{{ container-registry-full-name }}](../../container-registry/).
      * Для этого шага используйте контейнер для сборки Docker-образов и запустите Docker-сервер как [{{ GL }}-сервис](https://docs.gitlab.com/ee/ci/yaml/README.html#services).
      * Для аутентификации в {{ container-registry-name }} используйте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), подключенный к узлам {{ k8s }}. В начале работы этому аккаунту была назначена роль [{{ roles-cr-pusher }}](../../container-registry/security/index.md#required-roles).
      * Чтобы получить из [метаданных](../../compute/concepts/vm-metadata.md) виртуальной машины данные для аутентификации, используется вспомогательный публичный Docker-образ `{{ registry }}/yc/metadata-token-docker-helper:0.2`. Внутри него работает [Docker credential helper](../../container-registry/operations/authentication.md#cred-helper), который получает {{ iam-name }}-токен из сервиса метаданных.

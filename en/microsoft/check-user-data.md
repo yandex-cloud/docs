@@ -17,11 +17,7 @@ For individuals:
 * Address.
 * Country.
 
-{% note info %}
 
-To provide additional user details in your billing account contact [technical support](../support/overview.md#response-time).
-
-{% endnote %}
 
 
 ## Updating details {#how-to-update}

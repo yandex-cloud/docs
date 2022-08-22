@@ -48,7 +48,7 @@
        --zone {{ region-id }}-b \
        --ssh-key ssh-key.pub \
        --service-account-name my-robot \
-       --platform-id=standard-v3 \
+       --platform standard-v3 \
        --public-ip \
        --container-name=my-app \
        --container-image=cr.yandex/mirror/ubuntu:16.04 \

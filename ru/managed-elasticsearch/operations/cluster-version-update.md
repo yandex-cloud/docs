@@ -63,6 +63,35 @@
         {{ yc-mdb-es }} cluster update <имя или идентификатор кластера> --version <версия {{ ES }}>
         ```
 
+- {{ TF }}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+       О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+       Полный список доступных для изменения полей конфигурации кластера {{ mes-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
+
+    1. Добавьте к описанию кластера {{ mes-name }} поле `config.version` или измените его значение, если оно уже существует:
+
+       ```hcl
+       resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
+         ...
+         config {
+           version = "<версия {{ ES }}"
+         }
+       }
+       ```
+
+    1. Проверьте корректность настроек.
+
+         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+         {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+
 - API
 
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
@@ -79,7 +108,7 @@
 
 {% note info %}
 
-С 13 июня 2022 года прекращена поддержка [редакции](../concepts/es-editions.md) `Gold` в кластерах {{ mes-name}}. Перейти на нее с редакций `Basic` или `Platinum` невозможно. 6 июля 2022 года редакция всех кластеров `Gold` будет автоматически повышена до `Platinum`.
+С 13 июня 2022 года прекращена поддержка [редакции](../concepts/es-editions.md) `Gold` в кластерах {{ mes-name}}. Перейти на нее с редакций `Basic` или `Platinum` невозможно. 6 июля 2022 года редакция всех кластеров `Gold` была автоматически повышена до `Platinum`.
 
 {% endnote %}
 

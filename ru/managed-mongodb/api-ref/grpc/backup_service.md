@@ -32,7 +32,7 @@ backup_id | **string**<br>Required. ID of the backup to return information about
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the backup. 
+id | **string**<br>ID of the backup. Required. 
 folder_id | **string**<br>ID of the folder that the backup belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format (i.e. when the backup operation was completed). 
 source_cluster_id | **string**<br>ID of the MongoDB cluster that the backup was created for. 
@@ -69,7 +69,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the backup. 
+id | **string**<br>ID of the backup. Required. 
 folder_id | **string**<br>ID of the folder that the backup belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format (i.e. when the backup operation was completed). 
 source_cluster_id | **string**<br>ID of the MongoDB cluster that the backup was created for. 

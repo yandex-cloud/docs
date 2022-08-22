@@ -4,7 +4,8 @@ sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/enableSharding.md
 ---
 
 # Method enableSharding
-Enables sharding for the cluster: creates 3 mongoinfra (or 3 mongocfg and 2 mongos) hosts
+Enables sharding for the cluster:
+creates 3 mongoinfra (or 3 mongocfg and 2 mongos) hosts
 that would support adding and using shards in the cluster.
  
 

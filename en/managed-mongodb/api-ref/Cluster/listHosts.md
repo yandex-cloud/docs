@@ -23,7 +23,7 @@ clusterId | <p>Required. ID of the MongoDB cluster. To get the MongoDB cluster I
  
 Parameter | Description
 --- | ---
-pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-mongodb/api-ref/Cluster/listHosts#query_params">pageSize</a>, the service returns a <a href="/docs/managed-mongodb/api-ref/Cluster/listHosts#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-mongodb/api-ref/Cluster/listHosts#query_params">pageSize</a>, the service returns a <a href="/docs/managed-mongodb/api-ref/Cluster/listHosts#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive. Default value: 100.</p> <p>The maximum value is 1000.</p> 
 pageToken | <p>Page token. To get the next page of results, set <a href="/docs/managed-mongodb/api-ref/Cluster/listHosts#query_params">pageToken</a> to the <a href="/docs/managed-mongodb/api-ref/Cluster/listHosts#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}

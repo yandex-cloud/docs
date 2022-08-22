@@ -403,7 +403,7 @@ You need to check that, when user requests are made, files are downloaded from t
 
 ## Set up DNS for your domain {#dns-setup}
 
-1. Get a domain name generated for the created CDN resource on the `.gcdn.co` domain:
+1. Get a domain name generated for the created CDN resource on the `.edgecdn.ru` domain:
 
    {% list tabs %}
 
@@ -411,15 +411,15 @@ You need to check that, when user requests are made, files are downloaded from t
 
       1. In the [management console]({{ link-console-main }}), select **{{ cdn-name }}**.
       1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.ycprojektblue.example`).
-      1. On the **Overview** tab, under **DNS settings**, copy the name generated on the `.gcdn.co` domain to the clipboard.
+      1. On the **Overview** tab, under **DNS settings**, copy the name generated on the `.edgecdn.ru` domain to the clipboard.
 
    {% endlist %}
 
 1. Go to your domain's DNS settings on the site of your DNS hosting provider.
-1. Edit the CNAME record for `cdn` so that it points to the previously copied URL on the `.gcdn.co` domain, for example:
+1. Edit the CNAME record for `cdn` so that it points to the previously copied URL on the `.edgecdn.ru` domain, for example:
 
    ```http
-   cdn CNAME cl-.....6bb.gcdn.co.
+   cdn CNAME cl-.....6bb.edgecdn.ru.
    ```
 
    If you use {{ dns-name }}, follow these instructions to configure the record:
@@ -445,7 +445,7 @@ You need to check that, when user requests are made, files are downloaded from t
          1. Click **Create record**.
          1. In the **Name** field, specify `cdn` to make the record match the `cdn.ycprojektblue.example` domain name.
          1. Select the record **Type**: **CNAME**.
-         1. In the **Value** field, paste the URL you copied on the `.gcdn.co` domain with a dot at the end.
+         1. In the **Value** field, paste the URL you copied on the `.edgecdn.ru` domain with a dot at the end.
          1. Click **Create**.
 
    - CLI
@@ -476,7 +476,7 @@ You need to check that, when user requests are made, files are downloaded from t
       1. Create a record in the zone:
 
          ```bash
-         yc dns zone add-records --name cdn-dns-a --record "cdn CNAME cl-.....6bb.gcdn.co."
+         yc dns zone add-records --name cdn-dns-a --record "cdn CNAME cl-.....6bb.edgecdn.ru."
          ```
 
          Where:
@@ -501,7 +501,7 @@ You need to check that, when user requests are made, files are downloaded from t
          | ycprojektblue.example.     | 3600 | SOA   | ns1.yandexcloud.net.           |
          |                            |      |       | mx.cloud.yandex.net. 1 10800   |
          |                            |      |       | 900 604800 86400               |
-         | cdn.ycprojektblue.example. |  600 | CNAME | cl-.....6bb.gcdn.co.           |
+         | cdn.ycprojektblue.example. |  600 | CNAME | cl-.....6bb.edgecdn.ru.           |
          +----------------------------+------+-------+--------------------------------+
          ```
 
@@ -510,7 +510,7 @@ You need to check that, when user requests are made, files are downloaded from t
    - API
 
       1. If you do not have a public DNS zone, create one using a gRPC API call to [DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create) or the REST API [create](../../dns/api-ref/DnsZone/create.md) method. To make the zone public, add the `public_visibility` (gRPC) or `publicVisibility` (REST) field to the request body.
-      1. In the zone, create a record named `cdn CNAME cl-.....6bb.gcdn.co.` using a gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) call or the REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) method.
+      1. In the zone, create a record named `cdn CNAME cl-.....6bb.edgecdn.ru.` using a gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) call or the REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) method.
 
    {% endlist %}
 

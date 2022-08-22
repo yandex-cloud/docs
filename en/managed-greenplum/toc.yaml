@@ -89,6 +89,8 @@ items:
                 href: api-ref/Cluster/create.md
               - name: delete
                 href: api-ref/Cluster/delete.md
+              - name: expand
+                href: api-ref/Cluster/expand.md
               - name: get
                 href: api-ref/Cluster/get.md
               - name: list

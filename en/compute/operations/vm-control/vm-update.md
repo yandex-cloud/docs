@@ -124,7 +124,6 @@ To change a VM's metadata, follow these steps:
       - `--metadata`: to change a value from a single string.
       - `--metadata-from-file`: to change a value from multiple strings.
 
-            
       Example of changing the administrator password on a Windows-based VM:
 
       1. Create a YAML file (for example, `metadata.yaml`) and specify the following:
@@ -142,6 +141,5 @@ To change a VM's metadata, follow these steps:
          ```
 
          The existing metadata set will be completely overwritten.
-      
 
 {% endlist %}

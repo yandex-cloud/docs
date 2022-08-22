@@ -22,9 +22,7 @@
 
 1. Работающая ферма AD FS. Если на вашем сервере еще не настроен AD FS, [установите и настройте его](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm). Для развертывания AD FS вам также необходимо установить и настроить Active Directory Domain Services (AD DS).
 
-       
     Если у вас нет машины с ОС Windows, чтобы развернуть сервер AD FS, вы можете [создать виртуальную машину](../../../compute/quickstart/quick-create-windows.md) в {{ yandex-cloud }}.
-
 
     {% note tip %}
 

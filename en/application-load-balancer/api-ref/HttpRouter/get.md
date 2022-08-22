@@ -75,9 +75,10 @@ httpRouterId | <p>Required. ID of the HTTP router to return.</p> <p>To get the H
               ],
               "path": {
 
-                // `virtualHosts[].routes[].http.match.path` includes only one of the fields `exactMatch`, `prefixMatch`
+                // `virtualHosts[].routes[].http.match.path` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
                 "exactMatch": "string",
                 "prefixMatch": "string",
+                "regexMatch": "string",
                 // end of the list of possible fields`virtualHosts[].routes[].http.match.path`
 
               }
@@ -125,9 +126,10 @@ httpRouterId | <p>Required. ID of the HTTP router to return.</p> <p>To get the H
             "match": {
               "fqmn": {
 
-                // `virtualHosts[].routes[].grpc.match.fqmn` includes only one of the fields `exactMatch`, `prefixMatch`
+                // `virtualHosts[].routes[].grpc.match.fqmn` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
                 "exactMatch": "string",
                 "prefixMatch": "string",
+                "regexMatch": "string",
                 // end of the list of possible fields`virtualHosts[].routes[].grpc.match.fqmn`
 
               }
@@ -274,8 +276,9 @@ virtualHosts[].<br>routes[].<br>http | **object**<br>HTTP route configuration. <
 virtualHosts[].<br>routes[].<br>http.<br>match | **object**<br>Condition (predicate) used to select the route.
 virtualHosts[].<br>routes[].<br>http.<br>match.<br>httpMethod[] | **string**<br><p>HTTP method specified in the request.</p> 
 virtualHosts[].<br>routes[].<br>http.<br>match.<br>path | **object**<br><p>Match settings for the path specified in the request.</p> <p>If not specified, the route matches all paths.</p> <p>A string matcher resource.</p> 
-virtualHosts[].<br>routes[].<br>http.<br>match.<br>path.<br>exactMatch | **string** <br>`virtualHosts[].routes[].http.match.path` includes only one of the fields `exactMatch`, `prefixMatch`<br><br><p>Exact match string.</p> 
-virtualHosts[].<br>routes[].<br>http.<br>match.<br>path.<br>prefixMatch | **string** <br>`virtualHosts[].routes[].http.match.path` includes only one of the fields `exactMatch`, `prefixMatch`<br><br><p>Prefix match string.</p> 
+virtualHosts[].<br>routes[].<br>http.<br>match.<br>path.<br>exactMatch | **string** <br>`virtualHosts[].routes[].http.match.path` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Exact match string.</p> 
+virtualHosts[].<br>routes[].<br>http.<br>match.<br>path.<br>prefixMatch | **string** <br>`virtualHosts[].routes[].http.match.path` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Prefix match string.</p> 
+virtualHosts[].<br>routes[].<br>http.<br>match.<br>path.<br>regexMatch | **string** <br>`virtualHosts[].routes[].http.match.path` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Regular expression match string.</p> 
 virtualHosts[].<br>routes[].<br>http.<br>route | **object**<br>Forwards the request to a backend group for processing as configured. <br>`virtualHosts[].routes[].http` includes only one of the fields `route`, `redirect`, `directResponse`<br>
 virtualHosts[].<br>routes[].<br>http.<br>route.<br>backendGroupId | **string**<br><p>Required. Backend group to forward requests to.</p> <p>Stream (TCP) backend groups are not supported.</p> 
 virtualHosts[].<br>routes[].<br>http.<br>route.<br>timeout | **string**<br><p>Overall timeout for an HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is kept alive for, regardless of whether data is transferred over it.</p> <p>If a connection times out, the load balancer responds to the client with a ``504 Gateway Timeout`` status code.</p> <p>Default value: ``60``.</p> 
@@ -299,8 +302,9 @@ virtualHosts[].<br>routes[].<br>http.<br>directResponse.<br>body.<br>text | **st
 virtualHosts[].<br>routes[].<br>grpc | **object**<br>gRPC route configuration. <br>`virtualHosts[].routes[]` includes only one of the fields `http`, `grpc`<br>
 virtualHosts[].<br>routes[].<br>grpc.<br>match | **object**<br>Condition (predicate) used to select the route.
 virtualHosts[].<br>routes[].<br>grpc.<br>match.<br>fqmn | **object**<br><p>Match settings for gRPC service method called in the request.</p> <p>A match string must be a fully qualified method name, e.g. ``foo.bar.v1.BazService/Get``, or a prefix of such.</p> <p>If not specified, the route matches all methods.</p> <p>A string matcher resource.</p> 
-virtualHosts[].<br>routes[].<br>grpc.<br>match.<br>fqmn.<br>exactMatch | **string** <br>`virtualHosts[].routes[].grpc.match.fqmn` includes only one of the fields `exactMatch`, `prefixMatch`<br><br><p>Exact match string.</p> 
-virtualHosts[].<br>routes[].<br>grpc.<br>match.<br>fqmn.<br>prefixMatch | **string** <br>`virtualHosts[].routes[].grpc.match.fqmn` includes only one of the fields `exactMatch`, `prefixMatch`<br><br><p>Prefix match string.</p> 
+virtualHosts[].<br>routes[].<br>grpc.<br>match.<br>fqmn.<br>exactMatch | **string** <br>`virtualHosts[].routes[].grpc.match.fqmn` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Exact match string.</p> 
+virtualHosts[].<br>routes[].<br>grpc.<br>match.<br>fqmn.<br>prefixMatch | **string** <br>`virtualHosts[].routes[].grpc.match.fqmn` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Prefix match string.</p> 
+virtualHosts[].<br>routes[].<br>grpc.<br>match.<br>fqmn.<br>regexMatch | **string** <br>`virtualHosts[].routes[].grpc.match.fqmn` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Regular expression match string.</p> 
 virtualHosts[].<br>routes[].<br>grpc.<br>route | **object**<br>Forwards the request to a backend group for processing as configured. <br>`virtualHosts[].routes[].grpc` includes only one of the fields `route`, `statusResponse`<br>
 virtualHosts[].<br>routes[].<br>grpc.<br>route.<br>backendGroupId | **string**<br><p>Required. Backend group to forward requests to.</p> 
 virtualHosts[].<br>routes[].<br>grpc.<br>route.<br>maxTimeout | **string**<br><p>Overall timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is kept alive for, regardless of whether data is transferred over it.</p> <p>If a client specifies a lower timeout in HTTP ``grpc-timeout`` header, the ``max_timeout`` value is ignored.</p> <p>If a connection times out, the load balancer responds to the client with an ``UNAVAILABLE`` status code.</p> <p>Default value: ``60``.</p> 

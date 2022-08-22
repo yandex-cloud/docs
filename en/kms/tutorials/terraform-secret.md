@@ -30,4 +30,4 @@ Using `yandex_kms_secret_ciphertext` lets you hide secrets when deploying an inf
 * [Getting started with {{ TF }} in {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [{{ yandex-cloud }} provider documentation]({{ tf-provider-link }}).
 * [Sensitive Data in State](https://www.terraform.io/docs/state/sensitive-data.html).
-
+* [{#T}](vault-secret.md)

@@ -12,6 +12,7 @@ keywords:
 
 # Создание виртуальной машины Windows
 
+
 Создайте [виртуальную машину](../concepts/vm.md) Windows с помощью сервиса {{ compute-short-name }} в консоли управления {{ yandex-cloud }} и подключитесь к ней.
 
 {% include [ms-licensing-personal-data](../../_includes/ms-licensing-personal-data.md) %}

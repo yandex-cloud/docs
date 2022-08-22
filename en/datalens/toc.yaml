@@ -701,6 +701,9 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
+      - name: Invalid grouping configuration
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-INVALID_GROUP_BY_CONFIGURATION.md
       - name: Invalid top-level LOD dimension found in expression
         hidden: true
         href: >-
@@ -709,6 +712,9 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-SOURCE_ACCESS_DENIED-INVALID_TOKEN.md
+      - name: Measure filter is unsupported for this type of query
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md
       - name: Memory limit has been exceeded during query execution
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md

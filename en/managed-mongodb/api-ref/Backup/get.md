@@ -41,7 +41,7 @@ A MongoDB Backup resource. For more information, see the
  
 Field | Description
 --- | ---
-id | **string**<br><p>ID of the backup.</p> 
+id | **string**<br><p>ID of the backup. Required.</p> 
 folderId | **string**<br><p>ID of the folder that the backup belongs to.</p> 
 createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format (i.e. when the backup operation was completed).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 sourceClusterId | **string**<br><p>ID of the MongoDB cluster that the backup was created for.</p> 

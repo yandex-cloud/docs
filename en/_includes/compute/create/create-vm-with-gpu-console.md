@@ -58,14 +58,12 @@ To create a VM:
    
       * In the **SSH key** field, paste the contents of the [public key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
 
-           
       For VMs with a Windows-based operating system:
       * When you create a VM, the `Administrator` user is automatically created in the operating system. In the **Password** field, set a password for this user to log in to the VM via RDP.
    
          {% include [password-requirements](../password-requirements.md) %}
    
       * (optional) If necessary, enable access to the [serial console](../../../compute/operations/index.md#serial-console).
-
 
 1. Click **Create VM**.
 

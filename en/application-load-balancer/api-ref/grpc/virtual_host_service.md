@@ -79,9 +79,10 @@ path | **[StringMatch](#StringMatch)**<br>Match settings for the path specified 
 
 Field | Description
 --- | ---
-match | **oneof:** `exact_match` or `prefix_match`<br>Match string for either exact or prefix match.
+match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
 &nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
 &nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
+&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
 
 
 ### HttpRouteAction {#HttpRouteAction}
@@ -149,9 +150,10 @@ fqmn | **[StringMatch](#StringMatch1)**<br>Match settings for gRPC service metho
 
 Field | Description
 --- | ---
-match | **oneof:** `exact_match` or `prefix_match`<br>Match string for either exact or prefix match.
+match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
 &nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
 &nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
+&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
 
 
 ### GrpcRouteAction {#GrpcRouteAction}
@@ -294,9 +296,10 @@ path | **[StringMatch](#StringMatch2)**<br>Match settings for the path specified
 
 Field | Description
 --- | ---
-match | **oneof:** `exact_match` or `prefix_match`<br>Match string for either exact or prefix match.
+match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
 &nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
 &nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
+&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
 
 
 ### HttpRouteAction {#HttpRouteAction1}
@@ -364,9 +367,10 @@ fqmn | **[StringMatch](#StringMatch3)**<br>Match settings for gRPC service metho
 
 Field | Description
 --- | ---
-match | **oneof:** `exact_match` or `prefix_match`<br>Match string for either exact or prefix match.
+match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
 &nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
 &nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
+&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
 
 
 ### GrpcRouteAction {#GrpcRouteAction1}
@@ -496,9 +500,10 @@ path | **[StringMatch](#StringMatch4)**<br>Match settings for the path specified
 
 Field | Description
 --- | ---
-match | **oneof:** `exact_match` or `prefix_match`<br>Match string for either exact or prefix match.
+match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
 &nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
 &nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
+&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
 
 
 ### HttpRouteAction {#HttpRouteAction2}
@@ -566,9 +571,10 @@ fqmn | **[StringMatch](#StringMatch5)**<br>Match settings for gRPC service metho
 
 Field | Description
 --- | ---
-match | **oneof:** `exact_match` or `prefix_match`<br>Match string for either exact or prefix match.
+match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
 &nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
 &nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
+&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
 
 
 ### GrpcRouteAction {#GrpcRouteAction2}
@@ -692,9 +698,10 @@ path | **[StringMatch](#StringMatch6)**<br>Match settings for the path specified
 
 Field | Description
 --- | ---
-match | **oneof:** `exact_match` or `prefix_match`<br>Match string for either exact or prefix match.
+match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
 &nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
 &nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
+&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
 
 
 ### HttpRouteAction {#HttpRouteAction3}
@@ -762,9 +769,10 @@ fqmn | **[StringMatch](#StringMatch7)**<br>Match settings for gRPC service metho
 
 Field | Description
 --- | ---
-match | **oneof:** `exact_match` or `prefix_match`<br>Match string for either exact or prefix match.
+match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
 &nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
 &nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
+&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
 
 
 ### GrpcRouteAction {#GrpcRouteAction3}
@@ -895,9 +903,10 @@ path | **[StringMatch](#StringMatch8)**<br>Match settings for the path specified
 
 Field | Description
 --- | ---
-match | **oneof:** `exact_match` or `prefix_match`<br>Match string for either exact or prefix match.
+match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
 &nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
 &nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
+&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
 
 
 ### HttpRouteAction {#HttpRouteAction4}
@@ -965,9 +974,10 @@ fqmn | **[StringMatch](#StringMatch9)**<br>Match settings for gRPC service metho
 
 Field | Description
 --- | ---
-match | **oneof:** `exact_match` or `prefix_match`<br>Match string for either exact or prefix match.
+match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
 &nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
 &nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
+&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
 
 
 ### GrpcRouteAction {#GrpcRouteAction4}
@@ -1091,9 +1101,10 @@ path | **[StringMatch](#StringMatch10)**<br>Match settings for the path specifie
 
 Field | Description
 --- | ---
-match | **oneof:** `exact_match` or `prefix_match`<br>Match string for either exact or prefix match.
+match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
 &nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
 &nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
+&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
 
 
 ### HttpRouteAction {#HttpRouteAction5}
@@ -1161,9 +1172,10 @@ fqmn | **[StringMatch](#StringMatch11)**<br>Match settings for gRPC service meth
 
 Field | Description
 --- | ---
-match | **oneof:** `exact_match` or `prefix_match`<br>Match string for either exact or prefix match.
+match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
 &nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
 &nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
+&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
 
 
 ### GrpcRouteAction {#GrpcRouteAction5}
@@ -1369,9 +1381,10 @@ path | **[StringMatch](#StringMatch12)**<br>Match settings for the path specifie
 
 Field | Description
 --- | ---
-match | **oneof:** `exact_match` or `prefix_match`<br>Match string for either exact or prefix match.
+match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
 &nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
 &nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
+&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
 
 
 ### HttpRouteAction {#HttpRouteAction6}
@@ -1439,9 +1452,10 @@ fqmn | **[StringMatch](#StringMatch13)**<br>Match settings for gRPC service meth
 
 Field | Description
 --- | ---
-match | **oneof:** `exact_match` or `prefix_match`<br>Match string for either exact or prefix match.
+match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
 &nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
 &nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
+&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
 
 
 ### GrpcRouteAction {#GrpcRouteAction6}
@@ -1561,9 +1575,10 @@ path | **[StringMatch](#StringMatch14)**<br>Match settings for the path specifie
 
 Field | Description
 --- | ---
-match | **oneof:** `exact_match` or `prefix_match`<br>Match string for either exact or prefix match.
+match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
 &nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
 &nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
+&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
 
 
 ### HttpRouteAction {#HttpRouteAction7}
@@ -1631,9 +1646,10 @@ fqmn | **[StringMatch](#StringMatch15)**<br>Match settings for gRPC service meth
 
 Field | Description
 --- | ---
-match | **oneof:** `exact_match` or `prefix_match`<br>Match string for either exact or prefix match.
+match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
 &nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
 &nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
+&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
 
 
 ### GrpcRouteAction {#GrpcRouteAction7}
@@ -1726,9 +1742,10 @@ path | **[StringMatch](#StringMatch16)**<br>Match settings for the path specifie
 
 Field | Description
 --- | ---
-match | **oneof:** `exact_match` or `prefix_match`<br>Match string for either exact or prefix match.
+match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
 &nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
 &nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
+&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
 
 
 ### HttpRouteAction {#HttpRouteAction8}
@@ -1796,9 +1813,10 @@ fqmn | **[StringMatch](#StringMatch17)**<br>Match settings for gRPC service meth
 
 Field | Description
 --- | ---
-match | **oneof:** `exact_match` or `prefix_match`<br>Match string for either exact or prefix match.
+match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
 &nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
 &nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
+&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
 
 
 ### GrpcRouteAction {#GrpcRouteAction8}
