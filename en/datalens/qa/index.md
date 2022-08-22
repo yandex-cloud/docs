@@ -1,6 +1,6 @@
 ---
-title: "Yandex DataLens. FAQ"
-description: "How to get the logs of my work in the Yandex DataLens service? Answers to this and other questions in this article."
+title: "{{ datalens-full-name }}. FAQ"
+description: "How to get the logs of my work in the {{ datalens-full-name }} service? Answers to this and other questions in this article."
 ---
 
 # General questions
@@ -60,7 +60,7 @@ To allow another user with a Yandex account to open your dashboard, configure ac
 
 The user is granted access to your {{ datalens-short-name }} and objects with **All** permissions. You can assign this user individual permissions to objects.
 
-You can send the link to the dashboard from the browser. For more information about permissions for {{ datalens-short-name }} objects, see the [documentation](https://cloud.yandex.com/en-ru/docs/datalens/security/#permissions).
+You can send the link to the dashboard from the browser. For more information about permissions for {{ datalens-short-name }} objects, see the [documentation](../security/index.md#permissions).
 
 You can also make your dashboard public using [{#T}](../concepts/datalens-public.md).
 
@@ -138,7 +138,6 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 
 {% include [rename-column](../../_includes/datalens/qa/rename-column.md) %}
 
-
 ## Calculated fields {#calculation-fields}
 
 {% include [calculate-cumulative-sum](../../_includes/datalens/qa/calculating-cumulative-sum.md) %}
@@ -175,7 +174,7 @@ Yes, you can request log records about your resources from {{ yandex-cloud }} se
 
 {{ datalens-short-name }} is offered only as a cloud service. We would also like to note:
 
-- {{ datalens-short-name }} is a {{ yandex-cloud }} service, which is compliant with Federal Law No. 152 and industry security standards. More information is available in [{{ yandex-cloud }} security](https://cloud.yandex.com/en-ru/security).
+- {{ datalens-short-name }} is a {{ yandex-cloud }} service, which is compliant with Federal Law No. 152 and industry security standards. More information is available in [{{ yandex-cloud }} security]{% if lang == "ru" %}(https://cloud.yandex.ru/security){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/security){% endif %}.
 
 - For {{ datalens-short-name }}, you can [set up identity federations](../../organization/quick-start.md).
 
@@ -192,6 +191,8 @@ When a cloud is suspended, your {{ datalens-short-name }} instance will be unava
 Learn more in [Automatic cloud suspension](../../overview/concepts/data-deletion.md#block).
 
 {% include [object-id](../../_includes/datalens/qa/object-id.md) %}
+
+{% include [network-error](../../_includes/datalens/qa/network-error.md) %}
 
 ## How to report a problem {#how-to-resolve-problem}
 
