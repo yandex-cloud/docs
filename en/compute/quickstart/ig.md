@@ -60,8 +60,8 @@ To create an instance group:
       * If you selected a Linux-based public image:
          * Enter the username in the **Login** field.
          * In the **SSH key** field, paste the contents of the public key file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for SSH connection yourself.
-      {% if product == "yandex-cloud" %}* If you selected a Windows-based public image:
-         * In the **Password** field, set a password for the `Administrator` user. The `Administrator` user is created automatically.{% endif %}
+      * If you selected a Windows-based public image:
+         * In the **Password** field, set a password for the `Administrator` user. The `Administrator` user is created automatically.
       * Click **Add**.
       * If required, grant access to the [serial console](../operations/serial-console/index.md).
    * Click **Save**.

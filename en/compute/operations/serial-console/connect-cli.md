@@ -37,7 +37,6 @@ To connect to the serial console, use the CLI.
         --ssh-key ~/.ssh/id_rsa
    ```
 
-   {% if product == "yandex-cloud" %}
    Or to Windows SAC:
 
    ```
@@ -45,7 +44,6 @@ To connect to the serial console, use the CLI.
         --instance-name first-instance \
         --port 2
    ```
-   {% endif %}
 
    Where:
    
@@ -53,7 +51,7 @@ To connect to the serial console, use the CLI.
    ----- | -----
    | `instance-name` | Required parameter. Name of the instance. |
    | `user` | Optional parameter. Username. If this parameter is omitted, the default `yc-user` user will be used. The `yc-user` user is generated automatically when the VM is being created. For more information, see [{#T}](../vm-create/create-linux-vm.md). |
-   | `port` | Optional parameter. Port number to connect to the serial console. The default value is 1. You don't need to specify this parameter to connect to the Linux serial console. {% if product == "yandex-cloud" %}When connecting to the Windows serial console (SAC), pass the value 2.{% endif %} |
+   | `port` | Optional parameter. Port number to connect to the serial console. The default value is 1. You don't need to specify this parameter to connect to the Linux serial console. When connecting to the Windows serial console (SAC), pass the value 2. |
    | `ssh-key` | Optional parameter. Path to the private key for SSH access to the Linux VM to be added to the [metadata](../../concepts/vm-metadata.md). If this parameter is omitted, the `yc_serialssh_key` SSH key is generated. |
 
 ### Solving problems {#troubleshooting}
@@ -66,9 +64,7 @@ To connect to the serial console, use the CLI.
 * If the system requests user data to provide access to the VM, enter the login and password:
 
    * On a Linux VM, set a user password first. Run `sudo passwd <username>`. For more information, see [Getting started with the serial console](./index.md#linux-configuration).
-   {% if product == "yandex-cloud" %}
    * On a Windows VM, enter your username, domain (VM name), and password. For more information, see [Starting your terminal in the Windows serial console (SAC)](./windows-sac.md).
-   {% endif %}
 
 ## Disconnecting from the serial console {#turn-off-serial-console}
 

@@ -13,4 +13,6 @@
 * [Документация провайдера {{ yandex-cloud }}]({{ tf-provider-link }}/).
 * [Sensitive Data in State](https://www.terraform.io/docs/state/sensitive-data.html).
 * [Шифрование данных с помощью CLI и API {{ yandex-cloud }}](../../kms/operations/encryption.md).
+{% if product == "yandex-cloud" %}
 * [{#T}](vault-secret.md)
+{% endif %}

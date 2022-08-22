@@ -14,9 +14,7 @@
 
 Вы можете передать метаданные при создании и [изменении](../operations/vm-control/vm-update.md#change-metadata) виртуальной машины. Данные для подключения к виртуальной машине нельзя изменить и необходимо передать при создании:
 * [Для виртуальной машины Linux](../operations/vm-create/create-linux-vm.md) необходимо передать открытый ключ SSH для подключения к ней.
-{% if product == "yandex-cloud" %}
 * [Для виртуальной машины Windows](../operations/vm-create/create-windows-vm.md) необходимо передать пароль администратора для подключения к ней.
-{% endif %}
 
 {% list tabs %}
 
@@ -96,7 +94,6 @@
 
       Если такой строки не найдено, но есть строка `no authorized ssh keys fingerprints found for user`, значит вы неправильно передали SSH-ключ. Проверьте еще раз формат или попробуйте передать ключи SSH в поле `user-data`.
 
-{% if product == "yandex-cloud" %}
 - Windows
 
   `user-data` — строка с пользовательскими метаданными, которые будут обработаны агентом [Cloudbase-Init](https://cloudbase.it/cloudbase-init/). Этот агент поддерживает различные [форматы данных](https://cloudbase-init.readthedocs.io/en/latest/userdata.html), например PowerShell-скрипт, задающий пароль администратора:
@@ -106,6 +103,5 @@
     "user-data": "#ps1\nnet user Administrator Passw0rd"
   }
   ```
-{% endif %}
 
 {% endlist %}

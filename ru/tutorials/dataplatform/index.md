@@ -65,10 +65,16 @@
 * [{#T}](sqoop-mpg.md)
 {% endif %}
 
+
 {% if product == "yandex-cloud" %}
+
 ## {{ RD }} {#redis}
 * [{#T}](redis-data-migration.md)
 
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
 ## {{ MS }} {#sqlserver}
 
 * [{#T}](mssql-data-migration.md)

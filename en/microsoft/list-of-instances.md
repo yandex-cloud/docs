@@ -19,11 +19,13 @@ The {{ marketplace-name }} offers VMs with the pre-installed Windows Server oper
 
 ## Windows Server images {#win-server}
 
-The {{ marketplace-name }} provides images with Microsoft Windows Server Datacenter Edition only:
+{{ marketplace-name }} provides images with Microsoft Windows Server Datacenter Edition only (see the [list](/marketplace?type=COMPUTE_IMAGE&operationSystems=WINDOWS&sortBy=name-a-z&categories=os&search=Windows+Server)).
 
-* [Windows Server 2012 R2](/marketplace/products/yc/windows-server-2012r2-datacenter)
-* [Windows Server 2016](/marketplace/products/yc/windows-server-2016-datacenter)
-* [Windows Server 2019](/marketplace/products/yc/windows-server-2019-datacenter)
+{% if product == "cloud-il" %}
+
+{% include [windows-trial](../_includes/compute/windows-trial.md) %}
+
+{% endif %}
 
 
 {% if product == "yandex-cloud" %}
@@ -64,7 +66,7 @@ To work in the cloud, changes have been made to the operating system to anonymiz
 
 * The `ShutDownWithoutLogon` registry parameter allows responding to ACPI Call without having an interactive session.
 * SMBv1 is disabled.
-* The [serial console]({{ ms.docs }}/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection) is enabled.
+* The [serial console]{% if lang == "ru" %}({{ ms.docs }}/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){% endif %} is enabled.
 * The system is optimized using the [Ngen]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Ngen){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Native_Image_Generator){% endif %} utility.
 * The `cloudbase-init` utility is installed to automate operations when initializing VMs.
 
@@ -77,22 +79,22 @@ To run VMs on Microsoft Windows, you need `virtIO` drivers for network and disk 
 
 ## Microsoft SQL Server images {#sql}
 
-Microsoft SQL Server images available in the {{ marketplace-name }} are VMs with pre-installed Windows Server and Microsoft SQL Server. Available SQL Server versions for:
+Microsoft SQL Server images are virtual machines with Windows Server and Microsoft SQL Server pre-installed. {{ marketplace-name }} supports SQL Server versions for the following editions:
 
 * Web:
-  * [Microsoft SQL Server 2016](/marketplace/products/yc/sql-server-2016-web)
-  * [Microsoft SQL Server 2017](/marketplace/products/yc/sql-server-2017-web)
-  * [Microsoft SQL Server 2019](/marketplace/products/yc/sql-server-2019-web)
+   * [Microsoft SQL Server 2016](/marketplace/products/yc/sql-server-2016-web)
+   * [Microsoft SQL Server 2017](/marketplace/products/yc/sql-server-2017-web)
+   * [Microsoft SQL Server 2019](/marketplace/products/yc/sql-server-2019-web)
 
 * Standard:
-  * [Microsoft SQL Server 2016](/marketplace/products/yc/sql-server-2016-standard)
-  * [Microsoft SQL Server 2017](/marketplace/products/yc/sql-server-2017-standard)
-  * [Microsoft SQL Server 2019](/marketplace/products/yc/sql-server-2019-standard)
+   * [Microsoft SQL Server 2016](/marketplace/products/yc/sql-server-2016-standard)
+   * [Microsoft SQL Server 2017](/marketplace/products/yc/sql-server-2017-standard)
+   * [Microsoft SQL Server 2019](/marketplace/products/yc/sql-server-2019-standard)
 
 * Enterprise:
-  * [Microsoft SQL Server 2016](/marketplace/products/yc/sql-server-2016-enterprise)
-  * [Microsoft SQL Server 2017](/marketplace/products/yc/sql-server-2017-enterprise)
-  * [Microsoft SQL Server 2019](/marketplace/products/yc/sql-server-2019-enterprise)
+   * [Microsoft SQL Server 2016](/marketplace/products/yc/sql-server-2016-enterprise)
+   * [Microsoft SQL Server 2017](/marketplace/products/yc/sql-server-2017-enterprise)
+   * [Microsoft SQL Server 2019](/marketplace/products/yc/sql-server-2019-enterprise)
 
 The images have pre-activated licenses and store the activation key. If you need to change or add components to the system, the Microsoft SQL Server distribution is located in a separate directory in the root of the system drive (by default, `C:\`).
 

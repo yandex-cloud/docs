@@ -135,12 +135,10 @@ To use the attached disk:
 
    1. Run the `df` command to check the state of the file system.
 
-{% if product == "yandex-cloud" %}
 - Windows
 
    1. Connect to the VM [via RDP](../vm-connect/rdp.md).
    1. Assign a letter to the attached disk. Learn how to do this in the [Microsoft documentation]({{ ms.docs }}/windows-server/storage/disk-management/change-a-drive-letter).
-{% endif %}
 
 {% endlist %}
 
@@ -258,7 +256,6 @@ To partition and mount an empty disk yourself:
       /dev/vdb1         523260    3080    520180   1% /mnt/vdb1
       ```
 
-{% if product == "yandex-cloud" %}
 - Windows
 
    1. Run the **Computer Management** tool as an administrator.
@@ -275,6 +272,5 @@ To partition and mount an empty disk yourself:
    1. Select your [partition style]({{ ms.docs }}/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr) and click **OK**.
    1. Create partitions on the disk. To do this, right-click on the empty disk and select **New Simple Volume**.
    1. Use the **New Simple Volume Wizard** to set the partition size, [select a letter]({{ ms.docs }}/windows-server/storage/disk-management/change-a-drive-letter) for the disk, and specify the file system.
-{% endif %}
 
 {% endlist %}

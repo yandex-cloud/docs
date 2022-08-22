@@ -6,7 +6,13 @@
 
 {{ yandex-cloud }} предоставляет готовые образы с предустановленными Microsoft Windows Server в редакции Datacenter{% if product == "yandex-cloud" %} и Microsoft SQL Server{% endif %}. Лицензии на ПО в этих образах полностью соответствуют требованиям Microsoft. {% if product == "yandex-cloud" %}При использовании готовых образов {{ yandex-cloud }} вы оплачиваете необходимые лицензии и ресурсы {{ compute-name }}. Оплата будет начисляться в зависимости от [тарифного плана](pricing.md).{% endif %} 
 
-Использование {% if product == "yandex-cloud" %}купленных у {{ yandex-cloud }} {% endif %}образов с включенной лицензией на ПО Microsoft имеет ряд преимуществ:
+{% if product == "cloud-il" %}
+
+{% include [windows-trial](../_includes/compute/windows-trial.md) %}
+
+{% endif %}
+
+Использование образов {{ yandex-cloud }} с включенной лицензией на ПО Microsoft имеет ряд преимуществ:
 
 * {{ yandex-cloud }} следит за соответствием лицензионным требованиям и управлением отчетностью об использовании лицензий.
 * В {{ marketplace-name }} доступны различные версии Windows Server{% if product == "yandex-cloud" %} и SQL Server{% endif %}.
@@ -38,15 +44,15 @@
 
 Если у вас уже есть корпоративные лицензии Microsoft в рамках соглашений Microsoft Software Assurance ([SA]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3){% endif %}) или Microsoft Enterprise Agreement ([EA]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2){% endif %}), вы можете воспользоваться ими в {{ yandex-cloud }}. {% if product == "yandex-cloud" %}При этом оплата будет начисляться по тарифу [BYOL](pricing.md).{% endif %}
 
-Воспользоваться лицензией можно в общей инфраструктуре по правилам программы [Мобильности лицензий](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility) и в пределах выделенного оборудования в соответствии с правилами Microsoft Product Terms.
+Воспользоваться лицензией можно в общей инфраструктуре по правилам программы [Перемещение лицензий](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility) и в пределах выделенного оборудования в соответствии с правилами Microsoft Product Terms.
 
-### Использование существующих лицензий с программой Мобильности лицензий {#mobility}
+### Использование существующих лицензий с программой перемещения лицензий {#mobility}
 
-Мобильность лицензий доступна клиентам с корпоративными лицензиями Microsoft на использование программного обеспечения по действующим договорам Microsoft Software Assurance (SA). Наличие действующего договора SA является обязательным требованием для участия в программе Мобильности лицензий и использования лицензированного ПО Microsoft в сервисе {{ compute-name }}. Мобильность лицензий облегчает переход пользователей в {{ yandex-cloud }} и позволяет пользователям с бессрочными лицензиями продолжить их использование без дополнительных расходов на лицензирование.
+Перемещение лицензий доступно клиентам с корпоративными лицензиями Microsoft на использование программного обеспечения по действующим договорам Microsoft Software Assurance (SA). Наличие действующего договора SA является обязательным требованием для участия в программе перемещения лицензий и использования лицензированного ПО Microsoft в сервисе {{ compute-name }}. Перемещение лицензий облегчает переход пользователей в {{ yandex-cloud }} и позволяет пользователям с бессрочными лицензиями продолжить их использование без дополнительных расходов на лицензирование.
 
-Для программы Мобильности лицензий действует ряд ограничений:
+Для программы перемещения лицензий действует ряд ограничений:
 
-1. Программа Мобильности лицензий не применима к клиентским и серверным операционным системам и прикладным приложениям Windows.
+1. Программа перемещения лицензий не применима к клиентским и серверным операционным системам и прикладным приложениям Windows.
 1. Условия программы не распространяются на приложения в составе образов {{ compute-name }}. {% if product == "yandex-cloud" %}Например, Microsoft SQL Server в составе образа в {{ marketplace-name }} не попадает под действие программы. {% endif %}Вы можете использовать лицензии на своих виртуальных машинах, не используя подготовленные образы {{ marketplace-name }}.
 1. Серверные приложения должны входить в перечень правомочных продуктов, который включает в себя: 
 
@@ -66,17 +72,17 @@
     * Forefront Unified Access Gateway
     * Remote Desktop Services
     
-    Полные правила программы Мобильности лицензий представлены в официальной документации [Microsoft]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/product-licensing/products){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/product-licensing/products){% endif %}.
+    Полные правила программы перемещения лицензий представлены в официальной документации [Microsoft]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/product-licensing/products){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/product-licensing/products){% endif %}.
 
-#### Требования программы Мобильности лицензий для Microsoft SQL Server {#SQLmobility}
+#### Требования программы перемещения лицензий для Microsoft SQL Server {#SQLmobility}
 
 Количество лицензий для работы Microsoft SQL Server в виртуальной среде зависит от версии SQL Server и используемых ресурсов. Однако по условиям Microsoft необходимо минимум 4 лицензии, чтобы обеспечить лицензирование 4 ядер процессора. Минимальное необходимое количество лицензий не зависит от модели лицензирования.
 
-При запуске ПО Microsoft по программе поддержки Мобильности лицензий ответственность за соблюдение правил лицензирования несете вы. Более подробную информацию о [требованиях программы Мобильности лицензий](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=2) для Microsoft SQL Server вы найдете на официальном сайте Microsoft.
+При запуске ПО Microsoft по программе перемещения лицензий ответственность за соблюдение правил лицензирования несете вы. Более подробную информацию о [требованиях программы перемещения лицензий](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=2) для Microsoft SQL Server вы найдете на официальном сайте Microsoft.
 
-### Правила перехода по программе Мобильности лицензий {#rules}
+### Правила перехода по программе перемещения лицензий {#rules}
 
-Для использования лицензий в {{ yandex-cloud }} по программе Мобильности лицензий необходимо заполнить форму регистрации для предоставления отчета в Microsoft. Использование лицензий имеет ограничения. Ознакомьтесь с ними в документации Microsoft Product Terms и у вашего поставщика (Licensing service provider). Процесс перехода к использованию лицензий подробно описан в [документации Microsoft](http://download.microsoft.com/download/7/9/b/79bd917e-760b-48b6-a266-796b3e47c47a/License_Mobility_Customer_Verification_Guide.pdf). 
+Для использования лицензий в {{ yandex-cloud }} по программе перемещения лицензий необходимо заполнить форму регистрации для предоставления отчета в Microsoft. Использование лицензий имеет ограничения. Ознакомьтесь с ними в документации Microsoft Product Terms и у вашего поставщика (Licensing service provider). Процесс перехода к использованию лицензий подробно описан в [документации Microsoft](http://download.microsoft.com/download/7/9/b/79bd917e-760b-48b6-a266-796b3e47c47a/License_Mobility_Customer_Verification_Guide.pdf). 
 
 
 {% if product == "yandex-cloud" %}

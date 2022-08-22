@@ -25,9 +25,10 @@
 
 {% endnote %}
 
-{% if product == "yandex-cloud" %}
-
 {% endif %}
+
+
+{% if product == "yandex-cloud" %}
 
 ## Как обновить данные {#how-to-update}
 

@@ -4,7 +4,7 @@
 
 {% note warning %}
 
-Поставка системных метрик виртуальных машин, работающих на {% if product == "yandex-cloud" %}Windows и {% endif %}macOS, запланирована в будущих релизах {{unified-agent-full-name}}.
+Поставка системных метрик виртуальных машин, работающих на Windows и macOS, запланирована в будущих релизах {{unified-agent-full-name}}.
 
 {% endnote %}
 

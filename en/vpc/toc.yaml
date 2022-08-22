@@ -67,7 +67,6 @@ items:
         href: tutorials/web-service.md
       - name: DHCP settings for working with a corporate DNS server
         href: tutorials/dhcp-options.md
-        when: product == "yandex-cloud"
   - name: Concepts
     items:
       - name: Relationship between service resources

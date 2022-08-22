@@ -134,12 +134,10 @@
 
   1. Выполните команду `df`, чтобы проверить состояние файловой системы.
 
-{% if product == "yandex-cloud" %}
 - Windows
 
   1. Подключитесь к ВМ [по RDP](../vm-connect/rdp.md).
   1. Назначьте букву подключенному диску. Как это сделать читайте в [документации Microsoft]({{ ms.docs }}/windows-server/storage/disk-management/change-a-drive-letter).
-{% endif %}
 
 {% endlist %}
 

@@ -29,6 +29,13 @@ To create an instance group with a network load balancer:
    1. In the **Instance template** section, click **Define** to set the base instance configuration:
       * Under **Basic parameters**, enter the template **Description**:
       * Under **Image/boot disk selection**, select a system to be deployed on the VM instance's boot disk.
+
+        {% if product == "cloud-il" %}
+
+        {% include [windows-trial](../../../_includes/compute/windows-trial.md) %}
+
+        {% endif %}
+      
       * In the **Disks** section:
          * Select the [disk type](../../concepts/disk.md#disks_types).
          * Specify the **Size** of the disk.
@@ -48,7 +55,7 @@ To create an instance group with a network load balancer:
       * Under **Access**, specify the data required to access the VM:
          * Specify a **Service account** to be linked to the instance.
          * If you selected a Linux image, fill out **Login** and **SSH key**. As the key, use the [public key](../vm-connect/ssh.md#creating-ssh-keys) file contents.
-         {% if product == "yandex-cloud" %}* If you selected a Windows image, enter the **Password** for your `Administrator` user.{% endif %}
+         * If you selected a Windows image, enter the **Password** for your `Administrator` user.
          * If needed, **Grant access to the serial console**.
       * Click **Save**.
    1. Under **Allow when creating and updating**:
@@ -99,6 +106,12 @@ To create an instance group with a network load balancer:
    1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) from {{ marketplace-name }} (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
+
+     {% if product == "cloud-il" %}
+
+     {% include [windows-trial](../../../_includes/compute/windows-trial.md) %}
+
+     {% endif %}
 
    1. Create a YAML file with any name (for example, `specification.yaml`).
 
@@ -355,6 +368,12 @@ To create an instance group with a network load balancer:
             | `boot_disk` | Boot disk settings. Enter:</br> - The selected image ID. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).</br> Disk access mode: `READ_ONLY` (read) or `READ_WRITE` (read and write). |
             | `network_interface` | Network configuration. Specify the network ID and subnet ID. |
             | `metadata` | In the metadata, pass the public key for accessing the instance via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md). |
+
+           {% if product == "cloud-il" %}
+
+           {% include [windows-trial](../../../_includes/compute/windows-trial.md) %}
+
+           {% endif %}
 
          * [Policies](../../concepts/instance-groups/policies/index.md):
 

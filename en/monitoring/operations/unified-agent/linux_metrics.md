@@ -4,7 +4,7 @@ To deliver system metrics for virtual machines running on Linux-compatible opera
 
 {% note warning %}
 
-Delivery of system metrics for virtual machines run on {% if product == "yandex-cloud" %}Windows and {% endif %}macOS is planned for upcoming {{unified-agent-full-name}} releases.
+Delivery of system metrics for virtual machines run on Windows and macOS is planned for upcoming {{ unified-agent-full-name }} releases.
 
 {% endnote %}
 

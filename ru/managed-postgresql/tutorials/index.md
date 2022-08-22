@@ -1,7 +1,7 @@
 # Все сценарии
 
 * [{#T}](./1c-postgresql.md)
-{% if audience != "internal" and product == "yandex-cloud"%}
+{% if audience != "internal" and product == "yandex-cloud" %}
 * [{#T}](./sqoop.md)
 {% endif %}
 * [{#T}](./profiling.md)

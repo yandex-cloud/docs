@@ -4,6 +4,8 @@
 
 At the [Preview](../overview/concepts/launch-stages.md) stage, Microsoft products can be used free of charge.
 
+{% include [windows-trial](../_includes/compute/windows-trial.md) %}
+
 {% endif %}
 
 {% if product == "yandex-cloud" %}

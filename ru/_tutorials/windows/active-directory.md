@@ -18,6 +18,8 @@ keywords:
 
 {% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
 
+{% include [windows-trial](../../_includes/compute/windows-trial.md) %}
+
 {% endif %}
 
 В сценарии приводится пример развертывания Active Directory в {{ yandex-cloud }}.
@@ -154,7 +156,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `ad-vm-a`.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
-  1. В блоке **Выбор образа/загрузочного диска** → **{{ marketplace-name }}** нажмите кнопку **Посмотреть больше**. В открывшемся окне выберите образ [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) и нажмите **Использовать**.
+  1. В блоке **Выбор образа/загрузочного диска** → **{{ marketplace-name }}** нажмите кнопку **Посмотреть больше**. В открывшемся окне выберите образ [Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter) и нажмите **Использовать**.
   1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
   1. В блоке **Вычислительные ресурсы**:
 
@@ -185,7 +187,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
     --cores 4 \
     --zone {{ region-id }}-a \
     --network-interface subnet-name=ad-subnet-a,ipv4-address=10.1.0.3 \
-    --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk \
+    --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk \
     --metadata-from-file user-data=setpass
 
   yc compute instance create \
@@ -195,7 +197,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
     --cores 4 \
     --zone {{ region-id }}-b \
     --network-interface subnet-name=ad-subnet-b,ipv4-address=10.2.0.3 \
-    --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk \
+    --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk \
     --metadata-from-file user-data=setpass
   ```
 
@@ -212,7 +214,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `jump-server-vm`.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-c`.
-  1. В блоке **Выбор образа/загрузочного диска** → **{{ marketplace-name }}** нажмите кнопку **Посмотреть больше**. В открывшемся окне выберите образ [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) и нажмите **Использовать**.
+  1. В блоке **Выбор образа/загрузочного диска** → **{{ marketplace-name }}** нажмите кнопку **Посмотреть больше**. В открывшемся окне выберите образ [Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter) и нажмите **Использовать**.
   1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
   1. В блоке **Вычислительные ресурсы**:
 
@@ -236,7 +238,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
     --cores 2 \
     --zone {{ region-id }}-c \
     --network-interface subnet-name=ad-subnet-c,nat-ip-version=ipv4 \
-    --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk \
+    --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk \
     --metadata-from-file user-data=setpass
   ```
 
@@ -361,7 +363,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
    Затем введите пароль и подтвердите его.
 
-   Windows перезапустится автоматически. Снова подключитесь к `ad-vm-a` и откройте PowerShell.
+   Windows перезапустится автоматически. Снова подключитесь к `ad-vm-b` и откройте PowerShell.
 
 1. Укажите сервер переадресации DNS:
 
@@ -385,20 +387,9 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
    Get-ADUser testUser -Server 10.2.0.3
    ```
 
-   Результат:
+   Результаты обеих команд должны совпадать:
 
    ```powershell
-   DistinguishedName : CN=testUser,CN=Users,DC=yantoso,DC=net
-   Enabled           : False
-   GivenName         :
-   Name              : testUser
-   ObjectClass       : user
-   ObjectGUID        : 7202f41a-(...)-2d168ecd5271
-   SamAccountName    : testUser
-   SID               : S-1-5-21-(...)-1105
-   Surname           :
-   UserPrincipalName :
-
    DistinguishedName : CN=testUser,CN=Users,DC=yantoso,DC=net
    Enabled           : False
    GivenName         :

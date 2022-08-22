@@ -36,11 +36,7 @@ editable: false
 
 {% include [managed-postgresql.md](../../_includes/monitoring/metrics-ref/managed-postgresql.md) %}
 
-{% endif %}
-
 {% include [managed-redis.md](../../_includes/monitoring/metrics-ref/managed-redis.md) %}
-
-{% if product == "yandex-cloud" %}
 
 {% include [ydb.md](../../_includes/monitoring/metrics-ref/ydb.md) %}
 

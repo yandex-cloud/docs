@@ -51,6 +51,6 @@ Read more:
 
 #### Connect to VMs using the serial console {#serial-console}
 
-If you only need SSH access to a VM, use the [serial console](../../compute/operations/serial-console/connect-ssh.md) instead of a public IP connection. We recommend disabling connections via the serial console when you don't use it.
+If you only need SSH access to a VM, use the [serial console](../../compute/operations/index.md#serial-console) instead of a public IP connection. We recommend disabling connections via the serial console when you don't use it.
 
 {% endif %}

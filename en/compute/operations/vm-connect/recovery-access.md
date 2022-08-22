@@ -8,10 +8,10 @@ You may need to restore access to a VM in the following cases:
 
 ## VM user credentials are lost {#cloud-init}
 
-If you lost your SSH private key for Linux{% if product == "yandex-cloud" %} or your Windows user password{% endif %}:
+If you lost your SSH private key for Linux or your Windows user password:
 1. [Create a snapshot](../disk-control/create-snapshot.md) of the disk of the VM that you want to restore access to.
 1. [Create a VM with the disk from the snapshot](../vm-create/create-from-snapshots.md) specifying it as the boot disk. When creating a VM, enter your new credentials under **Access**.
-1. Connect to the VM via SSH{% if product == "yandex-cloud" %} or RDP{% endif %} using the new credentials.
+1. Connect to the VM via SSH or RDP using the new credentials.
 
 If the 'cloud-init' or network configuration was changed for the VM, the described method may not work. In this case, see [{#T}](#os-recovery).
 
@@ -61,9 +61,9 @@ If you can't access the serial console, do the following to recover the public p
 1. [Connect](../vm-connect/ssh.md) to the new VM over SSH.
 1. [Delete the disk snapshot](../snapshot-control/delete.md) and [delete](../vm-control/vm-delete.md) the auxiliary and old VMs.
 
-## Unable to connect to a VM via SSH{% if product == "yandex-cloud" %} or RDP{% endif %} {#serial-console}
+## Unable to connect to a VM via SSH or RDP {#serial-console}
 
-The problem may occur due to an error in the SSH,{% if product == "yandex-cloud" %} RDP,{% endif %} [security group](../../../vpc/concepts/security-groups.md), or network settings. To restore access, connect to the VM using the [serial console](../serial-console/index.md) and adjust the settings.
+The problem may occur due to an error in the SSH, RDP, [security group](../../../vpc/concepts/security-groups.md), or network settings. To restore access, connect to the VM using the [serial console](../serial-console/index.md) and adjust the settings.
 
 {% list tabs %}
 
@@ -80,14 +80,12 @@ The problem may occur due to an error in the SSH,{% if product == "yandex-cloud"
    1. Change the SSH or network settings. If you have [security groups](../../../vpc/concepts/security-groups.md) set up, make sure that their rules allow incoming TCP traffic to port 22.
    1. Connect to the VM via SSH.
 
-{% if product == "yandex-cloud" %}
 - Windows
 
    1. [Enable access](../serial-console/index.md#turn-on-for-current-instance) to the VM serial console.
    1. [Connect](../serial-console/connect-cli.md#connect-to-serial-console) to the serial console.
    1. Change the RDP or network settings. If you have [security groups](../../../vpc/concepts/security-groups.md) set up, make sure that their rules allow incoming TCP traffic to port 3389.
    1. Connect to the VM via RDP.
-{% endif %}
 
 {% endlist %}
 

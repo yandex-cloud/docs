@@ -1,7 +1,5 @@
 # Connection
 
-{% if product == "yandex-cloud" %}
-
 #### How do I connect to a VM running Windows Server {#conn-vm-windows-server}
 
 See: [{#T}](../operations/vm-connect/rdp.md).
@@ -9,9 +7,6 @@ See: [{#T}](../operations/vm-connect/rdp.md).
 For the first connection, use the `Administrator` account. It's a good idea to choose a strong password for this account and create another account for everyday work and connect via the latter in the future.
 
 For images without [additional Remote Desktop Services licenses](../pricing.md#prices-os), a maximum of two simultaneous RDP connections are possible.
-
-{% endif %}
-
 
 #### How do I connect to a Linux VM {#conn-vm-linux}
 

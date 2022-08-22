@@ -82,7 +82,7 @@ C помощью {{ sf-full-name }} можно настроить оповеще
   {% if product == "yandex-cloud" %}- [Filebeat (ELK)](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-system.html){% endif %}
   - [Wazuh](https://documentation.wazuh.com/current/getting-started/use_cases/log_analysis.html)
 
-Дополнительные опции генерации событий возможно реализовать с помощью утилиты Auditd для Linux{% if product == "yandex-cloud" %}, Sysmon для Windows{% endif %}.
+Дополнительные опции генерации событий возможно реализовать с помощью утилиты Auditd для Linux, Sysmon для Windows.
 
 {% if audience != "internal" %} Системные метрики Linux (процессор, память, диск) можно собирать с помощью компонента [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/index.md) сервиса {{ monitoring-name }}. {% endif %}
 

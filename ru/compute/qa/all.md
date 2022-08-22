@@ -28,11 +28,6 @@
 
 {% include notitle [monitoring](monitoring.md) %}
 
-
-{% if product == "yandex-cloud" %}
-
 ## Лицензирование {#licensing}
 
 {% include notitle [licensing](../../_includes/compute/qa-licensing.md) %}
-
-{% endif %}

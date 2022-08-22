@@ -15,6 +15,13 @@
 1. Under **Instance template**, click **Define** to set up the configuration for a basic instance:
    * Under **Basic parameters**, enter the template **Description**:
    * Under **Image/boot disk selection**, select a system to be deployed on the VM instance's boot disk.
+
+     {% if product == "cloud-il" %}
+
+     {% include [windows-trial](../compute/windows-trial.md) %}
+
+     {% endif %}
+
    * In the **Disks** section:
       * Select the [disk type](../../compute/concepts/disk.md#disks_types).
       * Specify the **Size** of the disk.
@@ -34,7 +41,7 @@
    * Under **Access**, specify the information required to access the instance:
       * Specify a **Service account** to be linked to the instance.
       * If you selected a Linux image, fill out **Login** and **SSH key**. As the key, use the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file contents.
-      {% if product == "yandex-cloud" %}* If you selected a Windows image, enter the **Password** for your `Administrator` user.{% endif %}
+      * If you selected a Windows image, enter the **Password** for your `Administrator` user.
       * If needed, **Grant access to the serial console**.
    * Click **Save**.
 1. Under **Allow when creating and updating**:

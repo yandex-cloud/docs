@@ -26,7 +26,7 @@
 * плата за использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-full-name }}](../network-load-balancer/pricing.md));
 * плата за использование динамического или статического публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../vpc/pricing.md)).
 
-Вы можете воспользоваться [мобильностью лицензий](../compute/qa/licensing.md) и использовать собственную лицензию MSSQL Server в {{ yandex-cloud }}.
+Вы можете воспользоваться [перемещением лицензий](../compute/qa/licensing.md) и использовать собственную лицензию MSSQL Server в {{ yandex-cloud }}.
 
 {% endif %}
 

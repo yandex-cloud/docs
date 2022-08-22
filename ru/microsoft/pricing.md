@@ -4,6 +4,8 @@
 
 На стадии [Preview](../overview/concepts/launch-stages.md) использование продуктов Microsoft не тарифицируется.
 
+{% include [windows-trial](../_includes/compute/windows-trial.md) %}
+
 {% endif %}
 
 {% if product == "yandex-cloud" %}

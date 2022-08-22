@@ -9,6 +9,12 @@ keywords:
 
 # Creating a Windows VM
 
+{% if product == "cloud-il" %}
+
+{% include [windows-trial](../../_includes/compute/windows-trial.md) %}
+
+{% endif %}
+
 Create a Windows [VM](../concepts/vm.md) using {{ compute-short-name }} from the {{ yandex-cloud }} management console and connect to it.
 
 {% include [ms-licensing-personal-data](../../_includes/ms-licensing-personal-data.md) %}

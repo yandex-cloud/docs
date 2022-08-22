@@ -14,9 +14,7 @@ From inside a VM instance, metadata is available in the following formats:
 
 You can pass metadata when you create or [change](../operations/vm-control/vm-update.md#change-metadata) your virtual machine. VM connection data can't change, so it must be passed during creation:
 * [For a Linux VM](../operations/vm-create/create-linux-vm.md), you must pass the public SSH key to be able to connect to it.
-{% if product == "yandex-cloud" %}
 * [For a Windows VM](../operations/vm-create/create-windows-vm.md), you must pass the administrator password to connect to it.
-{% endif %}
 
 {% list tabs %}
 
@@ -96,7 +94,6 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
 
       If no such string is found, but you see the string `no authorized ssh keys fingerprints found for user`, it means that you incorrectly passed your SSH key. Check the format again or try passing the SSH keys in the `user-data` field.
 
-{% if product == "yandex-cloud" %}
 - Windows
 
    `user-data`: A string with user metadata to be processed by the [Cloudbase-Init](https://cloudbase.it/cloudbase-init/) agent. This agent supports various [data formats](https://cloudbase-init.readthedocs.io/en/latest/userdata.html), such as PowerShell scripts that set the administrator password:
@@ -106,6 +103,5 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
      "user-data": "#ps1\nnet user Administrator Passw0rd"
    }
    ```
-{% endif %}
 
 {% endlist %}

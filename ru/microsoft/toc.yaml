@@ -17,20 +17,27 @@ items:
         href: tutorials/active-directory.md
       - name: Развертывание Microsoft Exchange
         href: tutorials/exchange.md
+        when: product == "yandex-cloud"
       - name: Развертывание Remote Desktop Services
         href: tutorials/rds.md
+        when: product == "yandex-cloud"
       - name: Развертывание группы доступности Always On
         href: tutorials/mssql-alwayson.md
+        when: product == "yandex-cloud"
       - name: Развертывание группы доступности Always On с внутренним сетевым балансировщиком
         href: tutorials/mssql-alwayson-lb.md
+        when: product == "yandex-cloud"
       - name: Развертывание Remote Desktop Gateway
         href: tutorials/rds-gw.md
       - name: Обновление редакции Windows Server до Datacenter
         href: tutorials/edition-update-datacenter.md
+        when: product == "yandex-cloud"
       - name: Подготовка собственных образов с продуктами Microsoft
         href: prepare-image.md
+        when: product == "yandex-cloud"
       - name: Использование своей лицензии для продуктов Microsoft
         href: byol.md
+        when: product == "yandex-cloud"
   - name: Лицензирование
     items:
       - name: Лицензии Microsoft в {{ yandex-cloud }}

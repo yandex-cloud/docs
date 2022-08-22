@@ -6,7 +6,7 @@
 {% endif %}
 1. Аутентифицируйтесь изнутри виртуальной машины:
    {% if audience != "internal" %}
-   1. Подключитесь к виртуальной машине [по SSH](../../compute/operations/vm-connect/ssh.md){% if product == "yandex-cloud" %} или [по RDP](../../compute/operations/vm-connect/rdp.md){% endif %}.
+   1. Подключитесь к виртуальной машине [по SSH](../../compute/operations/vm-connect/ssh.md) или [по RDP](../../compute/operations/vm-connect/rdp.md).
    {% else %}
    1. Подключитесь к виртуальной машине по SSH или по RDP.
    {% endif %}

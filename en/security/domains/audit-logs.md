@@ -82,7 +82,7 @@ When using IaaS cloud services and Kubernetes node groups, the customer is respo
 {% if product == "yandex-cloud" %}- [Filebeat (ELK)](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-system.html){% endif %}
 - [Wazuh](https://documentation.wazuh.com/current/getting-started/use_cases/log_analysis.html)
 
-Additional event generation options can be implemented using Auditd for Linux{% if product == "yandex-cloud" %} or Sysmon for Windows{% endif %}.
+Additional event generation options can be implemented using Auditd for Linux or Sysmon for Windows.
 
 {% if audience != "internal" %} You can collect Linux system metrics (CPU, RAM, and disk space usage) with {{ monitoring-name }} [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/index.md). {% endif %}
 

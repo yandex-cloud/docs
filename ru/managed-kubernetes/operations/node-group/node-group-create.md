@@ -39,7 +39,7 @@
        --name <имя группы узлов> \
        --network-acceleration-type <standard или software-accelerated> \
        --network-interface security-group-ids=[<идентификаторы групп безопасности>],subnets=[<имена подсетей>],ipv4-address=<nat или auto> \
-       --platform-id <идентификатор платформы> \
+       --platform <идентификатор платформы> \
        --preemptible \
        --public-ip \
        --version <версия {{ k8s }} на узлах группы> \
@@ -66,7 +66,7 @@
 
        {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
-     * `--platform-id` — [платформа](../../../compute/concepts/vm-platforms.md) для узлов.
+     * `--platform` — [платформа](../../../compute/concepts/vm-platforms.md) для узлов.
      * `--preemptible` — флаг, который указывается, если виртуальные машины должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md).
      * `--public-ip` — флаг, который указывается, если группе узлов требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
      * `--version` — версия {{ k8s }} на узлах группы.

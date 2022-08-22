@@ -15,7 +15,7 @@
 
 {% note alert %}
 
-Исключите доступ третьих лиц к секретному ключу. Храните ключ в надежном месте. Если ключ стал известен третьим лицам, [перевыпустите](../../operations/compromised-credentials.md#access-key-reissue) его.
+Исключите доступ третьих лиц к секретному ключу. Храните ключ в надежном месте. {% if product == "yandex-cloud" %}Если ключ стал известен третьим лицам, [перевыпустите](../../operations/compromised-credentials.md#access-key-reissue) его.{% endif %}
 
 {% endnote %}
 

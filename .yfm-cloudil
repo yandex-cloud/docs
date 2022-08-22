@@ -30,7 +30,6 @@ ignore:
   - "en/managed-sqlserver/*"
   - "en/marketplace/*"
   - "en/mdb/*"
-  - "en/microsoft/*"
   - "en/partner/*"
   - "en/serverless-containers/*"
   - "en/smartcaptcha/*"

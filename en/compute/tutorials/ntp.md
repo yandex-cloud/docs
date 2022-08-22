@@ -11,10 +11,7 @@ keywords:
 # Configuring clock synchronization using NTP
 
 You can sync virtual machines in {{ yandex-cloud }} with public time servers via [NTPv4](https://tools.ietf.org/html/rfc5905):
-
-{% if product == "yandex-cloud" %}
 * For VMs running Windows Server, give three preferred servers in the time synchronization settings.
-{% endif %}
 * On Linux-based VMs, enable a DHCP client with option 42, `Network Time Protocol Servers`. This lets you automatically apply the list of sync servers sent by the DHCP server. In images provided by {{ yandex-cloud }}, operating systems are already configured properly.
 
    In the system settings, specify the backup sync servers to use if the DHCP server goes down or is unavailable. To do this, follow the [instructions](#setup).
@@ -122,7 +119,6 @@ The list of recommended servers may change. {{ yandex-cloud }} notifies you 72 h
       sudo service ntp restart
       ```
 
-{% if product == "yandex-cloud" %}
 - Windows Server
 
    Specify the recommended servers in the Windows Time service settings by running the following commands in PowerShell or `cmd`:
@@ -148,6 +144,5 @@ The list of recommended servers may change. {{ yandex-cloud }} notifies you 72 h
    ```
 
    {% endif %}
-{% endif %}
 
 {% endlist %}

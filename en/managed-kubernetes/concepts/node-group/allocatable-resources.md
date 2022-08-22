@@ -5,9 +5,7 @@ Nodes need resources to run the {{ k8s }} components in charge of running the no
 Some nodes need more resources:
 
 * Nodes with a more powerful configuration, which can run more containers and more pods, need more resources allocated to them.
-{% if product == "yandex-cloud" %}
 * Nodes running Windows Server. These nodes need more resources than Linux nodes, since they need more resources to support the Windows and Windows Server components that can't run in containers.
-{% endif %}
 
 To view the node resources allocated to the {{ k8s }} components, run the command:
 

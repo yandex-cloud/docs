@@ -47,6 +47,10 @@ links:
     description: Используйте службы Windows в Yandex Cloud
     href: windows/
     when: product == "yandex-cloud"
+  - title: Windows в облаке
+    description: Используйте службы Windows в CloudIL
+    href: windows/
+    when: product == "cloud-il"
   - title: Визуализация и анализ данных
     description: Собирайте, визуализируйте и анализируйте данные из различных источников
     href: datalens/

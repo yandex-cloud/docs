@@ -68,7 +68,6 @@ To enable access to the serial console when creating a VM, set the `serial-port-
 
       A user named `yc-user` will be automatically created in the VM's OS with the specified public key.
 
-{% if product == "yandex-cloud" %}
 - Windows
 
    1. View a description of the CLI create VM command:
@@ -100,7 +99,6 @@ To enable access to the serial console when creating a VM, set the `serial-port-
       * With the serial console active.
 
       The `Administrator` user with the password specified in the `metadata.yaml` file will be automatically created in the VM's OS.
-{% endif %}
 
 {% endlist %}
 
@@ -135,9 +133,7 @@ To configure access via the serial console, a virtual machine must have a public
 
 For the serial console to be available from the OS, the OS must be configured properly:
 * [Linux](#linux-configuration)
-{% if product == "yandex-cloud" %}
 * [Windows](#windows-configuration)
-{% endif %}
 
 ### Linux {#linux-configuration}
 
@@ -206,9 +202,6 @@ To create a local password, use the CLI.
 
 1. Terminate the SSH session with the `exit` command.
 
-
-{% if product == "yandex-cloud" %}
-
 ### Windows {#windows-configuration}
 
 An equivalent of the serial console in Windows is the Speicial Administration Console (SAC).
@@ -236,5 +229,3 @@ If you created the VM before February 22, 2019, you need to update the Windows r
 1. Restart the VM.
 
 Learn more about the [terminal in the Windows serial console (SAC)](windows-sac.md).
-
-{% endif %}

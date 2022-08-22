@@ -17,11 +17,16 @@ For individuals:
 * Address.
 * Country.
 
+{% if product == "cloud-il" %}
+
 {% note info %}
 
 To provide additional user details in your billing account contact [technical support](../support/overview.md#response-time).
 
 {% endnote %}
+
+{% endif %}
+
 
 {% if product == "yandex-cloud" %}
 

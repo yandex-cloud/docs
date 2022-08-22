@@ -828,7 +828,7 @@ cloud-il:
   link-support-mail: support@cloudil.co.il
   login-example: login@gmail.com
   dns-mx-host: mx.cloudil.com
-  ms-kms-host: 46.243.144.12
+  ms-kms-host: activate.windows.cloudil.co.il
   crt-local-dir: /usr/local/share/ca-certificates/CloudIL/
   crt-local-file: CloudILCA.crt
   crt-alias: CloudILCA

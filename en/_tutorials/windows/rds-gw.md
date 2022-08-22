@@ -1,8 +1,25 @@
 # Deploying Remote Desktop Gateway
 
+{% if product == "cloud-il" %}
+
+{% include [windows-trial](../../_includes/compute/windows-trial.md) %}
+
+{% endif %}
+
 Remote Desktop Gateway (RDGW) is a Windows Server service for accessing resources that have no internet access via a secure HTTPS communication channel.
 
 In this use case, users from the `Administrators` group are granted access to a test VM using a self-signed certificate.
+
+To deploy the Remote Desktop Gateway infrastructure:
+
+1. [Before you start](#before-you-begin).
+1. [Create a cloud network and subnets](#create-network).
+1. [Create a security group](#sg).
+1. [Create a VM for the gateway](#create-gw).
+1. [Configure the RDGW role](#role).
+1. [Test the RDGW](#test-rdgw).
+
+If you no longer need these resources, [delete them](#clear-out).
 
 ## Before you start {#before-you-begin}
 
@@ -47,6 +64,8 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
       yc vpc network create --name rdgw-network
       ```
 
+      Where `rdgw-network`: network name.
+
       Result:
 
       ```
@@ -68,7 +87,7 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
       1. Select **{{ vpc-short-name }}** in the folder where you want to create the subnet.
       1. Click on the name of the cloud network.
       1. Click **Add subnet**.
-      1. Fill out the form: enter `rdgw-subnet` as a subnet name and select the desired availability zone from the drop-down list (for example, `ru-central1-a`).
+      1. Fill out the form: enter `rdgw-subnet` as a subnet name and select the desired availability zone from the drop-down list (for example, `{{ region-id }}-a`).
       1. Enter the subnet CIDR, which is its IP address and mask: `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
       1. Click **Create subnet**.
 
@@ -77,10 +96,12 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
       ```
       yc vpc subnet create `
         --name rdgw-subnet `
-        --zone ru-central1-a `
+        --zone {{ region-id }}-a `
         --network-name rdgw-network `
         --range 10.1.0.0/16
       ```
+
+      Where `rdgw-subnet`: subnet name.
 
       Result:
 
@@ -90,7 +111,7 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
       created_at: "2021-06-09T10:49:21Z"
       name: rdgw-subnet
       network_id: qqppl6fduhct76qkjh6s
-      zone_id: ru-central1-a
+      zone_id: {{ region-id }}-a
       v4_cidr_blocks:
       - 10.1.0.0/16
       ```
@@ -167,7 +188,7 @@ Create and set up a [security group](../../vpc/concepts/security-groups.md).
 
 ## Create a VM for the gateway {#create-gw}
 
-Create a VM with a static address:
+Create a VM with a public address:
 
 {% list tabs %}
 
@@ -175,8 +196,8 @@ Create a VM with a static address:
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter a name for the VM: `my-rds-gw`.
-   1. Select the [availability zone](../../overview/concepts/geo-scope.md): `ru-central1-a`.
-   1. Under **Image/boot disk selection**, select the **2019 Datacenter** image.
+   1. Select the [availability zone](../../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
+   1. Under **Image/boot disk selection**, select the **2022 Datacenter** image.
    1. Under **Disks**, enter 60 GB for the size of the boot disk:
    1. Under **Computing resources**:
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
@@ -211,9 +232,10 @@ Create a VM with a static address:
            --hostname my-rds-gw `
            --memory 4 `
            --cores 2 `
-           --zone ru-central1-a `
+           --platform standard-v3 `
+           --zone {{ region-id }}-a `
            --network-interface subnet-name=rdgw-subnet,ipv4-address=10.1.0.3,nat-ip-version=ipv4,security-group-ids=<id_my-rdgw-group> `
-           --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk `
+           --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk `
            --metadata-from-file user-data=setpass
       ```
 
@@ -225,8 +247,8 @@ Create a VM with a static address:
    folder_id: big67u7m5flplkc6vvpc
    created_at: "2021-06-09T10:51:58Z"
    name: my-rds-gw
-   zone_id: ru-central1-a
-   platform_id: standard-v2
+   zone_id: {{ region-id }}-a
+   platform_id: standard-v3
    resources:
    memory: "4294967296"
    cores: "2"
@@ -248,7 +270,7 @@ Create a VM with a static address:
      ip_version: IPV4
      security_group_ids:
       - enp136p8s2ael7ob6klg
-        fqdn: my-rds-gw.ru-central1.internal
+        fqdn: my-rds-gw.{{ region-id }}.internal
         scheduling_policy: {}
         network_settings:
         type: STANDARD
@@ -363,8 +385,8 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
 
       1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
       1. In the **Name** field, enter the VM name: `test-vm`.
-      1. Select the [availability zone](../../overview/concepts/geo-scope.md): `ru-central1-a`.
-      1. Under **Image/boot disk selection**, select the **2019 Datacenter** image.
+      1. Select the [availability zone](../../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
+      1. Under **Image/boot disk selection**, select the **2022 Datacenter** image.
       1. Under **Disks**, enter 60 GB for the size of the boot disk:
       1. Under **Computing resources**:
          * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
@@ -386,9 +408,10 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
         --hostname test-vm `
         --memory 4 `
         --cores 2 `
-        --zone ru-central1-a `
+        --platform standard-v3 `
+        --zone {{ region-id }}-a `
         --network-interface subnet-name=rdgw-subnet,ipv4-address=10.1.0.4 `
-        --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk `
+        --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk `
         --metadata-from-file user-data=setpass
       ```
 
@@ -400,7 +423,7 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
       folder_id: big67u7m5flplkc6vvpc
       created_at: "2021-06-09T11:53:03Z"
       name: test-vm
-      zone_id: ru-central1-a
+      zone_id: {{ region-id }}-a
       platform_id: standard-v2
       resources:
       memory: "4294967296"
@@ -418,7 +441,7 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
         subnet_id: e9b95m6al33r62n5vkab
         primary_v4_address:
         address: 10.1.0.4
-        fqdn: test-vm.ru-central1.internal
+        fqdn: test-vm.{{ region-id }}.internal
         scheduling_policy: {}
         network_settings:
         type: STANDARD
@@ -429,7 +452,7 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
 
 1. Import the created certificate to the `Trusted Roots Certificate Authorities` directory on the computer that you'll use to connect to the test VM.
 
-   To connect to the gateway using the VM name, specify the name and external IP address of the created RDGW in the `C:\Windows\system32\drivers\hosts` file. For example:
+   To connect to the gateway using the VM name, specify the name and external IP address of the created RDGW in the `C:\Windows\system32\drivers\etc\hosts` file. For example:
 
    ```powershell
    87.250.250.242 my-rds-gw
@@ -437,6 +460,6 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
 
 1. Run the [`mstsc` utility]({{ ms.docs }}/windows-server/administration/windows-commands/mstsc) that creates remote desktop connections. In the settings on the **Advanced** tab, specify the `my-rds-gw` VM name as the gateway, the `test-vm` name as the destination node, and `Administrator` as the username.
 
-## Delete the resources you created {#clear-out}
+## How to delete created resources {#clear-out}
 
 If you no longer need the created resources, delete the [VM instances](../../compute/operations/vm-control/vm-delete.md) and [networks](../../vpc/operations/network-delete.md).

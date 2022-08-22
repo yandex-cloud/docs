@@ -137,7 +137,7 @@ Prepare the network infrastructure to host the availability group:
       1. Open the **Virtual Private Cloud** section in the folder to create the subnets in.
       1. Select the `ya-network` network.
       1. Click ![image](../../_assets/plus.svg)**Create subnet**.
-      1. Fill out the form: enter the `ya-subnet-general` subnet name and select the `ru-central1-a` availability zone from the drop-down list.
+      1. Fill out the form: enter the `ya-subnet-general` subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
       1. Enter the subnet CIDR: IP address and subnet mask: `10.0.0.0/28`.
       1. Click **Create subnet**.
 
@@ -160,7 +160,7 @@ Prepare the network infrastructure to host the availability group:
       yc vpc subnet create \
          --name ya-subnet-general \
          --network-name ya-network \
-         --zone ru-central1-a \
+         --zone {{ region-id }}-a \
          --route-table-name mssql \
          --range 10.0.0.0/28
       ```
@@ -169,7 +169,7 @@ Prepare the network infrastructure to host the availability group:
       yc vpc subnet create \
          --name ya-subnet-alwayson1 \
          --network-name ya-network \
-         --zone ru-central1-a \
+         --zone {{ region-id }}-a \
          --route-table-name mssql \
          --range 10.0.0.16/28
       ```
@@ -178,7 +178,7 @@ Prepare the network infrastructure to host the availability group:
       yc vpc subnet create \
          --name ya-subnet-alwayson2 \
          --network-name ya-network \
-         --zone ru-central1-a \
+         --zone {{ region-id }}-a \
          --route-table-name mssql \
          --range 10.0.0.32/28
       ```
@@ -187,7 +187,7 @@ Prepare the network infrastructure to host the availability group:
       yc vpc subnet create \
          --name ya-subnet-alwayson3 \
          --network-name ya-network \
-         --zone ru-central1-a \
+         --zone {{ region-id }}-a \
          --route-table-name mssql \
          --range 10.0.0.48/28
       ```
@@ -198,7 +198,7 @@ Prepare the network infrastructure to host the availability group:
       yc vpc subnet create `
          --name ya-subnet-general `
          --network-name ya-network `
-         --zone ru-central1-a `
+         --zone {{ region-id }}-a `
          --route-table-name mssql `
          --range 10.0.0.0/28
       ```
@@ -207,7 +207,7 @@ Prepare the network infrastructure to host the availability group:
       yc vpc subnet create `
          --name ya-subnet-alwayson1 `
          --network-name ya-network `
-         --zone ru-central1-a `
+         --zone {{ region-id }}-a `
          --route-table-name mssql `
          --range 10.0.0.16/28
       ```
@@ -216,7 +216,7 @@ Prepare the network infrastructure to host the availability group:
       yc vpc subnet create `
          --name ya-subnet-alwayson2 `
          --network-name ya-network `
-         --zone ru-central1-a `
+         --zone {{ region-id }}-a `
          --route-table-name mssql `
          --range 10.0.0.32/28
       ```
@@ -225,7 +225,7 @@ Prepare the network infrastructure to host the availability group:
       yc vpc subnet create `
          --name ya-subnet-alwayson3 `
          --network-name ya-network `
-         --zone ru-central1-a `
+         --zone {{ region-id }}-a `
          --route-table-name mssql `
          --range 10.0.0.48/28
       ```
@@ -303,7 +303,7 @@ Create a bastion host with a public IP address to access other VMs:
        --hostname jump-server-vm \
        --memory 4 \
        --cores 2 \
-       --zone ru-central1-a \
+       --zone {{ region-id }}-a \
        --network-interface subnet-name=ya-subnet-general,nat-ip-version=ipv4 \
        --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-gvlk \
        --metadata-from-file user-data=setpass
@@ -317,7 +317,7 @@ Create a bastion host with a public IP address to access other VMs:
      --hostname jump-server-vm `
      --memory 4 `
      --cores 2 `
-     --zone ru-central1-a `
+     --zone {{ region-id }}-a `
      --network-interface subnet-name=ya-subnet-general,nat-ip-version=ipv4 `
      --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-gvlk `
      --metadata-from-file user-data=setpass
@@ -337,7 +337,7 @@ Create a VM to install Active Directory:
    yc compute instance create \
       --name ya-ad \
       --hostname ya-ad \
-      --zone ru-central1-a \
+      --zone {{ region-id }}-a \
       --memory 6 \
       --cores 2 \
       --metadata-from-file user-data=setpass \
@@ -353,7 +353,7 @@ Create a VM to install Active Directory:
    yc compute instance create `
       --name ya-ad `
       --hostname ya-ad `
-      --zone ru-central1-a `
+      --zone {{ region-id }}-a `
       --memory 6 `
       --cores 2 `
       --metadata-from-file user-data=setpass `
@@ -377,7 +377,7 @@ Create three VMs for MSSQL servers:
    yc compute instance create \
       --name ya-mssql1 \
       --hostname ya-mssql1 \
-      --zone ru-central1-a \
+      --zone {{ region-id }}-a \
       --memory 16 \
       --cores 4 \
       --metadata-from-file user-data=setpass \
@@ -393,7 +393,7 @@ Create three VMs for MSSQL servers:
    yc compute instance create \
       --name ya-mssql2 \
       --hostname ya-mssql2 \
-      --zone ru-central1-a \
+      --zone {{ region-id }}-a \
       --memory 16 \
       --cores 4 \
       --metadata-from-file user-data=setpass \
@@ -409,7 +409,7 @@ Create three VMs for MSSQL servers:
    yc compute instance create \
       --name ya-mssql3 \
       --hostname ya-mssql3 \
-      --zone ru-central1-a \
+      --zone {{ region-id }}-a \
       --memory 16 \
       --cores 4 \
       --metadata-from-file user-data=setpass \
@@ -427,7 +427,7 @@ Create three VMs for MSSQL servers:
    yc compute instance create `
     --name ya-mssql1 `
     --hostname ya-mssql1 `
-    --zone ru-central1-a `
+    --zone {{ region-id }}-a `
     --memory 16 `
     --cores 4 `
     --metadata-from-file user-data=setpass `
@@ -443,7 +443,7 @@ Create three VMs for MSSQL servers:
    yc compute instance create `
       --name ya-mssql2 `
       --hostname ya-mssql2 `
-      --zone ru-central1-a `
+      --zone {{ region-id }}-a `
       --memory 16 `
       --cores 4 `
       --metadata-from-file user-data=setpass `
@@ -459,7 +459,7 @@ Create three VMs for MSSQL servers:
    yc compute instance create `
     --name ya-mssql3 `
     --hostname ya-mssql3 `
-    --zone ru-central1-a `
+    --zone {{ region-id }}-a `
     --memory 16 `
     --cores 4 `
     --metadata-from-file user-data=setpass `
@@ -512,11 +512,11 @@ Create three VMs for MSSQL servers:
    - PowerShell
 
       ```powershell
-      Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName 'ru-central1-a'
-      New-ADReplicationSubnet -Name '10.0.0.0/28'  -Site 'ru-central1-a'
-      New-ADReplicationSubnet -Name '10.0.0.16/28' -Site 'ru-central1-a'
-      New-ADReplicationSubnet -Name '10.0.0.32/28' -Site 'ru-central1-a'
-      New-ADReplicationSubnet -Name '10.0.0.48/28' -Site 'ru-central1-a'
+      Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName '{{ region-id }}-a'
+      New-ADReplicationSubnet -Name '10.0.0.0/28'  -Site '{{ region-id }}-a'
+      New-ADReplicationSubnet -Name '10.0.0.16/28' -Site '{{ region-id }}-a'
+      New-ADReplicationSubnet -Name '10.0.0.32/28' -Site '{{ region-id }}-a'
+      New-ADReplicationSubnet -Name '10.0.0.48/28' -Site '{{ region-id }}-a'
       ```
 
    {% endlist %}

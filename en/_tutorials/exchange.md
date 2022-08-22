@@ -1,6 +1,6 @@
 # Deploying Microsoft Exchange
 
-This scenario describes how to deploy Microsoft Exchange servers in {{ yandex-cloud }}. Two Microsoft Exchange mail servers, two Active Directory servers, and two Edge Transport services will be installed in `ru-central1-a` and `ru-central1-b` availability zones. A network load balancer is used to distribute load across servers. A separate VM with internet access in the `ru-central1`-c availability zone will manage all the servers.
+This scenario describes how to deploy Microsoft Exchange servers in {{ yandex-cloud }}. Two Microsoft Exchange mail servers, two Active Directory servers, and two Edge Transport services will be installed in `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. A network load balancer is used to distribute load across servers. A separate VM with internet access in the `{{ region-id }}`-c availability zone will manage all the servers.
 
 1. [Before you start](#before-you-begin).
 1. [Create a cloud network and subnets](#create-network).
@@ -76,11 +76,11 @@ Create a cloud network named `exchange-network` with subnets in all the availabi
       1. Open the **Virtual Private Cloud** section in the folder where you want to create the subnet.
       1. Click on the name of the cloud network.
       1. Click **Add subnet**.
-      1. Fill out the form: set the subnet name to `exchange-subnet-a` and select the `ru-central1-a` availability zone from the drop-down list.
+      1. Fill out the form: set the subnet name to `exchange-subnet-a` and select the `{{ region-id }}-a` availability zone from the drop-down list.
       1. Enter the subnet CIDR, which is its IP address and mask: `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../vpc/concepts/network.md).
       1. Click **Create subnet**.
 
-      Repeat these steps for two more subnets, `exchange-subnet-b` and `exchange-subnet-c`, in the `ru-central1-b` and `ru-central1-c` availability zones with the `10.2.0.0/16` and `10.3.0.0/16` CIDR, respectively.
+      Repeat these steps for two more subnets, `exchange-subnet-b` and `exchange-subnet-c`, in the `{{ region-id }}-b` and `{{ region-id }}-c` availability zones with the `10.2.0.0/16` and `10.3.0.0/16` CIDR, respectively.
 
    - CLI
 
@@ -89,19 +89,19 @@ Create a cloud network named `exchange-network` with subnets in all the availabi
       ```
       yc vpc subnet create \
         --name exchange-subnet-a \
-        --zone ru-central1-a \
+        --zone {{ region-id }}-a \
         --network-name exchange-network \
         --range 10.1.0.0/16
 
       yc vpc subnet create \
         --name exchange-subnet-b \
-        --zone ru-central1-b \
+        --zone {{ region-id }}-b \
         --network-name exchange-network \
         --range 10.2.0.0/16
 
       yc vpc subnet create \
         --name exchange-subnet-c \
-        --zone ru-central1-c \
+        --zone {{ region-id }}-c \
         --network-name exchange-network \
         --range 10.3.0.0/16
       ```
@@ -132,7 +132,7 @@ Create two virtual machines for Active Directory. These VMs don't have internet 
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name `ad-vm-a`.
-   1. Select the [availability zone](../overview/concepts/geo-scope.md): `ru-central1-a`.
+   1. Select the [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
@@ -147,7 +147,7 @@ Create two virtual machines for Active Directory. These VMs don't have internet 
       * In the **Password** field, enter your password.
    1. Click **Create VM**.
 
-   Repeat this operation for the VM `ad-vm-b` in the `ru-central1-b` availability zone and connect it to the subnet `exchange-subnet-b`.
+   Repeat this operation for the VM `ad-vm-b` in the `{{ region-id }}-b` availability zone and connect it to the subnet `exchange-subnet-b`.
 
 - CLI
 
@@ -157,7 +157,7 @@ Create two virtual machines for Active Directory. These VMs don't have internet 
      --hostname ad-vm-a \
      --memory 8 \
      --cores 4 \
-     --zone ru-central1-a \
+     --zone {{ region-id }}-a \
      --network-interface subnet-name=exchange-subnet-a,ipv4-address=10.1.0.3 \
      --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
      --metadata-from-file user-data=setpass
@@ -167,7 +167,7 @@ Create two virtual machines for Active Directory. These VMs don't have internet 
      --hostname ad-vm-b \
      --memory 8 \
      --cores 4 \
-     --zone ru-central1-b \
+     --zone {{ region-id }}-b \
      --network-interface subnet-name=exchange-subnet-b,ipv4-address=10.2.0.3 \
      --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
      --metadata-from-file user-data=setpass
@@ -185,7 +185,7 @@ A file server with internet access is used to configure VMs with Active Director
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name: `fsw-vm`.
-   1. Select the `ru-central1-c` [availability zone](../overview/concepts/geo-scope.md)
+   1. Select the `{{ region-id }}-c` [availability zone](../overview/concepts/geo-scope.md)
    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
@@ -208,7 +208,7 @@ A file server with internet access is used to configure VMs with Active Director
      --hostname fsw-vm \
      --memory 4 \
      --cores 2 \
-     --zone ru-central1-c \
+     --zone {{ region-id }}-c \
      --network-interface subnet-name=exchange-subnet-c,nat-ip-version=ipv4 \
      --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
      --metadata-from-file user-data=setpass
@@ -256,34 +256,34 @@ VMs with Active Directory don't have internet access, so they should be configur
 
    Windows restarts automatically. After it restarts, log in to `ad-vm-a` with the `yantoso\Administrator` account login and your password. Relaunch PowerShell.
 
-1. Rename the default site `ru-central1-a`:
+1. Rename the default site `{{ region-id }}-a`:
 
    ```powershell
-   Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName 'ru-central1-a'
+   Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName '{{ region-id }}-a'
    ```
 
 1. Create two more sites for the other availability zones:
 
    ```powershell
-   New-ADReplicationSite 'ru-central1-b'
-   New-ADReplicationSite 'ru-central1-c'
+   New-ADReplicationSite '{{ region-id }}-b'
+   New-ADReplicationSite '{{ region-id }}-c'
    ```
 
 1. Create subnets and link them to the sites:
 
    ```powershell
-   New-ADReplicationSubnet -Name '10.1.0.0/16' -Site 'ru-central1-a'
-   New-ADReplicationSubnet -Name '10.2.0.0/16' -Site 'ru-central1-b'
-   New-ADReplicationSubnet -Name '10.3.0.0/16' -Site 'ru-central1-c'
+   New-ADReplicationSubnet -Name '10.1.0.0/16' -Site '{{ region-id }}-a'
+   New-ADReplicationSubnet -Name '10.2.0.0/16' -Site '{{ region-id }}-b'
+   New-ADReplicationSubnet -Name '10.3.0.0/16' -Site '{{ region-id }}-c'
    ```
 
 1. Rename the site link and configure replication:
 
    ```powershell
    Get-ADReplicationSiteLink 'DEFAULTIPSITELINK' | `
-       Set-ADReplicationSiteLink -SitesIncluded @{Add='ru-central1-b'} -ReplicationFrequencyInMinutes 15 -PassThru | `
+       Set-ADReplicationSiteLink -SitesIncluded @{Add='{{ region-id }}-b'} -ReplicationFrequencyInMinutes 15 -PassThru | `
        Set-ADObject -Replace @{options = $($_.options -bor 1)} -PassThru | `
-       Rename-ADObject -NewName 'ru-central1'
+       Rename-ADObject -NewName '{{ region-id }}'
    ```
 
 1. Set the DNS redirect server:
@@ -401,7 +401,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
       1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
       1. In the **Name** field, enter the VM name `vm-exchange-a`.
-      1. Select the [availability zone](../overview/concepts/geo-scope.md): `ru-central1-a`.
+      1. Select the [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
       1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
       1. Under **Disks**, enter 100 GB for the size of the boot disk:
       1. Add another 250 GB SSD named `db-a`.
@@ -425,7 +425,7 @@ VMs with Active Directory don't have internet access, so they should be configur
         --hostname vm-exchange-a \
         --memory 32 \
         --cores 8 \
-        --zone ru-central1-a \
+        --zone {{ region-id }}-a \
         --network-interface subnet-name=exchange-subnet-a \
         --create-boot-disk size=100,image-folder-id=standard-images,image-family=windows-2016-gvlk \
         --create-disk type=network-ssd,size=250,auto-delete=false \
@@ -485,7 +485,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
       1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
       1. In the **Name** field, enter the VM name `vm-exchange-b`.
-      1. Select the [availability zone](../overview/concepts/geo-scope.md): `ru-central1-b`.
+      1. Select the [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-b`.
       1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
       1. Under **Disks**, enter 100 GB for the size of the boot disk:
       1. Add another 250 GB SSD named `db-b`.
@@ -509,7 +509,7 @@ VMs with Active Directory don't have internet access, so they should be configur
         --hostname vm-exchange-b \
         --memory 32 \
         --cores 8 \
-        --zone ru-central1-b \
+        --zone {{ region-id }}-b \
         --network-interface subnet-name=exchange-subnet-b \
         --create-boot-disk size=100,image-folder-id=standard-images,image-family=windows-2016-gvlk \
         --create-disk type=network-ssd,size=250,auto-delete=false \
@@ -817,7 +817,7 @@ Create a VM named `vm-edge-a`:
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name: `vm-edge-a`.
-   1. Select the [availability zone](../overview/concepts/geo-scope.md): `ru-central1-a`.
+   1. Select the [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
@@ -840,7 +840,7 @@ Create a VM named `vm-edge-a`:
      --hostname vm-edge-a \
      --memory 8 \
      --cores 4 \
-     --zone ru-central1-a \
+     --zone {{ region-id }}-a \
      --network-interface subnet-name=exchange-subnet-a,nat-ip-version=ipv4 \
      --create-boot-disk size=50,image-folder-id=standard-images,image-family=windows-2016-gvlk \
      --metadata-from-file user-data=setpass
@@ -858,7 +858,7 @@ Create a VM named `vm-edge-b`:
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name: `vm-edge-b`.
-   1. Select the [availability zone](../overview/concepts/geo-scope.md): `ru-central1-b`.
+   1. Select the [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-b`.
    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
@@ -881,7 +881,7 @@ Create a VM named `vm-edge-b`:
      --hostname vm-edge-b \
      --memory 8 \
      --cores 4 \
-     --zone ru-central1-b \
+     --zone {{ region-id }}-b \
      --network-interface subnet-name=exchange-subnet-b,nat-ip-version=ipv4 \
      --create-boot-disk size=50,image-folder-id=standard-images,image-family=windows-2016-gvlk \
      --metadata-from-file user-data=setpass
@@ -891,7 +891,7 @@ Create a VM named `vm-edge-b`:
 
 ## Configure Edge Transport servers {#set-up-edge-transport}
 
-### Configure the Edge Transport server in the ru-central1-a zone {#edge-a}
+### Configure the Edge Transport server in the {{ region-id }}-a zone {#edge-a}
 
 1. Connect to `fsw-vm` using RDP.
 1. Connect to `vm-edge-a` using RDP. Enter `Administrator` as the username and then your password. Launch PowerShell.
@@ -919,7 +919,7 @@ Create a VM named `vm-edge-b`:
    ```powershell
    $Credential = Get-Credential # Username: yantoso\Administrator
 
-   New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.ru-central1.internal\distrib' -Credential $Credential
+   New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.{{ region-id }}.internal\distrib' -Credential $Credential
    ```
 
    Enter `yantoso\Administrator` as the username and then your password.
@@ -940,7 +940,7 @@ Create a VM named `vm-edge-b`:
 1. Specify the primary DNS suffix:
 
    ```powershell
-   $Suffix = 'ru-central1.internal'
+   $Suffix = '{{ region-id }}.internal'
 
    Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name Domain -Value $Suffix
 
@@ -967,7 +967,7 @@ Create a VM named `vm-edge-b`:
    & D:\Setup.exe /Mode:Install /InstallWindowsComponents /Role:EdgeTransport /IAcceptExchangeServerLicenseTerms /OrganizationName:MyOrg
    ```
 
-### Configure the Edge Transport server in the ru-central1-b zone {#edge-b}
+### Configure the Edge Transport server in the {{ region-id }}-b zone {#edge-b}
 
 1. Connect to `fsw-vm` using RDP.
 1. Connect to `vm-edge-b` using RDP. Enter `Administrator` as the username and then your password. Launch PowerShell.
@@ -995,7 +995,7 @@ Create a VM named `vm-edge-b`:
    ```powershell
    $Credential = Get-Credential # Username: yantoso\Administrator
 
-   New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.ru-central1.internal\distrib' -Credential $Credential
+   New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.{{ region-id }}.internal\distrib' -Credential $Credential
    ```
 
    Enter `yantoso\Administrator` as the username and then your password.
@@ -1016,7 +1016,7 @@ Create a VM named `vm-edge-b`:
 1. Specify the primary DNS suffix:
 
    ```powershell
-   $Suffix = 'ru-central1.internal'
+   $Suffix = '{{ region-id }}.internal'
 
    Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name Domain -Value $Suffix
 
@@ -1065,10 +1065,10 @@ Each Edge Transport server must subscribe to a website in its own availability z
 
 1. Log in to `vm-exchange-a` and run the Exchange Management Shell.
 
-1. Subscribe the `vm-edge-a` Edge Transport server to the `ru-central1-a` website:
+1. Subscribe the `vm-edge-a` Edge Transport server to the `{{ region-id }}-a` website:
 
    ```powershell
-   New-EdgeSubscription -FileData ([byte[]]$(Get-Content -Path "C:\root\vm-edge-a.xml" -Encoding Byte -ReadCount 0)) -Site "ru-central1-a"
+   New-EdgeSubscription -FileData ([byte[]]$(Get-Content -Path "C:\root\vm-edge-a.xml" -Encoding Byte -ReadCount 0)) -Site "{{ region-id }}-a"
    ```
 
 1. Make sure that the subscription is created using the command:
@@ -1082,7 +1082,7 @@ Each Edge Transport server must subscribe to a website in its own availability z
    ```powershell
    Name            Site                 Domain
    ----            ----                 ------
-   vm-edge-a       yantoso.net/Confi... ru-central1.internal
+   vm-edge-a       yantoso.net/Confi... {{ region-id }}.internal
    ```
 
 1. Check the sync status:
@@ -1112,10 +1112,10 @@ Each Edge Transport server must subscribe to a website in its own availability z
 
 1. Log in to the `vm-exchange-b` server and run the Exchange Management Shell.
 
-1. Subscribe the `vm-edge-b` Edge Transport server to the `ru-central1-b` website:
+1. Subscribe the `vm-edge-b` Edge Transport server to the `{{ region-id }}-b` website:
 
    ```powershell
-   New-EdgeSubscription -FileData ([byte[]]$(Get-Content -Path "C:\root\vm-edge-b.xml" -Encoding Byte -ReadCount 0)) -Site "ru-central1-b"
+   New-EdgeSubscription -FileData ([byte[]]$(Get-Content -Path "C:\root\vm-edge-b.xml" -Encoding Byte -ReadCount 0)) -Site "{{ region-id }}-b"
    ```
 
 1. Make sure that the subscription is created using the command:
@@ -1129,8 +1129,8 @@ Each Edge Transport server must subscribe to a website in its own availability z
    ```powershell
    Name            Site                 Domain
    ----            ----                 ------
-   vm-edge-a       yantoso.net/Confi... ru-central1.internal
-   vm-edge-b       yantoso.net/Confi... ru-central1.internal
+   vm-edge-a       yantoso.net/Confi... {{ region-id }}.internal
+   vm-edge-b       yantoso.net/Confi... {{ region-id }}.internal
    ```
 
 1. Check the sync status:

@@ -8,9 +8,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 ## Creating VMs {#vm-create}
 
 * [{#T}](vm-create/create-linux-vm.md)
-{% if product == "yandex-cloud" %}
 * [{#T}](vm-create/create-windows-vm.md)
-{% endif %}
 * [{#T}](vm-create/create-from-disks.md)
 * [{#T}](vm-create/create-from-snapshots.md)
 * [{#T}](vm-create/create-from-user-image.md)
@@ -62,10 +60,8 @@ description: "Step-by-step instructions for working and managing virtual machine
 ## Working on VMs {#vm-use}
 
 * [{#T}](vm-connect/ssh.md)
-{% if product == "yandex-cloud" %}
 * [{#T}](vm-connect/rdp.md)
 * [{#T}](vm-connect/powershell.md)
-{% endif %}
 * [{#T}](vm-connect/auth-inside-vm.md)
 * [{#T}](vm-operate/install-nvidia-drivers.md)
 * [{#T}](vm-connect/recovery-access.md)
@@ -138,9 +134,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](serial-console/connect-ssh.md)
 {% endif %}
 * [{#T}](serial-console/connect-cli.md)
-{% if product == "yandex-cloud" %}
 * [{#T}](serial-console/windows-sac.md)
-{% endif %}
 * [{#T}](serial-console/disable.md)
 
 ## Creating instance groups {#ig-create}

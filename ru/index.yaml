@@ -165,7 +165,7 @@ links:
   - title: Использование продуктов Microsoft
     description: Использование продуктов Microsoft
     href: microsoft/
-    when: audience == "external" and product == "yandex-cloud"
+    when: audience == "external"
   - title: Monitoring
     description: Сбор и визуализация метрик
     href: monitoring/

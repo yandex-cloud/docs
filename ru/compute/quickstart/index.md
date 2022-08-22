@@ -5,7 +5,7 @@
 * {{ compute-name }}
 
     * [Создание виртуальной машины Linux](quick-create-linux.md)
-    {% if product == "yandex-cloud" %}* [Создание виртуальной машины Windows](quick-create-windows.md){% endif %}
+    * [Создание виртуальной машины Windows](quick-create-windows.md)
 
 * {{ ig-name }}
 
