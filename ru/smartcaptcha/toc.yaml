@@ -6,10 +6,14 @@ items:
     href: quickstart.md
   - name: Концепции
     items:
+      - name: Валидация пользователя
+        href: concepts/validation.md
       - name: Методы подключения виджета
         href: concepts/widget-methods.md
       - name: Невидимая капча
         href: concepts/invisible-captcha.md
+      - name: Капча в React
+        href: concepts/react.md
       - name: Ограниченный режим
         href: concepts/restricted-mode.md
       - name: Квоты и лимиты

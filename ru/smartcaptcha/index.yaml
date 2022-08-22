@@ -16,6 +16,9 @@ links:
   - title: Невидимая капча
     description: Показывайте капчу только для запросов, которые сервис посчитает подозрительными
     href: concepts/invisible-captcha
+  - title: Капча в React
+    description: React-пакет для работы со SmartCaptcha
+    href: concepts/react
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
