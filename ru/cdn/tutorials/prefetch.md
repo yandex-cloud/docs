@@ -433,7 +433,7 @@
 
 ## Настройте DNS для своего домена {#dns-setup}
 
-1. Получите доменное имя в домене `.gcdn.co`, сгенерированное для созданного CDN-ресурса:
+1. Получите доменное имя в домене `.edgecdn.ru`, сгенерированное для созданного CDN-ресурса:
 
    {% list tabs %}
    
@@ -441,15 +441,15 @@
    
      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ cdn-name }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.ycprojektblue.example`).
-     1. На вкладке **Обзор** в разделе **Настройки DNS** скопируйте в буфер обмена сгенерированное сервисом имя в домене `.gcdn.co`.
+     1. На вкладке **Обзор** в разделе **Настройки DNS** скопируйте в буфер обмена сгенерированное сервисом имя в домене `.edgecdn.ru`.
      
    {% endlist %}
    
 1. Перейдите в настройки DNS вашего домена на сайте компании, которая предоставляет вам услуги DNS-хостинга.
-1. Измените CNAME-запись для `cdn` таким образом, чтобы она указывала на скопированный ранее адрес в домене `.gcdn.co`, например:
+1. Измените CNAME-запись для `cdn` таким образом, чтобы она указывала на скопированный ранее адрес в домене `.edgecdn.ru`, например:
 
    ```http
-   cdn CNAME cl-.....6bb.gcdn.co.
+   cdn CNAME cl-.....6bb.edgecdn.ru.
    ```
    
    Если вы пользуетесь {{ dns-name }}, настройте запись по следующей инструкции:
@@ -475,7 +475,7 @@
         1. Нажмите кнопку **Создать запись**.
         1. В поле **Имя** укажите `cdn`, чтобы запись соответствовала доменному имени `cdn.ycprojektblue.example`.
         1. Выберите **Тип** записи — **CNAME**.
-        1. В поле **Значение** вставьте скопированный адрес в домене `.gcdn.co` с точкой на конце.
+        1. В поле **Значение** вставьте скопированный адрес в домене `.edgecdn.ru` с точкой на конце.
         1. Нажмите кнопку **Создать**.
         
    - CLI
@@ -506,7 +506,7 @@
      1. Создайте запись в зоне:
      
         ```bash
-        yc dns zone add-records --name cdn-dns-a --record "cdn CNAME cl-.....6bb.gcdn.co."
+        yc dns zone add-records --name cdn-dns-a --record "cdn CNAME cl-.....6bb.edgecdn.ru."
         ```
         
         Где:
@@ -531,7 +531,7 @@
         | ycprojektblue.example.     | 3600 | SOA   | ns1.yandexcloud.net.           |
         |                            |      |       | mx.cloud.yandex.net. 1 10800   |
         |                            |      |       | 900 604800 86400               |
-        | cdn.ycprojektblue.example. |  600 | CNAME | cl-.....6bb.gcdn.co.           |
+        | cdn.ycprojektblue.example. |  600 | CNAME | cl-.....6bb.edgecdn.ru.           |
         +----------------------------+------+-------+--------------------------------+
         ```
         
@@ -540,7 +540,7 @@
    - API
    
      1. Если у вас нет публичной зоны DNS, создайте ее с помощью вызова gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create) или метода REST API [create](../../dns/api-ref/DnsZone/create.md). Чтобы сделать зону публичной, добавьте в тело запроса поле `public_visibility` (gRPC) или `publicVisibility` (REST).
-     1. Создайте в зоне запись `cdn CNAME cl-.....6bb.gcdn.co.` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) или метода REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md).
+     1. Создайте в зоне запись `cdn CNAME cl-.....6bb.edgecdn.ru.` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) или метода REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md).
         
    {% endlist %}
       

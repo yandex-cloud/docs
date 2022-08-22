@@ -1133,7 +1133,7 @@
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ cdn-name }}**.
      1. В списке CDN-ресурсов выберите ресурс с основным доменным именем `cdn.yandexcloud.example`.
-     1. Из блока **Настройки DNS** внизу страницы скопируйте доменное имя вида `cl-....gcdn.co`.
+     1. Из блока **Настройки DNS** внизу страницы скопируйте доменное имя вида `cl-....edgecdn.ru`.
 
    {% endlist %}
 
@@ -1141,7 +1141,7 @@
 1. Создайте или измените CNAME-запись для `cdn.yandexcloud.example` так, чтобы она указывала на скопированное доменное имя:
 
    ```
-   cdn CNAME cl-....gcdn.co
+   cdn CNAME cl-....edgecdn.ru
    ```
    
    Если вы пользуетесь {{ dns-name }}, настройте запись по следующей инструкции:
@@ -1167,7 +1167,7 @@
         1. Нажмите кнопку **Создать запись**.
         1. В поле **Имя** укажите `cdn`.
         1. Выберите **Тип** записи — **CNAME**.
-        1. В поле **Значение** вставьте скопированное значение вида `cl-....gcdn.co`.
+        1. В поле **Значение** вставьте скопированное значение вида `cl-....edgecdn.ru`.
         1. Нажмите кнопку **Создать**.
 
    - CLI
@@ -1194,12 +1194,12 @@
         
         Подробнее о команде `yc dns zone create` см. в [справочнике CLI](../cli/cli-ref/managed-services/dns/zone/create.md).
         
-     1. Создайте в зоне CNAME-запись для `cdn.yandexcloud.example` со скопированным значением вида `cl-....gcdn.co`:
+     1. Создайте в зоне CNAME-запись для `cdn.yandexcloud.example` со скопированным значением вида `cl-....edgecdn.ru`:
      
         ```bash
         yc dns zone add-records \
           --name example-dns-zone \
-          --record "cdn CNAME cl-....gcdn.co" \
+          --record "cdn CNAME cl-....edgecdn.ru" \
         ```
 
         Подробнее о команде `yc dns zone add-records` см. в [справочнике CLI](../cli/cli-ref/managed-services/dns/zone/add-records.md).
@@ -1221,7 +1221,7 @@
           zone_id = ${yandex_dns_zone.example-dns-zone.id}
           name    = "cdn"
           type    = "CNAME"
-          data    = ["<скопированное значение вида cl-....gcdn.co>"]
+          data    = ["<скопированное значение вида cl-....edgecdn.ru>"]
         }
         ```
 
@@ -1251,7 +1251,7 @@
    - API
     
      1. Создайте DNS-зону `example-dns-zone` с помощью вызова gRPC API {% if audience != "internal" %}[DnsZoneService/Create](../dns/api-ref/grpc/dns_zone_service.md#Create){% else %}DnsZoneService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../dns/api-ref/DnsZone/create.md){% else %}create{% endif %}.
-     1. Добавьте в зону CNAME-запись `cdn` со скопированным значением вида `cl-....gcdn.co` с помощью вызова gRPC API {% if audience != "internal" %}[DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets){% else %}DnsZoneService/UpdateRecordSets{% endif %} или метода REST API {% if audience != "internal" %}[updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md){% else %}updateRecordSets{% endif %}.
+     1. Добавьте в зону CNAME-запись `cdn` со скопированным значением вида `cl-....edgecdn.ru` с помощью вызова gRPC API {% if audience != "internal" %}[DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets){% else %}DnsZoneService/UpdateRecordSets{% endif %} или метода REST API {% if audience != "internal" %}[updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md){% else %}updateRecordSets{% endif %}.
         
    {% endlist %}
    
