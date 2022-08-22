@@ -28,6 +28,7 @@ description: '{{ at-full-name }} позволяет собирать аудит�
 * {{ kms-full-name }}
 * {{ lockbox-full-name }}
 * {{ mch-full-name }}
+* {{ mgl-full-name }}
 * {{ mmg-full-name }}
 * {{ mmy-full-name }}
 * {{ mpg-full-name }}

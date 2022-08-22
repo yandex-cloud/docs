@@ -53,7 +53,7 @@ Create a {{ k8s }} cluster and specify the previously created service accounts i
         yc managed-kubernetes node-group create \
          --name k8s-demo-ng \
          --cluster-name k8s-demo \
-         --platform-id standard-v3 \
+         --platform standard-v3 \
          --public-ip \
          --cores 2 \
          --memory 4 \
@@ -70,7 +70,7 @@ Create a {{ k8s }} cluster and specify the previously created service accounts i
         > yc managed-kubernetes node-group create `
          --name k8s-demo-ng `
          --cluster-name k8s-demo `
-         --platform-id standard-v3 `
+         --platform standard-v3 `
          --public-ip `
          --cores 2 `
          --memory 4 `

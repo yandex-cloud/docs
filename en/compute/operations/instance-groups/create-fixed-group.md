@@ -38,6 +38,7 @@ To create a fixed-size instance group:
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
+
    1. Create a YAML file with any name (for example, `specification.yaml`).
 
    1. In the created file, indicate the following:
@@ -271,6 +272,8 @@ To create a fixed-size instance group:
             | `boot_disk` | Boot disk settings. Enter:</br>- The selected image ID. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).</br>-Disk access mode: `READ_ONLY` (read) or `READ_WRITE` (read and write). |
             | `network_interface` | Network configuration. Specify the network ID and subnet ID. |
             | `metadata` | In the metadata, pass the public key for accessing the instance via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md). |
+
+
 
          * [Policies](../../concepts/instance-groups/policies/index.md):
 

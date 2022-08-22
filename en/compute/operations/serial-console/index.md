@@ -202,8 +202,6 @@ To create a local password, use the CLI.
 
 1. Terminate the SSH session with the `exit` command.
 
-
-
 ### Windows {#windows-configuration}
 
 An equivalent of the serial console in Windows is the Speicial Administration Console (SAC).

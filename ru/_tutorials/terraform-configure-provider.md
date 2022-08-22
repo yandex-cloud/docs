@@ -1,6 +1,6 @@
 {% note info %}
 
-Настройки применимы для {{ TF }} `0.13` и более поздних версий.
+Настройки применимы для {{ TF }} `0.13` и более поздних версий. Рекомендуется использовать последнюю стабильную версию {{ TF }}.
 
 {% endnote %}
 
@@ -83,7 +83,7 @@
    Где:
 
    * `source` — глобальный [адрес источника](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses) провайдера.
-   * `version` — минимальная версия провайдера, с которой совместим модуль. Номер версии можно посмотреть на [странице провайдера]({{ tf-provider-link }}) (кнопка **USE PROVIDER** в верхнем правом углу).
+   * `required_version` — минимальная версия {{ TF }}, с которой совместим провайдер.
    * `provider` — название провайдера.
    * `token` — [OAuth-токен](../iam/concepts/authorization/oauth-token.md) для доступа к {{ yandex-cloud }}.
    * `cloud_id` — [идентификатор облака](../resource-manager/operations/cloud/get-id.md), в котором {{ TF }} создаст ресурсы.

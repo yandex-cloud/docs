@@ -1263,7 +1263,7 @@ To configure DNS:
       1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
       1. In the list of services, select **{{ cdn-name }}**.
       1. In the list of CDN resources, select the resource with the `cdn.yandexcloud.example` primary domain name.
-      1. From **DNS settings**, copy the domain name that has the format `cl-....gcdn.co`.
+      1. From **DNS settings**, copy the domain name that has the format `cl-....edgecdn.ru`.
 
    {% endlist %}
 
@@ -1271,8 +1271,8 @@ To configure DNS:
 1. Create or edit CNAME records for `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` to link them to the copied domain name:
 
    ```
-   cdn CNAME cl-....gcdn.co
-   cdn-staging CNAME cl-....gcdn.co 
+   cdn CNAME cl-....edgecdn.ru
+   cdn-staging CNAME cl-....edgecdn.ru 
    ```
 
    If you use {{ dns-name }}, follow these instructions to configure the record:
@@ -1298,7 +1298,7 @@ To configure DNS:
          1. Click **Create record**.
          1. In the **Name** field, enter `cdn`.
          1. Select the record **Type**: **CNAME**.
-         1. In the **Value** field, paste the copied value in the `cl-....gcdn.co` format.
+         1. In the **Value** field, paste the copied value in the `cl-....edgecdn.ru` format.
          1. Click **Create**.
 
       1. In a similar way, create in the same zone a CNAME record for `cdn-staging.yandexcloud.example`. In the **Name** field, specify `cdn-staging`.
@@ -1327,13 +1327,13 @@ To configure DNS:
 
          For more information about the `yc dns zone create` command, see the [CLI reference](../cli/cli-ref/managed-services/dns/zone/create.md).
 
-      1. In the zone, create CNAME records for `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` with a copied value in the `cl-....gcdn.co` format:
+      1. In the zone, create CNAME records for `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` with a copied value in the `cl-....edgecdn.ru` format:
 
          ```bash
          yc dns zone add-records \
            --name canary-dns-zone \
-           --record "cdn CNAME cl-....gcdn.co" \
-           --record "cdn-staging CNAME cl-....gcdn.co"
+           --record "cdn CNAME cl-....edgecdn.ru" \
+           --record "cdn-staging CNAME cl-....edgecdn.ru"
          ```
 
          For more information about the `yc dns zone add-records` command, see the [CLI reference](../cli/cli-ref/managed-services/dns/zone/add-records.md).
@@ -1355,14 +1355,14 @@ To configure DNS:
            zone_id = ${yandex_dns_zone.canary-dns-zone.id}
            name    = "cdn"
            type    = "CNAME"
-           data    = ["<copied value in the format cl-....gcdn.co>"]
+           data    = ["<copied value in the format cl-....edgecdn.ru>"]
          }
          
          resource "yandex_dns_recordset" "canary-recordset-staging" {
            zone_id = ${yandex_dns_zone.canary-dns-zone.id}
            name    = "cdn-staging"
            type    = "CNAME"
-           data    = ["<copied value in the format cl-....gcdn.co>"]
+           data    = ["<copied value in the format cl-....edgecdn.ru>"]
          }
          ```
 
@@ -1392,7 +1392,7 @@ To configure DNS:
    - API
 
       1. Create a DNS zone named `canary-dns-zone` using the gRPC API [DnsZoneService/Create](../dns/api-ref/grpc/dns_zone_service.md#Create) call or the [create](../dns/api-ref/DnsZone/create.md) REST API method.
-      1. Add the `cdn` and `cdn-staging` CNAME records to the zone, copying the `cl-....gcdn.co` value with thegRPC API [DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) or the REST API [updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md)method.
+      1. Add the `cdn` and `cdn-staging` CNAME records to the zone, copying the `cl-....edgecdn.ru` value with thegRPC API [DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) or the REST API [updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md)method.
 
    {% endlist %}
 

@@ -387,7 +387,7 @@ Method with strict control for changing zone state. Returns error when: <ol><li>
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateRecordSetsMetadata](#UpdateRecordSetsMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[RecordSetDiff](#RecordSetDiff)<br>
 
 ### UpdateRecordSetsRequest {#UpdateRecordSetsRequest}
 
@@ -421,11 +421,29 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateRecordSetsMetadata](#UpdateRecordSetsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RecordSetDiff](#RecordSetDiff)>**<br>if operation finished successfully. 
 
 
 ### UpdateRecordSetsMetadata {#UpdateRecordSetsMetadata}
 
+
+
+### RecordSetDiff {#RecordSetDiff}
+
+Field | Description
+--- | ---
+additions[] | **[RecordSet](#RecordSet3)**<br>List of record sets that were added 
+deletions[] | **[RecordSet](#RecordSet3)**<br>List of record sets that were deleted 
+
+
+### RecordSet {#RecordSet3}
+
+Field | Description
+--- | ---
+name | **string**<br>Domain name. The string length in characters must be 1-254.
+type | **string**<br>Record type. The string length in characters must be 1-20.
+ttl | **int64**<br>Time to live in seconds. Acceptable values are 0 to 2147483647, inclusive.
+data[] | **string**<br>Data of the record set. The number of elements must be in the range 1-100. The string length in characters for each value must be 1-255.
 
 
 ## UpsertRecordSets {#UpsertRecordSets}
@@ -436,19 +454,19 @@ Method without strict control for changing zone state. Nothing happens if delete
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpsertRecordSetsMetadata](#UpsertRecordSetsMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[RecordSetDiff](#RecordSetDiff)<br>
 
 ### UpsertRecordSetsRequest {#UpsertRecordSetsRequest}
 
 Field | Description
 --- | ---
 dns_zone_id | **string**<br>ID of the DNS zone to upsert record sets to. <br>To get a DNS zone ID, make a [DnsZoneService.List](#List) request. The string length in characters must be equal to 20.
-deletions[] | **[RecordSet](#RecordSet3)**<br>Delete only specified records from corresponding record sets. The maximum number of elements is 1000.
-replacements[] | **[RecordSet](#RecordSet3)**<br>Entirely replace specified record sets. The maximum number of elements is 1000.
-merges[] | **[RecordSet](#RecordSet3)**<br>Replace specified records or add new ones if no such record sets exists. The maximum number of elements is 1000.
+deletions[] | **[RecordSet](#RecordSet4)**<br>Delete only specified records from corresponding record sets. The maximum number of elements is 1000.
+replacements[] | **[RecordSet](#RecordSet4)**<br>Entirely replace specified record sets. The maximum number of elements is 1000.
+merges[] | **[RecordSet](#RecordSet4)**<br>Replace specified records or add new ones if no such record sets exists. The maximum number of elements is 1000.
 
 
-### RecordSet {#RecordSet3}
+### RecordSet {#RecordSet4}
 
 Field | Description
 --- | ---
@@ -471,11 +489,29 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpsertRecordSetsMetadata](#UpsertRecordSetsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RecordSetDiff](#RecordSetDiff)>**<br>if operation finished successfully. 
 
 
 ### UpsertRecordSetsMetadata {#UpsertRecordSetsMetadata}
 
+
+
+### RecordSetDiff {#RecordSetDiff1}
+
+Field | Description
+--- | ---
+additions[] | **[RecordSet](#RecordSet5)**<br>List of record sets that were added 
+deletions[] | **[RecordSet](#RecordSet5)**<br>List of record sets that were deleted 
+
+
+### RecordSet {#RecordSet5}
+
+Field | Description
+--- | ---
+name | **string**<br>Domain name. The string length in characters must be 1-254.
+type | **string**<br>Record type. The string length in characters must be 1-20.
+ttl | **int64**<br>Time to live in seconds. Acceptable values are 0 to 2147483647, inclusive.
+data[] | **string**<br>Data of the record set. The number of elements must be in the range 1-100. The string length in characters for each value must be 1-255.
 
 
 ## ListOperations {#ListOperations}

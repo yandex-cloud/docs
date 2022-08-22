@@ -12,11 +12,8 @@
 
 ## Образы Windows Server {#win-server}
 
-В {{ marketplace-name }} доступен образ Microsoft Windows Server только в редакции Datacenter: 
+В {{ marketplace-name }} доступны образы Microsoft Windows Server только в редакции Datacenter — см. [список](/marketplace?type=COMPUTE_IMAGE&operationSystems=WINDOWS&sortBy=name-a-z&categories=os&search=Windows+Server).
 
-* [Windows Server 2012 R2](/marketplace/products/yc/windows-server-2012r2-datacenter)
-* [Windows Server 2016](/marketplace/products/yc/windows-server-2016-datacenter)
-* [Windows Server 2019](/marketplace/products/yc/windows-server-2019-datacenter)
 
 
 

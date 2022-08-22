@@ -11,7 +11,6 @@ keywords:
 # Configuring clock synchronization using NTP
 
 You can sync virtual machines in {{ yandex-cloud }} with public time servers via [NTPv4](https://tools.ietf.org/html/rfc5905):
-
 * For VMs running Windows Server, give three preferred servers in the time synchronization settings.
 * On Linux-based VMs, enable a DHCP client with option 42, `Network Time Protocol Servers`. This lets you automatically apply the list of sync servers sent by the DHCP server. In images provided by {{ yandex-cloud }}, operating systems are already configured properly.
 

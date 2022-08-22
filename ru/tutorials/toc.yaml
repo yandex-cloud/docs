@@ -199,7 +199,7 @@ items:
         href: dataplatform/mssql-data-migration.md
       - name: Миграция базы данных из {{ mms-name }} в сторонний кластер {{ MS }}
         href: dataplatform/mssql-outbound-migration.md
-  - name: Windows в Yandex Cloud
+  - name: Windows в {{ yandex-cloud }}
     items:
       - name: Все руководства
         href: windows/index.md

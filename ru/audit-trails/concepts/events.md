@@ -18,6 +18,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 * [{{ kms-name }}](#kms)
 * [{{ lockbox-name }}](#lockbox)
 * [{{ mch-short-name }}](#managed-service-for-clickhouse)
+* [{{ mgl-full-name }}](#managed-service-for-gitlab)
 * [{{ mmg-short-name }}](#managed-service-for-mongodb)
 * [{{ mmy-short-name }}](#managed-service-for-mysql)
 * [{{ mpg-short-name }}](#managed-service-for-postgresql)
@@ -221,6 +222,24 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `UpdateMlModel` | Изменение модели машинного обучения
 `UpdateShardGroup` | Изменение группы шардов
 `UpdateUser` | Изменение пользователя базы данных
+
+
+## {{ mgl-name }} {#managed-service-for-gitlab}
+
+Имя сервиса — `gitlab`.
+
+Имя события | Описание
+--- | ---
+`BackupInstance` | Создание резервной копии
+`CreateInstance` | Создание инстанса
+`DeleteInstance` | Удаление инстанса
+`RescheduleMaintenance` | Отложены запланированные технические работы
+`ScheduleUpgrade` | Запланировано обновление версии GitLab
+`StartInstance` | Запуск инстанса
+`StopInstance` | Остановка инстанса
+`UpdateInstance` | Изменение инстанса
+`UpdateOmniauthInstance` | Изменение настроек OmniAuth
+`UpgradeInstance` | Обновление версии GitLab
 
 ## {{ mmg-short-name }} {#managed-service-for-mongodb}
 
@@ -437,6 +456,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `CreateDatabase` | Создание базы данных
 `DeleteBackup` | Удаление бэкапа базы данных
 `DeleteDatabase` | Удаление базы данных
+`MoveDatabase` | Перемещение базы данных
 `RestoreBackup` | Восстановление базы данных из бэкапа
 `StartDatabase` | Запуск базы данных 
 `StopDatabase` | Остановка базы данных

@@ -85,6 +85,41 @@ keywords:
 
     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+- {{ TF }}
+
+    Чтобы добавить хост в кластере:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+        Полный список доступных для изменения полей конфигурации кластера {{ mes-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
+
+    1. Добавьте к описанию кластера {{ mes-name }} блок `host`.
+
+        ```hcl
+        resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
+          ...
+          host {
+            name             = "<имя хоста>"
+            zone             = "<зона доступности>"
+            type             = "<роль хоста: DATA_NODE или MASTER_NODE>"
+            assign_public_ip = <публичный доступ к хосту: true или false>
+            subnet_id        = "<идентификатор подсети>"
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом API `addHosts`: передайте значение идентификатора требуемого кластера в параметре `clusterId` запроса.
@@ -129,6 +164,28 @@ keywords:
     ```
 
     Имя хоста можно запросить со [списком хостов в кластере](#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- {{ TF }}
+
+  Чтобы удалить хост из кластера:
+  
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  
+      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+      Полный список доступных для изменения полей конфигурации кластера {{ mes-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
+
+  1. Удалите из описания кластера {{ mes-name }} блок `host`, соответствующий удаляемому хосту.
+  
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+ 
+  1. Подтвердите удаление ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
 - API
 

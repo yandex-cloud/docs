@@ -7,7 +7,7 @@
 * Создавайте виртуальные машины под управлением операционной системы Microsoft Windows из готовых образов [{{ marketplace-name }}](/marketplace).
 * Используйте возможности SQL Server в [{{ mms-short-name }}](/services/managed-sqlserver) или заранее настроенных продуктах {{ marketplace-name }}. Также вы можете использовать свои лицензии SQL Server в инфраструктуре {{ yandex-cloud }}.
 * Настраивайте Active Directory и Microsoft Exchange на ВМ.
-* Запускайте .NET приложения на виртуальных машинах [{{ compute-name }}](/services/compute) или в виде функций в [{{ sf-name }}](/services/functions).
+* Запускайте .NET-приложения на виртуальных машинах [{{ compute-name }}](/services/compute) или в виде функций в [{{ sf-name }}](/services/functions).
 
 Об особенностях образов виртуальных машин в {{ yandex-cloud }} можно узнать на странице [{#T}](list-of-instances.md).
 
@@ -17,10 +17,8 @@
 
 ## Windows Server {#win-server}
 
-Создавайте виртуальные машины с операционной системой Microsoft Windows Server, чтобы запускать приложения для Windows. В {{ marketplace-name }} доступны несколько версий системы в редакции Datacenter:
-  * [Windows Server 2012 R2](/marketplace/products/yc/windows-server-2012r2-datacenter)
-  * [Windows Server 2016](/marketplace/products/yc/windows-server-2016-datacenter)
-  * [Windows Server 2019](/marketplace/products/yc/windows-server-2019-datacenter)
+Создавайте виртуальные машины с операционной системой Microsoft Windows Server, чтобы запускать приложения для Windows. В {{ marketplace-name }} доступны несколько версий системы в редакции Datacenter — см. [список](/marketplace?type=COMPUTE_IMAGE&operationSystems=WINDOWS&sortBy=name-a-z&categories=os&search=Windows+Server).
+
 
 При создании виртуальных машин необходимо указывать [уровень производительности](../compute/concepts/performance-levels.md) и количество ядер vCPU, который будет гарантированно зарезервирован за вашей ВМ. При этом процессор будет обрабатывать и вычислительные, и сетевые операции только в пределах зарезервированного уровня производительности. Используйте виртуальные машины с гарантированной долей vCPU меньше 100% для тестирования или запуска приложений, не требующих высокой производительности.
 
@@ -28,8 +26,11 @@
 
 ### Графические ускорители GPU {#gpus}
 
-Windows Server 2016 и Windows Server 2019 в редакции Datacenter доступны с графическими ускорителями GPU.
+В {{ marketplace-name }} доступны версии Windows Server в редакции Datacenter с драйверами для подключения графических ускорителей — см. [список](/marketplace?type=COMPUTE_IMAGE&operationSystems=WINDOWS&sortBy=name-a-z&categories=os&search=Windows+Server+GPU).
 
+GPU используются для задач машинного обучения и искусственного интеллекта, обработки трехмерной графики. Ускорители работают в режиме [TCC](https://docs.nvidia.com/nsight-visual-studio-edition/reference/index.html#tesla-compute-cluster) и поддерживают технологию CUDA<sup>®</sup>. Для работы с GPU не требуются лицензия и сервер лицензий.
+
+Подробнее о работе с GPU в {{ yandex-cloud }} читайте на странице [{#T}](../compute/concepts/gpus.md).
 
 
 
@@ -71,6 +72,7 @@ Microsoft SQL Server — это система управления базами
 
 
 
+
 ## Создание отказоустойчивого кластера {#clustering}
 
 Отказоустойчивый кластер — это группа независимых виртуальных машин, которые работают совместно для обеспечения высокой доступности и непрерывности сервиса.
@@ -81,3 +83,4 @@ Windows Failover Cluster использует динамические IP-адр
 
 1. Использовать [multisubnetfailover](../tutorials/windows/mssql-alwayson.md#configure-always-on) и дополнительные IP-адреса сетевых интерфейсов, на которых настроены статические маршруты. Узлы кластера будут размещаться в разных подсетях. Для этого необходимо задать несколько IP-адресов в параметре `connection string`.
 1. С помощью [внутреннего балансировщика нагрузки](../network-load-balancer/concepts/internal-load-balancer.md). Трафик будет перенаправляться в зависимости от [проверок состояний](../network-load-balancer/concepts/health-check.md) на портах, однако эти порты будут [доступны](../network-load-balancer/concepts/internal-load-balancer.md#notes) только для самого {{ network-load-balancer-name }}.
+

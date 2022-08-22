@@ -9,6 +9,7 @@ keywords:
 
 # Creating a Windows VM
 
+
 Create a Windows [VM](../concepts/vm.md) using {{ compute-short-name }} from the {{ yandex-cloud }} management console and connect to it.
 
 {% include [ms-licensing-personal-data](../../_includes/ms-licensing-personal-data.md) %}
