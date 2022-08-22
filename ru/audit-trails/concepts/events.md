@@ -28,6 +28,7 @@ cloudil.audit.<имя сервиса>.<имя события>
 * [{{ lockbox-name }}](#lockbox)
 * [{{ mch-short-name }}](#managed-service-for-clickhouse)
 {% if product == "yandex-cloud" %}
+* [{{ mgl-full-name }}](#managed-service-for-gitlab)
 * [{{ mmg-short-name }}](#managed-service-for-mongodb)
 {% endif %}
 * [{{ mmy-short-name }}](#managed-service-for-mysql)
@@ -240,6 +241,24 @@ cloudil.audit.<имя сервиса>.<имя события>
 `UpdateUser` | Изменение пользователя базы данных
 
 {% if product == "yandex-cloud" %}
+
+## {{ mgl-name }} {#managed-service-for-gitlab}
+
+Имя сервиса — `gitlab`.
+
+Имя события | Описание
+--- | ---
+`BackupInstance` | Создание резервной копии
+`CreateInstance` | Создание инстанса
+`DeleteInstance` | Удаление инстанса
+`RescheduleMaintenance` | Отложены запланированные технические работы
+`ScheduleUpgrade` | Запланировано обновление версии GitLab
+`StartInstance` | Запуск инстанса
+`StopInstance` | Остановка инстанса
+`UpdateInstance` | Изменение инстанса
+`UpdateOmniauthInstance` | Изменение настроек OmniAuth
+`UpgradeInstance` | Обновление версии GitLab
+
 ## {{ mmg-short-name }} {#managed-service-for-mongodb}
 
 Имя сервиса — `mdb.mongodb`.
@@ -459,6 +478,7 @@ cloudil.audit.<имя сервиса>.<имя события>
 `CreateDatabase` | Создание базы данных
 `DeleteBackup` | Удаление бэкапа базы данных
 `DeleteDatabase` | Удаление базы данных
+`MoveDatabase` | Перемещение базы данных
 `RestoreBackup` | Восстановление базы данных из бэкапа
 `StartDatabase` | Запуск базы данных 
 `StopDatabase` | Остановка базы данных

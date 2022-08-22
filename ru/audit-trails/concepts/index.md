@@ -35,6 +35,7 @@ description: '{{ at-full-name }} позволяет собирать аудит�
 * {{ lockbox-full-name }}
 * {{ mch-full-name }}
 {% if product == "yandex-cloud" %}
+* {{ mgl-full-name }}
 * {{ mmg-full-name }}
 {% endif %}
 * {{ mmy-full-name }}
