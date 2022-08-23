@@ -56,9 +56,17 @@
 
 - С помощью {{ TF }}
 
+    {% if audience != "internal" %}
+
     1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
     1. Скачайте в ту же рабочую директорию файл конфигурации [mes-migration.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/mes-migration.tf). В файле описаны:
+
+    {% else %}
+
+    1. Скачайте в отдельную рабочую директорию файл конфигурации [mes-migration.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/mes-migration.tf). В файле описаны:
+
+    {% endif %}
 
        * сеть;
        * подсеть;
@@ -68,7 +76,11 @@
        * кластер-приемник с установленным плагином [repository-s3](https://www.elastic.co/guide/en/elasticsearch/plugins/7.16/repository-s3.html);
 
     1. Укажите в файле конфигурации `mes-migration.tf` в блоке `locals`:
+        {% if audience != "internal" %}
         * [идентификатор каталога](../../resource-manager/operations/folder/get-id.md);
+        {% else %}
+        * идентификатор каталога;
+        {% endif %}
         * [пароль для пользователя `admin`](../operations/cluster-update.md#change-admin-password);
         * [редакцию кластера-приемника](../concepts/es-editions.md);
         * версию кластера-приемника;
