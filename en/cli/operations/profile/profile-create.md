@@ -1,5 +1,11 @@
 # Creating a profile
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 There are two ways to create a profile:
 - [Creating an empty profile and adding parameters manually](#create).
 
@@ -12,25 +18,25 @@ There are two ways to create a profile:
 
 Create a profile with the `test` name:
 1. Run the command:
-   
+
    ```
    yc config profile create test
    ```
-   
+
    Result:
-   
+
    ```
    Profile 'test' created and activated
    ```
-   
+
 {% if product == "cloud-il" %}
 
-1. Add the hostname and the port for sending requests to {{ yandex-cloud }} to the profile:
-   
+1. Add the domain name and port for requests to {{ yandex-cloud }} to your profile:
+
    ```
    yc config set endpoint {{ api-host }}:443
    ```
-   
+
 {% endif %}
 
 1. Add the necessary profile parameters, such as a folder:
@@ -47,29 +53,29 @@ Create a profile with the `test` name:
 
 Wizard-based profile creation is available:
 
-* For users with Google accounts: 
-  
-  ```bash
-  yc init \
-    --endpoint {{ api-host }}:443 \
-    --federation-endpoint {{ console-host }} \
-    --federation-id google
-  ```
-  
-  For more information, see [{#T}](../authentication/user.md).
-  
-* For federated users:
-  
-  ```bash
-  yc init \
-    --endpoint {{ api-host }}:443 \
-    --federation-endpoint {{ console-host }} \
-    --federation-id <federation ID>
-  ```
-  
-  For more information, see [{#T}](../authentication/federated-user.md).
+* For users with a Google account:
 
-You can't run the `yc init` command without `--endpoint`, `--federation-endpoint`, or `--federation-id` parameters.
+   ```bash
+   yc init \
+     --endpoint {{ api-host }}:443 \
+     --federation-endpoint {{ console-host }} \
+     --federation-id google
+   ```
+
+   For more information, see [{#T}](../authentication/user.md).
+
+* For federated users:
+
+   ```bash
+   yc init \
+     --endpoint {{ api-host }}:443 \
+     --federation-endpoint {{ console-host }} \
+     --federation-id <federation ID>
+   ```
+
+   For more information, see [{#T}](../authentication/federated-user.md).
+
+You can't run the `yc init` command without the `--endpoint`, `--federation-endpoint`, and `--federation-id` parameters.
 
 {% endif %}
 
