@@ -14,3 +14,7 @@ You can also:
 1. Specify an additional dimension. To do this, drag a dimension to the **Points** section.
 
 Learn more about chart sections in [{#T}](../../concepts/chart/types.md#scatter-chart).
+
+## Configuring the display of `null` values {#null-settings}
+
+{% include [datalens-chart-null-settings](../../../_includes/datalens/datalens-chart-null-settings.md) %}

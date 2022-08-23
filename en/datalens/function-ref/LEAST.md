@@ -26,9 +26,9 @@ Depending on the specified data type, it returns:
 - `FALSE` when selecting between `TRUE` and `FALSE` for Boolean type.
 
 **Argument types:**
-- `value_1` — `Boolean | Date | Datetime | Fractional number | Integer | String`
-- `value_2` — `Boolean | Date | Datetime | Fractional number | Integer | String`
-- `value_3` — `Boolean | Date | Datetime | Fractional number | Integer | String`
+- `value_1` — `Boolean | Date | Datetime | Datetime (deprecated) | Fractional number | Integer | String`
+- `value_2` — `Boolean | Date | Datetime | Datetime (deprecated) | Fractional number | Integer | String`
+- `value_3` — `Boolean | Date | Datetime | Datetime (deprecated) | Fractional number | Integer | String`
 
 
 **Return type**: Same type as (`value_1`, `value_2`, `value_3`)

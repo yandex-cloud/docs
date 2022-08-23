@@ -383,6 +383,14 @@
 
 ### Источник {{ PG }} {#source-pg}
 
+{% note info %}
+
+При трансфере из {{ PG }} в любой тип приемника объекты типа [large objects](https://www.postgresql.org/docs/current/largeobjects.html) не переносятся.
+
+Большие объекты в [системе хранения TOAST](https://www.postgresql.org/docs/12/storage-toast.html) и данные с [типом bytea](https://www.postgresql.org/docs/12/datatype-binary.html) переносятся без ограничений.
+
+{% endnote %}
+
 {% list tabs %}
 
 - {{ mpg-name }}

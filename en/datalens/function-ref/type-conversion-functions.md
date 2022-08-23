@@ -13,12 +13,12 @@ sourcePath: en/_api-ref/datalens/function-ref/type-conversion-functions.md
 
 Converts the `expression` expression to Boolean type according to the following rules:
 
-| Type                                          | `FALSE`             | `TRUE`     |
-|:----------------------------------------------|:--------------------|:-----------|
-| <code>Fractional number &#124; Integer</code> | `0`, `0.0`          | All others |
-| `String`                                      | Empty string (`""`) | All others |
-| `Boolean`                                     | `FALSE`             | `TRUE`     |
-| <code>Date &#124; Datetime</code>             | -                   | `TRUE`     |
+| Type                                                           | `FALSE`             | `TRUE`     |
+|:---------------------------------------------------------------|:--------------------|:-----------|
+| <code>Fractional number &#124; Integer</code>                  | `0`, `0.0`          | All others |
+| `String`                                                       | Empty string (`""`) | All others |
+| `Boolean`                                                      | `FALSE`             | `TRUE`     |
+| <code>Date &#124; Datetime &#124; Datetime (deprecated)</code> | -                   | `TRUE`     |
 
 
 
@@ -113,12 +113,31 @@ The following type casts are supported:
 
 Converts the `expression` expression to fractional number format according to the following rules:
 
-| Type                                          | Value                                                                                                                                                                                                             |
-|:----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <code>Fractional number &#124; Integer</code> | Original value.                                                                                                                                                                                                   |
-| <code>Date &#124; Datetime</code>             | [Unix time](https://en.wikipedia.org/wiki/Unix_time) corresponding to the date and time. If the value contains time zone data, it's used in the calculation. If the time zone is unknown, the time is set in UTC. |
-| `String`                                      | A number from a decimal string.                                                                                                                                                                                   |
-| `Boolean`                                     | `TRUE` — `1.0`, `FALSE` — `0.0`.                                                                                                                                                                                  |
+| Type                                                           | Value                                                                                                                                                                                                             |
+|:---------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>Fractional number &#124; Integer</code>                  | Original value.                                                                                                                                                                                                   |
+| <code>Date &#124; Datetime &#124; Datetime (deprecated)</code> | [Unix time](https://en.wikipedia.org/wiki/Unix_time) corresponding to the date and time. If the value contains time zone data, it's used in the calculation. If the time zone is unknown, the time is set in UTC. |
+| `String`                                                       | A number from a decimal string.                                                                                                                                                                                   |
+| `Boolean`                                                      | `TRUE` — `1.0`, `FALSE` — `0.0`.                                                                                                                                                                                  |
+
+
+
+## [GENERICDATETIME](GENERICDATETIME.md)
+
+**Syntax:**`GENERICDATETIME( expression [ , timezone ] )`
+
+Converts the `expression` expression to date and time format. When converting `Date` to `DateTime`, the time is set to '00:00:00'.
+The date must be in the format `YYYY-MM-DDThh:mm:ss` or `YYYY-MM-DD hh:mm:ss`.
+
+The date and time can be converted to the specified time zone when the `timezone` option is available.
+
+
+
+## [GENERICDATETIME_PARSE](GENERICDATETIME_PARSE.md)
+
+**Syntax:**`GENERICDATETIME_PARSE( value )`
+
+Converts the `value` expression to date and time format. Unlike [GENERICDATETIME](GENERICDATETIME.md), it supports multiple formats.
 
 
 
@@ -144,13 +163,32 @@ Converts the `value` expression to geopolygon format.
 
 Converts the `expression` expression to integer format according to the following rules:
 
-| Type                              | Value                                                                                                                                                                                                             |
-|:----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Integer`                         | Original value.                                                                                                                                                                                                   |
-| `Fractional number`               | Integer part of the number (rounded down).                                                                                                                                                                        |
-| <code>Date &#124; Datetime</code> | [Unix time](https://en.wikipedia.org/wiki/Unix_time) corresponding to the date and time. If the value contains time zone data, it's used in the calculation. If the time zone is unknown, the time is set in UTC. |
-| `String`                          | A number from a decimal string.                                                                                                                                                                                   |
-| `Boolean`                         | `TRUE` — `1`, `FALSE` — `0`.                                                                                                                                                                                      |
+| Type                                                           | Value                                                                                                                                                                                                             |
+|:---------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Integer`                                                      | Original value.                                                                                                                                                                                                   |
+| `Fractional number`                                            | Integer part of the number (rounded down).                                                                                                                                                                        |
+| <code>Date &#124; Datetime &#124; Datetime (deprecated)</code> | [Unix time](https://en.wikipedia.org/wiki/Unix_time) corresponding to the date and time. If the value contains time zone data, it's used in the calculation. If the time zone is unknown, the time is set in UTC. |
+| `String`                                                       | A number from a decimal string.                                                                                                                                                                                   |
+| `Boolean`                                                      | `TRUE` — `1`, `FALSE` — `0`.                                                                                                                                                                                      |
+
+
+
+## [OLDDATETIME](OLDDATETIME.md)
+
+**Syntax:**`OLDDATETIME( expression [ , timezone ] )`
+
+Converts the `expression` expression to deprecated date and time format. When converting `Date` to `DateTime`, the time is set to '00:00:00'.
+The date must be in the format `YYYY-MM-DDThh:mm:ss` or `YYYY-MM-DD hh:mm:ss`.
+
+If `expression` is a number, then the date and time can be converted to the specified time zone when the `timezone` option is available.
+
+
+
+## [OLDDATETIME_PARSE](OLDDATETIME_PARSE.md)
+
+**Syntax:**`OLDDATETIME_PARSE( value )`
+
+Converts the `value` expression to deprecated date and time format. Unlike [OLDDATETIME](OLDDATETIME.md), it supports multiple formats.
 
 
 

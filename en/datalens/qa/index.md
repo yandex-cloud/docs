@@ -138,6 +138,8 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 
 {% include [rename-column](../../_includes/datalens/qa/rename-column.md) %}
 
+{% include [null-setting-in-charts](../../_includes/datalens/qa/null-setting-in-charts.md) %}
+
 ## Calculated fields {#calculation-fields}
 
 {% include [calculate-cumulative-sum](../../_includes/datalens/qa/calculating-cumulative-sum.md) %}
@@ -147,6 +149,8 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 ## Dashboards {#dashboards}
 
 {% include [configure-link-between-selectors](../../_includes/datalens/qa/configure-link-between-selectors.md) %}
+
+{% include [unavailable-selector-values](../../_includes/datalens/qa/unavailable-selector-values.md) %}
 
 {% include [apply-filter-to-two-datasets](../../_includes/datalens/qa/apply-filter-to-two-datasets.md) %}
 

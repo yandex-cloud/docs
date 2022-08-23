@@ -21,7 +21,7 @@ Converts the `value` expression to date and time format. Unlike [DATETIME](DATET
 - `value` — `String`
 
 
-**Return type**: `Datetime`
+**Return type**: `Datetime (deprecated)`
 
 #### Examples {#examples}
 

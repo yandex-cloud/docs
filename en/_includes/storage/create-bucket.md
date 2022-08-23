@@ -65,9 +65,9 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
    1. Deploy the cloud resources.
 
       1. If the configuration doesn't contain any errors, run the command:
-      ```
-      terraform apply
-      ```
+         ```
+         terraform apply
+         ```
 
       1. Confirm that you want to create the resources.
 

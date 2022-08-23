@@ -50,7 +50,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/AGO.md
 
 **Типы аргументов:**
 - `measure` — `Любой`
-- `date_dimension` — `Дата | Дата и время`
+- `date_dimension` — `Дата | Дата и время | Дата и время (устаревший)`
 - `unit` — `Целое число | Строка`
 - `number` — `Целое число`
 

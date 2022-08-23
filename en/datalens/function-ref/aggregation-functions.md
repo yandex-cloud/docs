@@ -158,7 +158,7 @@ Returns `value` for the minimum value of `comp` in the group. If multiple values
      [ BEFORE FILTER BY ... ]
    )`
 
-Returns the average of all values. Applicable to numeric data types as well as `Date | Datetime`.
+Returns the average of all values. Applicable to numeric data types as well as `Date | Datetime (deprecated)`.
 
 
 

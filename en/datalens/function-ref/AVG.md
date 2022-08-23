@@ -33,10 +33,10 @@ _Function `AVG` is also found in the following categories: [Window functions](AV
 {% endlist %}
 
 #### Description {#description}
-Returns the average of all values. Applicable to numeric data types as well as `Date | Datetime`.
+Returns the average of all values. Applicable to numeric data types as well as `Date | Datetime (deprecated)`.
 
 **Argument types:**
-- `value` — `Date | Datetime | Fractional number | Integer`
+- `value` — `Date | Datetime (deprecated) | Fractional number | Integer`
 
 
 **Return type**: Depends on argument types

@@ -20,56 +20,26 @@ Learn more about the chart sections in [{#T}](../../concepts/chart/types.md#hori
 To display an Y-axis grouped bar chart:
 
 1. Go to the bar chart that you created.
-
 1. Depending on the number of measures in the **X** section, follow these steps:
-
-    {% list tabs %}
-
-    - One measure
-        1. Check if there is a dimension in the **Colors** section.
-        1. Duplicate this dimension in the **Y** section. The sequence of dimensions affects the grouping order.
-
-      <iframe src="https://datalens.yandex/5th7z71ms5w6z?_embedded=1&_theme=system" width="600" height="400" frameborder="0"></iframe>
-
-    - Two or more measures
-        1. Drag the `Measure Names` dimension to the **Colors** section.
-        1. Drag the `Measure Names` dimension to the **Y** section. The sequence of dimensions affects the grouping order.
-
-      <iframe src="https://datalens.yandex/0oxyakxold4gu?_embedded=1&_theme=system" width="600" height="400" frameborder="0"></iframe>
-
-    {% endlist %}
-
-## Column color based on a measure {#column-colors}
-
-To color columns in a chart based on the value of a measure:
-
-1. Go to the column chart that you created.
-1. Depending on the number of measures in the **X** section, follow the steps below:
 
    {% list tabs %}
 
    - One measure
 
-      Copy the measure from the **X** section to the **Colors** section.
+     1. Check if there is a dimension in the **Colors** section.
+     1. Duplicate this dimension in the **Y** section. The sequence of dimensions affects the grouping order.
 
-      Columns in the chart will take on colors as a function of the measure values.
-
-      ![image](../../../_assets/datalens/operations/chart/bar-colors-1.png)
+     <iframe src="https://datalens.yandex/5th7z71ms5w6z?_embedded=1&_theme=system" width="600" height="400" frameborder="0"></iframe>
 
    - Two or more measures
 
-      Drag the `Measure Values` measure to the **Colors** section.
+     1. Drag the `Measure Names` dimension to the **Colors** section.
+     1. Drag the `Measure Names` dimension to the **Y** section. The sequence of dimensions affects the grouping order.
 
-      The columns on the chart will take on colors depending on the values of all the measures listed in section **X**.
+     <iframe src="https://datalens.yandex/0oxyakxold4gu?_embedded=1&_theme=system" width="600" height="400" frameborder="0"></iframe>
 
-      ![image](../../../_assets/datalens/operations/chart/bar-colors-2.png)
+    {% endlist %}
 
-   {% endlist %}
+## Configuring the display of `null` values {#null-settings}
 
-1. Configure a color gradient for the measure as well. To do this, in the top right-hand corner of the **Colors** section, click ![image](../../../_assets/datalens/gear.svg) (the icon is displayed when you mouse over the section).
-1. In the color settings, specify:
-
-   * **Gradient type**: Select 2 or 3 colors.
-   * Gradient color: Select a color palette for the gradient from the list.
-   * Gradient direction: Change the gradient direction using the ![image](../../../_assets/datalens/swap.svg) icon.
-   * **Set threshold values**: Set numeric thresholds for each color. Works if the **X** section contains a single value.
+{% include [datalens-chart-null-settings](../../../_includes/datalens/datalens-chart-null-settings.md) %}

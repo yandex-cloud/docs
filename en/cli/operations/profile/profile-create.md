@@ -1,5 +1,6 @@
 # Creating a profile
 
+
 There are two ways to create a profile:
 - [Creating an empty profile and adding parameters manually](#create).
 
@@ -12,17 +13,17 @@ There are two ways to create a profile:
 
 Create a profile with the `test` name:
 1. Run the command:
-   
+
    ```
    yc config profile create test
    ```
-   
+
    Result:
-   
+
    ```
    Profile 'test' created and activated
    ```
-   
+
 
 1. Add the necessary profile parameters, such as a folder:
 

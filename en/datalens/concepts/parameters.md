@@ -13,7 +13,7 @@ You can edit parameter values on dashboards using selectors with manual input. H
 
 * Use the **Multiple choice** option.
 * Choose an operation in a selector (leave a dash in the selection field from the **Operation** drop-down list).
-* When using a parameter selector from a dataset, you must unlink that selector from the other selectors on the dashboard tab (set the **Ignore** [link](dashboard.md#link) type).
+* When using a selector based on a dataset parameter, you must unlink the selector from any others on the dashboard tab (set **Ignore** as your [link](dashboard.md#link) type).
 
 You can also specify parameter values in chart links. To do this, add `?` at the end of a URL, write a parameter name with no space after the URL, put `=`, and specify a parameter value with no space. You can list multiple parameters in a URL using `&` as a separator. Sample link: `https://datalens.yandex-team.ru/wizard/5fw75yaukoamx-parametrizirovannyy-pokazatel?measure_control=profit&scale=year`, where `measure_control` and `scale` are parameter names and `profit` and `year` are parameter values.
 
