@@ -11,3 +11,7 @@ To create an stacked area chart:
    {% include [chart-signature-note](../../../_includes/datalens/operations/datalens-chart-signature-note.md) %}
 
 Learn more about the chart sections in [{#T}](../../concepts/chart/types.md#area-chart) and [{#T}](../../concepts/chart/types.md#normalized-area-chart).
+
+## Configuring the display of `null` values {#null-settings}
+
+{% include [datalens-chart-null-settings](../../../_includes/datalens/datalens-chart-null-settings.md) %}

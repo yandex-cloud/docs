@@ -138,6 +138,8 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 
 {% include [rename-column](../../_includes/datalens/qa/rename-column.md) %}
 
+{% include [null-setting-in-charts](../../_includes/datalens/qa/null-setting-in-charts.md) %}
+
 ## Calculated fields {#calculation-fields}
 
 {% include [calculate-cumulative-sum](../../_includes/datalens/qa/calculating-cumulative-sum.md) %}

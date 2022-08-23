@@ -181,6 +181,8 @@ items:
             href: operations/chart/add-guid.md
           - name: Adding parameters to a chart
             href: operations/chart/add-parameter-chart.md
+          - name: Configuring the display of null values
+            href: operations/chart/chart-null-settings.md
       - name: Working with dashboards
         items:
           - name: Creating dashboards
