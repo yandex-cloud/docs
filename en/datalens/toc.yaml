@@ -53,6 +53,8 @@ items:
             href: concepts/chart/types.md
           - name: Chart settings
             href: concepts/chart/settings.md
+          - name: Measure Values and Measure Names
+            href: concepts/chart/measure-values.md
       - name: Dashboards
         href: concepts/dashboard.md
       - name: Combining data
