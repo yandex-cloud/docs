@@ -42,60 +42,40 @@ You cannot upload objects greater than 5 GB in size via the management console (
 
 - {{ TF }}
 
-   Example of creating an object in an existing bucket.
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    If you do not have {{ TF }} yet, {% if audience != "internal" %}[install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}install it and configure the {{ yandex-cloud }} provider{% endif %}.
 
    Before you start, retrieve the {% if audience != "internal" %}[static access keys](../../../iam/operations/sa/create-access-key.md){% else %}static access keys{% endif %}: a secret key and a key ID used for authentication in {{ objstorage-short-name }}.
 
+   To create an object in an existing bucket:
+
    1. In the configuration file, describe the parameters of resources that you want to create:
 
-      {% if product == "yandex-cloud" %}
-
       ```hcl
-      provider "yandex" {
-        token     = "<OAuth>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "{{ region-id }}-a"
-      }
-
       resource "yandex_storage_object" "test-object" {
-        access_key = "<static key ID>" # Static access key ID.
-        secret_key = "<secret key>" # Secret access key value.
-        bucket = "<bucket name>" # Name of the bucket to add an object to. Required parameter.
-        key    = "<object name>" # Name of object in bucket. Required parameter.
-        source = "<file path>" # Relative or absolute path to a file uploaded as an object.
+        access_key = "<static_key_ID>"
+        secret_key = "<secret_key>"
+        bucket     = "<bucket_name>"
+        key        = "<object_name>"
+        source     = "<file_path>"
       }
       ```
 
-      {% endif %}
+      Where:
+      * `access_key`: The ID of the static access key.
+      * `secret_key`: The value of the secret access key.
+      * `bucket`: Name of the bucket to add the object to. Required parameter.
+      * `key`: Name of the object in the bucket. Required parameter. Name format:
 
-      {% if product == "cloud-il" %}
+         {% include [name-format](../../../_includes/name-format.md) %}
 
-      ```hcl
-      provider "yandex" {
-        endpoint  = "{{ api-host }}:443"
-        token     = "<static key of the service account>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "{{ region-id }}-a"
-      }
+      * `source`: Relative or absolute path to the file to be uploaded from your device.
 
-      resource "yandex_storage_object" "test-object" {
-        access_key = "<static key ID>" # Static access key ID.
-        secret_key = "<secret key>" # Secret access key value.
-        bucket = "<bucket name>" # Name of the bucket to add an object to. Required parameter.
-        key    = "<object name>" # Name of object in bucket. Required parameter.
-        source = "<file path>" # Relative or absolute path to a file uploaded as an object.
-      }
-      ```
-
-      {% endif %}
-
-      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_object).
 
    1. Make sure that the configuration files are correct.
+
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
 
@@ -103,17 +83,18 @@ You cannot upload objects greater than 5 GB in size via the management console (
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
+
       1. If the configuration doesn't contain any errors, run the command:
 
          ```bash
          terraform apply
          ```
 
-      1. Confirm that you want to create the resources.
+      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+         Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
 
 {% endlist %}
