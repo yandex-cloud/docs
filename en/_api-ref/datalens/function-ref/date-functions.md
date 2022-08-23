@@ -91,6 +91,14 @@ If the additional parameter `firstday` is specified, this day is considered the 
 
 
 
+## [GENERICNOW](GENERICNOW.md)
+
+**Syntax:**`GENERICNOW()`
+
+Returns the current date and time, depending on the data source and connection type.
+
+
+
 ## [HOUR](HOUR.md)
 
 **Syntax:**`HOUR( datetime )`
@@ -120,6 +128,14 @@ Returns the number of the month in the year of the specified date `datetime`.
 **Syntax:**`NOW()`
 
 Returns the current date and time, depending on the data source and connection type.
+
+
+
+## [OLDNOW](OLDNOW.md)
+
+**Syntax:**`OLDNOW()`
+
+Returns the current date and time (in deprecated format), depending on the data source and connection type.
 
 
 

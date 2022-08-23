@@ -17,9 +17,9 @@ CONCAT( arg_1, arg_2, arg_3 [ , ... ] )
 Merges any number of strings. When non-string types are used, they're converted to strings and then merged.
 
 **Argument types:**
-- `arg_1` — `Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
-- `arg_2` — `Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
-- `arg_3` — `Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
+- `arg_1` — `Boolean | Date | Datetime | Datetime (deprecated) | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
+- `arg_2` — `Boolean | Date | Datetime | Datetime (deprecated) | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
+- `arg_3` — `Boolean | Date | Datetime | Datetime (deprecated) | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
 
 
 **Return type**: `String`

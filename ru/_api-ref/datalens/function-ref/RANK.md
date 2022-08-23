@@ -39,7 +39,7 @@ editable: false
 См. также [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md), [RANK_PERCENTILE](RANK_PERCENTILE.md).
 
 **Типы аргументов:**
-- `value` — `Логический | Дата | Дата и время | Дробное число | Целое число | Строка | UUID`
+- `value` — `Логический | Дата | Дата и время | Дата и время (устаревший) | Дробное число | Целое число | Строка | UUID`
 - `direction` — `Строка`
 
 

@@ -41,7 +41,7 @@ If `value`:
 
 
 **Argument types:**
-- `value` — `Boolean | Date | Datetime | Fractional number | Integer | String | UUID`
+- `value` — `Boolean | Date | Datetime | Datetime (deprecated) | Fractional number | Integer | String | UUID`
 
 
 **Return type**: Same type as (`value`)

@@ -39,8 +39,8 @@ See also [AGO](AGO.md), [LAG](LAG.md).
 
 **Argument types:**
 - `measure` — `Any`
-- `date_dimension` — `Date | Datetime`
-- `date_expr` — `Date | Datetime`
+- `date_dimension` — `Date | Datetime | Datetime (deprecated)`
+- `date_expr` — `Date | Datetime | Datetime (deprecated)`
 
 
 **Return type**: Same type as (`measure`)

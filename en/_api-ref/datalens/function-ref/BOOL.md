@@ -16,15 +16,15 @@ BOOL( expression )
 #### Description {#description}
 Converts the `expression` expression to Boolean type according to the following rules:
 
-| Type                                          | `FALSE`             | `TRUE`     |
-|:----------------------------------------------|:--------------------|:-----------|
-| <code>Fractional number &#124; Integer</code> | `0`, `0.0`          | All others |
-| `String`                                      | Empty string (`""`) | All others |
-| `Boolean`                                     | `FALSE`             | `TRUE`     |
-| <code>Date &#124; Datetime</code>             | -                   | `TRUE`     |
+| Type                                                           | `FALSE`             | `TRUE`     |
+|:---------------------------------------------------------------|:--------------------|:-----------|
+| <code>Fractional number &#124; Integer</code>                  | `0`, `0.0`          | All others |
+| `String`                                                       | Empty string (`""`) | All others |
+| `Boolean`                                                      | `FALSE`             | `TRUE`     |
+| <code>Date &#124; Datetime &#124; Datetime (deprecated)</code> | -                   | `TRUE`     |
 
 **Argument types:**
-- `expression` — `Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String`
+- `expression` — `Boolean | Date | Datetime | Datetime (deprecated) | Fractional number | Geopoint | Geopolygon | Integer | String`
 
 
 **Return type**: `Boolean`

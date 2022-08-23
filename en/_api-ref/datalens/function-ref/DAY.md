@@ -17,7 +17,7 @@ DAY( datetime )
 Returns the number of the day in the month of the specified date `datetime`.
 
 **Argument types:**
-- `datetime` — `Date | Datetime`
+- `datetime` — `Date | Datetime | Datetime (deprecated)`
 
 
 **Return type**: `Integer`

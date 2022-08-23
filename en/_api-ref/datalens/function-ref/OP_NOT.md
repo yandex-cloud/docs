@@ -17,7 +17,7 @@ NOT value
 Inverts a Boolean value.
 
 **Argument types:**
-- `value` — `Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String`
+- `value` — `Boolean | Date | Datetime | Datetime (deprecated) | Fractional number | Geopoint | Geopolygon | Integer | String`
 
 
 **Return type**: `Boolean`

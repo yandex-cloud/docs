@@ -26,7 +26,7 @@ The `unit` argument takes the following values:
 - `"second"`.
 
 **Argument types:**
-- `datetime` — `Date | Datetime`
+- `datetime` — `Date | Datetime | Datetime (deprecated)`
 - `unit` — `Integer | String`
 - `number` — `Integer`
 

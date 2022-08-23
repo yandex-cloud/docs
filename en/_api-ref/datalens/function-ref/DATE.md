@@ -30,7 +30,7 @@ The date must be in the format `YYYY-MM-DD`.
 If `expression` is a number, then the `timezone` option can be used to convert the date to the specified time zone.
 
 **Argument types:**
-- `expression` — `Date | Datetime | Fractional number | Integer | String`
+- `expression` — `Date | Datetime | Datetime (deprecated) | Fractional number | Integer | String`
 - `timezone` — `String`
 
 

@@ -20,11 +20,11 @@ The date must be in the format `YYYY-MM-DDThh:mm:ss` or `YYYY-MM-DD hh:mm:ss`.
 If `expression` is a number, then the date and time can be converted to the specified time zone when the `timezone` option is available.
 
 **Argument types:**
-- `expression` — `Date | Datetime | Fractional number | Integer | String`
+- `expression` — `Date | Datetime | Datetime (deprecated) | Fractional number | Integer | String`
 - `timezone` — `String`
 
 
-**Return type**: `Datetime`
+**Return type**: `Datetime (deprecated)`
 
 {% note info %}
 

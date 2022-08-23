@@ -16,7 +16,7 @@ NOW()
 #### Description {#description}
 Returns the current date and time, depending on the data source and connection type.
 
-**Return type**: `Datetime`
+**Return type**: `Datetime (deprecated)`
 
 {% note info %}
 
