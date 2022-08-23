@@ -559,6 +559,8 @@ items:
             href: function-ref/DAY.md
           - name: DAYOFWEEK
             href: function-ref/DAYOFWEEK.md
+          - name: GENERICNOW
+            href: function-ref/GENERICNOW.md
           - name: HOUR
             href: function-ref/HOUR.md
           - name: MINUTE
@@ -567,6 +569,8 @@ items:
             href: function-ref/MONTH.md
           - name: NOW
             href: function-ref/NOW.md
+          - name: OLDNOW
+            href: function-ref/OLDNOW.md
           - name: QUARTER
             href: function-ref/QUARTER.md
           - name: SECOND
@@ -641,12 +645,20 @@ items:
             href: function-ref/DB_CAST.md
           - name: FLOAT
             href: function-ref/FLOAT.md
+          - name: GENERICDATETIME
+            href: function-ref/GENERICDATETIME.md
+          - name: GENERICDATETIME_PARSE
+            href: function-ref/GENERICDATETIME_PARSE.md
           - name: GEOPOINT
             href: function-ref/GEOPOINT.md
           - name: GEOPOLYGON
             href: function-ref/GEOPOLYGON.md
           - name: INT
             href: function-ref/INT.md
+          - name: OLDDATETIME
+            href: function-ref/OLDDATETIME.md
+          - name: OLDDATETIME_PARSE
+            href: function-ref/OLDDATETIME_PARSE.md
           - name: STR
             href: function-ref/STR.md
       - name: Функции разметки

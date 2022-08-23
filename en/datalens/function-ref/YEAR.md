@@ -18,7 +18,7 @@ YEAR( datetime )
 Returns the year number in the specified date `datetime`.
 
 **Argument types:**
-- `datetime` — `Date | Datetime`
+- `datetime` — `Date | Datetime | Datetime (deprecated)`
 
 
 **Return type**: `Integer`

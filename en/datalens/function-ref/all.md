@@ -34,7 +34,7 @@ Behaves differently depending on the argument types. Possible options are listed
 |:------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <code>Fractional number &#124; Integer</code>                                             | <code>Fractional number &#124; Integer</code>                                             | The sum of the numbers `value_1` and `value_2`.                                                                                                                                  |
 | `Date`                                                                                    | <code>Fractional number &#124; Integer</code>                                             | The date that is `value_2` days greater than `value_1` (rounded down to an integer number of days).                                                                              |
-| `Datetime`                                                                                | <code>Fractional number &#124; Integer</code>                                             | The date with time, `value_2` days greater than `value_1`. If `value_2` contains a fractional part, it is converted hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`). |
+| <code>Datetime &#124; Datetime (deprecated)</code>                                        | <code>Fractional number &#124; Integer</code>                                             | The date with time, `value_2` days greater than `value_1`. If `value_2` contains a fractional part, it is converted hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`). |
 | `String`                                                                                  | `String`                                                                                  | The merging (concatenation) of strings `value_1` and `value_2`.                                                                                                                  |
 | <code>Array of fractional numbers &#124; Array of integers &#124; Array of strings</code> | <code>Array of fractional numbers &#124; Array of integers &#124; Array of strings</code> | The merging (concatenation) of arrays `value_1` and `value_2`.                                                                                                                   |
 
@@ -48,13 +48,14 @@ Changing the order of arguments does not affect the result.
 
 Behaves differently depending on the argument types. Possible options are listed in the table:
 
-| Type of `value_1`                             | Type of `value_2`                             | Return value                                                                                                                                                                                                       |
-|:----------------------------------------------|:----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <code>Fractional number &#124; Integer</code> | <code>Fractional number &#124; Integer</code> | The difference between the numbers `value_1` and `value_2`.                                                                                                                                                        |
-| `Date`                                        | <code>Fractional number &#124; Integer</code> | The date that is `value_2` days smaller than `value_1` (rounded down to an integer number of days).                                                                                                                |
-| `Datetime`                                    | <code>Fractional number &#124; Integer</code> | The date with time, `value_2` days smaller than `value_1`. If `value_2` contains a fractional part, it is converted to hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`).                                |
-| `Date`                                        | `Date`                                        | The difference between two dates in days.                                                                                                                                                                          |
-| `Datetime`                                    | `Datetime`                                    | The difference between two dates in days: the integer part — the number of whole days, the fractional part — the number of hours, minutes and seconds expressed as a fraction of the whole day (1 hour is '1/24'). |
+| Type of `value_1`                                  | Type of `value_2`                             | Return value                                                                                                                                                                                                       |
+|:---------------------------------------------------|:----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>Fractional number &#124; Integer</code>      | <code>Fractional number &#124; Integer</code> | The difference between the numbers `value_1` and `value_2`.                                                                                                                                                        |
+| `Date`                                             | <code>Fractional number &#124; Integer</code> | The date that is `value_2` days smaller than `value_1` (rounded down to an integer number of days).                                                                                                                |
+| <code>Datetime &#124; Datetime (deprecated)</code> | <code>Fractional number &#124; Integer</code> | The date with time, `value_2` days smaller than `value_1`. If `value_2` contains a fractional part, it is converted to hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`).                                |
+| `Date`                                             | `Date`                                        | The difference between two dates in days.                                                                                                                                                                          |
+| `Datetime (deprecated)`                            | `Datetime (deprecated)`                       | The difference between two dates in days: the integer part — the number of whole days, the fractional part — the number of hours, minutes and seconds expressed as a fraction of the whole day (1 hour is '1/24'). |
+| `Datetime`                                         | `Datetime`                                    | The difference between two dates in days: the integer part — the number of whole days, the fractional part — the number of hours, minutes and seconds expressed as a fraction of the whole day (1 hour is '1/24'). |
 
 
 
@@ -324,7 +325,7 @@ Returns the arctangent in radians for the specified coordinates `x` and `y`.
      [ BEFORE FILTER BY ... ]
    )`
 
-Returns the average of all values. Applicable to numeric data types as well as `Date | Datetime`.
+Returns the average of all values. Applicable to numeric data types as well as `Date | Datetime (deprecated)`.
 
 
 
@@ -389,12 +390,12 @@ Stylizes the passed text in bold font.
 
 Converts the `expression` expression to Boolean type according to the following rules:
 
-| Type                                          | `FALSE`             | `TRUE`     |
-|:----------------------------------------------|:--------------------|:-----------|
-| <code>Fractional number &#124; Integer</code> | `0`, `0.0`          | All others |
-| `String`                                      | Empty string (`""`) | All others |
-| `Boolean`                                     | `FALSE`             | `TRUE`     |
-| <code>Date &#124; Datetime</code>             | -                   | `TRUE`     |
+| Type                                                           | `FALSE`             | `TRUE`     |
+|:---------------------------------------------------------------|:--------------------|:-----------|
+| <code>Fractional number &#124; Integer</code>                  | `0`, `0.0`          | All others |
+| `String`                                                       | Empty string (`""`) | All others |
+| `Boolean`                                                      | `FALSE`             | `TRUE`     |
+| <code>Date &#124; Datetime &#124; Datetime (deprecated)</code> | -                   | `TRUE`     |
 
 
 
@@ -812,12 +813,12 @@ Returns the value of `value` from the first row in the window. See also [LAST](L
 
 Converts the `expression` expression to fractional number format according to the following rules:
 
-| Type                                          | Value                                                                                                                                                                                                             |
-|:----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <code>Fractional number &#124; Integer</code> | Original value.                                                                                                                                                                                                   |
-| <code>Date &#124; Datetime</code>             | [Unix time](https://en.wikipedia.org/wiki/Unix_time) corresponding to the date and time. If the value contains time zone data, it's used in the calculation. If the time zone is unknown, the time is set in UTC. |
-| `String`                                      | A number from a decimal string.                                                                                                                                                                                   |
-| `Boolean`                                     | `TRUE` — `1.0`, `FALSE` — `0.0`.                                                                                                                                                                                  |
+| Type                                                           | Value                                                                                                                                                                                                             |
+|:---------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>Fractional number &#124; Integer</code>                  | Original value.                                                                                                                                                                                                   |
+| <code>Date &#124; Datetime &#124; Datetime (deprecated)</code> | [Unix time](https://en.wikipedia.org/wiki/Unix_time) corresponding to the date and time. If the value contains time zone data, it's used in the calculation. If the time zone is unknown, the time is set in UTC. |
+| `String`                                                       | A number from a decimal string.                                                                                                                                                                                   |
+| `Boolean`                                                      | `TRUE` — `1.0`, `FALSE` — `0.0`.                                                                                                                                                                                  |
 
 
 
@@ -826,6 +827,33 @@ Converts the `expression` expression to fractional number format according to th
 **Syntax:**`FLOOR( number )`
 
 Rounds the value down to the nearest integer.
+
+
+
+## [GENERICDATETIME](GENERICDATETIME.md)
+
+**Syntax:**`GENERICDATETIME( expression [ , timezone ] )`
+
+Converts the `expression` expression to date and time format. When converting `Date` to `DateTime`, the time is set to '00:00:00'.
+The date must be in the format `YYYY-MM-DDThh:mm:ss` or `YYYY-MM-DD hh:mm:ss`.
+
+The date and time can be converted to the specified time zone when the `timezone` option is available.
+
+
+
+## [GENERICDATETIME_PARSE](GENERICDATETIME_PARSE.md)
+
+**Syntax:**`GENERICDATETIME_PARSE( value )`
+
+Converts the `value` expression to date and time format. Unlike [GENERICDATETIME](GENERICDATETIME.md), it supports multiple formats.
+
+
+
+## [GENERICNOW](GENERICNOW.md)
+
+**Syntax:**`GENERICNOW()`
+
+Returns the current date and time, depending on the data source and connection type.
 
 
 
@@ -946,13 +974,13 @@ The option `item NOT IN (<`list`>)` returns the opposite value.
 
 Converts the `expression` expression to integer format according to the following rules:
 
-| Type                              | Value                                                                                                                                                                                                             |
-|:----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Integer`                         | Original value.                                                                                                                                                                                                   |
-| `Fractional number`               | Integer part of the number (rounded down).                                                                                                                                                                        |
-| <code>Date &#124; Datetime</code> | [Unix time](https://en.wikipedia.org/wiki/Unix_time) corresponding to the date and time. If the value contains time zone data, it's used in the calculation. If the time zone is unknown, the time is set in UTC. |
-| `String`                          | A number from a decimal string.                                                                                                                                                                                   |
-| `Boolean`                         | `TRUE` — `1`, `FALSE` — `0`.                                                                                                                                                                                      |
+| Type                                                           | Value                                                                                                                                                                                                             |
+|:---------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Integer`                                                      | Original value.                                                                                                                                                                                                   |
+| `Fractional number`                                            | Integer part of the number (rounded down).                                                                                                                                                                        |
+| <code>Date &#124; Datetime &#124; Datetime (deprecated)</code> | [Unix time](https://en.wikipedia.org/wiki/Unix_time) corresponding to the date and time. If the value contains time zone data, it's used in the calculation. If the time zone is unknown, the time is set in UTC. |
+| `String`                                                       | A number from a decimal string.                                                                                                                                                                                   |
+| `Boolean`                                                      | `TRUE` — `1`, `FALSE` — `0`.                                                                                                                                                                                      |
 
 
 
@@ -1360,6 +1388,33 @@ Inverts a Boolean value.
 **Syntax:**`NOW()`
 
 Returns the current date and time, depending on the data source and connection type.
+
+
+
+## [OLDDATETIME](OLDDATETIME.md)
+
+**Syntax:**`OLDDATETIME( expression [ , timezone ] )`
+
+Converts the `expression` expression to deprecated date and time format. When converting `Date` to `DateTime`, the time is set to '00:00:00'.
+The date must be in the format `YYYY-MM-DDThh:mm:ss` or `YYYY-MM-DD hh:mm:ss`.
+
+If `expression` is a number, then the date and time can be converted to the specified time zone when the `timezone` option is available.
+
+
+
+## [OLDDATETIME_PARSE](OLDDATETIME_PARSE.md)
+
+**Syntax:**`OLDDATETIME_PARSE( value )`
+
+Converts the `value` expression to deprecated date and time format. Unlike [OLDDATETIME](OLDDATETIME.md), it supports multiple formats.
+
+
+
+## [OLDNOW](OLDNOW.md)
+
+**Syntax:**`OLDNOW()`
+
+Returns the current date and time (in deprecated format), depending on the data source and connection type.
 
 
 

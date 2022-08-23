@@ -26,7 +26,7 @@ The following charts open on the page:
 ### Data upload lag (histogram by seconds) {sinker.pusher.time.row_lag_sec}
 `sinker.pusher.time.row_lag_sec`
 
-The time difference between when the records appear on the target and when they appear on the source (in seconds). The histogram is broken down into `bins`. Let us assume, the histogram is showing two `bins` for 45 and 60 at a given point in time, with each containing a value equal to 50%. This means that half the records being transferred at the time had a delay of between 30 and 45 seconds, and the other half of between 45 and 60 seconds.
+The time difference between when the records appear on the target and when they appear on the source (in seconds). The histogram is divided into `bins`. Let us assume, the histogram is showing two `bins` for 45 and 60 at a given point in time, with each containing a value equal to 50%. This means that half the records being transferred at the time had a delay of between 30 and 45 seconds, and the other half of between 45 and 60 seconds.
 
 ### Successfully pushed rows {sinker.pusher.data.row_events_pushed}
 `sinker.pusher.data.row_events_pushed`
@@ -48,7 +48,7 @@ Maximum data lag (in seconds).
 
 The size, in bytes, of the buffer or write ahead log (when supported) in the source.
 
-### Read bytes from source (top-50 workers) {`publisher.data.bytes`}
+### Read bytes from source (top-50 workers) {publisher.data.bytes}
 `publisher.data.bytes`
 
 The amount of data read from the source (in bytes).

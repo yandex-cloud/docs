@@ -48,7 +48,7 @@
 
 Объем буфера или журнала опережающей записи (там, где он поддерживается) в источнике (в байтах).
 
-### Read bytes from source (top-50 workers) {`publisher.data.bytes`}
+### Read bytes from source (top-50 workers) {publisher.data.bytes}
 `publisher.data.bytes`
 
 Объем считанных из источника данных (в байтах).

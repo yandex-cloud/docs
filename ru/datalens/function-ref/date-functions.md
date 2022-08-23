@@ -94,6 +94,14 @@ sourcePath: ru/_api-ref/datalens/function-ref/date-functions.md
 
 
 
+## [GENERICNOW](GENERICNOW.md)
+
+**Синтаксис:**`GENERICNOW()`
+
+Возвращает текущую дату и время в зависимости от источника данных и типа соединения.
+
+
+
 ## [HOUR](HOUR.md)
 
 **Синтаксис:**`HOUR( datetime )`
@@ -123,6 +131,14 @@ sourcePath: ru/_api-ref/datalens/function-ref/date-functions.md
 **Синтаксис:**`NOW()`
 
 Возвращает текущую дату и время в зависимости от источника данных и типа соединения.
+
+
+
+## [OLDNOW](OLDNOW.md)
+
+**Синтаксис:**`OLDNOW()`
+
+Возвращает текущую дату и время (в устаревшем формате) в зависимости от источника данных и типа соединения.
 
 
 
