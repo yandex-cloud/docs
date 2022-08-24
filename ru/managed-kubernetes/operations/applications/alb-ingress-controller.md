@@ -63,8 +63,8 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   cat sa-key.json | helm registry login cr.yandex --username 'json_key' --password-stdin && \
-   helm pull oci://cr.yandex/yc/yc-alb-ingress-controller-chart \
+   cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
+   helm pull oci://{{ registry }}/yc/yc-alb-ingress-controller-chart \
      --version=v{{ alb-ingress-version }} \
      --untar && \
    helm install \

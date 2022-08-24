@@ -347,13 +347,13 @@ yc container registry configure-docker
    1. Соберите Docker-образ:
 
       ```bash
-      docker build . -f hello.dockerfile -t cr.yandex/$REGISTRY_ID/nginx:hello
+      docker build . -f hello.dockerfile -t {{ registry }}/$REGISTRY_ID/nginx:hello
       ```
 
    1. Загрузите Docker-образ в реестр:
 
       ```bash
-      docker push cr.yandex/$REGISTRY_ID/nginx:hello
+      docker push {{ registry }}/$REGISTRY_ID/nginx:hello
       ```
 
 1. Проверьте, что Docker-образ загрузился в реестр:
@@ -378,7 +378,7 @@ yc container registry configure-docker
 1. Запустите под с приложением из Docker-образа:
 
    ```bash
-   kubectl run --attach hello-nginx --image cr.yandex/$REGISTRY_ID/nginx:hello
+   kubectl run --attach hello-nginx --image {{ registry }}/$REGISTRY_ID/nginx:hello
    ```
 
 1. Убедитесь, что под перешел в состояние `Running`, и узнайте его полное имя:

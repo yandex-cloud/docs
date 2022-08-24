@@ -34,8 +34,8 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   cat sa-key.json | helm registry login cr.yandex --username 'json_key' --password-stdin && \
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit-cloud-logging \
+   cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit-cloud-logging \
      --version 1.0-3 \
      --untar && \
    helm install \
