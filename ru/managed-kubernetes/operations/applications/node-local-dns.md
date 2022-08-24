@@ -38,7 +38,7 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 &&\
-   helm pull oci://cr.yandex/yc-marketplace/yandex/dns/node-local-dns --version 1.3 --untar && \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex/dns/node-local-dns --version 1.3 --untar && \
    KUBE_DNS_IP="$(kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP})" && \
    helm install node-local-dns node-local-dns/. \
      --set config.cilium=false \

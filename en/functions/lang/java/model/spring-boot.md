@@ -1,17 +1,18 @@
-# Using the SpringBootApplication annotation to set a handler in Java
+# Using SpringBootApplication annotation to set a handler in Java
 
-You can set a Java handler by loading the `Spring Boot` application with a class entry point marked with the [SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html) annotation.
+You can set a Java handler by loading a `Spring Boot` application with an entry point as a class with [SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html) annotation.
 
-When being executed, the {{ sf-name }} function has no data about the path that was used to invoke it. In other words, if there is an endpoint like `/api/v1/list` in your `Spring Boot` application, you can't invoke the function at `https://functions.yandexcloud.net/function-id/api/v1/list`. Instead, either pass the path data in the request body (the `url` parameter), or use integration with the [API Gateway](../../../../api-gateway/quickstart/index.md). We recommend the second method, because the `API Gateway` is most easy to use with the `Spring Boot` application and it allows you to access application endpoints the usual way.
+When being executed, the {{ sf-name }} function has no data about the path that was used to invoke it. In other words, if there is an `/api/v1/list` endpoint in your `Spring Boot` application, you will not be able to use `https://functions.yandexcloud.net/function-id/api/v1/list` to call your function. Instead, you will either have to pass path data in the body of the call (`url` parameter) or use [API Gateway](../../../../api-gateway/quickstart/index.md) integration. We recommend utilizing the second method because the `API Gateway` is easiest to use with a `Spring Boot` application and enables you to access application endpoints as usual.
 
-If your application's logic uses the [HttpServletRequest](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) and [HttpServletResponse](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html) classes, please note that some methods of these classes aren't supported in {{ sf-name }}. See the list of unsupported methods [here](servlet-api.md#unsupported).
+In the event that your application logic uses the [HttpServletRequest](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) and [HttpServletResponse](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html) classes, please note that {{ sf-name }} does not support some of these classes' methods. You can review a list of unsupported methods [here](servlet-api.md#unsupported).
+
+{{ sf-name }} does not support Spring Boot Loader.
 
 ## Example of a simple application with an endpoint
 
-The following application has a single endpoint: `GET: /get/{name}`. In response to a `GET` request at `/get` with the specified path parameter, the function returns `Hello, $name`, where `$name` is the passed path parameter.
+The following application has a single endpoint: `GET: /get/{name}`. In response to a `GET` request at `/get` with the specified path parameter, the function returns `Hello, $name`, where `$name` is the parameter passed in path.
 
 The `Application.java` file:
-
 ```java
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,7 +26,6 @@ public class Application {
 ```
 
 The `TestController.java` file:
-
 ```java
 import org.springframework.web.bind.annotation.*;
 
@@ -38,8 +38,7 @@ public class TestController {
 }
 ```
 
-Integration with the `API Gateway`:
-
+`API Gateway` integration:
 ```api
 openapi: 3.0.0
 info:
@@ -63,15 +62,13 @@ paths:
         style: simple
 ```
 
-Sample request:
+Example query:
 
 ```
 https://your-apigw-id.apigw.yandexcloud.net/get/Anonymous
 ```
 
 Returned string:
-
 ```
 Hello, Anonymous
 ```
-
