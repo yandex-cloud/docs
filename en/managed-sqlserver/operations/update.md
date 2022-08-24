@@ -6,7 +6,6 @@ After creating a cluster, you can:
 * [{#T}](#change-disk-size) (available only for HDD network or SSD network [storage](../concepts/storage.md)).
 * [Update {{ MS }} settings](#change-sqlserver-config) according to the {{ MS }} documentation.
 * [{#T}](#change-additional-settings).
-* [Move a cluster](#move-cluster) to another folder.
 * [Change cluster security groups](#change-sg-set).
 * [{#T}](#service-account).
 

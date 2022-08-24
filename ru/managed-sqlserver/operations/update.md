@@ -6,7 +6,6 @@
 * [{#T}](#change-disk-size) (доступно только для [хранилищ](../concepts/storage.md) на сетевых HDD-дисках и сетевых SSD-дисках).
 * [Изменить настройки](#change-sqlserver-config) {{ MS }} согласно документации {{ MS }}.
 * [{#T}](#change-additional-settings).
-* [Переместить кластер](#move-cluster) в другой каталог.
 * [Изменить группы безопасности кластера](#change-sg-set).
 * [{#T}](#service-account).
 
