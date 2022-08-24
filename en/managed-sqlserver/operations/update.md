@@ -6,7 +6,9 @@ After creating a cluster, you can:
 * [{#T}](#change-disk-size){% if audience != "internal" %} (available only for HDD network or SSD network [storage](../concepts/storage.md)){% endif %}.
 * [Update {{ MS }} settings](#change-sqlserver-config) according to the {{ MS }} documentation.
 * [{#T}](#change-additional-settings).
+{% if audience == "draft" %}
 * [Move a cluster](#move-cluster) to another folder.
+{% endif %}
 * [Change cluster security groups](#change-sg-set).
 {% if audience != "internal" %}
 * [{#T}](#service-account).

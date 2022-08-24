@@ -6,7 +6,9 @@
 * [{#T}](#change-disk-size){% if audience != "internal" %} (доступно только для [хранилищ](../concepts/storage.md) на сетевых HDD-дисках и сетевых SSD-дисках){% endif %}.
 * [Изменить настройки](#change-sqlserver-config) {{ MS }} согласно документации {{ MS }}.
 * [{#T}](#change-additional-settings).
+{% if audience == "draft" %}
 * [Переместить кластер](#move-cluster) в другой каталог.
+{% endif %}
 * [Изменить группы безопасности кластера](#change-sg-set).
 {% if audience != "internal" %}
 * [{#T}](#service-account).
