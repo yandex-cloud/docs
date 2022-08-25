@@ -44,7 +44,7 @@
 
 #### Для облака без организации {#cloud-outside-org}
 
-Роль необходима для доступа к ресурсам в облаке всем, кроме [владельцев облака](../resource-manager/concepts/resources-hierarchy.md#owner) и [сервисных аккаунтов](../iam/concepts/users/service-accounts.md).
+Роль необходима для доступа к ресурсам в облаке всем, кроме {% if audience == "external" %}[владельцев облака](../resource-manager/concepts/resources-hierarchy.md#owner) и [сервисных аккаунтов](../iam/concepts/users/service-accounts.md){% else %}владельцев облака и сервисных аккаунтов{% endif %}.
 
 Без этой роли у пользователя не будут работать никакие другие роли.
 
