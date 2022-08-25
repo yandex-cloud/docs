@@ -88,12 +88,14 @@ items:
       - name: Performance analysis and tuning
         href: tutorials/profiling.md
       - name: Exporting databases to {{ dataproc-full-name }}
-        when: audience != "internal" and audience == "draft" and product == "yandex-cloud"
+        when: audience != "internal" and product == "yandex-cloud"
         href: tutorials/sqoop.md
       - name: Migrating databases to Managed Service for MySQL
         href: tutorials/data-migration.md
       - name: Migrating databases from {{ mmy-name }} to {{ MY }}
         href: tutorials/mmy-to-mysql-migration.md
+      - name: Delivering data to {{ mkf-full-name }} using Debezium
+        href: tutorials/cdc-debezium.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

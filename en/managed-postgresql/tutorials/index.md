@@ -5,7 +5,8 @@
 * [{#T}](./sqoop.md)
 {% endif %}
 * [{#T}](./profiling.md)
-* [Delivering data using Debezium](./kafka-cdc.md)
+* [{#T}](./cdc-data-transfer.md)
+* [{#T}](./cdc-debezium.md)
 
 ## Replication and migration {#replication-and-migration}
 

@@ -38,7 +38,7 @@ items:
       - name: Удаление кластера
         href: operations/cluster-delete.md
       - name: Мониторинг состояния кластера и хостов
-        href: operations/monitoring.md        
+        href: operations/monitoring.md
   - name: Практические руководства
     items:
       - name: Все руководства
@@ -57,7 +57,7 @@ items:
         href: tutorials/kafka-connectors.md
       - name: Поставка данных из {{ mpg-full-name }} с помощью Debezium
         href: tutorials/cdc/debezium-mpg.md
-      - name: Поставка дданных из {{  mmy-full-name }} с помощью Debezium
+      - name: Поставка дданных из {{ mmy-full-name }} с помощью Debezium
         href: tutorials/cdc/debezium-mmy.md
       - name: >-
           Поставка данных из {{ mpg-full-name }} с помощью

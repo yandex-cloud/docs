@@ -55,11 +55,13 @@ items:
             href: tutorials/confluent-schema-registry.md
       - name: Migrating data to {{ mkf-name }}
         href: tutorials/kafka-connectors.md
-      - name: Delivering data from {{ mkf-name }} using Debezium
-        href: tutorials/kafka-cdc.md
+      - name: Delivering data from {{ mpg-full-name }} using Debezium
+        href: tutorials/cdc/debezium-mpg.md
+      - name: Delivering data from {{ mmy-full-name }} using Debezium
+        href: tutorials/cdc/debezium-mmy.md
       - name: >-
           Delivering data from {{ mkf-name }} using {{ data-transfer-full-name }}
-        href: tutorials/kafka-cdc-data-transfer.md
+        href: tutorials/cdc/data-transfer-mpg.md
       - name: Delivering data to {{ mch-name }}
         href: tutorials/send-data-to-mch.md
       - name: Data delivery in ksqlDB

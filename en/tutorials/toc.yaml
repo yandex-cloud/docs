@@ -6,19 +6,16 @@ items:
     items:
       - name: All tutorials
         href: web/index.md
-      - name: Static website in {{ objstorage-name }}
+      - name: Static site in {{ objstorage-name }}
         href: web/static.md
       - name: Website on LAMP or LEMP stack
         href: web/lamp-lemp.md
       - name: >-
           Fault-tolerant website with load balancing by {{ network-load-balancer-name }}
         href: web/load-balancer-website.md
-      - name: >-
-          Fault-tolerant website with load balancing by {{ alb-name }}
+      - name: Fault-tolerant website with load balancing by {{ alb-name }}
         href: web/application-load-balancer-website.md
-      - name: Fault-tolerant website using DNS load balancing
-        href: web/dns-load-balancer.md
-      - name: Joomla website with {{ PG }}
+      - name: Joomla-based website with {{ PG }}
         href: web/joomla-postgresql.md
       - name: WordPress website
         href: web/wordpress.md
@@ -51,7 +48,7 @@ items:
         href: archive/single-node-file-server.md
       - name: Configuring an SFTP server on Centos 7
         href: archive/backup-and-archive-to-sftp.md
-      - name: Backup to {{ objstorage-name }} via Acronis Backup
+      - name: Backup to {{ objstorage-name }} via Acronis
         href: archive/object-storage-acronis.md
       - name: Backup to {{ objstorage-name }} via CloudBerry Desktop Backup
         href: archive/object-storage-cloudberry.md
@@ -77,7 +74,7 @@ items:
       - name: Emulating multiple IoT devices
         href: testing/iot-emulation.md
         when: product == "yandex-cloud"
-      - name: gRPC service load testing
+      - name: Load testing of the gRPC service
         href: testing/loadtesting-grpc.md
         when: product == "yandex-cloud"
       - name: Using Phantom to run a fixed-load HTTPS test
@@ -126,59 +123,82 @@ items:
     items:
       - name: All tutorials
         href: dataplatform/index.md
-      - name: Syncing {{ MY }} data using {{ data-transfer-full-name }}
-        href: dataplatform/sync-mysql.md
-      - name: Migrating databases from {{ mmy-full-name }} to {{ MY }}
-        href: dataplatform/mmy-to-mysql-migration.md
-      - name: Configuring a managed databased in a {{ CH }} cluster for Graphite
-        href: dataplatform/clickhouse-for-graphite.md
-      - name: Exchanging data between {{ mch-full-name }} and {{ dataproc-full-name }}
-        href: dataplatform/dp-mch-data-exchange.md
-        when: product == "yandex-cloud"
+        # KF
+      - name: >-
+          Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using {{ data-transfer-full-name }}
+        href: dataplatform/data-transfer-mpg.md
+      - name: Delivering data from {{ mmy-full-name }} to {{ mkf-full-name }} using Debezium
+        href: dataplatform/debezium-mmy.md
+      - name: Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using Debezium
+        href: dataplatform/debezium-mpg.md
+      - name: Configuring Kafka Connect for {{ mkf-full-name }} clusters
+        href: dataplatform/kafka-connect.md
       - name: Managing data schemas in {{ mkf-full-name }}
         href: dataplatform/schema-registry-overview.md
       - name: Using {{ mkf-msr }} with {{ mkf-full-name }}
         href: dataplatform/managed-schema-registry.md
       - name: Using Confluent Schema Registry with {{ mkf-full-name }}
         href: dataplatform/confluent-schema-registry.md
-      - name: Migrating databases from {{ mmy-full-name }} to MySQL
-        href: dataplatform/mmy-to-mysql-migration.md
-      - name: Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using Debezium
-        href: dataplatform/kafka-cdc.md
-      - name: >-
-          Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using {{ data-transfer-full-name }}
-        href: dataplatform/kafka-cdc-data-transfer.md
-      - name: Migrating databases to {{ mms-full-name }}
-        href: dataplatform/mssql-data-migration.md
-        when: product == "yandex-cloud"
-      - name: Migrating databases from {{ mms-full-name }} to a third-party {{ MS }} cluster
-        href: dataplatform/mssql-outbound-migration.md
-        when: product == "yandex-cloud"
-      - name: Transferring data from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}
+        # CH
+      - name: Migrating databases from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}
         href: dataplatform/rdbms-to-clickhouse.md
+      - name: Exchanging data between {{ mch-full-name }} and {{ dataproc-full-name }}
+        href: dataplatform/dp-mch-data-exchange.md
+        when: product == "yandex-cloud"
+      - name: Configuring {{ mch-full-name }} for Graphite
+        href: dataplatform/clickhouse-for-graphite.md
+        # dns
       - name: >-
           Configuring {{ dns-full-name }} for accessing managed database clusters from other cloud networks
         href: dataplatform/mdb-dns-peering.md
-      - name: Transferring a database to {{ mrd-full-name }}
-        href: dataplatform/redis-data-migration.md
-        when: product == "yandex-cloud"
-      - name: Migrating to {{ mes-full-name }} using the Reindex API
-        href: dataplatform/migration-via-reindex-api.md
-        when: product == "yandex-cloud"
-      - name: >-
-          Configuring Kafka Connect for {{ mkf-full-name }} clusters
-        href: dataplatform/kafka-connect.md
-      - name: >-
-          Using initialization actions to configure GeeseFS in {{ dataproc-full-name }}
-        href: dataplatform/data-proc-init-actions-geesefs.md
-        when: product == "yandex-cloud"
-      - name: Migrating databases from a third-party {{ MY }} cluster to a {{ mmy-full-name }} cluster
-        href: dataplatform/mysql-data-migration.md
+        # dataproc
       - name: Importing data from {{ mmy-full-name }} to {{ dataproc-full-name }} using Sqoop
         href: dataplatform/sqoop-mmy.md
         when: product == "yandex-cloud"
       - name: Importing data from {{ mpg-full-name }} to {{ dataproc-full-name }} using Sqoop
         href: dataplatform/sqoop-mpg.md
+        when: product == "yandex-cloud"
+      - name: >-
+          Using initialization scripts to configure GeeseFS in {{ dataproc-full-name }}
+        href: dataplatform/data-proc-init-actions-geesefs.md
+        when: product == "yandex-cloud"
+        # ES
+      - name: Migrating data from a third-party {{ ES }} cluster to {{ mes-full-name }} using the Reindex API
+        href: dataplatform/migration-via-reindex-api.md
+        when: product == "yandex-cloud"
+        # MY
+      - name: Migrating databases from a third-party {{ MY }} cluster to a {{ mmy-full-name }} cluster
+        href: dataplatform/mysql-data-migration.md
+      - name: Syncing data from a third-party {{ MY }} cluster to {{ mmy-full-name }} using {{ data-transfer-full-name }}
+        href: dataplatform/sync-mysql.md
+      - name: Migrating databases from {{ mmy-full-name }} to a third-party {{ MY }} cluster
+        href: dataplatform/mmy-to-mysql-migration.md
+      - name: Importing data from {{ mmy-full-name }} to {{ dataproc-full-name }} using Sqoop
+        href: dataplatform/sqoop-mmy.md
+        when: product == "yandex-cloud"
+      - name: Delivering data from {{ mmy-full-name }} to {{ mkf-full-name }} using Debezium
+        href: dataplatform/debezium-mmy.md
+        # PG
+      - name: Migrating databases from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}
+        href: dataplatform/rdbms-to-clickhouse.md
+      - name: >-
+          Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using {{ data-transfer-full-name }}
+        href: dataplatform/data-transfer-mpg.md
+      - name: Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using Debezium
+        href: dataplatform/debezium-mpg.md
+      - name: Importing data from {{ mpg-full-name }} to {{ dataproc-full-name }} using Sqoop
+        href: dataplatform/sqoop-mpg.md
+        when: product == "yandex-cloud"
+        # RD
+      - name: Migrating databases from a third-party {{ RD }} cluster to {{ mrd-full-name }}
+        href: dataplatform/redis-data-migration.md
+        when: product == "yandex-cloud"
+        # MS
+      - name: Migrating databases from a third-party {{ MS }} cluster to {{ mms-full-name }}
+        href: dataplatform/mssql-data-migration.md
+        when: product == "yandex-cloud"
+      - name: Migrating databases from {{ mms-name }} to a third-party {{ MS }} cluster
+        href: dataplatform/mssql-outbound-migration.md
         when: product == "yandex-cloud"
   - name: Windows in {{ yandex-cloud }}
     items:
