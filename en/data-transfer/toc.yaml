@@ -68,7 +68,7 @@ items:
       - name: Migrating databases to {{ mpg-full-name }}
         href: tutorials/managed-postgresql.md
       - name: Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }}
-        href: tutorials/kafka-cdc.md
+        href: tutorials/cdc-mpg.md
       - name: Migrating data from {{ PG }} to {{ CH }}
         href: tutorials/rdbms-to-clickhouse.md
   - name: Concepts

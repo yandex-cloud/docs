@@ -27,8 +27,10 @@
             * [{{ MY }}](source/mysql.md)
             * [Oracle](source/oracle.md)
             * [{{ PG }}](source/postgresql.md)
-            * [{{ yds-full-name }}](source/data-streams.md)
-            
+                        * [{{ yds-full-name }}](source/data-streams.md)
+
+            * [{{ ydb-full-name }}](source/ydb.md)
+
         * Приемники:
             * [{{ KF }}](target/kafka.md)
             * [{{ CH }}](target/clickhouse.md)

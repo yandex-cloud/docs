@@ -1,15 +1,14 @@
 # Using the HttpServlet class to set a Java handler
 
-You can set a Java handler by overriding the selected methods of the [HttpServlet](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html) class.
+You can define a Java handler by overriding the selected methods of the [HttpServlet](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html) class.
 
-{{ sf-name }} will automatically redirect each `HTTP` request to your handler, depending on the `HTTP` method that this request was initiated with.For example, a `GET` request is redirected to your handler's `doGet` method and a `POST` request to the `doPost` method. For a successful redirect, the corresponding handler methods must exist, otherwise the function returns the `HTTP method XXX is not supported by this URL` message with code `405`.
+{{ sf-name }} will automatically redirect each `HTTP` request to your handler depending on the `HTTP` method used to initiate the request. A `GET` request, for instance, will be redirected to your handler's `doGet` method, and a `POST` to `doPost`. For a redirect to be successful, these handler methods must exist, otherwise the function will return `HTTP method XXX is not supported by this URL` with code `405`.
 
 ## Unsupported methods {#unsupported}
 
-When using this model, please note that some methods of the [HttpServletRequest](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) and [HttpServletResponse](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html) classes are not supported by {{ sf-name }}.
+When using this model, please note that certain [HttpServletRequest](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) and [HttpServletResponse](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html) methods are not supported by {{ sf-name }}.
 
 `HttpServletRequest`:
-
 - getAuthType
 - getCookies
 - upgrade
@@ -35,7 +34,6 @@ When using this model, please note that some methods of the [HttpServletRequest]
 - isRequestedSessionIdFromUrl
 
 `HttpServletResponse`:
-
 - encodeURL
 - encodeRedirectURL
 - encodeUrl
@@ -45,12 +43,44 @@ When using this model, please note that some methods of the [HttpServletRequest]
 
 {% note warning %}
 
-Don't use the `integration=raw` parameter to call this function. If you do, the function won't get any data about the original request's methods, headers, and parameters.
+Do not use the `integration=raw` parameter to invoke this function. If you do, the function won't get any data about the original request's methods, headers, or parameters.
 
 {% endnote %}
 
-The `Handler.java` file:
+{{ sf-name }} [supports](../dependencies.md#maven) Maven, which is a dependency management system for `Java`.
 
+To create a function:
+1. Create a file named `Handler.java` in `/src/main/java/Handler.java` and a file named `pom.xml`.
+1. Add the `/src` folder and `pom.xml` to a ZIP archive.
+1. [Upload](../../../operations/function/version-manage.md#func-version-create) the ZIP archive to {{ sf-name }}.
+
+`pom.xml`:
+
+```xml
+<project>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>my.company.app</groupId>
+    <artifactId>servlet</artifactId>
+    <version>1</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+`Handler.java`:
 ```java
 import java.io.IOException;
 
@@ -61,9 +91,9 @@ import javax.servlet.http.HttpServletResponse;
 public class Handler extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    // by setting the Content-Type to text/html, we let the browser render the HTML code
+    // by setting Content-Type to text/html, we let the browser render html code
     response.setContentType("text/html");
-    // displayed in bold when the function is invoked from the browser
+    // will display as a bold string when you invoke the function from a browser
     response.getOutputStream().print("<b>Hello, world. In bold.</b>");
   }
 
@@ -71,7 +101,7 @@ public class Handler extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     var name = request.getParameter("name");
     response.getWriter().println("Hello, " + name);
-    // the printWriter class returned by the getWriter method, make sure it's closed
+    // you have to close printWriter returned by the getWriter method
     response.getWriter().close();
   }
 }
@@ -79,7 +109,7 @@ public class Handler extends HttpServlet {
 
 Sample requests:
 
-The `GET` method:
+`GET` method:
 
 ```html
 <b>Hello, world. In bold.</b>
@@ -87,19 +117,18 @@ The `GET` method:
 
 {% note info %}
 
-When executing a `GET` request, this string is displayed in bold and the tags disappear in the browser, because `Content-Type: text/html` was specified in the handler code.
+Running a `GET` request in a browser will display this string in bold, and the tags will disappear since you specified `Content-Type: text/html` in your handler's code.
 
 {% endnote %}
 
-The `POST` method, the `name=Anonymous` request parameter:
+`POST` method, `name=Anonymous` as your request parameter:
 
 ```
 Hello, Anonymous
 ```
 
-The `PUT` method:
+`PUT` method:
 
 ```
 HTTP method PUT is not supported by this URL
 ```
-
