@@ -34,7 +34,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Prepare the source cluster {#prepare-source}
 
-1. The {{ data-transfer-name }} service can get notifications of data changes from a {{ mpg-name }} cluster and create a publication in the source cluster. The `pg-user` can create a publication after you [assign](../../managed-postgresql/operations/grant.md) them the `mdb_replication` role.
+1. For {{ data-transfer-name }} to get notifications of data changes from a {{ mpg-name }} cluster, create a publication in a source cluster. The `pg-user` user can create a publication after you [assign](../../managed-postgresql/operations/grant.md) them the `mdb_replication` role.
 
 1. [Connect](../../managed-postgresql/operations/connect.md) to the `db1` database on behalf of `pg-user`.
 
@@ -67,19 +67,19 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Prepare the target cluster{#prepare-target}
 
-The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management). The same conventions are used for topic names as in [Debezium](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-topic-names): `<topic prefix>.<schema name>.<table name>`. In this tutorial, the `cdc` prefix is used as an example.
+The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) used. The same conventions are used for topic names as in [Debezium](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-topic-names): `<topic prefix>.<schema name>.<table name>`. In this tutorial, the `cdc` prefix is used as an example.
 
 {% list tabs %}
 
 * Interfaces {{ yandex-cloud }}
 
-   If topics are managed using standard {{ yandex-cloud }} interfaces (management console, YC CLI, Terraform, API):
+   If topics are managed using standard {{ yandex-cloud }} interfaces (management console, YC CLI, {{ TF }}, API):
 
    1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `cdc.public.measurements`.
 
       If you need to track data changes in multiple tables, create a separate topic for each of them.
 
-   1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) called `kafka-user` with the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for the created topics.
+   1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `kafka-user` and `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for the created topics.
 
 * Admin API
 
@@ -87,7 +87,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
    1. Create an [administrator-user](../../managed-kafka/operations/cluster-accounts.md) named `kafka-user`.
 
-   1. In addition to `ACCESS_ROLE_ADMIN`, assign the administrator user the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for the topics whose name begin with the `cdc` prefix.
+   1. In addition to `ACCESS_ROLE_ADMIN`, assign the administrator user the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for the topics which names begin with the `cdc` prefix.
 
       Required topics will be created automatically at the first change event in the tracked tables of a source cluster. This solution can be useful to track changes in multiple tables but requires extra free space in cluster storage. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
 
@@ -121,7 +121,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
          * **Kafka topic settings**: `Full topic name`.
          * **Full topic name**: `cdc.public.measurements`.
 
-         If you want to track changes in multiple tables, complete the fields as follows:
+         If you need to track changes in multiple tables, complete the fields as follows:
 
          * **Kafka topic settings**: `Topic prefix`.
          * **Topic prefix**: Enter the `cdc` prefix you used to generate topic names.
@@ -131,7 +131,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
    * **Endpoints**:
       * **Source**: The previously created endpoint for the source.
       * **Target**: The previously created endpoint for the target.
-   * **Transfer type**:`{{ dt-type-repl }}`.
+   * **Transfer type**: `{{ dt-type-repl }}`.
 
 1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to {{ dt-status-repl }}.
 
@@ -142,20 +142,20 @@ The settings vary depending on the [topic management method](../../managed-kafka
    ```bash
    kafkacat \
        -C \
-       -b <broker host 1 FQDN>:9091,...,<broker host N FQDN >:9091 \
+       -b <FQDN broker-host-1>:9091,...,<FQDN broker-host N>:9091 \
        -t cdc.public.measurements \
        -X security.protocol=SASL_SSL \
        -X sasl.mechanisms=SCRAM-SHA-512 \
        -X sasl.username=kafka-user \
        -X sasl.password=<password> \
-       -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} \
        -Z \
        -K:
    ```
 
    You can obtain the FQDNs of broker hosts with a [list of hosts in the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
 
-   The data format schema of the `public.measurements` table and the information about the previously added rows will be output.
+   The data format schema of the `public.measurements` table and the information about the previously added rows will be printed.
 
    {% cut "Example of the message fragment" %}
 
@@ -209,7 +209,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
    INSERT INTO public.measurements VALUES ('iv7b74th678tooxh5ur2', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
    ```
 
-1. Make sure the terminal with running `kafkacat` displays details about the added row.
+1. Make sure the terminal running `kafkacat` displays details about the added row.
 
 ## Delete the resources you created {#clear-out}
 

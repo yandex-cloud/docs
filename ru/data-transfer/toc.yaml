@@ -37,6 +37,8 @@ items:
                 href: operations/endpoint/source/s3.md
               - name: Yandex Data Streams
                 href: operations/endpoint/source/data-streams.md
+              - name: YDB
+                href: operations/endpoint/source/ydb.md
           - name: Настройка эндпоинтов-приемников
             items:
               - name: Apache Kafka®

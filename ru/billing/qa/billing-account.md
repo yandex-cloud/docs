@@ -1,5 +1,11 @@
 # Вопросы о платежном аккаунте
 
+#### Как узнать идентификатор платежного аккаунта? {#account-id}
+
+Чтобы узнать идентификатор платежного аккаунта:
+
+{% include [billing-account-id](../../_includes/billing/billing-account-id.md) %}
+
 #### Какое количество платежных аккаунтов я могу создать? {#account-amount}
 
 {% include [billing-account-amounts](../_includes/billing-account-amounts.md) %}

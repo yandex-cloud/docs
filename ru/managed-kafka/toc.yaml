@@ -51,7 +51,7 @@ items:
         href: tutorials/kafka-connectors.md
       - name: Поставка данных из {{ mpg-full-name }} с помощью Debezium
         href: tutorials/cdc/debezium-mpg.md
-      - name: Поставка дданных из {{  mmy-full-name }} с помощью Debezium
+      - name: Поставка дданных из {{ mmy-full-name }} с помощью Debezium
         href: tutorials/cdc/debezium-mmy.md
       - name: >-
           Поставка данных из {{ mpg-full-name }} с помощью {{

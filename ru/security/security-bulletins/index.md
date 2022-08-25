@@ -2,6 +2,8 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+{% include [25.08.2022 — CVE-2022-2884 — github-import-in-gitlab](../../_includes/security/security-bulletins/cve-2022-2884-github-import-in-gitlab.md) %}
+
 {% include [04.07.2022 — CVE-2022-27228 — Уязвимость модуля «vote» CMS 1С-Битрикс](../../_includes/security/security-bulletins/cve-2022-27228-bitrix.md) %}
 
 {% include [21.06.2022 — CVE-2022-1680 — Захват аккаунта GitLab](../../_includes/security/security-bulletins/cve-2022-1680-gitlab.md) %}
