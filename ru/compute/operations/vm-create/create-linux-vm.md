@@ -198,6 +198,7 @@ description: "Следуя данной инструкции вы сможете
 
        name        = "linux-vm"
        platform_id = "standard-v3"
+       zone        = "<зона доступности>"
 
        resources {
          cores  = <количество ядер vCPU>
