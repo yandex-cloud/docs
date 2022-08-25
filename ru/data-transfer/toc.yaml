@@ -44,6 +44,9 @@ items:
               - name: Yandex Data Streams
                 href: operations/endpoint/source/data-streams.md
                 when: product == "yandex-cloud"
+              - name: YDB
+                href: operations/endpoint/source/ydb.md
+                when: product == "yandex-cloud"
           - name: Настройка эндпоинтов-приемников
             items:
               - name: Apache Kafka®

@@ -27,8 +27,12 @@
             * [{{ MY }}](source/mysql.md)
             * [Oracle](source/oracle.md)
             * [{{ PG }}](source/postgresql.md)
+            {% if product == "yandex-cloud" %}
             * [{{ yds-full-name }}](source/data-streams.md)
-            
+
+            * [{{ ydb-full-name }}](source/ydb.md)
+            {% endif %}
+
         * Приемники:
             * [{{ KF }}](target/kafka.md)
             * [{{ CH }}](target/clickhouse.md)
