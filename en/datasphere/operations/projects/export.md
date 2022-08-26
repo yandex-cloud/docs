@@ -2,17 +2,13 @@
 
 You can export a project as a ZIP archive. In this case, both a file with a notebook and all files that you see in the **File Explorer** window are exported. This lets you start your notebook locally, provided the environments match.
 
-## Before you start {#before-begin}
+## Before you begin {#before-begin}
 
-If the project is already open, make sure you save the changes. The last saved state is exported.
+If the project is already open, go to the notebook tab.
 
-If the project isn't open yet:
+If not, open the project:
 
-1. {% include [include](../../../_includes/datasphere/first-step.md) %}
-1. Go to the **Projects** tab.
-1. Click the name of the project you want to export.
-
-   Wait for the project to open.
+{% include [include](../../../_includes/datasphere/before-begin.md) %}
 
 ## Export a project {export-project}
 
