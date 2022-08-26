@@ -138,7 +138,7 @@
     
      resource "yandex_alb_virtual_host" "my-virtual-host" {
        name           = "<имя виртуального хоста>"
-       http_router_id = "${yandex_alb_http_router.tf-router.id}"
+       http_router_id = yandex_alb_http_router.tf-router.id
        route {
          name = "<имя маршрута>"
          http_route {
