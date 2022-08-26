@@ -208,6 +208,7 @@ This section provides guidelines for creating a VM with a Linux OS. To create a 
       
         name        = "linux-vm"
         platform_id = "standard-v3"
+        zone       = "<availability zone>"
       
         resources {
           cores  = <number of vCPU cores>
