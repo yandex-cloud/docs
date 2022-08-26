@@ -1,4 +1,4 @@
-# Migrating databases to {{ mrd-name }}
+# Migrating databases from a third-party {{ RD }} cluster to {{ mrd-full-name }}
 
 For data migration, {{ RD }} uses a _logical dump_: this is a file with a sequence of commands to restore the state of databases in the cluster. There are several ways to create a dump. The following example will use [redis-dump-go](https://github.com/yannh/redis-dump-go/).
 
@@ -11,7 +11,12 @@ A binary RDB dump can't be used for migration, because {{ mrd-name }} doesn't pe
 To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
 
 1. [Connect to the source cluster and create a logical dump](#create-dump).
-1. [Configure the intermediate virtual machine](#setup-vm).
+1. (Optional) [Upload the dump to the intermediate virtual machine](#load-vm).
+
+   You must transfer data to {{ compute-full-name }} using a virtual machine if:
+
+   * Your {{ mmy-name }} cluster is not accessible from the internet.
+   * Your hardware or connection to the cluster in {{ yandex-cloud }} is not very reliable.
 1. [Restore the dump on the target cluster](#restore-dump).
 1. [Make sure the dump is fully restored](#check-data).
 
@@ -25,9 +30,9 @@ If you no longer need these resources, [delete them](#clear-out).
 
 - Manually
 
-   1. [Create a {{ mrd-name }} cluster](../../managed-redis/operations/cluster-create.md) with any suitable configuration.
+   1. [Create a {{ mrd-name }} cluster](../../managed-redis/operations/cluster-create.md) with any suitable configuration. To connect to a cluster from a user's local machine rather than a {{ yandex-cloud }} cloud network, enable TLS support and public host access when creating your cluster.
 
-   1. {% if audience != "internal" %}[Create an intermediate Linux virtual machine](../../compute/operations/vm-create/create-linux-vm.md){% else %}Create an intermediate Linux virtual machine{% endif %} in {{ compute-full-name }} on the same network as the {{ mrd-name }} cluster using the following configuration:
+   1. (Optional) {% if audience != "internal" %}[Create an intermediate virtual machine running Linux](../../compute/operations/vm-create/create-linux-vm.md){% else %}Create an intermediate virtual machine running Linux{% endif %} in {{ compute-full-name }} on the same network as the {{ mrd-name }} cluster using the following configuration:
 
       * Under **Image/boot disk selection**, select **Operating systems** → `Ubuntu 20.04`.
       * Under **Network settings**:
@@ -38,7 +43,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
    1. [Configure the {{ vpc-name }} security group](../../managed-redis/operations/connect/index.md#configuring-security-groups).
 
-- Using Terraform
+- Using {{ TF }}
 
    1. If you don't have {{ TF }}, {% if audience != "internal" %}[install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}install it{% endif %}.
       1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and {% if audience != "internal" %}[specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider){% else %}specify the parameter values{% endif %}.
@@ -51,18 +56,17 @@ If you no longer need these resources, [delete them](#clear-out).
 
          * Network.
          * Subnet.
-         * {{ mrd-name }} cluster.
-         * Virtual machine.
-         * Default security group and rules required to connect to the cluster and the virtual machine from the internet.
-            * SSH connection to the VM.
-            * Connection to the VM from the {{ mrd-name }} cluster via {{ RD }} ports.
-
+         * Default security group and rules required to connect to the cluster and the virtual machine.
+         * {{ mrd-name }} cluster with public internet access.
+         * (Optional) Virtual machine with public internet access.
 
       1. Specify the following in the configuration file:
 
          * Password to access the {{ mrd-name }} cluster.
-         * Public virtual machine {% if audience != "internal" %}[image](../../compute/operations/images-with-pre-installed-software/get-list){% else %}image{% endif %} ID. For example, for [Ubuntu 20.04 LTS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}.
-         * Login and path to the {% if audience != "internal" %}[public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys){% else %}public SSH key{% endif %} to use for accessing the virtual machine.
+         * (Optional) Virtual machine parameters:
+
+            * Public virtual machine {% if audience != "internal" %}[image](../../compute/operations/images-with-pre-installed-software/get-list){% else %}image{% endif %} ID. For example, for [Ubuntu 20.04 LTS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}.
+            * Login and absolute path to the {% if audience != "internal" %}[public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys){% else %}public SSH key{% endif %} to use for access to the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts){% endif %} image: a user with the `ubuntu` username is created instead. Use it to connect to the instance.
 
       1. Run the `terraform init` command in the directory with the configuration files. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
       1. Make sure the {{ TF }} configuration files are correct using the command:
@@ -151,7 +155,7 @@ If you no longer need these resources, [delete them](#clear-out).
    exit
    ```
 
-## Configure the intermediate virtual machine {#setup-vm}
+## (Optional) Upload the dump to the intermediate virtual machine {#load-vm}
 
 {% if audience == "external" %}
 
@@ -163,33 +167,11 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% endif %}
 
-1. If your {{ mrd-name }} cluster is deployed with TLS support enabled:
-
-   1. [Get an SSL certificate](../../managed-redis/operations/connect/index.md#get-ssl-cert).
-
-   1. Add the official {{ RD }} repository to your list of repositories:
-
-      ```bash
-      sudo apt-add-repository ppa:redislabs/redis
-      ```
-
-      {% note info %}
-
-      The packages in this repository are built with the `BUILD_TLS=yes` flag, so you don't need to manually rebuild them from the source.
-
-      {% endnote %}
-
-1. Update the list of available packages and install the necessary utilities:
-
-   ```bash
-   sudo apt update && sudo apt install redis-tools screen --yes
-   ```
+1. Upload the dump from your computer to an intermediate virtual machine however is convenient.
 
 ## Restore the dump on the target cluster {#restore-dump}
 
-1. Upload the dump from your computer to an intermediate virtual machine however is convenient.
-
-1. {% if audience != "internal" %}[Connect to the intermediate VM via SSH](../../compute/operations/vm-connect/ssh.md){% else %}Connect to the intermediate VM via SSH{% endif %} and start an interactive `screen` session:
+1. [Connect to the cluster](../../managed-redis/operations/connect/index.md) and run an interactive `screen` session:
 
    ```bash
    screen
@@ -200,6 +182,8 @@ If you no longer need these resources, [delete them](#clear-out).
    {% list tabs %}
 
    - Connecting without using TLS
+
+      {% include [Install requirements](../../_includes/mdb/mrd/connect/bash/install-requirements.md) %}
 
       **Connecting via Sentinel**
 
@@ -257,6 +241,8 @@ If you no longer need these resources, [delete them](#clear-out).
          As you run the script, you'll see messages about data insertion errors. This is normal behavior for the `redis-cli` command, because in a sharded cluster, each shard stores only a certain part of the data. For more information, see [{#T}](../../managed-redis/concepts/sharding.md).
 
    - Connecting via TLS
+
+      {% include [Install requirements SSL](../../_includes/mdb/mrd/connect/bash/install-requirements-ssl.md) %}
 
       **Connecting via Sentinel**
 
@@ -348,10 +334,10 @@ The total number of keys in the cluster must be equal to the number of keys proc
    If you no longer need these resources, delete them:
 
    * [Delete the {{ mrd-full-name }} cluster](../../managed-redis/operations/cluster-delete.md).
-   * {% if audience != "internal" %}[Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md){% else %}Delete a virtual machine{% endif %}.
+   * If you created an intermediate virtual machine, {% if audience != "internal" %}[delete it](../../compute/operations/vm-control/vm-delete.md){% else %}delete it{% endif %}.
    * If you reserved public static IP addresses, release and {% if audience != "internal" %}[delete them](../../vpc/operations/address-delete.md){% else %}delete them{% endif %}.
 
-- Using Terraform
+- Using {{ TF }}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
