@@ -7,10 +7,8 @@ A checkpoint in {{ ml-platform-name }} is the [saved state](../../concepts/save-
 If the project is already open, go to the notebook tab.
 
 If not, open the project:
-1. {% include [include](../../../_includes/datasphere/first-step.md) %}
-1. Go to the **Projects** tab.
-1. Select the project you want to open and click ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
-1. Choose **Open** and wait for the project to open.
+
+{% include [include](../../../_includes/datasphere/before-begin.md) %}
 
 ## Creating a checkpoint {#create}
 

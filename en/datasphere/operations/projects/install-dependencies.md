@@ -2,15 +2,13 @@
 
 {% include [include](../../../_includes/datasphere/install-dependencies-intro.md) %}
 
-## Before you start {#before-begin}
+## Before you begin {#before-begin}
 
-If a project is already open, open the tab with a notebook.
+If the project is already open, go to the notebook tab.
 
 If not, open the project:
 
-1. {% include [include](../../../_includes/datasphere/first-step.md) %}
-1. Go to the **Projects** tab.
-1. Select the project you want to open and click it.
+{% include [include](../../../_includes/datasphere/before-begin.md) %}
 
 ## Install a package {#install}
 

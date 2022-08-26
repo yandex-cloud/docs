@@ -57,6 +57,10 @@ items:
             href: operations/data/connect-to-postgresql.md
           - name: Connecting to S3 storage
             href: operations/data/connect-to-s3.md
+          - name: Connecting to Yandex Disk
+            href: operations/data/connect-to-ya-disk.md
+          - name: Connecting to Google Drive
+            href: operations/data/connect-to-google-drive.md
       - name: Setting up integration with Data Proc
         href: operations/data-proc-integration.md
       - name: Working with confidential data
