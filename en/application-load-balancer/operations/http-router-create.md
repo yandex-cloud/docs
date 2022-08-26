@@ -167,7 +167,7 @@ To create an HTTP router and add a route to it:
       
       resource "yandex_alb_virtual_host" "my-virtual-host" {
         name           = "<virtual host name>"
-        http_router_id = "${yandex_alb_http_router.tf-router.id}"
+        http_router_id = yandex_alb_http_router.tf-router.id
         route {
           name = "<route name>"
           http_route {
