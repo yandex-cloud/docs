@@ -1,6 +1,20 @@
 # Using external tables
 
-{{ GP }} lets you interact with data from sources that are external to {{ mgp-name }} clusters. You can handle this data using _external tables_, special objects in a {{ GP }} database referencing tables, buckets, or files from external sources. Access to [data in external DBMS](#pxf) uses the _PXF_ protocol whereas access to [files on external file servers](#gpfdist) uses the _GPFDIST_ utility.
+{{ GP }} lets you work with data from sources that are external to a {{ mgp-name }} cluster. This functionality uses _external tables_, which are special objects in a {{ GP }} database that reference external source tables, buckets, or files. Access to [data in external DBMS](#pxf) uses the _PXF_ protocol whereas access to [files on external file servers](#gpfdist) uses the _GPFDIST_ utility.
+
+{% note info %}
+
+{% if audience != "internal" %}
+
+To connect to external sources, [enable egress NAT](../../vpc/operations/enable-nat) for the subnet hosting the {{ mgp-name }} cluster.
+
+{% else %}
+
+To connect to external sources, enable egress NAT for the subnet hosting the {{ mgp-name }} cluster.
+
+{% endif %}
+
+{% endnote %}
 
 With external tables, you can:
 
@@ -44,20 +58,17 @@ Where:
 
 * `table name`: Name of the external table to be created in the {{ GP }} cluster.
 * `column name`: Name of a column.
-* `data type`: Type of column data. Must match the data type in the external DBMS table.
+* `data type`: Type of column data. It must match the column data type in the external DBMS table.
 * `data path or table name`: External object name, see [example external tables](#pxf-examples).
+* (optional) `profile name`: Standard interface to external DBMS, such as `JDBC`.
+* (optional) `JDBC driver name`: JDBC driver to be used to connect to an external DBMS.
+* (optional) `connection string`: External DBMS connection URL.
+* (optional) `username`: Username to connect to the external DBMS.
+* (optional) `user password`: User password to connect to an external DBMS.
 
-If required, you can specify additional parameters:
+The `WRITABLE` option enables you to write data to an external object. To be able to read data from an external object, create a table with the `READABLE` option.
 
-* `profile name`: external DBMS interaction standard, such as `JDBC`.
-* `JDBC driver name`: JDBC driver used to connect to an external DBMS.
-* `connection string`: external DBMS connection URL.
-* `user name`: user name to connect to the external DBMS.
-* `user password`: user password to connect to an external DBMS.
-
-The `READABLE` option enables you to read data from an external object but not write to it. To write data to an external object, create an external table with the `WRITABLE` option.
-
-This SQL query does not contain an exhaustive list of available parameters. For more detail, please see the [{{ GP }} documentation](https://docs.greenplum.org/6-4/pxf/intro_pxf.html) and the [examples for creating external tables](#pxf-examples).
+This SQL query does not contain an exhaustive list of available parameters. For more detail, please see the [{{ GP }} documentation](https://docs.greenplum.org/6-4/pxf/intro_pxf.html) and the examples for creating external tables.
 
 ### Examples for creating external tables {#pxf-examples}
 
@@ -207,7 +218,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
    1. [Create a {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) named `test-bucket`.
 
-   1. [Create a static access key](../../iam/operations/sa/create-access-key.md).
+   1. {% if audience != "internal" %}[Create a static access key](../../iam/operations/sa/create-access-key.md){% else %}Create a static access key{% endif %}.
 
    1. Create a test file `test.csv` on the local machine:
 
@@ -273,7 +284,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
 ## Connecting to an external file server {#gpfdist}
 
-The [{{ GP }} Parallel File Server (GPFDIST)](https://gpdb.docs.pivotal.io/6-19/admin_guide/external/g-using-the-greenplum-parallel-file-server--gpfdist-.html) is a utility to read data from and write data to files located on remote servers. It is installed on each segment host of a {{ mgp-name }} cluster and provides parallel data loading by distributing it across segments either evenly or according to the [distribution key](../concepts/sharding.md#distribution-key) set. This optimizes performance when handling large volumes of external data.
+The [{{ GP }} Parallel File Server (GPFDIST)](https://gpdb.docs.pivotal.io/6-19/admin_guide/external/g-using-the-greenplum-parallel-file-server--gpfdist-.html) is a utility to read data from and write data to files located on remote servers. It is installed on each segment host of a {{ mgp-name }} cluster and provides parallel data loading by distributing it across segments either evenly or according to the [distribution key](../concepts/sharding.md#distribution-key) set. This improves performance when handling large amounts of external data.
 
 GPFDIST works with any delimited text files and compressed gzip and bzip2 files.
 
@@ -304,7 +315,7 @@ Downloading and using software from the VMware website is not part of the [{{ mg
    Where:
 
    * `data file directory` is the local path to the directory with files to read or write data from/to using the external table.
-   * `connection port` is the port to run the utility on. The default port is `8080`.
+   * `connection port` is the port the utility will run on. By default: `8080`.
    * `log file path` (optional) is the path to the file that GPFDIST will write its operation logs to.
 
    You can run multiple GPFDIST instances on the same server, specifying different directories and connection ports to distribute network load. For example:
@@ -314,7 +325,7 @@ Downloading and using software from the VMware website is not part of the [{{ mg
    gpfdist -d /var/load_files2 -p 8082 -l /home/gpadmin/log2
    ```
 
-1. Make sure that the files in the specified directory are accessible from {{ yandex-cloud }} on the specified port. You can check this by running the following command from a VM in {{ yandex-cloud }}:
+1. Make sure that files from the specified directory are available on the specified port from {{ yandex-cloud }}. To do this, run the following command from a VM in {{ yandex-cloud }}:
 
    ```bash
    wget http://hostname:port/filename
@@ -338,7 +349,7 @@ Where:
 * `data type`: Type of table column data.
 * `remote server file path`: Address of the server where GPFDIST is running, the connection port, and the path to the file. You can set a specific file or a mask using the asterisk symbol (*).
 
-The `READABLE` option enables you to read data from an external file but not write to it. To write data to an external file, create an external table with the `WRITABLE` option.
+The `WRITABLE` option enables you to write data to an external object. To be able to read data from an external object, create a table with the `READABLE` option.
 
 ### Examples for creating external tables {#gpfdist-examples}
 
