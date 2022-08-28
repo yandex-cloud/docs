@@ -80,15 +80,15 @@
 
 Список расширений, которые установлены в кластерах PostgreSQL версии {{ versions.console.str-1c }}:
 
-* [online_analyze]({{ pg.docs.pro }}/postgrespro/current/online-analyze)
+* [online_analyze]{% if lang == "en" %}(https://postgrespro.ru/docs/postgrespro/10/online-analyze?lang=en){% endif %}{% if lang == "ru" %}(https://postgrespro.ru/docs/postgrespro/10/online-analyze){% endif %}
 
-* [plantuner]({{ pg.docs.pro }}/postgrespro/current/plantuner)
+* [plantuner]{% if lang == "en" %}(https://postgrespro.ru/docs/postgrespro/10/plantuner?lang=en){% endif %}{% if lang == "ru" %}(https://postgrespro.ru/docs/postgrespro/10/plantuner){% endif %}
 
-* [fasttrun]({{ pg.docs.pro }}/postgrespro/current/fasttrun)
+* [fasttrun]{% if lang == "en" %}(https://postgrespro.ru/docs/postgrespro/10/fasttrun?lang=en){% endif %}{% if lang == "ru" %}(https://postgrespro.ru/docs/postgrespro/10/fasttrun){% endif %}
 
-* [fulleq]({{ pg.docs.pro }}/postgrespro/current/fulleq)
+* [fulleq]{% if lang == "en" %}(https://postgrespro.ru/docs/postgrespro/10/fulleq?lang=en){% endif %}{% if lang == "ru" %}(https://postgrespro.ru/docs/postgrespro/10/fulleq){% endif %}
 
-* [mchar]({{ pg.docs.pro }}/postgrespro/current/mchar)
+* [mchar]{% if lang == "en" %}(https://postgrespro.ru/docs/postgrespro/10/mchar?lang=en){% endif %}{% if lang == "ru" %}(https://postgrespro.ru/docs/postgrespro/10/mchar){% endif %}
 
 ## Удалите созданные ресурсы {#clear-out}
 
