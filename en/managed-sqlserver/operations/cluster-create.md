@@ -55,16 +55,20 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
       1. Select database host parameters for the databases being created alongside the cluster. By default, each host is created in a separate subnet. To select a specific subnet for a host, click ![image](../../_assets/pencil.svg) in the host's row and select the required availability zone and subnet.
 
-         {% note warning %}
-
          The number of hosts available to be added depends on the SQL Server [edition](../concepts/index.md):
 
-         * In the **Standard Edition**, you can only create a single-host cluster. This cluster does not provide any fault tolerance.
-         * In the **Enterprise Edition**, you can create clusters of either one or three or more hosts. If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
+         * In the **Standard Edition**, you can create a cluster of one or two hosts:
 
-         {% endnote %}
+            * A single-host cluster is not fault tolerant.
+            * A two-host cluster is fault-tolerant. An additional third witness host is automatically created for it and includes the minimum required resources and a Windows Standard license. This is taken into account in the cost calculation.
 
-      {% if audience != "internal" %}
+         * In the **Enterprise Edition**, you are able to create a cluster of one or more hosts:
+
+            * A single-host cluster is not fault tolerant.
+            * A cluster of two or more hosts is fault tolerant. An additional third witness host is created for a two-host cluster. It includes the minimum required resources and a Windows Standard license. This is taken into account in the cost calculation.
+            * If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
+
+      {% if product == "yandex-cloud" and audience != "internal" %}
 
       1. (Optional) Select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the cluster on.
 
@@ -210,7 +214,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
          --backup-window-start=<backup start time>
       ```
 
-   {% if audience != "internal" %}
+   {% if product == "yandex-cloud" and audience != "internal" %}
 
    1. To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), specify host IDs as a comma-separated list in the `--host-group-ids` parameter:
 
@@ -302,6 +306,8 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+      {% if product == "yandex-cloud" %}
+
       1. To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), add the `host_group_ids` field to the cluster description and specify the required group IDs as a comma-separated list in it:
 
          ```hcl
@@ -313,6 +319,8 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
          ```
 
          {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
+
+      {% endif %}
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mms }}).
 
@@ -343,7 +351,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-   {% if audience != "internal" %}
+   {% if product == "yandex-cloud" and audience != "internal" %}
 
    To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), pass a list of host IDs in the `hostGroupIds` parameter.
 
@@ -371,7 +379,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    To create a cluster with a single host, pass a single `--host` parameter.
 
-   Let's say we need to create a {{ MS }} cluster with the following characteristics:
+   Create a {{ mms-name }} cluster with test characteristics:
 
    {% if audience != "internal" %}
 
@@ -380,7 +388,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the `PRODUCTION` environment.
    * In the `default` network.
    * In the security group `{{ security-group }}`.
-   * With a single class `s2.small` host in a subnet called `b0cd5bv7pfpr7r900tkp` in the `{{ zone-id }}` availability zone.
+   * With a single `s2.small` class host in the new `b0cd5bv7pfpr7r900tkp` subnet, in the `{{ region-id }}-a` availability zone.
    * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
    * With one user, `user1`, with the password `user1user1`.
    * With one database, `db1`.
@@ -400,7 +408,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    {% endif %}
 
-   Run the command:
+   Run the following command:
 
    {% if audience != "internal" %}
 
@@ -444,7 +452,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - {{ TF }}
 
-   Let's say we need to create a {{ MS }} cluster and a network for it with the following characteristics:
+   Create a {{ mms-name }} cluster and a network for it with test characteristics:
 
    * Named `mssql-1`.
    * In the `PRODUCTION` environment.
@@ -453,7 +461,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the folder with the ID `{{ tf-folder-id }}`.
    * In the new `mynet` network.
    * In a new security group called `ms-sql-sg` allowing cluster connections from the internet via port `{{ port-mms }}`.
-   * With a single `s2.small` class host on a new `mysubnet` subnet and in the `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   * With a single `s2.small` class host in the new `mysubnet` subnet, in the `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
    * With 32 GB of network SSD storage.
    * With a database called `db1`.
    * With the user `user1` and `user1user1` as the password. This user will be the owner of the `db1` database ([predefined role `DB_OWNER`](./grant.md#predefined-db-roles)).
@@ -461,157 +469,157 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    The configuration file for the cluster looks like this:
 
-    {% if product == "yandex-cloud" %}
+   {% if product == "yandex-cloud" %}
 
-    ```hcl
-    terraform {
-      required_providers {
-        yandex = {
-          source = "yandex-cloud/yandex"
-        }
-      }
-    }
+   ```hcl
+   terraform {
+     required_providers {
+       yandex = {
+         source = "yandex-cloud/yandex"
+       }
+     }
+   }
 
-    provider "yandex" {
-      token     = "<OAuth or service account static key>"
-      cloud_id  = "{{ tf-cloud-id }}"
-      folder_id = "{{ tf-folder-id }}"
-      zone      = "{{ region-id }}-a"
-    }
+   provider "yandex" {
+     token     = "<OAuth or service account static key>"
+     cloud_id  = "{{ tf-cloud-id }}"
+     folder_id = "{{ tf-folder-id }}"
+     zone      = "{{ region-id }}-a"
+   }
 
-    resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
-      name                = "mssql-1"
-      environment         = "PRODUCTION"
-      version             = "{{ versions.tf.latest.std }}"
-      network_id          = yandex_vpc_network.mynet.id
-      security_group_ids  = [yandex_vpc_security_group.ms-sql-sg.id]
-      deletion_protection = true
+   resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
+     name                = "mssql-1"
+     environment         = "PRODUCTION"
+     version             = "{{ versions.tf.latest.std }}"
+     network_id          = yandex_vpc_network.mynet.id
+     security_group_ids  = [yandex_vpc_security_group.ms-sql-sg.id]
+     deletion_protection = true
 
-      resources {
-        resource_preset_id = "s2.small"
-        disk_type_id       = "network-ssd"
-        disk_size          = 32
-      }
+     resources {
+       resource_preset_id = "s2.small"
+       disk_type_id       = "network-ssd"
+       disk_size          = 32
+     }
 
-      host {
-        zone             = "{{ zone-id }}"
-        subnet_id        = yandex_vpc_subnet.mysubnet.id
-        assign_public_ip = true
-      }
+     host {
+       zone             = "{{ region-id }}-a"
+       subnet_id        = yandex_vpc_subnet.mysubnet.id
+       assign_public_ip = true
+     }
 
-      database {
-        name = "db1"
-      }
+     database {
+       name = "db1"
+     }
 
-      user {
-        name     = "user1"
-        password = "user1user1"
-        permission {
-          database_name = "db1"
-          roles         = ["OWNER"]
-        }
-      }
-    }
+     user {
+       name     = "user1"
+       password = "user1user1"
+       permission {
+         database_name = "db1"
+         roles         = ["OWNER"]
+       }
+     }
+   }
 
-    resource "yandex_vpc_network" "mynet" { name = "mynet" }
+   resource "yandex_vpc_network" "mynet" { name = "mynet" }
 
-    resource "yandex_vpc_subnet" "mysubnet" {
-      name           = "mysubnet"
-      zone           = "{{ zone-id }}"
-      network_id     = yandex_vpc_network.mynet.id
-      v4_cidr_blocks = ["10.5.0.0/24"]
-    }
+   resource "yandex_vpc_subnet" "mysubnet" {
+     name           = "mysubnet"
+     zone           = "{{ region-id }}-a"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.5.0.0/24"]
+   }
 
-    resource "yandex_vpc_security_group" "ms-sql-sg" {
-      name       = "ms-sql-sg"
-      network_id = yandex_vpc_network.mynet.id
+   resource "yandex_vpc_security_group" "ms-sql-sg" {
+     name       = "ms-sql-sg"
+     network_id = yandex_vpc_network.mynet.id
 
-      ingress {
-        description    = "Public access to SQL Server"
-        port           = {{ port-mms }}
-        protocol       = "TCP"
-        v4_cidr_blocks = ["0.0.0.0/0"]
-      }
-    }
-    ```
+     ingress {
+       description    = "Public access to SQL Server"
+       port           = {{ port-mms }}
+       protocol       = "TCP"
+       v4_cidr_blocks = ["0.0.0.0/0"]
+     }
+   }
+   ```
 
-    {% endif %}
+   {% endif %}
 
-    {% if product == "cloud-il" %}
+   {% if product == "cloud-il" %}
 
-    ```hcl
-    terraform {
-      required_providers {
-        yandex = {
-          source = "yandex-cloud/yandex"
-        }
-      }
-    }
+   ```hcl
+   terraform {
+     required_providers {
+       yandex = {
+         source = "yandex-cloud/yandex"
+       }
+     }
+   }
 
-    provider "yandex" {
-      endpoint  = "{{ api-host }}:443"
-      token     = "<static key of the service account>"
-      cloud_id  = "{{ tf-cloud-id }}"
-      folder_id = "{{ tf-folder-id }}"
-      zone      = "{{ region-id }}-a"
-    }
+   provider "yandex" {
+     endpoint  = "{{ api-host }}:443"
+     token     = "<static key of service account>"
+     cloud_id  = "{{ tf-cloud-id }}"
+     folder_id = "{{ tf-folder-id }}"
+     zone      = "{{ region-id }}-a"
+   }
 
-    resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
-      name                = "mssql-1"
-      environment         = "PRODUCTION"
-      version             = "{{ versions.tf.latest.std }}"
-      network_id          = yandex_vpc_network.mynet.id
-      security_group_ids  = [yandex_vpc_security_group.ms-sql-sg.id]
-      deletion_protection = true
+   resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
+     name                = "mssql-1"
+     environment         = "PRODUCTION"
+     version             = "{{ versions.tf.latest.std }}"
+     network_id          = yandex_vpc_network.mynet.id
+     security_group_ids  = [yandex_vpc_security_group.ms-sql-sg.id]
+     deletion_protection = true
 
-      resources {
-        resource_preset_id = "s2.small"
-        disk_type_id       = "network-ssd"
-        disk_size          = 32
-      }
+     resources {
+       resource_preset_id = "s2.small"
+       disk_type_id       = "network-ssd"
+       disk_size          = 32
+     }
 
-      host {
-        zone             = "{{ region-id }}-a"
-        subnet_id        = yandex_vpc_subnet.mysubnet.id
-        assign_public_ip = true
-      }
+     host {
+       zone             = "{{ region-id }}-a"
+       subnet_id        = yandex_vpc_subnet.mysubnet.id
+       assign_public_ip = true
+     }
 
-      database {
-        name = "db1"
-      }
+     database {
+       name = "db1"
+     }
 
-      user {
-        name     = "user1"
-        password = "user1user1"
-        permission {
-          database_name = "db1"
-          roles         = ["OWNER"]
-        }
-      }
-    }
+     user {
+       name     = "user1"
+       password = "user1user1"
+       permission {
+         database_name = "db1"
+         roles         = ["OWNER"]
+       }
+     }
+   }
 
-    resource "yandex_vpc_network" "mynet" { name = "mynet" }
+   resource "yandex_vpc_network" "mynet" { name = "mynet" }
 
-    resource "yandex_vpc_subnet" "mysubnet" {
-      name           = "mysubnet"
-      zone           = "{{ region-id }}-a"
-      network_id     = yandex_vpc_network.mynet.id
-      v4_cidr_blocks = ["10.5.0.0/24"]
-    }
+   resource "yandex_vpc_subnet" "mysubnet" {
+     name           = "mysubnet"
+     zone           = "{{ region-id }}-a"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.5.0.0/24"]
+   }
 
-    resource "yandex_vpc_security_group" "ms-sql-sg" {
-      name       = "ms-sql-sg"
-      network_id = yandex_vpc_network.mynet.id
+   resource "yandex_vpc_security_group" "ms-sql-sg" {
+     name       = "ms-sql-sg"
+     network_id = yandex_vpc_network.mynet.id
 
-      ingress {
-        description    = "Public access to SQL Server"
-        port           = {{ port-mms }}
-        protocol       = "TCP"
-        v4_cidr_blocks = ["0.0.0.0/0"]
-      }
-    }
-    ```
+     ingress {
+       description    = "Public access to SQL Server"
+       port           = {{ port-mms }}
+       protocol       = "TCP"
+       v4_cidr_blocks = ["0.0.0.0/0"]
+     }
+   }
+   ```
 
-    {% endif %}
+   {% endif %}
 
 {% endlist %}
