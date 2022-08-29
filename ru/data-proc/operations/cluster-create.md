@@ -171,6 +171,8 @@
 
     1. Укажите параметры кластера в команде создания (в примере приведены не все доступные параметры):
 
+        {% if product == "yandex-cloud" %}
+
         ```bash
         {{ yc-dp }} cluster create <имя кластера> \
            --bucket=<имя бакета> \
@@ -199,6 +201,40 @@
            --security-group-ids=<список идентификаторов групп безопасности> \
            --log-group-id=<идентификатор лог-группы>
         ```
+
+        {% endif %}
+
+        {% if product == "cloudil" %}
+
+        ```bash
+        {{ yc-dp }} cluster create <имя кластера> \
+           --bucket=<имя бакета> \
+           --zone=<зона доступности> \
+           --service-account-name=<имя сервисного аккаунта кластера> \
+           --version=<версия образа> \
+           --services=<список компонентов> \
+           --ssh-public-keys-file=<полный путь к файлу с публичной частью SSH-ключа> \
+           --subcluster name=<имя подкластера с управляющим хостом>,`
+                       `role=masternode,`
+                       `resource-preset=<класс хоста>,`
+                       `disk-type=<тип хранилища: network-ssd, network-hdd или network-ssd-nonreplicated>,`
+                       `disk-size=<размер хранилища в гигабайтах>,`
+                       `subnet-name=<имя подсети>,`
+                       `assign-public-ip=<публичный доступ к хосту подкластера: true или false> \
+           --subcluster name=<имя подкластера для хранения данных>,`
+                       `role=datanode,`
+                       `resource-preset=<класс хоста>,`
+                       `disk-type=<тип хранилища: network-ssd, network-hdd или network-ssd-nonreplicated>,`
+                       `disk-size=<размер хранилища в гигабайтах>,`
+                       `subnet-name=<имя подсети>,`
+                       `hosts-count=<количество хостов>,`
+                       `assign-public-ip=<публичный доступ к хостам подкластера: true или false> \
+           --deletion-protection=<защита от удаления кластера: true или false> \
+           --ui-proxy=<доступ к веб-интерфейсам компонентов: true или false> \
+           --security-group-ids=<список идентификаторов групп безопасности>
+        ```
+
+        {% endif %}
 
         {% note info %}
 
@@ -245,7 +281,9 @@
 
         * `--ui-proxy` — доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}.
         * `--security-group-ids` — список идентификаторов {% if audience != "internal" %}[групп безопасности](../../vpc/concepts/security-groups.md){% else %}групп безопасности{% endif %}.
+        {% if product == "yandex-cloud" %}
         * `--log-group-id` — [идентификатор лог-группы](../concepts/logs.md).
+        {% endif %}
 
         Чтобы создать кластер, состоящих из нескольких подкластеров для хранения или обработки данных, передайте необходимое количество аргументов `--subcluster` в команде создания кластера:
 

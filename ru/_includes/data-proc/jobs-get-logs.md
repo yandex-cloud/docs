@@ -1,4 +1,8 @@
+{% if product == "yandex-cloud" %}
+
 {% include [get-logs-info](note-info-get-logs.md) %}
+
+{% endif %}
 
 {% list tabs %}
 
