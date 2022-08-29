@@ -41,7 +41,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       The host class defines the technical capabilities of the virtual machines that [{{ KF }} brokers](../concepts/brokers.md) are deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
 
-      By [changing the host class](cluster-update.md#change-resource-preset) for a cluster, you also change the characteristics of all the existing instances.
+      By [changing the host class](cluster-update.md#change-brokers) for a cluster, you also change the characteristics of all the existing instances.
 
    1. Under **Storage**:
 
