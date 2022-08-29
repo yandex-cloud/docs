@@ -90,11 +90,9 @@ editable: false
 {% if region == "ru" %}
 > 3 × (2&nbsp;×&nbsp;2,2800&nbsp;₽ + 8&nbsp;×&nbsp;0,5200&nbsp;₽) = 26,1600&nbsp;₽
 {% endif %}
-
 {% if region == "int" %}
 > 3 × (2&nbsp;×&nbsp;0,018240&nbsp;$ + 8&nbsp;×&nbsp;0,004160&nbsp;$) = 0,209280&nbsp;$
 {% endif %}
-
 {% if region == "kz" %}
 > 3 × (2&nbsp;×&nbsp;11,4000&nbsp;₸ + 8&nbsp;×&nbsp;2,6000&nbsp;₸) = 130,8000&nbsp;₸
 {% endif %}
@@ -111,11 +109,9 @@ editable: false
 {% if region == "ru" %}
 > 3 × (2&nbsp;×&nbsp;0,7800&nbsp;₽ + 4&nbsp;×&nbsp;0,3200&nbsp;₽) = 8,5200&nbsp;₽
 {% endif %}
-
 {% if region == "int" %}
 > 3 × (2&nbsp;×&nbsp;0,006240&nbsp;$ + 4&nbsp;×&nbsp;0,002560&nbsp;$) = 0,068160&nbsp;$
 {% endif %}
-
 {% if region == "kz" %}
 > 3 × (2&nbsp;×&nbsp;3,9000&nbsp;₸ + 4&nbsp;×&nbsp;1,6000&nbsp;₸) = 42,6000&nbsp;₸
 {% endif %}
@@ -132,11 +128,9 @@ editable: false
 {% if region == "ru" %}
 > 720 × (26,1600&nbsp;₽ + 8,5200&nbsp;₽) + 100&nbsp;×&nbsp;3,2000&nbsp;₽ = 25&nbsp;289,6000&nbsp;₽
 {% endif %}
-
 {% if region == "int" %}
 > 720 × (0,209280&nbsp;$ + 0,068160&nbsp;$) + 100&nbsp;×&nbsp;0,025600&nbsp;$ = 202,316800&nbsp;$
 {% endif %}
-
 {% if region == "kz" %}
 > 720 × (130,8000&nbsp;₸ + 42,6000&nbsp;₸) + 100&nbsp;×&nbsp;16,0000&nbsp;₸ = 126&nbsp;448,0000&nbsp;₸
 {% endif %}

@@ -55,8 +55,6 @@ editable: false
 
 Цена указывается за 1 месяц использования. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
 
-{% if audience == "draft" %}
-
 ### Пример расчета стоимости кластера {#example}
 
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
@@ -70,11 +68,9 @@ editable: false
 {% if region == "ru" %}
 > 3 × (2&nbsp;×&nbsp;1,6800&nbsp;₽ + 8&nbsp;×&nbsp;2,1000&nbsp;₽) + 3 × (2&nbsp;×&nbsp;1,6800&nbsp;₽ + 8&nbsp;×&nbsp;2,1000&nbsp;₽) = 120,9600&nbsp;₽
 {% endif %}
-
 {% if region == "int" %}
 > 3 × (2&nbsp;×&nbsp;0,013440&nbsp;$ + 8&nbsp;×&nbsp;0,016800&nbsp;$) + 3 × (2&nbsp;×&nbsp;0,013440&nbsp;$ + 8&nbsp;×&nbsp;0,016800&nbsp;$) = 0,967680&nbsp;$
 {% endif %}
-
 {% if region == "kz" %}
 > 3 × (2&nbsp;×&nbsp;8,4000&nbsp;₸ + 8&nbsp;×&nbsp;10,5000&nbsp;₸) + 3 × (2&nbsp;×&nbsp;8,4000&nbsp;₸ + 8&nbsp;×&nbsp;10,5000&nbsp;₸) = 604,8000&nbsp;₸
 {% endif %}
@@ -91,11 +87,9 @@ editable: false
 {% if region == "ru" %}
 > 720 × 120,9600&nbsp;₽ + 100 × 3,2000&nbsp;₽ = 87&nbsp;411,2000&nbsp;₽
 {% endif %}
-
 {% if region == "int" %}
 > 720 × 0,967680&nbsp;$ + 100 × 0,025600&nbsp;$ = 699,289600&nbsp;$
 {% endif %}
-
 {% if region == "kz" %}
 > 720 × 604,8000&nbsp;₸ + 100 × 16,0000&nbsp;₸ = 437&nbsp;056,0000&nbsp;₸
 {% endif %}
@@ -107,8 +101,6 @@ editable: false
 * {% if region == "ru" %}120,9600&nbsp;₽{% endif %}{% if region == "int" %}0,967680&nbsp;${% endif %}{% if region == "kz" %}604,8000&nbsp;₸{% endif %} — стоимость часа работы всех хостов.
 * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах).
 * {% if region == "ru" %}3,2000&nbsp;₽{% endif %}{% if region == "int" %}0,025600&nbsp;${% endif %}{% if region == "kz" %}16,0000&nbsp;₸{% endif %} — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
-
-{% endif %}
 
 {% if audience == "cvos" %}
 
