@@ -77,8 +77,6 @@ The following is charged:
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
-{% if region == "ru"%}
-
 ### Example of cluster cost calculation {#example}
 
 For example, you created a cluster:
@@ -89,17 +87,15 @@ For example, you created a cluster:
 
 Cost of using resources:
 
-* 1 hour of using the core of a {{ CH }} host with 100% vCPU: ₽2.28.
-* 1 hour of using 1 GB of RAM of a {{ CH }} host: ₽0.52.
-* 1 hour of using the core of a {{ ZK }} host with 50% vCPU: ₽0.78.
-* 1 hour of using 1 GB of RAM of a {{ ZK }} host: ₽0.32.
-* 1 month of using 1 GB of HDD network storage (`network-hdd`): ₽3.20.
+* 1 hour of using the core of a {{ CH }} host with 100% vCPU: {% if region == "ru" %}₽2.28{% endif %}{% if region == "int" %}$0.018240{% endif %}{% if region == "kz" %}{% endif %}.
+* 1 hour of using 1 GB of RAM of a {{ CH }} host: {% if region == "ru" %}₽0.52{% endif %}{% if region == "int" %}$0.004160{% endif %}{% if region == "kz" %}₸2.6000{% endif %}.
+* 1 hour of using the core of a {{ ZK }} host with 50% vCPU: {% if region == "ru" %}₽0.78{% endif %}{% if region == "int" %}$0.006240{% endif %}{% if region == "kz" %}₸3.9000{% endif %}.
+* 1 hour of using 1 GB of RAM of a {{ ZK }} host: {% if region == "ru" %}₽0.32{% endif %}{% if region == "int" %}$0.002560{% endif %}{% if region == "kz" %}₸1.6000{% endif %}.
+* 1 month of using 1 GB of HDD network storage (`network-hdd`): {% if region == "ru" %}₽3.20{% endif %}{% if region == "int" %}$0.025600{% endif %}{% if region == "kz" %}₸16.0000{% endif %}.
 
-Cost per hour for all hosts: `3 × (2 × ₽2.28 + 8 × ₽0.52) + 3 × (2 × ₽0.78 + 4 × ₽0.32) = ₽34.68`
+Cost per hour for all hosts: {% if region == "ru" %}`3 × (2 × ₽2.28 + 8 × ₽0.52) + 3 × (2 × ₽0.78 + 4 × ₽0.32) = ₽34.68`{% endif %}{% if region == "int" %}`3 × (2 × $0.018240 + 8 × $0.004160) + 3 × (2 × $0.006240 + 4 × $0.002560) = $0.277440`{% endif %}{% if region == "kz" %}`3 × (2 × ₸11.4000 + 8 × ₸2.6000) + 3 × (2 × ₸3.9000 + 4 × ₸1.6000) = ₸173.4000`{% endif %}
 
-Total cost of the cluster per month (hosts and storage): `720 × ₽34.68 + 100 × ₽3.20 = ₽25289.6`
-
-{% endif %}
+Total cost of the cluster per month (hosts and storage): {% if region == "ru" %}`720 × ₽34.68 + 100 × ₽3.20 = ₽25289.6`{% endif %}{% if region == "int" %}`720 × $0.277440 + 100 × $0.025600 = $202.316800`{% endif %}{% if region == "kz" %}`720 × ₸173.4000 + 100 × ₸16.0000 = ₸126448.0000`{% endif %}
 
 {% if audience == "cvos" %}
 
@@ -131,19 +127,19 @@ All prices are shown without VAT.
 
 ### {{ CH }} host computing resources {#prices-clickhouse}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-host-ch.md](../_pricing/managed-clickhouse/rub-host-ch.md) %}
 
 {% endif %}
 
-{% if region == "kz"%}
+{% if region == "kz" %}
 
 {% include [kzt-host-ch.md](../_pricing/managed-clickhouse/kzt-host-ch.md) %}
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-host-ch.md](../_pricing/managed-clickhouse/usd-host-ch.md) %}
 
@@ -158,19 +154,19 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 {% endnote %}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-host-zoo.md](../_pricing/managed-clickhouse/rub-host-zoo.md) %}
 
 {% endif %}
 
-{% if region == "kz"%}
+{% if region == "kz" %}
 
 {% include [kzt-host-zoo.md](../_pricing/managed-clickhouse/kzt-host-zoo.md) %}
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-host-zoo.md](../_pricing/managed-clickhouse/usd-host-zoo.md) %}
 
@@ -179,13 +175,13 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 ### Storage and backups {#prices-storage}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-storage.md](../_pricing/managed-clickhouse/rub-storage.md) %}
 
 {% endif %}
 
-{% if region == "kz"%}
+{% if region == "kz" %}
 
 {% include [kzt-storage.md](../_pricing/managed-clickhouse/kzt-storage.md) %}
 

@@ -77,8 +77,6 @@ editable: false
 
 Цена указывается за 1 месяц использования. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
 
-{% if region == "ru"%}
-
 ### Пример расчета стоимости кластера {#example}
 
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
@@ -89,40 +87,68 @@ editable: false
 
 Расчет стоимости:
 
-> 3 × (2&nbsp;×&nbsp;2,2800 ₽ + 8&nbsp;×&nbsp;0,5200 ₽) = 26,1600&nbsp;₽
+{% if region == "ru" %}
+> 3 × (2&nbsp;×&nbsp;2,2800&nbsp;₽ + 8&nbsp;×&nbsp;0,5200&nbsp;₽) = 26,1600&nbsp;₽
+{% endif %}
+
+{% if region == "int" %}
+> 3 × (2&nbsp;×&nbsp;0,018240&nbsp;$ + 8&nbsp;×&nbsp;0,004160&nbsp;$) = 0,209280&nbsp;$
+{% endif %}
+
+{% if region == "kz" %}
+> 3 × (2&nbsp;×&nbsp;11,4000&nbsp;₸ + 8&nbsp;×&nbsp;2,6000&nbsp;₸) = 130,8000&nbsp;₸
+{% endif %}
 > 
-> Итого: 26,1600 ₽ – стоимость часа работы хостов {{ CH }}.
+> Итого: {% if region == "ru" %}26,1600&nbsp;₽{% endif %}{% if region == "int" %}0,209280&nbsp;${% endif %}{% if region == "kz" %}130,8000&nbsp;₸{% endif %} – стоимость часа работы хостов {{ CH }}.
 
 Где:
 * 3 — количество хостов {{ CH }}.
 * 2 — количество vCPU.
-* 2,2800 ₽ — стоимость часа использования 100% vCPU.
+* {% if region == "ru" %}2,2800&nbsp;₽{% endif %}{% if region == "int" %}0,018240&nbsp;${% endif %}{% if region == "kz" %}11,4000&nbsp;₸{% endif %} — стоимость часа использования 100% vCPU.
 * 8 — объем RAM одного хоста {{ CH }} (в гигабайтах).
-* 0,5200 ₽ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+* {% if region == "ru" %}0,5200&nbsp;₽{% endif %}{% if region == "int" %}0,004160&nbsp;${% endif %}{% if region == "kz" %}2,6000&nbsp;₸{% endif %} — стоимость часа использования 1 ГБ RAM на 100% vCPU.
 
-> 3 × (2&nbsp;×&nbsp;0,7800 ₽ + 4&nbsp;×&nbsp;0,3200 ₽) = 8,5200&nbsp;₽
+{% if region == "ru" %}
+> 3 × (2&nbsp;×&nbsp;0,7800&nbsp;₽ + 4&nbsp;×&nbsp;0,3200&nbsp;₽) = 8,5200&nbsp;₽
+{% endif %}
+
+{% if region == "int" %}
+> 3 × (2&nbsp;×&nbsp;0,006240&nbsp;$ + 4&nbsp;×&nbsp;0,002560&nbsp;$) = 0,068160&nbsp;$
+{% endif %}
+
+{% if region == "kz" %}
+> 3 × (2&nbsp;×&nbsp;3,9000&nbsp;₸ + 4&nbsp;×&nbsp;1,6000&nbsp;₸) = 42,6000&nbsp;₸
+{% endif %}
 > 
-> Итого: 8,5200 ₽ – стоимость часа работы хостов {{ ZK }}.
+> Итого: {% if region == "ru" %}8,5200&nbsp;₽{% endif %}{% if region == "int" %}0,068160&nbsp;${% endif %}{% if region == "kz" %}42,6000&nbsp;₸{% endif %} – стоимость часа работы хостов {{ ZK }}.
 
 Где:
 * 3 — количество хостов {{ ZK }}.
 * 2 — количество vCPU.
-* 0,7800 ₽ — стоимость часа использования 50% vCPU.
+* {% if region == "ru" %}0,7800&nbsp;₽{% endif %}{% if region == "int" %}0,006240&nbsp;${% endif %}{% if region == "kz" %}3,9000&nbsp;₸{% endif %} — стоимость часа использования 50% vCPU.
 * 4 — объем RAM одного хоста {{ ZK }} (в гигабайтах).
-* 0,3200 ₽ — стоимость часа использования 1 ГБ RAM на 50% vCPU.
+* {% if region == "ru" %}0,3200&nbsp;₽{% endif %}{% if region == "int" %}0,002560&nbsp;${% endif %}{% if region == "kz" %}1,6000&nbsp;₸{% endif %} — стоимость часа использования 1 ГБ RAM на 50% vCPU.
 
-> 720 × (26,1600 ₽ + 8,5200 ₽) + 100&nbsp;×&nbsp;3,2000 ₽ = 25&nbsp;289,6000&nbsp;₽
+{% if region == "ru" %}
+> 720 × (26,1600&nbsp;₽ + 8,5200&nbsp;₽) + 100&nbsp;×&nbsp;3,2000&nbsp;₽ = 25&nbsp;289,6000&nbsp;₽
+{% endif %}
+
+{% if region == "int" %}
+> 720 × (0,209280&nbsp;$ + 0,068160&nbsp;$) + 100&nbsp;×&nbsp;0,025600&nbsp;$ = 202,316800&nbsp;$
+{% endif %}
+
+{% if region == "kz" %}
+> 720 × (130,8000&nbsp;₸ + 42,6000&nbsp;₸) + 100&nbsp;×&nbsp;16,0000&nbsp;₸ = 126&nbsp;448,0000&nbsp;₸
+{% endif %}
 >
-> Итого: 25&nbsp;289,6000 ₽ – стоимость использования кластера в течение 30 дней.
+> Итого: {% if region == "ru" %}25&nbsp;289,6000&nbsp;₽{% endif %}{% if region == "int" %}202,316800&nbsp;${% endif %}{% if region == "kz" %}126&nbsp;448,0000&nbsp;₸{% endif %} – стоимость использования кластера в течение 30 дней.
 
 Где:
 * 720 — количество часов в 30 днях.
-* 26,1600 ₽ — стоимость часа работы хостов {{ CH }}.
-* 8,5200 ₽ — стоимость часа работы хостов {{ ZK }}.
+* {% if region == "ru" %}26,1600&nbsp;₽{% endif %}{% if region == "int" %}0,209280&nbsp;${% endif %}{% if region == "kz" %}130,8000&nbsp;₸{% endif %} — стоимость часа работы хостов {{ CH }}.
+* {% if region == "ru" %}8,5200&nbsp;₽{% endif %}{% if region == "int" %}0,068160&nbsp;${% endif %}{% if region == "kz" %}42,6000&nbsp;₸{% endif %} — стоимость часа работы хостов {{ ZK }}.
 * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах).
-* 3,2000 ₽ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
-
-{% endif %}
+* {% if region == "ru" %}3,2000&nbsp;₽{% endif %}{% if region == "int" %}0,025600&nbsp;${% endif %}{% if region == "kz" %}16,0000&nbsp;₸{% endif %} — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
 
 {% if audience == "cvos" %}
 
@@ -154,19 +180,19 @@ editable: false
 
 ### Вычислительные ресурсы хостов {{ CH }} {#prices-clickhouse}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-host-ch.md](../_pricing/managed-clickhouse/rub-host-ch.md) %}
 
 {% endif %}
 
-{% if region == "kz"%}
+{% if region == "kz" %}
 
 {% include [kzt-host-ch.md](../_pricing/managed-clickhouse/kzt-host-ch.md) %}
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-host-ch.md](../_pricing/managed-clickhouse/usd-host-ch.md) %}
 
@@ -181,19 +207,19 @@ editable: false
 
 {% endnote %}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-host-zoo.md](../_pricing/managed-clickhouse/rub-host-zoo.md) %}
 
 {% endif %}
 
-{% if region == "kz"%}
+{% if region == "kz" %}
 
 {% include [kzt-host-zoo.md](../_pricing/managed-clickhouse/kzt-host-zoo.md) %}
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-host-zoo.md](../_pricing/managed-clickhouse/usd-host-zoo.md) %}
 
@@ -202,19 +228,19 @@ editable: false
 
 ### Хранилище и резервные копии {#prices-storage}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-storage.md](../_pricing/managed-clickhouse/rub-storage.md) %}
 
 {% endif %}
 
-{% if region == "kz"%}
+{% if region == "kz" %}
 
 {% include [kzt-storage.md](../_pricing/managed-clickhouse/kzt-storage.md) %}
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-storage.md](../_pricing/managed-clickhouse/usd-storage.md) %}
 
