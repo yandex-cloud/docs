@@ -171,6 +171,7 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
 
         name        = "windows-vm"
         platform_id = "standard-v3"
+        zone        = "<availability zone>"
 
         resources {
           cores  = <number of vCPU cores>
