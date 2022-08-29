@@ -172,6 +172,7 @@ description: "Следуя данной инструкции вы сможете
 
        name        = "windows-vm"
        platform_id = "standard-v3"
+       zone        = "<зона доступности>"
 
        resources {
          cores  = <количество ядер vCPU>
