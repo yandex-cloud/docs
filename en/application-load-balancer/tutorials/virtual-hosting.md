@@ -1,3 +1,8 @@
+---
+title: Virtual hosting. How to create
+description: "This tutorial will show you how to set up virtual hosting with multiple websites and different domain names on the same IP address."
+---
+
 # Setting up a virtual hosting
 
 This use case describes how to set up virtual hosting, that is, how to use {{ alb-full-name }} to host multiple websites with different domain names on the same IP address.

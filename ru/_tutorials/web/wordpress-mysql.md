@@ -1,15 +1,3 @@
----
-title: "Создание сайта на WordPress c БД MySQL - Инструкция"
-description: "Пошаговая инструкция, с помощью которой вы научитесь быстро создавать сайт на Wordpress на базе данных MySQL в облаке. 3 простых шага, чтобы развернуть Wordpress сайт: создайте виртуальную машин, задайте настройки CMS Wordpress и настройте DNS."
-keywords:
-  - создание сайта wordpress
-  - сайт wordpress
-  - cms wordpress
-  - настройка wordpress сайта
-  - wordpress mysql
-  - wordpress сайт на mysql
----
-
 # Сайт на WordPress с кластером БД MySQL
 
 С помощью этой инструкции вы научитесь разворачивать сайт на базе CMS WordPress с кластером баз данных под управлением СУБД MySQL в инфраструктуре {{ yandex-cloud }}.
