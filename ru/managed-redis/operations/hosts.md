@@ -143,14 +143,24 @@
       {{ yc-mdb-rd }} host add \
          --cluster-name=<имя кластера> \
          --host zone-id=<зона доступности>,`
-               `subnet-id=<идентификатор подсети>
+               `subnet-id=<идентификатор подсети>,`
+               `assign-public-ip=<публичный доступ к хосту: true или false>,`
+               `replica-priority=<приоритет хоста>,`
+               `shard-name=<имя шарда>
       ```
 
-     {{ mrd-short-name }} запустит операцию добавления хоста.
+      Где:
 
-     Идентификатор подсети необходимо указать, если в зоне доступности больше одной подсети, в противном случае {{ mrd-short-name }} автоматически выберет единственную подсеть. Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+      * `--cluster-name` — имя кластера {{ mrd-name }}.
+      * `--host` — параметры хоста:
 
-     Если вы добавляете хост в шардированный кластер, укажите в параметре `shard-name` имя шарда, в который следует добавить хост.
+          * `zone-id` — {% if audience != "internal" %}[зона доступности](../../overview/concepts/geo-scope.md){% else %}зона доступности{% endif %}.
+          * `subnet-id` — {% if audience != "internal" %}[идентификатор подсети](../../vpc/concepts/network.md#subnet){% else %}идентификатор подсети{% endif %}. Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
+          * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу.
+          * `replica-priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
+          * `shard-name` — имя шарда, в который следует добавить хост, если кластер шардированный.
+
+      Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -166,8 +176,11 @@
         resource "yandex_mdb_redis_cluster" "<имя кластера>" {
           ...
           host {
-            zone      = "<зона доступности>"
-            subnet_id = <идентификатор подсети>
+            zone             = "<зона доступности>"
+            subnet_id        = "<идентификатор подсети>"
+            assign_public_ip = <публичный доступ к хосту: true или false>
+            replica_priority = <приоритет хоста>
+            shard_name       = "<имя шарда>"
           }
         }
         ```
@@ -201,8 +214,6 @@
 
 ## Изменить хост {#update}
 
-Для каждого хоста в кластере {{ mrd-short-name }} можно изменить настройки публичного доступа.
-
 {% include [mrd-public-access](../../_includes/mdb/mrd/note-public-access.md) %}
 
 {% list tabs %}
@@ -217,8 +228,6 @@
     1. Включите опцию **Публичный доступ**, если хост должен быть доступен извне {{ yandex-cloud }}.
     1. Нажмите кнопку **Сохранить**.
 
-{% if audience == "draft" %}
-
 - CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
@@ -230,7 +239,8 @@
     ```bash
     {{ yc-mdb-rd }} host update <имя хоста> \
        --cluster-name=<имя кластера> \
-       --assign-public-ip=<публичный доступ к хосту: true или false>
+       --assign-public-ip=<публичный доступ к хосту: true или false> \
+       --replica-priority=<приоритет хоста>
     ```
 
     Имя хоста можно запросить со [списком хостов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -249,7 +259,11 @@
         resource "yandex_mdb_redis_cluster" "<имя кластера>" {
           ...
           host {
+            zone             = "<зона доступности>"
+            subnet_id        = "<идентификатор подсети>"
             assign_public_ip = <публичный доступ к хосту: true или false>
+            replica_priority = <приоритет хоста>
+            shard_name       = "<имя шарда>"
           }
         }
         ```
@@ -263,8 +277,6 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
-
-{% endif %}
 
 - API
 
