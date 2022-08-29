@@ -71,7 +71,7 @@ spark:spark.driver.cores : 1
 | pip               | `pip:<имя пакета>`   | Номер версии пакета согласно [спецификации pip](https://www.python.org/dev/peps/pep-0440/#version-specifiers)                                                     | `pip:psycopg2 : 2.7.0` |
 
 
-## Использование Apache Spark Thrift Server
+## Использование Apache Spark Thrift Server {#spark-thrift-server}
 
 Сервис [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sql-distributed-sql-engine.html) может использоваться как распределенный движок SQL-запросов поверх Apache Spark™.
 По умолчанию он выключен, но его можно включить с помощью свойства `dataproc:hive.thrift.impl = spark`. При задании настройки на TCP-порте 10000 поднимается Apache Spark Thrift Server. Значение по умолчанию `dataproc:hive.thrift.impl = hive`: тогда на этом TCP-порте запускается Apache HiveServer2, если используется сервис Hive.
