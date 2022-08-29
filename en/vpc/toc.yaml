@@ -38,7 +38,7 @@ items:
       - name: Static routing
         stage: new
         items:
-          - name: Creating a static route
+          - name: Creating static routes
             href: operations/static-route-create.md
           - name: Enabling NAT to the internet
             href: operations/enable-nat.md
@@ -46,13 +46,17 @@ items:
         items:
           - name: Create a security group
             href: operations/security-group-create.md
-          - name: Update a security group and rules
+          - name: Changing the name and description
             href: operations/security-group-update.md
+          - name: Add a new rule
+            href: operations/security-group-add-rule.md
+          - name: Delete a rule
+            href: operations/security-group-delete-rule.md
           - name: Delete a security group
             href: operations/security-group-delete.md
       - name: Enable a software-accelerated network
         href: operations/enable-software-accelerated-network.md
-      - name: Protection from DDoS attacks
+      - name: DDoS protection
         items:
           - name: Enable protection from DDoS attacks
             href: operations/enable-ddos-protection.md
@@ -64,7 +68,7 @@ items:
         href: tutorials/dhcp-options.md
   - name: Concepts
     items:
-      - name: Relationship between service resources
+      - name: Relationships between service resources
         href: concepts/index.md
       - name: Cloud networks and subnets
         href: concepts/network.md

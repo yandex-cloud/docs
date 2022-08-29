@@ -35,6 +35,12 @@ Transaction mode provides high performance and allows the DBMS to load as effici
 
 Pooler mode can be [changed](../operations/update.md#change-pooler-config) after the cluster is created.
 
+{% note warning %}
+
+{{ mpg-name }} clusters have a connection time-to-live quota of 12 hours. To have it increased, please contact [technical support](../../support/overview.md).
+
+{% endnote %}
+
 Integrated with Odyssey, {{ mpg-name }} clusters:
 - Support numerous client connections without affecting DBMS performance.
 - Require no additional configuration of the connection pooler or additional infrastructure for its operation.

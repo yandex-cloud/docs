@@ -31,6 +31,8 @@ items:
         href: tutorials/data-from-podcasts.md
       - name: Visualizing data with a QL chart
         href: tutorials/data-from-ch-to-sql-chart.md
+      - name: Data visualization {{ monitoring-name }}
+        href: tutorials/data-from-monitoring-visualization.md
       - name: Building customer journey charts based on AppMetrica data
         href: tutorials/data-from-appmetrica-yc-visualization.md
   - name: Concepts
@@ -109,6 +111,8 @@ items:
             href: operations/connection/create-oracle.md
           - name: Creating a YDB connection
             href: operations/connection/create-ydb.md
+          - name: Creating a Yandex Monitoring connection
+            href: operations/connection/create-monitoring.md
           - name: Creating a Yandex Metrica API connection
             href: operations/connection/create-metrica-api.md
           - name: Creating an AppMetrica connection

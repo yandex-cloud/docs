@@ -80,15 +80,15 @@
 
 Список расширений, которые установлены в кластерах PostgreSQL версии {{ versions.console.str-1c }}:
 
-* [online_analyze]({{ pg.docs.pro }}/postgrespro/current/online-analyze)
+* [online_analyze](https://postgrespro.ru/docs/postgrespro/10/online-analyze)
 
-* [plantuner]({{ pg.docs.pro }}/postgrespro/current/plantuner)
+* [plantuner](https://postgrespro.ru/docs/postgrespro/10/plantuner)
 
-* [fasttrun]({{ pg.docs.pro }}/postgrespro/current/fasttrun)
+* [fasttrun](https://postgrespro.ru/docs/postgrespro/10/fasttrun)
 
-* [fulleq]({{ pg.docs.pro }}/postgrespro/current/fulleq)
+* [fulleq](https://postgrespro.ru/docs/postgrespro/10/fulleq)
 
-* [mchar]({{ pg.docs.pro }}/postgrespro/current/mchar)
+* [mchar](https://postgrespro.ru/docs/postgrespro/10/mchar)
 
 ## Удалите созданные ресурсы {#clear-out}
 

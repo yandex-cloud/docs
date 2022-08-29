@@ -1,8 +1,3 @@
----
-title: "Managed Service for MongoDB. FAQ"
-description: "What is Managed Service for MongoDB? For which tasks should you use Managed Service for MongoDB, and for which virtual machines with databases? What part of the management and maintenance of databases does Managed Service for MongoDB take on? Answers to these and other questions in this article."
----
-
 # General questions about {{ mmg-name }}
 
 #### What is {{ mmg-short-name }}? {#what-is}
@@ -57,7 +52,7 @@ To create a database cluster in {{ mmg-short-name }}, you must define its charac
 - The network your cluster will be connected to.
 - The number of hosts for the cluster and the availability zone for each host.
 
-For detailed instructions, see  [{#T}](../quickstart.md).
+For detailed instructions, see [{#T}](../quickstart.md).
 
 
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
@@ -95,7 +90,7 @@ For more information, see [{#T}](../concepts/maintenance.md).
 
 #### Which version of {{ MG }} does {{ mmg-short-name }} use? {#dbms-version}
 
-{{ mmg-short-name }} supports {{ MG }} versions 4.0, 4.2, 4.4, and 5.0.
+{{ mmg-short-name }} supports {{ MG }} versions 4.2, 4.4, and 5.0. Enterprise [Edition](../concepts/editions.md) is supported for versions 4.4 and 5.0.
 
 
 #### What happens when a new DBMS version is released? {#new-version}
@@ -153,6 +148,10 @@ For DB hosts, you can track metrics specific to the corresponding type of DBMS. 
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
 
+
+
 {% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
+
+
 
 {% include [qa-logs.md](../../_includes/qa-logs.md) %}

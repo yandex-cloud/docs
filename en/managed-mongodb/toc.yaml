@@ -71,6 +71,8 @@ items:
             href: concepts/using-deprecated-instances.md
       - name: Network in Yandex Managed Service for MongoDB
         href: concepts/network.md
+      - name: MongoDB editions
+        href: concepts/editions.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Storage in Yandex Managed Service for MongoDB

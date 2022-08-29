@@ -5,7 +5,6 @@ To run Spark jobs on a {{ dataproc-name }} cluster from hosts that are not part 
 ## Requirements for running jobs remotely using spark-submit {#requirements}
 
 To run jobs from a remote host, follow these requirements:
-
 1. Provide network access from the remote host to all {{ dataproc-name }} cluster hosts.
 1. Install Hadoop and Spark packages on the remote host. Make sure their versions are similar to the {{ dataproc-name }} cluster host versions.
 1. Prepare Hadoop and Spark configuration files. Make sure they're identical on the cluster and remote host.
@@ -13,66 +12,53 @@ To run jobs from a remote host, follow these requirements:
 ## Creating and configuring a remote host {#setup-vm}
 
 To configure a remote host:
-
-1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) running Ubuntu 16.04 LTS.
-
+1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) with Ubuntu 16.04 LTS.
 1. Connect to the VM over SSH:
 
-    ```bash
-    ssh -A ubuntu@remote-run
-    ```
+   ```bash
+   ssh -A ubuntu@remote-run
+   ```
 
 1. Copy the repository settings from any of the {{ dataproc-name }} cluster hosts. To do this, run the following commands on the VM you created.
+   1. Copy the repository address:
 
-    1. Copy the repository address:
+      ```bash
+      ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "cat /etc/apt/sources.list.d/yandex-dataproc.list" | sudo tee /etc/apt/sources.list.d/yandex-dataproc.list
+      deb [arch=amd64] http://{{ s3-storage-host }}/dataproc/releases/0.2.10 xenial main
+      ```
 
-        ```bash
-        ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "cat /etc/apt/sources.list.d/yandex-dataproc.list" | sudo tee /etc/apt/sources.list.d/yandex-dataproc.list
-        deb [arch=amd64] http://{{ s3-storage-host }}/dataproc/releases/0.2.10 xenial main
-        ```
+   1. Copy the GPG key to verify Debian package signatures:
 
-    1. Copy the GPG key to verify Debian package signatures:
+      ```bash
+      ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "cat /srv/dataproc.gpg" | sudo apt-key add -
+      ```
 
-        ```bash
-        ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "cat /srv/dataproc.gpg"  | sudo apt-key add -
-        OK
-        ```
+   1. Update the repository cache:
 
-    1. Update the repository cache:
-
-        ```bash
-        sudo apt update
-        Hit:1 http://{{ s3-storage-host }}/dataproc/releases/0.2.10 xenial InRelease
-        Hit:2 http://mirror.yandex.ru/ubuntu xenial InRelease
-        Hit:3 http://mirror.yandex.ru/ubuntu xenial-updates InRelease
-        Hit:4 http://mirror.yandex.ru/ubuntu xenial-backports InRelease
-        Hit:5 http://security.ubuntu.com/ubuntu xenial-security InRelease
-        Reading package lists... Done
-        Building dependency tree
-        Reading state information... Done
-        All packages are up to date.
-        ```
+      ```bash
+      sudo apt update
+      ```
 
 1. Install the necessary packages:
 
-    ```bash
-    sudo apt install openjdk-8-jre-headless hadoop-client hadoop-hdfs spark-core
-    ```
+   ```bash
+   sudo apt install openjdk-8-jre-headless hadoop-client hadoop-hdfs spark-core
+   ```
 
 1. Copy the Hadoop and Spark configuration files:
 
-    ```bash
-    sudo -E scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:/etc/hadoop/conf/* /etc/hadoop/conf/
-    sudo -E scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:/etc/spark/conf/* /etc/spark/conf/
-    ```
+   ```bash
+   sudo -E scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:/etc/hadoop/conf/* /etc/hadoop/conf/
+   sudo -E scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:/etc/spark/conf/* /etc/spark/conf/
+   ```
 
 1. Create a new user to run jobs under:
 
-    ```bash
-    sudo useradd sparkuser
-    ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "sudo -u hdfs hdfs dfs -ls /user/sparkuser"
-    ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "sudo -u hdfs hdfs dfs -chown sparkuser:sparkuser /user/sparkuser"
-    ```
+   ```bash
+   sudo useradd sparkuser
+   ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "sudo -u hdfs hdfs dfs -ls /user/sparkuser"
+   ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "sudo -u hdfs hdfs dfs -chown sparkuser:sparkuser /user/sparkuser"
+   ```
 
 The host is ready to remotely run jobs on the {{ dataproc-name }} cluster.
 
@@ -136,7 +122,7 @@ sudo -u sparkuser spark-submit --master yarn --deploy-mode cluster --class org.a
 
 ### Viewing the job execution status {#status-check}
 
-Check the execution status using [yarn application](https://hadoop.apache.org/docs/r2.10.0/hadoop-yarn/hadoop-yarn-site/YarnCommands.html#application):
+Check the job execution status using the [yarn application](https://hadoop.apache.org/docs/r2.10.0/hadoop-yarn/hadoop-yarn-site/YarnCommands.html#application) utility:
 
 ```bash
 yarn application -status application_1586176069782_0003
@@ -169,10 +155,9 @@ Application Report :
 
 ### Viewing job execution logs {#get-log}
 
-View logs from all running containers using [yarn logs](https://hadoop.apache.org/docs/r2.10.0/hadoop-yarn/hadoop-yarn-site/YarnCommands.html#logs):
+View logs from all running containers using the [yarn logs](https://hadoop.apache.org/docs/r2.10.0/hadoop-yarn/hadoop-yarn-site/YarnCommands.html#logs) utility:
 
 ```bash
 sudo -u sparkuser yarn logs -applicationId application_1586176069782_0003 | grep "Pi is"
 Pi is roughly 3.14164599141646
 ```
-

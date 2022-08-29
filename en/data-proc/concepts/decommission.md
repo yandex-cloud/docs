@@ -1,8 +1,8 @@
 # Decommissioning subclusters and hosts
 
-Decommissioning is the procedure for reducing the capacity of a cluster (the number of hosts and their class) without stopping it and interrupting the workload. Decommissioning is supported for {{ dataproc-name }} clusters version 1.2 and higher.
+Decommissioning is the procedure for reducing the capacity of a cluster (the number of hosts and their class) without stopping it and interrupting the workload.  Decommissioning is supported for {{ dataproc-name }} clusters version 1.2 and higher. 
 
-{{ dataproc-name }} implements decommissioning based on [YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) and [HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Decommissioning will not interrupt running user tasks or cause data to be lost.
+{{ dataproc-name }} implements decommissioning based on[ YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) and [HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Decommissioning will not interrupt running user tasks or cause data to be lost.
 
 You can specify a decommissioning timeout for YARN clusters. In this case, the cluster will wait for the current operations to complete, but not longer than the specified time. Without a timeout, subcluster hosts will terminate immediately. The hosts being decommissioned won't perform new operations or accept new data.
 
@@ -14,10 +14,7 @@ YARN subcluster resources are decommissioned under the following circumstances:
 * Increasing the disk size.
 * Reducing the number of hosts in data processing subclusters.
 
-HDFS subcluster resources are decommissioned under the following circumstances:
-
-* Reducing the number of hosts in data storage subclusters.
-* Deleting data storage subclusters.
+HDFS subcluster resources are decommissioned if the number of hosts in data storage subclusters is reduced.
 
 If the host must be rebooted for a cluster to update:
 

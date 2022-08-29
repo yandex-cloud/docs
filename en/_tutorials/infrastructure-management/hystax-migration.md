@@ -20,6 +20,7 @@ If you no longer need the created resources, [delete them](#clear-out).
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
+
 ### Required paid resources {#paid-resources}
 
 {% note info %}
@@ -34,7 +35,7 @@ Resource costs for Hystax Acura and Hystax Acura Cloud Agent include:
 * A fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for storing images (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
+
 
 ## Create a service account and authorized key {#create-sa}
 

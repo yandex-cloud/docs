@@ -2,7 +2,7 @@
 
 ## Configure a network {#setup-network}
 
-In the subnet that the {{ dataproc-name }} subcluster will connect to with the `Master` role, [enable egress NAT](../../vpc/operations/enable-nat.md). This will enable the subcluster to interact with {{ yandex-cloud }} services or hosts on other networks.
+In the subnet that the subcluster with the master host will connect to, [enable egress NAT](../../vpc/operations/enable-nat.md). This will enable the subcluster to interact with {{ yandex-cloud }} services or hosts on other networks.
 
 ## Configure security groups {#change-security-groups}
 
@@ -13,12 +13,12 @@ Security groups must be created and configured before creating a cluster. If the
 {% endnote %}
 
 1. [Create](../../vpc/operations/security-group-create.md) one or more security groups for cluster service traffic.
-1. [Add rules](../../vpc/operations/security-group-update.md#add-rule):
+1. [Add rules](../../vpc/operations/security-group-add-rule.md):
 
    * One rule for inbound and outbound service traffic:
 
       * Port range: `{{ port-any }}`.
-      * Protocol: `Any`.
+      * Protocol: ``Any``.
       * Source: `Security group`.
       * Security group: `Self` (`Self`).
 
@@ -45,7 +45,7 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
 
 ## Create a cluster {#create}
 
-A cluster must contain at least two subclusters: one `Master` and one `Data`.
+A cluster must include a subcluster with a master host and at least one subcluster for data storage or processing.
 
 {% list tabs %}
 
@@ -77,7 +77,7 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
    1. If necessary, configure the [properties of cluster components](../concepts/settings-list.md), jobs, and the environment.
    1. If necessary, specify the custom [initialization scripts](../concepts/init-action.md) of cluster hosts. For each script, specify:
 
-      * **URI**: Link to the initialization script in the `https://` or `s3a://` scheme.
+      * **URI**: Link to the initialization script in the `https://`, `http://`, `hdfs://`, or `s3a://` scheme.
       * (Optional) **Timeout**: The script execution timeout (in seconds). If your initialization script runs longer than this time, it will be terminated.
       * (Optional) **Arguments**: The list of arguments of your initialization script, enclosed in square brackets `[]` and separated by commas, for example:
 
@@ -97,13 +97,14 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
 
    1. Enable the **UI Proxy** option to access the [web interfaces of {{ dataproc-name }} components](../concepts/interfaces.md).
       
+
    1. Cluster logs are saved in [{{ cloud-logging-full-name }}](../../logging/). Select a log group from the list or [create a new one](../../logging/operations/create-group.md).
 
       To enable this functionality, [assign the cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
+
+   1. Configure subclusters: no more than one subcluster with a master host (called **Master**) and subclusters for data storage or processing.
 
-   1. Configure subclusters: no more than one main subcluster with a **Master** host and subclusters for data storage or computing.
-
-      The roles of `Compute` and `Data` subcluster are different: you can deploy data storage components on `Data` subclusters, and data processing components on `Compute` subclusters. Storage on a `Compute` subcluster is only used to temporarily store processed files.
+      Storage and processing subcluster roles are different: you can deploy data storage components on data storage subclusters and computing components on data processing subclusters. Storage on a data processing subcluster is only used to temporarily store processed files.
 
    1. For each subcluster, you can configure:
 
@@ -112,17 +113,17 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
       * [Storage](../concepts/storage.md) size and type.
       * The subnet of the network where the cluster is located.
 
-      NAT to the internet must be enabled in the subnet for the subcluster with the `Master` role. For more information, see [{#T}](#setup-network).
+      NAT to the internet must be enabled in the subnet for the subcluster with the master host. For more information, see [{#T}](#setup-network).
 
       1. To access subcluster hosts from the internet, select **Public access**. In this case, you can only connect to subcluster hosts over an SSL connection. For more information, see [{#T}](connect.md).
 
       {% note warning %}
 
-      After you create your cluster, you can't request or disable public access to the subcluster. However, you can delete any subcluster (if its role is not `Master`) and then create it again with a relevant public access setting.
+      After you create your cluster, you can't request or disable public access to the subcluster. However, you can delete a data processing subcluster and then create it again with a relevant public access setting.
 
       {% endnote %}
 
-   1. For `Compute` subclusters, you can specify the [autoscaling](../concepts/autoscaling.md) parameters.
+   1. For data processing subclusters, you can specify the [autoscaling](../concepts/autoscaling.md) parameters.
 
       {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
 
@@ -150,6 +151,7 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
    To create a cluster:
 
    
+
    1. Check whether the folder has any subnets for the cluster hosts:
 
       ```bash
@@ -157,7 +159,7 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
       ```
 
       If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-full-name }}.
-
+
 
    1. View a description of the CLI's create cluster command:
 
@@ -167,6 +169,8 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
 
    1. Specify cluster parameters in the create command (the list of supported parameters in the example is not exhaustive):
 
+      
+
       ```bash
       {{ yc-dp }} cluster create <cluster name> \
          --bucket=<bucket name> \
@@ -175,15 +179,14 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
          --version=<image version> \
          --services=<component list> \
          --ssh-public-keys-file=<full path to the file with the SSH key's public part> \
-         --subcluster name=<name of MASTERNODE subcluster>,`
+         --subcluster name=<name of subcluster with master host>,`
                      `role=masternode,`
                      `resource-preset=<host class>,`
                      `disk-type=<storage type: network-ssd, network-hdd, or network-ssd-nonreplicated>,`
                      `disk-size=<storage size, GB>,`
                      `subnet-name=<subnet name>,`
-                     `hosts-count=<host count>,`
                      `assign-public-ip=<public access to subcluster host: true or false> \
-         --subcluster name=<name of DATANODE subcluster>,`
+         --subcluster name=<name of data storage subcluster>,`
                      `role=datanode,`
                      `resource-preset=<host class>,`
                      `disk-type=<storage type: network-ssd, network-hdd, or network-ssd-nonreplicated>,`
@@ -196,6 +199,9 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
          --security-group-ids=<list of security group IDs> \
          --log-group-id=<log group ID>
       ```
+
+
+
 
       {% note info %}
 
@@ -227,12 +233,12 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
          * `disk-type`: [Storage type](../concepts/storage.md).
          * `disk-size`: Storage size in GB.
          * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet).
-         * `hosts-count`: Subcluster host count. The minimum value is `1` and the maximum value is `32`.
+         * `hosts-count`: Number of hosts in data storage or processing subclusters. The minimum value is `1` and the maximum value is `32`.
          * `assign-public-ip`: Access to subcluster hosts from the internet. This way, you can only connect to the cluster over an SSL connection. For more information, see [{#T}](connect.md).
 
             {% note warning %}
 
-            After you create your cluster, you can't request or disable public access to the subcluster. However, you can delete any subcluster (if its role is not `Master`) and then create it again with a relevant public access setting.
+            After you create your cluster, you can't request or disable public access to the subcluster. However, you can delete a data processing subcluster and then create it again with a relevant public access setting.
 
             {% endnote %}
 
@@ -242,9 +248,11 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
 
       * `--ui-proxy`: Access to [{{ dataproc-name }} component web interfaces](../concepts/interfaces.md).
       * `--security-group-ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
-      * `--log-group-id`: [Log group ID](../concepts/logs.md).
 
-      To create a cluster with multiple `Compute` and `Data` subclusters, pass the necessary number of `--subcluster` arguments in the cluster create command:
+      
+      * `--log-group-id`: [Log group ID](../concepts/logs.md).
+
+      To create a cluster with multiple data storage or processing subclusters, pass the necessary number of `--subcluster` arguments in the cluster create command:
 
       ```bash
          {{ yc-dp }} cluster create \
@@ -254,7 +262,7 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
          ...
       ```
 
-      1. To enable [autoscaling](../concepts/autoscaling.md) for `Compute` subclusters, set the following parameters:
+      1. To enable [autoscaling](../concepts/autoscaling.md) in data processing subclusters, specify the following parameters:
 
          ```bash
          {{ yc-dp }} cluster create <cluster name> \
@@ -286,6 +294,7 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
          {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
 
    
+
    1. To create a cluster deployed on [groups of dedicated hosts](../../compute/concepts/dedicated-host.md), specify host group IDs as a comma-separated list in the `--host-group-ids` parameter:
 
       ```bash
@@ -295,7 +304,7 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
       ```
 
       {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
-
+
 
    1. To configure cluster hosts using [initialization scripts](../concepts/init-action.md), specify them in one or more `--initialization-action` parameters:
 
@@ -315,15 +324,15 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
 
 - {{ TF }}
 
-     
-  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
-
+   
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    To create a cluster:
 
    1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
    
+
    1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
@@ -344,7 +353,7 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
         v4_cidr_blocks = ["<subnet>"]
       }
       ```
-
+
 
    1. Create a configuration file with a description of the [service account](../../iam/concepts/users/service-accounts.md) to be granted access to the cluster as well as a description of the [static key](../../iam/concepts/authorization/access-key.md) and [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md) to store jobs and output.
 
@@ -387,7 +396,7 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
 
       If necessary, you can also use it to specify the [properties of cluster components, jobs, and the environment](../concepts/settings-list.md).
 
-      Example configuration file structure describing a cluster of a single primary data storage subcluster:
+      Sample structure of a configuration file that describes a cluster consisting of a subcluster with a master host, a data storage subcluster, and a data processing subcluster:
 
       ```hcl
       resource "yandex_dataproc_cluster" "<cluster name in {{ TF }}>" {
@@ -415,7 +424,7 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
           }
 
           subcluster_spec {
-            name = "<subcluster name>"
+            name = "<name of subcluster with master host>"
             role = "MASTERNODE"
             resources {
               resource_preset_id = "<host class>"
@@ -427,7 +436,7 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
           }
 
           subcluster_spec {
-            name = "<subcluster name>"
+            name = "<data storage subcluster name>"
             role = "DATANODE"
             resources {
               resource_preset_id = "<host class>"
@@ -435,11 +444,11 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
               disk_size          = <storage size, GB>
             }
             subnet_id   = "<subnet ID in {{ TF }}>"
-            hosts_count = <number of hosts in subcluster>
+            hosts_count = <number of subcluster hosts>
           }
 
           subcluster_spec {
-            name = "<subcluster name>"
+            name = "<data processing subcluster name>"
             role = "COMPUTENODE"
             resources {
               resource_preset_id = "<host class>"
@@ -447,13 +456,13 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
               disk_size          = <storage size, GB>
             }
             subnet_id   = "<subnet ID in {{ TF }}>"
-            hosts_count = <number of hosts in subcluster>
+            hosts_count = <number of subcluster hosts>
           }
         }
       }
       ```
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
 
@@ -473,7 +482,7 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
       }
       ```
 
-      To configure [autoscaling](../concepts/autoscaling.md) for `Compute` subclusters, add a section called `autoscaling_config` with the required settings to the description of the relevant subcluster named `subcluster_spec`:
+      To configure [autoscaling](../concepts/autoscaling.md) for data processing subclusters, add a section called `autoscaling_config` with the required settings to the description of the relevant `subcluster_spec` subcluster:
 
       ```hcl
       subcluster_spec {
@@ -535,10 +544,11 @@ A cluster must contain at least two subclusters: one `Master` and one `Data`.
    To assign a public IP address to all subcluster hosts, pass the `true` value in the `configSpec.subclustersSpec.assignPublicIp` parameter.
 
    
+
    To create a cluster deployed on [groups of dedicated hosts](../../compute/concepts/dedicated-host.md), pass a list of host group IDs in the `hostGroupIds` parameter.
 
    {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
-
+
 
    To use [initialization scripts](../concepts/init-action.md) for the initial configuration of cluster hosts, specify them in the `config_spec.hadoop.initialization_actions[]` parameter.
 
@@ -552,9 +562,9 @@ After your cluster's status changes to **Running**, you can [connect](connect.md
 
 {% list tabs %}
 
-* CLI
+- CLI
 
-   Create a {{ dataproc-name }} cluster to run Spark jobs without HDFS and data storage subclusters and set the following characteristics:
+   Create a {{ dataproc-name }} cluster to run Spark jobs without HDFS and data storage subclusters and set the test characteristics:
 
    * Cluster name: `my-dataproc`.
    * With a bucket named `dataproc-bucket`.
@@ -573,7 +583,7 @@ After your cluster's status changes to **Running**, you can [connect](connect.md
    * In the security group `{{ security-group }}`.
    * With protection against accidental cluster deletion.
 
-   To create a cluster with these characteristics, run the command:
+   Run the following command:
 
    ```bash
    {{ yc-dp }} cluster create my-dataproc \

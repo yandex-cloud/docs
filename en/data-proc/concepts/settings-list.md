@@ -45,19 +45,19 @@ Settings for running the jobs are specified in special properties:
 * `dataproc:version`: The version of the dataproc-agent that runs jobs, passes the property of a cluster state, and proxies the UI. Used for debugging. Default value: `latest`.
 * `dataproc:max-concurrent-jobs`: The number of concurrent jobs. Default value: `auto` (calculated based on the `min-free-memory-to-enqueue-new-job` and `job-memory-footprint` properties).
 * `dataproc:min-free-memory-to-enqueue-new-job`: The minimum size of free memory to run the job (in bytes). Default value: `1073741824` (1 GB).
-* `dataproc:job-memory-footprint`: The memory size to run the job on the `MASTER` cluster node, used to estimate the maximum number of jobs in the cluster. Default value: `536870912` (512 MB).
+* `dataproc:job-memory-footprint`: The memory size to run the job on the cluster's master host, used to estimate the maximum number of jobs in the cluster. Default value: `536870912` (512 MB).
 
 ## Setting up Spark for Object Storage {#spark-settings}
 
 The following settings are available for Apache Spark:
 
-| Configuration                          | Default value                                    |  Description                                                                            |
-| :---------------------------------- | :-------------------------------------------------------- | :----------------------------------------------------------------------------------- |
-| `fs.s3a.access.key`                | —                                                        | [Static key](../../iam/concepts/authorization/access-key.md) ID  |
-| `fs.s3a.secret.key`                | —                                                        | Secret key                                                                      |
-| `fs.s3a.endpoint`                  | `{{ s3-storage-host }}`                                | Endpoint to connect to {{ objstorage-name }}                                    |
-| `fs.s3a.signing-algorithm` | Empty value                                          | Signature algorithm                                                                    |
-| `fs.s3a.aws.credentials.provider` | `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider` | Credentials provider                                                            |
+| Configuration | Default value | Description |
+|:----------------------------------|:--------------------------------------------------------|:-----------------------------------------------------------------------------------|
+| `fs.s3a.access.key` | — | [Static key](../../iam/concepts/authorization/access-key.md) ID |
+| `fs.s3a.secret.key` | — | Private key |
+| `fs.s3a.endpoint` | `{{ s3-storage-host }}` | Endpoint to connect to {{ objstorage-name }} |
+| `fs.s3a.signing-algorithm` | Empty value | Signature algorithm |
+| `fs.s3a.aws.credentials.provider` | `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider` | Identity provider |
 
 For more information, see the [Apache Hadoop documentation](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml).
 

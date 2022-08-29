@@ -1,14 +1,14 @@
 # Creating a {{ PG }} cluster for <q>1C:Enterprise</q>
 
-{{ mpg-name }} allows you to create fault-tolerant {{ PG }} clusters optimized for <q>1C:Enterprise</q>. For this, the service supports PostgreSQL versions 10-1c, 11-1c, and 12-1c with all the necessary [extensions](#extensions) installed and the connection pooler configuration modified.
+{{ mpg-name }} allows you to create fault-tolerant {{ PG }} clusters optimized for <q>1C:Enterprise</q>. For this, the service supports PostgreSQL versions {{ versions.console.str-1c }} with all the necessary [extensions](#extensions) installed and connection pooler configuration changed.
 
 {% note warning %}
 
-You can only connect <q>1C:Enterprise</q> to clusters that run 10-1c, 11-1c, and 12-1c.
+You can only connect <q>1C:Enterprise</q> to clusters running version {{ versions.console.str-1c }}.
 
 {% endnote %}
 
-Select your [host class](../concepts/instance-types.md) based on the number of users in your <q>1C:Enterprise</q> installation. The **s2.small** hosts can accommodate up to 50 users at once. We recommend using the **s2.medium** class if 50 or more users are going to access the database. Choose the storage size based on your expected data scope and allow for possible growth in your data volumes.
+Select your [host class](../concepts/instance-types.md) based on the number of users in your <q>1C:Enterprise</q> installation. The **s2.small** hosts can accommodate up to 50 users at a time. We recommend using the **s2.medium** class if 50 or more users are going to access the database. Choose the storage size based on your expected data scope and allow for possible growth in your data volumes.
 
 ## Create a {{ mpg-name }} cluster {#create-cluster}
 
@@ -70,7 +70,7 @@ Add the created database as an information base to <q>1C:Enterprise</q>. When ad
 
 * **Secure connection**: `Disabled`.
 * **DBMS type**: `PostgreSQL`.
-* **Database server**: `<master host name>.{{ dns-zone }} port=6432`.
+* **Database server**: `c-<cluster ID>.rw.{{ dns-zone }} port={{ port-mpg }}`.
 * **Database name**: `postgresql-1c`.
 * **Database user**: `user-1c`.
 * **User password**: `<database user password>`.
@@ -78,17 +78,17 @@ Add the created database as an information base to <q>1C:Enterprise</q>. When ad
 
 ### {{ PG }} extensions for <q>1C:Enterprise</q> support {#extensions}
 
-List of extensions installed in PostgreSQL 10-1c, 11-1c, and 12-1c clusters:
+List of extensions installed in PostgreSQL {{ versions.console.str-1c }} clusters:
 
-* [online_analyze](https://postgrespro.ru/docs/postgrespro/10/online-analyze)
+* [online_analyze](https://postgrespro.ru/docs/postgrespro/10/online-analyze?lang=en)
 
-* [plantuner](https://postgrespro.ru/docs/postgrespro/10/plantuner)
+* [plantuner](https://postgrespro.ru/docs/postgrespro/10/plantuner?lang=en)
 
-* [fasttrun](https://postgrespro.ru/docs/postgrespro/10/fasttrun)
+* [fasttrun](https://postgrespro.ru/docs/postgrespro/10/fasttrun?lang=en)
 
-* [fulleq](https://postgrespro.ru/docs/postgrespro/10/fulleq)
+* [fulleq](https://postgrespro.ru/docs/postgrespro/10/fulleq?lang=en)
 
-* [mchar](https://postgrespro.ru/docs/postgrespro/10/mchar)
+* [mchar](https://postgrespro.ru/docs/postgrespro/10/mchar?lang=en)
 
 ## Delete the resources you created {#clear-out}
 
