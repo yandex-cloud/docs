@@ -6,7 +6,7 @@ To solve the problem of insufficient resources, connection poolers (such as [PgP
 
 This deployment method makes administration more difficult because servers hosting the pooler are added to the DBMS infrastructure.
 
-{% if product == "yandex-cloud" %}The {{ mpg-name }} architecture has a built-in connection pooler: [Odyssey](https://yandex.ru/dev/odyssey/) by Yandex.{% endif %}
+The {{ mpg-name }} architecture has a built-in connection pooler: [Odyssey](https://yandex.ru/dev/odyssey/) by Yandex.
 
 Odyssey supports three modes of connection management:
 {% if audience != "internal" %}
@@ -46,6 +46,12 @@ Transaction mode provides high performance and allows the DBMS to load as effici
    This approach is helpful when `AUTOCOMMIT` mode is enabled for client sessions and each transaction is already limited to a single query. However, not every {{ PG }} client supports query mode, and when both `AUTOCOMMIT` mode and the `synchronous_commit = remote_apply` setting are enabled for a cluster simultaneously, this significantly degrades its performance.
 
 Pooler mode can be [changed](../operations/update.md#change-pooler-config) after the cluster is created.
+
+{% note warning %}
+
+{{ mpg-name }} clusters have a connection time-to-live quota of 12 hours. To have it increased, please contact [technical support](../../support/overview.md).
+
+{% endnote %}
 
 Integrated with Odyssey, {{ mpg-name }} clusters:
 - Support numerous client connections without affecting DBMS performance.
