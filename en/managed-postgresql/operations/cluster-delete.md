@@ -42,4 +42,10 @@ description: "After deleting a PostgreSQL database cluster, its backups are pres
 
    {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
+- API
+
+   Use the [delete](../api-ref/Cluster/delete.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+
 {% endlist %}

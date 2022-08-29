@@ -1,5 +1,5 @@
 1. [Create](../../vpc/operations/security-group-create.md) a security group named `agent-sg`.
-1. [Add rules](../../vpc/operations/security-group-update.md#add-rule):
+1. [Add rules](../../vpc/operations/security-group-add-rule.md):
     1. A rule for outgoing HTTPS traffic to the public {{ load-testing-full-name }} API:
         * Port range: `443`.
         * Protocol: `TCP`.

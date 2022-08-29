@@ -4,16 +4,15 @@ The feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
 
 Security groups let you manage VM access to resources and security groups in {{ yandex-cloud }} or resources on the internet. A security group is assigned to the network interface when creating or updating a VM and should contain rules for receiving and sending traffic. You can assign multiple security groups to each VM.
 
+Security groups:
 
+* Not designed to protect against DDoS attacks. To filter out large volumes of unwanted traffic, use [DDoS protection](../ddos-protection/index.md).
 
-{% note warning %}
+* Operate on the principle of "what is not allowed is forbidden". If you assign a security group without rules to the network interface of a VM, the VM won't be able to transmit or receive traffic.
 
-Security groups are not designed to protect against DDoS attacks. To filter out large volumes of unwanted traffic, use [DDoS protection](../ddos-protection/index.md).
+* Automatically terminate TCP connections in the `idle` status in 180 seconds. We don't recommend using session timeouts in applications for a longer period of time. Learn more about [limits](limits.md#vpc-limits).
 
-{% endnote %}
-
-
-{% include [sg-rules](../../_includes/vpc/sg-rules.md) %}
+Learn more about [how to create a security group](../operations/security-group-create.md).
 
 ## Security group rules {#rules}
 
@@ -22,6 +21,8 @@ Security group rules define the protocols and IP addresses for receiving and sen
 Rules store session statuses. Security groups monitor the status of connections and map response traffic to an already open session to allow traffic receipt.
 
 > For example, a rule allows a VM to create an outgoing session to port 80 of an IP address. Responses from port 80 to the request source port are automatically resolved.
+
+Learn more about [how to create a rule](../operations/security-group-add-rule.md).
 
 ### Types of rules {#rules-types}
 
@@ -64,6 +65,12 @@ To enable [health checks](../../network-load-balancer/concepts/health-check.md) 
 * Recommended method: in the `predefined_target` field, enter `loadbalancer_healthchecks`.
 * Manually allow traffic to be transferred between `198.18.235.0/24`, `198.18.248.0/24`, and target resources.
 
+### Exchanging traffic with other security groups {#groups}
+
+The rules for selecting a security group as a source/destination only apply to packets that have IP addresses from [private ranges](network.md#subnet) specified as the source/destination and assigned to the interfaces from the selected security group.
+
+Packets redirected to other network IPs through static routes won't match the rules that allow traffic. In this case, create rules explicitly specifying CIDR for the source or destination.
+
 ## Default security group {#default-security-group}
 
 The default security group is automatically:
@@ -72,7 +79,7 @@ The default security group is automatically:
 
    In this case, the automatically assigned security group isn't displayed in API or CLI responses.
 
-   {% note info %}
+   {% note warning %}
 
    You can't delete the default security group.
 
@@ -103,3 +110,4 @@ The default security group is created with the following rules:
 In networks created before the security group functionality was launched, traffic will be transmitted without any restrictions to maintain backward compatibility.
 
 {% endnote %}
+

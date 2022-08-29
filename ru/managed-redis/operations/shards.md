@@ -106,9 +106,14 @@
   Чтобы добавить шард c двумя хостами в кластер:
 
   ```bash
-  {{ yc-mdb-rd }} shards add --name <имя нового шарда> --cluster-name <имя кластера> \
-     --host zone-id=<зона доступности>,subnet-name=<имя подсети> \
-     --host zone-id=<зона доступности>,subnet-name=<имя подсети>
+  {{ yc-mdb-rd }} shards add --name=<имя нового шарда> \
+     --cluster-name=<имя кластера> \
+     --host zone-id=<зона доступности>,`
+           `subnet-name=<имя подсети>,`
+           `assign-public-ip=<публичный доступ к хосту: true или false> \
+     --host zone-id=<зона доступности>,`
+           `subnet-name=<имя подсети>,`
+           `assign-public-ip=<публичный доступ к хосту: true или false>
   ```
 
 - {{ TF }}
@@ -123,9 +128,11 @@
         resource "yandex_mdb_redis_cluster" "<имя кластера>" {
           ...
           host {
-            zone       = "<зона доступности>"
-            subnet_id  = <идентификатор подсети>
-            shard_name = "<имя шарда>"
+            zone             = "<зона доступности>"
+            subnet_id        = <идентификатор подсети>
+            assign_public_ip = <публичный доступ к хосту: true или false>
+            replica_priority = <приоритет хоста>
+            shard_name       = "<имя шарда>"
           }
         }
         ```

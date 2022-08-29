@@ -17,7 +17,7 @@ Settings of rules depend on the connection method you select:
 
 - Over the internet
 
-   [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) in a cluster to allow incoming traffic on ports 8443 and 9440 from any IP address. To do this, create the following rules for incoming traffic:
+   [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in a cluster to allow incoming traffic on ports 8443 and 9440 from any IP address. To do this, create the following rules for incoming traffic:
 
    * Port range: `8443`, `9440`.
    * Protocol: `TCP`.
@@ -28,7 +28,7 @@ Settings of rules depend on the connection method you select:
 
 - From a VM in {{ yandex-cloud }}
 
-   1. [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of your cluster to allow incoming traffic on ports 8123, 8443, 9000, and 9440 from the security group where your VM is located. To do this, create the following rules for incoming traffic in these security groups:
+   1. [Configure all the security groups](../../vpc/operations/security-group-add-rule.md) of your cluster to allow incoming traffic on ports 8123, 8443, 9000, and 9440 from the security group where your VM is located. To do this, create the following rules for incoming traffic in these security groups:
 
       * Port range: `8123` (or any of the other ports listed).
       * Protocol: `TCP`.
@@ -37,7 +37,7 @@ Settings of rules depend on the connection method you select:
 
       A separate rule is created for each port.
 
-   1. [Configure the security group](../../vpc/operations/security-group-update.md#add-rule) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
+   1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
 
       Example of rules for a VM:
 

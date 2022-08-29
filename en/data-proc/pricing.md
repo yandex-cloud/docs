@@ -4,6 +4,8 @@ editable: false
 
 # Pricing for {{ dataproc-name }}
 
+
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## What goes into the cost of using {{ dataproc-name }} {#rules}
@@ -13,7 +15,7 @@ The total cost of using {{ dataproc-name }} includes:
 * The cost of using the computing resources of {{ compute-full-name }} VMs to deploy hosts.
 * Markup on using the computing resources of the {{ dataproc-name }} managed service.
 * The cost of using the {{ compute-name }} network drives.
-* Using {{ cloud-logging-full-name }} to receive and store logs.
+* The cost of using {{ cloud-logging-full-name }} to receive and store logs.
 * The amount of outgoing traffic.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
@@ -26,14 +28,16 @@ Charges are made as part of the {{ compute-name }} service per hour of host virt
 
 The amount of storage requested for each cluster host is charged under {{ compute-name }} based on [disk space pricing](../compute/pricing.md#prices-storage).
 
+
 ### Using {{ cloud-logging-full-name }} {#rules-logs}
 
 Receiving and storing logs is paid based on the {{ cloud-logging-full-name }} [pricing rules](../logging/pricing.md).
 
 
+
 ## Pricing {#prices}
 
-### Cost of computing resources with markup {{ dataproc-name }} {#prices-compute}
+### Host computing resources {#prices-hosts}
 
 
 
@@ -47,10 +51,11 @@ To access GPUs on {{ dataproc-name }} hosts, please submit a request to [technic
 
 {% endnote %}
 
-### Outgoing traffic {#prices-traffic}
+### Egress traffic {#prices-traffic}
 
 
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
 

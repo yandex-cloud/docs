@@ -1,4 +1,6 @@
+
 {% include [get-logs-info](note-info-get-logs.md) %}
+
 
 {% list tabs %}
 

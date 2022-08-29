@@ -23,11 +23,11 @@ items:
             href: operations/buckets/lifecycles.md
           - name: Managing CORS configurations
             href: operations/buckets/cors.md
-          - name: Managing bucket policies
+          - name: Access policy management
             href: operations/buckets/policy.md
           - name: Managing bucket versioning
             href: operations/buckets/versioning.md
-          - name: Editing a bucket ACL
+          - name: Editing the ACL of a bucket
             href: operations/buckets/edit-acl.md
           - name: Enabling logging
             href: operations/buckets/enable-logging.md
@@ -59,10 +59,6 @@ items:
             href: operations/hosting/multiple-domains.md
           - name: Configuring HTTPS
             href: operations/hosting/certificate.md
-      - name: Access management
-        items:
-          - name: Applying an access policy
-            href: operations/access/apply-policy.md
   - name: Practical guidelines
     items:
       - name: Getting object query statistics with S3 Select
@@ -75,7 +71,7 @@ items:
         href: tutorials/server-side-encryption.md
       - name: Integrating an L7 load balancer with the CDN and Object Storage
         href: tutorials/cdn-storage-integration.md
-      - name: Blue-green and canary deployment
+      - name: Blue-green and canary deployment of service versions
         href: tutorials/blue-green-canary-deployment.md
       - name: Analyzing logs in DataLens
         href: tutorials/storage-logs-analysis.md
@@ -143,7 +139,7 @@ items:
             href: tools/aws-sdk-java.md
           - name: Python SDK (boto)
             href: tools/boto.md
-          - name: The AWS SDK for .NET
+          - name: AWS SDK for .NET
             href: tools/aws-sdk-net.md
           - name: AWS SDK for C++
             href: tools/aws-sdk-cpp.md
@@ -171,7 +167,7 @@ items:
             href: s3/index.md
           - name: Signing requests
             href: s3/signing-requests.md
-          - name: API reference
+          - name: REST
             items:
               - name: All services and methods
                 href: s3/api-ref/index.md

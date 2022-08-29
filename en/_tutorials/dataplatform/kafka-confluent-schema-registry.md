@@ -53,7 +53,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 1. To allow traffic between the {{ mkf-name }} cluster and the virtual machine, [configure security groups](../../managed-kafka/operations/connect.md#configuring-security-groups).
    
-1. In the VM security group, [add a rule](../../vpc/operations/security-group-update.md#add-rule) for incoming traffic that allows connections via port `8081` which is used by the producer and consumer to access the schema registry:
+1. In the VM security group, [add a rule](../../vpc/operations/security-group-add-rule.md) for incoming traffic that allows connections via port `8081` which is used by the producer and consumer to access the schema registry:
 
 
     * **Port range**: `8081`.

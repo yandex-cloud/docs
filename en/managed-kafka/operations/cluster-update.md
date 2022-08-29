@@ -2,9 +2,10 @@
 
 After creating an {{ mkf-name }} cluster, you can:
 
-* [{#T}](#enable-api).
-* [{#T}](#change-resource-preset).
-* [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md)).
+* [{#T}](#enable-api)
+* [{#T}](#change-brokers).
+* [{#T}](#change-zookeeper).
+* [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md)).
 * [{#T}](#change-additional-settings).
 * [{#T}](#change-kafka-settings).
 * [{#T}](#move-cluster) from the current folder to another one.
@@ -65,7 +66,6 @@ To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
 
    1. [Create an admin user](./cluster-accounts.md#create-user).
 
-
 - API
 
    To enable topic management via the Admin API:
@@ -73,27 +73,18 @@ To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
    1. Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
       * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-      * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
       * The new cluster configuration in the `configSpec` parameter. Specify the value `"unmanagedTopics": true` in the configuration.
+      * List of configuration fields to update in the `UpdateMask` parameter.
+
+      {% include [Node API updateMask](../../_includes/note-api-updatemask.md) %}
 
    1. [Create an admin user](./cluster-accounts.md#create-user).
 
-
 {% endlist %}
 
-## Change the class and number of hosts {#change-resource-preset}
+## Changing the broker host class and number {#change-brokers}
 
-You can change:
-
-* The class of {{ KF }} broker hosts.
-* The number of {{ KF }} broker hosts if two or more availability zones are used for them.
-* The class of {{ ZK }} hosts.
-
-{% note warning %}
-
-You can't decrease the number of {{ KF }} broker hosts. You can only increase it if the cluster already contains at least two broker hosts located in different availability zones.
-
-{% endnote %}
+You cannot increase the number of {{ KF }} broker hosts unless a cluster includes at least two broker hosts in different availability zones. You cannot have fewer broker hosts.
 
 {% list tabs %}
 
@@ -140,13 +131,6 @@ You can't decrease the number of {{ KF }} broker hosts. You can only increase it
       {{ yc-mdb-kf }} cluster update <cluster name or ID> --resource-preset <host class>
       ```
 
-   1. To change the {{ ZK }} host class, run the command:
-
-      ```
-      {{ yc-mdb-kf }} cluster update <cluster ID or name> \
-        --zookeeper-resource-preset <host class>
-      ```
-
 - {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
@@ -165,7 +149,7 @@ You can't decrease the number of {{ KF }} broker hosts. You can only increase it
       }
       ```
 
-   1. In the {{ mkf-name }} cluster description, change the `resource_preset_id` parameter in the `kafka.resources` and `zookeeper.resources` sections for the {{ KF }} and {{ ZK }} hosts, respectively:
+   1. In the {{ mkf-name }} cluster description, edit the value of the `resource_preset_id` parameter under `kafka.resources` to specify a new broker host class:
 
       ```hcl
       resource "yandex_mdb_kafka_cluster" "<cluster name>" {
@@ -176,6 +160,83 @@ You can't decrease the number of {{ KF }} broker hosts. You can only increase it
             ...
           }
         }
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
+- API
+
+   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Broker host class in the `configSpec.kafka.resources.resourcePresetId` parameter.
+   * Number of broker hosts in the `configSpec.brokersCount` parameter.
+   * The list of settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
+
+## Changing the {{ ZK }} host class {#change-zookeeper}
+
+{% list tabs %}
+
+- Management console
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mkf-name }}**.
+   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit cluster**.
+   1. Select a new [**Zookeeper host class**](../concepts/instance-types.md).
+   1. Click **Save**.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To change the class of {{ ZK }} hosts:
+
+   1. Get information about the cluster:
+
+      ```
+      {{ yc-mdb-kf }} cluster list
+      {{ yc-mdb-kf }} cluster get <cluster ID or name>
+      ```
+
+   1. View a description of the CLI's update cluster command:
+
+      ```
+      {{ yc-mdb-kf }} cluster update --help
+      ```
+
+   1. To change the {{ ZK }} host class, run the following command:
+
+      ```
+      {{ yc-mdb-kf }} cluster update <cluster ID or name> \
+        --zookeeper-resource-preset <host class>
+      ```
+
+- Terraform
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+   1. In the {{ mkf-name }} cluster description, edit the value of the `resource_preset_id` parameter under `zookeeper.resources` to specify a new {{ ZK }} host class:
+
+      ```hcl
+      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+        ...
         zookeeper {
           resources {
             resource_preset_id = "<{{ ZK }} host class>"
@@ -197,14 +258,15 @@ You can't decrease the number of {{ KF }} broker hosts. You can only increase it
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
-   * The new cluster configuration in the `configSpec` parameter.
 
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * {{ ZK }} host class in the `configSpec.zookeeper.resources.resourcePresetId` parameter.
+   * The list of settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -301,14 +363,15 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-
 - API
 
    To increase a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in in the call:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
-   * The new cluster configuration in the `configSpec` parameter.
 
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * New storage settings in the `configSpec.kafka.resources` parameter (`configSpec.zookeeper.resources` for {{ ZK }} hosts).
+   * The list of settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -361,7 +424,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
       {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-   You can find out the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -398,7 +461,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter.
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
 
    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
 
@@ -410,9 +473,9 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
       {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-   * List of cluster configuration fields to be changed in the `updateMask` parameter.
+   * List of configuration fields to update in the `UpdateMask` parameter.
 
-   You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -489,18 +552,19 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
-   * New values of [settings {{ KF }}](../concepts/settings-list.md#cluster-settings) in the parameter:
-      * `configSpec.kafka.kafkaConfig_2_8` if you are using {{ KF }} version `2.8`;
-      * `configSpec.kafka.kafkaConfig_3_0` if you are using {{ KF }} version `3.0`;
-      * `configSpec.kafka.kafkaConfig_3_1` if you are using {{ KF }} version `3.1`.
 
+   * New values of [settings {{ KF }}](../concepts/settings-list.md#cluster-settings) in the parameter:
+      * `configSpec.kafka.kafkaConfig_2_8` if you use {{ KF }} `2.8`;
+      * `configSpec.kafka.kafkaConfig_3_0` if you are using {{ KF }} version `3.0`.
+
+   * The list of settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -582,7 +646,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
       ```hcl
       resource "yandex_mdb_kafka_cluster" "<cluster name>" {
         ...
-        security_group_ids  = ["<list of cluster security group IDs>"]
+        security_group_ids = ["<list of cluster security group IDs>"]
       }
       ```
 
@@ -601,9 +665,12 @@ You can't change the disk type for {{ KF }} clusters after creation.
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
    - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-   - The list of groups in the `securityGroupIds` parameter.
-   - The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+   - The list of security group IDs in the `securityGroupIds` parameter.
+   - The list of settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

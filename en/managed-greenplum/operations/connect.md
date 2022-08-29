@@ -26,7 +26,7 @@ Settings of rules depend on the connection method you select:
 
    1. {% include [Cluster security group rules](../../_includes/mdb/mgp/cluster-sg-rules.md) %}
 
-   1. [Configure the security group](../../vpc/operations/security-group-update.md#add-rule) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
+   1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
 
       Example of rules for a VM:
 

@@ -3,6 +3,11 @@
 Полный состав актуальных и устаревших образов {{ dataproc-name }} см. в разделе [{#T}](../concepts/environment.md).
 
 
+## 2.0.48 {#2.0.48}
+
+* Добавлена возможность использования [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sql-distributed-sql-engine.html). Для включения нужно добавить свойство кластера: `dataproc:hive.thrift.impl = spark`. По умолчанию, если используется сервис Hive, на TCP-порте 10000 запускается HiveServe2. Если задано `dataproc:hive.thrift.impl = spark`, то на этом же порте запускается Apache Spark Thrift Server.
+* Исправили ошибку `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider`, которая могла появляться на легковесных конфигурациях Apache Spark™.
+
 ## 2.0.47 {#2.0.47}
 
 * Устранена утечка TCP-сессий с сервисом метаданных на высоконагруженных кластерах. Утечка могла приводить к ситуации, когда не обновлялся IAM-токен для авторизации в {{ objstorage-name }} и других сервисах.

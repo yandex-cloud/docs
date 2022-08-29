@@ -1,16 +1,14 @@
-# Update a security group and rules
+# Changing the name and description
 
 The feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
 
-After creating a cloud network, you can change its name and description, and add or remove rules.
-
-You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources assigned to a group at the same time.
-
-## Changing the name and description {#update-name-and-description}
+After creating a security group, you can change its name and description, and [add](security-group-add-rule.md) or [remove](security-group-delete-rule.md) rules.
 
 {% list tabs %}
 
 - Management console
+
+   To change the name or description of a group:
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to change the security group.
    1. In the list of services, select **{{ vpc-name }}**.
@@ -27,60 +25,64 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
    yc vpc security-group update <group ID> --new-name test-sg-renamed
    ```
 
-{% endlist %}
+- {{ TF }}
 
-## Adding a new rule {#add-rule}
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-{% list tabs %}
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-- Management console
+   1. Open the {{ TF }} configuration file and edit the `name` and `description` parameters in the security group description:
 
-   1. In the [management console]({{ link-console-main }}), go to the folder where you need to change the security group.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **Security groups**.
-   1. Select the group to update.
-   1. Click ![image](../../_assets/options.svg) in the row of the group.
-   1. In the menu that opens, click **Edit**.
-   1. Under **Rules**, create traffic management rules:
-      1. Select the **Outgoing traffic** or **Incoming traffic** tab.
-      1. Click **Add rule**.
-      1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
-      1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
-      1. In the **Purpose** or **Source** field, select the purpose of the rule:
-         1. **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
-         1. **Security group**: The rule will apply to the VMs from the current group or the selected security group.
-   1. Click **Save**.
+      ```hcl
+      ...
+      resource "yandex_vpc_security_group" "test-sg" {
+        name        = "Test security group"
+        description = "Description for security group"
+        network_id  = "${yandex_vpc_network.lab-net.id}"
+      }
+      ...
+      ```
 
-- CLI
+      For more information about the `yandex_vpc_security_group` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_security_group).
 
-   To add a new rule to an existing group, specify its ID or name in the command and describe the new rule:
+      {% note info %}
 
-   ```
-   yc vpc security-group update-rules --name=test-sg-cli --add-rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24,10.10.0.0/24]"
-   ```
+      To manage the [default security group](../../vpc/concepts/security-groups#default-security-group), use the [vpc_default_security_group]({{ tf-provider-link }}/vpc_default_security_group) resource.
 
-{% endlist %}
+      {% endnote %}
 
-## Deleting a rule {#remove-rule}
+   1. Check the configuration using the command:
 
-{% list tabs %}
+      ```
+      terraform validate
+      ```
 
-- Management console
+      If the configuration is correct, the following message is returned:
 
-   1. In the [management console]({{ link-console-main }}), go to the folder where you need to change the security group.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **Security groups**.
-   1. Select the group to update.
-   1. Under **Rules**, click ![image](../../_assets/options.svg) in the row of the rule to delete.
-   1. In the menu that opens, click **Delete**.
-   1. In the window that opens, click **Delete**.
+      ```
+      Success! The configuration is valid.
+      ```
 
-- CLI
+   1. Run the command:
 
-   To delete a rule from a group, specify its ID in the command:
+      ```
+      terraform plan
+      ```
 
-   ```
-   yc vpc security-group update-rules --name=test-sg-cli --delete-rule-id <rule ID>
-   ```
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can verify the changes to the security group using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+
+      ```
+      yc vpc security-group get <security group name>
+      ```
 
 {% endlist %}
