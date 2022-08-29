@@ -101,6 +101,7 @@
 
        name        = "vm-with-gpu"
        platform_id = "gpu-standard-v3"
+       zone        = "<зона доступности>"
 
        resources {
          cores  = <количество ядер vCPU>
