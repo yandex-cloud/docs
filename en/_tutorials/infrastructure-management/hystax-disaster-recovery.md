@@ -24,7 +24,7 @@ To run Hystax Acura Disaster Recovery, perform the steps below:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-begin}
+## Prepare your cloud {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -32,19 +32,19 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-
 {% note info %}
 
-Please note that the infrastructure for Hystax Acura and Hystax Acura Cloud Agent, as well as all migrated VMs, consume [quotas]({{ link-console-quotas }}) and require payment.
-* A Hystax Acura VM uses 8 vCPUs, 16 GB of RAM, and a 200 GB disk.
-* A Hystax Acura Cloud Agent VM uses 2 vCPUs, 4 GB of RAM, and an 8 GB disk. A single Hystax Acura Cloud Agent VM can serve up to 6 replicated disks at the same time. If there are more than 6 disks, additional Hystax Acura Cloud Agent VMs are created automatically.
+Please note that both the Hystax Acura infrastructure and all the recovered VMs will be charged and counted towards the [quotas]({{ link-console-quotas }}).
+* A Hystax Acura Disaster Recovery VM uses 8 vCPUs, 16 GB of RAM, and a 200GB disk.
+* The auxiliary Hystax Cloud Agent VMs use 2 vCPU cores, 4 GB or RAM, and a 10-GB disk. A single Hystax Acura Cloud Agent VM can serve up to 6 replicated disks at the same time. If there are more than 6 disks, additional Hystax Acura Cloud Agent VMs are created automatically.
 
 {% endnote %}
 
-Resource costs for Hystax Acura and Hystax Acura Cloud Agent include:
-* A fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for storing images (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+The cost of the resources required to use Hystax Acura Disaster Recovery includes:
+* A charge for the disks and the continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Charges for object storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* A fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* A charge for each protected VM (see [product description](/marketplace/products/hystax/hystax-acura-disaster-recovery-3-7) in {{ marketplace-name }}).
 
 {% endif %}
 
@@ -63,7 +63,7 @@ Save the following for use in subsequent steps:
 
 Configure network traffic permissions in the [default security group](../../vpc/concepts/security-groups.md#default-security-group). If a security group is unavailable, any incoming or outgoing VM traffic will be allowed.
 
-If a security group is available, [add](../../vpc/operations/security-group-update.md#add-rule) to it the rules below:
+If a security group is available, [add](../../vpc/operations/security-group-add-rule.md) to it the rules below:
 
 | Traffic<br>direction | Description | Port<br>range | Protocol | Source<br>type | Source/Purpose |
 --- | --- | --- | --- | --- | ---
@@ -100,15 +100,21 @@ Create a VM with a boot disk using an image of `Hystax Acura Disaster Recovery t
    1. Under **Basic parameters**:
       * Enter `hystax-acura-vm` as your name and a VM description.
       * Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
+
    1. Under **Image/boot disk selection**:
+
       * Click the **{{ marketplace-name }}** tab.
       * Click **Show more**.
-      * In the public image list, select **Hystax Acura Disaster Recovery to {{ yandex-cloud }}** and click **Use**.
-   1. Under **Disks**, enter 80 GB as your disk size.
+      * In the public image list, select [Hystax Acura Disaster Recovery to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-disaster-recovery) and click **Use**.
+
+   1. Under **Disks**, enter 200 GB as your disk size.
+
+   {% if product == "yandex-cloud" %}
    1. Under **File storage**, keep the default value.
+      {% endif %}
    1. Under **Computing resources**, specify:
-      * vCPU: 4.
-      * RAM: 8 GB.
+      * vCPU: 8.
+      * RAM: 16 GB.
    1. Under **Network settings**:
       * Select a cloud network and a [subnet](../../vpc/concepts/network.md#subnet) from the list. If there is no subnet, click **Add subnet** and create one.
 
@@ -133,17 +139,18 @@ Create a VM with a boot disk using an image of `Hystax Acura Disaster Recovery t
    yc compute instance create \
      --name hystax-acura-vm \
      --zone <availability zone> \
-     --cores 4 \
-     --memory 8 \
+     --cores 8 \
+     --memory 16 \
      --network-interface subnet-id=<subnet ID>,nat-ip-version=ipv4,security-group-ids=<security group ID if previously configured> \
-     --create-boot-disk name=hystax-acura-disk,size=80,image-id=<Hystax Acura image ID> \
+     --create-boot-disk name=hystax-acura-disk,size=200,image-id=<Hystax Acura image ID> \
      --service-account-id <service account ID> \
      --ssh-key ~/.ssh/id_rsa.pub
    ```
 
-   Parameters:
+   Where:
+
    * `name`: VM name, such as `hystax-acura-vm`.
-   * `zone`: [Availability zone](../../overview/concepts/geo-scope.md), such as `ru-central1-b`.
+   * `zone`: [Availability zone](../../overview/concepts/geo-scope.md), for example `{{ region-id }}-a`.
    * `cores`: [number of vCPUs](../../compute/concepts/vm.md) in your VM.
    * `memory`: [amount of RAM](../../compute/concepts/vm.md) in your VM.
    * `network-interface`: VM network interface description:
@@ -160,6 +167,7 @@ Create a VM with a boot disk using an image of `Hystax Acura Disaster Recovery t
       * `image-id`: Disk image ID.
 
          For this example, use `image_id` from the [product description](/marketplace/products/hystax/hystax-acura-disaster-recovery-3-7) in {{ marketplace-name }}.
+
    * `service-account-id`: ID of [previously created](#create-sa) service account.
 
       You can retrieve a list using the `yc iam service-account list` command.
@@ -203,7 +211,7 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura may reboo
       yc vpc address list
       ```
 
-      Command output:
+      Result:
 
       ```bash
       +----------------------+------+---------------+----------+------+
@@ -220,7 +228,7 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura may reboo
       yc vpc address update --reserved=true e2l46k8conff8n6ru1jl
       ```
 
-      Command output:
+      Result:
 
       ```bash
       id: e2l46k8conff8n6ru1jl
@@ -228,7 +236,7 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura may reboo
       created_at: "2022-01-14T09:36:46Z"
       external_ipv4_address:
         address: 84.201.177.41
-        zone_id: ru-central1-b
+        zone_id: {{ region-id }}-b
         requirements: {}
       reserved: true
       used: true
@@ -256,7 +264,7 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura may reboo
    * **Password**: The administrator password.
    * **Confirm password**: Re-enter the administrator password.
 1. Click **Next**.
-1. Specify the connection settings {{ yandex-cloud }}:
+1. Specify the {{ yandex-cloud }} connection settings:
    * **Service Account id**: The ID of your service account.
    * **Key id**: The ID of the authorized key of your service account.
    * **Private Key**: The private part of the authorized key of your service account.
@@ -350,7 +358,7 @@ To create subnets:
    1. Click on the name of the cloud network.
    1. Click **Add subnet**.
    1. Enter a name for the subnet, such as `net-b-155`.
-   1. Select an availability zone from the drop-down list, such as `ru-central1-b`.
+   1. Select an availability zone from the drop-down list, such as `{{ region-id }}-b`.
    1. Enter the subnet CIDR, such as `10.155.0.0/16`.
    1. Click **Create subnet**.
 
@@ -368,7 +376,7 @@ To create subnets:
       yc vpc network list
       ```
 
-      Command output:
+      Result:
 
       ```bash
       +----------------------+----------------+
@@ -384,7 +392,7 @@ To create subnets:
       yc vpc subnet create \
         --name net-b-155 \
         --network-name network \
-        --zone ru-central1-b \
+        --zone {{ region-id }}-b \
         --range 10.155.0.0/16
       ```
 
@@ -394,15 +402,15 @@ To create subnets:
       yc vpc subnet list
       ```
 
-      Command output:
+      Result:
 
       ```bash
       +----------------------+-------------+----------------------+----------------+---------------+------------------+
       |          ID          |    NAME     |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE       |
       +----------------------+-------------+----------------------+----------------+---------------+------------------+
-      | e2lgjspicv43ainspl0n | net-b-155   | enplum7a98s1t0lhasi8 |                | ru-central1-b | [10.155.0.0/16]  |
-      | e2l8g5u9ijd1sursv2ov | net-b-192   | enplum7a98s1t0lhasi8 |                | ru-central1-b | [192.168.0.0/24] |
-      | e2l1hqsrpp932ik74aic | net-b       | enplum7a98s1t0lhasi8 |                | ru-central1-b | [192.168.1.0/24] |
+      | e2lgjspicv43ainspl0n | net-b-155   | enplum7a98s1t0lhasi8 |                | {{ region-id }}-b | [10.155.0.0/16]  |
+      | e2l8g5u9ijd1sursv2ov | net-b-192   | enplum7a98s1t0lhasi8 |                | {{ region-id }}-b | [192.168.0.0/24] |
+      | e2l1hqsrpp932ik74aic | net-b       | enplum7a98s1t0lhasi8 |                | {{ region-id }}-b | [192.168.1.0/24] |
       +----------------------+-------------+----------------------+----------------+---------------+------------------+
       ```
 

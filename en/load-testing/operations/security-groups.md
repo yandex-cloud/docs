@@ -7,7 +7,7 @@ You must create and configure security groups before creating an [agent](../conc
 {% endnote %}
 
 1. [Create](../../vpc/operations/security-group-create.md) a security group.
-1. [Add rules](../../vpc/operations/security-group-update.md#add-rule):
+1. [Add rules](../../vpc/operations/security-group-add-rule.md):
 
     * One rule each for inbound and outbound traffic:
 

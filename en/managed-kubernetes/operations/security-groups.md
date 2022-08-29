@@ -1,6 +1,6 @@
 # Configuring security groups
 
-[Security groups](../../vpc/concepts/security-groups.md) follow the principle <q>all traffic that is not allowed is prohibited</q>. In order for a cluster to work, you need to [create rules](../../vpc/operations/security-group-update.md#add-rule) in its security groups that allow:
+[Security groups](../../vpc/concepts/security-groups.md) follow the principle <q>all traffic that is not allowed is prohibited</q>. In order for a cluster to work, you need to [create rules](../../vpc/operations/security-group-add-rule.md) in its security groups that allow:
 * [Service traffic within the cluster](#rules-internal).
 * [Connections to services from the internet](#rules-nodes).
 * [Connections to nodes over SSH](#rules-nodes-ssh).

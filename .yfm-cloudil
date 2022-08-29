@@ -11,7 +11,6 @@ ignore:
   - "en/cdn/*"
   - "en/cloud-desktop/*"
   - "en/cos/*"
-  - "en/data-proc/*"
   - "en/data-streams/*"
   - "en/datalens/*"
   - "en/datasphere/*"

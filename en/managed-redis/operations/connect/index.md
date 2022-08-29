@@ -50,7 +50,7 @@ Security group settings for sharded and non-sharded clusters differ.
 * Cluster with no sharding
    {% if audience != "internal" %}
 
-   [Configure all security groups](../../../vpc/operations/security-group-update.md#add-rule) in the cluster to allow incoming traffic from the security group where the VM is located on port `{{ port-mrd }}` for direct connections to the master host or `{{ port-mrd-sentinel }}` for connections via Sentinel. If you created your cluster with SSL encryption support, specify port `{{ port-mrd-tls }}` for direct encrypted connections to the master or `{{ port-mrd-sentinel }}` for unencrypted connections using Sentinel.
+   [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic from the security group where the VM is located on port `{{ port-mrd }}` for direct connections to the master host or `{{ port-mrd-sentinel }}` for connections via Sentinel. If you created your cluster with SSL encryption support, specify port `{{ port-mrd-tls }}` for direct encrypted connections to the master or `{{ port-mrd-sentinel }}` for unencrypted connections using Sentinel.
 
    {% else %}
 
@@ -81,7 +81,7 @@ Security group settings for sharded and non-sharded clusters differ.
 * Sharded cluster
    {% if audience != "internal" %}
 
-   [Configure all security groups](../../../vpc/operations/security-group-update.md#add-rule) in the cluster to allow incoming traffic from the security group where the VM is located on port `{{ port-mrd }}`. If a cluster is created with SSL encryption support, you should only specify port `{{ port-mrd-tls }}`.
+   [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic from the security group where the VM is located on port `{{ port-mrd }}`. If a cluster is created with SSL encryption support, you should only specify port `{{ port-mrd-tls }}`.
 
    {% else %}
 

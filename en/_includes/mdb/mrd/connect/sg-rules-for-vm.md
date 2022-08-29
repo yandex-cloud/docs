@@ -1,6 +1,6 @@
 {% if audience != "internal" %}
 
-To connect to a cluster from a VM in {{ yandex-cloud }}, [in its security groups, create](../../../../vpc/operations/security-group-update.md#add-rule) rules, enabling:
+To connect to a cluster from a VM in {{ yandex-cloud }}, [in its security groups, create](../../../../vpc/operations/security-group-add-rule.md) rules, enabling:
 
 * VM connections from the internet.
 * Traffic between the VM and cluster hosts.

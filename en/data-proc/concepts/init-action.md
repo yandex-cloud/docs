@@ -4,7 +4,7 @@ When [creating a cluster](../operations/cluster-create.md), you can specify host
 
 In the first line of the script file, specify the full path to the interpreter, for example, `#!/bin/sh` or `#!/usr/bin/python`.
 
-A script URI can be specified as `https://`, `http://`, `hdfs://`, and `s3a://`. For `s3a://`, at least one of the following conditions must be met:
+You can specify a script's URI as `https://`, `http://`, `hdfs://`, and `s3a://`. For `s3a://`, at least one of the following conditions must be met:
 
 * A [bucket ACL](../../storage/operations/buckets/edit-acl.md) must permit a cluster service account to perform read operations.
 * A cluster service account must be [assigned the role](../../iam/operations/sa/assign-role-for-sa.md) `storage.viewer`.
@@ -18,10 +18,10 @@ The following environment variables are available for use in initialization scri
 * `S3_BUCKET`: Name of the linked {{ objstorage-full-name }} bucket.
 * `ROLE`: Host role (`masternode`, `computenode`, or `datanode`).
 * `CLUSTER_SERVICES`: [Component list](../concepts/environment).
-* `MAX_WORKER_COUNT`: Maximum number of `DATANODE` and `COMPUTENODE` hosts.
-* `MIN_WORKER_COUNT`: Minimum number of `DATANODE` and `COMPUTENODE` hosts.
+* `MAX_WORKER_COUNT`: Maximum number of hosts in data storage and processing subclusters.
+* `MIN_WORKER_COUNT`: Minimum number of hosts in data storage and processing subclusters.
 
-For example, to execute a part of a script only on hosts with the role `MASTERNODE`, check the value of the environment variable `ROLE`:
+For example, to execute a part of a script only on the `MASTERNODE` host, check the value of the `ROLE` environment variable:
 
 ```bash
 if [[ "${ROLE}" == "masternode" ]]; then
@@ -33,6 +33,17 @@ fi
 
 If the script execution ends with an error:
 
+{% if product == "yandex-cloud" %}
+
 1. View logs in [{{ cloud-logging-full-name }}](../../logging/operations/read-logs.md) or on cluster hosts in the file `/var/log/yandex/dataproc-init-actions.log`.
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+1. View logs on cluster hosts in the file `/var/log/yandex/dataproc-init-actions.log`.
+
+{% endif %}
+
 1. Correct the error.
 1. [Delete](../operations/cluster-delete.md) this cluster and [create](../operations/cluster-create.md) a new one.

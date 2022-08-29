@@ -1,11 +1,13 @@
 # All practical guidelines
 
-{% if product == "yandex-cloud" %}* [{#T}](./configure-network.md).{% endif %}
+* [{#T}](./configure-network.md).
 * [{#T}](./copy-files-from-object-storage.md).
 * [{#T}](./exchange-data-with-mch.md)
+{% if product == "yandex-cloud" %}
 * [{#T}](./sqoop-mmy.md)
 * [{#T}](./sqoop-mpg.md)
 * [{#T}](./geesefs-init-actions.md)
+{% endif %}
 
 ## Working with jobs {#jobs}
 

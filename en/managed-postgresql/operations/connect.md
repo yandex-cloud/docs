@@ -21,7 +21,7 @@ Settings of rules depend on the connection method you select:
 - Over the internet
    {% if audience != "internal" %}
 
-   [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) in your cluster to allow incoming traffic on port 6432 from any IP. To do this, create the following rule for incoming traffic:
+   [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic on port 6432 from any IP. To do this, create the following rule for incoming traffic:
 
    {% else %}
 
@@ -37,7 +37,7 @@ Settings of rules depend on the connection method you select:
 - With a VM in {{ yandex-cloud }} 
    {% if audience != "internal" %}
 
-   1. [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) in your cluster to allow incoming traffic on port 6432 from the security group where the VM is located. To do this, create the following rule for incoming traffic in these groups:
+   1. [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic on port 6432 from the security group where the VM is located. To do this, create the following rule for incoming traffic in these groups:
 
    {% else %}
 
@@ -51,7 +51,7 @@ Settings of rules depend on the connection method you select:
    * Security group: If a cluster and a VM are in the same security group, select `Self` (`Self`) as the value. Otherwise, specify the VM security group.
       {% if audience != "internal" %}
 
-   1. [Configure the security group](../../vpc/operations/security-group-update.md#add-rule) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
+   1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
 
    {% else %}
 

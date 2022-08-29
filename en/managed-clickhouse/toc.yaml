@@ -79,8 +79,8 @@ items:
         href: tutorials/fetch-data-from-mkf.md
       - name: Getting data from RabbitMQ
         href: tutorials/fetch-data-from-rabbitmq.md
-      - name: Exchanging data with Data Proc
-        when: audience != "internal" and product == "yandex-cloud"
+      - name: Exchanging data with {{ dataproc-full-name }}
+        when: audience != "internal"
         href: tutorials/exchange-data-with-dp.md
       - name: >-
           Configuring {{ dns-full-name }} for accessing clusters from other cloud networks
@@ -88,7 +88,7 @@ items:
       - name: Analyzing Object Storage logs in DataLens
         href: tutorials/storage-logs-analysis.md
         when: product == "yandex-cloud"
-      - name: Configuring a cluster for Graphite
+      - name: Configuring {{ mch-name }} for Graphite
         href: tutorials/clickhouse-for-graphite.md
   - name: Concepts
     items:

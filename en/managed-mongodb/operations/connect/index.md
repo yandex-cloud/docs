@@ -64,7 +64,7 @@ Settings of rules depend on the connection method you select:
 
 - Over the internet
 
-   {% if audience != "internal" %}[Configure all security groups](../../../vpc/operations/security-group-update.md#add-rule){% else %}Configure all security groups{% endif %} in your cluster to allow incoming traffic from all IPs on port `{{ port-mmg }}` for an unsharded cluster and on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic:
+   {% if audience != "internal" %}[Configure all security groups](../../../vpc/operations/security-group-add-rule.md){% else %}Configure all security groups{% endif %} in your cluster to allow incoming traffic from all IPs on port `{{ port-mmg }}` for an unsharded cluster and on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic:
 
    * **Port range**:
       * `{{ port-mmg }}` for a non-sharded cluster.
@@ -75,7 +75,7 @@ Settings of rules depend on the connection method you select:
 
 - With a VM in Yandex.Cloud
 
-   1. {% if audience != "internal" %}[Configure all security groups](../../../vpc/operations/security-group-update.md#add-rule){% else %}Configure all security groups{% endif %} in your cluster to allow incoming traffic from the security group the VM belongs to on port `{{ port-mmg }}` for an unsharded cluster or on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic in these groups:
+   1. {% if audience != "internal" %}[Configure all security groups](../../../vpc/operations/security-group-add-rule.md){% else %}Configure all security groups{% endif %} in your cluster to allow incoming traffic from the security group the VM belongs to on port `{{ port-mmg }}` for an unsharded cluster or on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic in these groups:
 
       * **Port range**:
          * `{{ port-mmg }}` for a non-sharded cluster.
@@ -84,7 +84,7 @@ Settings of rules depend on the connection method you select:
       * **Source**: `Security group`.
       * **Security group**: Security group where the VM is located. If it is the same as the group being configured, specify **Self** (`Self`).
 
-   1. {% if audience != "internal" %}[Configure the security group](../../../vpc/operations/security-group-update.md#add-rule){% else %}Configure the security group{% endif %} the VM belongs to to enable connections to the VM and to allow traffic between the VM and the cluster hosts.
+   1. {% if audience != "internal" %}[Configure the security group](../../../vpc/operations/security-group-add-rule.md){% else %}Configure the security group{% endif %} the VM belongs to to enable connections to the VM and to allow traffic between the VM and the cluster hosts.
 
       Example of rules for a VM:
 

@@ -223,11 +223,7 @@
 * **Collecting and analyzing {{ k8s }} audit logs and security tools**.
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Analyzing {{ k8s }} security logs in {{ mes-name }}: audit logs, policy engine, and Falco](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
 
-{% endif %}
-
 * **Collecting and analyzing audit logs of workloads and node groups**: For example, using open-source tools, such as Fluent Bit and Beats.
-
-{% if audience == "external" %}
 
 * **Monitoring abnormal loads**: Use [{{ monitoring-full-name }}](../../monitoring/index.yaml).
 

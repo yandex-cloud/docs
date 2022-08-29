@@ -27,7 +27,7 @@ Settings of rules depend on the connection method you select:
 
    {% if audience != "internal" %}
 
-   [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) of a cluster to allow incoming traffic from any IP on ports 443 (Kibana) and 9200 ({{ ES }}). To do this, create the following rules for incoming traffic:
+   [Configure all security groups](../../vpc/operations/security-group-add-rule.md) of a cluster to allow incoming traffic from any IP on ports 443 (Kibana) and 9200 ({{ ES }}). To do this, create the following rules for incoming traffic:
 
    {% else %}
 
@@ -46,7 +46,7 @@ Settings of rules depend on the connection method you select:
 
    {% if audience != "internal" %}
 
-   1. [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) of your cluster to allow incoming traffic on ports 443 (Kibana) and 9200 ({{ ES }}) from the security group where your VM is located. To do this, create the following rules for incoming traffic in these security groups:
+   1. [Configure all security groups](../../vpc/operations/security-group-add-rule.md) of your cluster to allow incoming traffic on ports 443 (Kibana) and 9200 ({{ ES }}) from the security group where your VM is located. To do this, create the following rules for incoming traffic in these security groups:
 
    {% else %}
 
@@ -63,7 +63,7 @@ Settings of rules depend on the connection method you select:
 
    {% if audience != "internal" %}
 
-   1. [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) where your VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
+   1. [Configure all security groups](../../vpc/operations/security-group-add-rule.md) where your VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
 
    {% else %}
 

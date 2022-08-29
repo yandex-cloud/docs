@@ -81,19 +81,19 @@ editable: false
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub.md](../_pricing/data-proc/rub.md) %}
 
 {% endif %}
 
-{% if region == "kz"%}
+{% if region == "kz" %}
 
 {% include [kzt.md](../_pricing/data-proc/kzt.md) %}
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd.md](../_pricing/data-proc/usd.md) %}
 

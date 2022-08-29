@@ -1,5 +1,8 @@
----
-title: Yandex Data Proc
+title:
+  - text: Yandex Data Proc
+    when: product == "yandex-cloud"
+  - text: Data Proc
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Practical guidelines
@@ -24,21 +27,22 @@ items:
             href: tutorials/run-spark-job.md
           - name: Running jobs from a remote host
             href: tutorials/remote-run-job.md
-      - name: Configuring networks for Data Proc
+      - name: Configuring networks for {{ dataproc-name }}
         href: tutorials/configure-network.md
-        when: product == "yandex-cloud"
       - name: Using {{ objstorage-full-name }} in {{ dataproc-name }}
         href: tutorials/copy-files-from-object-storage.md
-      - name: Exchanging data with {{ mch-full-name }}
+      - name: >-
+          Using initialization scripts to configure GeeseFS in {{ dataproc-name }}
+        href: tutorials/geesefs-init-actions.md
+        when: product == "yandex-cloud"
+      - name: Exchanging data with {{ mch-name }}
         href: tutorials/exchange-data-with-mch.md
       - name: Importing data from {{ mmy-full-name }} clusters using Sqoop
         href: tutorials/sqoop-mmy.md
+        when: product == "yandex-cloud"
       - name: Importing data from {{ mpg-full-name }} clusters using Sqoop
         href: tutorials/sqoop-mpg.md
-      - name: >-
-          Using initialization scripts to configure GeeseFS in
-          {{ dataproc-name }}
-        href: tutorials/geesefs-init-actions.md
+        when: product == "yandex-cloud"
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -47,10 +51,12 @@ items:
         href: operations/cluster-list.md
       - name: Creating clusters
         href: operations/cluster-create.md
-      - name: Connecting to a cluster
+      - name: Connecting to clusters
         href: operations/connect.md
-      - name: Updating clusters
+      - name: Editing clusters
         href: operations/cluster-update.md
+      - name: Updating subclusters
+        href: operations/subcluster-update.md
       - name: Managing subclusters
         href: operations/subclusters.md
       - name: Updating subclusters
@@ -59,6 +65,7 @@ items:
         href: operations/connect-interfaces.md
       - name: How to use Sqoop
         href: operations/sqoop-usage.md
+        when: product == "yandex-cloud"
       - name: Managing jobs
         items:
           - name: All jobs
@@ -86,15 +93,17 @@ items:
         href: concepts/instance-types.md
       - name: Runtime environment
         href: concepts/environment.md
-      - name: Data Proc component interfaces and ports
+      - name: Component interfaces and ports in {{ dataproc-name }}
         href: concepts/interfaces.md
-      - name: Jobs in Data Proc
+      - name: Component web interfaces
+        href: concepts/ui-proxy.md
+      - name: Jobs in {{ dataproc-name }}
         href: concepts/jobs.md
       - name: Automatic scaling
         href: concepts/autoscaling.md
       - name: Decommissioning subclusters and hosts
         href: concepts/decommission.md
-      - name: Network in Data Proc
+      - name: Network in {{ dataproc-name }}
         href: concepts/network.md
       - name: Maintenance
         href: concepts/maintenance.md
@@ -104,7 +113,7 @@ items:
         href: concepts/storage.md
       - name: Component properties
         href: concepts/settings-list.md
-      - name: Logs in Data Proc
+      - name: Logs in {{ dataproc-name }}
         href: concepts/logs.md
         when: product == "yandex-cloud"
       - name: Initialization scripts

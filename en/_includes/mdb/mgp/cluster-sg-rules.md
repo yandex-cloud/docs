@@ -1,19 +1,19 @@
 {% if audience == "draft" %}
 
-Configure all security groups in the cluster to allow incoming traffic from those security groups that contain the virtual machine, on port {{ port-mgp }}. To do this, [create a rule](../../../vpc/operations/security-group-update.md#add-rule) for incoming traffic in these groups:
+Configure all security groups in the cluster to allow incoming traffic from the security group where the VM is located, on port {{ port-mgp }}. To do this, [create a rule](../../../vpc/operations/security-group-add-rule.md) for incoming traffic in these groups:
 
-* Protocol: `TCP`.
 * Port range: `{{ port-mgp }}`.
-* Source type: `Security group`.
-* Source: Security group assigned to the VM. If it is the same as the group being configured, specify `Self` (`Self`).
+* Protocol: `TCP`.
+* Source: `Security group`.
+* Security group: If a cluster and a VM are in the same security group, select `Self` (`Self`) as the value. Otherwise, specify the VM security group.
 
 {% else %}
 
-Set up a cluster's security groups so that they allow any incoming and outgoing traffic over any protocol. To do this, [create rules](../../../vpc/operations/security-group-update.md#add-rule) for incoming and outgoing traffic:
+Set up a cluster's security groups so that they allow any incoming and outgoing traffic over any protocol. To do this, {% if audience != "internal" %}[create rules](../../../vpc/operations/security-group-add-rule.md){% else %}create rules{% endif %} for incoming and outgoing traffic:
 
-* Protocol: `Any` (`Any`).
-* Port range: `0-65535`.
-* Source type: `CIDR`.
-* Source: `0.0.0.0/0`.
+* Port range: `{{ port-any }}`.
+* Protocol: `Any`.
+* Source: `CIDR`.
+* CIDR blocks: `0.0.0.0/0`.
 
 {% endif %}

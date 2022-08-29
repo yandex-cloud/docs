@@ -58,7 +58,7 @@ Hystax Acura Backup will run under a [service account](../../iam/concepts/users/
 
 Configure network traffic permissions in the [default security group](../../vpc/concepts/security-groups.md#default-security-group). If a security group is unavailable, any incoming or outgoing VM traffic will be allowed.
 
-If a security group is available, [add](../../vpc/operations/security-group-update.md#add-rule) to it the rules below:
+If a security group is available, [add](../../vpc/operations/security-group-add-rule.md) to it the rules below:
 
 | Traffic<br>direction | Description | Port<br>range | Protocol | Source<br>type | Source/Purpose |
 --- | --- | --- | --- | --- | ---

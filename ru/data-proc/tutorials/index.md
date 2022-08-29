@@ -16,7 +16,7 @@
 * [{#T}](./hive-job-basics.md).
 * [{#T}](./mapreduce-job-basics.md).
 * [{#T}](./pyspark-job-basics.md).
-* [{#T}](./spark-job-basics.md)
+* [{#T}](./spark-job-basics.md).
 
 ### Продвинутые примеры работы с заданиями {#jobs-advanced-tutorials}
 

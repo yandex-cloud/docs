@@ -8,28 +8,34 @@ The main entity used in the service is a _cluster_. It groups together all the r
 
 Each cluster consists of _subclusters_. They integrate _hosts_ that perform identical functions:
 
-* A subcluster with master hosts (for example, NameNode for HDFS or ResourceManager for YARN).
+* A subcluster with a master host (`Master` or `masternode`). For example, NameNode for HDFS or ResourceManager for YARN.
 
    {% note info %}
 
-   Each cluster may have only one subcluster with master hosts.
+   Each cluster may have only one subcluster with a master host.
 
    {% endnote %}
 
-* Subclusters for data storage (for example, DataNode for HDFS).
-* Subclusters for data processing (for example, NodeManager for YARN).
+* Data storage subclusters (`Data` or `datanode`). For example, DataNode for HDFS.
+* Data processing subclusters (`Compute` or `computenode`). For example, NodeManager for YARN.
 
 Subclusters for one cluster must reside in the same [cloud network](../../vpc/concepts/network.md#network) and [availability zone](../../overview/concepts/geo-scope.md).
 
 Hosts in each subcluster are created with the computing power consistent with the specified _host class_. For a list of available host classes and their characteristics, see [{#T}](instance-types.md).
+
+{% if product == "cloud-il" %}
+
+VMs corresponding to cluster hosts reside on {{ yandex-cloud }} physical servers. These hosts are selected randomly from the available pool of hosts that meet the requirements of the selected subcluster configuration.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
 
 VMs corresponding to cluster hosts can be hosted:
 
 * On {{ yandex-cloud }} _standard hosts_.
 
    These are physical servers for hosting cluster VMs. These hosts are selected randomly from the available pool of hosts that meet the requirements of the selected subcluster configuration.
-
-{% if product == "yandex-cloud" %}
 
 * On {{ yandex-cloud }} _dedicated hosts_.
 

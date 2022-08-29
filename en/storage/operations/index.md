@@ -33,7 +33,3 @@ description: "In the article you will learn how to work with {{ objstorage-full-
 * [{#T}](hosting/own-domain.md)
 * [{#T}](hosting/multiple-domains.md)
 * [{#T}](hosting/certificate.md)
-
-## Access management {#access}
-
-* [{#T}](access/apply-policy.md)

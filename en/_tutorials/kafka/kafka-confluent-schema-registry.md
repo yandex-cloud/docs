@@ -29,7 +29,7 @@ To use [Confluent Schema Registry](https://docs.confluent.io/platform/current/sc
 
 {% if audience != "internal" %}
 
-1. In the VM security group, [add a rule](../../vpc/operations/security-group-update.md#add-rule) for incoming traffic that allows connections via port `8081` which is used by the producer and consumer to access the schema registry:
+1. In the VM security group, [add a rule](../../vpc/operations/security-group-add-rule.md) for incoming traffic that allows connections via port `8081` which is used by the producer and consumer to access the schema registry:
 
 {% else %}
 

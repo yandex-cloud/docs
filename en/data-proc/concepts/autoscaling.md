@@ -1,14 +1,18 @@
 # Autoscaling of subclusters
 
+{% if product == "yandex-cloud" %}
+
 {% note info %}
 
 Autoscaling of subclusters is supported for {{ dataproc-full-name }} clusters version 1.4 and higher.
 
 {% endnote %}
 
+{% endif %}
+
 {% if audience == "external" %}
 
-{{ dataproc-full-name }} supports autoscaling of [data processing subclusters](../concepts/index.md) (`Compute` clusters) based on metrics received by [{{ monitoring-full-name }}](../../monitoring/concepts/index.md):
+{{ dataproc-full-name }} supports autoscaling of [data processing subclusters](../concepts/index.md) based on metrics received by [{{ monitoring-full-name }}](../../monitoring/concepts/index.md):
 
 {% endif %}
 
@@ -36,4 +40,3 @@ You can set the following autoscaling parameters:
 * The time period used when calculating the average load on each VM instance in the group.
 * Instance warmup period. The interval during which instance metrics are not used after it starts. Average metric values for the group are used instead.
 * Stabilization period (minutes or seconds): The interval during which the number of instances in the group can't be decreased.
-
