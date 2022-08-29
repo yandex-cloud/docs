@@ -131,6 +131,7 @@
 
        name        = "vm-from-image"
        platform_id = "standard-v3"
+       zone        = "<зона доступности>"
 
        resources {
          cores  = <количество ядер vCPU>
