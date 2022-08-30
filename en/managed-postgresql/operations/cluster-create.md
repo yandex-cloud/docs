@@ -42,42 +42,42 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
       {% if audience != "internal" %}
 
-      * Select a [storage type](../concepts/storage.md).
+      * Select the [storage type](../concepts/storage.md).
 
-          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
       {% endif %}
 
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
-1. Under **Database**, specify the database attributes:
+   1. Under **Database**, specify the database attributes:
 
-   * Database name. This name must be unique within the folder and contain only Latin letters, numbers, and underscores.
-   * Username of the database owner. This name may only contain Latin letters, numbers, and underscores. By default, the new user is assigned 50 connections to each host in the cluster.
-   * User password (from 8 to 128 characters).
-   * Locale for sorting and character set locale. These settings define the rules for sorting strings (`LC_COLLATE`) and classifying characters (`LC_CTYPE`). In {{ mpg-name }}, locale settings apply at the individual database level.
+      * Database name. This name must be unique within the folder and contain only Latin letters, numbers, and underscores.
+      * Username of the database owner. This name may only contain Latin letters, numbers, and underscores. By default, the new user is assigned 50 connections to each host in the cluster.
+      * User password (from 8 to 128 characters).
+      * Locale for sorting and character set locale. These settings define the rules for sorting strings (`LC_COLLATE`) and classifying characters (`LC_CTYPE`). In {{ mpg-name }}, locale settings apply at the individual database level.
 
-      {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
+         {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
 
-1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
-1. Under **Hosts**, select the parameters for the database hosts created with the cluster. If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
+   1. Under **Hosts**, select the parameters for the database hosts created with the cluster. If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
 
-   When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
+      When configuring the host parameters, note that if you selected `local-ssd`{% if audience != "internal" %} or `network-ssd-nonreplicated`{% endif %} under **Storage**, you need to add at least 3 hosts to the cluster.
 
-1. If necessary, configure additional cluster settings:
+   1. If necessary, configure additional cluster settings:
 
-   {% include [mpg-extra-settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
+      {% include [Additional cluster settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
 
-1. If required, configure [DBMS cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings).
+   1. If required, configure [DBMS cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings).
 
-   {% note info %}
+      {% note info %}
 
-   Some {{ PG }} settings [depend on the selected host class or storage size](../concepts/settings-list.md#settings-instance-dependent).
+      Some {{ PG }} settings [depend on the selected host class or storage size](../concepts/settings-list.md#settings-instance-dependent).
 
-   {% endnote %}
+      {% endnote %}
 
-1. Click **Create cluster**.
+   1. Click **Create cluster**.
 
 - CLI
 
@@ -188,6 +188,10 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
       * Database cluster: Description of the cluster and its hosts.
 
+      * Database: Description of the cluster's database.
+
+      * User: Description of the cluster user.
+
       * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
       * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
@@ -233,23 +237,22 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
           ...
         }
 
-        database {
-          name  = "<database name>"
-          owner = "<database username>"
-        }
-
-        user {
-          name     = "<username>"
-          password = "<user password>"
-          permission {
-            database_name = "<database name>"
-          }
-        }
-
         host {
           zone      = "<availability zone>"
           subnet_id = "<subnet ID>"
         }
+      }
+
+      resource "yandex_mdb_postgresql_database" "<database name>" {
+        cluster_id = "<cluster ID>"
+        name       = "<database name>"
+        owner      = "<database owner name>"
+      }
+
+      resource "yandex_mdb_postgresql_user" "<username>" {
+        cluster_id = "<cluster ID>"
+        name       = "<username>"
+        password   = "<user password>"
       }
 
       resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
@@ -304,23 +307,22 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
           ...
         }
 
-        database {
-          name  = "<database name>"
-          owner = "<database username>"
-        }
-
-        user {
-          name     = "<username>"
-          password = "<user password>"
-          permission {
-            database_name = "<database name>"
-          }
-        }
-
         host {
           zone      = "<availability zone>"
           subnet_id = "<subnet ID>"
         }
+      }
+
+      resource "yandex_mdb_postgresql_database" "<database name>" {
+        cluster_id = "<cluster ID>"
+        name       = "<database name>"
+        owner      = "<database owner name>"
+      }
+
+      resource "yandex_mdb_postgresql_user" "<username>" {
+        cluster_id = "<cluster ID>"
+        name       = "<username>"
+        password   = "<user password>"
       }
 
       resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
@@ -337,7 +339,9 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      {% include [maintenance-window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
+      {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
+
+      {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
@@ -365,6 +369,8 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
    * Database configuration, in one or more `databaseSpecs` parameters.
    * User settings, in one or more `userSpecs` parameters.
 
+   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+
    {% if product == "yandex-cloud" %}
    {% if audience != "internal" %}
 
@@ -376,6 +382,10 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
    {% endif %}
    {% endif %}
+
+   To enable [statistics collection](./performance-diagnostics.md#activate-stats-collector):
+
+   {% include [Performance diagnostic API](../../_includes/mdb/mpg/performance-diagnostics-api.md) %}
 
 {% endlist %}
 
@@ -395,7 +405,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    To create a cluster with a single host, pass a single `--host` parameter.
 
-   Let's say we need to create a {{ PG }} cluster with the following characteristics:
+   Create a {{ mpg-name }} cluster with test characteristics:
 
    {% if audience != "internal" %}
 
@@ -403,7 +413,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the `production` environment.
    * In the `default` network.
    * In the security group `{{ security-group }}`.
-   * With one `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone.
+   * With one `{{ host-class }}` host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone.
    * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
    * With one user, `user1`, with the password `user1user1`.
    * With one `db1` database owned by the user `user1`.
@@ -422,7 +432,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    {% endif %}
 
-   Run the command:
+   Run the following command:
 
    {% if audience != "internal" %}
 
@@ -461,15 +471,16 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - {{ TF }}
 
-   Let's say we need to create a {{ PG }} cluster and a network for it with the following characteristics:
+   Create a {{ mpg-name }} cluster and a network for it with test characteristics:
+
    * Named `mypg`.
-   * Version `{{ versions.tf.latest }}`.
+   * Versions `{{ versions.tf.latest }}`.
    * In the `PRESTABLE` environment.
    * In the cloud with the ID `{{ tf-cloud-id }}`.
    * In the folder with the ID `{{ tf-folder-id }}`.
    * In the new `mynet` network.
    * In the new security group `pgsql-sg` allowing connections to the cluster from the internet via port `6432`.
-   * With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   * With one `{{ host-class }}` host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
    * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
    * With one user, `user1`, with the password `user1user1`.
    * With one `db1` database owned by the user `user1`.
@@ -489,7 +500,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    }
 
    provider "yandex" {
-     token     = "<An OAuth or static key of the service account>"
+     token     = "<OAuth or static key of the service account>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
      zone      = "{{ region-id }}-a"
@@ -511,23 +522,22 @@ If you specified security group IDs when creating a cluster, you may also need t
        }
      }
 
-     database {
-       name  = "db1"
-       owner = "user1"
-     }
-
-     user {
-       name     = "user1"
-       password = "user1user1"
-       permission {
-         database_name = "db1"
-       }
-     }
-
      host {
        zone      = "{{ region-id }}-a"
        subnet_id = yandex_vpc_subnet.mysubnet.id
      }
+   }
+
+   resource "yandex_mdb_postgresql_database" "db1" {
+     cluster_id = yandex_mdb_postgresql_cluster.mypg.id
+     name       = "db1"
+     owner      = "user1"
+   }
+
+   resource "yandex_mdb_postgresql_user" "user1" {
+     cluster_id = yandex_mdb_postgresql_cluster.mypg.id
+     name       = "user1"
+     password   = "user1user1"
    }
 
    resource "yandex_vpc_network" "mynet" {
@@ -591,23 +601,22 @@ If you specified security group IDs when creating a cluster, you may also need t
        }
      }
 
-     database {
-       name  = "db1"
-       owner = "user1"
-     }
-
-     user {
-       name     = "user1"
-       password = "user1user1"
-       permission {
-         database_name = "db1"
-       }
-     }
-
      host {
        zone      = "{{ region-id }}-a"
        subnet_id = yandex_vpc_subnet.mysubnet.id
      }
+   }
+
+   resource "yandex_mdb_postgresql_database" "db1" {
+     cluster_id = yandex_mdb_postgresql_cluster.mypg.id
+     name       = "db1"
+     owner      = "user1"
+   }
+
+   resource "yandex_mdb_postgresql_user" "user1" {
+     cluster_id = yandex_mdb_postgresql_cluster.mypg.id
+     name       = "user1"
+     password   = "user1user1"
    }
 
    resource "yandex_vpc_network" "mynet" {
