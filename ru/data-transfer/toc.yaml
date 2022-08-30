@@ -28,6 +28,8 @@ items:
                 href: operations/endpoint/source/bigquery.md
               - name: ClickHouse
                 href: operations/endpoint/source/clickhouse.md
+              - name: Eventhub
+                href: operations/endpoint/source/eventhub.md
               - name: Greenplum®
                 href: operations/endpoint/source/greenplum.md
               - name: MongoDB
