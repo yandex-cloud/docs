@@ -7,7 +7,10 @@ href: index.yaml
 noIndex: True
 items:
   - name: Системные требования
-    href: system-requirements.md    
+    href: system-requirements.md
+  - name: Системные требования CPU
+    href: system-requirements-cpu.md
+    hidden: true
   - name: Синтез речи
     items:
     - name: О технологии
