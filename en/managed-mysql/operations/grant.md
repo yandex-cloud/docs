@@ -71,21 +71,17 @@ You can manage user permissions at the level of an individual database by updati
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. In the cluster description, find the `user` block with a description of the user and change the list of their privileges for the required database in the `roles` parameter:
+   1. Find the desired user's `yandex_mdb_mysql_user` resource and change the list of their privileges for the required database in the `roles` parameter:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
-        ...
-        user {
-          name     = "<username>"
-          password = "<password>"
-          permission {
-            database_name = "<name of the DB the user can access>"
-            roles         = [<list of user privileges for the DB>]
-            ...
-          }
-          ...
+      resource "yandex_mdb_mysql_user" "<username>" {
+        cluster_id = "<cluster ID>"
+        name       = "<username>"
+        permission {
+          database_name = "<name of database user can access>"
+          roles         = [<list of user privileges for the DB>]
         }
+        ...
       }
       ```
 
@@ -97,20 +93,19 @@ You can manage user permissions at the level of an individual database by updati
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mysql_user).
 
 - API
 
    Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
+
    * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username, in the `userName` parameter. To find out the name, [get a list of users in the cluster](cluster-users.md#list-users).
    * The name of the DB that you want to change the list of user privileges for, in the `permissions.databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
-   * Array of the new list of user privileges, in the `permissions.roles` parameter.
-   * List of user configuration fields to be changed (in this case, `permissions`), in the `updateMask` parameter.
+   * New list of user privileges as an array in the `permissions.roles` parameter.
+   * List of user configuration fields to update (`permissions` in this case) in the `updateMask` parameter.
 
-   {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 
