@@ -21,9 +21,9 @@ You can add and remove users, as well as manage their settings.
 
    To get a list of cluster users, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-my }} user list \
-        --cluster-name=<cluster name>
+     --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -32,7 +32,7 @@ You can add and remove users, as well as manage their settings.
 
    Use the [list](../api-ref/User/list.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
-  {% include [Getting the Cluster ID](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
+   {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -67,11 +67,11 @@ You can add and remove users, as well as manage their settings.
 
    To create a user in a cluster, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-my }} user create <username> \
-        --cluster-name=<cluster name> \
-        --password=<user password> \
-        --permissions=<list of databases to grant a user access to>
+     --cluster-name=<cluster name> \
+     --password=<user password> \
+     --permissions=<list of databases to grant a user access to>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -82,21 +82,18 @@ You can add and remove users, as well as manage their settings.
 
       For more information about creating this file, see [{#T}](./cluster-create.md).
 
-   1. Add a `user` section to the {{ mmy-name }} cluster description:
+   1. Add the `yandex_mdb_mysql_user` resource:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
-        ...
-        user {
-          name     = "<username>"
+      resource "yandex_mdb_mysql_user" "<username>" {
+        cluster_id = "<cluster ID>"
+        name     = "<username>"
           password = "<password>"
           permission {
             database_name = "<name of the DB the user can access>"
-            roles         = [<list of user privileges for the DB>]
-            ...
-          }
-          ...
+           roles         = [<list of user privileges for the DB>]
         }
+        ...
       }
       ```
 
@@ -110,9 +107,7 @@ You can add and remove users, as well as manage their settings.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mysql_user).
 
 - API
 
@@ -150,10 +145,10 @@ You can add and remove users, as well as manage their settings.
 
    To change the user's password, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-my }} user update <username> \
-        --cluster-name=<cluster name> \
-        --password=<new password>
+     --cluster-name=<cluster name> \
+     --password=<new password>
    ```
 
    {% include [passwords-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
@@ -166,18 +161,16 @@ You can add and remove users, as well as manage their settings.
 
       For more information about creating this file, see [{#T}](./cluster-create.md).
 
-   1. In the {{ mmy-name }} cluster description, find the `user` block for the required user.
+   1. Find the desired user's `yandex_mdb_mysql_user` resource.
 
    1. Change the value of the `password` field:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+      resource "yandex_mdb_mysql_user" "<username>" {
+        cluster_id = "<cluster ID>"
+        name       = "<username>"
+        password   = "<new password>"
         ...
-        user {
-          name     = "<username>"
-          password = "<new password>"
-          ...
-        }
       }
       ```
 
@@ -191,9 +184,7 @@ You can add and remove users, as well as manage their settings.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mysql_user).
 
 - API
 
@@ -205,9 +196,9 @@ You can add and remove users, as well as manage their settings.
 
       {% include [password-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
 
-   * List of user configuration fields to be changed (in this case, `password`), in the `updateMask` parameter.
+   * List of user configuration fields to update (`password` in this case) in the `updateMask` parameter.
 
-  {% include [Resetting the settings of the object being modified](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -237,15 +228,15 @@ To change the user's permissions to access certain databases, follow the [instru
 
    To configure the [{{ MY }} settings](../concepts/settings-list.md#dbms-user-settings) for the user, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-my }} user update <username> \
-        --cluster-name=<cluster name> \
-        --global-permissions=<comma-separated list of administrative privileges> \
-        --authentication-plugin=<authentication plugin> \
-        --max-questions-per-hour=<maximum number of requests per hour> \
-        --max-updates-per-hour=<maximum number of UPDATE requests per hour> \
-        --max-connections-per-hour=<maximum number of connections per hour> \
-        --max-user-connections=<maximum number of simultaneous connections>
+     --cluster-name=<cluster name> \
+     --global-permissions=<comma-separated list of administrative privileges> \
+     --authentication-plugin=<authentication plugin> \
+     --max-questions-per-hour=<maximum number of requests per hour> \
+     --max-updates-per-hour=<maximum number of UPDATE requests per hour> \
+     --max-connections-per-hour=<maximum number of connections per hour> \
+     --max-user-connections=<maximum number of simultaneous connections>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -256,22 +247,19 @@ To change the user's permissions to access certain databases, follow the [instru
 
       For more information about creating this file, see [{#T}](./cluster-create.md).
 
-   1. In the {{ mmy-name }} cluster description, find the `user` block for the required user.
+   1. Find the desired user's `yandex_mdb_mysql_user` resource.
 
    1. To set limits on the number of connections and requests, add a block named `connection_limits` to its description:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+      resource "yandex_mdb_mysql_user" "<username>" {
         ...
-        user {
-          ...
-          connection_limits {
+        connection_limits {
             max_questions_per_hour   = <maximum number of requests per hour>
             max_updates_per_hour     = <maximum number of UPDATE requests per hour>
             max_connections_per_hour = <maximum number of connections per hour>
             max_user_connections     = <maximum number of simultaneous connections>
-            ...
-          }
+          ...
         }
       }
       ```
@@ -279,12 +267,9 @@ To change the user's permissions to access certain databases, follow the [instru
    1. To configure a user authentication plugin, add a block named `authentication_plugin` to its description:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+      resource "yandex_mdb_mysql_user" "<username>" {
         ...
-        user {
-          ...
-          authentication_plugin = "<authentication plugin>"
-        }
+        authentication_plugin = "<authentication plugin>"
       }
       ```
 
@@ -296,9 +281,7 @@ To change the user's permissions to access certain databases, follow the [instru
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mysql_user).
 
 - API
 
@@ -307,9 +290,9 @@ To change the user's permissions to access certain databases, follow the [instru
    * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username, in the `userName` parameter. To get the username, [retrieve a list of users in the cluster](#list-users).
    * New values for user settings.
-   * List of user configuration fields to be changed, in the `updateMask` parameter.
+   * List of user configuration fields to update in the `updateMask` parameter.
 
-   {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -331,9 +314,9 @@ To change the user's permissions to access certain databases, follow the [instru
 
    To remove a user, run:
 
-   ```
+   ```bash
    {{ yc-mdb-my }} user delete <username> \
-        --cluster-name=<cluster name>
+     --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -344,7 +327,7 @@ To change the user's permissions to access certain databases, follow the [instru
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. Delete the user block with a description of the required `user` from the {{ mmy-name  }} cluster description.
+   1. Delete the `yandex_mdb_mysql_user` resource with the description of the desired user.
 
    1. Make sure the settings are correct.
 
@@ -354,9 +337,7 @@ To change the user's permissions to access certain databases, follow the [instru
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mysql_user).
 
 - API
 

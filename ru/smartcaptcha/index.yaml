@@ -12,6 +12,9 @@ links:
   - title: Начало работы
     description: Настройте первый виджет и проверьте пользователя
     href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations
   - title: Методы установки виджета
     description: Узнайте о способах подключения SmartCaptcha к вашему сайту
     href: concepts/widget-methods

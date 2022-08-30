@@ -14,7 +14,7 @@ The key can either be a simple string or contain a prefix indicating that it bel
 
 For example:
 
-```
+```text
 hdfs:dfs.replication : 2
 hdfs:dfs.blocksize : 1073741824
 spark:spark.driver.cores : 1

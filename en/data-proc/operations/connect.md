@@ -126,15 +126,23 @@ To connect to a {{ dataproc-name }} host, make sure the SSH key that you specifi
 
    ```bash
    ssh ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz.{{ dns-zone }}
+   ```
 
+   Result:
+
+   ```text
    ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz:~#
    ```
 
 1. Make sure that Hadoop commands are executed, for example:
 
    ```bash
-   ~# hadoop version
+   hadoop version
+   ```
 
+   Result:
+
+   ```text
    Hadoop 2.8.5
    Subversion https://github.yandex-team.ru/mdb/bigtop.git -r 78508f2a4b4f3dc8b3d295ccb50a45a4d24e81b5
    Compiled by robot-pgaas-ci on 2019-04-16T10:35Z

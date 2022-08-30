@@ -180,13 +180,13 @@ For logical replication to work, create a publication (a group of logically repl
    CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<source cluster address> port=<port> user=<username> sslmode=disable dbname=<database name>' PUBLICATION p_data_migration;
    ```
 
-1. To get the replication status, check the `pg_subscription_rel` directories. You can get the general replication status in the target cluster using `pg_stat_subscription` and in the source cluster using `pg_stat_replication`.
+1. To get the replication status, check the `pg_subscription_rel` directories.
 
    ```sql
    SELECT * FROM pg_subscription_rel;
    ```
 
-   First of all, check the `srsubstate` field. `R` in this field means that synchronization has ended and the databases are ready to be replicated.
+   The `r` value in the `srsubstate` field means that replication was completed.
 
 ### Migrate {{ PG }} sequences after replication {#transfer-sequences}
 
