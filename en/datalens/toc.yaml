@@ -35,6 +35,9 @@ items:
     items:
       - name: Service overview
         href: concepts/index.md
+      - name: Organizations in DataLens
+        when: audience == "external"
+        href: concepts/organizations.md
       - name: Connection
         href: concepts/connection.md
       - name: Data types
@@ -83,8 +86,6 @@ items:
         href: concepts/caching.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Organizations in DataLens
-        href: concepts/organizations.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
