@@ -75,7 +75,7 @@ Detailed information about each {{ dataproc-name }} cluster created is available
     To get a list of operations, run the command:
 
     ```bash
-    {{ yc-dp }} cluster list-operations <cluster name or ID>
+    {{ yc-dp }} cluster list-operations <cluster ID or name>
     ```
 
     You can get the cluster ID and name with a [list of clusters in the folder](#list).

@@ -47,7 +47,7 @@ spark:spark.driver.cores : 1
  * `dataproc:min-free-memory-to-enqueue-new-job` — минимальное количество свободной памяти для запуска задания (в байтах). Значение по умолчанию — `1073741824` (1 ГБ).
  * `dataproc:job-memory-footprint` — количество памяти для запуска задания на управляющем хосте кластера, используется для оценки максимального количества заданий в кластере. Значение по умолчанию — `536870912` (512 МБ).
 
-## Настройки Spark для работы с Object Storage {#spark-settings}
+## Настройки Spark для работы с {{ objstorage-full-name }} {#spark-settings}
 
 Для Apache Spark доступны следующие настройки:
 
@@ -70,10 +70,10 @@ spark:spark.driver.cores : 1
 | conda             | `conda:<имя пакета>` | Номер версии пакета согласно [спецификации conda](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/pkg-specs.html#package-match-specifications) | `conda:koalas : 1.5.0` |
 | pip               | `pip:<имя пакета>`   | Номер версии пакета согласно [спецификации pip](https://www.python.org/dev/peps/pep-0440/#version-specifiers)                                                     | `pip:psycopg2 : 2.7.0` |
 
-
 ## Использование Apache Spark Thrift Server {#spark-thrift-server}
 
-Сервис [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sql-distributed-sql-engine.html) может использоваться как распределенный движок SQL-запросов поверх Apache Spark™.
-По умолчанию он выключен, но его можно включить с помощью свойства `dataproc:hive.thrift.impl = spark`. При задании настройки на TCP-порте 10000 поднимается Apache Spark Thrift Server. Значение по умолчанию `dataproc:hive.thrift.impl = hive`: тогда на этом TCP-порте запускается Apache HiveServer2, если используется сервис Hive.
+Сервис [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sql-distributed-sql-engine.html) может использоваться как распределенный движок SQL-запросов поверх Apache Spark.
 
-Функциональность доступна, начиная [с версии 2.0.48](../release-notes/images.md#2.0.48)
+Чтобы включить его, задайте настройку `dataproc:hive.thrift.impl : spark` — сервер будет доступен на TCP-порте `10000`. По умолчанию задано значение `dataproc:hive.thrift.impl : hive` — на TCP-порте `10000` запускается Apache HiveServer2, если используется сервис Hive.
+
+Функциональность доступна начиная [с версии образа 2.0.48](../release-notes/images.md#2.0.48).

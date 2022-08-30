@@ -60,18 +60,18 @@ For more information, see [{#T}](../concepts/logs.md).
 
       ```bash
       yc logging read \
-        --group-id "<log group ID>" \
-        --resource-ids "<cluster ID>" \
-        --filter "log_type=hadoop-hdfs-namenode"
+        --group-id=<log group ID> \
+        --resource-ids=<cluster ID> \
+        --filter=log_type=hadoop-hdfs-namenode
       ```
 
    * To get logs for the last two hours from all {{ dataproc-name }} clusters assigned to a specific log group, run the command:
 
       ```bash
       yc logging read \
-        --group-id "<log group ID>" \
-        --resource-types "dataproc.cluster" \
-        --since 2h
+        --group-id=<log group ID> \
+        --resource-types=dataproc.cluster \
+        --since=2h
       ```
 
 {% endlist %}
@@ -94,7 +94,7 @@ For more information, see [{#T}](../concepts/logs.md).
 
    ```bash
    {{ yc-dp }} cluster create <cluster name> \
-      ... \
+     ... \
      --log-group-id=""
    ```
 

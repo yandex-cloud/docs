@@ -15,6 +15,7 @@
 1. Отредактируйте `docker-compose.yaml`: вместо `N` укажите число потоков вашего процессора в параметре `CPU_THREADS_NUM: N`.
 
    В Linux вы можете узнать количество потоков вашего сервера, используя команду:
+
    ```bash
    cat /proc/cpuinfo | grep -E "processor.+:" | wc -l
    ```
@@ -36,7 +37,7 @@
    docker logs stt-server
    ```
    
-   ```
+   ```text
    stt-server  | Server listening on 0.0.0.0:50053
    stt-server  | Waiting for join...
    ```

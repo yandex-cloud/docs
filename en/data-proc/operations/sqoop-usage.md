@@ -63,7 +63,7 @@ For Sqoop to connect to the database using a JDBC connect string, install a JDBC
    ```bash
    MYSQL_VER="8.0.25" && \
    wget "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-${MYSQL_VER}.tar.gz" \
-   -O 'mysql-connector-java.tar.gz' && \
+     --output-document 'mysql-connector-java.tar.gz' && \
    sudo tar -xf mysql-connector-java.tar.gz -C /var/lib/sqoop/ && \
    export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:/var/lib/sqoop/mysql-connector-java-${MYSQL_VER}.jar
    ```
@@ -78,7 +78,7 @@ For Sqoop to connect to the database using a JDBC connect string, install a JDBC
 
 ## Importing with Sqoop {#import-with-sqoop}
 
-### In {{ objstorage-name }} {#object-storage},
+### In {{ objstorage-name }} {#object-storage}
 
 This type of import is available if the `Sqoop` component is enabled in the {{ dataproc-name }} cluster.
 
@@ -182,7 +182,7 @@ To import the data to the Hive table:
 
    {% endnote %}
 
-### In Apache HBase, {#apache-hbase}
+### In Apache HBase {#apache-hbase}
 
 This type of import is available if the following services are enabled in the {{ dataproc-name }} cluster:
 

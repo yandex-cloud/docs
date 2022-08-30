@@ -44,18 +44,18 @@
 
       ```bash
       yc dataproc job create-spark \
-         --cluster-name <cluster name> \
-         --name <job name> \
-         --main-class <application main class name> \
-         --main-jar-file-uri <path to main jar file> \
-         --jar-file-uris <path to jar file> \
-         --file-uris <path to file> \
-         --archive-uris <path to archive> \
-         --properties <job properties> \
-         --args <arguments passed to job> \
-         --packages <Maven coordinates of jar files as groupId:artifactId:version> \
-         --repositories <additional repositories to search for packages> \
-         --exclude-packages <packages to exclude as groupId:artifactId>
+         --cluster-name=<cluster name> \
+         --name=<job name> \
+         --main-class=<application main class name> \
+         --main-jar-file-uri=<path to main jar file> \
+         --jar-file-uris=<path to jar file> \
+         --file-uris=<path to file> \
+         --archive-uris=<path to archive> \
+         --properties=<job properties> \
+         --args=<arguments passed to job> \
+         --packages=<Maven coordinates of jar files as groupId:artifactId:version> \
+         --repositories=<additional repositories to search for packages> \
+         --exclude-packages=<packages to exclude as groupId:artifactId>
       ```
 
       Pass in the paths to the files required for the job in the following format:
