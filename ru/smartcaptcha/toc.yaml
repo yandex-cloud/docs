@@ -4,6 +4,10 @@ stage: tech-preview
 items:
   - name: Начало работы
     href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Создать капчу
+        href: operations/create-captcha.md
   - name: Концепции
     items:
       - name: Валидация пользователя
