@@ -289,7 +289,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       To create a cluster with multiple data storage or processing subclusters, pass the necessary number of `--subcluster` arguments in the cluster create command:
 
       ```bash
-         {{ yc-dp }} cluster create \
+      {{ yc-dp }} cluster create \
          ...
          --subcluster <subcluster parameters> \
          --subcluster <subcluster parameters> \

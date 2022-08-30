@@ -19,7 +19,7 @@
 
    1. Specify job arguments.
 
-      {% include [jar-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
+      {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
 
    1. (optional) Specify paths to the additional JAR files, if any.
    1. (optional) Configure advanced settings:
@@ -38,20 +38,20 @@
    1. View a description of the CLI create command for `Mapreduce` jobs:
 
       ```bash
-      yc dataproc job create-mapreduce --help
+      {{ yc-dp }} job create-mapreduce --help
       ```
 
    1. Create a job (the example doesn't show all the available parameters):
 
       ```bash
-      yc dataproc job create-mapreduce \
-         --cluster-name <cluster name> \
-         --name <job name> \
-         --main-class <main class name> \
-         --file-uris <path to file> \
-         --archive-uris <paths to archives> \
-         --properties <key-value> \
-         --args <argument> \
+      {{ yc-dp }} job create-mapreduce \
+         --cluster-name=<cluster name> \
+         --name=<job name> \
+         --main-class=<main class name> \
+         --file-uris=<path to file> \
+         --archive-uris=<path to archives> \
+         --properties=<key-value> \
+         --args=<argument>
       ```
 
       Pass in the paths to the files required for the job in the following format:
@@ -84,6 +84,10 @@
 
 {% include [jobs-get-info](../../_includes/data-proc/jobs-get-info.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ## Get job execution logs {#get-logs}
 
 {% include [jobs-get-logs](../../_includes/data-proc/jobs-get-logs.md) %}
+
+{% endif %}

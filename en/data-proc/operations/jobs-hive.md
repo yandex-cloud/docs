@@ -21,7 +21,7 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
    1. Specify **Script variables** as `key-value` pairs
    1. (optional) Specify the paths to JAR files, if any.
 
-      {% include [job-properties-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
+      {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
 
    1. Select one of the driver types and specify which to use to start the job:
       * List of queries to be executed.
@@ -39,22 +39,22 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
    1. View a description of the CLI create command for `Hive` jobs:
 
       ```bash
-      yc dataproc job create-hive --help
+      {{ yc-dp }} job create-hive --help
       ```
 
    1. Create a job (the example doesn't show all the available parameters):
 
       ```bash
-      yc dataproc job create-hive \
-         --cluster-name <cluster name> \
-         --name <job name> \
-         --query-file-uri <query file URI> \
-         --script-variables <comma-separated list of variables>
+      {{ yc-dp }} job create-hive \
+         --cluster-name=<cluster name> \
+         --name=<job name> \
+         --query-file-uri=<query file URI> \
+         --script-variables=<comma-separated list of variables>
       ```
 
       Pass in the paths to the files required for the job in the following format:
 
-      {% include [job-properties-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
+      {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
 
    You can find out the cluster ID and name in a [list of clusters in the folder](./cluster-list.md#list).
 
@@ -80,6 +80,10 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
 
 {% include [jobs-get-info](../../_includes/data-proc/jobs-get-info.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ## Get job execution logs {#get-logs}
 
 {% include [jobs-get-logs](../../_includes/data-proc/jobs-get-logs.md) %}
+
+{% endif %}
