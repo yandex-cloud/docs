@@ -211,7 +211,7 @@ description: "Вы можете создавать резервные копии
          --host zone-id=<зона доступности> \
          --resource-preset=<класс хоста> \
          --disk-size=<размер хранилища в гигабайтах> \
-         --disk-type=<тип хранилища>
+         --disk-type=<тип диска>
       ```
   
       {% else %}
@@ -228,7 +228,7 @@ description: "Вы можете создавать резервные копии
                `assign-public-ip=<доступ к хосту через публичный IP-адрес: true или false> \
          --resource-preset=<класс хоста> \
          --disk-size=<размер хранилища в гигабайтах> \
-         --disk-type=<тип хранилища>
+         --disk-type=<тип диска>
       ```
       
       {% endif %}
@@ -257,7 +257,7 @@ description: "Вы можете создавать резервные копии
 
       * `--resource-preset` — [класс хоста](../concepts/instance-types.md#available-flavors).
       * `--disk-size` — размер хранилища в гигабайтах.
-      * `--disk-type` — [тип хранилища](../concepts/storage.md):
+      * `--disk-type` — [тип диска](../concepts/storage.md):
 
           {% if audience != "internal" %}
 

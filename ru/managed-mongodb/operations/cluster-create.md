@@ -6,8 +6,8 @@
 
 {% note info %}
 
-* Количество хостов, которые можно создать вместе с {{ MG }}-кластером, зависит от выбранного {% if audience != "internal" %}[типа хранилища](../concepts/storage.md#storage-type-selection){% else %}[типа хранилища](../concepts/storage.md){% endif %} и [класса хостов](../concepts/instance-types.md#available-flavors).
-* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+* Количество хостов, которые можно создать вместе с {{ MG }}-кластером, зависит от выбранного {% if audience != "internal" %}[типа диска](../concepts/storage.md#storage-type-selection){% else %}[типа диска](../concepts/storage.md){% endif %} и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
 
@@ -52,9 +52,9 @@
 
   1. В блоке **Размер хранилища**:
 
-      * Выберите [тип хранилища](../concepts/storage.md).
+      * Выберите [тип диска](../concepts/storage.md).
 
-        От выбранного типа хранилища зависит, с каким шагом можно будет изменить его размер:
+        От выбранного типа диска зависит, с каким шагом можно будет изменить его размер:
 
           * на сетевых SSD — с шагом 1 ГБ;
           * на сетевых HDD — с шагом 1 ГБ;
@@ -92,7 +92,7 @@
      
      {% endif %}
 
-     Чтобы обеспечить отказоустойчивость, для типов хранилищ `local-ssd`{% if audience != "internal" %} и `network-ssd-nonreplicated`{% endif %} необходимо как минимум 3 хоста. Подробнее см. в разделе [Хранилище](../concepts/storage.md).
+     Чтобы обеспечить отказоустойчивость, для типов диска `local-ssd`{% if audience != "internal" %} и `network-ssd-nonreplicated`{% endif %} необходимо как минимум 3 хоста. Подробнее см. в разделе [Хранилище](../concepts/storage.md).
 
      По умолчанию хосты создаются в разных зонах доступности. См. подробнее об [управлении хостами](hosts.md).
   
@@ -240,7 +240,7 @@
 
        resources {
          resource_preset_id = "<класс хоста>"
-         disk_type_id       = "<тип хранилища>"
+         disk_type_id       = "<тип диска>"
          disk_size          = <размер хранилища, ГБ>
        }
 
@@ -307,7 +307,7 @@
 
        resources {
          resource_preset_id = "<класс хоста>"
-         disk_type_id       = "<тип хранилища>"
+         disk_type_id       = "<тип диска>"
          disk_size          = <размер хранилища, ГБ>
        }
 

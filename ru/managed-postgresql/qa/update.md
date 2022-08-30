@@ -22,4 +22,4 @@
 
 #### Можно ли изменить тип диска в существующем кластере c {% if audience != "internal" %}network-hdd на network-ssd или local-ssd{% else %}local-hdd на local-ssd{% endif %}? {#disk-type}
 
-Можно. Для этого [восстановите кластер из резервной копии](../operations/cluster-backups.md#restore) и при задании настроек нового кластера укажите нужный тип хранилища.
+Можно. Для этого [восстановите кластер из резервной копии](../operations/cluster-backups.md#restore) и при задании настроек нового кластера укажите нужный тип диска.

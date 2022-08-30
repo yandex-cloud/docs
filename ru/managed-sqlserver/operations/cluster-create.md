@@ -4,8 +4,8 @@
 
 {% note info %}
 
-* Количество хостов, которые можно создать вместе с кластером {{ MS }}, зависит от выбранного {% if audience != "internal" %}[типа хранилища](../concepts/storage.md#storage-type-selection){% else %}[типа хранилища](../concepts/storage.md){% endif %} и [класса хостов](../concepts/instance-types.md#available-flavors).
-* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+* Количество хостов, которые можно создать вместе с кластером {{ MS }}, зависит от выбранного {% if audience != "internal" %}[типа диска](../concepts/storage.md#storage-type-selection){% else %}[типа диска](../concepts/storage.md){% endif %} и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
 
@@ -36,7 +36,7 @@
 
       {% if audience != "internal" %}
 
-      * Выберите [тип хранилища](../concepts/storage.md).
+      * Выберите [тип диска](../concepts/storage.md).
 
         {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
@@ -126,7 +126,7 @@
            --database name=<имя базы данных> \
            --resource-preset=<класс хоста> \
            --disk-size=<объем хранилища, ГБ> \
-           --disk-type=<тип хранилища> \
+           --disk-type=<тип диска> \
            --security-group-ids=<список идентификаторов групп безопасности> \
            --deletion-protection=<защита от удаления кластера: true или false>
         ```
@@ -154,7 +154,7 @@
         * `--database name` — имя базы данных. Может содержать латинские буквы, цифры, дефис и нижнее подчеркивание. Максимальная длина имени 63 символа.
         * `--resource-preset` — [класс хоста](../concepts/instance-types.md#available-flavors).
         * `--disk-size` — объем хранилища в гигабайтах.
-        * `--disk-type` — [тип хранилища](../concepts/storage.md):
+        * `--disk-type` — [тип диска](../concepts/storage.md):
             * `network-hdd`;
             * `network-ssd`;
             * `local-ssd`;
@@ -265,7 +265,7 @@
 
           resources {
             resource_preset_id = "<класс хоста>"
-            disk_type_id       = "<тип хранилища>"
+            disk_type_id       = "<тип диска>"
             disk_size          = <размер хранилища в гигабайтах>
           }
 
