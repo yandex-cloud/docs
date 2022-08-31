@@ -1,6 +1,6 @@
 # Создание образа продукта на базе Linux для загрузки в {{ marketplace-name }}
 
-Чтобы добавить в Marketplace продукт для {{ compute-full-name }}, нужно загрузить образ в {{ yandex-cloud }}. Продукты могут быть созданы на базе ОС Linux и Windows. Этот раздел поможет создать образ на базе ОС Linux. Чтобы создать образ с ОС Windows, см. [{#T}](create-image-ms.md). 
+Чтобы добавить в Marketplace продукт для {{ compute-full-name }}, нужно загрузить образ в {{ yandex-cloud }}. Продукты могут быть созданы на базе ОС Linux{% if product == "cloud-il" %} и Windows{% endif %}. Этот раздел поможет создать образ на базе ОС Linux.{% if product == "cloud-il" %} Чтобы создать образ с ОС Windows, см. [{#T}](create-image-ms.md).{% endif %}
 
 Если вы хотите добавить продукт для {{ managed-k8s-full-name }}, воспользуйтесь [соответствующей инструкцией](create-container.md).
 

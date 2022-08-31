@@ -39,9 +39,13 @@ To reset a password:
 
 {% include [vm-reset-password-windows-console](../../_includes/compute/vm-reset-password-windows-console.md) %}
 
+{% if product == "cloud-il" %}
+
 ## Connect to the VM {#connect-rdp}
 
 {% include [vm-connect-rdp](../../_includes/vm-connect-rdp.md) %}
+
+{% endif %}
 
 ## Configure the serial console {#serial-console}
 

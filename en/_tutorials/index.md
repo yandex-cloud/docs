@@ -2,9 +2,9 @@
 
 * [{#T}](active-directory.md)
 {% if product == "yandex-cloud" %}
-* [{#T}](exchange.md)
+{% if product == "cloud-il" %}* [{#T}](exchange.md){% endif %}
 * [{#T}](rds.md)
 * [{#T}](mssql-alwayson.md)
-* [{#T}](mssql-alwayson-lb.md)
+{% if product == "cloud-il" %}* [{#T}](mssql-alwayson-lb.md){% endif %}
 {% endif %}
 

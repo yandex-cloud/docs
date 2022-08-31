@@ -134,10 +134,14 @@
 
   1. Выполните команду `df`, чтобы проверить состояние файловой системы.
 
+{% if product == "cloud-il" %}
+
 - Windows
 
   1. Подключитесь к ВМ [по RDP](../vm-connect/rdp.md).
   1. Назначьте букву подключенному диску. Как это сделать читайте в [документации Microsoft]({{ ms.docs }}/windows-server/storage/disk-management/change-a-drive-letter).
+
+{% endif %}
 
 {% endlist %}
 
@@ -255,6 +259,8 @@
      /dev/vdb1         523260    3080    520180   1% /mnt/vdb1
      ```
 
+{% if product == "cloud-il" %}
+
 - Windows
 
   1. Запустите приложение **Управление компьютером** с правами администратора.
@@ -271,5 +277,7 @@
   1. Выберите [стиль разделов]({{ ms.docs }}/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr) и нажмите **ОК**.
   1. Создайте разделы на диске. Для этого нажмите правой кнопкой мыши на пустой диск и выберите пункт **Создать простой том**.
   1. С помощью **Мастера создания простых томов** задайте размер раздела, [назначьте букву]({{ ms.docs }}/windows-server/storage/disk-management/change-a-drive-letter) диска и укажите файловую систему.
-  
+
+{% endif %}
+
 {% endlist %}

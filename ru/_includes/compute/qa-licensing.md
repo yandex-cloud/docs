@@ -4,6 +4,8 @@
 
 ### Общие вопросы {#common}
 
+{% if product == "cloud-il" %}
+
 #### Какие отношения существуют между Microsoft и {{ yandex-cloud }}? {#status}
 
 {{ yandex-cloud }} имеет лицензию на распространение ПО Microsoft в рамках соглашения Services Provider License Agreement (SPLA) в целях предоставления программных услуг. Также {{ yandex-cloud }} является авторизованным партнером Microsoft по программе [Перемещение лицензий]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility){% endif %}.
@@ -11,6 +13,8 @@
 #### Предоставляет ли {{ yandex-cloud }} расширенную поддержку продуктов Microsoft? {#expanded-support}
 
 Нет, на данный момент команда {{ yandex-cloud }} не предоставляет консультаций по продуктам Microsoft.
+
+{% endif %}
 
 #### Что такое перемещение лицензий? {#license-mobility}
 
@@ -22,7 +26,7 @@
 
 На платформе {{ yandex-cloud }} можно запускать:
 
-* операционную систему Windows Server (подробнее о ее лицензировании см. [ниже](#windows-server));
+{% if product == "cloud-il" %}* операционную систему Windows Server (подробнее о ее лицензировании см. [ниже](#windows-server));{% endif %}
 * серверное программное обеспечение, доступное в рамках программы [Перемещение лицензий]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility){% endif %}.
 
 {% endif %}
@@ -54,6 +58,7 @@
 
 Если же речь о других программных продуктах, которые вы хотите использовать внутри ВМ, изучите приобретенную вами лицензию или обратитесь в техническую поддержку самого продукта — вам подскажут, возможно ли продукт с этой лицензией использовать в {{ yandex-cloud }}.
 
+{% if product == "cloud-il" %}
 ### Лицензирование Windows Server {#windows-server}
 
 #### Можно ли приобрести Windows Server у {{ yandex-cloud }}? {#buy-windows-server}
@@ -65,7 +70,6 @@
 {% include [windows-trial](../../_includes/compute/windows-trial.md) %}
 
 {% endif %}
-
 
 #### Как активировать Windows Server? {#activate-windows-server}
 
@@ -85,7 +89,6 @@
 
    Если активация так и не произошла, пришлите нам вывод этих команд.
 
-
 #### Можно ли использовать собственные лицензии Windows Server в {{ compute-name }}? {#custom-windows-server}
 
 Нет, на данный момент использовать собственные лицензии Windows Server нельзя.
@@ -94,8 +97,14 @@
 
 Нет, согласно условиям использования продуктов Microsoft, перемещение лицензий не распространяется на операционные системы Windows Server.
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
 ### Лицензирование других продуктов Microsoft {#other-products}
 
 #### Можно ли приобрести другие продукты Microsoft с включенными лицензиями для использования в {{ compute-name }}? {#buy-other-products}
 
 {% if product == "yandex-cloud" %}Да.{% endif %}{% if product == "cloud-il" %}Нет.{% endif %} В настоящий момент {{ yandex-cloud }} предоставляет лицензии Windows Server, {% if product == "yandex-cloud" %}Microsoft SQL Server, RDS, {% endif %}а также перенос лицензий на серверное программное обеспечение в рамках программы [Перемещение лицензий]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility){% endif %}. Возможность лицензирования MSDN, ОС Windows, Microsoft Office и других продуктов не предоставляется.
+
+{% endif %}

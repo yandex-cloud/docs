@@ -28,6 +28,7 @@ items:
           href: operations/create-image.md
         - name: Создание образа продукта на базе Windows Server
           href: operations/create-image-ms.md
+          when: product == "cloud-il"
         - name: Создание продукта для {{ managed-k8s-name }}
           href: operations/create-container.md
       - name: Тарификация продуктов на основе метрик издателя

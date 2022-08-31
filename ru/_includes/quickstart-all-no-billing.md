@@ -1,6 +1,8 @@
 * Инфраструктура и сеть:
   * [Создайте виртуальную машину Linux](../compute/quickstart/quick-create-linux.md).
+  {% if product == "cloud-il" %}
   * [Создайте виртуальную машину Windows](../compute/quickstart/quick-create-windows.md).
+  {% endif %}
   * [Создайте группу виртуальных машин](../compute/quickstart/ig.md).
   * [Разместите файлы в {{ objstorage-name }}](../storage/quickstart.md).
   * [Создайте облачную сеть в {{ vpc-name }}](../vpc/quickstart.md).

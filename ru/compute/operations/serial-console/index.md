@@ -68,6 +68,8 @@
 
       В ОС ВМ будет автоматически создан пользователь `yc-user` с указанным открытым ключом.
 
+{% if product == "cloud-il" %}
+
 - Windows
 
   1. Посмотрите описание команды CLI для создания ВМ:
@@ -99,6 +101,8 @@
       * С активной серийной консолью.
 
       В ОС ВМ будет автоматически создан пользователь `Administrator` с паролем, указанном в файле `metadata.yaml`.
+
+{% endif %}
 
 {% endlist %}
 
@@ -133,7 +137,7 @@
 
 Чтобы серийная консоль была доступна со стороны ОС, ОС должна быть настроена соответствующим образом:
 * [Linux](#linux-configuration)
-* [Windows](#windows-configuration)
+{% if product == "cloud-il" %}* [Windows](#windows-configuration){% endif %}
 
 ### Linux {#linux-configuration}
 
@@ -202,6 +206,8 @@
 
 1. Завершите SSH-сессию с помощью команды `exit`.
 
+{% if product == "cloud-il" %}
+
 ### Windows {#windows-configuration}
 
 Аналог серийной консоли в Windows — специальная административная консоль (Special Administration Console, SAC).
@@ -229,3 +235,5 @@
 1. Перезагрузите ВМ.
 
 Подробнее о работе [командной оболочки в Windows SAC](windows-sac.md).
+
+{% endif %}

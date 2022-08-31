@@ -2,7 +2,7 @@
 
 To add a software product for {{ managed-k8s-name }} in {{ marketplace-short-name }}, upload its packages to the {{ yandex-cloud }} [registry](../../container-registry/concepts/registry.md). This section will help you prepare your {{ marketplace-short-name }} product for {{ managed-k8s-full-name }}.
 
-You can also create products for {{ compute-full-name }} to run on [Linux](create-image.md) and [Windows](create-image-ms.md) operating systems by following the relevant guidelines.
+You can also create products for {{ compute-full-name }} to run on [Linux](create-image.md){% if product == "cloud-il" %} and [Windows](create-image-ms.md){% endif %} operating systems by following the relevant guidelines.
 
 ## Hosting and naming images {#registry}
 

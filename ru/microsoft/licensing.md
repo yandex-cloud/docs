@@ -2,6 +2,8 @@
 
 {% include [ms-licensing-personal-data-note](../_includes/ms-licensing-personal-data-note.md) %}
 
+{% if product == "cloud-il" %}
+
 ## Использование ПО Microsoft в {{ yandex-cloud }} {#images}
 
 {{ yandex-cloud }} предоставляет готовые образы с предустановленными Microsoft Windows Server в редакции Datacenter{% if product == "yandex-cloud" %} и Microsoft SQL Server{% endif %}. Лицензии на ПО в этих образах полностью соответствуют требованиям Microsoft. {% if product == "yandex-cloud" %}При использовании готовых образов {{ yandex-cloud }} вы оплачиваете необходимые лицензии и ресурсы {{ compute-name }}. Оплата будет начисляться в зависимости от [тарифного плана](pricing.md).{% endif %} 
@@ -23,7 +25,6 @@
 
 Используя ПО Microsoft в {{ yandex-cloud }}, вы соглашаетесь с [Условиями использования]{% if product == "yandex-cloud" %}{% if lang == "ru" %}(https://yandex.ru/legal/cloud_terms_marketplace/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_terms_marketplace/?lang=en){% endif %}{% endif %}{% if product == "cloud-il" %}(../legal/marketplace-terms.md){% endif %} {{ marketplace-full-name }} и с условиями использования [Microsoft License Terms](https://www.microsoft.com/licensing/contracts).
 
-
 {% if product == "yandex-cloud" %}
 
 ### Особенности использования лицензий {{ MS }} в {{ compute-full-name }} {#sql-server-compute-licensing}
@@ -39,12 +40,15 @@
 
 {% endif %}
 
+{% endif %}
 
 ## Использование собственных лицензий в {{ yandex-cloud }} {#byol}
 
 Если у вас уже есть корпоративные лицензии Microsoft в рамках соглашений Microsoft Software Assurance ([SA]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3){% endif %}) или Microsoft Enterprise Agreement ([EA]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2){% endif %}), вы можете воспользоваться ими в {{ yandex-cloud }}. {% if product == "yandex-cloud" %}При этом оплата будет начисляться по тарифу [BYOL](pricing.md).{% endif %}
 
 Воспользоваться лицензией можно в общей инфраструктуре по правилам программы [Перемещение лицензий](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility) и в пределах выделенного оборудования в соответствии с правилами Microsoft Product Terms.
+
+{% if product == "cloud-il" %}
 
 ### Использование существующих лицензий с программой перемещения лицензий {#mobility}
 
@@ -79,6 +83,8 @@
 Количество лицензий для работы Microsoft SQL Server в виртуальной среде зависит от версии SQL Server и используемых ресурсов. Однако по условиям Microsoft необходимо минимум 4 лицензии, чтобы обеспечить лицензирование 4 ядер процессора. Минимальное необходимое количество лицензий не зависит от модели лицензирования.
 
 При запуске ПО Microsoft по программе перемещения лицензий ответственность за соблюдение правил лицензирования несете вы. Более подробную информацию о [требованиях программы перемещения лицензий](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=2) для Microsoft SQL Server вы найдете на официальном сайте Microsoft.
+
+{% endif %}
 
 ### Правила перехода по программе перемещения лицензий {#rules}
 

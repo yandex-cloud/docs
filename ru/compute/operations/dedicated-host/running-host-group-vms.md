@@ -89,6 +89,8 @@
 
 {% endlist %}
 
+{% if product == "cloud-il" %}
+
 ## Пример создания виртуальной машины в группе выделенных хостов с локальным NVMe-диском {#host-vm-nvme}
 
 Перед созданием ВМ, [создайте](create-host-group.md) группу выделенных хостов и узнайте ее идентификатор с помощью [команды CLI](../../../cli/cli-ref/managed-services/compute/host-group/list.md) `yc compute host-group list`.
@@ -171,3 +173,5 @@
       ```
 
 {% endlist %}
+
+{% endif %}

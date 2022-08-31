@@ -5,7 +5,7 @@ Select instructions for exploring:
 * {{ compute-name }}
 
    * [Create a Linux VM](quick-create-linux.md)
-   * [Create a Windows VM](quick-create-windows.md)
+   {% if product == "cloud-il" %}* [Create a Windows VM](quick-create-windows.md){% endif %}
 
 * {{ ig-name }}
 

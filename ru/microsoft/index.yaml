@@ -20,10 +20,6 @@ meta:
       when: product == "cloud-il"
 links:
   - title: Обзор возможностей
-    description: Узнайте о возможностях продуктов Microsoft в Yandex Cloud
-    href: overview
-    when: product == "yandex-cloud"
-  - title: Обзор возможностей
     description: Узнайте о возможностях продуктов Microsoft в CloudIL
     href: overview
     when: product == "cloud-il"
@@ -36,22 +32,10 @@ links:
     href: tutorials/
     when: product == "cloud-il"
   - title: Образы виртуальных машин Windows
-    description: Варианты и особенности образов в Yandex Cloud
-    href: list-of-instances
-    when: product == "yandex-cloud"
-  - title: Образы виртуальных машин Windows
     description: Варианты и особенности образов в CloudIL
     href: list-of-instances
     when: product == "cloud-il"
   - title: Лицензии Microsoft
-    description: Использование лицензий на ПО Microsoft в облаке Yandex Cloud
-    href: licensing
-    when: product == "yandex-cloud"
-  - title: Лицензии Microsoft
     description: Использование лицензий на ПО Microsoft в облаке CloudIL
     href: licensing
     when: product == "cloud-il"
-  - title: Правила тарификации
-    description: Тарифные планы услуг и правила расчета стоимости
-    href: pricing
-    when: product == "yandex-cloud"

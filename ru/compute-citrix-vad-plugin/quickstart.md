@@ -2,6 +2,8 @@
 
 Если вы пользуетесь платформой [Citrix Virtual Apps and Desktops](https://www.citrix.com/products/citrix-virtual-apps-and-desktops/), вы можете разворачивать рабочие места под ее управлением на виртуальных машинах {{ compute-full-name }}. Для этого нужно установить плагин, разработанный командой {{ yandex-cloud }}.
 
+{% if product == "cloud-il" %}
+
 ## Подготовьте ресурсы {{ yandex-cloud }} {#setup-resources}
 
 {% note warning %}
@@ -74,3 +76,5 @@
    * `-ActiveDirectoryAccountNamingScheme` (значение по умолчанию — `CITRIX-VM-####`: аккаунты в Active Directory, соответствующие рабочим местам, получат имена `CITRIX-VM-0001`, `CITRIX-VM-0002` и т. д.; подробнее см. в [описании параметра NamingScheme](https://developer-docs.citrix.com/projects/citrix-virtual-apps-desktops-sdk/en/latest/ADIdentity/New-AcctIdentityPool/#parameters) в документации Citrix).
 
 1. Добавьте рабочие места в созданный каталог с помощью Citrix Studio по [инструкции](https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/install-configure/machine-catalogs-manage.html#add-machines-to-a-catalog) в документации Citrix.
+
+{% endif %}

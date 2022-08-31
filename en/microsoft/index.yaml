@@ -20,10 +20,6 @@ meta:
       when: product == "cloud-il"
 links:
   - title: Overview of features
-    description: Learn about using Microsoft product features in Yandex Cloud
-    href: overview
-    when: product == "yandex-cloud"
-  - title: Overview of features
     description: Learn about using Microsoft product features in CloudIL
     href: overview
     when: product == "cloud-il"
@@ -36,22 +32,10 @@ links:
     href: tutorials/
     when: product == "cloud-il"
   - title: Windows VM images
-    description: Yandex Cloud image options and specifics
-    href: list-of-instances
-    when: product == "yandex-cloud"
-  - title: Windows VM images
     description: CloudIL image options and specifics
     href: list-of-instances
     when: product == "cloud-il"
   - title: Microsoft licenses
-    description: Using Microsoft software licenses in Yandex Cloud
-    href: licensing
-    when: product == "yandex-cloud"
-  - title: Microsoft licenses
     description: Using Microsoft software licenses in CloudIL
     href: licensing
     when: product == "cloud-il"
-  - title: Pricing policy
-    description: Service plans and cost calculation rules
-    href: pricing
-    when: product == "yandex-cloud"

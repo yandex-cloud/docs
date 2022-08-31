@@ -7,7 +7,7 @@ description: 'Various Windows use cases. Deploying Active Directory, deploying M
 
 * [Deploying Active Directory](active-directory.md)
 {% if product == "yandex-cloud" %}
-* [Deploying Microsoft Exchange](exchange.md)
+{% if product == "cloud-il" %}* [Deploying Microsoft Exchange](exchange.md){% endif %}
 * [Deploying Remote Desktop Services](rds.md)
 {% endif %}
 * [Deploying Remote Desktop Gateway](rds-gw.md)

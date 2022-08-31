@@ -2,6 +2,8 @@
 
 {% include [ms-licensing-personal-data-note](../_includes/ms-licensing-personal-data-note.md) %}
 
+{% if product == "cloud-il" %}
+
 ## Using Microsoft software in {{ yandex-cloud }} {#images}
 
 {{ yandex-cloud }} provides ready-to-use images with pre-installed Microsoft Windows Server Datacenter Edition{% if product == "yandex-cloud" %} and Microsoft SQL Server{% endif %}. The software licenses in these images are fully compliant with Microsoft requirements. {% if product == "yandex-cloud" %}When using ready-made {{ yandex-cloud }} images, you pay for the required licenses and {{ compute-name }} resources. You'll be charged depending on your [service plan](pricing.md).{% endif %}
@@ -39,12 +41,15 @@ You are charged in advance for using {{ MS }} licenses in {{ compute-full-name }
 
 {% endif %}
 
+{% endif %}
 
 ## Using your own licenses in {{ yandex-cloud }} {#byol}
 
 If you already have corporate Microsoft licenses under Microsoft Software Assurance ([SA]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3){% endif %}) or Microsoft Enterprise Agreement ([EA]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2){% endif %}), you can use them in {{ yandex-cloud }}.{% if product == "yandex-cloud" %}In this case, you'll be charged under the [BYOL](pricing.md) plan.{% endif %}
 
 You can use your license in a shared infrastructure according to the [License Mobility](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility) through Software Assurance program rules and on dedicated hardware under the Microsoft Product Terms.
+
+{% if product == "yandex-cloud" %}
 
 ### Using existing licenses under the License Mobility through Software Assurance program {#mobility}
 
@@ -79,6 +84,8 @@ A number of restrictions apply to the License Mobility through Software Assuranc
 The number of licenses required to run Microsoft SQL Server in a virtual environment depends on the SQL Server version and the resources you use. However, Microsoft requires a minimum of 4 licenses to enable licensing of 4 vCPUs. The minimum number of licenses required does not depend on the licensing model.
 
 When running Microsoft software under the License Mobility program, you're responsible for compliance with the licensing rules. For more information on [License Mobility program requirements](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=2) for Microsoft SQL Server, visit the official Microsoft website.
+
+{% endif %}
 
 ### License transfer rules under License Mobility through Software Assurance {#rules}
 

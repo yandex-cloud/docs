@@ -14,6 +14,34 @@ description:
         href="/docs/compute/concepts/instance-groups/">группы
         виртуальных машин</a>.
       - >-
+        Вы можете подключать к виртуальным машинам диски с образами на базе OC Linux,
+        доступные в <a
+        href="/marketplace">Marketplace</a>. Каждый диск
+        автоматически реплицируется внутри своей зоны доступности, что обеспечивает
+        надежное хранение данных. Также, для удобного переноса данных с одного диска
+        на другой, Compute Cloud поддерживает <a
+        href="/docs/compute/concepts/snapshot">снимки
+        дисков</a>.
+      - >-
+        Инфраструктура Yandex Cloud <a
+        href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
+        в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
+      - >-
+        Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+        об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+        документе <a href="https://yandex.ru/legal/cloud_sla_compute">Уровень
+        обслуживания Yandex Compute Cloud</a>.
+    when: product == "yandex-cloud"
+  - text:
+      - >-
+        Сервис Yandex Compute Cloud предоставляет масштабируемые вычислительные
+        мощности для создания виртуальных машин и управления ими. Сервис
+        поддерживает <a
+        href="/docs/compute/concepts/preemptible-vm">прерываемые</a>
+        виртуальные машины, а также отказоустойчивые <a
+        href="/docs/compute/concepts/instance-groups/">группы
+        виртуальных машин</a>.
+      - >-
         Вы можете подключать к виртуальным машинам диски с образами на базе OC Linux
         и Windows, доступные в <a
         href="/marketplace">Marketplace</a>. Каждый диск
@@ -31,6 +59,25 @@ description:
         об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
         документе <a href="https://yandex.ru/legal/cloud_sla_compute">Уровень
         обслуживания Yandex Compute Cloud</a>.
+    when: product == "cloud-il"
+  - text:
+      - >-
+        Сервис Compute Cloud предоставляет масштабируемые вычислительные
+        мощности для создания виртуальных машин и управления ими. Сервис
+        поддерживает <a
+        href="/docs/compute/concepts/preemptible-vm">прерываемые</a>
+        виртуальные машины, а также отказоустойчивые <a
+        href="/docs/compute/concepts/instance-groups/">группы
+        виртуальных машин</a>.
+      - >-
+        Вы можете подключать к виртуальным машинам диски с образами на базе OC Linux,
+        доступные в <a
+        href="/marketplace">Marketplace</a>. Каждый диск
+        автоматически реплицируется внутри своей зоны доступности, что обеспечивает
+        надежное хранение данных. Также, для удобного переноса данных с одного диска
+        на другой, Compute Cloud поддерживает <a
+        href="https://cloud.yandex.ru/docs/compute/concepts/snapshot">снимки
+        дисков</a>.
     when: product == "yandex-cloud"
   - text:
       - >-

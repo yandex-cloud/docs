@@ -13,6 +13,7 @@ items:
         href: quickstart/quick-create-linux.md
       - name: Создание виртуальной машины Windows
         href: quickstart/quick-create-windows.md
+        when: product == "cloud-il"
       - name: Создание группы виртуальных машин
         href: quickstart/ig.md
   - name: Пошаговые инструкции
@@ -24,6 +25,7 @@ items:
           - name: Создать ВМ Linux
             href: operations/vm-create/create-linux-vm.md
           - name: Создать ВМ Windows
+            when: product == "cloud-il"
             href: operations/vm-create/create-windows-vm.md
           - name: Создать ВМ из набора дисков
             href: operations/vm-create/create-from-disks.md
@@ -75,6 +77,7 @@ items:
             href: operations/vm-control/vm-stop-and-start.md
           - name: Сбросить пароль пользователя ВМ
             href: operations/vm-control/vm-reset-password.md
+            when: product == "cloud-il"
           - name: Подключить диск к ВМ
             href: operations/vm-control/vm-attach-disk.md
           - name: Отключить диск от ВМ
@@ -110,6 +113,7 @@ items:
           - name: Восстановить доступ к ВМ
             href: operations/vm-connect/recovery-access.md
       - name: Управление агентом для сброса паролей
+        when: product == "cloud-il"
         items:
           - name: Проверить работу агента
             href: operations/vm-guest-agent/check.md
@@ -263,7 +267,7 @@ items:
         when: product == "yandex-cloud"
       - name: Развертывание Remote Desktop Gateway
         href: tutorials/rds-gw.md
-        when: product == "yandex-cloud"
+        when: product == "cloud-il"
       - name: Передача логов с ВМ в Yandex Cloud Logging
         href: tutorials/vm-fluent-bit-logging.md
         when: product == "yandex-cloud"
@@ -300,6 +304,7 @@ items:
             href: concepts/vm-metadata.md
           - name: Сброс паролей на ВМ Windows
             href: concepts/guest-agent.md
+            when: product == "cloud-il"
       - name: Графические ускорители
         href: concepts/gpus.md
       - name: Диски и файловые хранилища

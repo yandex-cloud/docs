@@ -7,31 +7,35 @@ href: index.yaml
 items:
   - name: Overview of features
     href: overview.md
+    when: product == "cloud-il"
   - name: VM images
     href: list-of-instances.md
+    when: product == "cloud-il"
   - name: Practical guidelines
     items:
       - name: All tutorials
         href: tutorials/index.md
       - name: Deploying Active Directory
         href: tutorials/active-directory.md
+        when: product == "cloud-il"
       - name: Deploying Microsoft Exchange
         href: tutorials/exchange.md
-        when: product == "yandex-cloud"
+        when: product == "cloud-il"
       - name: Deploying Remote Desktop Services
         href: tutorials/rds.md
-        when: product == "yandex-cloud"
+        when: product == "cloud-il"
       - name: Deploying an Always On availability group
         href: tutorials/mssql-alwayson.md
-        when: product == "yandex-cloud"
+        when: product == "cloud-il"
       - name: Deploying an Always On availability group with an internal network load balancer
         href: tutorials/mssql-alwayson-lb.md
-        when: product == "yandex-cloud"
+        when: product == "cloud-il"
       - name: Deploying Remote Desktop Gateway
         href: tutorials/rds-gw.md
+        when: product == "cloud-il"
       - name: Upgrading Windows Server to Datacenter edition
         href: tutorials/edition-update-datacenter.md
-        when: product == "yandex-cloud"
+        when: product == "cloud-il"
   - name: Licensing
     items:
       - name: Microsoft licenses in {{ yandex-cloud }}
@@ -40,5 +44,6 @@ items:
         href: check-user-data.md
       - name: Questions and answers about Windows licensing
         href: qa.md
+        when: product == "cloud-il"
   - name: Pricing policy
     href: pricing.md

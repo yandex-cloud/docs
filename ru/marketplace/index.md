@@ -33,7 +33,9 @@
 
 В {{ marketplace-short-name }} можно размещать образы ВМ из публичных образов {{ yandex-cloud }} и приложения для {{ managed-k8s-name }}.  Требования к образам и приложениям и рекомендации по их созданию описаны в разделах:
 * [{#T}](operations/create-image.md)
+{% if product == "cloud-il" %}
 * [{#T}](operations/create-image-ms.md)
+{% endif %}
 * [{#T}](operations/create-container.md)
 
 ## Создайте первую версию продукта {#create-version}

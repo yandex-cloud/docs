@@ -69,9 +69,9 @@ items:
     items:
       - name: Architecture and protection of a basic internet service
         href: tutorials/web-service.md
-      - name: DHCP settings for working with a corporate DNS server
-        href: tutorials/dhcp-options.md
-        when: product == "yandex-cloud"
+#      - name: DHCP settings for working with a corporate DNS server
+#        href: tutorials/dhcp-options.md
+#        when: product == "yandex-cloud"
   - name: Concepts
     items:
       - name: Relationships between service resources

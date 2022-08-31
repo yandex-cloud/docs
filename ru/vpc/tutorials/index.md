@@ -1,7 +1,7 @@
 # Все руководства
 
 * [Архитектура и защита базового интернет-сервиса](web-service.md)
-* [Настройки DHCP для работы с корпоративным DNS-сервером](dhcp-options.md)
+{% if product == "cloud-il" %}* [Настройки DHCP для работы с корпоративным DNS-сервером](dhcp-options.md){% endif %}
 * [Маршрутизация с помощью NAT-инстанса](nat-instance.md)
 * [Создание туннеля IPSec VPN](ipsec-vpn.md)
 * [Установка виртуального роутера Cisco CSR 1000v](cisco.md)

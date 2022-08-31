@@ -34,7 +34,7 @@ If you did everything correctly, the list clusters query should now work:
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
-   * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)).
+   * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md){% if product == "cloud-il" %} or[Windows](../compute/quickstart/quick-create-windows.md)){% endif %}.
    * To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
 
    {% note info %}

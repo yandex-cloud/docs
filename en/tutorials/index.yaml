@@ -35,10 +35,10 @@ links:
   - title: Network routing
     description: Configure static routes and VPN to access cloud resources
     href: routing/
-  - title: Windows in Yandex Cloud
-    description: Use Windows services in Yandex Cloud
-    href: windows/
-    when: product == "yandex-cloud"
+#  - title: Windows in Yandex Cloud
+#    description: Use Windows services in Yandex Cloud
+#    href: windows/
+#    when: product == "yandex-cloud"
   - title: Use Windows services in CloudIL
     description: Use Windows services in CloudIL
     href: windows/

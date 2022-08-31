@@ -8,7 +8,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 ## Creating VMs {#vm-create}
 
 * [{#T}](vm-create/create-linux-vm.md)
-* [{#T}](vm-create/create-windows-vm.md)
+{% if product == "cloud-il" %}* [{#T}](vm-create/create-windows-vm.md){% endif %}
 * [{#T}](vm-create/create-from-disks.md)
 * [{#T}](vm-create/create-from-snapshots.md)
 * [{#T}](vm-create/create-from-user-image.md)
@@ -43,7 +43,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 ## Managing VMs {#vm-control}
 
 * [{#T}](vm-control/vm-stop-and-start.md)
-{% if product == "yandex-cloud" %}
+{% if product == "cloud-il" %}
 * [{#T}](vm-control/vm-reset-password.md)
 {% endif %}
 * [{#T}](vm-control/vm-attach-disk.md)
@@ -60,14 +60,18 @@ description: "Step-by-step instructions for working and managing virtual machine
 ## Working on VMs {#vm-use}
 
 * [{#T}](vm-connect/ssh.md)
+{% if product == "cloud-il" %}
 * [{#T}](vm-connect/rdp.md)
 * [{#T}](vm-connect/powershell.md)
+{% endif %}
 * [{#T}](vm-connect/auth-inside-vm.md)
 * [{#T}](vm-operate/install-nvidia-drivers.md)
 * [{#T}](vm-connect/recovery-access.md)
 
 
 {% if product == "yandex-cloud" %}
+
+{% if product == "cloud-il" %}
 
 ## Managing the password reset agent {#guest-agent}
 
@@ -77,13 +81,13 @@ description: "Step-by-step instructions for working and managing virtual machine
 
 {% endif %}
 
+{% endif %}
+
 ## Creating a disk {#disk-create}
 
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
-   {% if product == "yandex-cloud" %}
-* [{#T}](disk-create/nonreplicated.md)
-   {% endif %}
+{% if product == "yandex-cloud" %}* [{#T}](disk-create/nonreplicated.md){% endif %}
 
 ## Disk management {#disk-control}
 

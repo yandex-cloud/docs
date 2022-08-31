@@ -28,6 +28,7 @@ items:
           href: operations/create-image.md
         - name: Creating a Windows Server-based product image
           href: operations/create-image-ms.md
+          when: product == "cloud-il"
         - name: Creating a product for {{ managed-k8s-name }}
           href: operations/create-container.md
       - name: Billing of products based on publisher metrics

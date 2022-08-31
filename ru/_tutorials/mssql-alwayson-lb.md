@@ -535,7 +535,7 @@
 
 ### Установите и настройте Active Directory {#install-ad}
 
-1. Подключитесь к ВМ `ya-jump1` [с помощью RDP](../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль. 
+1. Подключитесь к ВМ `ya-jump1` с [помощью RDP](../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль. 
 1. С ВМ `ya-jump1` подключитесь к ВМ `ya-ad` с помощью RDP и той же учетной записи.
 1. На ВМ `ya-ad` запустите PowerShell и установите необходимые роли сервера:
 
@@ -612,7 +612,7 @@
 
 ### Создайте пользователей и группы в Active Directory {#create-ad-users-groups}
 
-1. Подключитесь к ВМ `ya-jump1` [с помощью RDP](../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
+1. Подключитесь к ВМ `ya-jump1` с [помощью RDP](../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
 
 1. С ВМ `ya-jump1` подключитесь к ВМ `ya-ad` с помощью RDP и той же учетной записи.
 
@@ -970,7 +970,7 @@
 
     {% endlist %}
 
-1. Подключитесь к ВМ `ya-jump1` [с помощью RDP](../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
+1. Подключитесь к ВМ `ya-jump1` с [помощью RDP](../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
 
 1. С ВМ `ya-jump1` подключитесь к ВМ `ya-mssql1` с помощью RDP и той же учетной записи. Настройте статический адрес со своей маской подсети:
 

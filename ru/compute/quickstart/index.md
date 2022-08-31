@@ -5,7 +5,9 @@
 * {{ compute-name }}
 
     * [Создание виртуальной машины Linux](quick-create-linux.md)
+    {% if product == "cloud-il" %}
     * [Создание виртуальной машины Windows](quick-create-windows.md)
+    {% endif %}
 
 * {{ ig-name }}
 

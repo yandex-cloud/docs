@@ -220,7 +220,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 У машин с Active Directory нет доступа в интернет, поэтому их следует настраивать через ВМ `fsw-vm` с помощью RDP.
 
-1. Подключитесь к ВМ `fsw-vm` [с помощью RDP](../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
+1. Подключитесь к ВМ `fsw-vm` c [помощью RDP](../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
 1. На ВМ `fsw-vm` запустите RDP и подключитесь к виртуальной машине `ad-vm-a`. Используйте логин `Administrator` и ваш пароль.
 1. На ВМ `ad-vm-a` запустите PowerShell и задайте статический адрес:
 
@@ -300,7 +300,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 ## Настройте второй контроллер домена {#install-ad-2}
 
-1. Подключитесь к ВМ `fsw-vm` [с помощью RDP](../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
+1. Подключитесь к ВМ `fsw-vm` c [помощью RDP](../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
 1. На ВМ `fsw-vm` запустите RDP и подключитесь к виртуальной машине `ad-vm-b`. Используйте логин `Administrator` и ваш пароль.
 1. Создайте временную папку:
 

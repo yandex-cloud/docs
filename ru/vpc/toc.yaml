@@ -75,6 +75,7 @@ items:
         href: tutorials/web-service.md
       - name: Настройки DHCP для работы с корпоративным DNS-сервером
         href: tutorials/dhcp-options.md
+        when: product == "cloud-il"
       - name: Маршрутизация с помощью NAT-инстанса
         href: tutorials/nat-instance.md
       - name: Создание туннеля IPSec VPN

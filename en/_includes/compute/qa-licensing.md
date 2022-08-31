@@ -4,6 +4,8 @@ The terms of use for Microsoft software are governed by the terms and conditions
 
 ### General questions {#common}
 
+{% if product == "cloud-il" %}
+
 #### What is the relationship between Microsoft and {{ yandex-cloud }}? {#status}
 
 {{ yandex-cloud }} is licensed to distribute Microsoft software products under the Services Provider License Agreement (SPLA) for providing software services. {{ yandex-cloud }} is also an authorized Microsoft partner under the [License Mobility through Software Assurance]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility){% endif %} program.
@@ -11,6 +13,8 @@ The terms of use for Microsoft software are governed by the terms and conditions
 #### Does {{ yandex-cloud }} provide extended support for Microsoft products? {#expanded-support}
 
 No, the {{ yandex-cloud }} team does not currently offer support for Microsoft products.
+
+{% endif %}
 
 #### What is License Mobility? {#license-mobility}
 
@@ -22,7 +26,7 @@ License Mobility is a benefit provided to customers with Microsoft corporate lic
 
 You can run the following on {{ yandex-cloud }}:
 
-* Windows Server (for more information about its licensing, see [below](#windows-server)).
+{% if product == "cloud-il" %}* Windows Server (for more information about its licensing, see [below](#windows-server)).{% endif %}
 * Server software available under the [License Mobility through Software Assurance]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility){% endif %} program.
 
 {% endif %}
@@ -54,6 +58,7 @@ Questions about Windows Server licensing are discussed in detail [below](#window
 
 In the case of other software that you want to use inside the VM, read the license you purchased or contact the technical support of the product itself and they'll tell you if it's possible to use the product with this license in {{ yandex-cloud }}.
 
+{% if product == "cloud-il" %}
 ### Windows Server licensing {#windows-server}
 
 #### Can I purchase Windows Server from {{ yandex-cloud }}? {#buy-windows-server}
@@ -65,7 +70,6 @@ Yes, you can purchase a virtual machine with a pre-installed Windows Server imag
 {% include [windows-trial](../../_includes/compute/windows-trial.md) %}
 
 {% endif %}
-
 
 #### How do I activate Windows Server? {#activate-windows-server}
 
@@ -85,7 +89,6 @@ You may have activation issues if the VM doesn't have internet access.
 
    If activation was not successful, send us the output of these commands.
 
-
 #### Can I deploy my own Windows Server licenses in {{ compute-name }}? {#custom-windows-server}
 
 No. You currently can't deploy your own Windows Server licenses.
@@ -94,8 +97,14 @@ No. You currently can't deploy your own Windows Server licenses.
 
 No. According to the terms of use for Microsoft products, License Mobility does not extend to Windows Server operating systems.
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
 ### Licensing of other Microsoft products {#other-products}
 
 #### Can I purchase other Microsoft products with licenses that can be deployed in {{ compute-name }}? {#buy-other-products}
 
 {% if product == "yandex-cloud" %}Yes.{% endif %}{% if product == "cloud-il" %}No.{% endif %} Currently, {{ yandex-cloud }} provides Windows Server, {% if product == "yandex-cloud" %}Microsoft SQL Server, and RDS{% endif %}licenses and transfers server software licenses under the [License Mobility through Software Assurance]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility){% endif %} program. Licensing of MSDN, Windows OS, Microsoft Office, and other products is not available.
+
+{% endif %}

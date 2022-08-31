@@ -61,9 +61,9 @@ If you can't access the serial console, do the following to recover the public p
 1. [Connect](../vm-connect/ssh.md) to the new VM over SSH.
 1. [Delete the disk snapshot](../snapshot-control/delete.md) and [delete](../vm-control/vm-delete.md) the auxiliary and old VMs.
 
-## Unable to connect to a VM via SSH or RDP {#serial-console}
+## Unable to connect to a VM via SSH {% if product == "cloud-il" %}or RDP{% endif %} {#serial-console}
 
-The problem may occur due to an error in the SSH, RDP, [security group](../../../vpc/concepts/security-groups.md), or network settings. To restore access, connect to the VM using the [serial console](../serial-console/index.md) and adjust the settings.
+The problem may occur due to an error in the SSH, {% if product == "cloud-il" %}RDP, {% endif %}[security group](../../../vpc/concepts/security-groups.md), or network settings. To restore access, connect to the VM using the [serial console](../serial-console/index.md) and adjust the settings.
 
 {% list tabs %}
 
@@ -79,6 +79,8 @@ The problem may occur due to an error in the SSH, RDP, [security group](../../..
    1. [Connect](../serial-console/connect-cli.md#connect-to-serial-console) to the serial console.
    1. Change the SSH or network settings. If you have [security groups](../../../vpc/concepts/security-groups.md) set up, make sure that their rules allow incoming TCP traffic to port 22.
    1. Connect to the VM via SSH.
+  
+{% if product == "cloud-il" %}
 
 - Windows
 
@@ -86,6 +88,8 @@ The problem may occur due to an error in the SSH, RDP, [security group](../../..
    1. [Connect](../serial-console/connect-cli.md#connect-to-serial-console) to the serial console.
    1. Change the RDP or network settings. If you have [security groups](../../../vpc/concepts/security-groups.md) set up, make sure that their rules allow incoming TCP traffic to port 3389.
    1. Connect to the VM via RDP.
+
+{% endif %}
 
 {% endlist %}
 

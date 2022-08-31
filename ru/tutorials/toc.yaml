@@ -107,7 +107,7 @@ items:
       - name: >-
           Создание кластера Windows-серверов «1С:Предприятия» с базой данных {{ MS }}
         href: infrastructure-management/1c-mssql-windows.md
-        when: product == "yandex-cloud"
+        when: product == "cloud-il"
       - name: Миграция в {{ yandex-cloud }} с помощью Hystax Acura
         href: infrastructure-management/hystax-migration.md
       - name: Защита от сбоев с помощью Hystax Acura
@@ -196,11 +196,13 @@ items:
         href: dataplatform/mssql-outbound-migration.md
         when: product == "yandex-cloud"
   - name: Windows в {{ yandex-cloud }}
+    when: product == "cloud-il"
     items:
       - name: Все руководства
         href: windows/index.md
       - name: Развертывание Active Directory
         href: windows/active-directory.md
+        when: product == "yandex-cloud"
       - name: Развертывание Microsoft Exchange
         href: windows/exchange.md
         when: product == "yandex-cloud"
