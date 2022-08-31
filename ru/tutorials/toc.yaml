@@ -219,11 +219,15 @@ items:
     items:
       - name: Все руководства
         href: routing/index.md
+      - name: Архитектура и защита базового интернет-сервиса
+        href: routing/web-service.md
+      - name: Настройки DHCP для работы с корпоративным DNS-сервером
+        href: routing/dhcp-options.md
       - name: Маршрутизация с помощью NAT-инстанса
         href: routing/nat-instance.md
-      - name: Создание VPN-туннеля
+      - name: Создание туннеля IPSec VPN
         href: routing/ipsec-vpn.md
-      - name: Установка виртуального роутера Cisco CSR1000v
+      - name: Установка виртуального роутера Cisco CSR 1000v
         href: routing/cisco.md
       - name: Установка виртуального роутера Mikrotik CHR
         href: routing/mikrotik.md
@@ -233,6 +237,7 @@ items:
         href: routing/usergate-proxy.md
       - name: Настройка сети для {{ dataproc-full-name }}
         href: routing/dataproc-nat-instance.md
+        when: product == "yandex-cloud"
   - name: Визуализация и анализ данных
     when: product == "yandex-cloud"
     items:
