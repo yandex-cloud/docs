@@ -2,6 +2,14 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## 01.08.2022 {#01.08.2022}
+
+* Ускорены операции по изменению прав пользователей при большом количестве топиков.
+* Добавлена поддержка настроек `message.max.bytes`, `offsets.retention.minutes`, `replica.fetch.max.bytes` и `ssl.cipher.suites`. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+* Добавлена возможность создания кластера на локальных дисках на платформе Intel Ice Lake.
+* Исправлен расчет метрики `kafka_group_topic_partition_lag`. {% if audience != "internal" %} Подробнее см. в [справочнике метрик {{ monitoring-full-name }}](https://cloud.yandex.ru/docs/monitoring/metrics-ref/#managed-kafka). {% endif %}
+* Новая версия {{ KF }} 3.2 доступна в окружении `PRODUCTION`. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+
 ## 01.07.2022 {#01.07.2022}
 
 * Доступен новый коннектор: [S3 Sink](concepts/connectors.md#s3-sink). {{ tag-con }}

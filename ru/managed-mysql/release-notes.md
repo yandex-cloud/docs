@@ -2,6 +2,10 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## 01.08.2022 {#01.08.2022}
+
+* Добавлена настройка `binlog_transaction_dependency_tracking`.
+
 ## 01.07.2022 {#01.07.2022}
 
 * В конфигурационных файлах {{ TF }} упразднены секции `database` и `user`, добавлены новые ресурсы `yandex_mdb_mysql_database` и `yandex_mdb_mysql_user`. {{ tag-tf }}
