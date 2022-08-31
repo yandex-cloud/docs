@@ -25,7 +25,7 @@
    ```
    Result:
    ```
-   done (1s)    
+   done (1s)
    id: b09kk2ujb8js23f73b06
    folder_id: aoek49ghmknnpj1ll45e
    created_at: "2019-06-13T13:21:40.022Z"
@@ -39,23 +39,65 @@
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more on {{ TF }}, [review the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   If you created a function using {{ TF }}, you can delete it:
+   To delete a function created using {{ TF }}:
 
-   1. In the command line, go to the directory with the {{ TF }} configuration file.
-   1. Delete resources using the command:
+   1. Open the {{ TF }} configuration file and delete the fragment with the function description.
+
+      Example function description in the {{ TF }} configuration:
+
       ```
-      terraform destroy
+       resource "yandex_function" "test-function" {
+           name               = "test-function"
+           description        = "Test function"
+           user_hash          = "first-function"
+           runtime            = "python37"
+           entrypoint         = "main"
+           memory             = "128"
+           execution_timeout  = "10"
+           service_account_id = "<service account ID>"
+           tags               = ["my_tag"]
+           content {
+               zip_filename = "<path to ZIP archive>"
+           }
+       }
       ```
 
-      {% note alert %}
+      For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-link }}/function).
 
-      {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+   1. Check the configuration using the command:
 
-      {% endnote %}
+      ```
+      terraform validate
+      ```
 
-   1. Confirm the deletion of resources.
+      If the configuration is correct, the following message is returned:
+
+      ```
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+   You can verify that you have deleted the function in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md) command:
+
+   ```
+   yc serverless function list
+   ```
 
 - Yandex Cloud Toolkit
 
