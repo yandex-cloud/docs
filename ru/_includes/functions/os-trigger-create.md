@@ -81,7 +81,7 @@
     ```
     yc serverless trigger create object-storage \
       --name <имя триггера> \
-      --bucket-id <имя бакета> \
+      --bucket-id <идентификатор бакета> \
       --prefix '<префикс ключа объекта>' \
       --suffix '<суффикс ключа объекта>' \
       --events 'create-object','delete-object','update-object' \

@@ -190,6 +190,10 @@ items:
           }}
         href: dataplatform/mmy-to-mysql-migration.md
       - name: >-
+          Миграция базы данных из стороннего кластера {{ PG }} в кластер {{
+          mpg-full-name }}
+        href: dataplatform/postgresql-data-migration.md
+      - name: >-
           Миграция базы данных из стороннего кластера {{ RD }} в {{
           mrd-full-name }}
         href: dataplatform/redis-data-migration.md
@@ -221,11 +225,15 @@ items:
     items:
       - name: Все руководства
         href: routing/index.md
+      - name: Архитектура и защита базового интернет-сервиса
+        href: routing/web-service.md
+      - name: Настройки DHCP для работы с корпоративным DNS-сервером
+        href: routing/dhcp-options.md
       - name: Маршрутизация с помощью NAT-инстанса
         href: routing/nat-instance.md
-      - name: Создание VPN-туннеля
+      - name: Создание туннеля IPSec VPN
         href: routing/ipsec-vpn.md
-      - name: Установка виртуального роутера Cisco CSR1000v
+      - name: Установка виртуального роутера Cisco CSR 1000v
         href: routing/cisco.md
       - name: Установка виртуального роутера Mikrotik CHR
         href: routing/mikrotik.md

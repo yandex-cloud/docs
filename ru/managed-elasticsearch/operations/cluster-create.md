@@ -13,8 +13,8 @@ keywords:
 
 {% note info %}
 
-* Количество хостов с ролью _Data node_, которые можно создать вместе с {{ ES }}-кластером, зависит от выбранного [типа хранилища](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
-* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+* Количество хостов с ролью _Data node_, которые можно создать вместе с {{ ES }}-кластером, зависит от выбранного [типа дисков](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы дисков [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
 
@@ -60,7 +60,7 @@ keywords:
 
      1. В блоке **Хранилище**:
 
-        * Выберите [тип хранилища](../concepts/storage.md).
+        * Выберите [тип диска](../concepts/storage.md).
 
             {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
@@ -144,10 +144,10 @@ keywords:
           --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети>,assign-public-ip=<публичный доступ>,type=<тип хоста: datanode или masternode> \
           --datanode-resource-preset <класс хостов c ролью Data node> \
           --datanode-disk-size <размер хранилища в гигабайтах для хостов с ролью Data node> \
-          --datanode-disk-type <тип хранилища для хостов с ролью Data node> \
+          --datanode-disk-type <тип диска для хостов с ролью Data node> \
           --masternode-resource-preset <класс хостов с ролью Master node> \
           --masternode-disk-size <размер хранилища в гигабайтах для хостов с ролью Master node> \
-          --masternode-disk-type <тип хранилища для хостов с ролью Master node> \
+          --masternode-disk-type <тип диска для хостов с ролью Master node> \
           --security-group-ids <список идентификаторов групп безопасности> \
           --version <версия {{ ES }}: {{ versions.cli.str }}> \
           --edition <редакция {{ ES }}: basic или platinum> \
@@ -211,7 +211,7 @@ keywords:
             data_node {
               resources {
                 resource_preset_id = "<класс хоста>"
-                disk_type_id       = "<тип хранилища>"
+                disk_type_id       = "<тип диска>"
                 disk_size          = <объем хранилища, ГБ>
               }
             }
@@ -219,7 +219,7 @@ keywords:
             master_node {
               resources {
                 resource_preset_id = "<класс хоста>"
-                disk_type_id       = "<тип хранилища>"
+                disk_type_id       = "<тип диска>"
                 disk_size          = <объем хранилища, ГБ>
               }
             }

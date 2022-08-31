@@ -1,4 +1,4 @@
-# Pulling a Helm chart to a registry
+# Pulling a Helm chart from a registry
 
 You can pull [Helm charts](https://helm.sh/docs/topics/charts/) in a {{ container-registry-name }} repository. {{ container-registry-name }} stores Helm charts the same way as conventional [Docker Images](../../concepts/docker-image.md).
 
@@ -12,7 +12,7 @@ You can pull [Helm charts](https://helm.sh/docs/topics/charts/) in a {{ containe
   helm pull oci://{{ registry }}/<registry ID>/<Helm chart name> --version <version>
   ```
 
-  Result:
+  Command result:
 
   ```bash
   Pulled: {{ registry }}/<registry ID>/<Helm chart name>:<version>

@@ -4,7 +4,7 @@
 
    {% include [Maintenance window](../console/maintenance-window-description.md) %}
 
-* **Гибридное хранилище** — включите эту опцию, чтобы кластер использовал [гибридное хранилище](../../../managed-clickhouse/concepts/storage.md#hybrid-storage-features). Тип хранилища и его размер укажите в блоке **Размер хранилища**.
+* **Гибридное хранилище** — включите эту опцию, чтобы кластер использовал [гибридное хранилище](../../../managed-clickhouse/concepts/storage.md#hybrid-storage-features). Тип диска и его размер укажите в блоке **Размер хранилища**.
 
    {% note alert %}
 

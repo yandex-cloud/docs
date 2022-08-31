@@ -2,6 +2,11 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## 01.08.2022 {#01.08.2022}
+
+* Добавлена возможность менять пароль для пользователя-администратора. {{ tag-cli }} {{ tag-tf }}
+* Добавлена возможность [настройки СУБД и пулера соединений в {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex/blob/master/CHANGELOG.md#0770-july-27-2022). {{ tag-tf }}
+
 ## 01.07.2022 {#01.07.2022}
 
 * Добавлена поддержка CLI: доступны команды `{{ yc-mdb-gp }} cluster` и `{{ yc-mdb-gp }} hosts`. {{ tag-cli }}

@@ -55,7 +55,7 @@ items:
         href: concepts/network.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Типы хранилища
+      - name: Типы диска
         href: concepts/storage.md
       - name: Резервные копии
         href: concepts/backup.md

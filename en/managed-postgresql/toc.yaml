@@ -57,6 +57,12 @@ items:
         href: tutorials/sqoop.md
       - name: Performance analysis and tuning
         href: tutorials/profiling.md
+      - name: >-
+          Delivering data to {{ mkf-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/cdc-data-transfer.md
+      - name: Delivering data to {{ mkf-full-name }} using Debezium
+        href: tutorials/cdc-debezium.md
       - name: Replication and migration
         items:
           - name: Logical {{ PG }} replication
@@ -69,12 +75,6 @@ items:
               Creating an Amazon RDS logical replica for {{ PG }} in {{ mpg-name
               }}
             href: operations/logical-replica-from-rds.md
-      - name: >-
-          Delivering data to {{ mkf-full-name }} using {{
-          data-transfer-full-name }}
-        href: tutorials/cdc-data-transfer.md
-      - name: Delivering data to {{ mkf-full-name }} using Debezium
-        href: tutorials/cdc-debezium.md
   - name: Concepts
     items:
       - name: Relationships between service resources

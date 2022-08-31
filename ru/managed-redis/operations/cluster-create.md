@@ -6,8 +6,8 @@
 
 {% note info %}
 
-* Количество хостов, которые можно создать вместе с {{ RD }}-кластером, зависит от выбранного [типа хранилища](../concepts/storage.md#storage-type-selection), [класса хостов](../concepts/instance-types.md#available-flavors) и использования [шардирования](../concepts/sharding.md).
-* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+* Количество хостов, которые можно создать вместе с {{ RD }}-кластером, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection), [класса хостов](../concepts/instance-types.md#available-flavors) и использования [шардирования](../concepts/sharding.md).
+* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
 
@@ -59,7 +59,7 @@
   1. В блоке **Размер хранилища**:
       
              
-        * Выберите [тип хранилища](../concepts/storage.md):
+        * Выберите [тип диска](../concepts/storage.md):
             * либо более гибкое хранилище — на сетевых SSD-дисках (`network-ssd`) или на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`);
             * либо более быстрое хранилище — на локальных SSD-дисках (`local-ssd`).
 
@@ -196,7 +196,7 @@
 
          resources {
            resource_preset_id = "<класс хоста>"
-           disk_type_id       = "<тип хранилища>"
+           disk_type_id       = "<тип диска>"
            disk_size          = <размер хранилища в гигабайтах>
          }
 

@@ -24,7 +24,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Select **{{ sf-name }}**.
+   1. Open **{{ sf-name }}**.
    1. Select a function.
    1. Under **Version history**, mouse over the version tag of the function (such as, ![image](../../../_assets/settings.svg) `$latest`) whose scaling settings you wish to view.
    1. Information on these scaling settings will be displayed in a pop-up window:
@@ -43,7 +43,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
    yc serverless function list-scaling-policies --id=d4eokpuol55h********
    ```
 
-   Where `--id` is the function ID. To find out the ID, [request](./version-manage.md#function-list) a list of functions.
+   Where `--id`: Function ID. To find out the ID, [request](./version-manage.md#function-list) a list of functions.
 
    Result:
 
@@ -72,7 +72,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Select **{{ sf-name }}**.
+   1. Open **{{ sf-name }}**.
    1. Select a function.
    1. Under **Version history**, mouse over the version tag of the function (such as, ![image](../../../_assets/settings.svg) `$latest`) you wish to add scaling settings for.
    1. In the pop-up window, click **Add**.
@@ -86,11 +86,11 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
    To add scaling settings for a function, run the command:
 
    ```
-   	yc serverless function set-scaling-policy \
-   	  --id=d4eokpuol55h******** \
-   	  --tag=\$latest \
-   	  --zone-instances-limit=1 \
-   	  --zone-requests-limit=2
+   yc serverless function set-scaling-policy \
+     --id=d4eokpuol55h******** \
+     --tag=\$latest \
+     --zone-instances-limit=1 \
+     --zone-requests-limit=2
    ```
 
    Where:
@@ -103,10 +103,10 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
    Result:
 
    ```
-   	function_id: d4eokpuol55h********
-   	tag: $latest
-   	zone_instances_limit: "1"
-   	zone_requests_limit: "2"
+   function_id: d4eokpuol55h********
+   tag: $latest
+   zone_instances_limit: "1"
+   zone_requests_limit: "2"
    ```
 
 - {{ TF }}
@@ -119,55 +119,71 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
    1. In the configuration file, describe the parameters of resources that you want to create:
 
-      * `yandex_function_scaling_policy`: Description of function scaling settings:
-        * `function_id`: Function ID.
-        * `policy`: Scaling settings:
-          * `policy.0.tag`: Function version [tag](../../concepts/function.md#tag).
-          * `policy.0.zone_instances_limit`: Number of function instances.
-          * `policy.0.zone_requests_limit`: Number of calls in progress.
+      * `yandex_function_scaling_policy`: Description of function scaling settings.
+         * `function_id`: Function ID.
+         * `policy`: Scaling settings:
+            * `policy.0.tag`: Function version [tag](../../concepts/function.md#tag).
+            * `policy.0.zone_instances_limit`: Number of function instances.
+            * `policy.0.zone_requests_limit`: Number of calls in progress.
 
       Example configuration file structure:
 
       
-      ```hcl
+
+      ```
       provider "yandex" {
           token     = "<service account OAuth or static key>"
           folder_id = "<folder ID>"
           zone      = "{{ region-id }}-a"
       }
 
-      	resource "yandex_function_scaling_policy" "my_scaling_policy" {
-      		function_id = "are1samplefu********"
-      		policy {
-      			tag = "$latest"
-      			zone_instances_limit = 2
-      			zone_requests_limit  = 1
-      	  	}
-      	}
+      resource "yandex_function_scaling_policy" "my_scaling_policy" {
+          function_id = "are1samplefu********"
+          policy {
+              tag = "$latest"
+              zone_instances_limit = 2
+              zone_requests_limit  = 1
+          }
+      }
+      ```
+
+
+
+
+      For more information about the parameters of the `yandex_function_scaling_policy` resource, see the [provider documentation]({{ tf-provider-link }}/yandex_function_scaling_policy).
+
+   1. Check the configuration using the command:
+
+      ```
+      terraform validate
       ```
 
+      If the configuration is correct, the following message is returned:
 
+      ```
+      Success! The configuration is valid.
+      ```
 
-      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+   1. Run the command:
 
-   1. Make sure that the configuration files are correct.
+      ```
+      terraform plan
+      ```
 
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
-         ```
-         terraform plan
-         ```
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+   1. Apply the configuration changes:
 
-      1. If the configuration doesn't contain any errors, run the command:
-         ```
-         terraform apply
-         ```
-      1. Confirm that you want to create the resources.
+      ```
+      terraform apply
+      ```
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
+   You can verify that you have deleted the scaling settings in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md) command:
+
+   ```
+   yc serverless function list-scaling-policies <function_name>|<function_ID>
+   ```
 
 - API
 
@@ -186,7 +202,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Select **{{ sf-name }}**.
+   1. Open **{{ sf-name }}**.
    1. Select a function.
    1. Under **Version history**, mouse over the version tag of the function (such as, ![image](../../../_assets/settings.svg) `$latest`) which you wish to delete scaling settings for.
    1. In the pop-up window, click **Change**.
@@ -198,9 +214,9 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
    To delete a function's scaling settings, run the command:
 
    ```
-   	yc serverless function remove-scaling-policy \
-   	  --id=d4eokpuol55h******** \
-   	  --tag=\$latest
+   yc serverless function remove-scaling-policy \
+     --id=d4eokpuol55h******** \
+     --tag=\$latest
    ```
 
    Where:
@@ -211,6 +227,71 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 - API
 
    You can delete scaling settings for a function using the [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md).
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   To delete scaling settings:
+
+   1. In the configuration file, describe the parameters of resources that you want to create:
+
+      * `yandex_function_scaling_policy`: Description of function scaling settings.
+         * `function_id`: Function ID.
+         * `policy`: Scaling settings:
+            * `policy.0.tag`: Function version [tag](../../concepts/function.md#tag).
+            * `policy.0.zone_instances_limit`: Number of function instances. Set the `0` value.
+            * `policy.0.zone_requests_limit`: Number of calls in progress. Set the `0` value.
+
+      Example configuration file structure:
+
+      ```
+      resource "yandex_function_scaling_policy" "my_scaling_policy" {
+          function_id = "are1samplefu********"
+          policy {
+              tag                  = "$latest"
+              zone_instances_limit = 0
+              zone_requests_limit  = 0
+          }
+      }
+      ```
+
+      For more information about the parameters of the `yandex_function_scaling_policy` resource, see the [provider documentation]({{ tf-provider-link }}/yandex_function_scaling_policy).
+
+   1. Check the configuration using the command:
+
+      ```
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+   You can verify that you have deleted the scaling settings in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/) command:
+
+   ```
+   yc serverless function list-scaling-policies <function_name>|<function_ID>
+   ```
 
 - Yandex Cloud Toolkit
 
