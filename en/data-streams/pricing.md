@@ -60,7 +60,7 @@ Where:
 
 ### Cost of a unit of written data {#event}
 
-The first 2000000 units per month are free of charge.
+The first 2000000 units of written data per month are free of charge.
 
 {% if region == "ru"%}
 
