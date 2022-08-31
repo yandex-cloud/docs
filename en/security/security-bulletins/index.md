@@ -3,6 +3,9 @@
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
 
+
+{% include [31.08.2022 — CVE-2020-8561 — redirect-kube-apiserver](../../_includes/security/security-bulletins/cve-2020-8561-redirect-kube-apiserver.md) %}
+
 {% include [25.08.2022 — CVE-2022-2884 — github-import-in-gitlab](../../_includes/security/security-bulletins/cve-2022-2884-github-import-in-gitlab.md) %}
 
 {% include [04.07.2022 — CVE-2022-27228 — Vulnerability of the «vote» CMS 1C-Bitrix module](../../_includes/security/security-bulletins/cve-2022-27228-bitrix.md) %}

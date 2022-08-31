@@ -70,7 +70,7 @@
 
         * Класс хоста — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-мастеры кластера.
         * В блоке **Хранилище**:
-          * Выберите [тип хранилища](../concepts/storage.md).
+          * Выберите [тип диска](../concepts/storage.md).
 
             
             {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
@@ -82,7 +82,7 @@
         * Количество сегментов на хост. Максимальное значение этого параметра зависит от класса хостов.
         * Класс хоста — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-сегменты кластера.
         * В блоке **Хранилище**:
-           * Выберите [тип хранилища](../concepts/storage.md).
+           * Выберите [тип диска](../concepts/storage.md).
 
              
              {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
@@ -126,10 +126,10 @@
            --user-password=<пароль пользователя> \
            --master-config resource-id=<класс хоста>,`
                           `disk-size=<объем хранилища, ГБ>,`
-                          `disk-type=<тип хранилища> \
+                          `disk-type=<тип диска> \
            --segment-config resource-id=<класс хоста>,`
                           `disk-size=<объем хранилища, ГБ>,`
-                          `disk-type=<тип хранилища> \
+                          `disk-type=<тип диска> \
            --zone-id=<зона доступности> \
            --subnet-id=<идентификатор подсети> \
            --assign-public-ip=<доступ к хостам через публичный IP-адрес: true или false> \
@@ -155,7 +155,7 @@
         * `--master-config` и `--segment-config` — конфигурация хостов-мастеров и хостов-сегментов:
             * `resource-id` — [класс хоста](../concepts/instance-types.md#available-flavors).
             * `disk-size` — объем хранилища в гигабайтах.
-            * `disk-type` — [тип хранилища](../concepts/storage.md):
+            * `disk-type` — [тип диска](../concepts/storage.md):
                 * `network-hdd`;
                 * `network-ssd`;
                 * `local-ssd`;
@@ -267,7 +267,7 @@
             resources {
               resource_preset_id = "<класс хоста>"
               disk_size          = <объем хранилища, ГБ>
-              disk_type_id       = "<тип хранилища>"
+              disk_type_id       = "<тип диска>"
             }
           }
   
@@ -275,7 +275,7 @@
             resources {
               resource_preset_id = "<класс хоста>"
               disk_size          = <объем хранилища, ГБ>
-              disk_type_id       = "<тип хранилища>"
+              disk_type_id       = "<тип диска>"
             }
           }
   

@@ -4,8 +4,8 @@
 
 {% note info %}
 
-* Количество хостов-брокеров, которые можно создать вместе с кластером {{ KF }}, зависит от выбранного [типа хранилища](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
-* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+* Количество хостов-брокеров, которые можно создать вместе с кластером {{ KF }}, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
 
@@ -45,11 +45,11 @@
 
   1. В блоке **Хранилище**:
 
-     * Выберите [тип хранилища](../concepts/storage.md).
+     * Выберите [тип диска](../concepts/storage.md).
 
         {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
-        Тип хранилища для кластера {{ mkf-name }} нельзя изменить после создания.
+        Тип диска для кластера {{ mkf-name }} нельзя изменить после создания.
 
      * Выберите объем хранилища, который будет использоваться для данных.
 
@@ -232,7 +232,7 @@
             kafka {
               resources {
                 disk_size          = <размер хранилища в гигабайтах>
-                disk_type_id       = "<тип хранилища>"
+                disk_type_id       = "<тип диска>"
                 resource_preset_id = "<класс хоста>"
               }
             }
