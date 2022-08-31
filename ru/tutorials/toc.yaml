@@ -181,6 +181,9 @@ items:
         href: dataplatform/sync-mysql.md
       - name: Миграция базы данных из {{ mmy-full-name }} в сторонний кластер {{ MY }}
         href: dataplatform/mmy-to-mysql-migration.md
+        # PG
+      - name: Миграция базы данных из стороннего кластера {{ PG }} в кластер {{ mpg-full-name }}
+        href: dataplatform/postgresql-data-migration.md
         # RD
       - name: Миграция базы данных из стороннего кластера {{ RD }} в {{ mrd-full-name }}
         href: dataplatform/redis-data-migration.md
