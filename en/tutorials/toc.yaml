@@ -96,7 +96,8 @@ items:
       - name: Automating VM image builds using Jenkins
         href: infrastructure-management/jenkins.md
       - name: >-
-          Continuous deployment of containerized applications using GitLab
+          Continuous deployment of containerized applications using
+          GitLab
         href: infrastructure-management/gitlab-containers.md
       - name: >-
           Creating a cluster of 1C:Enterprise Linux servers with a {{ mpg-name }} cluster
@@ -173,22 +174,6 @@ items:
         href: dataplatform/sync-mysql.md
       - name: Migrating databases from {{ mmy-full-name }} to a third-party {{ MY }} cluster
         href: dataplatform/mmy-to-mysql-migration.md
-      - name: Importing data from {{ mmy-full-name }} to {{ dataproc-full-name }} using Sqoop
-        href: dataplatform/sqoop-mmy.md
-        when: product == "yandex-cloud"
-      - name: Delivering data from {{ mmy-full-name }} to {{ mkf-full-name }} using Debezium
-        href: dataplatform/debezium-mmy.md
-        # PG
-      - name: Migrating databases from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}
-        href: dataplatform/rdbms-to-clickhouse.md
-      - name: >-
-          Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using {{ data-transfer-full-name }}
-        href: dataplatform/data-transfer-mpg.md
-      - name: Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using Debezium
-        href: dataplatform/debezium-mpg.md
-      - name: Importing data from {{ mpg-full-name }} to {{ dataproc-full-name }} using Sqoop
-        href: dataplatform/sqoop-mpg.md
-        when: product == "yandex-cloud"
         # RD
       - name: Migrating databases from a third-party {{ RD }} cluster to {{ mrd-full-name }}
         href: dataplatform/redis-data-migration.md
