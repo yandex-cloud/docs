@@ -49,6 +49,18 @@ items:
               - name: YDB
                 href: operations/endpoint/source/ydb.md
                 when: product == "yandex-cloud"
+              - name: YDB
+                href: operations/endpoint/source/ydb.md
+                when: product == "yandex-cloud"
+              - name: YT
+                href: operations/endpoint/source/yt.md
+                when: audience == "internal"
+              - name: Logbroker
+                href: operations/endpoint/source/logbroker.md
+                when: audience == "internal"
+              - name: Logfeller
+                href: operations/endpoint/source/logfeller.md
+                when: audience == "internal"
           - name: Настройка эндпоинтов-приемников
             items:
               - name: Apache Kafka®
@@ -68,6 +80,15 @@ items:
               - name: YDB
                 href: operations/endpoint/target/yandex-database.md
                 when: product == "yandex-cloud"
+              - name: YT
+                href: operations/endpoint/target/yt.md
+                when: audience == "internal"
+              - name: Logbroker
+                href: operations/endpoint/target/logbroker.md
+                when: audience == "internal"
+              - name: Logfeller
+                href: operations/endpoint/target/logfeller.md
+                when: audience == "internal"
       - name: Управление трансфером
         href: operations/transfer.md
       - name: Работа с базами данных во время трансфера
