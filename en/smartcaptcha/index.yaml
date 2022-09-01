@@ -13,8 +13,11 @@ links:
   - title: Widget installation methods
     description: Learn about the methods to add SmartCaptcha to your site
     href: concepts/widget-methods
+  - title: Invisible CAPTCHA
+    description: Show the CAPTCHA only for queries that the service considers suspicious
+    href: concepts/invisible-captcha
   - title: Quotas and limits
-    description: Technical and organizational limitations
+    description: Technical and organizational limitations of the service
     href: concepts/limits
   - title: Pricing policy
     description: Service pricing and cost calculations

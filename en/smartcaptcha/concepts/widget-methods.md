@@ -2,14 +2,14 @@
 
 There are two methods to connect a {{ captcha-name }} widget:
 
-* Automatic connection method.
-* Advanced connection method.
+* Automatic.
+* Advanced.
 
-Depending on the connection method you select, the method of transmitting parameters for the widget differs.
+Depending on the connection method, the method of transmitting parameters for the widget differs.
 
 ## Automatic connection method {#common-method}
 
-In the automatic method, the JS script that loads the widget on the user page is added to the page by following an upload link:
+In the automatic method, a JS script that loads the widget on the user page is added to the page by a link:
 
 ```html
 <script src="https://captcha-api.yandex.ru/captcha.js" defer></script>
@@ -17,25 +17,25 @@ In the automatic method, the JS script that loads the widget on the user page is
 
 After uploading, the JS script searches for all containers suitable for loading a widget into them, and draws widgets in them.
 
-You can upload the widget to the `div` element with the `smart-captcha` class:
+You can load the widget using the `div` elements with the `smart-captcha` class:
 
 ```html
 <div class="smart-captcha"></div>
 ```
 
-Parameters for rendering the widget are set via data attributes of the container in which the widget will be placed.
+Parameters for rendering the widget are set via container data attributes.
 
 Example of a container with parameters for rendering a widget:
 
 ```html
 <div
   class="smart-captcha"
-  data-sitekey="<Key for the client part>"
+  data-sitekey="<Client_part_key>"
   data-hl="<Language>"
 ></div>
 ```
 
-Parameter descriptions:
+Where:
 
 | Data attribute | Value | Default value |
 | --------------- | ---------------------------------------------------------------------------- | --------------------------- |
@@ -113,7 +113,9 @@ After loading the JS script, an access to the `window.smartCaptcha` object is sh
 
 {% endcut %}
 
-`window.smartCaptcha` provides three methods for interacting with the widget:
+
+## `window.smartCaptcha` methods {#methods}
+
 
 ### render method {#render}
 
@@ -126,6 +128,7 @@ The `render` method is used to draw the widget.
       sitekey: string;
       callback?: (token: string) => void;
       hl?: 'ru' | 'en' | 'be' | 'kk' | 'tt' | 'uk' | 'uz' | 'tr';
+      invisible?: boolean;
   }
 ) => WidgetId;
 ```
@@ -142,7 +145,7 @@ The `getResponse` method returns the current value of the user token.
 (widgetId: WidgetId | undefined) => string;
 ```
 
-`widgetId` argument: Unique widget ID. If no argument is passed, the result of the first rendered widget is returned.
+`widgetId` argument: Unique widget ID. If no argument is passed in, the output of the first rendered widget is returned.
 
 ### reset method {#reset}
 
@@ -152,7 +155,7 @@ The `reset` method resets the widget to the initial state.
 (widgetId: WidgetId | undefined) => void;
 ```
 
-`widgetId` argument: Unique widget ID. If no argument has been passed, the first rendered widget is reset.
+`widgetId` argument: Unique widget ID. If no argument has been passed in, the first rendered widget is reset.
 
 ### destroy method {#destroy}
 
@@ -162,7 +165,7 @@ The `destroy` method deletes widgets and any listeners they create.
 (widgetId: WidgetId | undefined) => void;
 ```
 
-The `WidgetId` argument is a unique widget ID. If the argument is not passed, the first rendered widget will be deleted.
+The `WidgetId` argument is a unique widget ID. If the argument is not passed in, the first rendered widget will be deleted.
 
 ### subscribe method {#subscribe}
 
@@ -170,15 +173,37 @@ The `subscribe` method enables you to subscribe listeners to certain widget even
 For instance, you can listen for the opening and closing of a task popup window. This may be useful for displaying the keyboard on mobile devices.
 
 ```ts
-type SubscribeEvent =
-  | 'challenge-visible'
-  | 'challenge-hidden'
-  | 'network-error'
-  | 'success';
-
 (widgetId: widgetId, event: SubscribeEvent, callback: Function) =>
   UnsubscribeFunction;
 ```
+
+Arguments:
+
+* `widgetId`: Unique widget ID.
+* `event`: Event:
+
+   ```ts
+   type SubscribeEvent =
+   | 'challenge-visible'
+   | 'challenge-hidden'
+   | 'network-error'
+   | 'success';
+   ```
+
+   Event descriptions:
+
+   | Event | When it occurs | Handler signature: |
+   | ------------------- | --------------------------------------------- | ------------------------- |
+   | `challenge-visible` | Opening the task pop-up window | `() => void` |
+   | `challenge-hidden` | Closing the task pop-up window | `() => void` |
+   | `network-error` | A network error occurred | `() => void` |
+   | `success` | Successful user validation | `(token: string) => void` |
+
+* `callback`: Handler function:
+
+   ```ts
+   UnsubscribeFunction = () => viod;
+   ```
 
 Usage example:
 
@@ -192,7 +217,7 @@ Usage example:
 ></script>
 
 <script>
-  function onload() {
+  function onloadFunction() {
     if (window.smartCaptcha) {
       const container = document.getElementById('container');
       const widgetId = window.smartCaptcha.render(container, {
