@@ -193,6 +193,12 @@ default:
   roles-data-transfer-viewer: data-transfer.viewer
   roles-datasphere-admin: datasphere.admin
   roles-datasphere-user: datasphere.user
+  roles-datasphere-project-viewer: datasphere.community-projects.viewer
+  roles-datasphere-project-developer: datasphere.community-projects.developer
+  roles-datasphere-project-admin: datasphere.community-projects.admin
+  roles-datasphere-communities-viewer: datasphere.communities.viewer
+  roles-datasphere-communities-developer: datasphere.communities.developer
+  roles-datasphere-communities-admin: datasphere.communities.admin
   roles-datalens-instances-user: datalens.instances.user
   roles-datalens-instances-admin: datalens.instances.admin
   roles-functions-ivoker: serverless.functions.invoker
@@ -511,6 +517,7 @@ default:
     wiki: # Wikipedia
       ci: https://en.wikipedia.org/wiki/Continuous_integration
   pg-docs: https://www.postgresql.org/docs/current
+  link-datasphere-main: https://datasphere.yandex.com/
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex Cloud

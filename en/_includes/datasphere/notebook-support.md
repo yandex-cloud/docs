@@ -7,5 +7,4 @@ To contact technical support in the service:
 1. Click **Report a bug**.
    You'll receive your request number by email.
 
-You can monitor the request status {% if product == "yandex-cloud" %}via the {{ yandex-cloud }} mobile app for [iOS](https://apps.apple.com/ru/app/yandex-cloud/id1515465314) or [Android](https://play.google.com/store/apps/details?id=ru.yandex.cloud) and {% endif %}in the [Support]({{ link-console-support }}) section in the management console.
-
+You can monitor the request status via the {% if product == "yandex-cloud" %}{{ yandex-cloud }} mobile app for [iOS](https://apps.apple.com/ru/app/yandex-cloud/id1515465314) or [Android](https://play.google.com/store/apps/details?id=ru.yandex.cloud) and {% endif %}in the [Support]({{ link-console-support }}) section in the management console.

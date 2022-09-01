@@ -62,6 +62,10 @@ description: "Страница содержит все инструкции дл
 * [{#T}](projects/publication.md)
 * [{#T}](projects/export.md)
 
+{% if product == "yandex-cloud" %}
+
 ## Дополнительные возможности {{ ml-platform-name }}
 
 * [{#T}](taas-run.md)
+
+{% endif %}

@@ -4,16 +4,16 @@ In {{ ml-platform-name }}, files are stored separately from notebooks. You can u
 
 - Management console
 
-  To upload a file:
-  1. {% include [include](first-step.md) %}
-  1. Go to the **Resources** tab.
-  1. If necessary, select the directory to upload the file to.
-  1. Click **Upload files**.
-  1. Select the files to upload.
+   To upload a file:
+
+   1. {% include [include](first-step.md) %}
+   1. Go to the **Resources** tab.
+   1. If necessary, select the directory to upload the file to.
+   1. Click **Upload files**.
+   1. Select the files to upload.
 
 - JupyterLab
 
-  For more information about how to upload files, see the [JupyterLab documentation](https://jupyterlab.readthedocs.io/en/latest/user/files.html#uploading-and-downloading).
+   For more information about how to upload files, see the JupyterLab [documentation](https://jupyterlab.readthedocs.io/en/latest/user/files.html#uploading-and-downloading).
 
 {% endlist %}
-
