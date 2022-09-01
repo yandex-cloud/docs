@@ -3,6 +3,9 @@
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
 {% if product == "yandex-cloud" %}
+
+{% include [01.09.2022 — CVE-2022-2992 — GitLab-1532-1524-1516](../../_includes/security/security-bulletins/cve-2022-2992-GitLab-1532-1524-1516.md) %}
+
 {% include [31.08.2022 — CVE-2020-8561 — redirect-kube-apiserver](../../_includes/security/security-bulletins/cve-2020-8561-redirect-kube-apiserver.md) %}
 
 {% include [25.08.2022 — CVE-2022-2884 — github-import-in-gitlab](../../_includes/security/security-bulletins/cve-2022-2884-github-import-in-gitlab.md) %}
