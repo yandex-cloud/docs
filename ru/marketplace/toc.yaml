@@ -26,8 +26,6 @@ items:
         items:
           - name: Создание образа продукта на базе Linux
             href: operations/create-image.md
-          - name: Создание образа продукта на базе Windows Server
-            href: operations/create-image-ms.md
           - name: Создание продукта для {{ managed-k8s-name }}
             href: operations/create-container.md
       - name: Тарификация продуктов на основе метрик издателя

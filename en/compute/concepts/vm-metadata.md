@@ -14,7 +14,6 @@ From inside a VM instance, metadata is available in the following formats:
 
 You can pass metadata when you create or [change](../operations/vm-control/vm-update.md#change-metadata) your virtual machine. VM connection data can't change, so it must be passed during creation:
 * [For a Linux VM](../operations/vm-create/create-linux-vm.md), you must pass the public SSH key to be able to connect to it.
-* [For a Windows VM](../operations/vm-create/create-windows-vm.md), you must pass the administrator password to connect to it.
 
 {% list tabs %}
 

@@ -29,9 +29,6 @@ links:
   - title: Сетевая маршрутизация
     description: Настройте статические маршруты и VPN для доступа к облачным ресурсам
     href: routing/
-  - title: Windows в облаке
-    description: Используйте службы Windows в Yandex Cloud
-    href: windows/
   - title: Визуализация и анализ данных
     description: Собирайте, визуализируйте и анализируйте данные из различных источников
     href: datalens/

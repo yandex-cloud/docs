@@ -33,7 +33,6 @@ Create a [service plan](operations/create-tariff.md) to assign it to your produc
 
 In {{ marketplace-short-name }}, you can place VM images from {{ yandex-cloud }} public images and packages for {{ managed-k8s-name }}. Requirements for images and applications and recommendations for creating them are described in the sections:
 * [{#T}](operations/create-image.md)
-* [{#T}](operations/create-image-ms.md)
 * [{#T}](operations/create-container.md)
 
 ## Create the first version of the product {#create-version}

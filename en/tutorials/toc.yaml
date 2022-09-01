@@ -97,8 +97,6 @@ items:
           Creating a cluster of 1C:Enterprise Linux servers with a {{ mpg-name
           }} cluster
         href: infrastructure-management/1c-postgresql-linux.md
-      - name: Creating a cluster of 1C:Enterprise Windows servers with {{ MS }}
-        href: infrastructure-management/1c-mssql-windows.md
       - name: Migrating to {{ yandex-cloud }} using Hystax Acura
         href: infrastructure-management/hystax-migration.md
       - name: Fault protection with Hystax Acura
@@ -187,24 +185,6 @@ items:
           Migrating databases from {{ mms-name }} to a third-party {{ MS }}
           cluster
         href: dataplatform/mssql-outbound-migration.md
-  - name: Windows in {{ yandex-cloud }}
-    items:
-      - name: All tutorials
-        href: windows/index.md
-      - name: Deploying Active Directory
-        href: windows/active-directory.md
-      - name: Deploying Microsoft Exchange
-        href: windows/exchange.md
-      - name: Deploying Remote Desktop Services
-        href: windows/rds.md
-      - name: Deploying an Always On availability group
-        href: windows/mssql-alwayson.md
-      - name: >-
-          Deploying an Always On availability group with an internal network
-          load balancer
-        href: windows/mssql-alwayson-lb.md
-      - name: Deploying Remote Desktop Gateway
-        href: windows/rds-gw.md
   - name: Network routing
     items:
       - name: All tutorials

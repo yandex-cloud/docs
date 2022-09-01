@@ -2,7 +2,7 @@
 
 Чтобы добавить программный продукт для {{ managed-k8s-name }} в {{ marketplace-short-name }}, его пакеты необходимо загрузить в [реестр](../../container-registry/concepts/registry.md) {{ yandex-cloud }}. Этот раздел поможет подготовить продукт {{ marketplace-short-name }} для {{ managed-k8s-full-name }}. 
 
-Вы также можете создать продукты для {{ compute-full-name }} на базе ОС [Linux](create-image.md) и [Windows](create-image-ms.md), воспользовавшись соответствующими рекомендациями.
+Вы также можете создать продукты для {{ compute-full-name }} на базе ОС [Linux](create-image.md), воспользовавшись соответствующими рекомендациями.
 
 ## Размещение и именование образов {#registry}
 

@@ -1,1 +1,0 @@
-{% include [rds.md](../../_tutorials/windows/mssql-alwayson.md) %}

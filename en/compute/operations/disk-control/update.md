@@ -245,16 +245,5 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
       └─vdb1 252:17   0  64G  0 part /data
       ```
 
-- Windows
-
-   1. Connect to the Windows VM [using RDP](../../quickstart/quick-create-windows.md#connect-rdp).
-
-   1. In the search bar, type `diskmgmt.msc` to perform a search by system and start the found snap-in.
-
-   1. In the **Disk Management** window that opens, select the desired disk. Open the context menu and select **Extend volume..**.
-
-   1. Enter a new partition volume and confirm the action.
-
-   1. Make sure that the partition increased.
 
 {% endlist %}

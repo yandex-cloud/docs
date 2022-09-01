@@ -13,7 +13,7 @@
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. Подключаться к кластерам БД можно как изнутри, так и извне {{ yandex-cloud }}:
-   * Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину в той же облачной сети, что и кластер БД (на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md)).
+   * Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину в той же облачной сети, что и кластер БД (на основе [Linux](../compute/quickstart/quick-create-linux.md)).
    * Чтобы подключиться к кластеру из интернета, запросите публичный доступ к хостам при создании кластера.
 
    {% note info %}
