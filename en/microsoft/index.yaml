@@ -6,18 +6,6 @@ description:
 meta:
   title: Using Microsoft products in Yandex Cloud
 links:
-  - title: Overview of features
-    description: Learn about using Microsoft product features in Yandex Cloud
-    href: overview
   - title: Practical guidelines
     description: Detailed instructions on how to use Microsoft products in Yandex Cloud
     href: tutorials/
-  - title: Windows VM images
-    description: Yandex Cloud image options and specifics
-    href: list-of-instances
-  - title: Microsoft licenses
-    description: Using Microsoft software licenses in Yandex Cloud
-    href: licensing
-  - title: Pricing policy
-    description: Service plans and cost calculation rules
-    href: pricing

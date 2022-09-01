@@ -4,13 +4,6 @@ The terms of use for Microsoft software are governed by the terms and conditions
 
 ### General questions {#common}
 
-#### What is the relationship between Microsoft and {{ yandex-cloud }}? {#status}
-
-{{ yandex-cloud }} is licensed to distribute Microsoft software products under the Services Provider License Agreement (SPLA) for providing software services. {{ yandex-cloud }} is also an authorized Microsoft partner under the [License Mobility through Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility) program.
-
-#### Does {{ yandex-cloud }} provide extended support for Microsoft products? {#expanded-support}
-
-No, the {{ yandex-cloud }} team does not currently offer support for Microsoft products.
 
 #### What is License Mobility? {#license-mobility}
 
@@ -21,7 +14,6 @@ License Mobility is a benefit provided to customers with Microsoft corporate lic
 
 You can run the following on {{ yandex-cloud }}:
 
-* Windows Server (for more information about its licensing, see [below](#windows-server)).
 * Server software available under the [License Mobility through Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility) program.
 
 
@@ -45,43 +37,4 @@ Questions about Windows Server licensing are discussed in detail [below](#window
 
 In the case of other software that you want to use inside the VM, read the license you purchased or contact the technical support of the product itself and they'll tell you if it's possible to use the product with this license in {{ yandex-cloud }}.
 
-### Windows Server licensing {#windows-server}
 
-#### Can I purchase Windows Server from {{ yandex-cloud }}? {#buy-windows-server}
-
-Yes, you can purchase a virtual machine with a pre-installed Windows Server image. In {{ marketplace-full-name }}, you can view the [list of available products](/marketplace?type=COMPUTE_IMAGE&operationSystems=WINDOWS&sortBy=name-a-z&categories=os&search=Windows+Server). The Windows Server license is included in the cost of using a VM specified in {{ marketplace-name }}.
-
-
-
-#### How do I activate Windows Server? {#activate-windows-server}
-
-You may have activation issues if the VM doesn't have internet access.
-
-1. Make sure that the VM has internet access.
-1. Run the following commands in PowerShell as an administrator:
-
-   ```powershell
-   Test-NetConnection {{ ms-kms-host }} -Port {{ ms-kms-port }}
-   cscript.exe C:\Windows\System32\slmgr.vbs /dli
-   cscript.exe C:\Windows\System32\slmgr.vbs /skms {{ ms-kms-host }}:{{ ms-kms-port }}
-   cscript.exe C:\Windows\System32\slmgr.vbs /ato
-   Get-Date
-   Get-TimeZone
-   ```
-
-   If activation was not successful, send us the output of these commands.
-
-
-#### Can I deploy my own Windows Server licenses in {{ compute-name }}? {#custom-windows-server}
-
-No. You currently can't deploy your own Windows Server licenses.
-
-#### Does License Mobility cover Windows Server? {#lm-windows-server}
-
-No. According to the terms of use for Microsoft products, License Mobility does not extend to Windows Server operating systems.
-
-### Licensing of other Microsoft products {#other-products}
-
-#### Can I purchase other Microsoft products with licenses that can be deployed in {{ compute-name }}? {#buy-other-products}
-
-Yes. Currently, {{ yandex-cloud }} provides Windows Server, Microsoft SQL Server, and RDSlicenses and transfers server software licenses under the [License Mobility through Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility) program. Licensing of MSDN, Windows OS, Microsoft Office, and other products is not available.

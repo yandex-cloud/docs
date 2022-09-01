@@ -1,38 +1,16 @@
 title: Microsoft in Yandex Cloud
 href: index.yaml
 items:
-  - name: Overview of features
-    href: overview.md
-  - name: VM images
-    href: list-of-instances.md
   - name: Practical guidelines
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Deploying Active Directory
-        href: tutorials/active-directory.md
-      - name: Deploying Microsoft Exchange
-        href: tutorials/exchange.md
-      - name: Deploying Remote Desktop Services
-        href: tutorials/rds.md
-      - name: Deploying an Always On availability group
-        href: tutorials/mssql-alwayson.md
-      - name: >-
-          Deploying an Always On availability group with an internal network
-          load balancer
-        href: tutorials/mssql-alwayson-lb.md
-      - name: Deploying Remote Desktop Gateway
-        href: tutorials/rds-gw.md
-      - name: Upgrading Windows Server to Datacenter edition
-        href: tutorials/edition-update-datacenter.md
   - name: Licensing
     items:
       - name: Microsoft licenses in {{ yandex-cloud }}
         href: licensing.md
       - name: Requirements for {{ yandex-cloud }} accounts
         href: check-user-data.md
-      - name: Questions and answers about Windows licensing
-        href: qa.md
   - name: Pricing policy
     href: pricing.md
 base: en/microsoft

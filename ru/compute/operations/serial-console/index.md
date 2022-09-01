@@ -68,37 +68,6 @@
 
       В ОС ВМ будет автоматически создан пользователь `yc-user` с указанным открытым ключом.
 
-- Windows
-
-  1. Посмотрите описание команды CLI для создания ВМ:
-
-     ```bash
-     yc compute instance create --help
-     ```
-
-  1. Выберите публичный [образ](../images-with-pre-installed-software/get-list.md) на базе ОС Windows.
-
-     {% include [standard-images](../../../_includes/standard-images.md) %}
-
-  1. Создайте ВМ в каталоге по умолчанию:
-
-      ```bash
-      yc compute instance create \
-        --name win-instance \
-        --metadata-from-file user-data=metadata.yaml \
-        --zone {{ region-id }}-a \
-        --network-interface subnet-name=default-c,nat-ip-version=ipv4 \
-        --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
-        --metadata serial-port-enable=1
-      ```
-
-      Команда создаст ВМ:
-      * С OC Windows.
-      * С именем `win-instance`.
-      * В зоне `{{ region-id }}-a`.
-      * С активной серийной консолью.
-
-      В ОС ВМ будет автоматически создан пользователь `Administrator` с паролем, указанном в файле `metadata.yaml`.
 
 {% endlist %}
 
@@ -133,7 +102,6 @@
 
 Чтобы серийная консоль была доступна со стороны ОС, ОС должна быть настроена соответствующим образом:
 * [Linux](#linux-configuration)
-* [Windows](#windows-configuration)
 
 ### Linux {#linux-configuration}
 
@@ -202,30 +170,3 @@
 
 1. Завершите SSH-сессию с помощью команды `exit`.
 
-### Windows {#windows-configuration}
-
-Аналог серийной консоли в Windows — специальная административная консоль (Special Administration Console, SAC).
-
-{% note info %}
-
-Если ваша ВМ была создана после 22 февраля 2019 года, дополнительно настраивать ничего не нужно — SAC включена по умолчанию.
-
-{% endnote %}
-
-Если ваша ВМ была создана до 22 февраля 2019 года, для подключения к SAC нужно изменить реестр Windows:
-
-1. [Подключитесь к ВМ по RDP](../vm-connect/rdp.md).
-
-1. Запустите командную строку или PowerShell и выполните:
-
-   ```
-   bcdedit /ems "{current}" on
-   The operation completed successfully.
-
-   bcdedit /emssettings EMSPORT:2 EMSBAUDRATE:115200
-   The operation completed successfully.
-   ```
-
-1. Перезагрузите ВМ.
-
-Подробнее о работе [командной оболочки в Windows SAC](windows-sac.md).

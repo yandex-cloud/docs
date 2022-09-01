@@ -7,8 +7,6 @@ items:
         href: quickstart/index.md
       - name: Создание виртуальной машины Linux
         href: quickstart/quick-create-linux.md
-      - name: Создание виртуальной машины Windows
-        href: quickstart/quick-create-windows.md
       - name: Создание группы виртуальных машин
         href: quickstart/ig.md
   - name: Пошаговые инструкции
@@ -19,8 +17,6 @@ items:
         items:
           - name: Создать ВМ Linux
             href: operations/vm-create/create-linux-vm.md
-          - name: Создать ВМ Windows
-            href: operations/vm-create/create-windows-vm.md
           - name: Создать ВМ из набора дисков
             href: operations/vm-create/create-from-disks.md
           - name: Создать ВМ с дисками из снимков
@@ -69,8 +65,6 @@ items:
         items:
           - name: Остановить и запустить ВМ
             href: operations/vm-control/vm-stop-and-start.md
-          - name: Сбросить пароль пользователя ВМ
-            href: operations/vm-control/vm-reset-password.md
           - name: Подключить диск к ВМ
             href: operations/vm-control/vm-attach-disk.md
           - name: Отключить диск от ВМ
@@ -105,14 +99,6 @@ items:
             href: operations/vm-operate/install-nvidia-drivers.md
           - name: Восстановить доступ к ВМ
             href: operations/vm-connect/recovery-access.md
-      - name: Управление агентом для сброса паролей
-        items:
-          - name: Проверить работу агента
-            href: operations/vm-guest-agent/check.md
-          - name: Установить агент
-            href: operations/vm-guest-agent/install.md
-          - name: Удалить агент
-            href: operations/vm-guest-agent/uninstall.md
       - name: Создание диска
         items:
           - name: Создать пустой диcк
@@ -249,8 +235,6 @@ items:
         href: tutorials/autoscale-monitoring.md
       - name: Обновление группы ВМ под нагрузкой
         href: tutorials/updating-under-load.md
-      - name: Развертывание Remote Desktop Gateway
-        href: tutorials/rds-gw.md
       - name: Передача логов с ВМ в Yandex Cloud Logging
         href: tutorials/vm-fluent-bit-logging.md
       - name: >-
@@ -285,8 +269,6 @@ items:
             href: concepts/vm-statuses.md
           - name: Метаданные
             href: concepts/vm-metadata.md
-          - name: Сброс паролей на ВМ Windows
-            href: concepts/guest-agent.md
       - name: Графические ускорители
         href: concepts/gpus.md
       - name: Диски и файловые хранилища

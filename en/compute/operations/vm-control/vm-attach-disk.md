@@ -135,10 +135,6 @@ To use the attached disk:
 
    1. Run the `df` command to check the state of the file system.
 
-- Windows
-
-   1. Connect to the VM [via RDP](../vm-connect/rdp.md).
-   1. Assign a letter to the attached disk. Learn how to do this in the [Microsoft documentation]({{ ms.docs }}/windows-server/storage/disk-management/change-a-drive-letter).
 
 {% endlist %}
 

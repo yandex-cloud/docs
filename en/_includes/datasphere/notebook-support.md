@@ -8,4 +8,3 @@ To contact technical support in the service:
    You'll receive your request number by email.
 
 You can monitor the request status via the {{ yandex-cloud }} mobile app for [iOS](https://apps.apple.com/ru/app/yandex-cloud/id1515465314) or [Android](https://play.google.com/store/apps/details?id=ru.yandex.cloud) and in the [Support]({{ link-console-support }}) section in the management console.
-

@@ -1,6 +1,6 @@
 # Creating a Linux-based product image to upload to {{ marketplace-name }}
 
-To add a product for {{ compute-full-name }} to the Marketplace, you need to upload the image to {{ yandex-cloud }}. The products can be based on Linux and Windows Server. This section will help you create an image based on Linux OS. To create an image with Windows, see [{#T}](create-image-ms.md).
+To add a product for {{ compute-full-name }} to the Marketplace, you need to upload the image to {{ yandex-cloud }}. The products can be based on Linux and Windows Server. This section will help you create an image based on Linux OS..
 
 If you wish to add a product for {{ managed-k8s-full-name }}, follow the [relevant instructions](create-container.md).
 
