@@ -224,6 +224,14 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [serverless-containers-roles-admin](../../../_includes/roles-serverless-containers-admin.md) %}
 
+## {{ captcha-name }} {#smartcaptcha}
+
+{% include [smartcaptcha-viewer](../../../_includes/roles-smartcaptcha-viewer.md) %}
+
+{% include [smartcaptcha-editor](../../../_includes/roles-smartcaptcha-editor.md) %}
+
+{% include [smartcaptcha-admin](../../../_includes/roles-smartcaptcha-admin.md) %}
+
 {% endif %}
 
 ## {{ vpc-name }} {#vpc-roles}
