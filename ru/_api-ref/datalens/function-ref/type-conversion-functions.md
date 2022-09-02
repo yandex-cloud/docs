@@ -172,25 +172,6 @@ editable: false
 
 
 
-## [OLDDATETIME](OLDDATETIME.md)
-
-**Синтаксис:**`OLDDATETIME( expression [ , timezone ] )`
-
-Переводит выражение `expression` в устаревший формат даты и времени. При переводе `Date` в `DateTime` время определяется, как `00:00:00`.
-Дата должна быть определена в формате `YYYY-MM-DDThh:mm:ss` или `YYYY-MM-DD hh:mm:ss`.
-
-Если `expression` является числом, то при наличии дополнительного параметра `timezone` дата и время рассчитываются для указанной временной зоны.
-
-
-
-## [OLDDATETIME_PARSE](OLDDATETIME_PARSE.md)
-
-**Синтаксис:**`OLDDATETIME_PARSE( value )`
-
-Переводит выражение `value` в устаревший формат даты и времени. В отличие от [OLDDATETIME](OLDDATETIME.md), поддерживает множество форматов.
-
-
-
 ## [STR](STR.md)
 
 **Синтаксис:**`STR( expression )`
