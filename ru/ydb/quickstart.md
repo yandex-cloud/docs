@@ -1,6 +1,6 @@
 # Как начать работать с {{ ydb-full-name }}
 
-В этой инструкции вы создайте базу данных [{{ ydb-short-name }}](https://ydb.tech/ru) в {{ yandex-cloud }} и выполните простой запрос к ней c помощью [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} или инструментов командной строки.
+В этой инструкции вы создайте базу данных [{{ ydb-short-name }}]{% if lang == "en" %}(https://ydb.tech/en){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru){% endif %} в {{ yandex-cloud }} и выполните простой запрос к ней c помощью [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} или инструментов командной строки.
 
 Для работы с базой данных в {{ ydb-full-name }} также доступны:
 
@@ -303,4 +303,4 @@
 
 * Узнайте подробнее о [работе с базами данных](operations/index.md).
 * Изучите [концепции сервиса](concepts/index.md).
-* Ознакомьтесь с языком запросов [YQL](https://ydb.tech/ru/docs/yql/reference/).
+* Ознакомьтесь с языком запросов [YQL]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/){% endif %}.

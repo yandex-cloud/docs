@@ -101,6 +101,8 @@ items:
         href: operations/manage-database.md
       - name: Database management using the YC CLI
         href: operations/yc-cli.md
+      - name: Connecting to a database using the YDB CLI
+        href: operations/connection.md
       - name: Managing tables and directories
         href: operations/schema.md
       # - name: Rename
@@ -144,8 +146,6 @@ items:
         href: concepts/resources.md
       # - name: Terms and definitions
       #   href: concepts/databases.md
-      - name: Connecting to and authenticating with a database using IAM
-        href: concepts/connect.md
       # - name: Data model and schema
       #   href: concepts/datamodel.md
       # - name: Serverless and Dedicated operating modes
