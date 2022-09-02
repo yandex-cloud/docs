@@ -1391,33 +1391,6 @@ Returns the current date and time, depending on the data source and connection t
 
 
 
-## [OLDDATETIME](OLDDATETIME.md)
-
-**Syntax:**`OLDDATETIME( expression [ , timezone ] )`
-
-Converts the `expression` expression to deprecated date and time format. When converting `Date` to `DateTime`, the time is set to '00:00:00'.
-The date must be in the format `YYYY-MM-DDThh:mm:ss` or `YYYY-MM-DD hh:mm:ss`.
-
-If `expression` is a number, then the date and time can be converted to the specified time zone when the `timezone` option is available.
-
-
-
-## [OLDDATETIME_PARSE](OLDDATETIME_PARSE.md)
-
-**Syntax:**`OLDDATETIME_PARSE( value )`
-
-Converts the `value` expression to deprecated date and time format. Unlike [OLDDATETIME](OLDDATETIME.md), it supports multiple formats.
-
-
-
-## [OLDNOW](OLDNOW.md)
-
-**Syntax:**`OLDNOW()`
-
-Returns the current date and time (in deprecated format), depending on the data source and connection type.
-
-
-
 ## [OR](OR.md)
 
 **Syntax:**`value_1 OR value_2`
