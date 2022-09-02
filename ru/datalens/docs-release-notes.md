@@ -2,6 +2,10 @@
 
 ## Август 2022 {#august2022}
 
+### Концепции {#concepts082022}
+
+* Обновлено описание типа [Дата и время](concepts/data-types.md#datetime) и добавлено описание типа [Дата и время (устаревший)](concepts/data-types.md#datetime-old).
+
 ### Решение проблем {#troubleshooting082022}
 
 * Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-DS_API-INVALID_GROUP_BY_CONFIGURATION.md) и рекомендации по исправлению.

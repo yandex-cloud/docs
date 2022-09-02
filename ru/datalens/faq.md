@@ -121,6 +121,8 @@
 
 {% include [creating-line-chart-with-columns.md](../_includes/datalens/qa/creating-line-chart-with-columns.md) %}
 
+{% include [new-datetime](../_includes/datalens/qa/new-datetime.md) %}
+
 ### Как посмотреть, какой запрос уходит с чарта? {#request-from-chart}
 
 1. В правом верхнем углу чарта нажмите на три точки и выберите **Инспектор** (см. [изображение](https://jing.yandex-team.ru/files/pampiduzik/2021-02-12T07%3A23%3A58Z.56275ff.png)).

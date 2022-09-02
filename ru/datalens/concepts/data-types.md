@@ -72,21 +72,54 @@ DATETRUNC(#2018-07-12#, "year", 5)
 DATEADD(#2018-01-12#, "day", 6)
 ```
 
-## Дата и время {#datetime}
+## Дата и время (устаревший) {#datetime-old}
 
-Дата с указанным временем.
+Дата с указанным временем (с приведением значения к [UTC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% else %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}).
 
 При использовании в формулах необходимо задавать дату и время с помощью знака решетки `#`. Например `DATEADD(#2018-01-12 01:02:03#, "second", 6)`.
 
-Вы можете привести исходный тип данных в тип `Дата и время` с помощью функций [DATETIME](../function-ref/DATETIME.md) и [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md).
+Вы можете привести исходный тип данных в тип `Дата и время (устаревший)` с помощью функций [DATETIME](../function-ref/DATETIME.md) и [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md).
 
-#### Пример записи {#datetime-example}
+{% note info %}
+
+При использовании поля с типом `Дата и время (устаревший)` вы увидите предупреждение в правом верхнем углу чарта. Подробнее о том, как перейти к новому типу `Дата и время`, см. раздел [{#T}]{% if audience == "internal" %}(../faq.md#new-datetime){% else %}(../qa/index.md#new-datetime){% endif %}
+
+{% endnote %}
+
+#### Пример записи {#datetime-old-example}
 
 ```sql
 #2018-01-12 01:08:03#
 #2018-05-01T#
 DATEADD(#2018-01-12 01:02:03#, "second", 6)
 DATETRUNC(#2018-07-12 11:07:13#, "month", 4)
+```
+
+#### Закрытие типа Дата и время (устаревший) {#datetime-deprecation}
+
+* С {% if audience == "internal" %}24 августа{% else %}6 сентября{% endif %} 2022 года доступен для использования новый тип [Дата и время](#datetime), без приведения к UTC.
+
+* {% if audience == "internal" %}5{% else %}12{% endif %} октября 2022 года:
+
+  * Во всех датасетах поля с типом `Дата и время (устаревший)` будут заменены на поля с типом `Дата и время`.
+  * Использование знака решетки `#` перестанет приводить константы к UTC.
+  * Функции [DATETIME](../function-ref/DATETIME.md) и [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md) перестанут приводить выражения к UTC.
+
+## Дата и время {#datetime}
+
+Дата с указанным временем (без приведения значения к [UTC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% else %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}).
+
+При использовании в формулах необходимо задавать дату и время с помощью удвоенного знака решетки `##`. Например `DATEADD(##2018-01-12 01:02:03##, "second", 6)`.
+
+Вы можете привести исходный тип данных в тип `Дата и время` с помощью функций [GENERICDATETIME](../function-ref/GENERICDATETIME.md) и [GENERICDATETIME_PARSE](../function-ref/GENERICDATETIME_PARSE.md).
+
+#### Пример записи {#datetime-example-tmp}
+
+```sql
+##2018-01-12 01:08:03##
+##2018-05-01T##
+DATEADD(##2018-01-12 01:02:03##, "second", 6)
+DATETRUNC(##2018-07-12 11:07:13##, "month", 4)
 ```
 
 ## Дробное число {#float}
