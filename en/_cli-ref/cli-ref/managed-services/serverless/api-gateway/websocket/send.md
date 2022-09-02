@@ -1,21 +1,27 @@
-# yc organization-manager federation saml delete
+# yc serverless api-gateway websocket send
 
-Delete the specified federation
+Send data to connection
 
 #### Command Usage
 
 Syntax: 
 
-`yc organization-manager federation saml delete <FEDERATION-NAME>|<FEDERATION-ID> [<FEDERATION-NAME>|<FEDERATION-ID>...] [Global Flags...]`
+`yc serverless api-gateway websocket send <CONNECTION-ID> [Flags...] [Global Flags...]`
+
+Aliases: 
+
+- `push`
+- `forward`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>federation id.|
-|`--name`|<b>`string`</b><br/>federation name.|
-|`--organization-id`|<b>`string`</b><br/>Set the ID of the organization to use.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--id`|<b>`string`</b><br/>Connection id.|
+|`-t`,`--type`|<b>`string`</b><br/>Type of data to send. May be TEXT or BINARY. Defaults to TEXT.|
+|`-d`,`--data`|<b>`string`</b><br/>Data payload to send. Binary data should be base64-encoded.|
+|`-f`,`--file`|<b>`string`</b><br/>Send the contents of the file as the data.|
+|`-l`,`--stdin`|Read data from stdin, sending a separate message for each line. Binary data should be base64-encoded.|
 
 #### Global Flags
 

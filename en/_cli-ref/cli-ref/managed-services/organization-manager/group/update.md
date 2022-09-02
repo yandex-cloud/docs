@@ -1,21 +1,23 @@
-# yc organization-manager federation saml delete
+# yc organization-manager group update
 
-Delete the specified federation
+Update the specified group
 
 #### Command Usage
 
 Syntax: 
 
-`yc organization-manager federation saml delete <FEDERATION-NAME>|<FEDERATION-ID> [<FEDERATION-NAME>|<FEDERATION-ID>...] [Global Flags...]`
+`yc organization-manager group update <GROUP-NAME>|<GROUP-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>federation id.|
-|`--name`|<b>`string`</b><br/>federation name.|
-|`--organization-id`|<b>`string`</b><br/>Set the ID of the organization to use.|
+|`--id`|<b>`string`</b><br/>group id.|
+|`--name`|<b>`string`</b><br/>group name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--organization-id`|<b>`string`</b><br/>Set the ID of the organization to use.|
+|`--new-name`|<b>`string`</b><br/>A new name of the group.|
+|`--description`|<b>`string`</b><br/>Specifies a textual description of the group.|
 
 #### Global Flags
 

@@ -1,21 +1,22 @@
-# yc organization-manager federation saml delete
+# yc serverless api-gateway websocket disconnect
 
-Delete the specified federation
+Close connection
 
 #### Command Usage
 
 Syntax: 
 
-`yc organization-manager federation saml delete <FEDERATION-NAME>|<FEDERATION-ID> [<FEDERATION-NAME>|<FEDERATION-ID>...] [Global Flags...]`
+`yc serverless api-gateway websocket disconnect <CONNECTION-ID> [<CONNECTION-ID>...] [Flags...] [Global Flags...]`
+
+Aliases: 
+
+- `close`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>federation id.|
-|`--name`|<b>`string`</b><br/>federation name.|
-|`--organization-id`|<b>`string`</b><br/>Set the ID of the organization to use.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--id`|<b>`string`</b><br/>Connection id.|
 
 #### Global Flags
 

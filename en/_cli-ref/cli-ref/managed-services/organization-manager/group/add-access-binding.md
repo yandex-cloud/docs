@@ -1,20 +1,27 @@
-# yc organization-manager federation saml delete
+# yc organization-manager group add-access-binding
 
-Delete the specified federation
+Add access binding for the specified group
 
 #### Command Usage
 
 Syntax: 
 
-`yc organization-manager federation saml delete <FEDERATION-NAME>|<FEDERATION-ID> [<FEDERATION-NAME>|<FEDERATION-ID>...] [Global Flags...]`
+`yc organization-manager group add-access-binding <GROUP-NAME>|<GROUP-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>federation id.|
-|`--name`|<b>`string`</b><br/>federation name.|
+|`--id`|<b>`string`</b><br/>group id.|
+|`--name`|<b>`string`</b><br/>group name.|
 |`--organization-id`|<b>`string`</b><br/>Set the ID of the organization to use.|
+|`--role`|<b>`string`</b><br/>Binding role ID.|
+|`--service-account-id`|<b>`string`</b><br/>Service account, whose access will be updated.|
+|`--service-account-name`|<b>`string`</b><br/>Service account, whose access will be updated.|
+|`--user-account-id`|<b>`string`</b><br/>User account, whose access will be updated.|
+|`--user-yandex-login`|<b>`string`</b><br/>User account, whose access will be updated.|
+|`--all-authenticated-users`|Access will be updated for all authenticated users|
+|`--subject`|<b>`string`</b><br/>Subject whose access will be updated; in TYPE:ID format, e.g. userAccount:\<ID\>, serviceAccount:\<ID\>, system:\<ID\>.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

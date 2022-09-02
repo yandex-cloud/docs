@@ -1,21 +1,21 @@
-# yc organization-manager federation saml delete
+# yc organization-manager group list-operations
 
-Delete the specified federation
+List operations for the specified group
 
 #### Command Usage
 
 Syntax: 
 
-`yc organization-manager federation saml delete <FEDERATION-NAME>|<FEDERATION-ID> [<FEDERATION-NAME>|<FEDERATION-ID>...] [Global Flags...]`
+`yc organization-manager group list-operations <GROUP-NAME>|<GROUP-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>federation id.|
-|`--name`|<b>`string`</b><br/>federation name.|
+|`--id`|<b>`string`</b><br/>group id.|
+|`--name`|<b>`string`</b><br/>group name.|
+|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 |`--organization-id`|<b>`string`</b><br/>Set the ID of the organization to use.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
 
