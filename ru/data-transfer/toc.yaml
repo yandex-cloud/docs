@@ -32,6 +32,12 @@ items:
                 href: operations/endpoint/source/eventhub.md
               - name: Greenplum®
                 href: operations/endpoint/source/greenplum.md
+              - name: Logbroker
+                href: operations/endpoint/source/logbroker.md
+                when: audience == "internal"
+              - name: Logfeller
+                href: operations/endpoint/source/logfeller.md
+                when: audience == "internal"
               - name: MongoDB
                 href: operations/endpoint/source/mongodb.md
               - name: MySQL
@@ -49,17 +55,8 @@ items:
               - name: YDB
                 href: operations/endpoint/source/ydb.md
                 when: product == "yandex-cloud"
-              - name: YDB
-                href: operations/endpoint/source/ydb.md
-                when: product == "yandex-cloud"
               - name: YT
                 href: operations/endpoint/source/yt.md
-                when: audience == "internal"
-              - name: Logbroker
-                href: operations/endpoint/source/logbroker.md
-                when: audience == "internal"
-              - name: Logfeller
-                href: operations/endpoint/source/logfeller.md
                 when: audience == "internal"
           - name: Настройка эндпоинтов-приемников
             items:
@@ -69,6 +66,12 @@ items:
                 href: operations/endpoint/target/clickhouse.md
               - name: Greenplum®
                 href: operations/endpoint/target/greenplum.md
+              - name: Logbroker
+                href: operations/endpoint/target/logbroker.md
+                when: audience == "internal"
+              - name: Logfeller
+                href: operations/endpoint/target/logfeller.md
+                when: audience == "internal"
               - name: MongoDB
                 href: operations/endpoint/target/mongodb.md
               - name: MySQL
@@ -82,12 +85,6 @@ items:
                 when: product == "yandex-cloud"
               - name: YT
                 href: operations/endpoint/target/yt.md
-                when: audience == "internal"
-              - name: Logbroker
-                href: operations/endpoint/target/logbroker.md
-                when: audience == "internal"
-              - name: Logfeller
-                href: operations/endpoint/target/logfeller.md
                 when: audience == "internal"
       - name: Управление трансфером
         href: operations/transfer.md
