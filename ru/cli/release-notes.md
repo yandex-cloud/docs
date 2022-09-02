@@ -1,18 +1,119 @@
 # Релизы YC CLI
 
-## Версия 0.94.0 (16.08.22) {#latest-release}
+## Версия 0.95.0 (02.09.22) {#latest-release}
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+{% if product == "yandex-cloud" and audience != "internal" %}
+
+#### {{ api-gw-name }} {#api-gw}
+
+* В команду `yc serverless api-gateway add-domain` добавлены параметры:
+  
+  * `--domain` — для указания FQDN подключаемого [домена](../certificate-manager/concepts/domains/index.md) из {{ certificate-manager-name }};
+  * `--certificate-id` — для указания идентификатора сертификата из {{ certificate-manager-name }}.
+
+  Параметр `--domain-id` считается устаревшим, вместо него рекомендуется использовать параметру `--domain` и `--certificate-id`.
+  
+* Добавлена группа команд `yc serverless api-gateway websocket` для работы с соединениями по протоколу WebSocket:
+
+  * `yc serverless api-gateway websocket get` — получение информации о соединении;
+  * `yc serverless api-gateway websocket send` — отправка данных в соединении;
+  * `yc serverless api-gateway websocket disconnect` — разрыв соединения.
+  
+{% endif %}
+
+
+{% if audience != "internal" %}
+
+#### {{ certificate-manager-name }} {#certificate-manager}
+
+* В команду `yc certificate-manager certificate content` добавлен параметр `--key-format` для выбора формата приватного ключа: `PKCS1` или `PKCS8`.
+
+{% endif %}
+
+
+{% if audience != "internal" %}
+
+#### {{ compute-name }} {#compute}
+
+* В команду `yc compute image create` добавлен параметр `--os-type` для указания типа операционной системы создаваемого образа: `linux` или `windows`.
+
+{% endif %}
+
+
+{% if audience != "internal" %}
+
+#### {{ dns-name }} {#dns}
+
+* Команды `yc dns zone add-records`, `yc dns zone update-records`, `yc dns zone delete-records` и `yc dns zone replace-records` теперь возвращают список выполненных изменений.
+
+{% endif %}
+
+
+{% if audience != "internal" %}
+
+#### {{ iam-name }} {#iam}
+
+* В группе команд `yc iam federation` исправлена ошибка, возникавшая при указании имени SAML-совместимой федерации как позиционного аргумента.
+
+{% endif %}
+
+
+{% if product == "yandex-cloud" and audience != "internal" %}
+
+#### {{ iot-name }} {#iot}
+
+* Команды `yc iot registry logs` и `yc iot device logs` теперь возвращают логи из {{ cloud-logging-name }}. В команды добавлены параметры:
+
+  * `--levels` — для поиска записей с указанными уровнями логирования;
+  * `--filter` — для фильтрации записей.
+
+  {% if audience != "internal" %}Подробнее о возможных значениях новых параметров см. в разделе [{#T}](../logging/concepts/filter.md). {% endif %}
+
+{% endif %}
+
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mkf-name }}**
+
+* Добавлена поддержка {{ KF }} версий 3.0, 3.1 и 3.2.
+
 {% if product == "yandex-cloud" %}
 
-#### {{ cloud-logging-name }} {#cloud-logging}
+**{{ mrd-name }}**
+
+* Прекращена поддержка {{ RD }} версий 5.0 и 6.0.
+
+{% endif %}
+
+
+{% if audience != "internal" %}
+
+#### {{ org-name }} {#organization}
+
+* В команды из группы `yc organization-manager federation saml` добавлен параметр `--organization-id` для указания идентификатора организации. Исправлена ошибка, возникавшая в этих командах при указании имени SAML-совместимой федерации как позиционного аргумента.
+* Добавлена группа команд `yc organization-manager group` для управления [группами пользователей](../organization/manage-groups.md).
+
+{% endif %}
+
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.94.0 (16.08.22) {#version0.94.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+{% if product == "yandex-cloud" %}
+
+##### {{ cloud-logging-name }} {#cloud-logging}
 
 * В команды `yc logging read` и `yc logging write` добавлен параметр `--stream-name`.
 
 {% endif %}
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 {% if product == "yandex-cloud" %}
 
@@ -57,18 +158,16 @@
   - `offsets-retention-minutes`
   - `ssl-cipher-suites`
 
-#### {{ vpc-name }} {#vpc}
+##### {{ vpc-name }} {#vpc}
 
 * Добавлена группа команд `yc vpc gateway` для управления шлюзами маршрутизации.
 * В команды группы `yc vpc route-table` добавлена возможность указать шлюз в качестве назначения маршрута.
 
-## Предыдущие релизы {#previous-releases}
+### Версия 0.93.0 (19.07.22) {#version0.93.0}
 
-## Версия 0.93.0 (19.07.22) {#version0.93.0}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
-
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mch-name }}**
 
@@ -97,7 +196,7 @@
 
 {% endif %}
 
-#### {{ managed-k8s-name }} {#k8s}
+##### {{ managed-k8s-name }} {#k8s}
 
 * Команды `yc managed-kubernetes node-group create` и `yc managed-kubernetes node-group update`:
 
@@ -107,13 +206,11 @@
 
 {% if product == "yandex-cloud" %}
 
-#### {{ serverless-containers-name }} {#serverless-containers}
+##### {{ serverless-containers-name }} {#serverless-containers}
 
 * В команду `yc serverless container revision deploy` добавлены флаги `--network-id` и `--network-name`, чтобы указывать сеть, которую будет использовать ревизия контейнера. Также в команду добавлен флаг `--subnets`, позволяющий получить детальный список подсетей.
 
 {% endif %}
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.92.0 (05.07.22) {#version0.92.0}
 
