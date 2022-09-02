@@ -7,6 +7,11 @@ To get started with the service:
 1. [Add the widget to the page](#add-widget).
 1. [Check the user response](#check-answer).
 
+## Before you begin {#before-begin}
+
+1. Go to the [management console]({{ link-console-main }}). Log in to {{ yandex-cloud }} or register if you don't have an account yet.
+1. [On the billing page]({{ link-console-billing }}), make sure you linked a {% if audience != "internal" %}[billing account](../billing/concepts/billing-account.md){% else %}billing account{% endif %} and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, {% if audience != "internal" %}[create one](../billing/quickstart/index.md){% else %}create one{% endif %}.
+
 ## Create a CAPTCHA {#creat-captcha}
 
 {% list tabs %}
@@ -15,7 +20,7 @@ To get started with the service:
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ captcha-full-name }}**.
-   1. Click **Create captcha**.
+   1. Click **Create CAPTCHA**.
    1. Enter a CAPTCHA name.
    1. Select the complexity:
       * **Easy**: A simple CAPTCHA.
@@ -39,7 +44,7 @@ To get started with the service:
 
 {% endlist %}
 
-With the client key, you can [add a widget](#add-widget) {{ captcha-name }} to your page. You'll need a server key to [check the user response](#check-answer).
+With the client key, you can [add a {{ captcha-name }} widget](#add-widget) to your page. You'll need a server key to [check the user response](#check-answer).
 
 ## Add the widget to the page {#add-widget}
 
@@ -130,7 +135,7 @@ Connect the {{ captcha-name }} widget using one of the methods:
 
 ## Check the user response {#check-answer}
 
-After the problem is solved, the user is issued a unique token to be stored in a hidden form field. To validate the token, send a GET request to `https://captcha-api.yandex.ru/validate` with the following parameters:
+After the problem is solved, the user is issued a unique token to be stored in a hidden field within the form. To validate the token, send a GET request to `https://captcha-api.yandex.ru/validate` with the following parameters:
 
 * `secret`: The key for the server part.
 * `token`: The token received after the check has been passed.
@@ -156,7 +161,7 @@ Example of the token validation function:
            path: '/validate?' + querystring.stringify({
                secret: SMARTCAPTCHA_SERVER_KEY,
                token: token,
-               ip: '<user IP>', // Method for retrieving the user IP depends on your framework and proxy.
+               ip: '<user IP>', // Method for retrieving user IP depends on your framework and proxy.
            }),
            method: 'GET',
        };
@@ -198,8 +203,8 @@ Example of the token validation function:
        $args = http_build_query([
            "secret" => SMARTCAPTCHA_SERVER_KEY,
            "token" => $token,
-           "ip" => $_SERVER['REMOTE_ADDR'], // You need to pass the user IP.
-                                            // Method for retrieving the user IP depends on your proxy.
+           "ip" => $_SERVER['REMOTE_ADDR'], // You need to pass in user IP.
+                                            // Method for retrieving user IP depends on your proxy.
        ]);
        curl_setopt($ch, CURLOPT_URL, "https://captcha-api.yandex.ru/validate?$args");
        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -242,7 +247,7 @@ Example of the token validation function:
            {
                "secret": SMARTCAPTCHA_SERVER_KEY,
                "token": token,
-               "ip": "<User IP>"  # Method for retrieving the IP depends on your framework and proxy.                                   
+               "ip": "<User IP>"  # Method for retrieving IP depends on your framework and proxy.                                   
                                                 # For example, in Flask, this can be request.remote_addr
            },
            timeout=1
@@ -252,7 +257,7 @@ Example of the token validation function:
            print(f"Allow access due to an error: code={resp.status_code}; message={server_output}", file=sys.stderr)
            return True
        return json.loads(server_output)["status"] == "ok"
-   token = "<token>"  # For example, request.form["smart-token"]
+   token = "<token>"  # Fоr example, request.form["smart-token"]
    if check_captcha(token):
        print("Passed")
    else:
