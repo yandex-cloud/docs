@@ -9,11 +9,9 @@ You can also work with the {{ ydb-full-name }} database through:
 * [AWS SDK](docapi/tools/aws-sdk/index.md).
 * [AWS CLI](docapi/tools/aws-cli/index.md).
 
-Install the necessary tools and set up a [DB connection](concepts/connect.md).
-
 ## Before you begin {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+1. Go to the [management console ]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
@@ -35,7 +33,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select a folder to create your database in.
-   1. In the list of services, select **{{ ydb-full-name }}**.
+   1. In the list of services, select **{{ ydb-name }}**.
    1. Click **Create database**.
    1. Enter the database **Name**. Naming requirements:
 
@@ -117,7 +115,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
    1. Under **Network**, configure network settings:
       1. (optional) In the **Public IP addresses** field, select **Assign** if you plan to query the database from the {{ yandex-cloud }} network and the internet.
 
-         {% include [traffic_metering](_includes/traffic_metering.md) %}
+         {% include  [traffic_metering](_includes/traffic_metering.md) %}
 
       1. Select an existing network from the **Cloud network** list or create a new one:
          1. Click **Create new**.
@@ -236,7 +234,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with the desired DB.
-   1. In the list of services, select **{{ ydb-full-name }}**.
+   1. In the list of services, select **{{ ydb-name }}**.
    1. Select the database you created earlier.
    1. Go to the **Navigation** tab.
    1. Click **SQL query** and enter the query text:
@@ -258,7 +256,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
    1. {% include [cli-install](../_includes/cli-install.md) %}
    1. To manage your databases from the command line, [install](https://ydb.tech/en/docs/reference/ydb-cli/install) the YDB CLI.
-   1. To log in to the YDB CLI in {{ yandex-cloud }}, get an [IAM token](../iam/concepts/authorization/iam-token.md) and export it to the following environment variable:
+   1. To authenticate the YDB CLI in {{ yandex-cloud }}, get an [IAM token](../iam/concepts/authorization/iam-token.md) and export it to the following environment variable:
 
       ```bash
       export IAM_TOKEN=`yc iam create-token`
@@ -304,5 +302,5 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 ## What's next {#whats-next}
 
 * Learn more about [working with databases](operations/index.md).
-* Learn more about the [YQL](https://ydb.tech/en/docs/yql/reference/) query language.
 * Read about [service concepts](concepts/index.md).
+* Learn more about the [YQL](https://ydb.tech/en/docs/yql/reference/) query language.

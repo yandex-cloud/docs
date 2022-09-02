@@ -5,7 +5,6 @@
 To learn more about {{ ydb-full-name }} concepts, see the following articles:
 
 * [{#T}](resources.md).
-* [{#T}](connect.md).
 * [{#T}](serverless-and-dedicated.md).
 * [{#T}](dynamodb-tables.md).
 * [{#T}](limits.md).

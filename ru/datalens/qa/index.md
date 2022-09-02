@@ -140,6 +140,8 @@ description: "Как получить логи моей работы в серв
 
 {% include [null-setting-in-charts](../../_includes/datalens/qa/null-setting-in-charts.md) %}
 
+{% include [new-datetime](../../_includes/datalens/qa/new-datetime.md) %}
+
 ## Вычисляемые поля {#calculation-fields}
 
 {% include [calculate-cumulative-sum](../../_includes/datalens/qa/calculating-cumulative-sum.md) %}

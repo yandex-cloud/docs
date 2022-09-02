@@ -17,20 +17,19 @@
     1. Задайте параметры эндпоинта:
         * Источники:
             * Airbyte®:
-              * [AWS CloudTrail](source/aws-cloudtrail.md)
-              * [BigQuery](source/bigquery.md)
-              * [S3](source/s3.md)
+                * [AWS CloudTrail](source/aws-cloudtrail.md)
+                * [BigQuery](source/bigquery.md)
+                * [S3](source/s3.md)
             * [{{ KF }}](source/kafka.md)
             * [{{ CH }}](source/clickhouse.md)
+            * [{{ eventhub-name }}](source/eventhub.md)
             * [{{ GP }}](source/greenplum.md)
             * [{{ MG }}](source/mongodb.md)
             * [{{ MY }}](source/mysql.md)
             * [Oracle](source/oracle.md)
             * [{{ PG }}](source/postgresql.md)
-                        * [{{ yds-full-name }}](source/data-streams.md)
-
+            * [{{ yds-full-name }}](source/data-streams.md)
             * [{{ ydb-full-name }}](source/ydb.md)
-
         * Приемники:
             * [{{ KF }}](target/kafka.md)
             * [{{ CH }}](target/clickhouse.md)
@@ -40,7 +39,6 @@
             * [{{ objstorage-name }}](target/object-storage.md)
             * [{{ PG }}](target/postgresql.md)
             * [{{ ydb-name }}](target/yandex-database.md)
-
     1. Нажмите кнопку **Создать**.
 
 - CLI
@@ -180,26 +178,28 @@
     1. Отредактируйте параметры эндпоинта:
         * Источники:
             * Airbyte®:
-              * [AWS CloudTrail](source/aws-cloudtrail.md).
-              * [BigQuery](source/bigquery.md).
-              * [S3](source/s3.md).
-            * [{{ KF }}](source/kafka.md).
-            * [{{ CH }}](source/clickhouse.md).
-            * [{{ GP }}](source/greenplum.md).
-            * [{{ MG }}](source/mongodb.md).
-            * [{{ MY }}](source/mysql.md).
-            * [Oracle](source/oracle.md).
-            * [{{ PG }}](source/postgresql.md).
-            * [{{ yds-full-name }}](source/data-streams.md).
+                * [AWS CloudTrail](source/aws-cloudtrail.md)
+                * [BigQuery](source/bigquery.md)
+                * [S3](source/s3.md)
+            * [{{ KF }}](source/kafka.md)
+            * [{{ CH }}](source/clickhouse.md)
+            * [{{ eventhub-name }}](source/eventhub.md)
+            * [{{ GP }}](source/greenplum.md)
+            * [{{ MG }}](source/mongodb.md)
+            * [{{ MY }}](source/mysql.md)
+            * [Oracle](source/oracle.md)
+            * [{{ PG }}](source/postgresql.md)
+            * [{{ yds-full-name }}](source/data-streams.md)
+            * [{{ ydb-full-name }}](source/ydb.md)
         * Приемники:
-            * [{{ CH }}](target/clickhouse.md).
-            * [{{ GP }}](target/greenplum.md).
-            * [{{ MG }}](target/mongodb.md).
-            * [{{ MY }}](target/mysql.md).
-            * [{{ objstorage-name }}](target/object-storage.md).
-            * [{{ PG }}](target/postgresql.md).
-            * [{{ ydb-name }}](target/yandex-database.md).
-
+            * [{{ KF }}](target/kafka.md)
+            * [{{ CH }}](target/clickhouse.md)
+            * [{{ GP }}](target/greenplum.md)
+            * [{{ MG }}](target/mongodb.md)
+            * [{{ MY }}](target/mysql.md)
+            * [{{ objstorage-name }}](target/object-storage.md)
+            * [{{ PG }}](target/postgresql.md)
+            * [{{ ydb-name }}](target/yandex-database.md)
     1. Нажмите кнопку **Применить**.
 
 - {{ TF }}

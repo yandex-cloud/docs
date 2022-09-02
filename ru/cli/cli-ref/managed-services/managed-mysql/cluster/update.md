@@ -28,6 +28,7 @@ Syntax:
 |`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host|
 |`--disk-type`|<b>`string`</b><br/>Type of the storage environment for a host|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
+|`--backup-retain-period-days`|<b>`int`</b><br/>Retention policy of automated backups.|
 |`--datalens-access`|Allow access for DataLens|
 |`--websql-access`|Allow access for Web SQL|
 |`--datatransfer-access`|Allow access for DataTransfer|

@@ -14,6 +14,7 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>federation id.|
 |`--name`|<b>`string`</b><br/>federation name.|
+|`--organization-id`|<b>`string`</b><br/>Set the ID of the organization to use.|
 |`--new-name`|<b>`string`</b><br/>A new name of the federation.|
 |`--description`|<b>`string`</b><br/>Specifies a textual description of the federation.|
 |`--issuer`|<b>`string`</b><br/>Specifies an issuer of the federation.|

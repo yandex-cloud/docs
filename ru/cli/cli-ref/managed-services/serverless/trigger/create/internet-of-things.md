@@ -11,6 +11,10 @@ Syntax:
 
 `yc serverless trigger create internet-of-things <TRIGGER-NAME> [Flags...] [Global Flags...]`
 
+Aliases: 
+
+- `iot-devices`
+
 #### Flags
 
 | Flag | Description |

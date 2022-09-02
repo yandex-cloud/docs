@@ -9,7 +9,7 @@ Manage API Gateways
 
 Syntax: 
 
-`yc serverless api-gateway <command>`
+`yc serverless api-gateway <group|command>`
 
 Aliases: 
 
@@ -32,6 +32,10 @@ Aliases:
 - [yc serverless api-gateway remove-access-binding](remove-access-binding.md) — Remove access binding for the specified API Gateway
 - [yc serverless api-gateway add-domain](add-domain.md) — Attach domain to the specified API Gateway
 - [yc serverless api-gateway remove-domain](remove-domain.md) — Detach domain from the specified API Gateway
+- [yc serverless api-gateway websocket](websocket/index.md) — Manage websocket connections
+	- [yc serverless api-gateway websocket get](websocket/get.md) — Get connection
+	- [yc serverless api-gateway websocket send](websocket/send.md) — Send data to connection
+	- [yc serverless api-gateway websocket disconnect](websocket/disconnect.md) — Close connection
 
 #### Global Flags
 

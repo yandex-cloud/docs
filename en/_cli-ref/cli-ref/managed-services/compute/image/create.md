@@ -19,6 +19,7 @@ Syntax:
 |`--min-disk-size`|<b>`byteSize`</b><br/>Specify minimum size of the disk which will be created from this image.|
 |`--product-ids`|<b>`value[,value]`</b><br/>A list of product license IDs. Used for billing purposes.|
 |`--pooled`|Create image pool for this image.|
+|`--os-type`|<b>`string`</b><br/>OS type (optional). Values: 'linux', 'windows'|
 |`--source-image-name`|<b>`string`</b><br/>A source image used to create the image.|
 |`--source-image-id`|<b>`string`</b><br/>An ID of the source image used to create the image.|
 |`--source-family`|<b>`string`</b><br/>The family of the source image.|
