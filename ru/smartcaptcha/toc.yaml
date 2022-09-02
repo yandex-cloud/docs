@@ -13,7 +13,9 @@ items:
       - name: Удалить капчу
         href: operations/delete-captcha.md     
       - name: Получить ключи
-        href: operations/get-keys.md 
+        href: operations/get-keys.md
+      - name: Добавить виджет расширенным методом
+        href: operations/advanced-method.md
   - name: Концепции
     items:
       - name: Валидация пользователя
