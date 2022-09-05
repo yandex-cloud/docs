@@ -1,6 +1,6 @@
 # S3cmd
 
-[S3cmd](https://s3tools.org/s3cmd) is a console client (Linux, Mac) for services that support the Amazon S3 HTTP API. The general procedure for running commands is described in the [official S3cmd documentation](https://s3tools.org/usage).
+[S3cmd](https://s3tools.org/s3cmd) is a console client (Linux, Mac) for services that support the Amazon S3 HTTP API. General procedure for running commands can be found in the [official s3cmd documentation](https://s3tools.org/usage).
 
 ## Before you start {#before-you-begin}
 
@@ -10,26 +10,22 @@
 
 To learn how to download and install S3cmd, see the [Download](https://s3tools.org/download) section on the official website of the project.
 
-## Configuration {#setup}
+## Setup {#setup}
 
-To configure S3cmd, use the `s3cmd --configure` command. The command requests values for the following parameters:
+To configure S3cmd, use the `s3cmd --configure` command. For a query, specify values for the following parameters:
 
-1. `Access Key`: Enter the ID of the key that you received when generating the [static key](../../iam/concepts/authorization/access-key.md).
-
-1. `Secret Key`: Enter the secret key that you received when generating the [static key](../../iam/concepts/authorization/access-key.md).
-
+1. `Access Key`: Enter the ID of the key that you received when generating the {% if audience != "internal" %}[static key](../../iam/concepts/authorization/access-key.md){% else %}static key{% endif %}.
+1. `Secret Key`: Enter the secret key that you received when generating the {% if audience != "internal" %}[static key](../../iam/concepts/authorization/access-key.md){% else %}static key{% endif %}.
 1. `Default Region`: Enter `{{ region-id }}`.
 
    {% note info %}
 
-   Always specify the `{{ region-id }}` region when accessing {{ objstorage-name }}. A different region value may lead to an authorization error.
+   To work with {{ objstorage-name }}, always specify `{{ region-id }}` as the region. A different region value may lead to an authorization error.
 
    {% endnote %}
 
 1. `S3 Endpoint`: Enter `{{ s3-storage-host }}`.
-
 1. `DNS-style bucket+hostname:port template for accessing a bucket`: Enter `%(bucket)s.{{ s3-storage-host }}`.
-
 1. Leave the other parameter values unchanged.
 
 The client tries to establish a connection with {{ objstorage-name }} and get a list of buckets. If successful, it will return `Success. Your access key and secret key worked fine :-)`.
@@ -57,8 +53,9 @@ website_endpoint = http://%(bucket)s.{{ s3-web-host }}
 
 - S3cmd treats {{ objstorage-name }} as a hierarchical file system and object keys look like file paths.
 - By default, S3cmd uploads objects to cold storage. To specify the [storage class](../concepts/storage-class.md) when uploading an object, use the `--storage-class` key.
+- By default, when uploading an object, S3cmd can send the additional header `x-amz-meta-s3cmd-attrs` with the attributes of your file (access rights, file owners, timestamps). The header value is saved in the [metadata](../concepts/object.md#metadata) of the object. You can disable the sending of attributes using the `preserve_attrs = False` parameter in the configuration file `~/.s3cfg` or using the `--no-preserve` key.
 
-## Examples of operations {#s3cmd-examples}
+## Operation examples {#s3cmd-examples}
 
 {% note info %}
 
@@ -107,4 +104,3 @@ s3cmd get s3://bucket/object local_file
 ```bash
 s3cmd del s3://bucket/object
 ```
-

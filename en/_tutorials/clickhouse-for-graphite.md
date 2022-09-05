@@ -1,12 +1,12 @@
-# Configuring a managed database in a {{ CH }} cluster for Graphite
+# Configuring {{ mch-name }} for Graphite
 
 {{ mch-full-name }} can be used as data storage for [Graphite](https://graphite.readthedocs.io/en/latest/index.html).
 
-The table engine [GraphiteMergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/graphitemergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/graphitemergetree/){% endif %} enables you to trim and aggregate or average the contents of a database specifically for Graphite. The engine reduces the data storage volume and improves the efficiency of queries from Graphite.
+The table engine [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/) enables you to trim and aggregate or average the contents of a database specifically for Graphite. The engine reduces the data storage volume and improves the efficiency of queries from Graphite.
 
 {% note info %}
 
-If trimming and aggregation or averaging are not required, any {{ CH }} [table engine]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/){% endif %} can be used to store Graphite data.
+If trimming and aggregation or averaging are not required, any {{ CH }} [table engine]({{ ch.docs }}/engines/table-engines/) can be used to store Graphite data.
 
 {% endnote %}
 
@@ -30,8 +30,8 @@ If you no longer need these resources, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of maintaining your {{ CH }} database for Graphite includes:
-* A payment for the cluster's computing resources, the amount of storage and backups (see [{{ mch-full-name }} pricing](https://cloud.yandex.ru/docs/managed-clickhouse/pricing)).
-* A payment for a running VM to manage a database (see [{{ compute-full-name }} pricing](https://cloud.yandex.ru/docs/compute/pricing)).
+* A payment for the cluster's computing resources, the amount of storage and backups (see [{{ mch-full-name }} pricing](../managed-clickhouse/pricing)).
+* A payment for a running VM to manage a database (see [{{ compute-full-name }} pricing](../compute/pricing)).
 
 {% endif %}
 
@@ -71,6 +71,11 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
       yc managed-clickhouse cluster add-graphite-rollup <CLUSTER_ID> --rollup-file-name <path to yaml file>
       ```
 
+      Where:
+
+      * `<CLUSTER_ID>`: Cluster ID.
+      * `<path to yaml file>`: Path to `graphite-rollup.yaml`.
+
       For more information about the `managed-clickhouse cluster add-graphite-rollup` command, see the [CLI reference](../cli/cli-ref/managed-services/managed-clickhouse/cluster/add-graphite-rollup.md).
 
       {% note info %}
@@ -108,8 +113,8 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 ## Create and configure a virtual machine {#VM-setup}
 
 1. {% if audience != "internal" %}In the same [cloud network](../vpc/concepts/network.md) where the cluster is located, [create](../compute/operations/vm-create/create-linux-vm.md) a VM on Linux. {% else %}In the same cloud network where the cluster is located, create a VM on Linux. {% endif %}
-1. [Connect](https://cloud.yandex.ru/docs/compute/operations/vm-connect/ssh) to the VM via SSH.
-1. Add the {{ CH }} [DEB repository]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/getting-started/install/#install-from-deb-packages){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/getting-started/install/#install-from-deb-packages){% endif %}:
+1. [Connect](../compute/operations/vm-connect/ssh) to the VM via SSH.
+1. Connect the [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
    ```bash
    sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
@@ -127,7 +132,7 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 1. Download the configuration file for `clickhouse-client`:
 
    ```bash
-   mkdir -p ~/.clickhouse-client && wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
+   mkdir -p ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
    ```
 
 1. Get an SSL certificate:
@@ -135,18 +140,18 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
    {% if audience != "internal" %}
 
    ```bash
-    mkdir --parents {{ crt-local-dir }} && \
-    wget "https://{{ s3-storage-host }}{{ pem-path }}" \
-        --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
-    chmod 655 {{ crt-local-dir }}{{ crt-local-file }}
+   mkdir --parents /usr/local/share/ca-certificates/Yandex/ && \
+   wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
+       --output-document /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
+   chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
    ```
 
    {% else %}
 
    ```bash
-    wget "{{ pem-path }}" \
-        --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
-    chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
+   wget "{{ pem-path }}" \
+       --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
+   chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
    ```
 
    {% endif %}
@@ -154,7 +159,7 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 ## Connect the virtual machine to a database {#cluster-connect}
 
 1. [Configure security groups](../managed-clickhouse/operations/connect.md#configuring-security-groups) for the cloud network to permit all the required traffic between the cluster and the VM.
-1. [Connect](https://cloud.yandex.ru/docs/compute/operations/vm-connect/ssh).
+1. [Connect](../compute/operations/vm-connect/ssh).
 1. Run the ClickHouse CLI with the following parameters: specify the earlier saved parameters in place of `<host FQDN>`, `<database name>`, `<database username>`, and `<database user password>`.
 
    ```bash
@@ -172,7 +177,7 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 
 - ClickHouse CLI
 
-   In the ClickHouse CLI interface, run a query to create a [GraphiteMergeTree table]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/graphitemergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/graphitemergetree/){% endif %}. Pass the name of the `rollup` section described earlier:
+   In the ClickHouse CLI interface, run a query to create a [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/) table. Pass the name of the `rollup` section described earlier:
 
    ```bash
    CREATE TABLE GraphiteTable
