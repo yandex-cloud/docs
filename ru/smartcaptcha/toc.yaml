@@ -1,6 +1,5 @@
 title: Yandex SmartCaptcha
 href: index.yaml
-stage: tech-preview
 items:
   - name: Начало работы
     href: quickstart.md

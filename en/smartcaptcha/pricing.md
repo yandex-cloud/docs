@@ -4,10 +4,6 @@ editable: false
 
 # Pricing for {{ captcha-full-name }}
 
-The service is at the [Preview](../overview/concepts/launch-stages.md) stage, {{ captcha-full-name }} can be used free of charge.
-
-The service will be charged when it enters the [General Availability](../overview/concepts/launch-stages.md) stage.
-
 
 ## What will go into the cost of using {{ captcha-full-name }} {#rules}
 

@@ -1,8 +1,6 @@
 title: Yandex SmartCaptcha
 description:
   - >-
-    <em>Сервис Yandex SmartCaptcha находится на стадии <a href="/docs/overview/concepts/launch-stages">Preview</a></em>.
-  - >-
     Yandex SmartCaptcha позволяет определить, кем является пользователь системы: человеком или компьютером.
 meta:
   title: Yandex SmartCaptcha

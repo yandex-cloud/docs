@@ -4,10 +4,6 @@ editable: false
 
 # Правила тарификации для {{ captcha-full-name }}
 
-Сервис находится на стадии [Preview](../overview/concepts/launch-stages.md), использование сервиса {{ captcha-full-name }} не тарифицируется.
-
-Указанные цены вступят в силу, когда сервис перейдет на стадию [Общедоступная версия (General Availability)](../overview/concepts/launch-stages.md).
-
 
 ## Из чего будет складываться стоимость использования {{ captcha-full-name }} {#rules}
 
