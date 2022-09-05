@@ -8,7 +8,7 @@
 
    {% if product == "yandex-cloud" %}
    
-    ```
+    ```bash
     yc init --federation-id=<ID федерации>
     ```
    
@@ -16,7 +16,7 @@
    
    {% if product == "cloud-il" %}
    
-   ```
+   ```bash
    yc init \
      --endpoint {{ api-host }}:443 \
      --federation-endpoint {{ console-host }} \
@@ -64,8 +64,13 @@
    
    {% if product == "yandex-cloud" %}
    
-   ```
+   ```bash
    yc config list
+   ```
+
+   Результат:
+
+   ```bash
    federation-id: aje1f0hs6ojais2f6ai2
    ...
    ```
@@ -74,8 +79,13 @@
 
    {% if product == "cloud-il" %}
 
-   ```
+   ```bash
    yc config list
+   ```
+
+   Результат:
+
+   ```bash
    endpoint: {{ api-host }}:443
    federation-id: aje1f0hs6ojais2f6ai2
    ...
