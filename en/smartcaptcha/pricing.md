@@ -5,7 +5,7 @@ editable: false
 # Pricing for {{ captcha-full-name }}
 
 
-## What will go into the cost of using {{ captcha-full-name }} {#rules}
+## What goes into the cost of using {{ captcha-full-name }} {#rules}
 
 You are charged for [{{ captcha-name }} API requests](./quickstart.md#check-answer) at `https://captcha-api.yandex.ru/validate`.
 

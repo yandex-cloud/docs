@@ -5,7 +5,7 @@ editable: false
 # Правила тарификации для {{ captcha-full-name }}
 
 
-## Из чего будет складываться стоимость использования {{ captcha-full-name }} {#rules}
+## Из чего складывается стоимость использования {{ captcha-full-name }} {#rules}
 
 Тарифицируются [запросы к API {{ captcha-name }}](./quickstart.md#check-answer) по адресу `https://captcha-api.yandex.ru/validate`.
 
