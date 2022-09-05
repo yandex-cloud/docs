@@ -1,12 +1,12 @@
 # Downloading metrics
 
-To read metric data, use the [read](../../api-ref/MetricsData/read.md) method.
+To download metric data, use the [read](../../api-ref/MetricsData/read.md).
 
 {% include [before-beginning](../../../_includes/monitoring/before-beginning.md) %}
 
-### Sample request {#sample-request}
+### Example query{#sample-request}
 
-1. Create a file with the request body (for example, `body.json`). In the `query` property, specify the query text.
+1. Create a file with the request body (for example, `body.json`).
 
    For example, the request below gets metric data on CPU usage from 00:00 UTC on July 24 to 00:00 UTC on July 31 for the virtual machine with ID `epdpfhoh1r83vdmdnjuf`.
 
@@ -21,6 +21,15 @@ To read metric data, use the [read](../../api-ref/MetricsData/read.md) method.
        }
    }
    ```
+
+   Where:
+
+   * `query`: Query text:
+      * `cpu_usage`: CPU usage.
+      * `resource_id`: Virtual machine ID.
+   * `fromTime`: Period start.
+   * `toTime`: Period end.
+
 
 1. Send the request and save the response to a file, for example, `output.json`:
 

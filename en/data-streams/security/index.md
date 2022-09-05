@@ -2,7 +2,7 @@
 
 {{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. If a user doesn't have any roles assigned, almost all operations are forbidden.
 
-To allow access to {{ yds-full-name }} resources (streams, {{ydb-full-name}} databases that store them, and DB users), assign the user the required roles from the list below. For now, a role can only be assigned to a parent resource (folder or cloud), whose roles are inherited by nested resources.
+To allow access to {{ yds-full-name }} resources (streams, {{ydb-full-name}} databases that store them, and DB users), assign the user the required roles from the list below. Currently, a role can only be assigned to a parent resource (folder or cloud). Roles are inherited by nested resources.
 
 {% note info %}
 
@@ -28,7 +28,7 @@ Users with the `yds.viewer` role can read data from {{ yds-name }} streams and v
 
 ### yds.editor {#yds-editor}
 
-Users with the `yds.editor` role can read data from {{ yds-name }} streams and write data to them, as well as change the stream settings. The `yds.editor` role also includes all permissions of the `ydb.editor` role.
+The `yds.writer` role allows writing data to {{ yds-name }} streams.
 
 ### yds.admin {#yds-admin}
 
@@ -51,4 +51,3 @@ The `{{ roles-editor }}` role also includes all permissions of the `{{ roles-vie
 Users with the `{{ roles-admin }}` role can manage resource access rights, for example, allow other users to create streams or view information about them.
 
 The `{{ roles-admin }}` role also includes all permissions of the `{{ roles-editor }}` role.
-

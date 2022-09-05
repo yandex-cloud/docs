@@ -1,0 +1,18 @@
+title: Yandex SmartCaptcha
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Concepts
+    items:
+      - name: Widget connection methods
+        href: concepts/widget-methods.md
+      - name: Restricted mode
+        href: concepts/restricted-mode.md
+      - name: Invisible CAPTCHA
+        href: concepts/invisible-captcha.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Pricing policy
+    href: pricing.md
+base: en/smartcaptcha
