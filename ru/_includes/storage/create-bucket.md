@@ -26,23 +26,23 @@
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-     
+          
      ```
      provider "yandex" {
-       token     = "<OAuth>"
-       cloud_id  = "<идентификатор облака>"
-       folder_id = "<идентификатор каталога>"
+       token     = "<IAM-_или_OAuth-токен>"
+       cloud_id  = "<идентификатор_облака>"
+       folder_id = "<идентификатор_каталога>"
        zone      = "{{ region-id }}-a"
      }
 
      resource "yandex_iam_service_account" "sa" {
-       name      = "<имя_сервисного_аккаунта>"
+       name = "<имя_сервисного_аккаунта>"
      }
 
      // Назначение роли сервисному аккаунту
      resource "yandex_resourcemanager_folder_iam_member" "sa-editor" {
-       role      = "storage.editor"
-       member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
+       role   = "storage.editor"
+       member = "serviceAccount:${yandex_iam_service_account.sa.id}"
      }
 
      // Создание статического ключа доступа
@@ -55,9 +55,11 @@
      resource "yandex_storage_bucket" "test" {
        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
-       bucket = "<имя_бакета>"
+       bucket     = "<имя_бакета>"
      }
      ```
+
+
      
      Где:
      
@@ -66,7 +68,7 @@
      * `yandex_storage_bucket` — описание бакета:
        * `bucket` — имя бакета.
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/storage_bucket).
 
   1. Проверьте корректность конфигурационных файлов.
 

@@ -39,6 +39,8 @@ items:
             href: operations/objects/info.md
           - name: Скачивание объекта
             href: operations/objects/download.md
+          - name: Восстановление версии объекта
+            href: operations/objects/restore-object-version.md
           - name: Получение публичной ссылки на объект
             href: operations/objects/link-for-download.md
           - name: Удаление объекта
