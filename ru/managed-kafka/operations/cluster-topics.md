@@ -67,35 +67,19 @@
 
         О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
 
-    1. В описании кластера {{ mkf-name }} добавьте блок `topic`:
+    1. Добавьте ресурс `yandex_mdb_kafka_topic` и, при необходимости, задайте [настройки топика](../concepts/settings-list.md#topic-settings) в блоке `topic_config`:
 
         ```hcl
-        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
-           topic {
-             name               = "<имя топика>"
-             partitions         = <количество разделов>
-             replication_factor = <фактор репликации>
-           }
-           ...
-        }
-        ```
-
-    1. При необходимости задайте [настройки топика](../concepts/settings-list.md#topic-settings) в блоке `topic_config`:
-
-        ```hcl
-        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
-           topic {
-             name               = "<имя топика>"
-             partitions         = <количество разделов>
-             replication_factor = <фактор репликации>
-
-             topic_config {
-               compression_type = "<тип сжатия>"
-               flush_messages   = <максимальное число сообщений в памяти>
-               ...
-             }
-           }
-           ...
+        resource "yandex_mdb_kafka_topic" "<имя топика>" {
+          cluster_id         = "<идентификатор кластера>"
+          name               = "<имя топика>"
+          partitions         = <количество разделов>
+          replication_factor = <фактор репликации>
+          topic_config {
+            compression_type = "<тип сжатия>"
+            flush_messages   = <максимальное число сообщений в памяти>
+            ...
+          }
         }
         ```
 
@@ -107,9 +91,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_topic).
 
 {% if api != "noshow" %}
 
@@ -180,22 +162,19 @@
 
         О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
 
-    1. Измените в описании кластера {{ mkf-name }} значение параметров в блоках `topic` или `topic_config`:
+    1. Измените значение параметров в описании ресурса `yandex_mdb_kafka_topic`:
 
         ```hcl
-        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
-          topic {
-            name               = "<имя топика>"
-            partitions         = <количество разделов>
-            replication_factor = <фактор репликации>
-
-            topic_config {
-              compression_type = "<тип сжатия>"
-              flush_messages   = <максимальное число сообщений в памяти>
-              ...
-            }
+        resource "yandex_mdb_kafka_topic" "<имя топика>" {
+          cluster_id         = "<идентификатор кластера>"
+          name               = "<имя топика>"
+          partitions         = <количество разделов>
+          replication_factor = <фактор репликации>
+          topic_config {
+            compression_type = "<тип сжатия>"
+            flush_messages   = <максимальное число сообщений в памяти>
+            ...
           }
-          ...
         }
         ```
 
@@ -207,9 +186,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_topic).
 
 {% if api != "noshow" %}
 
@@ -268,7 +245,7 @@
 
         О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
 
-    1. В описании кластера {{ mkf-name }} удалите блок `topic` с описанием топика.
+    1. Удалите ресурс `yandex_mdb_kafka_topic` с описанием нужного топика.
     1. Проверьте корректность настроек.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -277,9 +254,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_topic).
 
 {% if api != "noshow" %}
 
