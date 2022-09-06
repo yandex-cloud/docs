@@ -118,6 +118,8 @@ items:
         href: concepts/index.md
       - name: Сеть в {{ data-transfer-full-name }}
         href: concepts/network.md
+      - name: Скорость копирования данных в {{ data-transfer-full-name }}
+        href: concepts/copy-speed.md
       - name: Какие задачи решает сервис
         href: concepts/use-cases.md
       - name: Жизненный цикл трансфера
