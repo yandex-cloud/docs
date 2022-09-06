@@ -26,6 +26,14 @@ items:
             href: operations/users/get.md
           - name: Deleting a user
             href: operations/users/delete.md
+      - name: Groups of users
+        items:
+          - name: Creating a group
+            href: operations/groups/create.md
+          - name: Setting up group access bindings
+            href: operations/groups/access-binding-object.md
+          - name: Granting group permissions
+            href: operations/groups/access-binding-subject.md
       - name: Service accounts
         items:
           - name: Creating a service account
@@ -34,7 +42,7 @@ items:
             href: operations/sa/update.md
           - name: Assigning roles to a service account
             href: operations/sa/assign-role-for-sa.md
-          - name: Setting up access rights for a service account
+          - name: Setting up access rights for service accounts
             href: operations/sa/set-access-bindings.md
           - name: Creating static access keys
             href: operations/sa/create-access-key.md
@@ -42,7 +50,7 @@ items:
             href: operations/sa/delete-access-key.md
           - name: Getting the service account ID
             href: operations/sa/get-id.md
-          - name: Deleting service accounts
+          - name: Deleting a service account
             href: operations/sa/delete.md
       - name: Roles
         items:
@@ -135,5 +143,5 @@ items:
         href: qa/general.md
       - name: Logging in and accessing resources
         href: qa/access.md
-      - name: All questions on the same page
+      - name: All questions on one page
         href: qa/index.md
