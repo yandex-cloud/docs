@@ -53,7 +53,11 @@
  
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
+  {% if audience != "internal" %}
+
   Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% endif %}
 
   Чтобы выбрать сертификат из {{ certificate-manager-name }}:
 

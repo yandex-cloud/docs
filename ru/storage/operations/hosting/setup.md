@@ -133,7 +133,11 @@
  
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
+  {% if audience != "internal" %}
+
   Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% endif %}
 
   Чтобы настроить переадресацию всех запросов:
 
@@ -221,7 +225,11 @@
  
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
+  {% if audience != "internal" %}
+  
   Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% endif %}
 
   Чтобы настроить условную переадресацию запросов:
 
