@@ -2,7 +2,7 @@
 
 {{ mgp-short-name }} поддерживает некоторые расширения {{ GP }}. См. [полный список доступных расширений и их версий](#greenplum).
 
-## Получить список установленных расширений {#list-extensions}
+## Получить список расширений доступных для установки {#available-extensions}
 
 Подключитесь к выбранной базе данных и выполните команду:
 
@@ -10,12 +10,29 @@
 SELECT * FROM pg_available_extensions();
 ```
 
-Будет выведен список расширений, установленных в БД:
+Будет выведен список расширений БД доступных для установки:
 
 ```text
 name                    | default_version | comment                            
 ------------------------+-----------------+------------------------------
  diskquota              | 1.0             | Disk Quota Main Program
+...
+```
+
+## Получить список установленных расширений {#list-extensions}
+
+Подключитесь к выбранной базе данных и выполните команду:
+
+```sql
+SELECT extname FROM pg_extension;
+```
+
+Будет выведен список расширений, установленных в БД:
+
+```text
+      extname
+-------------------
+ plpgsql
 ...
 ```
 
@@ -52,7 +69,7 @@ CREATE EXTENSION <имя расширения>;
 Добавляет тип данных для хранения пар <q>ключ-значение</q> в одном поле.
 | 1.3 ||
 || [pgcrypto](https://gpdb.docs.pivotal.io/latest/ref_guide/modules/pgcrypto.html)
-Добавляет функции шифрования данных.
+Добавляет функции шифрования данных. Подробнее см. в разделе [{#T}](./pgcrypto.md).
 | 1.1 ||
 || [plperl](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/5/greenplum-database/GUID-ref_guide-extensions-pl_perl.html)
 Включает поддержку процедурного языка PL/Perl.
@@ -68,4 +85,4 @@ CREATE EXTENSION <имя расширения>;
 | 2.0 ||
 |#
 
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+{% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

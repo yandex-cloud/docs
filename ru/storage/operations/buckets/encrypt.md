@@ -40,9 +40,9 @@
      
      ```
      provider "yandex" {
-       cloud_id  = "<идентификатор облака>"
-       folder_id = "<идентификатор каталога>"
-       zone      = "{{ region-id }}-a"
+       cloud_id                 = "<идентификатор облака>"
+       folder_id                = "<идентификатор каталога>"
+       zone                     = "{{ region-id }}-a"
        service_account_key_file = "key.json"
        }
 
@@ -55,7 +55,7 @@
      }
 
      resource "yandex_storage_bucket" "test" {
-       bucket = "<имя бакета>"
+       bucket     = "<имя бакета>"
        access_key = "<идентификатор статического ключа>"
        secret_key = "<секретный ключ>"
        server_side_encryption_configuration {
@@ -114,5 +114,71 @@
   1. В левой панели выберите **Шифрование**.
   1. В поле **Ключ {{ kms-short-name }}** выберите **Не выбрано**.
   1. Нажмите кнопку **Сохранить**.
+
+- {{ TF }}
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+  
+  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+
+  Чтобы убрать шифрование бакета, созданного с помощью {{ TF }}:
+
+  1. Откройте файл конфигурации {{ TF }} и удалите блок `server_side_encryption_configuration` в описании бакета.
+
+     {% cut "Пример описания бакета в конфигурации {{ TF }}" %}
+
+     ```hcl
+     ...
+     resource "yandex_storage_bucket" "test" {
+       bucket     = "my-bucket"
+       access_key = "YCAJE02jKxfGKszo6LxcZnUzc"
+       secret_key = "YCNhwa3qK4kuGPk_Kthc39rn8jHtMLFyp7TvjCtZ"
+       server_side_encryption_configuration { // Этот блок нужно удалить, чтобы отключить шифрование
+         rule {
+           apply_server_side_encryption_by_default {
+             kms_master_key_id = "abjbeb2bgg4ljno7aqqo"
+             sse_algorithm     = "aws:kms"
+           }
+         }
+       }
+     }
+     ...
+     ```
+
+     {% endcut %}
+
+  1. В командной строке перейдите в папку, где расположен файл конфигурации {{ TF }}.
+
+  1. Проверьте конфигурацию командой:
+
+     ```bash
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```bash
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```bash
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```bash
+     terraform apply
+     ```
+
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}

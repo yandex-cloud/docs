@@ -49,4 +49,63 @@
 
     1. Нажмите кнопку **Сохранить**.
 
+- {{ TF }}
+ 
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+  
+  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+
+  Чтобы выбрать сертификат из {{ certificate-manager-name }}:
+
+  1. Откройте файл конфигурации {{ TF }} и добавьте блок `https` в описание бакета:
+
+     ```hcl
+     ...
+     resource "yandex_storage_bucket" "b" {
+       bucket = "my-policy-bucket"
+
+       https {
+         certificate_id = "<идентификатор_сертификата>"
+       }
+     }
+     ...
+     ```
+
+     Где:
+     * `certificate_id` — идентификатор сертификата в {{ certificate-manager-name }}, который будет использован для бакета.
+
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/storage_bucket#bucket-https-certificate).
+
+  1. Проверьте конфигурацию командой:
+
+     ```bash
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```bash
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```bash
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```bash
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить выбранный сертификат можно в [консоли управления]({{ link-console-main }}).
+
 {% endlist %}
