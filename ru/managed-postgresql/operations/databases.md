@@ -39,7 +39,7 @@
 
 ## Создать базу данных {#add-db}
 
-В каждом кластере {{ mpg-name }} вы можете создать неограниченное количество баз данных.
+{% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
 
 {% list tabs %}
 
@@ -54,7 +54,7 @@
 
       * Имя.
 
-          {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+        {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
       * Владелец.
 
@@ -102,9 +102,9 @@
 
      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     {{ mpg-short-name }} запустит операцию создания базы данных.
+     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     {{ mpg-short-name }} запустит операцию создания базы данных.
 
 - {{ TF }}
 
