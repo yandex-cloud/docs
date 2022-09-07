@@ -77,6 +77,8 @@ items:
         href: concepts/index.md
       - name: Network in {{ data-transfer-full-name }}
         href: concepts/network.md
+      - name: Speed for copying data in {{ data-transfer-full-name }}
+        href: concepts/copy-speed.md
       - name: What tasks is the service used for?
         href: concepts/use-cases.md
       - name: Transfer lifecycle

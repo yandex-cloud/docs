@@ -46,4 +46,4 @@ The table shows actions and minimum roles required to perform them. You can alwa
 ## What's next {#whats-next}
 
 * Review the [audit log](../concepts/format.md) structure.
-* See an example of [uploading audit logs to a log group](../operations/export-cloud-logging.md).
+* See an example of [uploading audit logs to {{ cloud-logging-name }}](../operations/export-cloud-logging.md).

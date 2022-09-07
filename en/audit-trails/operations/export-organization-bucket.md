@@ -1,4 +1,4 @@
-# Uploading organization audit logs to a bucket
+# Uploading organization audit logs to {{ objstorage-name }}
 
 Follow these instructions to create a new trail that will upload audit logs of all of an organization's resources to an {{ objstorage-name }} bucket with encryption enabled.
 

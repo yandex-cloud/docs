@@ -1,4 +1,4 @@
-# Uploading folder audit logs to a bucket
+# Uploading folder audit logs to {{ objstorage-name }}
 
 Follow these instructions to create a new trail that will upload audit logs of a single folder's resources to an {{ objstorage-name }} bucket with encryption enabled.
 

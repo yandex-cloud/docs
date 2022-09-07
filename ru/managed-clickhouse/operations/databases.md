@@ -25,7 +25,6 @@
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Базы данных**.
 
-
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -34,13 +33,12 @@
 
   Чтобы получить список баз данных в кластере, выполните команду:
 
-  ```
+  ```bash
   {{ yc-mdb-ch }} database list \
      --cluster-name=<имя кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-
 
 - API
 
@@ -59,7 +57,7 @@
 
 ## Создать базу данных {#add-db}
 
-Количество баз данных в кластере неограниченно.
+{% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
 
 {% list tabs %}
 
@@ -71,7 +69,7 @@
   1. Нажмите кнопку **Добавить**.
   1. Введите имя для базы данных и нажмите кнопку **Добавить**.
 
-  {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+      {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
 - CLI
 
@@ -81,16 +79,16 @@
 
   Выполните команду создания БД, задав имя новой базы:
 
-  ```
+  ```bash
   {{ yc-mdb-ch }} database create <имя базы данных> \
      --cluster-name=<имя кластера>
   ```
 
-  {{ mch-short-name }} запустит операцию создания базы данных.
-  
   {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  {{ mch-short-name }} запустит операцию создания базы данных.
 
 - {{ TF }}
 
@@ -160,7 +158,7 @@
 
   Чтобы удалить базу данных, выполните команду:
 
-  ```
+  ```bash
   {{ yc-mdb-ch }} database delete <имя базы данных> \
      --cluster-name=<имя кластера>
   ```
