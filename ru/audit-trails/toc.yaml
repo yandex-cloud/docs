@@ -46,6 +46,8 @@ items:
           Загрузка аудитных логов в {{ mch-full-name }} и визуализация данных в
           {{ datalens-full-name }}
         href: tutorials/logs-analysis.md
+      - name: Загрузка аудитных логов в SIEM Splunk
+        href: tutorials/export-logs-to-splunk.md
   - name: Концепции
     expanded: true
     items:

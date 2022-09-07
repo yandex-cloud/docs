@@ -1,4 +1,4 @@
-# Uploading cloud audit logs to a bucket
+# Uploading cloud audit logs to {{ objstorage-name }}
 
 Follow these instructions to create a new trail that will upload audit logs of a cloud's resources to an {{ objstorage-name }} bucket with encryption enabled.
 
