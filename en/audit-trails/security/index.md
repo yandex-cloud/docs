@@ -47,5 +47,5 @@ The table shows actions and minimum roles required to perform them. You can alwa
 
 * Review the [audit log](../concepts/format.md) structure.
 {% if product == "yandex-cloud" %}
-* See an example of [uploading audit logs to a log group](../operations/export-cloud-logging.md).
+* See an example of [uploading audit logs to {{ cloud-logging-name }}](../operations/export-cloud-logging.md).
 {% endif %}

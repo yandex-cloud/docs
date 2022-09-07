@@ -1,4 +1,4 @@
-# Searching a bucket
+# Searching for {{ yandex-cloud }} events in {{ objstorage-name }}
 
 ## Before you begin {#before-you-begin}
 1. Install and set up [s3fs](../../storage/tools/s3fs.md) or [goofys](../../storage/tools/goofys.md) to mount {{ objstorage-name }} buckets using [FUSE]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Filesystem_in_Userspace){% endif %}.
@@ -28,27 +28,27 @@
    find <directory path> -type f -exec cat {} \; | jq  '.[] | select((.event_type | test("yandex\\.cloud\\.audit\\.compute\\..*Instance")) and .details.instance_id == "<VM instance ID>") | .authentication'
    ```
 
-   {% endif %}
-   {% if product == "cloud-il" %}
+{% endif %}
+{% if product == "cloud-il" %}
 
-   ```bash
-   find <directory path> -type f -exec cat {} \; | jq  '.[] | select((.event_type | test("cloudil\\.audit\\.compute\\..*Instance")) and .details.instance_id == "<VM instance ID>") | .authentication'
-   ```
+```bash
+find <directory path> -type f -exec cat {} \; | jq  '.[] | select((.event_type | test("cloudil\\.audit\\.compute\\..*Instance")) and .details.instance_id == "<VM instance ID>") | .authentication'
+```
 
-   {% endif %}
-1. To find out what actions a user performed over a period of time, search by the subject ID:
+{% endif %}
+3. To find out what actions a user performed over a period of time, search by the subject ID:
 
-   ```bash
-   find <directory path> -type f -exec cat {} \; | jq  '.[] | select(.authentication.subject_id == "<user ID>" and .event_time > "2021-03-01" and .event_time < "2021-04-01")'
-   ```
+```bash
+find <directory path> -type f -exec cat {} \; | jq  '.[] | select(.authentication.subject_id == "<user ID>" and .event_time > "2021-03-01" and .event_time < "2021-04-01")'
+```
 
-   You can also search by the subject name:
+You can also search by the subject name:
 
-   ```bash
-   find <directory path> -type f -exec cat {} \; | jq  '.[] | select(.authentication.subject_name == "<username>" and .event_time > "2021-03-01" and .event_time < "2021-04-01")'
-   ```
+```bash
+find <directory path> -type f -exec cat {} \; | jq  '.[] | select(.authentication.subject_name == "<username>" and .event_time > "2021-03-01" and .event_time < "2021-04-01")'
+```
 
-1. To find out which events occurred to objects in a certain folder, search by the folder ID:
+4. To find out which events occurred to objects in a certain folder, search by the folder ID:
 
    ```bash
    find <directory path> -type f -exec cat {} \; | jq  '.[] | select(.resource_metadata != null and .resource_metadata.path != null) | select( .resource_metadata.path[] | .resource_type == "resource-manager.folder" and .resource_id == "<folder ID>")'
