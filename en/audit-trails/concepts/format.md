@@ -36,6 +36,13 @@ An event object is the service resource that the operation is performed with. An
     "request_id": string
   },
   "event_status": string,
+  "error": {
+    "code": number,
+    "message": string,
+    "details": {
+      object
+    }
+  },
   "details": {
     object
   }
@@ -64,16 +71,20 @@ An event object is the service resource that the operation is performed with. An
 | `request_metadata.remote_address` | **string**<br>IP address of an event subject. |
 | `request_metadata.user_agent` | **string**<br>User-agent of an event subject. |
 | `request_metadata.request_id` | **string**<br>Query ID. |
-| `event_status` | **string**<br>Event status. Determined by the source service and the event type. Possible values:<ul><li>`STARTED`: The operation started.</li><li>`ERROR`: The operation failed.</li><li>`DONE`: The operation completed successfully.</li><li>`CANCELLED`: The operation is canceled.</li> |
+| `event_status` | **string**<br>Event status. Determined by the source service and the event type. Possible values:<ul><li>`STARTED`: The operation started.</li><li>`ERROR`: The operation failed.</li><li>`DONE`: The operation completed successfully.</li><li>`CANCELLED`: The operation is canceled.</li></ul> |
+| `error` | **object**<br>Status error. [google.rpc.Status](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto) object:<ul><li>`code`: [Error code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).</li><li>`message`: Error description.</li><li>`details`: [Error details](https://github.com/googleapis/googleapis/blob/master/google/rpc/error_details.proto).</li></ul> |
 | `details` | **object**<br>Event details. Determined by the source service and the event type. |
 
 {% if product == "yandex-cloud" %}
+
 ## Audit log format {#log-name}
 
 Depending on the [destination object](./trail.md#target) (a bucket or log group), the message used by {{ at-name }} to transmit audit logs has a different structure and content:
 * If the destination object is a bucket, the message is a file containing an array of [JSON objects](./format.md#scheme) of the audit log.
 * If the destination object is a log group, the message includes a single JSON object of the audit log.
-   {% endif %}
+
+{% endif %}
+
 ### Audit log file in a bucket {#log-file-name}
 
 Below is the template for the full name of an audit log file in a bucket:
@@ -81,6 +92,7 @@ Below is the template for the full name of an audit log file in a bucket:
 `<object prefix>/<trail ID>/<year>/<month>/<file_name.json>`
 
 {% if product == "yandex-cloud" %}
+
 ### Log group entry {#logging-group-name}
 
 Values of log group entries:
@@ -91,4 +103,7 @@ Values of log group entries:
    * `WARN`: For the `CANCELLED` value.
    * `INFO`: For all other cases.
 * **Message**: Includes the values of the `event_status`, `event_type`, `subject_name`, `cloud_name`, and `resource_name`.
-   {% endif %}
+
+{% endif %}
+
+
