@@ -1,11 +1,11 @@
-### kms.keys.encrypterDecrypter {#kms-keys-encrypterdecrypter}
+### kms.editor {#kms-editor}
 
-The key user role `kms.keys.encrypterDecrypter` includes the following permissions:
+The `kms.editor` role includes the following permissions:
 
-* Getting information on keys and versions.
+* Get a list of keys in a folder.
+* [Create](../kms/operations/key.md#create) and [update](../kms/operations/key.md#update) a key.
 * [Encrypt](../kms/operations/encryption.md#encryption) and [decrypt](../kms/operations/encryption.md#decryption) data.
-
-{% include [roles-editor-includes-permissions](iam/roles-editor-includes-permissions.md) %}
+* [Rotate a key](../kms/operations/key.md#rotate).
 
 You can now assign this role to an [organization](../organization/index.yaml), [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../resource-manager/concepts/resources-hierarchy.md#folder), or [key](../kms/concepts/key).
 

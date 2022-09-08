@@ -1,11 +1,6 @@
-### kms.keys.encrypterDecrypter {#kms-keys-encrypterdecrypter}
+### kms.viewer {#kms-viewer}
 
-The key user role `kms.keys.encrypterDecrypter` includes the following permissions:
-
-* Getting information on keys and versions.
-* [Encrypt](../kms/operations/encryption.md#encryption) and [decrypt](../kms/operations/encryption.md#decryption) data.
-
-{% include [roles-editor-includes-permissions](iam/roles-editor-includes-permissions.md) %}
+The `kms.viewer` role grants permission to view a list of keys and information about them.
 
 You can now assign this role to an [organization](../organization/index.yaml), [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../resource-manager/concepts/resources-hierarchy.md#folder), or [key](../kms/concepts/key).
 
