@@ -158,12 +158,10 @@ default:
   message-queue-short-name: Message Queue
   cloud-logs-short-name: Cloud Logs
   cloud-logging-short-name: Cloud Logging
-  container-registry-short-name: Container Registry
   serverless-containers-short-name: Serverless Containers
   dataproc-short-name: Data Proc
   vision-short-name: Vision
   datalens-short-name: DataLens
-  managed-k8s-short-name: Managed Service for Kubernetes
   iot-short-name: Yandex IoT Core
   sf-short-name: Functions
   ydb-short-name: YDB
@@ -287,6 +285,7 @@ default:
   CH: ClickHouse
   ES: Elasticsearch
   GL: GitLab
+  GLR: GitLab Runner
   GP: Greenplum®
   KF: Apache Kafka®
   KFC: Kafka Connect
@@ -301,12 +300,12 @@ default:
   CK: ClickHouse Keeper
   ZK: ZooKeeper
   ssms: SQL Server Management Studio
-  tag-con: <code><b><small>Management console</small></b></code>
+  tag-con: <code><b><small>Management console</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
   tag-api: <code><b><small>API</small></b></code>
   tag-sql: <code><b><small>SQL</small></b></code>
-  tag-all: <code><b><small>All interfaces</small></b></code>
+  tag-all: <code><b><small>All interfaces</small></b></code>
   zone-id: ru-central1-c
   subnet-name: default-ru-central1-c
   region-id: ru-central1
@@ -692,12 +691,12 @@ internal:
   ZK: ZooKeeper
   MS: Microsoft SQL Server
   RMQ: RabbitMQ
-  tag-con: <code><b><small>Management console</small></b></code>
+  tag-con: <code><b><small>Management console</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
   tag-api: <code><b><small>API</small></b></code>
   tag-sql: <code><b><small>SQL</small></b></code>
-  tag-all: <code><b><small>All interfaces</small></b></code>
+  tag-all: <code><b><small>All interfaces</small></b></code>
   zone-id: vla
   host-class: db1.micro
   zk-host-class: b2.medium

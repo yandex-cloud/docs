@@ -9,32 +9,30 @@ If you don't have any folders yet, you can create a folder using the [instructio
 ## Get expense details
 
 To get expense details by folder:
-
 1. [Create a bucket](../storage/operations/buckets/create.md) in {{ objstorage-name }}. {{ yandex-cloud }} will save detail files to this bucket. You can save details in multiple buckets.
 
-    {% note alert %}
+   {% note alert %}
 
-    Don't make your bucket public, otherwise anyone can download your expense details from the bucket link.
+   Don't make your bucket public, otherwise anyone can download your expense details from the bucket link.
 
-    {% endnote %}
+   {% endnote %}
 
 1. Open the bucket in the management console and copy the link to it from the address bar. The link to the bucket has the following format:
 
-    ```
-    https://console.cloud.yandex.com/folders/<FOLDER-ID/storage/bucket/<BUCKET-NAME>
-    ```
+   ```http request
+   https://console.cloud.yandex.com/folders/<FOLDER-ID/storage/bucket/<BUCKET-NAME>
+   ```
 
 1. Send an email to your account manager or the [technical support](https://console.cloud.yandex.com/support/create-ticket) team with a request for adding billing details by folder and specify:
    * Link to one or more buckets.
    * Prefix that a group of expense detail files should have.
-      
-      If you want to save multiple groups of detail files in a single bucket, specify a unique prefix for each group. For example, for a group of files with details by resource, you can use a prefix like `yc-billing-export-with-resources` and for a group of files without resource details — `yc-billing-export`.
+
+     If you want to save multiple groups of detail files in a single bucket, specify a unique prefix for each group. For example, for a group of files with details by resource, you can use a prefix like `yc-billing-export-with-resources` and for a group of files without resource details — `yc-billing-export`.
    * Language to display product names in. Possible values: English or Russian.
    * Indicate whether you need details by resource.
-      
-      If yes, a column named `resource_id` appears in the table. You can get resource details starting from August 1, 2020. No information is provided for earlier periods.
-1. Wait for a message saying that the bucket is activated. The support team activates the bucket within a day.
 
+     If yes, a column named `resource_id` appears in the table. You can get resource details starting from August 1, 2020. No information is provided for earlier periods.
+1. Wait for a message saying that the bucket is activated. The support team activates the bucket within a day.
 1. Download CSV files with details from the bucket.
 A new file with details is created in the bucket daily. The file name contains the prefix and date that details are collected for. The file is overwritten and updated with new data every hour.
 
@@ -49,7 +47,6 @@ Files with details from buckets aren't deleted automatically, but you can set up
 An uploaded file with details is a CSV table with comma-separated columns. Each row shows the product consumption level per day for the specified folder.
 
 The table contains the following columns:
-
 * `billing_account_id`: ID of the [billing account](../billing/concepts/billing-account.md).
 * `billing_account_name`: Name of the billing account.
 * `cloud_id`: ID of the [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) that details are collected for.
@@ -62,7 +59,7 @@ The table contains the following columns:
    * {{ vpc-name }} : ID of the resource that works with incoming or outgoing traffic.
    * {{ kms-short-name }} : ID of the key.
    * {{ network-load-balancer-name }} : ID of the network load balancer.
-   * {{ container-registry-short-name }} : ID of the container.
+   * {{ container-registry-name }} : ID of the container.
    * {{ k8s }} and {{ dataproc-name }}: ID of the cluster.
    * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }}, and {{ mkf-name }}: ID of the cluster host.
    * {{ message-queue-name }} : Request ID.
@@ -98,4 +95,4 @@ The table contains the following columns:
 ##### See also
 
 * [View expense details for your cloud](../billing/operations/check-charges.md)
-* [Billing documentation in {{ yandex-cloud }}](../billing/index.yaml)
+* [Billing documentation in {{ yandex-cloud }}](../billing/)

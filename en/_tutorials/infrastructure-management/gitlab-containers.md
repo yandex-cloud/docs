@@ -1,25 +1,34 @@
 # Continuous deployment of containerized applications using {{ GL }}
 
-[{{ GL }}](https://about.gitlab.com/) is a [continuous integration]({{ links.wiki.ci }}) tool. This scenario describes how to build an application in a Docker container and deploy it from the container on a {{ k8s }} cluster[{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) with {{ GL }} using {{ yandex-cloud }} tools. After each commit, a script runs in {{ GL }} that describes the steps for building a [Docker image](../../container-registry/concepts/docker-image.md) and applying a new {{ k8s }} cluster configuration, which specifies the application to be deployed. To configure the infrastructure required for storing source code, building Docker images, and deploying applications, follow these steps:
-1. [Before you start](#before-you-begin).
+[{{ GL }}](https://about.gitlab.com/) is a tool for [Continuous integration, CI]({{ links.wiki.ci }}).
+
+This tutorial describes:
+* Building an application into a Docker container.
+* Deploying an application from a container in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) via {{ GL }} using the {{ yandex-cloud }} tools.
+
+Each commit to {{ GL }} is followed by:
+* Running a script that includes steps to build the [Docker image](../../container-registry/concepts/docker-image.md).
+* Applying a new {{ k8s }} cluster configuration specifying the application to be deployed.
+
+To set up the infrastructure needed to store the source code, build the Docker image, and deploy your applications, follow these steps:
+1.[Before you start](#before-you-begin).
 
    {% if product == "yandex-cloud" %}
 
-   1. [Required paid resources](#paid-resources).
+   1. [Review the list of paid resources available](#paid-resources).
 
    {% endif %}
 
    1. [Install additional dependencies](#prepare).
-1. [Create a VM from the {{ GL }} image](#create-gitlab).
-1. [Configure {{ GL }}](#configure-gitlab).
-1. [Create a {{ container-registry-full-name }} resource](#cr-create).
 1. [Create {{ managed-k8s-name }} resources](#k8s-create).
-   1. [Create a cluster](#k8s-create-cluster).
-   1. [Create a node group](#k8s-create-node-group).
-1. [Connect the {{ k8s }} cluster to the {{ GL }} build runners](#runners).
+1. [Create a {{ GL }} instance](#create-gitlab).
+1. [Configure {{ GL }}](#configure-gitlab).
+1. [Create a registry in {{ container-registry-full-name }}](#cr-create).
+1. [Create a test application](#app-create).
+1. [Create a {{ GLR }}](#runners).
 1. [Configure building and deploying a Docker image from CI](#ci).
 
-If you no longer need the VM and cluster, [delete them](#clear-out).
+If you no longer need the created resources, [delete them](#clear-out).
 
 ## Before you start {#before-you-begin}
 
@@ -51,6 +60,10 @@ Run {{ GL }} on a VM with a public IP address:
 
 {% include [create-gitlab](../../_includes/managed-gitlab/create.md) %}
 
+## Configure {{ GL }} {#configure-gitlab}
+
+{% include [Create a project](../../_includes/managed-gitlab/initialize.md) %}
+
 ## Create a registry in {{ container-registry-name }} {#cr-create}
 
 To store Docker images, you need a {{ container-registry-name }} [registry](../../container-registry/concepts/registry.md).
@@ -63,7 +76,7 @@ Save the registry ID: you'll need it for the next steps.
 
 {% include [initialize-gitlab](../../_includes/managed-gitlab/initialize.md) %}
 
-## Create a test application
+## Create a test application {#app-create}
 
 Create a test application that can be deployed in a {{ k8s }} cluster:
 1. Add the Docker image configuration.

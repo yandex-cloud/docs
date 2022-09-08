@@ -19,6 +19,10 @@ items:
             href: operations/instance/instance-delete.md
       - name: Connecting to instances
         href: operations/connect.md
+  - name: Practical guidelines
+    items:
+      - name: Continuous deployment of {{ managed-k8s-name }} containerized applications
+        href: tutorials/gitlab-containers.md
   - name: Concepts
     items:
       - name: Relationships between service resources
