@@ -30,8 +30,8 @@ You can add and remove cluster hosts, resync the hosts, and [manage settings {{ 
    +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
    |            NAME            |  CLUSTER ID  |  TYPE  | SHARD NAME |     ROLE     |  HEALTH  |    ZONE ID    | PUBLIC IP |
    +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
-   | rc1b...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | PRIMARY      | ALIVE    | ru-central1-b | false     |
-   | rc1a...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | SECONDARY    | ALIVE    | ru-central1-a | false     |
+   | rc1b...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | PRIMARY      | ALIVE    | {{ region-id }}-b | false     |
+   | rc1a...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | SECONDARY    | ALIVE    | {{ region-id }}-a | false     |
    +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
    ```
 
@@ -97,10 +97,10 @@ You can add different types of hosts to a cluster. Their number depends on the [
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
-      | b0cl69... | default-c | enp6rq7... | ru-central1-c | [172.16.0.0/20]  |
-      | e2lkj9... | default-b | enp6rq7... | ru-central1-b | [10.10.0.0/16]   |
-      | e9b0ph... | a-2       | enp6rq7... | ru-central1-a | [172.16.32.0/20] |
-      | e9b9v2... | default-a | enp6rq7... | ru-central1-a | [172.16.16.0/20] |
+      | b0cl69... | default-c | enp6rq7... | {{ region-id }}-c | [172.16.0.0/20]  |
+      | e2lkj9... | default-b | enp6rq7... | {{ region-id }}-b | [10.10.0.0/16]   |
+      | e9b0ph... | a-2       | enp6rq7... | {{ region-id }}-a | [172.16.32.0/20] |
+      | e9b9v2... | default-a | enp6rq7... | {{ region-id }}-a | [172.16.16.0/20] |
       +-----------+-----------+------------+---------------+------------------+
       ```
 

@@ -14,7 +14,7 @@ items:
             href: operations/export-organization-logging.md
           - name: Cloud
             href: operations/export-cloud-logging.md
-          - name: Folders
+          - name: Folder
             href: operations/export-folder-logging.md
       - name: Uploading audit logs to {{ yds-name }}
         items:
@@ -22,7 +22,7 @@ items:
             href: operations/export-organization-data-streams.md
           - name: Cloud
             href: operations/export-cloud-data-streams.md
-          - name: Folders
+          - name: Folder
             href: operations/export-folder-data-streams.md
       - name: Uploading audit logs to {{ objstorage-name }}
         items:
@@ -30,7 +30,7 @@ items:
             href: operations/export-organization-bucket.md
           - name: Cloud
             href: operations/export-cloud-bucket.md
-          - name: Folders
+          - name: Folder
             href: operations/export-folder-bucket.md
   - name: Practical guidelines
     items:
@@ -42,6 +42,10 @@ items:
         href: tutorials/alerts-monitoring.md
       - name: Configuring a response in {{ sf-name }}
         href: tutorials/logging-functions.md
+      - name: >-
+          Uploading audit logs to {{ mch-full-name }} and data visualiation in
+          {{ datalens-full-name }}
+        href: tutorials/logs-analysis.md
   - name: Concepts
     expanded: true
     items:

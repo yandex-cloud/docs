@@ -22,20 +22,6 @@ description:
     service level is defined in the
      <a href="https://yandex.com/legal/cloud_sla_compute">Service Level
      for Yandex Compute Cloud</a>.
-  - >-
-    Compute Cloud provides scalable compute
-     capacity to create and manage virtual machines. The service
-    supports <a href="/docs/compute/concepts/preemptible-vm">preemptible</a>
-    virtual machines and fault-tolerant <a
-    href="/docs/compute/concepts/instance-groups/">instance groups</a>.
-  - >-
-    You can attach disks with Linux images from <a
-    href="/marketplace">Marketplace</a>. Each disk is automatically replicated
-    in its availability zone, ensuring reliable data storage. Additionally, to
-    make it easier to migrate data from one disk
-     to another, Compute Cloud support <a
-    href="https://cloud.yandex.com/docs/compute/concepts/snapshot">disk
-    snapshots</a>.
 meta:
   title: Yandex Compute Cloud
 links:

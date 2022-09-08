@@ -22,9 +22,9 @@
   * `--endpoint`: Specify the endpoint `https://yds.serverless.yandexcloud.net` to send data to a stream over the AWS Kinesis Data Streams protocol.
   * `--stream-name`: Consists of the availability zone, the folder ID, the {{ ydb-full-name }} database ID, and the stream name.
 
-     > For example, specify the stream ID `/ru-central1/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` if:
+     > For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` if:
      >* `aws_stream`: Stream name.
-     >* `ru-central1`: Availability zone.
+     >* `{{ region-id }}`: Availability zone.
      >* `aoeu1kuk2dhtaupdb1es`: Folder ID.
      >* `cc8029jgtuabequtgtbv`: {{ ydb-short-name }} database ID.
 
@@ -39,7 +39,7 @@
   ```bash
   aws kinesis put-record \
     --endpoint https://yds.serverless.yandexcloud.net \
-    --stream-name /ru-central1/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream \
+    --stream-name /{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream \
     --cli-binary-format raw-in-base64-out \
     --data '{"user_id":"user1", "score": 100}' \
     --partition-key 1

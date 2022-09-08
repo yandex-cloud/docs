@@ -31,7 +31,7 @@ You have to create:
 1. In `network-data-proc`, [create a subnet](../../vpc/operations/subnet-create.md) with the following parameters:
 
    * **Name**: `subnet-cluster`.
-   * **Zone**: `ru-central1-a`.
+   * **Zone**: `{{ region-id }}-a`.
    * **CIDR**: `192.168.1.0/24`.
    * **Advanced settings**: Enable **Egress NAT**.
 
@@ -52,7 +52,7 @@ You have to create:
    1. In `network-data-proc`, [create a subnet](../../vpc/operations/subnet-create.md) with the following parameters:
 
       * **Name**: `subnet-nat`.
-      * **Zone**: `ru-central1-b`.
+      * **Zone**: `{{ region-id }}-b`.
       * **CIDR** — `192.168.100.0/24`.
 
       You don't need to enable **Egress NAT** for this subnet.

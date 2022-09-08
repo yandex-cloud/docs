@@ -85,7 +85,7 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
    * **Application name**: Enter an application name.
    * **{{ ydb-name }} endpoint**: Specify a name for the {{ ydb-name }} endpoint, for example, `lb.etnk1hv0jol3cu5pojp7.ydb.mdb.yandexcloud.net:2135`.
-   * **Database**: Specify a database name, for example, `/ru-central1/b1gkgm9daf4605njnmn8/etnk2hv0jol5cu5pojp7`.
+   * **Database**: Specify a database name, for example, `/{{ region-id }}/b1gkgm9daf4605njnmn8/etnk2hv0jol5cu5pojp7`.
    * **Database directory**: `jaeger`.
    * **Use metadata to authenticate from inside a VM**: Select this option if authentication in the virtual machine is required.
    * **Service account key ID**: Specify the service account key ID.

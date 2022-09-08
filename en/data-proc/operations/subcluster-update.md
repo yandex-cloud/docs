@@ -114,8 +114,8 @@ You can change the computing power of hosts in a separate subcluster:
       +-----------+--------------------------------+-------+----------+
       |    ID     |            ZONE IDS            | CORES |  MEMORY  |
       +-----------+--------------------------------+-------+----------+
-      | b3-c1-m4  | ru-central1-a, ru-central1-b,  |     2 | 4.0 GB   |
-      |           | ru-central1-c                  |       |          |
+      | b3-c1-m4  | {{ region-id }}-a, {{ region-id }}-b,  |     2 | 4.0 GB   |
+      |           | {{ region-id }}-c                  |       |          |
       | ...                                                           |
       +-----------+--------------------------------+-------+----------+
       ```

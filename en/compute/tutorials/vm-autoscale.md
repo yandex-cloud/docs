@@ -329,7 +329,7 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
       +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
       |          ID          |      NAME      |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
       +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
-      | b0rbabc1m2edfu2ss579 | group-balancer | ru-central1 | EXTERNAL |              1 | b0rdabckribed1fbv2l1   | ACTIVE |
+      | b0rbabc1m2edfu2ss579 | group-balancer | {{ region-id }} | EXTERNAL |              1 | b0rdabckribed1fbv2l1   | ACTIVE |
       +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
       ```
 

@@ -5,7 +5,6 @@ You can get a CSV file with your general or per-resource spending details.
 ## Before you start {#before-you-begin}
 
 1. If you do not have any [folders](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create a folder](../../resource-manager/operations/folder/create.md). In the folder name, specify the name of the project or client that is going to use this folder.
-
 1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-full-name }}. {{ yandex-cloud }} will save detail files to this bucket. You can save details in multiple buckets.
 
    {% note alert %}
@@ -65,7 +64,7 @@ The table contains the following columns:
    * {{ vpc-name }}: ID of the resource that processes incoming or outgoing traffic.
    * {{ kms-short-name }}: ID of the key.
    * {{ network-load-balancer-name }}: ID of the network load balancer.
-   * {{ container-registry-short-name }}: ID of the container.
+   * {{ container-registry-name }}: ID of the container.
    * {{ k8s }} and {{ dataproc-name }}: ID of the cluster.
    * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }} and {{ mkf-name }} — ID of the cluster host.
    * {{ message-queue-name }} : ID of the request.

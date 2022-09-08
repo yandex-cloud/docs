@@ -1,21 +1,21 @@
 1. Create the [{{ GL }} environment variables](https://docs.gitlab.com/ee/ci/variables/README.html).
-   1. In {{ GL }}, go to **Settings** in the left panel and select **CI/CD** from the drop-down list.
+   1. Go to **Settings** in the left {{ GL }} panel, then select **CI/CD** from the drop-down list.
    1. Click **Expand** next to **Variables**.
    1. Add two environment variables:
-      * `KUBE_URL`: [{{ managed-k8s-full-name }} master](../../managed-kubernetes/concepts/index.md#master) address. Retrieve it using the command:
+      * `KUBE_URL`: The [{{ k8s }} master address](../../managed-kubernetes/concepts/index.md#master). Retrieve it using the command:
 
         {% list tabs %}
 
         - Bash
 
           ```bash
-          yc managed-kubernetes cluster get <cluster-id> --format=json \
+          yc managed-kubernetes cluster get <{{ k8s }} cluster ID or name> --format=json \
             | jq -r .master.endpoints.external_v4_endpoint
           ```
 
         {% endlist %}
 
-      * `KUBE_TOKEN`: The token {{ GL }} will use to apply the configuration. Use the token received when getting started.
+      * `KUBE_TOKEN`: The token will use {{ GL }} to apply the configuration. Use the token that you received previously.
    1. Click **Save variables**.
 1. {{ GL }} enables you to configure [build scripts](https://docs.gitlab.com/ee/ci/README.html) in a YAML file. Create a configuration file named `.gitlab-ci.yml`:
    1. On the left-hand panel in {{ GL }}, select **Repository** and click the **Files** tab.
@@ -54,18 +54,14 @@
    1. Add a comment to the commit in the **Commit message** field: `CI scripts`.
    1. Click **Commit changes**.
 
-   {% note info %}
-
    In the `.gitlab-ci.yml` file, the following two steps of project build are described:
    * Build a Docker image using the `Dockerfile` from the previous step and push the image to [{{ container-registry-full-name }}](../../container-registry/).
-     * For this step, use the Docker image build container and run the Docker server as a [{{ GL }} service](https://docs.gitlab.com/ee/ci/yaml/README.html#services).
+     * For this step, use your container for building Docker images and start a Docker server as a [{{ GL }} service](https://docs.gitlab.com/ee/ci/yaml/README.html#services).
      * For {{ container-registry-name }} authentication, use a [service account](../../iam/concepts/users/service-accounts.md) linked to the {{ k8s }} nodes. When getting started, this account was assigned the [{{ roles-cr-pusher }}](../../container-registry/security/index.md#required-roles).
-     * To get authentication data from the virtual machine [metadata](../../compute/concepts/vm-metadata.md), use an auxiliary public Docker image `{{ registry }}/yc/metadata-token-docker-helper:0.2`. It runs an internal [Docker credential helper](../../container-registry/operations/authentication.md#cred-helper) that obtains a {{ iam-full-name }} token from the metadata service.
-   * Set up an environment to work with {{ k8s }} and apply `k8s.yaml` configurations to {{ k8s }} clusters. This way the application is deployed on the previously created cluster.
+     * To get authentication credentials from the VM [metadata](../../compute/concepts/vm-metadata.md), use an auxiliary public Docker image `{{ registry }}/yc/metadata-token-docker-helper:0.2`. It runs an internal [Docker credential helper](../../container-registry/operations/authentication.md#cred-helper) that obtains a {{ iam-full-name }} token from the metadata service.
+   * Set up an environment to work with {{ k8s }} and apply the `k8s.yaml` configuration to {{ k8s }} clusters. This way the application is deployed on the previously created cluster.
 
-   {% endnote %}
-
-1. After saving the file, the build script should start. You can view its progress on the **CI/CD** tab on the left by selecting **Pipelines** from the drop-down menu. Wait until both build steps are complete.
+1. After saving the file, the build script starts. To track its progress, in the drop-down menu, select **CI/CD** → **Pipelines**. Wait until both build steps are complete.
 1. Check the results in the container logs in the {{ k8s }} cluster:
 
    {% list tabs %}

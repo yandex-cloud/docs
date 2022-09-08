@@ -47,9 +47,9 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
    * `--retention-period`: Log group record retention period. Optional. The maximum record retention period is 3 days, the minimum is 1 hour. By default, the retention period is 3 days.
    * `data-stream`: {{ yds-full-name }} [data stream](../../data-streams/concepts/glossary#stream-concepts.md) ID. Optional. Records added to the log group will be automatically redirected to the specified stream. A stream ID consists of an availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
 
-      > For example, specify the stream ID `/ru-central1/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` if:
+      > For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` if:
       > * `aws_stream`: Stream name.
-      > * `ru-central1`: Availability zone.
+      > * `{{ region-id }}`: Availability zone.
       > * `aoeu1kuk2dhtaupdb1es`: Folder ID.
       > * `cc8029jgtuabequtgtbv`: {{ ydb-full-name }} database ID.
 
@@ -64,7 +64,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
    name: group
    status: ACTIVE
    retention_period: 3600s
-   data_stream: /ru-central1/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream
+   data_stream: /{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream
    ```
 
 - API

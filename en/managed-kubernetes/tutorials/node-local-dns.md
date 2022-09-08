@@ -1,6 +1,6 @@
 # Setting up NodeLocal DNS Cache
 
-To reduce the number of DNS queries to a [{{ k8s }} cluster](../concepts/index.md#kubernetes-cluster), enable NodeLocal DNS Cache. The feature is available in {{ k8s }} clusters version 1.19 and higher.
+To reduce the number of DNS queries to a [{{ k8s }} cluster](../concepts/index.md#kubernetes-cluster), enable NodeLocal DNS Cache. The feature is available in {{ k8s }} clusters version 1.20 and higher.
 
 {% note tip %}
 
@@ -34,7 +34,7 @@ To set up DNS query caching, follow these steps:
 
 1. Create a {{ k8s }} cluster and a group of nodes.
 
-   You can use an existing cluster and a group of {{ k8s }} nodes or create new ones. Make sure that the **{{ k8s }} version** field is set to version 1.19 or higher.
+   You can use an existing cluster and a group of {{ k8s }} nodes or create new ones. Make sure that the **{{ k8s }} version** field is set to version 1.20 or higher.
 
    {% cut "How to create a {{ k8s }} cluster and a group of nodes" %}
 

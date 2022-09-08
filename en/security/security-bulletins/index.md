@@ -300,7 +300,7 @@ A number of [CVE-2021-3156](https://nvd.nist.gov/vuln/detail/CVE-2021-3156) vuln
 The following Linux OS images were updated:
 * All images from the {{ yandex-cloud }} publisher available in {{ marketplace-name }}.
 * A {{ coi }}.
-* An image that is used to create {{ managed-k8s-short-name }} nodes.
+* An image that is used to create {{ managed-k8s-name }} nodes.
 * Images that are used to create managed database clusters.
 * An image that is used to create {{ dataproc-short-name }} clusters.
 

@@ -23,7 +23,7 @@ Example specification:
       x-yc-apigateway-integration:
         type: cloud_datastreams
         action: PutRecord
-        stream_name: /ru-central1/b1v1emj927uvf97q62lt/ett01h3uz7qm8rjv0rsh/pets-stream
+        stream_name: /{{ region-id }}/b1v1emj927uvf97q62lt/ett01h3uz7qm8rjv0rsh/pets-stream
         partition_key: '{petId}'
         service_account_id: ajeqvh23fi2mfdoq6ba
       parameters:

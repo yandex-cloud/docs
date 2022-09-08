@@ -24,7 +24,7 @@
      def put_record(folder, database, stream_name, message):
        client = boto3.client('kinesis', endpoint_url="https://yds.serverless.yandexcloud.net")
        response = client.put_record(
-         StreamName="/ru-central1/{folder}/{database}/{stream}".format(folder=folder,
+         StreamName="/{{ region-id }}/{folder}/{database}/{stream}".format(folder=folder,
                                                                        database=database,
                                                                        stream=stream_name),
          Data=message,

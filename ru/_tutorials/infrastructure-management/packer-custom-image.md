@@ -76,9 +76,9 @@
         +----------------------+----------------------+----------------------+----------------+---------------+-----------------+
         |          ID          |         NAME         |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE      |
         +----------------------+----------------------+----------------------+----------------+---------------+-----------------+
-        | b0c29k6anelkik7jg5v1 | intro2-ru-central1-c | enp45glgitd6e44dn1fj |                | ru-central1-c | [10.130.0.0/24] |
-        | e2ltcj4urgpbsbaq9977 | intro2-ru-central1-b | enp45glgitd6e44dn1fj |                | ru-central1-b | [10.129.0.0/24] |
-        | e9bn57jvjnbujnmk3mba | intro2-ru-central1-a | enp45glgitd6e44dn1fj |                | ru-central1-a | [10.128.0.0/24] |
+        | b0c29k6anelkik7jg5v1 | intro2-{{ region-id }}-c | enp45glgitd6e44dn1fj |                | {{ region-id }}-c | [10.130.0.0/24] |
+        | e2ltcj4urgpbsbaq9977 | intro2-{{ region-id }}-b | enp45glgitd6e44dn1fj |                | {{ region-id }}-b | [10.129.0.0/24] |
+        | e9bn57jvjnbujnmk3mba | intro2-{{ region-id }}-a | enp45glgitd6e44dn1fj |                | {{ region-id }}-a | [10.128.0.0/24] |
         +----------------------+----------------------+----------------------+----------------+---------------+-----------------+
         ```
 

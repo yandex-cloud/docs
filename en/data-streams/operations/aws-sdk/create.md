@@ -21,7 +21,7 @@
      def create_stream(folder, database, stream_name, shard_count):
          client = boto3.client('kinesis', endpoint_url="https://yds.serverless.yandexcloud.net")
          response = client.create_stream(
-           StreamName="/ru-central1/{folder}/{database}/{stream}".format(folder=folder,
+           StreamName="/{{ region-id }}/{folder}/{database}/{stream}".format(folder=folder,
                                                                          database=database,
                                                                          stream=stream_name),
            ShardCount=shard_count

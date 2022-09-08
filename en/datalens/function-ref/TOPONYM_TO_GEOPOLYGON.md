@@ -15,8 +15,8 @@ TOPONYM_TO_GEOPOLYGON( name )
 ```
 
 #### Description {#description}
- Converts the name of a geographical entity (country, region, city)`name` to the `Geopolygon` type. 
- See the full [list of toponyms]({{ geopolygons-list-link }}). 
+Converts the name of a geographical entity (country, region, city) `name` to the `Geopolygon` type.
+See the full [list of toponyms]({{ geopolygons-list-link }}).
 
 **Argument types:**
 - `name` — `String`

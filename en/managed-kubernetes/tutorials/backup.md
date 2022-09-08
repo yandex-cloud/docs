@@ -84,7 +84,7 @@ To back up cluster group data:
      --secret-file ./credentials \
      --features=EnableCSI \
      --use-volume-snapshots=true \
-     --snapshot-location-config region=ru-central1
+     --snapshot-location-config region={{ region-id }}
    ```
 
    Where:
@@ -149,14 +149,14 @@ To restore data from the {{ managed-k8s-name }} cluster node group:
    kubectl label volumesnapshotclasses.snapshot.storage.k8s.io yc-csi-snapclass \
    velero.io/csi-volumesnapshot-class="true" && \
    velero install \
-     --backup-location-config s3Url=https://{{ s3-storage-host }},region=ru-central1 \
+     --backup-location-config s3Url=https://{{ s3-storage-host }},region={{ region-id }} \
      --bucket velero-backup \
      --plugins velero/velero-plugin-for-aws:v1.3.0,velero/velero-plugin-for-csi:v0.2.0 \
      --provider aws \
      --secret-file ./credentials \
      --features=EnableCSI \
      --use-volume-snapshots=true \
-     --snapshot-location-config region=ru-central1
+     --snapshot-location-config region={{ region-id }}
    ```
 
    Where:

@@ -46,7 +46,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      ```bash
      yc compute instance create-with-container \
        --name my-vm \
-       --zone ru-central1-a \
+       --zone {{ region-id }}-a \
        --ssh-key ssh-key.pub \
        --network-interface subnet-name=<subnet name>,nat-ip-version=ipv4 \
        --service-account-name default-sa \

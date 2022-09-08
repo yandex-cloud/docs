@@ -37,30 +37,20 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 
 
-
-
-
 {% include [usd-instance-resources.md](../_pricing/managed-gitlab/usd-instance-resources.md) %}
-
+
 
 ### Storage and backups {#prices-storage}
 
 
 
 
-
-
-
 {% include [usd-storage.md](../_pricing/managed-gitlab/usd-storage.md) %}
-
+
 
 ### Outgoing traffic {#prices-traffic}
 
 
 
 
-
-
-
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-

@@ -38,7 +38,7 @@ For more information about storage groups in {{ ydb-short-name }}, see the [docu
 
 ## Regions and availability zones {#regions-az}
 
-{{ ydb-name }} databases are located in three availability zones in the `ru-central1` region in central Russia. {{ ydb-name }} ensures that databases are fully available even if an availability zones fails.
+{{ ydb-name }} databases are located in three availability zones in the `{{ region-id }}` region in central Russia. {{ ydb-name }} ensures that databases are fully available even if an availability zones fails.
 
 Learn more about the geo scope of {{ yandex-cloud }} in [{#T}](../../overview/concepts/geo-scope.md).
 

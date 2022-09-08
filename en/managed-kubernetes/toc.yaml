@@ -27,6 +27,8 @@ items:
         items:
           - name: Basics of working with {{ marketplace-name }}
             href: operations/applications/marketplace.md
+          - name: Installing an {{ alb-name }} Ingress controller
+            href: operations/applications/alb-ingress-controller.md
           - name: Installing Jaeger
             href: operations/applications/jaeger.md
           - name: Installing Metrics Provider
@@ -92,6 +94,8 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: Creating a new {{ k8s }} project in {{ yandex-cloud }}
+        href: tutorials/new-kubernetes-project.md
       - name: Integration with {{ container-registry-name }}
         href: tutorials/container-registry.md
       - name: Running workloads with GPUs

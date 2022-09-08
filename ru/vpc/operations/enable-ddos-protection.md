@@ -43,8 +43,8 @@
      resource "yandex_vpc_address" "addr" {
        name = "exampleAddress"
        external_ipv4_address {
-         zone_id                  = "ru-central1-a"
-		 ddos_protection_provider = "qrator"
+         zone_id                  = "{{ region-id }}-a"
+         ddos_protection_provider = "qrator"
        }
      }
      ```

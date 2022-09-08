@@ -18,7 +18,6 @@
 
 Подробнее о концепции шардирования читайте в разделе [{#T}](../concepts/sharding.md).
 
-
 ## Как включить шардирование коллекций {#enable}
 
 {% note warning %}
@@ -52,6 +51,9 @@
 
 1. Переключите приложения, которые используют вашу базу данных, на использование **исключительно** хостов `MONGOS` или `MONGOINFRA`.
 
+### Шардирование разнородных данных {#brackets}
+
+Если коллекция состоит из документов c разнородными [типами данных](https://www.mongodb.com/docs/manual/reference/bson-types), шарды лучше формировать по значениям ключа `_id` одинакового типа, пользуясь механизмом [Type Bracketing](https://www.mongodb.com/docs/manual/reference/method/db.collection.find/#std-label-type-bracketing). Тогда распределение по шардам и поиск документов выполняется быстрее, чем с разнотипными значениями `_id`.
 
 ### Ссылки по теме {#links}
 
@@ -59,7 +61,6 @@
 
 * О механизме шардирования в общем: [Sharding](https://docs.mongodb.com/manual/sharding/index.html).
 * О выборе ключа шардирования и стратегиях шардирования: [Shard Keys](https://docs.mongodb.com/manual/core/sharding-shard-key/).
-
 
 ## Пример шардирования {#example}
 

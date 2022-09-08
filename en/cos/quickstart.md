@@ -46,7 +46,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
      ```bash
      yc compute instance create-with-container \
        --name my-vm \
-       --zone ru-central1-b \
+       --zone {{ region-id }}-b \
        --ssh-key ssh-key.pub \
        --service-account-name my-robot \
        --public-ip \
@@ -80,7 +80,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
       folder_id: b1g88tflru0ek1omtsu0
       created_at: "2019-08-07T09:44:03Z"
       name: my-vm
-      zone_id: ru-central1-b
+      zone_id: {{ region-id }}-b
       platform_id: standard-v2
      ...
      ```
