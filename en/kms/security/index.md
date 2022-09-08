@@ -1,8 +1,3 @@
----
-title: Access management in {{ kms-full-name }}
-description: "Access management in the service for creating and managing encryption keys — {{ kms-full-name }}. The section describes which resources you can assign a role to, which roles act in the service, which roles are required for this or that action."
----
-
 # Access management in {{ kms-name }}
 
 In this section, you'll learn:
@@ -14,11 +9,13 @@ In this section, you'll learn:
 
 ## What resources you can assign roles to {#resources}
 
-Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or [key](../concepts/key). These roles also apply to nested resources.
+Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or [key](../concepts/key). These roles also apply to nested resources. For example, the editor role includes all viewer role permissions. A description of each role is given under the diagram.
 
 ## What roles exist in the service {#roles-list}
 
-You can manage access to {{ kms-short-name }} keys using both service and primitive roles.
+You can manage access to {{ kms-short-name }} keys using both service and primitive roles.  
+
+![image](../../_assets/kms/service-roles-hierarchy.svg)
 
 ### Service roles {#service}
 
@@ -28,8 +25,8 @@ Users without the `resource-manager.clouds.owner` or `admin` role can't assign r
 
 List of service roles:
 * `kms.keys.encrypterDecrypter`: Enables you to [encrypt](../operations/encryption.md#encryption) and [decrypt](../operations/encryption.md#decryption) data and view information about keys.
-* `kms.admin`: Enables you to assign random roles for keys using the CLI and API, delete keys and key versions, and update the primary version. Includes all access rights of the `kms.editor` role.
-* `kms.editor`: Enables you to manage keys (view, create, update, rotate keys, and encrypt and decrypt data). Includes all access rights of the `kms.viewer` and `kms.keys.encrypterDecrypter` roles.
+* `kms.admin`: Enables you to assign random roles for keys using the CLI and API, delete keys and key versions, update the primary version. Includes all access rights of the `kms.editor` role.
+* `kms.editor`: Enables you to manage keys (view, create, update, rotate keys as well as encrypt and decrypt data). Includes all access rights of the `kms.viewer` and `kms.keys.encrypterDecrypter` roles.
 * `kms.viewer`: Enables you to read information about keys.
 
 ### Primitive roles {#primitive}
