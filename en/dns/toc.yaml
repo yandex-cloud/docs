@@ -50,7 +50,6 @@ items:
         when: product == "yandex-cloud"
       - name: Integrating with a corporate DNS service
         href: tutorials/dns-integration.md
-        when: product == "yandex-cloud"
       - name: >-
           Configuring {{ dns-name }} for access to managed database clusters from other cloud networks
         href: tutorials/mdb-dns-peering.md
