@@ -10,9 +10,9 @@ When creating a {{ k8s }} cluster, specify one of three release channels. You ca
 
 Channel | {{ k8s }} versions | Automatic updates | Channel description
 --- |------| --- | ---
-`rapid` | {% if product == "cloud-il" %}1.18,{% endif %} 1.19, 1.20, 1.21, and 1.22 | Can't disable automatic updates. Can specify a time period for automatic updates. | Contains the latest versions of {{ k8s }}. Minor updates with new functions and improvements are often added.
-`regular` | {% if product == "cloud-il" %}1.18,{% endif %} 1.19, 1.20, and 1.21  | Can disable automatic updates. | Contains different versions of {{ k8s }}. New functions and improvements are added in chunks shortly after they appear on `rapid`.
-`stable` | {% if product == "cloud-il" %}1.18,{% endif %} 1.19, 1.20, and 1.21  | Can disable automatic updates. | Contains the stable version of {{ k8s }}. Only updates related to bug fixes or security improvements are added to the channel.
+`rapid` | {% if product == "cloud-il" %}1.18, 1.19, {% endif %}1.20, 1.21, and 1.22 | Can't disable automatic updates. Can specify a time period for automatic updates. | Contains the latest versions of {{ k8s }}. Minor updates with new functions and improvements are often added.
+`regular` | {% if product == "cloud-il" %}1.18, 1.19, 1.20, and 1.21{% endif %}{% if product == "yandex-cloud" %}1.20, 1.21, and 1.22{% endif %} | Can disable automatic updates. | Contains different versions of {{ k8s }}. New functions and improvements are added in chunks shortly after they appear on `rapid`.
+`stable` | {% if product == "cloud-il" %}1.18, 1.19, 1.20, and{% endif %}{% if product == "yandex-cloud" %}1.20,{% endif %} 1.21 | Can disable automatic updates. | Contains the stable version of {{ k8s }}. Only updates related to bug fixes or security improvements are added to the channel.
 
 ## Updates {#updates}
 
