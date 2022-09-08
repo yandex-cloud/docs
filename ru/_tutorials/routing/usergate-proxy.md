@@ -71,10 +71,10 @@
      
      Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
      
-  1. Создайте подсеть `usergate-subnet-ru-central1-a` в зоне доступности `{{ region-id }}-a`:
+  1. Создайте подсеть `usergate-subnet-{{ region-id }}-a` в зоне доступности `{{ region-id }}-a`:
   
      ```
-     yc vpc subnet create usergate-subnet-ru-central1-a \
+     yc vpc subnet create usergate-subnet-{{ region-id }}-a \
        --zone {{ region-id }}-a \
        --network-name usergate-network \
        --range 10.1.0.0/16
@@ -86,9 +86,9 @@
      id: e9bnnssj8sc8mjhat9qk
      folder_id: b1g9hv2loamqfnbul7d9
      created_at: "2022-06-08T09:27:00Z"
-     name: usergate-subnet-ru-central1-a
+     name: usergate-subnet-{{ region-id }}-a
      network_id: enptrcle5q3d3ktd33hj
-     zone_id: ru-central1-a
+     zone_id: {{ region-id }}-a
      v4_cidr_blocks:
      - 10.1.0.0/16
      ```
@@ -97,7 +97,7 @@
 
 - {{ TF }}
 
-  1. Опишите в конфигурационном файле параметры сети `usergate-network` и ее подсети `usergate-subnet-ru-central1-a`:
+  1. Опишите в конфигурационном файле параметры сети `usergate-network` и ее подсети `usergate-subnet-{{ region-id }}-a`:
 
      ```
      resource "yandex_vpc_network" "usergate-network" {
@@ -105,7 +105,7 @@
      }
 
      resource "yandex_vpc_subnet" "usergate-subnet" {
-       name           = "usergate-subnet-ru-central1-a"
+       name           = "usergate-subnet-{{ region-id }}-a"
        zone           = "{{ region-id }}-a"
        network_id     = "${yandex_vpc_network.usergate-network.id}"
        v4_cidr_blocks = ["10.1.0.0/16"]
@@ -138,7 +138,7 @@
 - API
 
   1. Создайте сеть `usergate-network` с помощью вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) или метода REST API [create](../../vpc/api-ref/Network/create.md) для ресурса Network.
-  1. Создайте подсеть `usergate-subnet-ru-central1-a` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) или метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса Subnet.
+  1. Создайте подсеть `usergate-subnet-{{ region-id }}-a` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) или метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса Subnet.
 
 {% endlist %}
 
@@ -370,7 +370,7 @@
   created_at: "2022-06-08T17:52:42Z"
   external_ipv4_address:
     address: 178.154.253.52
-    zone_id: ru-central1-a
+    zone_id: {{ region-id }}-a
     requirements: {}
   reserved: true
   ```
@@ -406,7 +406,7 @@
    
   1. В блоке **Сетевые настройки**:
   
-     * Выберите сеть `usergate-network` и подсеть `usergate-subnet-ru-central1-a`.
+     * Выберите сеть `usergate-network` и подсеть `usergate-subnet-{{ region-id }}-a`.
      * В поле **Публичный адрес** выберите из списка зарезервированный ранее IP-адрес.
      * В поле **Группы безопасности** выберите из списка группу `usergate-sg`.
 
@@ -438,7 +438,7 @@
        --memory 8 \
        --cores 4 \
        --zone {{ region-id }}-a \
-       --network-interface subnet-name=usergate-subnet-ru-central1-a,nat-ip-version=ipv4,security-group-ids=<идентификатор группы безопасности usergate-sg> \
+       --network-interface subnet-name=usergate-subnet-{{ region-id }}-a,nat-ip-version=ipv4,security-group-ids=<идентификатор группы безопасности usergate-sg> \
        --create-boot-disk image-folder-id=standard-images,image-family=usergate-ngfw \
        --ssh-key <путь к открытой части SSH-ключа> \
      ```
@@ -450,7 +450,7 @@
      folder_id: b1g86q4m5vej8lkljme5
      created_at: "2022-06-09T11:15:52Z"
      name: usergate-proxy
-     zone_id: ru-central1-a
+     zone_id: {{ region-id }}-a
      platform_id: standard-v2
      resources:
        memory: "8589934592"

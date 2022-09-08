@@ -81,7 +81,7 @@ created_at: "2020-08-07T11:29:18Z"
 name: cl123g4dridnn5cna6df-yduv
 labels:
   project: test
-zone_id: ru-central1-a
+zone_id: {{ region-id }}-a
 ...
 ```
 

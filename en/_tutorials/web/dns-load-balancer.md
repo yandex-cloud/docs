@@ -16,7 +16,7 @@ To set up a fault tolerant website with DNS load balancing:
 Before creating VMs:
 
 1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
-1. Make sure the selected folder has a network with subnets in the availability zones `ru-cental1-a` and `ru-central1-b`. To do this, click the **Virtual Private Cloud** tile on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
+1. Make sure the selected folder has a network with subnets in the availability zones `{{ region-id }}-a` and `{{ region-id }}-b`. To do this, click the **Virtual Private Cloud** tile on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
 
 ## 1. Create VMs with a pre-installed web server {#create-web-server-vm}
 
@@ -25,12 +25,12 @@ Create two VMs in sequence, following the instructions:
 1. On the folder page, click **Create resource** and select **Virtual machine**.
 
 1. In the **Name** field, enter the VM name:
-   * `dns-lb-tutorial-web-ru-central1-a` for the first VM
-   * `dns-lb-tutorial-web-ru-central1-b` for the second VM
+   * `dns-lb-tutorial-web-{{ region-id }}-a` for the first VM
+   * `dns-lb-tutorial-web-{{ region-id }}-b` for the second VM
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md):
-   * `ru-central1-a` for the first VM
-   * `ru-central1-b` for the second VM
+   * `{{ region-id }}-a` for the first VM
+   * `{{ region-id }}-b` for the second VM
 
 1. Choose one public image for both VMs:
    * **LEMP** for Linux, nginx, MySQL, and PHP
@@ -67,7 +67,7 @@ When a VM is created, it is assigned an IP address and hostname (FQDN). This dat
 
 ## 2. Upload the website files {#upload-files}
 
-For the `dns-lb-tutorial-web-ru-central1-a` and `dns-lb-tutorial-web-ru-central1-b`VMs, do the following:
+For the `dns-lb-tutorial-web-{{ region-id }}-a` and `dns-lb-tutorial-web-{{ region-id }}-b`VMs, do the following:
 
 {% include [upload-files](../_tutorials_includes/upload-web-site-files.md) %}
 
@@ -78,12 +78,12 @@ Create two VMs in sequence, following the instructions:
 1. On the folder page, click **Create resource** and select **Virtual machine**.
 
 1. In the **Name** field, enter the VM name:
-   * `dns-lb-tutorial-slb-ru-central1-a` for the first VM
-   * `dns-lb-tutorial-slb-ru-central1-b` for the second VM
+   * `dns-lb-tutorial-slb-{{ region-id }}-a` for the first VM
+   * `dns-lb-tutorial-slb-{{ region-id }}-b` for the second VM
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md):
-   * `ru-central1-a` for the first VM
-   * `ru-central1-b` for the second VM
+   * `{{ region-id }}-a` for the first VM
+   * `{{ region-id }}-b` for the second VM
 
 1. Select the **Ubuntu** or **CentOS** public image. Supported **Ubuntu** versions: 16.04 or higher.
 
@@ -118,7 +118,7 @@ When a VM is created, it is assigned an IP address and hostname (FQDN). This dat
 
 ## 4. Install and configure the DNS load balancer software {#install-configure-dns-balancer}
 
-For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1-b` VMs, do the following:
+For the `dns-lb-tutorial-slb-{{ region-id }}-a` and `dns-lb-tutorial-slb-{{ region-id }}-b` VMs, do the following:
 
 1. Go to the VM page of the [management console]({{ link-console-main }}). In the **Network** section, find the VM's public IP address.
 
@@ -286,11 +286,11 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
                lb_method: wrr
                fallback: any
                members:
-               - ip: <dns-lb-tutorial-web-ru-central1-a PUBLIC IP>
-                 name: dns-lb-tutorial-web-ru-central1-a
+               - ip: <dns-lb-tutorial-web-{{ region-id }}-a PUBLIC IP>
+                 name: dns-lb-tutorial-web-{{ region-id }}-a
                  weight: 1
-               - ip: <dns-lb-tutorial-web-ru-central1-b PUBLIC IP>
-                 name: dns-lb-tutorial-web-ru-central1-b
+               - ip: <dns-lb-tutorial-web-{{ region-id }}-b PUBLIC IP>
+                 name: dns-lb-tutorial-web-{{ region-id }}-b
                  weight: 1
 
        globalnames:
@@ -301,8 +301,8 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
 
        Specify the following in the file:
        * Your domain name instead of `www.example.com`.
-       * In place of `<dns-lb-tutorial-web-ru-central1-a PUBLIC IP>`, enter the public IP address of the `dns-lb-tutorial-web-ru-central1-a` VM.
-       * In place of `<dns-lb-tutorial-web-ru-central1-b PUBLIC IP>`,  enter the public IP address of the `dns-lb-tutorial-web-ru-central1-b` VM.
+       * In place of `<dns-lb-tutorial-web-{{ region-id }}-a PUBLIC IP>`, enter the public IP address of the `dns-lb-tutorial-web-{{ region-id }}-a` VM.
+       * In place of `<dns-lb-tutorial-web-{{ region-id }}-b PUBLIC IP>`,  enter the public IP address of the `dns-lb-tutorial-web-{{ region-id }}-b` VM.
 
        You can find out the VM's public address in the **Network** section on the VM page in the [management console]({{ link-console-main }}).
 
@@ -319,7 +319,7 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
       ###############################
       # SOA MNAME, must end with a dot.
       #
-      SOA_MNAME: dns-lb-tutorial-slb-ru-central1-a.example.com.
+      SOA_MNAME: dns-lb-tutorial-slb-{{ region-id }}-a.example.com.
 
       ###############################
       # SOA_RNAME, must end with a dot.
@@ -438,29 +438,29 @@ The instructions below describe how to configure an external DNS service using a
 
 To configure an external DNS server, do the following:
 
-1. Find the public IP addresses of the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1-b` VMs in the **Network** section on the VM pages in the [management console]({{ link-console-main }}).
+1. Find the public IP addresses of the `dns-lb-tutorial-slb-{{ region-id }}-a` and `dns-lb-tutorial-slb-{{ region-id }}-b` VMs in the **Network** section on the VM pages in the [management console]({{ link-console-main }}).
 1. Log in to the control panel of the external DNS service. Go to the list of your domains and click on the domain name you need.
 1. Create two A records:
-   * For the `dns-lb-tutorial-slb-ru-central1-a` VM:
+   * For the `dns-lb-tutorial-slb-{{ region-id }}-a` VM:
       * **IP Address**: your VM's public IP address.
-      * **Subdomain**: `dns-lb-tutorial-slb-ru-central1-a`.
-   * For the `dns-lb-tutorial-slb-ru-central1-b` VM:
+      * **Subdomain**: `dns-lb-tutorial-slb-{{ region-id }}-a`.
+   * For the `dns-lb-tutorial-slb-{{ region-id }}-b` VM:
       * **IP Address**: your VM's public IP address.
-      * **Subdomain**: `dns-lb-tutorial-slb-ru-central1-b`.
+      * **Subdomain**: `dns-lb-tutorial-slb-{{ region-id }}-b`.
 1. Create two NS records with the following field values:
-   * For the `dns-lb-tutorial-slb-ru-central1-a` VM:
+   * For the `dns-lb-tutorial-slb-{{ region-id }}-a` VM:
       * **Subdomain**: `www`.
-      * **Canonical name**: `dns-lb-tutorial-slb-ru-central1-a.example.com.`.
-   * For the `dns-lb-tutorial-slb-ru-central1-b` VM:
+      * **Canonical name**: `dns-lb-tutorial-slb-{{ region-id }}-a.example.com.`.
+   * For the `dns-lb-tutorial-slb-{{ region-id }}-b` VM:
      * **Subdomain**: `www`.
-     * **Value**: `dns-lb-tutorial-slb-ru-central1-b.example.com.`.
+     * **Value**: `dns-lb-tutorial-slb-{{ region-id }}-b.example.com.`.
 1. Wait 15-20 minutes for DNS record changes to take effect. The waiting time may differ for your DNS service.
 
 ## 6. Test the fault tolerance {#test-ha}
 
 ### 6.1. DNS load balancers {#test-dns-balancers}
 
-1. In the **Network** section on the VM page of the [management console]({{ link-console-main }}), find the public IP address of the `dns-lb-tutorial-slb-ru-central1-a` VM.
+1. In the **Network** section on the VM page of the [management console]({{ link-console-main }}), find the public IP address of the `dns-lb-tutorial-slb-{{ region-id }}-a` VM.
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 1. Stop the DNS service to simulate a failure of the DNS load balancer:
 
@@ -476,7 +476,7 @@ To configure an external DNS server, do the following:
 
 ### 6.2. Web servers {#test-web-servers}
 
-1. In the **Network** section on the VM page of the [management console]({{ link-console-main }}), find the public IP address of the `dns-lb-tutorial-web-ru-central1-a` VM.
+1. In the **Network** section on the VM page of the [management console]({{ link-console-main }}), find the public IP address of the `dns-lb-tutorial-web-{{ region-id }}-a` VM.
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 

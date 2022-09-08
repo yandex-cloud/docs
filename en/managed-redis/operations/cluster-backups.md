@@ -75,7 +75,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
          --cluster-name mynewrd \
          --environment=PRODUCTION \
          --network-name default \
-         --host zone-id=ru-central1-a,subnet-id=b0rcctk2rvtr8efcch63 \
+         --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch63 \
          --password P@ssWord \
          --disk-size 20
       ```
@@ -85,7 +85,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
       * With the `mynewrd` name.
       * In the `PRODUCTION` environment.
       * In the `default` network.
-      * With a single host of the `hm1.nano` class in the `b0rcctk2rvtr8efcch63` subnet and the `ru-central1-a` availability zone.
+      * With a single host of the `hm1.nano` class in the `b0rcctk2rvtr8efcch63` subnet and the `{{ region-id }}-a` availability zone.
       * With 10 GB of SSD network storage (`{{ disk-type-example }}`).
 
 {% endlist %}

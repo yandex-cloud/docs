@@ -13,7 +13,7 @@ You can create node groups with graphics accelerators (GPUs) in {{ k8s }} cluste
 
 {% if product == "yandex-cloud" %}
 
-* The cluster is in the `ru-central1-a` and `ru-central1-b` zones.
+* The cluster is in the `{{ region-id }}-a` and `{{ region-id }}-b` zones.
 
   VMs with GPUs are available in these [zones](../../../overview/concepts/geo-scope.md). When requesting a GPU quota, keep in mind which zones you're going to run your {{ k8s }} clusters in.
 

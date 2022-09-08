@@ -129,7 +129,7 @@
         token     = "<static key of the service account>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
-        zone      = "ru-central1-a"
+        zone      = "{{ region-id }}-a"
       }
 
       resource "yandex_lb_target_group" "foo" {

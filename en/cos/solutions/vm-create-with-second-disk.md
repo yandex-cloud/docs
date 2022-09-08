@@ -48,7 +48,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      ```bash
      yc compute instance create-with-container \
        --name coi-vm \
-       --zone ru-central1-a \
+       --zone {{ region-id }}-a \
        --create-boot-disk size=30 \
        --create-disk name=data-disk,size=10,device-name=coi-data \
        --network-interface subnet-name=<subnet name>,nat-ip-version=ipv4 \

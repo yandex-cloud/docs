@@ -116,7 +116,7 @@ The infrastructure support cost for this scenario includes:
       * `YDB_ENDPOINT`: Enter a string like `<protocol>://<database endpoint>`.
 
           For example, if the protocol is `grpcs` and the endpoint is `ydb.serverless.yandexcloud.net:2135`, enter `grpcs://ydb.serverless.yandexcloud.net:2135`.
-      * `YDB_DATABASE`: Enter the previously saved **Database** field value. For example: `/ru-central1/b1gia87mbaomkfvsleds/etn02j1mlm4vgjhij03e`.
+      * `YDB_DATABASE`: Enter the previously saved **Database** field value. For example: `/{{ region-id }}/b1gia87mbaomkfvsleds/etn02j1mlm4vgjhij03e`.
   1. In the upper-right corner of the **Editor** section, click **Create version**.
 
 {% endlist %}

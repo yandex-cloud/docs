@@ -58,10 +58,10 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
       +---------------+--------------------------------+-------+----------+
       |      ID       |            ZONE IDS            | CORES |  MEMORY  |
       +---------------+--------------------------------+-------+----------+
-      | hm2.128xlarge | ru-central1-a, ru-central1-b,  |     8 | 128.0 GB |
-      |               | ru-central1-c                  |       |          |
-      | hm2.160xlarge | ru-central1-a, ru-central1-b,  |    10 | 160.0 GB |
-      |               | ru-central1-c                  |       |          |
+      | hm2.128xlarge | {{ region-id }}-a, {{ region-id }}-b,  |     8 | 128.0 GB |
+      |               | {{ region-id }}-c                  |       |          |
+      | hm2.160xlarge | {{ region-id }}-a, {{ region-id }}-b,  |    10 | 160.0 GB |
+      |               | {{ region-id }}-c                  |       |          |
       | ...                                                               |
       +---------------+--------------------------------+-------+----------+
       ```

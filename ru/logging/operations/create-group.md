@@ -46,9 +46,9 @@
     * `--retention-period` — срок хранения записей в лог-группе. Необязательный параметр. Максимальный срок хранения записей — 3 дня, минимальный — 1 час. По умолчанию срок хранения записей — 3 дня.
     * `data-stream` — идентификатор [потока данных](../../data-streams/concepts/glossary#stream-concepts.md) {{ yds-full-name }}. Необязательный параметр. В указанный поток автоматически будут перенаправляться записи, которые добавили в лог-группу. Идентификатор потока состоит из зоны доступности, идентификатора каталога, идентификатора базы данных {{ ydb-full-name }} и имени потока.
 
-        >Например, укажите идентификатор потока `/ru-central1/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream`, если:
+        >Например, укажите идентификатор потока `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream`, если:
         >* `aws_stream` — имя потока;
-        >* `ru-central1` — зона доступности;
+        >* `{{ region-id }}` — зона доступности;
         >* `aoeu1kuk2dhtaupdb1es` — идентификатор каталога;
         >* `cc8029jgtuabequtgtbv` — идентификатор базы данных {{ ydb-full-name }}.
 
@@ -63,7 +63,7 @@
     name: group
     status: ACTIVE
     retention_period: 3600s
-    data_stream: /ru-central1/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream
+    data_stream: /{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream
     ```
 
 - API
