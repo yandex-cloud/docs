@@ -149,13 +149,13 @@
 
      Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
  
-  1. Создайте подсеть `vm-scale-scheduled-subnet-a` в зоне `ru-central1-a`:
+  1. Создайте подсеть `vm-scale-scheduled-subnet-a` в зоне `{{ region-id }}-a`:
  
      ```bash
      yc vpc subnet create --name vm-scale-scheduled-subnet-a \
        --folder-name example-folder \
        --network-name vm-scale-scheduled-network --range 192.168.1.0/24 \
-       --zone ru-central1-a
+       --zone {{ region-id }}-a
      ```
  
      Результат:
@@ -166,20 +166,20 @@
      created_at: "2022-03-15T09:56:51.859345Z"
      name: vm-scale-scheduled-subnet-a
      network_id: enpabce123hde4ft1r3t
-     zone_id: ru-central1-a
+     zone_id: {{ region-id }}-a
      v4_cidr_blocks:
      - 192.168.1.0/24
      ```
 
      Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
   
-  1. Создайте подсеть `vm-scale-scheduled-network-b` в зоне `ru-central1-b`:
+  1. Создайте подсеть `vm-scale-scheduled-network-b` в зоне `{{ region-id }}-b`:
  
      ```bash
      yc vpc subnet create --name vm-scale-scheduled-subnet-b \
        --folder-name example-folder \
        --network-name vm-scale-scheduled-network --range 192.168.2.0/24 \
-       --zone ru-central1-b
+       --zone {{ region-id }}-b
      ```
  
      Результат:
@@ -190,7 +190,7 @@
      created_at: "2022-03-15T09:57:48.934429Z"
      name: vm-scale-scheduled-subnet-b
      network_id: enpabce123hde4ft1r3t
-     zone_id: ru-central1-b
+     zone_id: {{ region-id }}-b
      v4_cidr_blocks:
      - 192.168.2.0/24
      ```
@@ -203,7 +203,7 @@
 
   1. Создайте сеть `vm-scale-scheduled-network` с помощью метода [create](../../vpc/api-ref/Network/create.md) для ресурса `Network`.
  
-  1. Создайте подсети `vm-scale-scheduled-subnet-a` в зоне `ru-central1-a` и `vm-scale-scheduled-subnet-b` в зоне `ru-central1-b` с помощью метода [create](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnet`.
+  1. Создайте подсети `vm-scale-scheduled-subnet-a` в зоне `{{ region-id }}-a` и `vm-scale-scheduled-subnet-b` в зоне `{{ region-id }}-b` с помощью метода [create](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnet`.
 
 {% endlist %}
 
@@ -224,7 +224,7 @@
      * Введите **Имя** группы `vm-scale-scheduled-ig`.
      * Выберите **Сервисный аккаунт** `vm-scale-scheduled-sa`.
    
-  1. В блоке **Распределение** выберите **Зоны доступности** `ru-central1-a` и `ru-central1-b`.
+  1. В блоке **Распределение** выберите **Зоны доступности** `{{ region-id }}-a` и `{{ region-id }}-b`.
   1. В блоке **Шаблон виртуальной машины** нажмите кнопку **Задать**:
      
      * В блоке **Выбор образа/загрузочного диска** на вкладке **Операционные системы** выберите **Ubuntu 20.04**.

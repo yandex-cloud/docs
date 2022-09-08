@@ -3,8 +3,8 @@ name: vm-scale-scheduled-ig
 service_account_id: <идентификатор_сервисного_аккаунта>
 allocation_policy:
    zones:
-     - zone_id: ru-central1-a
-     - zone_id: ru-central1-b
+     - zone_id: {{ region-id }}-a
+     - zone_id: {{ region-id }}-b
 instance_template:
   platform_id: standard-v3
   resources_spec:
@@ -20,8 +20,8 @@ instance_template:
   network_interface_specs:
    - network_id: <идентификатор_сети>
      subnet_ids:
-       - <идентификатор_подсети_в_зоне_ru-central1-a>
-       - <идентификатор_подсети_в_зоне_ru-central1-b>
+       - <идентификатор_подсети_в_зоне_{{ region-id }}-a>
+       - <идентификатор_подсети_в_зоне_{{ region-id }}-b>
      primary_v4_address_spec: {}
 scale_policy:
   fixed_scale:

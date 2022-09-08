@@ -108,7 +108,7 @@ You must create two buckets: one, `ycprojektblue-storage`, will store files, and
         token     = "<OAuth>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
-        zone      = "ru-central1-a"
+        zone      = "{{ region-id }}-a"
       }
 
       resource "yandex_storage_bucket" "storage" {

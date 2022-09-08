@@ -87,12 +87,12 @@ You can also announce *aggregated prefixes*. This will allow you to set up a pri
   > For example, when organizing a private connection, you requested an announcement of the following aggregated IPv4 prefixes:
   >
   > ```
-  > ru-central1-a [10.128.0.0/16]
-  > ru-central1-b [10.130.0.0/16]
-  > ru-central1-c [10.140.0.0/16]
+  > {{ region-id }}-a [10.128.0.0/16]
+  > {{ region-id }}-b [10.130.0.0/16]
+  > {{ region-id }}-c [10.140.0.0/16]
   > ```
   >
-  > If you then create a subnet with the prefix `10.128.15.0/24` in this network in the `ru-central1-a` zone, it will automatically be available via {{ interconnect-name }}, because the subnet `10.128.15.0/24` belongs to the already announced address space `10.128.0.0/16`.
+  > If you then create a subnet with the prefix `10.128.15.0/24` in this network in the `{{ region-id }}-a` zone, it will automatically be available via {{ interconnect-name }}, because the subnet `10.128.15.0/24` belongs to the already announced address space `10.128.0.0/16`.
 
 ## Connection speed and the necessary traffic package {#bandwidth}
 

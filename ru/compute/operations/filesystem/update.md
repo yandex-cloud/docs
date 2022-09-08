@@ -54,7 +54,7 @@
        created_at: "2022-04-26T16:59:19Z"
        name: storage-1
        type_id: network-hdd
-       zone_id: ru-central1-b
+       zone_id: {{ region-id }}-b
        size: "1073741824"
        block_size: "4096"
        status: READY
@@ -64,7 +64,7 @@
        name: storage-2
        description: test
        type_id: network-hdd
-       zone_id: ru-central1-b
+       zone_id: {{ region-id }}-b
        size: "1073741824"
        block_size: "4096"
        status: READY
@@ -90,7 +90,7 @@
        name: storage-3
        description: vm-storage
        type_id: network-hdd
-       zone_id: ru-central1-b
+       zone_id: {{ region-id }}-b
        size: "1073741824"
        block_size: "4096"
        status: READY
@@ -112,7 +112,7 @@
        created_at: "2022-04-26T16:37:30Z"
        name: storage-1
        type_id: network-hdd
-       zone_id: ru-central1-b
+       zone_id: {{ region-id }}-b
        size: "2147483648"
        block_size: "4096"
        status: READY

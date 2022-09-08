@@ -66,10 +66,10 @@
       created_at: "2022-05-30T07:26:44Z"
       name: test
       status: PROVISIONING
-      endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaomkfvsleds/etn95g8jk8g0qk84hk20
+      endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etn95g8jk8g0qk84hk20
       serverless_database:
         storage_size_limit: "53687091200"
-      location_id: ru-central1
+      location_id: {{ region-id }}
       backup_config:
         backup_settings:
         - name: daily
@@ -79,7 +79,7 @@
                 hours: 17
           backup_time_to_live: 172800s
           type: SYSTEM
-      document_api_endpoint: https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvsleds/etn95g8jk8g0qk84hk20
+      document_api_endpoint: https://docapi.serverless.yandexcloud.net/{{ region-id }}/b1gia87mbaomkfvsleds/etn95g8jk8g0qk84hk20
       monitoring_config: {}
       ```
 
@@ -170,7 +170,7 @@
       created_at: "2022-05-31T10:10:12Z"
       name: test-ded
       status: PROVISIONING
-      endpoint: grpcs://lb.etnk1u65e4shtgj207sc.ydb.mdb.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaomkfvsleds/etnk1u65e4shtgj207sc
+      endpoint: grpcs://lb.etnk1u65e4shtgj207sc.ydb.mdb.yandexcloud.net:2135/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etnk1u65e4shtgj207sc
       resource_preset_id: medium
       storage_config:
         storage_options:
@@ -202,7 +202,7 @@
         - e9b72lv142k40bul5qgv
         assign_public_ips: true
       assign_public_ips: true
-      location_id: ru-central1
+      location_id: {{ region-id }}
       backup_config:
         backup_settings:
         - name: daily
@@ -272,18 +272,18 @@
 
       ```text
       ...
-      endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2
+      endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2
       ...
       ```
 
-      Здесь часть строки `grpcs://ydb.serverless.yandexcloud.net:2135` содержит эндпоинт, а `/ru-central1/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2` — путь базы данных.
+      Здесь часть строки `grpcs://ydb.serverless.yandexcloud.net:2135` содержит эндпоинт, а `/{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2` — путь базы данных.
 
   1. Выполните запрос к созданной ранее базе данных, используя полученные значения эндпоинта и пути БД:
   
       ```bash
       ydb \
         --endpoint grpcs://ydb.serverless.yandexcloud.net:2135 \
-        --database /ru-central1/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2 \
+        --database /{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2 \
         yql -s "SELECT 1;"
       ```
 

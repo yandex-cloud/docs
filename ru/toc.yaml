@@ -115,4 +115,6 @@ items:
     href: wiki/index.yaml
   - name: Managed Service for YDB
     href: ydb/index.yaml
+  - name: Облачная терминология
+    href: glossary/index.yaml
 base: ru

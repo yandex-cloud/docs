@@ -165,3 +165,6 @@ links:
   - title: Yandex Managed Service for YDB
     description: Распределенная отказоустойчивая NewSQL СУБД
     href: ydb/
+  - title: Облачная терминология
+    description: Словарь разработчика
+    href: glossary/

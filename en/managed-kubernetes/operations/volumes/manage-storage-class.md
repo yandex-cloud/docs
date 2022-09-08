@@ -3,18 +3,16 @@
 _Storage class_ (`StorageClass`) allows administrators to divide the stores they provision into classes with defined parameters.
 
 
-{{ managed-k8s-short-name }} automatically provides two storage classes, `yc-network-hdd` and `yc-network-ssd`, with the following parameters:
-
-- [Volume Binding Mode](https://kubernetes.io/docs/concepts/storage/storage-classes/#volume-binding-mode): `WaitForFirstConsumer`.
-- [Reclaim Policy](https://kubernetes.io/docs/concepts/storage/storage-classes/#reclaim-policy): `Delete`.
-- The default class is `yc-network-hdd`.
+{{ managed-k8s-name }} automatically provides two storage classes, `yc-network-hdd` and `yc-network-ssd`, with the following parameters:
+* [Volume Binding Mode](https://kubernetes.io/docs/concepts/storage/storage-classes/#volume-binding-mode): `WaitForFirstConsumer`.
+* [Reclaim Policy](https://kubernetes.io/docs/concepts/storage/storage-classes/#reclaim-policy): `Delete`.
+* The default class is `yc-network-hdd`.
 
 These classes only let you use `PersistentVolumeClaims` and `PersistentVolumes` in [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) `ReadWriteOnce`.
 
 Classes differ based on the [type of disk created](../../../compute/concepts/disk.md#disks_types):
-
-- `yc-network-hdd` uses a standard network drive (`network-hdd`).
-- `yc-network-ssd` uses a fast network drive (`network-ssd`).
+* `yc-network-hdd` uses a standard network drive (`network-hdd`).
+* `yc-network-ssd` uses a fast network drive (`network-ssd`).
 
 You can [create your own storage class](#sc-create) as well as [change the default storage class](#sc-default).
 
@@ -98,7 +96,7 @@ Acceptable parameter values:
 
 YAML file structure:
 
-```
+```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
@@ -117,44 +115,44 @@ reclaimPolicy: <reclaim policy>
 
 1. Look up which storage class is assigned by default. `default` is shown next to its name in parentheses.
 
-    ```
-    kubectl get storageclass
-    NAME                       PROVISIONER                     AGE
-    my-sc-hdd                  disk-csi-driver.mks.ycloud.io   76s
-    yc-network-hdd (default)   disk-csi-driver.mks.ycloud.io   16m
-    yc-network-ssd             disk-csi-driver.mks.ycloud.io   16m
-    ```
+   ```
+   kubectl get storageclass
+   NAME                      PROVISIONER                    AGE
+   my-sc-hdd                 disk-csi-driver.mks.ycloud.io  76s
+   yc-network-hdd (default)  disk-csi-driver.mks.ycloud.io  16m
+   yc-network-ssd            disk-csi-driver.mks.ycloud.io  16m
+   ```
 
 1. Change the `storageclass.kubernetes.io/is-default-class` parameter of the default storage class to `false`, to remove its status as the default class:
 
-    ```
-    kubectl patch storageclass yc-network-hdd \
-              -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
-    ```
+   ```
+   kubectl patch storageclass yc-network-hdd \
+     -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
+   ```
 
 1. Check that `yc-network-hdd` is no longer the default storage class:
 
-    ```
-    kubectl get storageclass
-    NAME              PROVISIONER                     AGE
-    my-sc-hdd         disk-csi-driver.mks.ycloud.io   2m36s
-    yc-network-hdd    disk-csi-driver.mks.ycloud.io   17m
-    yc-network-ssd    disk-csi-driver.mks.ycloud.io   17m
-    ```
+   ```
+   kubectl get storageclass
+   NAME            PROVISIONER                    AGE
+   my-sc-hdd       disk-csi-driver.mks.ycloud.io  2m36s
+   yc-network-hdd  disk-csi-driver.mks.ycloud.io  17m
+   yc-network-ssd  disk-csi-driver.mks.ycloud.io  17m
+   ```
 
 1. Specify a new default storage class, such as `my-sc-hdd`:
 
-    ```
-    kubectl patch storageclass my-sc-hdd \
-              -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
-    ```
+   ```
+   kubectl patch storageclass my-sc-hdd \
+     -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+   ```
 
 1. Check that `my-sc-hdd` is the default storage class:
 
-    ```
-    kubectl get storageclass
-    NAME                  PROVISIONER                     AGE
-    my-sc-hdd (default)   disk-csi-driver.mks.ycloud.io   4m21s
-    yc-network-hdd        disk-csi-driver.mks.ycloud.io   19m
-    yc-network-ssd        disk-csi-driver.mks.ycloud.io   19m
-    ```
+   ```
+   kubectl get storageclass
+   NAME                 PROVISIONER                    AGE
+   my-sc-hdd (default)  disk-csi-driver.mks.ycloud.io  4m21s
+   yc-network-hdd       disk-csi-driver.mks.ycloud.io  19m
+   yc-network-ssd       disk-csi-driver.mks.ycloud.io  19m
+   ```

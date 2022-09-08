@@ -21,7 +21,7 @@
      def get_records(folder, database, stream_name):
          client = boto3.client('kinesis', endpoint_url="https://yds.serverless.yandexcloud.net")
      
-         StreamName = "/ru-central1/{folder}/{database}/{stream}".format(folder=folder,
+         StreamName = "/{{ region-id }}/{folder}/{database}/{stream}".format(folder=folder,
                                                                       database=database,
                                                                       stream=stream_name)
      

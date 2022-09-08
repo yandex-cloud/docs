@@ -83,7 +83,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
         ```bash
         yc compute instance create \
           --name coi-vm-with-sp \
-          --zone ru-central1-a \
+          --zone {{ region-id }}-a \
           --network-interface subnet-name=<subnet name>,nat-ip-version=ipv4 \
           --metadata-from-file user-data=cloud-config-ports.yaml,docker-container-declaration=container-spec-ports.yaml \
           --create-boot-disk image-id=$IMAGE_ID
