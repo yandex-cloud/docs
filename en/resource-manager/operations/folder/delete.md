@@ -20,9 +20,9 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
 
    If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To delete a folder created using {{ TF }}:
+   To delete a folder created with {{ TF }}:
 
-   1. Open the {{ TF }} configuration file and delete the section with the folder description.
+   1. Open the {{ TF }} configuration file and delete the fragment describing the folder.
 
       {% cut "Example folder description in a {{ TF }} configuration" %}
 
@@ -58,7 +58,7 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -77,8 +77,8 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
 
 {% note alert %}
 
-While a folder's status is `PENDING_DELETION`, your disks, reserved IPs, and other data are preserved. The cost of such storage is charged at the previous rate. Track your resource costs in [billing]({{ link-console-billing }}).
+While a folder's status is `PENDING_DELETION`, your disks, reserved IPs, and other data are preserved. The cost of such storage is charged at the previous rate.{% if product == "yandex-cloud" %} Track your resource costs in [billing]({{ link-console-billing }}).{% endif %}
 
 {% endnote %}
 
-Once the delay ends, the folder's status will change to `DELETING`. When a cloud has this status, it is being irreversibly deleted, which can take up to 72 hours.
+Once the delay ends, the folder's status will change to `DELETING`. This status indicates that permanent deletion is underway and may take up to 72 hours resulting in the folder being deleted together with all its resources.
