@@ -245,3 +245,7 @@ links:
     description: Распределенная отказоустойчивая NewSQL СУБД
     href: ydb/
     when: audience == "external" and product == "yandex-cloud"
+  - title: Облачная терминология
+    description: Словарь разработчика
+    href: glossary/
+    when: audience == "external" and product == "yandex-cloud"

@@ -175,3 +175,6 @@ items:
   - name: Managed Service for YDB
     href: ydb/index.yaml
     when: audience == "external" and product == "yandex-cloud"
+  - name: Облачная терминология
+    href: glossary/index.yaml
+    when: audience == "external" and product == "yandex-cloud"
