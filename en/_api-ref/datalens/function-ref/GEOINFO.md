@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# GEOINFO
+{% if audience == "external" %}# GEOINFO
 
 
 
@@ -14,17 +14,16 @@ GEOINFO( address, scale )
 ```
 
 #### Description {#description}
-{% if audience == "internal" %} It is a deprecated function. {% endif %}
-{% if audience == "internal" %} Starting from 01.07.2022 this function will always return Null. {% endif %}
-{% if audience == "internal" %} See also https://clubs.at.yandex-team.ru/datalens/132 {% endif %}
-{% if audience != "internal" %} Converts `address` to geographical name corresponding to the specified `scale`. {% endif %}
-{% if audience != "internal" %} Possible values for `scale` parameter: {% endif %}
-{% if audience != "internal" %} - `"country"`; {% endif %}
-{% if audience != "internal" %} - `"country_code"`; {% endif %}
-{% if audience != "internal" %} - `"region"`; {% endif %}
-{% if audience != "internal" %} - `"locality"`. {% endif %}
-{% if audience != "internal" %} The calculated field using this function must be created at the dataset level. {% endif %}
-{% if audience != "internal" %} To enable the function, go to the [Service Settings]({{ link-datalens-settings }}) page. {% endif %}
+Converts `address` to geographical name corresponding to the specified `scale`.
+
+Possible values for `scale` parameter:
+- `"country"`;
+- `"country_code"`;
+- `"region"`;
+- `"locality"`.
+
+The calculated field using this function must be created at the dataset level.
+To enable the function, go to the [Service Settings]({{ link-datalens-settings }}) page.
 
 **Argument types:**
 - `address` — `String`
@@ -55,4 +54,4 @@ Only constant values are accepted for the arguments (`scale`).
 
 #### Data source support {#data-source-support}
 
-`Materialized Dataset`.
+`Materialized Dataset`.{% endif %}

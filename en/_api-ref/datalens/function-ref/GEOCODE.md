@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# GEOCODE
+{% if audience == "external" %}# GEOCODE
 
 
 
@@ -14,16 +14,13 @@ GEOCODE( address )
 ```
 
 #### Description {#description}
-{% if audience == "internal" %} It is a deprecated function. {% endif %}
-{% if audience == "internal" %} Starting from 01.07.2022 this function will always return Null. {% endif %}
-{% if audience == "internal" %} See also https://clubs.at.yandex-team.ru/datalens/132 {% endif %}
-{% if audience != "internal" %} Converts `address` to its geographical coordinates. {% endif %}
-{% if audience != "internal" %} {{ datalens-short-name }} caches the function result. When the function is {% endif %}
-{% if audience != "internal" %} invoked again, {{ datalens-short-name }} doesn't perform geocoding. {% endif %}
-{% if audience != "internal" %} The cache lifetime is 30 days. After 30 days, {{ datalens-short-name }} {% endif %}
-{% if audience != "internal" %} automatically invokes `GEOCODE` to convert addresses in the dataset. {% endif %}
-{% if audience != "internal" %} The calculated field using this function must be created at the dataset level. {% endif %}
-{% if audience != "internal" %} To enable the function, go to the [Service Settings]({{ link-datalens-settings }}) page. {% endif %}
+Converts `address` to its geographical coordinates.
+
+{{ datalens-short-name }} caches the function result. When the function is invoked again, {{ datalens-short-name }} doesn't perform geocoding.
+The cache lifetime is 30 days. After 30 days, {{ datalens-short-name }} automatically invokes `GEOCODE` to convert addresses in the dataset.
+
+The calculated field using this function must be created at the dataset level.
+To enable the function, go to the [Service Settings]({{ link-datalens-settings }}) page.
 
 **Argument types:**
 - `address` — `String`
@@ -46,4 +43,4 @@ GEOCODE( address )
 
 #### Data source support {#data-source-support}
 
-`Materialized Dataset`.
+`Materialized Dataset`.{% endif %}

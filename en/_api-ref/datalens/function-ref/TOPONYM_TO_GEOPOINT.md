@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# TOPONYM_TO_GEOPOINT
+{% if audience == "external" %}# TOPONYM_TO_GEOPOINT
 
 
 
@@ -14,11 +14,8 @@ TOPONYM_TO_GEOPOINT( name )
 ```
 
 #### Description {#description}
-{% if audience == "internal" %} It is a deprecated function. {% endif %}
-{% if audience == "internal" %} Starting from 01.07.2022 this function will always return Null. {% endif %}
-{% if audience == "internal" %} See also https://clubs.at.yandex-team.ru/datalens/132 {% endif %}
-{% if audience != "internal" %} Converts the name of a geographical entity (country, region, city) `name` to the `Geopoint` type. {% endif %}
-{% if audience != "internal" %} See the full [list of toponyms]({{ geopoints-list-link }}). {% endif %}
+Converts the name of a geographical entity (country, region, city) `name` to the `Geopoint` type.
+See the full [list of toponyms]({{ geopoints-list-link }}).
 
 **Argument types:**
 - `name` — `String`
@@ -41,4 +38,4 @@ TOPONYM_TO_GEOPOINT( name )
 
 #### Data source support {#data-source-support}
 
-`Materialized Dataset`.
+`Materialized Dataset`.{% endif %}

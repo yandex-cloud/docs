@@ -57,12 +57,16 @@ items:
         href: function-ref/geographical-functions.md
       - name: GEOCODE
         href: function-ref/GEOCODE.md
+        when: audience == "external"
       - name: GEOINFO
         href: function-ref/GEOINFO.md
+        when: audience == "external"
       - name: TOPONYM_TO_GEOPOINT
         href: function-ref/TOPONYM_TO_GEOPOINT.md
+        when: audience == "external"
       - name: TOPONYM_TO_GEOPOLYGON
         href: function-ref/TOPONYM_TO_GEOPOLYGON.md
+        when: audience == "external"
   - name: Логические функции
     items:
       - name: Обзор

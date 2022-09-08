@@ -6,7 +6,7 @@
 
 * Создайте текстовое поле, в котором лежат данные вида `[[[55.60807, 37.5698], [55.60847, 37.56992], [55.60851, 37.57095]]]` — координаты точек полигона в квадратных скобках. Вы можете предварительно подготовить данные в БД и определить тип данных [Геополигон](../../concepts/data-types#geopolygon) в интерфейсе описания датасета.
 * Используйте [функцию](../function-ref/GEOPOLYGON.md) `GEOPOLYGON(polygon_string)`, чтобы создать вычисляемое поле с типом данных [Геополигон](../../concepts/data-types#geopolygon).
-* Если у вас в данных есть поле с названием городов, регионов или стран, используйте [функцию](../function-ref/TOPONYM_TO_GEOPOLYGON.md) `TOPONYM_TO_GEOPOLYGON([city])`.
+* Если у вас в данных есть поле с названием городов, регионов или стран, используйте {% if audience == "external" %}[функцию](../function-ref/TOPONYM_TO_GEOPOLYGON.md) `TOPONYM_TO_GEOPOLYGON([city])`{% else %}[справочник геоточек/геополигонов](https://geointellect.com/files/geo_for_datalens.zip) нашего партнера Геоинтеллект{% endif %}.
 
 По [ссылке](https://storage.yandexcloud.net/doc-files/Regions.csv) можно скачать пример CSV-файла с полигонами регионов РФ.
 
