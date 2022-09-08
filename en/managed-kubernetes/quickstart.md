@@ -1,11 +1,11 @@
 ---
-title: "Getting started with managed Kubernetes"
-description: "In this tutorial, you will create a Kubernetes cluster, and a node group, learn how to manage them using kubectl - the Kubernetes shell. First, create a Kubernetes cluster, add credentials to the kubectl configuration file, create a node group."
+title: "Getting started with managed {{ k8s }}"
+description: "In this tutorial, you will create a {{ k8s }} cluster, and a node group, learn how to manage them using kubectl - the {{ k8s }} shell. First, create a {{ k8s }} cluster, add credentials to the kubectl configuration file, create a node group."
 ---
 
 # Getting started with {{ managed-k8s-name }}
 
-Create a [{{ k8s }} cluster](concepts/index.md#kubernetes-cluster) and [node group](concepts/index.md#node-group) and manage them using kubectl, the {{ k8s}} command-line interface.
+Create a [{{ k8s }} cluster](concepts/index.md#kubernetes-cluster) and [node group](concepts/index.md#node-group) and manage them using kubectl, the {{ k8s }} command-line interface.
 
 ## Before you start {#before-you-begin}
 
@@ -19,7 +19,7 @@ To start working with {{ managed-k8s-name }}:
 {% endif %}
 
 1. If you don't have a folder, [create one](../resource-manager/operations/folder/create.md).
-1. Install the [Kubernetes CLI (kubectl)]({{ k8s-docs }}/tasks/tools/install-kubectl/).
+1. Install the [{{ k8s }} CLI (kubectl)]({{ k8s-docs }}/tasks/tools/install-kubectl/).
 1. Make sure you have enough [resources available in the cloud](concepts/limits.md).
 1. If you don't have a network, [create one](../vpc/operations/network-create.md).
 1. If you don't have any subnets, [create them](../vpc/operations/subnet-create.md){% if product == "yandex-cloud" %} in the availability zones where your {{ k8s }} cluster and node group will be created{% endif %}.
@@ -28,6 +28,8 @@ To start working with {{ managed-k8s-name }}:
    * A service account for nodes with the [{{ roles-cr-puller }}](../container-registry/security/index.md#required-roles) role for the folder with the Docker image registry. Nodes will download the Docker images they require from the registry on behalf of this account.
 
    You can use the same service account for both operations.
+
+   {% include [k8s.tunnelClusters.agent role](../_includes/managed-kubernetes/note-tunnelClusters-agent.md) %}
 
 ## Create a {{ k8s }} cluster {#kubernetes-cluster-create}
 

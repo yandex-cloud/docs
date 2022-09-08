@@ -19,12 +19,15 @@ To create a {{ k8s }} cluster:
 
 1. Make sure you have enough [resources available in the cloud](../../concepts/limits.md).
 1. If you don't have a [network](../../../vpc/concepts/network.md#network), [create one](../../../vpc/operations/network-create.md).
-1. If you don't have any [subnets](../../../vpc/concepts/network.md#subnet), [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and [node group](../../concepts/index.md#node-group) will be created.
+1. If you don't have any [subnets](../../../vpc/concepts/network.md#subnet), [create them](../../../vpc/operations/subnet-create.md){% if product == "yandex-cloud" %} in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and {% endif %}[node group](../../concepts/index.md#node-group) will be created.
 1. Create [service accounts](../../../iam/operations/sa/create.md):
    * A service account with the [{{ roles-editor }}](../../../resource-manager/security/index.md#roles-list) role to the folder where a {{ k8s }} cluster is being created. The resources that the {{ k8s }} cluster needs will be created on behalf of this account.
    * A service account with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#required-roles) role to the folder containing a [Docker image](../../../container-registry/concepts/docker-image.md) [registry](../../../container-registry/concepts/registry.md). Nodes will download the Docker images they require from the registry on behalf of this account.
 
    You can use the same service account for both operations.
+
+   {% include [k8s.tunnelClusters.agent role](../../../_includes/managed-kubernetes/note-tunnelClusters-agent.md) %}
+
 1. Create the necessary [security groups](../connect/security-groups.md).
 1. Review the [recommendations for using {{ managed-k8s-name }}](../../concepts/usage-recommendations.md).
 
@@ -79,7 +82,7 @@ To create a {{ k8s }} cluster:
      * `--node-service-account-id`: The unique ID of the service account for the nodes. Nodes will download the Docker images they require from the registry on behalf of this account.
      * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.
 
-     Result:
+     Command result:
 
      ```bash
      done (5m47s)
