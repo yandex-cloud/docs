@@ -14,21 +14,9 @@
 ```sql
 $cloud_logging_data = 
 SELECT 
-    CAST(JSON_VALUE(Data, "$.timestamp") AS Timestamp) AS `timestamp`,
-    JSON_VALUE(Data, "$.jsonPayload.host") AS host
-FROM (
-    SELECT 
-        CAST(Data AS Json) AS Data 
-    FROM yds.`cloud-logging-connection` 
-    WITH 
-    (
-        format=raw,
-        SCHEMA 
-        (
-            Data String
-        )
-    )
-);
+    CAST(JSON_VALUE(data, "$.timestamp") AS Timestamp) AS `timestamp`,
+    JSON_VALUE(data, "$.jsonPayload.host") AS host
+FROM bindings.`cloud-logging`;
 
 SELECT 
     host, 
@@ -50,6 +38,7 @@ LIMIT 2;
 1. [Создать лог-группу](#create_log_group).
 1. [Инициировать отправку данных в лог-группу](#send_to_loggroup).
 1. [Создать подключение](#create_connection) к потоку данных.
+1. [Создать привязку к данным](#create_binding) к потоку данных. 
 1. [Выполнить запрос](#query) к данным из лог-группы.
 
 ### Создание потока данных {{yds-full-name}} { #create_yds_stream }
@@ -121,7 +110,13 @@ done
 
 Создайте [подключение](../concepts/glossary.md#connection) с именем `cloud-logging-connection`, для этого нужно выполнить следующие действия:
 
-{% include [create-connection](../../_includes/query/create-connection.md) %}
+{% include [create-connection](../_includes/create-connection.md) %}
+
+### Создание привязки к данным в {{yq-full-name}} { #create_connection }
+
+Создайте [привязку к данным](../concepts/glossary.md#binding) к {{yds-full-name}} с именем `cloud-logging` и шаблоном данных **Cloud Logging**, для этого нужно выполнить следующие действия:
+
+{% include [create-connection](../_includes/create-binding.md) %}
 
 ## Запрос к данным { #query }
 
@@ -130,21 +125,9 @@ done
 ```sql
 $cloud_logging_data = 
 SELECT 
-    CAST(JSON_VALUE(Data, "$.timestamp") AS Timestamp) AS `timestamp`,
-    JSON_VALUE(Data, "$.jsonPayload.host") AS host
-FROM (
-    SELECT 
-        CAST(Data AS Json) AS Data 
-    FROM yds.`cloud-logging-connection` 
-    WITH
-    (
-        format=raw,
-        SCHEMA 
-        (
-            Data String
-        )
-    )
-);
+    CAST(JSON_VALUE(data, "$.timestamp") AS Timestamp) AS `timestamp`,
+    JSON_VALUE(data, "$.jsonPayload.host") AS host
+FROM bindings.`cloud-logging`;
 
 SELECT 
     host, 
@@ -159,6 +142,6 @@ LIMIT 2;
 
 {% note info %}
 
-{% include [limit](../../_includes/query/select-limit.md) %}
+{% include [limit](../_includes/select-limit.md) %}
 
 {% endnote %}

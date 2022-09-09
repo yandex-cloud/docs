@@ -13,7 +13,7 @@
 1. Нажмите кнопку **Create**.
 1. Укажите имя соединения. Требования к имени:
 
-    {% include [name-format](../../_includes/query/connection-name-format.md) %}
+    {% include [name-format](../_includes/connection-name-format.md) %}
 
 1. Укажите тип источника: 
 - **Data Streams** для взаимодействия {{yds-full-name}}.

@@ -2,15 +2,15 @@
 
 {{yq-full-name}} может выполнять полноценную аналитическую обработку данных, хранящихся в [{{ objstorage-full-name }}](../../storage/concepts/index.md), на SQL-подобном языке — [YQL]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/){% endif %}.
 
-В данном примере возьмем заранее подготовленный набор данных - поездки Нью-Йоркского такси за 2018 год, и посмотрим на распределение времен поездок. 
+В данном примере возьмем заранее подготовленный набор данных - поездки Нью-Йоркского такси за 2019-2021 годы, и посмотрим на распределение времен поездок. 
 
 {% note info %}
 
-{% include [yellow-taxi-disclaimer](../../_includes/query/yellow-taxi-disclaimer.md) %}
+{% include [yellow-taxi-disclaimer](../_includes/yellow-taxi-disclaimer.md) %}
 
 {% endnote %}
 
-Данные заранее размещены в {{ objstorage-full-name }} в общедоступном бакете `yq-sample-data` в каталоге `nyc_taxi_csv`.
+Данные заранее размещены в {{ objstorage-full-name }} в общедоступном бакете `yq-sample-data` в каталоге `tutorial`.
 
 Для этого необходимо:
 1. [Создать подключение к бакету в {{ objstorage-full-name }}](#create_connection).
@@ -18,47 +18,25 @@
 
 ## Создание подключения { #create_connection }
 
-{% include [objstorage-connection-create](../../_includes/query/create-objstorage-connection.md) %}
+1. Перейдите в раздел **Учебник**.
+1. Перейдите в учебнике в **Аналитический** раздел.
+1. Нажмите кнопку **Создать инфраструктуру для обучения**.
+1. Пройдите все пункты для создания инфраструктуры.
 
 ## Выполните запрос { #run_query }
 В редакторе запросов в интерфейсе {{yq-full-name}} нажмите кнопку **New analytics query**, в текстовом поле введите текст запроса, указанный ниже.
 
 ```sql
-$data = 
+$data =
 SELECT 
     * 
 FROM 
-    `yellow-taxi`.`nyc_taxi_csv/yellow_tripdata_2018-01.csv.gz`
-WITH (
-    format=csv_with_names, 
-    compression="gzip",
-    SCHEMA 
-    (
-        VendorID Int,
-        tpep_pickup_datetime Datetime,
-        tpep_dropoff_datetime Datetime,
-        passenger_count Int,
-        trip_distance float,
-        RatecodeID String,
-        store_and_fwd_flag String,
-        PULocationID String,
-        DOLocationID String,
-        payment_type Int,
-        fare_amount Double,
-        extra String,
-        mta_tax Double,
-        tip_amount Double,
-        tolls_amount Double,
-        improvement_surcharge Double,
-        total_amount Double
-    )
-);
+    bindings.`tutorial-analytics`;
 
 $ride_time = 
 SELECT
     DateTime::ToMinutes(tpep_dropoff_datetime-tpep_pickup_datetime) as ride_time
-FROM 
-    $data;
+FROM $data;
 
 SELECT 
     Histogram::Print(histogram(ride_time)) 

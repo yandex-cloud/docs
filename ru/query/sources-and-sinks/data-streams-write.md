@@ -2,7 +2,7 @@
 
 [{{ yds-full-name }}](../../data-streams/concepts/index.md) это сервис, позволяющий передавать потоки данных сразу нескольким приложениям для обработки, при этом каждое приложение обрабатывает такие данные независимо от другого.
 
-Пример записи данных в формате `JSON` из {{ yds-full-name }}.
+Пример записи данных в формате `JSON` в {{ yds-full-name }}.
 
 ```sql
 INSERT INTO yds.`output_stream`
@@ -48,7 +48,7 @@ FROM
 - `stream_name` — название потока данных в {{yds-short-name}}.
 - `query` — запрос-источник данных {{ yq-full-name }}.
 
-## Пример чтения данных
+## Пример записи данных
 
 Пример запроса для чтения данных из {{ yds-full-name }} и записи результатов в {{ yds-full-name }}.
 
@@ -56,7 +56,7 @@ FROM
 $data = 
 SELECT 
     JSON_VALUE(Data, "$.host") as host,
-    CAST(JSON_VALUE(Data, "$.count") as INT) as count,
+    CAST(JSON_VALUE(Data, "$.count") as Int) as count,
     JSON_VALUE(Data, "$.tag") as tag,    
 FROM 
 (
@@ -114,3 +114,7 @@ FROM
 ```
 
 В документации языка YQL доступно детальное описание модулей [Yson]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/udf/list/yson){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/udf/list/yson){% endif %}, [Json]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/types/json){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/types/json){% endif %} и [его функций]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/builtins/json){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/builtins/json){% endif %}, [<|"key": value|>]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/builtins/struct){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/builtins/struct){% endif %}.
+
+## Поддерживаемые форматы записи
+
+{% include [!](../_includes/supported-yds-write-formats.md) %}

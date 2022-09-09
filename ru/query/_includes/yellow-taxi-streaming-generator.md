@@ -9,10 +9,11 @@ from hashlib import md5
 from datetime import datetime, timedelta
 import random
 import json
+from urllib.parse import urlsplit
 
 
-folder = "b1gmrhakvt7er2i7l6f9"
-database = "etngл1bpo1k7stgpq6s7"
+stream_endpoint = "https://yds.serverless.yandexcloud.net/ru-central1/b1k917jf99v66n47p7u6/etngkq6nkp47nkrec127"
+stream_name = "yellow-taxi"
 
 
 def create_record(vendor_id,
@@ -53,12 +54,20 @@ def create_record(vendor_id,
     }
 
 
-def put_record(folder, database, stream_name, message):
-    client = boto3.client('kinesis', endpoint_url="https://yds.serverless.yandexcloud.net")
+def to_kinesis_endpoint(stream_endpoint):
+    parsed = urlsplit(stream_endpoint)
+    return {
+                "kinesis_endpoint": f"{parsed.scheme}://{parsed.netloc}",
+                "kinesis_region": parsed.path.split("/")[1],
+                "stream_path": f'/{"/".join(parsed.path.split("/")[2:])}'
+          }
+
+
+def put_record(stream_endpoint, stream_name, message):
+    stream_endpoints = to_kinesis_endpoint(stream_endpoint)
+    client = boto3.client('kinesis', endpoint_url=stream_endpoints["kinesis_endpoint"])
     response = client.put_record(
-        StreamName="/{{ region-id }}/{folder}/{database}/{stream}".format(folder=folder,
-                                                                      database=database,
-                                                                      stream=stream_name),
+        StreamName=f'/{stream_endpoints["kinesis_region"]}{stream_endpoints["stream_path"]}/{stream_name}',
         Data=message,
         PartitionKey=md5(message.encode()).hexdigest()
     )
@@ -70,8 +79,6 @@ def format_time(tm):
 
 
 def main():
-    stream = "yellow-taxi"
-
     while True:
         ride_start = datetime.now()
         ride_len_minutes = random.randint(20, 1000)
@@ -95,9 +102,8 @@ def main():
             total_amount=random.random() * 1000)
 
         put_record(
-            folder=folder,
-            database=database,
-            stream_name=stream,
+            stream_endpoint=stream_endpoint,
+            stream_name=stream_name,
             message=json.dumps(ride_record))
 
         print("The record has been sent successfully")

@@ -8,7 +8,7 @@
 
 {% note info %}
 
-{% include [yellow-taxi-disclaimer](../../_includes/query/yellow-taxi-disclaimer.md) %}
+{% include [yellow-taxi-disclaimer](../_includes/yellow-taxi-disclaimer.md) %}
 
 {% endnote %}
 
@@ -37,13 +37,13 @@
 
 ### Запуск генератора данных { #generator_start }
 
-{% include [yellow-taxi-data-generator](../../_includes/query/yellow-taxi-streaming-generator.md) %}
+{% include [yellow-taxi-data-generator](../_includes/yellow-taxi-streaming-generator.md) %}
 
 ## Выполнение аналитического запроса { #run_query_analytics }
 
 Для начала работы необходимо создать подключение к {{ objstorage-full-name }}:
 
-{% include [objstorage-connection-create](../../_includes/query/create-connection.md) %}
+{% include [objstorage-connection-create](../_includes/create-connection.md) %}
 
 ### Выполните запрос
 В редакторе запросов в интерфейсе {{ yq-full-name }} нажмите кнопку **New Analytics Query**, в текстовом поле введите текст запроса, указанный ниже.

@@ -21,7 +21,13 @@ items:
     - name: Обработка запроса
       href: concepts/request-processing.md
     - name: Аналитическая обработка данных
-      href: concepts/batch-processing.md      
+      items:
+      - name: Описание
+        href: concepts/batch-processing.md      
+      - name: Партиционирование данных
+        href: concepts/partitioning.md
+      - name: Расширенное партиционирование
+        href: concepts/partition-projection.md        
     - name: Потоковая обработка данных
       href: concepts/stream-processing.md
     - name: Окна потоковой обработки
@@ -32,16 +38,30 @@ items:
     items:
       - name: Работа с соединениями
         href: operations/connection.md
+      - name: Работа с привязками к данным
+        href: operations/binding.md        
       - name: Работа с запросами
         href: operations/query.md
   - name: Источники и приемники данных
     items:
-      - name: Чтение данных из Object Storage
-        href: sources-and-sinks/object-storage.md
-      - name: Чтение данных из Data Streams
-        href: sources-and-sinks/data-streams.md        
-      - name: Запись данных в Data Streams
-        href: sources-and-sinks/data-streams-write.md                
+      - name: Форматы данных и алгоритмы сжатия
+        href: sources-and-sinks/formats.md
+      - name: Работа с Object Storage
+        items:
+          - name: Чтение данных c помощью подключений
+            href: sources-and-sinks/object-storage.md            
+          - name: Чтение данных c помощью привязок к данным
+            href: sources-and-sinks/object-storage-binding.md
+          - name: Запись данных
+            href: sources-and-sinks/object-storage-write.md                
+      - name: Работа с Data Streams
+        items:
+          - name: Чтение данных с помощью подключений
+            href: sources-and-sinks/data-streams.md        
+          - name: Чтение данных с помощью привязок к данным
+            href: sources-and-sinks/data-streams-binding.md        
+          - name: Запись данных
+            href: sources-and-sinks/data-streams-write.md                
       - name: Запись метрик в Monitoring
         href: sources-and-sinks/monitoring.md                
   - name: Сценарии использования
@@ -68,10 +88,32 @@ items:
         href: yql-tutorials/basic_aggregation.md
       - name: Дополнительные условия выборки
         href: yql-tutorials/conditional_values.md
-      - name: Объединение таблиц с помощью JOIN
-        href: yql-tutorials/join_tables.md
       - name: Работа с JSON
         href: yql-tutorials/json.md
+  - name: HTTP API
+    items:
+      - name: Все методы
+        href: api/overview.md
+      - name: Методы
+        items: 
+        - name: create-query
+          href: api/create-query.md
+        - name: get-query
+          href: api/get-query.md          
+        - name: get-query-status
+          href: api/get-query-status.md                    
+        - name: stop-query
+          href: api/stop-query.md                              
+        - name: get-query-results
+          href: api/get-query-results.md                                        
+      - name: Общая информация
+        href: api/common-information.md
+      - name: Аутентификация
+        href: api/auth.md        
+      - name: Соответствие YQL и Json типов
+        href: api/yql-json-conversion-rules.md
+      - name: Примеры
+        href: api/examples.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

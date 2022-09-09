@@ -4,4 +4,4 @@
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-{% include [limits.md](../../_includes/query/limits.md) %}
+{% include [limits.md](../_includes/limits.md) %}

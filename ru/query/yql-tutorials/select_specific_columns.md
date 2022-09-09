@@ -7,35 +7,15 @@
 В примере ниже показано, как выбрать данные из колонок `age`, `last_visit_time` и `region`. При этом колонка `region` будет переименована в `area`, а тип колонки `release_date` будет преобразован из `Int32` в `DateTime`:
 
 ```sql
-
 SELECT 
-    age,            -- Имена колонок (age, area)
-                    -- перечисляются через запятую.
-
-    region AS area,  -- С помощью AS можно переименовать столбцы
-                     -- или дать имя произвольному выражению,
-    DateTime::Format("%Y-%m-%d %H:%M:%S")(DateTime::FromSeconds(CAST(last_visit_time AS UInt32))) as last_visit_time
-    -- CAST из Int32 в UInt32 можно избежать, указав в схеме сразу требуемый тип.
-    -- Больше про преобразования типов: https://cloud.yandex.ru/docs/query/yql-docs-core/types/cast.
-    -- Документация Datetime https://cloud.yandex.ru/docs/query/yql-docs-core/udf/list/datetime.
-
-FROM
-    `tutorial`.`tutorial/users.json` 
-WITH 
-(
-    format=json_each_row,
-    SCHEMA 
-    (
-        last_visit_time Int32,
-        ip String,
-        age Int32,
-        last_time_on_site Float,
-        user_agent String,
-        name String,
-        region Int32,
-        last_url String 
-    )
-);
+    VendorID,                           -- Имена колонок (VendorID, trip_distance)
+    trip_distance,                      -- перечисляются через запятую.
+    fare_amount AS fare,                -- С помощью AS можно переименовать столбцы
+    (total_amount/1000) AS total_amount_thousand_dollars, -- или дать имя произвольному выражению,
+    CAST(VendorID as Uint32) AS vendorID -- с помощью CAST можно поменять тип данных
+FROM 
+    bindings.`tutorial-analytics` 
+LIMIT 10
 ```
 
 ## Смотрите также {#see-also}

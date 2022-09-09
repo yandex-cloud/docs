@@ -9,7 +9,7 @@
 
 {% note info %}
 
-{% include [yellow-taxi-disclaimer](../../_includes/query/yellow-taxi-disclaimer.md) %}
+{% include [yellow-taxi-disclaimer](../_includes/yellow-taxi-disclaimer.md) %}
 
 {% endnote %}
 
@@ -26,54 +26,10 @@
 
 Для начала работы необходимо создать подключение к {{objstorage-full-name}}:
 
-{% include [objstorage-create-connection](../../_includes/query/create-objstorage-connection.md) %}
+{% include [!](../yql-tutorials/_includes/create_demo_data.md) %}
 
-### Подготовка запроса к данным { #query }
 
-В {{objstorage-full-name}} данные хранятся в виде файлов. Для использования их в {{datalens-full-name}}, данные необходимо привести к структурированному виду - описать их схему.
-
-Ниже приведен пример запроса, разбирающий хранимые в {{objstorage-full-name}} в формате [CSV](../sources-and-sinks/object-storage.md#csv_with_names) данные:
-
-```sql
-SELECT 
-    *
-FROM 
-    `yellow-taxi`.`nyc_taxi_csv/yellow_tripdata_2016-01-100k.csv`
-WITH
-(
-    format=csv_with_names,
-    SCHEMA 
-    (
-        VendorID INT,
-        tpep_pickup_datetime Datetime,
-        tpep_dropoff_datetime Datetime,
-        passenger_count Int,
-        trip_distance float,
-        RatecodeID String,
-        store_and_fwd_flag String,
-        pickup_longitude Double,
-        pickup_latitude Double,
-        dropoff_longitude Double,
-        dropoff_latitude Double,    
-        payment_type Int,
-        fare_amount Double,
-        extra String,
-        mta_tax Double,
-        tip_amount Double,
-        tolls_amount Double,
-        improvement_surcharge Double,
-        total_amount Double
-    )
-)
-```
-
-Для проверки, что подключение создано правильно, выполните запрос выше в консоли {{yq-full-name}}:
-1. Нажмите кнопку **New analytics query**.
-1. Вставьте текст запроса в поле ввода.
-1. Нажмите кнопку **Run**.
-1. Если все настроено правильно, то во вкладке **Results** будут результаты исполнения запроса - информация про поездки Нью-Йоркского желтого такси.
-
-### Создание источника данных {#create_connection_lens}
+### Создание источника данных в {{datalens-full-name}} {#create_connection_lens}
 
 Для создания подключения вам потребуется [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с [ролью](../../iam/operations/sa/assign-role-for-sa.md) **viewer**.
 
@@ -104,7 +60,7 @@ WITH
    
    * **Уровень доступа SQL запросов**. Позволяет использовать произвольный SQL-запрос для [формирования датасета](../../datalens/concepts/dataset/settings.md#sql-request-in-datatset).
 
-2. Нажать **Создать** в левом нижнем углу. Подключение появится в списке.
+1. Нажать **Создать** в левом нижнем углу. Подключение появится в списке.
 
 {% include [datalens-check-host](../../_includes/datalens/operations/datalens-check-host.md) %}
 
@@ -119,33 +75,7 @@ WITH
     SELECT 
         *
     FROM 
-        `yellow-taxi`.`nyc_taxi_csv/yellow_tripdata_2016-01-100k.csv` 
-    WITH 
-    (
-        format=csv_with_names,
-        SCHEMA 
-        (
-            VendorID INT,
-            tpep_pickup_datetime Datetime,
-            tpep_dropoff_datetime Datetime,
-            passenger_count Int,
-            trip_distance float,
-            RatecodeID String,
-            store_and_fwd_flag String,
-            pickup_longitude Double,
-            pickup_latitude Double,
-            dropoff_longitude Double,
-            dropoff_latitude Double,    
-            payment_type Int,
-            fare_amount Double,
-            extra String,
-            mta_tax Double,
-            tip_amount Double,
-            tolls_amount Double,
-            improvement_surcharge Double,
-            total_amount Double
-        )
-    )
+        bindings.`tutorial-analytics` 
     ```
 
 2. Нажмите кнопку **Создать**. Датасет появится в списке.

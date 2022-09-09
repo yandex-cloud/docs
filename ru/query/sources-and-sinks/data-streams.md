@@ -1,4 +1,6 @@
-# Чтение данных из {{ yds-full-name }}
+# Чтение данных с помощью подключений
+
+При работе с {{ yds-full-name }} с помощью подключений удобно выполнять прототипирование, первоначальную настройку подключений к данным.
 
 [{{ yds-full-name }}](../../data-streams/concepts/index.md) - это сервис, позволяющий передавать потоки данных сразу нескольким приложениям для обработки, при этом каждое приложение обрабатывает такие данные независимо от другого.
 
@@ -20,15 +22,15 @@ LIMIT 10;
 
  {% note info %}
 
- {% include [limit](../../_includes/query/select-limit.md) %}
+ {% include [limit](../_includes/select-limit.md) %}
 
  {% endnote %}
 
-## Настройка подключения 
+## Настройка подключения { #create_connection }
 
 Для чтения данных из {{ yds-full-name }} необходимо:
 
-{% include [create-connection](../../_includes/query/create-connection.md) %}
+{% include [create-connection](../_includes/create-connection.md) %}
 
 ## Модель данных
 
@@ -55,11 +57,6 @@ WHERE <filter>;
 - `yds_connection_name` — название подключения к потоку данных {{yds-short-name}}, созданного в предыдущем пункте.
 - `stream_name` — название потока данных в {{yds-short-name}}.
 
-{% note info %}
-
-Так как через {{yds-short-name}} передаются бинарные данные, то их нельзя схематизировать. Вместо этого необходимо использовать ключевую конструкцию `SCHEMA (Data String)`, которая присваивает тип `String` вводимым данным и дает им название `Data`.
-
-{% endnote %}
 
 ## Пример чтения данных
 

@@ -5,35 +5,23 @@
 В данном примере возьмем заранее подготовленный набор данных - генератор данных про поездки Нью-Йоркского такси, и рассчитаем число поездок и их стоимость за временной интервал. 
 
 Для этого необходимо:
-1. [Настроить реквизиты подключения к {{yds-full-name}}](#credentials).
-1. [Создать поток данных {{yds-full-name}}](#create_stream).
-1. [Запустить генератор данных](#generator_start).
-1. [Создать подключение к данным](#create_connection).
+1. Настроить подключение к [{{yds-full-name}}](#credentials).
 1. [Выполнить запрос](#run_query).
 
 ### Настройка реквизитов подключения к {{yds-full-name}} { #credentials }
 
-{% include [create-environment](../../_includes/data-streams/create-environment.md) %}
-
-
-## Создание потока данных {{yds-full-name}} { #create_stream }
-
-Создайте поток данных с именем `yellow-taxi`. Для этого выполните следующие шаги.
+Создайте поток данных с именем `yellow-taxi`. Для этого выполните следующие шаги:
 
 {% include [yds-create-stream](../../_includes/data-streams/create-stream-via-console.md) %}
 
-## Запуск генератора данных { #generator_start }
+Создайте инфраструктуру для генерации данных:
+1. Перейдите в раздел **Учебник**.
+1. Перейдите в учебнике в **Потоковый** раздел.
+1. Нажмите кнопку **Создать инфраструктуру для обучения**.
+1. Пройдите все пункты для создания инфраструктуры.
 
-{% include [yellow-taxi-data-generator](../../_includes/query/yellow-taxi-streaming-generator.md) %}
+По окончании создания инфраструктуры, запустится генерация данных в поток `yellow-taxi`.
 
-## Создание подключения { #create_connection }
-
-1. Перейдите в интерфейс {{ yq-full-name }} в раздел **Connections** и нажать кнопку **Create**.
-1. В открывшемся окне в поле **Name** введите `yds-yellow-taxi`.
-1. В выпадающем поле **Type** выберите **Yandex Datastreams**.
-1. В поле поле **Database** выберите базу данных {{ydb-name}}, где был создан поток данных `yellow-taxi` в предыдущих пунктах.
-1. В поле **Service account** укажите сервисный аккаунт с ролью **admin**, который будет использоваться для доступа к данным. 
-1. Создайте подключение, нажав кнопку **Create**.
 
 ## Выполнение запроса к потоковым данных { #run_query }
 
@@ -42,20 +30,8 @@
 ```sql
 $data = 
 SELECT 
-    CAST(DateTime::MakeDatetime(DateTime::Parse("%Y-%m-%d %H:%M:%S")(JSON_VALUE(Data, "$.tpep_pickup_datetime"))) AS Timestamp) AS tpep_pickup_datetime, 
-    CAST(JSON_VALUE(Data, "$.total_amount") AS Float) AS total_amount 
-FROM
-(
-    SELECT 
-        CAST(Data AS Json) AS Data 
-    FROM 
-        `yds-yellow-taxi`.`yellow-taxi` 
-    WITH
-    (
-        format=raw
-    )
-    LIMIT 10
-);
+    *
+FROM bindings.`tutorial-streaming` LIMIT 10;
 
 SELECT
     HOP_END() AS time,
@@ -64,7 +40,7 @@ SELECT
 FROM 
     $data
 GROUP BY 
-    HOP(tpep_pickup_datetime, "PT1M", "PT1M", "PT1M");
+    HOP(CAST(tpep_pickup_datetime as Timestamp), "PT1M", "PT1M", "PT1M");
 ```
 
 ## Результат выполнения запроса

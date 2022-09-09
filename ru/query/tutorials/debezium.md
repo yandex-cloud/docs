@@ -65,32 +65,23 @@ GROUP BY
 
 ## Запуск запроса {{yql-full-name}} { #query }
 
-Создайте подключение с именем `yds`, для этого нужно выполнить следующие действия:
+Создайте подключение с именем `yds-connection`, для этого нужно выполнить следующие действия:
 
-{% include [create-connection](../../_includes/query/create-connection.md) %}
+{% include [create-connection](../_includes/create-connection.md) %}
+
+Создайте [привязку к данным](../concepts/glossary.md#binding) к {{yds-full-name}} с именем `debezium` и единственной колонкой **data** с типом **Json**, для этого нужно выполнить следующие действия:
+
+{% include [create-connection](../_includes/create-binding.md) %}
 
 
 В редакторе запросов в интерфейсе {{yq-full-name}} выполните следующий запрос:
 
 ```sql
-$raw_data = 
-SELECT 
-    CAST(Data AS json) AS data 
-FROM yds.`debezium` 
-WITH
-(
-    format=raw,
-    SCHEMA
-    (
-        Data String
-    )
-)
-
 $debezium_data = 
 SELECT 
     JSON_VALUE(data,"$.payload.source.table") AS table_name, 
     DateTime::FromMilliseconds(cast(JSON_VALUE(data,"$.payload.source.ts_ms") AS Uint64)) AS `timestamp`
-FROM $raw_data;
+FROM bindings.`debezium`;
 
 SELECT 
     table_name, 
@@ -105,6 +96,6 @@ GROUP BY
 
 {% note info %}
 
-{% include [limit](../../_includes/query/select-limit.md) %}
+{% include [limit](../_includes/select-limit.md) %}
 
 {% endnote %}
