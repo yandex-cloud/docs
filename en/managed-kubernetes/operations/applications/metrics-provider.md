@@ -4,22 +4,9 @@ Metrics Provider is an element connecting a {{ managed-k8s-name }} cluster objec
 
 The provider converts a request to get external metrics from a {{ k8s }} cluster object to the format required by {{ monitoring-name }} and also performs the reverse conversion: from {{ monitoring-name }} to a cluster object.
 
-To install Metrics Provider:
-1. [Create a service account](#create-sa-key).
-1. [Install the provider using {{ marketplace-name }}](#marketplace-install).
-
-{% if audience == "draft" %}
-
-Install the provider:
-* [Using {{ marketplace-name }}](#marketplace-install).
-* [Using a Helm chart](#helm-install).
-
-{% endif %}
-
 ## Creating a service account and a static access key {#create-sa-key}
 
 For the provider to work, you need to create a [service account](../../../iam/concepts/users/service-accounts.md) and get a service account key.
-
 1. Install the [`jq` JSON stream processor](https://stedolan.github.io/jq/):
 
    ```bash
@@ -67,7 +54,7 @@ For the provider to work, you need to create a [service account](../../../iam/co
 
 1. Go to the catalog page and select **{{ managed-k8s-name }}**.
 1. Click the name of the desired cluster and select the **{{ marketplace-short-name }}** tab.
-1. Under **Applications available for installation** select **Metrics Provider** and click **Use**.
+1. Under **Applications available for installation** select [Metrics Provider](/marketplace/products/yc/metric-provider) and click **Use**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
    * **Application name**: Enter an application name.
@@ -93,11 +80,9 @@ For the provider to work, you need to create a [service account](../../../iam/co
    * **Service account private key**: Copy the contents of the `key.pem` file to this field.
 1. Click **Install**.
 
-{% if audience == "draft" %}
-
 ## Installation using a Helm chart {#helm-install}
 
-1. [Install kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) and [configure](../kubernetes-cluster/kubernetes-cluster-get-credetials.md) it to work with your cluster.
+1. [Install kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) and [configure](../connect/index.md) it to work with your cluster.
 1. Install the [Helm 3]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install){% endif %} package manager for {{ k8s }}.
 1. Add the `metric-provider` repository:
 
@@ -145,5 +130,3 @@ For the provider to work, you need to create a [service account](../../../iam/co
      Use only one of the parameters: `maxPoints`, `gridInterval`, or `disabled`. For more information about decimation parameters, see the [API documentation](../../../monitoring/api-ref/MetricsData/read.md).
 
      {% endnote %}
-
-{% endif %}

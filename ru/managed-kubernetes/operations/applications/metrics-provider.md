@@ -4,18 +4,6 @@ Metrics Provider — связующий элемент между объекто
 
 Провайдер преобразует запрос на получение внешних метрик от объекта в кластере {{ k8s }} в нужный {{ monitoring-name }} формат, а также выполняет обратное преобразование — от {{ monitoring-name }} до объекта кластера.
 
-Чтобы установить Metrics Provider:
-1. [Создайте сервисный аккаунт](#create-sa-key).
-1. [Установите провайдер с помощью {{ marketplace-full-name }}](#marketplace-install).
-
-{% if audience == "draft" %}
-
-Установите провайдер:
-* [С помощью {{ marketplace-name }}](#marketplace-install).
-* [С помощью Helm-чарта](#helm-install).
-
-{% endif %}
-
 ## Создание сервисного аккаунта и статического ключа доступа {#create-sa-key}
 
 Для работы провайдера нужно создать [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и получить для него ключ.
@@ -92,11 +80,9 @@ Metrics Provider — связующий элемент между объекто
    * **Приватный ключ сервисного аккаунта** — скопируйте в это поле содержимое файла `key.pem`.
 1. Нажмите кнопку **Установить**.
 
-{% if audience == "draft" %}
-
 ## Установка с помощью Helm-чарта {#helm-install}
 
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте](../kubernetes-cluster/kubernetes-cluster-get-credetials.md) его на работу с вашим кластером.
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте](../connect/index.md) его на работу с вашим кластером.
 1. Установите менеджер пакетов {{ k8s }} [Helm 3]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install){% endif %}.
 1. Добавьте репозиторий `metric-provider`:
 
@@ -144,5 +130,3 @@ Metrics Provider — связующий элемент между объекто
      Используйте только один из параметров `maxPoints`, `gridInterval` или `disabled`. Подробнее о параметрах прореживания см. в [документации API](../../../monitoring/api-ref/MetricsData/read.md).
 
      {% endnote %}
-
-{% endif %}
