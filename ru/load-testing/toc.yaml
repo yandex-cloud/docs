@@ -20,6 +20,9 @@ items:
     items:
       - name: Нагрузочное тестирование gRPC-сервиса
         href: tutorials/loadtesting-grpc.md
+      - name: Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием
+        href: tutorials/loadtesting-grpc-autoscaling.md
+        when: product == "yandex-cloud"
       - name: HTTPS-тест с постоянной нагрузкой с помощью Phantom
         href: tutorials/loadtesting-https-phantom.md
       - name: HTTPS-тест со ступенчатой нагрузкой с помощью Pandora

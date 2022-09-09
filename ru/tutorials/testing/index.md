@@ -8,6 +8,7 @@
 {% endif %}
 {% if product == "yandex-cloud" %}
 * [Нагрузочное тестирование gRPC-сервиса](loadtesting-grpc.md)
+* [Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием](loadtesting-grpc-autoscaling.md)
 * [HTTPS-тест с постоянной нагрузкой с помощью Phantom](loadtesting-https-phantom.md)
 * [HTTPS-тест со ступенчатой нагрузкой с помощью Pandora](loadtesting-https-pandora.md)
 {% endif %}

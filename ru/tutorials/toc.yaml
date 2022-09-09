@@ -77,6 +77,9 @@ items:
       - name: Нагрузочное тестирование gRPC-сервиса
         href: testing/loadtesting-grpc.md
         when: product == "yandex-cloud"
+      - name: Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием
+        href: testing/loadtesting-grpc-autoscaling.md
+        when: product == "yandex-cloud"
       - name: HTTPS-тест с постоянной нагрузкой с помощью Phantom
         href: testing/loadtesting-https-phantom.md
         when: product == "yandex-cloud"

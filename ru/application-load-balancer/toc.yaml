@@ -79,6 +79,9 @@ items:
       - name: Запись логов балансировщика в {{ PG }}
         href: tutorials/logging.md
         when: product == "yandex-cloud"
+      - name: Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием
+        href: tutorials/load-testing-grpc-autoscaling.md
+        when: product == "yandex-cloud"
   - name: Концепции
     items:
       - name: Обзор

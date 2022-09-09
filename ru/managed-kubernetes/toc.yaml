@@ -126,6 +126,9 @@ items:
         href: tutorials/autoscaling.md
       - name: Вертикальное масштабирование приложения в кластере
         href: tutorials/vpa-autoscaling.md
+      - name: Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием
+        href: tutorials/load-testing-grpc-autoscaling.md
+        when: product == "yandex-cloud"
       - name: Работа со снапшотами
         href: tutorials/pvc-snapshot-restore.md
       - name: Интеграция с корпоративной зоной DNS
