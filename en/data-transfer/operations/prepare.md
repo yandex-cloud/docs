@@ -2,7 +2,7 @@
 
 ## Preparing a source {#source}
 
-### Airbyte® sources:
+### Airbyte® sources {#source-airbyte}
 
 #### AWS CloudTrail source {#source-aws}
 
@@ -30,17 +30,17 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
 - {{ mkf-name }}
 
-  [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_CONSUMER` role for the source topic.
+   [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_CONSUMER` role for the source topic.
 
 - {{ KF }}
 
-    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+   1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
-    1. Configure the source cluster to allow connections from {% if audience != "internal" %}the internet{% else %}the network `_YTVANGANETS_`{% endif %}.
+   1. [Configure access to the source cluster from {{ yandex-cloud }}](../concepts/network.md#source-external).
 
-    1. [Configure user access rights](https://kafka.apache.org/documentation/#multitenancy-security) to the necessary topic.
+   1. [Configure user access rights](https://kafka.apache.org/documentation/#multitenancy-security) to the necessary topic.
 
-    1. (Optional) To log in with username and password, [configure SASL authentication](https://kafka.apache.org/documentation/#security_sasl).
+   1. (Optional) To log in with username and password, [configure SASL authentication](https://kafka.apache.org/documentation/#security_sasl).
 
 {% endlist %}
 
@@ -58,7 +58,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
    1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [materialized views]({{ ch.docs }}/engines/table-engines/special/materializedview/) (MaterializedView) will transfer.
    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
-   1. Configure the source cluster to allow connections from {% if audience != "internal" %}the internet{% else %}the network `_YTVANGANETS_`{% endif %}.
+   1. [Configure access to the source cluster from {{ yandex-cloud }}](../concepts/network.md#source-external).
 
    1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [materialized views]({{ ch.docs }}/engines/table-engines/special/materializedview/) (MaterializedView) will transfer.
 
@@ -171,7 +171,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. Make sure that the {{ MG }} version on the target is `4.0` or higher.
 
-   1. [Configure the source cluster](https://docs.mongodb.com/manual/core/security-mongodb-configuration/) to allow connections from {% if audience != "internal" %}the internet{% else %}the network `_YTVANGANETS_`{% endif %}:
+   1. [Configure access to the source cluster from {{ yandex-cloud }}](../concepts/network.md#source-external). To configure a [source cluster](https://docs.mongodb.com/manual/core/security-mongodb-configuration/) for connections from the {% if audience != "internal" %}internet{% else %}`_YTVANGANETS_` network{% endif %}:
 
       1. In the configuration file, change the `net.bindIp` setting from `127.0.0.1` to `0.0.0.0`:
 
@@ -387,6 +387,14 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
 ### {{ PG }} source {#source-pg}
 
+{% note info %}
+
+When transfering from {{ PG }} to a target of any type, objects of the [large object](https://www.postgresql.org/docs/current/largeobjects.html) type will not transfer.
+
+Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/storage-toast.html) and with [type bytea](https://www.postgresql.org/docs/12/datatype-binary.html) transfer without restrictions.
+
+{% endnote %}
+
 {% list tabs %}
 
 - {{ mpg-name }}
@@ -404,9 +412,9 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
          * `USAGE` for the schemas of these tables and sequences.
          * `ALL PRIVILEGES` (`CREATE` and `USAGE`) to the housekeeping table schema defined by the [endpoint parameter](./endpoint/source/postgresql.md#additional-settings) if the endpoint is going to be used for the _{{ dt-type-repl }}_ or _{{ dt-type-copy-repl }}_ transfer types.
 
-   1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This lets replication continue even after changing the master host.
+   1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This lets replication continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, please refer to the [Troubleshooting](../troubleshooting/postgresql.md#master-change) section.
 
-   1. {% include [primary-keys-mysql](../../_includes/data-transfer/primary-keys-postgresql.md) %}
+   1. {% include [primary-keys-postgresql](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](./endpoint/source/postgresql.md#additional-settings).
 
@@ -509,9 +517,9 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
       1. Restart PostgreSQL.
 
-   1. If the replication source is a cluster, install and enable the [pg_tm_aux](https://github.com/x4m/pg_tm_aux) extension on its hosts. This lets replication continue even after changing the master host.
+   1. If the replication source is a cluster, install and enable the [pg_tm_aux](https://github.com/x4m/pg_tm_aux) extension on its hosts. This lets replication continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, please refer to the [Troubleshooting](../troubleshooting/postgresql.md#master-change) section.
 
-   1. {% include [primary-keys-mysql](../../_includes/data-transfer/primary-keys-postgresql.md) %}
+   1. {% include [primary-keys-postgresql](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](./endpoint/source/postgresql.md#additional-settings).
 
@@ -543,7 +551,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
 ### {{ yds-full-name }} source {#source-yds}
 
-   {% if audience == "external" and product == "yandex-cloud" %}
+{% if audience == "external" and product == "yandex-cloud" %}
 1. [Create a data stream](../../data-streams/operations/manage-streams.md#create-data-stream).
 1. (optional) [Create a processing function](../../functions/operations/function/function-create.md).
    {% else %}
@@ -683,7 +691,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. Disable the following settings on the target:
 
-      * Integrity checks for foreign keys.
+      *  Integrity checks for foreign keys.
       * Triggers.
       * Other constraints.
 
@@ -721,7 +729,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. Disable the following settings on the target:
 
-      * Integrity checks for foreign keys.
+      *  Integrity checks for foreign keys.
       * Triggers.
       * Other constraints.
 
@@ -951,7 +959,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. Disable the following settings on the target:
 
-      * Integrity checks for foreign keys.
+      *  Integrity checks for foreign keys.
       * Triggers.
       * Other constraints.
 
@@ -977,7 +985,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. Disable the following settings on the target:
 
-      * Integrity checks for foreign keys.
+      *  Integrity checks for foreign keys.
       * Triggers.
       * Other constraints.
 
