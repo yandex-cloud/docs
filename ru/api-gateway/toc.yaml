@@ -29,6 +29,10 @@ items:
         href: tutorials/slack-bot-serverless.md
       - name: Разработка Telegram-бота
         href: tutorials/telegram-bot-serverless.md
+      - name: Разработка пользовательской интеграции
+        href: tutorials/api-gw-integration.md
+      - name: Разработка CRUD API для сервиса фильмов
+        href: tutorials/movies-database.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

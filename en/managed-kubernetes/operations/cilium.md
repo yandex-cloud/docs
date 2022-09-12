@@ -10,7 +10,9 @@ To use the Cilium network policy controller in a cluster:
 
 ## Before you begin {#before-you-begin}
 
+1. [Create a service account](../../iam/operations/sa/create.md) and [grant it](../../iam/operations/sa/assign-role-for-sa.md) the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles.
 1. [Create a {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with the following settings:
+   1. A **service account for resources** is a previously created service account with the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles.
    1. **Release channel**: `RAPID`.
    1. Under **Cluster network settings**, select **Enable tunnel mode**.
 1. [Create a node group](node-group/node-group-create.md) in any suitable configuration.
@@ -257,7 +259,7 @@ To use the Cilium network policy controller in a cluster:
    kubectl apply -f hubble-ui.yaml
    ```
 
-   Result:
+   Command result:
 
    ```text
    serviceaccount/hubble-ui created
@@ -275,7 +277,7 @@ To use the Cilium network policy controller in a cluster:
      | grep hubble | grep -v certs
    ```
 
-   Result:
+   Command result:
 
    ```text
    hubble-relay-6b9c774ffc-2jm7t  Running
@@ -379,7 +381,7 @@ To use the Cilium network policy controller in a cluster:
    kubectl create -f http-sw-app.yaml
    ```
 
-   Result:
+   Command result:
 
    ```text
    service/deathstar created
@@ -394,7 +396,7 @@ To use the Cilium network policy controller in a cluster:
    kubectl get pods,svc
    ```
 
-   Result:
+   Command result:
 
    ```text
    NAME                            READY   STATUS    RESTARTS   AGE
@@ -414,7 +416,7 @@ To use the Cilium network policy controller in a cluster:
    kubectl -n kube-system get pods -l k8s-app=cilium
    ```
 
-   Result:
+   Command result:
 
    ```text
    NAME           READY   STATUS    RESTARTS   AGE
@@ -435,7 +437,7 @@ To use the Cilium network policy controller in a cluster:
    kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   Result:
+   Command result:
 
    ```text
    Ship landed
@@ -497,7 +499,7 @@ The L3/L4 network policy only allows `org: empire` labeled pods to access `death
    kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   Result:
+   Command result:
 
    ```text
    Ship landed
@@ -510,12 +512,13 @@ The L3/L4 network policy only allows `org: empire` labeled pods to access `death
    ```
 
    Press **Ctrl** + **C** to abort the command. The network policy has denied this pod access to the service.
+
 1. Learn how the policy works:
    * To view the policy specification and status, run the command:
 
-     ```bash
-     kubectl describe cnp rule1
-     ```
+      ```bash
+      kubectl describe cnp rule1
+      ```
 
    * To check if the pods can connect to `deathstar`, open the Hubble UI. To do this, [follow the link](http://localhost:12000/default).
 
@@ -532,7 +535,7 @@ Access for the `xwing` pod remains unchanged. This pod can't access `deathstar`.
    kubectl exec tiefighter -- curl -s -XPUT deathstar.default.svc.cluster.local/v1/exhaust-port
    ```
 
-   Result:
+   Command result:
 
    ```text
    Panic: deathstar exploded
@@ -590,7 +593,7 @@ Access for the `xwing` pod remains unchanged. This pod can't access `deathstar`.
    kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   Result:
+   Command result:
 
    ```text
    Ship landed
@@ -602,7 +605,7 @@ Access for the `xwing` pod remains unchanged. This pod can't access `deathstar`.
    kubectl exec tiefighter -- curl -s -XPUT deathstar.default.svc.cluster.local/v1/exhaust-port
    ```
 
-   Result:
+   Command result:
 
    ```text
    Access denied
@@ -615,17 +618,18 @@ Access for the `xwing` pod remains unchanged. This pod can't access `deathstar`.
    ```
 
    Press **Ctrl** + **C** to abort the command.
-1. Learn how the policy works.
+
+1. Learn how the policy works:
    * To view the updated policy specification and status, run the command:
 
-     ```bash
-     kubectl describe cnp rule1
-     ```
+      ```bash
+      kubectl describe cnp rule1
+      ```
 
    * To check if the pods can connect to `deathstar`, open the Hubble UI. To do this, [follow the link](http://localhost:12000/default).
 
 ## Delete the resources you created {#clear-out}
 
 If you finished working with the test scenario, delete the resources:
-1. [Delete a {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-delete.md).
+1. [Delete the {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-delete.md).
 1. If static public IP addresses were used for cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.

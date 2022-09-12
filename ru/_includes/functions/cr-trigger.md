@@ -1,4 +1,6 @@
-Триггеру для {{ container-registry-name }} необходим [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для вызова функции или контейнера.
+[Триггер](../../functions/concepts/trigger/index.md) {{ sf-name }} запускает [функцию](../../functions/concepts/function.md), когда с [Docker-образом](../../container-registry/concepts/docker-image.md) {{ container-registry-name }} происходят определенные события. Триггер должен находиться в одном облаке с [реестром](../../container-registry/concepts/registry.md), на события которого он подписан.
+
+Триггеру для {{ container-registry-name }} необходим [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для вызова функции.
 
 ## События для настройки триггера {#event}
 
@@ -23,15 +25,13 @@ Docker-образ всегда загружается с тегом (если т
 Для создания триггера вам необходимо:
 * Разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../iam/concepts/access-control/roles.md#sa-user), [editor](../../iam/concepts/access-control/roles.md#editor) и выше.
 * Роль `{{ roles-cr-puller }}` на реестр, события которого триггер обрабатывает.
-* Сервисному аккаунту назначить роль:
-  * `{{ roles-functions-ivoker }}` на каталог с функцией, которую вызывает триггер.
-  * `serverless.containers.invoker` на каталог с контейнером, который вызывает триггер.
+* Сервисному аккаунту назначить роль `{{ roles-functions-ivoker }}` на каталог с функцией, которую вызывает триггер.
 
 Подробнее об [управлении доступом](../../functions/security/index.md).
 
 ## Формат сообщения от триггера {{ container-registry-name }} {#ymq-format}
 
-После того, как триггер сработает, он отправит в функцию или контейнер сообщение следующего вида:
+После того, как триггер сработает, он отправит в функцию сообщение следующего вида:
 
 ```json
 {

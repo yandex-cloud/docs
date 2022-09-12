@@ -2,7 +2,7 @@
 
 Вызвать контейнер можно:
 * через [HTTPS](#https);
-* с помощью [триггера {{ sf-full-name }}](../../functions/concepts/trigger/index.md);
+* с помощью [триггера](../concepts/trigger/index.md);
 * с помощью [расширения {{ api-gw-full-name }}](../../api-gateway/concepts/extensions/containers.md).
 
 {% note info %}

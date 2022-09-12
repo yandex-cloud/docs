@@ -1,10 +1,67 @@
 # YC CLI Releases
 
-## Version 0.93.0 (19.07.22) {#latest-release}
+## Version 0.94.0 (16.08.22) {#latest-release}
 
 ### Changes to {{ yandex-cloud }} services {#services}
 
+
+#### {{ cloud-logging-name }} {#cloud-logging}
+
+* Added the `--stream-name` parameter to the `yc logging read` and `yc logging write` commands.
+
+
 #### Managed database services {#managed-db}
+
+
+**{{ mgp-name }}**
+
+* Added support for the commands:
+
+   * `yc managed-greenplum cluster update`: Lets you change the settings of existing clusters.
+   * `yc managed-greenplum cluster update-config`: Lets you change the configuration parameters of existing clusters.
+
+* Added the `--datatransfer-access` flag to the `yc managed-greenplum create cluster` command to allow access from {{ data-transfer-name }}.
+
+
+
+**{{ mrd-name }}**
+
+* Added the flags to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`, `yc managed-redis hosts add`, `yc managed-redis hosts update`, and `yc managed-redis shards add` commands:
+
+   * `--assign-public-ip=true|false`: Assigns or deletes a host's public IP address.
+   * `--replica-priority=50`: Sets the replica priority (for non-sharded clusters only).
+
+
+**{{ mch-name }}**
+
+* Added the flags to the `yc managed-clickhouse cluster create` and `yc managed-clickhouse cluster update` commands:
+
+   * `--cloud-storage-move-factor`: To specify the percentage of free space on the local disk at which data will be transmitted to {{ objstorage-name }}.
+   * `--cloud-storage-data-cache`: To allow the use of local cache for {{ objstorage-name }}.
+   * `--cloud-storage-data-cache-max-size`: To specify the maximum volume of local cache for {{ objstorage-name }}.
+
+**{{ mkf-name }}**
+
+* Added the `yc managed-kafka connector` command group, which can be used to manage connectors using the `get`, `list`, `delete`, `pause`, and `resume` commands.
+* Added the `yc managed-kafka connector-mirrormaker` command group, which can be used to manage MirrorMaker connectors using the `create` and `update` commands.
+* Added the parameters for setting and changing the configuration settings of host brokers to the `yc managed-kafka cluster create` and `yc managed-kafka cluster update` commands:
+   - `message-max-bytes`
+   - `replica-fetch-max-bytes`
+   - `offsets-retention-minutes`
+   - `ssl-cipher-suites`
+
+#### {{ vpc-name }} {#vpc}
+
+* Added the `yc vpc gateway` command group to manage routing gateways.
+* Added the ability to specify a gateway as a route destination to the `yc vpc route-table` group commands.
+
+## Previous releases {#previous-releases}
+
+### Version 0.93.0 (19.07.22) {#version0.93.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### Managed database services {#managed-db}
 
 **{{ mch-name }}**
 
@@ -21,7 +78,7 @@
 
 **{{ mpg-name }}**
 
-* Commands `yc managed-postgresql database create`, `yc managed-postgresql database list`, and `yc managed-postgresql database get` commands
+* The `yc managed-postgresql database create`, `yc managed-postgresql database list`, and `yc managed-postgresql database get` commands
 
    Added support for templates when creating a database using `--template-db string`.
 
@@ -31,22 +88,20 @@
 * When creating a new cluster, MongoDB version 5.0 is selected by default.
 
 
-#### {{ managed-k8s-name }} {#k8s}
+##### {{ managed-k8s-name }} {#k8s}
 
 * Commands `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update`.
 
 
    * Added the `--node-name` flag that can be used to specify a node name template within a group.
 
-   * Added the `--template-labels` and `--template-labels-from-files` flags that can be used to specify [{{ yandex-cloud }} resource labels](../overview/concepts/services.md#labels) for VMs — group nodes (not to be confused with [{{ k8s }} node labels](../managed-kubernetes/concepts/index.md#node-labels)).
+   * Added the `--template-labels` and `--template-labels-from-files` flags that can be used to specify [resource labels {{ yandex-cloud }}](../overview/concepts/services.md#labels) for VMs — group nodes (not to be confused with [node labels {{ k8s }}](../managed-kubernetes/concepts/index.md#node-labels)).
 
 
-#### {{ serverless-containers-name }} {#serverless-containers}
+##### {{ serverless-containers-name }} {#serverless-containers}
 
 * Added the `--network-id` and `--network-name` flags to the `yc serverless container revision deploy` command to specify the network that the container revision will use. Also added the `--subnets` flag, which can be used to get a detailed list of subnets, to the command.
 
-
-## Previous releases {#previous-releases}
 
 ### Version 0.92.0 (05.07.22) {#version0.92.0}
 
@@ -544,7 +599,7 @@ Added new flags to the `yc managed-clickhouse cluster create` and `yc managed-cl
 
 ##### {{ cloud-logging-name }} {#logging}
 
-* The `get-default` subcommand was excluded from `logging group`.
+* Excluded the `get-default` subcommand from `logging group`.
 
 ### Version 0.80.0 (19.08.21) {#version0.80.0}
 
@@ -666,7 +721,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 {{ cloud-logging-name }} is a service for reading and recording service logs and user applications.
 
-The {{ cloud-logging-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage. Read more about in the [documentation](../logging/).
+The {{ cloud-logging-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage. Read more about  in the [documentation](../logging/).
 
 #### {{ sf-name }} {#serverless-functions}
 
@@ -1268,7 +1323,7 @@ Added support for {{ api-gw-full-name }}.
 
 {{ api-gw-name }} is a service for managing API gateways that supports [OpenAPI Specification 3.0](https://github.com/OAI/OpenAPI-Specification) and a set of extensions for interacting with other cloud services.
 
-The {{ api-gw-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage. Read more about in the [documentation](../api-gateway/).
+The {{ api-gw-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage. Read more about  in the [documentation](../api-gateway/).
 
 #### {{ iam-name }} {#iam}
 

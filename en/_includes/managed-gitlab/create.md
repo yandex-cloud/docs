@@ -1,25 +1,24 @@
 1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-
-1. In the **Name** field, enter a name for the VM: `ci-tutorial-gitlab`.
-
-1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
-
-1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the [GitLab 14.8](/marketplace/products/yc/gitlab) image.
-
+1. In the **Name** field, enter the VM name as follows: `ci-tutorial-gitlab`.
+1. Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
+1. Under **Image/boot disk** selection, click the **{{ marketplace-name }}** tab and then **Show more**. In the resulting window, select [{{ GL }} 14.8](/marketplace/products/yc/gitlab) as your image and click **Use**.
 1. Under **Computing resources**, specify the following configuration:
-   - **vCPU**: `2`
-   - **Guaranteed vCPU share**: `100%`
-   - **RAM**: `2 GB`
+   * **vCPU**: `4`.
+   * **Guaranteed vCPU share**: `100%`.
+   * **RAM**: `8 GB`.
+1. Under **Network settings**:
+   * Select a subnet to connect your VM to. If the desired network or subnet does not exist, create them using the **Create network** and **Add subnet** buttons.
+   * In the **Public address** field, select `Auto`.
+1. Under **Access**, specify the information required to access the instance:
+   * Enter the username in the **Login** field.
 
-1. Under **Network settings**, select the subnet to connect the VM to. If you don't have a network or subnet, create them right on the VM creation page.
+     {% note alert %}
 
-1. In the **Public address** field, choose `Auto`.
+     Don't use the username `root` or other names reserved by the operating system. To perform operations that require superuser permissions, use the command `sudo`.
 
-1. Specify data required for accessing the VM:
-    - Enter the username in the **Login** field.
-    - In the **SSH key** field, copy the contents of the public key file. You need to create a key pair for SSH connection yourself. To generate keys, use third-party tools, such as `ssh-keygen` utilities on Linux and macOS or [PuTTygen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) on Windows.
+     {% endnote %}
 
+   * In the **SSH key** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to create a key pair for the SSH connection yourself. See the [section about how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
 1. Click **Create VM**.
 
-Creating the VM may take several minutes. When the VM status changes to `RUNNING` and GitLab is run, you can start configuring it.
-
+The VM may take several minutes to create. When your VM's status changes to `RUNNING`, and {{ GL }} starts, you can proceed to setup.

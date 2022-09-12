@@ -41,12 +41,12 @@ List of important {{ yandex-cloud }}-level events for search in audit logs:
 
 ### Exporting events to SIEM {#export}
 
-#### Audit Trails {#export-at}
+#### {{ at-name }} {#export-at}
 
 
 Solutions for exporting {{ yandex-cloud }} audit logs are available for the following SIEM systems:
 
-- Yandex Managed Service for Elasticsearch (ELK)
+- {{ mes-full-name }} (ELK)
 
    ![](../../_assets/overview/solution-library-icon.svg)[Solution: Collecting, monitoring, and analyzing audit logs in Yandex Managed Service for Elasticsearch](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main)
 

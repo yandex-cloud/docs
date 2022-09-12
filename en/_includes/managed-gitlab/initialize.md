@@ -1,3 +1,5 @@
+To configure {{ GL }} and enable Continuous Integration (CI), create a new project and enter the CI login credentials.
+
 {% list tabs %}
 
 - {{ mgl-name }} instance

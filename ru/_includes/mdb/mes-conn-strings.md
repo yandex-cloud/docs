@@ -9,7 +9,9 @@
      - `https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}`, если публичный IP-адрес назначен всем хостам с этой ролью. Идентификатор кластера можно получить [со списком кластеров в каталоге](../../managed-elasticsearch/operations/cluster-list#list-clusters).
      - `https://<имя любого хоста с ролью Data node и публичным IP>.{{ dns-zone }}`
   1. Введите имя пользователя и пароль.
-  
+
+  {% include [kibana-api](mes-kibana-api.md) %}
+
   **Если ни одному хосту с ролью _Data node_ не назначен публичный IP-адрес:**
   1. [Создайте](../../compute/quickstart/quick-create-linux.md) виртуальную машину на основе Linux в той же [виртуальной сети](../../vpc/concepts/network.md), что и кластер.
   1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
@@ -75,6 +77,8 @@
   1. Перейдите в браузере по адресу `https://<публичный IP-адрес ВМ>`.
   
   1. Введите имя пользователя и пароль.
+
+  {% include [kibana-api](mes-kibana-api.md) %}
   
 
 - Bash

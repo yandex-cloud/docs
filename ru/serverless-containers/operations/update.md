@@ -2,7 +2,7 @@
 
 Вы можете изменить [имя или описание контейнера](#update-name), а также [управлять метками контейнера](#manage-label). Для изменения параметров работы контейнера необходимо [создать новую ревизию контейнера](./manage-revision.md).
 
-{% include [function-list-note](../../_includes/serverless-containers/container-list-note.md) %}
+{% include [serverless-containers-list-note](../../_includes/serverless-containers/container-list-note.md) %}
 
 ## Изменить имя или описание контейнера {#update-name}
 

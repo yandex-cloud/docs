@@ -317,6 +317,8 @@ items:
         href: tutorials/video-converting-queue.md
       - name: Создание функции Node.js с помощью TypeScript
         href: tutorials/nodejs-typescript.md
+      - name: Разработка пользовательской интеграции
+        href: tutorials/api-gw-integration.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом

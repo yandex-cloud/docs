@@ -1,0 +1,1 @@
+{% include [load-testing-grpc-autoscaling](../../_tutorials/load-testing-grpc-autoscaling.md) %}

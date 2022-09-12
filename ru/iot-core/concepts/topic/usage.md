@@ -116,8 +116,12 @@ $me-топик | Эквивалентный топик
 
 ## Триггеры для топиков {#trigger}
 
-_Триггер_ — условие, при наступлении которого автоматически запускается определенная функция.
+_Триггер_ — условие, при наступлении которого автоматически запускается определенная функция или контейнер.
 
-{% include [iot-core](../../../_includes/functions/iot-core-trigger-description.md) %}
+Триггер для {{ iot-short-name }} предназначен для управления сообщениями, которыми обмениваются устройства и реестры. Он создается для топиков: принимает из них копии сообщений и передает в [функцию](../../../functions/concepts/function.md) {{ sf-name }} или [контейнер](../../../serverless-containers/concepts/container.md) {{serverless-containers-name }} для обработки.  
+ 
+{% include [trigger](../../../_includes/iot-core/trigger.md) %}
+ 
+Триггеру для {{ iot-short-name }} необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова функции или контейнера. 
 
-Подробнее о триггерах читайте в [документации {{ sf-name }}](../../../functions/concepts/trigger/index.md).
+Подробнее о триггерах читайте в документации [{{ sf-name }}](../../../functions/concepts/trigger/index.md) и [{{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/index.md).

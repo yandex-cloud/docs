@@ -23,6 +23,9 @@ To create a {{ k8s }} cluster:
    * A service account with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#required-roles) role to the folder containing a [Docker image](../../../container-registry/concepts/docker-image.md) [registry](../../../container-registry/concepts/registry.md). Nodes will download the Docker images they require from the registry on behalf of this account.
 
    You can use the same service account for both operations.
+
+   {% include [k8s.tunnelClusters.agent role](../../../_includes/managed-kubernetes/note-tunnelClusters-agent.md) %}
+
 1. Create the necessary [security groups](../connect/security-groups.md).
 1. Review the [recommendations for using {{ managed-k8s-name }}](../../concepts/usage-recommendations.md).
 
@@ -77,7 +80,7 @@ To create a {{ k8s }} cluster:
      * `--node-service-account-id`: The unique ID of the service account for the nodes. Nodes will download the Docker images they require from the registry on behalf of this account.
      * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.
 
-     Result:
+     Command result:
 
      ```bash
      done (5m47s)

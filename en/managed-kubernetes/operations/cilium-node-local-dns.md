@@ -9,7 +9,9 @@ To set up a local DNS in a {{ k8s }} cluster:
 
 ## Before you begin {#before-you-begin}
 
+1. [Create a service account](../../iam/operations/sa/create.md) and [grant it](../../iam/operations/sa/assign-role-for-sa.md) the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles.
 1. [Create a {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with the following settings:
+   1. A **service account for resources** is a previously created service account with the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles.
    1. **Release channel**: `RAPID`.
    1. Under **Cluster network settings**, select **Enable tunnel mode**.
 1. [Create a node group](node-group/node-group-create.md) in any suitable configuration.
@@ -154,7 +156,7 @@ To set up a local DNS in a {{ k8s }} cluster:
              requests:
                cpu: 25m
                memory: 5Mi
-           args: [ "-localip", "169.254.20.10,<kube-dns service IP address>", "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream", "-skipteardown=true", "-setupinterface=false", "-setupiptables=false" ]
+           args: [ "-localip", "169.254.20.10, <kube-dns service IP>", "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream", "-skipteardown=true", "-setupinterface=false", "-setupiptables=false" ]
            securityContext:
              privileged: true
            ports:
@@ -324,7 +326,7 @@ To test the local DNS from the `nettool` pod, several DNS requests will be execu
    kubectl exec -ti nettool -- nslookup ya.ru
    ```
 
-   Result (IP addresses may differ):
+   Result (IPs may differ):
 
    ```text
    Name:   kubernetes.default.svc.cluster.local
@@ -367,5 +369,5 @@ To test the local DNS from the `nettool` pod, several DNS requests will be execu
 ## Delete the resources you created {#clear-out}
 
 If you no longer need these resources, delete them:
-1. [Delete a {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-delete.md).
+1. [Delete the {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-delete.md).
 1. If static public IP addresses were used for cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.

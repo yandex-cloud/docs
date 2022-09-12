@@ -4,23 +4,21 @@
    1. Add two environment variables:
       * `KUBE_URL`: The [{{ k8s }} master address](../../managed-kubernetes/concepts/index.md#master). Retrieve it using the command:
 
-        {% list tabs %}
-
-        - Bash
-
-          ```bash
-          yc managed-kubernetes cluster get <{{ k8s }} cluster ID or name> --format=json \
-            | jq -r .master.endpoints.external_v4_endpoint
-          ```
-
-        {% endlist %}
+        ```bash
+        yc managed-kubernetes cluster get <{{ k8s }} cluster ID or name> --format=json \
+          | jq -r .master.endpoints.external_v4_endpoint
+        ```
 
       * `KUBE_TOKEN`: The token will use {{ GL }} to apply the configuration. Use the token that you received previously.
-   1. Click **Save variables**.
+
+      To add a variable:
+      * Click **Add variable**.
+      * In the resulting window, enter the variable name in the **Key** field and the value in the **Value** field.
+      * Click **Add variable**.
 1. {{ GL }} enables you to configure [build scripts](https://docs.gitlab.com/ee/ci/README.html) in a YAML file. Create a configuration file named `.gitlab-ci.yml`:
    1. On the left-hand panel in {{ GL }}, select **Repository** and click the **Files** tab.
    1. To the right of the project name, click **+** and select **New file** from the drop-down menu.
-   1. Name the file `.gitlab-ci.yml`. Add the steps to build and push a [Docker image](../../container-registry/concepts/docker-image.md) and update the [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster):
+   1. Name the file `.gitlab-ci.yml`. Add the steps to build and push a [Docker image](../../container-registry/concepts/docker-image.md) and update the application configuration in the [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster):
 
       ```yaml
       stages:
@@ -60,22 +58,15 @@
      * For {{ container-registry-name }} authentication, use a [service account](../../iam/concepts/users/service-accounts.md) linked to the {{ k8s }} nodes. When getting started, this account was assigned the [{{ roles-cr-pusher }}](../../container-registry/security/index.md#required-roles).
      * To get authentication credentials from the VM [metadata](../../compute/concepts/vm-metadata.md), use an auxiliary public Docker image `{{ registry }}/yc/metadata-token-docker-helper:0.2`. It runs an internal [Docker credential helper](../../container-registry/operations/authentication.md#cred-helper) that obtains a {{ iam-full-name }} token from the metadata service.
    * Set up an environment to work with {{ k8s }} and apply the `k8s.yaml` configuration to {{ k8s }} clusters. This way the application is deployed on the previously created cluster.
-
 1. After saving the file, the build script starts. To track its progress, in the drop-down menu, select **CI/CD** → **Pipelines**. Wait until both build steps are complete.
 1. Check the results in the container logs in the {{ k8s }} cluster:
 
-   {% list tabs %}
+   ```bash
+   kubectl logs deployment/hello-world-deployment -n hello-world
+   ```
 
-   - Bash
+   Command output:
 
-     ```bash
-     kubectl logs deployment/hello-world-deployment -n hello-world
-     ```
-
-     Command output:
-
-     ```text
-     Hello
-     ```
-
-   {% endlist %}
+   ```text
+   Hello
+   ```

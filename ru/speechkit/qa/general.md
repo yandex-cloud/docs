@@ -1,0 +1,1 @@
+{% include [general](../../_qa/speechkit/general.md) %}

@@ -37,3 +37,7 @@
 ## Изменения настроек не применились к ресурсу {#changes-not-applied}
 
 {% include [after-changes-tip](../_includes/cdn/after-changes-tip.md) %}
+
+## У CDN-ресурса статус Not active, и контент не доступен пользователям {#resource-not-active}
+
+Включите опцию **Доступ конечных пользователей к контенту** в основных настройках ресурса. Подробнее см. в [инструкции](operations/resources/configure-basics.md).
