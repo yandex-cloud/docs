@@ -147,7 +147,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
          --database name=<database name> \
          --mongod-disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
          --mongod-disk-size <storage size in GB> \
-         --deletion-protection=<deletion protection for the cluster: true or fasle>
+         --deletion-protection=<deletion protection for the cluster: true or false>
       ```
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.

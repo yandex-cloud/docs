@@ -129,7 +129,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         --disk-size <storage size in gigabytes> \
         --disk-type <local-ssd | local-hdd> \
         --security-group-ids <list of IDs of security groups> \
-        --deletion-protection=<cluster deletion protection: true or fasle>
+        --deletion-protection=<cluster deletion protection: true or false>
       ```
 
       {% endif %}

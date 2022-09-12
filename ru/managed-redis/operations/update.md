@@ -413,7 +413,7 @@
             --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
                                 `day=<день недели для типа weekly>,`
                                 `hour=<час дня для типа weekly> \
-            --deletion-protection=<защита от удаления кластера: true или fasle>
+            --deletion-protection=<защита от удаления кластера: true или false>
         ```
 
     Вы можете изменить следующие настройки:

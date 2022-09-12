@@ -109,7 +109,8 @@
        --disk-size <размер хранилища в гигабайтах> \
        --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
        --security-group-ids <список идентификаторов групп безопасности> \
-       --deletion-protection=<защита от удаления кластера: true или fasle>
+       --deletion-protection=<защита от удаления кластера: true или false> \
+       --datalens-access=<доступ к кластеру из {{ datalens-name }}: true или false>
      ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -129,7 +130,8 @@
        --disk-size <размер хранилища в гигабайтах> \
        --disk-type <local-ssd | local-hdd> \
        --security-group-ids <список идентификаторов групп безопасности> \
-       --deletion-protection=<защита от удаления кластера: true или fasle>
+       --deletion-protection=<защита от удаления кластера: true или false> \
+       --datalens-access=<доступ к кластеру из {{ datalens-name }}: true или false>
      ```
 
      {% endif %}
@@ -303,6 +305,8 @@
 
      1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
+     1. {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
+
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mmy }}).
 
   1. Проверьте корректность конфигурационных файлов.
@@ -330,6 +334,8 @@
     * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
 
     {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+
+    {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
 
 {% endlist %}
 
