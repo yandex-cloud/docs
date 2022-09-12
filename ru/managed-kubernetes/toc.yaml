@@ -144,6 +144,8 @@ items:
         when: product == "yandex-cloud"
       - name: Синхронизация с секретами {{ lockbox-name }}
         href: tutorials/kubernetes-lockbox-secrets.md
+      - name: Мониторинг кластера с помощью {{ prometheus-name }} и {{ grafana-name }}
+        href: tutorials/prometheus-grafana-monitoring.md
       - name: Использование продуктов {{ marketplace-name }}
         when: product == "yandex-cloud"
         items:

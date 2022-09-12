@@ -9,9 +9,13 @@
 * [{#T}](backup.md)
 * [{#T}](autoscaling.md)
 * [{#T}](vpa-autoscaling.md)
+
 {% if product == "yandex-cloud" %}
+
 * [{#T}](load-testing-grpc-autoscaling.md)
+
 {% endif %}
+
 * [{#T}](pvc-snapshot-restore.md)
 * [{#T}](custom-dns.md)
 * [{#T}](dns-autoscaler.md)
@@ -24,6 +28,7 @@
 {% endif %}
 
 * [{#T}](kubernetes-lockbox-secrets.md)
+* [{#T}](prometheus-grafana-monitoring.md)
 
 {% if product == "yandex-cloud" %}
 
