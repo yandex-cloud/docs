@@ -308,3 +308,6 @@ items:
       - name: Хранение журналов работы приложения
         href: serverless/log-ingestion.md
         when: audience == "external"
+      - name: Разработка CRUD API для сервиса фильмов
+        href: serverless/movies-database.md
+        when: audience == "external"

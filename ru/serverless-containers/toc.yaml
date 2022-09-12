@@ -95,6 +95,11 @@ items:
         href: concepts/backup.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Практические руководства
+    items:
+      - name: Разработка CRUD API для сервиса фильмов
+        href: tutorials/movies-database.md
+        when: audience == "external"
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
