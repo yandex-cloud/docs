@@ -13,8 +13,12 @@ description: "In this article you will learn how to work with managed {{ k8s }} 
 ## Installing applications {#marketplace}
 
 * [{#T}](applications/marketplace.md)
+* [{#T}](applications/crossplane.md)
+* [{#T}](applications/fluentbit.md)
+* [{#T}](applications/alb-ingress-controller.md)
 * [{#T}](applications/jaeger.md)
 * [{#T}](applications/metrics-provider.md)
+* [{#T}](applications/node-local-dns.md)
 
 
 ## Network scenarios {#network-scenarios}

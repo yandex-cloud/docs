@@ -126,5 +126,13 @@ items:
   - name: Public materials
     href: public-talks.md
   - name: Questions and answers
-    href: qa/index.md
+    items:
+      - name: General questions
+        href: qa/general.md
+      - name: Speech recognition
+        href: qa/stt.md
+      - name: Speech synthesis
+        href: qa/tts.md
+      - name: All questions on the same page
+        href: qa/all.md
 base: en/speechkit

@@ -27,12 +27,18 @@ items:
         items:
           - name: Basics of working with {{ marketplace-name }}
             href: operations/applications/marketplace.md
-          - name: Installing an {{ alb-name }} Ingress controller
+          - name: Installing the {{ alb-name }} Ingress controller
             href: operations/applications/alb-ingress-controller.md
+          - name: Installing Crossplane
+            href: operations/applications/crossplane.md
+          - name: Installing Fluent Bit
+            href: operations/applications/fluentbit.md
           - name: Installing Jaeger
             href: operations/applications/jaeger.md
           - name: Installing Metrics Provider
             href: operations/applications/metrics-provider.md
+          - name: Installing NodeLocal DNS
+            href: operations/applications/node-local-dns.md
       - name: Network scenarios
         items:
           - name: Granting access to an app running in a {{ k8s }} cluster

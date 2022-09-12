@@ -122,7 +122,7 @@
         --database name=<имя базы данных> \
         --mongod-disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
         --mongod-disk-size <размер хранилища в гигабайтах> \
-        --deletion-protection=<защита от удаления кластера: true или fasle>
+        --deletion-protection=<защита от удаления кластера: true или false>
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.

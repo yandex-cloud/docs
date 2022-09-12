@@ -69,6 +69,10 @@ items:
         href: tutorials/tls-termination.md
       - name: Запись логов балансировщика в {{ PG }}
         href: tutorials/logging.md
+      - name: >-
+          Развертывание и нагрузочное тестирование gRPC-сервиса с
+          масштабированием
+        href: tutorials/load-testing-grpc-autoscaling.md
   - name: Концепции
     items:
       - name: Обзор

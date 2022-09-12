@@ -18,3 +18,15 @@ links:
   - title: Бюллетени безопасности
     description: ''
     href: security-bulletins/
+  - title: Безопасность Kubernetes
+    description: ''
+    href: domains/kubernetes.md
+  - title: Сетевая безопасность
+    description: ''
+    href: domains/network.md
+  - title: Аутентификация и управление доступом
+    description: ''
+    href: domains/access.md
+  - title: Шифрование данных
+    description: ''
+    href: domains/encryption.md

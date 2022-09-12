@@ -10,10 +10,8 @@
 
 {% note warning %}
 
-Роль `mdb.dataproc.agent` скоро будет удалена. Пользователям с этой ролью автоматически назначится роль `dataproc.agent` с аналогичными правами.
+Роль `mdb.dataproc.agent` скоро будет удалена. Пользователям с этой ролью автоматически назначится роль [dataproc.agent](#mdb-dataproc-agent) с аналогичными правами. Не рекомендуется использовать эту роль.
 
 {% endnote %}
-
-Устаревшая роль с правами, аналогичными [dataproc.agent](#mdb-dataproc-agent). Не рекомендуется ее использовать.
 
 {% include [roles-restriction-only-parents](iam/roles-restriction-only-parents.md) %}
