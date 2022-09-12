@@ -59,6 +59,12 @@ However, if {{ yandex-cloud }} services are suspended for non-payment, and you h
 
 You can [delete a billing account](../operations/delete-account.md) if you no longer plan to use {{ yandex-cloud }} services.
 
+## Billing account ID {#billing-account-id}
+
+Every billing account has an ID. To get a billing account's ID:
+
+{% include [billing-account-id](../../_includes/billing/billing-account-id.md) %}
+
 ## Number of billing accounts {#restrictions}
 
 {% include [billing-account-amounts](../_includes/billing-account-amounts.md) %}
