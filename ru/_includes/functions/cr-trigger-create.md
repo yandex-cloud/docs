@@ -1,24 +1,12 @@
-Создайте [триггер для {{ container-registry-name }}](../../functions/concepts/trigger/cr-trigger.md), который будет вызывать [функцию](../../functions/concepts/function.md) {{ sf-name }} или [контейнер](../../serverless-containers/concepts/container.md) {{ serverless-containers-name }} при создании и удалении [Docker-образов](../../container-registry/concepts/docker-image.md) {{ container-registry-full-name }} или их тегов.
+Создайте [триггер для {{ container-registry-name }}](../../functions/concepts/trigger/cr-trigger.md), который будет вызывать [функцию](../../functions/concepts/function.md) {{ sf-name }} при создании и удалении [Docker-образов](../../container-registry/concepts/docker-image.md) {{ container-registry-full-name }} или их тегов.
 
-Для создания триггера вам понадобятся:
+О том, как создать триггер для {{ container-registry-name }}, который будет вызывать контейнер, читайте в [документации {{ serverless-containers-full-name }}](../../serverless-containers/operations/cr-trigger-create.md).
 
-* Функция или контейнер, которые триггер будет запускать.
+## Перед началом работы {#before-you-begin}
 
-    * Если у вас нет функции:
-
-        * [Создайте функцию](../../functions/operations/function/function-create.md).
-        * [Создайте версию функции](../../functions/operations/function/version-manage.md#func-version-create).
-
-    * Если у вас нет контейнера:
-
-        * [Создайте контейнер](../../serverless-containers/operations/create.md).
-        * [Создайте ревизию контейнера](../../serverless-containers/operations/manage-revision.md#create).
+{% include [trigger-before-you-begin](trigger-before-you-begin.md) %}
 
 * [Реестр](../../container-registry/concepts/registry.md), при событиях с Docker-образами в котором триггер будет запускаться. Если у вас нет реестра, [создайте его](../../container-registry/operations/registry/registry-create.md).
-
-* (опционально) Очередь [Dead Letter Queue](../../functions/concepts/dlq.md), куда будут перенаправляться сообщения, которые не смогли обработать функция или контейнер. Если у вас нет очереди, [создайте ее](../../message-queue/operations/message-queue-new-queue.md).
-
-* [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с правами на вызов функции или контейнера и (опционально) запись в очередь [Dead Letter Queue](../../functions/concepts/dlq.md). Вы можете использовать один и тот же сервисный аккаунт или разные. Если у вас нет сервисного аккаунта, [создайте его](../../iam/operations/sa/create.md).
 
 ## Создать триггер {#trigger-create}
 
@@ -40,7 +28,7 @@
 
         * Введите имя и описание триггера.
         * В поле **Тип** выберите **Container Registry**.
-        * Выберите, что будет запускать триггер — функцию или контейнер.
+        * В поле **Запускаемый ресурс** выберите **Функция**.
 
     1. В блоке **Настройки Container Registry**:
 
@@ -49,22 +37,15 @@
         * (опционально) В поле **Имя Docker-образа** введите [имя образа](../../functions/concepts/trigger/cr-trigger.md#filter) для фильтрации.
         * (опционально) В поле **Тег Docker-образа** введите [тег образа](../../functions/concepts/trigger/cr-trigger.md#filter) для фильтрации.
 
-    1. Если триггер будет запускать:
+    1. В блоке **Настройки функции** выберите функцию и укажите:
 
-        * функцию, в блоке **Настройки функции** выберите ее и укажите:
-
-            * [тег версии функции](../../functions/concepts/function.md#tag);
-            * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого будет вызываться функция.
-
-        * контейнер, в блоке **Настройки контейнера** выберите его и укажите:
-
-            * [ревизию контейнера](../../serverless-containers/concepts/container.md#revision);
-            * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого будет вызываться контейнер.
+        * [тег версии функции](../../functions/concepts/function.md#tag);
+        * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого будет вызываться функция.
 
     1. (опционально) В блоке **Настройки повторных запросов**:
 
-        * В поле **Интервал** укажите время, через которое будет сделан повторный вызов функции или контейнера, если текущий завершился неуспешно. Допустимые значения — от 10 до 60 секунд, значение по умолчанию — 10 секунд.
-        * В поле **Количество попыток** укажите количество повторных вызовов функции или контейнера, которые будут сделаны, прежде чем триггер отправит сообщение в [Dead Letter Queue](../../functions/concepts/dlq.md). Допустимые значения — от 1 до 5, значение по умолчанию — 1.
+        * В поле **Интервал** укажите время, через которое будет сделан повторный вызов функции, если текущий завершился неуспешно. Допустимые значения — от 10 до 60 секунд, значение по умолчанию — 10 секунд.
+        * В поле **Количество попыток** укажите количество повторных вызовов функции, которые будут сделаны, прежде чем триггер отправит сообщение в [Dead Letter Queue](../../functions/concepts/dlq.md). Допустимые значения — от 1 до 5, значение по умолчанию — 1.
 
     1. (опционально) В блоке **Настройки Dead Letter Queue** выберите очередь [Dead Letter Queue](../../functions/concepts/dlq.md) и сервисный аккаунт с правами на запись в нее.
 

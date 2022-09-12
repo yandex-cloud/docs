@@ -44,5 +44,5 @@
 - API
 
   Получить подробную информацию о триггере можно с помощью метода API [get](../../functions/triggers/api-ref/Trigger/get.md).
-
+  
 {% endlist %}
