@@ -186,7 +186,6 @@ items:
             href: operations/serial-console/index.md
           - name: Connecting to a serial console via SSH
             href: operations/serial-console/connect-ssh.md
-            when: product == "yandex-cloud"
           - name: Connecting to a serial console via CLI
             href: operations/serial-console/connect-cli.md
           - name: Starting your terminal in the Windows serial console (SAC)

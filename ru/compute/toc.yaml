@@ -184,7 +184,6 @@ items:
             href: operations/serial-console/index.md
           - name: Подключиться к серийной консоли по SSH
             href: operations/serial-console/connect-ssh.md
-            when: product == "yandex-cloud"
           - name: Подключиться к серийной консоли с помощью CLI
             href: operations/serial-console/connect-cli.md
           - name: Запустить командную оболочку в Windows SAC

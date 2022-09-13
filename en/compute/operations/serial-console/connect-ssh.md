@@ -25,9 +25,13 @@ To set up a secure connection:
 
    Recommended startup options:
 
-   ```bash
+   {% if product == "yandex-cloud" %}```bash
    ssh -o ControlPath=none -o IdentitiesOnly=yes -o CheckHostIP=no -o StrictHostKeyChecking=yes -o UserKnownHostsFile=./serialssh-knownhosts -p 9600 -i ~/.ssh/<secret key name> <VM ID>.<user name>@serialssh.cloud.yandex.net
-   ```
+   ```{% endif %}
+
+   {% if product == "cloud-il" %}```bash
+   ssh -o ControlPath=none -o IdentitiesOnly=yes -o CheckHostIP=no -o StrictHostKeyChecking=yes -o UserKnownHostsFile=./serialssh-knownhosts -p 9600 -i ~/.ssh/<secret key name> <VM ID>.<user name>@serialssh.cloudil.co.il
+   ```{% endif %}
 
    The host's public key may be changed in the future.
 
@@ -45,15 +49,23 @@ To connect to the VM, you must use its ID. For more information about how to get
 
 Connection command example:
 
-```bash
+{% if product == "yandex-cloud" %}```bash
 ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/<private key name> <username>@serialssh.cloud.yandex.net
-```
+```{% endif %}
+
+{% if product == "cloud-il" %}```bash
+ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/<private key name> <username>@serialssh.cloudil.co.il
+```{% endif %}
 
 Example with `yc-user` and the virtual machine with the ID `fhm0b28lgfp4tkoa3jl6`:
 
-```bash
+{% if product == "yandex-cloud" %}```bash
 ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_rsa fhm0b28lgfp4tkoa3jl6.yc-user@serialssh.cloud.yandex.net
-```
+```{% endif %}
+
+{% if product == "cloud-il" %}```bash
+ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_rsa fhm0b28lgfp4tkoa3jl6.yc-user@serialssh.cloudil.co.il
+```{% endif %}
 
 The `yc-user` user is generated automatically when the VM is being created. For more information, see [{#T}](../vm-create/create-linux-vm.md).
 

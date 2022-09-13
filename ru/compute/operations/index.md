@@ -131,9 +131,7 @@ description: "Пошаговые инструкции по работе и уп�
 ## Управление серийной консолью {#serial-console}
 
 * [{#T}](serial-console/index.md)
-{% if product == "yandex-cloud" %}
 * [{#T}](serial-console/connect-ssh.md)
-{% endif %}
 * [{#T}](serial-console/connect-cli.md)
 * [{#T}](serial-console/windows-sac.md)
 * [{#T}](serial-console/disable.md)
