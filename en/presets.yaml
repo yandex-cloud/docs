@@ -314,10 +314,10 @@ default:
 
   # Host classes
   host-class: s2.micro
-  b1-nano: b1.nano (2 vCPU × 5%, 2 GB)
-  b1-micro: b1.micro (2 vCPU × 20%, 2 GB)
-  b1-small: b1.small (2 vCPU × 20%, 4 GB)
-  b1-medium: b1.medium (2 vCPU × 50%, 4 GB)
+  b1-nano: b1.nano (2 × 5% vCPU, 2 GB)
+  b1-micro: b1.micro (2× 20% vCPU, 2 GB)
+  b1-small: b1.small (2 × 20% vCPU, 4 GB)
+  b1-medium: b1.medium (2 × 50% vCPU, 4 GB)
   m1-micro: m1.micro (2 vCPU, 16 GB)
   m1-small: m1.small (4 vCPU, 32 GB)
   m1-medium: m1.medium (6 vCPU, 48 GB)
@@ -332,10 +332,10 @@ default:
   s1-medium: s1.medium (8 vCPU, 32 GB)
   s1-large: s1.large (16 vCPU, 64 GB)
   s1-xlarge: s1.xlarge (32 vCPU, 128 GB)
-  b2-nano: b2.nano (2 vCPU × 5%, 2 GB)
-  b2-micro: b2.micro (2 vCPU × 20%, 2 GB)
-  b2-small: b2.small (2 vCPU × 20%, 4 GB)
-  b2-medium: b2.medium (2 vCPU × 50%, 4 GB)
+  b2-nano: b2.nano (2 × 5% vCPU, 2 GB)
+  b2-micro: b2.micro (2 × 20% vCPU, 2 GB)
+  b2-small: b2.small (2 × 20% vCPU, 4 GB)
+  b2-medium: b2.medium (2 × 50% vCPU, 4 GB)
   m2-micro: m2.micro (2 vCPU, 16 GB)
   m2-small: m2.small (4 vCPU, 32 GB)
   m2-medium: m2.medium (6 vCPU, 48 GB)
@@ -364,7 +364,7 @@ default:
   t4-ice-lake: Intel Ice Lake with NVIDIA® Tesla® T4
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
   a100-epyc: AMD EPYC™ with NVIDIA® Ampere® A100
-  b3-c1-m4: b3-c1-m4 (2 vCPU × 50%, 4 GB)
+  b3-c1-m4: b3-c1-m4 (2 × 50% vCPU, 4 GB)
   m3-c2-m16: m3-c2-m16 (2 vCPU, 16 GB)
   m3-c4-m32: m3-c4-m32 (4 vCPU, 32 GB)
   m3-c6-m48: m3-c6-m48 (6 vCPU, 48 GB)
