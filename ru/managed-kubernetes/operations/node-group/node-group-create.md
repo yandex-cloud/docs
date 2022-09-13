@@ -39,7 +39,7 @@
        --name <имя группы узлов> \
        --network-acceleration-type <standard или software-accelerated> \
        --network-interface security-group-ids=[<идентификаторы групп безопасности>],subnets=[<имена подсетей>],ipv4-address=<nat или auto> \
-       --platform <идентификатор платформы> \
+       --platform-id <идентификатор платформы> \
        --preemptible \
        --public-ip \
        --version <версия {{ k8s }} на узлах группы> \
@@ -47,7 +47,6 @@
      ```
 
      Где:
-
      * `--allowed-unsafe-sysctls` — разрешение на использование узлами группы [небезопасных параметров ядра](../../concepts/index.md#node-group), через запятую.
      * `--cluster-name` — имя [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster), в котором будет создана группа узлов.
      * `--cores` — количество vCPU для узлов.
@@ -66,7 +65,7 @@
 
        {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
-     * `--platform` — [платформа](../../../compute/concepts/vm-platforms.md) для узлов.
+     * `--platform-id` — [платформа](../../../compute/concepts/vm-platforms.md) для узлов.
      * `--preemptible` — флаг, который указывается, если виртуальные машины должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md).
      * `--public-ip` — флаг, который указывается, если группе узлов требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
      * `--version` — версия {{ k8s }} на узлах группы.
@@ -74,7 +73,7 @@
 
      {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
 
-     Результат:
+     Результат выполнения команды:
 
      ```bash
      done (1m17s)
@@ -117,7 +116,6 @@
        ```
 
        Где:
-
        * `имя группы узлов` – имя группы узлов.
        * `cluster_id` – идентификатор [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster).
        * `platform_id` – [платформа](../../../compute/concepts/vm-platforms.md) для узлов.
@@ -158,7 +156,6 @@
          ```
 
        Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
-
     1. Проверьте корректность конфигурационных файлов.
 
        {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
@@ -170,7 +167,6 @@
 - API
 
   Воспользуйтесь методом API [create](../../api-ref/NodeGroup/create.md) и передайте в запросе:
-
   * Идентификатор [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) в параметре `clusterId`. Его можно получить со [списком кластеров в каталоге](../kubernetes-cluster/kubernetes-cluster-list.md#list).
   * [Конфигурацию группы узлов](../../concepts/index.md#config) в параметре `nodeTemplate`.
   * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.
@@ -191,3 +187,9 @@
   Чтобы задать метки [taint-политик](../../concepts/index.md#taints-tolerations), передайте их значения в параметре `nodeTaints`.
 
 {% endlist %}
+
+{% note alert %}
+
+После создания группы узлов в {{ compute-full-name }} появится одна или несколько ВМ с автоматически сгенерированными именами. Не изменяйте имена ВМ, принадлежащих кластеру {{ managed-k8s-name }}. Это приведет к нарушению работы группы узлов и всего кластера.
+
+{% endnote %}

@@ -12,7 +12,7 @@
 
 | Limits | Minimum value | Maximum value |
 | :--------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------ | :------------------------------------------------- |
-| Host class | b2.medium ([50%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Cascade Lake, 4 GB RAM) | m3-c80-m640 (80 vCPU Intel Ice Lake, 640 GB RAM) |
+| Host class | b2.medium (2 × [50%](../../compute/concepts/performance-levels.md) vCPU Intel Cascade Lake, 4 GB RAM) | m3-c80-m640 (80 vCPU Intel Ice Lake, 640 GB RAM) |
 | Number of brokers in a cluster when using HDD network or SSD network storage | 1 | 7 |
 | Number of brokers in a cluster when storing data on non-replicated or local SSDs | 3 | 7 |
 | Amount of data on the broker when using SSD network storage | 10 GB | 4096 GB |

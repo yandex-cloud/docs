@@ -1,142 +1,101 @@
 # Автоматическое масштабирование DNS по размеру кластера
 
-В {{ managed-k8s-name }} поддерживается автоматическое масштабирование сервиса DNS. В кластере работает приложение `kube-dns-autoscaler` под управлением контроллера [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/). Приложение регулирует количество реплик CoreDNS по [формулам](#parameters) в зависимости от:
-* количества узлов в кластере;
-* количества ядер (vCPU) в кластере.
+В {{ managed-k8s-name }} поддерживается автоматическое масштабирование сервиса DNS. В [кластере {{ k8s }}](../concepts/index.md#kubernetes-cluster) работает приложение `kube-dns-autoscaler`, которое регулирует количество реплик CoreDNS в зависимости от:
+* количества [узлов](../concepts/index.md#node-group) в кластере;
+* [количества ядер (vCPU)](../../compute/concepts/performance-levels.md) в кластере.
 
-В данном сценарии вы отредактируете конфигурацию `kube-dns-autoscaler` и увидите изменения в [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) службы DNS.
+Количество реплик рассчитывается [с помощью формул](#parameters).
 
-Чтобы настроить масштабирование, выполните следующие действия:
-1. [Подготовьте окружение](#prepare).
-1. [Настройте kube-dns-autoscaler](#configure-autoscaler).
-1. [Проверьте масштабирование](#test-autoscaler).
+Чтобы автоматизировать масштабирование DNS:
+1. [{#T}](#configure-autoscaler).
+1. [{#T}](#test-autoscaler).
 
-Если не требуется изменять количество реплик CoreDNS соразмерно кластеру, [отключите масштабирование](#disable-autoscaler).
+Если автоматическое масштабирование потеряло актуальность, [отключите его](#disable-autoscaler).
 
-## Подготовьте окружение {#prepare}
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-1. Создайте ресурсы.
+## Перед началом работы {#before-you-begin}
 
-   Для выполнения сценария вам понадобятся облачная сеть и подсеть, а также сервисный аккаунт. Вы можете использовать существующие ресурсы или создать новые.
+1. Создайте ресурсы {{ k8s }}:
 
-   {% cut "Как создать ресурсы" %}
+   {% list tabs %}
 
-   1. Создайте [облачную сеть](../../vpc/operations/network-create.md).
-   1. Создайте в облачной сети [подсеть](../../vpc/operations/subnet-create.md).
-   1. Создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `editor`.
+   - Вручную
 
-   {% endcut %}
+     1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
 
-1. Создайте кластер {{ k8s }} и группу узлов.
+     1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
-   Вы можете использовать уже работающий кластер и группу узлов {{ k8s }} или создать новые.
+     1. [Настройте группы безопасности кластера и группы узлов](../operations/connect/security-groups.md). [Группа безопасности](../../vpc/concepts/security-groups.md) кластера должна разрешать входящие подключения к портам `443` и `6443`.
 
-   {% cut "Как создать кластер {{ k8s }} и группу узлов" %}
+   - С помощью {{ TF }}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+     1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+     1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf). В файле описаны:
+        * [Сеть](../../vpc/concepts/network.md#network).
+        * [Подсеть](../../vpc/concepts/network.md#subnet).
+         * Группа безопасности по умолчанию и правила, необходимые для работы кластера:
+           * Правила для служебного трафика.
+           * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` (через порты 443 и 6443).
+         * Кластер {{ managed-k8s-name }}.
+         * Группа узлов {{ managed-k8s-name }}.
+         * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для создания кластера и группы узлов {{ managed-k8s-name }}.
+     1. Укажите в файле конфигурации [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+     1. Выполните команду `terraform init` в директории с конфигурационными файлами. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
+     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+         ```bash
+         terraform validate
+         ```
 
-   1. Создайте кластер {{ k8s }}:
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
-      ```bash
-      yc managed-kubernetes cluster create \
-        --name dns-autoscaler \
-        --service-account-name <имя сервисного аккаунта> \
-        --node-service-account-name <имя сервисного аккаунта> \
-        --public-ip \
-        --zone {{ region-id }}-a \
-        --network-name <имя облачной сети>
-        ```
+     1. Создайте необходимую инфраструктуру:
 
-      Результат:
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      ```text
-      done (7m21s)
-      ...
-      ```
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-   1. Создайте группу узлов:
+   {% endlist %}
 
-      ```bash
-      yc managed-kubernetes node-group create \
-        --name node-group-1 \
-        --cluster-name dns-autoscaler \
-        --location zone={{ region-id }}-a \
-        --public-ip \
-        --fixed-size 3 \
-        --cores 4 \
-        --core-fraction 5
-      ```
-
-      Результат:
-
-      ```text
-      done (2m43s)
-      ...
-      ```
-
-   {% endcut %}
-
-1. Настройте kubectl.
-
-   Чтобы запускать команды для кластера {{ k8s }}, установите и настройте консоль управления kubectl.
-
-   {% cut "Как настроить kubectl" %}
-
-   1. Установите {{ k8s }} CLI [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-   1. Добавьте учетные данные кластера {{ k8s }} в конфигурационный файл kubectl:
-
-      ```bash
-      yc managed-kubernetes cluster get-credentials --external --name dns-autoscaler
-      ```
-
-      Результат:
-
-      ```text
-      Context 'dns-autoscaler' was added as default to kubeconfig '/home/<ваш домашний каталог>/.kube/config'.
-      ...
-      ```
-
-   {% endcut %}
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Настройте kube-dns-autoscaler {#configure-autoscaler}
 
-### Проверьте запуск {#check-startup}
+### Убедитесь, что приложение работает {#verify-app}
 
-Чтобы убедиться, что приложение работает, проверьте [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) в пространстве имен `kube-system`.
-
-Для этого выполните команду:
+Проверьте [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) в [пространстве имен](../concepts/index.md#namespace) `kube-system`:
 
 ```bash
 kubectl get deployment --namespace=kube-system
 ```
 
-Результат:
+Результат выполнения команды:
 
 ```text
 NAME                 READY  UP-TO-DATE  AVAILABLE  AGE
 ...
 kube-dns-autoscaler  1/1    1           1          52m
-...
 ```
 
 ### Определите параметры масштабирования {#parameters}
 
-Под `kube-dns-autoscaler` периодически запрашивает у сервера Kubernetes данные о количестве узлов и ядер в кластере. На основании этих данных выполняется расчет количества реплик CoreDNS.
+[Под](../concepts/index.md#pod) `kube-dns-autoscaler` периодически запрашивает у сервера {{ k8s }} данные о количестве узлов и ядер в кластере. На основании этих данных выполняется расчет количества реплик CoreDNS.
 
 Возможны два вида расчета:
 * Linear (линейный режим).
 * Ladder (ступенчатая функция).
 
-В режиме linear расчет выполняется по формуле:
+Подробнее о расчетах см. в [документации cluster-proportional-autoscaler](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler#calculation-of-number-of-replicas).
 
-```
+В этом примере рассмотрен режим `linear`, в котором расчет выполняется по формуле:
+
+```text
 replicas = max( ceil( cores * 1/coresPerReplica ) , ceil( nodes * 1/nodesPerReplica ) )
 ```
 
 Где:
-
 * `coresPerReplica` — параметр конфигурации, количество реплик CoreDNS на каждое ядро (vCPU) кластера.
 * `nodesPerReplica` — параметр конфигурации, количество реплик CoreDNS на каждый узел (Node) кластера.
 * `cores` — фактическое количество ядер (vCPU) в кластере.
@@ -148,7 +107,7 @@ replicas = max( ceil( cores * 1/coresPerReplica ) , ceil( nodes * 1/nodesPerRepl
 
 Также можно определить параметры конфигурации `min` и `max`, которые задают минимальное и максимальное количество реплик CoreDNS в кластере:
 
-```
+```text
 replicas = min(replicas, max)
 replicas = max(replicas, min)
 ```
@@ -157,17 +116,18 @@ replicas = max(replicas, min)
 
 ### Измените конфигурацию {#edit-config}
 
-Чтобы сконфигурировать масштабирование, выполните следующие шаги:
 1. Проверьте текущие параметры.
 
-   В данном сценарии создана группа узлов `node-group-1`. Количество узлов — 3, количество ядер (vCPU) — 12.
+   В этом примере создана группа узлов `node-group-1` с параметрами:
+   * Количество узлов — `3`.
+   * Количество ядер (vCPU) — `12`.
 
    По умолчанию установлен режим `linear` и следующие параметры масштабирования:
-   * `coresPerReplica`: `256`.
-   * `nodesPerReplica`: `16`.
-   * `preventSinglePointFailure`: `true`.
+   * `coresPerReplica` — `256`.
+   * `nodesPerReplica` — `16`.
+   * `preventSinglePointFailure` — `true`.
 
-   ```
+   ```text
    replicas = max( ceil( 12 * 1/256 ), ceil( 3 * 1/16 ) ) = 1
    ```
 
@@ -179,14 +139,13 @@ replicas = max(replicas, min)
    kubectl get pods -n kube-system
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```bash
    NAME                      READY  STATUS   RESTARTS  AGE
    ...
    coredns-7c646474c9-4dmjl  1/1    Running  0         128m
    coredns-7c646474c9-n7qsv  1/1    Running  0         134m
-   ...
    ```
 
 1. Задайте новые параметры.
@@ -196,7 +155,7 @@ replicas = max(replicas, min)
    * `nodesPerReplica`: `2`.
    * `preventSinglePointFailure`: `true`.
 
-   ```
+   ```text
    replicas = max( ceil( 12 * 1/4 ), ceil( 3 * 1/2 ) ) = 3
    ```
 
@@ -208,13 +167,13 @@ replicas = max(replicas, min)
 
    Откроется текстовый редактор с конфигурацией `kube-dns-autoscaler`. Измените строку с параметрами:
 
-   ```
+   ```text
    linear: '{"coresPerReplica":4,"nodesPerReplica":2,"preventSinglePointFailure":true}'
    ```
 
    Сохраните изменения. На экране отобразится результат операции:
 
-   ```
+   ```text
    configmap/kube-dns-autoscaler edited
    ```
 
@@ -237,7 +196,7 @@ yc managed-kubernetes node-group create \
   --core-fraction 5
 ```
 
-Результат:
+Результат выполнения команды:
 
 ```text
 done (2m43s)
@@ -246,19 +205,19 @@ done (2m43s)
 
 Теперь в кластере 5 узлов с 20 ядрами. Рассчитайте количество реплик:
 
-```
+```text
 replicas = max( ceil( 20 * 1/4 ), ceil( 5 * 1/2 ) ) = 5
 ```
 
-### Проследите изменения в службе DNS {#inspect-changes}
+### Проверьте изменения в количестве реплик CoreDNS {#inspect-changes}
 
-Чтобы проверить количество реплик CoreDNS, выполните команду:
+Выполните команду:
 
 ```bash
 kubectl get pods -n kube-system
 ```
 
-Результат:
+Результат выполнения команды:
 
 ```text
 NAME                      READY  STATUS   RESTARTS  AGE
@@ -268,18 +227,17 @@ coredns-7c646474c9-n7qsv  1/1    Running  0         3h20m
 coredns-7c646474c9-pv9cv  1/1    Running  0         3m40s
 coredns-7c646474c9-r2lss  1/1    Running  0         49m
 coredns-7c646474c9-s5jgz  1/1    Running  0         57m
-...
 ```
 
 ## Отключите масштабирование {#disable-autoscaler}
 
-Чтобы отключить масштабирование, обнулите количество реплик в [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) приложения `kube-dns-autoscaler`:
+Обнулите количество реплик в [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) приложения `kube-dns-autoscaler`:
 
 ```bash
 kubectl scale deployment --replicas=0 kube-dns-autoscaler --namespace=kube-system
 ```
 
-Результат:
+Результат выполнения команды:
 
 ```text
 deployment.apps/kube-dns-autoscaler scaled
@@ -291,11 +249,41 @@ deployment.apps/kube-dns-autoscaler scaled
 kubectl get rs --namespace=kube-system
 ```
 
-Результат:
+Результат выполнения команды:
 
 ```text
 NAME                 READY  UP-TO-DATE  AVAILABLE  AGE
 ...
 kube-dns-autoscaler  0/0    0           0          3h53m
-...
 ```
+
+## Удалите созданные ресурсы {#clear-out}
+
+Если созданные ресурсы вам больше не нужны, удалите их:
+
+{% list tabs %}
+
+- Вручную
+
+  [Удалите кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+
+- С помощью {{ TF }}
+
+  Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
+  1. В терминале перейдите в директорию с планом инфраструктуры.
+  1. Удалите конфигурационный файл `k8s-cluster.tf`.
+  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+     ```bash
+     terraform validate
+     ```
+
+     Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+  1. Подтвердите изменение ресурсов.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+     Все ресурсы, которые были описаны в конфигурационном файле `k8s-cluster.tf`, будут удалены.
+
+{% endlist %}

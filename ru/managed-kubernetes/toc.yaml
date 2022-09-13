@@ -31,6 +31,8 @@ items:
             href: operations/applications/crossplane.md
           - name: Установка Fluent Bit
             href: operations/applications/fluentbit.md
+          - name: Установка HashiCorp Vault с поддержкой {{ kms-name }}
+            href: operations/applications/hashicorp-vault.md
           - name: Установка Ingress-контроллера {{ alb-name }}
             href: operations/applications/alb-ingress-controller.md
           - name: Установка Jaeger
@@ -136,6 +138,10 @@ items:
         href: tutorials/fluent-bit-logging.md
       - name: Синхронизация с секретами {{ lockbox-name }}
         href: tutorials/kubernetes-lockbox-secrets.md
+      - name: >-
+          Мониторинг кластера с помощью {{ prometheus-name }} и {{ grafana-name
+          }}
+        href: tutorials/prometheus-grafana-monitoring.md
       - name: Использование продуктов {{ marketplace-name }}
         items:
           - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}

@@ -47,12 +47,12 @@
      --service-account-id <идентификатор сервисного аккаунта> \
      --folder-id <идентификатор каталога> \
      --cloud-id <идентификатор облака> \
-     --description jaeger-over-ydb  \
+     --description jaeger-over-ydb \
      --format json \
      -o key.json
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```text
    {
