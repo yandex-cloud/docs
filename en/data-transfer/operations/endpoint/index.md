@@ -23,8 +23,13 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ MY }}](source/mysql.md).
          * [Oracle](source/oracle.md).
          * [{{ PG }}](source/postgresql.md).
-         * [{{ yds-full-name }}](source/data-streams.md).
-         
+{% if product == "yandex-cloud" %}
+
+         * [{{ yds-full-name }}](source/data-streams.md)
+
+         * [{{ ydb-full-name }}](source/ydb.md)
+{% endif %}
+
       * For targets:
          * [{{ CH }}](target/clickhouse.md).
          * [{{ GP }}](target/greenplum.md).
