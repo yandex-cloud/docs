@@ -1,6 +1,6 @@
 # Установка NodeLocal DNS
 
-[NodeLocal DNS](../marketplace/products/yc/node-local-dns) снижает нагрузку по DNS-запросам за счет запуска кеша на каждом [узле](../../concepts/index.md#node-group) в [кластере {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster). Это позволяет повысить производительность и отказоустойчивость кластера.
+[NodeLocal DNS](/marketplace/products/yc/node-local-dns) снижает нагрузку по DNS-запросам за счет запуска кеша на каждом [узле](../../concepts/index.md#node-group) в [кластере {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster). Это позволяет повысить производительность и отказоустойчивость кластера.
 
 ## Перед началом работы {#before-you-begin}
 
