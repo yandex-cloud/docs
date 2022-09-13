@@ -7,7 +7,8 @@
 {% endif %}
 
 Чтобы создать бота:
-1. [Подготовьте окружение](#start).
+1. [Подготовьте окружение](#before-begin).
+1. [Подготовьте ресурсы](#create-resources).
 1. [Зарегистрируйте Telegram-бота](#create-bot).
 1. [Опубликуйте изображение для бота](#image-publish).
 1. [Создайте API-шлюз](#create-gateway).
@@ -17,23 +18,25 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-## Подготовьте окружение {#start}
+## Перед началом работы {#before-begin}
 
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
-
-1. [Скачайте](https://storage.yandexcloud.net/doc-files/telegrambot.zip) архив с файлами, необходимыми для создания бота.
-1. [Создайте](../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему роли `editor` и `serverless.functions.invoker` на ваш каталог. 
 
 {% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки Telegram-бота входит:
+В стоимость поддержки Telegram-бота входят:
 * плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../functions/pricing.md));
 * плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик (см. [тарифы {{ objstorage-name }}](../storage/pricing.md));
 * плата за количество запросов к созданному API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../api-gateway/pricing.md)).
 
 {% endif %}
+
+## Подготовьте ресурсы {#create-resources}
+
+1. [Скачайте](https://storage.yandexcloud.net/doc-files/telegrambot.zip) архив с файлами, необходимыми для создания бота.
+1. [Создайте](../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему роли `editor` и `serverless.functions.invoker` на ваш каталог. 
 
 ## Зарегистрируйте Telegram-бота {#create-bot}
 
@@ -71,8 +74,8 @@
   1. На странице создания бакета:
       1. Введите имя бакета, например `for-serverless-hello-telegram-bot`. Сохраните имя бакета, оно потребуется в дальнейшем.
       1. Укажите настройки бакета:
-         * **Макс. размер** — `1 ГБ`.
-         * **Доступ на чтение объектов** — `Публичный`.
+         * **Макс. размер** — `1 ГБ`;
+         * **Доступ на чтение объектов** — `Публичный`;
          * **Класс хранилища** — `Стандартное`.
       1. Нажмите кнопку **Создать бакет**.
 
@@ -120,7 +123,7 @@
   1. Выберите сервис **{{ api-gw-name }}**.
   1. Нажмите кнопку **Создать API-шлюз**.
   1. Введите имя шлюза — `for-serverless-hello-telegram-bot`.
-  1. Очистите содержимое поля **Спецификация** и вставьте в него следующий код. В поле `bucket` укажите имя бакета. В поле `service_account_id` укажите [идентификатор сервисного аккаунта](../iam/operations/sa/get-id.md).
+  1. Очистите содержимое поля **Спецификация** и вставьте в него следующий код:
 
       ```yml
       openapi: 3.0.0
@@ -138,6 +141,10 @@
               service_account_id: <идентификатор сервисного аккаунта>
             operationId: static
       ```
+      
+      Где:
+      * `bucket` — имя бакета;
+      * `service_account_id` — [идентификатор сервисного аккаунта](../iam/operations/sa/get-id.md), созданного ранее при [подготовке ресурсов](#create-resources).
 
   1. Нажмите кнопку **Создать**.
   1. Выберите созданный API-шлюз. Сохраните значение поля **Служебный домен** из раздела **Общая информация**, оно потребуется в дальнейшем.
@@ -153,7 +160,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать функцию.
-  1. Выберите сервис **{{ sf-name }}**
+  1. Выберите сервис **{{ sf-name }}**.
   1. Нажмите кнопку **Создать функцию**.
   1. Введите имя функции — `fshtb-function`.
   1. Нажмите кнопку **Создать**.
@@ -221,7 +228,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. Выберите сервис **{{ api-gw-name }}**.
   1. Выберите API-шлюз `for-serverless-hello-telegram-bot`.
-  1. Измените спецификацию API-шлюза — после имеющихся строчек кода добавьте секцию `fshtb-function`. В поле `function_id` укажите идентификатор функции `fshtb-function`.
+  1. Измените спецификацию API-шлюза — после имеющихся строчек кода добавьте секцию `fshtb-function`:
 
       ```yml
         /fshtb-function:
@@ -231,28 +238,39 @@
               function_id: <идентификатор функции>
             operationId: fshtb-function
       ```
+      
+      Где `function_id` — идентификатор функции `fshtb-function`.
 
   1. Нажмите кнопку **Сохранить**.
   1. Выполните запрос, вместо `<токен бота>` укажите токен Telegram-бота, вместо `<домен API-шлюза>` — служебный домен API-шлюза:
       * Linux, macOS:
 
         ```bash
-        curl --request POST --url https://api.telegram.org/bot<токен бота>/setWebhook \
-          --header 'content-type: application/json' --data '{"url": "<домен API-шлюза>/fshtb-function"}'
+        curl \
+          --request POST \
+          --url https://api.telegram.org/bot<токен бота>/setWebhook \
+          --header 'content-type: application/json' \
+          --data '{"url": "<домен API-шлюза>/fshtb-function"}'
         ```
     
       * Windows (cmd):
 
         ```bash
-        curl --request POST --url https://api.telegram.org/bot<токен бота>/setWebhook ^
-          --header "content-type: application/json" --data "{\"url\": \"<домен API-шлюза>/fshtb-function\"}"
+        curl ^
+          --request POST ^
+          --url https://api.telegram.org/bot<токен бота>/setWebhook ^
+          --header "content-type: application/json" ^
+          --data "{\"url\": \"<домен API-шлюза>/fshtb-function\"}"
         ```
 
       * Windows (PowerShell):
       
         ```powershell
-        curl.exe --request POST --url https://api.telegram.org/bot<токен бота>/setWebhook `
-          --header '"content-type: application/json"' --data '"{ \"url\": \"<домен API-шлюза>/fshtb-function\" }"'
+        curl.exe `
+          --request POST `
+          --url https://api.telegram.org/bot<токен бота>/setWebhook `
+          --header '"content-type: application/json"' `
+          --data '"{ \"url\": \"<домен API-шлюза>/fshtb-function\" }"'
         ``` 
       
       Результат:
@@ -291,7 +309,7 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы, удалите их:
-1. [Удалите функцию](../functions/operations/function/function-delete.md).
-1. [Удалите API-шлюз](../api-gateway/operations/api-gw-delete.md).
-1. [Удалите бакет](../storage/operations/buckets/delete.md).
+Чтобы перестать платить за созданные ресурсы:
+* [удалите функцию](../functions/operations/function/function-delete.md);
+* [удалите API-шлюз](../api-gateway/operations/api-gw-delete.md);
+* [удалите бакет](../storage/operations/buckets/delete.md).
