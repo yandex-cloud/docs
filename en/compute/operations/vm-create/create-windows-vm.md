@@ -262,4 +262,4 @@ You can make a public IP address static. For more information, see [{#T}](../vm-
 
 #### See also {#see-also}
 
-- [#T](../vm-connect/rdp.md)
+- [{#T}](../vm-connect/rdp.md)

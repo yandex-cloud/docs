@@ -6,6 +6,12 @@
 
 {% endif %}
 
+{% if product == "yandex-cloud" %}
+
+{% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
+
+{% endif %}
+
 В сценарии описывается развертывание серверов Microsoft Exchange в {{ yandex-cloud }}. Инсталляция Microsoft Exchange будет состоять из двух почтовых серверов, двух серверов Active Directory и двух серверов Edge Transport в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-b`. Нагрузка будет распределяться по серверам с помощью сетевого балансировщика нагрузки. Управление всеми серверами будет осуществляться через отдельную ВМ с доступом в интернет в зоне доступности `{{ region-id }}-c`.
 
 1. [Подготовьте облако к работе](#before-you-begin).

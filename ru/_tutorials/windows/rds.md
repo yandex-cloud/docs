@@ -1,5 +1,11 @@
 # Развертывание Microsoft Remote Desktop Services
 
+{% if product == "yandex-cloud" %}
+
+{% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
+
+{% endif %}
+
 В сценарии описывается развертывание Microsoft Windows Server 2019 Datacenter с предустановленной службой Remote Desktop Services в {{ yandex-cloud }}. Инсталляция Microsoft Windows Server with Remote Desktop Services будет состоять из одного сервера, на котором будут установлены службы Remote Desktop Services и Active Directory. Образы представлены с подготовленными квотами на 5/10/25/50/100/250/500 пользователей. Выберите версию с необходимой квотой. Все примеры приводятся для сервера с квотой на 5 пользователей.
 
 {% note warning %}
@@ -160,7 +166,7 @@
 
 ## Установите и настройте службу контроллера домена (Active Directory) {#install-ad}
 
-1. Подключитесь к ВМ `my-rds-vm` c [помощью RDP](../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
+1. Подключитесь к ВМ `my-rds-vm` c [помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
 1. Установите роли Active Directory:
 
     {% list tabs %}

@@ -1,5 +1,11 @@
 # Развертывание группы доступности Always On 
 
+{% if product == "yandex-cloud" %}
+
+{% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
+
+{% endif %}
+
 При выходе из строя одного или нескольких узлов группы система продолжит функционировать благодаря репликации и аварийному переключению базы данных, работающей на запись — таким образом обеспечивается высокая доступность СУБД. 
 
 Чтобы создать и настроить группу доступности Always On:
@@ -471,7 +477,7 @@
 
 ### Установите и настройте Active Directory {#install-ad}
 
-1. Подключитесь к ВМ `jump-server-vm` [с помощью RDP](../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль. 
+1. Подключитесь к ВМ `jump-server-vm` [с помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль. 
 1. С ВМ `jump-server-vm` подключитесь к ВМ `ya-ad` с помощью RDP и той же учетной записи.
 1. На ВМ `ya-ad` запустите PowerShell и установите необходимые роли сервера:
 
@@ -543,7 +549,7 @@
 
 ### Создайте пользователей и группы в Active Directory {#create-ad-users-groups}
 
-1. Подключитесь к ВМ `jump-server-vm` [с помощью RDP](../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
+1. Подключитесь к ВМ `jump-server-vm` [с помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
 
 1. С ВМ `jump-server-vm` подключитесь к ВМ `ya-ad` с помощью RDP и той же учетной записи.
 
@@ -890,7 +896,7 @@
 
 ### Настройте группу доступности Always On {#configure-always-on}
 
-1. Подключитесь к ВМ `jump-server-vm` с [помощью RDP](../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
+1. Подключитесь к ВМ `jump-server-vm` с [помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
 1. С ВМ `jump-server-vm` подключитесь к ВМ `ya-mssql1` с помощью RDP и той же учетной записи.
 1. Для работы группы доступности Always On требуется настроенный Windows Server Failover Cluster. Для его создания необходимо протестировать серверы БД. На любой из ВМ кластера выполните:
 

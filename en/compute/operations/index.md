@@ -68,9 +68,6 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](vm-operate/install-nvidia-drivers.md)
 * [{#T}](vm-connect/recovery-access.md)
 
-
-{% if product == "yandex-cloud" %}
-
 {% if product == "cloud-il" %}
 
 ## Managing the password reset agent {#guest-agent}
@@ -78,8 +75,6 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](vm-guest-agent/check.md)
 * [{#T}](vm-guest-agent/install.md)
 * [{#T}](vm-guest-agent/uninstall.md)
-
-{% endif %}
 
 {% endif %}
 

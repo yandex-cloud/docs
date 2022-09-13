@@ -6,6 +6,12 @@
 
 {% endif %}
 
+{% if product == "yandex-cloud" %}
+
+{% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
+
+{% endif %}
+
 Remote Desktop Gateway (RDGW) — сервис Windows Server для доступа к ресурсам, у которых нет выхода в интернет, через защищенный канал связи по протоколу HTTPS. 
 
 В сценарии пользователи из группы `Administrators` получат доступ к тестовой виртуальной машине с использованием самоподписанного сертификата.

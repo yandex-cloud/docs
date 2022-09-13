@@ -6,7 +6,7 @@ Before creating a database cluster:
 
     {% include [create-folder](../_includes/create-folder.md) %}
 
-1. Create a VM (based on [Linux](../compute/quickstart/quick-create-linux.md){% if product == "cloud-il" %} or [Windows](../compute/quickstart/quick-create-windows.md)){% endif %} that you will use for accessing the DB cluster. If you plan to connect to the database from outside {{ yandex-cloud }}, request external IP addresses for hosts when creating a cluster.
+1. Create a VM (based on [Linux](../compute/quickstart/quick-create-linux.md){% if product == "cloud-il" %} or [Windows](../compute/quickstart/quick-create-windows.md){% endif %}) that you will use for accessing the DB cluster. If you plan to connect to the database from outside {{ yandex-cloud }}, request external IP addresses for hosts when creating a cluster.
 
 Follow the instructions below to quickly create a cluster and test your connection to it.
 

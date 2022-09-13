@@ -22,6 +22,13 @@ keywords:
 
 {% endif %}
 
+{% if product == "yandex-cloud" %}
+
+{% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
+
+{% endif %}
+
+
 В сценарии приводится пример развертывания Active Directory в {{ yandex-cloud }}.
 
 Чтобы развернуть инфраструктуру Active Directory:

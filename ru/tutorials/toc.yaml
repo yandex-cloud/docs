@@ -198,26 +198,20 @@ items:
       - name: Миграция базы данных из {{ mms-name }} в сторонний кластер {{ MS }}
         href: dataplatform/mssql-outbound-migration.md
         when: product == "yandex-cloud"
-  - name: Windows в {{ yandex-cloud }}
-    when: product == "cloud-il"
+  - name: Продукты Microsoft в {{ yandex-cloud }}
     items:
       - name: Все руководства
         href: windows/index.md
       - name: Развертывание Active Directory
         href: windows/active-directory.md
-        when: product == "yandex-cloud"
       - name: Развертывание Microsoft Exchange
         href: windows/exchange.md
-        when: product == "yandex-cloud"
       - name: Развертывание Remote Desktop Services
         href: windows/rds.md
-        when: product == "yandex-cloud"
       - name: Развертывание группы доступности Always On
         href: windows/mssql-alwayson.md
-        when: product == "yandex-cloud"
       - name: Развертывание группы доступности Always On с внутренним сетевым балансировщиком
         href: windows/mssql-alwayson-lb.md
-        when: product == "yandex-cloud"
       - name: Развертывание Remote Desktop Gateway
         href: windows/rds-gw.md
   - name: Сетевая маршрутизация

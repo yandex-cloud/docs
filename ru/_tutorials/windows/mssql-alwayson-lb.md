@@ -6,6 +6,12 @@
 
 {% endif %}
 
+{% if product == "yandex-cloud" %}
+
+{% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
+
+{% endif %}
+
 Сценарий описывает развертывание в {{ yandex-cloud }} группы доступности Always On с балансировкой нагрузки между узлами с помощью внутреннего сетевого балансировщика. Несколько подсетей будут объединены в одну общую подсеть путем настройки сетевых интерфейсов. Благодаря этому не потребуется использование [Multisubnet Failover]({{ ms.docs }}/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15). Основной IP-адрес будет назначаться реплике, в которую ведется запись. У этой же реплики будет открыт порт, на который балансировщик будет направлять трафик. Поскольку порт, указанный для подключения к балансировщику, становится недоступным, для приема трафика будет использоваться дополнительный нестандартный порт.
 
 Чтобы создать и настроить группу доступности Always On с внутренним сетевым балансировщиком:
@@ -543,7 +549,7 @@
 
 ### Установите и настройте Active Directory {#install-ad}
 
-1. Подключитесь к ВМ `ya-jump1` [с помощью RDP](../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль. 
+1. Подключитесь к ВМ `ya-jump1` [с помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль. 
 1. С ВМ `ya-jump1` подключитесь к ВМ `ya-ad` с помощью RDP и той же учетной записи.
 1. На ВМ `ya-ad` запустите PowerShell и установите необходимые роли сервера:
 
@@ -620,7 +626,7 @@
 
 ### Создайте пользователей и группы в Active Directory {#create-ad-users-groups}
 
-1. Подключитесь к ВМ `ya-jump1` [с помощью RDP](../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
+1. Подключитесь к ВМ `ya-jump1` [с помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
 
 1. С ВМ `ya-jump1` подключитесь к ВМ `ya-ad` с помощью RDP и той же учетной записи.
 
@@ -978,7 +984,7 @@
 
     {% endlist %}
 
-1. Подключитесь к ВМ `ya-jump1` [с помощью RDP](../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
+1. Подключитесь к ВМ `ya-jump1` [с помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
 
 1. С ВМ `ya-jump1` подключитесь к ВМ `ya-mssql1` с помощью RDP и той же учетной записи. Настройте статический адрес со своей маской подсети:
 
@@ -1008,7 +1014,7 @@
 
 ### Создайте Windows Server Failover Cluster {#configure-failover-cluster}
 
-1. Подключитесь к ВМ `ya-jump1` c [помощью RDP](../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
+1. Подключитесь к ВМ `ya-jump1` c [помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
 1. С ВМ `ya-jump1` подключитесь к ВМ `ya-mssql1` с помощью RDP и учетной записи `yantoso\Administrator`.
 1. Создайте кластер из трех серверов БД:
 

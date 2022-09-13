@@ -175,7 +175,7 @@ To check the configuration, create a VM and connect to it via RDP:
 
 	{% endlist %}
 
-1. Wait a few minutes and [connect to the VM](../compute/operations/vm-connect/rdp.md) via RDP.
+1. Wait a few minutes and [connect to the VM](../../compute/operations/vm-connect/rdp.md) via RDP.
 
 1. Run PowerShell on the VM.
 
