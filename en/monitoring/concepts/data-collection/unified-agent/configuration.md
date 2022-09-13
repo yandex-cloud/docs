@@ -516,7 +516,7 @@ The `key` value:
 - `_payload`: Message body.
 - `key`: Metadata that has the "key" key.
 
-If the metadata key is not found at the message level (in the `message` section), the key is searched for in the session metadata. If the key is not found at the session level, the default value is used `({_host|default_host})`. If a default value is not set, an empty string is used.
+If the metadata key is not found at the message level (in the `message` section), the key is searched for in the session metadata. If the key is not found at the session level, the default value `({_host|default_host})` is used. If no default value is set, an empty string is used.
 
 You can also use the following macros as `key` values:
 - `$host_name`: Local name of the machine.
@@ -672,26 +672,34 @@ Parameter descriptions:
         # The metadata may also include any other keys.
 ```
 
-#### Transform_metrics filter {#transform_metrics_filter}
+#### transform_metric_label filter {#transform_metric_label_filter}
 
-This filter lets you change labels inside the metrics stream.
+The filter helps add new metrics and delete and replace existing ones. A label value can be a string literal or a text expression using other labels. You can use the `match` expression to limit the collection of metrics the transformation is applied to.
 
 Parameter descriptions:
 ```yaml
 - filter:
-    plugin: transform_metric_label
+    plugin: transform_metric_labels
+
     config:
-        # Name of the label to be converted.
-        label: sensor # required
+      # Restrict the filter only to the metrics that satisfy this condition.
+      # A description of the syntax can be found at https://cloud.yandex.ru/docs/monitoring/concepts/querying#selectors
+      match: "{name=gauge-*}" # optional parameter, not specified by default, filter applies to all metrics
 
-        # Add a prefix to the label value.
-        add_value_prefix: ua # optional
-
-        # Rename the label.
-        rename_to: name # optional
-
-        # A separator to be used between the prefix to be added (add_value_prefix) and the current label value.
-        delimiter: . # optional, the default value is '.'
+      # Description of label transformations as "label name: expression".
+      # Label name: label that is being assigned a new value.
+      # Expression: text string describing the new value.
+      # This string can refer to current label values using the "{my_label}" syntax,
+      # including the label being modified at that moment in time. This reference will use its previous value.
+      # Transformations take place in a specified order; in the expressions that follow
+      # you can reference the output of the previous ones.
+      # Expression syntax is similar to that used in the assign filter.
+      # Using {my_label|default_value}, you can specify a default value if my_label is not found.
+      # To delete a label, use my_label: "-".
+      labels:
+        - l2: "prefix_{l1}_suffix"                # required
+        - l3: "prefix2_{l2}_s_{l1|default_value}" # required
+        - l4: "-" # required
 ```
 
 
@@ -921,7 +929,7 @@ Parameter descriptions:
 ```yaml
 - channel:
     output:
-        plugin: yc_logs 
+        plugin: yc_logs
        config:
         # The URL to send metrics to.
         url: https://monitoring.{{ api-host }}/monitoring/v2/data/write # optional, the default value is https://monitoring.{{ api-host }}/monitoring/v2/data/write

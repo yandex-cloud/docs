@@ -31,6 +31,8 @@ items:
                 href: operations/endpoint/source/postgresql.md
               - name: '{{ yds-full-name }}'
                 href: operations/endpoint/source/data-streams.md
+              - name: '{{ ydb-full-name }}'
+                href: operations/endpoint/source/ydb.md
           - name: Configuring target endpoints
             items:
               - name: Apache Kafka®

@@ -29,6 +29,7 @@ To set up a secure connection:
    ssh -o ControlPath=none -o IdentitiesOnly=yes -o CheckHostIP=no -o StrictHostKeyChecking=yes -o UserKnownHostsFile=./serialssh-knownhosts -p 9600 -i ~/.ssh/<secret key name> <VM ID>.<user name>@serialssh.cloud.yandex.net
    ```
 
+
    The host's public key may be changed in the future.
 
 Check the specified files often. Download these files only via HTTPS after verifying the validity of the `https://{{ s3-storage-host }}` website certificate. If the website cannot securely encrypt your data  due to certificate problems, the browser will warn you about that.
@@ -49,11 +50,13 @@ Connection command example:
 ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/<private key name> <username>@serialssh.cloud.yandex.net
 ```
 
+
 Example with `yc-user` and the virtual machine with the ID `fhm0b28lgfp4tkoa3jl6`:
 
 ```bash
 ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_rsa fhm0b28lgfp4tkoa3jl6.yc-user@serialssh.cloud.yandex.net
 ```
+
 
 The `yc-user` user is generated automatically when the VM is being created. For more information, see [{#T}](../vm-create/create-linux-vm.md).
 

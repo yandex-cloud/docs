@@ -61,9 +61,6 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](vm-connect/recovery-access.md)
 
 
-
-
-
 ## Creating a disk {#disk-create}
 
 * [{#T}](disk-create/empty.md)

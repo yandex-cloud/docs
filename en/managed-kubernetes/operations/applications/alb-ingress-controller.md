@@ -8,7 +8,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, use t
 
 1. {% include [k8s-ingress-controller-create-node-group](../../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
-## Creating a service account {#create-sa-key}.
+## Creating a service account {#create-sa-key}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
 

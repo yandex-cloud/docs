@@ -203,6 +203,24 @@ items:
         href: dataplatform/mssql-data-migration.md
       - name: Миграция базы данных из {{ mms-name }} в сторонний кластер {{ MS }}
         href: dataplatform/mssql-outbound-migration.md
+  - name: Продукты Microsoft в {{ yandex-cloud }}
+    items:
+      - name: Все руководства
+        href: windows/index.md
+      - name: Развертывание Active Directory
+        href: windows/active-directory.md
+      - name: Развертывание Microsoft Exchange
+        href: windows/exchange.md
+      - name: Развертывание Remote Desktop Services
+        href: windows/rds.md
+      - name: Развертывание группы доступности Always On
+        href: windows/mssql-alwayson.md
+      - name: >-
+          Развертывание группы доступности Always On с внутренним сетевым
+          балансировщиком
+        href: windows/mssql-alwayson-lb.md
+      - name: Развертывание Remote Desktop Gateway
+        href: windows/rds-gw.md
   - name: Сетевая маршрутизация
     items:
       - name: Все руководства

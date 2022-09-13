@@ -20,6 +20,12 @@
 * Вычислительные ресурсы и размер диска узлов.
 * Политику [обновлений](../../concepts/release-channels-and-updates.md#updates).
 
+{% note alert %}
+
+Не изменяйте имена виртуальных машин, принадлежащих кластеру {{ managed-k8s-name }}. Это приведет к нарушению работы группы узлов и всего кластера.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Консоль управления
@@ -69,7 +75,7 @@
 
   {% note warning %}
 
-  * Не поддерживается использование ключа метаданных `user-data` для донастройки виртуальной машины и передачи пользовательских данных.
+  * Не поддерживается использование ключа метаданных `user-data` для донастройки ВМ и передачи пользовательских данных.
   * Для управления ssh-ключами можно [воспользоваться ключом `ssh-keys`](../../../compute/concepts/vm-metadata.md).
   * Для донастройки узлов используйте привилегированные наборы DaemonSet. Например, [sysctl-tuner](https://github.com/elemir/yc-recipes/tree/master/sysctl-tuner).
 
@@ -104,7 +110,7 @@
 
 - Консоль управления
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ compute-name}}**.
+  1. Перейдите на страницу каталога и выберите сервис **{{ compute-name }}**.
   1. Нажмите на имя нужной ВМ.
   1. В блоке **Сеть** нажмите значок ![options](../../../_assets/horizontal-ellipsis.svg) и выберите **Добавление публичного IP-адреса**.
   1. Укажите нужные настройки и нажмите кнопку **Добавить**.
@@ -159,7 +165,7 @@
   yc managed-kubernetes node-group add-labels my-node-group --labels new_label=test_label
   ```
 
-  Результат:
+  Результат выполнения команды:
 
   ```bash
   done (28s)
@@ -173,7 +179,6 @@
   1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов.
 
      О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
-
   1. Добавьте в описание группы узлов параметр `labels`:
 
      ```hcl
@@ -217,7 +222,7 @@
   yc managed-kubernetes node-group update my-node-group --labels test_label=my_ng_label
   ```
 
-  Результат:
+  Результат выполнения команды:
 
   ```bash
   done (3s)
@@ -228,32 +233,32 @@
 
 - {{ TF }}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов.
 
-        О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
-    1. Измените в описании группы узлов значения параметра `labels`:
+     О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
+  1. Измените в описании группы узлов значения параметра `labels`:
 
-        ```hcl
-        resource "yandex_kubernetes_node_group" "<имя группы узлов>" {
-          cluster_id = yandex_kubernetes_cluster.<имя кластера>.id
-          ...
-          labels = {
-            "<метка>" = "<значение>"
-            ...
-          }
-          ...
-        }
-        ```
+     ```hcl
+     resource "yandex_kubernetes_node_group" "<имя группы узлов>" {
+       cluster_id = yandex_kubernetes_cluster.<имя кластера>.id
+       ...
+       labels = {
+         "<метка>" = "<значение>"
+         ...
+       }
+       ...
+     }
+     ```
 
-    1. Проверьте корректность конфигурационных файлов.
+  1. Проверьте корректность конфигурационных файлов.
 
-        {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-    1. Подтвердите изменение ресурсов.
+  1. Подтвердите изменение ресурсов.
 
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 {% endlist %}
 
@@ -269,7 +274,7 @@
   yc managed-kubernetes node-group remove-labels my-node-group --labels test_label
   ```
 
-  Результат:
+  Результат выполнения команды:
 
   ```bash
   done (2s)

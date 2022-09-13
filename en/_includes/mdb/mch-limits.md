@@ -11,7 +11,7 @@
 
 | Limits | Minimum value | Maximum value |
 | :---------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------- |
-| Host class | b1.nano ([5%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Broadwell, 2 GM RAM) | m3-c80-m640 (80 vCPU Intel Ice Lake, 640 GB RAM) |
+| Host class | b1.nano (2 × [5%](../../compute/concepts/performance-levels.md) vCPU Intel Broadwell, 2 GM RAM) | m3-c80-m640 (80 vCPU Intel Ice Lake, 640 GB RAM) |
 | Number of {{ CH }} hosts in a non-sharded cluster when using HDD network or SSD network storage | 1 | 7 |
 | Number of {{ CH }} hosts in a non-sharded cluster when using non-replicated SSD storage | 3 | 7 |
 | Number of {{ CH }} hosts in a non-sharded cluster when using local SSD storage | 2 | 7 |
