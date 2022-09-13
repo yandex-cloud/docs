@@ -6,10 +6,18 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
-1. Improved surname recognition and punctuation quality in `general:rc` model. 
-1. [Previous release](#250422) changes available in `general` model.
+### Release 29.06.22 {#290622}
+
+1. The `general` version of the multi-language model is available.
+1. In the `general:rc` and `general` versions, the multi-language model can accept hints about which languages are contained in the speech.
+1. Upgrades to `general:rc` [from June 7](#070622) are available in the `general` model for Russian.
 
 ## Previous versions {#previous}
+
+### Release 07.06.22 {#070622}
+
+1. Improved punctuation placement and recognition of last names in the `general:rc` model.
+1. Upgrades of the [release from April 25](#250422) are available in the `general` model.
 
 ### Release 25.04.22 {#250422}
 
@@ -21,7 +29,7 @@ Changes to the `general:rc` model:
 ### Release 19.04.22 {#190422}
 
 1. Added Turkish language to the multi-language speech recognition model.
-1. [A new API version](v3/api-ref/grpc/) is available for {{ speechkit-full-name }} streaming recognition. The old interface will also be supported, but all new features will only be available in API v3.
+1. [A new API version](v3/api-ref/grpc/) is available for {{ speechkit-full-name }}streaming recognition. The old interface will also be supported, but all new features will only be available in API v3.
 
 ### Release 14.03.22 {#140322}
 
@@ -51,7 +59,7 @@ The current release improved the quality of the Russian-language `general:rc` mo
    * French
    * Finnish
    * Swedish
-   * Danish
+   * Dutch
    * Polish
    * Portuguese
    * Italian
