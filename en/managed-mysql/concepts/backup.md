@@ -57,7 +57,7 @@ For more information about creating a backup manually, see [{#T}](../operations/
 
 Storing backups in {{ mmy-name }}:
 
-* Backups are kept in Yandex internal storage as binaries and encrypted using [GPG]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/GnuPG){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/GNU_Privacy_Guard){% endif %}. Each cluster has its own encryption keys.
+* Backups are kept in {{ yandex-cloud }} internal storage as binaries and encrypted using [GPG]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/GnuPG){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/GNU_Privacy_Guard){% endif %}. Each cluster has its own encryption keys.
 
 * Automatically created backups of an existing cluster are kept for 7 days whereas those created manually are stored indefinitely. Once you delete a cluster, all its backups persist for 7 days. You cannot change the backup retention time.
 
