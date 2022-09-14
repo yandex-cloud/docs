@@ -45,19 +45,17 @@ To assign a [role](../concepts/roles.md) to a user, use the {{ yandex-cloud }} C
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+      For a complete list of available {{ mpg-name }} cluster user configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_postgresql_user).
 
-   1. In the {{ mpg-name }} cluster description, find the `user` block for the required user.
+   1. Find the `yandex_mdb_postgresql_user` resource of the desired user.
    1. Add an attribute named `grants` with a list of required roles:
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+      resource "yandex_mdb_postgresql_user" "<username>" {
         ...
-        user {
-          name   = "<username>"
-          ...
-          grants = [ "<role1>","<role2>" ]
-        }
+        name   = "<username>"
+        grants = [ "<role1>","<role2>" ]
+        ...
       }
       ```
 
@@ -69,13 +67,19 @@ To assign a [role](../concepts/roles.md) to a user, use the {{ yandex-cloud }} C
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
-
 - API
 
-   To pass the list of required user roles, you can use the [update](../api-ref/User/update.md) method.
+   To specify a new list of the required user roles, use the [update](../api-ref/User/update.md) method and pass the following in in the call:
 
-   This completely overwrites the existing roles: if you want to extend or reduce the available list, first request the current roles with user information via the [get](../api-ref/User/get.md) method.
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Username, in the `userName` parameter.
+   * List of new user roles and privileges in the `grants` parameter.
+
+      This completely overwrites the existing roles: if you want to extend or reduce the available list, first request the current roles with user information via the [get](../api-ref/User/get.md) method.
+
+   * List of user configuration fields to update (`grants` in this case) in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
