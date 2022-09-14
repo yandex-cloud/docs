@@ -45,7 +45,7 @@ Prepare the network infrastructure to host the availability group:
 
    - Management console
 
-      1. Open the **Virtual Private Cloud** section in the folder where you want to create the cloud network.
+      1. Open the **{{ vpc-name }}** section in the folder where you want to create the cloud network.
       1. Click **Create network**.
       1. Enter the network name: `ya-network`.
       1. Disable the **Create subnets** option.
@@ -77,7 +77,7 @@ Prepare the network infrastructure to host the availability group:
 
    - Management console
 
-      1. Open the **Virtual Private Cloud** section in the folder where you want to create a static route.
+      1. Open the **{{ vpc-name }}** section in the folder where you want to create a static route.
       1. Select the `ya-network` network.
       1. Go to the **Route tables** section.
       1. Click **Create route table**.
@@ -133,7 +133,7 @@ Prepare the network infrastructure to host the availability group:
 
    - Management console
 
-      1. Open the **Virtual Private Cloud** section in the folder to create the subnets in.
+      1. Open the **{{ vpc-name }}** section in the folder to create the subnets in.
       1. Select the `ya-network` network.
       1. Click ![image](../_assets/plus.svg)**Create subnet**.
       1. Fill out the form: enter the `ya-subnet-general` subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.

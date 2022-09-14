@@ -2,7 +2,7 @@
 
 Внутренний сетевой балансировщик нагрузки используется для балансировки трафика между ресурсами, подключенными:
 
-* к подсетям VPC;
+* к подсетям {{ vpc-short-name }};
 * через VPN{% if product == "cloud-il" %}.{% endif %}{% if product == "yandex-cloud" %};
 * через услугу [Cloud Interconnect](../../interconnect/concepts/index.md).
 {% endif %}

@@ -98,7 +98,7 @@ Customers may collect events that occur at the level of applications deployed on
 
 ## Network level {#network-level}
 
-Currently, VPC network traffic event logs (Flow Logs) can only be collected by customers. You can use {{ marketplace-full-name }} solutions (such as {% if product == "yandex-cloud" %}[NGFW](/marketplace?tab=software&search=NGFW), [IDS/IPS](/marketplace?tab=software&search=IDS%2FIPS), or {% endif %}[network products](/marketplace?categories=network)) or free software for collecting and transmitting events.
+Currently, {{ vpc-short-name }} network traffic event logs (Flow Logs) can only be collected by customers. You can use {{ marketplace-full-name }} solutions (such as {% if product == "yandex-cloud" %}[NGFW](/marketplace?tab=software&search=NGFW), [IDS/IPS](/marketplace?tab=software&search=IDS%2FIPS), or {% endif %}[network products](/marketplace?categories=network)) or free software for collecting and transmitting events.
 
 ## Time synchronization {#time-synch}
 

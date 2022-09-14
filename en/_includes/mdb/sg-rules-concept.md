@@ -4,5 +4,5 @@ Specifics of working with security groups:
 
 - Security group settings only affect the capacity to connect to the cluster. They don't affect cluster features, such as replication, sharding, and backups.
 
-For more information, see the [Virtual Private Cloud documentation](../../vpc/concepts/security-groups.md).
+For more information, see the [{{ vpc-name }} documentation](../../vpc/concepts/security-groups.md).
 

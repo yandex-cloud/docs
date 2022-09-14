@@ -139,7 +139,7 @@ Set up routing between the IPSec instance and previously created VM with no publ
 
 Create a route table and add [static routes](../../vpc/concepts/static-routes.md):
 
-1. Open the **Virtual Private Cloud** section in the folder where you want to create a static route.
+1. Open the **{{ vpc-name }}** section in the folder where you want to create a static route.
 1. Select the network to create the route table in.
 1. Click ![image](../../_assets/plus.svg)**Create a routing table**.
 1. Enter a name for the route table.

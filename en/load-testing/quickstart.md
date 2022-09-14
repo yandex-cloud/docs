@@ -8,7 +8,7 @@ Following these instructions, you will create a test agent in your cloud, config
 1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md).
 1. If you don't have a folder, [create one](../resource-manager/operations/folder/create.md). When creating a folder, you can create a default virtual network with subnets in all availability zones.
 1. Create a [service account](../iam/operations/sa/create.md) in the folder to host the agents that will generate the load. [Assign it the role](../iam/operations/roles/grant.md) `loadtesting.generatorClient`.
-1. Assign all the roles required to create a VM in [Compute Cloud](../compute/security/index.md) and [VPC](../vpc/security/index.md).
+1. Assign all the roles required to create a VM in [Compute Cloud](../compute/security/index.md) and [{{ vpc-short-name }}](../vpc/security/index.md).
 1. The agent connects to {{ load-testing-name }} using a public API. For security purposes, [create a security group](../vpc/operations/security-group-create.md). To connect to the control service, make sure the agent allows outgoing traffic to port 443. To send requests to the test target, allow access to the desired port.
 1. The agent will need access to the subnet hosting the test target. For the agent to be able to connect to {{ load-testing-name }}, enable [NAT to the internet](../vpc/operations/enable-nat.md) on the subnet.
 

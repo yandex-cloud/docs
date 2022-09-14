@@ -2,7 +2,7 @@
 
 ## Сетевая безопасность {#network-security}
 
-* **Сегментация**: разделите ресурсы по группам и поместите их в разные каталоги, а если требуется наиболее строгая изоляция — в разные VPC. Трафик внутри VPC по умолчанию разрешен, между VPC — нет (только через виртуальную машину с двумя сетевыми интерфейсами в разных сетях{% if product == "cloud-il" %} или VPN){% endif %}{% if product == "yandex-cloud" %}, VPN или {{ interconnect-full-name }}). Посмотрите вебинар [Как работает сеть в {{ yandex-cloud }}](https://www.youtube.com/watch?v=g3cZ0o50qH0){% endif %}.
+* **Сегментация**: разделите ресурсы по группам и поместите их в разные каталоги, а если требуется наиболее строгая изоляция — в разные {{ vpc-short-name }}. Трафик внутри {{ vpc-short-name }} по умолчанию разрешен, между {{ vpc-short-name }} — нет (только через виртуальную машину с двумя сетевыми интерфейсами в разных сетях{% if product == "cloud-il" %} или VPN){% endif %}{% if product == "yandex-cloud" %}, VPN или {{ interconnect-full-name }}). Посмотрите вебинар [Как работает сеть в {{ yandex-cloud }}](https://www.youtube.com/watch?v=g3cZ0o50qH0){% endif %}.
 * **Ограничение сетевого доступа, группы безопасности**: ограничьте сетевой доступ между ресурсами с помощью [групп безопасности](../../vpc/operations/security-group-create.md).
 {% if product == "yandex-cloud" %}
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: настройка групп безопасности (dev/stage/prod) с помощью {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)

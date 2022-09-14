@@ -98,7 +98,7 @@ C помощью {{ sf-full-name }} можно настроить оповеще
 
 ## Уровень сети {#network-level}
 
-Запись событий о сетевом трафике VPC (Flow Logs) на текущий момент может выполняться только средствами клиента. Для сбора и передачи событий могут использоваться решения из {{ marketplace-full-name }} (например, {% if product == "yandex-cloud" %}[NGFW](/marketplace?tab=software&search=NGFW), [IDS/IPS](/marketplace?tab=software&search=IDS%2FIPS),{% endif %} [сетевые продукты](/marketplace?categories=network)) либо бесплатное ПО.
+Запись событий о сетевом трафике {{ vpc-short-name }} (Flow Logs) на текущий момент может выполняться только средствами клиента. Для сбора и передачи событий могут использоваться решения из {{ marketplace-full-name }} (например, {% if product == "yandex-cloud" %}[NGFW](/marketplace?tab=software&search=NGFW), [IDS/IPS](/marketplace?tab=software&search=IDS%2FIPS),{% endif %} [сетевые продукты](/marketplace?categories=network)) либо бесплатное ПО.
 
 ## Синхронизация времени {#time-synch}
 

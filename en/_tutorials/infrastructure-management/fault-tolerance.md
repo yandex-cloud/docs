@@ -320,7 +320,7 @@ After switching, the user load is handled correctly.
 
 {% note warning %}
 
-If a VM with Yandex.Tank is created, make sure you delete it first, otherwise deleting the VPC will fail.
+If a VM with Yandex.Tank is created, make sure you delete it first, otherwise deleting the {{ vpc-short-name }} will fail.
 
 {% endnote %}
 

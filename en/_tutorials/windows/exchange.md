@@ -58,7 +58,7 @@ Create a cloud network named `exchange-network` with subnets in all the availabi
 
       To create a [cloud network](../../vpc/concepts/network.md):
 
-      1. Open the **Virtual Private Cloud** section in the folder where you want to create the cloud network.
+      1. Open the **{{ vpc-name }}** section in the folder where you want to create the cloud network.
       1. Click **Create network**.
       1. Enter the network name: `exchange-network`.
       1. Click **Create network**.
@@ -81,7 +81,7 @@ Create a cloud network named `exchange-network` with subnets in all the availabi
 
       To create a subnet:
 
-      1. Open the **Virtual Private Cloud** section in the folder where you want to create the subnet.
+      1. Open the **{{ vpc-name }}** section in the folder where you want to create the subnet.
       1. Click on the name of the cloud network.
       1. Click **Add subnet**.
       1. Fill out the form: set the subnet name to `exchange-subnet-a` and select the `{{ region-id }}-a` availability zone from the drop-down list.

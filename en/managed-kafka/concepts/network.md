@@ -53,4 +53,4 @@ Specifics of working with security groups:
 
    However, by default, those rules are contained in the security group that is added automatically when creating a cloud network. Those are the `Self` rules that allow unlimited traffic within a group.
 
-{% if audience != "internal" %}For more information, see the [Virtual Private Cloud documentation](../../vpc/concepts/security-groups.md).{% endif %}
+{% if audience != "internal" %}For more information, see the [{{ vpc-name }} documentation](../../vpc/concepts/security-groups.md).{% endif %}

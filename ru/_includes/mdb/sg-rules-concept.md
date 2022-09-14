@@ -6,6 +6,6 @@
 
 {% if audience != "internal" %}
 
-Подробнее см. в [документации Virtual Private Cloud](../../vpc/concepts/security-groups.md).
+Подробнее см. в [документации {{ vpc-name }}](../../vpc/concepts/security-groups.md).
 
 {% endif %}

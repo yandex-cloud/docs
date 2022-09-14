@@ -31,7 +31,7 @@ To control network access to your resources, use one of the following:
 
 To deliver traffic to an application within your cloud infrastructure, we recommend that you use a network load balancer, such as [{{ alb-full-name }}](../../application-load-balancer/index.yaml), to route your traffic through the selected ports only. We recommend that you use the network load balancer together with security groups to limit the list of IP addresses that have access to the application.
 
-To isolate applications from each other, put resources in different security groups, and, if strict isolation is required, in different VPCs. Traffic inside a VPC is allowed by default and is not allowed between VPCs (only via VMs with two network interfaces in different networks{% if product == "cloud-il" %}or VPN{% endif %}{% if product == "yandex-cloud" %}, VPN or Cloud Interconnect){% endif %}.
+To isolate applications from each other, put resources in different security groups, and, if strict isolation is required, in different {{ vpc-short-name }}s. Traffic inside a {{ vpc-short-name }} is allowed by default and is not allowed between {{ vpc-short-name }}s (only via VMs with two network interfaces in different networks{% if product == "cloud-il" %}or VPN{% endif %}{% if product == "yandex-cloud" %}, VPN or Cloud Interconnect){% endif %}.
 
 {% if product == "yandex-cloud" %}
 ## DDoS protection

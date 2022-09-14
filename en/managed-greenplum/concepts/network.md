@@ -45,7 +45,7 @@ Specifics of working with security groups:
 
 {% if audience != "internal" %}
 
-For more information, see the [Virtual Private Cloud documentation](../../vpc/concepts/security-groups.md).
+For more information, see the [{{ vpc-name }} documentation](../../vpc/concepts/security-groups.md).
 
 {% endif %}
 

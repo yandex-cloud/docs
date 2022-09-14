@@ -50,7 +50,7 @@ Create a cloud network named `my-network` with subnets in all the availability z
    - Management console
 
       To create a [cloud network](../vpc/concepts/network.md):
-      1. Open the **Virtual Private Cloud** section in the folder where you want to create the cloud network.
+      1. Open the **{{ vpc-name }}** section in the folder where you want to create the cloud network.
       1. Click **Create network**.
       1. Enter a network name: `my-network`.
       1. Click **Create network**.
@@ -76,7 +76,7 @@ Create a cloud network named `my-network` with subnets in all the availability z
    - Management console
 
       To create a subnet:
-      1. Open the **Virtual Private Cloud** section in the folder where you want to create the subnet.
+      1. Open the **{{ vpc-name }}** section in the folder where you want to create the subnet.
       1. Click on the name of the cloud network.
       1. Click **Add subnet**.
       1. Fill out the form: enter `my-subnet-a` as the subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.

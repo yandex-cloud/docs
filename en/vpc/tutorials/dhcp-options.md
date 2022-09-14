@@ -57,7 +57,7 @@ To create a new subnet with DHCP settings, follow these steps:
 - Management console
 
 	To create a subnet:
-	1. Open the **Virtual Private Cloud** section in the folder where you want to create the subnet.
+	1. Open the **{{ vpc-name }}** section in the folder where you want to create the subnet.
 	1. Click on the name of the `ad-network` cloud network.
 	1. Click **Add subnet**.
 	1. Fill out the form:
@@ -284,7 +284,7 @@ To release the resources, follow these steps:
 	{% list tabs %}
 
 	- Management console
-		1. Open the **Virtual Private Cloud** section in the folder you want to delete the subnet from.
+		1. Open the **{{ vpc-name }}** section in the folder you want to delete the subnet from.
 		1. Click on the name of the subnet's cloud network: `ad-network`.
 		1. Click ![image](../../_assets/options.svg) in the `test-subnet-1` line.
 		1. In the menu that opens, click **Delete**.

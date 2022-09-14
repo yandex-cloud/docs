@@ -347,6 +347,6 @@ To check that the site is up, enter its IP address or domain name in your browse
 To stop paying for your deployed server and DB, just [delete the created VM](../../compute/operations/vm-control/vm-delete.md) `joomla-pg-tutorial-web` and [cluster {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md) `joomla-pg-tutorial-db-cluster`.
 
 If you reserved a static public IP address specifically for this VM:
-1. Open the **Virtual Private Cloud** in your folder.
+1. Open the **{{ vpc-name }}** in your folder.
 1. Go to the **IP addresses** tab.
 1. Find the address you need, click ![ellipsis](../../_assets/options.svg), and select **Delete**.

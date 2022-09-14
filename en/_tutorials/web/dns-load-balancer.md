@@ -16,7 +16,7 @@ To set up a fault tolerant website with DNS load balancing:
 Before creating VMs:
 
 1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
-1. Make sure the selected folder has a network with subnets in the availability zones `{{ region-id }}-a` and `{{ region-id }}-b`. To do this, click the **Virtual Private Cloud** tile on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
+1. Make sure the selected folder has a network with subnets in the availability zones `{{ region-id }}-a` and `{{ region-id }}-b`. To do this, click the **{{ vpc-name }}** tile on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
 
 ## 1. Create VMs with a pre-installed web server {#create-web-server-vm}
 

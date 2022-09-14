@@ -52,7 +52,7 @@ To exchange routing information and forward traffic, you need to configure [BGP]
 
 The BFD (Bidirectional Forwarding Detection) protocol with an interval of 300 ms for incoming and outgoing packets and a multiplier of 3 is used in {{ yandex-cloud }} to ensure fast BGP convergence and traffic switching between private connections.
 
-When setting up a private connection, we recommend ensuring trunk link redundancy through several points of presence. There's no redundancy support for VPC access through a single site nor support for router failover protocols (such as CARP, HSRP, or VRRP), since these methods don't increase reliability compared to a single private channel.
+When setting up a private connection, we recommend ensuring trunk link redundancy through several points of presence. There's no redundancy support for {{ vpc-short-name }} access through a single site nor support for router failover protocols (such as CARP, HSRP, or VRRP), since these methods don't increase reliability compared to a single private channel.
 
 You can create [two](../concepts/limits#yandex-cloud-interconnect) private connections over a single trunk link.
 

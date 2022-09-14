@@ -195,7 +195,7 @@ When working with the database, use [parameterized prepared statements](https://
 
 ### Network access {#ydb-network}
 
-When accessing the database in Dedicated mode, we recommend that you use it inside VPC, disabling public access to it from the internet. In Serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your PCI DSS infrastructure. {% if audience == "external" %} For more information about operating modes, see the YDB documentation, [Serverless and Dedicated modes](../../ydb/concepts/serverless-and-dedicated.md). {% endif %}
+When accessing the database in Dedicated mode, we recommend that you use it inside {{ vpc-short-name }}, disabling public access to it from the internet. In Serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your PCI DSS infrastructure. {% if audience == "external" %} For more information about operating modes, see the YDB documentation, [Serverless and Dedicated modes](../../ydb/concepts/serverless-and-dedicated.md). {% endif %}
 
 When setting up database permissions, use the principle of least privilege.
 

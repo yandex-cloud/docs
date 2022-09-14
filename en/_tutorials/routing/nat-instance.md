@@ -52,7 +52,7 @@ Set up routing between the NAT instance and test VM.
 
 Create a route table and add to it a [static route](../../vpc/concepts/static-routes.md):
 
-1. Open the **Virtual Private Cloud** section in the folder where you want to create a static route.
+1. Open the **{{ vpc-name }}** section in the folder where you want to create a static route.
 
 1. Select the `my-vpc` network.
 
