@@ -41,7 +41,7 @@ For more information about transfer states, operations applicable to transfers, 
       * **Transfer type**:
 
          * `{{ dt-type-copy-repl }}`: To create a full copy of the source data and keep it up-to-date.
-         * `{{ dt-type-copy }}`: To create a full copy of the data without receiving further updates from the source.
+         * `{{ dt-type-copy }}`: To create a full copy of the data without receiving further updates from the source. You can also use this type to [replicate constantly changing tables](../concepts/transfer-lifecycle.md#select-transfer-type).
          * `{{ dt-type-repl }}`: To continuously receive data updates from the source and apply them to the target (without creating a full copy of the source data).
 
       * (Optional) **Runtime environment** (system type and parameters for running a transfer):
