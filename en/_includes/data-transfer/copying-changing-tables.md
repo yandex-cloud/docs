@@ -1,0 +1,3 @@
+The transfer type you select depends on data changes on the source endpoint.
+
+For example, if a replicated source has a table that is regularly updated almost entirely, a large amount of data is accumulated in WAL in a short period of time, because the table is overwritten multiple times during this period. In these cases, handling changes will be time-consuming and resource-intensive. Instead of replication, we recommend configuring copying with regular activation and overwriting the entire table in a consistent and fresh state. See [Creating a transfer](../../data-transfer/operations/transfer.md) for detailed information about transfer types and settings.

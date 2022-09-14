@@ -66,3 +66,7 @@ Then the status of the transfer switches to {{ dt-status-repl }}: all changes oc
 The transition between statuses for the _{{ dt-type-copy-repl }}_ transfer type is shown below:
 
 ![lifecycle-copy-and-replication](../../_assets/data-transfer/lifecycle/copy-and-replication.svg)
+
+### Selecting a transfer type {#select-transfer-type}
+
+{% include [copying-changing-tables](../../_includes/data-transfer/copying-changing-tables.md) %}

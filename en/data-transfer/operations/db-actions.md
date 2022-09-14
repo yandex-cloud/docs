@@ -1,5 +1,6 @@
 # Working with databases during the transfer
 
+When working with data transfers, you must take into account the specific features of databases.
 While the transfer with replication is running ([transfer types](../concepts/index.md#transfer-type) _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_), the data on the source and target may differ, so during this time, errors may occur when reading data from the target database. After [deactivating](./transfer.md#deactivate) the transfer, all data on the source and target will be the same (eventual consistency).
 
 ## MySQL {#mysql}

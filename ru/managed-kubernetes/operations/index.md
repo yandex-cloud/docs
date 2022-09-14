@@ -16,7 +16,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](connect/create-static-conf.md)
 
 
-## Установка приложений {#marketplace}
+## Установка приложений из {{ marketplace-full-name }} {#marketplace}
 
 * [{#T}](applications/marketplace.md)
 * [{#T}](applications/crossplane.md)
