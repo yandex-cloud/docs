@@ -48,6 +48,8 @@ items:
             href: operations/projects/install-dependencies.md
           - name: Очистить состояние интерпретатора
             href: operations/projects/clear-kernel-state.md
+          - name: Примеры кода в ноутбуке
+            href: operations/projects/snippets.md
           - name: Работа с Git
             href: operations/projects/work-with-git.md
           - name: Запустить Docker-контейнер в отдельной ячейке
