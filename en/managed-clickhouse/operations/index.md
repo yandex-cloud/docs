@@ -21,7 +21,7 @@
 - [{#T}](update.md)
 - [{#T}](s3-access.md)
 - [{#T}](dictionaries.md)
-- [{#T}](internal-dictionaries.md)
+- [{#T}](geobase.md)
 - [{#T}](ml-models.md)
 - [{#T}](format-schemas.md)
    {% if product == "yandex-cloud" %}

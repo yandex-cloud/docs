@@ -133,7 +133,7 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -213,7 +213,7 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -222,7 +222,9 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
    * Name of the shard group, in the `shardGroupName` parameter. To find out the name, [get a list of shard groups](#list-shard-groups) in the cluster.
    * If necessary, a new description of the shard group, in the `description` parameter.
    * If necessary, a new list of shard names to be included in the group, in the `shardNames` parameter. To find out the names, [get a list of shards](shards.md#list-shards) in the cluster. This list will replace the current one, so make sure that you added all the appropriate shards in the new list.
-   * Names of parameters to change, in the `updateMask` parameter. If you don't set this parameter, the API method replaces all settings in the shard group with the default values.
+   * Names of parameters to change, in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -248,7 +250,7 @@ Tables created on the deleted group are kept, but they are disabled and attempts
 
    To delete a shard group in a cluster, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} shard-groups delete \
       --cluster-name=<cluster name> \
       --name=<shard group name>
@@ -276,7 +278,7 @@ Tables created on the deleted group are kept, but they are disabled and attempts
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

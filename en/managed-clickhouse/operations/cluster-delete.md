@@ -1,8 +1,3 @@
----
-title: "Deleting {{ CH }} clusters"
-description: "After deleting a {{ CH }} database cluster, its backups are preserved and can be used for recovery within 7 days. To restore a deleted cluster from a backup, you will need its ID, so save the cluster ID in a safe place before deleting."
----
-
 # Deleting clusters
 
 ## Before deleting a cluster {#before-you-delete}
@@ -19,7 +14,7 @@ description: "After deleting a {{ CH }} database cluster, its backups are preser
 - Management console
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Click the ![image](../../_assets/options.svg) icon for the required cluster and select **Delete**.
+   1. Click the ![image](../../_assets/options.svg) icon for the desired cluster and select **Delete**.
 
 - CLI
 
@@ -39,7 +34,7 @@ description: "After deleting a {{ CH }} database cluster, its backups are preser
 
    {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

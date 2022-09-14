@@ -34,7 +34,7 @@ In a cluster with DB management via SQL enabled:
 
    To get a list of databases in a cluster, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} database list \
       --cluster-name <cluster name>
    ```
@@ -121,6 +121,8 @@ There are no limits to the number of databases in a cluster.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
    You can create a new database in a cluster using the [create](../api-ref/Database/create.md) method.
@@ -158,7 +160,7 @@ There are no limits to the number of databases in a cluster.
 
    To delete a database, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} database delete <database name> \
       --cluster-name <cluster name>
    ```
@@ -183,6 +185,8 @@ There are no limits to the number of databases in a cluster.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
    You can delete a database using the [delete](../api-ref/Database/delete.md) method.
@@ -196,7 +200,7 @@ There are no limits to the number of databases in a cluster.
       DROP DATABASE <database name>;
       ```
 
-   To learn more about deleting objects, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/drop/).
+   For more detail on deleting objects, please see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/drop/).
 
 {% endlist %}
 

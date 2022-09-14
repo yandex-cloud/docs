@@ -54,7 +54,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
       {% if audience != "internal" %}
 
-      
+
    1. Select **{{ mch-name }}**.
       {% endif %}
    1. Click **Create cluster**.
@@ -96,7 +96,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
-   1. Under **Hosts**, select the parameters of database hosts created together with the cluster. To change the added host, place the cursor on the host line and click ![image](../../_assets/pencil.svg).
+   1. Under **Hosts**, select the parameters of database hosts created together with the cluster. To change the added host, hover over the host line and click ![image](../../_assets/pencil.svg).
 
    1. If necessary, configure additional cluster settings:
 
@@ -136,8 +136,6 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       {% if audience != "internal" %}
 
-      {% if product == "yandex-cloud" %}
-      
       ```bash
       {{ yc-mdb-ch }} cluster create \
         --name <cluster name> \
@@ -153,27 +151,6 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
         --yandexquery-access=<access via {{ yq-full-name }}: true or false> \
         --deletion-protection=<cluster deletion protection: true or false>
       ```
-      
-      {% endif %}
-
-      {% if product == "cloud-il" %}
-
-      ```bash
-      {{ yc-mdb-ch }} cluster create \
-        --name <cluster name> \
-        --environment <environment: prestable or production> \
-        --network-name <network name> \
-        --host type=<clickhouse or zookeeper>,zone-id=<availability zone>,subnet-id=<subnet ID> \
-        --clickhouse-resource-preset <host class> \
-        --clickhouse-disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
-        --clickhouse-disk-size <storage size in gigabytes> \
-        --user name=<username>,password=<user password> \
-        --database name=<database name> \
-        --security-group-ids <security group ID list> \
-        --deletion-protection=<cluster deletion protection: true or false>
-      ```
-
-      {% endif %}
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
@@ -186,7 +163,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
         --network-id ' ' \
         --host type=<clickhouse or zookeeper>,zone-id=<availability zone> \
         --clickhouse-resource-preset <host class> \
-        --clickhouse-disk-type local-ssd \
+        --clickhouse-disk-type <local-ssd | local-hdd> \
         --clickhouse-disk-size <storage size in gigabytes> \
         --user name=<username>,password=<user password> \
         --database name=<database name> \
@@ -197,7 +174,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       {% endif %}
 
-      {% include [Limitations of Deletion protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       You can manager cluster users and databases via SQL.
 
@@ -233,6 +210,8 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       1. To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the `--serverless-access` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
 
       {% endif %}
+
+      1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
 
       1. To enable [{{ CK }}](../concepts/replication.md#ck) in a cluster:
 
@@ -333,7 +312,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      1. {% include [maintenance-window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
+      1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
       1. To enable access from other services and [SQL query execution from the management console](web-sql-query.md), add an `access` block with the necessary settings:
 
@@ -377,7 +356,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       * {% include notitle [Enable SQL database management with Terraform](../../_includes/mdb/mch/terraform/sql-management-databases.md) %}
 
-      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-mch }}).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mch }}).
 
    1. Check the {{ TF }} configuration files for errors:
 
@@ -389,7 +368,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -412,6 +391,8 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    {% if audience != "internal" and product == "yandex-cloud" %}
    To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass `true` for the `configSpec.access.serverless` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
    {% endif %}
+
+   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
    To allow cluster access from {{ yq-full-name }}, pass `true` for the `configSpec.access.yandexQuery` parameter.
 
@@ -451,7 +432,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    To create a cluster with a single host, pass a single `--host` parameter.
 
-   Let's say we need to create a {{ CH }} cluster with the following characteristics:
+   Create a {{ mch-name }} cluster with test characteristics:
 
    {% if audience != "internal" %}
 
@@ -481,50 +462,50 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    {% endif %}
 
-   Run the command:
+   Run the following command:
 
    {% if audience != "internal" %}
 
    ```bash
    {{ yc-mdb-ch }} cluster create \
-      --name mych \
-      --environment=production \
-      --network-name default \
-      --clickhouse-resource-preset {{ host-class }} \
-      --host type=clickhouse,zone-id={{ region-id }}-a,subnet-id=b0cl69g98qumiqmtg12a \
-      --version {{ versions.keeper }} \
-      --embedded-keeper true \
-      --clickhouse-disk-size 20 \
-      --clickhouse-disk-type {{ disk-type-example }} \
-      --user name=user1,password=user1user1 \
-      --database name=db1 \
-      --security-group-ids {{ security-group }} \
-      --deletion-protection=true
+     --name mych \
+     --environment=production \
+     --network-name default \
+     --clickhouse-resource-preset {{ host-class }} \
+     --host type=clickhouse,zone-id={{ region-id }}-a,subnet-id=b0cl69g98qumiqmtg12a \
+     --version {{ versions.keeper }} \
+     --embedded-keeper true \
+     --clickhouse-disk-size 20 \
+     --clickhouse-disk-type {{ disk-type-example }} \
+     --user name=user1,password=user1user1 \
+     --database name=db1 \
+     --security-group-ids {{ security-group }} \
+     --deletion-protection=true
    ```
 
    {% else %}
 
    ```bash
    {{ yc-mdb-ch }} cluster create \
-      --name mych \
-      --environment=production \
-      --clickhouse-resource-preset s2.nano \
-      --host type=clickhouse,zone-id=man \
-      --version {{ versions.keeper }} \
-      --embedded-keeper true \
-      --clickhouse-disk-size 20 \
-      --clickhouse-disk-type local-ssd \
-      --user name=user1,password=user1user1 \
-      --database name=db1 \
-      --security-group-ids {{ security-group }} \
-      --deletion-protection=true
+     --name mych \
+     --environment=production \
+     --clickhouse-resource-preset s2.nano \
+     --host type=clickhouse,zone-id=man \
+     --version {{ versions.keeper }} \
+     --embedded-keeper true \
+     --clickhouse-disk-size 20 \
+     --clickhouse-disk-type local-ssd \
+     --user name=user1,password=user1user1 \
+     --database name=db1 \
+     --security-group-ids {{ security-group }} \
+     --deletion-protection=true
    ```
 
 {% endif %}
 
 - {{ TF }}
 
-   Let's say we need to create a {{ CH }} cluster and a network for it with the following characteristics:
+   Create a {{ mch-name }} cluster and a network for it with test characteristics:
 
    * Named `mych`.
    * In the `PRESTABLE` environment.
@@ -539,7 +520,7 @@ If you specified security group IDs when creating a cluster, you may also need t
       * Network: `cluster-net`.
       * Availability zone: `{{ region-id }}-a`.
 
-   * With 32 GB of SSD network storage (`network-ssd`).
+   * 32 GB of {% if audience != "internal" %}network{% else %}local{% endif %} SSD storage (`{{ disk-type-example }}`).
    * Database name `db1`.
    * With a user named `user1` with the password `user1user1`.
 
@@ -569,7 +550,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - {{ TF }}
 
-   Let's say we need to create a {{ CH }} cluster with the following characteristics:
+   Create a {{ mch-name }} cluster with test characteristics:
 
    * Named `mych`.
    * In the `PRESTABLE` environment.

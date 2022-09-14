@@ -16,7 +16,7 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
 
 1. Configure access to the schema file using one of the methods:
 
-   * Use a [service account](../../iam/concepts/users/service-accounts.md) (recommended). This method lets you access the file without entering account information.
+   * Use a [service account](../../iam/concepts/users/service-accounts.md) (recommended). This method enables you to access the file without entering account information.
 
       1\. [Connect a service account to a cluster](s3-access.md#connect-service-account).
       2\. [Assign the account the role](s3-access.md#configure-acl) of `storage.viewer`.
@@ -104,7 +104,16 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
+- API
+
+   Use the [create](../api-ref/FormatSchema/create.md) API method and pass the following information in the request:
+
+   * The cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * The format schema name in the `formatSchemaName` parameter.
+   * Schema type: `FORMAT_SCHEMA_TYPE_CAPNPROTO` or `FORMAT_SCHEMA_TYPE_PROTOBUF` in the `type` parameter.
+   * The link to the file in {{ objstorage-full-name }} in the `uri` parameter.
 
 {% endlist %}
 
@@ -134,7 +143,7 @@ To update the contents of a schema that is already connected to the cluster:
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Data format schemas** tab.
-   1. Select the appropriate schema, click ![image](../../_assets/options.svg), and select **Edit**.
+   1. Select the schema, click ![image](../../_assets/options.svg), and select **Edit**.
 
 - CLI
 
@@ -166,7 +175,7 @@ To update the contents of a schema that is already connected to the cluster:
         format_schema {
           name = "<schema name>"
           type = "<schema type>"
-          uri  = "<new public link to the schema file in {{ objstorage-full-name }}>"
+          uri  = "<new link to the schema file in {{ objstorage-full-name }}>"
         }
       }
       ```
@@ -181,7 +190,18 @@ To update the contents of a schema that is already connected to the cluster:
 
       For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
+- API
+
+   Use the [update](../api-ref/FormatSchema/update.md) API method and pass the following in the request:
+
+   * The cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * The format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster ](#list-format-schemas).
+   * The new link to the file in {{ objstorage-full-name }} in the `uri` parameter.
+   * List of cluster configuration fields to be changed in the `updateMask` parameter.
+
+      {% include [Сброс настроек изменяемого объекта](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -242,7 +262,14 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
+- API
+
+   Use the [delete](../api-ref/FormatSchema/delete.md) API method and pass the following in the request:
+
+   * The cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * The format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster ](#list-format-schemas).
 
 {% endlist %}
 
@@ -269,7 +296,11 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+- API
+
+   Use the [list](../api-ref/FormatSchema/list.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+   You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -291,5 +322,12 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
    ```
 
    You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- API
+
+   Use the [get](../api-ref/FormatSchema/get.md) API method and pass the following in the request:
+
+   * The cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * The format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster ](#list-format-schemas).
 
 {% endlist %}

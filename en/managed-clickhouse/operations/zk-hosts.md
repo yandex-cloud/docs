@@ -31,7 +31,7 @@ For more information, see [{#T}](../concepts/replication.md).
    1. Click **Set up {{ ZK }} hosts** at the top right.
    1. Specify the [host class](../concepts/instance-types.md).
    1. Set up the storage settings.
-   1. Change the settings of a {{ ZK }} host if necessary. To do this, hover the cursor over the line of the required host and click ![image](../../_assets/pencil.svg).
+   1. Change the settings of a {{ ZK }} host if necessary. To do this, hover over the line of the desired host and click ![image](../../_assets/pencil.svg).
    1. Click **Save changes**.
 
 - CLI
@@ -132,7 +132,7 @@ For more information, see [{#T}](../concepts/replication.md).
 
       * Each availability zone must have at least one host.
       * Minimum host class: `b1.medium`.
-      * Storage type: `network-ssd`.
+      * Storage type: `{{ disk-type-example }}`;
       * The minimum storage size is 10 GB.
 
       ```hcl
@@ -141,7 +141,7 @@ For more information, see [{#T}](../concepts/replication.md).
         zookeeper {
           resources {
             resource_preset_id = "<host class: b1.medium or higher>"
-            disk_type_id       = "network-ssd"
+            disk_type_id       = "{{ disk-type-example }}"
             disk_size          = <storage size, GB>
           }
         }
@@ -174,7 +174,7 @@ For more information, see [{#T}](../concepts/replication.md).
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -186,7 +186,7 @@ For more information, see [{#T}](../concepts/replication.md).
 
 The following characteristics are set for the {{ ZK }} hosts by default:
 * The `b2.medium` host class.
-* 10 GB of SSD network [storage](../concepts/storage.md) (`network-ssd`).
+* 10 GB of {% if audience != "internal" %}network{% else %}local{% endif %} SSD [storage](../concepts/storage.md) (`{{ disk-type-example }}`).
 
 {% endnote %}
 
@@ -212,7 +212,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
    1. Collect the necessary information:
       - Request the subnet ID by running the command:
 
-         ```
+         ```bash
          yc vpc subnet list
          ```
 
@@ -230,13 +230,13 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
    1. View a description of the CLI command for adding a host:
 
-      ```
+      ```bash
       {{ yc-mdb-ch }} host add --help
       ```
 
    1. Run the add {{ ZK }} host command:
 
-      ```
+      ```bash
       {{ yc-mdb-ch }} hosts add \
          --cluster-name <cluster name> \
          --host zone-id=<availability zone>,subnet-id=<subnet ID>,type=zookeeper
@@ -272,7 +272,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -290,7 +290,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Hosts** tab.
-   1. Hover the cursor over the line of the required host and click ![image](../../_assets/cross.svg).
+   1. Hover over the line of the desired host and click ![image](../../_assets/cross.svg).
    1. Confirm the deletion of the host.
 
 - CLI
@@ -301,7 +301,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
    To remove a host from the cluster, run:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} hosts delete <host name> \
       --cluster-name=<cluster name>
    ```
@@ -326,7 +326,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

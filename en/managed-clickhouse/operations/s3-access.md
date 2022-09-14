@@ -1,7 +1,7 @@
 # Setting up access to {{ objstorage-name }}
 
 {{ mch-name }} lets you use {{ objstorage-full-name }} to:
-* Enable [ML models](ml-models.md), [data format schemas](format-schemas.md), and your [own geobase](internal-dictionaries.md).
+* Enable [ML models](ml-models.md), [data format schemas](format-schemas.md), and your [own geobase](geobase.md).
 * Process data that is stored in object storage if this data is represented in any of the [supported {{ CH }} formats]({{ ch.docs }}/interfaces/formats/).
 
 {% if audience != "internal" %}
@@ -14,7 +14,7 @@ To access {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) data 
 
 {% endif %}
 
-After setting up any of these methods, [get a link to the bucket object](#get-link-to-object), which you can use to perform operations with the cluster data. See [examples of working with objects](#examples).
+After setting up any of these methods, [get a link to the bucket object](#get-link-to-object), which you can use to perform operations with the cluster data. See [Examples of working with objects](#examples).
 
 ## Connecting a service account to a cluster {#connect-service-account}
 
@@ -64,7 +64,7 @@ To link {{ mch-name }} clusters to {{ objstorage-name }}, it's recommended to us
 
    {% endif %}
 
-       1. In the list of buckets or objects, select the appropriate item and click ![image](../../_assets/options.svg).
+       1. In the list of buckets or objects, select the desired item and click ![image](../../_assets/options.svg).
        1. Click **Bucket ACL** or **Object ACL**.
        1. In the **Select user** drop-down list, specify the service account [connected to the cluster](#connect-service-account).
        1. Click **Add**.

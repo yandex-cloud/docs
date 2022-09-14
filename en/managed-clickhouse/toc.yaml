@@ -32,7 +32,7 @@ items:
       - name: Connecting external dictionaries
         href: operations/dictionaries.md
       - name: Adding your own geobase
-        href: operations/internal-dictionaries.md
+        href: operations/geobase.md
       - name: Managing machine learning models
         href: operations/ml-models.md
       - name: Managing data format schemas
