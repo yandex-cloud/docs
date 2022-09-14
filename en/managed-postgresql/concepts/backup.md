@@ -11,7 +11,7 @@ keywords:
 
 {{ mpg-short-name }} provides automatic and manual database backups.
 
-{{ mpg-name }} lets you restore the cluster state _to any point in time_ (Point-in-Time-Recovery, PITR) after the creation of the oldest full backup. This is achieved by supplementing the backup selected as the starting point for recovery with entries from the write-ahead logs (WAL) of later backups and the cluster.
+{{ mpg-name }} lets you restore the cluster state _to any point in time_ (Point-in-Time-Recovery, PITR) after the creation of the oldest full backup. This is achieved by supplementing the backup selected as the starting point for recovery with entries from the write-ahead logs (WAL) of later backups and the cluster. PITR is enabled by default.
 
 When creating backups and restoring data from them to a given point in time, keep in mind the following:
 
@@ -55,10 +55,8 @@ Storing backups in {{ mpg-name }}:
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
-   {% if product == "yandex-cloud" and audience != "internal" %}
 
-   For more information, see the [Pricing policy for {{ mpg-name }}](../pricing.md#rules-storage).
-   {% endif %}
+      {% if audience != "internal" %}For more information, see the [Pricing policy for {{ mpg-name }}](../pricing.md#rules-storage).{% endif %}
 
 ## Checking backups {#verify}
 
