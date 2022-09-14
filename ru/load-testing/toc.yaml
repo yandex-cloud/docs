@@ -16,6 +16,8 @@ items:
         href: operations/security-groups-target.md
       - name: Создать тест с данными из бакета
         href: operations/create-test-bucket.md
+      - name: Передать логи теста в {{ cloud-logging-name }}
+        href: operations/logging.md
   - name: Практические руководства
     items:
       - name: Нагрузочное тестирование gRPC-сервиса

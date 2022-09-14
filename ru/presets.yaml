@@ -224,6 +224,7 @@ default:
   roles-lockbox-editor: lockbox.editor
   roles-lockbox-viewer: lockbox.viewer
   roles-lockbox-payloadviewer: lockbox.payloadViewer
+  roles-logging-writer: logging.writer
   roles-cloud-owner: resource-manager.clouds.owner
   roles-cloud-member: resource-manager.clouds.member
   roles-mdb-admin: mdb.admin
