@@ -34,6 +34,7 @@
 
 ## Использование продуктов {{ marketplace-full-name }} {#marketplace-tutorials}
 
+* [{#T}](marketplace/crossplane.md)
 * [{#T}](marketplace/jaeger-over-ydb.md)
 
 {% endif %}

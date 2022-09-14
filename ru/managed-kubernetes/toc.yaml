@@ -149,6 +149,8 @@ items:
       - name: Использование продуктов {{ marketplace-name }}
         when: product == "yandex-cloud"
         items:
+          - name: Интеграция с Crossplane
+            href: tutorials/marketplace/crossplane.md
           - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
   - name: Концепции

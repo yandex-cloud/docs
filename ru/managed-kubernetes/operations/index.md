@@ -17,7 +17,7 @@ description: "Из статьи вы узнаете, как работать с 
 
 {% if product == "yandex-cloud" %}
 
-## Установка приложений {#marketplace}
+## Установка приложений из {{ marketplace-full-name }} {#marketplace}
 
 * [{#T}](applications/marketplace.md)
 * [{#T}](applications/crossplane.md)
