@@ -17,7 +17,7 @@ When performing transfers between the source and target hosts that are in differ
 You can provide access to a source on an outside network using one of the following methods:
 
 * [By configuring a source to make it available from the internet](../operations/prepare.md#source-mg).
-* Using [{{ interconnect-full-name }}](../../interconnect/index.yaml).
+{% if product != "cloud-il" %}* Using [{{ interconnect-full-name }}](../../interconnect/index.yaml).{% endif %}
 * Using an intermediate VM configured to [route traffic to {{ vpc-name }}](../../vpc/concepts/static-routes.md).
 
 {% else %}
