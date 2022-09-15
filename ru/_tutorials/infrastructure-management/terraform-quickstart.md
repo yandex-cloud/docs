@@ -5,10 +5,8 @@
 Чтобы создать вашу первую инфраструктуру в {{ yandex-cloud }} с помощью {{ TF }}:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-{% if product == "cloud-il" %}
-1. [Создайте сервисный аккаунт](#create-sa).
-{% endif %}
 1. [Установите {{ TF }}](#install-terraform).
+1. [Получите данные для аутентификации](#get-credentials).
 1. [Создайте файл конфигурации {{ TF }}](#configure-terraform).
 1. [Настройте провайдер](#configure-provider).
 1. [Подготовьте план инфраструктуры](#prepare-plan).
@@ -32,20 +30,33 @@
 
 {% endif %}
 
-
-{% if product == "cloud-il" %}
-
-## Создайте сервисный аккаунт {#create-sa}
-
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) и [назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md), необходимые для управления ресурсами {{ yandex-cloud }}. Список ролей разных сервисов см. в разделе [{#T}](../../iam/concepts/access-control/roles.md).
-1. [Создайте статические ключи доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта. Сразу сохраните идентификатор `key_id` и секретный ключ `secret`. Получить значение ключа снова будет невозможно.
-
-{% endif %}
-
-
 ## Установите {{ TF }} {#install-terraform}
 
 {% include [terraform_install](../../_tutorials/terraform-install.md) %}
+
+## Получите данные для аутентификации {#get-credentials}
+
+{% include [terraform-credentials-sa](../../_tutorials/terraform-credentials-sa.md) %}
+
+{% if product == "yandex-cloud" %}
+
+{% cut "Управление ресурсами от имени от имени аккаунта на Яндексе или федеративного аккаунта" %}
+
+{% include [terraform-credentials-user](../../_tutorials/terraform-credentials-user.md) %}
+
+{% endcut %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% cut "Управление ресурсами от имени от имени аккаунта Google или федеративного аккаунта" %}
+
+{% include [terraform-credentials-user](../../_tutorials/terraform-credentials-user.md) %}
+
+{% endcut %}
+
+{% endif %}
 
 ## Создайте файл конфигурации {{ TF }} {#configure-terraform}
 
@@ -87,10 +98,7 @@ terraform {
 }
 
 provider "yandex" {
-  token     = "<OAuth>"
-  cloud_id  = "<идентификатор облака>"
-  folder_id = "<идентификатор каталога>"
-  zone      = "<зона доступности по умолчанию>"
+  zone = "<зона доступности по умолчанию>"
 }
 
 resource "yandex_compute_instance" "vm-1" {
@@ -112,11 +120,8 @@ terraform {
 }
 
 provider "yandex" {
-  endpoint  = "{{ api-host }}:443"
-  token     = "<статический ключ сервисного аккаунта>"
-  cloud_id  = "<идентификатор облака>"
-  folder_id = "<идентификатор каталога>"
-  zone      = "<зона доступности по умолчанию>"
+  endpoint = "{{ api-host }}:443"
+  zone     = "<зона доступности по умолчанию>"
 }
 
 resource "yandex_compute_instance" "vm-1" {

@@ -21,10 +21,7 @@
     }
     
     provider "yandex" {
-      cloud_id  = var.cloud_id
-      folder_id = var.folder_id
       zone      = var.zone
-      token     = var.token
     }
     
     resource "yandex_vpc_network" "default" {
@@ -108,10 +105,7 @@
     
     provider "yandex" {
       endpoint  = "{{ api-host }}:443"
-      cloud_id  = var.cloud_id
-      folder_id = var.folder_id
       zone      = var.zone
-      token     = var.token
     }
     
     resource "yandex_vpc_network" "default" {
@@ -190,21 +184,9 @@
     {% cut "Файл variables.tf " %}
 
     ```hcl
-    variable "cloud_id" {
-      type    = string
-    }
-    
-    variable "folder_id" {
-      type    = string
-    }
-    
     variable "zone" {
       type    = string
       default = "{{ region-id }}-a"
-    }
-    
-    variable "token" {
-      type    = string
     }
     
     variable "network" {
@@ -287,10 +269,6 @@
     {% cut "Файл terraform.tfvars " %}
 
     ```
-    token      = "<token>"
-    cloud_id   = "<cloud_id>"
-    folder_id  = "<folder_id>"
-    
     name       = "<my_server_name>"
     user_name  = "<my_user>"
     user_pass  = "<my_password>"
