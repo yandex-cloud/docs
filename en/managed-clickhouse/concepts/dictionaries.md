@@ -19,7 +19,7 @@ As their data sources, dictionaries can use [{{ CH }} internal dictionaries]({{ 
 
 Learn more about the built-in dictionary features in the [{{ CH }} documentation]({{ ch.docs }}/query_language/functions/ym_dict_functions/).
 
-If you're not satisfied with the built-in geobase, you can add your own to {{ CH }}: For more information about how to do this, see [{#T}](../operations/internal-dictionaries.md).
+If you're not satisfied with the built-in geobase, you can add your own to {{ CH }}: For more information about how to do this, see [{#T}](../operations/geobase.md).
 
 
 ## External dictionaries {#external-dicts}

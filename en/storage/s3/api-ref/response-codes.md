@@ -9,6 +9,7 @@ description: "Describes the response and error codes in the {{ objstorage-name }
 
 If there are no errors, {{ objstorage-name }} returns a 2xx HTTP code. The response code and body depend on the request and are given in the request descriptions.
 
+
 ## Error response {#error}
 
 In case of an error, {{ objstorage-name }} returns a message with the appropriate HTTP code and its additional description in XML format.
@@ -24,16 +25,17 @@ In case of an error, {{ objstorage-name }} returns a message with the appropriat
 ```
 
 | Tag | Description |
-| ----- | ----- |
+----- | -----
 | `Code` | Error code.<br/><br/>A list of codes is given below. |
 | `Message` | Error description in English. |
 | `RequestId` | ID of the request that caused an error.<br/><br/>Same as the `X-Amz-Request-Id` header value. |
 | `Resource` | The bucket or object that led to the error. |
 
+
 ### Error codes {#error_codes}
 
 | HTTP | Error code | Description |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | 301 | `PermanentRedirect` | The specified bucket should always be accessed using the address returned in the response. |
 | 307 | `Redirect` | The specified bucket should temporarily be accessed using the address returned in the response. |
 | 307 | `TemporaryRedirect` | Redirect while the DNS is being updated. |
@@ -58,10 +60,10 @@ In case of an error, {{ objstorage-name }} returns a message with the appropriat
 | 400 | `InvalidURI` | Failed to parse the passed URI. |
 | 400 | `KeyTooLongError` | The key is too long. |
 | 400 | `MalformedACLError` | The provided XML document is malformed or doesn't match the schema. |
-| 400 | `MalformedPOSTRequest` | The body of the request isn't in `multipart/form-data` format. |
+| 400 | `MalformedPOSTRequest` | The body of the request doesn't match the `multipart/form-data` format. |
 | 400 | `MalformedXML` | The provided XML document is malformed or doesn't match the schema. |
 | 400 | `MaxMessageLengthExceeded` | The maximum allowed request length is exceeded. |
-| 400 | `MaxPostPreDataLengthExceededError` | The HTTP message header exceed the allowed length. |
+| 400 | `MaxPostPreDataLengthExceededError` | The HTTP message header exceeded the allowed length. |
 | 400 | `MetadataTooLarge` | The metadata headers exceed the allowed size. |
 | 400 | `MissingRequestBodyError` | The request body is empty.<br/><br/>Occurs when sending an empty XML document. |
 | 400 | `MissingSecurityHeader` | The required header is missing. |
@@ -74,7 +76,7 @@ In case of an error, {{ objstorage-name }} returns a message with the appropriat
 | 400 | `UnresolvableGrantByEmailAddress` | The email address provided doesn't match any recorded account. |
 | 400 | `UserKeyMustBeSpecified` | The request must contain the header specified in the error description. |
 | 403 | `AccessDenied` | Access is denied. |
-| 403 | `AccountProblem` | There is a problem with the account that prevents the operation from completing successfully.<br/><br/>Contact Yandex.Cloud support. |
+| 403 | `AccountProblem` | There is a problem with the account that prevents the operation from completing successfully.<br/><br/>Contact {{ yandex-cloud }} support. |
 | 403 | `InvalidAccessKeyId` | Unknown key. |
 | 403 | `InvalidObjectState` | The request cannot be executed for the current state of the object. |
 | 403 | `InvalidPayer` | Access to the object is blocked. |
@@ -98,4 +100,3 @@ In case of an error, {{ objstorage-name }} returns a message with the appropriat
 | 501 | `NotImplemented` | The passed header is not handled by {{ objstorage-name }}. |
 | 503 | `ServiceUnavailable` | {{ objstorage-name }} is not available.<br/>Reduce your request rate. |
 | 503 | `SlowDown` | Reduce your request rate. |
-

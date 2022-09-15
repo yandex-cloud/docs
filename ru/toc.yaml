@@ -31,8 +31,6 @@ items:
     href: data-streams/index.yaml
   - name: DataLens
     href: datalens/index.yaml
-  - name: DataLens Partner API
-    href: datalens-api/index.yaml
   - name: DataSphere
     href: datasphere/index.yaml
   - name: Cloud DNS

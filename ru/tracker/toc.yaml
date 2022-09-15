@@ -195,6 +195,8 @@ items:
         href: user/agile.md
       - name: Изменить и удалить доску
         href: manager/edit-agile-board.md
+      - name: Бэклог
+        href: manager/backlog.md
       - name: Спринты
         href: manager/create-agile-sprint.md
       - name: Эпики

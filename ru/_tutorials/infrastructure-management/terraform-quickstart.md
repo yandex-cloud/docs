@@ -6,6 +6,7 @@
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Установите {{ TF }}](#install-terraform).
+1. [Получите данные для аутентификации](#get-credentials).
 1. [Создайте файл конфигурации {{ TF }}](#configure-terraform).
 1. [Настройте провайдер](#configure-provider).
 1. [Подготовьте план инфраструктуры](#prepare-plan).
@@ -27,12 +28,22 @@
 * плата за использование динамических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 
-
-
-
 ## Установите {{ TF }} {#install-terraform}
 
 {% include [terraform_install](../../_tutorials/terraform-install.md) %}
+
+## Получите данные для аутентификации {#get-credentials}
+
+{% include [terraform-credentials-sa](../../_tutorials/terraform-credentials-sa.md) %}
+
+
+{% cut "Управление ресурсами от имени от имени аккаунта на Яндексе или федеративного аккаунта" %}
+
+{% include [terraform-credentials-user](../../_tutorials/terraform-credentials-user.md) %}
+
+{% endcut %}
+
+
 
 ## Создайте файл конфигурации {{ TF }} {#configure-terraform}
 
@@ -73,10 +84,7 @@ terraform {
 }
 
 provider "yandex" {
-  token     = "<OAuth>"
-  cloud_id  = "<идентификатор облака>"
-  folder_id = "<идентификатор каталога>"
-  zone      = "<зона доступности по умолчанию>"
+  zone = "<зона доступности по умолчанию>"
 }
 
 resource "yandex_compute_instance" "vm-1" {

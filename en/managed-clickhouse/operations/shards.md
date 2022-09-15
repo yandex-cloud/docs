@@ -88,7 +88,7 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -179,7 +179,15 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
 
 - API
 
-   To change the shard settings, use the [updateShard](../api-ref/Cluster/updateShard.md) method.
+   Use the API [updateShard](../api-ref/Cluster/updateShard.md) method and pass the following in in the call:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * In the `shardName` parameter, the name of the shard.
+   * Shard settings in the `configSpec` parameter.
+   * The list of settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
 
 {% endlist %}
 
@@ -211,10 +219,10 @@ When you delete a shard, all tables and data that are saved on that shard are de
 
    ```bash
    {{ yc-mdb-ch }} shards delete <shard name> \
-     --cluster-name=<cluster name>
+      --cluster-name=<cluster name>
    ```
 
-   You can request the shard name with a [list of cluster shards](#list-shards) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request a shard name with a [list of cluster shards](#list-shards) and a cluster name with a [list of clusters in a folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -234,7 +242,7 @@ When you delete a shard, all tables and data that are saved on that shard are de
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

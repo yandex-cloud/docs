@@ -38,13 +38,13 @@ Instead of swap, you can use the `zram-config` utility. It allows you to organiz
 
 The best solution for increasing available memory is to expand the vRAM on the VM.
 
-#### Why is the size of a snapshot bigger than the amount of data on the disk? {#snapshot-size-larger}
+#### What should I do if a snapshot is larger than the data on the disk? {#snapshot-size-larger}
 
-This happens because occupied sectors remain on the disk after you delete files from it.
+This happens if occupied sectors remain on a disk after you delete files from it.
 
-The solution is to write a file consisting of zeros to the entire unoccupied disk space, then flush the cache to the disk and delete the record about this file.
+The solution is to write a file consisting of zeros to the entire unoccupied disk space, then flush the cache to the disk, and delete the record about this file.
 
-* For Windows: stop disk operations and use the `SDelete` utility. You can find out how it works and download it in the [Microsoft documentation]({{ ms.docs }}/sysinternals/downloads/sdelete).
+* For Windows: stop disk operations and use the `SDelete` utility. You can learn more about the utility and download it in the [Microsoft documentation]({{ ms.docs }}/sysinternals/downloads/sdelete).
 * For Linux: stop disk operations and enter the following commands one by one:
 
    ```bash
@@ -67,7 +67,7 @@ Snapshots count against [quotas]({{ link-console-quotas }}) by their parent disk
 
 This approach to quotas doesn't affect pricing: snapshots are charged according to their real size.
 
-#### How do I move a virtual machine to another folder/cloud? {#move-vm-folder-cloud}
+#### How do I move a VM to another folder/cloud? {#move-vm-folder-cloud}
 
 1. Grant rights in your cloud to a user from another cloud:
    * Role for the cloud: `resource-manager.clouds.member`.
@@ -87,7 +87,7 @@ A user in another cloud must:
 1. When creating a VM, specify this image as a boot disk.
 
 
-#### How do I attach a new disk to a virtual machine? {#attach-disk-to-vm}
+#### How do I attach a new disk to a VM? {#attach-disk-to-vm}
 
 After creating and connecting a new disk to the VM, you need to mount it or assign it a letter, depending on the operating system. Follow the instructions: [{#T}](../operations/vm-control/vm-attach-disk.md#mount-disk-and-fix-uuid).
 

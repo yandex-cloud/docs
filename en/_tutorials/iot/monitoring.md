@@ -370,7 +370,7 @@ To create charts on a dashboard:
 1. Go to the **Dashboards** tab.
 1. Click **Create**.
 1. Under **Add widget**, click **New chart**.
-1. In the list of **service=** services, select **Custom**.
+1. In the list of **service=** services, select **Custom Metrics**.
 1. In the list of **name=** chart types, select **Temperature**.
 1. In the **device_id=** list, select the ID of the device that you want to create a chart for.
 1. Click **Save**.
@@ -425,7 +425,7 @@ To create an alert:
 1. Click **Create alert**.
 1. Enter a name for the alert in the **Main** section, the **Name** field.
 1. Under **Metrics**, in the **Metrics** section, click ![image](../../_assets/plus-sign.svg) and fill in the fields:
-   1. In the list of **service=** services, select **Custom**.
+   1. In the list of **service=** services, select **Custom Metrics**.
    1. In the list of **name=** alert types, select **Temperature**.
    1. In the **device_id=** list, select the ID of the device that you want to create an alert for.
 1. In the **Alert settings** section, select the condition to trigger the alert:

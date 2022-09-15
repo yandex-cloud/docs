@@ -8,11 +8,11 @@ Example of setting up a connection using {{ interconnect-name }}:
 
 ## How {{ interconnect-name }} interacts with {{ vpc-name }} {#interconnect-to-vpc}
 
-In your request for connecting {{ interconnect-name }}, you should specify prefixes of VPC subnets. These prefixes are announced by the {{ yandex-cloud }} infrastructure over BGP to your equipment receiving BGP sessions. In the diagram, this equipment is labeled "Client router".
+In your request for connecting {{ interconnect-name }}, you should specify prefixes of {{ vpc-short-name }} subnets. These prefixes are announced by the {{ yandex-cloud }} infrastructure over BGP to your equipment receiving BGP sessions. In the diagram, this equipment is labeled "Client router".
 
 When using load balancers from [{{ network-load-balancer-full-name }}](../../network-load-balancer/) and [{{ alb-full-name }}](../../application-load-balancer/), their handlers' addresses are announced as IPv4 prefixes with the length of `/32`. This enables you to use load balancers to distribute traffic coming from your networks via {{ interconnect-name }} between {{ yandex-cloud }} availability zones.
 
-IPv4 prefixes passed by your equipment over BGP to {{ yandex-cloud }} enter VPC subnets using the route information redistribution mechanism. They then become available to all virtual machines and internal load balancers within the VPC. For cloud resources to access your corporate infrastructure, no changes to VM routing tables are required.
+IPv4 prefixes passed by your equipment over BGP to {{ yandex-cloud }} enter {{ vpc-short-name }} subnets using the route information redistribution mechanism. They then become available to all virtual machines and internal load balancers within the {{ vpc-short-name }}. For cloud resources to access your corporate infrastructure, no changes to VM routing tables are required.
 
 ## How {{ interconnect-name }} interacts with static routes {#interconnect-and-static-routes}
 
@@ -20,11 +20,11 @@ The route to external resources (IPv4 prefixes) from {{ yandex-cloud }} is chose
 
 {% note warning %}
 
-In the same VPC virtual network, do not use static routes with prefixes duplicating the prefixes announced by your equipment to {{ interconnect-name }}. This will result in asymmetric traffic routing.
+In the same {{ vpc-short-name }} virtual network, do not use static routes with prefixes duplicating the prefixes announced by your equipment to {{ interconnect-name }}. This will result in asymmetric traffic routing.
 
 {% endnote %}
 
-If you need to route some VPC traffic via a static route and some to {{ interconnect-name }}, use unique, non-overlapping IPv4 prefixes and plan the address space of your projects more granularly.
+If you need to route some {{ vpc-short-name }} traffic via a static route and some to {{ interconnect-name }}, use unique, non-overlapping IPv4 prefixes and plan the address space of your projects more granularly.
 
 The diagram shows how this approach can be implemented.
 
@@ -35,7 +35,7 @@ With this routing setup, all traffic is routed via {{ interconnect-name }}, exce
 
 ## How to reserve {{ interconnect-name }} connections using a VPN {#interconnect-vpn-failover}
 
-To safeguard a {{ interconnect-name }} connection from failure, you can announce a short summary IPv4 prefix from your infrastructure to a VM with a VPN gateway on the {{ yandex-cloud }} side. This prefix automatically receives a higher priority in the VPC and traffic will be routed through {{ interconnect-name }}. When a BGP session fails, a longer prefix through the VPN gateway will be used. Failure will cause the summary IPv4 prefix `10.0.0.0/8` to be deleted from routing tables both from the {{ yandex-cloud }} VPC side and the client router.
+To safeguard a {{ interconnect-name }} connection from failure, you can announce a short summary IPv4 prefix from your infrastructure to a VM with a VPN gateway on the {{ yandex-cloud }} side. This prefix automatically receives a higher priority in the {{ vpc-short-name }} and traffic will be routed through {{ interconnect-name }}. When a BGP session fails, a longer prefix through the VPN gateway will be used. Failure will cause the summary IPv4 prefix `10.0.0.0/8` to be deleted from routing tables both from the {{ yandex-cloud }} {{ vpc-short-name }} side and the client router.
 
 The diagram shows how this approach can be implemented.
 

@@ -4,4 +4,4 @@
 * [{#T}](data-migration.md)
 * [{#T}](mmy-to-mysql-migration.md)
 * [{#T}](sqoop.md)
-* [{#T}](cdc-debezium.mmy)
+* [{#T}](cdc-debezium.md)

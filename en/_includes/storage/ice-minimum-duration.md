@@ -1,0 +1,1 @@
+The minimum billable period of ice storage is 12 months (except storage until September 1, 2022). If you delete an object that was stored less than 12 months, the balance of the cost is charged after deletion.

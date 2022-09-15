@@ -148,7 +148,7 @@ The DB instance must have public access: `Public accessibility = yes`.
 
    {% endnote %}
 
-1. Add a rule for incoming traffic in [VPC security groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html). For example:
+1. Add a rule for incoming traffic in [{{ vpc-short-name }} security groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html). For example:
 
    ```text
    protocol: tcp, port: 5432, source: 84.201.175.90/32

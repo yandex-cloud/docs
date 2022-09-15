@@ -482,6 +482,6 @@ To stop paying for your deployed website, just delete the [VM](../../compute/ope
 
 If you reserved a static public IP address specifically for this VM:
 
-1. Open the **Virtual Private Cloud** in your folder.
+1. Open the **{{ vpc-name }}** in your folder.
 1. Go to the **IP addresses** tab.
 1. Find the address you need, click ![ellipsis](../../_assets/options.svg), and select **Delete**.

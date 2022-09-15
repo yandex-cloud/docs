@@ -18,58 +18,57 @@ Pricing features:
 
 ### Example of cost calculation {#example}
 
-The cost of using the {{ monitoring-short-name }} service for 30 days while writing 20 metrics at a rate of **1 value per minute**:
+The cost of using {{ monitoring-short-name }} for 30 days while writing 20 metrics at a rate of **1 value per minute**:
 
-> 20 * 1 * (60 * 24 * 30) = 864,000 values = 0.864 million values
-> 0.864 * 9.8 = ₽8.4672 = ₽8.47
-> 
-> Total: ₽8.47
-
-Where:
-
-* 20 — number of metrics.
-* 1 — number of values recorded per minute.
-* (60 * 24 * 30) — number of minutes in 30 days.
-* ₽9.8 — cost of writing 1 million values (up to 50 million values).
-
-The cost of using the {{ monitoring-short-name }} service for 30 days while writing 20 metrics at a rate of **1 value per second**:
-
-> 20 * 1 * (60 * 60 * 24 * 30) = 51,840,000 values = 51.84 million values
-> 50 * 9.8 + (51.84 - 50) * 5.6 = ₽500.3
-> 
-> Total: ₽500.3
+> 20 * 1 * (60 * 24 * 30) = 864000 values = 0.864 million values
+> 0.864 * $0.0784 = $0.0677376 = $0.07
+>
+> Total: $0.07
 
 Where:
 
-* 20 — number of metrics.
-* 1 — number of values recorded per second.
-* (60 * 60 * 24 * 30) — number of seconds in 30 days.
-* ₽9.8 — cost of writing 1 million values (up to 50 million values).
-* ₽5.6 — cost of writing 1 million values (over 50 million values).
+* 20 is the number of metrics.
+* 1 is the number of values written per minute.
+* (60 * 24 * 30) is the number of minutes in 30 days.
+* $0.0784 is the cost of writing 1 million values (up to 50 million values).
 
-The cost of exporting 100 metrics from {{ monitoring-short-name }} to your on-premise installation of the {{ prometheus-name }} monitoring system with a polling interval of **15 seconds** for 30 days:
+The cost of using {{ monitoring-short-name }} for 30 days while writing 20 metrics at a rate of **1 value per second**:
 
-> 100 * (60 / 15) * (60 * 24 * 30) = 17,280,000 values = 17.28 million values
-> 17.28 * 7 = ₽120.96
-> 
-> Total: ₽120.96
+> 20 * 1 * (60 * 60 * 24 * 30) = 51840000 values = 51.84 million values
+> 50 * $0.0784 + (51.84 - 50) * $0.0448 = $4.00
+>
+> Total: $4.00
 
 Where:
 
-* 100 — number of metrics.
-* (60 / 15) — number of readings per minute.
-* (60 * 24 * 30) — number of minutes in 30 days.
-* ₽7 — cost of reading 1 million values (up to 50 million values).
+* 20 is the number of metrics.
+* 1 is the number of values written per second.
+* (60 * 60 * 24 * 30) is the number of seconds in 30 days.
+* $0.0784 is the cost of writing 1 million values (up to 50 million values).
+* $0.0448 is the cost of writing 1 million values (over 50 million values).
+
+The cost of exporting 100 metrics from {{ monitoring-short-name }} to your own installation of the {{ prometheus-name }} monitoring system with a polling interval of **15 seconds** for 30 days:
+
+> 100 * (60 / 15) * (60 * 24 * 30) = 17280000 values = 17.28 million values
+> 17.28 * $0.0560 = $0.97
+>
+> Total: $0.97
+
+Where:
+
+* 100 is the number of metrics.
+* (60 / 15) is the number of values read per minute.
+* (60 * 24 * 30) is the number of minutes in 30 days.
+* $0.0560 is the cost of reading 1 million values (up to 50 million values).
 
 ## Pricing {#prices}
 
-The minimum billable unit is 1 metric value. The price is rounded up to the nearest hundredth of a ruble.
 
 
 
+The minimum billable unit is 1 metric value. The cost is rounded to the nearest cent.
 
+For example, the cost of writing the first 100000 values is `(100000 values / 1 million) * $0.0784 = $0.00784`, which is rounded to `$0.01`. The cost of writing 150000 values is `(150000 values / 1 million) * $0.0784 = $0.01176`, which is rounded to `$0.01`. Where `$0.0784` is the cost per 1 million values (when writing up to 50 million values).
 
 {% include [usd.md](../_pricing/monitoring/usd.md) %}
-
-
 

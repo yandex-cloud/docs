@@ -11,13 +11,24 @@ You can upgrade a {{ mpg-name }} cluster to any supported version.
 
 You can only upgrade to a version that immediately follows the current one, such as version 11 to 12. Upgrades to higher versions are performed in steps. To upgrade {{ PG }} from version 11 to version 13, for instance, follow the steps: 11 → 12 → 13.
 
+In single-host clusters, the only master host is brought out of its running state for upgrades. During an upgrade, such clusters are unavailable.
+
+In multi-host clusters, upgrades follow the procedure below:
+
+1. The master is made unavailable while it upgrades. In the meantime, the replicas continue running in read-only mode. No [fail-overs](../concepts/replication.md#replication-auto) take place. After an upgrade, the master is not returned to a running state until all the replicated hosts upgrade and is temporarily unavailable even for reading.
+1. The replicas are sequentially made unavailable and upgrade. The replicas are queued randomly. Following an upgrade, the replicas are returned to a running state in read-only mode.
+
+   A two-host cluster is unavailable while its replica is upgrading. In a cluster of three or more hosts, at least one replica will be available for reading.
+
+1. The master returns to a running state.
+
 To learn more about updates within one version and host maintenance, see [{#T}](../concepts/maintenance.md).
 
 ## Before upgrading {#before-update}
 
 Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
-1. Review the [change log](https://www.postgresql.org/docs/release/) for the {{ PG }} versions that you are upgrading your cluster to, and make sure they do not affect your applications or the {{ PG }} [extensions](./extensions/cluster-extensions.md) installed.
+1. Review the [change log](https://www.postgresql.org/docs/release/) for the {{ PG }} versions that you are upgrading your cluster to, and make sure they do not affect your applications or the [{{ PG }} extensions](./extensions/cluster-extensions.md) installed.
 1. Try upgrading a test cluster (you can try [deploying](cluster-backups.md#restore) it from a backup of the main cluster).
 1. [Back up](cluster-backups.md#create-backup) the main cluster prior to upgrading.
 
@@ -101,11 +112,11 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * The {{ PG }} version number in the `configSpec.version` parameter.
-   * List of cluster configuration fields to be changed in the `updateMask` parameter.
+   * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
-      {% include [updateMask note](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

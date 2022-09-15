@@ -200,6 +200,7 @@ For a new cluster, you should set all the parameters that are required at creati
    1. Request the creation of a cluster from a backup:
 
       
+
       ```bash
       {{ yc-mdb-my }} cluster restore \
          --backup-id=<backup ID> \
@@ -214,7 +215,7 @@ For a new cluster, you should set all the parameters that are required at creati
          --disk-size=<storage size in GB> \
          --disk-type=<storage type>
       ```
-
+
 
       Where:
 
@@ -232,20 +233,22 @@ For a new cluster, you should set all the parameters that are required at creati
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
          
+
          * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
          * `assign-public-ip`: Flag to specify if a host requires a [public IP address](../../vpc/concepts/address.md#public-addresses).
-
+
 
       * `--resource-preset`: [host class](../concepts/instance-types.md#available-flavors).
       * `--disk-size`: Storage size in GB.
       * `--disk-type`: [Storage type](../concepts/storage.md):
 
          
+
          * `network-hdd`.
          * `network-ssd`.
          * `local-ssd`.
          * `network-ssd-nonreplicated`.
-
+
 
 - {{ TF }}
 

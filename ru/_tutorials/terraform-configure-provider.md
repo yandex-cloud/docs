@@ -71,10 +71,7 @@
    }
 
    provider "yandex" {
-     token     = "<OAuth>"
-     cloud_id  = "<идентификатор облака>"
-     folder_id = "<идентификатор каталога>"
-     zone      = "<зона доступности по умолчанию>"
+     zone = "<зона доступности по умолчанию>"
    }
    ```
    
@@ -85,9 +82,6 @@
    * `source` — глобальный [адрес источника](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses) провайдера.
    * `required_version` — минимальная версия {{ TF }}, с которой совместим провайдер.
    * `provider` — название провайдера.
-   * `token` — [OAuth-токен](../iam/concepts/authorization/oauth-token.md) для доступа к {{ yandex-cloud }}.
-   * `cloud_id` — [идентификатор облака](../resource-manager/operations/cloud/get-id.md), в котором {{ TF }} создаст ресурсы.
-   * `folder_id` — [идентификатор каталога](../resource-manager/operations/folder/get-id.md), в котором по умолчанию будут создаваться ресурсы.
    * `zone` — [зона доступности](../overview/concepts/geo-scope.md), в которой по умолчанию будут создаваться все облачные ресурсы.
 
 1. Выполните команду `terraform init` в папке с конфигурационным файлом `.tf`. Эта команда инициализирует провайдеров, указанных в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.

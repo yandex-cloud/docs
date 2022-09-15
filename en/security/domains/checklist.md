@@ -2,7 +2,7 @@
 
 ## Network security {#network-security}
 
-* **Segmentation**: Split resources into groups and put them in different folders or, if strict isolation is required, different VPCs. Traffic inside a VPC is allowed by default and is not allowed between VPCs (only via VMs with two network interfaces in different networks, VPN or {{ interconnect-full-name }}). Watch our webinar [How a network works in {{ yandex-cloud }}](https://www.youtube.com/watch?v=g3cZ0o50qH0).
+* **Segmentation**: Split resources into groups and put them in different folders or, if strict isolation is required, different {{ vpc-short-name }}s. Traffic inside a {{ vpc-short-name }} is allowed by default and is not allowed between {{ vpc-short-name }}s (only via VMs with two network interfaces in different networks, VPN or {{ interconnect-full-name }}). Watch our webinar [How a network works in {{ yandex-cloud }}](https://www.youtube.com/watch?v=g3cZ0o50qH0).
 * **Network access restriction, security groups**: Restrict network access across resources using [security groups](../../vpc/operations/security-group-create.md).
 
 

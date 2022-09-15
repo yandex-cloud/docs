@@ -1,6 +1,6 @@
 # Bucket object lifecycle configuration
 
-{{ objstorage-name }} lets you manage [lifecycles](../../../concepts/lifecycles.md) for objects in buckets. To upload the lifecycle configuration to {{ objstorage-name }}, you need to create an XML document as described in this section. You can obtain a document in this format by downloading an existing configuration.
+{{ objstorage-name }} lets you manage [lifecycles of objects](../../../concepts/lifecycles.md) in a bucket. To upload the lifecycle configuration to {{ objstorage-name }}, you need to make an XML document as described in this section. You can obtain a document in this format by downloading an existing configuration.
 
 General configuration format:
 
@@ -14,7 +14,7 @@ General configuration format:
         </Filter>
 
         <Transition>
-            <StorageClass>Storage class ID</StorageClass>
+            <StorageClass>Storage class IDs</StorageClass>
             <!-- <Date> or <Days> -->
         </Transition>
 
@@ -24,7 +24,7 @@ General configuration format:
         </Expiration>
 
         <NoncurrentVersionTransition>
-            <StorageClass>Storage class ID</StorageClass>
+            <StorageClass>Storage class IDs</StorageClass>
             <NoncurrentDays>Migrating versions that are older than the specified number of days</NoncurrentDays>
         </NoncurrentVersionTransition>
 
@@ -49,7 +49,7 @@ A configuration may contain up to 1000 rules.
 ## Elements {#elements}
 
 | Element | Description |
-| ----- | ----- |
+----- | -----
 | `AbortIncompleteMultipartUpload` | Rule for deleting uploads not completed within the specified number of days.<br/><br/>Contains the `DaysAfterInitiation` element that sets when the rule applies.<br/><br/>Path: `LifecycleConfiguration\Rule\AbortIncompleteMultipartUpload\DaysAfterInitiation`. |
 | `Date` | Date of rule execution.<br/><br/>Format: [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601), for example, `YYYY-MM-DD`. Time is always 00:00 UTC.<br/><br/>Path: `LifecycleConfiguration\Rule\Expiration\Date`. |
 | `Days` | Rule execution interval.<br/><br/>This is defined by the number of days since the object was uploaded.<br/><br/>Path: `LifecycleConfiguration\Rule\Expiration\Days`. |
@@ -57,12 +57,12 @@ A configuration may contain up to 1000 rules.
 | `Filter` | Object filter.<br/><br/>Contains no more than one `Prefix` element. If an empty `<Filter></Filter>` filter is set, the rule applies to all objects in a bucket.<br/><br/>Path: `LifecycleConfiguration\Rule\Filter`. |
 | `ID` | Unique rule ID.<br/><br/>Custom text up to 255 characters long, such as "Delete in 20 days". An optional parameter that you can use to search for a rule in a configuration.<br/><br/>If no ID is specified, {{objstorage-name}} generates one automatically.<br/><br/>Path: `LifecycleConfiguration\Rule\ID`. |
 | `LifecycleConfiguration` | Root element of an XML document.<br/><br/>It may contain up to 1000 `Rule` elements.<br/><br/>Path: `LifecycleConfiguration`. |
-| `Prefix` | Key prefix.<br/><br/>You can use it to filter objects that meet the rule.<br/><br/>Examples of prefixes for the key `some/long/object/key`: `some`, `some/`, `some/lo`.<br/><br/>Filters can only contain one prefix.<br/><br/>Path: `LifecycleConfiguration\Rule\Filter\Prefix`. |
+| `Prefix` | The key prefix.<br/><br/>You can use it to filter objects that meet the rule.<br/><br/>Examples of prefixes for the key `some/long/object/key`: `some`, `some/`, `some/lo`.<br/><br/>Filters can only contain one prefix.<br/><br/>Path:`LifecycleConfiguration\Rule\Filter\Prefix`. |
 | `Rule` | Rule description.<br/><br/>Objects that meet the rule are set by the `Filter` element. Actions on objects are defined by the `Transition` and `Expiration` elements. There can be multiple actions of each type.<br/><br/>Path: `LifecycleConfiguration\Rule`. |
-| `Status` | Rule status.<br/><br/>You can activate a rule by setting `<Status>Enabled</Status>` for it, or disable it by setting `<Status>Disabled</Status>`.<br/><br/>Path: `LifecycleConfiguration\Rule\Status`. |
-| `StorageClass` | [Storage class](../../../concepts/storage-class.md) of an object.<br/><br/>Path: `LifecycleConfiguration\Rule\Transition\StorageClass`. |
-| `Transition` | The rule to change the [storage class](../../../concepts/storage-class.md) of an object.<br/><br/>It contains the `StorageClass` element, which defines the target storage class and the `Date` or `Days` element, which sets when the action expires.<br/><br/>You can only move objects from standard to cold storage.<br/><br/>Path: `LifecycleConfiguration\Rule\Transition\`. |
-| `NoncurrentVersionTransition` | The rule to change the [storage class](../../../concepts/storage-class.md) for non-current object versions. This rule only applies to non-current versions of an object rather than the entire object.<br/><br/>Contains the `StorageClass` element that sets the target storage class and the `NoncurrentDays` element that sets the action expiry.<br/><br/>You can only move objects from standard to cold storage.<br/><br/>Path: `LifecycleConfiguration\Rule\NoncurrentVersionTransition`. |
+| `Status` | Rule status.<br/><br/>You can activate a rule by setting `<Status>Enabled</Status>` or deactivate it by setting `<Status>Disabled</Status>`.<br/><br/>Path: `LifecycleConfiguration\Rule\Status`. |
+| `StorageClass` | [Storage class](../../../concepts/storage-class.md) of the object.<br/><br/>Path: `LifecycleConfiguration\Rule\Transition\StorageClass`. |
+| `Transition` | Rule for changing the [storage class](../../../concepts/storage-class.md) of an object.<br/><br/>It contains the `StorageClass` element, which defines the target storage class and the `Date` or `Days` element, which determines when the action expires.<br/><br/>You can only move objects from `STANDARD` to `COLD` storage.<br/><br/>Path: `LifecycleConfiguration\Rule\Transition\`. |
+| `NoncurrentVersionTransition` | Rule for changing the [storage class](../../../concepts/storage-class.md) of non-current object versions. This rule only applies to non-current versions of an object rather than the entire object.<br/><br/>Contains the `StorageClass` element that sets the target storage class and the `NoncurrentDays` element that sets the action expiry.<br/><br/>You can only move objects from `STANDARD` to `COLD` storage.<br/><br/>Path: `LifecycleConfiguration\Rule\NoncurrentVersionTransition`. |
 | `NoncurrentVersionExpiration` | Rule for deleting non-current object versions from {{ objstorage-name }}. This rule only applies to non-current versions of an object rather than the entire object.<br/><br/>Contains the `NoncurrentDays` element that sets the action expiry.<br/><br/>Path: `LifecycleConfiguration\Rule\NoncurrentVersionExpiration`. |
 
 ## Example {#example}
@@ -94,4 +94,3 @@ The rule below applies to all objects uploaded to the bucket as follows:
     </Rule>
 </LifecycleConfiguration>
 ```
-

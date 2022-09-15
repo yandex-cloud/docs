@@ -8,17 +8,17 @@
 
 - [{#T}](connect.md)
    
-- [{#T}](cluster-stop.md)
+- [{#T}](cluster-stop.md)
 - [{#T}](web-sql-query.md)
 - [{#T}](insert.md)
 - [{#T}](update.md)
 - [{#T}](s3-access.md)
 - [{#T}](dictionaries.md)
-- [{#T}](internal-dictionaries.md)
+- [{#T}](geobase.md)
 - [{#T}](ml-models.md)
 - [{#T}](format-schemas.md)
    
-- [{#T}](datalens-connect.md)
+- [{#T}](datalens-connect.md)
 - [{#T}](cluster-version-update.md)
 - [{#T}](zk-hosts.md)
 - [{#T}](hosts.md)

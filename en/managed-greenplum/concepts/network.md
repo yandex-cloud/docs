@@ -39,7 +39,7 @@ Specifics of working with security groups:
 * Security group settings affect the ability to connect to the cluster, its performance, and network connectivity between its hosts.
 
 
-For more information, see the [Virtual Private Cloud documentation](../../vpc/concepts/security-groups.md).
+For more information, see the [{{ vpc-name }} documentation](../../vpc/concepts/security-groups.md).
 
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

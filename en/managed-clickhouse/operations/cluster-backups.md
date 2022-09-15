@@ -115,6 +115,7 @@ For a new cluster, you should set all the parameters that are required at creati
    1. To restore an individual shard, pass the ID of a single backup:
 
       
+
       ```bash
       {{ yc-mdb-ch }} cluster restore \
          --backup-id=<backup ID> \
@@ -128,7 +129,7 @@ For a new cluster, you should set all the parameters that are required at creati
          --clickhouse-disk-type=<storage type> \
          --clickhouse-resource-preset=<host class>
       ```
-
+
 
       Where:
 
@@ -144,16 +145,18 @@ For a new cluster, you should set all the parameters that are required at creati
 
          * `type`: Host type: `clickhouse` or `zookeeper`.
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
-            * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes 2 or more subnets.
+            * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It is required if the selected availability zone includes two or more subnets.
 
       * `--resource-preset`: [host class](../concepts/instance-types.md#available-flavors).
       * `--disk-size`: Storage size in GB.
       * `--disk-type`: [Storage type](../concepts/storage.md):
+         
 
          * `network-hdd`
          * `network-ssd`
          * `local-ssd`
          * `network-ssd-nonreplicated`
+
 
    1. To restore the whole cluster, pass backup IDs for all cluster shards:
 
@@ -218,7 +221,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
    To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
-   To get a list of backups for all the **{{ mch-name }}** clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` request parameter.
+   To get a list of backups for all the {{ mch-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -290,8 +293,8 @@ For a new cluster, you should set all the parameters that are required at creati
 
    * The cluster ID in the `clusterId` parameter. You can get it together [with a list of clusters in the folder](cluster-list.md#list-clusters).
    * The new backup start time, in the `configSpec.backupWindowStart` parameter.
-   * List of cluster configuration fields to be edited (in this case, `configSpec.backupWindowStart`) in the `updateMask` parameter.
+   * List of cluster configuration fields to update in the `updateMask` parameter (`uiProxy` in this case).
 
-   {% include [Resetting the settings of the object being changed translation](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}

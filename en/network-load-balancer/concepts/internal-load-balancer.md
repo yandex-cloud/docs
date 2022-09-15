@@ -2,7 +2,7 @@
 
 An internal network load balancer is used to balance traffic between resources that are connected:
 
-* To VPC subnets.
+* To {{ vpc-short-name }} subnets.
 * Via VPN.
 * Via [Cloud Interconnect](../../interconnect/concepts/index.md).
 

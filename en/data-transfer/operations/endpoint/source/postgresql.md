@@ -38,7 +38,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
            mdb_cluster_id = "<{{ mpg-name }} cluster ID>"
          }
          database = "<name of database to transfer>"
-         user     = "<username for connection>"
+         user     = "<username to connect>"
          password {
            raw = "<user password>"
          }
@@ -58,7 +58,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
 ## Custom installation {#on-premise}
 
-Connecting to the database with an explicitly specified network address and port.
+For OnPremise, all fields are filled in manually.
 
 {% list tabs %}
 
@@ -92,7 +92,7 @@ Connecting to the database with an explicitly specified network address and port
            }
          }
          database = "<name of database to transfer>"
-         user     = "<username for connection>"
+         user     = "<username to connect>"
          password {
            raw = "<user password>"
          }
@@ -117,12 +117,12 @@ Connecting to the database with an explicitly specified network address and port
 - Management console
 
    * **List of included tables**: Data is only transferred from listed tables.
-   * **Blacklist of tables**: Data from blacklisted tables isn't transferred.
+   * **List of excluded tables**: Data from these listed tables is not transferred.
 
       Both lists support expressions in the following format:
+
       * `<schema name>.<table name>`: Fully qualified table name.
-      * `<schema name>.*`: All tables in the specified schema.
-      * `<table name>`: Table in the default schema.
+      * `<schema name>.*`: All tables in the schema.
 
       {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
@@ -132,20 +132,19 @@ Connecting to the database with an explicitly specified network address and port
 
    * **DB schema for service tables**: Enter a name for the storage schema.
 
-   * **Merge inherited tables**: Select to merge the contents of tables.
+   * **Merge inherited tables**: Select to merge the contents of tables. For more detail, please review [Service specifics for sources and targets](../../../concepts/index.md#postgresql).
 
    * Settings for transferring the schema at the initial and final stages of the transfer.
 
 - CLI
 
    * `--include-table`: List of included tables. Data is only transferred from listed tables.
-   * `--exclude-table`: List of excluded tables. Data from blacklisted tables isn't transferred.
+   * `--exclude-table`: List of excluded tables. Data from tables on this list will not be transferred.
 
       Both lists support expressions in the following format:
 
       * `<schema name>.<table name>`: Fully qualified table name.
-      * `<schema name>.*`: All tables in the specified schema.
-      * `<table name>`: Table in the default schema.
+      * `<schema name>.*`: All tables in the schema.
 
       {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
@@ -205,13 +204,12 @@ Connecting to the database with an explicitly specified network address and port
 
    * `includeTables`: List of included tables. Data is only transferred from listed tables.
 
-   * `excludeTables`: Blacklist of tables. Data from blacklisted tables isn't transferred.
+   * `excludeTables`: Blacklist of tables. Data from tables on this list will not be transferred.
 
       Both lists support expressions in the following format:
 
       * `<schema name>.<table name>`: Fully qualified table name.
-      * `<schema name>.*`: All tables in the specified schema.
-      * `<table name>`: Table in the default schema.
+      * `<schema name>.*`: All tables in the schema.
 
       {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
