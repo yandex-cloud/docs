@@ -46,9 +46,6 @@ items:
   - name: DataLens
     href: datalens/index.yaml
     when: product == "yandex-cloud"
-  - name: DataLens Partner API
-    href: datalens-api/index.yaml
-    when: audience == "external" and product == "yandex-cloud"
   - name: DataSphere
     href: datasphere/index.yaml
     when: audience == "external" and product == "yandex-cloud"

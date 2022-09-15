@@ -71,10 +71,6 @@ links:
     description: Визуализация и анализ данных
     href: datalens/
     when: product == "yandex-cloud"
-  - title: DataLens Partner API
-    description: Сервис партнерских подключений для загрузки данных
-    href: datalens-api/
-    when: audience == "external" and product == "yandex-cloud"
   - title: Data Transfer
     description: Инструмент для миграции баз данных
     href: data-transfer/
