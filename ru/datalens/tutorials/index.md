@@ -28,7 +28,6 @@ description: 'В разделе описаны сценарии использо
 * [Визуализация данных из CSV-файла](data-from-csv-visualization.md)
 * [Визуализация данных из ClickHouse over YT (CHYT)](data-from-ch-over-yt.md)
 * [Анализ открытых данных ДТП на дорогах России](data-from-csv-geo-visualization.md)
-* [Визуализация данных из отчетов Statface](data-from-statface-visualization.md)
 * [Визуализация данных из Яндекс Форм](data-from-forms-visualization.md)
 * [Визуализация данных с помощью QL-чарта](data-from-ch-to-sql-chart.md)
 

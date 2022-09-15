@@ -35,9 +35,6 @@ items:
       - name: Аналитика мобильного приложения на данных AppMetrica
         when: audience == "external"
         href: tutorials/data-from-appmetrica-visualization.md
-      - name: Визуализация данных из отчетов Statface
-        when: audience == "internal"
-        href: tutorials/data-from-statface-visualization.md
       - name: Визуализация данных из Яндекс Форм
         when: audience == "internal"
         href: tutorials/data-from-forms-visualization.md
