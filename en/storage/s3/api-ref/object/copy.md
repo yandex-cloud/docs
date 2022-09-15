@@ -32,6 +32,7 @@ PUT /{bucket}/{key} HTTP/2
 | `bucket` | Name of the resulting bucket. |
 | `key` | Key of the resulting object. ID that the object is saved with in {{ objstorage-name }}. |
 
+
 ### Headers {#request-headers}
 
 Required headers are listed in the table below.
@@ -53,8 +54,9 @@ Use the headers from the table below if you need to change the default behavior 
 | `X-Amz-Copy-Source-If-Modified-Since` | Condition for copying an object.<br/><br/>The object is copied if it has been modified since the specified time.<br/><br/>If the condition is not met, {{ objstorage-name }} returns error 412.<br/><br/>Can be used with the `X-Amz-Copy-Source-If-None-Match`. |
 | `X-Amz-Server-Side-Encryption` | Default encryption algorithm used for new objects. |
 | `X-Amz-Server-Side-Encryption-Aws-Kms-Key-Id` | ID of the [key {{ kms-short-name }}](../../../../kms/concepts/key.md) used by default to encrypt new objects. |
-| `X-Amz-Storage-Class` | Object storage class.<br/><br/>Possible values:<br/>- `STANDARD` for uploading an object to standard storage.<br/>- `COLD`, `STANDARD_IA` and `NEARLINE` for uploading an object to the cold storage.<br/><br/>If the header is omitted, the object is saved to the storage specified in the bucket settings. |
-| `X-Amz-Meta-*` | User-defined object metadata.<br/><br/>{{ objstorage-name }} considers all headers starting with `X-Amz-Meta-` as user-defined. It doesn't process these headers. Instead, it saves them in their original format.<br/><br/>The total size of user-defined headers must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. Both the headers and their values are included in the size.<br/><br/>Headers that have `X-Amz-Metadata-Directive: COPY` are ignored. |
+| `X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/><br/>Possible values:<ul><li>`STANDARD`: Standard storage.</li><li>`COLD`, `STANDARD_IA`, or `NEARLINE`: Cold storage.</li><li>`ICE` or `GLACIER`: Ice storage.</li></ul>If the header isn't specified, the object is stored in the storage defined in the bucket settings. |
+| `X-Amz-Meta-*` | User-defined metadata.<br/><br/>{{ objstorage-name }} transforms all headers starting with `X-Amz-Meta-` as follows: `X-Amz-Meta-foo-bar_baz` → `X-Amz-Meta-Foo-Bar_baz`.<br/><br/>Total user-defined header size must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. Both the headers and their values are included in the size.<br/><br/>Headers that have `X-Amz-Metadata-Directive: COPY` are ignored. |
+
 
 ## Response {#response}
 
@@ -64,7 +66,7 @@ A response may contain [common response headers](../common-response-headers.md) 
 
 | Header | Description |
 ----- | -----
-| `X-Amz-Storage-Class` | Object storage class.<br/><br/>Possible values:<br/>- `STANDARD` for an object stored in standard storage.<br/>- `COLD` for an object stored in cold storage. |
+| `X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/><br/>Possible values:<ul><li>`STANDARD`: Standard storage.</li><li>`COLD`: Cold storage.</li><li>`ICE`: Ice storage.</li></ul> |
 
 ### Response codes {#response-codes}
 

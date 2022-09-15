@@ -32,7 +32,7 @@ To increase quotas, submit a request on [this page]({{ link-console-quotas }}). 
 
 After creating the request, the message appears in the [support section]({{ link-console-support }}) where you can track its status. In some cases, it may be necessary to get approval from the service to ensure the availability of resources and/or to increase your account balance.
 
-#### Can I use nested virtualization? / Can I host my VMs inside other VMs? {#nested-virtualization}
+#### Can I use nested virtualization? Can I host my VMs inside other VMs? {#nested-virtualization}
 
 Nested virtualization isn't supported for security reasons. If you couldn't find a suitable public image for a VM, you can upload your own image and create a VM from it. Follow the instructions: [{#T}](../operations/vm-create/create-from-user-image.md).
 

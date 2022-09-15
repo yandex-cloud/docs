@@ -59,53 +59,79 @@ When restoring to the current state, the new cluster will reflect the state of:
 
    1. View a description of the CLI restore {{ PG }} cluster command:
 
-      ```
+      ```bash
       {{ yc-mdb-pg }} cluster restore --help
       ```
 
    1. Getting a list of available {{ PG }} cluster backups:
 
-      ```
+      ```bash
       {{ yc-mdb-pg }} backup list
-
-      +--------------------------+----------------------+----------------------+----------------------+
-      |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
-      +--------------------------+----------------------+----------------------+----------------------+
-      | c9qlk4v13uq79r9cgcku... | 2020-08-10T12:00:00Z | c9qlk4v13uq79r9cgcku | 2020-08-10T11:55:17Z |
-      | ...                                                                                           |
-      +--------------------------+----------------------+----------------------+----------------------+
       ```
-      The time when the backup was completed is shown in the `CREATED AT` column of a list of available backups, in `yyyy-mm-ddThh:mm:ssZ` format (`2020-08-10T12:00:00Z` in the example above). You can restore a cluster to any state from the specified point in time to the current time.
+
+      ```text
+      +-------------------------+---------------------+----------------------+---------------------+
+      |            ID           |      CREATED AT     |  SOURCE CLUSTER ID   |      STARTED AT     |
+      +-------------------------+---------------------+----------------------+---------------------+
+      | c9qlk4v13uq79r9cgcku... | 2020-08-10 12:00:00 | c9qlk4v13uq79r9cgcku | 2020-08-10 11:55:17 |
+      | ...                                                                                        |
+      +-------------------------+---------------------+----------------------+---------------------+
+      ```
+
+      The time when the backup was completed is shown in the `CREATED AT` column with a list of available backups, in `yyyy-mm-dd hh:mm:ss` format (`2020-08-10 12:00:00` in the example above). You can restore a cluster to any point in time starting with creation of its backup.
 
    1. Request the creation of a cluster from a backup:
 
+      
+
       ```bash
       {{ yc-mdb-pg }} cluster restore \
-             --backup-id c9qlk4v13uq79r9cgcku:base_000000010000000000000002 \
-             --time 2020-08-10T12:00:10Z \
-             --name mynewpg \
-             --environment=PRODUCTION \
-             --network-name {{ network-name }} \
-             --host {{ host-net-example }} \
-             --disk-size 20 \
-             --disk-type {{ disk-type-example }} \
-             --resource-preset {{ host-class }}
+         --backup-id=<backup ID> \
+         --time=<point in time to restore the {{ PG }} cluster to> \
+         --name=<cluster name> \
+         --environment=<environment: PRESTABLE or PRODUCTION> \
+         --network-name=<network name> \
+         --host zone-id=<availability zone>,`
+               `subnet-name=<subnet name>`
+               `assign-public-ip=<host access via public IP: true or false> \
+         --resource-preset=<host class> \
+         --disk-size=<storage size in GB> \
+         --disk-type=<storage type>
       ```
+
 
-      In the `--time` parameter, specify the time point from which you want to restore the original state of the {{ PG }} cluster, in `yyyy-mm-ddThh:mm:ssZ` format.
+      Where:
 
-      In the example above, the cluster will be restored to the state it was 10 seconds after the `c9qlk4v13uq79r9cgcku...` backup was created. This backup was selected as the starting point for recovery (the `--time 2020-08-10T12:00:10Z parameter`).
+      * `--backup-id`: [backup](../concepts/backup.md) ID
+      * `--time`: Point in time to which you need to restore a {{ PG }} cluster's state, in `yyyy-mm-ddThh:mm:ssZ` format.
+      * `--name`: The cluster name.
+      * `--environment`: Environment:
 
-      This results in a new {{ PG }} cluster with the following characteristics:
+         * `PRESTABLE`: For testing, including the {{ PG }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRODUCTION`: For stable versions of your apps.
 
-      
-      - Named `mynewpg`.
-      - In the `PRODUCTION` environment.
-      - In the `{{ network-name }}` network.
-      - With one `{{ host-class }}` host in the `b0rcctk2rvtr8efcch63` subnet, in the `{{ region-id }}-a` availability zone.
-      - With databases and users that existed in the cluster at the time of recovery.
-      - With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
+      * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
+      * `--host`: Host parameters:
 
+         * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
+
+         
+
+         * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
+         * `assign-public-ip`: Flag to specify if a host requires a [public IP address](../../vpc/concepts/address.md#public-addresses).
+
+
+      * `--resource-preset`: [host class](../concepts/instance-types.md#available-flavors).
+      * `--disk-size`: Storage size in GB.
+      * `--disk-type`: [Storage type](../concepts/storage.md):
+
+         
+
+         * `network-hdd`
+         * `network-ssd`
+         * `local-ssd`
+         * `network-ssd-nonreplicated`
+
 
 - {{ TF }}
 
@@ -121,35 +147,21 @@ When restoring to the current state, the new cluster will reflect the state of:
    ```
 
    ```text
-   +--------------------------+----------------------+----------------------+----------------------+
-   |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
-   +--------------------------+----------------------+----------------------+----------------------+
-   | c9qlk4v13uq79r9cgcku...  | 2020-08-10T12:00:00Z | c9qlk4v13uq79r9cgcku | 2020-08-10T11:55:17Z |
-   | ...                                                                                           |
-   +--------------------------+----------------------+----------------------+----------------------+
+   +--------------------------+---------------------+----------------------+---------------------+
+   |            ID            |      CREATED AT     |  SOURCE CLUSTER ID   |      STARTED AT     |
+   +--------------------------+---------------------+----------------------+---------------------+
+   | c9qlk4v13uq79r9cgcku...  | 2020-08-10 12:00:00 | c9qlk4v13uq79r9cgcku | 2020-08-10 11:55:17 |
+   | ...                                                                                         |
+   +--------------------------+---------------------+----------------------+---------------------+
    ```
 
-   {% include [{{ TF }} timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
    **To restore an existing cluster from a backup:**
 
-   1. Create a [{{ TF }} configuration file](cluster-create.md#create-cluster) for a new cluster.
+   1. Create a [{{ TF }} configuration file](cluster-create.md#create-cluster) for the new cluster.
 
-      Leave the settings under `database` and `user` empty, they will be restored from the backup:
-
-      ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
-        ...
-        }
-        database {
-          name  = ""
-          owner = ""
-        }
-        user {
-          name     = ""
-          password = ""
-        }
-      ```
+      Don't use resources of the databases (`yandex_mdb_postgresql_database`) and users (`yandex_mdb_postgresql_user`). They will be restored from the backup.
 
    1. Add a block named `restore` to the configuration file:
 
@@ -163,7 +175,7 @@ When restoring to the current state, the new cluster will reflect the state of:
       }
       ```
 
-      In the `time` parameter, specify the time point from which you want to restore the state of the {{ PG }} cluster, starting from the time when the selected backup was created to the current time.
+      In the `time` parameter, specify the point in time to which you want to restore the {{ PG }} cluster, starting from when the selected backup was created.
 
       {% note info %}
 
@@ -179,27 +191,13 @@ When restoring to the current state, the new cluster will reflect the state of:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   {{ TF }} creates a copy of the existing cluster. The databases and users are deployed from the selected backup.
+   {{ TF }} will create a copy of the existing cluster. The databases and users are deployed from the selected backup.
 
    **To restore a previously deleted cluster from a backup:**
 
-   1. Create a [{{ TF }} configuration file](cluster-create.md#create-cluster) for a new cluster.
+   1. Create a [{{ TF }} configuration file](cluster-create.md#create-cluster) for the new cluster.
 
-      Leave the settings under `database` and `user` empty, they will be restored from the backup:
-
-      ```hcl
-       resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
-         ...
-         database {
-           name  = ""
-           owner = ""
-         }
-         user {
-           name     = ""
-           password = ""
-         }
-       }
-      ```
+      Don't use resources of the databases (`yandex_mdb_postgresql_database`) and users (`yandex_mdb_postgresql_user`). They will be restored from the backup.
 
    1. In the configuration file, add a `restore` block with the name of the backup to restore the cluster from:
 
@@ -220,7 +218,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   {{ TF }} creates a new cluster. The databases and users are deployed from the backup.
+   {{ TF }} will create the new cluster. The databases and users are deployed from the backup.
 
 - API
 
@@ -297,12 +295,12 @@ When restoring to the current state, the new cluster will reflect the state of:
    ```
    {{ yc-mdb-pg }} backup list
 
-   +----------+----------------------+----------------------+----------------------+
-   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
-   +----------+----------------------+----------------------+----------------------+
-   | c9qlk... | 2020-08-10T12:00:00Z | c9qlk4v13uq79r9cgcku | 2020-08-10T11:55:17Z |
-   | c9qpm... | 2020-08-09T22:01:04Z | c9qpm90p3pcg71jm7tqf | 2020-08-09T21:30:00Z |
-   +----------+----------------------+----------------------+----------------------+
+   +----------+---------------------+----------------------+---------------------+
+   |    ID    |      CREATED AT     |  SOURCE CLUSTER ID   |      STARTED AT     |
+   +----------+---------------------+----------------------+---------------------+
+   | c9qlk... | 2020-08-10 12:00:00 | c9qlk4v13uq79r9cgcku | 2020-08-10 11:55:17 |
+   | c9qpm... | 2020-08-09 22:01:04 | c9qpm90p3pcg71jm7tqf | 2020-08-09 21:30:00 |
+   +----------+---------------------+----------------------+---------------------+
    ```
 
 - API
@@ -417,7 +415,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [{{ TF }} timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
@@ -427,6 +425,6 @@ When restoring to the current state, the new cluster will reflect the state of:
    * The new backup start time, in the `configSpec.backupWindowStart` parameter.
    * List of cluster configuration fields to be edited (in this case, `configSpec.backupWindowStart`) in the `updateMask` parameter.
 
-   {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Сброс настроек изменяемого объекта](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}

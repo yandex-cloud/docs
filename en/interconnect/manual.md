@@ -50,7 +50,7 @@ Within a single POP, you can use:
 
 {% note warning %}
 
-Multiple cloud networks within a single private connection can be located in different clouds. This makes it possible to set up network interaction with several clouds and networks there (VPC peering) within one private connection.
+Multiple cloud networks within a single private connection can be located in different clouds. This makes it possible to set up network interaction with several clouds and networks there ({{ vpc-short-name }} peering) within one private connection.
 
 {% endnote %}
 

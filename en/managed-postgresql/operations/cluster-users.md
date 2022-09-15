@@ -75,7 +75,7 @@ You can use SQL commands to assign privileges to users, but you can't use them t
    To create a user in a cluster, run the command:
 
    ```
-   {{ yc-mdb-pg }} user create <username>
+   {{ yc-mdb-pg }}  user create <username>
         --cluster-name <cluster name>
         --password=<user password>
         --permissions=<list of DBs user can access>
@@ -96,23 +96,23 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+      For a complete list of available {{ mpg-name }} cluster user configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_postgresql_user).
 
-   1. Add a `user` section to the {{ mpg-name }} cluster description:
+   1. Add the `yandex_mdb_postgresql_user` resource:
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
-        ...
-        user {
-          name       = "<username>"
-          password   = "<password>"
-          grants     = [ "<list of privileges>" ]
-          login      = <allow logging in to the DB: true or false>
-          conn_limit = <maximum number of connections per user>
-          settings   = [ "<list of DB settings>" ]
-          permission {
-            database_name = "<database name>"
-          }
+      resource "yandex_mdb_postgresql_user" "<username>" {
+        cluster_id = "<cluster ID>"
+        name       = "<username>"
+        password   = "<password>"
+        grants     = [ "<list of privileges>" ]
+        login      = <allow logging in to the DB: true or false>
+        conn_limit = <maximum number of connections>
+        settings   = {
+          <database settings>
+        }
+        permission {
+          database_name = "<database name>"
         }
       }
       ```
@@ -126,8 +126,6 @@ You can use SQL commands to assign privileges to users, but you can't use them t
    1. Confirm the update of resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      {% include [{{ TF }} timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
@@ -171,8 +169,8 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
    ```
    {{ yc-mdb-pg }} user update <username>
-        --cluster-name=<cluster name>
-        --password=<new password>
+       --cluster-name=<cluster name>
+       --password=<new password>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -183,19 +181,17 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+      For a complete list of available {{ mpg-name }} cluster user configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_postgresql_user).
 
-   1. In the {{ mpg-name }} cluster description, find the `user` block for the required user.
+   1. Find the `yandex_mdb_postgresql_user` resource of the desired user.
    1. Change the value of the `password` field:
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+      resource "yandex_mdb_postgresql_user" "<username>" {
         ...
-        user {
-          name     = "<username>"
-          password = "<new password>"
-          ...
-        }
+        name     = "<username>"
+        password = "<new password>"
+        ...
       }
       ```
 
@@ -207,8 +203,6 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [{{ TF }} timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
-
 - API
 
    Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
@@ -218,7 +212,7 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
    * New user password, in the `password` parameter.
    * List of user configuration fields to be changed (in this case, `password`), in the `updateMask` parameter.
 
-   {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Сброс настроек изменяемого объекта](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -262,8 +256,8 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
       ```
       {{ yc-mdb-pg }} user update <username>
-           --cluster-name=<cluster name>
-           --permissions=<list of databases to grant a user access to>
+          --cluster-name=<cluster name>
+          --permissions=<list of databases to grant a user access to>
       ```
 
       The cluster name can be requested with a [list of clusters in the folder](#list-clusters).
@@ -291,25 +285,23 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+      For a complete list of available {{ mpg-name }} cluster user configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_postgresql_user).
 
    1. To grant the user permissions to access certain databases:
-      1. In the {{ mpg-name }} cluster description, find the `user` block for the required user.
+      1. Find the `yandex_mdb_postgresql_user` resource of the desired user.
       1. Add `permission` blocks with the appropriate DB names:
 
          ```hcl
-         resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+         resource "yandex_mdb_postgresql_user" "<username>" {
            ...
-           user {
-             name     = "<username>"
-             permission {
-               database_name = "<DB name>"
-             }
-             permission {
-               database_name = "<DB name>"
-             }
-             ...
+           name = "<username>"
+           permission {
+             database_name = "<database name>"
            }
+           permission {
+             database_name = "<database name>"
+           }
+           ...
          }
          ```
 
@@ -318,13 +310,13 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
    1. To change the [{{ PG }} settings](../concepts/settings-list.md#dbms-user-settings) for the user, pass their parameters in the `settings` block:
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+      resource "yandex_mdb_postgresql_user" "<username>" {
         ...
-        user {
-          name       = "<username>"
-          ...
-          settings   = [ "<list of DB settings>" ]
+        name     = "<username>"
+        settings = {
+          <database name>
         }
+        ...
       }
       ```
 
@@ -336,8 +328,6 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [{{ TF }} timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
-
 - API
 
    Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
@@ -347,7 +337,7 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
    * New values for user settings.
    * List of user configuration fields to be changed, in the `updateMask` parameter.
 
-   {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Сброс настроек изменяемого объекта](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -371,7 +361,7 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
    ```
    {{ yc-mdb-pg }} user delete <username>
-        --cluster-name <cluster name>
+      --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -384,7 +374,7 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
-   1. Delete the user block with a description of the required `user` from the {{ mpg-name }} cluster description.
+   1. Delete the `yandex_mdb_postgresql_user` resource with the description of the desired user.
 
    1. Make sure the settings are correct.
 
@@ -393,8 +383,6 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
    1. Confirm the update of resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      {% include [{{ TF }} timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 

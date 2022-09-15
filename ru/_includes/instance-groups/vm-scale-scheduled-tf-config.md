@@ -27,31 +27,31 @@ resource "yandex_iam_service_account" "vm-scale-scheduled-sa" {
 }
 
 resource "yandex_resourcemanager_folder_iam_binding" "vm-scale-scheduled-sa-role-compute" {
-  role = "compute.admin"
-
-  members = [
+  folder_id = "<идентификатор_каталога>"
+  role      = "compute.admin"
+  members   = [
     "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
   ]
 }
 
 resource "yandex_resourcemanager_folder_iam_binding" "vm-scale-scheduled-sa-role-iam" {
-  role = "iam.serviceAccounts.user"
-
-  members = [
+  folder_id = "<идентификатор_каталога>"
+  role      = "iam.serviceAccounts.user"
+  members   = [
     "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
   ]
 }
 
 resource "yandex_resourcemanager_folder_iam_binding" "vm-scale-scheduled-sa-role-functions" {
-  role = "serverless.functions.invoker"
-
-  members = [
+  folder_id = "<идентификатор_каталога>"
+  role      = "serverless.functions.invoker"
+  members   = [
     "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
   ]
 }
 
 resource "yandex_vpc_network" "vm-scale-scheduled-network" {
-  name      = "vm-scale-scheduled-network"
+  name = "vm-scale-scheduled-network"
 }
 
 resource "yandex_vpc_subnet" "vm-scale-scheduled-subnet-a" {
