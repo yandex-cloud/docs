@@ -42,8 +42,9 @@
 
      // Назначение роли сервисному аккаунту
      resource "yandex_resourcemanager_folder_iam_member" "sa-editor" {
-       role   = "storage.editor"
-       member = "serviceAccount:${yandex_iam_service_account.sa.id}"
+       folder_id = "<идентификатор_каталога>"
+       role      = "storage.editor"
+       member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
      }
 
      // Создание статического ключа доступа
@@ -79,8 +80,9 @@
 
      // Назначение роли сервисному аккаунту
      resource "yandex_resourcemanager_folder_iam_member" "sa-editor" {
-       role   = "storage.editor"
-       member = "serviceAccount:${yandex_iam_service_account.sa.id}"
+       folder_id = "<идентификатор_каталога>"
+       role      = "storage.editor"
+       member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
      }
 
      // Создание статического ключа доступа

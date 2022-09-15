@@ -14,9 +14,9 @@
 
 ```hcl
 resource "yandex_resourcemanager_folder_iam_member" "admin" {
-  folder_id = "<идентификатор каталога>"
+  folder_id = "<идентификатор_каталога>"
   role      = "kms.keys.encrypterDecrypter"
-  member    = "serviceAccount:<идентификатор сервисного аккаунта>"
+  member    = "serviceAccount:<идентификатор_сервисного_аккаунта>"
 }
 ```
 

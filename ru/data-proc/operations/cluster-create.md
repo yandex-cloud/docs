@@ -402,15 +402,17 @@
        }
 
        resource "yandex_resourcemanager_folder_iam_binding" "dataproc" {
-         role    = "mdb.dataproc.agent"
-         members = [
+         folder_id = "<идентификатор каталога>"
+         role      = "mdb.dataproc.agent"
+         members   = [
            "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта в {{ TF }}>.id}"
          ]
        }
 
        resource "yandex_resourcemanager_folder_iam_binding" "bucket-creator" {
-         role    = "editor"
-         members = [
+         folder_id = "<идентификатор каталога>"
+         role      = "editor"
+         members   = [
            "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта в {{ TF }}>.id}"
          ]
        }
