@@ -2,6 +2,8 @@
 
 {{ objstorage-name }} lets you manage [lifecycles of objects](../../concepts/lifecycles.md) in a bucket.
 
+Changes are applied to the lifecycles at 00:00 UTC every 24 hours.
+
 {% list tabs %}
 
 - Management console
@@ -140,7 +142,7 @@
         folder_id = "<folder ID>"
         zone      = "<availability zone>"
         endpoint  = "{{ api-host }}:443"
-        token     = "<static key of the service account>"
+        token     = "<static key of service account>"
         }
 
       resource "yandex_storage_bucket" "bucket" {
@@ -205,9 +207,9 @@
 
       Where:
 
+      * `bucket`: Bucket name. Required parameter.
       * `access_key`: The ID of the static access key.
       * `secret_key`: The value of the secret access key.
-      * `bucket`: Bucket name. Required parameter.
 
       `lifecycle_rule` parameters:
       * `id`: Unique rule ID. Must be no more than 255 characters. Optional.
@@ -215,9 +217,9 @@
       * `enabled`: Rule status. Required parameter.
       * `abort_incomplete_multipart_upload_days`: The number of days after the start of a multipart upload when it should be completed. Optional.
       * `expiration`: Object expiration date for deleting non-current object versions. Optional.
-      * `transition`: Object expiration date for changing the storage class. Optional.
+      * `transition`: Object expiration date of changing storage class from `STANDARD` to `COLD`. Optional.
       * `noncurrent_version_expiration`: Rule for deleting non-current object versions. Optional.
-      * `noncurrent_version_transition`: Rule for changing the storage class of non-current object versions. Optional.
+      * `noncurrent_version_transition`: Rule of changing storage class from `STANDARD` to `COLD` for non-active object versions. Optional.
 
       Make sure to specify at least one of the following parameters: `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, or `noncurrent_version_transition`.
 
@@ -237,7 +239,7 @@
       * `days`: The number of days before the transition. Required parameter.
       * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. Required parameter.
 
-      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure that the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
@@ -247,7 +249,7 @@
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
       1. If the configuration doesn't contain any errors, run the command:

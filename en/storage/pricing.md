@@ -19,13 +19,11 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, {{ objstorage-nam
 ## What goes into the cost of using {{ objstorage-short-name }} {#rules}
 
 The cost of {{ objstorage-name }} usage is based on:
+
+* [Storage class](concepts/storage-class.md).
 * The amount of storage used by your data.
 * The number of operations on your data.
 * The amount of outgoing traffic.
-
-Users can access:
-* Cold storage: A low price for data storage and a high price for operations. It's optimal for storing a large volume of data and a small number of operations.
-* Standard storage: A high rate for data storage and a low rate for operations. It's optimal for storing small amounts of data and performing a large number of operations.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -36,6 +34,12 @@ Users can access:
 ### Using storage {#rules-storage}
 
 Storage usage is measured in GB per month. The volume of data stored during a month is the average value over the month based on granulated per-second data. The minimum billable unit is 1 hour of storing 1 MB of data.
+
+{% if product == "yandex-cloud" %}
+
+{% include [ice-minimum-duration](../_includes/storage/ice-minimum-duration.md) %}
+
+{% endif %}
 
 ### Performing operations with data {#rules-operations}
 
@@ -81,24 +85,81 @@ The first 1 GB of data stored in standard storage per month is free of charge.
 
 {% if region == "ru" %}
 
-> For example, if the cost of storing 1 GB of data in standard storage per month is ₽2.01 and the amount of data stored per month is 23 GB, the storage cost per month will be:
+> For example, if the monthly cost of storing 1 GB of data in standard storage is ₽2.01 and the amount of data stored per month is 23 GB, the storage cost per month will be:
 > (23 - 1) × ₽2.01 = 22 × ₽2.01 = ₽44.22.
 
 {% endif %}
 
 {% if region == "kz" %}
 
-> For example, if the cost of storing 1 GB of data in standard storage per month is ₸10.05 and the amount of data stored per month is 23 GB, the storage cost per month will be:
+> For example, if the monthly cost of storing 1 GB of data in standard storage is ₸10.05 and the amount of data stored per month is 23 GB, the storage cost per month will be:
 > (23 - 1) × ₸10.05 = 22 × ₸10.05 = ₸221.1.
 
 {% endif %}
 
 {% if region == "int" %}
 
-> For example, if the cost of storing 1 GB of data in standard storage per month is $0.016167 and the amount of data stored per month is 23 GB, the storage cost per month will be:
+> For example, if the monthly cost of storing 1 GB of data in standard storage is $0.016167 and the amount of data stored per month is 23 GB, the storage cost per month will be:
 > (23 - 1) × $0.016167 = 22 × $0.016167 = $0.355674.
 
 {% endif %}
+
+{% include [ice-minimum-duration](../_includes/storage/ice-minimum-duration.md) %}
+
+{% if region == "ru" %}
+
+> For example, if the monthly cost of storing 1 GB of data in ice storage is ₽0.54 and a 3 GB object was stored from January 1 to September 20 (8 months and 20 days), its storage is charged as follows:
+>
+> Total from January 1 to September 20
+>
+> : _A_ = 3 × (8 + (20 / 30)) × 0,54 ₽ = (3 × 260 / 30) × 0,54 ₽ = 14,04 ₽
+>
+> September 20 after deleting the object
+>
+> : _B_ = (3 × 12 × 0,54 ₽) - _A_ = 19,44 ₽ - 14,04 ₽ = 5,40 ₽
+>
+> Total
+>
+> : _A_ + _B_ = 19,44 ₽
+
+{% endif %}
+
+{% if region == "kz" %}
+
+> For example, if the monthly cost of storing 1 GB of data in ice storage is ₸2.68 and a 3 GB object was stored from January 1 to September 20 (8 months and 20 days), its storage is charged as follows:
+>
+> Total from January 1 to September 20
+>
+> : _A_ = 3 × (8 + (20 / 30)) × 2,68 ₸ = (3 × 260 / 30) × 2,68 ₸ = 69,68 ₸
+>
+> September 20 after deleting the object
+>
+> : _B_ = (3 × 12 × 2,68 ₸) - _A_ = 96,48 ₸ - 69,68 ₸ = 26,80 ₸
+>
+> Total
+>
+> : _A_ + _B_ = 96,48 ₸
+
+{% endif %}
+
+{% if region == "int" %}
+
+> For example, if the monthly cost of storing 1 GB of data in ice storage is $0.004280 and a 3 GB object was stored from January 1 to September 20 (8 months and 20 days), its storage is charged as follows:
+>
+> Total from January 1 to September 20
+>
+> : _A_ = 3 × (8 + (20 / 30)) × $0.004280 = (3 × 260 / 30) × $0.004280 = $0.111280
+>
+> September 20 after deleting the object
+>
+> : _B_ = (3 × 12 × $0.004280) - _A_ = $0.154080 - $0.111280 = $0.042800
+>
+> Total
+>
+> : _A_ + _B_ = $0.154080
+
+{% endif %}
+
 
 ### Data operations {#prices-operations}
 
@@ -130,30 +191,30 @@ Prices for standard storage are applied when calculating costs.
 
 {% endnote %}
 
-The first 10 thousand PUT and POST operations and the first 100 thousand GET and HEAD operations in standard storage per month are free of charge.
+Each month, the first 10000 PUT and POST operations and the first 100000 GET and HEAD operations in standard storage are free of charge.
 
 {% if region == "ru" %}
 
-> For example, if the cost of 10000 GET operations in standard storage per month is ₽0.39 and the amount of GET operations per month is 24500, the total cost of data operations per month will be:
+> For example, if the monthly cost of 10,000 GET operations in standard storage is ₽0.39 and the amount of GET operations per month is 24,500, the total monthly cost of data operations will be:
 > ((24500 - 10000) / 10000) × ₽0.39 = (14500 / 10000) × ₽0.39 = ₽0.5655.
 
 {% endif %}
 
 {% if region == "kz" %}
 
-> For example, if the cost of 10000 GET operations in standard storage per month is ₸1.95 and the amount of GET operations per month is 24500, the total cost of data operations per month will be:
+> For example, if the monthly cost of 10000 GET operations in standard storage is ₸1.95 and the amount of GET operations per month is 24500, the total monthly cost of data operations will be:
 > ((24500 - 10000) / 10000) × ₸1.95 = (14500 / 10000) × ₸1.95 = ₸2.8275.
 
 {% endif %}
 
 {% if region == "int" %}
 
-> For example, if the cost of 10000 GET operations in standard storage per month is $0.003129 and the amount of GET operations per month is 24500, the total cost of data operations per month will be:
-> ((24500 - 10000) / 10000) × $0.003129 = (14500 / 10000) × $0.003129 = $0.00453705.
+> For example, if the monthly cost of 10,000 GET operations in standard storage is $0.003129 and the amount of GET operations per month is 24,500, the total monthly cost of data operations will be:
+> ((24500 - 10,000) / 10000) × $0.003129 = (14500 / 10000) × $0.003129 = $0.00453705.
 
 {% endif %}
 
-### Outgoing traffic {#prices-traffic}
+### Egress traffic {#prices-traffic}
 
 When using the service, you pay for traffic from {{ yandex-cloud }} to the internet. Traffic between {{ yandex-cloud }} services and incoming internet traffic are free.
 

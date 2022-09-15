@@ -1,17 +1,27 @@
 # Storage class
 
-{{ objstorage-name }} lets you store objects in both *standard* and *cold* storages:
+{{ objstorage-name }} lets you store objects in various storage _classes_ depending on your requirements for storage duration and frequency of object operations. The following classes are available in the service:
 
-- Standard storage is designed for storing frequently used objects.
-- Cold storage is designed for the long-term storage of objects that are rarely read.
+* Standard storage.
+* Cold storage.
+   {% if product == "yandex-cloud" and audience != "internal" %}
 
-The storage class is optionally specified when uploading each individual object.
+* Ice storage.
+   {% endif %}
 
-{% if product == "yandex-cloud" %}
+<q>Colder</q> classes are designed to store objects that you plan to use less frequently for longer periods of time. The <q>colder</q> storage is, the cheaper it is to store data but the more expensive it is to read from and write to it. {% if audience != "internal" %}For more information about the pricing, see [{#T}](../pricing.md){% endif %}.
 
-Pricing differs for storing and accessing objects in standard and cold storage. For more information, see [{#T}](../pricing.md).
+{% if product == "yandex-cloud" and audience != "internal" %}
+
+{% note info %}
+
+{% include [ice-minimum-duration](../../_includes/storage/ice-minimum-duration.md) %}
+
+{% endnote %}
 
 {% endif %}
+
+The storage class is optionally specified when uploading each individual object.
 
 ## Default storage for a bucket {#default-storage-class}
 
@@ -32,15 +42,18 @@ The Lifecycle configuration lets you move an object from standard storage to col
 
 {% note info %}
 
-The lifecycle configuration only lets you move an object from standard to cold storage.
+The lifecycle configuration only lets you move an object from `STANDARD` to `COLD` storage.
 
 {% endnote %}
 
+
 ## Storage class IDs {#storage-class-identifiers}
 
-- Standard storage: `STANDARD`.
+When working with {{ objstorage-name }} using the [Amazon S3-compatible API](../s3/index.md) or the tools described in [{#T}](../tools/index.md), for storage classes, use the following IDs:
 
-- Cold storage: `COLD`.
+* Standard storage: `STANDARD`.
+* Cold storage: `COLD`, `STANDARD_IA`, or `NEARLINE` (the last two only for uploading objects to a bucket).
+   {% if product == "yandex-cloud" and audience != "internal" %}
 
-    To upload objects to cold storage, you can also specify the `STANDARD_IA` and `NEARLINE` IDs. {{ objstorage-name }} interprets them as `COLD`. Use any ID you want when working with an [Amazon S3-compatible API](../s3/index.md) or the tools described in [{#T}](../tools/index.md).
-
+* Ice storage: `ICE` or `GLACIER` (the latter only for uploading objects to a bucket).
+   {% endif %}
