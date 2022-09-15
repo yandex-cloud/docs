@@ -43,6 +43,8 @@ items:
         href: tutorials/data-from-podcasts.md
       - name: Визуализация данных с помощью QL-чарта
         href: tutorials/data-from-ch-to-sql-chart.md
+      - name: Визуализация данных с использованием параметров
+        href: tutorials/data-from-ch-with-parameters.md
       - name: Визуализация данных Yandex Monitoring
         when: audience == "external"
         href: tutorials/data-from-monitoring-visualization.md
