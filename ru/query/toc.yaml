@@ -7,9 +7,9 @@ items:
       - name: Пример анализа данных из Object Storage
         href: quickstart/yellow-taxi.md
       - name: Пример анализа потоковых данных
-        href: quickstart/streaming-example.md        
+        href: quickstart/streaming-example.md
       - name: Пример единого анализа потоковых и аналитических данных 
-        href: quickstart/unified-example.md                
+        href: quickstart/unified-example.md
   - name: Концепции
     items:
     - name: Обзор
@@ -23,11 +23,11 @@ items:
     - name: Аналитическая обработка данных
       items:
       - name: Описание
-        href: concepts/batch-processing.md      
+        href: concepts/batch-processing.md
       - name: Партиционирование данных
         href: concepts/partitioning.md
       - name: Расширенное партиционирование
-        href: concepts/partition-projection.md        
+        href: concepts/partition-projection.md
     - name: Потоковая обработка данных
       href: concepts/stream-processing.md
     - name: Окна потоковой обработки
@@ -39,7 +39,7 @@ items:
       - name: Работа с соединениями
         href: operations/connection.md
       - name: Работа с привязками к данным
-        href: operations/binding.md        
+        href: operations/binding.md
       - name: Работа с запросами
         href: operations/query.md
   - name: Источники и приемники данных
@@ -49,47 +49,47 @@ items:
       - name: Работа с Object Storage
         items:
           - name: Чтение данных c помощью подключений
-            href: sources-and-sinks/object-storage.md            
+            href: sources-and-sinks/object-storage.md
           - name: Чтение данных c помощью привязок к данным
             href: sources-and-sinks/object-storage-binding.md
           - name: Запись данных
-            href: sources-and-sinks/object-storage-write.md                
+            href: sources-and-sinks/object-storage-write.md
       - name: Работа с Data Streams
         items:
           - name: Чтение данных с помощью подключений
-            href: sources-and-sinks/data-streams.md        
+            href: sources-and-sinks/data-streams.md
           - name: Чтение данных с помощью привязок к данным
-            href: sources-and-sinks/data-streams-binding.md        
+            href: sources-and-sinks/data-streams-binding.md
           - name: Запись данных
-            href: sources-and-sinks/data-streams-write.md                
+            href: sources-and-sinks/data-streams-write.md
       - name: Запись метрик в Monitoring
-        href: sources-and-sinks/monitoring.md                
-  - name: Сценарии использования
-    items:        
+        href: sources-and-sinks/monitoring.md
+  - name: Практические руководства
+    items:
       - name: Анализ логов Cloud Logging
-        href: tutorials/cloud-logging.md        
+        href: tutorials/cloud-logging.md
       - name: Анализ потока изменений Debezium
-        href: tutorials/debezium.md                
+        href: tutorials/debezium.md
       - name: Просмотр отчетов DataLens на данных из Object Storage
-        href: tutorials/datalens.md                
+        href: tutorials/datalens.md
   - name: Работа с YQL
-    items:        
+    items:
       - name: Обзор
         href: yql-tutorials/index.md
-      - name: Подготовка окружения
-        href: yql-tutorials/create_demo_files.md
       - name: Выборка данных из всех колонок
-        href: yql-tutorials/select_all_columns.md
+        href: yql-tutorials/select-all-columns.md
       - name: Выборка данных из определенных колонок
-        href: yql-tutorials/select_specific_columns.md
+        href: yql-tutorials/select-specific-columns.md
       - name: Сортировка и фильтрация
-        href: yql-tutorials/basic_filter_and_sort.md
+        href: yql-tutorials/sort-filter.md
       - name: Агрегирование данных
-        href: yql-tutorials/basic_aggregation.md
-      - name: Дополнительные условия выборки
-        href: yql-tutorials/conditional_values.md
-      - name: Работа с JSON
+        href: yql-tutorials/basic-aggregation.md
+      - name: Дополнительные условия агрегации
+        href: yql-tutorials/conditional-values.md
+      - name: JSON
         href: yql-tutorials/json.md
+      - name: Выполнение запроса к потоковым данным
+        href: yql-tutorials/run-stream-query.md
   - name: HTTP API
     items:
       - name: Все методы
@@ -99,17 +99,17 @@ items:
         - name: create-query
           href: api/create-query.md
         - name: get-query
-          href: api/get-query.md          
+          href: api/get-query.md
         - name: get-query-status
-          href: api/get-query-status.md                    
+          href: api/get-query-status.md
         - name: stop-query
-          href: api/stop-query.md                              
+          href: api/stop-query.md
         - name: get-query-results
-          href: api/get-query-results.md                                        
+          href: api/get-query-results.md
       - name: Общая информация
         href: api/common-information.md
       - name: Аутентификация
-        href: api/auth.md        
+        href: api/auth.md
       - name: Соответствие YQL и Json типов
         href: api/yql-json-conversion-rules.md
       - name: Примеры

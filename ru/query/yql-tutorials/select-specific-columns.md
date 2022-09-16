@@ -1,10 +1,12 @@
-# Выборка данных из определенных колонок
-
-{% include [yql_tutorial_prerequisites.md](_includes/yql_tutorial_prerequisites.md) %}
+# Выбрать данные из определенных колонок
 
 Данные можно получать не только из всех колонок, но и из их подмножества. Также можно переименовывать существующие колонки или создавать новые.
 
-В примере ниже показано, как выбрать данные из колонок `age`, `last_visit_time` и `region`. При этом колонка `region` будет переименована в `area`, а тип колонки `release_date` будет преобразован из `Int32` в `DateTime`:
+Например:
+
+* Выбрать данные из колонок `age`, `last_visit_time` и `region`. 
+* Переименовать `region` в `area`.
+* Сменить тип колонки `release_date` с `Int32` на `DateTime`
 
 ```sql
 SELECT 
@@ -12,11 +14,14 @@ SELECT
     trip_distance,                      -- перечисляются через запятую.
     fare_amount AS fare,                -- С помощью AS можно переименовать столбцы
     (total_amount/1000) AS total_amount_thousand_dollars, -- или дать имя произвольному выражению,
-    CAST(VendorID as Uint32) AS vendorID -- с помощью CAST можно поменять тип данных
+    CAST(VendorID as Uint32) AS vendorID -- с помощью CAST можно поменять тип данных.
 FROM 
     bindings.`tutorial-analytics` 
 LIMIT 10
 ```
+
+Рассмотрите пример в блоке справа и нажмите кнопку ![run](../../_assets/query/run.svg) **Выполнить**.
+Результат выполнения запроса отобразится на вкладке **Результат** в виде таблицы или схемы.
 
 ## Смотрите также {#see-also}
 
