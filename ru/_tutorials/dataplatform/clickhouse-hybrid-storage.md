@@ -32,7 +32,11 @@
 
 - С помощью {{ TF }}
 
+    {% if audience != "internal" %}
+
     1. Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../infrastructure-management/terraform-quickstart.md).
+
+    {% endif %}
 
     1. Клонируйте репозиторий с примерами:
 
