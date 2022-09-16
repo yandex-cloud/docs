@@ -148,10 +148,20 @@ items:
         when: product == "yandex-cloud"
       - name: Configuring {{ mch-full-name }} for Graphite
         href: dataplatform/clickhouse-for-graphite.md
+      - name: Getting data from {{ mkf-name }} to {{ mch-full-name }}
+        href: dataplatform/fetch-data-from-mkf.md
+      - name: Getting data from {{ RMQ }} to {{ mch-full-name }}
+        href: dataplatform/fetch-data-from-rabbitmq.md
+      - name: Using hybrid storage in {{ mch-full-name }}
+        href: dataplatform/clickhouse-hybrid-storage.md
+      - name: Sharding tables {{ mch-full-name }}
+        href: dataplatform/clickhouse-sharding.md
         # dns
       - name: >-
           Configuring {{ dns-full-name }} for accessing managed database clusters from other cloud networks
         href: dataplatform/mdb-dns-peering.md
+      - name: Configuring {{ dns-full-name }} for {{ mch-full-name }} cluster access from other cloud networks
+        href: dataplatform/clickhouse-dns-peering.md
         # dataproc
       - name: Importing data from {{ mmy-full-name }} to {{ dataproc-full-name }} using Sqoop
         href: dataplatform/sqoop-mmy.md

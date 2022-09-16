@@ -155,10 +155,20 @@ items:
         when: product == "yandex-cloud"
       - name: Настройка {{ mch-full-name }} для Graphite
         href: dataplatform/clickhouse-for-graphite.md
+      - name: Получение данных из {{ mkf-full-name }} в {{ mch-full-name }}
+        href: dataplatform/fetch-data-from-mkf.md
+      - name: Получение данных из {{ RMQ }} в {{ mch-full-name }}
+        href: dataplatform/fetch-data-from-rabbitmq.md
+      - name: Использование гибридного хранилища в {{ mch-full-name }}
+        href: dataplatform/clickhouse-hybrid-storage.md
+      - name: Шардирование таблиц {{ mch-full-name }}
+        href: dataplatform/clickhouse-sharding.md
         # dns
       - name: >-
           Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз данных из других облачных сетей
         href: dataplatform/mdb-dns-peering.md
+      - name: Настройка {{ dns-full-name }} для доступа к кластеру {{ mch-full-name }} из других облачных сетей
+        href: dataplatform/clickhouse-dns-peering.md
         # dataproc
       - name: Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с помощью Sqoop
         href: dataplatform/sqoop-mmy.md

@@ -23,21 +23,25 @@
 
 ## Подготовьте окружение {#start}
 
-{% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+{% if audience != "internal" %}
 
 {% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки БД {{ CH }} для Graphite входит:
-* плата за вычислительные ресурсы кластера, объем хранилища и резервных копий (см. [тарифы {{ mch-full-name }}](https://cloud.yandex.ru/docs/managed-clickhouse/pricing));
-* плата за запущенную ВМ для управления БД (см. [тарифы {{ compute-full-name }}](https://cloud.yandex.ru/docs/compute/pricing)).
+* плата за вычислительные ресурсы кластера, объем хранилища и резервных копий (см. [тарифы {{ mch-full-name }}](../../managed-clickhouse/pricing));
+* плата за запущенную ВМ для управления БД (см. [тарифы {{ compute-full-name }}](../../compute/pricing)).
+
+{% endif %}
 
 {% endif %}
 
 ## Создайте кластер {#cluster-create}
 
-1. [Создайте кластер {{ mch-name }}](../managed-clickhouse/operations/cluster-create.md) любой подходящей вам конфигурации с БД `db1` и публичным доступом ко всем его хостам. Сохраните имя БД, имя пользователя БД и пароль.
+1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей вам конфигурации с БД `db1` и публичным доступом ко всем его хостам. Сохраните имя БД, имя пользователя БД и пароль.
 1. В [консоли управления]({{ link-console-main }}) выберите сервис {{ mch-name }}, перейдите в созданный кластер. На вкладке **Обзор** сохраните идентификатор кластера. 
 1. В правом верхнем углу нажмите **Подключиться**, на вкладке **Shell** из поля **Пример строки подключения** сохраните параметр `--host`, например `rc1a-2sqal8f01znegjkj.{{ dns-zone }}`, это FQDN хоста кластера, он потребуется в дальнейшем.
 
@@ -49,9 +53,9 @@
 
 - CLI
   
-  {% include [include](../_includes/cli-install.md) %}
+  {% include [include](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Подготовьте yaml-файл `graphite-rollup.yaml` с описанием параметров `rollup`, например:
   
@@ -76,17 +80,17 @@
       * `<CLUSTER_ID>` – идентификатор кластера.
       * `<путь к yaml-файлу>` — путь к `graphite-rollup.yaml`.
 
-      Подробнее о команде `managed-clickhouse cluster add-graphite-rollup` см. в [справочнике CLI](../cli/cli-ref/managed-services/managed-clickhouse/cluster/add-graphite-rollup.md). 
+      Подробнее о команде `managed-clickhouse cluster add-graphite-rollup` см. в [справочнике CLI](../../cli/cli-ref/managed-services/managed-clickhouse/cluster/add-graphite-rollup.md). 
 
       {% note info %}
 
-      Для удаления конфигурации `rollup` используйте команду `managed-clickhouse cluster remove-graphite-rollup`. Подробнее о команде см. в [справочнике CLI](../cli/cli-ref/managed-services/managed-clickhouse/cluster/remove-graphite-rollup.md).
+      Для удаления конфигурации `rollup` используйте команду `managed-clickhouse cluster remove-graphite-rollup`. Подробнее о команде см. в [справочнике CLI](../../cli/cli-ref/managed-services/managed-clickhouse/cluster/remove-graphite-rollup.md).
 
       {% endnote %}
 
 - API
   
-  Используйте метод REST API [update](../managed-clickhouse/api-ref/Cluster/update.md), передав в теле запроса требуемые параметры `rollup`:
+  Используйте метод REST API [update](../../managed-clickhouse/api-ref/Cluster/update.md), передав в теле запроса требуемые параметры `rollup`:
 
     ```
     "graphiteRollup": [
@@ -112,8 +116,8 @@
 
 ## Создайте и настройте виртуальную машину {#VM-setup}
 
-1. {% if audience != "internal" %}В той же [облачной сети](../vpc/concepts/network.md), где расположен кластер, [создайте](../compute/operations/vm-create/create-linux-vm.md) ВМ на основе Linux. {% else %}В той же облачной сети, где расположен кластер, создайте ВМ на основе Linux. {% endif %}
-1. [Подключитесь](https://cloud.yandex.ru/docs/compute/operations/vm-connect/ssh) к ВМ по SSH. 
+1. {% if audience != "internal" %}В той же [облачной сети](../../vpc/concepts/network.md), где расположен кластер, [создайте](../../compute/operations/vm-create/create-linux-vm.md) ВМ на основе Linux. {% else %}В той же облачной сети, где расположен кластер, создайте ВМ на основе Linux. {% endif %}
+1. {% if audience != "internal" %}[Подключитесь](../../compute/operations/vm-connect/ssh.md){% else %}Подключитесь{% endif %} к ВМ по SSH. 
 1. Подключите [DEB-репозиторий]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
     ```bash
@@ -158,8 +162,8 @@
 
 ## Подключите виртуальную машину к базе данных {#cluster-connect}
 
-1. [Настройте группы безопасности](../managed-clickhouse/operations/connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и ВМ.
-1. [Подключитесь](https://cloud.yandex.ru/docs/compute/operations/vm-connect/ssh). 
+1. [Настройте группы безопасности](../../managed-clickhouse/operations/connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и ВМ.
+1. {% if audience != "internal" %}[Подключитесь](../../compute/operations/vm-connect/ssh.md){% else %}Подключитесь{% endif %}. 
 1. Запустите ClickHouse CLI со следующими параметрами: вместо `<FQDN хоста>`, `<имя БД>`, `<имя пользователя БД>` и `<пароль пользователя БД>` укажите ранее сохраненные параметры.
 
     ```bash
@@ -233,5 +237,5 @@
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
-* [Удалите кластер {{ CH }}](../managed-clickhouse/operations/cluster-delete.md).
-* {% if audience != "internal" %}[Удалите ВМ](../compute/operations/vm-control/vm-delete.md){% else %}Удалите ВМ{% endif %}.
+* [Удалите кластер {{ CH }}](../../managed-clickhouse/operations/cluster-delete.md).
+* {% if audience != "internal" %}[Удалите ВМ](../../compute/operations/vm-control/vm-delete.md){% else %}Удалите ВМ{% endif %}.

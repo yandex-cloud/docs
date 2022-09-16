@@ -20,10 +20,15 @@
 * [{#T}](dp-mch-data-exchange.md)
 {% endif %}
 * [{#T}](clickhouse-for-graphite.md)
+* [{#T}](fetch-data-from-mkf.md)
+* [{#T}](fetch-data-from-rabbitmq.md)
+* [{#T}](clickhouse-hybrid-storage.md)
+* [{#T}](clickhouse-sharding.md)
 
 ## {{ dns-name }} {#dns}
 
 * [{#T}](mdb-dns-peering.md)
+* [{#T}](clickhouse-dns-peering.md)
 
 {% if product == "yandex-cloud" %}
 ## {{ dataproc-name }} {#dataproc}

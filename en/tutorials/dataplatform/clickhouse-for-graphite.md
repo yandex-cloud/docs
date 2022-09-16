@@ -1,1 +1,3 @@
-{% include [clickhouse-for-graphite](../../_tutorials/clickhouse-for-graphite.md) %}
+# Configuring {{ mch-full-name }} for Graphite
+
+{% include notitle [clickhouse-for-graphite](../../_tutorials/dataplatform/clickhouse-for-graphite.md) %}
