@@ -19,6 +19,34 @@
     1. В блоке **Базовые параметры** задайте новые имя и описание кластера.
     1. Нажмите кнопку **Сохранить**.
 
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы изменить имя и описание кластера {{ GP }}:
+
+  1. Посмотрите текущие имя (`name`) и описание (`description`) кластера:
+
+     ```bash
+     {{ yc-mdb-gp }} cluster get <идентификатор или имя кластера>
+     ```
+
+  1. Посмотрите описание команды CLI для изменения конфигурации кластера:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster update --help
+      ```
+
+  1. Задайте новое имя и описание кластера:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster update <идентификатор или имя кластера> \
+         --new-name <новое имя кластера> \
+         --description <новое описание кластера>
+      ```
+
 - API
 
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
@@ -55,6 +83,51 @@
 
     1. Нажмите кнопку **Сохранить**.
 
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы изменить дополнительные настройки кластера:
+
+    1. Посмотрите описание команды CLI для изменения кластера:
+
+        ```bash
+        {{ yc-mdb-gp }} cluster update --help
+        ```
+
+    1. Выполните команду, передав список настроек, которые хотите изменить:
+
+        ```bash
+        {{ yc-mdb-gp }} cluster update <идентификатор или имя кластера> \
+            --backup-window-start <время начала резервного копирования> \
+            --datalens-access=<true или false> \
+            --datatransfer-access=<true или false> \
+            --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
+                                `day=<день недели для типа weekly>,`
+                                `hour=<час дня для типа weekly> \
+            --deletion-protection=<защита от удаления кластера: true или false> \
+        ```
+
+    Вы можете изменить следующие настройки:
+
+    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
+
+    {% if product == "yandex-cloud" %}* `--datalens-access` — разрешает доступ из [{{ datalens-full-name }}](../../datalens/concepts/index.md). Значение по умолчанию — `false`.{% endif %}
+
+    * `--datatransfer-access` — разрешает доступ из [{{ data-transfer-full-name }}](../../data-transfer/index.yaml). Значение по умолчанию — `false`.
+
+    * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров):
+
+        {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
+    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+    Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
+
 - API
 
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
@@ -87,6 +160,37 @@
   1. Измените [настройки {{ GP }}](../concepts/settings-list.md), нажав кнопку **Настроить** в блоке **Настройки СУБД**.
   1. Нажмите кнопку **Сохранить**.
   1. Нажмите кнопку **Сохранить изменения**.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы изменить [настройки СУБД {{ GP }}](../concepts/settings-list.md):
+
+  1. Посмотрите полный список настроек, установленных для кластера:
+
+     ```bash
+     {{ yc-mdb-gp }} cluster get <идентификатор или имя кластера>
+     ```
+
+  1. Посмотрите описание команды CLI для изменения конфигурации кластера:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster update-config --help
+      ```
+
+  1. Установите нужные значения параметров:
+
+      Все поддерживаемые параметры перечислены в [формате запроса для метода update](../api-ref/Cluster/update.md), в поле `greenplumConfig_<версия {{ GP }}>`. Чтобы указать имя параметра в вызове CLI, преобразуйте его имя из вида <q>lowerCamelCase</q> в <q>snake_case</q>, например, параметр `maxConnections` из запроса к API преобразуется в `max_connections` для команды CLI:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster update-config <идентификатор или имя кластера> \
+         --set <имя параметра1>=<значение1>,<имя параметра2>=<значение2>,...
+      ```
+
+      {{ mgp-short-name }} запустит операцию по изменению настроек кластера.
 
 - API
 
