@@ -33,6 +33,8 @@ items:
         items:
           - name: Основы работы с {{ marketplace-name }}
             href: operations/applications/marketplace.md
+          - name: Установка Argo CD
+            href: operations/applications/argo-cd.md
           - name: Установка Crossplane
             href: operations/applications/crossplane.md
           - name: Установка Fluent Bit
@@ -139,9 +141,6 @@ items:
         href: tutorials/dns-autoscaler.md
       - name: Настройка локального кеширования DNS
         href: tutorials/node-local-dns.md
-      - name: Настройка Fluent Bit для работы с {{ cloud-logging-name }}
-        href: tutorials/fluent-bit-logging.md
-        when: product == "yandex-cloud"
       - name: Синхронизация с секретами {{ lockbox-name }}
         href: tutorials/kubernetes-lockbox-secrets.md
       - name: Мониторинг кластера с помощью {{ prometheus-name }} и {{ grafana-name }}
@@ -149,8 +148,12 @@ items:
       - name: Использование продуктов {{ marketplace-name }}
         when: product == "yandex-cloud"
         items:
+          - name: Интеграция с Argo CD
+            href: tutorials/argo-cd.md
           - name: Интеграция с Crossplane
             href: tutorials/marketplace/crossplane.md
+          - name: Настройка Fluent Bit для работы с {{ cloud-logging-name }}
+            href: tutorials/fluent-bit-logging.md
           - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
   - name: Концепции

@@ -20,6 +20,7 @@ description: "Из статьи вы узнаете, как работать с 
 ## Установка приложений из {{ marketplace-full-name }} {#marketplace}
 
 * [{#T}](applications/marketplace.md)
+* [{#T}](applications/argo-cd.md)
 * [{#T}](applications/crossplane.md)
 * [{#T}](applications/fluentbit.md)
 * [{#T}](applications/hashicorp-vault.md)
