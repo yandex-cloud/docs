@@ -42,6 +42,8 @@ items:
             href: operations/static-route-create.md
           - name: Включить NAT в интернет
             href: operations/enable-nat.md
+          - name: Создать и настроить NAT-шлюз
+            href: operations/create-nat-gateway.md
       - name: Группы безопасности
         items:
           - name: Создать группу безопасности
@@ -94,6 +96,8 @@ items:
         href: concepts/static-routes.md
       - name: Группы безопасности
         href: concepts/security-groups.md
+      - name: Шлюзы
+        href: concepts/gateways.md
       - name: Мониторинг сетевых соединений
         href: concepts/monitoring-connections.md
       - name: Диапазоны публичных IP-адресов
