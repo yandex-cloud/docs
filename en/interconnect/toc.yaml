@@ -2,16 +2,29 @@ title: Yandex Cloud Interconnect
 href: index.yaml
 items:
   - name: Concepts
+    expanded: true
     items:
       - name: Overview
         href: concepts/index.md
+      - name: Interaction layers
+        items:
+          - name: Physical interface (L1)
+            href: concepts/l1-physical.md
+          - name: Trunk connection (L2)
+            href: concepts/l2-trunk.md
+          - name: IP and BGP connectivity (L3)
+            href: concepts/l3-ip-bgp.md
       - name: Routing
         href: concepts/routing.md
+      - name: Supported optical transceiver types
+        href: concepts/transceivers.md
+      - name: Points of presence
+        href: concepts/points-of-presence.md
       - name: Custom metrics
         href: concepts/user-metrics.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Adding Cloud Interconnect
+  - name: How to enable Cloud Interconnect
     href: manual.md
   - name: Pricing policy
     href: pricing.md
