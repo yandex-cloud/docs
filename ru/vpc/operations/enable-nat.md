@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Функция находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+Функция устарела. Если вы выключите в подсети NAT в интернет, то не сможете включить его — вместо него нужно будет использовать [NAT-шлюз](../concepts/gateways.md#nat-gateway). 
 
 {% endnote %}
 
