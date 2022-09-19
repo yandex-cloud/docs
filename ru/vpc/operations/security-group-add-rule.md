@@ -100,7 +100,7 @@
      
      Вы можете использовать `predefined=self_security_group` что бы задействовать правило на машины внутри изменяемой группы безопасности.
      
-     Подробнее о правиле `Self` читайте в [видах правил групп безопасности](../../concepts/security-groups.md#rules-types).
+     Подробнее о правиле `Self` читайте в [видах правил групп безопасности](../concepts/security-groups.md#rules-types).
      
      {% endnote %}
      
