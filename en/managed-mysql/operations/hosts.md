@@ -81,7 +81,7 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
 
       {% if audience != "internal" %}
 
-      * Availability zone.
+      * The availability zone.
       * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
          {% else %}
       * Subnet (if the necessary subnet is not in the list, create it).
@@ -136,17 +136,28 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
 
       ```bash
       {{ yc-mdb-my }} host add \
-        --cluster-name=<cluster name> \
-        --host zone-id=<availability zone ID>,
-        --subnet-id=<subnet ID>,
-        --backup-priority=<host priority for backups>
-        --priority=<priority for assigning the host as a master: from 0 to 100>
-
+         --cluster-name=<cluster name> \
+         --host zone-id=<availability zone ID>,`
+               `subnet-id=<subnet ID>,`
+               `assign-public-ip=<public access to the subcluster host: true or false>,`
+               `replication-source=<source host name>,`
+               `backup-priority=<host priority for backups>,`
+               `priority=<priority for assigning the host as a master: from 0 to 100>
       ```
 
-      {{ mmy-short-name }} will run the add host operation.
+      Where:
 
-      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mmy-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      * `--cluster-name` is the name of a {{ mmy-name }} cluster.
+      * `--host`: Host parameters:
+
+         * `zone-id`: {% if audience != "internal" %}[Availability zone](../../overview/concepts/geo-scope.md){% else %}Availability zone{% endif %}.
+         * `subnet-id`: {% if audience != "internal" %}[Subnet ID](../../vpc/concepts/network.md#subnet){% else %}Subnet ID{% endif %}. It must be specified if the selected availability zone includes two or more subnets.
+         * `assign-public-ip` indicates whether the host is reachable from the internet over a public IP address.
+         * `replication-source` is the [replication](../concepts/replication.md) source for the host.
+         * `backup-priority` is host priority for [backups](../concepts/backup.md#size).
+         * `priority`: Priority for selecting the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+
+      The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -231,12 +242,11 @@ For each host in a {{ mmy-short-name }} cluster, you can:
 
    ```bash
    {{ yc-mdb-my }} host update <host name> \
-     --cluster-name=<cluster name> \
-     --replication-source=<source host name> \
-     --assign-public-ip=<public access to the host: true or false> \
-     --backup-priority=<host priority for backups: from 0 to 100>
-     --priority=<priority for assigning the host as a master: from 0 to 100>
-
+      --cluster-name=<cluster name> \
+      --replication-source=<source host name> \
+      --assign-public-ip=<public access to the host: true or false> \
+      --backup-priority=<host priority for backups: from 0 to 100> \
+      --priority=<priority for assigning the host as a master: from 0 to 100>
    ```
 
    Where:
@@ -285,11 +295,17 @@ For each host in a {{ mmy-short-name }} cluster, you can:
 - API
 
    To change the parameters of the host, use the [updateHosts](../api-ref/Cluster/updateHosts.md) API method and pass the following in the query:
-   1. In the `clusterId` parameter, the ID of the cluster where you want to change the host.
-   1. In the `updateHostSpecs.hostName` parameter, the name of the host you want to change.
-   1. New host settings in one or more `hostSpecs` parameters.
 
-   You can request the host name with a [list of hosts in the cluster](#list), and the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+
+   * Configuration array for hosts to update in the `updateHostsSpecs` parameter.
+
+      For each host, specify:
+
+      * Name in the `hostName` field.
+      * List of settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
