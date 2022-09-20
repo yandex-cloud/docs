@@ -531,7 +531,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
    -{% if product == "yandex-cloud" %}*`--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).{% endif %}
 
-   * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
+   * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
    * `--metrika-access` enables [data import from AppMetrica into a cluster]{% if lang == "ru" %}(https://appmetrica.yandex.ru/docs/common/cloud/about.html){% endif %}{% if lang == "en" %}(https://appmetrica.yandex.com/docs/common/cloud/about.html){% endif %}. Default value: `false`.
 

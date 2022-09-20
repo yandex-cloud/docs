@@ -359,7 +359,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    {% if product == "yandex-cloud" %}*`--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).{% endif %}
 
-   * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
+   * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
    {% if product == "yandex-cloud" %}* `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.{% endif %}
 
