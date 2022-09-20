@@ -82,13 +82,13 @@
 
 ## Предыдущие релизы {#previous-releases}
 
-## Версия 0.95.0 (02.09.22)
+### Версия 0.95.0 (02.09.22)
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 {% if product == "yandex-cloud" and audience != "internal" %}
 
-#### {{ api-gw-name }} {#api-gw}
+##### {{ api-gw-name }} {#api-gw}
 
 * В команду `yc serverless api-gateway add-domain` добавлены параметры:
   
@@ -108,7 +108,7 @@
 
 {% if audience != "internal" %}
 
-#### {{ certificate-manager-name }} {#certificate-manager}
+##### {{ certificate-manager-name }} {#certificate-manager}
 
 * В команду `yc certificate-manager certificate content` добавлен параметр `--key-format` для выбора формата приватного ключа: `PKCS1` или `PKCS8`.
 
@@ -117,7 +117,7 @@
 
 {% if audience != "internal" %}
 
-#### {{ compute-name }} {#compute}
+##### {{ compute-name }} {#compute}
 
 * В команду `yc compute image create` добавлен параметр `--os-type` для указания типа операционной системы создаваемого образа: `linux` или `windows`.
 
@@ -126,7 +126,7 @@
 
 {% if audience != "internal" %}
 
-#### {{ dns-name }} {#dns}
+##### {{ dns-name }} {#dns}
 
 * Команды `yc dns zone add-records`, `yc dns zone update-records`, `yc dns zone delete-records` и `yc dns zone replace-records` теперь возвращают список выполненных изменений.
 
@@ -135,7 +135,7 @@
 
 {% if audience != "internal" %}
 
-#### {{ iam-name }} {#iam}
+##### {{ iam-name }} {#iam}
 
 * В группе команд `yc iam federation` исправлена ошибка, возникавшая при указании имени SAML-совместимой федерации как позиционного аргумента.
 
@@ -144,7 +144,7 @@
 
 {% if product == "yandex-cloud" and audience != "internal" %}
 
-#### {{ iot-name }} {#iot}
+##### {{ iot-name }} {#iot}
 
 * Команды `yc iot registry logs` и `yc iot device logs` теперь возвращают логи из {{ cloud-logging-name }}. В команды добавлены параметры:
 
@@ -156,7 +156,7 @@
 {% endif %}
 
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mkf-name }}**
 
@@ -173,7 +173,7 @@
 
 {% if audience != "internal" %}
 
-#### {{ org-name }} {#organization}
+##### {{ org-name }} {#organization}
 
 * В команды из группы `yc organization-manager federation saml` добавлен параметр `--organization-id` для указания идентификатора организации. Исправлена ошибка, возникавшая в этих командах при указании имени SAML-совместимой федерации как позиционного аргумента.
 * Добавлена группа команд `yc organization-manager group` для управления [группами пользователей](../organization/manage-groups.md).
