@@ -20,28 +20,28 @@ To view detailed information about the {{ mms-name }} cluster status:
 
 The following charts open on the page:
 
-* **Active Transactions [count]**: The number of active transactions per host.
+* **Active transactions**: The number of active transactions per host.
 
-* **Batch Requests/sec**: The number of batch operations performed on each host per second. For more information about batch operations, see the [{{ MS }} documentation]({{ ms.docs }}/sql/odbc/reference/develop-app/batches-of-sql-statements).
+* **Batch requests/sec**: The number of batch operations performed on each host per second. For more information about batch operations, see the [{{ MS }} documentation]({{ ms.docs }}/sql/odbc/reference/develop-app/batches-of-sql-statements).
 
-* **CPU**: The load on processor cores. As the load goes up, the `percent_idle_time` value goes down.
+* **CPU usage**: The load on processor cores. As the load goes up, the `percent_idle_time` value goes down.
 
-* **Disk capacity on primary, [bytes]**: Disk space usage on the [primary replica](../concepts/replication.md) (in bytes).
+* **Disk space usage on primary**: Disk space usage on the [primary replica](../concepts/replication.md) (in bytes).
 
-* **Is alive [bool]**: Shows cluster availability as the sum of its hosts' states. Each **Alive** host increases the overall availability by 1.
+* **Is alive, [boolean]**: Shows cluster availability as the sum of its hosts' states. Each **Alive** host increases the overall availability by 1.
 
-* **Is Primary [bool]**: Shows which host is the primary replica and for how long.
+* **Is primary, [boolean]**: Shows which host is the primary replica and for how long.
 
-* **Lazy Writes/sec on primary**: The physical write speed on the primary replica. {{ MS }} splits data writes to more efficiently work with storage:
+* **Lazy writes/sec on primary**: The physical write speed on the primary replica. {{ MS }} splits data writes to more efficiently work with storage:
 
    * _Logical writes_: Updating data in RAM.
    * _Physical writes_: Writing modified pages from RAM to storage.
 
    For more information, see the [{{ MS }} documentation]({{ ms.docs }}/sql/relational-databases/writing-pages).
 
-* **Memory Grants Pending on primary**: The number of queries waiting for a memory grant. For more information, see the [{{ MS }} documentation]({{ ms.docs }}/sql/relational-databases/memory-management-architecture-guide).
+* **Memory grants pending on primary**: The number of queries waiting for a memory grant. For more information, see the [{{ MS }} documentation]({{ ms.docs }}/sql/relational-databases/memory-management-architecture-guide).
 
-* **Page Life Expectancy [sec]**: Shows how long (in seconds) pages stay in memory before they're written to storage. The larger its value, the more efficiently the buffer is used and the less often the cluster has to access storage to fetch the necessary data.
+* **Page life expectancy**: Shows how long (in seconds) pages stay in memory before they're written to storage. The larger its value, the more efficiently the buffer is used and the less often the cluster has to access storage to fetch the necessary data.
 
 * **Transactions/sec on primary**: The average number of transactions executed on the primary replica per second.
 
@@ -58,25 +58,25 @@ To view detailed information about the status of individual {{ mms-name }} hosts
 
 This page displays the following charts:
 
-* **Active Transactions**: The number of active transactions per database.
+* **Active transactions**: The number of active transactions per database.
 
-* **Bytes send/received**: The speed of data exchange over the network (bytes per second).
+* **Bytes sent/received**: The speed of data exchange over the network (bytes per second).
 
-* **CPU (processor time)**: CPU usage.
+* **CPU usage**: CPU usage.
 
-* **Disk Latency**: Waiting time for disk operations:
+* **Disk latency**: Waiting time for disk operations:
 
    * **avg.\_disk_sec/transfer**: The average time it takes to perform disk operations.
    * **avg.\_disk_sec/write**: The average data write time.
    * **avg.\_disk_sec/read**: The average data read time.
 
-* **Disk bytes**: The speed of disk operations (bytes per second).
+* **Disk read/write bytes/sec**: The speed of disk operations (bytes per second).
 
 * **Disk read/write time**: Disk usage (%).
 
-* **Memory Grants Pending**: The number of queries waiting for a memory grant.
+* **Memory grants pending**: The number of queries waiting for a memory grant.
 
-* **Packets send/received**: The number of processed network packets:
+* **Packets sent/received**: The number of processed network packets:
 
    * **packets_received_discarded**: The number of discarded packets.
 
@@ -93,9 +93,9 @@ This page displays the following charts:
    * **packets_received_persec**: Shows how many packets are received from the network per second.
    * **packets_sent_persec**: Shows how many packets are sent to the network per second.
 
-* **Page Life Expectancy**: Shows how long (in seconds) pages stay in memory before they're flushed to storage. The larger its value, the more efficiently the buffer is used and the less often the cluster has to access storage to read and write the necessary data.
+* **Page life expectancy**: Shows how long (in seconds) pages stay in memory before they're flushed to storage. The larger its value, the more efficiently the buffer is used and the less often the cluster has to access storage to read and write the necessary data.
 
-* **SQL Errors [count]**: The number of SQL query handling errors:
+* **SQL errors**: The number of SQL query handling errors:
 
    * **User_Errors**: User errors.
    * **Kill_Connection_Errors**: Fatal errors that killed the connection.
@@ -103,7 +103,7 @@ This page displays the following charts:
    * **DB_Offline_Errors**: Errors due to DB unavailability.
    * **Total**: The total number of errors on the host.
 
-* **Space used/available**: Shows how much disk space is used and available (in bytes).
+* **Disk space usage**: Shows how much disk space is used and available (in bytes).
 
    * **avg._disk_sec/transfer**: The average time it takes to perform I/O operations.
    * **avg.\_disk_sec/write**: The average data write time.

@@ -27,14 +27,15 @@ The following charts are displayed on the tab:
 * **Average query time**: The average time it takes to execute queries on each host (in milliseconds).
 * **Connections**: The number of connections on each host.
 * **Disk usage**: Shows how much disk space (in bytes) is used on each host and in the entire cluster.
-* **Is Alive**: Indicates cluster accessibility as the sum of its hosts' states.
+* **Is alive, [boolean]**: Indicates cluster accessibility as the sum of its hosts' states.
 
    Each **Alive** host increases the overall availability by 1. When one of the hosts fails, the overall availability is reduced by 1.
 
 
    To increase the availability of a cluster, [add hosts](hosts.md#add).
 
-* **Is Primary**: Shows which host is the master and for how long.
+* **Is primary, [boolean]**: Indicates which host is the master and for how long.
+* **Free space**: Free disk space for each host (in bytes).
 * **Queries per second**: The total number of queries per second on each host.
 * **Replication lag**: The number of seconds that the replica lags behind the master.
 * **Slow queries per second**: The number of SQL queries per second running longer than specified in the `long_query_time` [parameter](../concepts/settings-list.md#setting-long-query-time) for each host.
@@ -50,7 +51,7 @@ The **Master overview** section shows detailed information about the master:
    * **temp tablespace**: The volume used by data in the temporary tablespace.
    * **undo tablespace**: The volume used by data in the [InnoDB undo tablespace](https://dev.mysql.com/doc/refman/8.0/en/innodb-undo-tablespaces.html).
 * **InnoDB locks**: The number of InnoDB table locks. For more information about metrics, see the [{{ MY }} documentation]({{ mysql-vars-uri }}).
-* **InnoDB rows operation**: The number of operations with InnoDB table rows. For more information about metrics, see the [{{ MY }} documentation]({{ mysql-vars-uri }}).
+* **InnoDB rows operations**: The number of operations with InnoDB table rows. For more information about metrics, see the [{{ MY }} documentation]({{ mysql-vars-uri }}).
 * **Query quantiles**: The quantiles of the average query execution time.
 * **Sorts and joins**: The proportion of sort and join operations in the total number of operations. For more information about metrics, see the [{{ MY }} documentation]({{ mysql-vars-uri }}).
 * **Table cache**: Cached table characteristics. For more information about metrics, see the [{{ MY }} documentation]({{ mysql-vars-uri }}).
@@ -65,7 +66,7 @@ The **Master overview** section shows detailed information about the master:
 
       If the chart is close to the maximum value, it may mean that open connections can't be closed.
 
-      The maximum value is set by the `max_connections` [parameter](../concepts/settings-list.md#setting-max-connections) .
+      The maximum value is set by the `max_connections` [parameter](../concepts/settings-list.md#setting-max-connections).
 
    * **Threads running**: The number of running threads.
 
@@ -82,7 +83,7 @@ To view detailed information about the status of individual {{ mmy-name }} hosts
 
 This page displays charts showing the load on an individual host in the cluster:
 
-* **CPU usage**: Usage of processor cores. As the load goes up, the **Idle** value goes down.
+* **CPU usage**: Usage of processor cores. As the load goes up, the **idle** value goes down.
 * **Disk read/write bytes**: The speed of disk operations (bytes per second).
 * **Disk IOPS**: The number of disk operations per second.
 
@@ -103,10 +104,11 @@ The **MySQL overview** section shows detailed information about the DBMS state o
    * **relaylogs**, **binlogs**: The volume used by {{ MY }} service logs. For more information about [binlogs](https://dev.mysql.com/doc/refman/8.0/en/mysqlbinlog.html) and [relaylogs](https://dev.mysql.com/doc/refman/8.0/en/replica-logs-relaylog.html), see the {{ MY }} documentation.
    * **temp tablespace**: The volume used by data in the temporary tablespace.
    * **undo tablespace**: The volume used by data in the [InnoDB undo tablespace](https://dev.mysql.com/doc/refman/8.0/en/innodb-undo-tablespaces.html).
+* **Inode usage**: The used number of inodes.
 * **File IO read bytes**: Data read rate (bytes per second).
 * **File IO read operations**: The average number of file read operations (per second). For more information about operations, see the [{{ MY }} documentation]({{ mysql-vars-uri }}).
 * **File IO write bytes**: Data write rate (bytes per second).
-* **File IO write operations**: The  average number of file write operations (per second). For more information about operations, see the [{{ MY }} documentation]({{ mysql-vars-uri }}).
+* **File IO write operations**: The average number of file write operations (per second). For more information about operations, see the [{{ MY }} documentation]({{ mysql-vars-uri }}).
 * **Handlers**: The number of handlers of various operations. For more information, see the [{{ MY }} documentation]({{ mysql-vars-uri }}).
 * **InnoDB cache efficiency**: InnoDB cache performance indicators. For more information about metrics, see the [{{ MY }} documentation]({{ mysql-vars-uri }}).
 * **InnoDB data operations**: The number of InnoDB operations:
@@ -133,17 +135,19 @@ The **MySQL overview** section shows detailed information about the DBMS state o
 
       If the chart is close to the maximum value, it may mean that open connections can't be closed.
 
-      The maximum value is set by the `max_connections` [parameter](../concepts/settings-list.md#setting-max-connections) .
+      The maximum value is set by the `max_connections` [parameter](../concepts/settings-list.md#setting-max-connections).
 
    * **Threads running**: The number of running threads.
 
       As the load on the host increases, this value grows rapidly.
 
+{% if audience != "internal" %}
+
 ## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
 
@@ -156,7 +160,7 @@ The **MySQL overview** section shows detailed information about the DBMS state o
 
    1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
 
-   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. {% if audience == "external" %}For more on the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). {% endif %}
+   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
 
    1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
 
@@ -178,8 +182,8 @@ Recommended threshold values:
 
 You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).
 
-{% if audience != "internal" %}
 For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-mysql).
+
 {% endif %}
 
 ## Cluster state and status {#cluster-health-and-status}
