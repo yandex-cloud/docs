@@ -101,6 +101,9 @@ items:
       - name: Запуск распределенного обучения
         href: operations/taas-run.md
         when: product == "yandex-cloud"
+      - name: Как перенести работу в новый интерфейс
+        href: operations/migration.md
+        when: product == "yandex-cloud"        
   - name: Концепции
     items:
       - name: О сервисе DataSphere
