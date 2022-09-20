@@ -20,7 +20,9 @@ description: "Из статьи вы узнаете, как работать с 
 
 * [{#T}](applications/marketplace.md)
 * [{#T}](applications/argo-cd.md)
+* [{#T}](applications/csi-s3.md)
 * [{#T}](applications/crossplane.md)
+* [{#T}](applications/external-secrets-operator.md)
 * [{#T}](applications/fluentbit.md)
 * [{#T}](applications/hashicorp-vault.md)
 * [{#T}](applications/alb-ingress-controller.md)

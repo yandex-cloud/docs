@@ -2,6 +2,10 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## 01.09.2022 {#01.09.2022}
+
+* На вкладке [мониторинга кластера](operations/monitoring.md#monitoring-cluster) добавлены графики `Inode usage`, `Memory usage` и `Free space`.
+
 ## 01.08.2022 {#01.08.2022}
 
 * [Прекращена](https://www.postgresql.org/about/news/postgresql-143-137-1211-1116-and-1021-released-2449/) поддержка {{ PG }} версии 10. С 15 августа недоступно создание новых кластеров этой версии, а с 1 сентября запланировано автоматическое обновление кластеров в рамках окна обслуживания. О том, как обновить кластер самостоятельно, см. в разделе [{#T}](operations/cluster-version-update.md).

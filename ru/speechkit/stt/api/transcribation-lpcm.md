@@ -1,78 +1,121 @@
 # Распознавание речи в формате LPCM 
 
-Чтобы распознать речь в формате [LPCM](../../formats.md#lpcm), в настройках распознавания укажите частоту дискретизации файла и количество аудиоканалов. Язык распознавания укажите в поле `languageCode`, языковую модель задайте в поле `model`.
+Пример показывает, как с помощью [API v2](transcribation-api.md) распознать речь, записанную в аудиофайле формата LPCM, в режиме асинхронного распознавания.
 
-{% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
 
-1. Сформируйте тело запроса и сохраните его в файл, например `body.json`:
+В примере заданы следующие параметры:
 
-   {% note info %}
+* [язык](../index.md#langs) — русский;
+* [языковая модель](../models.md) — `general:rc`;
+* формат передаваемого аудиофайла — [LPCM](../../formats.md#LPCM) с частотой дискретизации 8000 Гц;
+* [количество аудиоканалов](transcribation-api.md#sendfile-params) — 1 (значение по умолчанию);
+* остальные параметры оставлены по умолчанию.
 
-   Чтобы использовать языковую модель по умолчанию, не передавайте поле `model` в запросе.
+{% note info %}
 
-   {% endnote %}
+Чтобы использовать значение параметра по умолчанию, не передавайте этот параметр в запросе.
 
-    ```json
-    {
-        "config": {
-            "specification": {
-                "languageCode": "ru-RU",
-                "model": "general:rc",
-                "audioEncoding": "LINEAR16_PCM",
-                "sampleRateHertz": 8000,
-                "audioChannelCount": 1
-            }
-        },
-        "audio": {
-            "uri": "https://storage.yandexcloud.net/speechkit/speech.pcm"
-        }
-    }
-    ```
+{% endnote %}
 
-1. Отправьте запрос на распознавание, в параметре `IAM_TOKEN` укажите [IAM-токен](../../../iam/concepts/authorization/iam-token/):
+Формирование и отправка запроса к серверу, выполняющему распознавание, происходит с помощью утилиты [cURL](https://curl.haxx.se).
 
-    ```bash
-    export IAM_TOKEN=<IAM-токен>
-    curl -X POST \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d '@body.json' \
-        https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
+Аутентификация происходит от имени сервисного аккаунта с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Подробнее об [аутентификации в API {{speechkit-name}}](../../concepts/auth.md).
 
-    {
-        "done": false,
-        "id": "e03sup6d5h1qr574ht99",
-        "createdAt": "2019-04-21T22:49:29Z",
-        "createdBy": "ajes08feato88ehbbhqq",
-        "modifiedAt": "2019-04-21T22:49:29Z"
-    }
-    ```
+{% list tabs %}
 
-   Сохраните идентификатор операции распознавания, полученный в ответе.
-1. Подождите немного, пока закончится распознавание. 1 минута одноканального аудио распознается примерно за 10 секунд.
-1. Отправьте запрос на [получение информации об операции](../../../api-design-guide/concepts/operation.md#monitoring):
+- cURL
 
-    ```bash
-    curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-        https://operation.{{ api-host }}/operations/e03sup6d5h1qr574ht99
+  1. Создайте файл, например `body.json`, и добавьте в него следующий код:
 
-    {
-    "done": true, "response": {
-     "@type": "type.googleapis.com/yandex.cloud.ai.stt.v2.LongRunningRecognitionResponse",
-     "chunks": [
+      ```json
       {
-       "alternatives": [
-        {
-         "text": "привет мир",
-         "confidence": 1
-        }
-       ],
-       "channelTag": "1"
+          "config": {
+              "specification": {
+                  "languageCode": "ru-RU",
+                  "model": "general:rc",
+                  "audioEncoding": "LINEAR16_PCM",
+                  "sampleRateHertz": 8000,
+                  "audioChannelCount": 1
+              }
+          },
+          "audio": {
+              "uri": "https://storage.yandexcloud.net/speechkit/speech.pcm"
+          }
       }
-     ]
-    },
-    "id": "e03sup6d5h1qr574ht99",
-    "createdAt": "2019-04-21T22:49:29Z",
-    "createdBy": "ajes08feato88ehbbhqq",
-    "modifiedAt": "2019-04-21T22:49:36Z"
-   }
-    ```
+      ```
+
+      Где:
+
+      * `languageCode` — [язык](../index.md#langs), для которого будет выполнено распознавание.
+      * `model` — [языковая модель](../models.md).
+      * `audioEncoding` — [формат](../../formats.md) передаваемого аудиофайла.
+      * `sampleRateHertz` — частота дискретизации аудиофайла.
+      * `audioChannelCount` — количество аудиоканалов.
+      * `uri` — ссылка на аудиофайл в {{ objstorage-name }}.
+
+  1. Выполните созданный файл:
+
+      ```bash
+      export IAM_TOKEN=<IAM-токен>
+      curl -X POST \
+          -H "Authorization: Bearer ${IAM_TOKEN}" \
+          -d "@body.json'"\
+          https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
+      ```
+
+      Где `IAM_TOKEN` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта.
+
+      Результат:
+
+      ```bash
+      {
+          "done": false,
+          "id": "e03sup6d5h1qr574ht99",
+          "createdAt": "2019-04-21T22:49:29Z",
+          "createdBy": "ajes08feato88ehbbhqq",
+          "modifiedAt": "2019-04-21T22:49:29Z"
+      }
+      ```
+
+      Сохраните идентификатор (`id`) операции распознавания, полученный в ответе.
+
+  1. Подождите немного, пока закончится распознавание. Одна минута одноканального аудио распознается примерно за 10 секунд.
+  1. Отправьте запрос на [получение информации об операции](../../../api-design-guide/concepts/operation.md#monitoring):
+
+      ```bash
+      curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+          https://operation.{{ api-host }}/operations/e03sup6d5h1qr574ht99
+      ```
+      
+      Результат:
+
+      ```bash
+      {
+      "done": true, "response": {
+       "@type": "type.googleapis.com/yandex.cloud.ai.stt.v2.LongRunningRecognitionResponse",
+       "chunks": [
+        {
+         "alternatives": [
+          {
+           "text": "привет мир",
+           "confidence": 1
+          }
+         ],
+         "channelTag": "1"
+        }
+       ]
+      },
+      "id": "e03sup6d5h1qr574ht99",
+      "createdAt": "2019-04-21T22:49:29Z",
+      "createdBy": "ajes08feato88ehbbhqq",
+      "modifiedAt": "2019-04-21T22:49:36Z"
+      }
+      ```
+
+{% endlist %}
+
+#### См. также {#see-also}
+
+* [{#T}](transcribation-api.md)
+* [{#T}](transcribation-ogg.md)
+* [{#T}](../../concepts/auth.md)

@@ -19,3 +19,13 @@ After you make the changes, [re-activate](../operations/transfer.md#activate) th
 ## Exceeding the connection time-to-live quota {#conn-duration-quota}
 
 {{ mpg-full-name }} has a connection time-to-live quota of 12 hours. If transfering a database requires more time, please contact [technical support](../../support/overview.md) to have your quota increased.
+
+## Error switching the master {#master-change}
+
+In certain cases, _{{ dt-type-repl }}_ or _{{ dt-type-copy-repl }}_ transfers in a {{ PG }} multi-host source cluster may terminate if there is a master host change. This occurs when the Write Ahead Log (WAL) logical replication lag between the current master and a replica is greater than the allowable WAL size on other hosts. When switching from the master to the replica, the replication slot cannot sync to the WAL on the new master because required WAL chunks are missing.
+
+To resolve the problem, set a limit through the [source endpoint setting](../operations/endpoint/source/postgresql#additional-setting) **Maximum WAL size per replication slot** and re-activate the transfer.
+
+## Error when transfering nested tables {#inner-tables}
+
+In transfers involving {{ PG }} below version 14, there is an error when transfering a transaction that is nested over 1024 times when each nesting level has changes to replicate. The degree of nesting depends on the number of nested `begin; .. commit;` statements.

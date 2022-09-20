@@ -4,6 +4,9 @@ noIndex: true
 items:
   - name: System requirements
     href: system-requirements.md
+  - name: CPU system requirements
+    href: system-requirements-cpu.md
+    hidden: true
   - name: Speech synthesis
     items:
       - name: About the technology
@@ -18,7 +21,7 @@ items:
         href: stt/testing.md
   - name: Monitoring
     href: monitoring.md
-  - name: gRPC API references
+  - name: gRPC API reference
     items:
       - name: Authentication in the API
         href: auth.md

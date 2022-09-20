@@ -1,10 +1,10 @@
 # Speech recognition
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 1. Install [Docker Engine](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/) on your server.
 
-1. [Log in](../../container-registry/operations/authentication) to Container Registry.
+1. [Authenticating](../../container-registry/operations/authentication) in Container Registry.
 
 For the recommended hardware configuration, see [{#T}](../system-requirements.md).
 
@@ -33,15 +33,13 @@ For the recommended hardware configuration, see [{#T}](../system-requirements.md
    ```
 
 1. Wait until the service loads
-
    ```bash
-   stt-server
+   docker logs stt-server
    ```
 
-   ```
+   ```text
    stt-server  | Server listening on 0.0.0.0:50053
    stt-server  | Waiting for join...
    ```
 
 The speech recognition service will be available on TCP port **8080**.
-

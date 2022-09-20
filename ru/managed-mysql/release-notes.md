@@ -2,6 +2,10 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## 01.09.2022 {#01.09.2022}
+
+* Добавлены графики `Free space` на вкладке [мониторинга кластера](operations/monitoring.md#monitoring-cluster) и `Inode usage` на странице [мониторинга хостов](operations/monitoring.md#monitoring-hosts). {{ tag-con }}
+
 ## 01.08.2022 {#01.08.2022}
 
 * Добавлена настройка `binlog_transaction_dependency_tracking`.
