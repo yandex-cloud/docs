@@ -2,9 +2,9 @@
 
 You can connect to the [Yandex Disk]{% if lang == "ru" %}(https://disk.yandex.ru){% endif %}{% if lang == "en" %}(https://disk.yandex.com){% endif %} file storage service from the {{ ml-platform-name }} interface.
 
-## Before you start {#before-begin}
+## Before you begin {#before-begin}
 
-1. [Register]{% if lang == "ru" %}(https://yandex.ru/dev/id/doc/dg/oauth/tasks/register-client.html){% endif %}{% if lang == "en" %}(https://yandex.com/dev/id/doc/dg/oauth/tasks/register-client.html){% endif %} your project as an application in Yandex.OAuth:
+1. [Register]{% if lang == "ru" %}(https://yandex.ru/dev/id/doc/dg/oauth/tasks/register-client.html){% endif %}{% if lang == "en" %}(https://yandex.com/dev/id/doc/dg/oauth/tasks/register-client.html){% endif %} your project as an application in Yandex OAuth:
    1. Go to the [application creation page]{% if lang == "ru" %}(https://oauth.yandex.ru/client/new){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/client/new){% endif %} and log in using your [Yandex ID]{% if lang == "ru" %}(https://yandex.ru/support/id/index.html){% endif %}{% if lang == "en" %}(https://yandex.com/support/id/index.html){% endif %}.
    1. In the **App name** field, specify the name of your project in {{ ml-platform-name }}.
    1. Under **Platforms**, select **Web services**.
@@ -22,7 +22,7 @@ You can connect to the [Yandex Disk]{% if lang == "ru" %}(https://disk.yandex.ru
 1. {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 
 
-## Upload the contents from a file on Yandex Disk to a {{ ml-platform-name }} project file {#get-file}
+## Uploading the contents from a file on Yandex Disk to a {{ ml-platform-name }} project file {#get-file}
 
 1. Go to a new cell and copy the command to import the contents from a file on Yandex Disk to it:
 
@@ -34,14 +34,14 @@ You can connect to the [Yandex Disk]{% if lang == "ru" %}(https://disk.yandex.ru
 
    Where:
 
-   * `<application_ID>` is the ID of the application registered in Yandex.OAuth.
-   * `<application_password>` is the password of the application registered in Yandex.OAuth.
-   * `<Yandex_Disk_file_path>` is the path to the file on Yandex Disk, whose contents need to be uploaded to {{ ml-platform-name }}.
-   * `<{{ ml-platform-name }}_project_file_path>` is the path to the {{ ml-platform-name }} project file that data is imported to.
+   * `<application_ID>` is the ID of the application registered in Yandex OAuth.
+   * `<application_password>` is the password of the application registered in Yandex OAuth.
+   * `<Yandex_Disk_file_path>` is the path to the file on Yandex Disk whose contents need to be uploaded to {{ ml-platform-name }}.
+   * `<{{ ml-platform-name }}_project_file_path>` is the path to the {{ ml-platform-name }} project file to import data to.
 
 1. Run the cell. To do this, choose **Run** → **Run Selected Cells** or press **Shift** + **Enter**.
 
-## Upload the contents from a folder on Yandex Disk to a {{ ml-platform-name }} project folder {#get-dir}
+## Uploading the contents from a folder on Yandex Disk to a {{ ml-platform-name }} project folder {#get-dir}
 
 1. Go to a new cell and copy the command to import the contents from a folder on Yandex Disk to it:
 
@@ -53,14 +53,14 @@ You can connect to the [Yandex Disk]{% if lang == "ru" %}(https://disk.yandex.ru
 
    Where:
 
-   * `<application_ID>` is the ID of the application registered in Yandex.OAuth.
-   * `<application_password>` is the password of the application registered in Yandex.OAuth.
-   * `<Yandex_Disk_folder_path>` is the path to the folder on Yandex Disk, whose contents need to be uploaded to {{ ml-platform-name }}.
-   * `<{{ ml-platform-name }}_project_folder_path>` is the path to the {{ ml-platform-name }} project folder that data is imported to.
+   * `<application_ID>` is the ID of the application registered in Yandex OAuth.
+   * `<application_password>` is the password of the application registered in Yandex OAuth.
+   * `<Yandex_Disk_folder_path>` is the path to the folder on Yandex Disk whose contents need to be uploaded to {{ ml-platform-name }}.
+   * `<{{ ml-platform-name }}_project_folder_path>` is the path to the {{ ml-platform-name }} project folder to import data to.
 
 1. Run the cell.
 
-## Upload the contents from a {{ ml-platform-name }} project file to a file on Yandex Disk {#put-file}
+## Uploading the contents from a {{ ml-platform-name }} project file to a file on Yandex Disk {#put-file}
 
 1. Go to a new cell and copy the command to upload the contents from a {{ ml-platform-name }} project file on Yandex Disk to it:
 
@@ -72,14 +72,14 @@ You can connect to the [Yandex Disk]{% if lang == "ru" %}(https://disk.yandex.ru
 
    Where:
 
-   * `<application_ID>` is the ID of the application registered in Yandex.OAuth.
-   * `<application_password>` is the password of the application registered in Yandex.OAuth.
+   * `<application_ID>` is the ID of the application registered in Yandex OAuth.
+   * `<application_password>` is the password of the application registered in Yandex OAuth.
    * `<{{ ml-platform-name }}_project_file_path>` is the path to the {{ ml-platform-name }} project file whose contents need to be uploaded to Yandex Disk.
-   * `<Yandex_Disk_file_path>` is the path to the file on Yandex Disk that the data is uploaded to.
+   * `<Yandex_Disk_file_path>` is the path to the file on Yandex Disk to upload data to.
 
 1. Run the cell.
 
-## Upload the contents from a {{ ml-platform-name }} project folder to a folder on Yandex Disk {#put-dir}
+## Uploading the contents from a {{ ml-platform-name }} project folder to a folder on Yandex Disk {#put-dir}
 
 1. Go to a new cell and copy the command to upload the contents from a {{ ml-platform-name }} project folder on Yandex Disk to it:
 
@@ -91,9 +91,9 @@ You can connect to the [Yandex Disk]{% if lang == "ru" %}(https://disk.yandex.ru
 
    Where:
 
-   * `<application_ID>` is the ID of the application registered in Yandex.OAuth.
-   * `<application_password>` is the password of the application registered in Yandex.OAuth.
+   * `<application_ID>` is the ID of the application registered in Yandex OAuth.
+   * `<application_password>` is the password of the application registered in Yandex OAuth.
    * `<{{ ml-platform-name }}_project_folder_path>` is the path to the {{ ml-platform-name }} project folder whose contents need to be uploaded to Yandex Disk.
-   * `<Yandex_Disk_folder_path>` is the path to the folder on Yandex Disk that data is uploaded to.
+   * `<Yandex_Disk_folder_path>` is the path to the folder on Yandex Disk to upload data to.
 
 1. Run the cell.

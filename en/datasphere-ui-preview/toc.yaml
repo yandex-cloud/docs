@@ -48,6 +48,8 @@ items:
             href: operations/projects/install-dependencies.md
           - name: Reset the interpreter state
             href: operations/projects/clear-kernel-state.md
+          - name: Notebook code snippets
+            href: operations/projects/snippets.md
           - name: Working with Git
             href: operations/projects/work-with-git.md
           - name: Run a Docker container in a separate cell
