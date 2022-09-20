@@ -8,7 +8,7 @@
 
 ## Запрос {#request}
 
-`POST`-запрос на адрес `/{folder_id}/queries/{query_id}/stop`, где `{folder_id}` - идентификатор фолдера, а `{query_id}` - идентификатор запроса. 
+`POST`-запрос на адрес `/queries/{query_id}/stop?project={folder_id}`, где `{folder_id}` - идентификатор фолдера, а `{query_id}` - идентификатор запроса. 
 
 ## Ответ {#response}
 
@@ -23,7 +23,7 @@
 Запрос: 
 ```
 curl -X 'POST' \
-  'http://localhost:3000/v1/{folder_id}/queries/{query_id}/stop' \
+  'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries/cseugn35bc3r5lrmbnt7/stop?project=b1gaue5b382mmmlolb1k' \
   -H 'accept: */*' \
   -d ''
 ```

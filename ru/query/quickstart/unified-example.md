@@ -4,7 +4,9 @@
 
 В примере ниже рассчитаем количество совершаемых поездок в такси и их стоимость, которые выполняются только в определенных локациях над аналитическими и потоковыми данными с помощью единого запроса. Оба запроса используют хранимый в {{ objstorage-full-name }} справочник для фильтрации данных в запросе.
 
-В данном примере будет использоваться заранее подготовленный набор данных - генератор данных про поездки Нью-Йоркского такси, по нему будем рассчитывать число поездок и их стоимость за временной интервал. Данные заранее размещены в {{ objstorage-full-name }} в общедоступном бакете `yq-sample-data` в каталоге `nyc_taxi_csv`
+В данном примере будут использоваться два заранее подготовленных набора данных:
+1. Потоковый генератор данных про поездки Нью-Йоркского такси, по нему будем рассчитывать число поездок и их стоимость за временной интервал. Генератор запускается в рамках инфраструктуры обучения {{yq-full-name}}.
+1. Аналитические данные заранее размещены в {{ objstorage-full-name }} в общедоступном бакете `yq-sample-data` в каталоге `tutorial`.
 
 {% note info %}
 
@@ -12,11 +14,9 @@
 
 {% endnote %}
 
-
 Для этого необходимо:
-1. [Настроить реквизиты подключения к {{yds-full-name}}](#credentials).
-1. [Создать поток данных {{yds-full-name}}](#create_stream).
-1. [Запустить генератор потоковых данных](#generator_start).
+1. [Создать инфраструктуру для потоковых данных](#generator_start).
+1. [Создать инфраструктуру для аналитических данных](#batch_start).
 1. [Выполнить аналитический запрос](#run_query_analytics).
 1. [Выполнить потоковый запрос](#run_query_streaming).
 
@@ -24,28 +24,25 @@
 ## Подготовительные шаги {#prepare}
 Для начала работы необходимо выполнить следующие подготовительные шаги.
 
-### Настройка реквизитов подключения к {{yds-full-name}} { #credentials }
-
-{% include [create-environment](../../_includes/data-streams/create-environment.md) %}
-
-
-### Создание потока данных {{yds-full-name}} { #create_stream }
+### Инфраструктура для потоковых данных {{yds-full-name}} { #create_stream }
 
 Создайте поток данных с именем `yellow-taxi`. Для этого выполните следующие шаги.
 
 {% include [yds-create-stream](../../_includes/data-streams/create-stream-via-console.md) %}
 
-### Запуск генератора данных { #generator_start }
+Создайте инфраструктуру для генерации данных:
 
-{% include [yellow-taxi-data-generator](../_includes/yellow-taxi-streaming-generator.md) %}
+{% include [streaming-infra](../_includes/create-tutorial-streaming-infra.md) %}
+
+По окончании создания инфраструктуры, запустится генерация данных в поток `yellow-taxi`.
+
+### Инфраструктура для аналитических данных { #batch_start }
+
+{% include [tutorial-batch](../_includes/create-tutorial-batch-infra.md) %}
+
 
 ## Выполнение аналитического запроса { #run_query_analytics }
 
-Для начала работы необходимо создать подключение к {{ objstorage-full-name }}:
-
-{% include [objstorage-connection-create](../_includes/create-connection.md) %}
-
-### Выполните запрос
 В редакторе запросов в интерфейсе {{ yq-full-name }} нажмите кнопку **New Analytics Query**, в текстовом поле введите текст запроса, указанный ниже.
 
 ```sql
@@ -53,38 +50,13 @@ $data =
 SELECT 
     *
 FROM 
-    `yellow-taxi`.`nyc_taxi_csv/yellow_tripdata_2018-01.csv.gz`
-WITH 
-(
-    format=csv_with_names, 
-    compression="gzip", 
-    SCHEMA 
-    (
-        VendorID Int,
-        tpep_pickup_datetime Datetime,
-        tpep_dropoff_datetime Datetime,
-        passenger_count Int,
-        trip_distance float,
-        RatecodeID String,
-        store_and_fwd_flag String,
-        PULocationID String,
-        DOLocationID String,
-        payment_type Int,
-        fare_amount Double,
-        extra String,
-        mta_tax Double,
-        tip_amount Double,
-        tolls_amount Double,
-        improvement_surcharge Double,
-        total_amount Double
-    )
-);
+    `bindings`.`tutorial-analytics`;
 
 $locations = 
 SELECT 
     PULocationID
 FROM 
-    `yellow-taxi`.`nyc_taxi_csv/example_locations.csv`
+    `tutorial-analytics`.`nyc_taxi_sample/example_locations.csv`
 WITH 
 (
     format=csv_with_names,
@@ -119,42 +91,20 @@ FROM
 
 ## Выполнение запроса к потоковым данным { #run_query_streaming }
 
-Для начала работы необходимо создать подключение:
-1. Перейдите в интерфейс {{ yq-full-name }} в раздел **Connections** и нажмите кнопку **Create**.
-1. В открывшемся окне в поле **Name** введите `yds-yellow-taxi`.
-1. В выпадающем поле **Type** выберите **Yandex Datastreams**.
-1. В поле поле **Database** выберите базу данных {{ydb-name}}, где был создан поток данных `yellow-taxi` в предыдущих пунктах.
-1. В поле **Service account** укажите сервисный аккаунт с ролью **admin**, который будет использоваться для доступа к данным. 
-1. Создать подключение, нажав кнопку **Create**.
-
-### Выполните запрос
-
 В редакторе запросов в интерфейсе {{yq-full-name}} нажмите кнопку **New streaming query**, в текстовом поле введите текст запроса, указанный ниже.
 
 ```sql
 $data = 
 SELECT 
-    CAST(DateTime::MakeDatetime(DateTime::Parse("%Y-%m-%d %H:%M:%S")(JSON_VALUE(Data, "$.tpep_pickup_datetime"))) AS Timestamp) AS tpep_pickup_datetime, 
-    JSON_VALUE(Data, "$.PULocationID") AS PULocationID,
-    CAST(JSON_VALUE(Data, "$.total_amount") AS float) AS total_amount 
-FROM
-(
-    SELECT 
-        CAST(Data AS Json) AS Data 
-    FROM 
-        `yds-yellow-taxi`.`yellow-taxi`
-    WITH 
-    (
-        format=raw
-    )
-    LIMIT 100
-);
+    *
+FROM bindings.`tutorial-streaming`
+LIMIT 10;
 
 $locations = 
 SELECT 
     PULocationID
 FROM 
-    `yellow-taxi`.`nyc_taxi_csv/example_locations.csv`
+    `tutorial-analytics`.`nyc_taxi_sample/example_locations.csv`
 WITH 
 (
     format=csv_with_names,

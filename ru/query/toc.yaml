@@ -4,7 +4,7 @@ href: index.yaml
 items:
   - name: Начало работы
     items:
-      - name: Пример анализа данных из Object Storage
+      - name: Пример анализа данных из {{objstorage-full-name}}
         href: quickstart/yellow-taxi.md
       - name: Пример анализа потоковых данных
         href: quickstart/streaming-example.md
@@ -27,11 +27,15 @@ items:
       - name: Партиционирование данных
         href: concepts/partitioning.md
       - name: Расширенное партиционирование
-        href: concepts/partition-projection.md
+        href: concepts/partition-projection.md     
     - name: Потоковая обработка данных
-      href: concepts/stream-processing.md
-    - name: Окна потоковой обработки
-      href: concepts/stream-processing-windows.md    
+      items:
+      - name: Описание
+        href: concepts/stream-processing.md
+      - name: Окна потоковой обработки
+        href: concepts/stream-processing-windows.md    
+      # - name: Watermark
+      #   href: concepts/stream-watermarks.md    
     - name: Единый анализ потоковых и аналитических данных
       href: concepts/unified-processing.md
   - name: Пошаговые инструкции
@@ -46,7 +50,7 @@ items:
     items:
       - name: Форматы данных и алгоритмы сжатия
         href: sources-and-sinks/formats.md
-      - name: Работа с Object Storage
+      - name: Работа с {{objstorage-full-name}}
         items:
           - name: Чтение данных c помощью подключений
             href: sources-and-sinks/object-storage.md
@@ -61,17 +65,21 @@ items:
           - name: Чтение данных с помощью привязок к данным
             href: sources-and-sinks/data-streams-binding.md
           - name: Запись данных
-            href: sources-and-sinks/data-streams-write.md
-      - name: Запись метрик в Monitoring
-        href: sources-and-sinks/monitoring.md
-  - name: Практические руководства
-    items:
+            href: sources-and-sinks/data-streams-write.md                
+      - name: Запись метрик в {{monitoring-full-name}}
+        href: sources-and-sinks/monitoring.md                
+  - name: Сценарии использования
+    items:        
       - name: Анализ логов Cloud Logging
         href: tutorials/cloud-logging.md
       - name: Анализ потока изменений Debezium
-        href: tutorials/debezium.md
-      - name: Просмотр отчетов DataLens на данных из Object Storage
-        href: tutorials/datalens.md
+        href: tutorials/debezium.md                
+      - name: Просмотр отчетов {{datalens-full-name}} на данных из {{objstorage-full-name}}
+        href: tutorials/datalens.md       
+      - name: Анализ аудитных логов {{at-full-name}}
+        href: tutorials/audit-trails.md                         
+      - name: Анализ файлов детализации Биллинга
+        href: tutorials/billing.md                                 
   - name: Работа с YQL
     items:
       - name: Обзор
@@ -84,12 +92,14 @@ items:
         href: yql-tutorials/sort-filter.md
       - name: Агрегирование данных
         href: yql-tutorials/basic-aggregation.md
-      - name: Дополнительные условия агрегации
+      - name: Работа с потоковыми данными
+        href: yql-tutorials/streaming-query.md        
+      - name: Дополнительные условия выборки
         href: yql-tutorials/conditional-values.md
-      - name: JSON
+      - name: Работа с JSON
         href: yql-tutorials/json.md
       - name: Выполнение запроса к потоковым данным
-        href: yql-tutorials/run-stream-query.md
+        href: yql-tutorials/streaming-query.md
   - name: HTTP API
     items:
       - name: Все методы
@@ -112,8 +122,8 @@ items:
         href: api/auth.md
       - name: Соответствие YQL и Json типов
         href: api/yql-json-conversion-rules.md
-      - name: Примеры
-        href: api/examples.md
+      # - name: Примеры
+      #   href: api/examples.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

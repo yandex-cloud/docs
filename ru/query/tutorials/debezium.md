@@ -91,7 +91,7 @@ FROM
 GROUP BY 
     HOP(`timestamp`, "PT10S", "PT10S", "PT10S"),
     table_name
- LIMIT 2;
+LIMIT 2;
 ```
 
 {% note info %}

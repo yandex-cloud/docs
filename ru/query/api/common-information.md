@@ -31,26 +31,23 @@
 ```json
 {
     "message": "Failed to parse query",
-    "code": 100,
-    "issues": 
-    [
+    "details": [
         {
-            "issues": [
-            {
-                "position": {
-                "column": 1,
-                "row": 1
-                },
-                "severity": 1,
-                "endPosition": {
-                "column": 1,
-                "row": 1
-                },
-                "message": "Column references are not allowed without FROM"
-            },
-            ],
-            "severity": 1,
-            "message": "Parse Sql"
+        "position": {
+            "row": 0,
+            "column": 0
+        },
+        "message": "string",
+        "end_position": {
+            "row": 0,
+            "column": 0
+        },
+        "issue_code": 0,
+        "severity": "FATAL",
+        "issues": [
+            "string"
+        ],
+        "status": 0
         }
     ]
 }
@@ -59,8 +56,7 @@
 |Название|Тип|Описание|Пример|
 |---|---|---|---|
 |`message`|Строка|Общее описание ошибки|"Failed to parse query"|
-|`status`|Число|**??????Код ошибки**|Может пока его не делать???|
-|`detailed`|Массив объектов [`Issue`](#issue)|Детальное описание строки с ошибкой||
+|`details`|Массив объектов [`Issue`](#issue)|Детальное описание строки с ошибкой||
 
 ### Объект Issue { #issue }
 
@@ -146,7 +142,7 @@
 |Название|Тип|Описание|Пример|
 |---|---|---|---|
 |`message`|Строка|Общее описание ошибки|"Failed to parse query"|
-|`severity`|Число|Критичность ошибки. Возможные значения: **XXXX**||
+|`severity`|Число|Критичность ошибки. Возможные значения: Info, Warn, Error, Fatal||
 |`position.row`|Число|Номер строки начала блока кода, вызвавшего ошибку||
 |`position.column`|Число|Номер символа в строке `position.row` с блоком кода, вызвавшего ошибку||
 |`endPosition.row`|Число|Номер строки конца блока кода, вызвавшего ошибку||

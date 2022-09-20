@@ -9,6 +9,7 @@
 
 |Формат сжатия|Название в {{ yq-short-name }}|
 |--|--|
+|[Gzip](https://ru.wikipedia.org/wiki/Gzip)|gzip|
 |[LZ4](https://ru.wikipedia.org/wiki/LZ4)|lz4|
 
 Формат файлов parquet поддерживает собственные внутренние алгоритмы сжатия. {{yq-full-name}} позволяет записывать данные в формате parquet с использование следующих алгоритмов сжатия:

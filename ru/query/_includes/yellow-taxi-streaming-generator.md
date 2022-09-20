@@ -34,7 +34,7 @@ def create_record(vendor_id,
                   improvement_surcharge,
                   total_amount):
     return {
-        "vendor_id": vendor_id,
+        "VendorID": str(vendor_id),
         "tpep_pickup_datetime": tpep_pickup_datetime,
         "tpep_dropoff_datetime": tpep_dropoff_datetime,
         "passenger_count": passenger_count,

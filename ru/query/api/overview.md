@@ -1,7 +1,11 @@
 # Все методы
 
-HTTP API {{ yq-full-name }} доступно по адресу [https://yq-api.cloud.yandex.ru/v1](https://yq-api.cloud.yandex.ru/v1), Open API спецификация доступна по адресу
+HTTP API {{ yq-full-name }} доступно по адресу [api.yandex-query.cloud.yandex.net](https://api.yandex-query.cloud.yandex.net/api/fq/v1).
+
+{% if yq_api_version>0.1 %}
+, Open API спецификация доступна по адресу
 [https://yq-api.cloud.yandex.ru/swagger](https://yq-api.cloud.yandex.ru/swagger).
+{% endif %}
 
 {% include [!](../_includes/api-common.md) %}
 

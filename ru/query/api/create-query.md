@@ -8,7 +8,7 @@
 
 ## Запрос {#request}
 
-`POST`-запрос на адрес `/{folder_id}/queries`, где `{folder_id}`- идентификатор фолдера, а тело запроса содержит данные в формате JSON.
+`POST`-запрос на адрес `/queries?project={folder_id}`, где `{folder_id}`- идентификатор фолдера, а тело запроса содержит данные в формате JSON.
 
 Тело запроса:
 ```json
@@ -52,7 +52,7 @@
 Запрос: 
 ```
 curl -X 'POST' \
-  'https://yq/v1/{folder_id}/queries' \
+  'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries?project=b1gaue5b382mmmlolb1k' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{

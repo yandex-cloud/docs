@@ -8,7 +8,7 @@
 
 ## Запрос {#request}
 
-`GET`-запрос на адрес `/{folder_id}/queries/{query_id}/status`, где `{folder_id}` - идентификатор фолдера, а `{query_id}` - идентификатор запроса. 
+`GET`-запрос на адрес `/queries/{query_id}/status?project={folder_id}`, где `{folder_id}` - идентификатор фолдера, а `{query_id}` - идентификатор запроса. 
 
 ## Ответ {#response}
 
@@ -34,7 +34,7 @@
 Запрос: 
 ```
 curl -X 'GET' \
-  'http://localhost:3000/v1/{folder_id}/queries/{query_id}/status' \
+  'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries/cseugn35bc3r5lrmbnt7/status?project=b1gaue5b382mmmlolb1k' \
   -H 'accept: application/json'
 }
 ```

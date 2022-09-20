@@ -18,7 +18,7 @@ GROUP BY                                -- CASE проверяет список 
     CASE                                -- и возвращает одно из нескольких возможных
         WHEN trip_distance > 10         -- выражении или с любым оператором,
         THEN "long"                     -- поддерживающим данное выражение. Например, CASE можно использовать
-        ELSE "short"                    -- в выражениях SELECT, UPDATE, DELETE,
+        ELSE "short"                    -- в выражениях SELECT
     END AS distance_type                -- и с операторами IN, WHERE, ORDER BY.
                                         -- GROUP BY можно выполнить
                                         -- для произвольного выражения.
