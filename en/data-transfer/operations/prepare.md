@@ -293,7 +293,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
       GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '<username>'@'%';
       ```
 
-   1. {% include [primary-keys-mysql](../../_includes/data-transfer/primary-keys-mysql.md) %}
+   1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-mysql.md) %}
 
       {% note info %}
 
@@ -414,7 +414,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
    1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This lets replication continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, please refer to the [Troubleshooting](../troubleshooting/postgresql.md#master-change) section.
 
-   1. {% include [primary-keys-postgresql](../../_includes/data-transfer/primary-keys-postgresql.md) %}
+   1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](./endpoint/source/postgresql.md#additional-settings).
 
@@ -454,7 +454,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
       * Windows 10, 11
 
-         1. If you don't have Microsoft Visual Studio installed yet, download and install it. To build the wal2json extension, the [Community Edition](https://visualstudio.microsoft.com/vs/community/) is sufficient. During installation, select the following components:
+         1. If you don't have Microsoft Visual Studio installed yet, download and install it. To build the wal2json extension, the [Community Edition]{% if lang == "ru" %}(https://visualstudio.microsoft.com/ru/vs/community/){% endif %}{% if lang == "en" %}(https://visualstudio.microsoft.com/vs/community/){% endif %} is sufficient. During installation, select the following components:
 
             * MSBuild,
             * MSVC v141 x86/x64 build tools,
@@ -519,7 +519,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
    1. If the replication source is a cluster, install and enable the [pg_tm_aux](https://github.com/x4m/pg_tm_aux) extension on its hosts. This lets replication continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, please refer to the [Troubleshooting](../troubleshooting/postgresql.md#master-change) section.
 
-   1. {% include [primary-keys-postgresql](../../_includes/data-transfer/primary-keys-postgresql.md) %}
+   1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](./endpoint/source/postgresql.md#additional-settings).
 
@@ -691,7 +691,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. Disable the following settings on the target:
 
-      *  Integrity checks for foreign keys.
+      * Integrity checks for foreign keys.
       * Triggers.
       * Other constraints.
 
@@ -729,7 +729,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. Disable the following settings on the target:
 
-      *  Integrity checks for foreign keys.
+      * Integrity checks for foreign keys.
       * Triggers.
       * Other constraints.
 
@@ -815,7 +815,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
          ```yaml
          replication:
-           replSetName: <replica set name>
+         replSetName: <replica set name>
          ```
 
       1. Restart the `mongod` service:
@@ -985,7 +985,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. Disable the following settings on the target:
 
-      *  Integrity checks for foreign keys.
+      * Integrity checks for foreign keys.
       * Triggers.
       * Other constraints.
 

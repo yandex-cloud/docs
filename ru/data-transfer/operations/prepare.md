@@ -454,7 +454,7 @@
 
         * Windows 10, 11
 
-            1. Если у вас не установлена Microsoft Visual Studio, загрузите и установите ее. Для сборки расширения wal2json достаточно редакции [Community Edition](https://visualstudio.microsoft.com/ru/vs/community/). При установке выберите компоненты:
+            1. Если у вас не установлена Microsoft Visual Studio, загрузите и установите ее. Для сборки расширения wal2json достаточно редакции [Community Edition]{% if lang == "ru" %}(https://visualstudio.microsoft.com/ru/vs/community/){% endif %}{% if lang == "en" %}(https://visualstudio.microsoft.com/vs/community/){% endif %}. При установке выберите компоненты:
 
                 * MSBuild,
                 * MSVC v141 x86/x64 build tools,
@@ -551,7 +551,7 @@
 
 ### Источник {{ yds-full-name }} {#source-yds}
 
-{% if audience == "external" %}
+{% if audience == "external" and product == "yandex-cloud" %}
 1. [Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream).
 1. (опционально) [Создайте функцию обработки](../../functions/operations/function/function-create.md).
 {% else %}
