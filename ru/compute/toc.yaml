@@ -131,16 +131,28 @@ items:
             href: operations/disk-create/nonreplicated.md
       - name: Управление диском
         items:
-          - name: Создать снимок диска
-            href: operations/disk-control/create-snapshot.md
           - name: Изменить диск
             href: operations/disk-control/update.md
+          - name: Настроить создание снимков диска по расписаниям
+            href: operations/disk-control/configure-schedule.md
           - name: Перенести диск в другой каталог
             href: operations/disk-control/disk-change-folder.md
           - name: Удалить диcк
             href: operations/disk-control/delete.md
-          - name: Удалить снимок диска
+      - name: Снимки дисков
+        items:
+          - name: Создать снимок
+            href: operations/disk-control/create-snapshot.md
+          - name: Удалить снимок
             href: operations/snapshot-control/delete.md
+          - name: Создать расписание снимков
+            href: operations/snapshot-control/create-schedule.md
+          - name: Изменить расписание снимков
+            href: operations/snapshot-control/update-schedule.md
+          - name: Остановить и запустить расписание снимков
+            href: operations/snapshot-control/stop-and-start-schedule.md
+          - name: Удалить расписание снимков
+            href: operations/snapshot-control/delete-schedule.md
       - name: Группы размещения дисков
         items:
           - name: Создать группу размещения дисков
@@ -315,6 +327,8 @@ items:
             href: concepts/disk.md
           - name: Снимки дисков
             href: concepts/snapshot.md
+          - name: Создание снимков по расписаниям
+            href: concepts/snapshot-schedule.md
           - name: Группы размещения нереплицируемых дисков
             href: concepts/disk-placement-group.md
           - name: Файловые хранилища

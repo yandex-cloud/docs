@@ -88,11 +88,19 @@ description: "Пошаговые инструкции по работе и уп�
 
 ## Управление диском {#disk-control}
 
-* [{#T}](disk-control/create-snapshot.md)
 * [{#T}](disk-control/update.md)
+* [{#T}](disk-control/configure-schedule.md)
 * [{#T}](disk-control/disk-change-folder.md)
 * [{#T}](disk-control/delete.md)
+
+## Снимки дисков {#snapshots}
+
+* [{#T}](disk-control/create-snapshot.md)
 * [{#T}](snapshot-control/delete.md)
+* [{#T}](snapshot-control/create-schedule.md)
+* [{#T}](snapshot-control/update-schedule.md)
+* [{#T}](snapshot-control/stop-and-start-schedule.md)
+* [{#T}](snapshot-control/delete-schedule.md)
 
 {% if product == "yandex-cloud" %}
 
