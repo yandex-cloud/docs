@@ -4,6 +4,20 @@ For a complete listing of current and deprecated {{ dataproc-name }} images, ple
 
 {% if product == "yandex-cloud" %}
 
+## 2.0.48 {#2.0.48}
+
+* Added the ability to use [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sql-distributed-sql-engine.html). For more information, see [{#T}](../concepts/settings-list.md#spark-thrift-server).
+* Corrected the `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider` error that might have appeared on lightweight Apache Spark configurations.
+
+## 2.0.47 {#2.0.47}
+
+* Corrected a TCP session leak with the metadata service on high-load clusters. The leak could have resulted in an IAM token not updating for authorization in {{ objstorage-name }} and other services.
+* Corrected the `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider` error that caused tables from Hive Metastore not to load.
+
+## 2.0.46 {#2.0.46}
+
+* Some Spark properties are also used in Zeppelin, such as `spark.submit.deployMode`, `spark.driver.cores`, `spark.driver.memory`, `spark.executor.cores`, `spark.executor.memory`, `spark.files`, `spark.jars`, and `spark.jars.packages`.
+
 ## 2.0.45 {#2.0.45}
 
 * Fixed an error with the MapReduce Application History Server not being hosted on the cluster master host.
