@@ -71,7 +71,6 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 {% list tabs %}
 
 
-
 - {{ mgp-name }}
 
    1. Create a user account the transfer will use to connect to the source. To do this, run the command:
@@ -107,7 +106,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
       GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA <housekeeping schema name> TO <user login>;
       GRANT SELECT ON ALL TABLES IN SCHEMA <housekeeping schema name> TO <user login>;
       ```
-
+
 
 - {{ GP }}
 
@@ -154,12 +153,11 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 {% list tabs %}
 
 
-
 - {{ mmg-name }}
 
    1. Estimate the total number of databases for transfer and the total {{ mmg-name }} workload. If database workload exceeds 10,000 writes per second, create several endpoints and transfers. For more information, see [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
    1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) with the role `readWrite` for the source database.
-
+
 
 - {{ MG }}
 
@@ -291,7 +289,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
       GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '<username>'@'%';
       ```
 
-   1. {% include [primary-keys-mysql](../../_includes/data-transfer/primary-keys-mysql.md) %}
+   1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-mysql.md) %}
 
       {% note info %}
 
@@ -412,7 +410,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
    1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This lets replication continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, please refer to the [Troubleshooting](../troubleshooting/postgresql.md#master-change) section.
 
-   1. {% include [primary-keys-postgresql](../../_includes/data-transfer/primary-keys-postgresql.md) %}
+   1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](./endpoint/source/postgresql.md#additional-settings).
 
@@ -517,7 +515,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
    1. If the replication source is a cluster, install and enable the [pg_tm_aux](https://github.com/x4m/pg_tm_aux) extension on its hosts. This lets replication continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, please refer to the [Troubleshooting](../troubleshooting/postgresql.md#master-change) section.
 
-   1. {% include [primary-keys-postgresql](../../_includes/data-transfer/primary-keys-postgresql.md) %}
+   1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](./endpoint/source/postgresql.md#additional-settings).
 
@@ -549,9 +547,8 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
 ### {{ yds-full-name }} source {#source-yds}
 
-
 1. [Create a data stream](../../data-streams/operations/manage-streams.md#create-data-stream).
-1. (optional) [Create a processing function](../../functions/operations/function/function-create.md).
+1. (optional) [Create a processing function](../../functions/operations/function/function-create.md).
 
    {% cut "Processing function example" %}
 
@@ -680,12 +677,11 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 {% list tabs %}
 
 
-
 - {{ mgp-name }}
 
    1. Disable the following settings on the target:
 
-      *  Integrity checks for foreign keys.
+      * Integrity checks for foreign keys.
       * Triggers.
       * Other constraints.
 
@@ -714,7 +710,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
       ```
 
       Once started, the transfer will connect to the target on behalf of this user.
-
+
 
 - {{ GP }}
 
@@ -722,7 +718,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. Disable the following settings on the target:
 
-      *  Integrity checks for foreign keys.
+      * Integrity checks for foreign keys.
       * Triggers.
       * Other constraints.
 
@@ -759,7 +755,6 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 {% list tabs %}
 
 
-
 - {{ mmg-name }}
 
    1. [Create a database](../../managed-mongodb/operations/databases.md#add-db) a with the same name as the source database.
@@ -776,7 +771,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
          {% include [MongoDB endpoint DROP clean policy warning](../../_includes/data-transfer/note-mongodb-clean-policy.md) %}
 
       Learn more about sharding in the [{{ MG }} documentation](https://docs.mongodb.com/manual/sharding/).
-
+
 
 - {{ MG }}
 
@@ -807,7 +802,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
          ```yaml
          replication:
-           replSetName: <replica set name>
+         replSetName: <replica set name>
          ```
 
       1. Restart the `mongod` service:
@@ -930,10 +925,9 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 ### {{ objstorage-full-name }} target {#target-storage}
 
 
-
 1. [Create a bucket](../../storage/operations/buckets/create.md) in the desired configuration.
 1. [Create a service account](../../iam/operations/sa/create.md) with the `storage.uploader` role.
-
+
 
 ### {{ PG }} target {#target-pg}
 
@@ -971,7 +965,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. Disable the following settings on the target:
 
-      *  Integrity checks for foreign keys.
+      * Integrity checks for foreign keys.
       * Triggers.
       * Other constraints.
 
@@ -1010,7 +1004,6 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 The service does not transfer `MATERIALIZED VIEWS`. For more detail, please review [Service specifics for sources and targets](../concepts/index.md#postgresql).
 
 
-
 ### {{ ydb-full-name }} target {#target-ydb}
 
 To receive data in {{ ydb-full-name }}, no setup is necessary.
@@ -1018,4 +1011,4 @@ To receive data in {{ ydb-full-name }}, no setup is necessary.
 {% include [airbyte-trademark](../../_includes/data-transfer/airbyte-trademark.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
-
+

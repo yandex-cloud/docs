@@ -29,11 +29,15 @@ items:
             href: operations/applications/marketplace.md
           - name: Установка Argo CD
             href: operations/applications/argo-cd.md
+          - name: Установка Container Storage Interface для S3
+            href: operations/applications/csi-s3.md
           - name: Установка Crossplane
             href: operations/applications/crossplane.md
+          - name: Установка External Secrets Operator
+            href: operations/applications/external-secrets-operator.md
           - name: Установка Fluent Bit
             href: operations/applications/fluentbit.md
-          - name: Установка HashiCorp Vault с поддержкой {{ kms-name }}
+          - name: Установка HashiCorp Vault
             href: operations/applications/hashicorp-vault.md
           - name: Установка Ingress-контроллера {{ alb-name }}
             href: operations/applications/alb-ingress-controller.md

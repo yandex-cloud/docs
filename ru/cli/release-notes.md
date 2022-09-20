@@ -1,11 +1,81 @@
 # Релизы YC CLI
 
-## Версия 0.95.0 (02.09.22) {#latest-release}
+## Версия 0.96.0 (19.09.22) {#latest-release}
+
+### Изменения в CLI {#cli}
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 
-#### {{ api-gw-name }} {#api-gw}
+#### {{ alb-name }} {#alb}
+
+* Добавлена команда `yc application-load-balancer load-balancer autoscale` для управления количеством ресурсных единиц балансировщика.
+  В команду есть параметры:
+  * `--min-zone-size` — минимальное число ресурсных единиц в одной зоне;
+  * `--max-size` — максимальное числа ресурсных единиц во всех зонах суммарно.
+
+* В команду `yc alb load-balancer create` добавлены флаги:
+  * `--log-group-id`, `--log-group-name` — для задания лог-группы из {{ cloud-logging-name }};
+  * `--disable-logging` — для создания балансировщика без записи логов в лог-группу из {{ cloud-logging-name }}.
+
+* В команду `yc alb load-balancer update` добавлены флаги:
+  * `--log-group-id`, `--log-group-name` — для задания лог-группы из {{ cloud-logging-name }};
+  * `--enable-logging` и `--disable-logging` — для включения и выключения записи логов балансировщика в лог-группу из {{ cloud-logging-name }}.
+
+
+
+#### {{ compute-name }} {#compute}
+
+* Добавлена группа команд `yc compute snapshot-schedule` для управления снимками диска по расписанию.
+* В команду `yc compute instance create` добавлен флаг `--metadata-options` для управления доступом к метаданным ВМ.
+
+
+
+##### {{ dns-name }} {#dns}
+
+* Команда `yc dns zone list-records` теперь имеет фильтрацию по имени и типу записи с помощью параметров `--record-name`
+  и `--record-type`.
+
+
+#### Изменения в сервисах управляемых баз данных {#managed-db}
+
+**{{ mpg-name }}**
+
+* Команды `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update` и `yc managed-postgresql cluster restore`: для флага `--postgresql-version string` добавлено значение `11-1c`, `12-1c`, `13-1c`, `14-1c`  для создания кластера {{ PG }} версий 11-1c, 12-1c, 13-1c, 14-1c.
+
+
+#### {{ iot-name }} {#iot}
+
+* Добавлена группа команд `yc iot broker` для управления MQTT-брокером.
+
+
+
+#### {{ sf-name }} {#serverless-functions}
+
+Добавлены команды:
+
+* `yc serverless trigger create iot-broker` — для создания триггеров для MQTT-брокеров.
+* `yc serverless trigger create mail` — для создания триггеров для почты.
+  
+В команду `yc serverless function version create` добавлен параметр `--secret` для добавления [секретов](../lockbox/) к версии.
+
+
+
+#### {{ serverless-containers-name }} {#serverless-containers}
+
+В команду `yc serverless container revision deploy` добавлены флаги:
+* `--secret` — для добавления секретов к ревизии;
+* `--min-instances` — чтобы указать минимальное количество подготовленных экземпляров контейнера.
+
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.95.0 (02.09.22)
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+
+##### {{ api-gw-name }} {#api-gw}
 
 * В команду `yc serverless api-gateway add-domain` добавлены параметры:
   
@@ -23,35 +93,35 @@
 
 
 
-#### {{ certificate-manager-name }} {#certificate-manager}
+##### {{ certificate-manager-name }} {#certificate-manager}
 
 * В команду `yc certificate-manager certificate content` добавлен параметр `--key-format` для выбора формата приватного ключа: `PKCS1` или `PKCS8`.
 
 
 
 
-#### {{ compute-name }} {#compute}
+##### {{ compute-name }} {#compute}
 
 * В команду `yc compute image create` добавлен параметр `--os-type` для указания типа операционной системы создаваемого образа: `linux` или `windows`.
 
 
 
 
-#### {{ dns-name }} {#dns}
+##### {{ dns-name }} {#dns}
 
 * Команды `yc dns zone add-records`, `yc dns zone update-records`, `yc dns zone delete-records` и `yc dns zone replace-records` теперь возвращают список выполненных изменений.
 
 
 
 
-#### {{ iam-name }} {#iam}
+##### {{ iam-name }} {#iam}
 
 * В группе команд `yc iam federation` исправлена ошибка, возникавшая при указании имени SAML-совместимой федерации как позиционного аргумента.
 
 
 
 
-#### {{ iot-name }} {#iot}
+##### {{ iot-name }} {#iot}
 
 * Команды `yc iot registry logs` и `yc iot device logs` теперь возвращают логи из {{ cloud-logging-name }}. В команды добавлены параметры:
 
@@ -62,7 +132,7 @@
 
 
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mkf-name }}**
 
@@ -76,14 +146,11 @@
 
 
 
-#### {{ org-name }} {#organization}
+##### {{ org-name }} {#organization}
 
 * В команды из группы `yc organization-manager federation saml` добавлен параметр `--organization-id` для указания идентификатора организации. Исправлена ошибка, возникавшая в этих командах при указании имени SAML-совместимой федерации как позиционного аргумента.
 * Добавлена группа команд `yc organization-manager group` для управления [группами пользователей](../organization/manage-groups.md).
 
-
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.94.0 (16.08.22) {#version0.94.0}
 

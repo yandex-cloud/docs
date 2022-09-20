@@ -1,12 +1,10 @@
-# System requirements
+# System requirements for CPU-based servers
 
 {% include [system-requirements](../_includes/speechkit/system-requirements.md) %}
 
-{% include [system-requirements](../_includes/speechkit/system-requirements-gpu.md) %}
+{% include [system-requirements](../_includes/speechkit/system-requirements-cpu.md) %}
 
 ## Software requirements {#software}
-
-A dedicated {{ sk-hybrid-name }} server should support running CUDA® 11.4 containers and higher and have the appropriate NVIDIA drivers. For more information on CUDA Toolkit requirements, see the [official NVIDIA documentation](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html).
 
 To install and configure {{ sk-hybrid-name }} services, you will need the {{ yandex-cloud }} CLI and a registry in {{ container-registry-full-name }}.
 
