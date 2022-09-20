@@ -41,12 +41,12 @@ meta:
     - text: Data Transfer
       when: product == "cloud-il"
 links:
+  - title: Доступные трансферы
+    description: Список поддерживаемых типов трансферов
+    href: transfer-matrix
   - title: Начало работы
     description: Запустите свой первый трансфер
     href: quickstart
-  - title: Доступные трансферы
-    description: Список поддерживаемых типов трансферов
-    href: concepts/index#transfer
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/
