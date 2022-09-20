@@ -80,15 +80,15 @@ Add the created database as an information base to <q>1C:Enterprise</q>. When ad
 
 List of extensions installed in PostgreSQL {{ versions.console.str-1c }} clusters:
 
-* [online_analyze]{% if lang == "en" %}(https://postgrespro.ru/docs/postgrespro/10/online-analyze?lang=en){% endif %}{% if lang == "ru" %}(https://postgrespro.ru/docs/postgrespro/10/online-analyze){% endif %}
+* [online_analyze]{% if lang == "en" %}({{ pg.docs.pro }}/postgrespro/current/online-analyze?lang=en){% endif %}{% if lang == "ru" %}({{ pg.docs.pro }}/postgrespro/current/online-analyze){% endif %}
 
-* [plantuner]{% if lang == "en" %}(https://postgrespro.ru/docs/postgrespro/10/plantuner?lang=en){% endif %}{% if lang == "ru" %}(https://postgrespro.ru/docs/postgrespro/10/plantuner){% endif %}
+* [plantuner]{% if lang == "en" %}({{ pg.docs.pro }}postgrespro/current/plantuner?lang=en){% endif %}{% if lang == "ru" %}({{ pg.docs.pro }}postgrespro/current/plantuner){% endif %}
 
-* [fasttrun]{% if lang == "en" %}(https://postgrespro.ru/docs/postgrespro/10/fasttrun?lang=en){% endif %}{% if lang == "ru" %}(https://postgrespro.ru/docs/postgrespro/10/fasttrun){% endif %}
+* [fasttrun]{% if lang == "en" %}({{ pg.docs.pro }}postgrespro/current/fasttrun?lang=en){% endif %}{% if lang == "ru" %}({{ pg.docs.pro }}postgrespro/current/fasttrun){% endif %}
 
-* [fulleq]{% if lang == "en" %}(https://postgrespro.ru/docs/postgrespro/10/fulleq?lang=en){% endif %}{% if lang == "ru" %}(https://postgrespro.ru/docs/postgrespro/10/fulleq){% endif %}
+* [fulleq]{% if lang == "en" %}({{ pg.docs.pro }}/postgrespro/current/fulleq?lang=en){% endif %}{% if lang == "ru" %}({{ pg.docs.pro }}/postgrespro/current/fulleq){% endif %}
 
-* [mchar]{% if lang == "en" %}(https://postgrespro.ru/docs/postgrespro/10/mchar?lang=en){% endif %}{% if lang == "ru" %}(https://postgrespro.ru/docs/postgrespro/10/mchar){% endif %}
+* [mchar]{% if lang == "en" %}({{ pg.docs.pro }}/postgrespro/current/mchar?lang=en){% endif %}{% if lang == "ru" %}({{ pg.docs.pro }}/postgrespro/current/mchar){% endif %}
 
 ## Delete the resources you created {#clear-out}
 

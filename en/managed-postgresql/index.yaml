@@ -8,7 +8,7 @@ description:
       - >-
         Managed Service for PostgreSQL helps you deploy and maintain
         PostgreSQL server clusters in the Yandex Cloud infrastructure. The service
-        supports PostgreSQL 10, 11, 12, 13, and 14, as well as PostgreSQL 10, 11, and 12 for 1C.
+        supports PostgreSQL 11, 12, 13, and 14, as well as PostgreSQL 11, 12, 13, and 14 for 1C.
       - >-
         The Yandex Cloud infrastructure <a href="/docs/security/conform">
         is protected</a> per the following standards:
@@ -31,7 +31,7 @@ description:
       - >-
         Managed Service for PostgreSQL helps you deploy and maintain
         PostgreSQL server clusters in the CloudIL infrastructure. The service
-        supports PostgreSQL 10, 11, 12, 13, and 14.
+        supports PostgreSQL 11, 12, 13, and 14.
       - >-
         The CloudIL infrastructure <a href="/docs/security/conform">
         is protected</a> per the following standards:

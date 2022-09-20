@@ -93,7 +93,7 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 ### Using libpq {#using-libpq}
 
-To guarantee a connection to the master host, specify the FQDNs of all the cluster hosts in the `host` argument and pass the `target_session_attrs=read-write` parameter. This parameter is supported by the `libpq` library starting with [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
+To guarantee a connection to the master host, specify the FQDNs of all the cluster hosts in the `host` argument and pass the `target_session_attrs=read-write` parameter.
 
 To upgrade the library version used by the `psql` utility:
 

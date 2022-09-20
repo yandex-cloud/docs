@@ -96,7 +96,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
       For a complete list of available {{ mpg-name }} cluster database configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_postgresql_database).
 
-   1. Add one or more `extension` blocks (one block for each extension) to the description of the cluster database:
+   1. Add one or more `extension` blocks (one block for each extension) to the description of the appropriate cluster database:
 
       ```hcl
       resource "yandex_mdb_postgresql_database" "<database name>" {
@@ -124,7 +124,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](../cluster-list.md#list-clusters).
    * Name of the database to update in the `databaseName` parameter.
    * One or more objects containing extension settings in the `extensions` parameter.
-   * List of database settings to modify (`extensions` in this case) in the `updateMask` parameter.
+   * List of database settings to update (`extensions` in this case) in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
@@ -133,64 +133,64 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 ## Supported {{ PG }} extensions and utilities {#postgresql}
 
 #|
-|| **Extension** \ **{{ PG }} version** | **10** | **11** | **12** | **13** | **14** ||
-|| <p>[address_standardizer](https://postgis.net/docs/manual-3.1/postgis_installation.html#installing_pagc_address_standardizer)</p><p>Provides functions that normalize postal addresses sent as a line.</p> | 2.5.2 | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 ||
-|| <p>[address_standardizer_data_us](https://postgis.net/docs/manual-3.1/postgis_installation.html#make_install_postgis_extensions)</p><p>Contains rules for standardizing US and Canadian mailing addresses for the `address_standardizer` extension.</p> | 2.5.2 | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 ||
-|| <p>[amcheck]({{ pg-docs }}/amcheck.html)</p><p>Provides functions that let you verify the logical consistency of the structure of relations.</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p> | 1.0 | 1.1 | 1.2 | 1.2 | 1.3 ||
+|| **Extension** \ **{{ PG }} version** | **11** | **12** | **13** | **14** ||
+|| <p>[address_standardizer](https://postgis.net/docs/manual-3.1/postgis_installation.html#installing_pagc_address_standardizer)</p><p>Provides functions that normalize postal addresses sent as a line.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 ||
+|| <p>[address_standardizer_data_us](https://postgis.net/docs/manual-3.1/postgis_installation.html#make_install_postgis_extensions)</p><p>Contains rules for standardizing US and Canadian mailing addresses for the `address_standardizer` extension.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 ||
+|| <p>[amcheck]({{ pg-docs }}/amcheck.html)</p><p>Provides functions that let you verify the logical consistency of the structure of relations.</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p> | 1.1 | 1.2 | 1.2 | 1.3 ||
 || <p>[autoinc]({{ pg-docs }}/contrib-spi.html#id-1.11.7.47.6)</p><p>Provides the `autoinc()` function. It stores the next value of a sequence into an integer field. Unlike built-in types that control sequences, `autoinc()`:
 * Overrides attempts to insert a different field value from a query.
-* Allows modifying field values during updates.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||
-|| <p>[bloom]({{ pg-docs }}/static/bloom.html)</p><p>Enables access to database indexes based on [Bloom filters]({% if lang == "ru" %}https://ru.wikipedia.org/wiki/Фильтр_Блума{% endif %}{% if lang == "en" %}https://en.wikipedia.org/wiki/Bloom_filter{% endif %}). These probabilistic data structures require significantly less storage space than hash tables. However, false positives are possible.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||
-|| <p>[btree_gin]({{ pg-docs }}/static/btree-gin.html)</p><p>Contains examples of GIN (Generalized Inverted Index) operator classes used for inverted searches.</p> | 1.2 | 1.3 | 1.3 | 1.3 | 1.3 ||
-|| <p>[btree_gist]({{ pg-docs }}/static/btree-gist.html)</p><p>Contains GiST (Generalized Search Tree) operator classes. Unlike a B-tree index, GiST supports operators such as `<>` (<q>not equal to</q>) and `<->` (<q>distance</q>). However, it doesn't ensure the uniqueness of values it returns.</p> | 1.5 | 1.5 | 1.5 | 1.5 | 1.6 ||
-|| <p>[citext]({{ pg-docs }}/static/citext.html)</p><p>Provides the `citext` data type that allows using case-insensitive strings.</p> | 1.4 | 1.5 | 1.6 | 1.6 | 1.6 ||
-|| <p>[clickhouse_fdw](https://github.com/adjust/clickhouse_fdw)</p><p>Adds support for [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for accessing {{ CH }} database, supports `SELECT FROM` and `INSERT INTO` transactions.</p> | - | 1.3 | 1.3 | 1.3 | - ||
-|| <p>[cube]({{ pg-docs }}/static/cube.html)</p><p>Provides the `cube` data type that is used for representing multidimensional cubes.</p> | 1.2 | 1.4 | 1.4 | 1.4 | 1.5 ||
-|| <p>[dblink]({{ pg-docs }}/static/dblink.html)</p><p>Allows connecting to other {{ PG }} databases from the current session.</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p> | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
-|| <p>[dict_int]({{ pg-docs }}/static/dict-int.html)</p><p>Contains an example of an add-on dictionary template for full-text search. It allows preventing excessive growth of a list of unique words and speeding up search.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||
-|| <p>[dict_xsyn]({{ pg-docs }}/static/dict-xsyn.html)</p><p>(Extended Synonym Dictionary) contains an example of an add-on dictionary template for full-text search. It allows searching for a word using any of its synonyms.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||
+* Allows modifying field values during updates.</p> | 1.0 | 1.0 | 1.0 | 1.0 ||
+|| <p>[bloom]({{ pg-docs }}/static/bloom.html)</p><p>Enables access to database indexes based on [Bloom filters]({% if lang == "ru" %}https://ru.wikipedia.org/wiki/Фильтр_Блума{% endif %}{% if lang == "en" %}https://en.wikipedia.org/wiki/Bloom_filter{% endif %}). These probabilistic data structures require significantly less storage space than hash tables. However, false positives are possible.</p> | 1.0 | 1.0 | 1.0 | 1.0 ||
+|| <p>[btree_gin]({{ pg-docs }}/static/btree-gin.html)</p><p>Contains examples of GIN (Generalized Inverted Index) operator classes used for inverted searches.</p> | 1.3 | 1.3 | 1.3 | 1.3 ||
+|| <p>[btree_gist]({{ pg-docs }}/static/btree-gist.html)</p><p>Contains GiST (Generalized Search Tree) operator classes. Unlike a B-tree index, GiST supports operators such as `<>` (<q>not equal to</q>) and `<->` (<q>distance</q>). However, it doesn't ensure the uniqueness of values it returns.</p> | 1.5 | 1.5 | 1.5 | 1.6 ||
+|| <p>[citext]({{ pg-docs }}/static/citext.html)</p><p>Provides the `citext` data type that allows using case-insensitive strings.</p> | 1.5 | 1.6 | 1.6 | 1.6 ||
+|| <p>[clickhouse_fdw](https://github.com/adjust/clickhouse_fdw)</p><p>Adds support for [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for accessing {{ CH }} database, supports `SELECT FROM` and `INSERT INTO` transactions.</p> | 1.3 | 1.3 | 1.3 | - ||
+|| <p>[cube]({{ pg-docs }}/static/cube.html)</p><p>Provides the `cube` data type that is used for representing multidimensional cubes.</p> | 1.4 | 1.4 | 1.4 | 1.5 ||
+|| <p>[dblink]({{ pg-docs }}/static/dblink.html)</p><p>Allows connecting to other {{ PG }} databases from the current session.</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p> | 1.2 | 1.2 | 1.2 | 1.2 ||
+|| <p>[dict_int]({{ pg-docs }}/static/dict-int.html)</p><p>Contains an example of an add-on dictionary template for full-text search. It allows preventing excessive growth of a list of unique words and speeding up search.</p> | 1.0 | 1.0 | 1.0 | 1.0 ||
+|| <p>[dict_xsyn]({{ pg-docs }}/static/dict-xsyn.html)</p><p>(Extended Synonym Dictionary) contains an example of an add-on dictionary template for full-text search. It allows searching for a word using any of its synonyms.</p> | 1.0 | 1.0 | 1.0 | 1.0 ||
 || <p>[earthdistance]({{ pg-docs }}/static/earthdistance.html)</p><p>Provides a module for calculating distances between two points on the surface of the Earth. There are two ways to calculate them:
 * Via the `cube` data type (requires the `cube` extension to be enabled).
-* Via the built-in `point` data type.</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 ||
-|| <p>[fuzzystrmatch]({{ pg-docs }}/fuzzystrmatch.html)</p><p>Provides functions to determine similarities and distance between strings.</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 ||
-|| <p>[hstore]({{ pg-docs }}/static/hstore.html)</p><p>Implements the `hstore` data type for storing sets of <q>key:value</q> pairs within a single table field and using them in an efficient way.</p> | 1.4 | 1.5 | 1.6 | 1.7 | 1.8 ||
-|| <p>[hypopg](https://hypopg.readthedocs.io/en/rel1_stable/)</p><p>Adds support for virtual, or hypothetical, indexes. They are useful to discover if {{ PG }} will use real indexes to handle [problematic queries](../../tutorials/profiling.md#solving-inefficient-queries) without having to spend resources to create them.</p> | 1.3.1 | 1.3.1 | 1.3.1 | 1.3.1 | 1.3.1 ||
-|| <p>[intarray]({{ pg-docs }}/static/intarray.html)</p><p>Provides functions and operators for manipulating arrays of integers that do not contain any `NULL` elements.</p> | 1.2 | 1.2 | 1.2 | 1.3 | 1.5 ||
-|| <p>[isn]({{ pg-docs }}/static/isn.html)</p><p>Provides data types for international product numbering standards such as EAN13, UPC, ISBN, ISMN, and ISSN. Numbers are validated on input according to a hard-coded list of prefixes.</p> | 1.1 | 1.2 | 1.2 | 1.2 | 1.2 ||
-|| <p>[jsquery](https://github.com/postgrespro/jsquery)</p><p>Adds support for the JsQuery language that is used to query the `JSONB` data type. JsQuery provides a simple and effective way to search in nested objects and more comparison operators with index support.</p> | 1.0 | 1.1 | 1.1 | 1.1 | 1.1 ||
-|| <p>[lo]({{ pg-docs }}/static/lo.html)</p><p>Provides support for the `lo` data type and `lo_manage()` function. They are used for managing Binary Large Objects (BLOBs) based on the JDBC and ODBC driver specifications (standard {{ PG }} behavior does not conform to them).</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 ||
-|| <p>[ltree]({{ pg-docs }}/static/ltree.html)</p><p>Implements the `ltree` data type for representing labels of data stored in a hierarchical tree-like structure.</p> | 1.1 | 1.1 | 1.1 | 1.2 | 1.2 ||
-|| <p>[moddatetime]({{ pg-docs }}/static/contrib-spi.html#id-1.11.7.47.8)</p><p>Provides the `moddatetime()` function that allows tracking  the last modification time of a particular row within a table.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||
-|| <p>[oracle_fdw](https://github.com/laurenz/oracle_fdw)</p><p>Adds support for [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for Oracle database access.</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p> | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
-|| <p>[orafce](https://github.com/orafce/orafce)</p><p>Adds functions and operators that emulate Oracle functionality and packages.</p> | 3.18 | 3.18 | 3.18 | 3.18 | 3.18 ||
-|| <p>[pg_buffercache]({{ pg-docs }}/pgbuffercache.html)</p><p>Provides functions for monitoring the shared buffer cache.</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p> | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 ||
-|| <p>[pg_cron](https://github.com/citusdata/pg_cron)</p><p>Enables you to add scheduled jobs to a database and execute SQL commands directly from a job.</p><p>Requires the `pg_cron` [shared library to be enabled](#libraries-connection).</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p><p>Enabling the extension causes all hosts to restart. For more information, see [{#T}](./pg_cron.md).</p> | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 ||
-|| <p>[pg_hint_plan](http://pghintplan.osdn.jp/)</p><p>Provides functions for managing the {{ PG }} planner.</p><p>Requires the `pg_hint_plan` [shared library to be enabled](#libraries-connection).</p> | 1.3.3 | 1.3.4 | 1.3.5 | 1.3.7 | 1.4 ||
-|| <p>[pg_partman](https://github.com/pgpartman/pg_partman)</p><p>Extends support for table partitioning, including time-based and serial-based.</p> | 4.0.0 | 4.0.0 | 4.2.0 | 4.4.0 | 4.6.0 ||
-|| <p>[pg_qualstats](https://github.com/powa-team/pg_qualstats)</p><p>Allows collecting statistics on predicates found in `WHERE` statements and `JOIN` clauses.</p><p>Requires the `pg_qualstats` [shared library to be enabled](#libraries-connection).</p> | 2.0.3 | 2.0.3 | 2.0.3 | 2.0.3 | 2.0.3 ||
-|| <p>[pg_repack](http://reorg.github.io/pg_repack/)</p><p>Provides functions to remove bloat from tables and indexes Unlike `CLUSTER` and `VACUUM FULL`, it doesn't require holding an exclusive lock on the processed tables.</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p> | 1.4.6 | 1.4.6 | 1.4.6 | 1.4.6 | 1.4.7 ||
-|| <p>[pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache)</p><p>Allows gathering statistics about real reads and writes done by the filesystem layer.</p><p>Requires the `pg_stat_statements` extension to be enabled.</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p> | 2.1.1 | 2.1.1 | 2.1.1 | 2.1.3 | 2.2.0 ||
-|| <p>[pg_stat_statements]({{ pg-docs }}/pgstatstatements.html)</p><p>Tracks planning and execution statistics of all SQL queries run in a cluster.</p><p>To use the extension, you need the [`mdb_monitor` role](../../concepts/roles.md#mdb_monitor).</p> | 1.6 | 1.6 | 1.7 | 1.8 | 1.9 ||
-|| <p>[pg_tm_aux](https://github.com/x4m/pg_tm_aux)</p><p>Enables you to create a logical replication slot in the past.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||
-|| <p>[pg_trgm]({{ pg-docs }}/static/pgtrgm.html)</p><p>Provides tools for fast searching for similar strings based on trigram matching.</p> | 1.3 | 1.4 | 1.4 | 1.5 | 1.6 ||
-|| <p>[pgcrypto]({{ pg-docs }}/static/pgcrypto.html)</p><p>Provides cryptographic functions for PostgreSQL.</p> | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 ||
-|| <p>[pgrouting](http://pgrouting.org/)</p><p>Extends the [PostGIS](https://www.postgis.net/) database to provide geospatial routing functionality.</p> | 2.6.2 | 2.6.2 | 2.6.2 | 3.0.2 | 3.3.0 ||
-|| <p>[pgrowlocks]({{ pg-docs }}/static/pgrowlocks.html)</p><p> Provides the `pgrowlocks()` function to return row locking information for a specified table.</p> | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
-|| <p>[pgstattuple]({{ pg-docs }}/pgstattuple.html)</p><p> Provides functions to obtain tuple-level statistics.</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p> | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 ||
-|| <p>[pgvector](https://github.com/pgvector/pgvector)</p><p>Adds a vector similarity search.</p> | 0.2.5 | 0.2.5 | 0.2.5 | 0.2.5 | 0.2.5 ||
-|| <p>[plv8](https://plv8.github.io/)</p><p>Adds support for PLV8, a V8 Javascript-based procedural language.</p> | 3.0.0 | 3.0.0 | 3.0.0 | 3.0.0 | 3.0.0 ||
-|| <p>[postgis](https://postgis.net/docs/)</p><p>Allows GIS (Geographic Information Systems) objects to be stored and handled in {{ PG }} databases.</p> | 2.5.2 | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 ||
-|| <p>[postgis_tiger_geocoder](https://postgis.net/docs/postgis_installation.html#loading_extras_tiger_geocoder)</p><p>Provides functions for geocoding based on [TIGER](https://wiki.openstreetmap.org/wiki/TIGER) data.</p> | 2.5.2 | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 ||
-|| <p>[postgis_topology](https://postgis.net/docs/Topology.html)</p><p>Contains `postgis` extension data types and functions to manage topology objects.</p> | 2.5.2 | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 ||
-|| <p>[postgres_fdw]({{ pg-docs }}/static/postgres-fdw.html)</p><p>Adds support for [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for access to external {{ PG }} servers.</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.1 ||
-|| <p>[rum](https://github.com/postgrespro/rum)</p><p>Provides an access method to work with `RUM` indexes.</p> | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 ||
-|| <p>[seg]({{ pg-docs }}/static/seg.html)</p><p>Implements the `seg` data type for representing line segments or floating point intervals.</p> | 1.1 | 1.3 | 1.3 | 1.3 | 1.4 ||
-|| <p>[smlar](http://sigaev.ru/git/gitweb.cgi?p=smlar.git;a=blob;hb=HEAD;f=README)</p><p>Provides a set of functions for computing similarity of two arrays.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||
-|| <p>[tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html)</p><p>Provides a set of functions that return tables (that is, multiple rows).</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||
-|| <p>[timescaledb](https://github.com/timescale/timescaledb)</p><p>Supports automatic partitioning across time and space (partitioning key), yet retains the standard {{ PG }} interface for data. This makes {{ PG }} scalable for time-series.</p><p>Requires the `timescaledb` [shared library to be enabled](#libraries-connection).</p> | - | 2.3.1 | 2.4.2 | 2.5.2 | 2.6.1 ||
-|| <p>[unaccent]({{ pg-docs }}/static/unaccent.html)</p><p>Provides a text search dictionary that removes diacritic signs.</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 ||
-|| <p>[uuid-ossp]({{ pg-docs }}/static/uuid-ossp.html)</p><p>Provides functions to generate universally unique identifiers (UUIDs) using standard algorithms.</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 ||
-|| <p>[xml2]({{ pg-docs }}/static/xml2.html)</p><p> Provides XPath querying and XSLT (Extensible Stylesheet Language Transformations) functionality.</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 ||
+* Via the built-in `point` data type.</p> | 1.1 | 1.1 | 1.1 | 1.1 ||
+|| <p>[fuzzystrmatch]({{ pg-docs }}/fuzzystrmatch.html)</p><p>Provides functions to determine similarities and distance between strings.</p> | 1.1 | 1.1 | 1.1 | 1.1 ||
+|| <p>[hstore]({{ pg-docs }}/static/hstore.html)</p><p>Implements the `hstore` data type for storing sets of <q>key:value</q> pairs within a single table field and using them in an efficient way.</p> | 1.5 | 1.6 | 1.7 | 1.8 ||
+|| <p>[hypopg](https://hypopg.readthedocs.io/en/rel1_stable/)</p><p>Adds support for virtual, or hypothetical, indexes. They are useful to discover if {{ PG }} will use real indexes to handle [problematic queries](../../tutorials/profiling.md#solving-inefficient-queries) without having to spend resources to create them.</p> | 1.3.1 | 1.3.1 | 1.3.1 | 1.3.1 ||
+|| <p>[intarray]({{ pg-docs }}/static/intarray.html)</p><p>Provides functions and operators for manipulating arrays of integers that do not contain any `NULL` elements.</p> | 1.2 | 1.2 | 1.3 | 1.5 ||
+|| <p>[isn]({{ pg-docs }}/static/isn.html)</p><p>Provides data types for international product numbering standards such as EAN13, UPC, ISBN, ISMN, and ISSN. Numbers are validated on input according to a hard-coded list of prefixes.</p> | 1.2 | 1.2 | 1.2 | 1.2 ||
+|| <p>[jsquery](https://github.com/postgrespro/jsquery)</p><p>Adds support for the JsQuery language that is used to query the `JSONB` data type. JsQuery provides a simple and effective way to search in nested objects and more comparison operators with index support.</p> | 1.1 | 1.1 | 1.1 | 1.1 ||
+|| <p>[lo]({{ pg-docs }}/static/lo.html)</p><p>Provides support for the `lo` data type and `lo_manage()` function. They are used for managing Binary Large Objects (BLOBs) based on the JDBC and ODBC driver specifications (standard {{ PG }} behavior does not conform to them).</p> | 1.1 | 1.1 | 1.1 | 1.1 ||
+|| <p>[ltree]({{ pg-docs }}/static/ltree.html)</p><p>Implements the `ltree` data type for representing labels of data stored in a hierarchical tree-like structure.</p> | 1.1 | 1.1 | 1.2 | 1.2 ||
+|| <p>[moddatetime]({{ pg-docs }}/static/contrib-spi.html#id-1.11.7.47.8)</p><p>Provides the `moddatetime()` function that allows tracking  the last modification time of a particular row within a table.</p> | 1.0 | 1.0 | 1.0 | 1.0 ||
+|| <p>[oracle_fdw](https://github.com/laurenz/oracle_fdw)</p><p>Adds support for [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for Oracle database access.</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p> | 1.2 | 1.2 | 1.2 | 1.2 ||
+|| <p>[orafce](https://github.com/orafce/orafce)</p><p>Adds functions and operators that emulate Oracle functionality and packages.</p> | 3.18 | 3.18 | 3.18 | 3.18 ||
+|| <p>[pg_buffercache]({{ pg-docs }}/pgbuffercache.html)</p><p>Provides functions for monitoring the shared buffer cache.</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p> | 1.3 | 1.3 | 1.3 | 1.3 ||
+|| <p>[pg_cron](https://github.com/citusdata/pg_cron)</p><p>Enables you to add scheduled jobs to a database and execute SQL commands directly from a job.</p><p>Requires the `pg_cron` [shared library to be enabled](#libraries-connection).</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p><p>Enabling the extension causes all hosts to restart. For more information, see [{#T}](./pg_cron.md).</p> | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 ||
+|| <p>[pg_hint_plan](http://pghintplan.osdn.jp/)</p><p>Provides functions for managing the {{ PG }} planner.</p><p>Requires the `pg_hint_plan` [shared library to be enabled](#libraries-connection).</p> | 1.3.4 | 1.3.5 | 1.3.7 | 1.4 ||
+|| <p>[pg_partman](https://github.com/pgpartman/pg_partman)</p><p>Extends support for table partitioning, including time-based and serial-based.</p> | 4.0.0 | 4.2.0 | 4.4.0 | 4.6.0 ||
+|| <p>[pg_qualstats](https://github.com/powa-team/pg_qualstats)</p><p>Allows collecting statistics on predicates found in `WHERE` statements and `JOIN` clauses.</p><p>Requires the `pg_qualstats` [shared library to be enabled](#libraries-connection).</p> | 2.0.3 | 2.0.3 | 2.0.3 | 2.0.3 ||
+|| <p>[pg_repack](http://reorg.github.io/pg_repack/)</p><p>Provides functions to remove bloat from tables and indexes Unlike `CLUSTER` and `VACUUM FULL`, it doesn't require holding an exclusive lock on the processed tables.</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p> | 1.4.6 | 1.4.6 | 1.4.6 | 1.4.7 ||
+|| <p>[pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache)</p><p>Allows gathering statistics about real reads and writes done by the filesystem layer.</p><p>Requires the `pg_stat_statements` extension to be enabled.</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p> | 2.1.1 | 2.1.1 | 2.1.3 | 2.2.0 ||
+|| <p>[pg_stat_statements]({{ pg-docs }}/pgstatstatements.html)</p><p>Tracks planning and execution statistics of all SQL queries run in a cluster.</p><p>To use the extension, you need the [`mdb_monitor` role](../../concepts/roles.md#mdb_monitor).</p> | 1.6 | 1.7 | 1.8 | 1.9 ||
+|| <p>[pg_tm_aux](https://github.com/x4m/pg_tm_aux)</p><p>Enables you to create a logical replication slot in the past.</p> | 1.0 | 1.0 | 1.0 | 1.0 ||
+|| <p>[pg_trgm]({{ pg-docs }}/static/pgtrgm.html)</p><p>Provides tools for fast searching for similar strings based on trigram matching.</p> | 1.4 | 1.4 | 1.5 | 1.6 ||
+|| <p>[pgcrypto]({{ pg-docs }}/static/pgcrypto.html)</p><p>Provides cryptographic functions for PostgreSQL.</p> | 1.3 | 1.3 | 1.3 | 1.3 ||
+|| <p>[pgrouting](http://pgrouting.org/)</p><p>Extends the [PostGIS](https://www.postgis.net/) database to provide geospatial routing functionality.</p> | 2.6.2 | 2.6.2 | 3.0.2 | 3.3.0 ||
+|| <p>[pgrowlocks]({{ pg-docs }}/static/pgrowlocks.html)</p><p> Provides the `pgrowlocks()` function to return row locking information for a specified table.</p> | 1.2 | 1.2 | 1.2 | 1.2 ||
+|| <p>[pgstattuple]({{ pg-docs }}/pgstattuple.html)</p><p> Provides functions to obtain tuple-level statistics.</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p> | 1.5 | 1.5 | 1.5 | 1.5 ||
+|| <p>[pgvector](https://github.com/pgvector/pgvector)</p><p>Adds a vector similarity search.</p> | 0.2.5 | 0.2.5 | 0.2.5 | 0.2.5 ||
+|| <p>[plv8](https://plv8.github.io/)</p><p>Adds support for PLV8, a V8 Javascript-based procedural language.</p> | 3.0.0 | 3.0.0 | 3.0.0 | 3.0.0 ||
+|| <p>[postgis](https://postgis.net/docs/)</p><p>Allows GIS (Geographic Information Systems) objects to be stored and handled in {{ PG }} databases.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 ||
+|| <p>[postgis_tiger_geocoder](https://postgis.net/docs/postgis_installation.html#loading_extras_tiger_geocoder)</p><p>Provides functions for geocoding based on [TIGER](https://wiki.openstreetmap.org/wiki/TIGER) data.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 ||
+|| <p>[postgis_topology](https://postgis.net/docs/Topology.html)</p><p>Contains `postgis` extension data types and functions to manage topology objects.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 ||
+|| <p>[postgres_fdw]({{ pg-docs }}/static/postgres-fdw.html)</p><p>Adds support for [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for access to external {{ PG }} servers.</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p> | 1.0 | 1.0 | 1.0 | 1.1 ||
+|| <p>[rum](https://github.com/postgrespro/rum)</p><p>Provides an access method to work with `RUM` indexes.</p> | 1.3 | 1.3 | 1.3 | 1.3 ||
+|| <p>[seg]({{ pg-docs }}/static/seg.html)</p><p>Implements the `seg` data type for representing line segments or floating point intervals.</p> | 1.3 | 1.3 | 1.3 | 1.4 ||
+|| <p>[smlar](http://sigaev.ru/git/gitweb.cgi?p=smlar.git;a=blob;hb=HEAD;f=README)</p><p>Provides a set of functions for computing similarity of two arrays.</p> | 1.0 | 1.0 | 1.0 | 1.0 ||
+|| <p>[tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html)</p><p>Provides a set of functions that return tables (that is, multiple rows).</p> | 1.0 | 1.0 | 1.0 | 1.0 ||
+|| <p>[timescaledb](https://github.com/timescale/timescaledb)</p><p>Supports automatic partitioning across time and space (partitioning key), yet retains the standard {{ PG }} interface for data. This makes {{ PG }} scalable for time-series.</p><p>Requires the `timescaledb` [shared library to be enabled](#libraries-connection).</p> | 2.3.1 | 2.4.2 | 2.5.2 | 2.6.1 ||
+|| <p>[unaccent]({{ pg-docs }}/static/unaccent.html)</p><p>Provides a text search dictionary that removes diacritic signs.</p> | 1.1 | 1.1 | 1.1 | 1.1 ||
+|| <p>[uuid-ossp]({{ pg-docs }}/static/uuid-ossp.html)</p><p>Provides functions to generate universally unique identifiers (UUIDs) using standard algorithms.</p> | 1.1 | 1.1 | 1.1 | 1.1 ||
+|| <p>[xml2]({{ pg-docs }}/static/xml2.html)</p><p> Provides XPath querying and XSLT (Extensible Stylesheet Language Transformations) functionality.</p> | 1.1 | 1.1 | 1.1 | 1.1 ||
 |#
 
 [pgcompacttable](https://github.com/dataegret/pgcompacttable) is designed to reorganize data in tables in order to revert back disk space without database performance impact.
@@ -204,7 +204,7 @@ Command syntax:
   -U <usename> \
   -W <password> \
   -d <DB name> \
-  -n <schema name> 
+  -n <schema name>
   -t <table name>
 ```
 
