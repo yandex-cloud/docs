@@ -6,13 +6,11 @@ After creating a cluster, you can:
 * [{#T}](#change-disk-size){% if audience != "internal" %} (available only for HDD network or SSD network [storage](../concepts/storage.md)){% endif %}.
 * [Update {{ MS }} settings](#change-sqlserver-config) according to the {{ MS }} documentation.
 * [{#T}](#change-additional-settings).
-{% if audience == "draft" %}
 * [Move a cluster](#move-cluster) to another folder.
-{% endif %}
 * [Change cluster security groups](#change-sg-set).
-{% if audience != "internal" %}
-* [{#T}](#service-account).
-{% endif %}
+   {% if audience != "internal" %}
+* [Link a service account](#service-account).
+   {% endif %}
 
 {% note warning %}
 
@@ -127,15 +125,16 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * New host class, in the `configSpec.resources.resourcePresetId` parameter. To find out the list of supported values, use the `list` method for `ResourcePreset`.
-   * List of cluster configuration fields to be edited (in this case, `configSpec.resources.resourcePresetId`), in the `updateMask` parameter.
 
-   {% note warning %}
+   * New host class, in the `configSpec.resources.resourcePresetId` parameter.
 
-   This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, list the settings you want to change in the `updateMask` parameter (in a single line, separated by commas).
+      To retrieve a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the [ResourcePreset](../api-ref/ResourcePreset) object.
 
-   {% endnote %}
+   * List of cluster configuration fields to update in the `updateMask` parameter (`configSpec.resources.resourcePresetId` in this case).
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -146,9 +145,7 @@ Check:
 
 * The desired cluster uses HDD network or SSD network storage. It's not possible to increase the size of local SSD storage or non-replicated SSD storage.
 * The cloud's quota is sufficient to increase storage size. Open your cloud's [Quotas]({{ link-console-quotas }}) page and make sure that under **Managed Databases**, there is space available in the **HDD storage capacity** or the **SSD storage capacity** lines.
-{% endif %}
-
-Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]({{link-console-quotas}}) page for your cloud and check that the **Managed Databases** section still has space available in the **HDD storage capacity** or **SSD storage capacity** line.
+   {% endif %}
 
 {% list tabs %}
 
@@ -221,11 +218,12 @@ Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]
 - API
 
    To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in in the call:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Required storage size (in bytes), in the `configSpec.resources.diskSize` parameter.
-   * List of user configuration fields to be edited (in this case, `configSpec.resources.diskSize`) in the `updateMask` parameter.
 
-      {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * New storage size (bytes) in the `configSpec.resources.diskSize` parameter.
+   * List of cluster configuration fields to update in the `updateMask` parameter (`configSpec.resources.diskSize` in this case).
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -306,15 +304,15 @@ Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The relevant values in the `configSpec.sqlserverConfig_2016sp2` parameter.
-   * `List of user configuration fields to be edited (in this case, configSpec.sqlserverConfig_2016sp2`) in the `updateMask` parameter.
+   * Required values in the `configSpec.sqlserverConfig_<{{ MS }} version>` parameter.
 
-   {% note warning %}
+      A list of variable settings is provided in the [API description](../api-ref/Cluster/update.md) and in [{#T}](../concepts/settings-list.md).
 
-   This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, list the settings you want to change in the `updateMask` parameter (in a single line, separated by commas).
+   * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
-   {% endnote %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -392,7 +390,7 @@ Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]
       }
       ```
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    1. Make sure the settings are correct.
 
@@ -409,15 +407,12 @@ Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The new backup start time, in the `configSpec.backupWindowStart` parameter.
-   * List of cluster configuration fields to be edited (in this case, `configSpec.backupWindowStart`) in the `updateMask` parameter.
+   * List of cluster configuration fields to update in the `updateMask` parameter (`configSpec.backupWindowStart` in this case).
 
-   {% note warning %}
-
-   This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, list the settings you want to change in the `updateMask` parameter (in a single line, separated by commas).
-
-   {% endnote %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -511,9 +506,9 @@ Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The list of security group IDs in the `securityGroupIds` parameter.
-   * The list of settings to update in the `updateMask` parameter.
+   * List of settings to update in the `updateMask` parameter.
 
-   {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Сброс настроек изменяемого объекта](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -528,6 +523,13 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 ## Linking a service account {#service-account}
 
 {% list tabs %}
+
+- Management console
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
+   1. In the line with the desired cluster, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Edit cluster**.
+   1. Under **Basic parameters**, select the existing service account from the list or create a new one.
+   1. Click **Save**.
 
 - CLI
 
@@ -558,9 +560,9 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Service account ID, in the `serviceAccountId` parameter. To retrieve the ID, follow the [instructions](../../iam/operations/sa/get-id.md).
-   * The list of settings to update in the `updateMask` parameter.
+   * List of settings to update in the `updateMask` parameter.
 
-   {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
