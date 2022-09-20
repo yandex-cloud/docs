@@ -80,7 +80,6 @@
   ```
 
   Где:
-
   * `--auto-upgrade` — выбор режима автоматического обновления кластера. Значение по умолчанию — `true` (автоматическое обновление включено).
   * `--anytime-maintenance-window` — выбор произвольного времени обновления кластера.
   * `--daily-maintenance-window` — режим обновления **Ежедневно**.
@@ -633,12 +632,12 @@
     --latest-revision
   ```
 
-  Идентификатор и имя кластера можно [получить со списком кластеров в каталоге](./kubernetes-cluster/kubernetes-cluster-list.md).
+  Идентификатор и имя кластера можно [получить со списком кластеров в каталоге](./kubernetes-cluster/kubernetes-cluster-list.md#list).
 
 - API
 
   Воспользуйтесь методом [update](../../managed-kubernetes/api-ref/Cluster/update.md) и передайте в запросе:
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](./kubernetes-cluster/kubernetes-cluster-list.md).
+  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](./kubernetes-cluster/kubernetes-cluster-list.md#list).
   * Значение `true` в параметре `masterSpec.version.version`.
   * Список изменяемых настроек в параметре `updateMask`.
 
