@@ -35,6 +35,8 @@ items:
             href: operations/applications/marketplace.md
           - name: Установка Argo CD
             href: operations/applications/argo-cd.md
+          - name: Установка Container Storage Interface для S3
+            href: operations/applications/csi-s3.md
           - name: Установка Crossplane
             href: operations/applications/crossplane.md
           - name: Установка External Secrets Operator
