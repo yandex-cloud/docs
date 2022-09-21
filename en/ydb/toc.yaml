@@ -243,6 +243,8 @@ items:
             href: pricing/ru-docapi.md
           - name: Request cost for special APIs
             href: pricing/ru-special.md
+          - name: Cost of topic operations
+            href: pricing/ru-topics.md
           # - name: Request cost for YQL
           #   href: pricing/request_units_yql.md > pricing/ru-yql.md
           # - name: Request cost for the Document API
