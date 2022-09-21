@@ -36,7 +36,6 @@ items:
       - name: Service overview
         href: concepts/index.md
       - name: Organizations in DataLens
-        when: audience == "external"
         href: concepts/organizations.md
       - name: Connection
         href: concepts/connection.md
@@ -110,7 +109,6 @@ items:
             href: operations/connection/create-ydb.md
           - name: Creating a Yandex Monitoring connection
             href: operations/connection/create-monitoring.md
-            when: audience == "external"
           - name: Creating a Yandex Metrica API connection
             href: operations/connection/create-metrica-api.md
           - name: Creating an AppMetrica connection
