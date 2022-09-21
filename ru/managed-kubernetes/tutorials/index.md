@@ -19,7 +19,6 @@
 * [{#T}](custom-dns.md)
 * [{#T}](dns-autoscaler.md)
 * [{#T}](node-local-dns.md)
-* [{#T}](kubernetes-lockbox-secrets.md)
 * [{#T}](prometheus-grafana-monitoring.md)
 
 {% if product == "yandex-cloud" %}
@@ -28,6 +27,7 @@
 
 * [{#T}](marketplace/argo-cd.md)
 * [{#T}](marketplace/crossplane.md)
+* [{#T}](kubernetes-lockbox-secrets.md)
 * [{#T}](fluent-bit-logging.md)
 * [{#T}](alb-ingress-controller.md)
 * [{#T}](marketplace/jaeger-over-ydb.md)
