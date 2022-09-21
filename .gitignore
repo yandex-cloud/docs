@@ -7,3 +7,6 @@
 /.vs/docs/FileContentIndex
 *.suo
 /.vs
+.vscode/settings.json
+ru/query/.yfm
+ru/.yfm

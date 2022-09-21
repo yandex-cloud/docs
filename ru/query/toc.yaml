@@ -102,28 +102,8 @@ items:
         href: yql-tutorials/streaming-query.md
   - name: HTTP API
     items:
-      - name: Все методы
+      - name: Обзор
         href: api/overview.md
-      - name: Методы
-        items: 
-        - name: create-query
-          href: api/create-query.md
-        - name: get-query
-          href: api/get-query.md
-        - name: get-query-status
-          href: api/get-query-status.md
-        - name: stop-query
-          href: api/stop-query.md
-        - name: get-query-results
-          href: api/get-query-results.md
-      - name: Общая информация
-        href: api/common-information.md
-      - name: Аутентификация
-        href: api/auth.md
-      - name: Соответствие YQL и Json типов
-        href: api/yql-json-conversion-rules.md
-      # - name: Примеры
-      #   href: api/examples.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
