@@ -45,6 +45,8 @@ items:
             href: operations/applications/filebeat.md
           - name: Установка Fluent Bit
             href: operations/applications/fluentbit.md
+          - name: Установка Gateway API
+            href: operations/applications/gateway-api.md
           - name: Установка {{ GL }} Agent
             href: operations/applications/gitlab-agent.md
           - name: Установка HashiCorp Vault

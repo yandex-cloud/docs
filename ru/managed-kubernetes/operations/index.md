@@ -26,6 +26,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](applications/external-secrets-operator.md)
 * [{#T}](applications/filebeat.md)
 * [{#T}](applications/fluentbit.md)
+* [{#T}](applications/gateway-api.md)
 * [{#T}](applications/gitlab-agent.md)
 * [{#T}](applications/hashicorp-vault.md)
 * [{#T}](applications/alb-ingress-controller.md)
