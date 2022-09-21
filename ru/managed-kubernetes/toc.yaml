@@ -43,6 +43,8 @@ items:
             href: operations/applications/external-secrets-operator.md
           - name: Установка Fluent Bit
             href: operations/applications/fluentbit.md
+          - name: Установка {{ GL }} Agent
+            href: operations/applications/gitlab-agent.md
           - name: Установка HashiCorp Vault
             href: operations/applications/hashicorp-vault.md
           - name: Установка Ingress-контроллера {{ alb-name }}
