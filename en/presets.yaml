@@ -241,6 +241,7 @@ default:
   yc-k8s: yc managed-kubernetes
   yc-mdb-mg: yc managed-mongodb
   yc-mdb-ch: yc managed-clickhouse
+  yc-mdb-gp: yc managed-greenplum
   yc-mdb-pg: yc managed-postgresql
   yc-mdb-rd: yc managed-redis
   yc-mdb-my: yc managed-mysql

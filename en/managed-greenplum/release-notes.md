@@ -1,6 +1,15 @@
-# {{ mgp-full-name }} revision history
+# {{ mgp-full-name }} releases
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
+
+## 01.08.2022 {#01.08.2022}
+
+* Added the ability to change the administrator password. {{ tag-cli }} {{ tag-tf }}
+* Added the ability to [configure the DBMS and the connection pooler in {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex/blob/master/CHANGELOG.md#0770-july-27-2022). {{ tag-tf }}
+
+## 01.07.2022 {#01.07.2022}
+
+* Added CLI support: `{{ yc-mdb-gp }} cluster` and `{{ yc-mdb-gp }} hosts` commands are available. {{ tag-cli }}
 
 ## 01.06.2022 {#01.06.2022}
 

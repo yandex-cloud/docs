@@ -1,6 +1,17 @@
-# {{ mms-full-name }} revision history
+# {{ mms-full-name }} releases
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
+
+## 01.08.2022 {#01.08.2022}
+
+* {{ mms-full-name }} will no longer be provided: as of August 15, a restriction on creating new clusters is in place, and at 23:59 UTC+3 on August 31, 2022, existing clusters will be stopped. For more information, see the [{{ yandex-cloud }} announcement](https://cloud.yandex.ru/blog/posts/2022/07/microsoft-suspension).
+* Published a [manual to help migrate data from {{ mms-name }} to a third-party {{ MS }} cluster](tutorials/outbound-migration.md).
+
+## 01.07.2022 {#01.07.2022}
+
+* Added the ability to create a fault-tolerant cluster configuration with two hosts (a minimum of three hosts required previously).
+* Added the ability to edit the host public access setting using the CLI and API. {{ tag-cli }} {{ tag-api }}
+* In {{ TF }}, added the `sqlcollation` setting. {{ tag-tf }}
 
 ## 01.05.2022 {#01.05.2022}
 

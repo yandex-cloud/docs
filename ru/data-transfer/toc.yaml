@@ -1,6 +1,8 @@
 title: Yandex Data Transfer
 href: index.yaml
 items:
+  - name: Доступные трансферы
+    href: transfer-matrix.md
   - name: Начало работы
     href: quickstart.md
   - name: Пошаговые инструкции

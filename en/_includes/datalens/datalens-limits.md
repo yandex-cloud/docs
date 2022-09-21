@@ -4,33 +4,34 @@ There are no quotas for {{ datalens-short-name }}.
 
 #### General limits {#datalens-common-limits}
 
+{% note info %}
+
+{{ datalens-short-name }} has no limitation on the amount of data on the source you are connecting to.
+
+{% endnote %}
+
 | Type of limit | Value |
-| ----- | ----- |
+----- | -----
 | Number of DataLens instances per organization or cloud | 1 |
 | Maximum CSV file size | 200 MB |
-| Maximum number of rows of persisted data<br>per dataset | 100,000,000 |
+| The maximum number of rows of [materialized data](../../datalens/concepts/dataset/settings.md#materialization)<br> per dataset | 100,000,000 |
 | Maximum number of tables in a single dataset | 32 |
 | Maximum number of fields in a single dataset | 1,200 |
 
 #### Chart data limits {#datalens-chart-data-limits}
 
-Each chart has a limit on the amount of data it can display.
+Charts in {{ datalens-short-name }} can only display a limited amount of data. If the number of rows (columns and cells for pivot tables) in a dataset exceeds the established limit, the chart will not be built. Therefore, to build a chart from data in a large dataset, select a part of the data to display based on the limits below using [filters](../../datalens/concepts/dataset/settings.md#default-setting):
 
-Every time {{ datalens-short-name }} tries to visualize a chart, it makes a request to a dataset.
-If a metric (such as the number of rows returned) is over limit, {{ datalens-short-name }} will not display the chart.
-
-You can modify the amount of data returned. Modify the query parameters to filter out some rows, for example.
-
-| Chart type | Value |
-| ----- | ----- |
+| Chart type | Limit |
+----- | -----
 | **Charts** |
 | Line chart | 75,000 rows |
-| Stacked area chart<br/>Normalized stacked area chart | 75,000 rows |
+| Stacked area chart<br/>Normalized area chart | 75,000 rows |
 | Column chart<br/>Normalized column chart | 75,000 rows |
 | Bar chart<br/>Normalized bar chart | 75,000 rows |
 | Scatter chart | 75,000 rows |
-| Pie chart | 1000 rows |
-| Tree chart | 1000 rows |
+| Pie chart | 1,000 rows |
+| Tree chart | 1,000 rows |
 | **Tables** |
 | Table | 100,000 rows |
 | Pivot table | 100,000 cells |

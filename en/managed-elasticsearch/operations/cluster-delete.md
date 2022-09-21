@@ -43,6 +43,12 @@ You can delete an {{ ES }} cluster if you no longer need it. All data in the clu
 
    You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
+- {{ TF }}
+
+  {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
+
+  {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+  
 - API
 
    Use the `delete` API method and pass the ID of the cluster to be deleted in the `clusterId` call parameter.

@@ -1,6 +1,10 @@
-# {{ mmg-full-name }} revision history
+# {{ mmg-full-name }} releases
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
+
+## 01.08.2022 {#01.08.2022}
+
+* Added access to the `oplog` collection for users with the `mdbReplication` role.
 
 ## 01.06.2022 {#01.06.2022}
 

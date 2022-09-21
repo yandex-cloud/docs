@@ -120,8 +120,6 @@ items:
           Установка Ingress-контроллера NGINX с сертификатом из {{
           certificate-manager-name }}
         href: tutorials/nginx-ingress-certificate-manager.md
-      - name: Настройка {{ alb-name }} Ingress-контроллера
-        href: tutorials/alb-ingress-controller.md
       - name: Резервное копирование в {{ objstorage-name }}
         href: tutorials/backup.md
       - name: Горизонтальное масштабирование приложения в кластере
@@ -149,11 +147,13 @@ items:
       - name: Использование продуктов {{ marketplace-name }}
         items:
           - name: Интеграция с Argo CD
-            href: tutorials/argo-cd.md
+            href: tutorials/marketplace/argo-cd.md
           - name: Интеграция с Crossplane
             href: tutorials/marketplace/crossplane.md
           - name: Настройка Fluent Bit для работы с {{ cloud-logging-name }}
             href: tutorials/fluent-bit-logging.md
+          - name: Настройка {{ alb-name }} Ingress-контроллера
+            href: tutorials/alb-ingress-controller.md
           - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
   - name: Концепции
