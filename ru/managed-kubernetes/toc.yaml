@@ -53,6 +53,8 @@ items:
             href: operations/applications/alb-ingress-controller.md
           - name: Установка Jaeger
             href: operations/applications/jaeger.md
+          - name: Установка Kyverno & Kyverno Polices
+            href: operations/applications/kyverno.md
           - name: Установка Metrics Provider
             href: operations/applications/metrics-provider.md
           - name: Установка NodeLocal DNS

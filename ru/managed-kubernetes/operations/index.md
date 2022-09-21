@@ -30,6 +30,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](applications/hashicorp-vault.md)
 * [{#T}](applications/alb-ingress-controller.md)
 * [{#T}](applications/jaeger.md)
+* [{#T}](applications/kyverno.md)
 * [{#T}](applications/metrics-provider.md)
 * [{#T}](applications/node-local-dns.md)
 
