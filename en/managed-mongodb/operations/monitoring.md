@@ -58,8 +58,7 @@ The following charts open on the page:
 * **Scanned / returned**: Shows the following ratios:
    * `scanned_docs / returned_docs`: Documents scanned to documents returned.
    * `scanned_keys / returned_docs`: Index keys scanned to documents returned.
-* **TTL indexes activity**: The use of indexes for processing documents with expired Time to Life (TTL).
-* **TTL indexes total**: The total number of [TTL indexes](https://docs.mongodb.com/manual/core/index-ttl/).
+* **TTL indexes activity**: The total number of [TTL indexes](https://docs.mongodb.com/manual/core/index-ttl/).
 * **Total operations count on cluster**: The total number of operations performed in the cluster.
 * **Total operations time on cluster**: The total operation execution time in the cluster (in milliseconds).
 * **WiredTiger cache pages evicted on primary**: The average number of memory pages evicted on the primary replica.

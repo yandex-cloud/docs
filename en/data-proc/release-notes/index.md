@@ -3,6 +3,11 @@
 {% include [Tags](../../_includes/mdb/release-notes-tags.md) %}
 
 
+## 01.08.2022 {#01.08.2022}
+
+* Added `cpu-optimized` host classes with 2:1 GB RAM to vCPU ratio. The new configurations are only available for Intel Ice Lake.
+* Published a [guide](../tutorials/geesefs-init-actions.md) for using initialization scripts to set up GeeseFS.
+
 ## 01.07.2022 {#01.07.2022}
 
 * Image version 2.1 available.

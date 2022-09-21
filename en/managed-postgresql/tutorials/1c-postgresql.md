@@ -80,15 +80,15 @@ Add the created database as an information base to <q>1C:Enterprise</q>. When ad
 
 List of extensions installed in PostgreSQL {{ versions.console.str-1c }} clusters:
 
-* [online_analyze](https://postgrespro.ru/docs/postgrespro/10/online-analyze?lang=en)
+* [online_analyze]({{ pg.docs.pro }}/postgrespro/current/online-analyze?lang=en)
 
-* [plantuner](https://postgrespro.ru/docs/postgrespro/10/plantuner?lang=en)
+* [plantuner]({{ pg.docs.pro }}postgrespro/current/plantuner?lang=en)
 
-* [fasttrun](https://postgrespro.ru/docs/postgrespro/10/fasttrun?lang=en)
+* [fasttrun]({{ pg.docs.pro }}postgrespro/current/fasttrun?lang=en)
 
-* [fulleq](https://postgrespro.ru/docs/postgrespro/10/fulleq?lang=en)
+* [fulleq]({{ pg.docs.pro }}/postgrespro/current/fulleq?lang=en)
 
-* [mchar](https://postgrespro.ru/docs/postgrespro/10/mchar?lang=en)
+* [mchar]({{ pg.docs.pro }}/postgrespro/current/mchar?lang=en)
 
 ## Delete the resources you created {#clear-out}
 

@@ -297,9 +297,6 @@ To prepare the virtual machine to restore the dump:
    ```bash
    sudo apt install postgresql-client-common
    
-   # For PostgreSQL 10
-   sudo apt install postgresql-client-10
-   
    # For PostgreSQL 11
    sudo apt install postgresql-client-11
    
@@ -331,7 +328,7 @@ Restore the database dump using the [pg_restore](https://www.postgresql.org/docs
 
 The version of `pg_restore` must match the `pg_dump` version, and the major version must be at least as high as on the DB where the dump is deployed.
 
-That is, to restore a dump of {{ PG }} 10, {{ PG }} 11, {{ PG }} 12, {{ PG }} 13, and {{ PG }} 14 use `pg_restore 10`, `pg_restore 11`, `pg_restore 12`, `pg_restore 13`, and `pg_restore 14`, respectively.
+That is, to restore a dump of {{ PG }} 11, {{ PG }} 12, {{ PG }} 13, and {{ PG }} 14 use `pg_restore 11`, `pg_restore 12`, `pg_restore 13`, and `pg_restore 14`, respectively.
 
 If you only need to restore a single schema, add the `-n <schema name>` flag (without it, the command only runs on behalf of the database owner). Best practice is to restore data with the `--single-transaction` flag to avoid an inconsistent state of the database if an error occurs:
 

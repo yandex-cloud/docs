@@ -5,18 +5,18 @@ You can upgrade a {{ mpg-name }} cluster to any supported version.
 {% note info %}
 
 * Upgrades are unavailable for {{ mpg-name }} clusters optimized for <q>1C:Enterprise</q>. The names of these versions end in `-1c`.
-* You can't upgrade a regular cluster version to a version optimized for <q>1C:Enterprise</q> (such as from version 10 to version 10-1c).
+* You can't upgrade a regular cluster version to a version optimized for <q>1C:Enterprise</q> (such as from version 14 to version 14-1c).
 
 {% endnote %}
 
 You can only upgrade to a version that immediately follows the current one, such as version 11 to 12. Upgrades to higher versions are performed in steps. To upgrade {{ PG }} from version 11 to version 13, for instance, follow the steps: 11 → 12 → 13.
 
-In single-host clusters, the only master host is brought out of its running state for upgrades. During an upgrade, such clusters are unavailable.
+In single-host clusters, the only master host is brought out of its running state for upgrades. During an upgrade, these clusters are unavailable.
 
 In multi-host clusters, upgrades follow the procedure below:
 
-1. The master is made unavailable while it upgrades. In the meantime, the replicas continue running in read-only mode. No [fail-overs](../concepts/replication.md#replication-auto) take place. After an upgrade, the master is not returned to a running state until all the replicated hosts upgrade and is temporarily unavailable even for reading.
-1. The replicas are sequentially made unavailable and upgrade. The replicas are queued randomly. Following an upgrade, the replicas are returned to a running state in read-only mode.
+1. The master is unavailable during upgrades. During this time, the replicas continue running in read-only mode. No [failover](../concepts/replication.md#replication-auto) occurs. After an upgrade, the master is not returned to a running state until all the replicated hosts are upgraded. It is temporarily unavailable even for reading.
+1. The replicas are sequentially made unavailable and upgraded. The replicas are queued randomly. Following an upgrade, the replicas are returned to a running state in read-only mode.
 
    A two-host cluster is unavailable while its replica is upgrading. In a cluster of three or more hosts, at least one replica will be available for reading.
 
