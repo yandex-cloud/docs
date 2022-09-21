@@ -4,13 +4,13 @@
 
 В рамках сервиса {{ yds-name }} тарифицируется количество единиц записываемых данных и ресурсы, выделенные для обслуживания потоков данных.
 
-При тарификации выделенных ресурсов учитывается лимит предоставленной пропускной способности сегмента и время хранения данных.
+При тарификации выделенных ресурсов учитывается лимит предоставленной пропускной способности сегмента, а также время хранения или объем хранения.
 
 {% include [not-charged-streams.md](../_includes/pricing/price-formula/not-charged-streams.md) %}
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-### Пример расчета стоимости {#price-example}
+### Примеры расчета стоимости {#price-example}
 
 В поток данных, состоящий из одного сегмента, поступают 2 сообщения в секунду размером 50 КБ. Время хранения сообщений — 12 часов.
 
@@ -82,6 +82,8 @@
 
 ### Цена выделенных ресурсов {#resources}
 
+#### Тарификация по времени хранения {#time-limit}
+
 Цена указывается за 1 час использования выделенных ресурсов.
 
 {% if region == "ru"%}
@@ -99,5 +101,27 @@
 {% if region == "int"%}
 
 {% include [usd.md](../_pricing/data-streams/usd-resources.md) %}
+
+{% endif %}
+
+#### Тарификация по объему хранения {#storage-limit}
+
+Данные хранятся до 7 дней.
+
+{% if region == "ru"%}
+
+{% include [rub.md](../_pricing/data-streams/rub-resources-storage-limit.md) %}
+
+{% endif %}
+
+{% if region == "kz"%}
+
+{% include [kzt.md](../_pricing/data-streams/kzt-resources-storage-limit.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd.md](../_pricing/data-streams/usd-resources-storage-limit.md) %}
 
 {% endif %}
