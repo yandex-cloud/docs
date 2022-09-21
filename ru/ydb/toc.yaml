@@ -243,6 +243,8 @@ items:
             href: pricing/ru-docapi.md
           - name: Стоимость запроса для специальных API
             href: pricing/ru-special.md
+          - name: Стоимость операций с топиками
+            href: pricing/ru-topics.md
           # - name: Стоимость запроса для YQL
           #   href: pricing/request_units_yql.md > pricing/ru-yql.md
           # - name: Стоимость запроса для Document API
