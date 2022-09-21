@@ -241,6 +241,8 @@ items:
             href: operations/dashboard/add-parameters.md
           - name: Автообновление дашборда
             href: operations/dashboard/auto-update.md
+          - name: Порядок отображения виджетов на мобильном устройстве
+            href: operations/dashboard/display-modes.md
       - name: Работа с правами доступа
         when: audience == "external"
         items:
