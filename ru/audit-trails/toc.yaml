@@ -50,6 +50,9 @@ items:
       - name: Настройка реагирования в {{ sf-name }}
         href: tutorials/logging-functions.md
         when: product == "yandex-cloud"
+      - name: Загрузка аудитных логов в MaxPatrol SIEM
+        href: tutorials/maxpatrol.md
+        when: product == "yandex-cloud"
       - name: Загрузка аудитных логов в {{ mch-full-name }} и визуализация данных в {{ datalens-full-name }}
         href: tutorials/logs-analysis.md
         when: product == "yandex-cloud"
