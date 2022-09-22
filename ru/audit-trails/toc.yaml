@@ -40,6 +40,9 @@ items:
              href: operations/export-folder-bucket.md
   - name: Практические руководства
     items:
+      - name: Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}
+        href: tutorials/query.md
+        when: product == "yandex-cloud"
       - name: Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
         href: tutorials/search-bucket.md
       - name: Поиск событий {{ yandex-cloud }} в {{ cloud-logging-name }}
