@@ -8,7 +8,7 @@
 
 {% note info %}
 
-Управлять облаками и сервисами может пользователь с ролью `organization-manager.admin` или `organization-manager.organizations.owner`. Как назначить роль пользователю, читайте в разделе [Роли](roles.md#admin).
+Управлять всеми облаками и сервисами может пользователь с ролью `organization-manager.organizations.owner`. Как назначить роль пользователю, читайте в разделе [Роли](roles.md#admin).
 
 {% endnote %}
 
