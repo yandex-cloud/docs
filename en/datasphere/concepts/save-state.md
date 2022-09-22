@@ -1,12 +1,12 @@
 # Saving a state
 
-A notebook's state includes cell code, output, and variable values at a specific point in time as well as project storage data.
+An interpreter state includes cell code, output, and variable values at a specific point in time, as well as project storage data.
 
 {% include [include](../../_includes/datasphere/saving-variables-warn.md) %}
 
-States is saved as checkpoints. For more information about working with checkpoints, see [{#T}](../operations/projects/checkpoints.md).
+States is saved as _checkpoints_. For more information about working with checkpoints, see [{#T}](../operations/projects/checkpoints.md).
 
-If the amount of data in project storage does not exceed {{ ml-project-size }}, the state of the data is also stored in checkpoints. Such checkpoints are marked with ![](../../_assets/datasphere/disk.svg). If project storage data exceeds {{ ml-project-size }}, they will not be included in versioning, the rest of the notebook's state will be saved, however.
+If the amount of data in project storage does not exceed {{ ml-project-size }}, the state of the data is also stored in checkpoints. If project storage data exceeds {{ ml-project-size }}, they will not be included in versioning, the rest of the notebook's state will be saved, however.
 
 There are two save state modes: standard and automatic. Save modes only apply to regular cells. Cells with [background operations](async.md) create a checkpoint automatically after execution is complete or prompt the user to create one by running `%apply_state`.
 
@@ -26,9 +26,13 @@ In auto-save mode, the state is saved in the following situations:
 
 To enable auto-save mode:
 
-  1. Open the **Settings** menu in your notebook.
-  1. Select **Autosave commit mode**.
+1. Open the **Settings** tab of your project.
+1. Enable **Autosave commit mode**.
 
 ### Forcing a state save {#forced-save}
 
-To force the saving of state in auto-save mode, click the ![plus-sign](../../_assets/plus-sign.svg) in the upper-right corner of the ![checkpoints-panel](../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints** tab. You can also save the state by using the **Cmd** + **K** or **Ctrl** + **K** keyboard shortcut.
+To force a state save in auto-save mode , press **Cmd** + **K** or **Ctrl** + **K**.
+
+#### See also {#see-also}
+
+* [{#T}](../operations/projects/checkpoints.md)

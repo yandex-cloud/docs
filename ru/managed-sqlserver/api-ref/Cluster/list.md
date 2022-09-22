@@ -10,7 +10,7 @@ Retrieves the list of SQL Server clusters that belong to the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters
+GET https://{{ api-host-mdb }}/mdb/sqlserver/v1/clusters
 ```
  
 ## Query parameters {#query_params}

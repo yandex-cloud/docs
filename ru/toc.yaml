@@ -15,6 +15,10 @@ items:
     href: certificate-manager/index.yaml
   - name: CLI {{ yandex-cloud }}
     href: cli/index.yaml
+  - name: Cloud Apps
+    href: cloud-apps/index.yaml
+  - name: Cloud Backup
+    href: backup/index.yaml
   - name: Cloud Logging
     href: logging/index.yaml
   - name: Compute Cloud
@@ -113,6 +117,8 @@ items:
     href: wiki/index.yaml
   - name: Managed Service for YDB
     href: ydb/index.yaml
+  - name: Query
+    href: query/index.yaml
   - name: Облачная терминология
     href: glossary/index.yaml
 base: ru

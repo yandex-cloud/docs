@@ -212,22 +212,6 @@ retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>
 snapshot_spec | **[SnapshotSpec](#SnapshotSpec3)**<br>properties to create snapshot with. 
 
 
-### SchedulePolicy {#SchedulePolicy3}
-
-Field | Description
---- | ---
-start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>start time for the first run. 
-expression | **string**<br>cron format (* * * * *) 
-
-
-### SnapshotSpec {#SnapshotSpec3}
-
-Field | Description
---- | ---
-description | **string**<br>Description of the created snapshot. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
-
-
 ## Update {#Update}
 
 Updates the specified snapshot schedule.
@@ -247,14 +231,14 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 name | **string**<br>schedule properties 
 description | **string**<br> 
 labels | **map<string,string>**<br> 
-schedule_policy | **[SchedulePolicy](#SchedulePolicy4)**<br> 
+schedule_policy | **[SchedulePolicy](#SchedulePolicy3)**<br> 
 retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>
 &nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
 &nbsp;&nbsp;snapshot_count | **int64**<br> 
-snapshot_spec | **[SnapshotSpec](#SnapshotSpec4)**<br> 
+snapshot_spec | **[SnapshotSpec](#SnapshotSpec3)**<br> 
 
 
-### SchedulePolicy {#SchedulePolicy4}
+### SchedulePolicy {#SchedulePolicy3}
 
 Field | Description
 --- | ---
@@ -262,7 +246,7 @@ start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-
 expression | **string**<br>cron format (* * * * *) 
 
 
-### SnapshotSpec {#SnapshotSpec4}
+### SnapshotSpec {#SnapshotSpec3}
 
 Field | Description
 --- | ---
@@ -304,27 +288,11 @@ name | **string**<br>Name of the schedule policy. The name is unique within the 
 description | **string**<br>Description of the schedule policy. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 status | enum **Status**<br> 
-schedule_policy | **[SchedulePolicy](#SchedulePolicy5)**<br>schedule properties 
+schedule_policy | **[SchedulePolicy](#SchedulePolicy4)**<br>schedule properties 
 retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>
 &nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
 &nbsp;&nbsp;snapshot_count | **int64**<br> 
-snapshot_spec | **[SnapshotSpec](#SnapshotSpec5)**<br>properties to create snapshot with. 
-
-
-### SchedulePolicy {#SchedulePolicy5}
-
-Field | Description
---- | ---
-start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>start time for the first run. 
-expression | **string**<br>cron format (* * * * *) 
-
-
-### SnapshotSpec {#SnapshotSpec5}
-
-Field | Description
---- | ---
-description | **string**<br>Description of the created snapshot. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+snapshot_spec | **[SnapshotSpec](#SnapshotSpec4)**<br>properties to create snapshot with. 
 
 
 ## Delete {#Delete}
@@ -420,14 +388,14 @@ name | **string**<br>Name of the schedule policy. The name is unique within the 
 description | **string**<br>Description of the schedule policy. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 status | enum **Status**<br> 
-schedule_policy | **[SchedulePolicy](#SchedulePolicy6)**<br>schedule properties 
+schedule_policy | **[SchedulePolicy](#SchedulePolicy4)**<br>schedule properties 
 retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>
 &nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
 &nbsp;&nbsp;snapshot_count | **int64**<br> 
-snapshot_spec | **[SnapshotSpec](#SnapshotSpec6)**<br>properties to create snapshot with. 
+snapshot_spec | **[SnapshotSpec](#SnapshotSpec4)**<br>properties to create snapshot with. 
 
 
-### SchedulePolicy {#SchedulePolicy6}
+### SchedulePolicy {#SchedulePolicy4}
 
 Field | Description
 --- | ---
@@ -435,7 +403,7 @@ start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-
 expression | **string**<br>cron format (* * * * *) 
 
 
-### SnapshotSpec {#SnapshotSpec6}
+### SnapshotSpec {#SnapshotSpec4}
 
 Field | Description
 --- | ---
@@ -494,14 +462,14 @@ name | **string**<br>Name of the schedule policy. The name is unique within the 
 description | **string**<br>Description of the schedule policy. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 status | enum **Status**<br> 
-schedule_policy | **[SchedulePolicy](#SchedulePolicy7)**<br>schedule properties 
+schedule_policy | **[SchedulePolicy](#SchedulePolicy5)**<br>schedule properties 
 retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>
 &nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
 &nbsp;&nbsp;snapshot_count | **int64**<br> 
-snapshot_spec | **[SnapshotSpec](#SnapshotSpec7)**<br>properties to create snapshot with. 
+snapshot_spec | **[SnapshotSpec](#SnapshotSpec5)**<br>properties to create snapshot with. 
 
 
-### SchedulePolicy {#SchedulePolicy7}
+### SchedulePolicy {#SchedulePolicy5}
 
 Field | Description
 --- | ---
@@ -509,7 +477,7 @@ start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-
 expression | **string**<br>cron format (* * * * *) 
 
 
-### SnapshotSpec {#SnapshotSpec7}
+### SnapshotSpec {#SnapshotSpec5}
 
 Field | Description
 --- | ---
@@ -568,14 +536,14 @@ name | **string**<br>Name of the schedule policy. The name is unique within the 
 description | **string**<br>Description of the schedule policy. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 status | enum **Status**<br> 
-schedule_policy | **[SchedulePolicy](#SchedulePolicy8)**<br>schedule properties 
+schedule_policy | **[SchedulePolicy](#SchedulePolicy6)**<br>schedule properties 
 retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>
 &nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
 &nbsp;&nbsp;snapshot_count | **int64**<br> 
-snapshot_spec | **[SnapshotSpec](#SnapshotSpec8)**<br>properties to create snapshot with. 
+snapshot_spec | **[SnapshotSpec](#SnapshotSpec6)**<br>properties to create snapshot with. 
 
 
-### SchedulePolicy {#SchedulePolicy8}
+### SchedulePolicy {#SchedulePolicy6}
 
 Field | Description
 --- | ---
@@ -583,7 +551,7 @@ start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-
 expression | **string**<br>cron format (* * * * *) 
 
 
-### SnapshotSpec {#SnapshotSpec8}
+### SnapshotSpec {#SnapshotSpec6}
 
 Field | Description
 --- | ---

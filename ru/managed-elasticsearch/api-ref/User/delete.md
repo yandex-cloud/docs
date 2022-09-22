@@ -10,7 +10,7 @@ Deletes the specified user.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/users/{userName}
+DELETE https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path parameters {#path_params}

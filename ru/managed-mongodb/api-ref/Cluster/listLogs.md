@@ -11,7 +11,7 @@ See the [Logs](/yandex-mdb-guide/concepts/logs.html) section in the developers g
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}:logs
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}:logs
 ```
  
 ## Path parameters {#path_params}

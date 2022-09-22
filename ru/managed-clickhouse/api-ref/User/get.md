@@ -10,7 +10,7 @@ To get the list of available ClickHouse User resources, make a [list](/docs/mana
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/users/{userName}
+GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path parameters {#path_params}

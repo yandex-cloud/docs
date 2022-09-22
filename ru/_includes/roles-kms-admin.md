@@ -12,5 +12,3 @@
 Эти разрешения также входят в роли `admin` и `resource-manager.clouds.owner`.
 
 Сейчас эту роль можно назначить на [организацию](../organization/index.yaml), [облако](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../resource-manager/concepts/resources-hierarchy.md#folder) или [ключ](../kms/concepts/key).
-
-Выдать роль может владелец (роль `resource-manager.clouds.owner`) или администратор (роль `admin`) облака, а также администратор организации (роль `organization-manager.admin`).

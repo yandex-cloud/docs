@@ -10,7 +10,7 @@ Pauses an Apache Kafka® connector.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}/connectors/pause/{connectorName}
+POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/connectors/pause/{connectorName}
 ```
  
 ## Path parameters {#path_params}

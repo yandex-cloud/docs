@@ -160,7 +160,14 @@ view | <p>Defines which information about the Instance template should be return
           ]
         }
       ]
-    }
+    },
+    "filesystemSpecs": [
+      {
+        "mode": "string",
+        "deviceName": "string",
+        "filesystemId": "string"
+      }
+    ]
   },
   "scalePolicy": {
     "testAutoScale": {
@@ -384,6 +391,10 @@ instanceTemplate.<br>placementPolicy.<br>hostAffinityRules[] | **object**<br><p>
 instanceTemplate.<br>placementPolicy.<br>hostAffinityRules[].<br>key | **string**<br><p>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'</p> 
 instanceTemplate.<br>placementPolicy.<br>hostAffinityRules[].<br>op | **string**<br><p>Include or exclude action</p> 
 instanceTemplate.<br>placementPolicy.<br>hostAffinityRules[].<br>values[] | **string**<br><p>Affinity value or host ID or host group ID</p> 
+instanceTemplate.<br>filesystemSpecs[] | **object**<br><p>Array of filesystems to attach to the instance.</p> <p>The filesystems must reside in the same availability zone as the instance.</p> <p>To use the instance with an attached filesystem, the latter must be mounted. For details, see <a href="/docs/compute/operations/filesystem/attach-to-vm">documentation</a>.</p> 
+instanceTemplate.<br>filesystemSpecs[].<br>mode | **string**<br><p>Mode of access to the filesystem that should be attached.</p> <ul> <li>READ_ONLY: Read-only access.</li> <li>READ_WRITE: Read/Write access. Default value.</li> </ul> 
+instanceTemplate.<br>filesystemSpecs[].<br>deviceName | **string**<br><p>Name of the device representing the filesystem on the instance.</p> <p>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc.</p> <p>If not specified, a random value will be generated.</p> <p>Value must match the regular expression ``\|[a-z][-_0-9a-z]{0,19}``.</p> 
+instanceTemplate.<br>filesystemSpecs[].<br>filesystemId | **string**<br><p>ID of the filesystem that should be attached.</p> <p>The maximum string length in characters is 128. Value must match the regular expression ``[-a-zA-Z0-9._{}]*``.</p> 
 scalePolicy | **object**<br><p><a href="/docs/compute/concepts/instance-groups/scale">Scaling policy</a> of the instance group.</p> 
 scalePolicy.<br>testAutoScale | **object**<br>[Automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group.
 scalePolicy.<br>testAutoScale.<br>minZoneSize | **string** (int64)<br><p>Lower limit for instance count in each zone.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 

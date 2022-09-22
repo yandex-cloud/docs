@@ -10,7 +10,7 @@ To get the list of all available Greenplum® clusters, make a [list](/docs/manag
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-greenplum/v1/clusters/{clusterId}
+GET https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

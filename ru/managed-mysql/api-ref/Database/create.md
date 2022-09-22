@@ -10,7 +10,7 @@ Creates a new database in a cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}/databases
+POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/databases
 ```
  
 ## Path parameters {#path_params}

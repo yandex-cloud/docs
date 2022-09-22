@@ -161,7 +161,26 @@ filter | <p>A filter expression that filters application load balancers listed i
       "securityGroupIds": [
         "string"
       ],
-      "createdAt": "string"
+      "createdAt": "string",
+      "autoScalePolicy": {
+        "minZoneSize": "string",
+        "maxSize": "string"
+      },
+      "logOptions": {
+        "logGroupId": "string",
+        "discardRules": [
+          {
+            "codes": [
+              "string"
+            ],
+            "intervals": [
+              "string"
+            ],
+            "percent": "string"
+          }
+        ],
+        "disable": true
+      }
     }
   ],
   "nextPageToken": "string"
@@ -233,4 +252,14 @@ loadBalancers[].<br>allocationPolicy.<br>locations[].<br>disableTraffic | **bool
 loadBalancers[].<br>logGroupId | **string**<br><p>ID of the log group that stores access logs of the application load balancer.</p> <p>The logs can be accessed using a Cloud Functions <a href="/docs/functions/operations/trigger/cloudlogs-trigger-create">trigger for Cloud Logs</a>.</p> 
 loadBalancers[].<br>securityGroupIds[] | **string**<br><p>ID's of the security groups attributed to the application load balancer.</p> <p>For details about the concept, see <a href="/docs/application-load-balancer/concepts/application-load-balancer#security-groups">documentation</a>.</p> 
 loadBalancers[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+loadBalancers[].<br>autoScalePolicy | **object**<br><p>Autoscale settings of the application load balancer.</p> 
+loadBalancers[].<br>autoScalePolicy.<br>minZoneSize | **string** (int64)<br><p>Lower limit for the number of resource units in each zone.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+loadBalancers[].<br>autoScalePolicy.<br>maxSize | **string** (int64)<br><p>Upper limit for the total number of resource units across all zones.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+loadBalancers[].<br>logOptions | **object**<br><p>Cloud logging settings of the application load balancer.</p> 
+loadBalancers[].<br>logOptions.<br>logGroupId | **string**<br><p>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located.</p> 
+loadBalancers[].<br>logOptions.<br>discardRules[] | **object**<br><p>LogDiscardRule discards a fraction of logs with certain codes. If neither codes or intervals are provided, rule applies to all logs.</p> 
+loadBalancers[].<br>logOptions.<br>discardRules[].<br>codes[] | **string** (int64)<br><p>HTTP codes that should be discarded.</p> <p>Acceptable values are 100 to 599, inclusive.</p> 
+loadBalancers[].<br>logOptions.<br>discardRules[].<br>intervals[] | **string**<br><p>Groups of HTTP codes like 4xx that should be discarded.</p> 
+loadBalancers[].<br>logOptions.<br>discardRules[].<br>percent | **string** (int64)<br><p>Percent of logs to be discarded: 0 - keep all, 100 - keep none.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+loadBalancers[].<br>logOptions.<br>disable | **boolean** (boolean)<br><p>Do not send logs to Cloud Logging log group.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/application-load-balancer/api-ref/LoadBalancer/list#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/application-load-balancer/api-ref/LoadBalancer/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

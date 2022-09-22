@@ -175,14 +175,6 @@ effective_time | **[google.protobuf.Timestamp](https://developers.google.com/pro
 billable_object | **[BillableObject](#BillableObject2)**<br>Object that is bound to billing account. 
 
 
-### BillableObject {#BillableObject2}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the object in other service. 
-type | **string**<br>Billable object type. Can be one of the following: <ul><li>`cloud`</li></ul> 
-
-
 ## ListAccessBindings {#ListAccessBindings}
 
 Lists access bindings for the specified billing account.

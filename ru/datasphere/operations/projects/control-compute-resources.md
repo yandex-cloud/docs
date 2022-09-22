@@ -1,14 +1,10 @@
-# Управление вычислительными ресурсами
+# Выбрать вычислительные ресурсы
 
-{% include [include](../../../_includes/datasphere/control-compute-resources-intro.md) %}
+{% include [include](../../../_includes/datasphere/ui-control-compute-resources-intro.md) %}
 
 ## Перед началом {#before-begin}
 
-Если проект уже открыт, перейдите на вкладку ноутбука.
-
-Если нет, откройте проект:
-
-{% include [include](../../../_includes/datasphere/before-begin.md) %}
+{% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
 
 ## Измените конфигурацию {#config}
 

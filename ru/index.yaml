@@ -24,6 +24,9 @@ links:
   - title: CLI Yandex Cloud
     description: Интерфейс командной строки
     href: cli/
+  - title: Cloud Backup
+    description: Резервное копирование ресурсов Yandex Cloud
+    href: backup/
   - title: Cloud Logging
     description: Логи сервисов и пользовательских приложений
     href: logging/
@@ -162,6 +165,9 @@ links:
   - title: Yandex Managed Service for YDB
     description: Распределенная отказоустойчивая NewSQL СУБД
     href: ydb/
+  - title: Query
+    description: Аналитические и потоковые запросы в реальном времени
+    href: query/
   - title: Облачная терминология
     description: Словарь разработчика
     href: glossary/

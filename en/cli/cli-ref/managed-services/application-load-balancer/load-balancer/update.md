@@ -23,6 +23,11 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--clear-security-groups`|Clear all security groups for application load balancer.|
 |`--security-group-id`|<b>`value[,value]`</b><br/>Security groups for the load balancer, --security-group-id id1 --security-group-id=id2|
+|`--log-group-id`|<b>`string`</b><br/>ID of the log group to which the loadbalancer send logs.|
+|`--log-group-name`|<b>`string`</b><br/>Name of the log group to which the loadbalancer send logs.|
+|`--log-group-use-default`|Use default log group in the folder where load balancer resides.|
+|`--disable-logging`|Do not send access logs to Cloud Logging log group.|
+|`--enable-logging`|Send access logs to specified Cloud Logging log group.|
 
 #### Global Flags
 

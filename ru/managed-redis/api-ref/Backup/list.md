@@ -10,7 +10,7 @@ Retrieves the list of Redis backups available for the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-redis/v1/backups
+GET https://{{ api-host-mdb }}/managed-redis/v1/backups
 ```
  
 ## Query parameters {#query_params}

@@ -44,4 +44,3 @@
 
 #### См. также {#see-also}
 - [{#T}](../../concepts/data-join.md#ui-join)
-- [{#T}](join-data-csv.md)

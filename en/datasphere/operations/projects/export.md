@@ -1,18 +1,14 @@
-# Exporting a project
+# Export a project
 
 You can export a project as a ZIP archive. In this case, both a file with a notebook and all files that you see in the **File Explorer** window are exported. This lets you start your notebook locally, provided the environments match.
 
-## Before you begin {#before-begin}
+## Before you start {#before-begin}
 
-If the project is already open, go to the notebook tab.
+{% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
 
-If not, open the project:
+## Export a project {#export-project}
 
-{% include [include](../../../_includes/datasphere/before-begin.md) %}
-
-## Export a project {export-project}
-
-To export a project:
+Make sure you've saved the changes. The last saved state is exported.
 
 1. In the top panel, click **File** and select **Export project as zip**.
 1. In the window that opens, click **Download**.

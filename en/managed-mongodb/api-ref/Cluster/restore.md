@@ -10,7 +10,7 @@ Creates a new MongoDB cluster using the specified backup.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-mongodb/v1/clusters:restore
+POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters:restore
 ```
  
 ## Body parameters {#body_params}

@@ -1,14 +1,10 @@
-# Resizing project storage
+# Resize project storage
 
-To resize project storage:
-
-1. {% include [include](../../../_includes/datasphere/first-step.md) %}
-1. Go to the **Projects** tab.
-1. Select the project you want to edit and click it. Wait for the project to load.
-1. In the upper left-hand corner, click **File** → **Change project disk size**. In the pop-up window, you will see current, minimum, and maximum storage size.
+1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
+1. Information about the project storage size is available on the **Overview** page. Click ![pencil](../../../_assets/pencil.svg).
 1. Specify the desired size as an integer.
 1. Click **Resize**.
-1. The project will reload and automatically open the management console **Projects** tab. Resizing storage may take some time. Once this is complete, the project will become available to work with once again.
+1. You can open the project when its storage resizing is completed.
 
 {% note warning %}
 

@@ -4,6 +4,7 @@
 
 * [Uploading audit logs to a bucket](../operations/index.md#bucket).
 
+
 * [Uploading audit logs to Cloud Logging](../operations/index.md#logging).
 * [Uploading audit logs to a data stream](../operations/index.md#data-streams).
 
@@ -12,7 +13,9 @@ Collecting audit logs lets you use analytical tools and rapidly respond to event
 
 * [Searching audit logs in a bucket](../tutorials/search-bucket.md)
 
+
 * [Searching audit logs in a log group](../tutorials/search-cloud-logging.md)
+
 
 * [Exporting audit logs to SIEM systems](./export-siem.md)
 * [Alert settings in {{ monitoring-full-name }}](../tutorials/alerts-monitoring.md)
@@ -22,6 +25,7 @@ Collecting audit logs lets you use analytical tools and rapidly respond to event
 * {{ at-full-name }}
 * {{ certificate-manager-full-name }}
 
+
 * {{ cloud-logging-full-name }}
 
 * {{ compute-full-name }}
@@ -30,10 +34,13 @@ Collecting audit logs lets you use analytical tools and rapidly respond to event
 * {{ lockbox-full-name }}
 * {{ mch-full-name }}
 
+
+* {{ mgl-full-name }}
 * {{ mmg-full-name }}
 
 * {{ mmy-full-name }}
 * {{ mpg-full-name }}
+
 
 * {{ mrd-full-name }}
 
@@ -42,6 +49,7 @@ Collecting audit logs lets you use analytical tools and rapidly respond to event
 * {{ org-full-name }}
 * {{ resmgr-full-name }}
 * {{ vpc-full-name }}
+
 
 * {{ ydb-full-name }}
 
@@ -60,4 +68,8 @@ The following events are logged:
 
 ## Current service limits {#known-restrictions}
 
-For more information about service limits, see [Quotas and limits](limits.md).
+The audit log doesn't capture authentication errors. For example, if a user makes an API call without an IAM token, this information will not be included in the audit logs.
+
+The log captures authorization errors. For example, if a user attempts to create a resource without sufficient privileges, the log will include an error message.
+
+The service also has [quotas and limits](limits.md).

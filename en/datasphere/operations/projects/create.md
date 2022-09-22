@@ -1,13 +1,13 @@
 # Creating an empty project
 
-A project in {{ ml-platform-name }} is a [JupyterLab](https://jupyter.org/) development environment that runs on a {{ yandex-cloud }} VM.
+A _project_ is a user's main work space that is run on a {{ yandex-cloud }} VM. [More about {{ ml-platform-name }} projects](../../concepts/project.md).
 
-These instructions describe how to create an empty project. If you already have an `.ipynb` file, you can create a project from it.
+This tutorial explains how to create an empty project. You can also [create a project from a checkpoint](checkpoints.md#import).
 
-{% include [include](../../../_includes/datasphere/create-project.md) %}
+{% include [include](../../../_includes/datasphere/ui-create-project.md) %}
 
 #### What's next {#what-is-next}
 
-* [{#T}](install-dependencies.md)
-* [{#T}](control-compute-resources.md)
-* [{#T}](export.md)
+* [{#T}](install-dependencies.md).
+* [{#T}](control-compute-resources.md).
+* [{#T}](export.md).

@@ -19,8 +19,6 @@ items:
         href: stt/models.md
       - name: Расширение модели распознавания речи
         href: stt/additional-training.md
-      - name: Загрузка данных для дообучения модели
-        href: stt/import-training-data.md
   - name: Синтез речи
     items:
       - name: О технологии
@@ -41,8 +39,6 @@ items:
             href: tts/brand-voice/index.md
           - name: Формат входных данных Brand Voice Adaptive
             href: tts/brand-voice/income-data-format.md
-          - name: Загрузка данных для Brand Voice
-            href: tts/brand-voice/import-data.md
   - name: Форматы аудио
     href: formats.md
   - name: Интеграция телефонии

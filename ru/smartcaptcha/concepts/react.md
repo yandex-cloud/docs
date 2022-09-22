@@ -12,19 +12,19 @@
 - npm
 
     ```bash
-    npm i -PE smart-captcha
+    npm i -PE @yandex/smart-captcha
     ```
 
 - yarn
 
     ```bash
-    yarn add smart-captcha
+    yarn add @yandex/smart-captcha
     ```
 
 - pnpm
 
     ```bash
-    pnpm add smart-captcha
+    pnpm add @yandex/smart-captcha
     ```
 
 {% endlist %}

@@ -10,7 +10,7 @@ Creates a new SQL Server database in the specified cluster from a backup.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}/databases:restore
+POST https://{{ api-host-mdb }}/mdb/sqlserver/v1/clusters/{clusterId}/databases:restore
 ```
  
 ## Path parameters {#path_params}

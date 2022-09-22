@@ -10,7 +10,7 @@ Creates a new PostgreSQL database in the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}/databases
+POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/databases
 ```
  
 ## Path parameters {#path_params}
