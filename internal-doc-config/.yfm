@@ -20,6 +20,7 @@ ignore:
   - "ru/cdn/*"
   - "ru/certificate-manager/*"
   - "ru/cloud-desktop/*"
+  - "ru/cloud-apps/*"
   - "ru/compute/*"
   - "ru/compute-citrix-vad-plugin/*"
   - "ru/container-registry/*"
