@@ -9,4 +9,4 @@ description: 'В {{ ml-platform-full-name }} действуют лимиты и 
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-{% include [datasphere-limits.md](../../_includes/datasphere-limits.md) %}
+{% include [datasphere-limits.md](../../_includes/datasphere-limits-old.md) %}

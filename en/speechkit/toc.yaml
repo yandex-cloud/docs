@@ -23,9 +23,6 @@ items:
       href: stt/models.md
     - name: Extending a speech recognition model
       href: stt/additional-training.md
-    - name: Uploading model retraining data
-      href: stt/import-training-data.md
-      hidden: true
   - name: Speech synthesis
     items:
     - name: About the technology
@@ -46,9 +43,6 @@ items:
         href: tts/brand-voice/index.md
       - name: Input data format for Brand Voice Adaptive
         href: tts/brand-voice/income-data-format.md
-      - name: Uploading data for Brand Voice
-        href: tts/brand-voice/import-data.md
-        hidden: true
   - name: Audio formats
     href: formats.md
   - name: IVR integration
