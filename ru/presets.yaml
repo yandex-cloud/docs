@@ -34,6 +34,7 @@ default:
   brand-voice-full-name: Yandex SpeechKit Brand Voice
   network-load-balancer-full-name: Yandex Network Load Balancer
   message-queue-full-name: Yandex Message Queue
+  cloud-apps-full-name: Yandex Cloud Apps
   cloud-logs-full-name: Yandex Cloud Logs
   cloud-logging-full-name: Yandex Cloud Logging
   container-registry-full-name: Yandex Container Registry
@@ -97,6 +98,7 @@ default:
   sk-hybrid-name: SpeechKit Hybrid
   network-load-balancer-name: Network Load Balancer
   message-queue-name: Message Queue
+  cloud-apps-name: Cloud Apps
   cloud-logs-name: Cloud Logs
   cloud-logging-name: Cloud Logging
   container-registry-name: Container Registry
@@ -164,6 +166,7 @@ default:
   marketplace-short-name: Marketplace
   network-load-balancer-short-name: Network Load Balancer
   message-queue-short-name: Message Queue
+  cloud-apps-short-name: Cloud Apps
   cloud-logs-short-name: Cloud Logs
   cloud-logging-short-name: Cloud Logging
   container-registry-short-name: Container Registry

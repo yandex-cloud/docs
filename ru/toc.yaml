@@ -22,6 +22,8 @@ items:
   - name: CLI {{ yandex-cloud }}
     href: cli/index.yaml
     when: product == "yandex-cloud"
+  - name: Cloud Apps
+    href: cloud-apps/index.yaml
   - name: Cloud Backup
     href: backup/index.yaml
     when: product == "yandex-cloud"
