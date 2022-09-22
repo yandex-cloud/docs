@@ -478,8 +478,8 @@ default:
   yql-short-name: YQL
   k8s: Kubernetes
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
-  mqtt-broker-address: mqtt.cloud.yandex.net
-  mqtt-broker-port: 8883
+  mqtt-server-address: mqtt.cloud.yandex.net
+  mqtt-server-port: 8883
   sf-url: https://functions.yandexcloud.net
   coi: Container Optimized Image
   yc-install-path: /yandexcloud-yc/install.sh

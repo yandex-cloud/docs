@@ -45,6 +45,16 @@ items:
             href: operations/device/device-update.md
           - name: Удаление устройства
             href: operations/device/device-delete.md
+      - name: Управление брокерами
+        items:
+          - name: Получение информации о брокере
+            href: operations/broker/broker-list.md
+          - name: Создание брокера
+            href: operations/broker/broker-create.md
+          - name: Изменение брокера
+            href: operations/broker/broker-update.md
+          - name: Удаление брокера
+            href: operations/broker/broker-delete.md  
       - name: Управление сертификатами
         items:
           - name: Создание сертификата
@@ -53,21 +63,25 @@ items:
             href: operations/certificates/registry-certificates.md
           - name: Управление сертификатами устройства
             href: operations/certificates/device-certificates.md
+          - name: Управление сертификатами брокера
+            href: operations/certificates/broker-certificates.md
       - name: Управление паролями
         items:
           - name: Управление паролями реестра
             href: operations/password/registry-password.md
           - name: Управление паролями устройства
             href: operations/password/device-password.md
+          - name: Управление паролями брокера
+            href: operations/password/broker-password.md
   - name: Концепции
     items:
       - name: Авторизация
         href: concepts/authorization.md
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
-      - name: Параметры подключения MQTT-брокера
+      - name: Параметры подключения MQTT-сервера
         href: concepts/mqtt-properties.md
-      - name: Отправка сообщений MQTT-брокеру через gRPC
+      - name: Отправка сообщений MQTT-серверу через gRPC
         href: concepts/mqtt-grpc.md
       - name: Топик
         items:
@@ -107,10 +121,10 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API
+  - name: Справочник API Devices
     items:
       - name: Аутентификация в API
-        href: api-ref/authentication.md
+        href: api-ref/devices/authentication.md
       - name: gRPC (англ.)
         items: null
         include:
@@ -121,5 +135,19 @@ items:
         include:
           repo: docs
           path: en/_api-ref/iot/devices/toc.yaml
+  - name: Справочник API Broker
+    items:
+      - name: Аутентификация в API
+        href: api-ref/broker/authentication.md
+      - name: gRPC (англ.)
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/iot-core/broker/toc.yaml
+      - name: REST (англ.)
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref/iot/broker/toc.yaml
   - name: Вопросы и ответы
     href: qa/index.md
