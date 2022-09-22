@@ -1,22 +1,21 @@
-# yc dns zone list-records
+# yc compute snapshot-schedule add-labels
 
-List dns zone records.
+Add labels to specified snapshot schedule
 
 #### Command Usage
 
 Syntax: 
 
-`yc dns zone list-records <DNS-ZONE-NAME>|<DNS-ZONE-ID> [Flags...] [Global Flags...]`
+`yc compute snapshot-schedule add-labels <SNAPSHOT-SCHEDULE-NAME>|<SNAPSHOT-SCHEDULE-ID> --labels KEY=VALUE[,KEY=VALUE...] [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>DNS zone id.|
-|`--name`|<b>`string`</b><br/>DNS zone name.|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
-|`--record-type`|<b>`string`</b><br/>Filter by record type.|
-|`--record-name`|<b>`string`</b><br/>Filter by record name.|
+|`--id`|<b>`string`</b><br/>Snapshot schedule id.|
+|`--name`|<b>`string`</b><br/>Snapshot schedule name.|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
 
 #### Global Flags
 

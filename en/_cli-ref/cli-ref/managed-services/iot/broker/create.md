@@ -1,22 +1,25 @@
-# yc dns zone list-records
+# yc iot broker create
 
-List dns zone records.
+Create new broker
 
 #### Command Usage
 
 Syntax: 
 
-`yc dns zone list-records <DNS-ZONE-NAME>|<DNS-ZONE-ID> [Flags...] [Global Flags...]`
+`yc iot broker create <BROKER-NAME> [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>DNS zone id.|
-|`--name`|<b>`string`</b><br/>DNS zone name.|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
-|`--record-type`|<b>`string`</b><br/>Filter by record type.|
-|`--record-name`|<b>`string`</b><br/>Filter by record name.|
+|`--name`|<b>`string`</b><br/>Name of broker.|
+|`--description`|<b>`string`</b><br/>Description of broker/|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>List of KEY=VALUES pairs to add.|
+|`--certificate-file`|<b>`string`</b><br/>Path to X.509 certificate file to associate with selected broker.|
+|`--password`|<b>`string`</b><br/>Password for entity. Usage of --read-password is more secure|
+|`--read-password`|Read password for entity from input|
+|`--generate-password`|Generate random password|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
 

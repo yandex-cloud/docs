@@ -1,30 +1,27 @@
-# yc application-load-balancer load-balancer update
+# yc compute snapshot-schedule update
 
-Update the specified application load balancer
+Update the specified snapshot schedule
 
 #### Command Usage
 
 Syntax: 
 
-`yc application-load-balancer load-balancer update <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
+`yc compute snapshot-schedule update <SNAPSHOT-SCHEDULE-NAME>|<SNAPSHOT-SCHEDULE-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>ID of the Application load balancer.|
-|`--name`|<b>`string`</b><br/>Name of the Application load balancer.|
+|`--id`|<b>`string`</b><br/>Snapshot schedule id.|
+|`--name`|<b>`string`</b><br/>Snapshot schedule name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--new-name`|<b>`string`</b><br/>A new name of the application load balancer.|
-|`--description`|<b>`string`</b><br/>A description of the application load balancer.|
+|`--new-name`|<b>`string`</b><br/>A new name of the snapshot schedule.|
+|`--description`|<b>`string`</b><br/>Specifies a textual description of the snapshot schedule.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
-|`--clear-security-groups`|Clear all security groups for application load balancer.|
-|`--security-group-id`|<b>`value[,value]`</b><br/>Security groups for the load balancer, --security-group-id id1 --security-group-id=id2|
-|`--log-group-id`|<b>`string`</b><br/>ID of the log group to which the loadbalancer send logs.|
-|`--log-group-name`|<b>`string`</b><br/>Name of the log group to which the loadbalancer send logs.|
-|`--log-group-use-default`|Use default log group in the folder where load balancer resides.|
-|`--disable-logging`|Do not send access logs to Cloud Logging log group.|
-|`--enable-logging`|Send access logs to specified Cloud Logging log group.|
+|`--retention-period`|<b>`duration`</b><br/>Retention period.|
+|`--snapshot-count`|<b>`uint`</b><br/>Snapshot count.|
+|`--expression`|<b>`string`</b><br/>Cron expression for the snapshot schedule.|
+|`--start-at`|<b>`timestamp`</b><br/>Start timestamp for the snapshot schedule. Format: RFC-3339, HH:MM:SS, or a moment  of time relative to the current time.<br/>Examples: '2006-01-02T15:04:05Z', '15:04:05', '2h' or '3h30m ago'.|
 
 #### Global Flags
 

@@ -1,22 +1,26 @@
-# yc dns zone list-records
+# yc iot broker logs
 
-List dns zone records.
+Show logs for the specified broker
 
 #### Command Usage
 
 Syntax: 
 
-`yc dns zone list-records <DNS-ZONE-NAME>|<DNS-ZONE-ID> [Flags...] [Global Flags...]`
+`yc iot broker logs <BROKER-NAME>|<BROKER-ID>  [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>DNS zone id.|
-|`--name`|<b>`string`</b><br/>DNS zone name.|
+|`--id`|<b>`string`</b><br/>Broker id.|
+|`--name`|<b>`string`</b><br/>Broker name.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
-|`--record-type`|<b>`string`</b><br/>Filter by record type.|
-|`--record-name`|<b>`string`</b><br/>Filter by record name.|
+|`--since`|<b>`timestamp`</b><br/>Show logs since this time|
+|`--until`|<b>`timestamp`</b><br/>Show logs until this time|
+|`-f`,`--follow`|Output logs as they arrive|
+|`--levels`|<b>`value[,value]`</b><br/>Show logs with these levels (comma-separated)|
+|`--filter`|<b>`string`</b><br/>Use this filter|
+|`--max-response-size`|<b>`byteSize`</b><br/>Specifies the maximum response size in bytes. You can also use M and T suffixes to specify MiB or TiB respectively. Default is 3.5 MiB.|
 
 #### Global Flags
 

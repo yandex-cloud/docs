@@ -1,22 +1,18 @@
-# yc dns zone list-records
+# yc iot broker list
 
-List dns zone records.
+List IoT brokers
 
 #### Command Usage
 
 Syntax: 
 
-`yc dns zone list-records <DNS-ZONE-NAME>|<DNS-ZONE-ID> [Flags...] [Global Flags...]`
+`yc iot broker list [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>DNS zone id.|
-|`--name`|<b>`string`</b><br/>DNS zone name.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
-|`--record-type`|<b>`string`</b><br/>Filter by record type.|
-|`--record-name`|<b>`string`</b><br/>Filter by record name.|
 
 #### Global Flags
 

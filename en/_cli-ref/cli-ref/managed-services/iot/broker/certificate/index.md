@@ -1,26 +1,22 @@
-# yc serverless trigger create
+# yc iot broker certificate
 
-Create triggers
+Manage IoT broker certificates
 
 #### Command Usage
 
 Syntax: 
 
-`yc serverless trigger create <command>`
+`yc iot broker certificate <command>`
+
+Aliases: 
+
+- `certificates`
 
 #### Command Tree
 
-- [yc serverless trigger create timer](timer.md) — Create timer trigger
-- [yc serverless trigger create message-queue](message-queue.md) — Create message queue trigger
-- [yc serverless trigger create internet-of-things](internet-of-things.md) — Create internet of things trigger
-- [yc serverless trigger create iot-broker](iot-broker.md) — Create IoT broker trigger
-- [yc serverless trigger create object-storage](object-storage.md) — Create object storage trigger
-- [yc serverless trigger create container-registry](container-registry.md) — Create container registry trigger
-- [yc serverless trigger create cloud-logs](cloud-logs.md) — Create cloud logs trigger
-- [yc serverless trigger create logging](logging.md) — Create logging trigger
-- [yc serverless trigger create billing-budget](billing-budget.md) — Create billing budget trigger
-- [yc serverless trigger create yds](yds.md) — Create YDS trigger
-- [yc serverless trigger create mail](mail.md) — Create Mail trigger
+- [yc iot broker certificate list](list.md) — List certificates associated with specified broker
+- [yc iot broker certificate add](add.md) — Add new certificate to specified broker
+- [yc iot broker certificate delete](delete.md) — Delete specified certificate from broker
 
 #### Global Flags
 

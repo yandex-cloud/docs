@@ -20,6 +20,10 @@ Syntax:
 |`--network-name`|<b>`string`</b><br/>Name of the network to which the loadbalancer connects.|
 |`--security-group-id`|<b>`value[,value]`</b><br/>Security groups for the load balancer, --security-group-id id1 --security-group-id=id2|
 |`--location`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>List of load balancer locations.<br/><br/>Possible property names:<br/><ul> <li><code>subnet-id</code>:     Subnet id.</li> <li><code>subnet-name</code>:     Subnet name.</li> <li><code>zone</code>:     Zone of the subnet.</li> <li><code>traffic-disabled</code>:     Disable traffic in zone.</li> </ul>|
+|`--log-group-id`|<b>`string`</b><br/>ID of the log group to which the loadbalancer send logs.|
+|`--log-group-name`|<b>`string`</b><br/>Name of the log group to which the loadbalancer send logs.|
+|`--log-group-use-default`|Use default log group in the folder where load balancer resides.|
+|`--disable-logging`|Do not send access logs to Cloud Logging log group.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

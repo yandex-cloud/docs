@@ -1,22 +1,22 @@
-# yc dns zone list-records
+# yc iot broker password add
 
-List dns zone records.
+Add new password to specified broker
 
 #### Command Usage
 
 Syntax: 
 
-`yc dns zone list-records <DNS-ZONE-NAME>|<DNS-ZONE-ID> [Flags...] [Global Flags...]`
+`yc iot broker password add [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>DNS zone id.|
-|`--name`|<b>`string`</b><br/>DNS zone name.|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
-|`--record-type`|<b>`string`</b><br/>Filter by record type.|
-|`--record-name`|<b>`string`</b><br/>Filter by record name.|
+|`--broker-id`|<b>`string`</b><br/>Broker id.|
+|`--broker-name`|<b>`string`</b><br/>Broker name.|
+|`--password`|<b>`string`</b><br/>New password for entity. It is not secure to specify password in command line. To avoid it you can omit this flag and enter password when prompted.|
+|`--generate-password`|Generate random password|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
 

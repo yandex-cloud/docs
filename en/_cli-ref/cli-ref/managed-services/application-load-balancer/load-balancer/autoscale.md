@@ -1,12 +1,12 @@
-# yc application-load-balancer load-balancer update
+# yc application-load-balancer load-balancer autoscale
 
-Update the specified application load balancer
+Manage autoscale settings of the load balancer.
 
 #### Command Usage
 
 Syntax: 
 
-`yc application-load-balancer load-balancer update <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
+`yc application-load-balancer load-balancer autoscale <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -15,16 +15,8 @@ Syntax:
 |`--id`|<b>`string`</b><br/>ID of the Application load balancer.|
 |`--name`|<b>`string`</b><br/>Name of the Application load balancer.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--new-name`|<b>`string`</b><br/>A new name of the application load balancer.|
-|`--description`|<b>`string`</b><br/>A description of the application load balancer.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
-|`--clear-security-groups`|Clear all security groups for application load balancer.|
-|`--security-group-id`|<b>`value[,value]`</b><br/>Security groups for the load balancer, --security-group-id id1 --security-group-id=id2|
-|`--log-group-id`|<b>`string`</b><br/>ID of the log group to which the loadbalancer send logs.|
-|`--log-group-name`|<b>`string`</b><br/>Name of the log group to which the loadbalancer send logs.|
-|`--log-group-use-default`|Use default log group in the folder where load balancer resides.|
-|`--disable-logging`|Do not send access logs to Cloud Logging log group.|
-|`--enable-logging`|Send access logs to specified Cloud Logging log group.|
+|`--min-zone-size`|<b>`int`</b><br/>Lower limit for the number of resource units in each zone.|
+|`--max-size`|<b>`int`</b><br/>Upper limit for the total number of resource units across all zones.|
 
 #### Global Flags
 

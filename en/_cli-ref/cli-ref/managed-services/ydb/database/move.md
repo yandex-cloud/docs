@@ -1,22 +1,22 @@
-# yc dns zone list-records
+# yc ydb database move
 
-List dns zone records.
+Move YDB database to another folder.
 
 #### Command Usage
 
 Syntax: 
 
-`yc dns zone list-records <DNS-ZONE-NAME>|<DNS-ZONE-ID> [Flags...] [Global Flags...]`
+`yc ydb database move <DATABASE-NAME>|<DATABASE-ID> --destination-folder-id VALUE [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>DNS zone id.|
-|`--name`|<b>`string`</b><br/>DNS zone name.|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
-|`--record-type`|<b>`string`</b><br/>Filter by record type.|
-|`--record-name`|<b>`string`</b><br/>Filter by record name.|
+|`--id`|<b>`string`</b><br/>ID of the YDB database.|
+|`--name`|<b>`string`</b><br/>Name of the YDB database.|
+|`--destination-folder-id`|<b>`string`</b><br/>Destination folder id.|
+|`--destination-folder-name`|<b>`string`</b><br/>Destination folder name.|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
 

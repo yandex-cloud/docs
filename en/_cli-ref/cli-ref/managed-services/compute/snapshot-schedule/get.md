@@ -1,22 +1,24 @@
-# yc dns zone list-records
+# yc compute snapshot-schedule get
 
-List dns zone records.
+Show information about the specified snapshot schedule
 
 #### Command Usage
 
 Syntax: 
 
-`yc dns zone list-records <DNS-ZONE-NAME>|<DNS-ZONE-ID> [Flags...] [Global Flags...]`
+`yc compute snapshot-schedule get <SNAPSHOT-NAME>|<SNAPSHOT-ID> [<SNAPSHOT-SCHEDULE-NAME>|<SNAPSHOT-SCHEDULE-ID>...] [Global Flags...]`
+
+Aliases: 
+
+- `describe`
+- `show`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>DNS zone id.|
-|`--name`|<b>`string`</b><br/>DNS zone name.|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
-|`--record-type`|<b>`string`</b><br/>Filter by record type.|
-|`--record-name`|<b>`string`</b><br/>Filter by record name.|
+|`--id`|<b>`string`</b><br/>Snapshot schedule id.|
+|`--name`|<b>`string`</b><br/>Snapshot schedule name.|
 
 #### Global Flags
 

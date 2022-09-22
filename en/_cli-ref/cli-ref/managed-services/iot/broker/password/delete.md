@@ -1,22 +1,21 @@
-# yc dns zone list-records
+# yc iot broker password delete
 
-List dns zone records.
+Delete specified password from specified broker
 
 #### Command Usage
 
 Syntax: 
 
-`yc dns zone list-records <DNS-ZONE-NAME>|<DNS-ZONE-ID> [Flags...] [Global Flags...]`
+`yc iot broker password delete [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>DNS zone id.|
-|`--name`|<b>`string`</b><br/>DNS zone name.|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
-|`--record-type`|<b>`string`</b><br/>Filter by record type.|
-|`--record-name`|<b>`string`</b><br/>Filter by record name.|
+|`--broker-id`|<b>`string`</b><br/>Broker id.|
+|`--broker-name`|<b>`string`</b><br/>Broker name.|
+|`--password-id`|<b>`string`</b><br/>ID of password to be deleted.|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
 
