@@ -18,10 +18,6 @@ description: "Управление доступом в сервисе, пред�
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-[//]: {% include [roles-intro](../../_includes/roles-intro.md) %}
-
-[//]: ![service-roles-hierarchy](../../_assets/storage/service-roles-hierarchy.svg)
-
 ### backup.admin {#backup-admin}
 
 {% include notitle [roles-backup-admin](../../_includes/roles-backup-admin.md) %}
