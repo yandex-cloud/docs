@@ -9,7 +9,7 @@ To get the list of available ClickHouse clusters, make a [list](/docs/managed-cl
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}
+GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

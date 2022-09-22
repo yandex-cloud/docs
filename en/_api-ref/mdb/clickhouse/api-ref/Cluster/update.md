@@ -9,7 +9,7 @@ Updates the specified ClickHouse cluster.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}
+PATCH https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

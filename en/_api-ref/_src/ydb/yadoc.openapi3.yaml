@@ -1424,6 +1424,10 @@ components:
             You will be charged for the on-demand consumption only if provisioned capacity is consumed.
           type: string
           format: int64
+        topicWriteQuota:
+          description: write quota for topic service, defined in bytes per second.
+          type: string
+          format: int64
     SetAccessBindingsMetadata:
       type: object
       properties:

@@ -9,7 +9,7 @@ Same as [listLogs](/docs/managed-kafka/api-ref/Cluster/listLogs) but using serve
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}:stream_logs
+GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}:stream_logs
 ```
  
 ## Path parameters {#path_params}

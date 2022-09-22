@@ -157,14 +157,6 @@ cluster_id | **string**<br>ID of the Apache Kafka® cluster the user belongs to.
 permissions[] | **[Permission](#Permission3)**<br>Set of permissions granted to this user. 
 
 
-### Permission {#Permission3}
-
-Field | Description
---- | ---
-topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
-
-
 ## Update {#Update}
 
 Updates the specified Kafka user.
@@ -183,10 +175,10 @@ cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster the user b
 user_name | **string**<br>Required. Name of the user to be updated. <br>To get the name of the user, make a [UserService.List](#List) request. The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 password | **string**<br>New password for the user. The string length in characters must be 8-128.
-permissions[] | **[Permission](#Permission4)**<br>New set of permissions for the user. 
+permissions[] | **[Permission](#Permission3)**<br>New set of permissions for the user. 
 
 
-### Permission {#Permission4}
+### Permission {#Permission3}
 
 Field | Description
 --- | ---
@@ -224,15 +216,7 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the Kafka user. 
 cluster_id | **string**<br>ID of the Apache Kafka® cluster the user belongs to. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](./cluster_service#List) request. 
-permissions[] | **[Permission](#Permission5)**<br>Set of permissions granted to this user. 
-
-
-### Permission {#Permission5}
-
-Field | Description
---- | ---
-topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
+permissions[] | **[Permission](#Permission4)**<br>Set of permissions granted to this user. 
 
 
 ## Delete {#Delete}
@@ -293,10 +277,10 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster the user belongs to. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 user_name | **string**<br>Required. Name of the user to grant the permission to. <br>To get the name of the user, make a [UserService.List](#List) request. The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-permission | **[Permission](#Permission6)**<br>Required. Permission that should be granted to the specified user. 
+permission | **[Permission](#Permission4)**<br>Required. Permission that should be granted to the specified user. 
 
 
-### Permission {#Permission6}
+### Permission {#Permission4}
 
 Field | Description
 --- | ---
@@ -334,15 +318,7 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the Kafka user. 
 cluster_id | **string**<br>ID of the Apache Kafka® cluster the user belongs to. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](./cluster_service#List) request. 
-permissions[] | **[Permission](#Permission7)**<br>Set of permissions granted to this user. 
-
-
-### Permission {#Permission7}
-
-Field | Description
---- | ---
-topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
+permissions[] | **[Permission](#Permission5)**<br>Set of permissions granted to this user. 
 
 
 ## RevokePermission {#RevokePermission}
@@ -361,10 +337,10 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster the user belongs to. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 user_name | **string**<br>Required. Name of the user to revoke a permission from. <br>To get the name of the user, make a [UserService.List](#List) request. The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-permission | **[Permission](#Permission8)**<br>Required. Permission that should be revoked from the specified user. 
+permission | **[Permission](#Permission5)**<br>Required. Permission that should be revoked from the specified user. 
 
 
-### Permission {#Permission8}
+### Permission {#Permission5}
 
 Field | Description
 --- | ---
@@ -402,14 +378,6 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the Kafka user. 
 cluster_id | **string**<br>ID of the Apache Kafka® cluster the user belongs to. <br>To get the Apache Kafka® cluster ID, make a [ClusterService.List](./cluster_service#List) request. 
-permissions[] | **[Permission](#Permission9)**<br>Set of permissions granted to this user. 
-
-
-### Permission {#Permission9}
-
-Field | Description
---- | ---
-topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
+permissions[] | **[Permission](#Permission6)**<br>Set of permissions granted to this user. 
 
 

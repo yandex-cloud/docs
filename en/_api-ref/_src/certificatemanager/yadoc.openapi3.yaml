@@ -26,6 +26,11 @@ paths:
         description: Optional ID of the version.
         schema:
           type: string
+      - name: privateKeyFormat
+        in: query
+        description: Desired format of private key
+        schema:
+          $ref: '#/components/schemas/PrivateKeyFormat'
       responses:
         "200":
           description: OK
@@ -897,6 +902,11 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    PrivateKeyFormat:
+      type: string
+      enum:
+      - PKCS1
+      - PKCS8
     RequestNewCertificateMetadata:
       type: object
       properties:

@@ -9,7 +9,7 @@ Creates a backup for the specified Redis cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-redis/v1/clusters/{clusterId}:backup
+POST https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}:backup
 ```
  
 ## Path parameters {#path_params}

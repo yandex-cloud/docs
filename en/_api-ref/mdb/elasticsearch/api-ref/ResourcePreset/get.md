@@ -9,7 +9,7 @@ To get the list of available resource presets, make a [list](/docs/managed-elast
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-elasticsearch/v1/resourcePresets/{resourcePresetId}
+GET https://{{ api-host-mdb }}/managed-elasticsearch/v1/resourcePresets/{resourcePresetId}
 ```
  
 ## Path parameters {#path_params}

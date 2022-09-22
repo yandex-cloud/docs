@@ -212,27 +212,6 @@ type | **oneof:** `cloud_email`, `cloud_sms` or `cloud_mobile_push`<br>
 &nbsp;&nbsp;cloud_mobile_push | **[CloudMobilePushChannel](#CloudMobilePushChannel3)**<br>Mobile application push channel. 
 
 
-### CloudEmailChannel {#CloudEmailChannel3}
-
-Field | Description
---- | ---
-recipients[] | **string**<br> 
-
-
-### CloudSmsChannel {#CloudSmsChannel3}
-
-Field | Description
---- | ---
-recipients[] | **string**<br> 
-
-
-### CloudMobilePushChannel {#CloudMobilePushChannel3}
-
-Field | Description
---- | ---
-recipients[] | **string**<br> 
-
-
 ## Update {#Update}
 
 Updates the specified channel.
@@ -253,26 +232,26 @@ name | **string**<br>Name of the channel. Value must match the regular expressio
 description | **string**<br>Description of the channel. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 type | **oneof:** `cloud_email`, `cloud_sms` or `cloud_mobile_push`<br>
-&nbsp;&nbsp;cloud_email | **[CloudEmailChannel](#CloudEmailChannel4)**<br>E-Mail channel. 
-&nbsp;&nbsp;cloud_sms | **[CloudSmsChannel](#CloudSmsChannel4)**<br>SMS channel. 
-&nbsp;&nbsp;cloud_mobile_push | **[CloudMobilePushChannel](#CloudMobilePushChannel4)**<br>Mobile application push channel. 
+&nbsp;&nbsp;cloud_email | **[CloudEmailChannel](#CloudEmailChannel3)**<br>E-Mail channel. 
+&nbsp;&nbsp;cloud_sms | **[CloudSmsChannel](#CloudSmsChannel3)**<br>SMS channel. 
+&nbsp;&nbsp;cloud_mobile_push | **[CloudMobilePushChannel](#CloudMobilePushChannel3)**<br>Mobile application push channel. 
 
 
-### CloudEmailChannel {#CloudEmailChannel4}
-
-Field | Description
---- | ---
-recipients[] | **string**<br> 
-
-
-### CloudSmsChannel {#CloudSmsChannel4}
+### CloudEmailChannel {#CloudEmailChannel3}
 
 Field | Description
 --- | ---
 recipients[] | **string**<br> 
 
 
-### CloudMobilePushChannel {#CloudMobilePushChannel4}
+### CloudSmsChannel {#CloudSmsChannel3}
+
+Field | Description
+--- | ---
+recipients[] | **string**<br> 
+
+
+### CloudMobilePushChannel {#CloudMobilePushChannel3}
 
 Field | Description
 --- | ---
@@ -313,30 +292,9 @@ name | **string**<br>Name of the channel.
 description | **string**<br>Description of the channel. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 type | **oneof:** `cloud_email`, `cloud_sms` or `cloud_mobile_push`<br>
-&nbsp;&nbsp;cloud_email | **[CloudEmailChannel](#CloudEmailChannel5)**<br>E-Mail channel. 
-&nbsp;&nbsp;cloud_sms | **[CloudSmsChannel](#CloudSmsChannel5)**<br>Sms channel. 
-&nbsp;&nbsp;cloud_mobile_push | **[CloudMobilePushChannel](#CloudMobilePushChannel5)**<br>Mobile application push channel. 
-
-
-### CloudEmailChannel {#CloudEmailChannel5}
-
-Field | Description
---- | ---
-recipients[] | **string**<br> 
-
-
-### CloudSmsChannel {#CloudSmsChannel5}
-
-Field | Description
---- | ---
-recipients[] | **string**<br> 
-
-
-### CloudMobilePushChannel {#CloudMobilePushChannel5}
-
-Field | Description
---- | ---
-recipients[] | **string**<br> 
+&nbsp;&nbsp;cloud_email | **[CloudEmailChannel](#CloudEmailChannel4)**<br>E-Mail channel. 
+&nbsp;&nbsp;cloud_sms | **[CloudSmsChannel](#CloudSmsChannel4)**<br>Sms channel. 
+&nbsp;&nbsp;cloud_mobile_push | **[CloudMobilePushChannel](#CloudMobilePushChannel4)**<br>Mobile application push channel. 
 
 
 ## Delete {#Delete}

@@ -9,7 +9,7 @@ Creates a new Greenplum® cluster using the specified backup.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-greenplum/v1/clusters:restore
+POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters:restore
 ```
  
 ## Body parameters {#body_params}

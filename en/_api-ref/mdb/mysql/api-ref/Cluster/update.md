@@ -9,7 +9,7 @@ Updates a cluster.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}
+PATCH https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

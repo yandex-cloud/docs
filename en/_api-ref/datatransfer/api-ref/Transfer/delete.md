@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-DELETE https://datatransfer.{{ api-host }}/v1/transfer/{transferId}
+DELETE https://{{ api-host-data-transfer }}/v1/transfer/{transferId}
 ```
  
 ## Path parameters {#path_params}

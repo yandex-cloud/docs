@@ -95,49 +95,15 @@ start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budg
 end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
 
-### ThresholdRule {#ThresholdRule1}
-
-Field | Description
---- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
-amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
-
-
-### ConsumptionFilter {#ConsumptionFilter1}
-
-Field | Description
---- | ---
-service_ids[] | **string**<br>IDs of the `yandex.cloud.billing.v1.Service`. Only consumption of resources corresponding to the given services is used for the budget calculation. Empty sequence means no services filters. 
-cloud_folders_filters[] | **[CloudFoldersConsumptionFilter](#CloudFoldersConsumptionFilter1)**<br>Cloud and folders consumption filter. Only consumption within specified clouds and folders is used for the budget calculation. Empty sequence means no cloud and folders filters. 
-
-
-### CloudFoldersConsumptionFilter {#CloudFoldersConsumptionFilter1}
-
-Field | Description
---- | ---
-cloud_id | **string**<br>ID of the `yandex.cloud.resourcemanager.v1.Cloud`. Only consumption within specified cloud is used for the budget calculation. 
-folder_ids[] | **string**<br>IDs of the `yandex.cloud.resourcemanager.v1.Folder`. Only consumption within specified folders of the given cloud is used for the budget calculation. Empty sequence means no folders filters and the whole cloud consumption will be used. 
-
-
 ### BalanceBudgetSpec {#BalanceBudgetSpec}
 
 Field | Description
 --- | ---
 amount | **string**<br>Max balance threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. 
-threshold_rules[] | **[ThresholdRule](#ThresholdRule2)**<br>List of the [ThresholdRule](#ThresholdRule2). Rules define intermediate balance thresholds of the budget. 
+threshold_rules[] | **[ThresholdRule](#ThresholdRule1)**<br>List of the [ThresholdRule](#ThresholdRule1). Rules define intermediate balance thresholds of the budget. 
 start_date | **string**<br>Start_date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
 end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
-
-
-### ThresholdRule {#ThresholdRule2}
-
-Field | Description
---- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
-amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 
 ## List {#List}
@@ -184,15 +150,15 @@ Field | Description
 --- | ---
 amount | **string**<br>Max cost threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. 
-threshold_rules[] | **[ThresholdRule](#ThresholdRule3)**<br>List of the [ThresholdRule](#ThresholdRule3). Rules define intermediate cost thresholds of the budget. 
-filter | **[ConsumptionFilter](#ConsumptionFilter2)**<br>Filter that can be used for specific resources selection. Only consumption cost of selected resources are used for the budget calculation. 
+threshold_rules[] | **[ThresholdRule](#ThresholdRule1)**<br>List of the [ThresholdRule](#ThresholdRule1). Rules define intermediate cost thresholds of the budget. 
+filter | **[ConsumptionFilter](#ConsumptionFilter1)**<br>Filter that can be used for specific resources selection. Only consumption cost of selected resources are used for the budget calculation. 
 start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
 &nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
 &nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
 end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
 
-### ThresholdRule {#ThresholdRule3}
+### ThresholdRule {#ThresholdRule1}
 
 Field | Description
 --- | ---
@@ -201,15 +167,15 @@ amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 
-### ConsumptionFilter {#ConsumptionFilter2}
+### ConsumptionFilter {#ConsumptionFilter1}
 
 Field | Description
 --- | ---
 service_ids[] | **string**<br>IDs of the `yandex.cloud.billing.v1.Service`. Only consumption of resources corresponding to the given services is used for the budget calculation. Empty sequence means no services filters. 
-cloud_folders_filters[] | **[CloudFoldersConsumptionFilter](#CloudFoldersConsumptionFilter2)**<br>Cloud and folders consumption filter. Only consumption within specified clouds and folders is used for the budget calculation. Empty sequence means no cloud and folders filters. 
+cloud_folders_filters[] | **[CloudFoldersConsumptionFilter](#CloudFoldersConsumptionFilter1)**<br>Cloud and folders consumption filter. Only consumption within specified clouds and folders is used for the budget calculation. Empty sequence means no cloud and folders filters. 
 
 
-### CloudFoldersConsumptionFilter {#CloudFoldersConsumptionFilter2}
+### CloudFoldersConsumptionFilter {#CloudFoldersConsumptionFilter1}
 
 Field | Description
 --- | ---
@@ -223,37 +189,12 @@ Field | Description
 --- | ---
 amount | **string**<br>Max expense threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. 
-threshold_rules[] | **[ThresholdRule](#ThresholdRule4)**<br>List of the [ThresholdRule](#ThresholdRule4). Rules define intermediate expense thresholds of the budget. 
-filter | **[ConsumptionFilter](#ConsumptionFilter3)**<br>Filter that can be used for specific resources selection. Only consumption expense of selected resources are used for the budget calculation. 
+threshold_rules[] | **[ThresholdRule](#ThresholdRule2)**<br>List of the [ThresholdRule](#ThresholdRule2). Rules define intermediate expense thresholds of the budget. 
+filter | **[ConsumptionFilter](#ConsumptionFilter2)**<br>Filter that can be used for specific resources selection. Only consumption expense of selected resources are used for the budget calculation. 
 start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
 &nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
 &nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
 end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
-
-
-### ThresholdRule {#ThresholdRule4}
-
-Field | Description
---- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
-amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
-
-
-### ConsumptionFilter {#ConsumptionFilter3}
-
-Field | Description
---- | ---
-service_ids[] | **string**<br>IDs of the `yandex.cloud.billing.v1.Service`. Only consumption of resources corresponding to the given services is used for the budget calculation. Empty sequence means no services filters. 
-cloud_folders_filters[] | **[CloudFoldersConsumptionFilter](#CloudFoldersConsumptionFilter3)**<br>Cloud and folders consumption filter. Only consumption within specified clouds and folders is used for the budget calculation. Empty sequence means no cloud and folders filters. 
-
-
-### CloudFoldersConsumptionFilter {#CloudFoldersConsumptionFilter3}
-
-Field | Description
---- | ---
-cloud_id | **string**<br>ID of the `yandex.cloud.resourcemanager.v1.Cloud`. Only consumption within specified cloud is used for the budget calculation. 
-folder_ids[] | **string**<br>IDs of the `yandex.cloud.resourcemanager.v1.Folder`. Only consumption within specified folders of the given cloud is used for the budget calculation. Empty sequence means no folders filters and the whole cloud consumption will be used. 
 
 
 ### BalanceBudgetSpec {#BalanceBudgetSpec1}
@@ -262,18 +203,9 @@ Field | Description
 --- | ---
 amount | **string**<br>Max balance threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. 
-threshold_rules[] | **[ThresholdRule](#ThresholdRule5)**<br>List of the [ThresholdRule](#ThresholdRule5). Rules define intermediate balance thresholds of the budget. 
+threshold_rules[] | **[ThresholdRule](#ThresholdRule2)**<br>List of the [ThresholdRule](#ThresholdRule2). Rules define intermediate balance thresholds of the budget. 
 start_date | **string**<br>Start_date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
 end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
-
-
-### ThresholdRule {#ThresholdRule5}
-
-Field | Description
---- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
-amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 
 ## Create {#Create}
@@ -304,15 +236,15 @@ Field | Description
 --- | ---
 amount | **string**<br>Max cost threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. 
-threshold_rules[] | **[ThresholdRule](#ThresholdRule6)**<br>List of the [ThresholdRule](#ThresholdRule6). Rules define intermediate cost thresholds of the budget. 
-filter | **[ConsumptionFilter](#ConsumptionFilter4)**<br>Filter that can be used for specific resources selection. Only consumption cost of selected resources are used for the budget calculation. 
+threshold_rules[] | **[ThresholdRule](#ThresholdRule2)**<br>List of the [ThresholdRule](#ThresholdRule2). Rules define intermediate cost thresholds of the budget. 
+filter | **[ConsumptionFilter](#ConsumptionFilter2)**<br>Filter that can be used for specific resources selection. Only consumption cost of selected resources are used for the budget calculation. 
 start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
 &nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
 &nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
 end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
 
-### ThresholdRule {#ThresholdRule6}
+### ThresholdRule {#ThresholdRule2}
 
 Field | Description
 --- | ---
@@ -321,15 +253,15 @@ amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 
-### ConsumptionFilter {#ConsumptionFilter4}
+### ConsumptionFilter {#ConsumptionFilter2}
 
 Field | Description
 --- | ---
 service_ids[] | **string**<br>IDs of the `yandex.cloud.billing.v1.Service`. Only consumption of resources corresponding to the given services is used for the budget calculation. Empty sequence means no services filters. 
-cloud_folders_filters[] | **[CloudFoldersConsumptionFilter](#CloudFoldersConsumptionFilter4)**<br>Cloud and folders consumption filter. Only consumption within specified clouds and folders is used for the budget calculation. Empty sequence means no cloud and folders filters. 
+cloud_folders_filters[] | **[CloudFoldersConsumptionFilter](#CloudFoldersConsumptionFilter2)**<br>Cloud and folders consumption filter. Only consumption within specified clouds and folders is used for the budget calculation. Empty sequence means no cloud and folders filters. 
 
 
-### CloudFoldersConsumptionFilter {#CloudFoldersConsumptionFilter4}
+### CloudFoldersConsumptionFilter {#CloudFoldersConsumptionFilter2}
 
 Field | Description
 --- | ---
@@ -343,37 +275,12 @@ Field | Description
 --- | ---
 amount | **string**<br>Max expense threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. 
-threshold_rules[] | **[ThresholdRule](#ThresholdRule7)**<br>List of the [ThresholdRule](#ThresholdRule7). Rules define intermediate expense thresholds of the budget. 
-filter | **[ConsumptionFilter](#ConsumptionFilter5)**<br>Filter that can be used for specific resources selection. Only consumption expense of selected resources are used for the budget calculation. 
+threshold_rules[] | **[ThresholdRule](#ThresholdRule3)**<br>List of the [ThresholdRule](#ThresholdRule3). Rules define intermediate expense thresholds of the budget. 
+filter | **[ConsumptionFilter](#ConsumptionFilter3)**<br>Filter that can be used for specific resources selection. Only consumption expense of selected resources are used for the budget calculation. 
 start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
 &nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
 &nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
 end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
-
-
-### ThresholdRule {#ThresholdRule7}
-
-Field | Description
---- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
-amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
-
-
-### ConsumptionFilter {#ConsumptionFilter5}
-
-Field | Description
---- | ---
-service_ids[] | **string**<br>IDs of the `yandex.cloud.billing.v1.Service`. Only consumption of resources corresponding to the given services is used for the budget calculation. Empty sequence means no services filters. 
-cloud_folders_filters[] | **[CloudFoldersConsumptionFilter](#CloudFoldersConsumptionFilter5)**<br>Cloud and folders consumption filter. Only consumption within specified clouds and folders is used for the budget calculation. Empty sequence means no cloud and folders filters. 
-
-
-### CloudFoldersConsumptionFilter {#CloudFoldersConsumptionFilter5}
-
-Field | Description
---- | ---
-cloud_id | **string**<br>ID of the `yandex.cloud.resourcemanager.v1.Cloud`. Only consumption within specified cloud is used for the budget calculation. 
-folder_ids[] | **string**<br>IDs of the `yandex.cloud.resourcemanager.v1.Folder`. Only consumption within specified folders of the given cloud is used for the budget calculation. Empty sequence means no folders filters and the whole cloud consumption will be used. 
 
 
 ### BalanceBudgetSpec {#BalanceBudgetSpec2}
@@ -382,18 +289,9 @@ Field | Description
 --- | ---
 amount | **string**<br>Max balance threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. 
-threshold_rules[] | **[ThresholdRule](#ThresholdRule8)**<br>List of the [ThresholdRule](#ThresholdRule8). Rules define intermediate balance thresholds of the budget. 
+threshold_rules[] | **[ThresholdRule](#ThresholdRule3)**<br>List of the [ThresholdRule](#ThresholdRule3). Rules define intermediate balance thresholds of the budget. 
 start_date | **string**<br>Start_date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
 end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
-
-
-### ThresholdRule {#ThresholdRule8}
-
-Field | Description
---- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
-amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 
 ### Operation {#Operation}
@@ -432,103 +330,5 @@ budget_spec | **oneof:** `cost_budget`, `expense_budget` or `balance_budget`<br>
 &nbsp;&nbsp;cost_budget | **[CostBudgetSpec](#CostBudgetSpec3)**<br>Cost budget specification. 
 &nbsp;&nbsp;expense_budget | **[ExpenseBudgetSpec](#ExpenseBudgetSpec3)**<br>Expense budget specification. 
 &nbsp;&nbsp;balance_budget | **[BalanceBudgetSpec](#BalanceBudgetSpec3)**<br>Balance budget specification. 
-
-
-### CostBudgetSpec {#CostBudgetSpec3}
-
-Field | Description
---- | ---
-amount | **string**<br>Max cost threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. 
-threshold_rules[] | **[ThresholdRule](#ThresholdRule9)**<br>List of the [ThresholdRule](#ThresholdRule9). Rules define intermediate cost thresholds of the budget. 
-filter | **[ConsumptionFilter](#ConsumptionFilter6)**<br>Filter that can be used for specific resources selection. Only consumption cost of selected resources are used for the budget calculation. 
-start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
-&nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
-&nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
-end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
-
-
-### ThresholdRule {#ThresholdRule9}
-
-Field | Description
---- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
-amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
-
-
-### ConsumptionFilter {#ConsumptionFilter6}
-
-Field | Description
---- | ---
-service_ids[] | **string**<br>IDs of the `yandex.cloud.billing.v1.Service`. Only consumption of resources corresponding to the given services is used for the budget calculation. Empty sequence means no services filters. 
-cloud_folders_filters[] | **[CloudFoldersConsumptionFilter](#CloudFoldersConsumptionFilter6)**<br>Cloud and folders consumption filter. Only consumption within specified clouds and folders is used for the budget calculation. Empty sequence means no cloud and folders filters. 
-
-
-### CloudFoldersConsumptionFilter {#CloudFoldersConsumptionFilter6}
-
-Field | Description
---- | ---
-cloud_id | **string**<br>ID of the `yandex.cloud.resourcemanager.v1.Cloud`. Only consumption within specified cloud is used for the budget calculation. 
-folder_ids[] | **string**<br>IDs of the `yandex.cloud.resourcemanager.v1.Folder`. Only consumption within specified folders of the given cloud is used for the budget calculation. Empty sequence means no folders filters and the whole cloud consumption will be used. 
-
-
-### ExpenseBudgetSpec {#ExpenseBudgetSpec3}
-
-Field | Description
---- | ---
-amount | **string**<br>Max expense threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. 
-threshold_rules[] | **[ThresholdRule](#ThresholdRule10)**<br>List of the [ThresholdRule](#ThresholdRule10). Rules define intermediate expense thresholds of the budget. 
-filter | **[ConsumptionFilter](#ConsumptionFilter7)**<br>Filter that can be used for specific resources selection. Only consumption expense of selected resources are used for the budget calculation. 
-start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
-&nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
-&nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
-end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
-
-
-### ThresholdRule {#ThresholdRule10}
-
-Field | Description
---- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
-amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
-
-
-### ConsumptionFilter {#ConsumptionFilter7}
-
-Field | Description
---- | ---
-service_ids[] | **string**<br>IDs of the `yandex.cloud.billing.v1.Service`. Only consumption of resources corresponding to the given services is used for the budget calculation. Empty sequence means no services filters. 
-cloud_folders_filters[] | **[CloudFoldersConsumptionFilter](#CloudFoldersConsumptionFilter7)**<br>Cloud and folders consumption filter. Only consumption within specified clouds and folders is used for the budget calculation. Empty sequence means no cloud and folders filters. 
-
-
-### CloudFoldersConsumptionFilter {#CloudFoldersConsumptionFilter7}
-
-Field | Description
---- | ---
-cloud_id | **string**<br>ID of the `yandex.cloud.resourcemanager.v1.Cloud`. Only consumption within specified cloud is used for the budget calculation. 
-folder_ids[] | **string**<br>IDs of the `yandex.cloud.resourcemanager.v1.Folder`. Only consumption within specified folders of the given cloud is used for the budget calculation. Empty sequence means no folders filters and the whole cloud consumption will be used. 
-
-
-### BalanceBudgetSpec {#BalanceBudgetSpec3}
-
-Field | Description
---- | ---
-amount | **string**<br>Max balance threshold of the budget. Amount currency is the same as corresponding `yandex.cloud.billing.v1.BillingAccount.currency`. 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the budget exceeds. 
-threshold_rules[] | **[ThresholdRule](#ThresholdRule11)**<br>List of the [ThresholdRule](#ThresholdRule11). Rules define intermediate balance thresholds of the budget. 
-start_date | **string**<br>Start_date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
-end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
-
-
-### ThresholdRule {#ThresholdRule11}
-
-Field | Description
---- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
-amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
-notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 

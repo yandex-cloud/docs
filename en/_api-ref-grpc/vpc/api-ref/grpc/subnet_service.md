@@ -187,15 +187,6 @@ route_table_id | **string**<br>ID of route table the subnet is linked to.
 dhcp_options | **[DhcpOptions](#DhcpOptions3)**<br> 
 
 
-### DhcpOptions {#DhcpOptions3}
-
-Field | Description
---- | ---
-domain_name_servers[] | **string**<br> 
-domain_name | **string**<br> 
-ntp_servers[] | **string**<br> 
-
-
 ## Update {#Update}
 
 Updates the specified subnet. Method starts an asynchronous operation that can be cancelled while it is in progress.
@@ -216,10 +207,10 @@ name | **string**<br>Name of the subnet. The name must be unique within the fold
 description | **string**<br>Description of the subnet. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 route_table_id | **string**<br>ID of route table the subnet is linked to. The maximum string length in characters is 50.
-dhcp_options | **[DhcpOptions](#DhcpOptions4)**<br> 
+dhcp_options | **[DhcpOptions](#DhcpOptions3)**<br> 
 
 
-### DhcpOptions {#DhcpOptions4}
+### DhcpOptions {#DhcpOptions3}
 
 Field | Description
 --- | ---
@@ -266,16 +257,7 @@ zone_id | **string**<br>ID of the availability zone where the subnet resides.
 v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
-dhcp_options | **[DhcpOptions](#DhcpOptions5)**<br> 
-
-
-### DhcpOptions {#DhcpOptions5}
-
-Field | Description
---- | ---
-domain_name_servers[] | **string**<br> 
-domain_name | **string**<br> 
-ntp_servers[] | **string**<br> 
+dhcp_options | **[DhcpOptions](#DhcpOptions4)**<br> 
 
 
 ## AddCidrBlocks {#AddCidrBlocks}
@@ -334,10 +316,10 @@ zone_id | **string**<br>ID of the availability zone where the subnet resides.
 v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
-dhcp_options | **[DhcpOptions](#DhcpOptions6)**<br> 
+dhcp_options | **[DhcpOptions](#DhcpOptions4)**<br> 
 
 
-### DhcpOptions {#DhcpOptions6}
+### DhcpOptions {#DhcpOptions4}
 
 Field | Description
 --- | ---
@@ -402,10 +384,10 @@ zone_id | **string**<br>ID of the availability zone where the subnet resides.
 v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
-dhcp_options | **[DhcpOptions](#DhcpOptions7)**<br> 
+dhcp_options | **[DhcpOptions](#DhcpOptions5)**<br> 
 
 
-### DhcpOptions {#DhcpOptions7}
+### DhcpOptions {#DhcpOptions5}
 
 Field | Description
 --- | ---
@@ -549,10 +531,10 @@ zone_id | **string**<br>ID of the availability zone where the subnet resides.
 v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
-dhcp_options | **[DhcpOptions](#DhcpOptions8)**<br> 
+dhcp_options | **[DhcpOptions](#DhcpOptions6)**<br> 
 
 
-### DhcpOptions {#DhcpOptions8}
+### DhcpOptions {#DhcpOptions6}
 
 Field | Description
 --- | ---

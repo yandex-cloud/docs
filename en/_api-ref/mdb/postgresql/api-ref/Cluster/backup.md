@@ -9,7 +9,7 @@ Creates a backup for the specified PostgreSQL cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}:backup
+POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}:backup
 ```
  
 ## Path parameters {#path_params}

@@ -1778,6 +1778,23 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Location'
+    AutoScalePolicy:
+      type: object
+      properties:
+        minZoneSize:
+          description: |-
+            Lower limit for the number of resource units in each zone.
+
+            Acceptable values are 0 to 1000, inclusive.
+          type: string
+          format: int64
+        maxSize:
+          description: |-
+            Upper limit for the total number of resource units across all zones.
+
+            Acceptable values are 0 to 1000, inclusive.
+          type: string
+          format: int64
     BackendGroup:
       description: |-
         A backend group resource.
@@ -1976,6 +1993,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/VirtualHost'
+        routeOptions:
+          $ref: '#/components/schemas/RouteOptions_in_CreateHttpRouterRequest_routeOptions'
     CreateLoadBalancerMetadata:
       type: object
       properties:
@@ -2050,6 +2069,10 @@ components:
           type: array
           items:
             type: string
+        autoScalePolicy:
+          $ref: '#/components/schemas/AutoScalePolicy_in_CreateLoadBalancerRequest_autoScalePolicy'
+        logOptions:
+          $ref: '#/components/schemas/LogOptions_in_CreateLoadBalancerRequest_logOptions'
     CreateTargetGroupMetadata:
       type: object
       properties:
@@ -2160,6 +2183,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HeaderModification'
+        routeOptions:
+          $ref: '#/components/schemas/RouteOptions_in_CreateVirtualHostRequest_routeOptions'
     DeleteBackendGroupMetadata:
       type: object
       properties:
@@ -2762,6 +2787,14 @@ components:
           cookie:
             $ref: '#/components/schemas/CookieSessionAffinity'
             description: Cookie-based session affinity configuration.
+    HttpCodeInterval:
+      type: string
+      enum:
+      - HTTP_CODE_INTERVAL_1XX
+      - HTTP_CODE_INTERVAL_2XX
+      - HTTP_CODE_INTERVAL_3XX
+      - HTTP_CODE_INTERVAL_4XX
+      - HTTP_CODE_INTERVAL_5XX
     HttpHandler:
       description: An HTTP handler resource.
       type: object
@@ -3250,6 +3283,10 @@ components:
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
+        autoScalePolicy:
+          $ref: '#/components/schemas/AutoScalePolicy_in_LoadBalancer_autoScalePolicy'
+        logOptions:
+          $ref: '#/components/schemas/LogOptions_in_LoadBalancer_logOptions'
     LoadBalancerStatus:
       description: |2-
          - CREATING: The application load balancer is being created.
@@ -3379,6 +3416,50 @@ components:
             subject to `localityAwareRoutingPercent` and `strictLocality` settings.
           type: boolean
           format: boolean
+    LogDiscardRule:
+      description: |-
+        LogDiscardRule discards a fraction of logs with certain codes.
+        If neither codes or intervals are provided, rule applies to all logs.
+      type: object
+      properties:
+        codes:
+          description: |-
+            HTTP codes that should be discarded.
+
+            Acceptable values are 100 to 599, inclusive.
+          type: array
+          items:
+            type: string
+            format: int64
+        intervals:
+          description: Groups of HTTP codes like 4xx that should be discarded.
+          type: array
+          items:
+            $ref: '#/components/schemas/HttpCodeInterval'
+        percent:
+          description: |-
+            Percent of logs to be discarded: 0 - keep all, 100 - keep none.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+    LogOptions:
+      type: object
+      properties:
+        logGroupId:
+          description: |-
+            Cloud Logging log group ID to store access logs.
+            If not set then logs will be stored in default log group for the folder
+            where load balancer located.
+          type: string
+        discardRules:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogDiscardRule'
+        disable:
+          description: Do not send logs to Cloud Logging log group.
+          type: boolean
+          format: boolean
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -3455,6 +3536,76 @@ components:
         per-cluster
       type: object
       properties: {}
+    Principal:
+      description: Principal defines an identity for a request.
+      type: object
+      allOf:
+      - title: identifier
+        type: object
+        maxProperties: 1
+        properties:
+          header:
+            $ref: '#/components/schemas/PrincipalHeaderMatcher'
+            description: A header (or pseudo-header such as :path or :method) of the
+              incoming HTTP request.
+          remoteIp:
+            description: A CIDR block or IP that describes the request remote/origin
+              address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` .
+            type: string
+          any:
+            description: When any is set, it matches any request.
+            type: boolean
+            format: boolean
+    PrincipalHeaderMatcher:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Specifies the name of the header in the request.
+          type: string
+        value:
+          $ref: '#/components/schemas/StringMatch_in_PrincipalHeaderMatcher_value'
+    Principals:
+      description: Principals define a group of identities for a request.
+      type: object
+      properties:
+        andPrincipals:
+          description: |-
+            Required.
+            Required. A match occurs when all principals match the request.
+
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/Principal'
+    RBAC:
+      description: |-
+        Role Based Access Control (RBAC) provides router, virtual host, and route access control for the ALB
+        service. Requests are allowed or denied based on the `action` and whether a matching principal is
+        found. For instance, if the action is ALLOW and a matching principal is found the request should be
+        allowed.
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/RBACAction_in_RBAC_action'
+        principals:
+          description: |-
+            Required.
+            Required. A match occurs when at least one matches the request.
+
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/Principals'
+    RBACAction:
+      description: |2-
+         - ALLOW: Allows the request if and only if there is a principal that matches the request.
+         - DENY: Allows the request if and only if there are no principal that match the request.
+      type: string
+      enum:
+      - ALLOW
+      - DENY
     RedirectAction:
       description: A redirect action resource.
       type: object
@@ -3677,6 +3828,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HeaderModification'
+        rbac:
+          $ref: '#/components/schemas/RBAC_in_RouteOptions_rbac'
     SecureTransportSettings:
       description: Transport settings to be used instead of the settings configured
         per-cluster
@@ -4175,6 +4328,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/VirtualHost'
+        routeOptions:
+          $ref: '#/components/schemas/RouteOptions_in_UpdateHttpRouterRequest_routeOptions'
     UpdateListenerMetadata:
       type: object
       properties:
@@ -4265,6 +4420,10 @@ components:
           type: array
           items:
             type: string
+        autoScalePolicy:
+          $ref: '#/components/schemas/AutoScalePolicy_in_UpdateLoadBalancerRequest_autoScalePolicy'
+        logOptions:
+          $ref: '#/components/schemas/LogOptions_in_UpdateLoadBalancerRequest_logOptions'
     UpdateRouteMetadata:
       type: object
       properties:
@@ -4293,6 +4452,9 @@ components:
             $ref: '#/components/schemas/FieldMask'
             description: Field mask that specifies which attributes of the route should
               be updated.
+          routeOptions:
+            $ref: '#/components/schemas/RouteOptions'
+            description: New route options for the route.
       - title: route
         type: object
         maxProperties: 1
@@ -4469,6 +4631,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HeaderModification'
+        routeOptions:
+          $ref: '#/components/schemas/RouteOptions_in_UpdateVirtualHostRequest_routeOptions'
     ValidationContext:
       description: A TLS validation context resource.
       type: object
@@ -4642,6 +4806,22 @@ components:
           trustedCaBytes:
             description: X.509 certificate contents in PEM format.
             type: string
+    RouteOptions_in_CreateHttpRouterRequest_routeOptions:
+      description: Route options for the HTTP router.
+      type: object
+      properties:
+        modifyRequestHeaders:
+          description: Apply the following modifications to the request headers.
+          type: array
+          items:
+            $ref: '#/components/schemas/HeaderModification'
+        modifyResponseHeaders:
+          description: Apply the following modifications to the response headers.
+          type: array
+          items:
+            $ref: '#/components/schemas/HeaderModification'
+        rbac:
+          $ref: '#/components/schemas/RBAC_in_RouteOptions_rbac'
     AllocationPolicy_in_CreateLoadBalancerRequest_allocationPolicy:
       description: |-
         Locality settings of the application load balancer.
@@ -4661,6 +4841,58 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Location'
+    AutoScalePolicy_in_CreateLoadBalancerRequest_autoScalePolicy:
+      description: Autoscale settings of the application load balancer.
+      type: object
+      properties:
+        minZoneSize:
+          description: |-
+            Lower limit for the number of resource units in each zone.
+
+            Acceptable values are 0 to 1000, inclusive.
+          type: string
+          format: int64
+        maxSize:
+          description: |-
+            Upper limit for the total number of resource units across all zones.
+
+            Acceptable values are 0 to 1000, inclusive.
+          type: string
+          format: int64
+    LogOptions_in_CreateLoadBalancerRequest_logOptions:
+      description: Cloud logging settings of the application load balancer.
+      type: object
+      properties:
+        logGroupId:
+          description: |-
+            Cloud Logging log group ID to store access logs.
+            If not set then logs will be stored in default log group for the folder
+            where load balancer located.
+          type: string
+        discardRules:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogDiscardRule'
+        disable:
+          description: Do not send logs to Cloud Logging log group.
+          type: boolean
+          format: boolean
+    RouteOptions_in_CreateVirtualHostRequest_routeOptions:
+      description: Route options for the virtual host.
+      type: object
+      properties:
+        modifyRequestHeaders:
+          description: Apply the following modifications to the request headers.
+          type: array
+          items:
+            $ref: '#/components/schemas/HeaderModification'
+        modifyResponseHeaders:
+          description: Apply the following modifications to the response headers.
+          type: array
+          items:
+            $ref: '#/components/schemas/HeaderModification'
+        rbac:
+          $ref: '#/components/schemas/RBAC_in_RouteOptions_rbac'
     Payload_in_DirectResponseAction_body:
       description: |-
         Response body.
@@ -4850,6 +5082,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HeaderModification'
+        rbac:
+          $ref: '#/components/schemas/RBAC_in_RouteOptions_rbac'
     LoadBalancerStatus_in_LoadBalancer_status:
       description: |-
         Status of the application load balancer.
@@ -4886,6 +5120,42 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Location'
+    AutoScalePolicy_in_LoadBalancer_autoScalePolicy:
+      description: Autoscale settings of the application load balancer.
+      type: object
+      properties:
+        minZoneSize:
+          description: |-
+            Lower limit for the number of resource units in each zone.
+
+            Acceptable values are 0 to 1000, inclusive.
+          type: string
+          format: int64
+        maxSize:
+          description: |-
+            Upper limit for the total number of resource units across all zones.
+
+            Acceptable values are 0 to 1000, inclusive.
+          type: string
+          format: int64
+    LogOptions_in_LoadBalancer_logOptions:
+      description: Cloud logging settings of the application load balancer.
+      type: object
+      properties:
+        logGroupId:
+          description: |-
+            Cloud Logging log group ID to store access logs.
+            If not set then logs will be stored in default log group for the folder
+            where load balancer located.
+          type: string
+        discardRules:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogDiscardRule'
+        disable:
+          description: Do not send logs to Cloud Logging log group.
+          type: boolean
+          format: boolean
     LoadBalancingMode_in_LoadBalancingConfig_mode:
       description: |-
         Load balancing mode for the backend.
@@ -4925,6 +5195,58 @@ components:
       - LEAST_REQUEST
       - MAGLEV_HASH
       default: ROUND_ROBIN
+    StringMatch_in_PrincipalHeaderMatcher_value:
+      description: |-
+        Specifies how the header match will be performed to route the request.
+        In the absence of value a request that has specified header name will match,
+        regardless of the header's value.
+
+        A string matcher resource.
+      type: object
+      allOf:
+      - title: match
+        type: object
+        maxProperties: 1
+        properties:
+          exactMatch:
+            description: Exact match string.
+            type: string
+          prefixMatch:
+            description: Prefix match string.
+            type: string
+          regexMatch:
+            description: Regular expression match string.
+            type: string
+    RBACAction_in_RBAC_action:
+      description: |-
+        Required.
+        The action to take if a principal matches. Every action either allows or denies a request.
+
+         - ALLOW: Allows the request if and only if there is a principal that matches the request.
+         - DENY: Allows the request if and only if there are no principal that match the request.
+      type: string
+      enum:
+      - ALLOW
+      - DENY
+    RBAC_in_RouteOptions_rbac:
+      description: |-
+        Role Based Access Control (RBAC) provides router, virtual host, and route access control for the ALB
+        service. Requests are allowed or denied based on the `action` and whether a matching principal is
+        found. For instance, if the action is ALLOW and a matching principal is found the request should be
+        allowed.
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/RBACAction_in_RBAC_action'
+        principals:
+          description: |-
+            Required.
+            Required. A match occurs when at least one matches the request.
+
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/Principals'
     ValidationContext_in_SecureTransportSettings_validationContext:
       description: |-
         Validation context for backend TLS connections.
@@ -5098,6 +5420,22 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    RouteOptions_in_UpdateHttpRouterRequest_routeOptions:
+      description: New route options for the HTTP router.
+      type: object
+      properties:
+        modifyRequestHeaders:
+          description: Apply the following modifications to the request headers.
+          type: array
+          items:
+            $ref: '#/components/schemas/HeaderModification'
+        modifyResponseHeaders:
+          description: Apply the following modifications to the response headers.
+          type: array
+          items:
+            $ref: '#/components/schemas/HeaderModification'
+        rbac:
+          $ref: '#/components/schemas/RBAC_in_RouteOptions_rbac'
     FieldMask_in_UpdateListenerRequest_updateMask:
       description: |-
         Field mask that specifies which attributes of the listener should be updated.
@@ -5193,6 +5531,42 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Location'
+    AutoScalePolicy_in_UpdateLoadBalancerRequest_autoScalePolicy:
+      description: Autoscale settings of the application load balancer.
+      type: object
+      properties:
+        minZoneSize:
+          description: |-
+            Lower limit for the number of resource units in each zone.
+
+            Acceptable values are 0 to 1000, inclusive.
+          type: string
+          format: int64
+        maxSize:
+          description: |-
+            Upper limit for the total number of resource units across all zones.
+
+            Acceptable values are 0 to 1000, inclusive.
+          type: string
+          format: int64
+    LogOptions_in_UpdateLoadBalancerRequest_logOptions:
+      description: Cloud logging settings of the application load balancer.
+      type: object
+      properties:
+        logGroupId:
+          description: |-
+            Cloud Logging log group ID to store access logs.
+            If not set then logs will be stored in default log group for the folder
+            where load balancer located.
+          type: string
+        discardRules:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogDiscardRule'
+        disable:
+          description: Do not send logs to Cloud Logging log group.
+          type: boolean
+          format: boolean
     FieldMask_in_UpdateSniMatchRequest_updateMask:
       description: |-
         Field mask that specifies which attributes of the SNI handler should be updated.
@@ -5263,6 +5637,22 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    RouteOptions_in_UpdateVirtualHostRequest_routeOptions:
+      description: New route options for the virtual host.
+      type: object
+      properties:
+        modifyRequestHeaders:
+          description: Apply the following modifications to the request headers.
+          type: array
+          items:
+            $ref: '#/components/schemas/HeaderModification'
+        modifyResponseHeaders:
+          description: Apply the following modifications to the response headers.
+          type: array
+          items:
+            $ref: '#/components/schemas/HeaderModification'
+        rbac:
+          $ref: '#/components/schemas/RBAC_in_RouteOptions_rbac'
     RouteOptions_in_VirtualHost_routeOptions:
       type: object
       properties:
@@ -5276,6 +5666,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HeaderModification'
+        rbac:
+          $ref: '#/components/schemas/RBAC_in_RouteOptions_rbac'
 tags:
 - name: BackendGroup
   description: A set of methods for managing backend groups.

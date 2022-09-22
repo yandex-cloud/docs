@@ -67,11 +67,3 @@ label | **[Label](#Label1)**<br>list of annotated labels
 confidence | **double**<br>confidence for each label 
 
 
-### Label {#Label1}
-
-Field | Description
---- | ---
-name | **string**<br>Label name 
-description | **string**<br>human readable description of label 
-
-

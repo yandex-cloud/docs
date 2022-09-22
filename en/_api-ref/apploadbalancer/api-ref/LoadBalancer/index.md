@@ -139,7 +139,26 @@ A set of methods for managing application load balancers.
   "securityGroupIds": [
     "string"
   ],
-  "createdAt": "string"
+  "createdAt": "string",
+  "autoScalePolicy": {
+    "minZoneSize": "string",
+    "maxSize": "string"
+  },
+  "logOptions": {
+    "logGroupId": "string",
+    "discardRules": [
+      {
+        "codes": [
+          "string"
+        ],
+        "intervals": [
+          "string"
+        ],
+        "percent": "string"
+      }
+    ],
+    "disable": true
+  }
 }
 ```
  
@@ -206,6 +225,16 @@ allocationPolicy.<br>locations[].<br>disableTraffic | **boolean** (boolean)<br><
 logGroupId | **string**<br><p>ID of the log group that stores access logs of the application load balancer.</p> <p>The logs can be accessed using a Cloud Functions <a href="/docs/functions/operations/trigger/cloudlogs-trigger-create">trigger for Cloud Logs</a>.</p> 
 securityGroupIds[] | **string**<br><p>ID's of the security groups attributed to the application load balancer.</p> <p>For details about the concept, see <a href="/docs/application-load-balancer/concepts/application-load-balancer#security-groups">documentation</a>.</p> 
 createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+autoScalePolicy | **object**<br><p>Autoscale settings of the application load balancer.</p> 
+autoScalePolicy.<br>minZoneSize | **string** (int64)<br><p>Lower limit for the number of resource units in each zone.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+autoScalePolicy.<br>maxSize | **string** (int64)<br><p>Upper limit for the total number of resource units across all zones.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+logOptions | **object**<br><p>Cloud logging settings of the application load balancer.</p> 
+logOptions.<br>logGroupId | **string**<br><p>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located.</p> 
+logOptions.<br>discardRules[] | **object**<br><p>LogDiscardRule discards a fraction of logs with certain codes. If neither codes or intervals are provided, rule applies to all logs.</p> 
+logOptions.<br>discardRules[].<br>codes[] | **string** (int64)<br><p>HTTP codes that should be discarded.</p> <p>Acceptable values are 100 to 599, inclusive.</p> 
+logOptions.<br>discardRules[].<br>intervals[] | **string**<br><p>Groups of HTTP codes like 4xx that should be discarded.</p> 
+logOptions.<br>discardRules[].<br>percent | **string** (int64)<br><p>Percent of logs to be discarded: 0 - keep all, 100 - keep none.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+logOptions.<br>disable | **boolean** (boolean)<br><p>Do not send logs to Cloud Logging log group.</p> 
 
 ## Methods {#methods}
 Method | Description

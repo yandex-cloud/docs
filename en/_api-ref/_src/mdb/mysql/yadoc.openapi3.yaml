@@ -2047,12 +2047,14 @@ components:
          - ALIVE: Host is performing all its functions normally.
          - DEAD: Host is inoperable, and cannot perform any of its essential functions.
          - DEGRADED: Host is degraded, and can perform only some of its essential functions.
+         - READONLY: Host is alive, but in read-only mode.
       type: string
       enum:
       - HEALTH_UNKNOWN
       - ALIVE
       - DEAD
       - DEGRADED
+      - READONLY
       default: HEALTH_UNKNOWN
     HostRole:
       description: |2-
@@ -3999,11 +4001,13 @@ components:
          - HEALTH_UNKNOWN: Health of the service is unknown.
          - ALIVE: The service is working normally.
          - DEAD: The service is dead or unresponsive.
+         - READONLY: The service is in read-only mode.
       type: string
       enum:
       - HEALTH_UNKNOWN
       - ALIVE
       - DEAD
+      - READONLY
       default: HEALTH_UNKNOWN
     ServiceType:
       description: ' - MYSQL: The host is a MySQL server.'
@@ -4653,12 +4657,14 @@ components:
          - ALIVE: Host is performing all its functions normally.
          - DEAD: Host is inoperable, and cannot perform any of its essential functions.
          - DEGRADED: Host is degraded, and can perform only some of its essential functions.
+         - READONLY: Host is alive, but in read-only mode.
       type: string
       enum:
       - HEALTH_UNKNOWN
       - ALIVE
       - DEAD
       - DEGRADED
+      - READONLY
       default: HEALTH_UNKNOWN
     MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin:
       description: |-
@@ -8280,11 +8286,13 @@ components:
          - HEALTH_UNKNOWN: Health of the service is unknown.
          - ALIVE: The service is working normally.
          - DEAD: The service is dead or unresponsive.
+         - READONLY: The service is in read-only mode.
       type: string
       enum:
       - HEALTH_UNKNOWN
       - ALIVE
       - DEAD
+      - READONLY
       default: HEALTH_UNKNOWN
     LogRecord_in_StreamLogRecord_record:
       description: |-

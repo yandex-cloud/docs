@@ -9,7 +9,7 @@ To get the list of available Elasticsearch clusters, make a [list](/docs/managed
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}
+GET https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Creates a new Apache Kafka® connector in a cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}/connectors
+POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/connectors
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Retrieves the list of available ResourcePreset resources.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-clickhouse/v1/resourcePresets
+GET https://{{ api-host-mdb }}/managed-clickhouse/v1/resourcePresets
 ```
  
 ## Query parameters {#query_params}

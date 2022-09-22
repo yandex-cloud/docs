@@ -9,7 +9,7 @@ To get the list of available ClickHouse Database resources, make a [list](/docs/
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/databases/{databaseName}
+GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/databases/{databaseName}
 ```
  
 ## Path parameters {#path_params}

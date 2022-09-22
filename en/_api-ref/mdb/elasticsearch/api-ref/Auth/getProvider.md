@@ -9,7 +9,7 @@ Returns registered auth provider by name.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/auth/providers/{name}
+GET https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/auth/providers/{name}
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Updates the specified hosts.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/hosts:batchUpdate
+POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/hosts:batchUpdate
 ```
  
 ## Path parameters {#path_params}

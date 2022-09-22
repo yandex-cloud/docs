@@ -9,7 +9,7 @@ To get information about a backup, make a [get](/docs/managed-mysql/api-ref/Back
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}:backup
+POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}:backup
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Removes auth providers from Elasticsearch cluster by name.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/auth/providers
+DELETE https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/auth/providers
 ```
  
 ## Path parameters {#path_params}

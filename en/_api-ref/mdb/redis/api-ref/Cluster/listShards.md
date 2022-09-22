@@ -9,7 +9,7 @@ Retrieves a list of shards.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-redis/v1/clusters/{clusterId}/shards
+GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/shards
 ```
  
 ## Path parameters {#path_params}

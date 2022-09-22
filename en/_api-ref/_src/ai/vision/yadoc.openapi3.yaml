@@ -3,453 +3,115 @@ info:
   title: Vision API
   description: The service does not operate with resources. All service's methods
     are presented on the [Vision](Vision/) page.
-  version: v1
-  x-y-docUri: vision/api-ref
+  version: v2
+  x-y-docUri: classifier/api-ref
   x-y-baseUrl: https://vision.api.cloud.yandex.net
-paths:
-  /vision/v1/batchAnalyze:
-    post:
-      tags:
-      - Vision
-      summary: Analyzes a batch of images and returns results with annotations.
-      operationId: VisionBatchAnalyze
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/BatchAnalyzeRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BatchAnalyzeResponse'
-      x-y-navtitle: batchAnalyze
+paths: {}
 components:
   schemas:
-    AnalyzeResult:
+    AnnotationResponse:
       type: object
       properties:
-        results:
-          description: |-
-            Results for each requested feature.
-            Feature results have the same order as in the request.
+        requestId:
+          description: internal service requestId
+          type: string
+        classifierSpecification:
+          $ref: '#/components/schemas/ClassifierSpecification_in_AnnotationResponse_classifierSpecification'
+        annotations:
+          description: annotations for each class
           type: array
           items:
-            $ref: '#/components/schemas/FeatureResult'
-        error:
-          $ref: '#/components/schemas/Status_in_AnalyzeResult_error'
-    AnalyzeSpec:
+            $ref: '#/components/schemas/ClassAnnotation'
+    ClassAnnotation:
+      description: Image annotation for specific label
+      type: object
+      properties:
+        label:
+          $ref: '#/components/schemas/Label_in_ClassAnnotation_label'
+        confidence:
+          description: confidence for each label
+          type: number
+          format: double
+    ClassifierSpecification:
+      description: Specification of model used for annotation
+      type: object
+      properties:
+        labels:
+          description: List of labels, annotated by service
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        classificationType:
+          $ref: '#/components/schemas/ClassifierSpecificationClassificationType_in_ClassifierSpecification_classificationType'
+    ClassifierSpecificationClassificationType:
+      type: string
+      enum:
+      - MULTI_LABEL
+      - MULTI_CLASS
+    Image:
       type: object
       allOf:
       - type: object
         properties:
-          features:
-            description: |-
-              Required.
-              Requested features to use for analysis.
-
-              Max count of requested features for one file is 8.
-
-              The number of elements must be in the range 1-8.
-            type: array
-            items:
-              $ref: '#/components/schemas/Feature'
-          mimeType:
-            description: |-
-              [MIME type](https://en.wikipedia.org/wiki/Media_type) of content (for example, `` application/pdf ``).
-
-              The maximum string length in characters is 255.
-            type: string
-      - title: source
+          imageType:
+            $ref: '#/components/schemas/ImageImageType'
+            description: type of data
+      - title: ImageSource
         type: object
         maxProperties: 1
         properties:
           content:
-            description: |-
-              Image content, represented as a stream of bytes.
-              Note: As with all bytes fields, protobuffers use a pure binary representation, whereas JSON representations use base64.
-
-              The maximum string length in characters is 10485760.
+            description: bytes with data
             type: string
             format: byte
-          signature:
-            description: The maximum string length in characters is 16384.
-            type: string
-    BatchAnalyzeRequest:
-      type: object
-      properties:
-        analyzeSpecs:
-          description: |-
-            Required.
-            A list of specifications. Each specification contains the file to analyze and features to use for analysis.
-
-            Restrictions:
-            * Supported file formats: JPEG, PNG.
-            * Maximum file size: 1 MB.
-            * Image size should not exceed 20M pixels (length x width).
-
-            The number of elements must be in the range 1-8.
-          type: array
-          items:
-            $ref: '#/components/schemas/AnalyzeSpec'
-        folderId:
-          description: |-
-            ID of the folder to which you have access.
-            Required for authorization with a user account (see [UserAccount](/docs/iam/api-ref/UserAccount#representation) resource).
-            Don't specify this field if you make the request on behalf of a service account.
-
-            The maximum string length in characters is 50.
-          type: string
-    BatchAnalyzeResponse:
-      type: object
-      properties:
-        results:
-          description: |-
-            Request results.
-            Results have the same order as specifications in the request.
-          type: array
-          items:
-            $ref: '#/components/schemas/AnalyzeResult'
-    Block:
-      type: object
-      properties:
-        boundingBox:
-          $ref: '#/components/schemas/Polygon_in_Block_boundingBox'
-        lines:
-          description: Recognized lines in this block.
-          type: array
-          items:
-            $ref: '#/components/schemas/Line'
-    ClassAnnotation:
-      type: object
-      properties:
-        properties:
-          description: |-
-            Properties extracted by a specified model.
-
-            For example, if you ask to evaluate the image quality,
-            the service could return such properties as `good` and `bad`.
-          type: array
-          items:
-            $ref: '#/components/schemas/Property'
-    CopyMatch:
-      type: object
-      properties:
-        imageUrl:
-          description: url of image
-          type: string
-        pageUrl:
-          description: url of page that contains image
-          type: string
-        title:
-          description: page title that contains image
-          type: string
-        description:
-          description: image description
-          type: string
-    Entity:
-      type: object
-      properties:
-        name:
-          description: Entity name
-          type: string
-        text:
-          description: Recognized entity text
-          type: string
-    Face:
-      type: object
-      properties:
-        boundingBox:
-          $ref: '#/components/schemas/Polygon_in_Face_boundingBox'
-    FaceAnnotation:
-      type: object
-      properties:
-        faces:
-          description: An array of detected faces for the specified image.
-          type: array
-          items:
-            $ref: '#/components/schemas/Face'
-    Feature:
-      type: object
-      allOf:
-      - type: object
-        properties:
-          type:
-            $ref: '#/components/schemas/FeatureType'
-            description: Type of requested feature.
-      - title: config
-        type: object
-        maxProperties: 1
-        properties:
-          classificationConfig:
-            $ref: '#/components/schemas/FeatureClassificationConfig'
-            description: Required for the `CLASSIFICATION` type. Specifies configuration
-              for the classification feature.
-          textDetectionConfig:
-            $ref: '#/components/schemas/FeatureTextDetectionConfig'
-            description: Required for the `TEXT_DETECTION` type. Specifies configuration
-              for the text detection (OCR) feature.
-    FeatureClassificationConfig:
-      type: object
-      properties:
-        model:
-          description: |-
-            Model to use for image classification.
-
-            The maximum string length in characters is 256.
-          type: string
-    FeatureResult:
-      type: object
-      allOf:
-      - type: object
-        properties:
-          error:
-            $ref: '#/components/schemas/Status'
-            description: Return error in case of error during the specified feature
-              processing.
-      - title: feature
-        type: object
-        maxProperties: 1
-        properties:
-          textDetection:
-            $ref: '#/components/schemas/TextAnnotation'
-            description: Text detection (OCR) result.
-          classification:
-            $ref: '#/components/schemas/ClassAnnotation'
-            description: Classification result.
-          faceDetection:
-            $ref: '#/components/schemas/FaceAnnotation'
-            description: Face detection result.
-          imageCopySearch:
-            $ref: '#/components/schemas/ImageCopySearchAnnotation'
-            description: Image Copy Search result.
-    FeatureTextDetectionConfig:
-      type: object
-      properties:
-        languageCodes:
-          description: |-
-            Required.
-            List of the languages to recognize text.
-            Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``).
-
-            The number of elements must be in the range 1-8.
-            The maximum string length in characters for each value is 3.
-          type: array
-          items:
-            type: string
-        model:
-          description: |-
-            Model to use for text detection.
-            Possible values:
-            * page (default) - this model is suitable for detecting multiple text entries in an image.
-            * line - this model is suitable for cropped images with one line of text.
-
-            The maximum string length in characters is 50.
-          type: string
-    FeatureType:
-      description: |2-
-         - TEXT_DETECTION: Text detection (OCR) feature.
-         - CLASSIFICATION: Classification feature.
-         - FACE_DETECTION: Face detection feature.
-         - IMAGE_COPY_SEARCH: Image copy search.
+    ImageImageType:
+      description: type of image
       type: string
       enum:
-      - TEXT_DETECTION
-      - CLASSIFICATION
-      - FACE_DETECTION
-      - IMAGE_COPY_SEARCH
-    ImageCopySearchAnnotation:
-      type: object
-      properties:
-        copyCount:
-          description: Number of image copies
-          type: string
-          format: int64
-        topResults:
-          description: Top relevance result of image copy search
-          type: array
-          items:
-            $ref: '#/components/schemas/CopyMatch'
-    Line:
-      type: object
-      properties:
-        boundingBox:
-          $ref: '#/components/schemas/Polygon_in_Line_boundingBox'
-        words:
-          description: Recognized words in this line.
-          type: array
-          items:
-            $ref: '#/components/schemas/Word'
-        confidence:
-          description: Confidence of the OCR results for the line. Range [0, 1].
-          type: number
-          format: double
-    Page:
-      type: object
-      properties:
-        width:
-          description: Page width in pixels.
-          type: string
-          format: int64
-        height:
-          description: Page height in pixels.
-          type: string
-          format: int64
-        blocks:
-          description: Recognized text blocks in this page.
-          type: array
-          items:
-            $ref: '#/components/schemas/Block'
-        entities:
-          description: Recognized entities
-          type: array
-          items:
-            $ref: '#/components/schemas/Entity'
-    Polygon:
-      type: object
-      properties:
-        vertices:
-          description: The bounding polygon vertices.
-          type: array
-          items:
-            $ref: '#/components/schemas/Vertex'
-    Property:
+      - JPEG
+      - PNG
+    Label:
+      description: Description of single label
       type: object
       properties:
         name:
-          description: Property name.
+          description: Label name
           type: string
-        probability:
-          description: Probability of the property, from 0 to 1.
-          type: number
-          format: double
-    Status:
-      description: The error result of the operation in case of failure or cancellation.
-      type: object
-      properties:
-        code:
-          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
-          type: integer
-          format: int32
-        message:
-          description: An error message.
+        description:
+          description: human readable description of label
           type: string
-        details:
-          description: A list of messages that carry the error details.
-          type: array
-          items:
-            type: object
-    TextAnnotation:
-      type: object
-      properties:
-        pages:
-          description: |-
-            Pages of the recognized file.
-
-            For JPEG and PNG files contains only 1 page.
-          type: array
-          items:
-            $ref: '#/components/schemas/Page'
-    Vertex:
-      type: object
-      properties:
-        x:
-          description: X coordinate in pixels.
-          type: string
-          format: int64
-        "y":
-          description: Y coordinate in pixels.
-          type: string
-          format: int64
-    Word:
-      type: object
-      properties:
-        boundingBox:
-          $ref: '#/components/schemas/Polygon_in_Word_boundingBox'
-        text:
-          description: Recognized word value.
-          type: string
-        confidence:
-          description: Confidence of the OCR results for the word. Range [0, 1].
-          type: number
-          format: double
-        languages:
-          description: A list of detected languages together with confidence.
-          type: array
-          items:
-            $ref: '#/components/schemas/WordDetectedLanguage'
-        entityIndex:
-          description: Id of recognized word in entities array
-          type: string
-          format: int64
-    WordDetectedLanguage:
-      type: object
-      properties:
-        languageCode:
-          description: Detected language code.
-          type: string
-        confidence:
-          description: Confidence of detected language. Range [0, 1].
-          type: number
-          format: double
-    Status_in_AnalyzeResult_error:
+    ClassifierSpecification_in_AnnotationResponse_classifierSpecification:
       description: |-
-        Return error in case of error with file processing.
+        class specification
 
-        The error result of the operation in case of failure or cancellation.
+        Specification of model used for annotation
       type: object
       properties:
-        code:
-          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
-          type: integer
-          format: int32
-        message:
-          description: An error message.
+        labels:
+          description: List of labels, annotated by service
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        classificationType:
+          $ref: '#/components/schemas/ClassifierSpecificationClassificationType_in_ClassifierSpecification_classificationType'
+    Label_in_ClassAnnotation_label:
+      description: |-
+        list of annotated labels
+
+        Description of single label
+      type: object
+      properties:
+        name:
+          description: Label name
           type: string
-        details:
-          description: A list of messages that carry the error details.
-          type: array
-          items:
-            type: object
-    Polygon_in_Block_boundingBox:
-      description: Area on the page where the text block is located.
-      type: object
-      properties:
-        vertices:
-          description: The bounding polygon vertices.
-          type: array
-          items:
-            $ref: '#/components/schemas/Vertex'
-    Polygon_in_Face_boundingBox:
-      description: Area on the image where the face is located.
-      type: object
-      properties:
-        vertices:
-          description: The bounding polygon vertices.
-          type: array
-          items:
-            $ref: '#/components/schemas/Vertex'
-    Polygon_in_Line_boundingBox:
-      description: Area on the page where the line is located.
-      type: object
-      properties:
-        vertices:
-          description: The bounding polygon vertices.
-          type: array
-          items:
-            $ref: '#/components/schemas/Vertex'
-    Polygon_in_Word_boundingBox:
-      description: Area on the page where the word is located.
-      type: object
-      properties:
-        vertices:
-          description: The bounding polygon vertices.
-          type: array
-          items:
-            $ref: '#/components/schemas/Vertex'
+        description:
+          description: human readable description of label
+          type: string
+    ClassifierSpecificationClassificationType_in_ClassifierSpecification_classificationType:
+      description: 'type of annotation: exclusive (multi-class) or non-exclusive (multi-label)'
+      type: string
+      enum:
+      - MULTI_LABEL
+      - MULTI_CLASS
 tags:
-- name: Vision
-  description: A set of methods for the Vision service.
+- name: ImageClassifier

@@ -253,34 +253,6 @@ annotations | **map<string,string>**<br>Annotations.
 channels[] | **[NotificationConfig](#NotificationConfig3)**<br>Channels. 
 
 
-### ThresholdAlert {#ThresholdAlert3}
-
-Field | Description
---- | ---
-selectors | **string**<br>Selectors that query data to be checked. 
-transformations | **string**<br>Transformations to be applied to the data before checking. 
-predicate_rules[] | **[PredicateRule](#PredicateRule3)**<br>A list of predicate rules to test against the data. 
-
-
-### PredicateRule {#PredicateRule3}
-
-Field | Description
---- | ---
-type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li></ul>
-comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li></ul>
-threshold | **double**<br>Threshold value. 
-target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li></ul>
-
-
-### NotificationConfig {#NotificationConfig3}
-
-Field | Description
---- | ---
-channel_id | **string**<br>ID of the channel. 
-notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
-repeat_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Repeat notification period in seconds. Zero means no repeating. 
-
-
 ## Update {#Update}
 
 Updates the specified alert.
@@ -303,21 +275,21 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Exi
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
 delay | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation delay in seconds. 
 type | **oneof:** `threshold`<br>
-&nbsp;&nbsp;threshold | **[ThresholdAlert](#ThresholdAlert4)**<br>Threshold alert. 
+&nbsp;&nbsp;threshold | **[ThresholdAlert](#ThresholdAlert3)**<br>Threshold alert. 
 annotations | **map<string,string>**<br>Annotations. 
-channels[] | **[NotificationConfig](#NotificationConfig4)**<br> 
+channels[] | **[NotificationConfig](#NotificationConfig3)**<br> 
 
 
-### ThresholdAlert {#ThresholdAlert4}
+### ThresholdAlert {#ThresholdAlert3}
 
 Field | Description
 --- | ---
 selectors | **string**<br>Selectors that query data to be checked. 
 transformations | **string**<br>Transformations to be applied to the data before checking. 
-predicate_rules[] | **[PredicateRule](#PredicateRule4)**<br>A list of predicate rules to test against the data. 
+predicate_rules[] | **[PredicateRule](#PredicateRule3)**<br>A list of predicate rules to test against the data. 
 
 
-### PredicateRule {#PredicateRule4}
+### PredicateRule {#PredicateRule3}
 
 Field | Description
 --- | ---
@@ -327,7 +299,7 @@ threshold | **double**<br>Threshold value.
 target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li></ul>
 
 
-### NotificationConfig {#NotificationConfig4}
+### NotificationConfig {#NotificationConfig3}
 
 Field | Description
 --- | ---
@@ -373,37 +345,9 @@ status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATU
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
 delay | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation delay in seconds. 
 type | **oneof:** `threshold`<br>
-&nbsp;&nbsp;threshold | **[ThresholdAlert](#ThresholdAlert5)**<br>Threshold alert. 
+&nbsp;&nbsp;threshold | **[ThresholdAlert](#ThresholdAlert4)**<br>Threshold alert. 
 annotations | **map<string,string>**<br>Annotations. 
-channels[] | **[NotificationConfig](#NotificationConfig5)**<br>Channels. 
-
-
-### ThresholdAlert {#ThresholdAlert5}
-
-Field | Description
---- | ---
-selectors | **string**<br>Selectors that query data to be checked. 
-transformations | **string**<br>Transformations to be applied to the data before checking. 
-predicate_rules[] | **[PredicateRule](#PredicateRule5)**<br>A list of predicate rules to test against the data. 
-
-
-### PredicateRule {#PredicateRule5}
-
-Field | Description
---- | ---
-type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li></ul>
-comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li></ul>
-threshold | **double**<br>Threshold value. 
-target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li></ul>
-
-
-### NotificationConfig {#NotificationConfig5}
-
-Field | Description
---- | ---
-channel_id | **string**<br>ID of the channel. 
-notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
-repeat_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Repeat notification period in seconds. Zero means no repeating. 
+channels[] | **[NotificationConfig](#NotificationConfig4)**<br>Channels. 
 
 
 ## Delete {#Delete}
@@ -618,21 +562,21 @@ status | **[Alert.Status](#Alert4)**<br>Status of current alert.
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
 delay | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation delay in seconds. 
 type | **oneof:** `threshold`<br>
-&nbsp;&nbsp;threshold | **[ThresholdAlert](#ThresholdAlert6)**<br>Threshold alert. 
+&nbsp;&nbsp;threshold | **[ThresholdAlert](#ThresholdAlert4)**<br>Threshold alert. 
 annotations | **map<string,string>**<br>Annotations. 
-channels[] | **[NotificationConfig](#NotificationConfig6)**<br> 
+channels[] | **[NotificationConfig](#NotificationConfig4)**<br> 
 
 
-### ThresholdAlert {#ThresholdAlert6}
+### ThresholdAlert {#ThresholdAlert4}
 
 Field | Description
 --- | ---
 selectors | **string**<br>Selectors that query data to be checked. 
 transformations | **string**<br>Transformations to be applied to the data before checking. 
-predicate_rules[] | **[PredicateRule](#PredicateRule6)**<br>A list of predicate rules to test against the data. 
+predicate_rules[] | **[PredicateRule](#PredicateRule4)**<br>A list of predicate rules to test against the data. 
 
 
-### PredicateRule {#PredicateRule6}
+### PredicateRule {#PredicateRule4}
 
 Field | Description
 --- | ---
@@ -642,7 +586,7 @@ threshold | **double**<br>Threshold value.
 target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li></ul>
 
 
-### NotificationConfig {#NotificationConfig6}
+### NotificationConfig {#NotificationConfig4}
 
 Field | Description
 --- | ---
@@ -771,21 +715,21 @@ status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATU
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
 delay | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation delay in seconds. 
 type | **oneof:** `threshold`<br>
-&nbsp;&nbsp;threshold | **[ThresholdAlert](#ThresholdAlert7)**<br>Threshold alert. 
+&nbsp;&nbsp;threshold | **[ThresholdAlert](#ThresholdAlert5)**<br>Threshold alert. 
 annotations | **map<string,string>**<br>Annotations. 
-channels[] | **[NotificationConfig](#NotificationConfig7)**<br>Channels. 
+channels[] | **[NotificationConfig](#NotificationConfig5)**<br>Channels. 
 
 
-### ThresholdAlert {#ThresholdAlert7}
+### ThresholdAlert {#ThresholdAlert5}
 
 Field | Description
 --- | ---
 selectors | **string**<br>Selectors that query data to be checked. 
 transformations | **string**<br>Transformations to be applied to the data before checking. 
-predicate_rules[] | **[PredicateRule](#PredicateRule7)**<br>A list of predicate rules to test against the data. 
+predicate_rules[] | **[PredicateRule](#PredicateRule5)**<br>A list of predicate rules to test against the data. 
 
 
-### PredicateRule {#PredicateRule7}
+### PredicateRule {#PredicateRule5}
 
 Field | Description
 --- | ---
@@ -795,7 +739,7 @@ threshold | **double**<br>Threshold value.
 target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li></ul>
 
 
-### NotificationConfig {#NotificationConfig7}
+### NotificationConfig {#NotificationConfig5}
 
 Field | Description
 --- | ---
@@ -858,21 +802,21 @@ status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATU
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
 delay | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation delay in seconds. 
 type | **oneof:** `threshold`<br>
-&nbsp;&nbsp;threshold | **[ThresholdAlert](#ThresholdAlert8)**<br>Threshold alert. 
+&nbsp;&nbsp;threshold | **[ThresholdAlert](#ThresholdAlert6)**<br>Threshold alert. 
 annotations | **map<string,string>**<br>Annotations. 
-channels[] | **[NotificationConfig](#NotificationConfig8)**<br>Channels. 
+channels[] | **[NotificationConfig](#NotificationConfig6)**<br>Channels. 
 
 
-### ThresholdAlert {#ThresholdAlert8}
+### ThresholdAlert {#ThresholdAlert6}
 
 Field | Description
 --- | ---
 selectors | **string**<br>Selectors that query data to be checked. 
 transformations | **string**<br>Transformations to be applied to the data before checking. 
-predicate_rules[] | **[PredicateRule](#PredicateRule8)**<br>A list of predicate rules to test against the data. 
+predicate_rules[] | **[PredicateRule](#PredicateRule6)**<br>A list of predicate rules to test against the data. 
 
 
-### PredicateRule {#PredicateRule8}
+### PredicateRule {#PredicateRule6}
 
 Field | Description
 --- | ---
@@ -882,7 +826,7 @@ threshold | **double**<br>Threshold value.
 target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li></ul>
 
 
-### NotificationConfig {#NotificationConfig8}
+### NotificationConfig {#NotificationConfig6}
 
 Field | Description
 --- | ---

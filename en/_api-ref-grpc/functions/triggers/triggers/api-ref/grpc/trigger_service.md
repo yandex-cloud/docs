@@ -162,6 +162,129 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
+### BillingBudget {#BillingBudget}
+
+Field | Description
+--- | ---
+billing_account_id | **string**<br>Required.  The maximum string length in characters is 50.
+budget_id | **string**<br> The maximum string length in characters is 50.
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br> 
+
+
+### DataStream {#DataStream}
+
+Field | Description
+--- | ---
+endpoint | **string**<br>Data stream endpoint. 
+database | **string**<br>Data stream database. 
+stream | **string**<br>Stream name. 
+service_account_id | **string**<br>ID of the service account which has permission to read data stream. 
+batch_settings | **[DataStreamBatchSettings](#DataStreamBatchSettings)**<br>Batch settings for processing events. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br> 
+
+
+### DataStreamBatchSettings {#DataStreamBatchSettings}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size in bytes. Trigger will send the batch of messages to the associated function when size of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 65536, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the `cutoff` value, regardless of the amount of log events. Acceptable values are 1s to 1m, inclusive.
+
+
+### Mail {#Mail}
+
+Field | Description
+--- | ---
+email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br> 
+
+
+### InvokeFunctionOnce {#InvokeFunctionOnce}
+
+Field | Description
+--- | ---
+function_id | **string**<br>Required. ID of the function to invoke. The maximum string length in characters is 50.
+function_tag | **string**<br>Version tag of the function to execute. 
+service_account_id | **string**<br>ID of the service account that should be used to invoke the function. 
+
+
+### InvokeFunctionWithRetry {#InvokeFunctionWithRetry}
+
+Field | Description
+--- | ---
+function_id | **string**<br>Required. ID of the function to invoke. The maximum string length in characters is 50.
+function_tag | **string**<br>Version tag of the function to execute. 
+service_account_id | **string**<br>ID of the service account which has permission to invoke the function. 
+retry_settings | **[RetrySettings](#RetrySettings)**<br>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted. 
+dead_letter_queue | **[PutQueueMessage](#PutQueueMessage)**<br>DLQ policy (no value means discarding a message). 
+
+
+### RetrySettings {#RetrySettings}
+
+Field | Description
+--- | ---
+retry_attempts | **int64**<br>Maximum number of retries (extra invokes) before the action is considered failed. Acceptable values are 1 to 5, inclusive.
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds to wait between individual retries. 
+
+
+### PutQueueMessage {#PutQueueMessage}
+
+Field | Description
+--- | ---
+queue_id | **string**<br>ID of the queue. 
+service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
+
+
+### InvokeContainerWithRetry {#InvokeContainerWithRetry}
+
+Field | Description
+--- | ---
+container_id | **string**<br>Required. ID of the container to invoke. The maximum string length in characters is 50.
+path | **string**<br>Endpoint HTTP path to invoke. 
+service_account_id | **string**<br>ID of the service account which has permission to invoke the container. 
+retry_settings | **[RetrySettings](#RetrySettings1)**<br>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted. 
+dead_letter_queue | **[PutQueueMessage](#PutQueueMessage1)**<br>DLQ policy (no value means discarding a message). 
+
+
+### BatchSettings {#BatchSettings}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 10, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. 
+
+
+### InvokeContainerOnce {#InvokeContainerOnce}
+
+Field | Description
+--- | ---
+container_id | **string**<br>Required. ID of the container to invoke. The maximum string length in characters is 50.
+path | **string**<br>Endpoint HTTP path to invoke. 
+service_account_id | **string**<br>ID of the service account which has permission to invoke the container. 
+
+
+### CloudLogsBatchSettings {#CloudLogsBatchSettings}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the log group reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 100, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the log group reaches `size`, or the `cutoff` time has passed. Acceptable values are 1s to 1m, inclusive.
+
+
+### LoggingBatchSettings {#LoggingBatchSettings}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 100, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the `cutoff` value, regardless of the amount of log events. Acceptable values are 1s to 1m, inclusive.
+
+
 ## List {#List}
 
 Retrieves the list of triggers in the specified folder.
@@ -213,9 +336,9 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `iot_broker_message`,
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry1)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs1)**<br> 
 &nbsp;&nbsp;logging | **[Logging](#Logging1)**<br> 
-&nbsp;&nbsp;billing_budget | **[BillingBudget](#BillingBudget)**<br> 
-&nbsp;&nbsp;data_stream | **[DataStream](#DataStream)**<br> 
-&nbsp;&nbsp;mail | **[Mail](#Mail)**<br> 
+&nbsp;&nbsp;billing_budget | **[BillingBudget](#BillingBudget1)**<br> 
+&nbsp;&nbsp;data_stream | **[DataStream](#DataStream1)**<br> 
+&nbsp;&nbsp;mail | **[Mail](#Mail1)**<br> 
 
 
 ### Timer {#Timer1}
@@ -224,9 +347,9 @@ Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
 action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
-&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retry. 
-&nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retry. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce1)**<br>Instructions for invoking a function once. 
+&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br>Instructions for invoking a function with retry. 
+&nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br>Instructions for invoking a container with retry. 
 
 
 ### MessageQueue {#MessageQueue1}
@@ -235,11 +358,11 @@ Field | Description
 --- | ---
 queue_id | **string**<br>Required. ID of the message queue in Message Queue. 
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
-batch_settings | **[BatchSettings](#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
+batch_settings | **[BatchSettings](#BatchSettings1)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the queue.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce)**<br>Instructions for invoking a container once. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce1)**<br>Instructions for invoking a function once. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce1)**<br>Instructions for invoking a container once. 
 
 
 ### IoTMessage {#IoTMessage1}
@@ -250,8 +373,8 @@ registry_id | **string**<br>Required. ID of the IoT Core registry.
 device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### IoTBrokerMessage {#IoTBrokerMessage1}
@@ -261,8 +384,8 @@ Field | Description
 broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ObjectStorage {#ObjectStorage1}
@@ -274,8 +397,8 @@ bucket_id | **string**<br>ID of the bucket.
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ContainerRegistry {#ContainerRegistry1}
@@ -287,8 +410,8 @@ registry_id | **string**<br>ID of the registry.
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### CloudLogs {#CloudLogs1}
@@ -296,10 +419,10 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>
 Field | Description
 --- | ---
 log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
-batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. 
+batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings1)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### Logging {#Logging1}
@@ -310,10 +433,133 @@ log_group_id | **string**<br>Log events filter settings. The maximum string leng
 resource_type[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
 resource_id[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
 levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
-batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings)**<br>Required. Batch settings for processing log events. 
+batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings1)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br>Instructions for invoking a container with retries as needed. 
+
+
+### BillingBudget {#BillingBudget1}
+
+Field | Description
+--- | ---
+billing_account_id | **string**<br>Required.  The maximum string length in characters is 50.
+budget_id | **string**<br> The maximum string length in characters is 50.
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br> 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br> 
+
+
+### DataStream {#DataStream1}
+
+Field | Description
+--- | ---
+endpoint | **string**<br>Data stream endpoint. 
+database | **string**<br>Data stream database. 
+stream | **string**<br>Stream name. 
+service_account_id | **string**<br>ID of the service account which has permission to read data stream. 
+batch_settings | **[DataStreamBatchSettings](#DataStreamBatchSettings1)**<br>Batch settings for processing events. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br> 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br> 
+
+
+### DataStreamBatchSettings {#DataStreamBatchSettings1}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size in bytes. Trigger will send the batch of messages to the associated function when size of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 65536, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the `cutoff` value, regardless of the amount of log events. Acceptable values are 1s to 1m, inclusive.
+
+
+### Mail {#Mail1}
+
+Field | Description
+--- | ---
+email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry1)**<br> 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry1)**<br> 
+
+
+### InvokeFunctionOnce {#InvokeFunctionOnce1}
+
+Field | Description
+--- | ---
+function_id | **string**<br>Required. ID of the function to invoke. The maximum string length in characters is 50.
+function_tag | **string**<br>Version tag of the function to execute. 
+service_account_id | **string**<br>ID of the service account that should be used to invoke the function. 
+
+
+### InvokeFunctionWithRetry {#InvokeFunctionWithRetry1}
+
+Field | Description
+--- | ---
+function_id | **string**<br>Required. ID of the function to invoke. The maximum string length in characters is 50.
+function_tag | **string**<br>Version tag of the function to execute. 
+service_account_id | **string**<br>ID of the service account which has permission to invoke the function. 
+retry_settings | **[RetrySettings](#RetrySettings1)**<br>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted. 
+dead_letter_queue | **[PutQueueMessage](#PutQueueMessage1)**<br>DLQ policy (no value means discarding a message). 
+
+
+### RetrySettings {#RetrySettings1}
+
+Field | Description
+--- | ---
+retry_attempts | **int64**<br>Maximum number of retries (extra invokes) before the action is considered failed. Acceptable values are 1 to 5, inclusive.
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds to wait between individual retries. 
+
+
+### PutQueueMessage {#PutQueueMessage1}
+
+Field | Description
+--- | ---
+queue_id | **string**<br>ID of the queue. 
+service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
+
+
+### InvokeContainerWithRetry {#InvokeContainerWithRetry1}
+
+Field | Description
+--- | ---
+container_id | **string**<br>Required. ID of the container to invoke. The maximum string length in characters is 50.
+path | **string**<br>Endpoint HTTP path to invoke. 
+service_account_id | **string**<br>ID of the service account which has permission to invoke the container. 
+retry_settings | **[RetrySettings](#RetrySettings2)**<br>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted. 
+dead_letter_queue | **[PutQueueMessage](#PutQueueMessage2)**<br>DLQ policy (no value means discarding a message). 
+
+
+### BatchSettings {#BatchSettings1}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 10, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. 
+
+
+### InvokeContainerOnce {#InvokeContainerOnce1}
+
+Field | Description
+--- | ---
+container_id | **string**<br>Required. ID of the container to invoke. The maximum string length in characters is 50.
+path | **string**<br>Endpoint HTTP path to invoke. 
+service_account_id | **string**<br>ID of the service account which has permission to invoke the container. 
+
+
+### CloudLogsBatchSettings {#CloudLogsBatchSettings1}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the log group reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 100, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the log group reaches `size`, or the `cutoff` time has passed. Acceptable values are 1s to 1m, inclusive.
+
+
+### LoggingBatchSettings {#LoggingBatchSettings1}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 100, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the `cutoff` value, regardless of the amount of log events. Acceptable values are 1s to 1m, inclusive.
 
 
 ## Create {#Create}
@@ -387,9 +633,9 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `iot_broker_message`,
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry2)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs2)**<br> 
 &nbsp;&nbsp;logging | **[Logging](#Logging2)**<br> 
-&nbsp;&nbsp;billing_budget | **[BillingBudget](#BillingBudget)**<br> 
-&nbsp;&nbsp;data_stream | **[DataStream](#DataStream)**<br> 
-&nbsp;&nbsp;mail | **[Mail](#Mail)**<br> 
+&nbsp;&nbsp;billing_budget | **[BillingBudget](#BillingBudget2)**<br> 
+&nbsp;&nbsp;data_stream | **[DataStream](#DataStream2)**<br> 
+&nbsp;&nbsp;mail | **[Mail](#Mail2)**<br> 
 
 
 ### Timer {#Timer2}
@@ -398,9 +644,9 @@ Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
 action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
-&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retry. 
-&nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retry. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce2)**<br>Instructions for invoking a function once. 
+&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br>Instructions for invoking a function with retry. 
+&nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br>Instructions for invoking a container with retry. 
 
 
 ### MessageQueue {#MessageQueue2}
@@ -409,11 +655,11 @@ Field | Description
 --- | ---
 queue_id | **string**<br>Required. ID of the message queue in Message Queue. 
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
-batch_settings | **[BatchSettings](#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
+batch_settings | **[BatchSettings](#BatchSettings2)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the queue.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce)**<br>Instructions for invoking a container once. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce2)**<br>Instructions for invoking a function once. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce2)**<br>Instructions for invoking a container once. 
 
 
 ### IoTMessage {#IoTMessage2}
@@ -424,8 +670,8 @@ registry_id | **string**<br>Required. ID of the IoT Core registry.
 device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### IoTBrokerMessage {#IoTBrokerMessage2}
@@ -435,8 +681,8 @@ Field | Description
 broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ObjectStorage {#ObjectStorage2}
@@ -448,8 +694,8 @@ bucket_id | **string**<br>ID of the bucket.
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ContainerRegistry {#ContainerRegistry2}
@@ -461,8 +707,8 @@ registry_id | **string**<br>ID of the registry.
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### CloudLogs {#CloudLogs2}
@@ -470,10 +716,10 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>
 Field | Description
 --- | ---
 log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
-batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. 
+batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings2)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### Logging {#Logging2}
@@ -484,10 +730,133 @@ log_group_id | **string**<br>Log events filter settings. The maximum string leng
 resource_type[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
 resource_id[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
 levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
-batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings)**<br>Required. Batch settings for processing log events. 
+batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings2)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br>Instructions for invoking a container with retries as needed. 
+
+
+### BillingBudget {#BillingBudget2}
+
+Field | Description
+--- | ---
+billing_account_id | **string**<br>Required.  The maximum string length in characters is 50.
+budget_id | **string**<br> The maximum string length in characters is 50.
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br> 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br> 
+
+
+### DataStream {#DataStream2}
+
+Field | Description
+--- | ---
+endpoint | **string**<br>Data stream endpoint. 
+database | **string**<br>Data stream database. 
+stream | **string**<br>Stream name. 
+service_account_id | **string**<br>ID of the service account which has permission to read data stream. 
+batch_settings | **[DataStreamBatchSettings](#DataStreamBatchSettings2)**<br>Batch settings for processing events. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br> 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br> 
+
+
+### DataStreamBatchSettings {#DataStreamBatchSettings2}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size in bytes. Trigger will send the batch of messages to the associated function when size of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 65536, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the `cutoff` value, regardless of the amount of log events. Acceptable values are 1s to 1m, inclusive.
+
+
+### Mail {#Mail2}
+
+Field | Description
+--- | ---
+email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry2)**<br> 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry2)**<br> 
+
+
+### InvokeFunctionOnce {#InvokeFunctionOnce2}
+
+Field | Description
+--- | ---
+function_id | **string**<br>Required. ID of the function to invoke. The maximum string length in characters is 50.
+function_tag | **string**<br>Version tag of the function to execute. 
+service_account_id | **string**<br>ID of the service account that should be used to invoke the function. 
+
+
+### InvokeFunctionWithRetry {#InvokeFunctionWithRetry2}
+
+Field | Description
+--- | ---
+function_id | **string**<br>Required. ID of the function to invoke. The maximum string length in characters is 50.
+function_tag | **string**<br>Version tag of the function to execute. 
+service_account_id | **string**<br>ID of the service account which has permission to invoke the function. 
+retry_settings | **[RetrySettings](#RetrySettings2)**<br>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted. 
+dead_letter_queue | **[PutQueueMessage](#PutQueueMessage2)**<br>DLQ policy (no value means discarding a message). 
+
+
+### RetrySettings {#RetrySettings2}
+
+Field | Description
+--- | ---
+retry_attempts | **int64**<br>Maximum number of retries (extra invokes) before the action is considered failed. Acceptable values are 1 to 5, inclusive.
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds to wait between individual retries. 
+
+
+### PutQueueMessage {#PutQueueMessage2}
+
+Field | Description
+--- | ---
+queue_id | **string**<br>ID of the queue. 
+service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
+
+
+### InvokeContainerWithRetry {#InvokeContainerWithRetry2}
+
+Field | Description
+--- | ---
+container_id | **string**<br>Required. ID of the container to invoke. The maximum string length in characters is 50.
+path | **string**<br>Endpoint HTTP path to invoke. 
+service_account_id | **string**<br>ID of the service account which has permission to invoke the container. 
+retry_settings | **[RetrySettings](#RetrySettings3)**<br>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted. 
+dead_letter_queue | **[PutQueueMessage](#PutQueueMessage3)**<br>DLQ policy (no value means discarding a message). 
+
+
+### BatchSettings {#BatchSettings2}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 10, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. 
+
+
+### InvokeContainerOnce {#InvokeContainerOnce2}
+
+Field | Description
+--- | ---
+container_id | **string**<br>Required. ID of the container to invoke. The maximum string length in characters is 50.
+path | **string**<br>Endpoint HTTP path to invoke. 
+service_account_id | **string**<br>ID of the service account which has permission to invoke the container. 
+
+
+### CloudLogsBatchSettings {#CloudLogsBatchSettings2}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the log group reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 100, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the log group reaches `size`, or the `cutoff` time has passed. Acceptable values are 1s to 1m, inclusive.
+
+
+### LoggingBatchSettings {#LoggingBatchSettings2}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 100, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the `cutoff` value, regardless of the amount of log events. Acceptable values are 1s to 1m, inclusive.
 
 
 ## Update {#Update}
@@ -561,9 +930,9 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `iot_broker_message`,
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry3)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs3)**<br> 
 &nbsp;&nbsp;logging | **[Logging](#Logging3)**<br> 
-&nbsp;&nbsp;billing_budget | **[BillingBudget](#BillingBudget)**<br> 
-&nbsp;&nbsp;data_stream | **[DataStream](#DataStream)**<br> 
-&nbsp;&nbsp;mail | **[Mail](#Mail)**<br> 
+&nbsp;&nbsp;billing_budget | **[BillingBudget](#BillingBudget3)**<br> 
+&nbsp;&nbsp;data_stream | **[DataStream](#DataStream3)**<br> 
+&nbsp;&nbsp;mail | **[Mail](#Mail3)**<br> 
 
 
 ### Timer {#Timer3}
@@ -572,9 +941,9 @@ Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
 action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
-&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retry. 
-&nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retry. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce3)**<br>Instructions for invoking a function once. 
+&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br>Instructions for invoking a function with retry. 
+&nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br>Instructions for invoking a container with retry. 
 
 
 ### MessageQueue {#MessageQueue3}
@@ -583,11 +952,11 @@ Field | Description
 --- | ---
 queue_id | **string**<br>Required. ID of the message queue in Message Queue. 
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
-batch_settings | **[BatchSettings](#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
+batch_settings | **[BatchSettings](#BatchSettings3)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the queue.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce)**<br>Instructions for invoking a container once. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce3)**<br>Instructions for invoking a function once. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce3)**<br>Instructions for invoking a container once. 
 
 
 ### IoTMessage {#IoTMessage3}
@@ -598,8 +967,8 @@ registry_id | **string**<br>Required. ID of the IoT Core registry.
 device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### IoTBrokerMessage {#IoTBrokerMessage3}
@@ -609,8 +978,8 @@ Field | Description
 broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ObjectStorage {#ObjectStorage3}
@@ -622,8 +991,8 @@ bucket_id | **string**<br>ID of the bucket.
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ContainerRegistry {#ContainerRegistry3}
@@ -635,8 +1004,8 @@ registry_id | **string**<br>ID of the registry.
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### CloudLogs {#CloudLogs3}
@@ -644,10 +1013,10 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>
 Field | Description
 --- | ---
 log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
-batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. 
+batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings3)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### Logging {#Logging3}
@@ -658,10 +1027,133 @@ log_group_id | **string**<br>Log events filter settings. The maximum string leng
 resource_type[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
 resource_id[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
 levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
-batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings)**<br>Required. Batch settings for processing log events. 
+batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings3)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br>Instructions for invoking a container with retries as needed. 
+
+
+### BillingBudget {#BillingBudget3}
+
+Field | Description
+--- | ---
+billing_account_id | **string**<br>Required.  The maximum string length in characters is 50.
+budget_id | **string**<br> The maximum string length in characters is 50.
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br> 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br> 
+
+
+### DataStream {#DataStream3}
+
+Field | Description
+--- | ---
+endpoint | **string**<br>Data stream endpoint. 
+database | **string**<br>Data stream database. 
+stream | **string**<br>Stream name. 
+service_account_id | **string**<br>ID of the service account which has permission to read data stream. 
+batch_settings | **[DataStreamBatchSettings](#DataStreamBatchSettings3)**<br>Batch settings for processing events. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br> 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br> 
+
+
+### DataStreamBatchSettings {#DataStreamBatchSettings3}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size in bytes. Trigger will send the batch of messages to the associated function when size of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 65536, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the `cutoff` value, regardless of the amount of log events. Acceptable values are 1s to 1m, inclusive.
+
+
+### Mail {#Mail3}
+
+Field | Description
+--- | ---
+email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry3)**<br> 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry3)**<br> 
+
+
+### InvokeFunctionOnce {#InvokeFunctionOnce3}
+
+Field | Description
+--- | ---
+function_id | **string**<br>Required. ID of the function to invoke. The maximum string length in characters is 50.
+function_tag | **string**<br>Version tag of the function to execute. 
+service_account_id | **string**<br>ID of the service account that should be used to invoke the function. 
+
+
+### InvokeFunctionWithRetry {#InvokeFunctionWithRetry3}
+
+Field | Description
+--- | ---
+function_id | **string**<br>Required. ID of the function to invoke. The maximum string length in characters is 50.
+function_tag | **string**<br>Version tag of the function to execute. 
+service_account_id | **string**<br>ID of the service account which has permission to invoke the function. 
+retry_settings | **[RetrySettings](#RetrySettings3)**<br>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted. 
+dead_letter_queue | **[PutQueueMessage](#PutQueueMessage3)**<br>DLQ policy (no value means discarding a message). 
+
+
+### RetrySettings {#RetrySettings3}
+
+Field | Description
+--- | ---
+retry_attempts | **int64**<br>Maximum number of retries (extra invokes) before the action is considered failed. Acceptable values are 1 to 5, inclusive.
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds to wait between individual retries. 
+
+
+### PutQueueMessage {#PutQueueMessage3}
+
+Field | Description
+--- | ---
+queue_id | **string**<br>ID of the queue. 
+service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
+
+
+### InvokeContainerWithRetry {#InvokeContainerWithRetry3}
+
+Field | Description
+--- | ---
+container_id | **string**<br>Required. ID of the container to invoke. The maximum string length in characters is 50.
+path | **string**<br>Endpoint HTTP path to invoke. 
+service_account_id | **string**<br>ID of the service account which has permission to invoke the container. 
+retry_settings | **[RetrySettings](#RetrySettings4)**<br>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted. 
+dead_letter_queue | **[PutQueueMessage](#PutQueueMessage4)**<br>DLQ policy (no value means discarding a message). 
+
+
+### BatchSettings {#BatchSettings3}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 10, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. 
+
+
+### InvokeContainerOnce {#InvokeContainerOnce3}
+
+Field | Description
+--- | ---
+container_id | **string**<br>Required. ID of the container to invoke. The maximum string length in characters is 50.
+path | **string**<br>Endpoint HTTP path to invoke. 
+service_account_id | **string**<br>ID of the service account which has permission to invoke the container. 
+
+
+### CloudLogsBatchSettings {#CloudLogsBatchSettings3}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the log group reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 100, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the log group reaches `size`, or the `cutoff` time has passed. Acceptable values are 1s to 1m, inclusive.
+
+
+### LoggingBatchSettings {#LoggingBatchSettings3}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 100, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the `cutoff` value, regardless of the amount of log events. Acceptable values are 1s to 1m, inclusive.
 
 
 ## Delete {#Delete}
@@ -771,9 +1263,9 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `iot_broker_message`,
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry4)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs4)**<br> 
 &nbsp;&nbsp;logging | **[Logging](#Logging4)**<br> 
-&nbsp;&nbsp;billing_budget | **[BillingBudget](#BillingBudget)**<br> 
-&nbsp;&nbsp;data_stream | **[DataStream](#DataStream)**<br> 
-&nbsp;&nbsp;mail | **[Mail](#Mail)**<br> 
+&nbsp;&nbsp;billing_budget | **[BillingBudget](#BillingBudget4)**<br> 
+&nbsp;&nbsp;data_stream | **[DataStream](#DataStream4)**<br> 
+&nbsp;&nbsp;mail | **[Mail](#Mail4)**<br> 
 
 
 ### Timer {#Timer4}
@@ -782,9 +1274,9 @@ Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
 action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
-&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retry. 
-&nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retry. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce4)**<br>Instructions for invoking a function once. 
+&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br>Instructions for invoking a function with retry. 
+&nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br>Instructions for invoking a container with retry. 
 
 
 ### MessageQueue {#MessageQueue4}
@@ -793,11 +1285,11 @@ Field | Description
 --- | ---
 queue_id | **string**<br>Required. ID of the message queue in Message Queue. 
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
-batch_settings | **[BatchSettings](#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
+batch_settings | **[BatchSettings](#BatchSettings4)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the queue.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce)**<br>Instructions for invoking a container once. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce4)**<br>Instructions for invoking a function once. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce4)**<br>Instructions for invoking a container once. 
 
 
 ### IoTMessage {#IoTMessage4}
@@ -808,8 +1300,8 @@ registry_id | **string**<br>Required. ID of the IoT Core registry.
 device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### IoTBrokerMessage {#IoTBrokerMessage4}
@@ -819,8 +1311,8 @@ Field | Description
 broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ObjectStorage {#ObjectStorage4}
@@ -832,8 +1324,8 @@ bucket_id | **string**<br>ID of the bucket.
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ContainerRegistry {#ContainerRegistry4}
@@ -845,8 +1337,8 @@ registry_id | **string**<br>ID of the registry.
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### CloudLogs {#CloudLogs4}
@@ -854,10 +1346,10 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>
 Field | Description
 --- | ---
 log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
-batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. 
+batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings4)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### Logging {#Logging4}
@@ -868,10 +1360,133 @@ log_group_id | **string**<br>Log events filter settings. The maximum string leng
 resource_type[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
 resource_id[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
 levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
-batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings)**<br>Required. Batch settings for processing log events. 
+batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings4)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br>Instructions for invoking a container with retries as needed. 
+
+
+### BillingBudget {#BillingBudget4}
+
+Field | Description
+--- | ---
+billing_account_id | **string**<br>Required.  The maximum string length in characters is 50.
+budget_id | **string**<br> The maximum string length in characters is 50.
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br> 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br> 
+
+
+### DataStream {#DataStream4}
+
+Field | Description
+--- | ---
+endpoint | **string**<br>Data stream endpoint. 
+database | **string**<br>Data stream database. 
+stream | **string**<br>Stream name. 
+service_account_id | **string**<br>ID of the service account which has permission to read data stream. 
+batch_settings | **[DataStreamBatchSettings](#DataStreamBatchSettings4)**<br>Batch settings for processing events. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br> 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br> 
+
+
+### DataStreamBatchSettings {#DataStreamBatchSettings4}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size in bytes. Trigger will send the batch of messages to the associated function when size of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 65536, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the `cutoff` value, regardless of the amount of log events. Acceptable values are 1s to 1m, inclusive.
+
+
+### Mail {#Mail4}
+
+Field | Description
+--- | ---
+email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry4)**<br> 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry4)**<br> 
+
+
+### InvokeFunctionOnce {#InvokeFunctionOnce4}
+
+Field | Description
+--- | ---
+function_id | **string**<br>Required. ID of the function to invoke. The maximum string length in characters is 50.
+function_tag | **string**<br>Version tag of the function to execute. 
+service_account_id | **string**<br>ID of the service account that should be used to invoke the function. 
+
+
+### InvokeFunctionWithRetry {#InvokeFunctionWithRetry4}
+
+Field | Description
+--- | ---
+function_id | **string**<br>Required. ID of the function to invoke. The maximum string length in characters is 50.
+function_tag | **string**<br>Version tag of the function to execute. 
+service_account_id | **string**<br>ID of the service account which has permission to invoke the function. 
+retry_settings | **[RetrySettings](#RetrySettings4)**<br>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted. 
+dead_letter_queue | **[PutQueueMessage](#PutQueueMessage4)**<br>DLQ policy (no value means discarding a message). 
+
+
+### RetrySettings {#RetrySettings4}
+
+Field | Description
+--- | ---
+retry_attempts | **int64**<br>Maximum number of retries (extra invokes) before the action is considered failed. Acceptable values are 1 to 5, inclusive.
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds to wait between individual retries. 
+
+
+### PutQueueMessage {#PutQueueMessage4}
+
+Field | Description
+--- | ---
+queue_id | **string**<br>ID of the queue. 
+service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
+
+
+### InvokeContainerWithRetry {#InvokeContainerWithRetry4}
+
+Field | Description
+--- | ---
+container_id | **string**<br>Required. ID of the container to invoke. The maximum string length in characters is 50.
+path | **string**<br>Endpoint HTTP path to invoke. 
+service_account_id | **string**<br>ID of the service account which has permission to invoke the container. 
+retry_settings | **[RetrySettings](#RetrySettings5)**<br>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted. 
+dead_letter_queue | **[PutQueueMessage](#PutQueueMessage5)**<br>DLQ policy (no value means discarding a message). 
+
+
+### BatchSettings {#BatchSettings4}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 10, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. 
+
+
+### InvokeContainerOnce {#InvokeContainerOnce4}
+
+Field | Description
+--- | ---
+container_id | **string**<br>Required. ID of the container to invoke. The maximum string length in characters is 50.
+path | **string**<br>Endpoint HTTP path to invoke. 
+service_account_id | **string**<br>ID of the service account which has permission to invoke the container. 
+
+
+### CloudLogsBatchSettings {#CloudLogsBatchSettings4}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the log group reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 100, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the log group reaches `size`, or the `cutoff` time has passed. Acceptable values are 1s to 1m, inclusive.
+
+
+### LoggingBatchSettings {#LoggingBatchSettings4}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 100, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the `cutoff` value, regardless of the amount of log events. Acceptable values are 1s to 1m, inclusive.
 
 
 ## Resume {#Resume}
@@ -941,9 +1556,9 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `iot_broker_message`,
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry5)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs5)**<br> 
 &nbsp;&nbsp;logging | **[Logging](#Logging5)**<br> 
-&nbsp;&nbsp;billing_budget | **[BillingBudget](#BillingBudget)**<br> 
-&nbsp;&nbsp;data_stream | **[DataStream](#DataStream)**<br> 
-&nbsp;&nbsp;mail | **[Mail](#Mail)**<br> 
+&nbsp;&nbsp;billing_budget | **[BillingBudget](#BillingBudget5)**<br> 
+&nbsp;&nbsp;data_stream | **[DataStream](#DataStream5)**<br> 
+&nbsp;&nbsp;mail | **[Mail](#Mail5)**<br> 
 
 
 ### Timer {#Timer5}
@@ -952,9 +1567,9 @@ Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
 action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
-&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retry. 
-&nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retry. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce5)**<br>Instructions for invoking a function once. 
+&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br>Instructions for invoking a function with retry. 
+&nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br>Instructions for invoking a container with retry. 
 
 
 ### MessageQueue {#MessageQueue5}
@@ -963,11 +1578,11 @@ Field | Description
 --- | ---
 queue_id | **string**<br>Required. ID of the message queue in Message Queue. 
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
-batch_settings | **[BatchSettings](#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
+batch_settings | **[BatchSettings](#BatchSettings5)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the queue.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce)**<br>Instructions for invoking a container once. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce5)**<br>Instructions for invoking a function once. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce5)**<br>Instructions for invoking a container once. 
 
 
 ### IoTMessage {#IoTMessage5}
@@ -978,8 +1593,8 @@ registry_id | **string**<br>Required. ID of the IoT Core registry.
 device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### IoTBrokerMessage {#IoTBrokerMessage5}
@@ -989,8 +1604,8 @@ Field | Description
 broker_id | **string**<br>Required. ID of the IoT Core broker. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ObjectStorage {#ObjectStorage5}
@@ -1002,8 +1617,8 @@ bucket_id | **string**<br>ID of the bucket.
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ContainerRegistry {#ContainerRegistry5}
@@ -1015,8 +1630,8 @@ registry_id | **string**<br>ID of the registry.
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### CloudLogs {#CloudLogs5}
@@ -1024,10 +1639,10 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>
 Field | Description
 --- | ---
 log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
-batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. 
+batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings5)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### Logging {#Logging5}
@@ -1038,10 +1653,133 @@ log_group_id | **string**<br>Log events filter settings. The maximum string leng
 resource_type[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
 resource_id[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
 levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
-batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings)**<br>Required. Batch settings for processing log events. 
+batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings5)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
-&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br>Instructions for invoking a container with retries as needed. 
+
+
+### BillingBudget {#BillingBudget5}
+
+Field | Description
+--- | ---
+billing_account_id | **string**<br>Required.  The maximum string length in characters is 50.
+budget_id | **string**<br> The maximum string length in characters is 50.
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br> 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br> 
+
+
+### DataStream {#DataStream5}
+
+Field | Description
+--- | ---
+endpoint | **string**<br>Data stream endpoint. 
+database | **string**<br>Data stream database. 
+stream | **string**<br>Stream name. 
+service_account_id | **string**<br>ID of the service account which has permission to read data stream. 
+batch_settings | **[DataStreamBatchSettings](#DataStreamBatchSettings5)**<br>Batch settings for processing events. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br> 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br> 
+
+
+### DataStreamBatchSettings {#DataStreamBatchSettings5}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size in bytes. Trigger will send the batch of messages to the associated function when size of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 65536, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the `cutoff` value, regardless of the amount of log events. Acceptable values are 1s to 1m, inclusive.
+
+
+### Mail {#Mail5}
+
+Field | Description
+--- | ---
+email | **string**<br>Address to receive emails for trigger activation. Field is ignored for write requests and populated on trigger creation. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry5)**<br> 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry5)**<br> 
+
+
+### InvokeFunctionOnce {#InvokeFunctionOnce5}
+
+Field | Description
+--- | ---
+function_id | **string**<br>Required. ID of the function to invoke. The maximum string length in characters is 50.
+function_tag | **string**<br>Version tag of the function to execute. 
+service_account_id | **string**<br>ID of the service account that should be used to invoke the function. 
+
+
+### InvokeFunctionWithRetry {#InvokeFunctionWithRetry5}
+
+Field | Description
+--- | ---
+function_id | **string**<br>Required. ID of the function to invoke. The maximum string length in characters is 50.
+function_tag | **string**<br>Version tag of the function to execute. 
+service_account_id | **string**<br>ID of the service account which has permission to invoke the function. 
+retry_settings | **[RetrySettings](#RetrySettings5)**<br>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted. 
+dead_letter_queue | **[PutQueueMessage](#PutQueueMessage5)**<br>DLQ policy (no value means discarding a message). 
+
+
+### RetrySettings {#RetrySettings5}
+
+Field | Description
+--- | ---
+retry_attempts | **int64**<br>Maximum number of retries (extra invokes) before the action is considered failed. Acceptable values are 1 to 5, inclusive.
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds to wait between individual retries. 
+
+
+### PutQueueMessage {#PutQueueMessage5}
+
+Field | Description
+--- | ---
+queue_id | **string**<br>ID of the queue. 
+service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
+
+
+### InvokeContainerWithRetry {#InvokeContainerWithRetry5}
+
+Field | Description
+--- | ---
+container_id | **string**<br>Required. ID of the container to invoke. The maximum string length in characters is 50.
+path | **string**<br>Endpoint HTTP path to invoke. 
+service_account_id | **string**<br>ID of the service account which has permission to invoke the container. 
+retry_settings | **[RetrySettings](#RetrySettings6)**<br>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted. 
+dead_letter_queue | **[PutQueueMessage](#PutQueueMessage6)**<br>DLQ policy (no value means discarding a message). 
+
+
+### BatchSettings {#BatchSettings5}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 10, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. 
+
+
+### InvokeContainerOnce {#InvokeContainerOnce5}
+
+Field | Description
+--- | ---
+container_id | **string**<br>Required. ID of the container to invoke. The maximum string length in characters is 50.
+path | **string**<br>Endpoint HTTP path to invoke. 
+service_account_id | **string**<br>ID of the service account which has permission to invoke the container. 
+
+
+### CloudLogsBatchSettings {#CloudLogsBatchSettings5}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the function when the number of messages in the log group reaches `size`, or the `cutoff` time has passed. Acceptable values are 0 to 100, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages to the function when the number of messages in the log group reaches `size`, or the `cutoff` time has passed. Acceptable values are 1s to 1m, inclusive.
+
+
+### LoggingBatchSettings {#LoggingBatchSettings5}
+
+Field | Description
+--- | ---
+size | **int64**<br>Batch size. Trigger will send the batch of messages to the associated function when the number of log events reaches this value, or the `cutoff` time has passed. Acceptable values are 1 to 100, inclusive.
+cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the `cutoff` value, regardless of the amount of log events. Acceptable values are 1s to 1m, inclusive.
 
 
 ## ListOperations {#ListOperations}

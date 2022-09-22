@@ -9,7 +9,7 @@ To get the list of available PostgreSQL User resources, make a [list](/docs/mana
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}/users/{userName}
+GET https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path parameters {#path_params}

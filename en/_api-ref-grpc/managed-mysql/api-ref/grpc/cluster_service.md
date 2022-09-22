@@ -464,33 +464,6 @@ performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics3)**
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 
 
-### Resources {#Resources3}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
-disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
-
-
-### Access {#Access3}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
-data_transfer | **bool**<br>Allow access for DataTransfer. 
-
-
-### PerformanceDiagnostics {#PerformanceDiagnostics3}
-
-Field | Description
---- | ---
-enabled | **bool**<br>Flag that shows if performance statistics gathering is enabled for the cluster. 
-sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session` sampling. Acceptable values are 1 to 86400, inclusive.
-statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
-
-
 ### MaintenanceWindow {#MaintenanceWindow2}
 
 Field | Description
@@ -553,14 +526,14 @@ version | **string**<br>Version of MySQL used in the cluster. <br>Possible value
 mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfig5_7](#MysqlConfig5_7)**<br>Configuration for a MySQL 5.7 cluster. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfig8_0](#MysqlConfig8_0)**<br>Configuration for a MySQL 8.0 cluster. 
-resources | **[Resources](#Resources4)**<br>Resource preset for the cluster hosts. 
+resources | **[Resources](#Resources3)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access4)**<br>Access policy for external services. <br>If the specific services need to access the cluster, then set the necessary values in this policy. 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics4)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access3)**<br>Access policy for external services. <br>If the specific services need to access the cluster, then set the necessary values in this policy. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics3)**<br>Configuration of the performance diagnostics service. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 
 
-### Resources {#Resources4}
+### Resources {#Resources3}
 
 Field | Description
 --- | ---
@@ -569,7 +542,7 @@ disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes)
 disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
-### Access {#Access4}
+### Access {#Access3}
 
 Field | Description
 --- | ---
@@ -578,7 +551,7 @@ web_sql | **bool**<br>Allows SQL queries to the cluster databases from managemen
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### PerformanceDiagnostics {#PerformanceDiagnostics4}
+### PerformanceDiagnostics {#PerformanceDiagnostics3}
 
 Field | Description
 --- | ---
@@ -671,59 +644,11 @@ version | **string**<br>Version of MySQL used in the cluster.
 mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Configuration of a MySQL 5.7 server. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Configuration of a MySQL 8.0 server. 
-resources | **[Resources](#Resources5)**<br>Resource preset for the cluster hosts. 
+resources | **[Resources](#Resources4)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access5)**<br>Access policy for external services. 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics5)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access4)**<br>Access policy for external services. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics4)**<br>Configuration of the performance diagnostics service. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
-
-
-### Resources {#Resources5}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
-disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
-
-
-### Access {#Access5}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
-data_transfer | **bool**<br>Allow access for DataTransfer. 
-
-
-### PerformanceDiagnostics {#PerformanceDiagnostics5}
-
-Field | Description
---- | ---
-enabled | **bool**<br>Flag that shows if performance statistics gathering is enabled for the cluster. 
-sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session` sampling. Acceptable values are 1 to 86400, inclusive.
-statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
-
-
-### MaintenanceWindow {#MaintenanceWindow4}
-
-Field | Description
---- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br>Maintenance operation can be scheduled on a weekly basis. 
-
-
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
-
-
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
-
-Field | Description
---- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
-hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### MaintenanceOperation {#MaintenanceOperation3}
@@ -830,7 +755,7 @@ config | **[ClusterConfig](#ClusterConfig4)**<br>Configuration of the cluster.
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window settings for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
@@ -854,14 +779,14 @@ version | **string**<br>Version of MySQL used in the cluster.
 mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Configuration of a MySQL 5.7 server. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Configuration of a MySQL 8.0 server. 
-resources | **[Resources](#Resources6)**<br>Resource preset for the cluster hosts. 
+resources | **[Resources](#Resources4)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access6)**<br>Access policy for external services. 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics6)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access4)**<br>Access policy for external services. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics4)**<br>Configuration of the performance diagnostics service. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 
 
-### Resources {#Resources6}
+### Resources {#Resources4}
 
 Field | Description
 --- | ---
@@ -870,7 +795,7 @@ disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes)
 disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
-### Access {#Access6}
+### Access {#Access4}
 
 Field | Description
 --- | ---
@@ -879,7 +804,7 @@ web_sql | **bool**<br>Allows SQL queries to the cluster databases from managemen
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### PerformanceDiagnostics {#PerformanceDiagnostics6}
+### PerformanceDiagnostics {#PerformanceDiagnostics4}
 
 Field | Description
 --- | ---
@@ -888,20 +813,20 @@ sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session`
 statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
-### MaintenanceWindow {#MaintenanceWindow5}
+### MaintenanceWindow {#MaintenanceWindow4}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
 
 Field | Description
 --- | ---
@@ -973,7 +898,7 @@ config | **[ClusterConfig](#ClusterConfig5)**<br>Configuration of the cluster.
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance window settings for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
@@ -997,14 +922,14 @@ version | **string**<br>Version of MySQL used in the cluster.
 mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Configuration of a MySQL 5.7 server. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Configuration of a MySQL 8.0 server. 
-resources | **[Resources](#Resources7)**<br>Resource preset for the cluster hosts. 
+resources | **[Resources](#Resources5)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access7)**<br>Access policy for external services. 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics7)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access5)**<br>Access policy for external services. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics5)**<br>Configuration of the performance diagnostics service. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 
 
-### Resources {#Resources7}
+### Resources {#Resources5}
 
 Field | Description
 --- | ---
@@ -1013,7 +938,7 @@ disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes)
 disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
-### Access {#Access7}
+### Access {#Access5}
 
 Field | Description
 --- | ---
@@ -1022,7 +947,7 @@ web_sql | **bool**<br>Allows SQL queries to the cluster databases from managemen
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### PerformanceDiagnostics {#PerformanceDiagnostics7}
+### PerformanceDiagnostics {#PerformanceDiagnostics5}
 
 Field | Description
 --- | ---
@@ -1031,20 +956,20 @@ sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session`
 statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
-### MaintenanceWindow {#MaintenanceWindow6}
+### MaintenanceWindow {#MaintenanceWindow5}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
 
 Field | Description
 --- | ---
@@ -1119,7 +1044,7 @@ config | **[ClusterConfig](#ClusterConfig6)**<br>Configuration of the cluster.
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance window settings for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
@@ -1143,14 +1068,14 @@ version | **string**<br>Version of MySQL used in the cluster.
 mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Configuration of a MySQL 5.7 server. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Configuration of a MySQL 8.0 server. 
-resources | **[Resources](#Resources8)**<br>Resource preset for the cluster hosts. 
+resources | **[Resources](#Resources6)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access8)**<br>Access policy for external services. 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics8)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access6)**<br>Access policy for external services. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics6)**<br>Configuration of the performance diagnostics service. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 
 
-### Resources {#Resources8}
+### Resources {#Resources6}
 
 Field | Description
 --- | ---
@@ -1159,7 +1084,7 @@ disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes)
 disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
-### Access {#Access8}
+### Access {#Access6}
 
 Field | Description
 --- | ---
@@ -1168,7 +1093,7 @@ web_sql | **bool**<br>Allows SQL queries to the cluster databases from managemen
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### PerformanceDiagnostics {#PerformanceDiagnostics8}
+### PerformanceDiagnostics {#PerformanceDiagnostics6}
 
 Field | Description
 --- | ---
@@ -1177,20 +1102,20 @@ sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session`
 statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
-### MaintenanceWindow {#MaintenanceWindow7}
+### MaintenanceWindow {#MaintenanceWindow6}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
 
 Field | Description
 --- | ---
@@ -1262,7 +1187,7 @@ config | **[ClusterConfig](#ClusterConfig7)**<br>Configuration of the cluster.
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window settings for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
@@ -1286,14 +1211,14 @@ version | **string**<br>Version of MySQL used in the cluster.
 mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Configuration of a MySQL 5.7 server. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Configuration of a MySQL 8.0 server. 
-resources | **[Resources](#Resources9)**<br>Resource preset for the cluster hosts. 
+resources | **[Resources](#Resources7)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access9)**<br>Access policy for external services. 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics9)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access7)**<br>Access policy for external services. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics7)**<br>Configuration of the performance diagnostics service. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 
 
-### Resources {#Resources9}
+### Resources {#Resources7}
 
 Field | Description
 --- | ---
@@ -1302,7 +1227,7 @@ disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes)
 disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
-### Access {#Access9}
+### Access {#Access7}
 
 Field | Description
 --- | ---
@@ -1311,7 +1236,7 @@ web_sql | **bool**<br>Allows SQL queries to the cluster databases from managemen
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### PerformanceDiagnostics {#PerformanceDiagnostics9}
+### PerformanceDiagnostics {#PerformanceDiagnostics7}
 
 Field | Description
 --- | ---
@@ -1320,20 +1245,20 @@ sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session`
 statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
-### MaintenanceWindow {#MaintenanceWindow8}
+### MaintenanceWindow {#MaintenanceWindow7}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
 
 Field | Description
 --- | ---
@@ -1386,14 +1311,14 @@ version | **string**<br>Version of MySQL used in the cluster. <br>Possible value
 mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfig5_7](#MysqlConfig5_7)**<br>Configuration for a MySQL 5.7 cluster. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfig8_0](#MysqlConfig8_0)**<br>Configuration for a MySQL 8.0 cluster. 
-resources | **[Resources](#Resources10)**<br>Resource preset for the cluster hosts. 
+resources | **[Resources](#Resources8)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access10)**<br>Access policy for external services. <br>If the specific services need to access the cluster, then set the necessary values in this policy. 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics10)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access8)**<br>Access policy for external services. <br>If the specific services need to access the cluster, then set the necessary values in this policy. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics8)**<br>Configuration of the performance diagnostics service. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 
 
-### Resources {#Resources10}
+### Resources {#Resources8}
 
 Field | Description
 --- | ---
@@ -1402,7 +1327,7 @@ disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes)
 disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
-### Access {#Access10}
+### Access {#Access8}
 
 Field | Description
 --- | ---
@@ -1411,7 +1336,7 @@ web_sql | **bool**<br>Allows SQL queries to the cluster databases from managemen
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### PerformanceDiagnostics {#PerformanceDiagnostics10}
+### PerformanceDiagnostics {#PerformanceDiagnostics8}
 
 Field | Description
 --- | ---
@@ -1472,7 +1397,7 @@ config | **[ClusterConfig](#ClusterConfig8)**<br>Configuration of the cluster.
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window settings for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
@@ -1496,54 +1421,27 @@ version | **string**<br>Version of MySQL used in the cluster.
 mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Configuration of a MySQL 5.7 server. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Configuration of a MySQL 8.0 server. 
-resources | **[Resources](#Resources11)**<br>Resource preset for the cluster hosts. 
+resources | **[Resources](#Resources9)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access11)**<br>Access policy for external services. 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics11)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access9)**<br>Access policy for external services. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics9)**<br>Configuration of the performance diagnostics service. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 
 
-### Resources {#Resources11}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
-disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
-
-
-### Access {#Access11}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
-data_transfer | **bool**<br>Allow access for DataTransfer. 
-
-
-### PerformanceDiagnostics {#PerformanceDiagnostics11}
-
-Field | Description
---- | ---
-enabled | **bool**<br>Flag that shows if performance statistics gathering is enabled for the cluster. 
-sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session` sampling. Acceptable values are 1 to 86400, inclusive.
-statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
-
-
-### MaintenanceWindow {#MaintenanceWindow9}
+### MaintenanceWindow {#MaintenanceWindow8}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
 
 Field | Description
 --- | ---
@@ -1618,7 +1516,7 @@ config | **[ClusterConfig](#ClusterConfig9)**<br>Configuration of the cluster.
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenance window settings for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
@@ -1642,14 +1540,14 @@ version | **string**<br>Version of MySQL used in the cluster.
 mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Configuration of a MySQL 5.7 server. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Configuration of a MySQL 8.0 server. 
-resources | **[Resources](#Resources12)**<br>Resource preset for the cluster hosts. 
+resources | **[Resources](#Resources9)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access12)**<br>Access policy for external services. 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics12)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access9)**<br>Access policy for external services. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics9)**<br>Configuration of the performance diagnostics service. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 
 
-### Resources {#Resources12}
+### Resources {#Resources9}
 
 Field | Description
 --- | ---
@@ -1658,7 +1556,7 @@ disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes)
 disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
-### Access {#Access12}
+### Access {#Access9}
 
 Field | Description
 --- | ---
@@ -1667,7 +1565,7 @@ web_sql | **bool**<br>Allows SQL queries to the cluster databases from managemen
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### PerformanceDiagnostics {#PerformanceDiagnostics12}
+### PerformanceDiagnostics {#PerformanceDiagnostics9}
 
 Field | Description
 --- | ---
@@ -1676,20 +1574,20 @@ sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session`
 statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
-### MaintenanceWindow {#MaintenanceWindow10}
+### MaintenanceWindow {#MaintenanceWindow9}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow10)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow10)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow10}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow10}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
 
 Field | Description
 --- | ---
@@ -1762,7 +1660,7 @@ config | **[ClusterConfig](#ClusterConfig10)**<br>Configuration of the cluster.
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Maintenance window settings for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation10)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
@@ -1786,14 +1684,14 @@ version | **string**<br>Version of MySQL used in the cluster.
 mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Configuration of a MySQL 5.7 server. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Configuration of a MySQL 8.0 server. 
-resources | **[Resources](#Resources13)**<br>Resource preset for the cluster hosts. 
+resources | **[Resources](#Resources10)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access13)**<br>Access policy for external services. 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics13)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access10)**<br>Access policy for external services. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics10)**<br>Configuration of the performance diagnostics service. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 
 
-### Resources {#Resources13}
+### Resources {#Resources10}
 
 Field | Description
 --- | ---
@@ -1802,7 +1700,7 @@ disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes)
 disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
-### Access {#Access13}
+### Access {#Access10}
 
 Field | Description
 --- | ---
@@ -1811,7 +1709,7 @@ web_sql | **bool**<br>Allows SQL queries to the cluster databases from managemen
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### PerformanceDiagnostics {#PerformanceDiagnostics13}
+### PerformanceDiagnostics {#PerformanceDiagnostics10}
 
 Field | Description
 --- | ---
@@ -1820,20 +1718,20 @@ sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session`
 statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
-### MaintenanceWindow {#MaintenanceWindow11}
+### MaintenanceWindow {#MaintenanceWindow10}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow11)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow11)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow10)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow10)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow11}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow10}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow11}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow10}
 
 Field | Description
 --- | ---
@@ -2023,9 +1921,9 @@ Field | Description
 name | **string**<br>Name of the host. <br>This name is assigned by the platform at the time of creation. The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. 
 cluster_id | **string**<br>ID of the cluster the host belongs to. 
 zone_id | **string**<br>ID of the availability zone where the host resides. 
-resources | **[Resources](#Resources14)**<br>Resources allocated to the host. 
+resources | **[Resources](#Resources11)**<br>Resources allocated to the host. 
 role | enum **Role**<br>Role of the host in the cluster. <ul><li>`ROLE_UNKNOWN`: Role of the host is unknown.</li><li>`MASTER`: Host is the master.</li><li>`REPLICA`: Host is a replica.</li></ul>
-health | enum **Health**<br>Aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: Host is performing all its functions normally.</li><li>`DEAD`: Host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: Host is degraded, and can perform only some of its essential functions.</li></ul>
+health | enum **Health**<br>Aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: Host is performing all its functions normally.</li><li>`DEAD`: Host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: Host is degraded, and can perform only some of its essential functions.</li><li>`READONLY`: Host is alive, but in read-only mode.</li></ul>
 services[] | **[Service](#Service)**<br>List of services provided by the host. 
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 assign_public_ip | **bool**<br>Flag that shows if public IP address is assigned to the host so that the host can be accessed from the internet. 
@@ -2034,7 +1932,7 @@ backup_priority | **int64**<br>Host backup priority. Acceptable values are 0 to 
 priority | **int64**<br>Host master promotion priority. Acceptable values are 0 to 100, inclusive.
 
 
-### Resources {#Resources14}
+### Resources {#Resources11}
 
 Field | Description
 --- | ---
@@ -2048,7 +1946,7 @@ disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`
 Field | Description
 --- | ---
 type | enum **Type**<br>Type of the service provided by the host. <ul><li>`MYSQL`: The host is a MySQL server.</li></ul>
-health | enum **Health**<br>Aggregated health of the service. <ul><li>`HEALTH_UNKNOWN`: Health of the service is unknown.</li><li>`ALIVE`: The service is working normally.</li><li>`DEAD`: The service is dead or unresponsive.</li></ul>
+health | enum **Health**<br>Aggregated health of the service. <ul><li>`HEALTH_UNKNOWN`: Health of the service is unknown.</li><li>`ALIVE`: The service is working normally.</li><li>`DEAD`: The service is dead or unresponsive.</li><li>`READONLY`: The service is in read-only mode.</li></ul>
 
 
 ## AddHosts {#AddHosts}

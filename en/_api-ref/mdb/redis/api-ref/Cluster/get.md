@@ -9,7 +9,7 @@ To get the list of available Redis clusters, make a [list](/docs/managed-redis/a
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-redis/v1/clusters/{clusterId}
+GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

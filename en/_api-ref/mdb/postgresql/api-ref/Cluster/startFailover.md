@@ -9,7 +9,7 @@ Start a manual failover on the specified PostgreSQL cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}:startFailover
+POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}:startFailover
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Retrieves the list of Elasticsearch clusters that belong to the specified folder
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters
+GET https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters
 ```
  
 ## Query parameters {#query_params}

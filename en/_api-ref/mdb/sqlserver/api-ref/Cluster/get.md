@@ -9,7 +9,7 @@ To get the list of available SQL Server clusters, make a [list](/docs/managed-sq
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}
+GET https://{{ api-host-mdb }}/mdb/sqlserver/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

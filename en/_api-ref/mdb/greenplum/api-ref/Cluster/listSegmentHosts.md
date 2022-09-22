@@ -9,7 +9,7 @@ Retrieves a list of segment hosts for the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-greenplum/v1/clusters/{clusterId}/segment-hosts
+GET https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/segment-hosts
 ```
  
 ## Path parameters {#path_params}

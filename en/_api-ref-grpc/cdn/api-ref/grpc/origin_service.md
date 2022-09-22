@@ -209,31 +209,6 @@ backup | **bool**<br>Specifies whether the origin is used in its origin group as
 meta | **[OriginMeta](#OriginMeta3)**<br>Set up origin of the content. 
 
 
-### OriginMeta {#OriginMeta3}
-
-Field | Description
---- | ---
-origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>Type of the origin.
-&nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta3)**<br>A server with a domain name linked to it 
-&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta3)**<br>An Object Storage bucket not configured as a static site hosting. 
-&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta3)**<br>An Object Storage bucket configured as a static site hosting. 
-&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta3)**<br>An L7 load balancer from Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
-
-
-### OriginNamedMeta {#OriginNamedMeta3}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the origin. 
-
-
-### OriginBalancerMeta {#OriginBalancerMeta3}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the origin. 
-
-
 ## Update {#Update}
 
 Updates the specified origin from the origin group. <br>Changes may take up to 15 minutes to apply. Afterwards, it is recommended to purge cache of the resources that use the origin via a [CacheService.Purge](./cache_service#Purge) request.
@@ -253,28 +228,28 @@ origin_id | **int64**<br>ID of the origin. Value must be greater than 0.
 source | **string**<br>IP address or Domain name of your origin and the port (if custom). Used if `meta` variant is `common`. Required. 
 enabled | **bool**<br>The setting allows to enable or disable an Origin source in the Origins group. <br>It has two possible values: <br>True - The origin is enabled and used as a source for the CDN. An origins group must contain at least one enabled origin. Default value. False - The origin is disabled and the CDN is not using it to pull content. <br>Required. 
 backup | **bool**<br>Specifies whether the origin is used in its origin group as backup. A backup origin is used when one of active origins becomes unavailable. <br>Required. 
-meta | **[OriginMeta](#OriginMeta4)**<br>Set up type of the origin. 
+meta | **[OriginMeta](#OriginMeta3)**<br>Set up type of the origin. 
 
 
-### OriginMeta {#OriginMeta4}
+### OriginMeta {#OriginMeta3}
 
 Field | Description
 --- | ---
 origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>Type of the origin.
-&nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta4)**<br>A server with a domain name linked to it 
-&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta4)**<br>An Object Storage bucket not configured as a static site hosting. 
-&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta4)**<br>An Object Storage bucket configured as a static site hosting. 
-&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta4)**<br>An L7 load balancer from Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
+&nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta3)**<br>A server with a domain name linked to it 
+&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta3)**<br>An Object Storage bucket not configured as a static site hosting. 
+&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta3)**<br>An Object Storage bucket configured as a static site hosting. 
+&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta3)**<br>An L7 load balancer from Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
 
 
-### OriginNamedMeta {#OriginNamedMeta4}
+### OriginNamedMeta {#OriginNamedMeta3}
 
 Field | Description
 --- | ---
 name | **string**<br>Name of the origin. 
 
 
-### OriginBalancerMeta {#OriginBalancerMeta4}
+### OriginBalancerMeta {#OriginBalancerMeta3}
 
 Field | Description
 --- | ---
@@ -314,32 +289,7 @@ origin_group_id | **int64**<br>ID of the parent origin group.
 source | **string**<br>IP address or Domain name of your origin and the port (if custom). Used if `meta` variant is `common`. 
 enabled | **bool**<br>The setting allows to enable or disable an Origin source in the Origins group. <br>It has two possible values: <br>True - The origin is enabled and used as a source for the CDN. An origins group must contain at least one enabled origin. False - The origin is disabled and the CDN is not using it to pull content. 
 backup | **bool**<br>Specifies whether the origin is used in its origin group as backup. A backup origin is used when one of active origins becomes unavailable. 
-meta | **[OriginMeta](#OriginMeta5)**<br>Set up origin of the content. 
-
-
-### OriginMeta {#OriginMeta5}
-
-Field | Description
---- | ---
-origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>Type of the origin.
-&nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta5)**<br>A server with a domain name linked to it 
-&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta5)**<br>An Object Storage bucket not configured as a static site hosting. 
-&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta5)**<br>An Object Storage bucket configured as a static site hosting. 
-&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta5)**<br>An L7 load balancer from Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
-
-
-### OriginNamedMeta {#OriginNamedMeta5}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the origin. 
-
-
-### OriginBalancerMeta {#OriginBalancerMeta5}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the origin. 
+meta | **[OriginMeta](#OriginMeta4)**<br>Set up origin of the content. 
 
 
 ## Delete {#Delete}

@@ -404,6 +404,29 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CustomerMetadata'
       x-y-operation-response: '[Customer](/docs/billing/api-ref/Customer#representation)'
+  /billing/v1/customers:createResellerServedCustomer:
+    post:
+      tags:
+      - Customer
+      summary: Creates new reseller-served customer.
+      operationId: CustomerCreateResellerServed
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateResellerServedCustomerRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: createResellerServed
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CustomerMetadata'
+      x-y-operation-response: '[Customer](/docs/billing/api-ref/Customer#representation)'
   /billing/v1/customers/{customerId}:activate:
     post:
       tags:
@@ -959,6 +982,23 @@ components:
           balanceBudgetSpec:
             $ref: '#/components/schemas/BalanceBudgetSpec'
             description: Balance budget specification.
+    CreateResellerServedCustomerRequest:
+      type: object
+      properties:
+        resellerId:
+          description: |-
+            Required.
+            ID of the reseller that customer will be associated with.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Required.
+            Name of the customer.
+          type: string
+        person:
+          $ref: '#/components/schemas/CustomerPerson_in_CreateResellerServedCustomerRequest_person'
     Customer:
       description: A Customer resource.
       type: object
@@ -1558,6 +1598,38 @@ components:
           description: |-
             Billable object type. Can be one of the following:
             * `cloud`
+          type: string
+    CustomerPerson_in_CreateResellerServedCustomerRequest_person:
+      description: |-
+        Required.
+        Person of the customer.
+
+        Person of the customer. Contains legal information.
+      type: object
+      properties:
+        name:
+          description: Name of the person.
+          type: string
+        longname:
+          description: Long name of the person.
+          type: string
+        phone:
+          description: Phone of the person.
+          type: string
+        email:
+          description: Email of the person.
+          type: string
+        postCode:
+          description: Post code of the person.
+          type: string
+        postAddress:
+          description: Post address of the person.
+          type: string
+        legalAddress:
+          description: Legal address of the person.
+          type: string
+        tin:
+          description: Tax identification number of the person.
           type: string
     CustomerPerson_in_InviteCustomerRequest_person:
       description: |-

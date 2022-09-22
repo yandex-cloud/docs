@@ -9,7 +9,7 @@ Retrieves the list of PostgreSQL Database resources in the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}/databases
+GET https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/databases
 ```
  
 ## Path parameters {#path_params}

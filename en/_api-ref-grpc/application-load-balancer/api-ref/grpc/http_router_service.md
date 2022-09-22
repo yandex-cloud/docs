@@ -157,16 +157,6 @@ Field | Description
 fqmn | **[StringMatch](#StringMatch1)**<br>Match settings for gRPC service method called in the request. <br>A match string must be a fully qualified method name, e.g. `foo.bar.v1.BazService/Get`, or a prefix of such. <br>If not specified, the route matches all methods. 
 
 
-### StringMatch {#StringMatch1}
-
-Field | Description
---- | ---
-match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
-&nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
-&nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
-&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
-
-
 ### GrpcRouteAction {#GrpcRouteAction}
 
 Field | Description
@@ -186,14 +176,6 @@ Field | Description
 status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li></ul>
 
 
-### RouteOptions {#RouteOptions}
-
-Field | Description
---- | ---
-modify_request_headers[] | **[HeaderModification](#HeaderModification)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification)**<br>Apply the following modifications to the response headers. 
-
-
 ### HeaderModification {#HeaderModification}
 
 Field | Description
@@ -206,56 +188,46 @@ operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to
 &nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
 
 
-### HeaderModification {#HeaderModification1}
+### RouteOptions {#RouteOptions}
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the header. 
-operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
-&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+modify_request_headers[] | **[HeaderModification](#HeaderModification1)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification1)**<br>Apply the following modifications to the response headers. 
+rbac | **[RBAC](#RBAC)**<br> 
 
 
-### RouteOptions {#RouteOptions1}
+### RBAC {#RBAC}
 
 Field | Description
 --- | ---
-modify_request_headers[] | **[HeaderModification](#HeaderModification2)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification2)**<br>Apply the following modifications to the response headers. 
+action | enum **Action**<br>Required. The action to take if a principal matches. Every action either allows or denies a request. <ul><li>`ALLOW`: Allows the request if and only if there is a principal that matches the request.</li><li>`DENY`: Allows the request if and only if there are no principal that match the request.</li></ul>
+principals[] | **[Principals](#Principals)**<br>Required. A match occurs when at least one matches the request. The minimum number of elements is 1.
 
 
-### HeaderModification {#HeaderModification2}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the header. 
-operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
-&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
-
-
-### RouteOptions {#RouteOptions2}
+### Principals {#Principals}
 
 Field | Description
 --- | ---
-modify_request_headers[] | **[HeaderModification](#HeaderModification3)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification3)**<br>Apply the following modifications to the response headers. 
+and_principals[] | **[Principal](#Principal)**<br>Required. A match occurs when all principals match the request. The minimum number of elements is 1.
 
 
-### HeaderModification {#HeaderModification3}
+### Principal {#Principal}
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the header. 
-operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
-&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+identifier | **oneof:** `header`, `remote_ip` or `any`<br>
+&nbsp;&nbsp;header | **[HeaderMatcher](#HeaderMatcher)**<br>A header (or pseudo-header such as: path or: method) of the incoming HTTP request. 
+&nbsp;&nbsp;remote_ip | **string**<br>A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` . 
+&nbsp;&nbsp;any | **bool**<br>When any is set, it matches any request. 
+
+
+### HeaderMatcher {#HeaderMatcher}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Specifies the name of the header in the request. 
+value | **[StringMatch](#StringMatch1)**<br>Specifies how the header match will be performed to route the request. In the absence of value a request that has specified header name will match, regardless of the header's value. 
 
 
 ## List {#List}
@@ -293,7 +265,7 @@ folder_id | **string**<br>ID of the folder that the router belongs to.
 labels | **map<string,string>**<br>Router labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
 virtual_hosts[] | **[VirtualHost](#VirtualHost1)**<br>Virtual hosts that combine routes inside the router. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host). <br>Only one virtual host with no authority (default match) can be specified. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-route_options | **[RouteOptions](#RouteOptions3)**<br> 
+route_options | **[RouteOptions](#RouteOptions1)**<br> 
 
 
 ### VirtualHost {#VirtualHost1}
@@ -303,9 +275,9 @@ Field | Description
 name | **string**<br>Required. Name of the virtual host. The name is unique within the HTTP router. 
 authority[] | **string**<br>List of domains that are attributed to the virtual host. <br>The host is selected to process the request received by the load balancer if the domain specified in the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header matches a domain specified in the host. <br>A wildcard asterisk character (`*`) matches 0 or more characters. <br>If not specified, all domains are attributed to the host, which is the same as specifying a `*` value. An HTTP router must not contain more than one virtual host to which all domains are attributed. 
 routes[] | **[Route](#Route1)**<br>Routes of the virtual host. <br>A route contains a set of conditions (predicates) that are used by the load balancer to select the route for the request and an action on the request. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes). <br>The order of routes matters: the first route whose predicate matches the request is selected. The most specific routes should be at the top of the list, so that they are not overridden. For example, if the first HTTP route is configured, via [HttpRoute.match](#HttpRoute1), to match paths prefixed with just `/`, other routes are never matched. 
-modify_request_headers[] | **[HeaderModification](#HeaderModification4)**<br>Deprecated, use route_options.modify_request_headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification4)**<br>Deprecated, use route_options.modify_response_headers. 
-route_options | **[RouteOptions](#RouteOptions3)**<br> 
+modify_request_headers[] | **[HeaderModification](#HeaderModification1)**<br>Deprecated, use route_options.modify_request_headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification1)**<br>Deprecated, use route_options.modify_response_headers. 
+route_options | **[RouteOptions](#RouteOptions1)**<br> 
 
 
 ### Route {#Route1}
@@ -316,7 +288,7 @@ name | **string**<br>Required. Name of the route.
 route | **oneof:** `http` or `grpc`<br>Route configuration.
 &nbsp;&nbsp;http | **[HttpRoute](#HttpRoute1)**<br>HTTP route configuration. 
 &nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute1)**<br>gRPC route configuration. 
-route_options | **[RouteOptions](#RouteOptions3)**<br> 
+route_options | **[RouteOptions](#RouteOptions1)**<br> 
 
 
 ### HttpRoute {#HttpRoute1}
@@ -335,10 +307,10 @@ action | **oneof:** `route`, `redirect` or `direct_response`<br>Action performed
 Field | Description
 --- | ---
 http_method[] | **string**<br>HTTP method specified in the request. 
-path | **[StringMatch](#StringMatch2)**<br>Match settings for the path specified in the request. <br>If not specified, the route matches all paths. 
+path | **[StringMatch](#StringMatch1)**<br>Match settings for the path specified in the request. <br>If not specified, the route matches all paths. 
 
 
-### StringMatch {#StringMatch2}
+### StringMatch {#StringMatch1}
 
 Field | Description
 --- | ---
@@ -358,7 +330,7 @@ idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protoc
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers. <br>If not specified, the host is not changed.
 &nbsp;&nbsp;host_rewrite | **string**<br>Host replacement. 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br>Automatically replaces the host with that of the target. 
-prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch3). <br>For instance, if [StringMatch.prefix_match](#StringMatch3) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch3), the whole path is replaced. <br>If not specified, the path is not changed. 
+prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch2). <br>For instance, if [StringMatch.prefix_match](#StringMatch2) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch2), the whole path is replaced. <br>If not specified, the path is not changed. 
 upgrade_types[] | **string**<br>Supported values for HTTP `Upgrade` header. E.g. `websocket`. 
 
 
@@ -371,7 +343,7 @@ replace_host | **string**<br>URI host replacement. <br>If not specified, the ori
 replace_port | **int64**<br>URI host replacement. <br>If not specified, the original host is used. 
 path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <br>If not specified, the original path is used.
 &nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
-&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch3). <br>For instance, if [StringMatch.prefix_match](#StringMatch3) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch3), the whole path is replaced. 
+&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch2). <br>For instance, if [StringMatch.prefix_match](#StringMatch2) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch2), the whole path is replaced. 
 remove_query | **bool**<br>Removes URI query. 
 response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li></ul>
 
@@ -406,17 +378,7 @@ action | **oneof:** `route` or `status_response`<br>Action performed on the requ
 
 Field | Description
 --- | ---
-fqmn | **[StringMatch](#StringMatch3)**<br>Match settings for gRPC service method called in the request. <br>A match string must be a fully qualified method name, e.g. `foo.bar.v1.BazService/Get`, or a prefix of such. <br>If not specified, the route matches all methods. 
-
-
-### StringMatch {#StringMatch3}
-
-Field | Description
---- | ---
-match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
-&nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
-&nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
-&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
+fqmn | **[StringMatch](#StringMatch2)**<br>Match settings for gRPC service method called in the request. <br>A match string must be a fully qualified method name, e.g. `foo.bar.v1.BazService/Get`, or a prefix of such. <br>If not specified, the route matches all methods. 
 
 
 ### GrpcRouteAction {#GrpcRouteAction1}
@@ -438,15 +400,7 @@ Field | Description
 status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li></ul>
 
 
-### RouteOptions {#RouteOptions3}
-
-Field | Description
---- | ---
-modify_request_headers[] | **[HeaderModification](#HeaderModification4)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification4)**<br>Apply the following modifications to the response headers. 
-
-
-### HeaderModification {#HeaderModification4}
+### HeaderModification {#HeaderModification1}
 
 Field | Description
 --- | ---
@@ -458,56 +412,46 @@ operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to
 &nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
 
 
-### HeaderModification {#HeaderModification5}
+### RouteOptions {#RouteOptions1}
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the header. 
-operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
-&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+modify_request_headers[] | **[HeaderModification](#HeaderModification2)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification2)**<br>Apply the following modifications to the response headers. 
+rbac | **[RBAC](#RBAC1)**<br> 
 
 
-### RouteOptions {#RouteOptions4}
+### RBAC {#RBAC1}
 
 Field | Description
 --- | ---
-modify_request_headers[] | **[HeaderModification](#HeaderModification6)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification6)**<br>Apply the following modifications to the response headers. 
+action | enum **Action**<br>Required. The action to take if a principal matches. Every action either allows or denies a request. <ul><li>`ALLOW`: Allows the request if and only if there is a principal that matches the request.</li><li>`DENY`: Allows the request if and only if there are no principal that match the request.</li></ul>
+principals[] | **[Principals](#Principals1)**<br>Required. A match occurs when at least one matches the request. The minimum number of elements is 1.
 
 
-### HeaderModification {#HeaderModification6}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the header. 
-operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
-&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
-
-
-### RouteOptions {#RouteOptions5}
+### Principals {#Principals1}
 
 Field | Description
 --- | ---
-modify_request_headers[] | **[HeaderModification](#HeaderModification7)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification7)**<br>Apply the following modifications to the response headers. 
+and_principals[] | **[Principal](#Principal1)**<br>Required. A match occurs when all principals match the request. The minimum number of elements is 1.
 
 
-### HeaderModification {#HeaderModification7}
+### Principal {#Principal1}
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the header. 
-operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
-&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+identifier | **oneof:** `header`, `remote_ip` or `any`<br>
+&nbsp;&nbsp;header | **[HeaderMatcher](#HeaderMatcher1)**<br>A header (or pseudo-header such as: path or: method) of the incoming HTTP request. 
+&nbsp;&nbsp;remote_ip | **string**<br>A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` . 
+&nbsp;&nbsp;any | **bool**<br>When any is set, it matches any request. 
+
+
+### HeaderMatcher {#HeaderMatcher1}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Specifies the name of the header in the request. 
+value | **[StringMatch](#StringMatch2)**<br>Specifies how the header match will be performed to route the request. In the absence of value a request that has specified header name will match, regardless of the header's value. 
 
 
 ## Create {#Create}
@@ -529,6 +473,7 @@ name | **string**<br>Name of the HTTP router. The name must be unique within the
 description | **string**<br>Description of the HTTP router. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>HTTP router labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 virtual_hosts[] | **[VirtualHost](#VirtualHost2)**<br>Virtual hosts that combine routes inside the router. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host). <br>Only one virtual host with no authority (default match) can be specified. 
+route_options | **[RouteOptions](#RouteOptions2)**<br>Route options for the HTTP router. 
 
 
 ### VirtualHost {#VirtualHost2}
@@ -538,9 +483,9 @@ Field | Description
 name | **string**<br>Required. Name of the virtual host. The name is unique within the HTTP router. 
 authority[] | **string**<br>List of domains that are attributed to the virtual host. <br>The host is selected to process the request received by the load balancer if the domain specified in the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header matches a domain specified in the host. <br>A wildcard asterisk character (`*`) matches 0 or more characters. <br>If not specified, all domains are attributed to the host, which is the same as specifying a `*` value. An HTTP router must not contain more than one virtual host to which all domains are attributed. 
 routes[] | **[Route](#Route2)**<br>Routes of the virtual host. <br>A route contains a set of conditions (predicates) that are used by the load balancer to select the route for the request and an action on the request. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes). <br>The order of routes matters: the first route whose predicate matches the request is selected. The most specific routes should be at the top of the list, so that they are not overridden. For example, if the first HTTP route is configured, via [HttpRoute.match](#HttpRoute2), to match paths prefixed with just `/`, other routes are never matched. 
-modify_request_headers[] | **[HeaderModification](#HeaderModification8)**<br>Deprecated, use route_options.modify_request_headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification8)**<br>Deprecated, use route_options.modify_response_headers. 
-route_options | **[RouteOptions](#RouteOptions6)**<br> 
+modify_request_headers[] | **[HeaderModification](#HeaderModification2)**<br>Deprecated, use route_options.modify_request_headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification2)**<br>Deprecated, use route_options.modify_response_headers. 
+route_options | **[RouteOptions](#RouteOptions2)**<br> 
 
 
 ### Route {#Route2}
@@ -551,7 +496,7 @@ name | **string**<br>Required. Name of the route.
 route | **oneof:** `http` or `grpc`<br>Route configuration.
 &nbsp;&nbsp;http | **[HttpRoute](#HttpRoute2)**<br>HTTP route configuration. 
 &nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute2)**<br>gRPC route configuration. 
-route_options | **[RouteOptions](#RouteOptions6)**<br> 
+route_options | **[RouteOptions](#RouteOptions2)**<br> 
 
 
 ### HttpRoute {#HttpRoute2}
@@ -570,10 +515,10 @@ action | **oneof:** `route`, `redirect` or `direct_response`<br>Action performed
 Field | Description
 --- | ---
 http_method[] | **string**<br>HTTP method specified in the request. 
-path | **[StringMatch](#StringMatch4)**<br>Match settings for the path specified in the request. <br>If not specified, the route matches all paths. 
+path | **[StringMatch](#StringMatch2)**<br>Match settings for the path specified in the request. <br>If not specified, the route matches all paths. 
 
 
-### StringMatch {#StringMatch4}
+### StringMatch {#StringMatch2}
 
 Field | Description
 --- | ---
@@ -593,7 +538,7 @@ idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protoc
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers. <br>If not specified, the host is not changed.
 &nbsp;&nbsp;host_rewrite | **string**<br>Host replacement. 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br>Automatically replaces the host with that of the target. 
-prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch5). <br>For instance, if [StringMatch.prefix_match](#StringMatch5) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch5), the whole path is replaced. <br>If not specified, the path is not changed. 
+prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch3). <br>For instance, if [StringMatch.prefix_match](#StringMatch3) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch3), the whole path is replaced. <br>If not specified, the path is not changed. 
 upgrade_types[] | **string**<br>Supported values for HTTP `Upgrade` header. E.g. `websocket`. 
 
 
@@ -606,7 +551,7 @@ replace_host | **string**<br>URI host replacement. <br>If not specified, the ori
 replace_port | **int64**<br>URI host replacement. <br>If not specified, the original host is used. 
 path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <br>If not specified, the original path is used.
 &nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
-&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch5). <br>For instance, if [StringMatch.prefix_match](#StringMatch5) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch5), the whole path is replaced. 
+&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch3). <br>For instance, if [StringMatch.prefix_match](#StringMatch3) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch3), the whole path is replaced. 
 remove_query | **bool**<br>Removes URI query. 
 response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li></ul>
 
@@ -641,17 +586,7 @@ action | **oneof:** `route` or `status_response`<br>Action performed on the requ
 
 Field | Description
 --- | ---
-fqmn | **[StringMatch](#StringMatch5)**<br>Match settings for gRPC service method called in the request. <br>A match string must be a fully qualified method name, e.g. `foo.bar.v1.BazService/Get`, or a prefix of such. <br>If not specified, the route matches all methods. 
-
-
-### StringMatch {#StringMatch5}
-
-Field | Description
---- | ---
-match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
-&nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
-&nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
-&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
+fqmn | **[StringMatch](#StringMatch3)**<br>Match settings for gRPC service method called in the request. <br>A match string must be a fully qualified method name, e.g. `foo.bar.v1.BazService/Get`, or a prefix of such. <br>If not specified, the route matches all methods. 
 
 
 ### GrpcRouteAction {#GrpcRouteAction2}
@@ -673,15 +608,7 @@ Field | Description
 status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li></ul>
 
 
-### RouteOptions {#RouteOptions6}
-
-Field | Description
---- | ---
-modify_request_headers[] | **[HeaderModification](#HeaderModification8)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification8)**<br>Apply the following modifications to the response headers. 
-
-
-### HeaderModification {#HeaderModification8}
+### HeaderModification {#HeaderModification2}
 
 Field | Description
 --- | ---
@@ -693,36 +620,46 @@ operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to
 &nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
 
 
-### HeaderModification {#HeaderModification9}
+### RouteOptions {#RouteOptions2}
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the header. 
-operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
-&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+modify_request_headers[] | **[HeaderModification](#HeaderModification3)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification3)**<br>Apply the following modifications to the response headers. 
+rbac | **[RBAC](#RBAC2)**<br> 
 
 
-### RouteOptions {#RouteOptions7}
+### RBAC {#RBAC2}
 
 Field | Description
 --- | ---
-modify_request_headers[] | **[HeaderModification](#HeaderModification10)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification10)**<br>Apply the following modifications to the response headers. 
+action | enum **Action**<br>Required. The action to take if a principal matches. Every action either allows or denies a request. <ul><li>`ALLOW`: Allows the request if and only if there is a principal that matches the request.</li><li>`DENY`: Allows the request if and only if there are no principal that match the request.</li></ul>
+principals[] | **[Principals](#Principals2)**<br>Required. A match occurs when at least one matches the request. The minimum number of elements is 1.
 
 
-### HeaderModification {#HeaderModification10}
+### Principals {#Principals2}
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the header. 
-operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
-&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+and_principals[] | **[Principal](#Principal2)**<br>Required. A match occurs when all principals match the request. The minimum number of elements is 1.
+
+
+### Principal {#Principal2}
+
+Field | Description
+--- | ---
+identifier | **oneof:** `header`, `remote_ip` or `any`<br>
+&nbsp;&nbsp;header | **[HeaderMatcher](#HeaderMatcher2)**<br>A header (or pseudo-header such as: path or: method) of the incoming HTTP request. 
+&nbsp;&nbsp;remote_ip | **string**<br>A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` . 
+&nbsp;&nbsp;any | **bool**<br>When any is set, it matches any request. 
+
+
+### HeaderMatcher {#HeaderMatcher2}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Specifies the name of the header in the request. 
+value | **[StringMatch](#StringMatch3)**<br>Specifies how the header match will be performed to route the request. In the absence of value a request that has specified header name will match, regardless of the header's value. 
 
 
 ### Operation {#Operation}
@@ -759,7 +696,30 @@ folder_id | **string**<br>ID of the folder that the router belongs to.
 labels | **map<string,string>**<br>Router labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
 virtual_hosts[] | **[VirtualHost](#VirtualHost3)**<br>Virtual hosts that combine routes inside the router. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host). <br>Only one virtual host with no authority (default match) can be specified. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-route_options | **[RouteOptions](#RouteOptions8)**<br> 
+route_options | **[RouteOptions](#RouteOptions3)**<br> 
+
+
+## Update {#Update}
+
+Updates the specified HTTP router.
+
+**rpc Update ([UpdateHttpRouterRequest](#UpdateHttpRouterRequest)) returns ([operation.Operation](#Operation1))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateHttpRouterMetadata](#UpdateHttpRouterMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[HttpRouter](#HttpRouter3)<br>
+
+### UpdateHttpRouterRequest {#UpdateHttpRouterRequest}
+
+Field | Description
+--- | ---
+http_router_id | **string**<br>Required. ID of the HTTP router to update. <br>To get the HTTP router ID, make a [HttpRouterService.List](#List) request. 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the HTTP router should be updated. 
+name | **string**<br>New name for the HTTP router. The name must be unique within the folder. Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `.
+description | **string**<br>New description of the HTTP router. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>HTTP router labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: <ol><li>Get the current set of labels with a [HttpRouterService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+virtual_hosts[] | **[VirtualHost](#VirtualHost3)**<br>New virtual hosts that combine routes inside the router. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host). <br>Only one virtual host with no authority (default match) can be specified. <br>Existing list of virtual hosts is completely replaced by the specified list, so if you just want to add or remove a virtual host, make a [VirtualHostService.Create](./virtual_host_service#Create) request or a [VirtualHostService.Delete](./virtual_host_service#Delete) request. 
+route_options | **[RouteOptions](#RouteOptions3)**<br>New route options for the HTTP router. 
 
 
 ### VirtualHost {#VirtualHost3}
@@ -769,9 +729,9 @@ Field | Description
 name | **string**<br>Required. Name of the virtual host. The name is unique within the HTTP router. 
 authority[] | **string**<br>List of domains that are attributed to the virtual host. <br>The host is selected to process the request received by the load balancer if the domain specified in the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header matches a domain specified in the host. <br>A wildcard asterisk character (`*`) matches 0 or more characters. <br>If not specified, all domains are attributed to the host, which is the same as specifying a `*` value. An HTTP router must not contain more than one virtual host to which all domains are attributed. 
 routes[] | **[Route](#Route3)**<br>Routes of the virtual host. <br>A route contains a set of conditions (predicates) that are used by the load balancer to select the route for the request and an action on the request. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes). <br>The order of routes matters: the first route whose predicate matches the request is selected. The most specific routes should be at the top of the list, so that they are not overridden. For example, if the first HTTP route is configured, via [HttpRoute.match](#HttpRoute3), to match paths prefixed with just `/`, other routes are never matched. 
-modify_request_headers[] | **[HeaderModification](#HeaderModification11)**<br>Deprecated, use route_options.modify_request_headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification11)**<br>Deprecated, use route_options.modify_response_headers. 
-route_options | **[RouteOptions](#RouteOptions8)**<br> 
+modify_request_headers[] | **[HeaderModification](#HeaderModification3)**<br>Deprecated, use route_options.modify_request_headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification3)**<br>Deprecated, use route_options.modify_response_headers. 
+route_options | **[RouteOptions](#RouteOptions3)**<br> 
 
 
 ### Route {#Route3}
@@ -782,7 +742,7 @@ name | **string**<br>Required. Name of the route.
 route | **oneof:** `http` or `grpc`<br>Route configuration.
 &nbsp;&nbsp;http | **[HttpRoute](#HttpRoute3)**<br>HTTP route configuration. 
 &nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute3)**<br>gRPC route configuration. 
-route_options | **[RouteOptions](#RouteOptions8)**<br> 
+route_options | **[RouteOptions](#RouteOptions3)**<br> 
 
 
 ### HttpRoute {#HttpRoute3}
@@ -801,10 +761,10 @@ action | **oneof:** `route`, `redirect` or `direct_response`<br>Action performed
 Field | Description
 --- | ---
 http_method[] | **string**<br>HTTP method specified in the request. 
-path | **[StringMatch](#StringMatch6)**<br>Match settings for the path specified in the request. <br>If not specified, the route matches all paths. 
+path | **[StringMatch](#StringMatch3)**<br>Match settings for the path specified in the request. <br>If not specified, the route matches all paths. 
 
 
-### StringMatch {#StringMatch6}
+### StringMatch {#StringMatch3}
 
 Field | Description
 --- | ---
@@ -824,7 +784,7 @@ idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protoc
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers. <br>If not specified, the host is not changed.
 &nbsp;&nbsp;host_rewrite | **string**<br>Host replacement. 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br>Automatically replaces the host with that of the target. 
-prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch7). <br>For instance, if [StringMatch.prefix_match](#StringMatch7) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch7), the whole path is replaced. <br>If not specified, the path is not changed. 
+prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch4). <br>For instance, if [StringMatch.prefix_match](#StringMatch4) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch4), the whole path is replaced. <br>If not specified, the path is not changed. 
 upgrade_types[] | **string**<br>Supported values for HTTP `Upgrade` header. E.g. `websocket`. 
 
 
@@ -837,7 +797,7 @@ replace_host | **string**<br>URI host replacement. <br>If not specified, the ori
 replace_port | **int64**<br>URI host replacement. <br>If not specified, the original host is used. 
 path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <br>If not specified, the original path is used.
 &nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
-&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch7). <br>For instance, if [StringMatch.prefix_match](#StringMatch7) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch7), the whole path is replaced. 
+&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch4). <br>For instance, if [StringMatch.prefix_match](#StringMatch4) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch4), the whole path is replaced. 
 remove_query | **bool**<br>Removes URI query. 
 response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li></ul>
 
@@ -872,17 +832,7 @@ action | **oneof:** `route` or `status_response`<br>Action performed on the requ
 
 Field | Description
 --- | ---
-fqmn | **[StringMatch](#StringMatch7)**<br>Match settings for gRPC service method called in the request. <br>A match string must be a fully qualified method name, e.g. `foo.bar.v1.BazService/Get`, or a prefix of such. <br>If not specified, the route matches all methods. 
-
-
-### StringMatch {#StringMatch7}
-
-Field | Description
---- | ---
-match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
-&nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
-&nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
-&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
+fqmn | **[StringMatch](#StringMatch4)**<br>Match settings for gRPC service method called in the request. <br>A match string must be a fully qualified method name, e.g. `foo.bar.v1.BazService/Get`, or a prefix of such. <br>If not specified, the route matches all methods. 
 
 
 ### GrpcRouteAction {#GrpcRouteAction3}
@@ -904,15 +854,7 @@ Field | Description
 status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li></ul>
 
 
-### RouteOptions {#RouteOptions8}
-
-Field | Description
---- | ---
-modify_request_headers[] | **[HeaderModification](#HeaderModification11)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification11)**<br>Apply the following modifications to the response headers. 
-
-
-### HeaderModification {#HeaderModification11}
+### HeaderModification {#HeaderModification3}
 
 Field | Description
 --- | ---
@@ -924,272 +866,46 @@ operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to
 &nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
 
 
-### HeaderModification {#HeaderModification12}
+### RouteOptions {#RouteOptions3}
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the header. 
-operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
-&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+modify_request_headers[] | **[HeaderModification](#HeaderModification4)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification4)**<br>Apply the following modifications to the response headers. 
+rbac | **[RBAC](#RBAC3)**<br> 
 
 
-### RouteOptions {#RouteOptions9}
+### RBAC {#RBAC3}
 
 Field | Description
 --- | ---
-modify_request_headers[] | **[HeaderModification](#HeaderModification13)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification13)**<br>Apply the following modifications to the response headers. 
+action | enum **Action**<br>Required. The action to take if a principal matches. Every action either allows or denies a request. <ul><li>`ALLOW`: Allows the request if and only if there is a principal that matches the request.</li><li>`DENY`: Allows the request if and only if there are no principal that match the request.</li></ul>
+principals[] | **[Principals](#Principals3)**<br>Required. A match occurs when at least one matches the request. The minimum number of elements is 1.
 
 
-### HeaderModification {#HeaderModification13}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the header. 
-operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
-&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
-
-
-### RouteOptions {#RouteOptions10}
+### Principals {#Principals3}
 
 Field | Description
 --- | ---
-modify_request_headers[] | **[HeaderModification](#HeaderModification14)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification14)**<br>Apply the following modifications to the response headers. 
+and_principals[] | **[Principal](#Principal3)**<br>Required. A match occurs when all principals match the request. The minimum number of elements is 1.
 
 
-### HeaderModification {#HeaderModification14}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the header. 
-operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
-&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
-
-
-## Update {#Update}
-
-Updates the specified HTTP router.
-
-**rpc Update ([UpdateHttpRouterRequest](#UpdateHttpRouterRequest)) returns ([operation.Operation](#Operation1))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateHttpRouterMetadata](#UpdateHttpRouterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[HttpRouter](#HttpRouter3)<br>
-
-### UpdateHttpRouterRequest {#UpdateHttpRouterRequest}
+### Principal {#Principal3}
 
 Field | Description
 --- | ---
-http_router_id | **string**<br>Required. ID of the HTTP router to update. <br>To get the HTTP router ID, make a [HttpRouterService.List](#List) request. 
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the HTTP router should be updated. 
-name | **string**<br>New name for the HTTP router. The name must be unique within the folder. Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `.
-description | **string**<br>New description of the HTTP router. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>HTTP router labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: <ol><li>Get the current set of labels with a [HttpRouterService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-virtual_hosts[] | **[VirtualHost](#VirtualHost4)**<br>New virtual hosts that combine routes inside the router. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host). <br>Only one virtual host with no authority (default match) can be specified. <br>Existing list of virtual hosts is completely replaced by the specified list, so if you just want to add or remove a virtual host, make a [VirtualHostService.Create](./virtual_host_service#Create) request or a [VirtualHostService.Delete](./virtual_host_service#Delete) request. 
+identifier | **oneof:** `header`, `remote_ip` or `any`<br>
+&nbsp;&nbsp;header | **[HeaderMatcher](#HeaderMatcher3)**<br>A header (or pseudo-header such as: path or: method) of the incoming HTTP request. 
+&nbsp;&nbsp;remote_ip | **string**<br>A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` . 
+&nbsp;&nbsp;any | **bool**<br>When any is set, it matches any request. 
 
 
-### VirtualHost {#VirtualHost4}
+### HeaderMatcher {#HeaderMatcher3}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the virtual host. The name is unique within the HTTP router. 
-authority[] | **string**<br>List of domains that are attributed to the virtual host. <br>The host is selected to process the request received by the load balancer if the domain specified in the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header matches a domain specified in the host. <br>A wildcard asterisk character (`*`) matches 0 or more characters. <br>If not specified, all domains are attributed to the host, which is the same as specifying a `*` value. An HTTP router must not contain more than one virtual host to which all domains are attributed. 
-routes[] | **[Route](#Route4)**<br>Routes of the virtual host. <br>A route contains a set of conditions (predicates) that are used by the load balancer to select the route for the request and an action on the request. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes). <br>The order of routes matters: the first route whose predicate matches the request is selected. The most specific routes should be at the top of the list, so that they are not overridden. For example, if the first HTTP route is configured, via [HttpRoute.match](#HttpRoute4), to match paths prefixed with just `/`, other routes are never matched. 
-modify_request_headers[] | **[HeaderModification](#HeaderModification15)**<br>Deprecated, use route_options.modify_request_headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification15)**<br>Deprecated, use route_options.modify_response_headers. 
-route_options | **[RouteOptions](#RouteOptions11)**<br> 
-
-
-### Route {#Route4}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Name of the route. 
-route | **oneof:** `http` or `grpc`<br>Route configuration.
-&nbsp;&nbsp;http | **[HttpRoute](#HttpRoute4)**<br>HTTP route configuration. 
-&nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute4)**<br>gRPC route configuration. 
-route_options | **[RouteOptions](#RouteOptions11)**<br> 
-
-
-### HttpRoute {#HttpRoute4}
-
-Field | Description
---- | ---
-match | **[HttpRouteMatch](#HttpRouteMatch4)**<br>Condition (predicate) used to select the route. 
-action | **oneof:** `route`, `redirect` or `direct_response`<br>Action performed on the request if the route is selected.
-&nbsp;&nbsp;route | **[HttpRouteAction](#HttpRouteAction4)**<br>Forwards the request to a backend group for processing as configured. 
-&nbsp;&nbsp;redirect | **[RedirectAction](#RedirectAction4)**<br>Redirects the request as configured. 
-&nbsp;&nbsp;direct_response | **[DirectResponseAction](#DirectResponseAction4)**<br>Instructs the load balancer to respond directly as configured. 
-
-
-### HttpRouteMatch {#HttpRouteMatch4}
-
-Field | Description
---- | ---
-http_method[] | **string**<br>HTTP method specified in the request. 
-path | **[StringMatch](#StringMatch8)**<br>Match settings for the path specified in the request. <br>If not specified, the route matches all paths. 
-
-
-### StringMatch {#StringMatch8}
-
-Field | Description
---- | ---
-match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
-&nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
-&nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
-&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
-
-
-### HttpRouteAction {#HttpRouteAction4}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. Backend group to forward requests to. <br>Stream (TCP) backend groups are not supported. 
-timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Overall timeout for an HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is kept alive for, regardless of whether data is transferred over it. <br>If a connection times out, the load balancer responds to the client with a `504 Gateway Timeout` status code. <br>Default value: `60`. 
-idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Idle timeout for an HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is allowed to be idle, i.e. without any data transferred over it. <br>Specifying meaningful values for both `timeout` and `idle_timeout` is useful for implementing server-push mechanisms such as long polling, server-sent events (`EventSource` interface) etc. <br>If a connection times out, the load balancer responds to the client with a `504 Gateway Timeout` status code. <br>If not specified, no idle timeout is used, and an alive connection may be idle for any duration (see `timeout`). 
-host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers. <br>If not specified, the host is not changed.
-&nbsp;&nbsp;host_rewrite | **string**<br>Host replacement. 
-&nbsp;&nbsp;auto_host_rewrite | **bool**<br>Automatically replaces the host with that of the target. 
-prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch9). <br>For instance, if [StringMatch.prefix_match](#StringMatch9) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch9), the whole path is replaced. <br>If not specified, the path is not changed. 
-upgrade_types[] | **string**<br>Supported values for HTTP `Upgrade` header. E.g. `websocket`. 
-
-
-### RedirectAction {#RedirectAction4}
-
-Field | Description
---- | ---
-replace_scheme | **string**<br>URI scheme replacement. <br>If `http` or `https` scheme is to be replaced and `80` or `443` port is specified in the original URI, the port is also removed. <br>If not specified, the original scheme and port are used. 
-replace_host | **string**<br>URI host replacement. <br>If not specified, the original host is used. 
-replace_port | **int64**<br>URI host replacement. <br>If not specified, the original host is used. 
-path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <br>If not specified, the original path is used.
-&nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
-&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch9). <br>For instance, if [StringMatch.prefix_match](#StringMatch9) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch9), the whole path is replaced. 
-remove_query | **bool**<br>Removes URI query. 
-response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li></ul>
-
-
-### DirectResponseAction {#DirectResponseAction4}
-
-Field | Description
---- | ---
-status | **int64**<br>HTTP status code to use in responses. Acceptable values are 100 to 599, inclusive.
-body | **[Payload](#Payload4)**<br>Response body. 
-
-
-### Payload {#Payload4}
-
-Field | Description
---- | ---
-payload | **oneof:** `text`<br>Payload.
-&nbsp;&nbsp;text | **string**<br>Payload text. The string length in characters must be greater than 0.
-
-
-### GrpcRoute {#GrpcRoute4}
-
-Field | Description
---- | ---
-match | **[GrpcRouteMatch](#GrpcRouteMatch4)**<br>Condition (predicate) used to select the route. 
-action | **oneof:** `route` or `status_response`<br>Action performed on the request if the route is selected.
-&nbsp;&nbsp;route | **[GrpcRouteAction](#GrpcRouteAction4)**<br>Forwards the request to a backend group for processing as configured. 
-&nbsp;&nbsp;status_response | **[GrpcStatusResponseAction](#GrpcStatusResponseAction4)**<br>Instructs the load balancer to respond directly with a specified status. 
-
-
-### GrpcRouteMatch {#GrpcRouteMatch4}
-
-Field | Description
---- | ---
-fqmn | **[StringMatch](#StringMatch9)**<br>Match settings for gRPC service method called in the request. <br>A match string must be a fully qualified method name, e.g. `foo.bar.v1.BazService/Get`, or a prefix of such. <br>If not specified, the route matches all methods. 
-
-
-### StringMatch {#StringMatch9}
-
-Field | Description
---- | ---
-match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
-&nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
-&nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
-&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
-
-
-### GrpcRouteAction {#GrpcRouteAction4}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. Backend group to forward requests to. 
-max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Overall timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is kept alive for, regardless of whether data is transferred over it. <br>If a client specifies a lower timeout in HTTP `grpc-timeout` header, the `max_timeout` value is ignored. <br>If a connection times out, the load balancer responds to the client with an `UNAVAILABLE` status code. <br>Default value: `60`. 
-idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Idle timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is allowed to be idle, i.e. without any data transferred over it. <br>Specifying meaningful values for both `max_timeout` and `idle_timeout` is useful for implementing server-push mechanisms such as long polling, server-sent events etc. <br>If a connection times out, the load balancer responds to the client with an `UNAVAILABLE` status code. <br>If not specified, no idle timeout is used, and an alive connection may be idle for any duration (see `max_timeout`). 
-host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers. <br>If not specified, the host is not changed.
-&nbsp;&nbsp;host_rewrite | **string**<br>Host replacement. 
-&nbsp;&nbsp;auto_host_rewrite | **bool**<br>Automatically replaces the host with that of the target. 
-
-
-### GrpcStatusResponseAction {#GrpcStatusResponseAction4}
-
-Field | Description
---- | ---
-status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li></ul>
-
-
-### RouteOptions {#RouteOptions11}
-
-Field | Description
---- | ---
-modify_request_headers[] | **[HeaderModification](#HeaderModification15)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification15)**<br>Apply the following modifications to the response headers. 
-
-
-### HeaderModification {#HeaderModification15}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the header. 
-operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
-&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
-
-
-### HeaderModification {#HeaderModification16}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the header. 
-operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
-&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
-
-
-### RouteOptions {#RouteOptions12}
-
-Field | Description
---- | ---
-modify_request_headers[] | **[HeaderModification](#HeaderModification17)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification17)**<br>Apply the following modifications to the response headers. 
-
-
-### HeaderModification {#HeaderModification17}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the header. 
-operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
-&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+name | **string**<br>Required. Specifies the name of the header in the request. 
+value | **[StringMatch](#StringMatch4)**<br>Specifies how the header match will be performed to route the request. In the absence of value a request that has specified header name will match, regardless of the header's value. 
 
 
 ### Operation {#Operation1}
@@ -1224,223 +940,9 @@ name | **string**<br>Name of the router. The name is unique within the folder.
 description | **string**<br>Description of the router. 
 folder_id | **string**<br>ID of the folder that the router belongs to. 
 labels | **map<string,string>**<br>Router labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
-virtual_hosts[] | **[VirtualHost](#VirtualHost5)**<br>Virtual hosts that combine routes inside the router. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host). <br>Only one virtual host with no authority (default match) can be specified. 
+virtual_hosts[] | **[VirtualHost](#VirtualHost4)**<br>Virtual hosts that combine routes inside the router. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host). <br>Only one virtual host with no authority (default match) can be specified. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-route_options | **[RouteOptions](#RouteOptions13)**<br> 
-
-
-### VirtualHost {#VirtualHost5}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Name of the virtual host. The name is unique within the HTTP router. 
-authority[] | **string**<br>List of domains that are attributed to the virtual host. <br>The host is selected to process the request received by the load balancer if the domain specified in the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header matches a domain specified in the host. <br>A wildcard asterisk character (`*`) matches 0 or more characters. <br>If not specified, all domains are attributed to the host, which is the same as specifying a `*` value. An HTTP router must not contain more than one virtual host to which all domains are attributed. 
-routes[] | **[Route](#Route5)**<br>Routes of the virtual host. <br>A route contains a set of conditions (predicates) that are used by the load balancer to select the route for the request and an action on the request. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes). <br>The order of routes matters: the first route whose predicate matches the request is selected. The most specific routes should be at the top of the list, so that they are not overridden. For example, if the first HTTP route is configured, via [HttpRoute.match](#HttpRoute5), to match paths prefixed with just `/`, other routes are never matched. 
-modify_request_headers[] | **[HeaderModification](#HeaderModification18)**<br>Deprecated, use route_options.modify_request_headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification18)**<br>Deprecated, use route_options.modify_response_headers. 
-route_options | **[RouteOptions](#RouteOptions13)**<br> 
-
-
-### Route {#Route5}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Name of the route. 
-route | **oneof:** `http` or `grpc`<br>Route configuration.
-&nbsp;&nbsp;http | **[HttpRoute](#HttpRoute5)**<br>HTTP route configuration. 
-&nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute5)**<br>gRPC route configuration. 
-route_options | **[RouteOptions](#RouteOptions13)**<br> 
-
-
-### HttpRoute {#HttpRoute5}
-
-Field | Description
---- | ---
-match | **[HttpRouteMatch](#HttpRouteMatch5)**<br>Condition (predicate) used to select the route. 
-action | **oneof:** `route`, `redirect` or `direct_response`<br>Action performed on the request if the route is selected.
-&nbsp;&nbsp;route | **[HttpRouteAction](#HttpRouteAction5)**<br>Forwards the request to a backend group for processing as configured. 
-&nbsp;&nbsp;redirect | **[RedirectAction](#RedirectAction5)**<br>Redirects the request as configured. 
-&nbsp;&nbsp;direct_response | **[DirectResponseAction](#DirectResponseAction5)**<br>Instructs the load balancer to respond directly as configured. 
-
-
-### HttpRouteMatch {#HttpRouteMatch5}
-
-Field | Description
---- | ---
-http_method[] | **string**<br>HTTP method specified in the request. 
-path | **[StringMatch](#StringMatch10)**<br>Match settings for the path specified in the request. <br>If not specified, the route matches all paths. 
-
-
-### StringMatch {#StringMatch10}
-
-Field | Description
---- | ---
-match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
-&nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
-&nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
-&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
-
-
-### HttpRouteAction {#HttpRouteAction5}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. Backend group to forward requests to. <br>Stream (TCP) backend groups are not supported. 
-timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Overall timeout for an HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is kept alive for, regardless of whether data is transferred over it. <br>If a connection times out, the load balancer responds to the client with a `504 Gateway Timeout` status code. <br>Default value: `60`. 
-idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Idle timeout for an HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is allowed to be idle, i.e. without any data transferred over it. <br>Specifying meaningful values for both `timeout` and `idle_timeout` is useful for implementing server-push mechanisms such as long polling, server-sent events (`EventSource` interface) etc. <br>If a connection times out, the load balancer responds to the client with a `504 Gateway Timeout` status code. <br>If not specified, no idle timeout is used, and an alive connection may be idle for any duration (see `timeout`). 
-host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers. <br>If not specified, the host is not changed.
-&nbsp;&nbsp;host_rewrite | **string**<br>Host replacement. 
-&nbsp;&nbsp;auto_host_rewrite | **bool**<br>Automatically replaces the host with that of the target. 
-prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch11). <br>For instance, if [StringMatch.prefix_match](#StringMatch11) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch11), the whole path is replaced. <br>If not specified, the path is not changed. 
-upgrade_types[] | **string**<br>Supported values for HTTP `Upgrade` header. E.g. `websocket`. 
-
-
-### RedirectAction {#RedirectAction5}
-
-Field | Description
---- | ---
-replace_scheme | **string**<br>URI scheme replacement. <br>If `http` or `https` scheme is to be replaced and `80` or `443` port is specified in the original URI, the port is also removed. <br>If not specified, the original scheme and port are used. 
-replace_host | **string**<br>URI host replacement. <br>If not specified, the original host is used. 
-replace_port | **int64**<br>URI host replacement. <br>If not specified, the original host is used. 
-path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <br>If not specified, the original path is used.
-&nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
-&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch11). <br>For instance, if [StringMatch.prefix_match](#StringMatch11) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch11), the whole path is replaced. 
-remove_query | **bool**<br>Removes URI query. 
-response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li></ul>
-
-
-### DirectResponseAction {#DirectResponseAction5}
-
-Field | Description
---- | ---
-status | **int64**<br>HTTP status code to use in responses. Acceptable values are 100 to 599, inclusive.
-body | **[Payload](#Payload5)**<br>Response body. 
-
-
-### Payload {#Payload5}
-
-Field | Description
---- | ---
-payload | **oneof:** `text`<br>Payload.
-&nbsp;&nbsp;text | **string**<br>Payload text. The string length in characters must be greater than 0.
-
-
-### GrpcRoute {#GrpcRoute5}
-
-Field | Description
---- | ---
-match | **[GrpcRouteMatch](#GrpcRouteMatch5)**<br>Condition (predicate) used to select the route. 
-action | **oneof:** `route` or `status_response`<br>Action performed on the request if the route is selected.
-&nbsp;&nbsp;route | **[GrpcRouteAction](#GrpcRouteAction5)**<br>Forwards the request to a backend group for processing as configured. 
-&nbsp;&nbsp;status_response | **[GrpcStatusResponseAction](#GrpcStatusResponseAction5)**<br>Instructs the load balancer to respond directly with a specified status. 
-
-
-### GrpcRouteMatch {#GrpcRouteMatch5}
-
-Field | Description
---- | ---
-fqmn | **[StringMatch](#StringMatch11)**<br>Match settings for gRPC service method called in the request. <br>A match string must be a fully qualified method name, e.g. `foo.bar.v1.BazService/Get`, or a prefix of such. <br>If not specified, the route matches all methods. 
-
-
-### StringMatch {#StringMatch11}
-
-Field | Description
---- | ---
-match | **oneof:** `exact_match`, `prefix_match` or `regex_match`<br>Match string for either exact or prefix match.
-&nbsp;&nbsp;exact_match | **string**<br>Exact match string. 
-&nbsp;&nbsp;prefix_match | **string**<br>Prefix match string. 
-&nbsp;&nbsp;regex_match | **string**<br>Regular expression match string. 
-
-
-### GrpcRouteAction {#GrpcRouteAction5}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. Backend group to forward requests to. 
-max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Overall timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is kept alive for, regardless of whether data is transferred over it. <br>If a client specifies a lower timeout in HTTP `grpc-timeout` header, the `max_timeout` value is ignored. <br>If a connection times out, the load balancer responds to the client with an `UNAVAILABLE` status code. <br>Default value: `60`. 
-idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Idle timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group: the maximum time the connection is allowed to be idle, i.e. without any data transferred over it. <br>Specifying meaningful values for both `max_timeout` and `idle_timeout` is useful for implementing server-push mechanisms such as long polling, server-sent events etc. <br>If a connection times out, the load balancer responds to the client with an `UNAVAILABLE` status code. <br>If not specified, no idle timeout is used, and an alive connection may be idle for any duration (see `max_timeout`). 
-host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers. <br>If not specified, the host is not changed.
-&nbsp;&nbsp;host_rewrite | **string**<br>Host replacement. 
-&nbsp;&nbsp;auto_host_rewrite | **bool**<br>Automatically replaces the host with that of the target. 
-
-
-### GrpcStatusResponseAction {#GrpcStatusResponseAction5}
-
-Field | Description
---- | ---
-status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li></ul>
-
-
-### RouteOptions {#RouteOptions13}
-
-Field | Description
---- | ---
-modify_request_headers[] | **[HeaderModification](#HeaderModification18)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification18)**<br>Apply the following modifications to the response headers. 
-
-
-### HeaderModification {#HeaderModification18}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the header. 
-operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
-&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
-
-
-### HeaderModification {#HeaderModification19}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the header. 
-operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
-&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
-
-
-### RouteOptions {#RouteOptions14}
-
-Field | Description
---- | ---
-modify_request_headers[] | **[HeaderModification](#HeaderModification20)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification20)**<br>Apply the following modifications to the response headers. 
-
-
-### HeaderModification {#HeaderModification20}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the header. 
-operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
-&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
-
-
-### RouteOptions {#RouteOptions15}
-
-Field | Description
---- | ---
-modify_request_headers[] | **[HeaderModification](#HeaderModification21)**<br>Apply the following modifications to the request headers. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification21)**<br>Apply the following modifications to the response headers. 
-
-
-### HeaderModification {#HeaderModification21}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the header. 
-operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
-&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
-&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+route_options | **[RouteOptions](#RouteOptions4)**<br> 
 
 
 ## Delete {#Delete}

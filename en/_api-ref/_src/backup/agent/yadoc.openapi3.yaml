@@ -1,0 +1,77 @@
+openapi: 3.0.0
+info:
+  title: Cloud Backup API
+  description: This API reference is organized around Cloud Backup resources. Actions
+    are performed by sending HTTP requests to resource URLs or making RPC calls. For
+    more information about API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://backup.api.cloud.yandex.net
+paths:
+  /backup/agent/v1/api/issueToken:
+    post:
+      tags:
+      - Agent
+      operationId: AgentIssueToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IssueTokenRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IssueTokenResponse'
+      x-y-navtitle: issueToken
+  /backup/agent/v1/api/registerAgent:
+    post:
+      tags:
+      - Agent
+      operationId: AgentRegister
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Empty'
+      x-y-navtitle: register
+components:
+  schemas:
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    IssueTokenRequest:
+      type: object
+      properties:
+        instanceId:
+          type: string
+    IssueTokenResponse:
+      type: object
+      properties:
+        registrationToken:
+          type: string
+        registrationUrl:
+          type: string
+    RegisterRequest:
+      type: object
+      properties:
+        instanceId:
+          description: Required.
+          type: string
+        agentId:
+          description: Required.
+          type: string
+tags:
+- name: Agent

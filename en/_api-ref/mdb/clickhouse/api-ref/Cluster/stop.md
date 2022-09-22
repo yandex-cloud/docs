@@ -9,7 +9,7 @@ Stops the specified ClickHouse cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}:stop
+POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}:stop
 ```
  
 ## Path parameters {#path_params}

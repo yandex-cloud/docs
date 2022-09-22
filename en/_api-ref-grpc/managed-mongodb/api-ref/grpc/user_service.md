@@ -157,14 +157,6 @@ cluster_id | **string**<br>ID of the MongoDB cluster the user belongs to.
 permissions[] | **[Permission](#Permission3)**<br>Set of permissions granted to the user. 
 
 
-### Permission {#Permission3}
-
-Field | Description
---- | ---
-database_name | **string**<br>Name of the database that the permission grants access to. 
-roles[] | **string**<br>MongoDB roles for the `database_name` database that the permission grants. 
-
-
 ## Update {#Update}
 
 Updates the specified MongoDB user.
@@ -183,10 +175,10 @@ cluster_id | **string**<br>Required. ID of the MongoDB cluster the user belongs 
 user_name | **string**<br>Required. Name of the user to be updated. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the MongoDB User resource should be updated. 
 password | **string**<br>New password for the user. The string length in characters must be 8-128.
-permissions[] | **[Permission](#Permission4)**<br>New set of permissions for the user. 
+permissions[] | **[Permission](#Permission3)**<br>New set of permissions for the user. 
 
 
-### Permission {#Permission4}
+### Permission {#Permission3}
 
 Field | Description
 --- | ---
@@ -224,15 +216,7 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the MongoDB user. 
 cluster_id | **string**<br>ID of the MongoDB cluster the user belongs to. 
-permissions[] | **[Permission](#Permission5)**<br>Set of permissions granted to the user. 
-
-
-### Permission {#Permission5}
-
-Field | Description
---- | ---
-database_name | **string**<br>Name of the database that the permission grants access to. 
-roles[] | **string**<br>MongoDB roles for the `database_name` database that the permission grants. 
+permissions[] | **[Permission](#Permission4)**<br>Set of permissions granted to the user. 
 
 
 ## Delete {#Delete}
@@ -293,10 +277,10 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the MongoDB cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 user_name | **string**<br>Required. Name of the user to grant the permission to. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-permission | **[Permission](#Permission6)**<br>Required. Permission that should be granted to the specified user. 
+permission | **[Permission](#Permission4)**<br>Required. Permission that should be granted to the specified user. 
 
 
-### Permission {#Permission6}
+### Permission {#Permission4}
 
 Field | Description
 --- | ---
@@ -334,15 +318,7 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the MongoDB user. 
 cluster_id | **string**<br>ID of the MongoDB cluster the user belongs to. 
-permissions[] | **[Permission](#Permission7)**<br>Set of permissions granted to the user. 
-
-
-### Permission {#Permission7}
-
-Field | Description
---- | ---
-database_name | **string**<br>Name of the database that the permission grants access to. 
-roles[] | **string**<br>MongoDB roles for the `database_name` database that the permission grants. 
+permissions[] | **[Permission](#Permission5)**<br>Set of permissions granted to the user. 
 
 
 ## RevokePermission {#RevokePermission}
@@ -394,10 +370,10 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the MongoDB user. 
 cluster_id | **string**<br>ID of the MongoDB cluster the user belongs to. 
-permissions[] | **[Permission](#Permission8)**<br>Set of permissions granted to the user. 
+permissions[] | **[Permission](#Permission5)**<br>Set of permissions granted to the user. 
 
 
-### Permission {#Permission8}
+### Permission {#Permission5}
 
 Field | Description
 --- | ---

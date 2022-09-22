@@ -218,28 +218,6 @@ autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig3)**<br>Configurati
 instance_group_id | **string**<br>ID of Compute Instance Group for autoscaling subclusters 
 
 
-### Resources {#Resources3}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
-disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-
-
-### AutoscalingConfig {#AutoscalingConfig3}
-
-Field | Description
---- | ---
-max_hosts_count | **int64**<br>Upper limit for total instance subcluster count. Acceptable values are 1 to 100, inclusive.
-preemptible | **bool**<br>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
-warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
-stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
-cpu_utilization_target | **double**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. Acceptable values are 10 to 100, inclusive.
-decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 Acceptable values are 0 to 86400, inclusive.
-
-
 ## Update {#Update}
 
 Updates the specified subcluster.
@@ -257,14 +235,14 @@ Field | Description
 cluster_id | **string**<br>Required. ID of the cluster to update a subcluster in. <br>To get a cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 subcluster_id | **string**<br>Required. ID of the subcluster to update. <br>To get a subcluster ID, make a [SubclusterService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the subcluster should be updated. 
-resources | **[Resources](#Resources4)**<br>New configuration of resources that should be allocated for each host in the subcluster. 
+resources | **[Resources](#Resources3)**<br>New configuration of resources that should be allocated for each host in the subcluster. 
 name | **string**<br>New name for the subcluster. The name must be unique within the cluster. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 hosts_count | **int64**<br>Required. New number of hosts in the subcluster. The minimum value is 1.
 decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes. In seconds. Default value: 0 Acceptable values are 0 to 86400, inclusive.
-autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig4)**<br>Configuration for instance group based subclusters 
+autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig3)**<br>Configuration for instance group based subclusters 
 
 
-### Resources {#Resources4}
+### Resources {#Resources3}
 
 Field | Description
 --- | ---
@@ -273,7 +251,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
 
 
-### AutoscalingConfig {#AutoscalingConfig4}
+### AutoscalingConfig {#AutoscalingConfig3}
 
 Field | Description
 --- | ---
@@ -319,34 +297,12 @@ cluster_id | **string**<br>ID of the Data Proc cluster that the subcluster belon
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the subcluster. The name is unique within the cluster. The string length in characters must be 1-63.
 role | enum **Role**<br>Role that is fulfilled by hosts of the subcluster. <ul><li>`MASTERNODE`: The subcluster fulfills the master role. <br>Master can run the following services, depending on the requested components: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: The subcluster is a DATANODE in a Data Proc cluster. <br>DATANODE can run the following services, depending on the requested components: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: The subcluster is a COMPUTENODE in a Data Proc cluster. <br>COMPUTENODE can run the following services, depending on the requested components: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li></ul>
-resources | **[Resources](#Resources5)**<br>Resources allocated for each host in the subcluster. 
+resources | **[Resources](#Resources4)**<br>Resources allocated for each host in the subcluster. 
 subnet_id | **string**<br>ID of the VPC subnet used for hosts in the subcluster. 
 hosts_count | **int64**<br>Number of hosts in the subcluster. 
 assign_public_ip | **bool**<br>Assign public ip addresses for all hosts in subcluter. 
-autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig5)**<br>Configuration for instance group based subclusters 
+autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig4)**<br>Configuration for instance group based subclusters 
 instance_group_id | **string**<br>ID of Compute Instance Group for autoscaling subclusters 
-
-
-### Resources {#Resources5}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
-disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-
-
-### AutoscalingConfig {#AutoscalingConfig5}
-
-Field | Description
---- | ---
-max_hosts_count | **int64**<br>Upper limit for total instance subcluster count. Acceptable values are 1 to 100, inclusive.
-preemptible | **bool**<br>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). 
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
-warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
-stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
-cpu_utilization_target | **double**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. Acceptable values are 10 to 100, inclusive.
-decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 Acceptable values are 0 to 86400, inclusive.
 
 
 ## Delete {#Delete}

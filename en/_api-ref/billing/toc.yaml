@@ -33,6 +33,8 @@ items:
         href: api-ref/Customer/index.md
       - name: activate
         href: api-ref/Customer/activate.md
+      - name: createResellerServed
+        href: api-ref/Customer/createResellerServed.md
       - name: invite
         href: api-ref/Customer/invite.md
       - name: list

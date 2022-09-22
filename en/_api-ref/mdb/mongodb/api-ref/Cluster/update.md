@@ -9,7 +9,7 @@ Updates the specified MongoDB cluster.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}
+PATCH https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

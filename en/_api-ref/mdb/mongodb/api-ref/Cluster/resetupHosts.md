@@ -9,7 +9,7 @@ Resetups hosts.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}:resetupHosts
+POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}:resetupHosts
 ```
  
 ## Path parameters {#path_params}

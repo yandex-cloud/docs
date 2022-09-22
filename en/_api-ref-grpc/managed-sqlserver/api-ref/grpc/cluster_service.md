@@ -371,23 +371,6 @@ access | **[Access](#Access3)**<br>Database access policy.
 secondary_connections | enum **SecondaryConnections**<br>Secondary replicas connection mode <ul><li>`SECONDARY_CONNECTIONS_OFF`: Connections to secondary replicas are prohibited</li><li>`SECONDARY_CONNECTIONS_READ_ONLY`: Secondary replicas are read-only</li></ul>
 
 
-### Resources {#Resources3}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory, etc.). <br>All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br>Type of the storage environment for the host. <br>Possible values: <ul><li>`network-hdd` - network HDD drive; </li><li>`network-ssd` - network SSD drive; </li><li>`local-ssd` - local SSD storage.</li></ul> 
-
-
-### Access {#Access3}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allows access for DataLens. 
-web_sql | **bool**<br>Allows access for Web SQL. 
-
-
 ## Update {#Update}
 
 Modifies the specified SQL Server cluster.
@@ -425,13 +408,13 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2
 &nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfig2017ent](#SQLServerConfig2017ent)**<br>Configuration for an SQL Server 2017 Enterprise edition cluster. 
 &nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfig2019std](#SQLServerConfig2019std)**<br>Configuration for an SQL Server 2019 Standard edition cluster. 
 &nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfig2019ent](#SQLServerConfig2019ent)**<br>Configuration for an SQL Server 2019 Enterprise edition cluster. 
-resources | **[Resources](#Resources4)**<br>Resources allocated to SQL Server hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
-access | **[Access](#Access4)**<br>Database access policy. 
+access | **[Access](#Access3)**<br>Database access policy. 
 secondary_connections | **[ClusterConfig.SecondaryConnections](#ClusterConfig3)**<br>Secondary replicas connection mode 
 
 
-### Resources {#Resources4}
+### Resources {#Resources3}
 
 Field | Description
 --- | ---
@@ -440,7 +423,7 @@ disk_size | **int64**<br>Volume of the storage available to a host.
 disk_type_id | **string**<br>Type of the storage environment for the host. <br>Possible values: <ul><li>`network-hdd` - network HDD drive; </li><li>`network-ssd` - network SSD drive; </li><li>`local-ssd` - local SSD storage.</li></ul> 
 
 
-### Access {#Access4}
+### Access {#Access3}
 
 Field | Description
 --- | ---
@@ -515,27 +498,10 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2
 &nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfigSet2017ent](#SQLServerConfigSet2017ent)**<br>Configuration of the SQL Server 2017 enterprise edition instance. 
 &nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfigSet2019std](#SQLServerConfigSet2019std)**<br>Configuration of the SQL Server 2019 standard edition instance. 
 &nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfigSet2019ent](#SQLServerConfigSet2019ent)**<br>Configuration of the SQL Server 2019 enterprise edition instance. 
-resources | **[Resources](#Resources5)**<br>Resources allocated to SQL Server hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
-access | **[Access](#Access5)**<br>Database access policy. 
+access | **[Access](#Access4)**<br>Database access policy. 
 secondary_connections | enum **SecondaryConnections**<br>Secondary replicas connection mode <ul><li>`SECONDARY_CONNECTIONS_OFF`: Connections to secondary replicas are prohibited</li><li>`SECONDARY_CONNECTIONS_READ_ONLY`: Secondary replicas are read-only</li></ul>
-
-
-### Resources {#Resources5}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory, etc.). <br>All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br>Type of the storage environment for the host. <br>Possible values: <ul><li>`network-hdd` - network HDD drive; </li><li>`network-ssd` - network SSD drive; </li><li>`local-ssd` - local SSD storage.</li></ul> 
-
-
-### Access {#Access5}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allows access for DataLens. 
-web_sql | **bool**<br>Allows access for Web SQL. 
 
 
 ## Delete {#Delete}
@@ -662,13 +628,13 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2
 &nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfigSet2017ent](#SQLServerConfigSet2017ent)**<br>Configuration of the SQL Server 2017 enterprise edition instance. 
 &nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfigSet2019std](#SQLServerConfigSet2019std)**<br>Configuration of the SQL Server 2019 standard edition instance. 
 &nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfigSet2019ent](#SQLServerConfigSet2019ent)**<br>Configuration of the SQL Server 2019 enterprise edition instance. 
-resources | **[Resources](#Resources6)**<br>Resources allocated to SQL Server hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
-access | **[Access](#Access6)**<br>Database access policy. 
+access | **[Access](#Access4)**<br>Database access policy. 
 secondary_connections | enum **SecondaryConnections**<br>Secondary replicas connection mode <ul><li>`SECONDARY_CONNECTIONS_OFF`: Connections to secondary replicas are prohibited</li><li>`SECONDARY_CONNECTIONS_READ_ONLY`: Secondary replicas are read-only</li></ul>
 
 
-### Resources {#Resources6}
+### Resources {#Resources4}
 
 Field | Description
 --- | ---
@@ -677,7 +643,7 @@ disk_size | **int64**<br>Volume of the storage available to a host.
 disk_type_id | **string**<br>Type of the storage environment for the host. <br>Possible values: <ul><li>`network-hdd` - network HDD drive; </li><li>`network-ssd` - network SSD drive; </li><li>`local-ssd` - local SSD storage.</li></ul> 
 
 
-### Access {#Access6}
+### Access {#Access4}
 
 Field | Description
 --- | ---
@@ -769,13 +735,13 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2
 &nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfigSet2017ent](#SQLServerConfigSet2017ent)**<br>Configuration of the SQL Server 2017 enterprise edition instance. 
 &nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfigSet2019std](#SQLServerConfigSet2019std)**<br>Configuration of the SQL Server 2019 standard edition instance. 
 &nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfigSet2019ent](#SQLServerConfigSet2019ent)**<br>Configuration of the SQL Server 2019 enterprise edition instance. 
-resources | **[Resources](#Resources7)**<br>Resources allocated to SQL Server hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
-access | **[Access](#Access7)**<br>Database access policy. 
+access | **[Access](#Access5)**<br>Database access policy. 
 secondary_connections | enum **SecondaryConnections**<br>Secondary replicas connection mode <ul><li>`SECONDARY_CONNECTIONS_OFF`: Connections to secondary replicas are prohibited</li><li>`SECONDARY_CONNECTIONS_READ_ONLY`: Secondary replicas are read-only</li></ul>
 
 
-### Resources {#Resources7}
+### Resources {#Resources5}
 
 Field | Description
 --- | ---
@@ -784,7 +750,7 @@ disk_size | **int64**<br>Volume of the storage available to a host.
 disk_type_id | **string**<br>Type of the storage environment for the host. <br>Possible values: <ul><li>`network-hdd` - network HDD drive; </li><li>`network-ssd` - network SSD drive; </li><li>`local-ssd` - local SSD storage.</li></ul> 
 
 
-### Access {#Access7}
+### Access {#Access5}
 
 Field | Description
 --- | ---
@@ -879,13 +845,13 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2
 &nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfigSet2017ent](#SQLServerConfigSet2017ent)**<br>Configuration of the SQL Server 2017 enterprise edition instance. 
 &nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfigSet2019std](#SQLServerConfigSet2019std)**<br>Configuration of the SQL Server 2019 standard edition instance. 
 &nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfigSet2019ent](#SQLServerConfigSet2019ent)**<br>Configuration of the SQL Server 2019 enterprise edition instance. 
-resources | **[Resources](#Resources8)**<br>Resources allocated to SQL Server hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
-access | **[Access](#Access8)**<br>Database access policy. 
+access | **[Access](#Access6)**<br>Database access policy. 
 secondary_connections | enum **SecondaryConnections**<br>Secondary replicas connection mode <ul><li>`SECONDARY_CONNECTIONS_OFF`: Connections to secondary replicas are prohibited</li><li>`SECONDARY_CONNECTIONS_READ_ONLY`: Secondary replicas are read-only</li></ul>
 
 
-### Resources {#Resources8}
+### Resources {#Resources6}
 
 Field | Description
 --- | ---
@@ -894,7 +860,7 @@ disk_size | **int64**<br>Volume of the storage available to a host.
 disk_type_id | **string**<br>Type of the storage environment for the host. <br>Possible values: <ul><li>`network-hdd` - network HDD drive; </li><li>`network-ssd` - network SSD drive; </li><li>`local-ssd` - local SSD storage.</li></ul> 
 
 
-### Access {#Access8}
+### Access {#Access6}
 
 Field | Description
 --- | ---
@@ -986,13 +952,13 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2
 &nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfigSet2017ent](#SQLServerConfigSet2017ent)**<br>Configuration of the SQL Server 2017 enterprise edition instance. 
 &nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfigSet2019std](#SQLServerConfigSet2019std)**<br>Configuration of the SQL Server 2019 standard edition instance. 
 &nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfigSet2019ent](#SQLServerConfigSet2019ent)**<br>Configuration of the SQL Server 2019 enterprise edition instance. 
-resources | **[Resources](#Resources9)**<br>Resources allocated to SQL Server hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
-access | **[Access](#Access9)**<br>Database access policy. 
+access | **[Access](#Access7)**<br>Database access policy. 
 secondary_connections | enum **SecondaryConnections**<br>Secondary replicas connection mode <ul><li>`SECONDARY_CONNECTIONS_OFF`: Connections to secondary replicas are prohibited</li><li>`SECONDARY_CONNECTIONS_READ_ONLY`: Secondary replicas are read-only</li></ul>
 
 
-### Resources {#Resources9}
+### Resources {#Resources7}
 
 Field | Description
 --- | ---
@@ -1001,7 +967,7 @@ disk_size | **int64**<br>Volume of the storage available to a host.
 disk_type_id | **string**<br>Type of the storage environment for the host. <br>Possible values: <ul><li>`network-hdd` - network HDD drive; </li><li>`network-ssd` - network SSD drive; </li><li>`local-ssd` - local SSD storage.</li></ul> 
 
 
-### Access {#Access9}
+### Access {#Access7}
 
 Field | Description
 --- | ---
@@ -1051,13 +1017,13 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2
 &nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfig2017ent](#SQLServerConfig2017ent)**<br>Configuration for an SQL Server 2017 Enterprise edition cluster. 
 &nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfig2019std](#SQLServerConfig2019std)**<br>Configuration for an SQL Server 2019 Standard edition cluster. 
 &nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfig2019ent](#SQLServerConfig2019ent)**<br>Configuration for an SQL Server 2019 Enterprise edition cluster. 
-resources | **[Resources](#Resources10)**<br>Resources allocated to SQL Server hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
-access | **[Access](#Access10)**<br>Database access policy. 
+access | **[Access](#Access8)**<br>Database access policy. 
 secondary_connections | **[ClusterConfig.SecondaryConnections](#ClusterConfig8)**<br>Secondary replicas connection mode 
 
 
-### Resources {#Resources10}
+### Resources {#Resources8}
 
 Field | Description
 --- | ---
@@ -1066,7 +1032,7 @@ disk_size | **int64**<br>Volume of the storage available to a host.
 disk_type_id | **string**<br>Type of the storage environment for the host. <br>Possible values: <ul><li>`network-hdd` - network HDD drive; </li><li>`network-ssd` - network SSD drive; </li><li>`local-ssd` - local SSD storage.</li></ul> 
 
 
-### Access {#Access10}
+### Access {#Access8}
 
 Field | Description
 --- | ---
@@ -1151,27 +1117,10 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2
 &nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfigSet2017ent](#SQLServerConfigSet2017ent)**<br>Configuration of the SQL Server 2017 enterprise edition instance. 
 &nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfigSet2019std](#SQLServerConfigSet2019std)**<br>Configuration of the SQL Server 2019 standard edition instance. 
 &nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfigSet2019ent](#SQLServerConfigSet2019ent)**<br>Configuration of the SQL Server 2019 enterprise edition instance. 
-resources | **[Resources](#Resources11)**<br>Resources allocated to SQL Server hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
-access | **[Access](#Access11)**<br>Database access policy. 
+access | **[Access](#Access9)**<br>Database access policy. 
 secondary_connections | enum **SecondaryConnections**<br>Secondary replicas connection mode <ul><li>`SECONDARY_CONNECTIONS_OFF`: Connections to secondary replicas are prohibited</li><li>`SECONDARY_CONNECTIONS_READ_ONLY`: Secondary replicas are read-only</li></ul>
-
-
-### Resources {#Resources11}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory, etc.). <br>All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br>Type of the storage environment for the host. <br>Possible values: <ul><li>`network-hdd` - network HDD drive; </li><li>`network-ssd` - network SSD drive; </li><li>`local-ssd` - local SSD storage.</li></ul> 
-
-
-### Access {#Access11}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allows access for DataLens. 
-web_sql | **bool**<br>Allows access for Web SQL. 
 
 
 ## StartFailover {#StartFailover}
@@ -1259,13 +1208,13 @@ sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2
 &nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfigSet2017ent](#SQLServerConfigSet2017ent)**<br>Configuration of the SQL Server 2017 enterprise edition instance. 
 &nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfigSet2019std](#SQLServerConfigSet2019std)**<br>Configuration of the SQL Server 2019 standard edition instance. 
 &nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfigSet2019ent](#SQLServerConfigSet2019ent)**<br>Configuration of the SQL Server 2019 enterprise edition instance. 
-resources | **[Resources](#Resources12)**<br>Resources allocated to SQL Server hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
-access | **[Access](#Access12)**<br>Database access policy. 
+access | **[Access](#Access9)**<br>Database access policy. 
 secondary_connections | enum **SecondaryConnections**<br>Secondary replicas connection mode <ul><li>`SECONDARY_CONNECTIONS_OFF`: Connections to secondary replicas are prohibited</li><li>`SECONDARY_CONNECTIONS_READ_ONLY`: Secondary replicas are read-only</li></ul>
 
 
-### Resources {#Resources12}
+### Resources {#Resources9}
 
 Field | Description
 --- | ---
@@ -1274,7 +1223,7 @@ disk_size | **int64**<br>Volume of the storage available to a host.
 disk_type_id | **string**<br>Type of the storage environment for the host. <br>Possible values: <ul><li>`network-hdd` - network HDD drive; </li><li>`network-ssd` - network SSD drive; </li><li>`local-ssd` - local SSD storage.</li></ul> 
 
 
-### Access {#Access12}
+### Access {#Access9}
 
 Field | Description
 --- | ---
@@ -1423,7 +1372,7 @@ Field | Description
 name | **string**<br>Name of the SQL Server host. <br>The host name is assigned by Managed Service for SQL Server at the moment of creation and cannot be changed. 1-63 characters long. <br>The name is unique across all database hosts that exist on the platform as it defines the FQDN of the host. 
 cluster_id | **string**<br>ID of the SQL Server host. <br>The ID is assigned by Managed Service for SQL Server at the moment of creation. 
 zone_id | **string**<br>ID of the availability zone where the SQL Server host resides. 
-resources | **[Resources](#Resources13)**<br>Resources allocated to the host. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to the host. 
 role | enum **Role**<br>Role of the host in the cluster. <ul><li>`ROLE_UNKNOWN`: Role of the host in the cluster is unknown.</li><li>`MASTER`: Host is the master SQL Server instance in the cluster.</li><li>`REPLICA`: Host is a replica SQL Server instance in the cluster.</li></ul>
 health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded and can perform only some of its essential functions.</li></ul>
 services[] | **[Service](#Service)**<br>Services provided by the host. 
@@ -1431,7 +1380,7 @@ subnet_id | **string**<br>ID of the subnet that the host belongs to.
 assign_public_ip | **bool**<br>Flag showing public IP assignment status to this host. 
 
 
-### Resources {#Resources13}
+### Resources {#Resources10}
 
 Field | Description
 --- | ---

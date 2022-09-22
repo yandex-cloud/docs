@@ -334,25 +334,6 @@ version_id | **string**<br>Image version for cluster provisioning. All available
 hadoop | **[HadoopConfig](#HadoopConfig3)**<br>Data Proc specific configuration options. 
 
 
-### HadoopConfig {#HadoopConfig3}
-
-Field | Description
---- | ---
-services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). 
-properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
-ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
-initialization_actions[] | **[InitializationAction](#InitializationAction3)**<br>Set of init-actions 
-
-
-### InitializationAction {#InitializationAction3}
-
-Field | Description
---- | ---
-uri | **string**<br>URI of the executable file 
-args[] | **string**<br>Arguments to the initialization action 
-timeout | **int64**<br>Execution timeout 
-
-
 ## Update {#Update}
 
 Updates the configuration of the specified cluster.
@@ -387,7 +368,7 @@ log_group_id | **string**<br>ID of the cloud logging log group to write logs. If
 Field | Description
 --- | ---
 subclusters_spec[] | **[UpdateSubclusterConfigSpec](#UpdateSubclusterConfigSpec)**<br>New configuration for subclusters in a cluster. 
-hadoop | **[HadoopConfig](#HadoopConfig4)**<br>Hadoop specific options 
+hadoop | **[HadoopConfig](#HadoopConfig3)**<br>Hadoop specific options 
 
 
 ### UpdateSubclusterConfigSpec {#UpdateSubclusterConfigSpec}
@@ -423,17 +404,17 @@ cpu_utilization_target | **double**<br>Defines an autoscaling rule based on the 
 decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 Acceptable values are 0 to 86400, inclusive.
 
 
-### HadoopConfig {#HadoopConfig4}
+### HadoopConfig {#HadoopConfig3}
 
 Field | Description
 --- | ---
 services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). 
 properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
 ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
-initialization_actions[] | **[InitializationAction](#InitializationAction4)**<br>Set of init-actions 
+initialization_actions[] | **[InitializationAction](#InitializationAction3)**<br>Set of init-actions 
 
 
-### InitializationAction {#InitializationAction4}
+### InitializationAction {#InitializationAction3}
 
 Field | Description
 --- | ---
@@ -503,26 +484,7 @@ link | **string**<br>Link to the monitoring system.
 Field | Description
 --- | ---
 version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions). 
-hadoop | **[HadoopConfig](#HadoopConfig5)**<br>Data Proc specific configuration options. 
-
-
-### HadoopConfig {#HadoopConfig5}
-
-Field | Description
---- | ---
-services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). 
-properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
-ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
-initialization_actions[] | **[InitializationAction](#InitializationAction5)**<br>Set of init-actions 
-
-
-### InitializationAction {#InitializationAction5}
-
-Field | Description
---- | ---
-uri | **string**<br>URI of the executable file 
-args[] | **string**<br>Arguments to the initialization action 
-timeout | **int64**<br>Execution timeout 
+hadoop | **[HadoopConfig](#HadoopConfig4)**<br>Data Proc specific configuration options. 
 
 
 ## Delete {#Delete}
@@ -644,20 +606,20 @@ link | **string**<br>Link to the monitoring system.
 Field | Description
 --- | ---
 version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions). 
-hadoop | **[HadoopConfig](#HadoopConfig6)**<br>Data Proc specific configuration options. 
+hadoop | **[HadoopConfig](#HadoopConfig4)**<br>Data Proc specific configuration options. 
 
 
-### HadoopConfig {#HadoopConfig6}
+### HadoopConfig {#HadoopConfig4}
 
 Field | Description
 --- | ---
 services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). 
 properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
 ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
-initialization_actions[] | **[InitializationAction](#InitializationAction6)**<br>Set of init-actions 
+initialization_actions[] | **[InitializationAction](#InitializationAction4)**<br>Set of init-actions 
 
 
-### InitializationAction {#InitializationAction6}
+### InitializationAction {#InitializationAction4}
 
 Field | Description
 --- | ---
@@ -745,20 +707,20 @@ link | **string**<br>Link to the monitoring system.
 Field | Description
 --- | ---
 version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions). 
-hadoop | **[HadoopConfig](#HadoopConfig7)**<br>Data Proc specific configuration options. 
+hadoop | **[HadoopConfig](#HadoopConfig5)**<br>Data Proc specific configuration options. 
 
 
-### HadoopConfig {#HadoopConfig7}
+### HadoopConfig {#HadoopConfig5}
 
 Field | Description
 --- | ---
 services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). 
 properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
 ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
-initialization_actions[] | **[InitializationAction](#InitializationAction7)**<br>Set of init-actions 
+initialization_actions[] | **[InitializationAction](#InitializationAction5)**<br>Set of init-actions 
 
 
-### InitializationAction {#InitializationAction7}
+### InitializationAction {#InitializationAction5}
 
 Field | Description
 --- | ---

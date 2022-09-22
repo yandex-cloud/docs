@@ -1,0 +1,178 @@
+openapi: 3.0.0
+info:
+  title: API Gateway WebSocket Connection Service
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: apigateway/api-ref
+  x-y-baseUrl: https://apigateway-connections.api.cloud.yandex.net
+paths:
+  /apigateways/websocket/v1/connections/{connectionId}:
+    get:
+      tags:
+      - Connection
+      summary: Returns the specified connection info.
+      operationId: ConnectionGet
+      parameters:
+      - name: connectionId
+        in: path
+        description: |-
+          Required.
+          ID of the connection to get.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Connection'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Connection
+      summary: Disconnects the specified connection.
+      operationId: ConnectionDisconnect
+      parameters:
+      - name: connectionId
+        in: path
+        description: |-
+          Required.
+          ID of the connection to disconnect.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DisconnectResponse'
+      x-y-navtitle: disconnect
+  /apigateways/websocket/v1/connections/{connectionId}:send:
+    post:
+      tags:
+      - Connection
+      summary: Sends data to the specified connection.
+      operationId: ConnectionSend
+      parameters:
+      - name: connectionId
+        in: path
+        description: |-
+          Required.
+          ID of the connection to which send.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendToConnectionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendToConnectionResponse'
+      x-y-navtitle: send
+components:
+  schemas:
+    Connection:
+      type: object
+      properties:
+        id:
+          description: ID of the connection.
+          type: string
+        gatewayId:
+          description: ID of the API Gateway.
+          type: string
+        identity:
+          $ref: '#/components/schemas/Identity_in_Connection_identity'
+        connectedAt:
+          description: |-
+            The timestamp at which connection was established.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        lastActiveAt:
+          description: |-
+            The timestamp at which connection was last accessed.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    DisconnectResponse:
+      type: object
+      properties: {}
+    Identity:
+      type: object
+      properties:
+        sourceIp:
+          description: The source IP address of the caller making the request to API
+            Gateway.
+          type: string
+        userAgent:
+          description: The User Agent of the caller making the request to API Gateway.
+          type: string
+    SendToConnectionRequest:
+      type: object
+      properties:
+        data:
+          description: |-
+            Required.
+            Data to send.
+
+            The maximum string length in characters is 131072.
+          type: string
+          format: byte
+        type:
+          $ref: '#/components/schemas/SendToConnectionRequestDataType_in_SendToConnectionRequest_type'
+    SendToConnectionRequestDataType:
+      description: |2-
+         - BINARY: Binary data.
+         - TEXT: Text data.
+      type: string
+      enum:
+      - BINARY
+      - TEXT
+    SendToConnectionResponse:
+      type: object
+      properties: {}
+    Identity_in_Connection_identity:
+      description: The information about the caller making the request to API Gateway.
+      type: object
+      properties:
+        sourceIp:
+          description: The source IP address of the caller making the request to API
+            Gateway.
+          type: string
+        userAgent:
+          description: The User Agent of the caller making the request to API Gateway.
+          type: string
+    SendToConnectionRequestDataType_in_SendToConnectionRequest_type:
+      description: |-
+        Type of the sending data.
+
+         - BINARY: Binary data.
+         - TEXT: Text data.
+      type: string
+      enum:
+      - BINARY
+      - TEXT
+tags:
+- name: Connection
+  description: A set of methods for managing API Gateway WebSocket connections.

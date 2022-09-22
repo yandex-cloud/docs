@@ -1691,6 +1691,9 @@ components:
           postgresqlConfig_14_1C:
             $ref: '#/components/schemas/PostgresqlConfigSet14_1C'
             description: Configuration of a PostgreSQL 14 1C server.
+          postgresqlConfig_15:
+            $ref: '#/components/schemas/PostgresqlConfigSet15'
+            description: Configuration of a PostgreSQL 15 server.
     ClusterEnvironment:
       description: |2-
          - PRODUCTION: Stable environment with a conservative update policy:
@@ -1775,6 +1778,9 @@ components:
           postgresqlConfig_14_1C:
             $ref: '#/components/schemas/PostgresqlHostConfig14_1C'
             description: Configuration for a host with PostgreSQL 14 1C server deployed.
+          postgresqlConfig_15:
+            $ref: '#/components/schemas/PostgresqlHostConfig15'
+            description: Configuration for a host with PostgreSQL 15 server deployed.
     ConfigSpec:
       type: object
       allOf:
@@ -1783,7 +1789,7 @@ components:
           version:
             description: |-
               Version of PostgreSQL used in the cluster.
-              Possible values: `9.6`, `10`, `10_1c`, `11`, `12`, `13`.
+              Possible values: `9.6`, `10`, `10_1c`, `11`, `12`, `13`, `14`, `15`
             type: string
           poolerConfig:
             $ref: '#/components/schemas/ConnectionPoolerConfig'
@@ -1849,6 +1855,9 @@ components:
           postgresqlConfig_14_1C:
             $ref: '#/components/schemas/PostgresqlConfig14_1C'
             description: Configuration for a PostgreSQL 14 1C cluster.
+          postgresqlConfig_15:
+            $ref: '#/components/schemas/PostgresqlConfig15'
+            description: Configuration for a PostgreSQL 15 cluster.
     ConnectionPoolerConfig:
       type: object
       properties:
@@ -2247,18 +2256,23 @@ components:
           postgresqlConfig_14_1C:
             $ref: '#/components/schemas/PostgresqlHostConfig14_1C'
             description: Configuration for a host with PostgreSQL 14 1C server deployed.
+          postgresqlConfig_15:
+            $ref: '#/components/schemas/PostgresqlHostConfig15'
+            description: Configuration for a host with PostgreSQL 15 server deployed.
     HostHealth:
       description: |2-
          - HEALTH_UNKNOWN: Health of the host is unknown.
          - ALIVE: The host is performing all its functions normally.
          - DEAD: The host is inoperable, and cannot perform any of its essential functions.
          - DEGRADED: The host is degraded, and can perform only some of its essential functions.
+         - READONLY: The host is alive, but in read-only mode.
       type: string
       enum:
       - HEALTH_UNKNOWN
       - ALIVE
       - DEAD
       - DEGRADED
+      - READONLY
       default: HEALTH_UNKNOWN
     HostReplicaType:
       type: string
@@ -3000,6 +3014,35 @@ components:
         pgQualstatsSampleRate:
           type: number
           format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig10BackslashQuote:
       type: string
       enum:
@@ -3066,6 +3109,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
+      - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
     PostgresqlConfig10SynchronousCommit:
       type: string
       enum:
@@ -3463,6 +3507,35 @@ components:
         pgQualstatsSampleRate:
           type: number
           format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig10_1CBackslashQuote:
       type: string
       enum:
@@ -3529,6 +3602,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
+      - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
     PostgresqlConfig10_1CSynchronousCommit:
       type: string
       enum:
@@ -3946,6 +4020,35 @@ components:
         pgQualstatsSampleRate:
           type: number
           format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig11BackslashQuote:
       type: string
       enum:
@@ -4012,6 +4115,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
+      - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
     PostgresqlConfig11SynchronousCommit:
       type: string
       enum:
@@ -4435,6 +4539,35 @@ components:
         plantunerFixEmptyTable:
           type: boolean
           format: boolean
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig11_1CBackslashQuote:
       type: string
       enum:
@@ -4501,6 +4634,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
+      - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
     PostgresqlConfig11_1CSynchronousCommit:
       type: string
       enum:
@@ -4924,6 +5058,35 @@ components:
         pgQualstatsSampleRate:
           type: number
           format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig12BackslashQuote:
       type: string
       enum:
@@ -4996,6 +5159,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
+      - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
     PostgresqlConfig12SynchronousCommit:
       type: string
       enum:
@@ -5425,6 +5589,35 @@ components:
         plantunerFixEmptyTable:
           type: boolean
           format: boolean
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig12_1CBackslashQuote:
       type: string
       enum:
@@ -5497,6 +5690,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
+      - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
     PostgresqlConfig12_1CSynchronousCommit:
       type: string
       enum:
@@ -5967,6 +6161,35 @@ components:
         pgQualstatsSampleRate:
           type: number
           format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig13BackslashQuote:
       type: string
       enum:
@@ -6039,6 +6262,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
+      - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
     PostgresqlConfig13SynchronousCommit:
       type: string
       enum:
@@ -6515,6 +6739,31 @@ components:
         plantunerFixEmptyTable:
           type: boolean
           format: boolean
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig13_1CBackslashQuote:
       type: string
       enum:
@@ -6587,6 +6836,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
+      - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
     PostgresqlConfig13_1CSynchronousCommit:
       type: string
       enum:
@@ -7074,6 +7324,35 @@ components:
         pgQualstatsSampleRate:
           type: number
           format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig14BackslashQuote:
       type: string
       enum:
@@ -7146,6 +7425,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
+      - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
     PostgresqlConfig14SynchronousCommit:
       type: string
       enum:
@@ -7639,6 +7919,31 @@ components:
         plantunerFixEmptyTable:
           type: boolean
           format: boolean
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig14_1CBackslashQuote:
       type: string
       enum:
@@ -7711,6 +8016,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
+      - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
     PostgresqlConfig14_1CSynchronousCommit:
       type: string
       enum:
@@ -7737,6 +8043,572 @@ components:
       - XML_BINARY_BASE64
       - XML_BINARY_HEX
     PostgresqlConfig14_1CXmlOption:
+      type: string
+      enum:
+      - XML_OPTION_DOCUMENT
+      - XML_OPTION_CONTENT
+    PostgresqlConfig15:
+      description: |-
+        Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
+        parameters which detailed description is available in
+        [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
+      type: object
+      properties:
+        maxConnections:
+          type: integer
+          format: int64
+        sharedBuffers:
+          type: integer
+          format: int64
+        tempBuffers:
+          type: integer
+          format: int64
+        maxPreparedTransactions:
+          type: integer
+          format: int64
+        workMem:
+          type: integer
+          format: int64
+        maintenanceWorkMem:
+          type: integer
+          format: int64
+        autovacuumWorkMem:
+          type: integer
+          format: int64
+        tempFileLimit:
+          type: integer
+          format: int64
+        vacuumCostDelay:
+          type: integer
+          format: int64
+        vacuumCostPageHit:
+          type: integer
+          format: int64
+        vacuumCostPageMiss:
+          type: integer
+          format: int64
+        vacuumCostPageDirty:
+          type: integer
+          format: int64
+        vacuumCostLimit:
+          type: integer
+          format: int64
+        bgwriterDelay:
+          description: Acceptable values are 10 to 10000, inclusive.
+          type: integer
+          format: int64
+        bgwriterLruMaxpages:
+          type: integer
+          format: int64
+        bgwriterLruMultiplier:
+          type: number
+          format: double
+        bgwriterFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        backendFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        oldSnapshotThreshold:
+          description: Acceptable values are -1 to 86400000, inclusive.
+          type: integer
+          format: int64
+        walLevel:
+          $ref: '#/components/schemas/PostgresqlConfig15WalLevel_in_PostgresqlConfig15_walLevel'
+        synchronousCommit:
+          $ref: '#/components/schemas/PostgresqlConfig15SynchronousCommit_in_PostgresqlConfig15_synchronousCommit'
+        checkpointTimeout:
+          description: Acceptable values are 30000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        checkpointCompletionTarget:
+          type: number
+          format: double
+        checkpointFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        maxWalSize:
+          type: integer
+          format: int64
+        minWalSize:
+          type: integer
+          format: int64
+        maxStandbyStreamingDelay:
+          type: integer
+          format: int64
+        defaultStatisticsTarget:
+          type: integer
+          format: int64
+        constraintExclusion:
+          $ref: '#/components/schemas/PostgresqlConfig15ConstraintExclusion_in_PostgresqlConfig15_constraintExclusion'
+        cursorTupleFraction:
+          type: number
+          format: double
+        fromCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        joinCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        forceParallelMode:
+          $ref: '#/components/schemas/PostgresqlConfig15ForceParallelMode_in_PostgresqlConfig15_forceParallelMode'
+        clientMinMessages:
+          $ref: '#/components/schemas/PostgresqlConfig15LogLevel_in_PostgresqlConfig15_clientMinMessages'
+        logMinMessages:
+          $ref: '#/components/schemas/PostgresqlConfig15LogLevel_in_PostgresqlConfig15_logMinMessages'
+        logMinErrorStatement:
+          $ref: '#/components/schemas/PostgresqlConfig15LogLevel_in_PostgresqlConfig15_logMinErrorStatement'
+        logMinDurationStatement:
+          type: integer
+          format: int64
+        logCheckpoints:
+          type: boolean
+          format: boolean
+        logConnections:
+          type: boolean
+          format: boolean
+        logDisconnections:
+          type: boolean
+          format: boolean
+        logDuration:
+          type: boolean
+          format: boolean
+        logErrorVerbosity:
+          $ref: '#/components/schemas/PostgresqlConfig15LogErrorVerbosity_in_PostgresqlConfig15_logErrorVerbosity'
+        logLockWaits:
+          type: boolean
+          format: boolean
+        logStatement:
+          $ref: '#/components/schemas/PostgresqlConfig15LogStatement_in_PostgresqlConfig15_logStatement'
+        logTempFiles:
+          type: integer
+          format: int64
+        searchPath:
+          type: string
+        rowSecurity:
+          type: boolean
+          format: boolean
+        defaultTransactionIsolation:
+          $ref: '#/components/schemas/PostgresqlConfig15TransactionIsolation_in_PostgresqlConfig15_defaultTransactionIsolation'
+        statementTimeout:
+          type: integer
+          format: int64
+        lockTimeout:
+          type: integer
+          format: int64
+        idleInTransactionSessionTimeout:
+          type: integer
+          format: int64
+        byteaOutput:
+          $ref: '#/components/schemas/PostgresqlConfig15ByteaOutput_in_PostgresqlConfig15_byteaOutput'
+        xmlbinary:
+          $ref: '#/components/schemas/PostgresqlConfig15XmlBinary_in_PostgresqlConfig15_xmlbinary'
+        xmloption:
+          $ref: '#/components/schemas/PostgresqlConfig15XmlOption_in_PostgresqlConfig15_xmloption'
+        ginPendingListLimit:
+          type: integer
+          format: int64
+        deadlockTimeout:
+          type: integer
+          format: int64
+        maxLocksPerTransaction:
+          type: integer
+          format: int64
+        maxPredLocksPerTransaction:
+          type: integer
+          format: int64
+        arrayNulls:
+          type: boolean
+          format: boolean
+        backslashQuote:
+          $ref: '#/components/schemas/PostgresqlConfig15BackslashQuote_in_PostgresqlConfig15_backslashQuote'
+        defaultWithOids:
+          type: boolean
+          format: boolean
+        escapeStringWarning:
+          type: boolean
+          format: boolean
+        loCompatPrivileges:
+          type: boolean
+          format: boolean
+        quoteAllIdentifiers:
+          type: boolean
+          format: boolean
+        standardConformingStrings:
+          type: boolean
+          format: boolean
+        synchronizeSeqscans:
+          type: boolean
+          format: boolean
+        transformNullEquals:
+          type: boolean
+          format: boolean
+        exitOnError:
+          type: boolean
+          format: boolean
+        seqPageCost:
+          type: number
+          format: double
+        randomPageCost:
+          type: number
+          format: double
+        autovacuumMaxWorkers:
+          description: Acceptable values are 1 to 32, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumCostDelay:
+          description: Acceptable values are -1 to 100, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumCostLimit:
+          description: Acceptable values are -1 to 10000, inclusive.
+          type: integer
+          format: int64
+        autovacuumNaptime:
+          description: Acceptable values are 1000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        archiveTimeout:
+          description: Acceptable values are 10000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        trackActivityQuerySize:
+          description: Acceptable values are 100 to 102400, inclusive.
+          type: integer
+          format: int64
+        enableBitmapscan:
+          type: boolean
+          format: boolean
+        enableHashagg:
+          type: boolean
+          format: boolean
+        enableHashjoin:
+          type: boolean
+          format: boolean
+        enableIndexscan:
+          type: boolean
+          format: boolean
+        enableIndexonlyscan:
+          type: boolean
+          format: boolean
+        enableMaterial:
+          type: boolean
+          format: boolean
+        enableMergejoin:
+          type: boolean
+          format: boolean
+        enableNestloop:
+          type: boolean
+          format: boolean
+        enableSeqscan:
+          type: boolean
+          format: boolean
+        enableSort:
+          type: boolean
+          format: boolean
+        enableTidscan:
+          type: boolean
+          format: boolean
+        maxWorkerProcesses:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        maxParallelWorkers:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        maxParallelWorkersPerGather:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        autovacuumAnalyzeScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        defaultTransactionReadOnly:
+          type: boolean
+          format: boolean
+        timezone:
+          type: string
+        enableParallelAppend:
+          type: boolean
+          format: boolean
+        enableParallelHash:
+          type: boolean
+          format: boolean
+        enablePartitionPruning:
+          type: boolean
+          format: boolean
+        enablePartitionwiseAggregate:
+          type: boolean
+          format: boolean
+        enablePartitionwiseJoin:
+          type: boolean
+          format: boolean
+        jit:
+          type: boolean
+          format: boolean
+        maxParallelMaintenanceWorkers:
+          description: The minimum value is 0.
+          type: integer
+          format: int64
+        parallelLeaderParticipation:
+          type: boolean
+          format: boolean
+        logTransactionSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        planCacheMode:
+          $ref: '#/components/schemas/PostgresqlConfig15PlanCacheMode_in_PostgresqlConfig15_planCacheMode'
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig15SharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig15PgHintPlanDebugPrint_in_PostgresqlConfig15_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig15LogLevel_in_PostgresqlConfig15_pgHintPlanMessageLevel'
+        hashMemMultiplier:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: number
+          format: double
+        logicalDecodingWorkMem:
+          description: Acceptable values are 65536 to 1099511627776, inclusive.
+          type: integer
+          format: int64
+        maintenanceIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        maxSlotWalKeepSize:
+          description: Acceptable values are -1 to 2251799812636672, inclusive.
+          type: integer
+          format: int64
+        walKeepSize:
+          description: Acceptable values are -1 to 2251799812636672, inclusive.
+          type: integer
+          format: int64
+        enableIncrementalSort:
+          type: boolean
+          format: boolean
+        autovacuumVacuumInsertThreshold:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumInsertScaleFactor:
+          description: Acceptable values are 0 to 100, inclusive.
+          type: number
+          format: double
+        logMinDurationSample:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        logStatementSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        logParameterMaxLength:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        logParameterMaxLengthOnError:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        clientConnectionCheckInterval:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        enableAsyncAppend:
+          type: boolean
+          format: boolean
+        enableGathermerge:
+          type: boolean
+          format: boolean
+        enableMemoize:
+          type: boolean
+          format: boolean
+        logRecoveryConflictWaits:
+          type: boolean
+          format: boolean
+        vacuumFailsafeAge:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        vacuumMultixactFailsafeAge:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        enableGroupByReordering:
+          type: boolean
+          format: boolean
+    PostgresqlConfig15BackslashQuote:
+      type: string
+      enum:
+      - BACKSLASH_QUOTE
+      - BACKSLASH_QUOTE_ON
+      - BACKSLASH_QUOTE_OFF
+      - BACKSLASH_QUOTE_SAFE_ENCODING
+    PostgresqlConfig15ByteaOutput:
+      type: string
+      enum:
+      - BYTEA_OUTPUT_HEX
+      - BYTEA_OUTPUT_ESCAPED
+    PostgresqlConfig15ConstraintExclusion:
+      type: string
+      enum:
+      - CONSTRAINT_EXCLUSION_ON
+      - CONSTRAINT_EXCLUSION_OFF
+      - CONSTRAINT_EXCLUSION_PARTITION
+    PostgresqlConfig15ForceParallelMode:
+      type: string
+      enum:
+      - FORCE_PARALLEL_MODE_ON
+      - FORCE_PARALLEL_MODE_OFF
+      - FORCE_PARALLEL_MODE_REGRESS
+    PostgresqlConfig15LogErrorVerbosity:
+      type: string
+      enum:
+      - LOG_ERROR_VERBOSITY_TERSE
+      - LOG_ERROR_VERBOSITY_DEFAULT
+      - LOG_ERROR_VERBOSITY_VERBOSE
+    PostgresqlConfig15LogLevel:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
+    PostgresqlConfig15LogStatement:
+      type: string
+      enum:
+      - LOG_STATEMENT_NONE
+      - LOG_STATEMENT_DDL
+      - LOG_STATEMENT_MOD
+      - LOG_STATEMENT_ALL
+    PostgresqlConfig15PgHintPlanDebugPrint:
+      type: string
+      enum:
+      - PG_HINT_PLAN_DEBUG_PRINT_OFF
+      - PG_HINT_PLAN_DEBUG_PRINT_ON
+      - PG_HINT_PLAN_DEBUG_PRINT_DETAILED
+      - PG_HINT_PLAN_DEBUG_PRINT_VERBOSE
+    PostgresqlConfig15PlanCacheMode:
+      type: string
+      enum:
+      - PLAN_CACHE_MODE_AUTO
+      - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
+      - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
+    PostgresqlConfig15SharedPreloadLibraries:
+      type: string
+      enum:
+      - SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN
+      - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
+      - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
+      - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
+      - SHARED_PRELOAD_LIBRARIES_PG_CRON
+    PostgresqlConfig15SynchronousCommit:
+      type: string
+      enum:
+      - SYNCHRONOUS_COMMIT_ON
+      - SYNCHRONOUS_COMMIT_OFF
+      - SYNCHRONOUS_COMMIT_LOCAL
+      - SYNCHRONOUS_COMMIT_REMOTE_WRITE
+      - SYNCHRONOUS_COMMIT_REMOTE_APPLY
+    PostgresqlConfig15TransactionIsolation:
+      type: string
+      enum:
+      - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+      - TRANSACTION_ISOLATION_READ_COMMITTED
+      - TRANSACTION_ISOLATION_REPEATABLE_READ
+      - TRANSACTION_ISOLATION_SERIALIZABLE
+    PostgresqlConfig15WalLevel:
+      type: string
+      enum:
+      - WAL_LEVEL_REPLICA
+      - WAL_LEVEL_LOGICAL
+    PostgresqlConfig15XmlBinary:
+      type: string
+      enum:
+      - XML_BINARY_BASE64
+      - XML_BINARY_HEX
+    PostgresqlConfig15XmlOption:
       type: string
       enum:
       - XML_OPTION_DOCUMENT
@@ -8164,6 +9036,15 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig14_1C_in_PostgresqlConfigSet14_1C_userConfig'
         defaultConfig:
           $ref: '#/components/schemas/PostgresqlConfig14_1C_in_PostgresqlConfigSet14_1C_defaultConfig'
+    PostgresqlConfigSet15:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/PostgresqlConfig15_in_PostgresqlConfigSet15_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/PostgresqlConfig15_in_PostgresqlConfigSet15_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/PostgresqlConfig15_in_PostgresqlConfigSet15_defaultConfig'
     PostgresqlConfigSet9_6:
       type: object
       properties:
@@ -10873,6 +11754,273 @@ components:
       enum:
       - XML_OPTION_DOCUMENT
       - XML_OPTION_CONTENT
+    PostgresqlHostConfig15:
+      description: |-
+        Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
+        parameters which detailed description is available in
+        [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
+      type: object
+      properties:
+        recoveryMinApplyDelay:
+          type: integer
+          format: int64
+        sharedBuffers:
+          type: integer
+          format: int64
+        tempBuffers:
+          type: integer
+          format: int64
+        workMem:
+          type: integer
+          format: int64
+        tempFileLimit:
+          type: integer
+          format: int64
+        backendFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        oldSnapshotThreshold:
+          description: Acceptable values are -1 to 86400, inclusive.
+          type: integer
+          format: int64
+        maxStandbyStreamingDelay:
+          type: integer
+          format: int64
+        constraintExclusion:
+          $ref: '#/components/schemas/PostgresqlHostConfig15ConstraintExclusion_in_PostgresqlHostConfig15_constraintExclusion'
+        cursorTupleFraction:
+          type: number
+          format: double
+        fromCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        joinCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        forceParallelMode:
+          $ref: '#/components/schemas/PostgresqlHostConfig15ForceParallelMode_in_PostgresqlHostConfig15_forceParallelMode'
+        clientMinMessages:
+          $ref: '#/components/schemas/PostgresqlHostConfig15LogLevel_in_PostgresqlHostConfig15_clientMinMessages'
+        logMinMessages:
+          $ref: '#/components/schemas/PostgresqlHostConfig15LogLevel_in_PostgresqlHostConfig15_logMinMessages'
+        logMinErrorStatement:
+          $ref: '#/components/schemas/PostgresqlHostConfig15LogLevel_in_PostgresqlHostConfig15_logMinErrorStatement'
+        logMinDurationStatement:
+          type: integer
+          format: int64
+        logCheckpoints:
+          type: boolean
+          format: boolean
+        logConnections:
+          type: boolean
+          format: boolean
+        logDisconnections:
+          type: boolean
+          format: boolean
+        logDuration:
+          type: boolean
+          format: boolean
+        logErrorVerbosity:
+          $ref: '#/components/schemas/PostgresqlHostConfig15LogErrorVerbosity_in_PostgresqlHostConfig15_logErrorVerbosity'
+        logLockWaits:
+          type: boolean
+          format: boolean
+        logStatement:
+          $ref: '#/components/schemas/PostgresqlHostConfig15LogStatement_in_PostgresqlHostConfig15_logStatement'
+        logTempFiles:
+          type: integer
+          format: int64
+        searchPath:
+          type: string
+        rowSecurity:
+          type: boolean
+          format: boolean
+        defaultTransactionIsolation:
+          $ref: '#/components/schemas/PostgresqlHostConfig15TransactionIsolation_in_PostgresqlHostConfig15_defaultTransactionIsolation'
+        statementTimeout:
+          type: integer
+          format: int64
+        lockTimeout:
+          type: integer
+          format: int64
+        idleInTransactionSessionTimeout:
+          type: integer
+          format: int64
+        byteaOutput:
+          $ref: '#/components/schemas/PostgresqlHostConfig15ByteaOutput_in_PostgresqlHostConfig15_byteaOutput'
+        xmlbinary:
+          $ref: '#/components/schemas/PostgresqlHostConfig15XmlBinary_in_PostgresqlHostConfig15_xmlbinary'
+        xmloption:
+          $ref: '#/components/schemas/PostgresqlHostConfig15XmlOption_in_PostgresqlHostConfig15_xmloption'
+        ginPendingListLimit:
+          type: integer
+          format: int64
+        deadlockTimeout:
+          type: integer
+          format: int64
+        maxLocksPerTransaction:
+          type: integer
+          format: int64
+        maxPredLocksPerTransaction:
+          type: integer
+          format: int64
+        arrayNulls:
+          type: boolean
+          format: boolean
+        backslashQuote:
+          $ref: '#/components/schemas/PostgresqlHostConfig15BackslashQuote_in_PostgresqlHostConfig15_backslashQuote'
+        defaultWithOids:
+          type: boolean
+          format: boolean
+        escapeStringWarning:
+          type: boolean
+          format: boolean
+        loCompatPrivileges:
+          type: boolean
+          format: boolean
+        quoteAllIdentifiers:
+          type: boolean
+          format: boolean
+        standardConformingStrings:
+          type: boolean
+          format: boolean
+        synchronizeSeqscans:
+          type: boolean
+          format: boolean
+        transformNullEquals:
+          type: boolean
+          format: boolean
+        exitOnError:
+          type: boolean
+          format: boolean
+        seqPageCost:
+          type: number
+          format: double
+        randomPageCost:
+          type: number
+          format: double
+        enableBitmapscan:
+          type: boolean
+          format: boolean
+        enableHashagg:
+          type: boolean
+          format: boolean
+        enableHashjoin:
+          type: boolean
+          format: boolean
+        enableIndexscan:
+          type: boolean
+          format: boolean
+        enableIndexonlyscan:
+          type: boolean
+          format: boolean
+        enableMaterial:
+          type: boolean
+          format: boolean
+        enableMergejoin:
+          type: boolean
+          format: boolean
+        enableNestloop:
+          type: boolean
+          format: boolean
+        enableSeqscan:
+          type: boolean
+          format: boolean
+        enableSort:
+          type: boolean
+          format: boolean
+        enableTidscan:
+          type: boolean
+          format: boolean
+        maxParallelWorkers:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        maxParallelWorkersPerGather:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        timezone:
+          type: string
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+    PostgresqlHostConfig15BackslashQuote:
+      type: string
+      enum:
+      - BACKSLASH_QUOTE
+      - BACKSLASH_QUOTE_ON
+      - BACKSLASH_QUOTE_OFF
+      - BACKSLASH_QUOTE_SAFE_ENCODING
+    PostgresqlHostConfig15ByteaOutput:
+      type: string
+      enum:
+      - BYTEA_OUTPUT_HEX
+      - BYTEA_OUTPUT_ESCAPED
+    PostgresqlHostConfig15ConstraintExclusion:
+      type: string
+      enum:
+      - CONSTRAINT_EXCLUSION_ON
+      - CONSTRAINT_EXCLUSION_OFF
+      - CONSTRAINT_EXCLUSION_PARTITION
+    PostgresqlHostConfig15ForceParallelMode:
+      type: string
+      enum:
+      - FORCE_PARALLEL_MODE_ON
+      - FORCE_PARALLEL_MODE_OFF
+      - FORCE_PARALLEL_MODE_REGRESS
+    PostgresqlHostConfig15LogErrorVerbosity:
+      type: string
+      enum:
+      - LOG_ERROR_VERBOSITY_TERSE
+      - LOG_ERROR_VERBOSITY_DEFAULT
+      - LOG_ERROR_VERBOSITY_VERBOSE
+    PostgresqlHostConfig15LogLevel:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
+    PostgresqlHostConfig15LogStatement:
+      type: string
+      enum:
+      - LOG_STATEMENT_NONE
+      - LOG_STATEMENT_DDL
+      - LOG_STATEMENT_MOD
+      - LOG_STATEMENT_ALL
+    PostgresqlHostConfig15TransactionIsolation:
+      type: string
+      enum:
+      - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+      - TRANSACTION_ISOLATION_READ_COMMITTED
+      - TRANSACTION_ISOLATION_REPEATABLE_READ
+      - TRANSACTION_ISOLATION_SERIALIZABLE
+    PostgresqlHostConfig15XmlBinary:
+      type: string
+      enum:
+      - XML_BINARY_BASE64
+      - XML_BINARY_HEX
+    PostgresqlHostConfig15XmlOption:
+      type: string
+      enum:
+      - XML_OPTION_DOCUMENT
+      - XML_OPTION_CONTENT
     PostgresqlHostConfig9_6:
       description: |-
         Options and structure of `PostgresqlHostConfig` reflects parameters of a PostgreSQL
@@ -11323,11 +12471,13 @@ components:
          - HEALTH_UNKNOWN: Health of the server is unknown.
          - ALIVE: The server is working normally.
          - DEAD: The server is dead or unresponsive.
+         - READONLY: The server is in read-only mode.
       type: string
       enum:
       - HEALTH_UNKNOWN
       - ALIVE
       - DEAD
+      - READONLY
       default: HEALTH_UNKNOWN
     ServiceType:
       description: |2-
@@ -11499,6 +12649,13 @@ components:
     UpdateDatabaseRequest:
       type: object
       properties:
+        newDatabaseName:
+          description: |-
+            Optional. New name of the database.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateDatabaseRequest_updateMask'
         extensions:
@@ -11931,6 +13088,9 @@ components:
           postgresqlConfig_14_1C:
             $ref: '#/components/schemas/PostgresqlConfigSet14_1C'
             description: Configuration of a PostgreSQL 14 1C server.
+          postgresqlConfig_15:
+            $ref: '#/components/schemas/PostgresqlConfigSet15'
+            description: Configuration of a PostgreSQL 15 server.
     ClusterHealth_in_Cluster_health:
       description: |-
         Aggregated cluster health.
@@ -12043,7 +13203,7 @@ components:
           version:
             description: |-
               Version of PostgreSQL used in the cluster.
-              Possible values: `9.6`, `10`, `10_1c`, `11`, `12`, `13`.
+              Possible values: `9.6`, `10`, `10_1c`, `11`, `12`, `13`, `14`, `15`
             type: string
           poolerConfig:
             $ref: '#/components/schemas/ConnectionPoolerConfig'
@@ -12109,6 +13269,9 @@ components:
           postgresqlConfig_14_1C:
             $ref: '#/components/schemas/PostgresqlConfig14_1C'
             description: Configuration for a PostgreSQL 14 1C cluster.
+          postgresqlConfig_15:
+            $ref: '#/components/schemas/PostgresqlConfig15'
+            description: Configuration for a PostgreSQL 15 cluster.
     DatabaseSpec_in_CreateDatabaseRequest_databaseSpec:
       description: |-
         Required.
@@ -12269,12 +13432,14 @@ components:
          - ALIVE: The host is performing all its functions normally.
          - DEAD: The host is inoperable, and cannot perform any of its essential functions.
          - DEGRADED: The host is degraded, and can perform only some of its essential functions.
+         - READONLY: The host is alive, but in read-only mode.
       type: string
       enum:
       - HEALTH_UNKNOWN
       - ALIVE
       - DEAD
       - DEGRADED
+      - READONLY
       default: HEALTH_UNKNOWN
     HostConfig_in_Host_config:
       description: Configuration of a PostgreSQL server for the host.
@@ -12317,6 +13482,9 @@ components:
           postgresqlConfig_14_1C:
             $ref: '#/components/schemas/PostgresqlHostConfig14_1C'
             description: Configuration for a host with PostgreSQL 14 1C server deployed.
+          postgresqlConfig_15:
+            $ref: '#/components/schemas/PostgresqlHostConfig15'
+            description: Configuration for a host with PostgreSQL 15 server deployed.
     HostReplicaType_in_Host_replicaType:
       type: string
       enum:
@@ -12366,6 +13534,9 @@ components:
           postgresqlConfig_14_1C:
             $ref: '#/components/schemas/PostgresqlHostConfig14_1C'
             description: Configuration for a host with PostgreSQL 14 1C server deployed.
+          postgresqlConfig_15:
+            $ref: '#/components/schemas/PostgresqlHostConfig15'
+            description: Configuration for a host with PostgreSQL 15 server deployed.
     PostgresqlConfig10WalLevel_in_PostgresqlConfig10_walLevel:
       type: string
       enum:
@@ -13702,6 +14873,142 @@ components:
       - LOG_LEVEL_ERROR
       - LOG_LEVEL_FATAL
       - LOG_LEVEL_PANIC
+    PostgresqlConfig15WalLevel_in_PostgresqlConfig15_walLevel:
+      type: string
+      enum:
+      - WAL_LEVEL_REPLICA
+      - WAL_LEVEL_LOGICAL
+    PostgresqlConfig15SynchronousCommit_in_PostgresqlConfig15_synchronousCommit:
+      type: string
+      enum:
+      - SYNCHRONOUS_COMMIT_ON
+      - SYNCHRONOUS_COMMIT_OFF
+      - SYNCHRONOUS_COMMIT_LOCAL
+      - SYNCHRONOUS_COMMIT_REMOTE_WRITE
+      - SYNCHRONOUS_COMMIT_REMOTE_APPLY
+    PostgresqlConfig15ConstraintExclusion_in_PostgresqlConfig15_constraintExclusion:
+      type: string
+      enum:
+      - CONSTRAINT_EXCLUSION_ON
+      - CONSTRAINT_EXCLUSION_OFF
+      - CONSTRAINT_EXCLUSION_PARTITION
+    PostgresqlConfig15ForceParallelMode_in_PostgresqlConfig15_forceParallelMode:
+      type: string
+      enum:
+      - FORCE_PARALLEL_MODE_ON
+      - FORCE_PARALLEL_MODE_OFF
+      - FORCE_PARALLEL_MODE_REGRESS
+    PostgresqlConfig15LogLevel_in_PostgresqlConfig15_clientMinMessages:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
+    PostgresqlConfig15LogLevel_in_PostgresqlConfig15_logMinMessages:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
+    PostgresqlConfig15LogLevel_in_PostgresqlConfig15_logMinErrorStatement:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
+    PostgresqlConfig15LogErrorVerbosity_in_PostgresqlConfig15_logErrorVerbosity:
+      type: string
+      enum:
+      - LOG_ERROR_VERBOSITY_TERSE
+      - LOG_ERROR_VERBOSITY_DEFAULT
+      - LOG_ERROR_VERBOSITY_VERBOSE
+    PostgresqlConfig15LogStatement_in_PostgresqlConfig15_logStatement:
+      type: string
+      enum:
+      - LOG_STATEMENT_NONE
+      - LOG_STATEMENT_DDL
+      - LOG_STATEMENT_MOD
+      - LOG_STATEMENT_ALL
+    PostgresqlConfig15TransactionIsolation_in_PostgresqlConfig15_defaultTransactionIsolation:
+      type: string
+      enum:
+      - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+      - TRANSACTION_ISOLATION_READ_COMMITTED
+      - TRANSACTION_ISOLATION_REPEATABLE_READ
+      - TRANSACTION_ISOLATION_SERIALIZABLE
+    PostgresqlConfig15ByteaOutput_in_PostgresqlConfig15_byteaOutput:
+      type: string
+      enum:
+      - BYTEA_OUTPUT_HEX
+      - BYTEA_OUTPUT_ESCAPED
+    PostgresqlConfig15XmlBinary_in_PostgresqlConfig15_xmlbinary:
+      type: string
+      enum:
+      - XML_BINARY_BASE64
+      - XML_BINARY_HEX
+    PostgresqlConfig15XmlOption_in_PostgresqlConfig15_xmloption:
+      type: string
+      enum:
+      - XML_OPTION_DOCUMENT
+      - XML_OPTION_CONTENT
+    PostgresqlConfig15BackslashQuote_in_PostgresqlConfig15_backslashQuote:
+      type: string
+      enum:
+      - BACKSLASH_QUOTE
+      - BACKSLASH_QUOTE_ON
+      - BACKSLASH_QUOTE_OFF
+      - BACKSLASH_QUOTE_SAFE_ENCODING
+    PostgresqlConfig15PlanCacheMode_in_PostgresqlConfig15_planCacheMode:
+      type: string
+      enum:
+      - PLAN_CACHE_MODE_AUTO
+      - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
+      - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
+    PostgresqlConfig15PgHintPlanDebugPrint_in_PostgresqlConfig15_pgHintPlanDebugPrint:
+      type: string
+      enum:
+      - PG_HINT_PLAN_DEBUG_PRINT_OFF
+      - PG_HINT_PLAN_DEBUG_PRINT_ON
+      - PG_HINT_PLAN_DEBUG_PRINT_DETAILED
+      - PG_HINT_PLAN_DEBUG_PRINT_VERBOSE
+    PostgresqlConfig15LogLevel_in_PostgresqlConfig15_pgHintPlanMessageLevel:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
     PostgresqlConfig9_6WalLevel_in_PostgresqlConfig9_6_walLevel:
       type: string
       enum:
@@ -14176,6 +15483,35 @@ components:
         pgQualstatsSampleRate:
           type: number
           format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig10_in_PostgresqlConfigSet10_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 10 cluster.
@@ -14539,6 +15875,35 @@ components:
         pgQualstatsSampleRate:
           type: number
           format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig10_in_PostgresqlConfigSet10_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 10 cluster.
@@ -14900,6 +16265,35 @@ components:
           type: boolean
           format: boolean
         pgQualstatsSampleRate:
+          type: number
+          format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
     PostgresqlConfig10_1C_in_PostgresqlConfigSet10_1C_effectiveConfig:
@@ -15273,6 +16667,35 @@ components:
         pgQualstatsSampleRate:
           type: number
           format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig10_1C_in_PostgresqlConfigSet10_1C_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 10 1C cluster.
@@ -15642,6 +17065,35 @@ components:
         pgQualstatsSampleRate:
           type: number
           format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig10_1C_in_PostgresqlConfigSet10_1C_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 10 1C cluster.
@@ -16009,6 +17461,35 @@ components:
           type: boolean
           format: boolean
         pgQualstatsSampleRate:
+          type: number
+          format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
     PostgresqlConfig11_in_PostgresqlConfigSet11_effectiveConfig:
@@ -16401,6 +17882,35 @@ components:
         pgQualstatsSampleRate:
           type: number
           format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig11_in_PostgresqlConfigSet11_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 11 cluster.
@@ -16790,6 +18300,35 @@ components:
         pgQualstatsSampleRate:
           type: number
           format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig11_in_PostgresqlConfigSet11_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 11 cluster.
@@ -17177,6 +18716,35 @@ components:
           type: boolean
           format: boolean
         pgQualstatsSampleRate:
+          type: number
+          format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
     PostgresqlConfig11_1C_in_PostgresqlConfigSet11_1C_effectiveConfig:
@@ -17575,6 +19143,35 @@ components:
         plantunerFixEmptyTable:
           type: boolean
           format: boolean
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig11_1C_in_PostgresqlConfigSet11_1C_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 11 1C cluster.
@@ -17970,6 +19567,35 @@ components:
         plantunerFixEmptyTable:
           type: boolean
           format: boolean
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig11_1C_in_PostgresqlConfigSet11_1C_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 11 1C cluster.
@@ -18365,6 +19991,35 @@ components:
         plantunerFixEmptyTable:
           type: boolean
           format: boolean
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig12_in_PostgresqlConfigSet12_effectiveConfig:
       description: |-
         Effective settings for a PostgreSQL 12 cluster (a combination of settings defined
@@ -18759,6 +20414,35 @@ components:
           type: boolean
           format: boolean
         pgQualstatsSampleRate:
+          type: number
+          format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
     PostgresqlConfig12_in_PostgresqlConfigSet12_userConfig:
@@ -19156,6 +20840,35 @@ components:
         pgQualstatsSampleRate:
           type: number
           format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig12_in_PostgresqlConfigSet12_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 12 cluster.
@@ -19549,6 +21262,35 @@ components:
           type: boolean
           format: boolean
         pgQualstatsSampleRate:
+          type: number
+          format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
     PostgresqlConfig12_1C_in_PostgresqlConfigSet12_1C_effectiveConfig:
@@ -19953,6 +21695,35 @@ components:
         plantunerFixEmptyTable:
           type: boolean
           format: boolean
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig12_1C_in_PostgresqlConfigSet12_1C_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 12 1C cluster.
@@ -20354,6 +22125,35 @@ components:
         plantunerFixEmptyTable:
           type: boolean
           format: boolean
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig12_1C_in_PostgresqlConfigSet12_1C_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 12 1C cluster.
@@ -20755,6 +22555,35 @@ components:
         plantunerFixEmptyTable:
           type: boolean
           format: boolean
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig13_in_PostgresqlConfigSet13_effectiveConfig:
       description: |-
         Effective settings for a PostgreSQL 13 cluster (a combination of settings defined
@@ -21196,6 +23025,35 @@ components:
           type: boolean
           format: boolean
         pgQualstatsSampleRate:
+          type: number
+          format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
     PostgresqlConfig13_in_PostgresqlConfigSet13_userConfig:
@@ -21640,6 +23498,35 @@ components:
         pgQualstatsSampleRate:
           type: number
           format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig13_in_PostgresqlConfigSet13_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 13 cluster.
@@ -22080,6 +23967,35 @@ components:
           type: boolean
           format: boolean
         pgQualstatsSampleRate:
+          type: number
+          format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
     PostgresqlConfig13_1C_in_PostgresqlConfigSet13_1C_effectiveConfig:
@@ -22531,6 +24447,31 @@ components:
         plantunerFixEmptyTable:
           type: boolean
           format: boolean
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig13_1C_in_PostgresqlConfigSet13_1C_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 13 1C cluster.
@@ -22979,6 +24920,31 @@ components:
         plantunerFixEmptyTable:
           type: boolean
           format: boolean
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig13_1C_in_PostgresqlConfigSet13_1C_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 13 1C cluster.
@@ -23427,6 +25393,31 @@ components:
         plantunerFixEmptyTable:
           type: boolean
           format: boolean
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig14_in_PostgresqlConfigSet14_effectiveConfig:
       description: |-
         Effective settings for a PostgreSQL 14 cluster (a combination of settings defined
@@ -23885,6 +25876,35 @@ components:
           type: boolean
           format: boolean
         pgQualstatsSampleRate:
+          type: number
+          format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
     PostgresqlConfig14_in_PostgresqlConfigSet14_userConfig:
@@ -24346,6 +26366,35 @@ components:
         pgQualstatsSampleRate:
           type: number
           format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig14_in_PostgresqlConfigSet14_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 14 cluster.
@@ -24803,6 +26852,35 @@ components:
           type: boolean
           format: boolean
         pgQualstatsSampleRate:
+          type: number
+          format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
     PostgresqlConfig14_1C_in_PostgresqlConfigSet14_1C_effectiveConfig:
@@ -25271,6 +27349,31 @@ components:
         plantunerFixEmptyTable:
           type: boolean
           format: boolean
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig14_1C_in_PostgresqlConfigSet14_1C_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 14 1C cluster.
@@ -25736,6 +27839,31 @@ components:
         plantunerFixEmptyTable:
           type: boolean
           format: boolean
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig14_1C_in_PostgresqlConfigSet14_1C_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 14 1C cluster.
@@ -26199,6 +28327,1430 @@ components:
           type: number
           format: double
         plantunerFixEmptyTable:
+          type: boolean
+          format: boolean
+        geqo:
+          type: boolean
+          format: boolean
+        geqoThreshold:
+          description: Acceptable values are 2 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        geqoEffort:
+          description: Acceptable values are 1 to 10, inclusive.
+          type: integer
+          format: int64
+        geqoPoolSize:
+          type: integer
+          format: int64
+        geqoGenerations:
+          type: integer
+          format: int64
+        geqoSelectionBias:
+          description: Acceptable values are 1.5 to 2, inclusive.
+          type: number
+          format: double
+        geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+    PostgresqlConfig15_in_PostgresqlConfigSet15_effectiveConfig:
+      description: |-
+        Effective settings for a PostgreSQL 15 cluster (a combination of settings defined
+        in `userConfig` and `defaultConfig`).
+
+        Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
+        parameters which detailed description is available in
+        [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
+      type: object
+      properties:
+        maxConnections:
+          type: integer
+          format: int64
+        sharedBuffers:
+          type: integer
+          format: int64
+        tempBuffers:
+          type: integer
+          format: int64
+        maxPreparedTransactions:
+          type: integer
+          format: int64
+        workMem:
+          type: integer
+          format: int64
+        maintenanceWorkMem:
+          type: integer
+          format: int64
+        autovacuumWorkMem:
+          type: integer
+          format: int64
+        tempFileLimit:
+          type: integer
+          format: int64
+        vacuumCostDelay:
+          type: integer
+          format: int64
+        vacuumCostPageHit:
+          type: integer
+          format: int64
+        vacuumCostPageMiss:
+          type: integer
+          format: int64
+        vacuumCostPageDirty:
+          type: integer
+          format: int64
+        vacuumCostLimit:
+          type: integer
+          format: int64
+        bgwriterDelay:
+          description: Acceptable values are 10 to 10000, inclusive.
+          type: integer
+          format: int64
+        bgwriterLruMaxpages:
+          type: integer
+          format: int64
+        bgwriterLruMultiplier:
+          type: number
+          format: double
+        bgwriterFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        backendFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        oldSnapshotThreshold:
+          description: Acceptable values are -1 to 86400000, inclusive.
+          type: integer
+          format: int64
+        walLevel:
+          $ref: '#/components/schemas/PostgresqlConfig15WalLevel_in_PostgresqlConfig15_walLevel'
+        synchronousCommit:
+          $ref: '#/components/schemas/PostgresqlConfig15SynchronousCommit_in_PostgresqlConfig15_synchronousCommit'
+        checkpointTimeout:
+          description: Acceptable values are 30000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        checkpointCompletionTarget:
+          type: number
+          format: double
+        checkpointFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        maxWalSize:
+          type: integer
+          format: int64
+        minWalSize:
+          type: integer
+          format: int64
+        maxStandbyStreamingDelay:
+          type: integer
+          format: int64
+        defaultStatisticsTarget:
+          type: integer
+          format: int64
+        constraintExclusion:
+          $ref: '#/components/schemas/PostgresqlConfig15ConstraintExclusion_in_PostgresqlConfig15_constraintExclusion'
+        cursorTupleFraction:
+          type: number
+          format: double
+        fromCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        joinCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        forceParallelMode:
+          $ref: '#/components/schemas/PostgresqlConfig15ForceParallelMode_in_PostgresqlConfig15_forceParallelMode'
+        clientMinMessages:
+          $ref: '#/components/schemas/PostgresqlConfig15LogLevel_in_PostgresqlConfig15_clientMinMessages'
+        logMinMessages:
+          $ref: '#/components/schemas/PostgresqlConfig15LogLevel_in_PostgresqlConfig15_logMinMessages'
+        logMinErrorStatement:
+          $ref: '#/components/schemas/PostgresqlConfig15LogLevel_in_PostgresqlConfig15_logMinErrorStatement'
+        logMinDurationStatement:
+          type: integer
+          format: int64
+        logCheckpoints:
+          type: boolean
+          format: boolean
+        logConnections:
+          type: boolean
+          format: boolean
+        logDisconnections:
+          type: boolean
+          format: boolean
+        logDuration:
+          type: boolean
+          format: boolean
+        logErrorVerbosity:
+          $ref: '#/components/schemas/PostgresqlConfig15LogErrorVerbosity_in_PostgresqlConfig15_logErrorVerbosity'
+        logLockWaits:
+          type: boolean
+          format: boolean
+        logStatement:
+          $ref: '#/components/schemas/PostgresqlConfig15LogStatement_in_PostgresqlConfig15_logStatement'
+        logTempFiles:
+          type: integer
+          format: int64
+        searchPath:
+          type: string
+        rowSecurity:
+          type: boolean
+          format: boolean
+        defaultTransactionIsolation:
+          $ref: '#/components/schemas/PostgresqlConfig15TransactionIsolation_in_PostgresqlConfig15_defaultTransactionIsolation'
+        statementTimeout:
+          type: integer
+          format: int64
+        lockTimeout:
+          type: integer
+          format: int64
+        idleInTransactionSessionTimeout:
+          type: integer
+          format: int64
+        byteaOutput:
+          $ref: '#/components/schemas/PostgresqlConfig15ByteaOutput_in_PostgresqlConfig15_byteaOutput'
+        xmlbinary:
+          $ref: '#/components/schemas/PostgresqlConfig15XmlBinary_in_PostgresqlConfig15_xmlbinary'
+        xmloption:
+          $ref: '#/components/schemas/PostgresqlConfig15XmlOption_in_PostgresqlConfig15_xmloption'
+        ginPendingListLimit:
+          type: integer
+          format: int64
+        deadlockTimeout:
+          type: integer
+          format: int64
+        maxLocksPerTransaction:
+          type: integer
+          format: int64
+        maxPredLocksPerTransaction:
+          type: integer
+          format: int64
+        arrayNulls:
+          type: boolean
+          format: boolean
+        backslashQuote:
+          $ref: '#/components/schemas/PostgresqlConfig15BackslashQuote_in_PostgresqlConfig15_backslashQuote'
+        defaultWithOids:
+          type: boolean
+          format: boolean
+        escapeStringWarning:
+          type: boolean
+          format: boolean
+        loCompatPrivileges:
+          type: boolean
+          format: boolean
+        quoteAllIdentifiers:
+          type: boolean
+          format: boolean
+        standardConformingStrings:
+          type: boolean
+          format: boolean
+        synchronizeSeqscans:
+          type: boolean
+          format: boolean
+        transformNullEquals:
+          type: boolean
+          format: boolean
+        exitOnError:
+          type: boolean
+          format: boolean
+        seqPageCost:
+          type: number
+          format: double
+        randomPageCost:
+          type: number
+          format: double
+        autovacuumMaxWorkers:
+          description: Acceptable values are 1 to 32, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumCostDelay:
+          description: Acceptable values are -1 to 100, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumCostLimit:
+          description: Acceptable values are -1 to 10000, inclusive.
+          type: integer
+          format: int64
+        autovacuumNaptime:
+          description: Acceptable values are 1000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        archiveTimeout:
+          description: Acceptable values are 10000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        trackActivityQuerySize:
+          description: Acceptable values are 100 to 102400, inclusive.
+          type: integer
+          format: int64
+        enableBitmapscan:
+          type: boolean
+          format: boolean
+        enableHashagg:
+          type: boolean
+          format: boolean
+        enableHashjoin:
+          type: boolean
+          format: boolean
+        enableIndexscan:
+          type: boolean
+          format: boolean
+        enableIndexonlyscan:
+          type: boolean
+          format: boolean
+        enableMaterial:
+          type: boolean
+          format: boolean
+        enableMergejoin:
+          type: boolean
+          format: boolean
+        enableNestloop:
+          type: boolean
+          format: boolean
+        enableSeqscan:
+          type: boolean
+          format: boolean
+        enableSort:
+          type: boolean
+          format: boolean
+        enableTidscan:
+          type: boolean
+          format: boolean
+        maxWorkerProcesses:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        maxParallelWorkers:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        maxParallelWorkersPerGather:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        autovacuumAnalyzeScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        defaultTransactionReadOnly:
+          type: boolean
+          format: boolean
+        timezone:
+          type: string
+        enableParallelAppend:
+          type: boolean
+          format: boolean
+        enableParallelHash:
+          type: boolean
+          format: boolean
+        enablePartitionPruning:
+          type: boolean
+          format: boolean
+        enablePartitionwiseAggregate:
+          type: boolean
+          format: boolean
+        enablePartitionwiseJoin:
+          type: boolean
+          format: boolean
+        jit:
+          type: boolean
+          format: boolean
+        maxParallelMaintenanceWorkers:
+          description: The minimum value is 0.
+          type: integer
+          format: int64
+        parallelLeaderParticipation:
+          type: boolean
+          format: boolean
+        logTransactionSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        planCacheMode:
+          $ref: '#/components/schemas/PostgresqlConfig15PlanCacheMode_in_PostgresqlConfig15_planCacheMode'
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig15SharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig15PgHintPlanDebugPrint_in_PostgresqlConfig15_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig15LogLevel_in_PostgresqlConfig15_pgHintPlanMessageLevel'
+        hashMemMultiplier:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: number
+          format: double
+        logicalDecodingWorkMem:
+          description: Acceptable values are 65536 to 1099511627776, inclusive.
+          type: integer
+          format: int64
+        maintenanceIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        maxSlotWalKeepSize:
+          description: Acceptable values are -1 to 2251799812636672, inclusive.
+          type: integer
+          format: int64
+        walKeepSize:
+          description: Acceptable values are -1 to 2251799812636672, inclusive.
+          type: integer
+          format: int64
+        enableIncrementalSort:
+          type: boolean
+          format: boolean
+        autovacuumVacuumInsertThreshold:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumInsertScaleFactor:
+          description: Acceptable values are 0 to 100, inclusive.
+          type: number
+          format: double
+        logMinDurationSample:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        logStatementSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        logParameterMaxLength:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        logParameterMaxLengthOnError:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        clientConnectionCheckInterval:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        enableAsyncAppend:
+          type: boolean
+          format: boolean
+        enableGathermerge:
+          type: boolean
+          format: boolean
+        enableMemoize:
+          type: boolean
+          format: boolean
+        logRecoveryConflictWaits:
+          type: boolean
+          format: boolean
+        vacuumFailsafeAge:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        vacuumMultixactFailsafeAge:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        enableGroupByReordering:
+          type: boolean
+          format: boolean
+    PostgresqlConfig15_in_PostgresqlConfigSet15_userConfig:
+      description: |-
+        User-defined settings for a PostgreSQL 15 cluster.
+
+        Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
+        parameters which detailed description is available in
+        [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
+      type: object
+      properties:
+        maxConnections:
+          type: integer
+          format: int64
+        sharedBuffers:
+          type: integer
+          format: int64
+        tempBuffers:
+          type: integer
+          format: int64
+        maxPreparedTransactions:
+          type: integer
+          format: int64
+        workMem:
+          type: integer
+          format: int64
+        maintenanceWorkMem:
+          type: integer
+          format: int64
+        autovacuumWorkMem:
+          type: integer
+          format: int64
+        tempFileLimit:
+          type: integer
+          format: int64
+        vacuumCostDelay:
+          type: integer
+          format: int64
+        vacuumCostPageHit:
+          type: integer
+          format: int64
+        vacuumCostPageMiss:
+          type: integer
+          format: int64
+        vacuumCostPageDirty:
+          type: integer
+          format: int64
+        vacuumCostLimit:
+          type: integer
+          format: int64
+        bgwriterDelay:
+          description: Acceptable values are 10 to 10000, inclusive.
+          type: integer
+          format: int64
+        bgwriterLruMaxpages:
+          type: integer
+          format: int64
+        bgwriterLruMultiplier:
+          type: number
+          format: double
+        bgwriterFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        backendFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        oldSnapshotThreshold:
+          description: Acceptable values are -1 to 86400000, inclusive.
+          type: integer
+          format: int64
+        walLevel:
+          $ref: '#/components/schemas/PostgresqlConfig15WalLevel_in_PostgresqlConfig15_walLevel'
+        synchronousCommit:
+          $ref: '#/components/schemas/PostgresqlConfig15SynchronousCommit_in_PostgresqlConfig15_synchronousCommit'
+        checkpointTimeout:
+          description: Acceptable values are 30000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        checkpointCompletionTarget:
+          type: number
+          format: double
+        checkpointFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        maxWalSize:
+          type: integer
+          format: int64
+        minWalSize:
+          type: integer
+          format: int64
+        maxStandbyStreamingDelay:
+          type: integer
+          format: int64
+        defaultStatisticsTarget:
+          type: integer
+          format: int64
+        constraintExclusion:
+          $ref: '#/components/schemas/PostgresqlConfig15ConstraintExclusion_in_PostgresqlConfig15_constraintExclusion'
+        cursorTupleFraction:
+          type: number
+          format: double
+        fromCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        joinCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        forceParallelMode:
+          $ref: '#/components/schemas/PostgresqlConfig15ForceParallelMode_in_PostgresqlConfig15_forceParallelMode'
+        clientMinMessages:
+          $ref: '#/components/schemas/PostgresqlConfig15LogLevel_in_PostgresqlConfig15_clientMinMessages'
+        logMinMessages:
+          $ref: '#/components/schemas/PostgresqlConfig15LogLevel_in_PostgresqlConfig15_logMinMessages'
+        logMinErrorStatement:
+          $ref: '#/components/schemas/PostgresqlConfig15LogLevel_in_PostgresqlConfig15_logMinErrorStatement'
+        logMinDurationStatement:
+          type: integer
+          format: int64
+        logCheckpoints:
+          type: boolean
+          format: boolean
+        logConnections:
+          type: boolean
+          format: boolean
+        logDisconnections:
+          type: boolean
+          format: boolean
+        logDuration:
+          type: boolean
+          format: boolean
+        logErrorVerbosity:
+          $ref: '#/components/schemas/PostgresqlConfig15LogErrorVerbosity_in_PostgresqlConfig15_logErrorVerbosity'
+        logLockWaits:
+          type: boolean
+          format: boolean
+        logStatement:
+          $ref: '#/components/schemas/PostgresqlConfig15LogStatement_in_PostgresqlConfig15_logStatement'
+        logTempFiles:
+          type: integer
+          format: int64
+        searchPath:
+          type: string
+        rowSecurity:
+          type: boolean
+          format: boolean
+        defaultTransactionIsolation:
+          $ref: '#/components/schemas/PostgresqlConfig15TransactionIsolation_in_PostgresqlConfig15_defaultTransactionIsolation'
+        statementTimeout:
+          type: integer
+          format: int64
+        lockTimeout:
+          type: integer
+          format: int64
+        idleInTransactionSessionTimeout:
+          type: integer
+          format: int64
+        byteaOutput:
+          $ref: '#/components/schemas/PostgresqlConfig15ByteaOutput_in_PostgresqlConfig15_byteaOutput'
+        xmlbinary:
+          $ref: '#/components/schemas/PostgresqlConfig15XmlBinary_in_PostgresqlConfig15_xmlbinary'
+        xmloption:
+          $ref: '#/components/schemas/PostgresqlConfig15XmlOption_in_PostgresqlConfig15_xmloption'
+        ginPendingListLimit:
+          type: integer
+          format: int64
+        deadlockTimeout:
+          type: integer
+          format: int64
+        maxLocksPerTransaction:
+          type: integer
+          format: int64
+        maxPredLocksPerTransaction:
+          type: integer
+          format: int64
+        arrayNulls:
+          type: boolean
+          format: boolean
+        backslashQuote:
+          $ref: '#/components/schemas/PostgresqlConfig15BackslashQuote_in_PostgresqlConfig15_backslashQuote'
+        defaultWithOids:
+          type: boolean
+          format: boolean
+        escapeStringWarning:
+          type: boolean
+          format: boolean
+        loCompatPrivileges:
+          type: boolean
+          format: boolean
+        quoteAllIdentifiers:
+          type: boolean
+          format: boolean
+        standardConformingStrings:
+          type: boolean
+          format: boolean
+        synchronizeSeqscans:
+          type: boolean
+          format: boolean
+        transformNullEquals:
+          type: boolean
+          format: boolean
+        exitOnError:
+          type: boolean
+          format: boolean
+        seqPageCost:
+          type: number
+          format: double
+        randomPageCost:
+          type: number
+          format: double
+        autovacuumMaxWorkers:
+          description: Acceptable values are 1 to 32, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumCostDelay:
+          description: Acceptable values are -1 to 100, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumCostLimit:
+          description: Acceptable values are -1 to 10000, inclusive.
+          type: integer
+          format: int64
+        autovacuumNaptime:
+          description: Acceptable values are 1000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        archiveTimeout:
+          description: Acceptable values are 10000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        trackActivityQuerySize:
+          description: Acceptable values are 100 to 102400, inclusive.
+          type: integer
+          format: int64
+        enableBitmapscan:
+          type: boolean
+          format: boolean
+        enableHashagg:
+          type: boolean
+          format: boolean
+        enableHashjoin:
+          type: boolean
+          format: boolean
+        enableIndexscan:
+          type: boolean
+          format: boolean
+        enableIndexonlyscan:
+          type: boolean
+          format: boolean
+        enableMaterial:
+          type: boolean
+          format: boolean
+        enableMergejoin:
+          type: boolean
+          format: boolean
+        enableNestloop:
+          type: boolean
+          format: boolean
+        enableSeqscan:
+          type: boolean
+          format: boolean
+        enableSort:
+          type: boolean
+          format: boolean
+        enableTidscan:
+          type: boolean
+          format: boolean
+        maxWorkerProcesses:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        maxParallelWorkers:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        maxParallelWorkersPerGather:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        autovacuumAnalyzeScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        defaultTransactionReadOnly:
+          type: boolean
+          format: boolean
+        timezone:
+          type: string
+        enableParallelAppend:
+          type: boolean
+          format: boolean
+        enableParallelHash:
+          type: boolean
+          format: boolean
+        enablePartitionPruning:
+          type: boolean
+          format: boolean
+        enablePartitionwiseAggregate:
+          type: boolean
+          format: boolean
+        enablePartitionwiseJoin:
+          type: boolean
+          format: boolean
+        jit:
+          type: boolean
+          format: boolean
+        maxParallelMaintenanceWorkers:
+          description: The minimum value is 0.
+          type: integer
+          format: int64
+        parallelLeaderParticipation:
+          type: boolean
+          format: boolean
+        logTransactionSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        planCacheMode:
+          $ref: '#/components/schemas/PostgresqlConfig15PlanCacheMode_in_PostgresqlConfig15_planCacheMode'
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig15SharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig15PgHintPlanDebugPrint_in_PostgresqlConfig15_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig15LogLevel_in_PostgresqlConfig15_pgHintPlanMessageLevel'
+        hashMemMultiplier:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: number
+          format: double
+        logicalDecodingWorkMem:
+          description: Acceptable values are 65536 to 1099511627776, inclusive.
+          type: integer
+          format: int64
+        maintenanceIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        maxSlotWalKeepSize:
+          description: Acceptable values are -1 to 2251799812636672, inclusive.
+          type: integer
+          format: int64
+        walKeepSize:
+          description: Acceptable values are -1 to 2251799812636672, inclusive.
+          type: integer
+          format: int64
+        enableIncrementalSort:
+          type: boolean
+          format: boolean
+        autovacuumVacuumInsertThreshold:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumInsertScaleFactor:
+          description: Acceptable values are 0 to 100, inclusive.
+          type: number
+          format: double
+        logMinDurationSample:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        logStatementSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        logParameterMaxLength:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        logParameterMaxLengthOnError:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        clientConnectionCheckInterval:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        enableAsyncAppend:
+          type: boolean
+          format: boolean
+        enableGathermerge:
+          type: boolean
+          format: boolean
+        enableMemoize:
+          type: boolean
+          format: boolean
+        logRecoveryConflictWaits:
+          type: boolean
+          format: boolean
+        vacuumFailsafeAge:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        vacuumMultixactFailsafeAge:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        enableGroupByReordering:
+          type: boolean
+          format: boolean
+    PostgresqlConfig15_in_PostgresqlConfigSet15_defaultConfig:
+      description: |-
+        Default configuration for a PostgreSQL 15 cluster.
+
+        Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
+        parameters which detailed description is available in
+        [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
+      type: object
+      properties:
+        maxConnections:
+          type: integer
+          format: int64
+        sharedBuffers:
+          type: integer
+          format: int64
+        tempBuffers:
+          type: integer
+          format: int64
+        maxPreparedTransactions:
+          type: integer
+          format: int64
+        workMem:
+          type: integer
+          format: int64
+        maintenanceWorkMem:
+          type: integer
+          format: int64
+        autovacuumWorkMem:
+          type: integer
+          format: int64
+        tempFileLimit:
+          type: integer
+          format: int64
+        vacuumCostDelay:
+          type: integer
+          format: int64
+        vacuumCostPageHit:
+          type: integer
+          format: int64
+        vacuumCostPageMiss:
+          type: integer
+          format: int64
+        vacuumCostPageDirty:
+          type: integer
+          format: int64
+        vacuumCostLimit:
+          type: integer
+          format: int64
+        bgwriterDelay:
+          description: Acceptable values are 10 to 10000, inclusive.
+          type: integer
+          format: int64
+        bgwriterLruMaxpages:
+          type: integer
+          format: int64
+        bgwriterLruMultiplier:
+          type: number
+          format: double
+        bgwriterFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        backendFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        oldSnapshotThreshold:
+          description: Acceptable values are -1 to 86400000, inclusive.
+          type: integer
+          format: int64
+        walLevel:
+          $ref: '#/components/schemas/PostgresqlConfig15WalLevel_in_PostgresqlConfig15_walLevel'
+        synchronousCommit:
+          $ref: '#/components/schemas/PostgresqlConfig15SynchronousCommit_in_PostgresqlConfig15_synchronousCommit'
+        checkpointTimeout:
+          description: Acceptable values are 30000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        checkpointCompletionTarget:
+          type: number
+          format: double
+        checkpointFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        maxWalSize:
+          type: integer
+          format: int64
+        minWalSize:
+          type: integer
+          format: int64
+        maxStandbyStreamingDelay:
+          type: integer
+          format: int64
+        defaultStatisticsTarget:
+          type: integer
+          format: int64
+        constraintExclusion:
+          $ref: '#/components/schemas/PostgresqlConfig15ConstraintExclusion_in_PostgresqlConfig15_constraintExclusion'
+        cursorTupleFraction:
+          type: number
+          format: double
+        fromCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        joinCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        forceParallelMode:
+          $ref: '#/components/schemas/PostgresqlConfig15ForceParallelMode_in_PostgresqlConfig15_forceParallelMode'
+        clientMinMessages:
+          $ref: '#/components/schemas/PostgresqlConfig15LogLevel_in_PostgresqlConfig15_clientMinMessages'
+        logMinMessages:
+          $ref: '#/components/schemas/PostgresqlConfig15LogLevel_in_PostgresqlConfig15_logMinMessages'
+        logMinErrorStatement:
+          $ref: '#/components/schemas/PostgresqlConfig15LogLevel_in_PostgresqlConfig15_logMinErrorStatement'
+        logMinDurationStatement:
+          type: integer
+          format: int64
+        logCheckpoints:
+          type: boolean
+          format: boolean
+        logConnections:
+          type: boolean
+          format: boolean
+        logDisconnections:
+          type: boolean
+          format: boolean
+        logDuration:
+          type: boolean
+          format: boolean
+        logErrorVerbosity:
+          $ref: '#/components/schemas/PostgresqlConfig15LogErrorVerbosity_in_PostgresqlConfig15_logErrorVerbosity'
+        logLockWaits:
+          type: boolean
+          format: boolean
+        logStatement:
+          $ref: '#/components/schemas/PostgresqlConfig15LogStatement_in_PostgresqlConfig15_logStatement'
+        logTempFiles:
+          type: integer
+          format: int64
+        searchPath:
+          type: string
+        rowSecurity:
+          type: boolean
+          format: boolean
+        defaultTransactionIsolation:
+          $ref: '#/components/schemas/PostgresqlConfig15TransactionIsolation_in_PostgresqlConfig15_defaultTransactionIsolation'
+        statementTimeout:
+          type: integer
+          format: int64
+        lockTimeout:
+          type: integer
+          format: int64
+        idleInTransactionSessionTimeout:
+          type: integer
+          format: int64
+        byteaOutput:
+          $ref: '#/components/schemas/PostgresqlConfig15ByteaOutput_in_PostgresqlConfig15_byteaOutput'
+        xmlbinary:
+          $ref: '#/components/schemas/PostgresqlConfig15XmlBinary_in_PostgresqlConfig15_xmlbinary'
+        xmloption:
+          $ref: '#/components/schemas/PostgresqlConfig15XmlOption_in_PostgresqlConfig15_xmloption'
+        ginPendingListLimit:
+          type: integer
+          format: int64
+        deadlockTimeout:
+          type: integer
+          format: int64
+        maxLocksPerTransaction:
+          type: integer
+          format: int64
+        maxPredLocksPerTransaction:
+          type: integer
+          format: int64
+        arrayNulls:
+          type: boolean
+          format: boolean
+        backslashQuote:
+          $ref: '#/components/schemas/PostgresqlConfig15BackslashQuote_in_PostgresqlConfig15_backslashQuote'
+        defaultWithOids:
+          type: boolean
+          format: boolean
+        escapeStringWarning:
+          type: boolean
+          format: boolean
+        loCompatPrivileges:
+          type: boolean
+          format: boolean
+        quoteAllIdentifiers:
+          type: boolean
+          format: boolean
+        standardConformingStrings:
+          type: boolean
+          format: boolean
+        synchronizeSeqscans:
+          type: boolean
+          format: boolean
+        transformNullEquals:
+          type: boolean
+          format: boolean
+        exitOnError:
+          type: boolean
+          format: boolean
+        seqPageCost:
+          type: number
+          format: double
+        randomPageCost:
+          type: number
+          format: double
+        autovacuumMaxWorkers:
+          description: Acceptable values are 1 to 32, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumCostDelay:
+          description: Acceptable values are -1 to 100, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumCostLimit:
+          description: Acceptable values are -1 to 10000, inclusive.
+          type: integer
+          format: int64
+        autovacuumNaptime:
+          description: Acceptable values are 1000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        archiveTimeout:
+          description: Acceptable values are 10000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        trackActivityQuerySize:
+          description: Acceptable values are 100 to 102400, inclusive.
+          type: integer
+          format: int64
+        enableBitmapscan:
+          type: boolean
+          format: boolean
+        enableHashagg:
+          type: boolean
+          format: boolean
+        enableHashjoin:
+          type: boolean
+          format: boolean
+        enableIndexscan:
+          type: boolean
+          format: boolean
+        enableIndexonlyscan:
+          type: boolean
+          format: boolean
+        enableMaterial:
+          type: boolean
+          format: boolean
+        enableMergejoin:
+          type: boolean
+          format: boolean
+        enableNestloop:
+          type: boolean
+          format: boolean
+        enableSeqscan:
+          type: boolean
+          format: boolean
+        enableSort:
+          type: boolean
+          format: boolean
+        enableTidscan:
+          type: boolean
+          format: boolean
+        maxWorkerProcesses:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        maxParallelWorkers:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        maxParallelWorkersPerGather:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        autovacuumAnalyzeScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        defaultTransactionReadOnly:
+          type: boolean
+          format: boolean
+        timezone:
+          type: string
+        enableParallelAppend:
+          type: boolean
+          format: boolean
+        enableParallelHash:
+          type: boolean
+          format: boolean
+        enablePartitionPruning:
+          type: boolean
+          format: boolean
+        enablePartitionwiseAggregate:
+          type: boolean
+          format: boolean
+        enablePartitionwiseJoin:
+          type: boolean
+          format: boolean
+        jit:
+          type: boolean
+          format: boolean
+        maxParallelMaintenanceWorkers:
+          description: The minimum value is 0.
+          type: integer
+          format: int64
+        parallelLeaderParticipation:
+          type: boolean
+          format: boolean
+        logTransactionSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        planCacheMode:
+          $ref: '#/components/schemas/PostgresqlConfig15PlanCacheMode_in_PostgresqlConfig15_planCacheMode'
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig15SharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig15PgHintPlanDebugPrint_in_PostgresqlConfig15_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig15LogLevel_in_PostgresqlConfig15_pgHintPlanMessageLevel'
+        hashMemMultiplier:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: number
+          format: double
+        logicalDecodingWorkMem:
+          description: Acceptable values are 65536 to 1099511627776, inclusive.
+          type: integer
+          format: int64
+        maintenanceIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        maxSlotWalKeepSize:
+          description: Acceptable values are -1 to 2251799812636672, inclusive.
+          type: integer
+          format: int64
+        walKeepSize:
+          description: Acceptable values are -1 to 2251799812636672, inclusive.
+          type: integer
+          format: int64
+        enableIncrementalSort:
+          type: boolean
+          format: boolean
+        autovacuumVacuumInsertThreshold:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumInsertScaleFactor:
+          description: Acceptable values are 0 to 100, inclusive.
+          type: number
+          format: double
+        logMinDurationSample:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        logStatementSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        logParameterMaxLength:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        logParameterMaxLengthOnError:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        clientConnectionCheckInterval:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        enableAsyncAppend:
+          type: boolean
+          format: boolean
+        enableGathermerge:
+          type: boolean
+          format: boolean
+        enableMemoize:
+          type: boolean
+          format: boolean
+        logRecoveryConflictWaits:
+          type: boolean
+          format: boolean
+        vacuumFailsafeAge:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        vacuumMultixactFailsafeAge:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
+        maxStackDepth:
+          description: Acceptable values are 65536 to 134217728, inclusive.
+          type: integer
+          format: int64
+        enableGroupByReordering:
           type: boolean
           format: boolean
     PostgresqlConfig9_6_in_PostgresqlConfigSet9_6_effectiveConfig:
@@ -27925,6 +31477,102 @@ components:
       - BACKSLASH_QUOTE_ON
       - BACKSLASH_QUOTE_OFF
       - BACKSLASH_QUOTE_SAFE_ENCODING
+    PostgresqlHostConfig15ConstraintExclusion_in_PostgresqlHostConfig15_constraintExclusion:
+      type: string
+      enum:
+      - CONSTRAINT_EXCLUSION_ON
+      - CONSTRAINT_EXCLUSION_OFF
+      - CONSTRAINT_EXCLUSION_PARTITION
+    PostgresqlHostConfig15ForceParallelMode_in_PostgresqlHostConfig15_forceParallelMode:
+      type: string
+      enum:
+      - FORCE_PARALLEL_MODE_ON
+      - FORCE_PARALLEL_MODE_OFF
+      - FORCE_PARALLEL_MODE_REGRESS
+    PostgresqlHostConfig15LogLevel_in_PostgresqlHostConfig15_clientMinMessages:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
+    PostgresqlHostConfig15LogLevel_in_PostgresqlHostConfig15_logMinMessages:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
+    PostgresqlHostConfig15LogLevel_in_PostgresqlHostConfig15_logMinErrorStatement:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
+    PostgresqlHostConfig15LogErrorVerbosity_in_PostgresqlHostConfig15_logErrorVerbosity:
+      type: string
+      enum:
+      - LOG_ERROR_VERBOSITY_TERSE
+      - LOG_ERROR_VERBOSITY_DEFAULT
+      - LOG_ERROR_VERBOSITY_VERBOSE
+    PostgresqlHostConfig15LogStatement_in_PostgresqlHostConfig15_logStatement:
+      type: string
+      enum:
+      - LOG_STATEMENT_NONE
+      - LOG_STATEMENT_DDL
+      - LOG_STATEMENT_MOD
+      - LOG_STATEMENT_ALL
+    PostgresqlHostConfig15TransactionIsolation_in_PostgresqlHostConfig15_defaultTransactionIsolation:
+      type: string
+      enum:
+      - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+      - TRANSACTION_ISOLATION_READ_COMMITTED
+      - TRANSACTION_ISOLATION_REPEATABLE_READ
+      - TRANSACTION_ISOLATION_SERIALIZABLE
+    PostgresqlHostConfig15ByteaOutput_in_PostgresqlHostConfig15_byteaOutput:
+      type: string
+      enum:
+      - BYTEA_OUTPUT_HEX
+      - BYTEA_OUTPUT_ESCAPED
+    PostgresqlHostConfig15XmlBinary_in_PostgresqlHostConfig15_xmlbinary:
+      type: string
+      enum:
+      - XML_BINARY_BASE64
+      - XML_BINARY_HEX
+    PostgresqlHostConfig15XmlOption_in_PostgresqlHostConfig15_xmloption:
+      type: string
+      enum:
+      - XML_OPTION_DOCUMENT
+      - XML_OPTION_CONTENT
+    PostgresqlHostConfig15BackslashQuote_in_PostgresqlHostConfig15_backslashQuote:
+      type: string
+      enum:
+      - BACKSLASH_QUOTE
+      - BACKSLASH_QUOTE_ON
+      - BACKSLASH_QUOTE_OFF
+      - BACKSLASH_QUOTE_SAFE_ENCODING
     PostgresqlHostConfig9_6ConstraintExclusion_in_PostgresqlHostConfig9_6_constraintExclusion:
       type: string
       enum:
@@ -28055,7 +31703,7 @@ components:
           version:
             description: |-
               Version of PostgreSQL used in the cluster.
-              Possible values: `9.6`, `10`, `10_1c`, `11`, `12`, `13`.
+              Possible values: `9.6`, `10`, `10_1c`, `11`, `12`, `13`, `14`, `15`
             type: string
           poolerConfig:
             $ref: '#/components/schemas/ConnectionPoolerConfig'
@@ -28121,6 +31769,9 @@ components:
           postgresqlConfig_14_1C:
             $ref: '#/components/schemas/PostgresqlConfig14_1C'
             description: Configuration for a PostgreSQL 14 1C cluster.
+          postgresqlConfig_15:
+            $ref: '#/components/schemas/PostgresqlConfig15'
+            description: Configuration for a PostgreSQL 15 cluster.
     ServiceType_in_Service_type:
       description: |-
         Type of the service provided by the host.
@@ -28138,11 +31789,13 @@ components:
          - HEALTH_UNKNOWN: Health of the server is unknown.
          - ALIVE: The server is working normally.
          - DEAD: The server is dead or unresponsive.
+         - READONLY: The server is in read-only mode.
       type: string
       enum:
       - HEALTH_UNKNOWN
       - ALIVE
       - DEAD
+      - READONLY
       default: HEALTH_UNKNOWN
     LogRecord_in_StreamLogRecord_record:
       description: One of the requested log records.
@@ -28182,7 +31835,7 @@ components:
           version:
             description: |-
               Version of PostgreSQL used in the cluster.
-              Possible values: `9.6`, `10`, `10_1c`, `11`, `12`, `13`.
+              Possible values: `9.6`, `10`, `10_1c`, `11`, `12`, `13`, `14`, `15`
             type: string
           poolerConfig:
             $ref: '#/components/schemas/ConnectionPoolerConfig'
@@ -28248,6 +31901,9 @@ components:
           postgresqlConfig_14_1C:
             $ref: '#/components/schemas/PostgresqlConfig14_1C'
             description: Configuration for a PostgreSQL 14 1C cluster.
+          postgresqlConfig_15:
+            $ref: '#/components/schemas/PostgresqlConfig15'
+            description: Configuration for a PostgreSQL 15 cluster.
     MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow:
       description: |-
         New maintenance window settings for the cluster.
@@ -28319,6 +31975,9 @@ components:
           postgresqlConfig_14_1C:
             $ref: '#/components/schemas/PostgresqlHostConfig14_1C'
             description: Configuration for a host with PostgreSQL 14 1C server deployed.
+          postgresqlConfig_15:
+            $ref: '#/components/schemas/PostgresqlHostConfig15'
+            description: Configuration for a host with PostgreSQL 15 server deployed.
     FieldMask_in_UpdateHostSpec_updateMask:
       description: |-
         Field mask that specifies which fields of the PostgreSQL host should be updated.

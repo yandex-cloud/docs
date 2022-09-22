@@ -283,13 +283,6 @@ network_id | **string**<br>Required.  The maximum string length in characters is
 subnet_id | **string**<br>Required.  The maximum string length in characters is 50.
 
 
-### User {#User4}
-
-Field | Description
---- | ---
-subject_id | **string**<br>Required. Identity of the access binding. 
-
-
 ## Delete {#Delete}
 
 Deletes the specified desktop.
@@ -341,10 +334,10 @@ Reset password
 Field | Description
 --- | ---
 desktop_id | **string**<br>Required. ID of the desktop. The maximum string length in characters is 50.
-user | **[User](#User5)**<br>Required. User of the desktop. 
+user | **[User](#User4)**<br>Required. User of the desktop. 
 
 
-### User {#User5}
+### User {#User4}
 
 Field | Description
 --- | ---

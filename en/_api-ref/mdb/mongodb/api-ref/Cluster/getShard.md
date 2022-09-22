@@ -9,7 +9,7 @@ Returns the specified shard.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}/shards/{shardName}
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/shards/{shardName}
 ```
  
 ## Path parameters {#path_params}

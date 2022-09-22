@@ -73,7 +73,7 @@ items:
   - name: Справочник API
     items:
       - name: Аутентификация в API
-        href: api-ref/authentication.md
+        href: api-ref/apigateway/authentication.md
       - name: gRPC (англ.)
         items: null
         include:
@@ -84,5 +84,19 @@ items:
         include:
           repo: docs
           path: en/_api-ref/serverless/apigateway/toc.yaml
+  - name: Справочник API Websocket
+    items:
+      - name: Аутентификация в API
+        href: api-ref/websocket/authentication.md
+      - name: gRPC (англ.)
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/functions/api-gateway/websocket/toc.yaml
+      - name: REST (англ.)
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref/serverless/apigateway/websocket/toc.yaml
   - name: Вопросы и ответы
     href: qa/index.md

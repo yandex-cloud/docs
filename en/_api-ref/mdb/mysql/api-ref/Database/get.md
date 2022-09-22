@@ -9,7 +9,7 @@ Retrieves information about the specified database.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}/databases/{databaseName}
+GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/databases/{databaseName}
 ```
  
 ## Path parameters {#path_params}

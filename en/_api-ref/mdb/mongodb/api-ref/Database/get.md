@@ -9,7 +9,7 @@ To get the list of available MongoDB Database resources, make a [list](/docs/man
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}/databases/{databaseName}
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/databases/{databaseName}
 ```
  
 ## Path parameters {#path_params}

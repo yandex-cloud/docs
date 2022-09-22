@@ -147,6 +147,15 @@ config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br>
 resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
+### Resources {#Resources}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
 ### Mongodb4_0 {#Mongodb4_0}
 
 Field | Description
@@ -162,7 +171,7 @@ mongoinfra | **[MongoInfra](#MongoInfra1)**<br>Configuration and resource alloca
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg1}
@@ -170,7 +179,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos1}
@@ -178,7 +187,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra1}
@@ -187,7 +196,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_2 {#Mongodb4_2}
@@ -205,7 +214,7 @@ mongoinfra | **[MongoInfra](#MongoInfra2)**<br>Configuration and resource alloca
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg2}
@@ -213,7 +222,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos2}
@@ -221,7 +230,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra2}
@@ -230,7 +239,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4 {#Mongodb4_4}
@@ -248,7 +257,7 @@ mongoinfra | **[MongoInfra](#MongoInfra3)**<br>Configuration and resource alloca
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg3}
@@ -256,7 +265,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos3}
@@ -264,7 +273,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra3}
@@ -273,7 +282,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0 {#Mongodb5_0}
@@ -291,7 +300,7 @@ mongoinfra | **[MongoInfra](#MongoInfra4)**<br>Configuration and resource alloca
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg4}
@@ -299,7 +308,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos4}
@@ -307,7 +316,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra4}
@@ -316,7 +325,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0](#MongosConfigSet5_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0](#MongoCfgConfigSet5_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0 {#Mongodb6_0}
@@ -334,7 +343,7 @@ mongoinfra | **[MongoInfra](#MongoInfra5)**<br>Configuration and resource alloca
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg5}
@@ -342,7 +351,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos5}
@@ -350,7 +359,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra5}
@@ -359,7 +368,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0](#MongosConfigSet6_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0](#MongoCfgConfigSet6_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4_enterprise {#Mongodb4_4_enterprise}
@@ -377,7 +386,7 @@ mongoinfra | **[MongoInfra](#MongoInfra6)**<br>Configuration and resource alloca
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4_enterprise`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg6}
@@ -385,7 +394,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4_enterprise`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos6}
@@ -393,7 +402,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4_enterprise`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra6}
@@ -402,7 +411,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4_enterprise](#MongosConfigSet4_4_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4_enterprise](#MongoCfgConfigSet4_4_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0_enterprise {#Mongodb5_0_enterprise}
@@ -420,7 +429,7 @@ mongoinfra | **[MongoInfra](#MongoInfra7)**<br>Configuration and resource alloca
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0_enterprise`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg7}
@@ -428,7 +437,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0_enterprise`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos7}
@@ -436,7 +445,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0_enterprise`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra7}
@@ -445,7 +454,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0_enterprise](#MongosConfigSet5_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0_enterprise](#MongoCfgConfigSet5_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0_enterprise {#Mongodb6_0_enterprise}
@@ -463,7 +472,7 @@ mongoinfra | **[MongoInfra](#MongoInfra8)**<br>Configuration and resource alloca
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0_enterprise`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg8}
@@ -471,7 +480,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0_enterprise`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos8}
@@ -479,7 +488,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0_enterprise`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra8}
@@ -488,7 +497,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0_enterprise](#MongosConfigSet6_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0_enterprise](#MongoCfgConfigSet6_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig}
@@ -628,7 +637,7 @@ mongoinfra | **[MongoInfra](#MongoInfra9)**<br>Configuration and resource alloca
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to MongoDB hosts. 
 
 
 ### MongoCfg {#MongoCfg9}
@@ -636,7 +645,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet3_6`**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos9}
@@ -644,7 +653,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet3_6`**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra9}
@@ -653,7 +662,16 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Resources {#Resources1}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Mongodb4_0 {#Mongodb4_01}
@@ -671,7 +689,7 @@ mongoinfra | **[MongoInfra](#MongoInfra10)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg10}
@@ -679,7 +697,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos10}
@@ -687,7 +705,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra10}
@@ -696,7 +714,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_2 {#Mongodb4_21}
@@ -714,7 +732,7 @@ mongoinfra | **[MongoInfra](#MongoInfra11)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg11}
@@ -722,7 +740,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos11}
@@ -730,7 +748,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra11}
@@ -739,7 +757,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4 {#Mongodb4_41}
@@ -757,7 +775,7 @@ mongoinfra | **[MongoInfra](#MongoInfra12)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg12}
@@ -765,7 +783,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos12}
@@ -773,7 +791,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra12}
@@ -782,7 +800,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0 {#Mongodb5_01}
@@ -800,7 +818,7 @@ mongoinfra | **[MongoInfra](#MongoInfra13)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg13}
@@ -808,7 +826,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos13}
@@ -816,7 +834,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra13}
@@ -825,7 +843,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0](#MongosConfigSet5_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0](#MongoCfgConfigSet5_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0 {#Mongodb6_01}
@@ -843,7 +861,7 @@ mongoinfra | **[MongoInfra](#MongoInfra14)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg14}
@@ -851,7 +869,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos14}
@@ -859,7 +877,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra14}
@@ -868,7 +886,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0](#MongosConfigSet6_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0](#MongoCfgConfigSet6_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4_enterprise {#Mongodb4_4_enterprise1}
@@ -886,7 +904,7 @@ mongoinfra | **[MongoInfra](#MongoInfra15)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4_enterprise`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg15}
@@ -894,7 +912,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4_enterprise`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos15}
@@ -902,7 +920,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4_enterprise`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra15}
@@ -911,7 +929,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4_enterprise](#MongosConfigSet4_4_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4_enterprise](#MongoCfgConfigSet4_4_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0_enterprise {#Mongodb5_0_enterprise1}
@@ -929,7 +947,7 @@ mongoinfra | **[MongoInfra](#MongoInfra16)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0_enterprise`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg16}
@@ -937,7 +955,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0_enterprise`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos16}
@@ -945,7 +963,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0_enterprise`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra16}
@@ -954,7 +972,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0_enterprise](#MongosConfigSet5_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0_enterprise](#MongoCfgConfigSet5_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0_enterprise {#Mongodb6_0_enterprise1}
@@ -972,7 +990,7 @@ mongoinfra | **[MongoInfra](#MongoInfra17)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0_enterprise`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg17}
@@ -980,7 +998,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0_enterprise`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos17}
@@ -988,7 +1006,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0_enterprise`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra17}
@@ -997,7 +1015,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0_enterprise](#MongosConfigSet6_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0_enterprise](#MongoCfgConfigSet6_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig1}
@@ -1109,7 +1127,7 @@ mongoinfra | **[MongoInfra](#MongoInfra18)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig3_6`**<br>Configuration for mongod 3.6 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg18}
@@ -1117,7 +1135,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig3_6`**<br>Configuration for mongocfg 3.6 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos18}
@@ -1125,7 +1143,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig3_6`**<br>Configuration for mongos 3.6 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra18}
@@ -1134,7 +1152,16 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig3_6](#MongosConfig3_6)**<br>Configuration for mongoinfra 3.6 hosts. 
 config_mongocfg | **[config.MongoCfgConfig3_6](#MongoCfgConfig3_6)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+
+
+### Resources {#Resources2}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### MongodbSpec4_0 {#MongodbSpec4_0}
@@ -1152,7 +1179,7 @@ mongoinfra | **[MongoInfra](#MongoInfra19)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_0`**<br>Configuration for mongod 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg19}
@@ -1160,7 +1187,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_0`**<br>Configuration for mongocfg 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos19}
@@ -1168,7 +1195,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_0`**<br>Configuration for mongos 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra19}
@@ -1177,7 +1204,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_0](#MongosConfig4_0)**<br>Configuration for mongoinfra 4.0 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_0](#MongoCfgConfig4_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec4_2 {#MongodbSpec4_2}
@@ -1195,7 +1222,7 @@ mongoinfra | **[MongoInfra](#MongoInfra20)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_2`**<br>Configuration for mongod 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg20}
@@ -1203,7 +1230,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_2`**<br>Configuration for mongocfg 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos20}
@@ -1211,7 +1238,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_2`**<br>Configuration for mongos 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra20}
@@ -1220,7 +1247,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_2](#MongosConfig4_2)**<br>Configuration for mongoinfra 4.2 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_2](#MongoCfgConfig4_2)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec4_4 {#MongodbSpec4_4}
@@ -1238,7 +1265,7 @@ mongoinfra | **[MongoInfra](#MongoInfra21)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_4`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg21}
@@ -1246,7 +1273,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_4`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos21}
@@ -1254,7 +1281,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_4`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra21}
@@ -1263,7 +1290,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_4](#MongosConfig4_4)**<br>Configuration for mongoinfra 4.4 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_4](#MongoCfgConfig4_4)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec5_0 {#MongodbSpec5_0}
@@ -1281,7 +1308,7 @@ mongoinfra | **[MongoInfra](#MongoInfra22)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig5_0`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg22}
@@ -1289,7 +1316,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig5_0`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos22}
@@ -1297,7 +1324,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig5_0`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra22}
@@ -1306,7 +1333,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig5_0](#MongosConfig5_0)**<br>Configuration for mongoinfra 5.0 hosts. 
 config_mongocfg | **[config.MongoCfgConfig5_0](#MongoCfgConfig5_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec6_0 {#MongodbSpec6_0}
@@ -1324,7 +1351,7 @@ mongoinfra | **[MongoInfra](#MongoInfra23)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig6_0`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg23}
@@ -1332,7 +1359,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig6_0`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos23}
@@ -1340,7 +1367,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig6_0`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra23}
@@ -1349,7 +1376,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig6_0](#MongosConfig6_0)**<br>Configuration for mongoinfra 6.0 hosts. 
 config_mongocfg | **[config.MongoCfgConfig6_0](#MongoCfgConfig6_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec4_4_enterprise {#MongodbSpec4_4_enterprise}
@@ -1367,7 +1394,7 @@ mongoinfra | **[MongoInfra](#MongoInfra24)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_4_enterprise`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg24}
@@ -1375,7 +1402,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_4_enterprise`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos24}
@@ -1383,7 +1410,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_4_enterprise`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra24}
@@ -1392,7 +1419,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_4_enterprise](#MongosConfig4_4_enterprise)**<br>Configuration for mongoinfra 4.4 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_4_enterprise](#MongoCfgConfig4_4_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec5_0_enterprise {#MongodbSpec5_0_enterprise}
@@ -1410,7 +1437,7 @@ mongoinfra | **[MongoInfra](#MongoInfra25)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig5_0_enterprise`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg25}
@@ -1418,7 +1445,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig5_0_enterprise`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos25}
@@ -1426,7 +1453,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig5_0_enterprise`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra25}
@@ -1435,7 +1462,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig5_0_enterprise](#MongosConfig5_0_enterprise)**<br>Configuration for mongoinfra 5.0 hosts. 
 config_mongocfg | **[config.MongoCfgConfig5_0_enterprise](#MongoCfgConfig5_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec6_0_enterprise {#MongodbSpec6_0_enterprise}
@@ -1453,7 +1480,7 @@ mongoinfra | **[MongoInfra](#MongoInfra26)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig6_0_enterprise`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg26}
@@ -1461,7 +1488,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig6_0_enterprise`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos26}
@@ -1469,7 +1496,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig6_0_enterprise`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra26}
@@ -1478,7 +1505,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig6_0_enterprise](#MongosConfig6_0_enterprise)**<br>Configuration for mongoinfra 6.0 hosts. 
 config_mongocfg | **[config.MongoCfgConfig6_0_enterprise](#MongoCfgConfig6_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig2}
@@ -1623,7 +1650,7 @@ mongoinfra | **[MongoInfra](#MongoInfra27)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to MongoDB hosts. 
 
 
 ### MongoCfg {#MongoCfg27}
@@ -1631,7 +1658,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet3_6`**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos27}
@@ -1639,7 +1666,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet3_6`**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra27}
@@ -1648,7 +1675,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_0 {#Mongodb4_02}
@@ -1666,7 +1693,7 @@ mongoinfra | **[MongoInfra](#MongoInfra28)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg28}
@@ -1674,7 +1701,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos28}
@@ -1682,7 +1709,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra28}
@@ -1691,7 +1718,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_2 {#Mongodb4_22}
@@ -1709,7 +1736,7 @@ mongoinfra | **[MongoInfra](#MongoInfra29)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg29}
@@ -1717,7 +1744,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos29}
@@ -1725,7 +1752,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra29}
@@ -1734,7 +1761,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4 {#Mongodb4_42}
@@ -1752,7 +1779,7 @@ mongoinfra | **[MongoInfra](#MongoInfra30)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg30}
@@ -1760,7 +1787,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos30}
@@ -1768,7 +1795,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra30}
@@ -1777,7 +1804,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0 {#Mongodb5_02}
@@ -1795,7 +1822,7 @@ mongoinfra | **[MongoInfra](#MongoInfra31)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg31}
@@ -1803,7 +1830,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos31}
@@ -1811,7 +1838,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra31}
@@ -1820,7 +1847,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0](#MongosConfigSet5_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0](#MongoCfgConfigSet5_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0 {#Mongodb6_02}
@@ -1838,7 +1865,7 @@ mongoinfra | **[MongoInfra](#MongoInfra32)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg32}
@@ -1846,7 +1873,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos32}
@@ -1854,7 +1881,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra32}
@@ -1863,7 +1890,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0](#MongosConfigSet6_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0](#MongoCfgConfigSet6_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4_enterprise {#Mongodb4_4_enterprise2}
@@ -1881,7 +1908,7 @@ mongoinfra | **[MongoInfra](#MongoInfra33)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4_enterprise`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg33}
@@ -1889,7 +1916,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4_enterprise`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos33}
@@ -1897,7 +1924,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4_enterprise`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra33}
@@ -1906,7 +1933,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4_enterprise](#MongosConfigSet4_4_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4_enterprise](#MongoCfgConfigSet4_4_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0_enterprise {#Mongodb5_0_enterprise2}
@@ -1924,7 +1951,7 @@ mongoinfra | **[MongoInfra](#MongoInfra34)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0_enterprise`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg34}
@@ -1932,7 +1959,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0_enterprise`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos34}
@@ -1940,7 +1967,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0_enterprise`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra34}
@@ -1949,7 +1976,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0_enterprise](#MongosConfigSet5_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0_enterprise](#MongoCfgConfigSet5_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0_enterprise {#Mongodb6_0_enterprise2}
@@ -1967,7 +1994,7 @@ mongoinfra | **[MongoInfra](#MongoInfra35)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0_enterprise`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg35}
@@ -1975,7 +2002,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0_enterprise`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos35}
@@ -1983,7 +2010,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0_enterprise`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra35}
@@ -1992,22 +2019,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0_enterprise](#MongosConfigSet6_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0_enterprise](#MongoCfgConfigSet6_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
-
-
-### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig3}
-
-Field | Description
---- | ---
-profiling_enabled | **bool**<br> 
-
-
-### Access {#Access3}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allow access for DataLens. 
-data_transfer | **bool**<br>Allow access for DataTransfer. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow2}
@@ -2082,8 +2094,8 @@ mongodb_spec | **oneof:** `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_
 &nbsp;&nbsp;mongodb_spec_6_0_enterprise | **[MongodbSpec6_0_enterprise](#MongodbSpec6_0_enterprise)**<br>Configuration and resource allocation for a MongoDB 6.0 Enterprise cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days Acceptable values are 7 to 35, inclusive.
-performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig4)**<br>Performance Diagnosics configuration 
-access | **[Access](#Access4)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig3)**<br>Performance Diagnosics configuration 
+access | **[Access](#Access3)**<br>Access policy to DB 
 
 
 ### MongodbSpec3_6 {#MongodbSpec3_61}
@@ -2101,7 +2113,7 @@ mongoinfra | **[MongoInfra](#MongoInfra36)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig3_6`**<br>Configuration for mongod 3.6 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg36}
@@ -2109,7 +2121,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig3_6`**<br>Configuration for mongocfg 3.6 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos36}
@@ -2117,7 +2129,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig3_6`**<br>Configuration for mongos 3.6 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra36}
@@ -2126,7 +2138,16 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig3_6](#MongosConfig3_6)**<br>Configuration for mongoinfra 3.6 hosts. 
 config_mongocfg | **[config.MongoCfgConfig3_6](#MongoCfgConfig3_6)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+
+
+### Resources {#Resources3}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### MongodbSpec4_0 {#MongodbSpec4_01}
@@ -2144,7 +2165,7 @@ mongoinfra | **[MongoInfra](#MongoInfra37)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_0`**<br>Configuration for mongod 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg37}
@@ -2152,7 +2173,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_0`**<br>Configuration for mongocfg 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos37}
@@ -2160,7 +2181,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_0`**<br>Configuration for mongos 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra37}
@@ -2169,7 +2190,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_0](#MongosConfig4_0)**<br>Configuration for mongoinfra 4.0 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_0](#MongoCfgConfig4_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec4_2 {#MongodbSpec4_21}
@@ -2187,7 +2208,7 @@ mongoinfra | **[MongoInfra](#MongoInfra38)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_2`**<br>Configuration for mongod 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg38}
@@ -2195,7 +2216,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_2`**<br>Configuration for mongocfg 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos38}
@@ -2203,7 +2224,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_2`**<br>Configuration for mongos 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra38}
@@ -2212,7 +2233,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_2](#MongosConfig4_2)**<br>Configuration for mongoinfra 4.2 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_2](#MongoCfgConfig4_2)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec4_4 {#MongodbSpec4_41}
@@ -2230,7 +2251,7 @@ mongoinfra | **[MongoInfra](#MongoInfra39)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_4`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg39}
@@ -2238,7 +2259,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_4`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos39}
@@ -2246,7 +2267,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_4`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra39}
@@ -2255,7 +2276,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_4](#MongosConfig4_4)**<br>Configuration for mongoinfra 4.4 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_4](#MongoCfgConfig4_4)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec5_0 {#MongodbSpec5_01}
@@ -2273,7 +2294,7 @@ mongoinfra | **[MongoInfra](#MongoInfra40)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig5_0`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg40}
@@ -2281,7 +2302,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig5_0`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos40}
@@ -2289,7 +2310,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig5_0`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra40}
@@ -2298,7 +2319,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig5_0](#MongosConfig5_0)**<br>Configuration for mongoinfra 5.0 hosts. 
 config_mongocfg | **[config.MongoCfgConfig5_0](#MongoCfgConfig5_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec6_0 {#MongodbSpec6_01}
@@ -2316,7 +2337,7 @@ mongoinfra | **[MongoInfra](#MongoInfra41)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig6_0`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg41}
@@ -2324,7 +2345,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig6_0`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos41}
@@ -2332,7 +2353,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig6_0`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra41}
@@ -2341,7 +2362,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig6_0](#MongosConfig6_0)**<br>Configuration for mongoinfra 6.0 hosts. 
 config_mongocfg | **[config.MongoCfgConfig6_0](#MongoCfgConfig6_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec4_4_enterprise {#MongodbSpec4_4_enterprise1}
@@ -2359,7 +2380,7 @@ mongoinfra | **[MongoInfra](#MongoInfra42)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_4_enterprise`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg42}
@@ -2367,7 +2388,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_4_enterprise`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos42}
@@ -2375,7 +2396,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_4_enterprise`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra42}
@@ -2384,7 +2405,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_4_enterprise](#MongosConfig4_4_enterprise)**<br>Configuration for mongoinfra 4.4 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_4_enterprise](#MongoCfgConfig4_4_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec5_0_enterprise {#MongodbSpec5_0_enterprise1}
@@ -2402,7 +2423,7 @@ mongoinfra | **[MongoInfra](#MongoInfra43)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig5_0_enterprise`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg43}
@@ -2410,7 +2431,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig5_0_enterprise`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos43}
@@ -2418,7 +2439,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig5_0_enterprise`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra43}
@@ -2427,7 +2448,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig5_0_enterprise](#MongosConfig5_0_enterprise)**<br>Configuration for mongoinfra 5.0 hosts. 
 config_mongocfg | **[config.MongoCfgConfig5_0_enterprise](#MongoCfgConfig5_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec6_0_enterprise {#MongodbSpec6_0_enterprise1}
@@ -2445,7 +2466,7 @@ mongoinfra | **[MongoInfra](#MongoInfra44)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig6_0_enterprise`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg44}
@@ -2453,7 +2474,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig6_0_enterprise`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos44}
@@ -2461,7 +2482,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig6_0_enterprise`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra44}
@@ -2470,17 +2491,17 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig6_0_enterprise](#MongosConfig6_0_enterprise)**<br>Configuration for mongoinfra 6.0 hosts. 
 config_mongocfg | **[config.MongoCfgConfig6_0_enterprise](#MongoCfgConfig6_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
-### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig4}
+### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig3}
 
 Field | Description
 --- | ---
 profiling_enabled | **bool**<br> 
 
 
-### Access {#Access4}
+### Access {#Access3}
 
 Field | Description
 --- | ---
@@ -2582,8 +2603,8 @@ mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`,
 &nbsp;&nbsp;mongodb_6_0_enterprise | **[Mongodb6_0_enterprise](#Mongodb6_0_enterprise3)**<br>Configuration and resource allocation for a MongoDB 6.0 Enterprise cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
-performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig5)**<br>Performance Diagnostic 
-access | **[Access](#Access5)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig4)**<br>Performance Diagnostic 
+access | **[Access](#Access4)**<br>Access policy to DB 
 
 
 ### Mongodb3_6 {#Mongodb3_63}
@@ -2601,7 +2622,7 @@ mongoinfra | **[MongoInfra](#MongoInfra45)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to MongoDB hosts. 
 
 
 ### MongoCfg {#MongoCfg45}
@@ -2609,7 +2630,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet3_6`**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos45}
@@ -2617,7 +2638,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet3_6`**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra45}
@@ -2626,7 +2647,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_0 {#Mongodb4_03}
@@ -2644,7 +2665,7 @@ mongoinfra | **[MongoInfra](#MongoInfra46)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg46}
@@ -2652,7 +2673,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos46}
@@ -2660,7 +2681,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra46}
@@ -2669,7 +2690,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_2 {#Mongodb4_23}
@@ -2687,7 +2708,7 @@ mongoinfra | **[MongoInfra](#MongoInfra47)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg47}
@@ -2695,7 +2716,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos47}
@@ -2703,7 +2724,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra47}
@@ -2712,7 +2733,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4 {#Mongodb4_43}
@@ -2730,7 +2751,7 @@ mongoinfra | **[MongoInfra](#MongoInfra48)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg48}
@@ -2738,7 +2759,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos48}
@@ -2746,7 +2767,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra48}
@@ -2755,7 +2776,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0 {#Mongodb5_03}
@@ -2773,7 +2794,7 @@ mongoinfra | **[MongoInfra](#MongoInfra49)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg49}
@@ -2781,7 +2802,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos49}
@@ -2789,7 +2810,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra49}
@@ -2798,7 +2819,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0](#MongosConfigSet5_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0](#MongoCfgConfigSet5_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0 {#Mongodb6_03}
@@ -2816,7 +2837,7 @@ mongoinfra | **[MongoInfra](#MongoInfra50)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg50}
@@ -2824,7 +2845,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos50}
@@ -2832,7 +2853,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra50}
@@ -2841,7 +2862,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0](#MongosConfigSet6_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0](#MongoCfgConfigSet6_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4_enterprise {#Mongodb4_4_enterprise3}
@@ -2859,7 +2880,7 @@ mongoinfra | **[MongoInfra](#MongoInfra51)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4_enterprise`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg51}
@@ -2867,7 +2888,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4_enterprise`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos51}
@@ -2875,7 +2896,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4_enterprise`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra51}
@@ -2884,7 +2905,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4_enterprise](#MongosConfigSet4_4_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4_enterprise](#MongoCfgConfigSet4_4_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0_enterprise {#Mongodb5_0_enterprise3}
@@ -2902,7 +2923,7 @@ mongoinfra | **[MongoInfra](#MongoInfra52)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0_enterprise`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg52}
@@ -2910,7 +2931,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0_enterprise`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos52}
@@ -2918,7 +2939,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0_enterprise`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra52}
@@ -2927,7 +2948,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0_enterprise](#MongosConfigSet5_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0_enterprise](#MongoCfgConfigSet5_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0_enterprise {#Mongodb6_0_enterprise3}
@@ -2945,7 +2966,7 @@ mongoinfra | **[MongoInfra](#MongoInfra53)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0_enterprise`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg53}
@@ -2953,7 +2974,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0_enterprise`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos53}
@@ -2961,7 +2982,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0_enterprise`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra53}
@@ -2970,43 +2991,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0_enterprise](#MongosConfigSet6_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0_enterprise](#MongoCfgConfigSet6_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
-
-
-### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig5}
-
-Field | Description
---- | ---
-profiling_enabled | **bool**<br> 
-
-
-### Access {#Access5}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allow access for DataLens. 
-data_transfer | **bool**<br>Allow access for DataTransfer. 
-
-
-### MaintenanceWindow {#MaintenanceWindow4}
-
-Field | Description
---- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br>Maintenance operation can be scheduled on a weekly basis. 
-
-
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
-
-
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
-
-Field | Description
---- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
-hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### MaintenanceOperation {#MaintenanceOperation3}
@@ -3114,7 +3099,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -3147,8 +3132,8 @@ mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`,
 &nbsp;&nbsp;mongodb_6_0_enterprise | **[Mongodb6_0_enterprise](#Mongodb6_0_enterprise4)**<br>Configuration and resource allocation for a MongoDB 6.0 Enterprise cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
-performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig6)**<br>Performance Diagnostic 
-access | **[Access](#Access6)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig4)**<br>Performance Diagnostic 
+access | **[Access](#Access4)**<br>Access policy to DB 
 
 
 ### Mongodb3_6 {#Mongodb3_64}
@@ -3166,7 +3151,7 @@ mongoinfra | **[MongoInfra](#MongoInfra54)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to MongoDB hosts. 
 
 
 ### MongoCfg {#MongoCfg54}
@@ -3174,7 +3159,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet3_6`**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos54}
@@ -3182,7 +3167,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet3_6`**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra54}
@@ -3191,7 +3176,16 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Resources {#Resources4}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Mongodb4_0 {#Mongodb4_04}
@@ -3209,7 +3203,7 @@ mongoinfra | **[MongoInfra](#MongoInfra55)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg55}
@@ -3217,7 +3211,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos55}
@@ -3225,7 +3219,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra55}
@@ -3234,7 +3228,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_2 {#Mongodb4_24}
@@ -3252,7 +3246,7 @@ mongoinfra | **[MongoInfra](#MongoInfra56)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg56}
@@ -3260,7 +3254,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos56}
@@ -3268,7 +3262,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra56}
@@ -3277,7 +3271,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4 {#Mongodb4_44}
@@ -3295,7 +3289,7 @@ mongoinfra | **[MongoInfra](#MongoInfra57)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg57}
@@ -3303,7 +3297,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos57}
@@ -3311,7 +3305,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra57}
@@ -3320,7 +3314,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0 {#Mongodb5_04}
@@ -3338,7 +3332,7 @@ mongoinfra | **[MongoInfra](#MongoInfra58)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg58}
@@ -3346,7 +3340,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos58}
@@ -3354,7 +3348,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra58}
@@ -3363,7 +3357,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0](#MongosConfigSet5_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0](#MongoCfgConfigSet5_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0 {#Mongodb6_04}
@@ -3381,7 +3375,7 @@ mongoinfra | **[MongoInfra](#MongoInfra59)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg59}
@@ -3389,7 +3383,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos59}
@@ -3397,7 +3391,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra59}
@@ -3406,7 +3400,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0](#MongosConfigSet6_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0](#MongoCfgConfigSet6_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4_enterprise {#Mongodb4_4_enterprise4}
@@ -3424,7 +3418,7 @@ mongoinfra | **[MongoInfra](#MongoInfra60)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4_enterprise`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg60}
@@ -3432,7 +3426,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4_enterprise`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos60}
@@ -3440,7 +3434,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4_enterprise`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra60}
@@ -3449,7 +3443,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4_enterprise](#MongosConfigSet4_4_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4_enterprise](#MongoCfgConfigSet4_4_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0_enterprise {#Mongodb5_0_enterprise4}
@@ -3467,7 +3461,7 @@ mongoinfra | **[MongoInfra](#MongoInfra61)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0_enterprise`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg61}
@@ -3475,7 +3469,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0_enterprise`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos61}
@@ -3483,7 +3477,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0_enterprise`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra61}
@@ -3492,7 +3486,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0_enterprise](#MongosConfigSet5_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0_enterprise](#MongoCfgConfigSet5_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0_enterprise {#Mongodb6_0_enterprise4}
@@ -3510,7 +3504,7 @@ mongoinfra | **[MongoInfra](#MongoInfra62)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0_enterprise`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg62}
@@ -3518,7 +3512,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0_enterprise`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos62}
@@ -3526,7 +3520,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0_enterprise`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra62}
@@ -3535,17 +3529,17 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0_enterprise](#MongosConfigSet6_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0_enterprise](#MongoCfgConfigSet6_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
-### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig6}
+### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig4}
 
 Field | Description
 --- | ---
 profiling_enabled | **bool**<br> 
 
 
-### Access {#Access6}
+### Access {#Access4}
 
 Field | Description
 --- | ---
@@ -3553,20 +3547,20 @@ data_lens | **bool**<br>Allow access for DataLens.
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### MaintenanceWindow {#MaintenanceWindow5}
+### MaintenanceWindow {#MaintenanceWindow4}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
 
 Field | Description
 --- | ---
@@ -3639,7 +3633,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -3672,8 +3666,8 @@ mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`,
 &nbsp;&nbsp;mongodb_6_0_enterprise | **[Mongodb6_0_enterprise](#Mongodb6_0_enterprise5)**<br>Configuration and resource allocation for a MongoDB 6.0 Enterprise cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
-performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig7)**<br>Performance Diagnostic 
-access | **[Access](#Access7)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig5)**<br>Performance Diagnostic 
+access | **[Access](#Access5)**<br>Access policy to DB 
 
 
 ### Mongodb3_6 {#Mongodb3_65}
@@ -3691,7 +3685,7 @@ mongoinfra | **[MongoInfra](#MongoInfra63)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to MongoDB hosts. 
 
 
 ### MongoCfg {#MongoCfg63}
@@ -3699,7 +3693,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet3_6`**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos63}
@@ -3707,7 +3701,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet3_6`**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra63}
@@ -3716,7 +3710,16 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Resources {#Resources5}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Mongodb4_0 {#Mongodb4_05}
@@ -3734,7 +3737,7 @@ mongoinfra | **[MongoInfra](#MongoInfra64)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg64}
@@ -3742,7 +3745,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos64}
@@ -3750,7 +3753,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra64}
@@ -3759,7 +3762,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_2 {#Mongodb4_25}
@@ -3777,7 +3780,7 @@ mongoinfra | **[MongoInfra](#MongoInfra65)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg65}
@@ -3785,7 +3788,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos65}
@@ -3793,7 +3796,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra65}
@@ -3802,7 +3805,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4 {#Mongodb4_45}
@@ -3820,7 +3823,7 @@ mongoinfra | **[MongoInfra](#MongoInfra66)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg66}
@@ -3828,7 +3831,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos66}
@@ -3836,7 +3839,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra66}
@@ -3845,7 +3848,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0 {#Mongodb5_05}
@@ -3863,7 +3866,7 @@ mongoinfra | **[MongoInfra](#MongoInfra67)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg67}
@@ -3871,7 +3874,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos67}
@@ -3879,7 +3882,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra67}
@@ -3888,7 +3891,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0](#MongosConfigSet5_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0](#MongoCfgConfigSet5_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0 {#Mongodb6_05}
@@ -3906,7 +3909,7 @@ mongoinfra | **[MongoInfra](#MongoInfra68)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg68}
@@ -3914,7 +3917,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos68}
@@ -3922,7 +3925,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra68}
@@ -3931,7 +3934,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0](#MongosConfigSet6_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0](#MongoCfgConfigSet6_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4_enterprise {#Mongodb4_4_enterprise5}
@@ -3949,7 +3952,7 @@ mongoinfra | **[MongoInfra](#MongoInfra69)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4_enterprise`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg69}
@@ -3957,7 +3960,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4_enterprise`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos69}
@@ -3965,7 +3968,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4_enterprise`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra69}
@@ -3974,7 +3977,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4_enterprise](#MongosConfigSet4_4_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4_enterprise](#MongoCfgConfigSet4_4_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0_enterprise {#Mongodb5_0_enterprise5}
@@ -3992,7 +3995,7 @@ mongoinfra | **[MongoInfra](#MongoInfra70)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0_enterprise`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg70}
@@ -4000,7 +4003,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0_enterprise`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos70}
@@ -4008,7 +4011,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0_enterprise`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra70}
@@ -4017,7 +4020,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0_enterprise](#MongosConfigSet5_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0_enterprise](#MongoCfgConfigSet5_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0_enterprise {#Mongodb6_0_enterprise5}
@@ -4035,7 +4038,7 @@ mongoinfra | **[MongoInfra](#MongoInfra71)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0_enterprise`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg71}
@@ -4043,7 +4046,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0_enterprise`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos71}
@@ -4051,7 +4054,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0_enterprise`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra71}
@@ -4060,17 +4063,17 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0_enterprise](#MongosConfigSet6_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0_enterprise](#MongoCfgConfigSet6_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
-### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig7}
+### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig5}
 
 Field | Description
 --- | ---
 profiling_enabled | **bool**<br> 
 
 
-### Access {#Access7}
+### Access {#Access5}
 
 Field | Description
 --- | ---
@@ -4078,20 +4081,20 @@ data_lens | **bool**<br>Allow access for DataLens.
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### MaintenanceWindow {#MaintenanceWindow6}
+### MaintenanceWindow {#MaintenanceWindow5}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
 
 Field | Description
 --- | ---
@@ -4167,7 +4170,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -4200,8 +4203,8 @@ mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`,
 &nbsp;&nbsp;mongodb_6_0_enterprise | **[Mongodb6_0_enterprise](#Mongodb6_0_enterprise6)**<br>Configuration and resource allocation for a MongoDB 6.0 Enterprise cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
-performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig8)**<br>Performance Diagnostic 
-access | **[Access](#Access8)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig6)**<br>Performance Diagnostic 
+access | **[Access](#Access6)**<br>Access policy to DB 
 
 
 ### Mongodb3_6 {#Mongodb3_66}
@@ -4219,7 +4222,7 @@ mongoinfra | **[MongoInfra](#MongoInfra72)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to MongoDB hosts. 
 
 
 ### MongoCfg {#MongoCfg72}
@@ -4227,7 +4230,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet3_6`**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos72}
@@ -4235,7 +4238,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet3_6`**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra72}
@@ -4244,7 +4247,16 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Resources {#Resources6}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Mongodb4_0 {#Mongodb4_06}
@@ -4262,7 +4274,7 @@ mongoinfra | **[MongoInfra](#MongoInfra73)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg73}
@@ -4270,7 +4282,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos73}
@@ -4278,7 +4290,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra73}
@@ -4287,7 +4299,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_2 {#Mongodb4_26}
@@ -4305,7 +4317,7 @@ mongoinfra | **[MongoInfra](#MongoInfra74)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg74}
@@ -4313,7 +4325,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos74}
@@ -4321,7 +4333,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra74}
@@ -4330,7 +4342,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4 {#Mongodb4_46}
@@ -4348,7 +4360,7 @@ mongoinfra | **[MongoInfra](#MongoInfra75)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg75}
@@ -4356,7 +4368,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos75}
@@ -4364,7 +4376,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra75}
@@ -4373,7 +4385,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0 {#Mongodb5_06}
@@ -4391,7 +4403,7 @@ mongoinfra | **[MongoInfra](#MongoInfra76)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg76}
@@ -4399,7 +4411,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos76}
@@ -4407,7 +4419,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra76}
@@ -4416,7 +4428,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0](#MongosConfigSet5_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0](#MongoCfgConfigSet5_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0 {#Mongodb6_06}
@@ -4434,7 +4446,7 @@ mongoinfra | **[MongoInfra](#MongoInfra77)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg77}
@@ -4442,7 +4454,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos77}
@@ -4450,7 +4462,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra77}
@@ -4459,7 +4471,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0](#MongosConfigSet6_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0](#MongoCfgConfigSet6_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4_enterprise {#Mongodb4_4_enterprise6}
@@ -4477,7 +4489,7 @@ mongoinfra | **[MongoInfra](#MongoInfra78)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4_enterprise`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg78}
@@ -4485,7 +4497,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4_enterprise`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos78}
@@ -4493,7 +4505,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4_enterprise`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra78}
@@ -4502,7 +4514,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4_enterprise](#MongosConfigSet4_4_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4_enterprise](#MongoCfgConfigSet4_4_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0_enterprise {#Mongodb5_0_enterprise6}
@@ -4520,7 +4532,7 @@ mongoinfra | **[MongoInfra](#MongoInfra79)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0_enterprise`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg79}
@@ -4528,7 +4540,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0_enterprise`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos79}
@@ -4536,7 +4548,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0_enterprise`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra79}
@@ -4545,7 +4557,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0_enterprise](#MongosConfigSet5_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0_enterprise](#MongoCfgConfigSet5_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0_enterprise {#Mongodb6_0_enterprise6}
@@ -4563,7 +4575,7 @@ mongoinfra | **[MongoInfra](#MongoInfra80)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0_enterprise`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg80}
@@ -4571,7 +4583,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0_enterprise`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos80}
@@ -4579,7 +4591,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0_enterprise`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra80}
@@ -4588,17 +4600,17 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0_enterprise](#MongosConfigSet6_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0_enterprise](#MongoCfgConfigSet6_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
-### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig8}
+### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig6}
 
 Field | Description
 --- | ---
 profiling_enabled | **bool**<br> 
 
 
-### Access {#Access8}
+### Access {#Access6}
 
 Field | Description
 --- | ---
@@ -4606,20 +4618,20 @@ data_lens | **bool**<br>Allow access for DataLens.
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### MaintenanceWindow {#MaintenanceWindow7}
+### MaintenanceWindow {#MaintenanceWindow6}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
 
 Field | Description
 --- | ---
@@ -4692,7 +4704,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -4725,8 +4737,8 @@ mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`,
 &nbsp;&nbsp;mongodb_6_0_enterprise | **[Mongodb6_0_enterprise](#Mongodb6_0_enterprise7)**<br>Configuration and resource allocation for a MongoDB 6.0 Enterprise cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
-performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig9)**<br>Performance Diagnostic 
-access | **[Access](#Access9)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig7)**<br>Performance Diagnostic 
+access | **[Access](#Access7)**<br>Access policy to DB 
 
 
 ### Mongodb3_6 {#Mongodb3_67}
@@ -4744,7 +4756,7 @@ mongoinfra | **[MongoInfra](#MongoInfra81)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to MongoDB hosts. 
 
 
 ### MongoCfg {#MongoCfg81}
@@ -4752,7 +4764,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet3_6`**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos81}
@@ -4760,7 +4772,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet3_6`**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra81}
@@ -4769,7 +4781,16 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Resources {#Resources7}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Mongodb4_0 {#Mongodb4_07}
@@ -4787,7 +4808,7 @@ mongoinfra | **[MongoInfra](#MongoInfra82)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg82}
@@ -4795,7 +4816,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos82}
@@ -4803,7 +4824,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra82}
@@ -4812,7 +4833,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_2 {#Mongodb4_27}
@@ -4830,7 +4851,7 @@ mongoinfra | **[MongoInfra](#MongoInfra83)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg83}
@@ -4838,7 +4859,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos83}
@@ -4846,7 +4867,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra83}
@@ -4855,7 +4876,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4 {#Mongodb4_47}
@@ -4873,7 +4894,7 @@ mongoinfra | **[MongoInfra](#MongoInfra84)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg84}
@@ -4881,7 +4902,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos84}
@@ -4889,7 +4910,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra84}
@@ -4898,7 +4919,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0 {#Mongodb5_07}
@@ -4916,7 +4937,7 @@ mongoinfra | **[MongoInfra](#MongoInfra85)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg85}
@@ -4924,7 +4945,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos85}
@@ -4932,7 +4953,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra85}
@@ -4941,7 +4962,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0](#MongosConfigSet5_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0](#MongoCfgConfigSet5_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0 {#Mongodb6_07}
@@ -4959,7 +4980,7 @@ mongoinfra | **[MongoInfra](#MongoInfra86)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg86}
@@ -4967,7 +4988,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos86}
@@ -4975,7 +4996,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra86}
@@ -4984,7 +5005,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0](#MongosConfigSet6_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0](#MongoCfgConfigSet6_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4_enterprise {#Mongodb4_4_enterprise7}
@@ -5002,7 +5023,7 @@ mongoinfra | **[MongoInfra](#MongoInfra87)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4_enterprise`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg87}
@@ -5010,7 +5031,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4_enterprise`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos87}
@@ -5018,7 +5039,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4_enterprise`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra87}
@@ -5027,7 +5048,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4_enterprise](#MongosConfigSet4_4_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4_enterprise](#MongoCfgConfigSet4_4_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0_enterprise {#Mongodb5_0_enterprise7}
@@ -5045,7 +5066,7 @@ mongoinfra | **[MongoInfra](#MongoInfra88)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0_enterprise`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg88}
@@ -5053,7 +5074,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0_enterprise`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos88}
@@ -5061,7 +5082,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0_enterprise`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra88}
@@ -5070,7 +5091,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0_enterprise](#MongosConfigSet5_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0_enterprise](#MongoCfgConfigSet5_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0_enterprise {#Mongodb6_0_enterprise7}
@@ -5088,7 +5109,7 @@ mongoinfra | **[MongoInfra](#MongoInfra89)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0_enterprise`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg89}
@@ -5096,7 +5117,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0_enterprise`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos89}
@@ -5104,7 +5125,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0_enterprise`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra89}
@@ -5113,17 +5134,17 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0_enterprise](#MongosConfigSet6_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0_enterprise](#MongoCfgConfigSet6_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
-### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig9}
+### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig7}
 
 Field | Description
 --- | ---
 profiling_enabled | **bool**<br> 
 
 
-### Access {#Access9}
+### Access {#Access7}
 
 Field | Description
 --- | ---
@@ -5131,20 +5152,20 @@ data_lens | **bool**<br>Allow access for DataLens.
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### MaintenanceWindow {#MaintenanceWindow8}
+### MaintenanceWindow {#MaintenanceWindow7}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
 
 Field | Description
 --- | ---
@@ -5213,8 +5234,8 @@ mongodb_spec | **oneof:** `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_
 &nbsp;&nbsp;mongodb_spec_6_0_enterprise | **[MongodbSpec6_0_enterprise](#MongodbSpec6_0_enterprise)**<br>Configuration and resource allocation for a MongoDB 6.0 Enterprise cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days Acceptable values are 7 to 35, inclusive.
-performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig10)**<br>Performance Diagnosics configuration 
-access | **[Access](#Access10)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig8)**<br>Performance Diagnosics configuration 
+access | **[Access](#Access8)**<br>Access policy to DB 
 
 
 ### MongodbSpec3_6 {#MongodbSpec3_62}
@@ -5232,7 +5253,7 @@ mongoinfra | **[MongoInfra](#MongoInfra90)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig3_6`**<br>Configuration for mongod 3.6 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg90}
@@ -5240,7 +5261,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig3_6`**<br>Configuration for mongocfg 3.6 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos90}
@@ -5248,7 +5269,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig3_6`**<br>Configuration for mongos 3.6 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra90}
@@ -5257,7 +5278,16 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig3_6](#MongosConfig3_6)**<br>Configuration for mongoinfra 3.6 hosts. 
 config_mongocfg | **[config.MongoCfgConfig3_6](#MongoCfgConfig3_6)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+
+
+### Resources {#Resources8}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### MongodbSpec4_0 {#MongodbSpec4_02}
@@ -5275,7 +5305,7 @@ mongoinfra | **[MongoInfra](#MongoInfra91)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_0`**<br>Configuration for mongod 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg91}
@@ -5283,7 +5313,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_0`**<br>Configuration for mongocfg 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos91}
@@ -5291,7 +5321,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_0`**<br>Configuration for mongos 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra91}
@@ -5300,7 +5330,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_0](#MongosConfig4_0)**<br>Configuration for mongoinfra 4.0 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_0](#MongoCfgConfig4_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec4_2 {#MongodbSpec4_22}
@@ -5318,7 +5348,7 @@ mongoinfra | **[MongoInfra](#MongoInfra92)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_2`**<br>Configuration for mongod 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg92}
@@ -5326,7 +5356,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_2`**<br>Configuration for mongocfg 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos92}
@@ -5334,7 +5364,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_2`**<br>Configuration for mongos 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra92}
@@ -5343,7 +5373,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_2](#MongosConfig4_2)**<br>Configuration for mongoinfra 4.2 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_2](#MongoCfgConfig4_2)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec4_4 {#MongodbSpec4_42}
@@ -5361,7 +5391,7 @@ mongoinfra | **[MongoInfra](#MongoInfra93)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_4`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg93}
@@ -5369,7 +5399,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_4`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos93}
@@ -5377,7 +5407,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_4`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra93}
@@ -5386,7 +5416,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_4](#MongosConfig4_4)**<br>Configuration for mongoinfra 4.4 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_4](#MongoCfgConfig4_4)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec5_0 {#MongodbSpec5_02}
@@ -5404,7 +5434,7 @@ mongoinfra | **[MongoInfra](#MongoInfra94)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig5_0`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg94}
@@ -5412,7 +5442,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig5_0`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos94}
@@ -5420,7 +5450,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig5_0`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra94}
@@ -5429,7 +5459,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig5_0](#MongosConfig5_0)**<br>Configuration for mongoinfra 5.0 hosts. 
 config_mongocfg | **[config.MongoCfgConfig5_0](#MongoCfgConfig5_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec6_0 {#MongodbSpec6_02}
@@ -5447,7 +5477,7 @@ mongoinfra | **[MongoInfra](#MongoInfra95)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig6_0`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg95}
@@ -5455,7 +5485,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig6_0`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos95}
@@ -5463,7 +5493,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig6_0`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra95}
@@ -5472,7 +5502,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig6_0](#MongosConfig6_0)**<br>Configuration for mongoinfra 6.0 hosts. 
 config_mongocfg | **[config.MongoCfgConfig6_0](#MongoCfgConfig6_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec4_4_enterprise {#MongodbSpec4_4_enterprise2}
@@ -5490,7 +5520,7 @@ mongoinfra | **[MongoInfra](#MongoInfra96)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig4_4_enterprise`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg96}
@@ -5498,7 +5528,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig4_4_enterprise`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos96}
@@ -5506,7 +5536,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig4_4_enterprise`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra96}
@@ -5515,7 +5545,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig4_4_enterprise](#MongosConfig4_4_enterprise)**<br>Configuration for mongoinfra 4.4 hosts. 
 config_mongocfg | **[config.MongoCfgConfig4_4_enterprise](#MongoCfgConfig4_4_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec5_0_enterprise {#MongodbSpec5_0_enterprise2}
@@ -5533,7 +5563,7 @@ mongoinfra | **[MongoInfra](#MongoInfra97)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig5_0_enterprise`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg97}
@@ -5541,7 +5571,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig5_0_enterprise`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos97}
@@ -5549,7 +5579,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig5_0_enterprise`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra97}
@@ -5558,7 +5588,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig5_0_enterprise](#MongosConfig5_0_enterprise)**<br>Configuration for mongoinfra 5.0 hosts. 
 config_mongocfg | **[config.MongoCfgConfig5_0_enterprise](#MongoCfgConfig5_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
 ### MongodbSpec6_0_enterprise {#MongodbSpec6_0_enterprise2}
@@ -5576,7 +5606,7 @@ mongoinfra | **[MongoInfra](#MongoInfra98)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfig6_0_enterprise`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongod host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongod host. 
 
 
 ### MongoCfg {#MongoCfg98}
@@ -5584,7 +5614,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongod ho
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfig6_0_enterprise`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongocfg host. 
 
 
 ### Mongos {#Mongos98}
@@ -5592,7 +5622,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongocfg 
 Field | Description
 --- | ---
 config | **`config.MongosConfig6_0_enterprise`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongos host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongos host. 
 
 
 ### MongoInfra {#MongoInfra98}
@@ -5601,17 +5631,17 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfig6_0_enterprise](#MongosConfig6_0_enterprise)**<br>Configuration for mongoinfra 6.0 hosts. 
 config_mongocfg | **[config.MongoCfgConfig6_0_enterprise](#MongoCfgConfig6_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to each mongoinfra (mongos+mongocfg) host. 
 
 
-### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig10}
+### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig8}
 
 Field | Description
 --- | ---
 profiling_enabled | **bool**<br> 
 
 
-### Access {#Access10}
+### Access {#Access8}
 
 Field | Description
 --- | ---
@@ -5671,7 +5701,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -5704,8 +5734,8 @@ mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`,
 &nbsp;&nbsp;mongodb_6_0_enterprise | **[Mongodb6_0_enterprise](#Mongodb6_0_enterprise8)**<br>Configuration and resource allocation for a MongoDB 6.0 Enterprise cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
-performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig11)**<br>Performance Diagnostic 
-access | **[Access](#Access11)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig9)**<br>Performance Diagnostic 
+access | **[Access](#Access9)**<br>Access policy to DB 
 
 
 ### Mongodb3_6 {#Mongodb3_68}
@@ -5723,7 +5753,7 @@ mongoinfra | **[MongoInfra](#MongoInfra99)**<br>Configuration and resource alloc
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to MongoDB hosts. 
 
 
 ### MongoCfg {#MongoCfg99}
@@ -5731,7 +5761,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet3_6`**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos99}
@@ -5739,7 +5769,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet3_6`**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra99}
@@ -5748,7 +5778,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_0 {#Mongodb4_08}
@@ -5766,7 +5796,7 @@ mongoinfra | **[MongoInfra](#MongoInfra100)**<br>Configuration and resource allo
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg100}
@@ -5774,7 +5804,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos100}
@@ -5782,7 +5812,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra100}
@@ -5791,7 +5821,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_2 {#Mongodb4_28}
@@ -5809,7 +5839,7 @@ mongoinfra | **[MongoInfra](#MongoInfra101)**<br>Configuration and resource allo
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg101}
@@ -5817,7 +5847,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos101}
@@ -5825,7 +5855,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra101}
@@ -5834,7 +5864,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4 {#Mongodb4_48}
@@ -5852,7 +5882,7 @@ mongoinfra | **[MongoInfra](#MongoInfra102)**<br>Configuration and resource allo
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg102}
@@ -5860,7 +5890,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos102}
@@ -5868,7 +5898,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra102}
@@ -5877,7 +5907,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0 {#Mongodb5_08}
@@ -5895,7 +5925,7 @@ mongoinfra | **[MongoInfra](#MongoInfra103)**<br>Configuration and resource allo
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg103}
@@ -5903,7 +5933,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos103}
@@ -5911,7 +5941,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra103}
@@ -5920,7 +5950,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0](#MongosConfigSet5_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0](#MongoCfgConfigSet5_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0 {#Mongodb6_08}
@@ -5938,7 +5968,7 @@ mongoinfra | **[MongoInfra](#MongoInfra104)**<br>Configuration and resource allo
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg104}
@@ -5946,7 +5976,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos104}
@@ -5954,7 +5984,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra104}
@@ -5963,7 +5993,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0](#MongosConfigSet6_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0](#MongoCfgConfigSet6_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4_enterprise {#Mongodb4_4_enterprise8}
@@ -5981,7 +6011,7 @@ mongoinfra | **[MongoInfra](#MongoInfra105)**<br>Configuration and resource allo
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4_enterprise`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg105}
@@ -5989,7 +6019,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4_enterprise`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos105}
@@ -5997,7 +6027,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4_enterprise`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra105}
@@ -6006,7 +6036,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4_enterprise](#MongosConfigSet4_4_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4_enterprise](#MongoCfgConfigSet4_4_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0_enterprise {#Mongodb5_0_enterprise8}
@@ -6024,7 +6054,7 @@ mongoinfra | **[MongoInfra](#MongoInfra106)**<br>Configuration and resource allo
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0_enterprise`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg106}
@@ -6032,7 +6062,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0_enterprise`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos106}
@@ -6040,7 +6070,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0_enterprise`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra106}
@@ -6049,7 +6079,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0_enterprise](#MongosConfigSet5_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0_enterprise](#MongoCfgConfigSet5_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0_enterprise {#Mongodb6_0_enterprise8}
@@ -6067,7 +6097,7 @@ mongoinfra | **[MongoInfra](#MongoInfra107)**<br>Configuration and resource allo
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0_enterprise`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg107}
@@ -6075,7 +6105,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0_enterprise`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos107}
@@ -6083,7 +6113,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0_enterprise`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra107}
@@ -6092,38 +6122,23 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0_enterprise](#MongosConfigSet6_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0_enterprise](#MongoCfgConfigSet6_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
-### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig11}
-
-Field | Description
---- | ---
-profiling_enabled | **bool**<br> 
-
-
-### Access {#Access11}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allow access for DataLens. 
-data_transfer | **bool**<br>Allow access for DataTransfer. 
-
-
-### MaintenanceWindow {#MaintenanceWindow9}
+### MaintenanceWindow {#MaintenanceWindow8}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
 
 Field | Description
 --- | ---
@@ -6199,7 +6214,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Indicates current sharding status of the cluster. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -6232,8 +6247,8 @@ mongodb | **oneof:** `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`,
 &nbsp;&nbsp;mongodb_6_0_enterprise | **[Mongodb6_0_enterprise](#Mongodb6_0_enterprise9)**<br>Configuration and resource allocation for a MongoDB 6.0 Enterprise cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retain period of automatically created backup in days 
-performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig12)**<br>Performance Diagnostic 
-access | **[Access](#Access12)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnosticsConfig](#PerformanceDiagnosticsConfig9)**<br>Performance Diagnostic 
+access | **[Access](#Access9)**<br>Access policy to DB 
 
 
 ### Mongodb3_6 {#Mongodb3_69}
@@ -6251,7 +6266,7 @@ mongoinfra | **[MongoInfra](#MongoInfra108)**<br>Configuration and resource allo
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet3_6`**<br>Configuration for a mongod 3.6 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to MongoDB hosts. 
 
 
 ### MongoCfg {#MongoCfg108}
@@ -6259,7 +6274,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to MongoDB hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet3_6`**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos108}
@@ -6267,7 +6282,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet3_6`**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra108}
@@ -6276,7 +6291,16 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet3_6](#MongosConfigSet3_6)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet3_6](#MongoCfgConfigSet3_6)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+
+
+### Resources {#Resources9}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Mongodb4_0 {#Mongodb4_09}
@@ -6294,7 +6318,7 @@ mongoinfra | **[MongoInfra](#MongoInfra109)**<br>Configuration and resource allo
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_0`**<br>Configuration for mongod 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg109}
@@ -6302,7 +6326,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_0`**<br>Configuration for mongocfg 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos109}
@@ -6310,7 +6334,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_0`**<br>Configuration for mongos 4.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra109}
@@ -6319,7 +6343,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_0](#MongosConfigSet4_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_0](#MongoCfgConfigSet4_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_2 {#Mongodb4_29}
@@ -6337,7 +6361,7 @@ mongoinfra | **[MongoInfra](#MongoInfra110)**<br>Configuration and resource allo
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_2`**<br>Configuration for mongod 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg110}
@@ -6345,7 +6369,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_2`**<br>Configuration for mongocfg 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos110}
@@ -6353,7 +6377,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_2`**<br>Configuration for mongos 4.2 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra110}
@@ -6362,7 +6386,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_2](#MongosConfigSet4_2)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_2](#MongoCfgConfigSet4_2)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4 {#Mongodb4_49}
@@ -6380,7 +6404,7 @@ mongoinfra | **[MongoInfra](#MongoInfra111)**<br>Configuration and resource allo
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg111}
@@ -6388,7 +6412,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos111}
@@ -6396,7 +6420,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra111}
@@ -6405,7 +6429,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4](#MongosConfigSet4_4)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4](#MongoCfgConfigSet4_4)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0 {#Mongodb5_09}
@@ -6423,7 +6447,7 @@ mongoinfra | **[MongoInfra](#MongoInfra112)**<br>Configuration and resource allo
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg112}
@@ -6431,7 +6455,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos112}
@@ -6439,7 +6463,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra112}
@@ -6448,7 +6472,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0](#MongosConfigSet5_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0](#MongoCfgConfigSet5_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0 {#Mongodb6_09}
@@ -6466,7 +6490,7 @@ mongoinfra | **[MongoInfra](#MongoInfra113)**<br>Configuration and resource allo
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg113}
@@ -6474,7 +6498,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos113}
@@ -6482,7 +6506,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra113}
@@ -6491,7 +6515,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0](#MongosConfigSet6_0)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0](#MongoCfgConfigSet6_0)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb4_4_enterprise {#Mongodb4_4_enterprise9}
@@ -6509,7 +6533,7 @@ mongoinfra | **[MongoInfra](#MongoInfra114)**<br>Configuration and resource allo
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet4_4_enterprise`**<br>Configuration for mongod 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg114}
@@ -6517,7 +6541,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet4_4_enterprise`**<br>Configuration for mongocfg 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos114}
@@ -6525,7 +6549,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet4_4_enterprise`**<br>Configuration for mongos 4.4 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra114}
@@ -6534,7 +6558,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet4_4_enterprise](#MongosConfigSet4_4_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet4_4_enterprise](#MongoCfgConfigSet4_4_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb5_0_enterprise {#Mongodb5_0_enterprise9}
@@ -6552,7 +6576,7 @@ mongoinfra | **[MongoInfra](#MongoInfra115)**<br>Configuration and resource allo
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet5_0_enterprise`**<br>Configuration for mongod 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg115}
@@ -6560,7 +6584,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet5_0_enterprise`**<br>Configuration for mongocfg 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos115}
@@ -6568,7 +6592,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet5_0_enterprise`**<br>Configuration for mongos 5.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra115}
@@ -6577,7 +6601,7 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet5_0_enterprise](#MongosConfigSet5_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet5_0_enterprise](#MongoCfgConfigSet5_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### Mongodb6_0_enterprise {#Mongodb6_0_enterprise9}
@@ -6595,7 +6619,7 @@ mongoinfra | **[MongoInfra](#MongoInfra116)**<br>Configuration and resource allo
 Field | Description
 --- | ---
 config | **`config.MongodConfigSet6_0_enterprise`**<br>Configuration for mongod 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongod hosts. 
 
 
 ### MongoCfg {#MongoCfg116}
@@ -6603,7 +6627,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongod hosts.
 Field | Description
 --- | ---
 config | **`config.MongoCfgConfigSet6_0_enterprise`**<br>Configuration for mongocfg 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongocfg hosts. 
 
 
 ### Mongos {#Mongos116}
@@ -6611,7 +6635,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongocfg hosts
 Field | Description
 --- | ---
 config | **`config.MongosConfigSet6_0_enterprise`**<br>Configuration for mongos 6.0 hosts. 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongos hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra116}
@@ -6620,17 +6644,17 @@ Field | Description
 --- | ---
 config_mongos | **[config.MongosConfigSet6_0_enterprise](#MongosConfigSet6_0_enterprise)**<br> 
 config_mongocfg | **[config.MongoCfgConfigSet6_0_enterprise](#MongoCfgConfigSet6_0_enterprise)**<br> 
-resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to mongoinfra (mongos+mongocfg) hosts. 
 
 
-### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig12}
+### PerformanceDiagnosticsConfig {#PerformanceDiagnosticsConfig9}
 
 Field | Description
 --- | ---
 profiling_enabled | **bool**<br> 
 
 
-### Access {#Access12}
+### Access {#Access9}
 
 Field | Description
 --- | ---
@@ -6638,20 +6662,20 @@ data_lens | **bool**<br>Allow access for DataLens.
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### MaintenanceWindow {#MaintenanceWindow10}
+### MaintenanceWindow {#MaintenanceWindow9}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow10)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow10)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow10}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow10}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
 
 Field | Description
 --- | ---
@@ -6843,7 +6867,7 @@ Field | Description
 name | **string**<br>Name of the MongoDB host. The host name is assigned by MDB at creation time, and cannot be changed. 1-63 characters long. <br>The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. 
 cluster_id | **string**<br>ID of the MongoDB host. The ID is assigned by MDB at creation time. 
 zone_id | **string**<br>ID of the availability zone where the MongoDB host resides. 
-resources | **[Resources](#Resources)**<br>Resources allocated to the MongoDB host. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to the MongoDB host. 
 role | enum **Role**<br>Role of the host in the cluster. <ul><li>`ROLE_UNKNOWN`: Role of the host in the cluster is unknown.</li><li>`PRIMARY`: Host is the primary MongoDB server in the cluster.</li><li>`SECONDARY`: Host is a secondary MongoDB server in the cluster.</li></ul>
 health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded, and can perform only some of its essential functions.</li></ul>
 services[] | **[Service](#Service)**<br>Services provided by the host. 
@@ -6853,7 +6877,7 @@ shard_name | **string**<br>Shard which this host belongs to.
 type | enum **Type**<br>Host type <ul><li>`MONGOD`: A mongod host.</li><li>`MONGOS`: A mongos host.</li><li>`MONGOCFG`: A mongocfg host.</li><li>`MONGOINFRA`: A mongoinfra (mongos+mongocfg) host.</li></ul>
 
 
-### Resources {#Resources}
+### Resources {#Resources10}
 
 Field | Description
 --- | ---
@@ -6990,21 +7014,21 @@ mongoinfra | **[MongoInfra](#MongoInfra117)**<br>mongos specification for shardi
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources1)**<br>Required. Resources for mongocfg hosts. 
+resources | **[Resources](#Resources11)**<br>Required. Resources for mongocfg hosts. 
 
 
 ### Mongos {#Mongos117}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources1)**<br>Required. Resources for mongos hosts. 
+resources | **[Resources](#Resources11)**<br>Required. Resources for mongos hosts. 
 
 
 ### MongoInfra {#MongoInfra117}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources1)**<br>Required. Resources for mongoinfra (mongos+mongocfg) hosts. 
+resources | **[Resources](#Resources11)**<br>Required. Resources for mongoinfra (mongos+mongocfg) hosts. 
 
 
 ### HostSpec {#HostSpec3}
@@ -7016,6 +7040,15 @@ subnet_id | **string**<br>ID of the subnet that the host should belong to. This 
 assign_public_ip | **bool**<br>Whether the host should get a public IP address on creation. <br>After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with `assign_public_ip` set as needed. <br>Possible values: <ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 type | **[Host.Type](#Host1)**<br>Type of the host to be deployed. 
 shard_name | **string**<br>Name of the shard that the host belongs to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+
+
+### Resources {#Resources11}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Operation {#Operation12}

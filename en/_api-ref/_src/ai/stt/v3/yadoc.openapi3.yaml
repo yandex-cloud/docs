@@ -34,6 +34,11 @@ components:
           description: Hypothesis confidence. Currently is not used.
           type: number
           format: double
+        languages:
+          description: Distribution over possible languages
+          type: array
+          items:
+            $ref: '#/components/schemas/LanguageEstimation'
     AlternativeUpdate:
       description: Update of hypothesis.
       type: object
@@ -189,6 +194,15 @@ components:
           normalizedText:
             $ref: '#/components/schemas/AlternativeUpdate'
             description: Normalized text instead of raw one.
+    LanguageEstimation:
+      description: Estimation of language probability
+      type: object
+      properties:
+        languageCode:
+          type: string
+        probability:
+          type: number
+          format: double
     LanguageRestrictionOptions:
       type: object
       properties:

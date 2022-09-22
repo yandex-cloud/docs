@@ -81,7 +81,7 @@ link | **string**<br>Link to the monitoring system charts for the PostgreSQL clu
 Field | Description
 --- | ---
 version | **string**<br>Version of PostgreSQL server software. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14` or `postgresql_config_14_1c`<br>Configuration for PostgreSQL servers in the cluster.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c` or `postgresql_config_15`<br>Configuration for PostgreSQL servers in the cluster.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
@@ -93,6 +93,7 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
 &nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
 &nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
+&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
 pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig)**<br>Configuration of the connection pooler. 
 resources | **[Resources](#Resources)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
@@ -228,7 +229,7 @@ link | **string**<br>Link to the monitoring system charts for the PostgreSQL clu
 Field | Description
 --- | ---
 version | **string**<br>Version of PostgreSQL server software. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14` or `postgresql_config_14_1c`<br>Configuration for PostgreSQL servers in the cluster.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c` or `postgresql_config_15`<br>Configuration for PostgreSQL servers in the cluster.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
@@ -240,6 +241,7 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
 &nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
 &nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
+&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
 pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig1)**<br>Configuration of the connection pooler. 
 resources | **[Resources](#Resources1)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
@@ -347,8 +349,8 @@ host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster.
 
 Field | Description
 --- | ---
-version | **string**<br>Version of PostgreSQL used in the cluster. Possible values: `9.6`, `10`, `10_1c`, `11`, `12`, `13`. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14` or `postgresql_config_14_1c`<br>Configuration of a PostgreSQL cluster.
+version | **string**<br>Version of PostgreSQL used in the cluster. Possible values: `9.6`, `10`, `10_1c`, `11`, `12`, `13`, `14`, `15` 
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c` or `postgresql_config_15`<br>Configuration of a PostgreSQL cluster.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration for a PostgreSQL 9.6 cluster. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration for a PostgreSQL 10 1C cluster. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration for a PostgreSQL 10 cluster. 
@@ -360,6 +362,7 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfig13_1C](./config/host10#PostgresqlConfig13_1C)**<br>Configuration for a PostgreSQL 13 1C cluster. 
 &nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfig14](./config/host10#PostgresqlConfig14)**<br>Configuration for a PostgreSQL 14 cluster. 
 &nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfig14_1C](./config/host10#PostgresqlConfig14_1C)**<br>Configuration for a PostgreSQL 14 1C cluster. 
+&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfig15](./config/host10#PostgresqlConfig15)**<br>Configuration for a PostgreSQL 15 cluster. 
 pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig2)**<br>Configuration of the connection pooler. 
 resources | **[Resources](#Resources2)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
@@ -473,7 +476,7 @@ config_spec | **[ConfigHostSpec](#ConfigHostSpec)**<br>Configuration of a Postgr
 
 Field | Description
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14` or `postgresql_config_14_1c`<br>
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c` or `postgresql_config_15`<br>
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Configuration for a host with PostgreSQL 9.6 server deployed. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Configuration for a host with PostgreSQL 10 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Configuration for a host with PostgreSQL 10 server deployed. 
@@ -485,6 +488,7 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlHostConfig13_1C](./config/host10#PostgresqlHostConfig13_1C)**<br>Configuration for a host with PostgreSQL 13 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlHostConfig14](./config/host10#PostgresqlHostConfig14)**<br>Configuration for a host with PostgreSQL 14 server deployed. 
 &nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlHostConfig14_1C](./config/host10#PostgresqlHostConfig14_1C)**<br>Configuration for a host with PostgreSQL 14 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlHostConfig15](./config/host10#PostgresqlHostConfig15)**<br>Configuration for a host with PostgreSQL 15 server deployed. 
 
 
 ### Operation {#Operation}
@@ -547,7 +551,7 @@ link | **string**<br>Link to the monitoring system charts for the PostgreSQL clu
 Field | Description
 --- | ---
 version | **string**<br>Version of PostgreSQL server software. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14` or `postgresql_config_14_1c`<br>Configuration for PostgreSQL servers in the cluster.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c` or `postgresql_config_15`<br>Configuration for PostgreSQL servers in the cluster.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
@@ -559,6 +563,7 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
 &nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
 &nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
+&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
 pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig3)**<br>Configuration of the connection pooler. 
 resources | **[Resources](#Resources3)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
@@ -566,42 +571,6 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 access | **[Access](#Access3)**<br>Access policy to DB 
 performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics3)**<br>Configuration of the performance diagnostics service. 
-
-
-### ConnectionPoolerConfig {#ConnectionPoolerConfig3}
-
-Field | Description
---- | ---
-pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage). <ul><li>`SESSION`: Session pooling mode.</li><li>`TRANSACTION`: Transaction pooling mode.</li><li>`STATEMENT`: Statement pooling mode.</li></ul>
-pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
-
-
-### Resources {#Resources3}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-postgresql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
-
-
-### Access {#Access3}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
-serverless | **bool**<br>Allow access for Serverless 
-data_transfer | **bool**<br>Allow access for DataTransfer. 
-
-
-### PerformanceDiagnostics {#PerformanceDiagnostics3}
-
-Field | Description
---- | ---
-enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
-sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
-statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
 
 
 ### MaintenanceWindow {#MaintenanceWindow2}
@@ -662,8 +631,8 @@ deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the c
 
 Field | Description
 --- | ---
-version | **string**<br>Version of PostgreSQL used in the cluster. Possible values: `9.6`, `10`, `10_1c`, `11`, `12`, `13`. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14` or `postgresql_config_14_1c`<br>Configuration of a PostgreSQL cluster.
+version | **string**<br>Version of PostgreSQL used in the cluster. Possible values: `9.6`, `10`, `10_1c`, `11`, `12`, `13`, `14`, `15` 
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c` or `postgresql_config_15`<br>Configuration of a PostgreSQL cluster.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration for a PostgreSQL 9.6 cluster. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration for a PostgreSQL 10 1C cluster. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration for a PostgreSQL 10 cluster. 
@@ -675,16 +644,17 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfig13_1C](./config/host10#PostgresqlConfig13_1C)**<br>Configuration for a PostgreSQL 13 1C cluster. 
 &nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfig14](./config/host10#PostgresqlConfig14)**<br>Configuration for a PostgreSQL 14 cluster. 
 &nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfig14_1C](./config/host10#PostgresqlConfig14_1C)**<br>Configuration for a PostgreSQL 14 1C cluster. 
-pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Configuration of the connection pooler. 
-resources | **[Resources](#Resources4)**<br>Resources allocated to PostgreSQL hosts. 
+&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfig15](./config/host10#PostgresqlConfig15)**<br>Configuration for a PostgreSQL 15 cluster. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig3)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
-access | **[Access](#Access4)**<br>Access policy to DB 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics4)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access3)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics3)**<br>Configuration of the performance diagnostics service. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig4}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig3}
 
 Field | Description
 --- | ---
@@ -692,7 +662,7 @@ pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is workin
 pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
 
 
-### Resources {#Resources4}
+### Resources {#Resources3}
 
 Field | Description
 --- | ---
@@ -701,7 +671,7 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Access {#Access4}
+### Access {#Access3}
 
 Field | Description
 --- | ---
@@ -711,7 +681,7 @@ serverless | **bool**<br>Allow access for Serverless
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### PerformanceDiagnostics {#PerformanceDiagnostics4}
+### PerformanceDiagnostics {#PerformanceDiagnostics3}
 
 Field | Description
 --- | ---
@@ -801,7 +771,7 @@ link | **string**<br>Link to the monitoring system charts for the PostgreSQL clu
 Field | Description
 --- | ---
 version | **string**<br>Version of PostgreSQL server software. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14` or `postgresql_config_14_1c`<br>Configuration for PostgreSQL servers in the cluster.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c` or `postgresql_config_15`<br>Configuration for PostgreSQL servers in the cluster.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
@@ -813,70 +783,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
 &nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
 &nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
-pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig5)**<br>Configuration of the connection pooler. 
-resources | **[Resources](#Resources5)**<br>Resources allocated to PostgreSQL hosts. 
+&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
-access | **[Access](#Access5)**<br>Access policy to DB 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics5)**<br>Configuration of the performance diagnostics service. 
-
-
-### ConnectionPoolerConfig {#ConnectionPoolerConfig5}
-
-Field | Description
---- | ---
-pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage). <ul><li>`SESSION`: Session pooling mode.</li><li>`TRANSACTION`: Transaction pooling mode.</li><li>`STATEMENT`: Statement pooling mode.</li></ul>
-pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
-
-
-### Resources {#Resources5}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-postgresql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
-
-
-### Access {#Access5}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
-serverless | **bool**<br>Allow access for Serverless 
-data_transfer | **bool**<br>Allow access for DataTransfer. 
-
-
-### PerformanceDiagnostics {#PerformanceDiagnostics5}
-
-Field | Description
---- | ---
-enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
-sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
-statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
-
-
-### MaintenanceWindow {#MaintenanceWindow4}
-
-Field | Description
---- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br>Maintenance operation can be scheduled on a weekly basis. 
-
-
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
-
-
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
-
-Field | Description
---- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
-hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+access | **[Access](#Access4)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics4)**<br>Configuration of the performance diagnostics service. 
 
 
 ### MaintenanceOperation {#MaintenanceOperation3}
@@ -983,7 +897,7 @@ config | **[ClusterConfig](#ClusterConfig4)**<br>Configuration of the PostgreSQL
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -1004,7 +918,7 @@ link | **string**<br>Link to the monitoring system charts for the PostgreSQL clu
 Field | Description
 --- | ---
 version | **string**<br>Version of PostgreSQL server software. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14` or `postgresql_config_14_1c`<br>Configuration for PostgreSQL servers in the cluster.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c` or `postgresql_config_15`<br>Configuration for PostgreSQL servers in the cluster.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
@@ -1016,16 +930,17 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
 &nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
 &nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
-pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig6)**<br>Configuration of the connection pooler. 
-resources | **[Resources](#Resources6)**<br>Resources allocated to PostgreSQL hosts. 
+&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
-access | **[Access](#Access6)**<br>Access policy to DB 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics6)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access4)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics4)**<br>Configuration of the performance diagnostics service. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig6}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig4}
 
 Field | Description
 --- | ---
@@ -1033,7 +948,7 @@ pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is workin
 pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
 
 
-### Resources {#Resources6}
+### Resources {#Resources4}
 
 Field | Description
 --- | ---
@@ -1042,7 +957,7 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Access {#Access6}
+### Access {#Access4}
 
 Field | Description
 --- | ---
@@ -1052,7 +967,7 @@ serverless | **bool**<br>Allow access for Serverless
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### PerformanceDiagnostics {#PerformanceDiagnostics6}
+### PerformanceDiagnostics {#PerformanceDiagnostics4}
 
 Field | Description
 --- | ---
@@ -1061,20 +976,20 @@ sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_acti
 statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
 
 
-### MaintenanceWindow {#MaintenanceWindow5}
+### MaintenanceWindow {#MaintenanceWindow4}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
 
 Field | Description
 --- | ---
@@ -1146,7 +1061,7 @@ config | **[ClusterConfig](#ClusterConfig5)**<br>Configuration of the PostgreSQL
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -1167,7 +1082,7 @@ link | **string**<br>Link to the monitoring system charts for the PostgreSQL clu
 Field | Description
 --- | ---
 version | **string**<br>Version of PostgreSQL server software. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14` or `postgresql_config_14_1c`<br>Configuration for PostgreSQL servers in the cluster.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c` or `postgresql_config_15`<br>Configuration for PostgreSQL servers in the cluster.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
@@ -1179,16 +1094,17 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
 &nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
 &nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
-pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig7)**<br>Configuration of the connection pooler. 
-resources | **[Resources](#Resources7)**<br>Resources allocated to PostgreSQL hosts. 
+&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig5)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
-access | **[Access](#Access7)**<br>Access policy to DB 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics7)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access5)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics5)**<br>Configuration of the performance diagnostics service. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig7}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig5}
 
 Field | Description
 --- | ---
@@ -1196,7 +1112,7 @@ pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is workin
 pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
 
 
-### Resources {#Resources7}
+### Resources {#Resources5}
 
 Field | Description
 --- | ---
@@ -1205,7 +1121,7 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Access {#Access7}
+### Access {#Access5}
 
 Field | Description
 --- | ---
@@ -1215,7 +1131,7 @@ serverless | **bool**<br>Allow access for Serverless
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### PerformanceDiagnostics {#PerformanceDiagnostics7}
+### PerformanceDiagnostics {#PerformanceDiagnostics5}
 
 Field | Description
 --- | ---
@@ -1224,20 +1140,20 @@ sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_acti
 statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
 
 
-### MaintenanceWindow {#MaintenanceWindow6}
+### MaintenanceWindow {#MaintenanceWindow5}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
 
 Field | Description
 --- | ---
@@ -1312,7 +1228,7 @@ config | **[ClusterConfig](#ClusterConfig6)**<br>Configuration of the PostgreSQL
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -1333,7 +1249,7 @@ link | **string**<br>Link to the monitoring system charts for the PostgreSQL clu
 Field | Description
 --- | ---
 version | **string**<br>Version of PostgreSQL server software. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14` or `postgresql_config_14_1c`<br>Configuration for PostgreSQL servers in the cluster.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c` or `postgresql_config_15`<br>Configuration for PostgreSQL servers in the cluster.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
@@ -1345,16 +1261,17 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
 &nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
 &nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
-pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig8)**<br>Configuration of the connection pooler. 
-resources | **[Resources](#Resources8)**<br>Resources allocated to PostgreSQL hosts. 
+&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig6)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
-access | **[Access](#Access8)**<br>Access policy to DB 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics8)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access6)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics6)**<br>Configuration of the performance diagnostics service. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig8}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig6}
 
 Field | Description
 --- | ---
@@ -1362,7 +1279,7 @@ pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is workin
 pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
 
 
-### Resources {#Resources8}
+### Resources {#Resources6}
 
 Field | Description
 --- | ---
@@ -1371,7 +1288,7 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Access {#Access8}
+### Access {#Access6}
 
 Field | Description
 --- | ---
@@ -1381,7 +1298,7 @@ serverless | **bool**<br>Allow access for Serverless
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### PerformanceDiagnostics {#PerformanceDiagnostics8}
+### PerformanceDiagnostics {#PerformanceDiagnostics6}
 
 Field | Description
 --- | ---
@@ -1390,20 +1307,20 @@ sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_acti
 statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
 
 
-### MaintenanceWindow {#MaintenanceWindow7}
+### MaintenanceWindow {#MaintenanceWindow6}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
 
 Field | Description
 --- | ---
@@ -1475,7 +1392,7 @@ config | **[ClusterConfig](#ClusterConfig7)**<br>Configuration of the PostgreSQL
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -1496,7 +1413,7 @@ link | **string**<br>Link to the monitoring system charts for the PostgreSQL clu
 Field | Description
 --- | ---
 version | **string**<br>Version of PostgreSQL server software. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14` or `postgresql_config_14_1c`<br>Configuration for PostgreSQL servers in the cluster.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c` or `postgresql_config_15`<br>Configuration for PostgreSQL servers in the cluster.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
@@ -1508,16 +1425,17 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
 &nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
 &nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
-pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig9)**<br>Configuration of the connection pooler. 
-resources | **[Resources](#Resources9)**<br>Resources allocated to PostgreSQL hosts. 
+&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig7)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
-access | **[Access](#Access9)**<br>Access policy to DB 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics9)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access7)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics7)**<br>Configuration of the performance diagnostics service. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig9}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig7}
 
 Field | Description
 --- | ---
@@ -1525,7 +1443,7 @@ pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is workin
 pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
 
 
-### Resources {#Resources9}
+### Resources {#Resources7}
 
 Field | Description
 --- | ---
@@ -1534,7 +1452,7 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Access {#Access9}
+### Access {#Access7}
 
 Field | Description
 --- | ---
@@ -1544,7 +1462,7 @@ serverless | **bool**<br>Allow access for Serverless
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### PerformanceDiagnostics {#PerformanceDiagnostics9}
+### PerformanceDiagnostics {#PerformanceDiagnostics7}
 
 Field | Description
 --- | ---
@@ -1553,20 +1471,20 @@ sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_acti
 statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
 
 
-### MaintenanceWindow {#MaintenanceWindow8}
+### MaintenanceWindow {#MaintenanceWindow7}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
 
 Field | Description
 --- | ---
@@ -1616,8 +1534,8 @@ host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster.
 
 Field | Description
 --- | ---
-version | **string**<br>Version of PostgreSQL used in the cluster. Possible values: `9.6`, `10`, `10_1c`, `11`, `12`, `13`. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14` or `postgresql_config_14_1c`<br>Configuration of a PostgreSQL cluster.
+version | **string**<br>Version of PostgreSQL used in the cluster. Possible values: `9.6`, `10`, `10_1c`, `11`, `12`, `13`, `14`, `15` 
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c` or `postgresql_config_15`<br>Configuration of a PostgreSQL cluster.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration for a PostgreSQL 9.6 cluster. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration for a PostgreSQL 10 1C cluster. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration for a PostgreSQL 10 cluster. 
@@ -1629,16 +1547,17 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfig13_1C](./config/host10#PostgresqlConfig13_1C)**<br>Configuration for a PostgreSQL 13 1C cluster. 
 &nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfig14](./config/host10#PostgresqlConfig14)**<br>Configuration for a PostgreSQL 14 cluster. 
 &nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfig14_1C](./config/host10#PostgresqlConfig14_1C)**<br>Configuration for a PostgreSQL 14 1C cluster. 
-pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig10)**<br>Configuration of the connection pooler. 
-resources | **[Resources](#Resources10)**<br>Resources allocated to PostgreSQL hosts. 
+&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfig15](./config/host10#PostgresqlConfig15)**<br>Configuration for a PostgreSQL 15 cluster. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig8)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
-access | **[Access](#Access10)**<br>Access policy to DB 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics10)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access8)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics8)**<br>Configuration of the performance diagnostics service. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig10}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig8}
 
 Field | Description
 --- | ---
@@ -1646,7 +1565,7 @@ pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is workin
 pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
 
 
-### Resources {#Resources10}
+### Resources {#Resources8}
 
 Field | Description
 --- | ---
@@ -1655,7 +1574,7 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Access {#Access10}
+### Access {#Access8}
 
 Field | Description
 --- | ---
@@ -1665,7 +1584,7 @@ serverless | **bool**<br>Allow access for Serverless
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### PerformanceDiagnostics {#PerformanceDiagnostics10}
+### PerformanceDiagnostics {#PerformanceDiagnostics8}
 
 Field | Description
 --- | ---
@@ -1690,7 +1609,7 @@ config_spec | **[ConfigHostSpec](#ConfigHostSpec)**<br>Configuration of a Postgr
 
 Field | Description
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14` or `postgresql_config_14_1c`<br>
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c` or `postgresql_config_15`<br>
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Configuration for a host with PostgreSQL 9.6 server deployed. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Configuration for a host with PostgreSQL 10 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Configuration for a host with PostgreSQL 10 server deployed. 
@@ -1702,6 +1621,7 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlHostConfig13_1C](./config/host10#PostgresqlHostConfig13_1C)**<br>Configuration for a host with PostgreSQL 13 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlHostConfig14](./config/host10#PostgresqlHostConfig14)**<br>Configuration for a host with PostgreSQL 14 server deployed. 
 &nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlHostConfig14_1C](./config/host10#PostgresqlHostConfig14_1C)**<br>Configuration for a host with PostgreSQL 14 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlHostConfig15](./config/host10#PostgresqlHostConfig15)**<br>Configuration for a host with PostgreSQL 15 server deployed. 
 
 
 ### Operation {#Operation7}
@@ -1744,7 +1664,7 @@ config | **[ClusterConfig](#ClusterConfig8)**<br>Configuration of the PostgreSQL
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -1765,7 +1685,7 @@ link | **string**<br>Link to the monitoring system charts for the PostgreSQL clu
 Field | Description
 --- | ---
 version | **string**<br>Version of PostgreSQL server software. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14` or `postgresql_config_14_1c`<br>Configuration for PostgreSQL servers in the cluster.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c` or `postgresql_config_15`<br>Configuration for PostgreSQL servers in the cluster.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
@@ -1777,65 +1697,30 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
 &nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
 &nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
-pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig11)**<br>Configuration of the connection pooler. 
-resources | **[Resources](#Resources11)**<br>Resources allocated to PostgreSQL hosts. 
+&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig9)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
-access | **[Access](#Access11)**<br>Access policy to DB 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics11)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access9)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics9)**<br>Configuration of the performance diagnostics service. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig11}
-
-Field | Description
---- | ---
-pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage). <ul><li>`SESSION`: Session pooling mode.</li><li>`TRANSACTION`: Transaction pooling mode.</li><li>`STATEMENT`: Statement pooling mode.</li></ul>
-pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
-
-
-### Resources {#Resources11}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-postgresql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
-
-
-### Access {#Access11}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
-serverless | **bool**<br>Allow access for Serverless 
-data_transfer | **bool**<br>Allow access for DataTransfer. 
-
-
-### PerformanceDiagnostics {#PerformanceDiagnostics11}
-
-Field | Description
---- | ---
-enabled | **bool**<br>Configuration setting which enables/disables performance diagnostics service in cluster. 
-sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
-statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
-
-
-### MaintenanceWindow {#MaintenanceWindow9}
+### MaintenanceWindow {#MaintenanceWindow8}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
 
 Field | Description
 --- | ---
@@ -1910,7 +1795,7 @@ config | **[ClusterConfig](#ClusterConfig9)**<br>Configuration of the PostgreSQL
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -1931,7 +1816,7 @@ link | **string**<br>Link to the monitoring system charts for the PostgreSQL clu
 Field | Description
 --- | ---
 version | **string**<br>Version of PostgreSQL server software. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14` or `postgresql_config_14_1c`<br>Configuration for PostgreSQL servers in the cluster.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c` or `postgresql_config_15`<br>Configuration for PostgreSQL servers in the cluster.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
@@ -1943,16 +1828,17 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
 &nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
 &nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
-pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig12)**<br>Configuration of the connection pooler. 
-resources | **[Resources](#Resources12)**<br>Resources allocated to PostgreSQL hosts. 
+&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig9)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
-access | **[Access](#Access12)**<br>Access policy to DB 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics12)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access9)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics9)**<br>Configuration of the performance diagnostics service. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig12}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig9}
 
 Field | Description
 --- | ---
@@ -1960,7 +1846,7 @@ pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is workin
 pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
 
 
-### Resources {#Resources12}
+### Resources {#Resources9}
 
 Field | Description
 --- | ---
@@ -1969,7 +1855,7 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Access {#Access12}
+### Access {#Access9}
 
 Field | Description
 --- | ---
@@ -1979,7 +1865,7 @@ serverless | **bool**<br>Allow access for Serverless
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### PerformanceDiagnostics {#PerformanceDiagnostics12}
+### PerformanceDiagnostics {#PerformanceDiagnostics9}
 
 Field | Description
 --- | ---
@@ -1988,20 +1874,20 @@ sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_acti
 statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
 
 
-### MaintenanceWindow {#MaintenanceWindow10}
+### MaintenanceWindow {#MaintenanceWindow9}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow10)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow10)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow10}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow10}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
 
 Field | Description
 --- | ---
@@ -2074,7 +1960,7 @@ config | **[ClusterConfig](#ClusterConfig10)**<br>Configuration of the PostgreSQ
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation10)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -2095,7 +1981,7 @@ link | **string**<br>Link to the monitoring system charts for the PostgreSQL clu
 Field | Description
 --- | ---
 version | **string**<br>Version of PostgreSQL server software. 
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14` or `postgresql_config_14_1c`<br>Configuration for PostgreSQL servers in the cluster.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c` or `postgresql_config_15`<br>Configuration for PostgreSQL servers in the cluster.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlConfigSet9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql9_6.proto)**<br>Configuration of a PostgreSQL 9.6 server. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
@@ -2107,16 +1993,17 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
 &nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
 &nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
-pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig13)**<br>Configuration of the connection pooler. 
-resources | **[Resources](#Resources13)**<br>Resources allocated to PostgreSQL hosts. 
+&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
+pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig10)**<br>Configuration of the connection pooler. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
-access | **[Access](#Access13)**<br>Access policy to DB 
-performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics13)**<br>Configuration of the performance diagnostics service. 
+access | **[Access](#Access10)**<br>Access policy to DB 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics10)**<br>Configuration of the performance diagnostics service. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig13}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig10}
 
 Field | Description
 --- | ---
@@ -2124,7 +2011,7 @@ pooling_mode | enum **PoolingMode**<br>Mode that the connection pooler is workin
 pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Setting `server_reset_query_always` parameter in PgBouncer. 
 
 
-### Resources {#Resources13}
+### Resources {#Resources10}
 
 Field | Description
 --- | ---
@@ -2133,7 +2020,7 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Access {#Access13}
+### Access {#Access10}
 
 Field | Description
 --- | ---
@@ -2143,7 +2030,7 @@ serverless | **bool**<br>Allow access for Serverless
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### PerformanceDiagnostics {#PerformanceDiagnostics13}
+### PerformanceDiagnostics {#PerformanceDiagnostics10}
 
 Field | Description
 --- | ---
@@ -2152,20 +2039,20 @@ sessions_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_acti
 statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
 
 
-### MaintenanceWindow {#MaintenanceWindow11}
+### MaintenanceWindow {#MaintenanceWindow10}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow11)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow11)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow10)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow10)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow11}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow10}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow11}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow10}
 
 Field | Description
 --- | ---
@@ -2358,9 +2245,9 @@ Field | Description
 name | **string**<br>Name of the PostgreSQL host. The host name is assigned by MDB at creation time, and cannot be changed. 1-63 characters long. <br>The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. 
 cluster_id | **string**<br>ID of the PostgreSQL host. The ID is assigned by MDB at creation time. 
 zone_id | **string**<br>ID of the availability zone where the PostgreSQL host resides. 
-resources | **[Resources](#Resources14)**<br>Resources allocated to the PostgreSQL host. 
+resources | **[Resources](#Resources11)**<br>Resources allocated to the PostgreSQL host. 
 role | enum **Role**<br>Role of the host in the cluster. <ul><li>`ROLE_UNKNOWN`: Role of the host in the cluster is unknown.</li><li>`MASTER`: Host is the master PostgreSQL server in the cluster.</li><li>`REPLICA`: Host is a replica (standby) PostgreSQL server in the cluster.</li></ul>
-health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded, and can perform only some of its essential functions.</li></ul>
+health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded, and can perform only some of its essential functions.</li><li>`READONLY`: The host is alive, but in read-only mode.</li></ul>
 services[] | **[Service](#Service)**<br>Services provided by the host. 
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 replication_source | **string**<br>Name of the host to be used as the replication source for cascading replication. 
@@ -2370,7 +2257,7 @@ assign_public_ip | **bool**<br>Flag showing public IP assignment status to this 
 replica_type | enum **ReplicaType**<br> 
 
 
-### Resources {#Resources14}
+### Resources {#Resources11}
 
 Field | Description
 --- | ---
@@ -2384,14 +2271,14 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 type | enum **Type**<br>Type of the service provided by the host. <ul><li>`POSTGRESQL`: The host is a PostgreSQL server.</li><li>`POOLER`: The host is a PgBouncer server.</li></ul>
-health | enum **Health**<br>Status code of server availability. <ul><li>`HEALTH_UNKNOWN`: Health of the server is unknown.</li><li>`ALIVE`: The server is working normally.</li><li>`DEAD`: The server is dead or unresponsive.</li></ul>
+health | enum **Health**<br>Status code of server availability. <ul><li>`HEALTH_UNKNOWN`: Health of the server is unknown.</li><li>`ALIVE`: The server is working normally.</li><li>`DEAD`: The server is dead or unresponsive.</li><li>`READONLY`: The server is in read-only mode.</li></ul>
 
 
 ### HostConfig {#HostConfig}
 
 Field | Description
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14` or `postgresql_config_14_1c`<br>Configuration of a PostgreSQL server for the host.
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c` or `postgresql_config_15`<br>Configuration of a PostgreSQL server for the host.
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Configuration for a host with PostgreSQL 9.6 server deployed. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Configuration for a host with PostgreSQL 10 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Configuration for a host with PostgreSQL 10 server deployed. 
@@ -2403,6 +2290,7 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlHostConfig13_1C](./config/host10#PostgresqlHostConfig13_1C)**<br>Configuration for a host with PostgreSQL 13 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlHostConfig14](./config/host10#PostgresqlHostConfig14)**<br>Configuration for a host with PostgreSQL 14 server deployed. 
 &nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlHostConfig14_1C](./config/host10#PostgresqlHostConfig14_1C)**<br>Configuration for a host with PostgreSQL 14 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlHostConfig15](./config/host10#PostgresqlHostConfig15)**<br>Configuration for a host with PostgreSQL 15 server deployed. 
 
 
 ## AddHosts {#AddHosts}
@@ -2439,7 +2327,7 @@ config_spec | **[ConfigHostSpec](#ConfigHostSpec)**<br>Configuration of a Postgr
 
 Field | Description
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14` or `postgresql_config_14_1c`<br>
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c` or `postgresql_config_15`<br>
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Configuration for a host with PostgreSQL 9.6 server deployed. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Configuration for a host with PostgreSQL 10 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Configuration for a host with PostgreSQL 10 server deployed. 
@@ -2451,6 +2339,7 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlHostConfig13_1C](./config/host10#PostgresqlHostConfig13_1C)**<br>Configuration for a host with PostgreSQL 13 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlHostConfig14](./config/host10#PostgresqlHostConfig14)**<br>Configuration for a host with PostgreSQL 14 server deployed. 
 &nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlHostConfig14_1C](./config/host10#PostgresqlHostConfig14_1C)**<br>Configuration for a host with PostgreSQL 14 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlHostConfig15](./config/host10#PostgresqlHostConfig15)**<br>Configuration for a host with PostgreSQL 15 server deployed. 
 
 
 ### Operation {#Operation11}
@@ -2553,7 +2442,7 @@ assign_public_ip | **bool**<br>Whether the host should get a public IP address o
 
 Field | Description
 --- | ---
-postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14` or `postgresql_config_14_1c`<br>
+postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c`, `postgresql_config_10`, `postgresql_config_11`, `postgresql_config_11_1c`, `postgresql_config_12`, `postgresql_config_12_1c`, `postgresql_config_13`, `postgresql_config_13_1c`, `postgresql_config_14`, `postgresql_config_14_1c` or `postgresql_config_15`<br>
 &nbsp;&nbsp;postgresql_config_9_6 | **[PostgresqlHostConfig9_6](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host9_6.proto)**<br>Configuration for a host with PostgreSQL 9.6 server deployed. 
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Configuration for a host with PostgreSQL 10 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Configuration for a host with PostgreSQL 10 server deployed. 
@@ -2565,6 +2454,7 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlHostConfig13_1C](./config/host10#PostgresqlHostConfig13_1C)**<br>Configuration for a host with PostgreSQL 13 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlHostConfig14](./config/host10#PostgresqlHostConfig14)**<br>Configuration for a host with PostgreSQL 14 server deployed. 
 &nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlHostConfig14_1C](./config/host10#PostgresqlHostConfig14_1C)**<br>Configuration for a host with PostgreSQL 14 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlHostConfig15](./config/host10#PostgresqlHostConfig15)**<br>Configuration for a host with PostgreSQL 15 server deployed. 
 
 
 ### Operation {#Operation13}

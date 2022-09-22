@@ -9,7 +9,7 @@ Retrieves information about the specified backup.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mysql/v1/backups/{backupId}
+GET https://{{ api-host-mdb }}/managed-mysql/v1/backups/{backupId}
 ```
  
 ## Path parameters {#path_params}

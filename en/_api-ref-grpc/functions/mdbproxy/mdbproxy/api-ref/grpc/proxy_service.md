@@ -233,6 +233,28 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 target | **[Target](#Target3)**<br>MDB specific settings. 
 
 
+## Update {#Update}
+
+Updates the specified proxy.
+
+**rpc Update ([UpdateProxyRequest](#UpdateProxyRequest)) returns ([operation.Operation](#Operation1))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateProxyMetadata](#UpdateProxyMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Proxy](#Proxy3)<br>
+
+### UpdateProxyRequest {#UpdateProxyRequest}
+
+Field | Description
+--- | ---
+proxy_id | **string**<br>Required. ID of the proxy to update. 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the proxy should be updated. 
+name | **string**<br>New name for the proxy. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+description | **string**<br>New description for the proxy. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Proxy labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+target | **[Target](#Target3)**<br>Proxy target. 
+
+
 ### Target {#Target3}
 
 Field | Description
@@ -254,59 +276,6 @@ endpoint | **string**<br>PostgreSQL proxy-host for connection, output only field
 
 
 ### ClickHouse {#ClickHouse3}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>Required. Cluster identifier for clickhouse. The maximum string length in characters is 50.
-user | **string**<br>Required. Clickhouse user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-password | **string**<br>Clickhouse password, input only field. 
-db | **string**<br>Required. Clickhouse database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-endpoint | **string**<br>Clickhouse proxy-host for connection, output only field. 
-
-
-## Update {#Update}
-
-Updates the specified proxy.
-
-**rpc Update ([UpdateProxyRequest](#UpdateProxyRequest)) returns ([operation.Operation](#Operation1))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateProxyMetadata](#UpdateProxyMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Proxy](#Proxy3)<br>
-
-### UpdateProxyRequest {#UpdateProxyRequest}
-
-Field | Description
---- | ---
-proxy_id | **string**<br>Required. ID of the proxy to update. 
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the proxy should be updated. 
-name | **string**<br>New name for the proxy. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-description | **string**<br>New description for the proxy. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Proxy labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-target | **[Target](#Target4)**<br>Proxy target. 
-
-
-### Target {#Target4}
-
-Field | Description
---- | ---
-mdb | **oneof:** `clickhouse` or `postgresql`<br>
-&nbsp;&nbsp;clickhouse | **[ClickHouse](#ClickHouse4)**<br>Clickhouse settings for proxy. 
-&nbsp;&nbsp;postgresql | **[PostgreSQL](#PostgreSQL4)**<br>PostgreSQL settings for proxy. 
-
-
-### PostgreSQL {#PostgreSQL4}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>Required. Cluster identifier for postgresql. The maximum string length in characters is 50.
-user | **string**<br>Required. PostgreSQL user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-password | **string**<br>PostgreSQL password, input only field. 
-db | **string**<br>Required. PostgreSQL database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-endpoint | **string**<br>PostgreSQL proxy-host for connection, output only field. 
-
-
-### ClickHouse {#ClickHouse4}
 
 Field | Description
 --- | ---
@@ -350,38 +319,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Required. Name of the proxy. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the proxy. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-target | **[Target](#Target5)**<br>MDB specific settings. 
-
-
-### Target {#Target5}
-
-Field | Description
---- | ---
-mdb | **oneof:** `clickhouse` or `postgresql`<br>
-&nbsp;&nbsp;clickhouse | **[ClickHouse](#ClickHouse5)**<br>Clickhouse settings for proxy. 
-&nbsp;&nbsp;postgresql | **[PostgreSQL](#PostgreSQL5)**<br>PostgreSQL settings for proxy. 
-
-
-### PostgreSQL {#PostgreSQL5}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>Required. Cluster identifier for postgresql. The maximum string length in characters is 50.
-user | **string**<br>Required. PostgreSQL user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-password | **string**<br>PostgreSQL password, input only field. 
-db | **string**<br>Required. PostgreSQL database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-endpoint | **string**<br>PostgreSQL proxy-host for connection, output only field. 
-
-
-### ClickHouse {#ClickHouse5}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>Required. Cluster identifier for clickhouse. The maximum string length in characters is 50.
-user | **string**<br>Required. Clickhouse user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-password | **string**<br>Clickhouse password, input only field. 
-db | **string**<br>Required. Clickhouse database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-endpoint | **string**<br>Clickhouse proxy-host for connection, output only field. 
+target | **[Target](#Target4)**<br>MDB specific settings. 
 
 
 ## Delete {#Delete}

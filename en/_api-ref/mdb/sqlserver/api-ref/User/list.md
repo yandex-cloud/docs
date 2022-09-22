@@ -9,7 +9,7 @@ Retrieves a list of SQL Server users in the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}/users
+GET https://{{ api-host-mdb }}/mdb/sqlserver/v1/clusters/{clusterId}/users
 ```
  
 ## Path parameters {#path_params}

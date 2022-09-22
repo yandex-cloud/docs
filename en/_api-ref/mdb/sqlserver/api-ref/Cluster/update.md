@@ -9,7 +9,7 @@ Modifies the specified SQL Server cluster.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}
+PATCH https://{{ api-host-mdb }}/mdb/sqlserver/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

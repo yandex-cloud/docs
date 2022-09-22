@@ -9,7 +9,7 @@ Creates a new Kafka topic in the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}/topics
+POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/topics
 ```
  
 ## Path parameters {#path_params}

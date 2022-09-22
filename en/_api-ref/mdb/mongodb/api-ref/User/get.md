@@ -9,7 +9,7 @@ To get the list of available MongoDB User resources, make a [list](/docs/managed
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}/users/{userName}
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path parameters {#path_params}

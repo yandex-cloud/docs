@@ -9,7 +9,7 @@ Updates a user in a cluster.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}/users/{userName}
+PATCH https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Deletes the specified PostgreSQL cluster.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}
+DELETE https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

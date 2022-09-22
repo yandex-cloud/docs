@@ -163,6 +163,26 @@ paths:
               schema:
                 $ref: '#/components/schemas/JobSignalResponse'
       x-y-navtitle: getSignal
+  /loadtesting/agent/v1/monitorings:
+    post:
+      tags:
+      - Monitoring
+      summary: Saves monitoring events for specified job
+      operationId: MonitoringAddMetric
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddMetricRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddMetricResponse'
+      x-y-navtitle: addMetric
   /loadtesting/agent/v1/tanks/{computeInstanceId}/claimStatus:
     post:
       tags:
@@ -288,6 +308,42 @@ paths:
       x-y-navtitle: create
 components:
   schemas:
+    AddMetricRequest:
+      type: object
+      properties:
+        computeInstanceId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        instanceHost:
+          description: Required.
+          type: string
+        data:
+          description: |-
+            Required.
+            Must contain at least one element.
+          type: array
+          items:
+            $ref: '#/components/schemas/Metric'
+        jobId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        timestamp:
+          type: string
+          format: int64
+        comment:
+          type: string
+    AddMetricResponse:
+      type: object
+      properties:
+        metricTrailId:
+          type: string
+        code:
+          type: string
+          format: int64
     AgentInstance:
       type: object
       properties:
@@ -571,6 +627,18 @@ components:
       - RPS
       - INSTANCES
       - STPD_FILE
+    Metric:
+      type: object
+      properties:
+        metricType:
+          description: Required.
+          type: string
+        metricName:
+          description: Required.
+          type: string
+        metricValue:
+          type: number
+          format: double
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -1038,6 +1106,7 @@ tags:
 - name: Agent
 - name: Greeter
 - name: Job
+- name: Monitoring
 - name: Tank
 - name: Test
 - name: Trail

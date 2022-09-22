@@ -837,6 +837,37 @@ components:
       enum:
       - READ_ONLY
       - READ_WRITE
+    AttachedFilesystemSpec:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/AttachedFilesystemSpecMode_in_AttachedFilesystemSpec_mode'
+        deviceName:
+          description: |-
+            Name of the device representing the filesystem on the instance.
+
+            The name should be used for referencing the filesystem from within the instance
+            when it's being mounted, resized etc.
+
+            If not specified, a random value will be generated.
+
+            Value must match the regular expression `` |[a-z][-_0-9a-z]{0,19} ``.
+          type: string
+        filesystemId:
+          description: |-
+            ID of the filesystem that should be attached.
+
+            The maximum string length in characters is 128.
+            Value must match the regular expression `` [-a-zA-Z0-9._{}]* ``.
+          type: string
+    AttachedFilesystemSpecMode:
+      description: |2-
+         - READ_ONLY: Read-only access.
+         - READ_WRITE: Read/Write access. Default value.
+      type: string
+      enum:
+      - READ_ONLY
+      - READ_WRITE
     CreateInstanceGroupFromYamlRequest:
       type: object
       properties:
@@ -1374,6 +1405,17 @@ components:
           type: string
         placementPolicy:
           $ref: '#/components/schemas/PlacementPolicy_in_InstanceTemplate_placementPolicy'
+        filesystemSpecs:
+          description: |-
+            Array of filesystems to attach to the instance.
+
+            The filesystems must reside in the same availability zone as the instance.
+
+            To use the instance with an attached filesystem, the latter must be mounted.
+            For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm).
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachedFilesystemSpec'
     IpVersion:
       description: |2-
          - IPV4: IPv4 address, for example 192.168.0.0.
@@ -2387,6 +2429,16 @@ components:
 
               The maximum string length in characters is 50.
             type: string
+    AttachedFilesystemSpecMode_in_AttachedFilesystemSpec_mode:
+      description: |-
+        Mode of access to the filesystem that should be attached.
+
+         - READ_ONLY: Read-only access.
+         - READ_WRITE: Read/Write access. Default value.
+      type: string
+      enum:
+      - READ_ONLY
+      - READ_WRITE
     InstanceTemplate_in_CreateInstanceGroupRequest_instanceTemplate:
       description: |-
         Required.
@@ -2506,6 +2558,17 @@ components:
           type: string
         placementPolicy:
           $ref: '#/components/schemas/PlacementPolicy_in_InstanceTemplate_placementPolicy'
+        filesystemSpecs:
+          description: |-
+            Array of filesystems to attach to the instance.
+
+            The filesystems must reside in the same availability zone as the instance.
+
+            To use the instance with an attached filesystem, the latter must be mounted.
+            For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm).
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachedFilesystemSpec'
     ScalePolicy_in_CreateInstanceGroupRequest_scalePolicy:
       description: |-
         Required.
@@ -2785,6 +2848,17 @@ components:
           type: string
         placementPolicy:
           $ref: '#/components/schemas/PlacementPolicy_in_InstanceTemplate_placementPolicy'
+        filesystemSpecs:
+          description: |-
+            Array of filesystems to attach to the instance.
+
+            The filesystems must reside in the same availability zone as the instance.
+
+            To use the instance with an attached filesystem, the latter must be mounted.
+            For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm).
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachedFilesystemSpec'
     ScalePolicy_in_InstanceGroup_scalePolicy:
       description: '[Scaling policy](/docs/compute/concepts/instance-groups/scale)
         of the instance group.'
@@ -3485,6 +3559,17 @@ components:
           type: string
         placementPolicy:
           $ref: '#/components/schemas/PlacementPolicy_in_InstanceTemplate_placementPolicy'
+        filesystemSpecs:
+          description: |-
+            Array of filesystems to attach to the instance.
+
+            The filesystems must reside in the same availability zone as the instance.
+
+            To use the instance with an attached filesystem, the latter must be mounted.
+            For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm).
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachedFilesystemSpec'
     ScalePolicy_in_UpdateInstanceGroupRequest_scalePolicy:
       description: |-
         Required.

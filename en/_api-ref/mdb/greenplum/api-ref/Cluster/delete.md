@@ -9,7 +9,7 @@ Deletes the specified Greenplum® cluster.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/managed-greenplum/v1/clusters/{clusterId}
+DELETE https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

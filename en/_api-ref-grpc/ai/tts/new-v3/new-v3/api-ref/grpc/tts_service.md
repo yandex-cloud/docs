@@ -78,6 +78,15 @@ AudioSource | **oneof:** `content`<br>The audio source to read the data from.
 audio_spec | **[AudioFormatOptions](#AudioFormatOptions)**<br>Description of the audio format. 
 
 
+### AudioVariable {#AudioVariable}
+
+Field | Description
+--- | ---
+variable_name | **string**<br>The name of the variable. 
+variable_start_ms | **int64**<br>Start time of the variable in milliseconds. 
+variable_length_ms | **int64**<br>Length of the variable in milliseconds. 
+
+
 ### AudioFormatOptions {#AudioFormatOptions}
 
 Field | Description
@@ -96,55 +105,6 @@ sample_rate_hertz | **int64**<br>Sampling frequency of the signal.
 
 
 ### ContainerAudio {#ContainerAudio}
-
-Field | Description
---- | ---
-container_audio_type | enum **ContainerAudioType**<br> <ul><li>`WAV`: Audio bit depth 16-bit signed little-endian (Linear PCM).</li><li>`OGG_OPUS`: Data is encoded using the OPUS audio codec and compressed using the OGG container format.</li><li>`MP3`: Data is encoded using MPEG-1/2 Layer III and compressed using the MP3 container format.</li></ul>
-
-
-### TextTemplate {#TextTemplate1}
-
-Field | Description
---- | ---
-text_template | **string**<br>Template text. <br>Sample:`The {animal} goes to the {place}.` 
-variables[] | **[TextVariable](#TextVariable1)**<br>Defining variables in template text. <br>Sample: `{animal: cat, place: forest}` 
-
-
-### TextVariable {#TextVariable1}
-
-Field | Description
---- | ---
-variable_name | **string**<br>The name of the variable. 
-variable_value | **string**<br>The text of the variable. 
-
-
-### AudioVariable {#AudioVariable}
-
-Field | Description
---- | ---
-variable_name | **string**<br>The name of the variable. 
-variable_start_ms | **int64**<br>Start time of the variable in milliseconds. 
-variable_length_ms | **int64**<br>Length of the variable in milliseconds. 
-
-
-### AudioFormatOptions {#AudioFormatOptions1}
-
-Field | Description
---- | ---
-AudioFormat | **oneof:** `raw_audio` or `container_audio`<br>
-&nbsp;&nbsp;raw_audio | **[RawAudio](#RawAudio1)**<br>The audio format specified in request parameters. 
-&nbsp;&nbsp;container_audio | **[ContainerAudio](#ContainerAudio1)**<br>The audio format specified inside the container metadata. 
-
-
-### RawAudio {#RawAudio1}
-
-Field | Description
---- | ---
-audio_encoding | enum **AudioEncoding**<br>Encoding type. <ul><li>`LINEAR16_PCM`: Audio bit depth 16-bit signed little-endian (Linear PCM).</li></ul>
-sample_rate_hertz | **int64**<br>Sampling frequency of the signal. 
-
-
-### ContainerAudio {#ContainerAudio1}
 
 Field | Description
 --- | ---

@@ -141,6 +141,15 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
+### Resources {#Resources}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
 ### MaintenanceWindow {#MaintenanceWindow}
 
 Field | Description
@@ -246,14 +255,14 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
-resources | **[Resources](#Resources)**<br>Resources allocated to ClickHouse hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper1}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hosts. 
 
 
 ### Access {#Access1}
@@ -276,6 +285,15 @@ enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data.
 move_factor | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> Acceptable values are 0 to 1, inclusive.
 data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+
+
+### Resources {#Resources1}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### MaintenanceWindow {#MaintenanceWindow1}
@@ -358,14 +376,14 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfig`**<br>Configuration for a ClickHouse server. 
-resources | **[Resources](#Resources)**<br>Resources allocated to ClickHouse hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper2}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. If not set, minimal available resources will be used. All available resource presets can be retrieved with a [ResourcePresetService.List](./resource_preset_service#List) request. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to ZooKeeper hosts. If not set, minimal available resources will be used. All available resource presets can be retrieved with a [ResourcePresetService.List](./resource_preset_service#List) request. 
 
 
 ### Access {#Access2}
@@ -388,6 +406,15 @@ enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data.
 move_factor | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> Acceptable values are 0 to 1, inclusive.
 data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+
+
+### Resources {#Resources2}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### DatabaseSpec {#DatabaseSpec}
@@ -612,36 +639,14 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
-resources | **[Resources](#Resources)**<br>Resources allocated to ClickHouse hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper3}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
-
-
-### Access {#Access3}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
-serverless | **bool**<br>Allow access to cluster for Serverless. 
-data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for Query 
-
-
-### CloudStorage {#CloudStorage3}
-
-Field | Description
---- | ---
-enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
-move_factor | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> Acceptable values are 0 to 1, inclusive.
-data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
-data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+resources | **[Resources](#Resources3)**<br>Resources allocated to ZooKeeper hosts. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow2}
@@ -707,8 +712,8 @@ version | **string**<br>Version of the ClickHouse server software.
 clickhouse | **[Clickhouse](#Clickhouse4)**<br>Configuration and resources for a ClickHouse server. 
 zookeeper | **[Zookeeper](#Zookeeper4)**<br>Configuration and resources for a ZooKeeper server. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access4)**<br>Access policy for external services. <br>If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy. 
-cloud_storage | **[CloudStorage](#CloudStorage4)**<br> 
+access | **[Access](#Access3)**<br>Access policy for external services. <br>If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy. 
+cloud_storage | **[CloudStorage](#CloudStorage3)**<br> 
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 admin_password | **string**<br>Password for user 'admin' that has SQL user management access. 
@@ -720,17 +725,17 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfig`**<br>Configuration for a ClickHouse server. 
-resources | **[Resources](#Resources)**<br>Resources allocated to ClickHouse hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper4}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. If not set, minimal available resources will be used. All available resource presets can be retrieved with a [ResourcePresetService.List](./resource_preset_service#List) request. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to ZooKeeper hosts. If not set, minimal available resources will be used. All available resource presets can be retrieved with a [ResourcePresetService.List](./resource_preset_service#List) request. 
 
 
-### Access {#Access4}
+### Access {#Access3}
 
 Field | Description
 --- | ---
@@ -742,7 +747,7 @@ data_transfer | **bool**<br>Allow access for DataTransfer
 yandex_query | **bool**<br>Allow access for Query 
 
 
-### CloudStorage {#CloudStorage4}
+### CloudStorage {#CloudStorage3}
 
 Field | Description
 --- | ---
@@ -750,6 +755,15 @@ enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data.
 move_factor | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> Acceptable values are 0 to 1, inclusive.
 data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+
+
+### Resources {#Resources3}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### MaintenanceWindow {#MaintenanceWindow3}
@@ -836,8 +850,8 @@ version | **string**<br>Version of the ClickHouse server software.
 clickhouse | **[Clickhouse](#Clickhouse5)**<br>Configuration and resource allocation for ClickHouse hosts. 
 zookeeper | **[Zookeeper](#Zookeeper5)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access5)**<br>Access policy for external services. 
-cloud_storage | **[CloudStorage](#CloudStorage5)**<br> 
+access | **[Access](#Access4)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage4)**<br> 
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
@@ -848,57 +862,14 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
-resources | **[Resources](#Resources)**<br>Resources allocated to ClickHouse hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper5}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
-
-
-### Access {#Access5}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
-serverless | **bool**<br>Allow access to cluster for Serverless. 
-data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for Query 
-
-
-### CloudStorage {#CloudStorage5}
-
-Field | Description
---- | ---
-enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
-move_factor | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> Acceptable values are 0 to 1, inclusive.
-data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
-data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
-
-
-### MaintenanceWindow {#MaintenanceWindow4}
-
-Field | Description
---- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br>Maintenance operation can be scheduled on a weekly basis. 
-
-
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
-
-
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
-
-Field | Description
---- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
-hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+resources | **[Resources](#Resources4)**<br>Resources allocated to ZooKeeper hosts. 
 
 
 ### MaintenanceOperation {#MaintenanceOperation3}
@@ -1006,7 +977,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -1029,8 +1000,8 @@ version | **string**<br>Version of the ClickHouse server software.
 clickhouse | **[Clickhouse](#Clickhouse6)**<br>Configuration and resource allocation for ClickHouse hosts. 
 zookeeper | **[Zookeeper](#Zookeeper6)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access6)**<br>Access policy for external services. 
-cloud_storage | **[CloudStorage](#CloudStorage6)**<br> 
+access | **[Access](#Access4)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage4)**<br> 
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
@@ -1041,17 +1012,17 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
-resources | **[Resources](#Resources)**<br>Resources allocated to ClickHouse hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper6}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to ZooKeeper hosts. 
 
 
-### Access {#Access6}
+### Access {#Access4}
 
 Field | Description
 --- | ---
@@ -1063,7 +1034,7 @@ data_transfer | **bool**<br>Allow access for DataTransfer
 yandex_query | **bool**<br>Allow access for Query 
 
 
-### CloudStorage {#CloudStorage6}
+### CloudStorage {#CloudStorage4}
 
 Field | Description
 --- | ---
@@ -1073,20 +1044,29 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
-### MaintenanceWindow {#MaintenanceWindow5}
+### Resources {#Resources4}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### MaintenanceWindow {#MaintenanceWindow4}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
 
 Field | Description
 --- | ---
@@ -1159,7 +1139,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -1182,8 +1162,8 @@ version | **string**<br>Version of the ClickHouse server software.
 clickhouse | **[Clickhouse](#Clickhouse7)**<br>Configuration and resource allocation for ClickHouse hosts. 
 zookeeper | **[Zookeeper](#Zookeeper7)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access7)**<br>Access policy for external services. 
-cloud_storage | **[CloudStorage](#CloudStorage7)**<br> 
+access | **[Access](#Access5)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage5)**<br> 
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
@@ -1194,17 +1174,17 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
-resources | **[Resources](#Resources)**<br>Resources allocated to ClickHouse hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper7}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to ZooKeeper hosts. 
 
 
-### Access {#Access7}
+### Access {#Access5}
 
 Field | Description
 --- | ---
@@ -1216,7 +1196,7 @@ data_transfer | **bool**<br>Allow access for DataTransfer
 yandex_query | **bool**<br>Allow access for Query 
 
 
-### CloudStorage {#CloudStorage7}
+### CloudStorage {#CloudStorage5}
 
 Field | Description
 --- | ---
@@ -1226,20 +1206,29 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
-### MaintenanceWindow {#MaintenanceWindow6}
+### Resources {#Resources5}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### MaintenanceWindow {#MaintenanceWindow5}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
 
 Field | Description
 --- | ---
@@ -1315,7 +1304,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -1338,8 +1327,8 @@ version | **string**<br>Version of the ClickHouse server software.
 clickhouse | **[Clickhouse](#Clickhouse8)**<br>Configuration and resource allocation for ClickHouse hosts. 
 zookeeper | **[Zookeeper](#Zookeeper8)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access8)**<br>Access policy for external services. 
-cloud_storage | **[CloudStorage](#CloudStorage8)**<br> 
+access | **[Access](#Access6)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage6)**<br> 
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
@@ -1350,17 +1339,17 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
-resources | **[Resources](#Resources)**<br>Resources allocated to ClickHouse hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper8}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to ZooKeeper hosts. 
 
 
-### Access {#Access8}
+### Access {#Access6}
 
 Field | Description
 --- | ---
@@ -1372,7 +1361,7 @@ data_transfer | **bool**<br>Allow access for DataTransfer
 yandex_query | **bool**<br>Allow access for Query 
 
 
-### CloudStorage {#CloudStorage8}
+### CloudStorage {#CloudStorage6}
 
 Field | Description
 --- | ---
@@ -1382,20 +1371,29 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
-### MaintenanceWindow {#MaintenanceWindow7}
+### Resources {#Resources6}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### MaintenanceWindow {#MaintenanceWindow6}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
 
 Field | Description
 --- | ---
@@ -1426,11 +1424,11 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the ClickHouse cluster to modify. The maximum string length in characters is 50.
-resources | **[Resources](#Resources)**<br>Resources allocated to Zookeeper hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to Zookeeper hosts. 
 host_specs[] | **[HostSpec](#HostSpec)**<br>Configuration of ZooKeeper hosts. 
 
 
-### Resources {#Resources}
+### Resources {#Resources7}
 
 Field | Description
 --- | ---
@@ -1490,7 +1488,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -1513,8 +1511,8 @@ version | **string**<br>Version of the ClickHouse server software.
 clickhouse | **[Clickhouse](#Clickhouse9)**<br>Configuration and resource allocation for ClickHouse hosts. 
 zookeeper | **[Zookeeper](#Zookeeper9)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access9)**<br>Access policy for external services. 
-cloud_storage | **[CloudStorage](#CloudStorage9)**<br> 
+access | **[Access](#Access7)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage7)**<br> 
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
@@ -1525,17 +1523,17 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
-resources | **[Resources](#Resources1)**<br>Resources allocated to ClickHouse hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper9}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to ZooKeeper hosts. 
 
 
-### Access {#Access9}
+### Access {#Access7}
 
 Field | Description
 --- | ---
@@ -1547,7 +1545,7 @@ data_transfer | **bool**<br>Allow access for DataTransfer
 yandex_query | **bool**<br>Allow access for Query 
 
 
-### CloudStorage {#CloudStorage9}
+### CloudStorage {#CloudStorage7}
 
 Field | Description
 --- | ---
@@ -1557,20 +1555,20 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
-### MaintenanceWindow {#MaintenanceWindow8}
+### MaintenanceWindow {#MaintenanceWindow7}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
 
 Field | Description
 --- | ---
@@ -1643,7 +1641,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -1666,8 +1664,8 @@ version | **string**<br>Version of the ClickHouse server software.
 clickhouse | **[Clickhouse](#Clickhouse10)**<br>Configuration and resource allocation for ClickHouse hosts. 
 zookeeper | **[Zookeeper](#Zookeeper10)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access10)**<br>Access policy for external services. 
-cloud_storage | **[CloudStorage](#CloudStorage10)**<br> 
+access | **[Access](#Access8)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage8)**<br> 
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
@@ -1678,17 +1676,17 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
-resources | **[Resources](#Resources1)**<br>Resources allocated to ClickHouse hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper10}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to ZooKeeper hosts. 
 
 
-### Access {#Access10}
+### Access {#Access8}
 
 Field | Description
 --- | ---
@@ -1700,7 +1698,7 @@ data_transfer | **bool**<br>Allow access for DataTransfer
 yandex_query | **bool**<br>Allow access for Query 
 
 
-### CloudStorage {#CloudStorage10}
+### CloudStorage {#CloudStorage8}
 
 Field | Description
 --- | ---
@@ -1710,20 +1708,29 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
-### MaintenanceWindow {#MaintenanceWindow9}
+### Resources {#Resources8}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### MaintenanceWindow {#MaintenanceWindow8}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
 
 Field | Description
 --- | ---
@@ -1775,8 +1782,8 @@ version | **string**<br>Version of the ClickHouse server software.
 clickhouse | **[Clickhouse](#Clickhouse11)**<br>Configuration and resources for a ClickHouse server. 
 zookeeper | **[Zookeeper](#Zookeeper11)**<br>Configuration and resources for a ZooKeeper server. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access11)**<br>Access policy for external services. <br>If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy. 
-cloud_storage | **[CloudStorage](#CloudStorage11)**<br> 
+access | **[Access](#Access9)**<br>Access policy for external services. <br>If you want a specific service to access the ClickHouse cluster, then set the necessary values in this policy. 
+cloud_storage | **[CloudStorage](#CloudStorage9)**<br> 
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 admin_password | **string**<br>Password for user 'admin' that has SQL user management access. 
@@ -1788,17 +1795,17 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfig`**<br>Configuration for a ClickHouse server. 
-resources | **[Resources](#Resources1)**<br>Resources allocated to ClickHouse hosts. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper11}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hosts. If not set, minimal available resources will be used. All available resource presets can be retrieved with a [ResourcePresetService.List](./resource_preset_service#List) request. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to ZooKeeper hosts. If not set, minimal available resources will be used. All available resource presets can be retrieved with a [ResourcePresetService.List](./resource_preset_service#List) request. 
 
 
-### Access {#Access11}
+### Access {#Access9}
 
 Field | Description
 --- | ---
@@ -1810,7 +1817,7 @@ data_transfer | **bool**<br>Allow access for DataTransfer
 yandex_query | **bool**<br>Allow access for Query 
 
 
-### CloudStorage {#CloudStorage11}
+### CloudStorage {#CloudStorage9}
 
 Field | Description
 --- | ---
@@ -1818,6 +1825,15 @@ enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data.
 move_factor | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> Acceptable values are 0 to 1, inclusive.
 data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+
+
+### Resources {#Resources9}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### HostSpec {#HostSpec2}
@@ -1872,7 +1888,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -1895,8 +1911,8 @@ version | **string**<br>Version of the ClickHouse server software.
 clickhouse | **[Clickhouse](#Clickhouse12)**<br>Configuration and resource allocation for ClickHouse hosts. 
 zookeeper | **[Zookeeper](#Zookeeper12)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access12)**<br>Access policy for external services. 
-cloud_storage | **[CloudStorage](#CloudStorage12)**<br> 
+access | **[Access](#Access10)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage10)**<br> 
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
@@ -1907,52 +1923,30 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
-resources | **[Resources](#Resources1)**<br>Resources allocated to ClickHouse hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper12}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to ZooKeeper hosts. 
 
 
-### Access {#Access12}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
-serverless | **bool**<br>Allow access to cluster for Serverless. 
-data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for Query 
-
-
-### CloudStorage {#CloudStorage12}
-
-Field | Description
---- | ---
-enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
-move_factor | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br> Acceptable values are 0 to 1, inclusive.
-data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
-data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
-
-
-### MaintenanceWindow {#MaintenanceWindow10}
+### MaintenanceWindow {#MaintenanceWindow9}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow10)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow10)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow10}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow10}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
 
 Field | Description
 --- | ---
@@ -2028,7 +2022,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation10)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -2051,8 +2045,8 @@ version | **string**<br>Version of the ClickHouse server software.
 clickhouse | **[Clickhouse](#Clickhouse13)**<br>Configuration and resource allocation for ClickHouse hosts. 
 zookeeper | **[Zookeeper](#Zookeeper13)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access13)**<br>Access policy for external services. 
-cloud_storage | **[CloudStorage](#CloudStorage13)**<br> 
+access | **[Access](#Access10)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage10)**<br> 
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
@@ -2063,17 +2057,17 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
-resources | **[Resources](#Resources1)**<br>Resources allocated to ClickHouse hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper13}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to ZooKeeper hosts. 
 
 
-### Access {#Access13}
+### Access {#Access10}
 
 Field | Description
 --- | ---
@@ -2085,7 +2079,7 @@ data_transfer | **bool**<br>Allow access for DataTransfer
 yandex_query | **bool**<br>Allow access for Query 
 
 
-### CloudStorage {#CloudStorage13}
+### CloudStorage {#CloudStorage10}
 
 Field | Description
 --- | ---
@@ -2095,20 +2089,29 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
-### MaintenanceWindow {#MaintenanceWindow11}
+### Resources {#Resources10}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### MaintenanceWindow {#MaintenanceWindow10}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow11)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow11)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow10)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow10)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow11}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow10}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow11}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow10}
 
 Field | Description
 --- | ---
@@ -2299,7 +2302,7 @@ name | **string**<br>Name of the ClickHouse host. The host name is assigned by M
 cluster_id | **string**<br>ID of the ClickHouse host. The ID is assigned by MDB at creation time. 
 zone_id | **string**<br>ID of the availability zone where the ClickHouse host resides. 
 type | enum **Type**<br>Type of the host. <ul><li>`CLICKHOUSE`: ClickHouse host.</li><li>`ZOOKEEPER`: ZooKeeper host.</li></ul>
-resources | **[Resources](#Resources1)**<br>Resources allocated to the ClickHouse host. 
+resources | **[Resources](#Resources11)**<br>Resources allocated to the ClickHouse host. 
 health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded, and can perform only some of its essential functions.</li></ul>
 services[] | **[Service](#Service)**<br>Services provided by the host. 
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
@@ -2307,7 +2310,7 @@ assign_public_ip | **bool**<br>Flag showing public IP assignment status to this 
 shard_name | **string**<br> 
 
 
-### Resources {#Resources1}
+### Resources {#Resources11}
 
 Field | Description
 --- | ---
@@ -2506,8 +2509,17 @@ clickhouse | **[Clickhouse](#Clickhouse14)**<br>ClickHouse configuration for a s
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfigSet`**<br>ClickHouse settings for a shard. 
-resources | **[Resources](#Resources2)**<br>Computational resources for a shard. 
+resources | **[Resources](#Resources12)**<br>Computational resources for a shard. 
 weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of a shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/operations/table_engines/distributed/). 
+
+
+### Resources {#Resources12}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ## ListShards {#ListShards}
@@ -2554,8 +2566,17 @@ clickhouse | **[Clickhouse](#Clickhouse15)**<br>ClickHouse configuration for a s
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfigSet`**<br>ClickHouse settings for a shard. 
-resources | **[Resources](#Resources2)**<br>Computational resources for a shard. 
+resources | **[Resources](#Resources13)**<br>Computational resources for a shard. 
 weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of a shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/operations/table_engines/distributed/). 
+
+
+### Resources {#Resources13}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ## AddShard {#AddShard}
@@ -2591,8 +2612,17 @@ clickhouse | **[Clickhouse](#Clickhouse16)**<br>ClickHouse configuration for a s
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfig`**<br>ClickHouse settings for the shard. 
-resources | **[Resources](#Resources2)**<br>Computational resources for the shard. 
+resources | **[Resources](#Resources14)**<br>Computational resources for the shard. 
 weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of the shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/operations/table_engines/distributed/). 
+
+
+### Resources {#Resources14}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### HostSpec {#HostSpec4}
@@ -2651,7 +2681,7 @@ clickhouse | **[Clickhouse](#Clickhouse17)**<br>ClickHouse configuration for a s
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfigSet`**<br>ClickHouse settings for a shard. 
-resources | **[Resources](#Resources2)**<br>Computational resources for a shard. 
+resources | **[Resources](#Resources15)**<br>Computational resources for a shard. 
 weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of a shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/operations/table_engines/distributed/). 
 
 
@@ -2687,8 +2717,17 @@ clickhouse | **[Clickhouse](#Clickhouse18)**<br>ClickHouse configuration for a s
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfig`**<br>ClickHouse settings for the shard. 
-resources | **[Resources](#Resources2)**<br>Computational resources for the shard. 
+resources | **[Resources](#Resources15)**<br>Computational resources for the shard. 
 weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of the shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/operations/table_engines/distributed/). 
+
+
+### Resources {#Resources15}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Operation {#Operation15}
@@ -2736,7 +2775,7 @@ clickhouse | **[Clickhouse](#Clickhouse19)**<br>ClickHouse configuration for a s
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfigSet`**<br>ClickHouse settings for a shard. 
-resources | **[Resources](#Resources2)**<br>Computational resources for a shard. 
+resources | **[Resources](#Resources16)**<br>Computational resources for a shard. 
 weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of a shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/operations/table_engines/distributed/). 
 
 
@@ -3048,7 +3087,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host1) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host1) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host1) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host1) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow12)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation11)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -3071,8 +3110,8 @@ version | **string**<br>Version of the ClickHouse server software.
 clickhouse | **[Clickhouse](#Clickhouse20)**<br>Configuration and resource allocation for ClickHouse hosts. 
 zookeeper | **[Zookeeper](#Zookeeper14)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access14)**<br>Access policy for external services. 
-cloud_storage | **[CloudStorage](#CloudStorage14)**<br> 
+access | **[Access](#Access11)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage11)**<br> 
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
@@ -3083,17 +3122,17 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
-resources | **[Resources](#Resources2)**<br>Resources allocated to ClickHouse hosts. 
+resources | **[Resources](#Resources16)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper14}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources2)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources16)**<br>Resources allocated to ZooKeeper hosts. 
 
 
-### Access {#Access14}
+### Access {#Access11}
 
 Field | Description
 --- | ---
@@ -3105,7 +3144,7 @@ data_transfer | **bool**<br>Allow access for DataTransfer
 yandex_query | **bool**<br>Allow access for Query 
 
 
-### CloudStorage {#CloudStorage14}
+### CloudStorage {#CloudStorage11}
 
 Field | Description
 --- | ---
@@ -3115,20 +3154,29 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
-### MaintenanceWindow {#MaintenanceWindow12}
+### Resources {#Resources16}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### MaintenanceWindow {#MaintenanceWindow11}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow12)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow12)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow11)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow11)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow12}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow11}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow12}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow11}
 
 Field | Description
 --- | ---
@@ -3204,7 +3252,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host1) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host1) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host1) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host1) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow13)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow12)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation12)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -3227,8 +3275,8 @@ version | **string**<br>Version of the ClickHouse server software.
 clickhouse | **[Clickhouse](#Clickhouse21)**<br>Configuration and resource allocation for ClickHouse hosts. 
 zookeeper | **[Zookeeper](#Zookeeper15)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access15)**<br>Access policy for external services. 
-cloud_storage | **[CloudStorage](#CloudStorage15)**<br> 
+access | **[Access](#Access12)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage12)**<br> 
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
@@ -3239,17 +3287,17 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
-resources | **[Resources](#Resources2)**<br>Resources allocated to ClickHouse hosts. 
+resources | **[Resources](#Resources17)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper15}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources2)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources17)**<br>Resources allocated to ZooKeeper hosts. 
 
 
-### Access {#Access15}
+### Access {#Access12}
 
 Field | Description
 --- | ---
@@ -3261,7 +3309,7 @@ data_transfer | **bool**<br>Allow access for DataTransfer
 yandex_query | **bool**<br>Allow access for Query 
 
 
-### CloudStorage {#CloudStorage15}
+### CloudStorage {#CloudStorage12}
 
 Field | Description
 --- | ---
@@ -3271,20 +3319,29 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
-### MaintenanceWindow {#MaintenanceWindow13}
+### Resources {#Resources17}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### MaintenanceWindow {#MaintenanceWindow12}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow13)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow13)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow12)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow12)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow13}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow12}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow13}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow12}
 
 Field | Description
 --- | ---
@@ -3358,7 +3415,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host1) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host1) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host1) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host1) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow14)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow13)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation13)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -3381,8 +3438,8 @@ version | **string**<br>Version of the ClickHouse server software.
 clickhouse | **[Clickhouse](#Clickhouse22)**<br>Configuration and resource allocation for ClickHouse hosts. 
 zookeeper | **[Zookeeper](#Zookeeper16)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access16)**<br>Access policy for external services. 
-cloud_storage | **[CloudStorage](#CloudStorage16)**<br> 
+access | **[Access](#Access13)**<br>Access policy for external services. 
+cloud_storage | **[CloudStorage](#CloudStorage13)**<br> 
 sql_database_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether database management through SQL commands is enabled. 
 sql_user_management | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether user management through SQL commands is enabled. 
 embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether cluster should use embedded Keeper instead of Zookeeper. 
@@ -3393,17 +3450,17 @@ embedded_keeper | **[google.protobuf.BoolValue](https://developers.google.com/pr
 Field | Description
 --- | ---
 config | **`config.ClickhouseConfigSet`**<br>Configuration settings of a ClickHouse server. 
-resources | **[Resources](#Resources2)**<br>Resources allocated to ClickHouse hosts. 
+resources | **[Resources](#Resources18)**<br>Resources allocated to ClickHouse hosts. 
 
 
 ### Zookeeper {#Zookeeper16}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources2)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources18)**<br>Resources allocated to ZooKeeper hosts. 
 
 
-### Access {#Access16}
+### Access {#Access13}
 
 Field | Description
 --- | ---
@@ -3415,7 +3472,7 @@ data_transfer | **bool**<br>Allow access for DataTransfer
 yandex_query | **bool**<br>Allow access for Query 
 
 
-### CloudStorage {#CloudStorage16}
+### CloudStorage {#CloudStorage13}
 
 Field | Description
 --- | ---
@@ -3425,20 +3482,29 @@ data_cache_enabled | **[google.protobuf.BoolValue](https://developers.google.com
 data_cache_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
 
 
-### MaintenanceWindow {#MaintenanceWindow14}
+### Resources {#Resources18}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-clickhouse/concepts/instance-types) 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### MaintenanceWindow {#MaintenanceWindow13}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow14)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow14)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow13)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow13)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow14}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow13}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow14}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow13}
 
 Field | Description
 --- | ---

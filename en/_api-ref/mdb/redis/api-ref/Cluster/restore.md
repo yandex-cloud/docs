@@ -9,7 +9,7 @@ Creates a new Redis cluster using the specified backup.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-redis/v1/clusters:restore
+POST https://{{ api-host-mdb }}/managed-redis/v1/clusters:restore
 ```
  
 ## Body parameters {#body_params}

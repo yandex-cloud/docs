@@ -198,13 +198,6 @@ instance_ids[] | **string**<br>Array of instances to which the disk is attached.
 disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy3)**<br>Placement policy configuration. 
 
 
-### DiskPlacementPolicy {#DiskPlacementPolicy3}
-
-Field | Description
---- | ---
-placement_group_id | **string**<br>Placement group ID. 
-
-
 ## Update {#Update}
 
 Updates the specified disk.
@@ -225,10 +218,10 @@ name | **string**<br>Name of the disk. Value must match the regular expression `
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
-disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy4)**<br>Placement policy configuration. 
+disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy3)**<br>Placement policy configuration. 
 
 
-### DiskPlacementPolicy {#DiskPlacementPolicy4}
+### DiskPlacementPolicy {#DiskPlacementPolicy3}
 
 Field | Description
 --- | ---
@@ -278,14 +271,7 @@ source | **oneof:** `source_image_id` or `source_snapshot_id`<br>
 &nbsp;&nbsp;source_image_id | **string**<br>ID of the image that was used for disk creation. 
 &nbsp;&nbsp;source_snapshot_id | **string**<br>ID of the snapshot that was used for disk creation. 
 instance_ids[] | **string**<br>Array of instances to which the disk is attached. 
-disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy5)**<br>Placement policy configuration. 
-
-
-### DiskPlacementPolicy {#DiskPlacementPolicy5}
-
-Field | Description
---- | ---
-placement_group_id | **string**<br>Placement group ID. 
+disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy4)**<br>Placement policy configuration. 
 
 
 ## Delete {#Delete}
@@ -430,10 +416,10 @@ source | **oneof:** `source_image_id` or `source_snapshot_id`<br>
 &nbsp;&nbsp;source_image_id | **string**<br>ID of the image that was used for disk creation. 
 &nbsp;&nbsp;source_snapshot_id | **string**<br>ID of the snapshot that was used for disk creation. 
 instance_ids[] | **string**<br>Array of instances to which the disk is attached. 
-disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy6)**<br>Placement policy configuration. 
+disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy4)**<br>Placement policy configuration. 
 
 
-### DiskPlacementPolicy {#DiskPlacementPolicy6}
+### DiskPlacementPolicy {#DiskPlacementPolicy4}
 
 Field | Description
 --- | ---

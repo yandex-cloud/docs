@@ -299,23 +299,6 @@ resources_spec | **[ResourcesSpec](#ResourcesSpec3)**<br>Resource specification 
 network_interface_spec | **[NetworkInterfaceSpec](#NetworkInterfaceSpec3)**<br>Network interface specification of the desktop group. 
 
 
-### ResourcesSpec {#ResourcesSpec3}
-
-Field | Description
---- | ---
-memory | **int64**<br>RAM volume, in bytes. The minimum value is 1.
-cores | **int64**<br>Number of CPU cores. The minimum value is 1.
-core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. Acceptable values are 0 to 100, inclusive.
-
-
-### NetworkInterfaceSpec {#NetworkInterfaceSpec3}
-
-Field | Description
---- | ---
-network_id | **string**<br>Required. ID of the network interface specification. The maximum string length in characters is 50.
-subnet_ids[] | **string**<br>List of subnet IDs. The number of elements must be greater than 0. The maximum string length in characters for each value is 50.
-
-
 ## Delete {#Delete}
 
 Deletes the specified desktop group.

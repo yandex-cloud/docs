@@ -9,7 +9,7 @@ Retrieves the list of Backup resources available for the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-postgresql/v1/backups
+GET https://{{ api-host-mdb }}/managed-postgresql/v1/backups
 ```
  
 ## Query parameters {#query_params}

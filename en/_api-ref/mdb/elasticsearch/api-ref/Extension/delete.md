@@ -9,7 +9,7 @@ Deletes the specified extension.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/extensions/{extensionId}
+DELETE https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/extensions/{extensionId}
 ```
  
 ## Path parameters {#path_params}

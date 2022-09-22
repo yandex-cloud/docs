@@ -342,43 +342,6 @@ subnet_id | **string**<br>ID of the subnet.
 ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
 
 
-### AttachedTargetGroup {#AttachedTargetGroup3}
-
-Field | Description
---- | ---
-target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
-health_checks[] | **[HealthCheck](#HealthCheck3)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
-
-
-### HealthCheck {#HealthCheck3}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
-timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
-unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
-healthy_threshold | **int64**<br>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. Acceptable values are 2 to 10, inclusive.
-options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the health check. Either TCP or HTTP.
-&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions3)**<br>Options for TCP health check. 
-&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions3)**<br>Options for HTTP health check. 
-
-
-### TcpOptions {#TcpOptions3}
-
-Field | Description
---- | ---
-port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
-
-
-### HttpOptions {#HttpOptions3}
-
-Field | Description
---- | ---
-port | **int64**<br>Port to use for HTTP health checks. Acceptable values are 1 to 65535, inclusive.
-path | **string**<br>URL path to set for health checking requests for every target in the target group. For example `` /ping ``. The default path is `` / ``. 
-
-
 ## Update {#Update}
 
 Updates the specified network load balancer.
@@ -399,7 +362,7 @@ name | **string**<br>Name of the network load balancer. The name must be unique 
 description | **string**<br>Description of the network load balancer. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. <br>The existing set of `` labels `` is completely replaced with the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br>A list of listeners and their specs for the network load balancer. The maximum number of elements is 1000.
-attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup4)**<br>A list of attached target groups for the network load balancer. The maximum number of elements is 1000.
+attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup3)**<br>A list of attached target groups for the network load balancer. The maximum number of elements is 1000.
 
 
 ### ListenerSpec {#ListenerSpec1}
@@ -432,15 +395,15 @@ subnet_id | **string**<br>ID of the subnet.
 ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
 
 
-### AttachedTargetGroup {#AttachedTargetGroup4}
+### AttachedTargetGroup {#AttachedTargetGroup3}
 
 Field | Description
 --- | ---
 target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
-health_checks[] | **[HealthCheck](#HealthCheck4)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
+health_checks[] | **[HealthCheck](#HealthCheck3)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
 
 
-### HealthCheck {#HealthCheck4}
+### HealthCheck {#HealthCheck3}
 
 Field | Description
 --- | ---
@@ -450,18 +413,18 @@ timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-bu
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
 healthy_threshold | **int64**<br>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. Acceptable values are 2 to 10, inclusive.
 options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the health check. Either TCP or HTTP.
-&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions4)**<br>Options for TCP health check. 
-&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions4)**<br>Options for HTTP health check. 
+&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions3)**<br>Options for TCP health check. 
+&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions3)**<br>Options for HTTP health check. 
 
 
-### TcpOptions {#TcpOptions4}
+### TcpOptions {#TcpOptions3}
 
 Field | Description
 --- | ---
 port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
 
 
-### HttpOptions {#HttpOptions4}
+### HttpOptions {#HttpOptions3}
 
 Field | Description
 --- | ---
@@ -507,7 +470,7 @@ status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATI
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li></ul>
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener3)**<br>List of listeners for the network load balancer. 
-attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup5)**<br>List of target groups attached to the network load balancer. 
+attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup4)**<br>List of target groups attached to the network load balancer. 
 
 
 ### Listener {#Listener3}
@@ -521,43 +484,6 @@ protocol | enum **Protocol**<br>Network protocol for incoming traffic.
 target_port | **int64**<br>Port of a target. 
 subnet_id | **string**<br>ID of the subnet. 
 ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
-
-
-### AttachedTargetGroup {#AttachedTargetGroup5}
-
-Field | Description
---- | ---
-target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
-health_checks[] | **[HealthCheck](#HealthCheck5)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
-
-
-### HealthCheck {#HealthCheck5}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
-timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
-unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
-healthy_threshold | **int64**<br>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. Acceptable values are 2 to 10, inclusive.
-options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the health check. Either TCP or HTTP.
-&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions5)**<br>Options for TCP health check. 
-&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions5)**<br>Options for HTTP health check. 
-
-
-### TcpOptions {#TcpOptions5}
-
-Field | Description
---- | ---
-port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
-
-
-### HttpOptions {#HttpOptions5}
-
-Field | Description
---- | ---
-port | **int64**<br>Port to use for HTTP health checks. Acceptable values are 1 to 65535, inclusive.
-path | **string**<br>URL path to set for health checking requests for every target in the target group. For example `` /ping ``. The default path is `` / ``. 
 
 
 ## Delete {#Delete}
@@ -695,18 +621,18 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 network_load_balancer_id | **string**<br>Required. ID of the network load balancer to attach the target group to. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. The maximum string length in characters is 50.
-attached_target_group | **[AttachedTargetGroup](#AttachedTargetGroup6)**<br>Required. ID of the attached target group to attach to the network load balancer. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. 
+attached_target_group | **[AttachedTargetGroup](#AttachedTargetGroup4)**<br>Required. ID of the attached target group to attach to the network load balancer. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. 
 
 
-### AttachedTargetGroup {#AttachedTargetGroup6}
+### AttachedTargetGroup {#AttachedTargetGroup4}
 
 Field | Description
 --- | ---
 target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
-health_checks[] | **[HealthCheck](#HealthCheck6)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
+health_checks[] | **[HealthCheck](#HealthCheck4)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
 
 
-### HealthCheck {#HealthCheck6}
+### HealthCheck {#HealthCheck4}
 
 Field | Description
 --- | ---
@@ -716,18 +642,18 @@ timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-bu
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
 healthy_threshold | **int64**<br>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. Acceptable values are 2 to 10, inclusive.
 options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the health check. Either TCP or HTTP.
-&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions6)**<br>Options for TCP health check. 
-&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions6)**<br>Options for HTTP health check. 
+&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions4)**<br>Options for TCP health check. 
+&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions4)**<br>Options for HTTP health check. 
 
 
-### TcpOptions {#TcpOptions6}
+### TcpOptions {#TcpOptions4}
 
 Field | Description
 --- | ---
 port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
 
 
-### HttpOptions {#HttpOptions6}
+### HttpOptions {#HttpOptions4}
 
 Field | Description
 --- | ---
@@ -774,7 +700,7 @@ status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATI
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li></ul>
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener4)**<br>List of listeners for the network load balancer. 
-attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup7)**<br>List of target groups attached to the network load balancer. 
+attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup5)**<br>List of target groups attached to the network load balancer. 
 
 
 ### Listener {#Listener4}
@@ -788,43 +714,6 @@ protocol | enum **Protocol**<br>Network protocol for incoming traffic.
 target_port | **int64**<br>Port of a target. 
 subnet_id | **string**<br>ID of the subnet. 
 ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
-
-
-### AttachedTargetGroup {#AttachedTargetGroup7}
-
-Field | Description
---- | ---
-target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
-health_checks[] | **[HealthCheck](#HealthCheck7)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
-
-
-### HealthCheck {#HealthCheck7}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
-timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
-unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
-healthy_threshold | **int64**<br>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. Acceptable values are 2 to 10, inclusive.
-options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the health check. Either TCP or HTTP.
-&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions7)**<br>Options for TCP health check. 
-&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions7)**<br>Options for HTTP health check. 
-
-
-### TcpOptions {#TcpOptions7}
-
-Field | Description
---- | ---
-port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
-
-
-### HttpOptions {#HttpOptions7}
-
-Field | Description
---- | ---
-port | **int64**<br>Port to use for HTTP health checks. Acceptable values are 1 to 65535, inclusive.
-path | **string**<br>URL path to set for health checking requests for every target in the target group. For example `` /ping ``. The default path is `` / ``. 
 
 
 ## DetachTargetGroup {#DetachTargetGroup}
@@ -884,7 +773,7 @@ status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATI
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li></ul>
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener5)**<br>List of listeners for the network load balancer. 
-attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup8)**<br>List of target groups attached to the network load balancer. 
+attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup5)**<br>List of target groups attached to the network load balancer. 
 
 
 ### Listener {#Listener5}
@@ -900,15 +789,15 @@ subnet_id | **string**<br>ID of the subnet.
 ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
 
 
-### AttachedTargetGroup {#AttachedTargetGroup8}
+### AttachedTargetGroup {#AttachedTargetGroup5}
 
 Field | Description
 --- | ---
 target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
-health_checks[] | **[HealthCheck](#HealthCheck8)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
+health_checks[] | **[HealthCheck](#HealthCheck5)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
 
 
-### HealthCheck {#HealthCheck8}
+### HealthCheck {#HealthCheck5}
 
 Field | Description
 --- | ---
@@ -918,18 +807,18 @@ timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-bu
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
 healthy_threshold | **int64**<br>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. Acceptable values are 2 to 10, inclusive.
 options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the health check. Either TCP or HTTP.
-&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions8)**<br>Options for TCP health check. 
-&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions8)**<br>Options for HTTP health check. 
+&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions5)**<br>Options for TCP health check. 
+&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions5)**<br>Options for HTTP health check. 
 
 
-### TcpOptions {#TcpOptions8}
+### TcpOptions {#TcpOptions5}
 
 Field | Description
 --- | ---
 port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
 
 
-### HttpOptions {#HttpOptions8}
+### HttpOptions {#HttpOptions5}
 
 Field | Description
 --- | ---
@@ -1053,7 +942,7 @@ status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATI
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li></ul>
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener6)**<br>List of listeners for the network load balancer. 
-attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup9)**<br>List of target groups attached to the network load balancer. 
+attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup6)**<br>List of target groups attached to the network load balancer. 
 
 
 ### Listener {#Listener6}
@@ -1069,15 +958,15 @@ subnet_id | **string**<br>ID of the subnet.
 ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
 
 
-### AttachedTargetGroup {#AttachedTargetGroup9}
+### AttachedTargetGroup {#AttachedTargetGroup6}
 
 Field | Description
 --- | ---
 target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
-health_checks[] | **[HealthCheck](#HealthCheck9)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
+health_checks[] | **[HealthCheck](#HealthCheck6)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
 
 
-### HealthCheck {#HealthCheck9}
+### HealthCheck {#HealthCheck6}
 
 Field | Description
 --- | ---
@@ -1087,18 +976,18 @@ timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-bu
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
 healthy_threshold | **int64**<br>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. Acceptable values are 2 to 10, inclusive.
 options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the health check. Either TCP or HTTP.
-&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions9)**<br>Options for TCP health check. 
-&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions9)**<br>Options for HTTP health check. 
+&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions6)**<br>Options for TCP health check. 
+&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions6)**<br>Options for HTTP health check. 
 
 
-### TcpOptions {#TcpOptions9}
+### TcpOptions {#TcpOptions6}
 
 Field | Description
 --- | ---
 port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
 
 
-### HttpOptions {#HttpOptions9}
+### HttpOptions {#HttpOptions6}
 
 Field | Description
 --- | ---
@@ -1162,7 +1051,7 @@ status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATI
 type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li></ul>
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener7)**<br>List of listeners for the network load balancer. 
-attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup10)**<br>List of target groups attached to the network load balancer. 
+attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup7)**<br>List of target groups attached to the network load balancer. 
 
 
 ### Listener {#Listener7}
@@ -1178,15 +1067,15 @@ subnet_id | **string**<br>ID of the subnet.
 ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
 
 
-### AttachedTargetGroup {#AttachedTargetGroup10}
+### AttachedTargetGroup {#AttachedTargetGroup7}
 
 Field | Description
 --- | ---
 target_group_id | **string**<br>Required. ID of the target group. The maximum string length in characters is 50.
-health_checks[] | **[HealthCheck](#HealthCheck10)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
+health_checks[] | **[HealthCheck](#HealthCheck7)**<br>A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup. The number of elemets must be exactly 1.
 
 
-### HealthCheck {#HealthCheck10}
+### HealthCheck {#HealthCheck7}
 
 Field | Description
 --- | ---
@@ -1196,18 +1085,18 @@ timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-bu
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
 healthy_threshold | **int64**<br>Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. Acceptable values are 2 to 10, inclusive.
 options | **oneof:** `tcp_options` or `http_options`<br>Protocol to use for the health check. Either TCP or HTTP.
-&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions10)**<br>Options for TCP health check. 
-&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions10)**<br>Options for HTTP health check. 
+&nbsp;&nbsp;tcp_options | **[TcpOptions](#TcpOptions7)**<br>Options for TCP health check. 
+&nbsp;&nbsp;http_options | **[HttpOptions](#HttpOptions7)**<br>Options for HTTP health check. 
 
 
-### TcpOptions {#TcpOptions10}
+### TcpOptions {#TcpOptions7}
 
 Field | Description
 --- | ---
 port | **int64**<br>Port to use for TCP health checks. Acceptable values are 1 to 65535, inclusive.
 
 
-### HttpOptions {#HttpOptions10}
+### HttpOptions {#HttpOptions7}
 
 Field | Description
 --- | ---

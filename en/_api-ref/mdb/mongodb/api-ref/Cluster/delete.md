@@ -9,7 +9,7 @@ Deletes the specified MongoDB cluster.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}
+DELETE https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ For more information about logs, see the [Logs](/docs/managed-sqlserver/operatio
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}:logs
+GET https://{{ api-host-mdb }}/mdb/sqlserver/v1/clusters/{clusterId}:logs
 ```
  
 ## Path parameters {#path_params}

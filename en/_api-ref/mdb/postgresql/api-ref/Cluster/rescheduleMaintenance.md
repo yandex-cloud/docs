@@ -9,7 +9,7 @@ Reschedules planned maintenance operation.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}:rescheduleMaintenance
+POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}:rescheduleMaintenance
 ```
  
 ## Path parameters {#path_params}

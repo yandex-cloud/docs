@@ -227,7 +227,8 @@ pageToken | <p>Page token. Set ``page_token`` to the ``next_page_token`` returne
         "throttlingRcuLimit": "string",
         "storageSizeLimit": "string",
         "enableThrottlingRcuLimit": true,
-        "provisionedRcuLimit": "string"
+        "provisionedRcuLimit": "string",
+        "topicWriteQuota": "string"
       },
       // end of the list of possible fields`databases[]`
 
@@ -357,4 +358,5 @@ databases[].<br>serverlessDatabase.<br>throttlingRcuLimit | **string** (int64)<b
 databases[].<br>serverlessDatabase.<br>storageSizeLimit | **string** (int64)<br><p>Specify serverless database storage size limit. If zero, default value is applied.</p> 
 databases[].<br>serverlessDatabase.<br>enableThrottlingRcuLimit | **boolean** (boolean)<br><p>If false, the database is throttled by cloud value.</p> 
 databases[].<br>serverlessDatabase.<br>provisionedRcuLimit | **string** (int64)<br><p>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed.</p> 
+databases[].<br>serverlessDatabase.<br>topicWriteQuota | **string** (int64)<br><p>write quota for topic service, defined in bytes per second.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for ListDatabases requests, if the number of results is larger than ``page_size`` specified in the request. To get the next page, specify the value of ``next_page_token`` as a value for the ``page_token`` parameter in the next ListDatabases request. Subsequent ListDatabases requests will have their own ``next_page_token`` to continue paging through the results.</p> 

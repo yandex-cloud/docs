@@ -9,7 +9,7 @@ Deletes the specified ClickHouse cluster.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}
+DELETE https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

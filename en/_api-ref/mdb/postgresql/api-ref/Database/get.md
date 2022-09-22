@@ -9,7 +9,7 @@ To get the list of available PostgreSQL Database resources, make a [list](/docs/
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}/databases/{databaseName}
+GET https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/databases/{databaseName}
 ```
  
 ## Path parameters {#path_params}

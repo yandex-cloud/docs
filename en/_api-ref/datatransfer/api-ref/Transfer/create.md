@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-POST https://datatransfer.{{ api-host }}/v1/transfer
+POST https://{{ api-host-data-transfer }}/v1/transfer
 ```
  
 ## Body parameters {#body_params}

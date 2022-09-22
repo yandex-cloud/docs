@@ -9,7 +9,7 @@ Deletes the specified machine learning model.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/mlModels/{mlModelName}
+DELETE https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/mlModels/{mlModelName}
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Deletes the specified Redis cluster.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/managed-redis/v1/clusters/{clusterId}
+DELETE https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

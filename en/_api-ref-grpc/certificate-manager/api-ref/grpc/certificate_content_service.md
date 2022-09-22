@@ -24,6 +24,7 @@ Field | Description
 --- | ---
 certificate_id | **string**<br>ID of the certificate to download content. 
 version_id | **string**<br>Optional ID of the version. 
+private_key_format | enum **PrivateKeyFormat**<br>Desired format of private key 
 
 
 ### GetCertificateContentResponse {#GetCertificateContentResponse}

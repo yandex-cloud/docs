@@ -9,7 +9,7 @@ Creates a Kafka user in the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}/users
+POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users
 ```
  
 ## Path parameters {#path_params}

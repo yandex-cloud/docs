@@ -9,7 +9,7 @@ Updates an external dictionary for the specified ClickHouse cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}:updateExternalDictionary
+POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}:updateExternalDictionary
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Deletes the specified SQL Server cluster.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}
+DELETE https://{{ api-host-mdb }}/mdb/sqlserver/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

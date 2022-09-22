@@ -9,7 +9,7 @@ Retrieves information about a cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}
+GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

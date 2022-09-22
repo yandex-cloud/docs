@@ -31,6 +31,12 @@ items:
         href: undefined/Job/get.md
       - name: getSignal
         href: undefined/Job/getSignal.md
+  - name: Monitoring
+    items:
+      - name: Overview
+        href: undefined/Monitoring/index.md
+      - name: addMetric
+        href: undefined/Monitoring/addMetric.md
   - name: Tank
     items:
       - name: Overview

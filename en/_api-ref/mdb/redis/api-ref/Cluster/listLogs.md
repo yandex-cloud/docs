@@ -9,7 +9,7 @@ Retrieves logs for the specified Redis cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-redis/v1/clusters/{clusterId}:logs
+GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}:logs
 ```
  
 ## Path parameters {#path_params}

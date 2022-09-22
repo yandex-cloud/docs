@@ -9,7 +9,7 @@ Retrieves a list of shard groups that belong to specified cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/shardGroups
+GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shardGroups
 ```
  
 ## Path parameters {#path_params}

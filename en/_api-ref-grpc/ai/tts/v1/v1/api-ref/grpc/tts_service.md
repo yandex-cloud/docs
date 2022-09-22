@@ -38,15 +38,6 @@ audio_source | **oneof:** `content`<br>The audio source to read the data from.
 audio_spec | **[AudioSpec](#AudioSpec)**<br>Required. Description of the audio format. 
 
 
-### AudioSpec {#AudioSpec}
-
-Field | Description
---- | ---
-audio_encoding | enum **AudioEncoding**<br>Encoding type. <ul><li>`LINEAR16_PCM`: 16-bit signed little-endian (Linear PCM)</li></ul>
-sample_rate_hertz | **int64**<br>Sampling frequency of the signal. 
-voice | **string**<br>The hint for specifying the voice that need to synthesize in the audio. 
-
-
 ### ReplacementUnit {#ReplacementUnit}
 
 Field | Description
@@ -58,7 +49,7 @@ audio_unit_start_ms | **int64**<br>The position of the beggining of the template
 audio_unit_end_ms | **int64**<br>End of the template in audio in milliseconds. The minimum value is 0.
 
 
-### AudioSpec {#AudioSpec1}
+### AudioSpec {#AudioSpec}
 
 Field | Description
 --- | ---

@@ -161,14 +161,6 @@ permissions[] | **[Permission](#Permission3)**<br>Set of permissions granted to 
 server_roles[] | enum **ServerRole**<br>Set of server roles granted to the login. <ul><li>`MDB_MONITOR`: Effectively grants VIEW SERVER STATE to the login. <br>That gives an ability to use various dynamic management views to monitor server state, including Activity Monitor tool that is built-in into SSMS. <br>No intrusive actions are allowed, so this is pretty safe to grant.</li></ul>
 
 
-### Permission {#Permission3}
-
-Field | Description
---- | ---
-database_name | **string**<br>Name of the database the permission grants access to. 
-roles[] | enum **Role**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`DB_OWNER`: Members of this fixed database role can perform all configuration and maintenance activities on a database and can also drop a database in SQL Server.</li><li>`DB_SECURITYADMIN`: Members of this fixed database role can modify role membership for custom roles only and manage permissions. They can potentially elevate their privileges and their actions should be monitored.</li><li>`DB_ACCESSADMIN`: Members of this fixed database role can add or remove access to a database for Windows logins, Windows groups, and SQL Server logins.</li><li>`DB_BACKUPOPERATOR`: Members of this fixed database role can back up the database.</li><li>`DB_DDLADMIN`: Members of this fixed database role can run any Data Definition Language (DDL) command in a database.</li><li>`DB_DATAWRITER`: Members of this fixed database role can add, delete, or change data in all user tables.</li><li>`DB_DATAREADER`: Members of this fixed database role can read all data from all user tables.</li><li>`DB_DENYDATAWRITER`: Members of this fixed database role cannot add, modify, or delete any data in the user tables within a database. A denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><li>`DB_DENYDATAREADER`: Members of this fixed database role cannot read any data in the user tables within a database. A denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li></ul>
-
-
 ## Update {#Update}
 
 Modifies the specified SQL Server user.
@@ -187,11 +179,11 @@ cluster_id | **string**<br>Required. ID of the SQL Server cluster the user belon
 user_name | **string**<br>Required. Name of the user to be updated. <br>To get the name of the user use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the SQL Server user should be updated. 
 password | **string**<br>New password for the user. The string length in characters must be 8-128.
-permissions[] | **[Permission](#Permission4)**<br>New set of permissions for the user. 
+permissions[] | **[Permission](#Permission3)**<br>New set of permissions for the user. 
 server_roles[] | enum **ServerRole**<br>New set of server roles granted to the login. <ul><li>`MDB_MONITOR`: Effectively grants VIEW SERVER STATE to the login. <br>That gives an ability to use various dynamic management views to monitor server state, including Activity Monitor tool that is built-in into SSMS. <br>No intrusive actions are allowed, so this is pretty safe to grant.</li></ul>
 
 
-### Permission {#Permission4}
+### Permission {#Permission3}
 
 Field | Description
 --- | ---
@@ -229,16 +221,8 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the SQL Server user. 
 cluster_id | **string**<br>ID of the SQL Server cluster the user belongs to. 
-permissions[] | **[Permission](#Permission5)**<br>Set of permissions granted to the user. 
+permissions[] | **[Permission](#Permission4)**<br>Set of permissions granted to the user. 
 server_roles[] | enum **ServerRole**<br>Set of server roles granted to the login. <ul><li>`MDB_MONITOR`: Effectively grants VIEW SERVER STATE to the login. <br>That gives an ability to use various dynamic management views to monitor server state, including Activity Monitor tool that is built-in into SSMS. <br>No intrusive actions are allowed, so this is pretty safe to grant.</li></ul>
-
-
-### Permission {#Permission5}
-
-Field | Description
---- | ---
-database_name | **string**<br>Name of the database the permission grants access to. 
-roles[] | enum **Role**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`DB_OWNER`: Members of this fixed database role can perform all configuration and maintenance activities on a database and can also drop a database in SQL Server.</li><li>`DB_SECURITYADMIN`: Members of this fixed database role can modify role membership for custom roles only and manage permissions. They can potentially elevate their privileges and their actions should be monitored.</li><li>`DB_ACCESSADMIN`: Members of this fixed database role can add or remove access to a database for Windows logins, Windows groups, and SQL Server logins.</li><li>`DB_BACKUPOPERATOR`: Members of this fixed database role can back up the database.</li><li>`DB_DDLADMIN`: Members of this fixed database role can run any Data Definition Language (DDL) command in a database.</li><li>`DB_DATAWRITER`: Members of this fixed database role can add, delete, or change data in all user tables.</li><li>`DB_DATAREADER`: Members of this fixed database role can read all data from all user tables.</li><li>`DB_DENYDATAWRITER`: Members of this fixed database role cannot add, modify, or delete any data in the user tables within a database. A denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><li>`DB_DENYDATAREADER`: Members of this fixed database role cannot read any data in the user tables within a database. A denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li></ul>
 
 
 ## Delete {#Delete}
@@ -299,10 +283,10 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the SQL Server cluster the user belongs to. <br>To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 user_name | **string**<br>Required. Name of the user to grant the permission to. <br>To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-permission | **[Permission](#Permission6)**<br>Required. Permission that should be granted to the specified user. 
+permission | **[Permission](#Permission4)**<br>Required. Permission that should be granted to the specified user. 
 
 
-### Permission {#Permission6}
+### Permission {#Permission4}
 
 Field | Description
 --- | ---
@@ -340,16 +324,8 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the SQL Server user. 
 cluster_id | **string**<br>ID of the SQL Server cluster the user belongs to. 
-permissions[] | **[Permission](#Permission7)**<br>Set of permissions granted to the user. 
+permissions[] | **[Permission](#Permission5)**<br>Set of permissions granted to the user. 
 server_roles[] | enum **ServerRole**<br>Set of server roles granted to the login. <ul><li>`MDB_MONITOR`: Effectively grants VIEW SERVER STATE to the login. <br>That gives an ability to use various dynamic management views to monitor server state, including Activity Monitor tool that is built-in into SSMS. <br>No intrusive actions are allowed, so this is pretty safe to grant.</li></ul>
-
-
-### Permission {#Permission7}
-
-Field | Description
---- | ---
-database_name | **string**<br>Name of the database the permission grants access to. 
-roles[] | enum **Role**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`DB_OWNER`: Members of this fixed database role can perform all configuration and maintenance activities on a database and can also drop a database in SQL Server.</li><li>`DB_SECURITYADMIN`: Members of this fixed database role can modify role membership for custom roles only and manage permissions. They can potentially elevate their privileges and their actions should be monitored.</li><li>`DB_ACCESSADMIN`: Members of this fixed database role can add or remove access to a database for Windows logins, Windows groups, and SQL Server logins.</li><li>`DB_BACKUPOPERATOR`: Members of this fixed database role can back up the database.</li><li>`DB_DDLADMIN`: Members of this fixed database role can run any Data Definition Language (DDL) command in a database.</li><li>`DB_DATAWRITER`: Members of this fixed database role can add, delete, or change data in all user tables.</li><li>`DB_DATAREADER`: Members of this fixed database role can read all data from all user tables.</li><li>`DB_DENYDATAWRITER`: Members of this fixed database role cannot add, modify, or delete any data in the user tables within a database. A denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><li>`DB_DENYDATAREADER`: Members of this fixed database role cannot read any data in the user tables within a database. A denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li></ul>
 
 
 ## RevokePermission {#RevokePermission}
@@ -368,10 +344,10 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the SQL Server cluster the user belongs to. <br>To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 user_name | **string**<br>Required. Name of the user to revoke a permission from. <br>To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-permission | **[Permission](#Permission8)**<br>Required. Permission that should be revoked from the specified user. 
+permission | **[Permission](#Permission5)**<br>Required. Permission that should be revoked from the specified user. 
 
 
-### Permission {#Permission8}
+### Permission {#Permission5}
 
 Field | Description
 --- | ---
@@ -409,15 +385,7 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the SQL Server user. 
 cluster_id | **string**<br>ID of the SQL Server cluster the user belongs to. 
-permissions[] | **[Permission](#Permission9)**<br>Set of permissions granted to the user. 
+permissions[] | **[Permission](#Permission6)**<br>Set of permissions granted to the user. 
 server_roles[] | enum **ServerRole**<br>Set of server roles granted to the login. <ul><li>`MDB_MONITOR`: Effectively grants VIEW SERVER STATE to the login. <br>That gives an ability to use various dynamic management views to monitor server state, including Activity Monitor tool that is built-in into SSMS. <br>No intrusive actions are allowed, so this is pretty safe to grant.</li></ul>
-
-
-### Permission {#Permission9}
-
-Field | Description
---- | ---
-database_name | **string**<br>Name of the database the permission grants access to. 
-roles[] | enum **Role**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`DB_OWNER`: Members of this fixed database role can perform all configuration and maintenance activities on a database and can also drop a database in SQL Server.</li><li>`DB_SECURITYADMIN`: Members of this fixed database role can modify role membership for custom roles only and manage permissions. They can potentially elevate their privileges and their actions should be monitored.</li><li>`DB_ACCESSADMIN`: Members of this fixed database role can add or remove access to a database for Windows logins, Windows groups, and SQL Server logins.</li><li>`DB_BACKUPOPERATOR`: Members of this fixed database role can back up the database.</li><li>`DB_DDLADMIN`: Members of this fixed database role can run any Data Definition Language (DDL) command in a database.</li><li>`DB_DATAWRITER`: Members of this fixed database role can add, delete, or change data in all user tables.</li><li>`DB_DATAREADER`: Members of this fixed database role can read all data from all user tables.</li><li>`DB_DENYDATAWRITER`: Members of this fixed database role cannot add, modify, or delete any data in the user tables within a database. A denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li><li>`DB_DENYDATAREADER`: Members of this fixed database role cannot read any data in the user tables within a database. A denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles.</li></ul>
 
 

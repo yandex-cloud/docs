@@ -615,11 +615,13 @@ default:
   terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform/
 
   # API
-  # Domain names are substituted in the TeamCity build of API reference. See step 20 of the build: https://nda.ya.ru/t/JggZA6M-4zCi6E
+  # Domain names are substituted in the TeamCity build of API reference. See step 22 of the build: https://nda.ya.ru/t/Q7o1atX85NJbyS
   api-host: api.cloud.yandex.net
   api-host-kms-symcrypto: kms.yandex
   api-host-certmanager-certcontent: data.certificate-manager.api.cloud.yandex.net
   api-host-lockbox-payload: payload.lockbox.api.cloud.yandex.net
+  api-host-data-transfer: datatransfer.api.cloud.yandex.net
+  api-host-mdb: mdb.api.cloud.yandex.net
 
   dns-mx-host: mx.cloud.yandex.net
 
@@ -668,7 +670,13 @@ default:
 
 internal:
   audience: internal
+
+  # API
+  # Domain names are substituted in the TeamCity build of API reference. See step 22 of the build: https://nda.ya.ru/t/Q7o1atX85NJbyS
   api-host: cloud.yandex-team.ru
+  api-host-data-transfer: cdc.n.yandex-team.ru
+  api-host-mdb: gw.db.yandex-team.ru
+
   console-link: https://yc.yandex-team.ru
   s3-storage-host: s3.mds.yandex.net
   yc-install-path: /mcdev/yandex-cli/install.sh
@@ -801,7 +809,13 @@ cloud-il:
   iot-name: IoT Core
   lockbox-name: Lockbox
   iot-short-name: IoT Core
+
+  # API
+  # Domain names are substituted in the TeamCity build of API reference. See step 22 of the build: https://nda.ya.ru/t/Q7o1atX85NJbyS
   api-host: api.cloudil.com
+  api-host-data-transfer: datatransfer.api.cloudil.com
+  api-host-mdb: mdb.api.cloudil.com
+
   ds-api-addr: datasphere.api.cloudil.com:443
   s3-storage-host: storage.cloudil.com
   s3-web-host: website.cloudil.com

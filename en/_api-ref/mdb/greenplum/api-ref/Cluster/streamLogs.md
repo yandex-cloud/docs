@@ -9,7 +9,7 @@ Same as [listLogs](/docs/managed-greenplum/api-ref/Cluster/listLogs) but using s
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-greenplum/v1/clusters/{clusterId}:stream_logs
+GET https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}:stream_logs
 ```
  
 ## Path parameters {#path_params}

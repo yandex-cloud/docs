@@ -9,7 +9,7 @@ Retrieves a list of hosts for a cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}/hosts
+GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/hosts
 ```
  
 ## Path parameters {#path_params}
@@ -71,10 +71,10 @@ hosts[].<br>resources.<br>resourcePresetId | **string**<br><p>ID of the resource
 hosts[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage (for each cluster host, in bytes).</p> 
 hosts[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage.</p> <p>Possible values:</p> <ul> <li>``network-hdd`` - standard network storage</li> <li>``network-ssd`` - fast network storage</li> <li>``network-ssd-nonreplicated`` - fast network nonreplicated storage</li> <li>``local-ssd`` - fast local storage.</li> </ul> <p>See <a href="/docs/managed-mysql/concepts/storage">the documentation</a> for details.</p> 
 hosts[].<br>role | **string**<br><p>Role of the host in the cluster.</p> <ul> <li>ROLE_UNKNOWN: Role of the host is unknown.</li> <li>MASTER: Host is the master.</li> <li>REPLICA: Host is a replica.</li> </ul> 
-hosts[].<br>health | **string**<br><p>Aggregated health of the host.</p> <ul> <li>HEALTH_UNKNOWN: Health of the host is unknown.</li> <li>ALIVE: Host is performing all its functions normally.</li> <li>DEAD: Host is inoperable, and cannot perform any of its essential functions.</li> <li>DEGRADED: Host is degraded, and can perform only some of its essential functions.</li> </ul> 
+hosts[].<br>health | **string**<br><p>Aggregated health of the host.</p> <ul> <li>HEALTH_UNKNOWN: Health of the host is unknown.</li> <li>ALIVE: Host is performing all its functions normally.</li> <li>DEAD: Host is inoperable, and cannot perform any of its essential functions.</li> <li>DEGRADED: Host is degraded, and can perform only some of its essential functions.</li> <li>READONLY: Host is alive, but in read-only mode.</li> </ul> 
 hosts[].<br>services[] | **object**<br><p>List of services provided by the host.</p> 
 hosts[].<br>services[].<br>type | **string**<br><p>Type of the service provided by the host.</p> <ul> <li>MYSQL: The host is a MySQL server.</li> </ul> 
-hosts[].<br>services[].<br>health | **string**<br><p>Aggregated health of the service.</p> <ul> <li>HEALTH_UNKNOWN: Health of the service is unknown.</li> <li>ALIVE: The service is working normally.</li> <li>DEAD: The service is dead or unresponsive.</li> </ul> 
+hosts[].<br>services[].<br>health | **string**<br><p>Aggregated health of the service.</p> <ul> <li>HEALTH_UNKNOWN: Health of the service is unknown.</li> <li>ALIVE: The service is working normally.</li> <li>DEAD: The service is dead or unresponsive.</li> <li>READONLY: The service is in read-only mode.</li> </ul> 
 hosts[].<br>subnetId | **string**<br><p>ID of the subnet that the host belongs to.</p> 
 hosts[].<br>assignPublicIp | **boolean** (boolean)<br><p>Flag that shows if public IP address is assigned to the host so that the host can be accessed from the internet.</p> 
 hosts[].<br>replicationSource | **string**<br><p>Name of the host to be used as the replication source for cascading replication.</p> 

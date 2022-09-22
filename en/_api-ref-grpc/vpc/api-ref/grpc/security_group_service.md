@@ -266,22 +266,6 @@ target | **oneof:** `cidr_blocks`, `security_group_id` or `predefined_target`<br
 &nbsp;&nbsp;predefined_target | **string**<br> 
 
 
-### PortRange {#PortRange3}
-
-Field | Description
---- | ---
-from_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
-to_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
-
-
-### CidrBlocks {#CidrBlocks3}
-
-Field | Description
---- | ---
-v4_cidr_blocks[] | **string**<br> 
-v6_cidr_blocks[] | **string**<br> 
-
-
 ## Update {#Update}
 
 
@@ -311,17 +295,17 @@ Field | Description
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 direction | **[SecurityGroupRule.Direction](#SecurityGroupRule3)**<br>Required.  
-ports | **[PortRange](#PortRange4)**<br> 
+ports | **[PortRange](#PortRange3)**<br> 
 protocol | **oneof:** `protocol_name` or `protocol_number`<br>values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml null value means any protocol
 &nbsp;&nbsp;protocol_name | **string**<br>values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml null value means any protocol 
 &nbsp;&nbsp;protocol_number | **int64**<br>values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml null value means any protocol 
 target | **oneof:** `cidr_blocks`, `security_group_id` or `predefined_target`<br>
-&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks4)**<br> 
+&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks3)**<br> 
 &nbsp;&nbsp;security_group_id | **string**<br> 
 &nbsp;&nbsp;predefined_target | **string**<br> 
 
 
-### PortRange {#PortRange4}
+### PortRange {#PortRange3}
 
 Field | Description
 --- | ---
@@ -329,7 +313,7 @@ from_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
 to_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
 
 
-### CidrBlocks {#CidrBlocks4}
+### CidrBlocks {#CidrBlocks3}
 
 Field | Description
 --- | ---
@@ -385,29 +369,13 @@ id | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 direction | enum **Direction**<br>Required.  
-ports | **[PortRange](#PortRange5)**<br> 
+ports | **[PortRange](#PortRange4)**<br> 
 protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
 protocol_number | **int64**<br> 
 target | **oneof:** `cidr_blocks`, `security_group_id` or `predefined_target`<br>
-&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks5)**<br> 
+&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks4)**<br> 
 &nbsp;&nbsp;security_group_id | **string**<br> 
 &nbsp;&nbsp;predefined_target | **string**<br> 
-
-
-### PortRange {#PortRange5}
-
-Field | Description
---- | ---
-from_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
-to_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
-
-
-### CidrBlocks {#CidrBlocks5}
-
-Field | Description
---- | ---
-v4_cidr_blocks[] | **string**<br> 
-v6_cidr_blocks[] | **string**<br> 
 
 
 ## UpdateRules {#UpdateRules}
@@ -436,17 +404,17 @@ Field | Description
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 direction | **[SecurityGroupRule.Direction](#SecurityGroupRule4)**<br>Required.  
-ports | **[PortRange](#PortRange6)**<br> 
+ports | **[PortRange](#PortRange4)**<br> 
 protocol | **oneof:** `protocol_name` or `protocol_number`<br>values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml null value means any protocol
 &nbsp;&nbsp;protocol_name | **string**<br>values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml null value means any protocol 
 &nbsp;&nbsp;protocol_number | **int64**<br>values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml null value means any protocol 
 target | **oneof:** `cidr_blocks`, `security_group_id` or `predefined_target`<br>
-&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks6)**<br> 
+&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks4)**<br> 
 &nbsp;&nbsp;security_group_id | **string**<br> 
 &nbsp;&nbsp;predefined_target | **string**<br> 
 
 
-### PortRange {#PortRange6}
+### PortRange {#PortRange4}
 
 Field | Description
 --- | ---
@@ -454,7 +422,7 @@ from_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
 to_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
 
 
-### CidrBlocks {#CidrBlocks6}
+### CidrBlocks {#CidrBlocks4}
 
 Field | Description
 --- | ---
@@ -510,29 +478,13 @@ id | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 direction | enum **Direction**<br>Required.  
-ports | **[PortRange](#PortRange7)**<br> 
+ports | **[PortRange](#PortRange5)**<br> 
 protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
 protocol_number | **int64**<br> 
 target | **oneof:** `cidr_blocks`, `security_group_id` or `predefined_target`<br>
-&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks7)**<br> 
+&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks5)**<br> 
 &nbsp;&nbsp;security_group_id | **string**<br> 
 &nbsp;&nbsp;predefined_target | **string**<br> 
-
-
-### PortRange {#PortRange7}
-
-Field | Description
---- | ---
-from_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
-to_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
-
-
-### CidrBlocks {#CidrBlocks7}
-
-Field | Description
---- | ---
-v4_cidr_blocks[] | **string**<br> 
-v6_cidr_blocks[] | **string**<br> 
 
 
 ## UpdateRule {#UpdateRule}
@@ -588,16 +540,16 @@ id | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 direction | enum **Direction**<br>Required.  
-ports | **[PortRange](#PortRange8)**<br> 
+ports | **[PortRange](#PortRange5)**<br> 
 protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
 protocol_number | **int64**<br> 
 target | **oneof:** `cidr_blocks`, `security_group_id` or `predefined_target`<br>
-&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks8)**<br> 
+&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks5)**<br> 
 &nbsp;&nbsp;security_group_id | **string**<br> 
 &nbsp;&nbsp;predefined_target | **string**<br> 
 
 
-### PortRange {#PortRange8}
+### PortRange {#PortRange5}
 
 Field | Description
 --- | ---
@@ -605,7 +557,7 @@ from_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
 to_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
 
 
-### CidrBlocks {#CidrBlocks8}
+### CidrBlocks {#CidrBlocks5}
 
 Field | Description
 --- | ---
@@ -718,16 +670,16 @@ id | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 direction | enum **Direction**<br>Required.  
-ports | **[PortRange](#PortRange9)**<br> 
+ports | **[PortRange](#PortRange6)**<br> 
 protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
 protocol_number | **int64**<br> 
 target | **oneof:** `cidr_blocks`, `security_group_id` or `predefined_target`<br>
-&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks9)**<br> 
+&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks6)**<br> 
 &nbsp;&nbsp;security_group_id | **string**<br> 
 &nbsp;&nbsp;predefined_target | **string**<br> 
 
 
-### PortRange {#PortRange9}
+### PortRange {#PortRange6}
 
 Field | Description
 --- | ---
@@ -735,7 +687,7 @@ from_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
 to_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
 
 
-### CidrBlocks {#CidrBlocks9}
+### CidrBlocks {#CidrBlocks6}
 
 Field | Description
 --- | ---

@@ -9,7 +9,7 @@ Updates the specified shard group.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/shardGroups/{shardGroupName}
+PATCH https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shardGroups/{shardGroupName}
 ```
  
 ## Path parameters {#path_params}

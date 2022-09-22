@@ -178,18 +178,6 @@ network_id | **string**<br>ID of the network the route table belongs to.
 static_routes[] | **[StaticRoute](#StaticRoute3)**<br>List of static routes. 
 
 
-### StaticRoute {#StaticRoute3}
-
-Field | Description
---- | ---
-destination | **oneof:** `destination_prefix`<br>
-&nbsp;&nbsp;destination_prefix | **string**<br>Destination subnet in CIDR notation 
-next_hop | **oneof:** `next_hop_address` or `gateway_id`<br>
-&nbsp;&nbsp;next_hop_address | **string**<br>Next hop IP address 
-&nbsp;&nbsp;gateway_id | **string**<br>Next hop gateway id 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
-
-
 ## Update {#Update}
 
 Updates the specified route table. Method starts an asynchronous operation that can be cancelled while it is in progress.
@@ -209,10 +197,10 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 name | **string**<br>Name of the route table. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the route table. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-static_routes[] | **[StaticRoute](#StaticRoute4)**<br>List of static routes. 
+static_routes[] | **[StaticRoute](#StaticRoute3)**<br>List of static routes. 
 
 
-### StaticRoute {#StaticRoute4}
+### StaticRoute {#StaticRoute3}
 
 Field | Description
 --- | ---
@@ -258,19 +246,7 @@ name | **string**<br>Name of the route table. The name is unique within the proj
 description | **string**<br>Optional description of the route table. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 network_id | **string**<br>ID of the network the route table belongs to. 
-static_routes[] | **[StaticRoute](#StaticRoute5)**<br>List of static routes. 
-
-
-### StaticRoute {#StaticRoute5}
-
-Field | Description
---- | ---
-destination | **oneof:** `destination_prefix`<br>
-&nbsp;&nbsp;destination_prefix | **string**<br>Destination subnet in CIDR notation 
-next_hop | **oneof:** `next_hop_address` or `gateway_id`<br>
-&nbsp;&nbsp;next_hop_address | **string**<br>Next hop IP address 
-&nbsp;&nbsp;gateway_id | **string**<br>Next hop gateway id 
-labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+static_routes[] | **[StaticRoute](#StaticRoute4)**<br>List of static routes. 
 
 
 ## Delete {#Delete}
@@ -404,10 +380,10 @@ name | **string**<br>Name of the route table. The name is unique within the proj
 description | **string**<br>Optional description of the route table. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 network_id | **string**<br>ID of the network the route table belongs to. 
-static_routes[] | **[StaticRoute](#StaticRoute6)**<br>List of static routes. 
+static_routes[] | **[StaticRoute](#StaticRoute4)**<br>List of static routes. 
 
 
-### StaticRoute {#StaticRoute6}
+### StaticRoute {#StaticRoute4}
 
 Field | Description
 --- | ---

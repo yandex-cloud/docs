@@ -9,7 +9,7 @@ To get the list of available MongoDB Cluster resources, make a [list](/docs/mana
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

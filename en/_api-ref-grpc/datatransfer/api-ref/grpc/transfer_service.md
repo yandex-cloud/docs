@@ -284,30 +284,6 @@ tls_mode | **[TLSMode](#TLSMode1)**<br>TLS mode <br>TLS settings for server conn
 subnet_id | **string**<br>Network interface for endpoint <br>Default: public IPv4. 
 
 
-### TLSMode {#TLSMode1}
-
-Field | Description
---- | ---
-tls_mode | **oneof:** `disabled` or `enabled`<br>
-&nbsp;&nbsp;disabled | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**<br> 
-&nbsp;&nbsp;enabled | **[TLSConfig](#TLSConfig1)**<br> 
-
-
-### TLSConfig {#TLSConfig1}
-
-Field | Description
---- | ---
-ca_certificate | **string**<br>CA certificate <br>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server. 
-
-
-### Secret {#Secret1}
-
-Field | Description
---- | ---
-value | **oneof:** `raw`<br>
-&nbsp;&nbsp;raw | **string**<br>Password 
-
-
 ### PostgresObjectTransferSettings {#PostgresObjectTransferSettings}
 
 Field | Description
@@ -359,7 +335,7 @@ address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 &nbsp;&nbsp;mdb_cluster_id | **string**<br> 
 &nbsp;&nbsp;on_premise | **[OnPremiseMongo](#OnPremiseMongo)**<br> 
 user | **string**<br> 
-password | **[Secret](#Secret2)**<br> 
+password | **[Secret](#Secret1)**<br> 
 auth_source | **string**<br> 
 
 
@@ -369,32 +345,8 @@ Field | Description
 --- | ---
 hosts[] | **string**<br> 
 port | **int64**<br> 
-tls_mode | **[TLSMode](#TLSMode2)**<br> 
+tls_mode | **[TLSMode](#TLSMode1)**<br> 
 replica_set | **string**<br> 
-
-
-### TLSMode {#TLSMode2}
-
-Field | Description
---- | ---
-tls_mode | **oneof:** `disabled` or `enabled`<br>
-&nbsp;&nbsp;disabled | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**<br> 
-&nbsp;&nbsp;enabled | **[TLSConfig](#TLSConfig2)**<br> 
-
-
-### TLSConfig {#TLSConfig2}
-
-Field | Description
---- | ---
-ca_certificate | **string**<br>CA certificate <br>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server. 
-
-
-### Secret {#Secret2}
-
-Field | Description
---- | ---
-value | **oneof:** `raw`<br>
-&nbsp;&nbsp;raw | **string**<br>Password 
 
 
 ### MongoCollection {#MongoCollection}
@@ -433,7 +385,7 @@ address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 &nbsp;&nbsp;on_premise | **[OnPremiseClickhouse](#OnPremiseClickhouse)**<br> 
 database | **string**<br> 
 user | **string**<br> 
-password | **[Secret](#Secret3)**<br> 
+password | **[Secret](#Secret1)**<br> 
 
 
 ### OnPremiseClickhouse {#OnPremiseClickhouse}
@@ -443,7 +395,7 @@ Field | Description
 shards[] | **[ClickhouseShard](#ClickhouseShard)**<br> 
 http_port | **int64**<br> 
 native_port | **int64**<br> 
-tls_mode | **[TLSMode](#TLSMode3)**<br> 
+tls_mode | **[TLSMode](#TLSMode1)**<br> 
 
 
 ### ClickhouseShard {#ClickhouseShard}
@@ -454,30 +406,6 @@ name | **string**<br>
 hosts[] | **string**<br> 
 
 
-### TLSMode {#TLSMode3}
-
-Field | Description
---- | ---
-tls_mode | **oneof:** `disabled` or `enabled`<br>
-&nbsp;&nbsp;disabled | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**<br> 
-&nbsp;&nbsp;enabled | **[TLSConfig](#TLSConfig3)**<br> 
-
-
-### TLSConfig {#TLSConfig3}
-
-Field | Description
---- | ---
-ca_certificate | **string**<br>CA certificate <br>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server. 
-
-
-### Secret {#Secret3}
-
-Field | Description
---- | ---
-value | **oneof:** `raw`<br>
-&nbsp;&nbsp;raw | **string**<br>Password 
-
-
 ### MysqlTarget {#MysqlTarget}
 
 Field | Description
@@ -486,55 +414,12 @@ connection | **[MysqlConnection](#MysqlConnection1)**<br>Connection settings <br
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name <br>Allowed to leave it empty, then the tables will be created in databases with the same names as on the source. If this field is empty, then you must fill below db schema for service table. 
 user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret4)**<br>Password <br>Password for database access. 
+password | **[Secret](#Secret1)**<br>Password <br>Password for database access. 
 sql_mode | **string**<br>sql_mode <br>Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION. 
 skip_constraint_checks | **bool**<br>Disable constraints checks <br>Recommend to disable for increase replication speed, but if schema contain cascading operations we don't recommend to disable. This option set FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0. 
 timezone | **string**<br>Database timezone <br>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone. 
 cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. 
 service_database | **string**<br>Database schema for service table <br>Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
-
-
-### MysqlConnection {#MysqlConnection1}
-
-Field | Description
---- | ---
-connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Managed Service for MySQL cluster ID 
-&nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql1)**<br>On-premise <br>Connection options for on-premise MySQL 
-
-
-### OnPremiseMysql {#OnPremiseMysql1}
-
-Field | Description
---- | ---
-hosts[] | **string**<br> 
-port | **int64**<br>Database port <br>Default: 3306. 
-tls_mode | **[TLSMode](#TLSMode4)**<br>TLS mode <br>TLS settings for server connection. Disabled by default. 
-subnet_id | **string**<br>Network interface for endpoint <br>Default: public IPv4. 
-
-
-### TLSMode {#TLSMode4}
-
-Field | Description
---- | ---
-tls_mode | **oneof:** `disabled` or `enabled`<br>
-&nbsp;&nbsp;disabled | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**<br> 
-&nbsp;&nbsp;enabled | **[TLSConfig](#TLSConfig4)**<br> 
-
-
-### TLSConfig {#TLSConfig4}
-
-Field | Description
---- | ---
-ca_certificate | **string**<br>CA certificate <br>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server. 
-
-
-### Secret {#Secret4}
-
-Field | Description
---- | ---
-value | **oneof:** `raw`<br>
-&nbsp;&nbsp;raw | **string**<br>Password 
 
 
 ### PostgresTarget {#PostgresTarget}
@@ -545,51 +430,8 @@ connection | **[PostgresConnection](#PostgresConnection1)**<br>Connection settin
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name 
 user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret5)**<br>Password <br>Password for database access. 
+password | **[Secret](#Secret1)**<br>Password <br>Password for database access. 
 cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. 
-
-
-### PostgresConnection {#PostgresConnection1}
-
-Field | Description
---- | ---
-connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Managed Service for PostgreSQL cluster ID 
-&nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres1)**<br>On-premise <br>Connection options for on-premise PostgreSQL 
-
-
-### OnPremisePostgres {#OnPremisePostgres1}
-
-Field | Description
---- | ---
-hosts[] | **string**<br> 
-port | **int64**<br>Database port <br>Will be used if the cluster ID is not specified. Default: 6432. 
-tls_mode | **[TLSMode](#TLSMode5)**<br>TLS mode <br>TLS settings for server connection. Disabled by default. 
-subnet_id | **string**<br>Network interface for endpoint <br>Default: public IPv4. 
-
-
-### TLSMode {#TLSMode5}
-
-Field | Description
---- | ---
-tls_mode | **oneof:** `disabled` or `enabled`<br>
-&nbsp;&nbsp;disabled | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**<br> 
-&nbsp;&nbsp;enabled | **[TLSConfig](#TLSConfig5)**<br> 
-
-
-### TLSConfig {#TLSConfig5}
-
-Field | Description
---- | ---
-ca_certificate | **string**<br>CA certificate <br>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server. 
-
-
-### Secret {#Secret5}
-
-Field | Description
---- | ---
-value | **oneof:** `raw`<br>
-&nbsp;&nbsp;raw | **string**<br>Password 
 
 
 ### ClickhouseTarget {#ClickhouseTarget}
@@ -603,68 +445,6 @@ clickhouse_cluster_name | **string**<br>
 alt_names[] | **[AltName](#AltName)**<br> 
 sharding | **[ClickhouseSharding](#ClickhouseSharding)**<br> 
 cleanup_policy | enum **ClickhouseCleanupPolicy**<br> 
-
-
-### ClickhouseConnection {#ClickhouseConnection1}
-
-Field | Description
---- | ---
-connection | **oneof:** `connection_options`<br>
-&nbsp;&nbsp;connection_options | **[ClickhouseConnectionOptions](#ClickhouseConnectionOptions1)**<br> 
-
-
-### ClickhouseConnectionOptions {#ClickhouseConnectionOptions1}
-
-Field | Description
---- | ---
-address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br> 
-&nbsp;&nbsp;on_premise | **[OnPremiseClickhouse](#OnPremiseClickhouse1)**<br> 
-database | **string**<br> 
-user | **string**<br> 
-password | **[Secret](#Secret6)**<br> 
-
-
-### OnPremiseClickhouse {#OnPremiseClickhouse1}
-
-Field | Description
---- | ---
-shards[] | **[ClickhouseShard](#ClickhouseShard1)**<br> 
-http_port | **int64**<br> 
-native_port | **int64**<br> 
-tls_mode | **[TLSMode](#TLSMode6)**<br> 
-
-
-### ClickhouseShard {#ClickhouseShard1}
-
-Field | Description
---- | ---
-name | **string**<br> 
-hosts[] | **string**<br> 
-
-
-### TLSMode {#TLSMode6}
-
-Field | Description
---- | ---
-tls_mode | **oneof:** `disabled` or `enabled`<br>
-&nbsp;&nbsp;disabled | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**<br> 
-&nbsp;&nbsp;enabled | **[TLSConfig](#TLSConfig6)**<br> 
-
-
-### TLSConfig {#TLSConfig6}
-
-Field | Description
---- | ---
-ca_certificate | **string**<br>CA certificate <br>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server. 
-
-
-### Secret {#Secret6}
-
-Field | Description
---- | ---
-value | **oneof:** `raw`<br>
-&nbsp;&nbsp;raw | **string**<br>Password 
 
 
 ### AltName {#AltName}
@@ -708,6 +488,14 @@ column_value | **[ColumnValue](#ColumnValue)**<br>
 shard_name | **string**<br> 
 
 
+### ColumnValue {#ColumnValue}
+
+Field | Description
+--- | ---
+value | **oneof:** `string_value`<br>
+&nbsp;&nbsp;string_value | **string**<br> 
+
+
 ### MongoTarget {#MongoTarget}
 
 Field | Description
@@ -717,60 +505,6 @@ subnet_id | **string**<br>
 security_groups[] | **string**<br>Security groups 
 database | **string**<br> 
 cleanup_policy | enum **CleanupPolicy**<br> 
-
-
-### MongoConnection {#MongoConnection1}
-
-Field | Description
---- | ---
-connection | **oneof:** `connection_options`<br>
-&nbsp;&nbsp;connection_options | **[MongoConnectionOptions](#MongoConnectionOptions1)**<br> 
-
-
-### MongoConnectionOptions {#MongoConnectionOptions1}
-
-Field | Description
---- | ---
-address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br> 
-&nbsp;&nbsp;on_premise | **[OnPremiseMongo](#OnPremiseMongo1)**<br> 
-user | **string**<br> 
-password | **[Secret](#Secret7)**<br> 
-auth_source | **string**<br> 
-
-
-### OnPremiseMongo {#OnPremiseMongo1}
-
-Field | Description
---- | ---
-hosts[] | **string**<br> 
-port | **int64**<br> 
-tls_mode | **[TLSMode](#TLSMode7)**<br> 
-replica_set | **string**<br> 
-
-
-### TLSMode {#TLSMode7}
-
-Field | Description
---- | ---
-tls_mode | **oneof:** `disabled` or `enabled`<br>
-&nbsp;&nbsp;disabled | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**<br> 
-&nbsp;&nbsp;enabled | **[TLSConfig](#TLSConfig7)**<br> 
-
-
-### TLSConfig {#TLSConfig7}
-
-Field | Description
---- | ---
-ca_certificate | **string**<br>CA certificate <br>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server. 
-
-
-### Secret {#Secret7}
-
-Field | Description
---- | ---
-value | **oneof:** `raw`<br>
-&nbsp;&nbsp;raw | **string**<br>Password 
 
 
 ## Get {#Get}
@@ -833,54 +567,54 @@ settings | **oneof:** `mysql_source`, `postgres_source`, `mongo_source`, `clickh
 
 Field | Description
 --- | ---
-connection | **[MysqlConnection](#MysqlConnection2)**<br>Connection settings <br>Database connection settings 
+connection | **[MysqlConnection](#MysqlConnection1)**<br>Connection settings <br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name <br>You can leave it empty, then it will be possible to transfer tables from several databases at the same time from this source. 
 service_database | **string**<br>Database for service tables <br>Default: data source database. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
 user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret8)**<br>Password <br>Password for database access. 
+password | **[Secret](#Secret1)**<br>Password <br>Password for database access. 
 include_tables_regex[] | **string**<br> 
 exclude_tables_regex[] | **string**<br> 
 timezone | **string**<br>Database timezone <br>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone. 
 object_transfer_settings | **[MysqlObjectTransferSettings](#MysqlObjectTransferSettings1)**<br>Schema migration <br>Select database objects to be transferred during activation or deactivation. 
 
 
-### MysqlConnection {#MysqlConnection2}
+### MysqlConnection {#MysqlConnection1}
 
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 &nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Managed Service for MySQL cluster ID 
-&nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql2)**<br>On-premise <br>Connection options for on-premise MySQL 
+&nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql1)**<br>On-premise <br>Connection options for on-premise MySQL 
 
 
-### OnPremiseMysql {#OnPremiseMysql2}
+### OnPremiseMysql {#OnPremiseMysql1}
 
 Field | Description
 --- | ---
 hosts[] | **string**<br> 
 port | **int64**<br>Database port <br>Default: 3306. 
-tls_mode | **[TLSMode](#TLSMode8)**<br>TLS mode <br>TLS settings for server connection. Disabled by default. 
+tls_mode | **[TLSMode](#TLSMode1)**<br>TLS mode <br>TLS settings for server connection. Disabled by default. 
 subnet_id | **string**<br>Network interface for endpoint <br>Default: public IPv4. 
 
 
-### TLSMode {#TLSMode8}
+### TLSMode {#TLSMode1}
 
 Field | Description
 --- | ---
 tls_mode | **oneof:** `disabled` or `enabled`<br>
 &nbsp;&nbsp;disabled | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**<br> 
-&nbsp;&nbsp;enabled | **[TLSConfig](#TLSConfig8)**<br> 
+&nbsp;&nbsp;enabled | **[TLSConfig](#TLSConfig1)**<br> 
 
 
-### TLSConfig {#TLSConfig8}
+### TLSConfig {#TLSConfig1}
 
 Field | Description
 --- | ---
 ca_certificate | **string**<br>CA certificate <br>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server. 
 
 
-### Secret {#Secret8}
+### Secret {#Secret1}
 
 Field | Description
 --- | ---
@@ -901,11 +635,11 @@ trigger | enum **ObjectTransferStage**<br>Triggers <br>CREATE TRIGGER ...
 
 Field | Description
 --- | ---
-connection | **[PostgresConnection](#PostgresConnection2)**<br>Connection settings <br>Database connection settings 
+connection | **[PostgresConnection](#PostgresConnection1)**<br>Connection settings <br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name 
 user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret9)**<br>Password <br>Password for database access. 
+password | **[Secret](#Secret2)**<br>Password <br>Password for database access. 
 include_tables[] | **string**<br>Included tables <br>If none or empty list is presented, all tables are replicated. Full table name with schema. Can contain schema_name.* patterns. 
 exclude_tables[] | **string**<br>Excluded tables <br>If none or empty list is presented, all tables are replicated. Full table name with schema. Can contain schema_name.* patterns. 
 slot_byte_lag_limit | **int64**<br>Maximum WAL size for the replication slot <br>Maximum WAL size held by the replication slot. Exceeding this limit will result in a replication failure and deletion of the replication slot. Unlimited by default. 
@@ -913,47 +647,23 @@ service_schema | **string**<br>Database schema for service tables <br>Default: p
 object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTransferSettings1)**<br>Schema migration <br>Select database objects to be transferred during activation or deactivation. 
 
 
-### PostgresConnection {#PostgresConnection2}
+### PostgresConnection {#PostgresConnection1}
 
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 &nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Managed Service for PostgreSQL cluster ID 
-&nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres2)**<br>On-premise <br>Connection options for on-premise PostgreSQL 
+&nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres1)**<br>On-premise <br>Connection options for on-premise PostgreSQL 
 
 
-### OnPremisePostgres {#OnPremisePostgres2}
+### OnPremisePostgres {#OnPremisePostgres1}
 
 Field | Description
 --- | ---
 hosts[] | **string**<br> 
 port | **int64**<br>Database port <br>Will be used if the cluster ID is not specified. Default: 6432. 
-tls_mode | **[TLSMode](#TLSMode9)**<br>TLS mode <br>TLS settings for server connection. Disabled by default. 
+tls_mode | **[TLSMode](#TLSMode2)**<br>TLS mode <br>TLS settings for server connection. Disabled by default. 
 subnet_id | **string**<br>Network interface for endpoint <br>Default: public IPv4. 
-
-
-### TLSMode {#TLSMode9}
-
-Field | Description
---- | ---
-tls_mode | **oneof:** `disabled` or `enabled`<br>
-&nbsp;&nbsp;disabled | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**<br> 
-&nbsp;&nbsp;enabled | **[TLSConfig](#TLSConfig9)**<br> 
-
-
-### TLSConfig {#TLSConfig9}
-
-Field | Description
---- | ---
-ca_certificate | **string**<br>CA certificate <br>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server. 
-
-
-### Secret {#Secret9}
-
-Field | Description
---- | ---
-value | **oneof:** `raw`<br>
-&nbsp;&nbsp;raw | **string**<br>Password 
 
 
 ### PostgresObjectTransferSettings {#PostgresObjectTransferSettings1}
@@ -983,7 +693,7 @@ materialized_view | enum **ObjectTransferStage**<br>Materialized views <br>CREAT
 
 Field | Description
 --- | ---
-connection | **[MongoConnection](#MongoConnection2)**<br> 
+connection | **[MongoConnection](#MongoConnection1)**<br> 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br>Security groups 
 collections[] | **[MongoCollection](#MongoCollection1)**<br> 
@@ -991,58 +701,34 @@ excluded_collections[] | **[MongoCollection](#MongoCollection1)**<br>
 secondary_preferred_mode | **bool**<br> 
 
 
-### MongoConnection {#MongoConnection2}
+### MongoConnection {#MongoConnection1}
 
 Field | Description
 --- | ---
 connection | **oneof:** `connection_options`<br>
-&nbsp;&nbsp;connection_options | **[MongoConnectionOptions](#MongoConnectionOptions2)**<br> 
+&nbsp;&nbsp;connection_options | **[MongoConnectionOptions](#MongoConnectionOptions1)**<br> 
 
 
-### MongoConnectionOptions {#MongoConnectionOptions2}
+### MongoConnectionOptions {#MongoConnectionOptions1}
 
 Field | Description
 --- | ---
 address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 &nbsp;&nbsp;mdb_cluster_id | **string**<br> 
-&nbsp;&nbsp;on_premise | **[OnPremiseMongo](#OnPremiseMongo2)**<br> 
+&nbsp;&nbsp;on_premise | **[OnPremiseMongo](#OnPremiseMongo1)**<br> 
 user | **string**<br> 
-password | **[Secret](#Secret10)**<br> 
+password | **[Secret](#Secret2)**<br> 
 auth_source | **string**<br> 
 
 
-### OnPremiseMongo {#OnPremiseMongo2}
+### OnPremiseMongo {#OnPremiseMongo1}
 
 Field | Description
 --- | ---
 hosts[] | **string**<br> 
 port | **int64**<br> 
-tls_mode | **[TLSMode](#TLSMode10)**<br> 
+tls_mode | **[TLSMode](#TLSMode2)**<br> 
 replica_set | **string**<br> 
-
-
-### TLSMode {#TLSMode10}
-
-Field | Description
---- | ---
-tls_mode | **oneof:** `disabled` or `enabled`<br>
-&nbsp;&nbsp;disabled | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**<br> 
-&nbsp;&nbsp;enabled | **[TLSConfig](#TLSConfig10)**<br> 
-
-
-### TLSConfig {#TLSConfig10}
-
-Field | Description
---- | ---
-ca_certificate | **string**<br>CA certificate <br>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server. 
-
-
-### Secret {#Secret10}
-
-Field | Description
---- | ---
-value | **oneof:** `raw`<br>
-&nbsp;&nbsp;raw | **string**<br>Password 
 
 
 ### MongoCollection {#MongoCollection1}
@@ -1057,44 +743,44 @@ collection_name | **string**<br>
 
 Field | Description
 --- | ---
-connection | **[ClickhouseConnection](#ClickhouseConnection2)**<br> 
+connection | **[ClickhouseConnection](#ClickhouseConnection1)**<br> 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br> 
 include_tables[] | **string**<br> 
 exclude_tables[] | **string**<br> 
 
 
-### ClickhouseConnection {#ClickhouseConnection2}
+### ClickhouseConnection {#ClickhouseConnection1}
 
 Field | Description
 --- | ---
 connection | **oneof:** `connection_options`<br>
-&nbsp;&nbsp;connection_options | **[ClickhouseConnectionOptions](#ClickhouseConnectionOptions2)**<br> 
+&nbsp;&nbsp;connection_options | **[ClickhouseConnectionOptions](#ClickhouseConnectionOptions1)**<br> 
 
 
-### ClickhouseConnectionOptions {#ClickhouseConnectionOptions2}
+### ClickhouseConnectionOptions {#ClickhouseConnectionOptions1}
 
 Field | Description
 --- | ---
 address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
 &nbsp;&nbsp;mdb_cluster_id | **string**<br> 
-&nbsp;&nbsp;on_premise | **[OnPremiseClickhouse](#OnPremiseClickhouse2)**<br> 
+&nbsp;&nbsp;on_premise | **[OnPremiseClickhouse](#OnPremiseClickhouse1)**<br> 
 database | **string**<br> 
 user | **string**<br> 
-password | **[Secret](#Secret11)**<br> 
+password | **[Secret](#Secret2)**<br> 
 
 
-### OnPremiseClickhouse {#OnPremiseClickhouse2}
+### OnPremiseClickhouse {#OnPremiseClickhouse1}
 
 Field | Description
 --- | ---
-shards[] | **[ClickhouseShard](#ClickhouseShard2)**<br> 
+shards[] | **[ClickhouseShard](#ClickhouseShard1)**<br> 
 http_port | **int64**<br> 
 native_port | **int64**<br> 
-tls_mode | **[TLSMode](#TLSMode11)**<br> 
+tls_mode | **[TLSMode](#TLSMode2)**<br> 
 
 
-### ClickhouseShard {#ClickhouseShard2}
+### ClickhouseShard {#ClickhouseShard1}
 
 Field | Description
 --- | ---
@@ -1102,39 +788,15 @@ name | **string**<br>
 hosts[] | **string**<br> 
 
 
-### TLSMode {#TLSMode11}
-
-Field | Description
---- | ---
-tls_mode | **oneof:** `disabled` or `enabled`<br>
-&nbsp;&nbsp;disabled | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**<br> 
-&nbsp;&nbsp;enabled | **[TLSConfig](#TLSConfig11)**<br> 
-
-
-### TLSConfig {#TLSConfig11}
-
-Field | Description
---- | ---
-ca_certificate | **string**<br>CA certificate <br>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server. 
-
-
-### Secret {#Secret11}
-
-Field | Description
---- | ---
-value | **oneof:** `raw`<br>
-&nbsp;&nbsp;raw | **string**<br>Password 
-
-
 ### MysqlTarget {#MysqlTarget1}
 
 Field | Description
 --- | ---
-connection | **[MysqlConnection](#MysqlConnection3)**<br>Connection settings <br>Database connection settings 
+connection | **[MysqlConnection](#MysqlConnection2)**<br>Connection settings <br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name <br>Allowed to leave it empty, then the tables will be created in databases with the same names as on the source. If this field is empty, then you must fill below db schema for service table. 
 user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret12)**<br>Password <br>Password for database access. 
+password | **[Secret](#Secret2)**<br>Password <br>Password for database access. 
 sql_mode | **string**<br>sql_mode <br>Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION. 
 skip_constraint_checks | **bool**<br>Disable constraints checks <br>Recommend to disable for increase replication speed, but if schema contain cascading operations we don't recommend to disable. This option set FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0. 
 timezone | **string**<br>Database timezone <br>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone. 
@@ -1142,177 +804,29 @@ cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for
 service_database | **string**<br>Database schema for service table <br>Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
 
 
-### MysqlConnection {#MysqlConnection3}
-
-Field | Description
---- | ---
-connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Managed Service for MySQL cluster ID 
-&nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql3)**<br>On-premise <br>Connection options for on-premise MySQL 
-
-
-### OnPremiseMysql {#OnPremiseMysql3}
-
-Field | Description
---- | ---
-hosts[] | **string**<br> 
-port | **int64**<br>Database port <br>Default: 3306. 
-tls_mode | **[TLSMode](#TLSMode12)**<br>TLS mode <br>TLS settings for server connection. Disabled by default. 
-subnet_id | **string**<br>Network interface for endpoint <br>Default: public IPv4. 
-
-
-### TLSMode {#TLSMode12}
-
-Field | Description
---- | ---
-tls_mode | **oneof:** `disabled` or `enabled`<br>
-&nbsp;&nbsp;disabled | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**<br> 
-&nbsp;&nbsp;enabled | **[TLSConfig](#TLSConfig12)**<br> 
-
-
-### TLSConfig {#TLSConfig12}
-
-Field | Description
---- | ---
-ca_certificate | **string**<br>CA certificate <br>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server. 
-
-
-### Secret {#Secret12}
-
-Field | Description
---- | ---
-value | **oneof:** `raw`<br>
-&nbsp;&nbsp;raw | **string**<br>Password 
-
-
 ### PostgresTarget {#PostgresTarget1}
 
 Field | Description
 --- | ---
-connection | **[PostgresConnection](#PostgresConnection3)**<br>Connection settings <br>Database connection settings 
+connection | **[PostgresConnection](#PostgresConnection2)**<br>Connection settings <br>Database connection settings 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br>Database name 
 user | **string**<br>Username <br>User for database access. 
-password | **[Secret](#Secret13)**<br>Password <br>Password for database access. 
+password | **[Secret](#Secret2)**<br>Password <br>Password for database access. 
 cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. 
-
-
-### PostgresConnection {#PostgresConnection3}
-
-Field | Description
---- | ---
-connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Managed Service for PostgreSQL cluster ID 
-&nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres3)**<br>On-premise <br>Connection options for on-premise PostgreSQL 
-
-
-### OnPremisePostgres {#OnPremisePostgres3}
-
-Field | Description
---- | ---
-hosts[] | **string**<br> 
-port | **int64**<br>Database port <br>Will be used if the cluster ID is not specified. Default: 6432. 
-tls_mode | **[TLSMode](#TLSMode13)**<br>TLS mode <br>TLS settings for server connection. Disabled by default. 
-subnet_id | **string**<br>Network interface for endpoint <br>Default: public IPv4. 
-
-
-### TLSMode {#TLSMode13}
-
-Field | Description
---- | ---
-tls_mode | **oneof:** `disabled` or `enabled`<br>
-&nbsp;&nbsp;disabled | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**<br> 
-&nbsp;&nbsp;enabled | **[TLSConfig](#TLSConfig13)**<br> 
-
-
-### TLSConfig {#TLSConfig13}
-
-Field | Description
---- | ---
-ca_certificate | **string**<br>CA certificate <br>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server. 
-
-
-### Secret {#Secret13}
-
-Field | Description
---- | ---
-value | **oneof:** `raw`<br>
-&nbsp;&nbsp;raw | **string**<br>Password 
 
 
 ### ClickhouseTarget {#ClickhouseTarget1}
 
 Field | Description
 --- | ---
-connection | **[ClickhouseConnection](#ClickhouseConnection3)**<br> 
+connection | **[ClickhouseConnection](#ClickhouseConnection2)**<br> 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br> 
 clickhouse_cluster_name | **string**<br> 
 alt_names[] | **[AltName](#AltName1)**<br> 
 sharding | **[ClickhouseSharding](#ClickhouseSharding1)**<br> 
 cleanup_policy | enum **ClickhouseCleanupPolicy**<br> 
-
-
-### ClickhouseConnection {#ClickhouseConnection3}
-
-Field | Description
---- | ---
-connection | **oneof:** `connection_options`<br>
-&nbsp;&nbsp;connection_options | **[ClickhouseConnectionOptions](#ClickhouseConnectionOptions3)**<br> 
-
-
-### ClickhouseConnectionOptions {#ClickhouseConnectionOptions3}
-
-Field | Description
---- | ---
-address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br> 
-&nbsp;&nbsp;on_premise | **[OnPremiseClickhouse](#OnPremiseClickhouse3)**<br> 
-database | **string**<br> 
-user | **string**<br> 
-password | **[Secret](#Secret14)**<br> 
-
-
-### OnPremiseClickhouse {#OnPremiseClickhouse3}
-
-Field | Description
---- | ---
-shards[] | **[ClickhouseShard](#ClickhouseShard3)**<br> 
-http_port | **int64**<br> 
-native_port | **int64**<br> 
-tls_mode | **[TLSMode](#TLSMode14)**<br> 
-
-
-### ClickhouseShard {#ClickhouseShard3}
-
-Field | Description
---- | ---
-name | **string**<br> 
-hosts[] | **string**<br> 
-
-
-### TLSMode {#TLSMode14}
-
-Field | Description
---- | ---
-tls_mode | **oneof:** `disabled` or `enabled`<br>
-&nbsp;&nbsp;disabled | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**<br> 
-&nbsp;&nbsp;enabled | **[TLSConfig](#TLSConfig14)**<br> 
-
-
-### TLSConfig {#TLSConfig14}
-
-Field | Description
---- | ---
-ca_certificate | **string**<br>CA certificate <br>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server. 
-
-
-### Secret {#Secret14}
-
-Field | Description
---- | ---
-value | **oneof:** `raw`<br>
-&nbsp;&nbsp;raw | **string**<br>Password 
 
 
 ### AltName {#AltName1}
@@ -1352,73 +866,27 @@ mapping[] | **[ValueToShard](#ValueToShard1)**<br>
 
 Field | Description
 --- | ---
-column_value | **[ColumnValue](#ColumnValue)**<br> 
+column_value | **[ColumnValue](#ColumnValue1)**<br> 
 shard_name | **string**<br> 
+
+
+### ColumnValue {#ColumnValue1}
+
+Field | Description
+--- | ---
+value | **oneof:** `string_value`<br>
+&nbsp;&nbsp;string_value | **string**<br> 
 
 
 ### MongoTarget {#MongoTarget1}
 
 Field | Description
 --- | ---
-connection | **[MongoConnection](#MongoConnection3)**<br> 
+connection | **[MongoConnection](#MongoConnection2)**<br> 
 subnet_id | **string**<br> 
 security_groups[] | **string**<br>Security groups 
 database | **string**<br> 
 cleanup_policy | enum **CleanupPolicy**<br> 
-
-
-### MongoConnection {#MongoConnection3}
-
-Field | Description
---- | ---
-connection | **oneof:** `connection_options`<br>
-&nbsp;&nbsp;connection_options | **[MongoConnectionOptions](#MongoConnectionOptions3)**<br> 
-
-
-### MongoConnectionOptions {#MongoConnectionOptions3}
-
-Field | Description
---- | ---
-address | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br> 
-&nbsp;&nbsp;on_premise | **[OnPremiseMongo](#OnPremiseMongo3)**<br> 
-user | **string**<br> 
-password | **[Secret](#Secret15)**<br> 
-auth_source | **string**<br> 
-
-
-### OnPremiseMongo {#OnPremiseMongo3}
-
-Field | Description
---- | ---
-hosts[] | **string**<br> 
-port | **int64**<br> 
-tls_mode | **[TLSMode](#TLSMode15)**<br> 
-replica_set | **string**<br> 
-
-
-### TLSMode {#TLSMode15}
-
-Field | Description
---- | ---
-tls_mode | **oneof:** `disabled` or `enabled`<br>
-&nbsp;&nbsp;disabled | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**<br> 
-&nbsp;&nbsp;enabled | **[TLSConfig](#TLSConfig15)**<br> 
-
-
-### TLSConfig {#TLSConfig15}
-
-Field | Description
---- | ---
-ca_certificate | **string**<br>CA certificate <br>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server. 
-
-
-### Secret {#Secret15}
-
-Field | Description
---- | ---
-value | **oneof:** `raw`<br>
-&nbsp;&nbsp;raw | **string**<br>Password 
 
 
 ## Deactivate {#Deactivate}

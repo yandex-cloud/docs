@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas/{formatSchemaName}
+DELETE https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas/{formatSchemaName}
 ```
  
 ## Path parameters {#path_params}

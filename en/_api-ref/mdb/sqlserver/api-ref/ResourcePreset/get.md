@@ -9,7 +9,7 @@ To get the list of available resource presets, make a [list](/docs/managed-sqlse
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/mdb/sqlserver/v1/resourcePresets/{resourcePresetId}
+GET https://{{ api-host-mdb }}/mdb/sqlserver/v1/resourcePresets/{resourcePresetId}
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Reschedules planned maintenance operation.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}:rescheduleMaintenance
+POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}:rescheduleMaintenance
 ```
  
 ## Path parameters {#path_params}

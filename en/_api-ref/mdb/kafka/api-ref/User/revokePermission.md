@@ -9,7 +9,7 @@ Revokes permission from the specified Kafka user.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}/users/{userName}:revokePermission
+POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users/{userName}:revokePermission
 ```
  
 ## Path parameters {#path_params}

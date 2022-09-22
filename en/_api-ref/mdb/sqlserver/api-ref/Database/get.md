@@ -9,7 +9,7 @@ To get the list of available SQL Server databases, make a [list](/docs/managed-s
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}/databases/{databaseName}
+GET https://{{ api-host-mdb }}/mdb/sqlserver/v1/clusters/{clusterId}/databases/{databaseName}
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Deletes the specified shard.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/shards/{shardName}
+DELETE https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shards/{shardName}
 ```
  
 ## Path parameters {#path_params}

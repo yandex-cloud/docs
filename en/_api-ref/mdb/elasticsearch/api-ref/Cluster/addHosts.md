@@ -9,7 +9,7 @@ Adds new hosts to the specified Elasticsearch cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/hosts:batchCreate
+POST https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/hosts:batchCreate
 ```
  
 ## Path parameters {#path_params}

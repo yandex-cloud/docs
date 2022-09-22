@@ -264,14 +264,6 @@ zone_id | **string**<br>Availability zone from which the address will be allocat
 requirements | **[AddressRequirements](#AddressRequirements4)**<br>Parameters of the allocated address, for example DDoS Protection. 
 
 
-### AddressRequirements {#AddressRequirements4}
-
-Field | Description
---- | ---
-ddos_protection_provider | **string**<br>DDoS protection provider ID. 
-outgoing_smtp_capability | **string**<br>Capability to send SMTP traffic. 
-
-
 ## Update {#Update}
 
 Updates the specified address.
@@ -341,10 +333,10 @@ Field | Description
 --- | ---
 address | **string**<br>Value of address. 
 zone_id | **string**<br>Availability zone from which the address will be allocated. 
-requirements | **[AddressRequirements](#AddressRequirements5)**<br>Parameters of the allocated address, for example DDoS Protection. 
+requirements | **[AddressRequirements](#AddressRequirements4)**<br>Parameters of the allocated address, for example DDoS Protection. 
 
 
-### AddressRequirements {#AddressRequirements5}
+### AddressRequirements {#AddressRequirements4}
 
 Field | Description
 --- | ---
@@ -496,10 +488,10 @@ Field | Description
 --- | ---
 address | **string**<br>Value of address. 
 zone_id | **string**<br>Availability zone from which the address will be allocated. 
-requirements | **[AddressRequirements](#AddressRequirements6)**<br>Parameters of the allocated address, for example DDoS Protection. 
+requirements | **[AddressRequirements](#AddressRequirements5)**<br>Parameters of the allocated address, for example DDoS Protection. 
 
 
-### AddressRequirements {#AddressRequirements6}
+### AddressRequirements {#AddressRequirements5}
 
 Field | Description
 --- | ---

@@ -9,7 +9,7 @@ Retrieves logs for the specified PostgreSQL cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}:logs
+GET https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}:logs
 ```
  
 ## Path parameters {#path_params}

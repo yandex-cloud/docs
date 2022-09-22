@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-GET https://datatransfer.{{ api-host }}/v1/transfer/{transferId}
+GET https://{{ api-host-data-transfer }}/v1/transfer/{transferId}
 ```
  
 ## Path parameters {#path_params}

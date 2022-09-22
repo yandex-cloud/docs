@@ -9,7 +9,7 @@ Updates the specified Greenplum® cluster.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://mdb.{{ api-host }}/managed-greenplum/v1/clusters/{clusterId}
+PATCH https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

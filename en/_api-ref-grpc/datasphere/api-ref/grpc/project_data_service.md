@@ -44,15 +44,6 @@ Field | Description
 metadata | **[FileMetadata](#FileMetadata)**<br>Metadata of the uploaded file. 
 
 
-### FileMetadata {#FileMetadata1}
-
-Field | Description
---- | ---
-project_id | **string**<br>Required. ID of the Project resource associated with the file. The maximum string length in characters is 200.
-path | **string**<br>File path. 
-size_bytes | **int64**<br>File size in bytes. 
-
-
 ## DownloadFile {#DownloadFile}
 
 Downloads the specified file from the specified project.
@@ -76,7 +67,7 @@ message | **oneof:** `metadata` or `chunk`<br>
 &nbsp;&nbsp;chunk | **bytes**<br>Byte chunk of the downloaded file. 
 
 
-### FileMetadata {#FileMetadata2}
+### FileMetadata {#FileMetadata1}
 
 Field | Description
 --- | ---

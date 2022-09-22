@@ -9,7 +9,7 @@ Alternatively, logs can be streamed using [streamLogs](/docs/managed-mysql/api-r
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}:logs
+GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}:logs
 ```
  
 ## Path parameters {#path_params}

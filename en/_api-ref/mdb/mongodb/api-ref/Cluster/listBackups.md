@@ -9,7 +9,7 @@ Retrieves the list of available backups for the specified MongoDB cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}/backups
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/backups
 ```
  
 ## Path parameters {#path_params}

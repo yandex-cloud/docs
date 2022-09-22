@@ -9,7 +9,7 @@ To get the list of available ResourcePreset resources, make a [list](/docs/manag
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mongodb/v1/resourcePresets/{resourcePresetId}
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/resourcePresets/{resourcePresetId}
 ```
  
 ## Path parameters {#path_params}

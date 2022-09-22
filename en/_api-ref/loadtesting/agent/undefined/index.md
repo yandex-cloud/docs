@@ -11,6 +11,7 @@ Resource | Description
 [AgentRegistration](AgentRegistration/index.md) | 
 [Greeter](Greeter/index.md) | 
 [Job](Job/index.md) | 
+[Monitoring](Monitoring/index.md) | 
 [Tank](Tank/index.md) | 
 [Test](Test/index.md) | 
 [Trail](Trail/index.md) | 

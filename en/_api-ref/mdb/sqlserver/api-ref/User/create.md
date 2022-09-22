@@ -9,7 +9,7 @@ Creates an SQL Server user in the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}/users
+POST https://{{ api-host-mdb }}/mdb/sqlserver/v1/clusters/{clusterId}/users
 ```
  
 ## Path parameters {#path_params}

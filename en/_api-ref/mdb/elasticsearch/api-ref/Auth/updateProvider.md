@@ -9,7 +9,7 @@ Updates registered auth provider.
  
 ## HTTP request {#https-request}
 ```
-PUT https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/auth/providers/{name}
+PUT https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/auth/providers/{name}
 ```
  
 ## Path parameters {#path_params}

@@ -221,6 +221,18 @@ positive | **bool**<br>True if we want to show concrete series names only, false
 names[] | **string**<br>Series names to show or hide. 
 
 
+### Downsampling {#Downsampling}
+
+Field | Description
+--- | ---
+mode | **oneof:** `max_points`, `grid_interval` or `disabled`<br>List of available gap filling policy for downsampling.
+&nbsp;&nbsp;max_points | **int64**<br>Maximum number of points to be returned. 
+&nbsp;&nbsp;grid_interval | **int64**<br>Time interval (grid) for downsampling in milliseconds. Points in the specified range are aggregated into one time point. 
+&nbsp;&nbsp;disabled | **bool**<br>Disable downsampling. 
+grid_aggregation | enum **GridAggregation**<br>Function that is used for downsampling. <ul><li>`GRID_AGGREGATION_MAX`: Max value.</li><li>`GRID_AGGREGATION_MIN`: Min value.</li><li>`GRID_AGGREGATION_SUM`: Sum of values.</li><li>`GRID_AGGREGATION_AVG`: Average value.</li><li>`GRID_AGGREGATION_LAST`: Last value.</li><li>`GRID_AGGREGATION_COUNT`: Total count of points.</li></ul>
+gap_filling | enum **GapFilling**<br>Parameters for filling gaps in data. <ul><li>`GAP_FILLING_NULL`: Returns `null` as a metric value and `timestamp` as a time series value.</li><li>`GAP_FILLING_NONE`: Returns no value and no timestamp.</li><li>`GAP_FILLING_PREVIOUS`: Returns the value from the previous time interval.</li></ul>
+
+
 ### Parametrization {#Parametrization}
 
 Field | Description
@@ -398,7 +410,7 @@ freeze | enum **FreezeDuration**<br>Fixed time interval for chart. <ul><li>`FREE
 Field | Description
 --- | ---
 targets[] | **[Target](#Target1)**<br>Required. List of targets. 
-downsampling | **[Downsampling](#Downsampling)**<br>Required. Downsampling settings. 
+downsampling | **[Downsampling](#Downsampling1)**<br>Required. Downsampling settings. 
 
 
 ### Target {#Target1}
@@ -511,6 +523,18 @@ Field | Description
 --- | ---
 positive | **bool**<br>True if we want to show concrete series names only, false if we want to hide concrete series names. 
 names[] | **string**<br>Series names to show or hide. 
+
+
+### Downsampling {#Downsampling1}
+
+Field | Description
+--- | ---
+mode | **oneof:** `max_points`, `grid_interval` or `disabled`<br>List of available gap filling policy for downsampling.
+&nbsp;&nbsp;max_points | **int64**<br>Maximum number of points to be returned. 
+&nbsp;&nbsp;grid_interval | **int64**<br>Time interval (grid) for downsampling in milliseconds. Points in the specified range are aggregated into one time point. 
+&nbsp;&nbsp;disabled | **bool**<br>Disable downsampling. 
+grid_aggregation | enum **GridAggregation**<br>Function that is used for downsampling. <ul><li>`GRID_AGGREGATION_MAX`: Max value.</li><li>`GRID_AGGREGATION_MIN`: Min value.</li><li>`GRID_AGGREGATION_SUM`: Sum of values.</li><li>`GRID_AGGREGATION_AVG`: Average value.</li><li>`GRID_AGGREGATION_LAST`: Last value.</li><li>`GRID_AGGREGATION_COUNT`: Total count of points.</li></ul>
+gap_filling | enum **GapFilling**<br>Parameters for filling gaps in data. <ul><li>`GAP_FILLING_NULL`: Returns `null` as a metric value and `timestamp` as a time series value.</li><li>`GAP_FILLING_NONE`: Returns no value and no timestamp.</li><li>`GAP_FILLING_PREVIOUS`: Returns the value from the previous time interval.</li></ul>
 
 
 ### Parametrization {#Parametrization1}
@@ -669,7 +693,7 @@ freeze | enum **FreezeDuration**<br>Fixed time interval for chart. <ul><li>`FREE
 Field | Description
 --- | ---
 targets[] | **[Target](#Target2)**<br>Required. List of targets. 
-downsampling | **[Downsampling](#Downsampling)**<br>Required. Downsampling settings. 
+downsampling | **[Downsampling](#Downsampling2)**<br>Required. Downsampling settings. 
 
 
 ### Target {#Target2}
@@ -782,6 +806,18 @@ Field | Description
 --- | ---
 positive | **bool**<br>True if we want to show concrete series names only, false if we want to hide concrete series names. 
 names[] | **string**<br>Series names to show or hide. 
+
+
+### Downsampling {#Downsampling2}
+
+Field | Description
+--- | ---
+mode | **oneof:** `max_points`, `grid_interval` or `disabled`<br>List of available gap filling policy for downsampling.
+&nbsp;&nbsp;max_points | **int64**<br>Maximum number of points to be returned. 
+&nbsp;&nbsp;grid_interval | **int64**<br>Time interval (grid) for downsampling in milliseconds. Points in the specified range are aggregated into one time point. 
+&nbsp;&nbsp;disabled | **bool**<br>Disable downsampling. 
+grid_aggregation | enum **GridAggregation**<br>Function that is used for downsampling. <ul><li>`GRID_AGGREGATION_MAX`: Max value.</li><li>`GRID_AGGREGATION_MIN`: Min value.</li><li>`GRID_AGGREGATION_SUM`: Sum of values.</li><li>`GRID_AGGREGATION_AVG`: Average value.</li><li>`GRID_AGGREGATION_LAST`: Last value.</li><li>`GRID_AGGREGATION_COUNT`: Total count of points.</li></ul>
+gap_filling | enum **GapFilling**<br>Parameters for filling gaps in data. <ul><li>`GAP_FILLING_NULL`: Returns `null` as a metric value and `timestamp` as a time series value.</li><li>`GAP_FILLING_NONE`: Returns no value and no timestamp.</li><li>`GAP_FILLING_PREVIOUS`: Returns the value from the previous time interval.</li></ul>
 
 
 ### Parametrization {#Parametrization2}
@@ -903,6 +939,30 @@ parametrization | **[Parametrization](#Parametrization3)**<br>Dashboard parametr
 etag | **string**<br>Dashboard etag. 
 
 
+## Update {#Update}
+
+Updates the specified dashboard.
+
+**rpc Update ([UpdateDashboardRequest](#UpdateDashboardRequest)) returns ([operation.Operation](#Operation1))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateDashboardMetadata](#UpdateDashboardMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Dashboard](#Dashboard3)<br>
+
+### UpdateDashboardRequest {#UpdateDashboardRequest}
+
+Field | Description
+--- | ---
+dashboard_id | **string**<br>Required. Required. Dashboard ID. The maximum string length in characters is 50.
+name | **string**<br>Required. Dashboard name. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+description | **string**<br>Dashboard description. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+title | **string**<br>Dashboard title. 
+widgets[] | **[Widget](#Widget3)**<br>List of dashboard widgets. 
+parametrization | **[Parametrization](#Parametrization3)**<br>Dashboard parametrization. 
+etag | **string**<br>The current etag of the dashboard. 
+
+
 ### Widget {#Widget3}
 
 Field | Description
@@ -959,7 +1019,7 @@ freeze | enum **FreezeDuration**<br>Fixed time interval for chart. <ul><li>`FREE
 Field | Description
 --- | ---
 targets[] | **[Target](#Target3)**<br>Required. List of targets. 
-downsampling | **[Downsampling](#Downsampling)**<br>Required. Downsampling settings. 
+downsampling | **[Downsampling](#Downsampling3)**<br>Required. Downsampling settings. 
 
 
 ### Target {#Target3}
@@ -1074,6 +1134,18 @@ positive | **bool**<br>True if we want to show concrete series names only, false
 names[] | **string**<br>Series names to show or hide. 
 
 
+### Downsampling {#Downsampling3}
+
+Field | Description
+--- | ---
+mode | **oneof:** `max_points`, `grid_interval` or `disabled`<br>List of available gap filling policy for downsampling.
+&nbsp;&nbsp;max_points | **int64**<br>Maximum number of points to be returned. 
+&nbsp;&nbsp;grid_interval | **int64**<br>Time interval (grid) for downsampling in milliseconds. Points in the specified range are aggregated into one time point. 
+&nbsp;&nbsp;disabled | **bool**<br>Disable downsampling. 
+grid_aggregation | enum **GridAggregation**<br>Function that is used for downsampling. <ul><li>`GRID_AGGREGATION_MAX`: Max value.</li><li>`GRID_AGGREGATION_MIN`: Min value.</li><li>`GRID_AGGREGATION_SUM`: Sum of values.</li><li>`GRID_AGGREGATION_AVG`: Average value.</li><li>`GRID_AGGREGATION_LAST`: Last value.</li><li>`GRID_AGGREGATION_COUNT`: Total count of points.</li></ul>
+gap_filling | enum **GapFilling**<br>Parameters for filling gaps in data. <ul><li>`GAP_FILLING_NULL`: Returns `null` as a metric value and `timestamp` as a time series value.</li><li>`GAP_FILLING_NONE`: Returns no value and no timestamp.</li><li>`GAP_FILLING_PREVIOUS`: Returns the value from the previous time interval.</li></ul>
+
+
 ### Parametrization {#Parametrization3}
 
 Field | Description
@@ -1150,277 +1222,6 @@ Field | Description
 default_values[] | **string**<br>Default value. 
 
 
-## Update {#Update}
-
-Updates the specified dashboard.
-
-**rpc Update ([UpdateDashboardRequest](#UpdateDashboardRequest)) returns ([operation.Operation](#Operation1))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateDashboardMetadata](#UpdateDashboardMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Dashboard](#Dashboard3)<br>
-
-### UpdateDashboardRequest {#UpdateDashboardRequest}
-
-Field | Description
---- | ---
-dashboard_id | **string**<br>Required. Required. Dashboard ID. The maximum string length in characters is 50.
-name | **string**<br>Required. Dashboard name. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
-description | **string**<br>Dashboard description. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-title | **string**<br>Dashboard title. 
-widgets[] | **[Widget](#Widget4)**<br>List of dashboard widgets. 
-parametrization | **[Parametrization](#Parametrization4)**<br>Dashboard parametrization. 
-etag | **string**<br>The current etag of the dashboard. 
-
-
-### Widget {#Widget4}
-
-Field | Description
---- | ---
-position | **[LayoutPosition](#LayoutPosition4)**<br>Required. Widget layout position. 
-widget | **oneof:** `text`, `title` or `chart`<br>Required. Widget data.
-&nbsp;&nbsp;text | **[TextWidget](#TextWidget4)**<br>Text widget. 
-&nbsp;&nbsp;title | **[TitleWidget](#TitleWidget4)**<br>Title widget. 
-&nbsp;&nbsp;chart | **[ChartWidget](#ChartWidget4)**<br>Chart widget. 
-
-
-### LayoutPosition {#LayoutPosition4}
-
-Field | Description
---- | ---
-x | **int64**<br>Required. X-axis top-left corner coordinate. 
-y | **int64**<br>Required. Y-axis top-left corner coordinate. 
-w | **int64**<br>Required. Weight. 
-h | **int64**<br>Required. Height. 
-
-
-### TextWidget {#TextWidget4}
-
-Field | Description
---- | ---
-text | **string**<br>Text. 
-
-
-### TitleWidget {#TitleWidget4}
-
-Field | Description
---- | ---
-text | **string**<br>Title text. 
-size | enum **TitleSize**<br>Title size. <ul><li>`TITLE_SIZE_XS`: Extra small size.</li><li>`TITLE_SIZE_S`: Small size.</li><li>`TITLE_SIZE_M`: Middle size.</li><li>`TITLE_SIZE_L`: Large size.</li></ul>
-
-
-### ChartWidget {#ChartWidget4}
-
-Field | Description
---- | ---
-id | **string**<br>Required. Chart ID. 
-queries | **[Queries](#Queries4)**<br>Queries. 
-visualization_settings | **[VisualizationSettings](#VisualizationSettings4)**<br>Visualization settings. 
-series_overrides[] | **[SeriesOverrides](#SeriesOverrides4)**<br>Override settings. 
-name_hiding_settings | **[NameHidingSettings](#NameHidingSettings4)**<br>Name hiding settings. 
-description | **string**<br>Chart description in dashboard (not enabled in UI). 
-title | **string**<br>Chart widget title. 
-display_legend | **bool**<br>Enable legend under chart. 
-freeze | enum **FreezeDuration**<br>Fixed time interval for chart. <ul><li>`FREEZE_DURATION_HOUR`: Last hour.</li><li>`FREEZE_DURATION_DAY`: Last day = last 24 hours.</li><li>`FREEZE_DURATION_WEEK`: Last 7 days.</li><li>`FREEZE_DURATION_MONTH`: Last 31 days.</li></ul>
-
-
-### Queries {#Queries4}
-
-Field | Description
---- | ---
-targets[] | **[Target](#Target4)**<br>Required. List of targets. 
-downsampling | **[Downsampling](#Downsampling)**<br>Required. Downsampling settings. 
-
-
-### Target {#Target4}
-
-Field | Description
---- | ---
-query | **string**<br>Required. Query. 
-text_mode | **bool**<br>Text mode. 
-hidden | **bool**<br>Checks that target is visible or invisible. 
-
-
-### VisualizationSettings {#VisualizationSettings4}
-
-Field | Description
---- | ---
-type | enum **VisualizationType**<br>Visualization type. <ul><li>`VISUALIZATION_TYPE_UNSPECIFIED`: Not specified (line by default).</li><li>`VISUALIZATION_TYPE_LINE`: Line chart.</li><li>`VISUALIZATION_TYPE_STACK`: Stack chart.</li><li>`VISUALIZATION_TYPE_COLUMN`: Points as columns chart.</li><li>`VISUALIZATION_TYPE_POINTS`: Points.</li><li>`VISUALIZATION_TYPE_PIE`: Pie aggregation chart.</li><li>`VISUALIZATION_TYPE_BARS`: Bars aggregation chart.</li><li>`VISUALIZATION_TYPE_DISTRIBUTION`: Distribution aggregation chart.</li><li>`VISUALIZATION_TYPE_HEATMAP`: Heatmap aggregation chart.</li></ul>
-normalize | **bool**<br>Normalize. 
-interpolate | enum **Interpolate**<br>Interpolate. <ul><li>`INTERPOLATE_UNSPECIFIED`: Not specified (linear by default).</li><li>`INTERPOLATE_LINEAR`: Linear.</li><li>`INTERPOLATE_LEFT`: Left.</li><li>`INTERPOLATE_RIGHT`: Right.</li></ul>
-aggregation | enum **SeriesAggregation**<br>Aggregation. <ul><li>`SERIES_AGGREGATION_UNSPECIFIED`: Not specified (avg by default).</li><li>`SERIES_AGGREGATION_AVG`: Average.</li><li>`SERIES_AGGREGATION_MIN`: Minimum.</li><li>`SERIES_AGGREGATION_MAX`: Maximum.</li><li>`SERIES_AGGREGATION_LAST`: Last non-NaN value.</li><li>`SERIES_AGGREGATION_SUM`: Sum.</li></ul>
-color_scheme_settings | **[ColorSchemeSettings](#ColorSchemeSettings4)**<br>Color scheme settings. 
-heatmap_settings | **[HeatmapSettings](#HeatmapSettings4)**<br>Heatmap settings. 
-yaxis_settings | **[YaxisSettings](#YaxisSettings4)**<br>Y axis settings. 
-title | **string**<br>Inside chart title. 
-show_labels | **bool**<br>Show chart labels. 
-
-
-### ColorSchemeSettings {#ColorSchemeSettings4}
-
-Field | Description
---- | ---
-scheme | **oneof:** `automatic`, `standard` or `gradient`<br>
-&nbsp;&nbsp;automatic | **[AutomaticColorScheme](#AutomaticColorScheme4)**<br>Automatic color scheme. 
-&nbsp;&nbsp;standard | **[StandardColorScheme](#StandardColorScheme4)**<br>Standard color scheme. 
-&nbsp;&nbsp;gradient | **[GradientColorScheme](#GradientColorScheme4)**<br>Gradient color scheme. 
-
-
-### AutomaticColorScheme {#AutomaticColorScheme4}
-
-
-
-### StandardColorScheme {#StandardColorScheme4}
-
-
-
-### GradientColorScheme {#GradientColorScheme4}
-
-Field | Description
---- | ---
-green_value | **string**<br>Gradient green value. 
-yellow_value | **string**<br>Gradient yellow value. 
-red_value | **string**<br>Gradient red value. 
-violet_value | **string**<br>Gradient violet_value. 
-
-
-### HeatmapSettings {#HeatmapSettings4}
-
-Field | Description
---- | ---
-green_value | **string**<br>Heatmap green value. 
-yellow_value | **string**<br>Heatmap yellow value. 
-red_value | **string**<br>Heatmap red value. 
-violet_value | **string**<br>Heatmap violet_value. 
-
-
-### Yaxis {#Yaxis4}
-
-Field | Description
---- | ---
-type | enum **YaxisType**<br>Type. <ul><li>`YAXIS_TYPE_UNSPECIFIED`: Not specified (linear by default).</li><li>`YAXIS_TYPE_LINEAR`: Linear.</li><li>`YAXIS_TYPE_LOGARITHMIC`: Logarithmic.</li></ul>
-title | **string**<br>Title or empty. 
-min | **string**<br>Min value in extended number format or empty. 
-max | **string**<br>Max value in extended number format or empty. 
-unit_format | enum **[UnitFormat](./unit_format#undefined)**<br>Unit format. <ul><li>`UNIT_NONE`: None (show tick values as-is).</li><li>`UNIT_COUNT`: Count.</li><li>`UNIT_PERCENT`: Percent (0-100).</li><li>`UNIT_PERCENT_UNIT`: Percent (0-1).</li><li>`UNIT_NANOSECONDS`: Nanoseconds (ns).</li><li>`UNIT_MICROSECONDS`: Microseconds (µs).</li><li>`UNIT_MILLISECONDS`: Milliseconds (ms).</li><li>`UNIT_SECONDS`: Seconds (s).</li><li>`UNIT_MINUTES`: Minutes (m).</li><li>`UNIT_HOURS`: Hours (h).</li><li>`UNIT_DAYS`: Days (d).</li><li>`UNIT_BITS_SI`: Bits (SI).</li><li>`UNIT_BYTES_SI`: Bytes (SI).</li><li>`UNIT_KILOBYTES`: Kilobytes (KB).</li><li>`UNIT_MEGABYTES`: Megabytes (MB).</li><li>`UNIT_GIGABYTES`: Gigabytes (GB).</li><li>`UNIT_TERABYTES`: Terabytes (TB)</li><li>`UNIT_PETABYTES`: Petabytes (PB).</li><li>`UNIT_EXABYTES`: Exabytes (EB).</li><li>`UNIT_BITS_IEC`: Bits (IEC).</li><li>`UNIT_BYTES_IEC`: Bytes (IEC).</li><li>`UNIT_KIBIBYTES`: Kibibytes (KiB).</li><li>`UNIT_MEBIBYTES`: Mebibytes (MiB).</li><li>`UNIT_GIBIBYTES`: Gigibytes (GiB).</li><li>`UNIT_TEBIBYTES`: Tebibytes (TiB).</li><li>`UNIT_PEBIBYTES`: Pebibytes (PiB).</li><li>`UNIT_EXBIBYTES`: Exbibytes (EiB).</li><li>`UNIT_REQUESTS_PER_SECOND`: Requests per second (reqps).</li><li>`UNIT_OPERATIONS_PER_SECOND`: Operations per second (ops).</li><li>`UNIT_WRITES_PER_SECOND`: Writes per second (wps).</li><li>`UNIT_READS_PER_SECOND`: Reads per second (rps).</li><li>`UNIT_PACKETS_PER_SECOND`: Packets per second (pps).</li><li>`UNIT_IO_OPERATIONS_PER_SECOND`: IO operations per second (iops).</li><li>`UNIT_COUNTS_PER_SECOND`: Counts per second (counts/sec).</li><li>`UNIT_BITS_SI_PER_SECOND`: Bits (SI) per second (bits/sec).</li><li>`UNIT_BYTES_SI_PER_SECOND`: Bytes (SI) per second (bytes/sec).</li><li>`UNIT_KILOBITS_PER_SECOND`: Kilobits per second (KBits/sec).</li><li>`UNIT_KILOBYTES_PER_SECOND`: Kilobytes per second (KB/sec).</li><li>`UNIT_MEGABITS_PER_SECOND`: Megabits per second (MBits/sec).</li><li>`UNIT_MEGABYTES_PER_SECOND`: Megabytes per second (MB/sec).</li><li>`UNIT_GIGABITS_PER_SECOND`: Gigabits per second (GBits/sec).</li><li>`UNIT_GIGABYTES_PER_SECOND`: Gigabytes per second (GB/sec).</li><li>`UNIT_TERABITS_PER_SECOND`: Terabits per second (TBits/sec).</li><li>`UNIT_TERABYTES_PER_SECOND`: Terabytes per second (TB/sec).</li><li>`UNIT_PETABITS_PER_SECOND`: Petabits per second (Pbits/sec).</li><li>`UNIT_PETABYTES_PER_SECOND`: Petabytes per second (PB/sec).</li><li>`UNIT_BITS_IEC_PER_SECOND`: Bits (IEC) per second (bits/sec).</li><li>`UNIT_BYTES_IEC_PER_SECOND`: Bytes (IEC) per second (bytes/sec).</li><li>`UNIT_KIBIBITS_PER_SECOND`: Kibibits per second (KiBits/sec).</li><li>`UNIT_KIBIBYTES_PER_SECOND`: Kibibytes per second (KiB/sec).</li><li>`UNIT_MEBIBITS_PER_SECOND`: Mebibits per second (MiBits/sec).</li><li>`UNIT_MEBIBYTES_PER_SECOND`: Mebibytes per second (MiB/sec).</li><li>`UNIT_GIBIBITS_PER_SECOND`: Gibibits per second (GiBits/sec).</li><li>`UNIT_GIBIBYTES_PER_SECOND`: Gibibytes per second (GiB/sec).</li><li>`UNIT_TEBIBITS_PER_SECOND`: Tebibits per second (TiBits/sec).</li><li>`UNIT_TEBIBYTES_PER_SECOND`: Tebibytes per second (TiB/sec).</li><li>`UNIT_PEBIBITS_PER_SECOND`: Pebibits per second (PiBits/sec).</li><li>`UNIT_PEBIBYTES_PER_SECOND`: Pebibytes per second (PiB/sec).</li><li>`UNIT_DATETIME_UTC`: Datetime (UTC).</li><li>`UNIT_DATETIME_LOCAL`: Datetime (local).</li><li>`UNIT_HERTZ`: Hertz (Hz).</li><li>`UNIT_KILOHERTZ`: Kilohertz (KHz).</li><li>`UNIT_MEGAHERTZ`: Megahertz (MHz).</li><li>`UNIT_GIGAHERTZ`: Gigahertz (GHz).</li><li>`UNIT_DOLLAR`: Dollar.</li><li>`UNIT_EURO`: Euro.</li><li>`UNIT_ROUBLE`: Rouble.</li><li>`UNIT_CELSIUS`: Celsius (°C).</li><li>`UNIT_FAHRENHEIT`: Fahrenheit (°F).</li><li>`UNIT_KELVIN`: Kelvin (K).</li><li>`UNIT_FLOP_PER_SECOND`: Flop per second (FLOP/sec).</li><li>`UNIT_KILOFLOP_PER_SECOND`: Kiloflop per second (KFLOP/sec).</li><li>`UNIT_MEGAFLOP_PER_SECOND`: Megaflop per second (MFLOP/sec).</li><li>`UNIT_GIGAFLOP_PER_SECOND`: Gigaflop per second (GFLOP/sec).</li><li>`UNIT_PETAFLOP_PER_SECOND`: Petaflop per second (PFLOP/sec).</li><li>`UNIT_EXAFLOP_PER_SECOND`: Exaflop per second (EFLOP/sec).</li><li>`UNIT_METERS_PER_SECOND`: Meters per second (m/sec).</li><li>`UNIT_KILOMETERS_PER_HOUR`: Kilometers per hour (km/h).</li><li>`UNIT_MILES_PER_HOUR`: Miles per hour (mi/h).</li><li>`UNIT_MILLIMETER`: Millimeter.</li><li>`UNIT_CENTIMETER`: Centimeter.</li><li>`UNIT_METER`: Meter.</li><li>`UNIT_KILOMETER`: Kilometer.</li><li>`UNIT_MILE`: Mile.</li><li>`UNIT_PPM`: Parts per million (ppm).</li><li>`UNIT_EVENTS_PER_SECOND`: Events per second</li><li>`UNIT_PACKETS`: Packets</li><li>`UNIT_DBM`: dBm (dbm)</li><li>`UNIT_VIRTUAL_CPU`: Virtual CPU cores based on CPU time (vcpu)</li><li>`UNIT_MESSAGES_PER_SECOND`: Messages per second (mps)</li></ul>
-precision | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Tick value precision (null as default, 0-7 in other cases). 
-
-
-### YaxisSettings {#YaxisSettings4}
-
-Field | Description
---- | ---
-left | **[Yaxis](#Yaxis4)**<br>Left Y axis settings. 
-right | **[Yaxis](#Yaxis4)**<br>Right Y axis settings. 
-
-
-### SeriesOverrides {#SeriesOverrides4}
-
-Field | Description
---- | ---
-type | **oneof:** `name` or `target_index`<br>Required. Series selection type.
-&nbsp;&nbsp;name | **string**<br>Series name. 
-&nbsp;&nbsp;target_index | **string**<br>Target index. 
-settings | **[SeriesOverrideSettings](#SeriesOverrideSettings4)**<br>Required. Override settings. 
-
-
-### SeriesOverrideSettings {#SeriesOverrideSettings4}
-
-Field | Description
---- | ---
-name | **string**<br>Series name or empty. 
-color | **string**<br>Series color or empty. 
-type | enum **SeriesVisualizationType**<br>Type. <ul><li>`SERIES_VISUALIZATION_TYPE_UNSPECIFIED`: Not specified (line by default).</li><li>`SERIES_VISUALIZATION_TYPE_LINE`: Line chart.</li><li>`SERIES_VISUALIZATION_TYPE_STACK`: Stack chart.</li><li>`SERIES_VISUALIZATION_TYPE_COLUMN`: Points as columns chart.</li><li>`SERIES_VISUALIZATION_TYPE_POINTS`: Points.</li></ul>
-stack_name | **string**<br>Stack name or empty. 
-grow_down | **bool**<br>Stack grow down. 
-yaxis_position | enum **YaxisPosition**<br>Yaxis position. <ul><li>`YAXIS_POSITION_UNSPECIFIED`: Not specified (left by default).</li><li>`YAXIS_POSITION_LEFT`: Left.</li><li>`YAXIS_POSITION_RIGHT`: Right.</li></ul>
-
-
-### NameHidingSettings {#NameHidingSettings4}
-
-Field | Description
---- | ---
-positive | **bool**<br>True if we want to show concrete series names only, false if we want to hide concrete series names. 
-names[] | **string**<br>Series names to show or hide. 
-
-
-### Parametrization {#Parametrization4}
-
-Field | Description
---- | ---
-parameters[] | **[Parameter](#Parameter4)**<br>Parameters. 
-selectors | **string**<br>Predefined selectors. 
-
-
-### Parameter {#Parameter4}
-
-Field | Description
---- | ---
-name | **string**<br>Parameter identifier. 
-title | **string**<br>UI-visible title of the parameter. 
-data | **oneof:** `label_values`, `custom`, `text`, `integer_parameter`, `double_parameter` or `text_values`<br>Parameter data.
-&nbsp;&nbsp;label_values | **[LabelValuesParameter](#LabelValuesParameter4)**<br>Label values parameter. 
-&nbsp;&nbsp;custom | **[CustomParameter](#CustomParameter4)**<br>Custom parameter. 
-&nbsp;&nbsp;text | **[TextParameter](#TextParameter4)**<br>Text parameter. 
-&nbsp;&nbsp;integer_parameter | **[IntegerParameter](#IntegerParameter4)**<br>Integer parameter. 
-&nbsp;&nbsp;double_parameter | **[DoubleParameter](#DoubleParameter4)**<br>Double parameter. 
-&nbsp;&nbsp;text_values | **[TextValuesParameter](#TextValuesParameter4)**<br>Integer parameter. 
-hidden | **bool**<br>UI-visibility. 
-description | **string**<br>Parameter description. 
-
-
-### LabelValuesParameter {#LabelValuesParameter4}
-
-Field | Description
---- | ---
-container | **oneof:** `folder_id`<br>Container id
-&nbsp;&nbsp;folder_id | **string**<br>Required. Folder ID. 
-selectors | **string**<br>Required. Selectors to select metric label values. 
-label_key | **string**<br>Required. Label key to list label values. 
-multiselectable | **bool**<br>Specifies the multiselectable values of parameter. 
-default_values[] | **string**<br>Default values. 
-
-
-### CustomParameter {#CustomParameter4}
-
-Field | Description
---- | ---
-values[] | **string**<br>Required. List of parameter values. 
-multiselectable | **bool**<br>Specifies the multiselectable values of parameter. 
-default_values[] | **string**<br>Default values. 
-
-
-### TextParameter {#TextParameter4}
-
-Field | Description
---- | ---
-default_value | **string**<br>Default value. 
-
-
-### IntegerParameter {#IntegerParameter4}
-
-Field | Description
---- | ---
-default_value | **int64**<br>Default value. 
-unit_format | enum **[UnitFormat](./unit_format#undefined)**<br>Parameter unit. <ul><li>`UNIT_NONE`: None (show tick values as-is).</li><li>`UNIT_COUNT`: Count.</li><li>`UNIT_PERCENT`: Percent (0-100).</li><li>`UNIT_PERCENT_UNIT`: Percent (0-1).</li><li>`UNIT_NANOSECONDS`: Nanoseconds (ns).</li><li>`UNIT_MICROSECONDS`: Microseconds (µs).</li><li>`UNIT_MILLISECONDS`: Milliseconds (ms).</li><li>`UNIT_SECONDS`: Seconds (s).</li><li>`UNIT_MINUTES`: Minutes (m).</li><li>`UNIT_HOURS`: Hours (h).</li><li>`UNIT_DAYS`: Days (d).</li><li>`UNIT_BITS_SI`: Bits (SI).</li><li>`UNIT_BYTES_SI`: Bytes (SI).</li><li>`UNIT_KILOBYTES`: Kilobytes (KB).</li><li>`UNIT_MEGABYTES`: Megabytes (MB).</li><li>`UNIT_GIGABYTES`: Gigabytes (GB).</li><li>`UNIT_TERABYTES`: Terabytes (TB)</li><li>`UNIT_PETABYTES`: Petabytes (PB).</li><li>`UNIT_EXABYTES`: Exabytes (EB).</li><li>`UNIT_BITS_IEC`: Bits (IEC).</li><li>`UNIT_BYTES_IEC`: Bytes (IEC).</li><li>`UNIT_KIBIBYTES`: Kibibytes (KiB).</li><li>`UNIT_MEBIBYTES`: Mebibytes (MiB).</li><li>`UNIT_GIBIBYTES`: Gigibytes (GiB).</li><li>`UNIT_TEBIBYTES`: Tebibytes (TiB).</li><li>`UNIT_PEBIBYTES`: Pebibytes (PiB).</li><li>`UNIT_EXBIBYTES`: Exbibytes (EiB).</li><li>`UNIT_REQUESTS_PER_SECOND`: Requests per second (reqps).</li><li>`UNIT_OPERATIONS_PER_SECOND`: Operations per second (ops).</li><li>`UNIT_WRITES_PER_SECOND`: Writes per second (wps).</li><li>`UNIT_READS_PER_SECOND`: Reads per second (rps).</li><li>`UNIT_PACKETS_PER_SECOND`: Packets per second (pps).</li><li>`UNIT_IO_OPERATIONS_PER_SECOND`: IO operations per second (iops).</li><li>`UNIT_COUNTS_PER_SECOND`: Counts per second (counts/sec).</li><li>`UNIT_BITS_SI_PER_SECOND`: Bits (SI) per second (bits/sec).</li><li>`UNIT_BYTES_SI_PER_SECOND`: Bytes (SI) per second (bytes/sec).</li><li>`UNIT_KILOBITS_PER_SECOND`: Kilobits per second (KBits/sec).</li><li>`UNIT_KILOBYTES_PER_SECOND`: Kilobytes per second (KB/sec).</li><li>`UNIT_MEGABITS_PER_SECOND`: Megabits per second (MBits/sec).</li><li>`UNIT_MEGABYTES_PER_SECOND`: Megabytes per second (MB/sec).</li><li>`UNIT_GIGABITS_PER_SECOND`: Gigabits per second (GBits/sec).</li><li>`UNIT_GIGABYTES_PER_SECOND`: Gigabytes per second (GB/sec).</li><li>`UNIT_TERABITS_PER_SECOND`: Terabits per second (TBits/sec).</li><li>`UNIT_TERABYTES_PER_SECOND`: Terabytes per second (TB/sec).</li><li>`UNIT_PETABITS_PER_SECOND`: Petabits per second (Pbits/sec).</li><li>`UNIT_PETABYTES_PER_SECOND`: Petabytes per second (PB/sec).</li><li>`UNIT_BITS_IEC_PER_SECOND`: Bits (IEC) per second (bits/sec).</li><li>`UNIT_BYTES_IEC_PER_SECOND`: Bytes (IEC) per second (bytes/sec).</li><li>`UNIT_KIBIBITS_PER_SECOND`: Kibibits per second (KiBits/sec).</li><li>`UNIT_KIBIBYTES_PER_SECOND`: Kibibytes per second (KiB/sec).</li><li>`UNIT_MEBIBITS_PER_SECOND`: Mebibits per second (MiBits/sec).</li><li>`UNIT_MEBIBYTES_PER_SECOND`: Mebibytes per second (MiB/sec).</li><li>`UNIT_GIBIBITS_PER_SECOND`: Gibibits per second (GiBits/sec).</li><li>`UNIT_GIBIBYTES_PER_SECOND`: Gibibytes per second (GiB/sec).</li><li>`UNIT_TEBIBITS_PER_SECOND`: Tebibits per second (TiBits/sec).</li><li>`UNIT_TEBIBYTES_PER_SECOND`: Tebibytes per second (TiB/sec).</li><li>`UNIT_PEBIBITS_PER_SECOND`: Pebibits per second (PiBits/sec).</li><li>`UNIT_PEBIBYTES_PER_SECOND`: Pebibytes per second (PiB/sec).</li><li>`UNIT_DATETIME_UTC`: Datetime (UTC).</li><li>`UNIT_DATETIME_LOCAL`: Datetime (local).</li><li>`UNIT_HERTZ`: Hertz (Hz).</li><li>`UNIT_KILOHERTZ`: Kilohertz (KHz).</li><li>`UNIT_MEGAHERTZ`: Megahertz (MHz).</li><li>`UNIT_GIGAHERTZ`: Gigahertz (GHz).</li><li>`UNIT_DOLLAR`: Dollar.</li><li>`UNIT_EURO`: Euro.</li><li>`UNIT_ROUBLE`: Rouble.</li><li>`UNIT_CELSIUS`: Celsius (°C).</li><li>`UNIT_FAHRENHEIT`: Fahrenheit (°F).</li><li>`UNIT_KELVIN`: Kelvin (K).</li><li>`UNIT_FLOP_PER_SECOND`: Flop per second (FLOP/sec).</li><li>`UNIT_KILOFLOP_PER_SECOND`: Kiloflop per second (KFLOP/sec).</li><li>`UNIT_MEGAFLOP_PER_SECOND`: Megaflop per second (MFLOP/sec).</li><li>`UNIT_GIGAFLOP_PER_SECOND`: Gigaflop per second (GFLOP/sec).</li><li>`UNIT_PETAFLOP_PER_SECOND`: Petaflop per second (PFLOP/sec).</li><li>`UNIT_EXAFLOP_PER_SECOND`: Exaflop per second (EFLOP/sec).</li><li>`UNIT_METERS_PER_SECOND`: Meters per second (m/sec).</li><li>`UNIT_KILOMETERS_PER_HOUR`: Kilometers per hour (km/h).</li><li>`UNIT_MILES_PER_HOUR`: Miles per hour (mi/h).</li><li>`UNIT_MILLIMETER`: Millimeter.</li><li>`UNIT_CENTIMETER`: Centimeter.</li><li>`UNIT_METER`: Meter.</li><li>`UNIT_KILOMETER`: Kilometer.</li><li>`UNIT_MILE`: Mile.</li><li>`UNIT_PPM`: Parts per million (ppm).</li><li>`UNIT_EVENTS_PER_SECOND`: Events per second</li><li>`UNIT_PACKETS`: Packets</li><li>`UNIT_DBM`: dBm (dbm)</li><li>`UNIT_VIRTUAL_CPU`: Virtual CPU cores based on CPU time (vcpu)</li><li>`UNIT_MESSAGES_PER_SECOND`: Messages per second (mps)</li></ul>
-
-
-### DoubleParameter {#DoubleParameter4}
-
-Field | Description
---- | ---
-default_value | **double**<br>Default value. 
-unit_format | enum **[UnitFormat](./unit_format#undefined)**<br>Parameter unit. <ul><li>`UNIT_NONE`: None (show tick values as-is).</li><li>`UNIT_COUNT`: Count.</li><li>`UNIT_PERCENT`: Percent (0-100).</li><li>`UNIT_PERCENT_UNIT`: Percent (0-1).</li><li>`UNIT_NANOSECONDS`: Nanoseconds (ns).</li><li>`UNIT_MICROSECONDS`: Microseconds (µs).</li><li>`UNIT_MILLISECONDS`: Milliseconds (ms).</li><li>`UNIT_SECONDS`: Seconds (s).</li><li>`UNIT_MINUTES`: Minutes (m).</li><li>`UNIT_HOURS`: Hours (h).</li><li>`UNIT_DAYS`: Days (d).</li><li>`UNIT_BITS_SI`: Bits (SI).</li><li>`UNIT_BYTES_SI`: Bytes (SI).</li><li>`UNIT_KILOBYTES`: Kilobytes (KB).</li><li>`UNIT_MEGABYTES`: Megabytes (MB).</li><li>`UNIT_GIGABYTES`: Gigabytes (GB).</li><li>`UNIT_TERABYTES`: Terabytes (TB)</li><li>`UNIT_PETABYTES`: Petabytes (PB).</li><li>`UNIT_EXABYTES`: Exabytes (EB).</li><li>`UNIT_BITS_IEC`: Bits (IEC).</li><li>`UNIT_BYTES_IEC`: Bytes (IEC).</li><li>`UNIT_KIBIBYTES`: Kibibytes (KiB).</li><li>`UNIT_MEBIBYTES`: Mebibytes (MiB).</li><li>`UNIT_GIBIBYTES`: Gigibytes (GiB).</li><li>`UNIT_TEBIBYTES`: Tebibytes (TiB).</li><li>`UNIT_PEBIBYTES`: Pebibytes (PiB).</li><li>`UNIT_EXBIBYTES`: Exbibytes (EiB).</li><li>`UNIT_REQUESTS_PER_SECOND`: Requests per second (reqps).</li><li>`UNIT_OPERATIONS_PER_SECOND`: Operations per second (ops).</li><li>`UNIT_WRITES_PER_SECOND`: Writes per second (wps).</li><li>`UNIT_READS_PER_SECOND`: Reads per second (rps).</li><li>`UNIT_PACKETS_PER_SECOND`: Packets per second (pps).</li><li>`UNIT_IO_OPERATIONS_PER_SECOND`: IO operations per second (iops).</li><li>`UNIT_COUNTS_PER_SECOND`: Counts per second (counts/sec).</li><li>`UNIT_BITS_SI_PER_SECOND`: Bits (SI) per second (bits/sec).</li><li>`UNIT_BYTES_SI_PER_SECOND`: Bytes (SI) per second (bytes/sec).</li><li>`UNIT_KILOBITS_PER_SECOND`: Kilobits per second (KBits/sec).</li><li>`UNIT_KILOBYTES_PER_SECOND`: Kilobytes per second (KB/sec).</li><li>`UNIT_MEGABITS_PER_SECOND`: Megabits per second (MBits/sec).</li><li>`UNIT_MEGABYTES_PER_SECOND`: Megabytes per second (MB/sec).</li><li>`UNIT_GIGABITS_PER_SECOND`: Gigabits per second (GBits/sec).</li><li>`UNIT_GIGABYTES_PER_SECOND`: Gigabytes per second (GB/sec).</li><li>`UNIT_TERABITS_PER_SECOND`: Terabits per second (TBits/sec).</li><li>`UNIT_TERABYTES_PER_SECOND`: Terabytes per second (TB/sec).</li><li>`UNIT_PETABITS_PER_SECOND`: Petabits per second (Pbits/sec).</li><li>`UNIT_PETABYTES_PER_SECOND`: Petabytes per second (PB/sec).</li><li>`UNIT_BITS_IEC_PER_SECOND`: Bits (IEC) per second (bits/sec).</li><li>`UNIT_BYTES_IEC_PER_SECOND`: Bytes (IEC) per second (bytes/sec).</li><li>`UNIT_KIBIBITS_PER_SECOND`: Kibibits per second (KiBits/sec).</li><li>`UNIT_KIBIBYTES_PER_SECOND`: Kibibytes per second (KiB/sec).</li><li>`UNIT_MEBIBITS_PER_SECOND`: Mebibits per second (MiBits/sec).</li><li>`UNIT_MEBIBYTES_PER_SECOND`: Mebibytes per second (MiB/sec).</li><li>`UNIT_GIBIBITS_PER_SECOND`: Gibibits per second (GiBits/sec).</li><li>`UNIT_GIBIBYTES_PER_SECOND`: Gibibytes per second (GiB/sec).</li><li>`UNIT_TEBIBITS_PER_SECOND`: Tebibits per second (TiBits/sec).</li><li>`UNIT_TEBIBYTES_PER_SECOND`: Tebibytes per second (TiB/sec).</li><li>`UNIT_PEBIBITS_PER_SECOND`: Pebibits per second (PiBits/sec).</li><li>`UNIT_PEBIBYTES_PER_SECOND`: Pebibytes per second (PiB/sec).</li><li>`UNIT_DATETIME_UTC`: Datetime (UTC).</li><li>`UNIT_DATETIME_LOCAL`: Datetime (local).</li><li>`UNIT_HERTZ`: Hertz (Hz).</li><li>`UNIT_KILOHERTZ`: Kilohertz (KHz).</li><li>`UNIT_MEGAHERTZ`: Megahertz (MHz).</li><li>`UNIT_GIGAHERTZ`: Gigahertz (GHz).</li><li>`UNIT_DOLLAR`: Dollar.</li><li>`UNIT_EURO`: Euro.</li><li>`UNIT_ROUBLE`: Rouble.</li><li>`UNIT_CELSIUS`: Celsius (°C).</li><li>`UNIT_FAHRENHEIT`: Fahrenheit (°F).</li><li>`UNIT_KELVIN`: Kelvin (K).</li><li>`UNIT_FLOP_PER_SECOND`: Flop per second (FLOP/sec).</li><li>`UNIT_KILOFLOP_PER_SECOND`: Kiloflop per second (KFLOP/sec).</li><li>`UNIT_MEGAFLOP_PER_SECOND`: Megaflop per second (MFLOP/sec).</li><li>`UNIT_GIGAFLOP_PER_SECOND`: Gigaflop per second (GFLOP/sec).</li><li>`UNIT_PETAFLOP_PER_SECOND`: Petaflop per second (PFLOP/sec).</li><li>`UNIT_EXAFLOP_PER_SECOND`: Exaflop per second (EFLOP/sec).</li><li>`UNIT_METERS_PER_SECOND`: Meters per second (m/sec).</li><li>`UNIT_KILOMETERS_PER_HOUR`: Kilometers per hour (km/h).</li><li>`UNIT_MILES_PER_HOUR`: Miles per hour (mi/h).</li><li>`UNIT_MILLIMETER`: Millimeter.</li><li>`UNIT_CENTIMETER`: Centimeter.</li><li>`UNIT_METER`: Meter.</li><li>`UNIT_KILOMETER`: Kilometer.</li><li>`UNIT_MILE`: Mile.</li><li>`UNIT_PPM`: Parts per million (ppm).</li><li>`UNIT_EVENTS_PER_SECOND`: Events per second</li><li>`UNIT_PACKETS`: Packets</li><li>`UNIT_DBM`: dBm (dbm)</li><li>`UNIT_VIRTUAL_CPU`: Virtual CPU cores based on CPU time (vcpu)</li><li>`UNIT_MESSAGES_PER_SECOND`: Messages per second (mps)</li></ul>
-
-
-### TextValuesParameter {#TextValuesParameter4}
-
-Field | Description
---- | ---
-default_values[] | **string**<br>Default value. 
-
-
 ### Operation {#Operation1}
 
 Field | Description
@@ -1459,256 +1260,9 @@ name | **string**<br>Dashboard name.
 description | **string**<br>Dashboard description. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 title | **string**<br>Dashboard title. 
-widgets[] | **[Widget](#Widget5)**<br>List of dashboard widgets. 
-parametrization | **[Parametrization](#Parametrization5)**<br>Dashboard parametrization. 
+widgets[] | **[Widget](#Widget4)**<br>List of dashboard widgets. 
+parametrization | **[Parametrization](#Parametrization4)**<br>Dashboard parametrization. 
 etag | **string**<br>Dashboard etag. 
-
-
-### Widget {#Widget5}
-
-Field | Description
---- | ---
-position | **[LayoutPosition](#LayoutPosition5)**<br>Required. Widget layout position. 
-widget | **oneof:** `text`, `title` or `chart`<br>Required. Widget data.
-&nbsp;&nbsp;text | **[TextWidget](#TextWidget5)**<br>Text widget. 
-&nbsp;&nbsp;title | **[TitleWidget](#TitleWidget5)**<br>Title widget. 
-&nbsp;&nbsp;chart | **[ChartWidget](#ChartWidget5)**<br>Chart widget. 
-
-
-### LayoutPosition {#LayoutPosition5}
-
-Field | Description
---- | ---
-x | **int64**<br>Required. X-axis top-left corner coordinate. 
-y | **int64**<br>Required. Y-axis top-left corner coordinate. 
-w | **int64**<br>Required. Weight. 
-h | **int64**<br>Required. Height. 
-
-
-### TextWidget {#TextWidget5}
-
-Field | Description
---- | ---
-text | **string**<br>Text. 
-
-
-### TitleWidget {#TitleWidget5}
-
-Field | Description
---- | ---
-text | **string**<br>Title text. 
-size | enum **TitleSize**<br>Title size. <ul><li>`TITLE_SIZE_XS`: Extra small size.</li><li>`TITLE_SIZE_S`: Small size.</li><li>`TITLE_SIZE_M`: Middle size.</li><li>`TITLE_SIZE_L`: Large size.</li></ul>
-
-
-### ChartWidget {#ChartWidget5}
-
-Field | Description
---- | ---
-id | **string**<br>Required. Chart ID. 
-queries | **[Queries](#Queries5)**<br>Queries. 
-visualization_settings | **[VisualizationSettings](#VisualizationSettings5)**<br>Visualization settings. 
-series_overrides[] | **[SeriesOverrides](#SeriesOverrides5)**<br>Override settings. 
-name_hiding_settings | **[NameHidingSettings](#NameHidingSettings5)**<br>Name hiding settings. 
-description | **string**<br>Chart description in dashboard (not enabled in UI). 
-title | **string**<br>Chart widget title. 
-display_legend | **bool**<br>Enable legend under chart. 
-freeze | enum **FreezeDuration**<br>Fixed time interval for chart. <ul><li>`FREEZE_DURATION_HOUR`: Last hour.</li><li>`FREEZE_DURATION_DAY`: Last day = last 24 hours.</li><li>`FREEZE_DURATION_WEEK`: Last 7 days.</li><li>`FREEZE_DURATION_MONTH`: Last 31 days.</li></ul>
-
-
-### Queries {#Queries5}
-
-Field | Description
---- | ---
-targets[] | **[Target](#Target5)**<br>Required. List of targets. 
-downsampling | **[Downsampling](#Downsampling)**<br>Required. Downsampling settings. 
-
-
-### Target {#Target5}
-
-Field | Description
---- | ---
-query | **string**<br>Required. Query. 
-text_mode | **bool**<br>Text mode. 
-hidden | **bool**<br>Checks that target is visible or invisible. 
-
-
-### VisualizationSettings {#VisualizationSettings5}
-
-Field | Description
---- | ---
-type | enum **VisualizationType**<br>Visualization type. <ul><li>`VISUALIZATION_TYPE_UNSPECIFIED`: Not specified (line by default).</li><li>`VISUALIZATION_TYPE_LINE`: Line chart.</li><li>`VISUALIZATION_TYPE_STACK`: Stack chart.</li><li>`VISUALIZATION_TYPE_COLUMN`: Points as columns chart.</li><li>`VISUALIZATION_TYPE_POINTS`: Points.</li><li>`VISUALIZATION_TYPE_PIE`: Pie aggregation chart.</li><li>`VISUALIZATION_TYPE_BARS`: Bars aggregation chart.</li><li>`VISUALIZATION_TYPE_DISTRIBUTION`: Distribution aggregation chart.</li><li>`VISUALIZATION_TYPE_HEATMAP`: Heatmap aggregation chart.</li></ul>
-normalize | **bool**<br>Normalize. 
-interpolate | enum **Interpolate**<br>Interpolate. <ul><li>`INTERPOLATE_UNSPECIFIED`: Not specified (linear by default).</li><li>`INTERPOLATE_LINEAR`: Linear.</li><li>`INTERPOLATE_LEFT`: Left.</li><li>`INTERPOLATE_RIGHT`: Right.</li></ul>
-aggregation | enum **SeriesAggregation**<br>Aggregation. <ul><li>`SERIES_AGGREGATION_UNSPECIFIED`: Not specified (avg by default).</li><li>`SERIES_AGGREGATION_AVG`: Average.</li><li>`SERIES_AGGREGATION_MIN`: Minimum.</li><li>`SERIES_AGGREGATION_MAX`: Maximum.</li><li>`SERIES_AGGREGATION_LAST`: Last non-NaN value.</li><li>`SERIES_AGGREGATION_SUM`: Sum.</li></ul>
-color_scheme_settings | **[ColorSchemeSettings](#ColorSchemeSettings5)**<br>Color scheme settings. 
-heatmap_settings | **[HeatmapSettings](#HeatmapSettings5)**<br>Heatmap settings. 
-yaxis_settings | **[YaxisSettings](#YaxisSettings5)**<br>Y axis settings. 
-title | **string**<br>Inside chart title. 
-show_labels | **bool**<br>Show chart labels. 
-
-
-### ColorSchemeSettings {#ColorSchemeSettings5}
-
-Field | Description
---- | ---
-scheme | **oneof:** `automatic`, `standard` or `gradient`<br>
-&nbsp;&nbsp;automatic | **[AutomaticColorScheme](#AutomaticColorScheme5)**<br>Automatic color scheme. 
-&nbsp;&nbsp;standard | **[StandardColorScheme](#StandardColorScheme5)**<br>Standard color scheme. 
-&nbsp;&nbsp;gradient | **[GradientColorScheme](#GradientColorScheme5)**<br>Gradient color scheme. 
-
-
-### AutomaticColorScheme {#AutomaticColorScheme5}
-
-
-
-### StandardColorScheme {#StandardColorScheme5}
-
-
-
-### GradientColorScheme {#GradientColorScheme5}
-
-Field | Description
---- | ---
-green_value | **string**<br>Gradient green value. 
-yellow_value | **string**<br>Gradient yellow value. 
-red_value | **string**<br>Gradient red value. 
-violet_value | **string**<br>Gradient violet_value. 
-
-
-### HeatmapSettings {#HeatmapSettings5}
-
-Field | Description
---- | ---
-green_value | **string**<br>Heatmap green value. 
-yellow_value | **string**<br>Heatmap yellow value. 
-red_value | **string**<br>Heatmap red value. 
-violet_value | **string**<br>Heatmap violet_value. 
-
-
-### Yaxis {#Yaxis5}
-
-Field | Description
---- | ---
-type | enum **YaxisType**<br>Type. <ul><li>`YAXIS_TYPE_UNSPECIFIED`: Not specified (linear by default).</li><li>`YAXIS_TYPE_LINEAR`: Linear.</li><li>`YAXIS_TYPE_LOGARITHMIC`: Logarithmic.</li></ul>
-title | **string**<br>Title or empty. 
-min | **string**<br>Min value in extended number format or empty. 
-max | **string**<br>Max value in extended number format or empty. 
-unit_format | enum **[UnitFormat](./unit_format#undefined)**<br>Unit format. <ul><li>`UNIT_NONE`: None (show tick values as-is).</li><li>`UNIT_COUNT`: Count.</li><li>`UNIT_PERCENT`: Percent (0-100).</li><li>`UNIT_PERCENT_UNIT`: Percent (0-1).</li><li>`UNIT_NANOSECONDS`: Nanoseconds (ns).</li><li>`UNIT_MICROSECONDS`: Microseconds (µs).</li><li>`UNIT_MILLISECONDS`: Milliseconds (ms).</li><li>`UNIT_SECONDS`: Seconds (s).</li><li>`UNIT_MINUTES`: Minutes (m).</li><li>`UNIT_HOURS`: Hours (h).</li><li>`UNIT_DAYS`: Days (d).</li><li>`UNIT_BITS_SI`: Bits (SI).</li><li>`UNIT_BYTES_SI`: Bytes (SI).</li><li>`UNIT_KILOBYTES`: Kilobytes (KB).</li><li>`UNIT_MEGABYTES`: Megabytes (MB).</li><li>`UNIT_GIGABYTES`: Gigabytes (GB).</li><li>`UNIT_TERABYTES`: Terabytes (TB)</li><li>`UNIT_PETABYTES`: Petabytes (PB).</li><li>`UNIT_EXABYTES`: Exabytes (EB).</li><li>`UNIT_BITS_IEC`: Bits (IEC).</li><li>`UNIT_BYTES_IEC`: Bytes (IEC).</li><li>`UNIT_KIBIBYTES`: Kibibytes (KiB).</li><li>`UNIT_MEBIBYTES`: Mebibytes (MiB).</li><li>`UNIT_GIBIBYTES`: Gigibytes (GiB).</li><li>`UNIT_TEBIBYTES`: Tebibytes (TiB).</li><li>`UNIT_PEBIBYTES`: Pebibytes (PiB).</li><li>`UNIT_EXBIBYTES`: Exbibytes (EiB).</li><li>`UNIT_REQUESTS_PER_SECOND`: Requests per second (reqps).</li><li>`UNIT_OPERATIONS_PER_SECOND`: Operations per second (ops).</li><li>`UNIT_WRITES_PER_SECOND`: Writes per second (wps).</li><li>`UNIT_READS_PER_SECOND`: Reads per second (rps).</li><li>`UNIT_PACKETS_PER_SECOND`: Packets per second (pps).</li><li>`UNIT_IO_OPERATIONS_PER_SECOND`: IO operations per second (iops).</li><li>`UNIT_COUNTS_PER_SECOND`: Counts per second (counts/sec).</li><li>`UNIT_BITS_SI_PER_SECOND`: Bits (SI) per second (bits/sec).</li><li>`UNIT_BYTES_SI_PER_SECOND`: Bytes (SI) per second (bytes/sec).</li><li>`UNIT_KILOBITS_PER_SECOND`: Kilobits per second (KBits/sec).</li><li>`UNIT_KILOBYTES_PER_SECOND`: Kilobytes per second (KB/sec).</li><li>`UNIT_MEGABITS_PER_SECOND`: Megabits per second (MBits/sec).</li><li>`UNIT_MEGABYTES_PER_SECOND`: Megabytes per second (MB/sec).</li><li>`UNIT_GIGABITS_PER_SECOND`: Gigabits per second (GBits/sec).</li><li>`UNIT_GIGABYTES_PER_SECOND`: Gigabytes per second (GB/sec).</li><li>`UNIT_TERABITS_PER_SECOND`: Terabits per second (TBits/sec).</li><li>`UNIT_TERABYTES_PER_SECOND`: Terabytes per second (TB/sec).</li><li>`UNIT_PETABITS_PER_SECOND`: Petabits per second (Pbits/sec).</li><li>`UNIT_PETABYTES_PER_SECOND`: Petabytes per second (PB/sec).</li><li>`UNIT_BITS_IEC_PER_SECOND`: Bits (IEC) per second (bits/sec).</li><li>`UNIT_BYTES_IEC_PER_SECOND`: Bytes (IEC) per second (bytes/sec).</li><li>`UNIT_KIBIBITS_PER_SECOND`: Kibibits per second (KiBits/sec).</li><li>`UNIT_KIBIBYTES_PER_SECOND`: Kibibytes per second (KiB/sec).</li><li>`UNIT_MEBIBITS_PER_SECOND`: Mebibits per second (MiBits/sec).</li><li>`UNIT_MEBIBYTES_PER_SECOND`: Mebibytes per second (MiB/sec).</li><li>`UNIT_GIBIBITS_PER_SECOND`: Gibibits per second (GiBits/sec).</li><li>`UNIT_GIBIBYTES_PER_SECOND`: Gibibytes per second (GiB/sec).</li><li>`UNIT_TEBIBITS_PER_SECOND`: Tebibits per second (TiBits/sec).</li><li>`UNIT_TEBIBYTES_PER_SECOND`: Tebibytes per second (TiB/sec).</li><li>`UNIT_PEBIBITS_PER_SECOND`: Pebibits per second (PiBits/sec).</li><li>`UNIT_PEBIBYTES_PER_SECOND`: Pebibytes per second (PiB/sec).</li><li>`UNIT_DATETIME_UTC`: Datetime (UTC).</li><li>`UNIT_DATETIME_LOCAL`: Datetime (local).</li><li>`UNIT_HERTZ`: Hertz (Hz).</li><li>`UNIT_KILOHERTZ`: Kilohertz (KHz).</li><li>`UNIT_MEGAHERTZ`: Megahertz (MHz).</li><li>`UNIT_GIGAHERTZ`: Gigahertz (GHz).</li><li>`UNIT_DOLLAR`: Dollar.</li><li>`UNIT_EURO`: Euro.</li><li>`UNIT_ROUBLE`: Rouble.</li><li>`UNIT_CELSIUS`: Celsius (°C).</li><li>`UNIT_FAHRENHEIT`: Fahrenheit (°F).</li><li>`UNIT_KELVIN`: Kelvin (K).</li><li>`UNIT_FLOP_PER_SECOND`: Flop per second (FLOP/sec).</li><li>`UNIT_KILOFLOP_PER_SECOND`: Kiloflop per second (KFLOP/sec).</li><li>`UNIT_MEGAFLOP_PER_SECOND`: Megaflop per second (MFLOP/sec).</li><li>`UNIT_GIGAFLOP_PER_SECOND`: Gigaflop per second (GFLOP/sec).</li><li>`UNIT_PETAFLOP_PER_SECOND`: Petaflop per second (PFLOP/sec).</li><li>`UNIT_EXAFLOP_PER_SECOND`: Exaflop per second (EFLOP/sec).</li><li>`UNIT_METERS_PER_SECOND`: Meters per second (m/sec).</li><li>`UNIT_KILOMETERS_PER_HOUR`: Kilometers per hour (km/h).</li><li>`UNIT_MILES_PER_HOUR`: Miles per hour (mi/h).</li><li>`UNIT_MILLIMETER`: Millimeter.</li><li>`UNIT_CENTIMETER`: Centimeter.</li><li>`UNIT_METER`: Meter.</li><li>`UNIT_KILOMETER`: Kilometer.</li><li>`UNIT_MILE`: Mile.</li><li>`UNIT_PPM`: Parts per million (ppm).</li><li>`UNIT_EVENTS_PER_SECOND`: Events per second</li><li>`UNIT_PACKETS`: Packets</li><li>`UNIT_DBM`: dBm (dbm)</li><li>`UNIT_VIRTUAL_CPU`: Virtual CPU cores based on CPU time (vcpu)</li><li>`UNIT_MESSAGES_PER_SECOND`: Messages per second (mps)</li></ul>
-precision | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Tick value precision (null as default, 0-7 in other cases). 
-
-
-### YaxisSettings {#YaxisSettings5}
-
-Field | Description
---- | ---
-left | **[Yaxis](#Yaxis5)**<br>Left Y axis settings. 
-right | **[Yaxis](#Yaxis5)**<br>Right Y axis settings. 
-
-
-### SeriesOverrides {#SeriesOverrides5}
-
-Field | Description
---- | ---
-type | **oneof:** `name` or `target_index`<br>Required. Series selection type.
-&nbsp;&nbsp;name | **string**<br>Series name. 
-&nbsp;&nbsp;target_index | **string**<br>Target index. 
-settings | **[SeriesOverrideSettings](#SeriesOverrideSettings5)**<br>Required. Override settings. 
-
-
-### SeriesOverrideSettings {#SeriesOverrideSettings5}
-
-Field | Description
---- | ---
-name | **string**<br>Series name or empty. 
-color | **string**<br>Series color or empty. 
-type | enum **SeriesVisualizationType**<br>Type. <ul><li>`SERIES_VISUALIZATION_TYPE_UNSPECIFIED`: Not specified (line by default).</li><li>`SERIES_VISUALIZATION_TYPE_LINE`: Line chart.</li><li>`SERIES_VISUALIZATION_TYPE_STACK`: Stack chart.</li><li>`SERIES_VISUALIZATION_TYPE_COLUMN`: Points as columns chart.</li><li>`SERIES_VISUALIZATION_TYPE_POINTS`: Points.</li></ul>
-stack_name | **string**<br>Stack name or empty. 
-grow_down | **bool**<br>Stack grow down. 
-yaxis_position | enum **YaxisPosition**<br>Yaxis position. <ul><li>`YAXIS_POSITION_UNSPECIFIED`: Not specified (left by default).</li><li>`YAXIS_POSITION_LEFT`: Left.</li><li>`YAXIS_POSITION_RIGHT`: Right.</li></ul>
-
-
-### NameHidingSettings {#NameHidingSettings5}
-
-Field | Description
---- | ---
-positive | **bool**<br>True if we want to show concrete series names only, false if we want to hide concrete series names. 
-names[] | **string**<br>Series names to show or hide. 
-
-
-### Parametrization {#Parametrization5}
-
-Field | Description
---- | ---
-parameters[] | **[Parameter](#Parameter5)**<br>Parameters. 
-selectors | **string**<br>Predefined selectors. 
-
-
-### Parameter {#Parameter5}
-
-Field | Description
---- | ---
-name | **string**<br>Parameter identifier. 
-title | **string**<br>UI-visible title of the parameter. 
-data | **oneof:** `label_values`, `custom`, `text`, `integer_parameter`, `double_parameter` or `text_values`<br>Parameter data.
-&nbsp;&nbsp;label_values | **[LabelValuesParameter](#LabelValuesParameter5)**<br>Label values parameter. 
-&nbsp;&nbsp;custom | **[CustomParameter](#CustomParameter5)**<br>Custom parameter. 
-&nbsp;&nbsp;text | **[TextParameter](#TextParameter5)**<br>Text parameter. 
-&nbsp;&nbsp;integer_parameter | **[IntegerParameter](#IntegerParameter5)**<br>Integer parameter. 
-&nbsp;&nbsp;double_parameter | **[DoubleParameter](#DoubleParameter5)**<br>Double parameter. 
-&nbsp;&nbsp;text_values | **[TextValuesParameter](#TextValuesParameter5)**<br>Integer parameter. 
-hidden | **bool**<br>UI-visibility. 
-description | **string**<br>Parameter description. 
-
-
-### LabelValuesParameter {#LabelValuesParameter5}
-
-Field | Description
---- | ---
-container | **oneof:** `folder_id`<br>Container id
-&nbsp;&nbsp;folder_id | **string**<br>Required. Folder ID. 
-selectors | **string**<br>Required. Selectors to select metric label values. 
-label_key | **string**<br>Required. Label key to list label values. 
-multiselectable | **bool**<br>Specifies the multiselectable values of parameter. 
-default_values[] | **string**<br>Default values. 
-
-
-### CustomParameter {#CustomParameter5}
-
-Field | Description
---- | ---
-values[] | **string**<br>Required. List of parameter values. 
-multiselectable | **bool**<br>Specifies the multiselectable values of parameter. 
-default_values[] | **string**<br>Default values. 
-
-
-### TextParameter {#TextParameter5}
-
-Field | Description
---- | ---
-default_value | **string**<br>Default value. 
-
-
-### IntegerParameter {#IntegerParameter5}
-
-Field | Description
---- | ---
-default_value | **int64**<br>Default value. 
-unit_format | enum **[UnitFormat](./unit_format#undefined)**<br>Parameter unit. <ul><li>`UNIT_NONE`: None (show tick values as-is).</li><li>`UNIT_COUNT`: Count.</li><li>`UNIT_PERCENT`: Percent (0-100).</li><li>`UNIT_PERCENT_UNIT`: Percent (0-1).</li><li>`UNIT_NANOSECONDS`: Nanoseconds (ns).</li><li>`UNIT_MICROSECONDS`: Microseconds (µs).</li><li>`UNIT_MILLISECONDS`: Milliseconds (ms).</li><li>`UNIT_SECONDS`: Seconds (s).</li><li>`UNIT_MINUTES`: Minutes (m).</li><li>`UNIT_HOURS`: Hours (h).</li><li>`UNIT_DAYS`: Days (d).</li><li>`UNIT_BITS_SI`: Bits (SI).</li><li>`UNIT_BYTES_SI`: Bytes (SI).</li><li>`UNIT_KILOBYTES`: Kilobytes (KB).</li><li>`UNIT_MEGABYTES`: Megabytes (MB).</li><li>`UNIT_GIGABYTES`: Gigabytes (GB).</li><li>`UNIT_TERABYTES`: Terabytes (TB)</li><li>`UNIT_PETABYTES`: Petabytes (PB).</li><li>`UNIT_EXABYTES`: Exabytes (EB).</li><li>`UNIT_BITS_IEC`: Bits (IEC).</li><li>`UNIT_BYTES_IEC`: Bytes (IEC).</li><li>`UNIT_KIBIBYTES`: Kibibytes (KiB).</li><li>`UNIT_MEBIBYTES`: Mebibytes (MiB).</li><li>`UNIT_GIBIBYTES`: Gigibytes (GiB).</li><li>`UNIT_TEBIBYTES`: Tebibytes (TiB).</li><li>`UNIT_PEBIBYTES`: Pebibytes (PiB).</li><li>`UNIT_EXBIBYTES`: Exbibytes (EiB).</li><li>`UNIT_REQUESTS_PER_SECOND`: Requests per second (reqps).</li><li>`UNIT_OPERATIONS_PER_SECOND`: Operations per second (ops).</li><li>`UNIT_WRITES_PER_SECOND`: Writes per second (wps).</li><li>`UNIT_READS_PER_SECOND`: Reads per second (rps).</li><li>`UNIT_PACKETS_PER_SECOND`: Packets per second (pps).</li><li>`UNIT_IO_OPERATIONS_PER_SECOND`: IO operations per second (iops).</li><li>`UNIT_COUNTS_PER_SECOND`: Counts per second (counts/sec).</li><li>`UNIT_BITS_SI_PER_SECOND`: Bits (SI) per second (bits/sec).</li><li>`UNIT_BYTES_SI_PER_SECOND`: Bytes (SI) per second (bytes/sec).</li><li>`UNIT_KILOBITS_PER_SECOND`: Kilobits per second (KBits/sec).</li><li>`UNIT_KILOBYTES_PER_SECOND`: Kilobytes per second (KB/sec).</li><li>`UNIT_MEGABITS_PER_SECOND`: Megabits per second (MBits/sec).</li><li>`UNIT_MEGABYTES_PER_SECOND`: Megabytes per second (MB/sec).</li><li>`UNIT_GIGABITS_PER_SECOND`: Gigabits per second (GBits/sec).</li><li>`UNIT_GIGABYTES_PER_SECOND`: Gigabytes per second (GB/sec).</li><li>`UNIT_TERABITS_PER_SECOND`: Terabits per second (TBits/sec).</li><li>`UNIT_TERABYTES_PER_SECOND`: Terabytes per second (TB/sec).</li><li>`UNIT_PETABITS_PER_SECOND`: Petabits per second (Pbits/sec).</li><li>`UNIT_PETABYTES_PER_SECOND`: Petabytes per second (PB/sec).</li><li>`UNIT_BITS_IEC_PER_SECOND`: Bits (IEC) per second (bits/sec).</li><li>`UNIT_BYTES_IEC_PER_SECOND`: Bytes (IEC) per second (bytes/sec).</li><li>`UNIT_KIBIBITS_PER_SECOND`: Kibibits per second (KiBits/sec).</li><li>`UNIT_KIBIBYTES_PER_SECOND`: Kibibytes per second (KiB/sec).</li><li>`UNIT_MEBIBITS_PER_SECOND`: Mebibits per second (MiBits/sec).</li><li>`UNIT_MEBIBYTES_PER_SECOND`: Mebibytes per second (MiB/sec).</li><li>`UNIT_GIBIBITS_PER_SECOND`: Gibibits per second (GiBits/sec).</li><li>`UNIT_GIBIBYTES_PER_SECOND`: Gibibytes per second (GiB/sec).</li><li>`UNIT_TEBIBITS_PER_SECOND`: Tebibits per second (TiBits/sec).</li><li>`UNIT_TEBIBYTES_PER_SECOND`: Tebibytes per second (TiB/sec).</li><li>`UNIT_PEBIBITS_PER_SECOND`: Pebibits per second (PiBits/sec).</li><li>`UNIT_PEBIBYTES_PER_SECOND`: Pebibytes per second (PiB/sec).</li><li>`UNIT_DATETIME_UTC`: Datetime (UTC).</li><li>`UNIT_DATETIME_LOCAL`: Datetime (local).</li><li>`UNIT_HERTZ`: Hertz (Hz).</li><li>`UNIT_KILOHERTZ`: Kilohertz (KHz).</li><li>`UNIT_MEGAHERTZ`: Megahertz (MHz).</li><li>`UNIT_GIGAHERTZ`: Gigahertz (GHz).</li><li>`UNIT_DOLLAR`: Dollar.</li><li>`UNIT_EURO`: Euro.</li><li>`UNIT_ROUBLE`: Rouble.</li><li>`UNIT_CELSIUS`: Celsius (°C).</li><li>`UNIT_FAHRENHEIT`: Fahrenheit (°F).</li><li>`UNIT_KELVIN`: Kelvin (K).</li><li>`UNIT_FLOP_PER_SECOND`: Flop per second (FLOP/sec).</li><li>`UNIT_KILOFLOP_PER_SECOND`: Kiloflop per second (KFLOP/sec).</li><li>`UNIT_MEGAFLOP_PER_SECOND`: Megaflop per second (MFLOP/sec).</li><li>`UNIT_GIGAFLOP_PER_SECOND`: Gigaflop per second (GFLOP/sec).</li><li>`UNIT_PETAFLOP_PER_SECOND`: Petaflop per second (PFLOP/sec).</li><li>`UNIT_EXAFLOP_PER_SECOND`: Exaflop per second (EFLOP/sec).</li><li>`UNIT_METERS_PER_SECOND`: Meters per second (m/sec).</li><li>`UNIT_KILOMETERS_PER_HOUR`: Kilometers per hour (km/h).</li><li>`UNIT_MILES_PER_HOUR`: Miles per hour (mi/h).</li><li>`UNIT_MILLIMETER`: Millimeter.</li><li>`UNIT_CENTIMETER`: Centimeter.</li><li>`UNIT_METER`: Meter.</li><li>`UNIT_KILOMETER`: Kilometer.</li><li>`UNIT_MILE`: Mile.</li><li>`UNIT_PPM`: Parts per million (ppm).</li><li>`UNIT_EVENTS_PER_SECOND`: Events per second</li><li>`UNIT_PACKETS`: Packets</li><li>`UNIT_DBM`: dBm (dbm)</li><li>`UNIT_VIRTUAL_CPU`: Virtual CPU cores based on CPU time (vcpu)</li><li>`UNIT_MESSAGES_PER_SECOND`: Messages per second (mps)</li></ul>
-
-
-### DoubleParameter {#DoubleParameter5}
-
-Field | Description
---- | ---
-default_value | **double**<br>Default value. 
-unit_format | enum **[UnitFormat](./unit_format#undefined)**<br>Parameter unit. <ul><li>`UNIT_NONE`: None (show tick values as-is).</li><li>`UNIT_COUNT`: Count.</li><li>`UNIT_PERCENT`: Percent (0-100).</li><li>`UNIT_PERCENT_UNIT`: Percent (0-1).</li><li>`UNIT_NANOSECONDS`: Nanoseconds (ns).</li><li>`UNIT_MICROSECONDS`: Microseconds (µs).</li><li>`UNIT_MILLISECONDS`: Milliseconds (ms).</li><li>`UNIT_SECONDS`: Seconds (s).</li><li>`UNIT_MINUTES`: Minutes (m).</li><li>`UNIT_HOURS`: Hours (h).</li><li>`UNIT_DAYS`: Days (d).</li><li>`UNIT_BITS_SI`: Bits (SI).</li><li>`UNIT_BYTES_SI`: Bytes (SI).</li><li>`UNIT_KILOBYTES`: Kilobytes (KB).</li><li>`UNIT_MEGABYTES`: Megabytes (MB).</li><li>`UNIT_GIGABYTES`: Gigabytes (GB).</li><li>`UNIT_TERABYTES`: Terabytes (TB)</li><li>`UNIT_PETABYTES`: Petabytes (PB).</li><li>`UNIT_EXABYTES`: Exabytes (EB).</li><li>`UNIT_BITS_IEC`: Bits (IEC).</li><li>`UNIT_BYTES_IEC`: Bytes (IEC).</li><li>`UNIT_KIBIBYTES`: Kibibytes (KiB).</li><li>`UNIT_MEBIBYTES`: Mebibytes (MiB).</li><li>`UNIT_GIBIBYTES`: Gigibytes (GiB).</li><li>`UNIT_TEBIBYTES`: Tebibytes (TiB).</li><li>`UNIT_PEBIBYTES`: Pebibytes (PiB).</li><li>`UNIT_EXBIBYTES`: Exbibytes (EiB).</li><li>`UNIT_REQUESTS_PER_SECOND`: Requests per second (reqps).</li><li>`UNIT_OPERATIONS_PER_SECOND`: Operations per second (ops).</li><li>`UNIT_WRITES_PER_SECOND`: Writes per second (wps).</li><li>`UNIT_READS_PER_SECOND`: Reads per second (rps).</li><li>`UNIT_PACKETS_PER_SECOND`: Packets per second (pps).</li><li>`UNIT_IO_OPERATIONS_PER_SECOND`: IO operations per second (iops).</li><li>`UNIT_COUNTS_PER_SECOND`: Counts per second (counts/sec).</li><li>`UNIT_BITS_SI_PER_SECOND`: Bits (SI) per second (bits/sec).</li><li>`UNIT_BYTES_SI_PER_SECOND`: Bytes (SI) per second (bytes/sec).</li><li>`UNIT_KILOBITS_PER_SECOND`: Kilobits per second (KBits/sec).</li><li>`UNIT_KILOBYTES_PER_SECOND`: Kilobytes per second (KB/sec).</li><li>`UNIT_MEGABITS_PER_SECOND`: Megabits per second (MBits/sec).</li><li>`UNIT_MEGABYTES_PER_SECOND`: Megabytes per second (MB/sec).</li><li>`UNIT_GIGABITS_PER_SECOND`: Gigabits per second (GBits/sec).</li><li>`UNIT_GIGABYTES_PER_SECOND`: Gigabytes per second (GB/sec).</li><li>`UNIT_TERABITS_PER_SECOND`: Terabits per second (TBits/sec).</li><li>`UNIT_TERABYTES_PER_SECOND`: Terabytes per second (TB/sec).</li><li>`UNIT_PETABITS_PER_SECOND`: Petabits per second (Pbits/sec).</li><li>`UNIT_PETABYTES_PER_SECOND`: Petabytes per second (PB/sec).</li><li>`UNIT_BITS_IEC_PER_SECOND`: Bits (IEC) per second (bits/sec).</li><li>`UNIT_BYTES_IEC_PER_SECOND`: Bytes (IEC) per second (bytes/sec).</li><li>`UNIT_KIBIBITS_PER_SECOND`: Kibibits per second (KiBits/sec).</li><li>`UNIT_KIBIBYTES_PER_SECOND`: Kibibytes per second (KiB/sec).</li><li>`UNIT_MEBIBITS_PER_SECOND`: Mebibits per second (MiBits/sec).</li><li>`UNIT_MEBIBYTES_PER_SECOND`: Mebibytes per second (MiB/sec).</li><li>`UNIT_GIBIBITS_PER_SECOND`: Gibibits per second (GiBits/sec).</li><li>`UNIT_GIBIBYTES_PER_SECOND`: Gibibytes per second (GiB/sec).</li><li>`UNIT_TEBIBITS_PER_SECOND`: Tebibits per second (TiBits/sec).</li><li>`UNIT_TEBIBYTES_PER_SECOND`: Tebibytes per second (TiB/sec).</li><li>`UNIT_PEBIBITS_PER_SECOND`: Pebibits per second (PiBits/sec).</li><li>`UNIT_PEBIBYTES_PER_SECOND`: Pebibytes per second (PiB/sec).</li><li>`UNIT_DATETIME_UTC`: Datetime (UTC).</li><li>`UNIT_DATETIME_LOCAL`: Datetime (local).</li><li>`UNIT_HERTZ`: Hertz (Hz).</li><li>`UNIT_KILOHERTZ`: Kilohertz (KHz).</li><li>`UNIT_MEGAHERTZ`: Megahertz (MHz).</li><li>`UNIT_GIGAHERTZ`: Gigahertz (GHz).</li><li>`UNIT_DOLLAR`: Dollar.</li><li>`UNIT_EURO`: Euro.</li><li>`UNIT_ROUBLE`: Rouble.</li><li>`UNIT_CELSIUS`: Celsius (°C).</li><li>`UNIT_FAHRENHEIT`: Fahrenheit (°F).</li><li>`UNIT_KELVIN`: Kelvin (K).</li><li>`UNIT_FLOP_PER_SECOND`: Flop per second (FLOP/sec).</li><li>`UNIT_KILOFLOP_PER_SECOND`: Kiloflop per second (KFLOP/sec).</li><li>`UNIT_MEGAFLOP_PER_SECOND`: Megaflop per second (MFLOP/sec).</li><li>`UNIT_GIGAFLOP_PER_SECOND`: Gigaflop per second (GFLOP/sec).</li><li>`UNIT_PETAFLOP_PER_SECOND`: Petaflop per second (PFLOP/sec).</li><li>`UNIT_EXAFLOP_PER_SECOND`: Exaflop per second (EFLOP/sec).</li><li>`UNIT_METERS_PER_SECOND`: Meters per second (m/sec).</li><li>`UNIT_KILOMETERS_PER_HOUR`: Kilometers per hour (km/h).</li><li>`UNIT_MILES_PER_HOUR`: Miles per hour (mi/h).</li><li>`UNIT_MILLIMETER`: Millimeter.</li><li>`UNIT_CENTIMETER`: Centimeter.</li><li>`UNIT_METER`: Meter.</li><li>`UNIT_KILOMETER`: Kilometer.</li><li>`UNIT_MILE`: Mile.</li><li>`UNIT_PPM`: Parts per million (ppm).</li><li>`UNIT_EVENTS_PER_SECOND`: Events per second</li><li>`UNIT_PACKETS`: Packets</li><li>`UNIT_DBM`: dBm (dbm)</li><li>`UNIT_VIRTUAL_CPU`: Virtual CPU cores based on CPU time (vcpu)</li><li>`UNIT_MESSAGES_PER_SECOND`: Messages per second (mps)</li></ul>
-
-
-### TextValuesParameter {#TextValuesParameter5}
-
-Field | Description
---- | ---
-default_values[] | **string**<br>Default value. 
 
 
 ## Delete {#Delete}
