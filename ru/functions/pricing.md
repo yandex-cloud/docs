@@ -6,7 +6,7 @@ editable: false
 
 ## Из чего складывается стоимость использования {{ sf-name }} {#rules}
 
-В рамках сервиса {{ sf-name }} тарифицируется количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик.
+В рамках сервиса {{ sf-name }} тарифицируется количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, время простоя [подготовленных экземпляров](concepts/function.md#provisioned-instances) и исходящий трафик.
 
 При тарификации вычислительных ресурсов (ГБ×час) учитывается объем памяти, выделенный для функции, и время выполнения функции:
 * Объем памяти, указанный при [создании версии](operations/function/version-manage.md#func-version-create), измеряется в ГБ.
@@ -174,6 +174,32 @@ You pay for the actual number of invocations. For instance, 1000 calls over the 
 {% if region == "int" %}
 
 {% include [usd.md](../_pricing/functions/usd-compute.md) %}
+
+{% endif %}
+
+### Подготовленные экземпляры {#provisioned-instances}
+
+{% note info %}
+
+Цены действуют с 17 октября 2022 года.
+
+{% endnote %}
+
+{% if region == "ru" %}
+
+{% include [rub.md](../_pricing/functions/rub-compute-provisioned-instances.md) %}
+
+{% endif %}
+
+{% if region == "kz" %}
+
+{% include [kzt.md](../_pricing/functions/kzt-compute-provisioned-instances.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include [usd.md](../_pricing/functions/usd-compute-provisioned-instances.md) %}
 
 {% endif %}
 

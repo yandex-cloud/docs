@@ -25,6 +25,8 @@ items:
             href: operations/invoke.md
           - name: Изменение контейнера
             href: operations/update.md
+          - name: Масштабирование контейнера
+            href: operations/scale.md
           - name: Мониторинг
             href: operations/monitoring.md
           - name: Просмотр журнала выполнения
