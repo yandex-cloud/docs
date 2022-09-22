@@ -51,6 +51,8 @@ items:
             href: operations/budget-trigger-create.md
           - name: Создание триггера для Data Streams
             href: operations/data-streams-trigger-create.md
+          - name: Создание триггера для почты
+            href: operations/mail-trigger-create.md
           - name: Изменение триггера
             href: operations/trigger-update.md
           - name: Мониторинг триггера
@@ -87,6 +89,8 @@ items:
             href: concepts/trigger/budget-trigger.md
           - name: Триггер для Data Streams
             href: concepts/trigger/data-streams-trigger.md
+          - name: Триггер для почты
+            href: concepts/trigger/mail-trigger.md
       - name: Dead Letter Queue
         href: concepts/dlq.md
       - name: Логи контейнера

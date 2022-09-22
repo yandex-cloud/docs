@@ -45,6 +45,8 @@ items:
             href: quickstart/create-trigger/budget-trigger-quickstart.md
           - name: Триггер для Data Streams
             href: quickstart/create-trigger/data-streams-trigger-quickstart.md
+          - name: Триггер для почты
+            href: quickstart/create-trigger/mail-trigger-quickstart.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -97,6 +99,8 @@ items:
             href: operations/trigger/budget-trigger-create.md
           - name: Создание триггера для Data Streams
             href: operations/trigger/data-streams-trigger-create.md
+          - name: Создание триггера для почты
+            href: operations/trigger/mail-trigger-create.md
           - name: Изменение триггера
             href: operations/trigger/trigger-update.md
           - name: Мониторинг триггера
@@ -145,6 +149,8 @@ items:
             href: concepts/trigger/budget-trigger.md
           - name: Триггер для Data Streams
             href: concepts/trigger/data-streams-trigger.md
+          - name: Триггер для почты
+            href: concepts/trigger/mail-trigger.md
       - name: Dead Letter Queue
         href: concepts/dlq.md
       - name: Лог-группа
