@@ -14,6 +14,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](buckets/edit-acl.md)
 {% if product == "yandex-cloud" %}
 * [{#T}](buckets/enable-logging.md)
+* [{#T}](buckets/configure-object-lock.md)
 {% endif %}
 
 ## Объекты {#objects}
@@ -23,6 +24,9 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](objects/download.md)
 * [{#T}](objects/restore-object-version.md)
 * [{#T}](objects/link-for-download.md)
+{% if product == "yandex-cloud" %}
+* [{#T}](objects/edit-object-lock.md)
+{% endif %}
 * [{#T}](objects/delete.md)
 * [{#T}](objects/delete-all.md)
 * [{#T}](objects/deleting-multipart.md)

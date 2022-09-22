@@ -1,5 +1,12 @@
 # Удаление объекта
 
+
+{% if product == "yandex-cloud" %}
+
+## Удалить объект без блокировки {#wo-object-lock}
+
+{% endif %}
+
 {% list tabs %}
 
 - Консоль управления
@@ -81,3 +88,76 @@
      Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
+
+
+{% if product == "yandex-cloud" %}
+
+## Удалить версию объекта с блокировкой (object lock) {#w-object-lock}
+
+{% list tabs %}
+
+- AWS CLI
+
+  1. Получите информацию о блокировке версии объекта:
+
+     ```bash
+     aws --endpoint-url=https://{{ s3-storage-host }}/ \
+       s3api head-object \
+       --bucket <имя_бакета> \
+       --key <ключ_объекта> \
+       --version-id <идентификатор_версии>
+     ```
+   
+     Где:
+   
+     * `bucket` — имя вашего бакета.
+     * `key` — [ключ](../../concepts/object.md#key) объекта.
+     * `version-id` — идентификатор версии объекта.
+     
+     Если на версию установлена блокировка, информация о ней отобразится в результате выполнения команды:
+   
+     ```json
+     {
+       ...
+       "ObjectLockMode": "<тип_временной_блокировки>",
+       "ObjectLockRetainUntilDate": "<дата_и_время_окончания_временной_блокировки>",
+       "ObjectLockLegalHoldStatus": "<статус_бессрочной_блокировки>",
+       ...
+     }
+     ```
+     
+     Где:
+   
+     * `ObjectLockMode` — [тип](../../concepts/object-lock.md#types) временной блокировки:
+    
+       * `GOVERNANCE` — временная управляемая блокировка. Удалить версию объекта может пользователь с ролью `storage.admin`.
+       * `COMPLIANCE` — временная строгая блокировка. Удалить версию объекта нельзя.
+    
+     * `ObjectLockRetainUntilDate` — дата и время окончания временной блокировки в любом из форматов, описанных в [стандарте HTTP](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). Например, `Mon, 12 Dec 2022 09:00:00 GMT`. Указывается только вместе с параметром `object-lock-mode`.
+    
+     * `ObjectLockLegalHoldStatus` — статус [бессрочной блокировки](../../concepts/object-lock.md#types):
+    
+       * `ON` — включена. Удалить версию объекта нельзя. [Снять блокировку](edit-object-lock.md#remove-legal-hold) может пользователь с ролью `storage.uploader`.
+       * `OFF` — выключена.
+ 
+  1. Если установлена временная управляемая блокировка (`"ObjectLockMode": "GOVERNANCE"`) и у вас есть роль `storage.admin`, удалите версию объекта:
+
+     ```bash
+     aws --endpoint-url=https://{{ s3-storage-host }}/ \
+       s3api delete-object \
+       --bucket <имя_бакета> \
+       --key <ключ_объекта> \
+       --version-id <идентификатор_версии> \
+       --bypass-governance-retention
+     ```
+     
+     Где:
+
+     * `bucket` — имя вашего бакета.
+     * `key` — [ключ](../../concepts/object.md#key) объекта.
+     * `version-id` — идентификатор версии объекта.
+     * `bypass-governance-retention` — флаг, подтверждающий обход блокировки.
+
+{% endlist %}
+
+{% endif %}
