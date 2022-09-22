@@ -65,6 +65,7 @@ default:
   cloud-desktop-full-name: Yandex Cloud Desktop
   marketplace-full-name: Yandex Cloud Marketplace
   captcha-full-name: Yandex SmartCaptcha
+  backup-full-name: Yandex Cloud Backup
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -134,6 +135,7 @@ default:
   eventhub-name: EventHub
   logbroker-name: Logbroker
   logfeller-name: Logfeller
+  backup-name: Cloud Backup
 
 
   # Короткие имена
@@ -186,6 +188,8 @@ default:
   speechkit-pro-short-name: SpeechKit Pro
   cdn-short-name: Cloud CDN
   cloud-desktop-short-name: Cloud Desktop
+  backup-short-name: Cloud Backup
+
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
   roles-alb-viewer: alb.viewer
   roles-alb-editor: alb.editor
@@ -818,6 +822,7 @@ cloud-il:
   marketplace-full-name: Marketplace
   captcha-full-name: SmartCaptcha
   lockbox-full-name: Lockbox
+  backup-full-name: Cloud Backup
   monitoring-name: Monitoring
   iot-name: IoT Core
   lockbox-name: Lockbox

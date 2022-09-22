@@ -65,6 +65,7 @@ default:
   marketplace-full-name: Yandex Cloud Marketplace
   yq-full-name: Yandex Query
   captcha-full-name: Yandex SmartCaptcha
+  backup-full-name: Yandex Cloud Backup
 
   # Full services names without Yandex
   iam-name: Identity and Access Management
@@ -130,6 +131,7 @@ default:
   load-testing-name: Load Testing
   cloud-desktop-name: Cloud Desktop
   captcha-name: SmartCaptcha
+  backup-name: Cloud Backup
 
   # Short names
   iam-short-name: IAM
@@ -179,6 +181,8 @@ default:
   speechkit-pro-short-name: SpeechKit Pro
   cdn-short-name: Cloud CDN
   cloud-desktop-short-name: Cloud Desktop
+  backup-short-name: Cloud Backup
+
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
   roles-alb-viewer: alb.viewer
   roles-alb-editor: alb.editor
@@ -805,6 +809,7 @@ cloud-il:
   marketplace-full-name: Marketplace
   captcha-full-name: SmartCaptcha
   lockbox-full-name: Lockbox
+  backup-full-name: Cloud Backup
   monitoring-name: Monitoring
   iot-name: IoT Core
   lockbox-name: Lockbox

@@ -38,6 +38,23 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
 
+
+{% if product == "yandex-cloud" %}
+
+## {{ backup-name }} {#backup-roles}
+
+
+{% include [roles-backup-viewer](../../../_includes/roles-backup-viewer.md) %}
+
+
+{% include [roles-backup-editor](../../../_includes/roles-backup-editor.md) %}
+
+
+{% include [roles-backup-admin](../../../_includes/roles-backup-admin.md) %}
+
+{% endif %}
+
+
 {% if product == "yandex-cloud" %}
 
 ## {{ cdn-name }} {#cdn-roles}

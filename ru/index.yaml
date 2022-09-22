@@ -47,6 +47,10 @@ links:
     description: Интерфейс командной строки
     href: cli/
     when: product == "cloud-il"
+  - title: Cloud Backup
+    description: Резервное копирование ресурсов Yandex Cloud
+    href: backup/
+    when: product == "yandex-cloud"
   - title: Cloud Logging
     description: Логи сервисов и пользовательских приложений
     href: logging/

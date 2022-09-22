@@ -7,6 +7,7 @@ ignore:
   - "en/_cli-ref/*"
   - "en/adaptive-vision/*"
   - "en/api-gateway/*"
+  - "en/backup/*"
   - "en/billing-folder-report/*"
   - "en/cdn/*"
   - "en/cloud-desktop/*"
