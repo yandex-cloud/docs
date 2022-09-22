@@ -8,9 +8,13 @@
 1. [Изучите дашборд и чарты](#step2).
 1. [Изучите подключение и датасеты](#step3).
 
+{% if audience != "internal" %} 
+
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
+
+{% endif %}
 
 ## Шаг 1. Создайте подключение к Битрикс24 {#step1}
 
