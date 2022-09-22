@@ -1,6 +1,6 @@
 # Управление ревизиями контейнера
 
-Вы можете [создать](#create) ревизию, получить [информацию](#get) о ней или [список ревизий](#list) контейнера, а также [добавить переменные окружения](#revision-env) и [передать в контейнер секрет](#lockbox) {{ lockbox-name }}.
+Вы можете [создать](#create) ревизию, получить [информацию](#get) о ней или [список ревизий](#list) контейнера, а также [добавить переменные окружения](#revision-env), [передать в контейнер секрет](#lockbox) {{ lockbox-name }} и [указать облачную сеть](#networking), в которой будет исполняться контейнер.
 
 {% include [manage-revision-note](../../_includes/serverless-containers/manage-revision-note.md) %}
 
@@ -128,7 +128,32 @@
 
 {% endlist %}
 
+## Указать облачную сеть {#networking}
+
+{% include [note-preview](../../_includes/note-preview.md) %}
+
+Вы можете указать [облачную сеть](../../vpc/concepts/network.md#network), в которой будет исполняться контейнер.
+
+{% include [network](../../_includes/functions/network.md) %}
+
+Подробнее о [сетевом взаимодействии](../concepts/networking.md) в {{ serverless-containers-name }}.
+
+{% list tabs %}
+
+- Консоль управления
+    
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
+    1. Выберите сервис **{{ serverless-containers-name }}**.
+    1. Выберите контейнер.
+    1. Перейдите на вкладку **Редактор**.
+    1. В блоке **Настройки**, в поле **Сеть**, укажите облачную сеть, в которой будет исполняться контейнер.
+    1. Нажмите кнопку **Создать ревизию**.
+
+{% endlist %}
+
 ## Передать секрет {{ lockbox-name }} {#lockbox}
+
+{% include [note-preview-pp](../../_includes/note-preview-pp.md) %}
 
 [{{ lockbox-name }}](../../lockbox/) — сервис для хранения секретов. Передать секрет {{ lockbox-name }} в контейнер можно в [переменной окружения](../concepts/runtime.md#environment-variables).
 

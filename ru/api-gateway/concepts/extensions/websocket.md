@@ -1,5 +1,7 @@
 # Поддержка протокола WebSocket
 
+{% include [note-preview-pp](../../../_includes/note-preview-pp.md) %}
+
 Чтобы подключиться к API-шлюзу по протоколу WebSocket, клиентские приложения должны сделать [GET-запрос](https://www.rfc-editor.org/rfc/rfc6455#section-1.3) на URI, для которого настроены интеграции в OpenAPI-спецификации. Интеграции вызываются, когда выполняются следующие операции:
 * `x-yc-apigateway-websocket-connect` — открытие соединения.
 * `x-yc-apigateway-websocket-message` — отправка сообщений через веб-сокет.

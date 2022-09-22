@@ -115,6 +115,8 @@ items:
         href: concepts/function.md
       - name: Вызов функции
         href: concepts/function-invoke.md
+      - name: Сетевое взаимодействие
+        href: concepts/networking.md
       - name: Среда выполнения
         items:
           - name: Обзор

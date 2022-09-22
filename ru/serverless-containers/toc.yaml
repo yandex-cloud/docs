@@ -67,6 +67,8 @@ items:
         href: concepts/container.md
       - name: Вызов контейнера
         href: concepts/invoke.md
+      - name: Сетевое взаимодействие
+        href: concepts/networking.md
       - name: Среда выполнения
         href: concepts/runtime.md
       - name: Триггер
