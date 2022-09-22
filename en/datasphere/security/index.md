@@ -47,18 +47,6 @@ In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-com
 
 > {% include [example-for-sharing](../../_includes/datasphere/roles-for-sharing-example.md) %}
 
-### Roles of other services {#integration-roles}
-
-{{ ml-platform-name }} projects can interact with other {{ yandex-cloud }} services using [service accounts](../../iam/concepts/users/service-accounts.md). A service account may need these roles.
-
-#### resource-manager.editor {#resource-manager-editor}
-
-{% include [roles-resources](../../_includes/roles-resource-manager-editor.md) %}
-
-#### storage.editor {#storage-editor}
-
-{% include notitle [roles-s3](../../_includes/roles-storage-editor.md) %}
-
 ### Primitive roles {#primitive}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}

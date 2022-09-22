@@ -52,18 +52,6 @@ description: "Управление доступом в сервисе, пред�
 
 > {% include [example-for-sharing](../../_includes/datasphere/roles-for-sharing-example.md) %}
 
-### Роли других сервисов {#integration-roles}
-
-Проекты {{ ml-platform-name }} могут работать с другими сервисами {{ yandex-cloud }} с помощью [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md). Эти роли могут понадобиться сервисному аккаунту.
-
-#### resource-manager.editor {#resource-manager-editor}
-
-{% include [roles-resources](../../_includes/roles-resource-manager-editor.md) %}
-
-#### storage.editor {#storage-editor}
-
-{% include notitle [roles-s3](../../_includes/roles-storage-editor.md) %}
-
 ### Примитивные роли {#primitive}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
