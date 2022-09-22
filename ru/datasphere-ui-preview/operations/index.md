@@ -59,6 +59,7 @@ description: "Страница содержит все инструкции дл
 
 ## Совместный доступ к ресурсам, проектам и результатам вычислений {#share}
 
+* [Поделиться секретом](data/secrets.md#share)
 * [{#T}](projects/publication.md)
 * [{#T}](projects/export.md)
 
