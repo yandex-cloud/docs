@@ -322,6 +322,8 @@ items:
             href: visualization-ref/choropleth-map-chart.md
           - name: Тепловая карта
             href: visualization-ref/heat-map-chart.md
+      - name: Комбинированная диаграмма
+        href: visualization-ref/combined-chart.md
   - name: Справочник функций
     items: null
     include:

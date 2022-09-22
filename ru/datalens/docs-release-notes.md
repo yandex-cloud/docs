@@ -1,5 +1,11 @@
 # Релизы документации
 
+## Сентябрь 2022 {#september2022}
+
+### Справочник визуализаций {#visualization-ref092022}
+
+* Добавлен раздел [{#T}](visualization-ref/combined-chart.md)
+
 ## Август 2022 {#august2022}
 
 ### Концепции {#concepts082022}
