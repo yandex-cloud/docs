@@ -13,6 +13,7 @@ ignore:
   - "ru/api-gateway/*"
   - "ru/application-load-balancer/*"
   - "ru/audit-trails/*"
+  - "ru/backup/*"
   - "ru/billing/*"
   - "ru/billing-folder-report/*"
   - "ru/catboost/*"
