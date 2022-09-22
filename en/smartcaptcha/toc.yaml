@@ -15,10 +15,14 @@ items:
         href: operations/get-keys.md
   - name: Concepts
     items:
+      - name: User validation
+        href: concepts/validation.md
       - name: Widget connection methods
         href: concepts/widget-methods.md
       - name: Invisible CAPTCHA
         href: concepts/invisible-captcha.md
+      - name: CAPTCHA in React
+        href: concepts/react.md
       - name: Restricted mode
         href: concepts/restricted-mode.md
       - name: Quotas and limits
