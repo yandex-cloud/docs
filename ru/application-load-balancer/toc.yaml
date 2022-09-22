@@ -55,10 +55,12 @@ items:
             href: operations/application-load-balancer-stop-and-start.md
           - name: Удалить L7-балансировщик
             href: operations/application-load-balancer-delete.md
-      - name: Ingress-контроллер для {{ managed-k8s-name }}
+      - name: Инструменты для {{ managed-k8s-name }}
         items:
           - name: Установить Ingress-контроллер
             href: operations/k8s-ingress-controller-install.md
+          - name: Установить Gateway API
+            href: operations/k8s-gateway-api-install.md
           - name: Создать или изменить ресурсы по конфигурации
             href: operations/k8s-ingress-controller-apply.md
   - name: Практические руководства
@@ -96,14 +98,18 @@ items:
         href: concepts/target-group.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Инструменты
+  - name: Инструменты для {{ managed-k8s-name }}
     items:
-      - name: Ingress Controller для {{ managed-k8s-name }}
+      - name: Ingress-контроллер
         items:
           - name: Обзор
             href: tools/k8s-ingress-controller/index.md
           - name: Принципы работы
             href: tools/k8s-ingress-controller/principles.md
+      - name: Gateway API
+        href: tools/k8s-gateway-api/index.md
+      - name: Необходимые настройки
+        items:
           - name: Группы безопасности
             href: tools/k8s-ingress-controller/security-groups.md
           - name: Сервисный аккаунт
@@ -126,14 +132,22 @@ items:
         include:
           repo: docs
           path: en/_api-ref/apploadbalancer/toc.yaml
-  - name: Справочник Ingress-контроллера
+  - name: Справочники инструментов для {{ managed-k8s-name }}
     items:
       - name: Обзор
         href: k8s-ref/index.md
-      - name: Ingress
-        href: k8s-ref/ingress.md
-      - name: HttpBackendGroup
-        href: k8s-ref/http-backend-group.md
+      - name: Ingress-контроллер
+        items:
+          - name: Ingress
+            href: k8s-ref/ingress.md
+          - name: HttpBackendGroup
+            href: k8s-ref/http-backend-group.md
+      - name: Gateway API
+        items:
+          - name: Gateway
+            href: k8s-ref/gateway.md
+          - name: HTTPRoute
+            href: k8s-ref/http-route.md
       - name: Service
         href: k8s-ref/service.md
   - name: Справочник логов
