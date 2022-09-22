@@ -1,0 +1,1 @@
+Click **Invite member**. Select one or more users from the list and click **Add**.

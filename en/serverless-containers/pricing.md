@@ -6,7 +6,7 @@ editable: false
 
 ## What goes into the cost of using {{ serverless-containers-name }} {#rules}
 
-In {{ serverless-containers-name }}, you're billed for the number of container calls, computing resources allocated for the application, and outgoing traffic.
+In {{ serverless-containers-name }}, you're billed for the number of container calls, computing resources allocated for the application, the prepared instances downtime and outgoing traffic.
 
 When billing computing resources, the number of cores (vCPUs), the memory allocated for the application, and the time that the application runs are taken into account:
 
@@ -53,6 +53,36 @@ You're charged for all the container invocations that trigger your code to run.
 
 
 {% include notitle [usd-cpu.md](../_pricing/serverless-containers/usd-cpu.md) %}
+
+
+### Provisioned instances {#provisioned-instances}
+
+{% note info %}
+
+Prices are valid from October 17, 2022.
+
+{% endnote %}
+
+#### RAM usage time {#prices-ram-provisioned-instances}
+
+
+
+
+
+
+
+{% include notitle [usd-ram-provisioned-instances.md](../_pricing/serverless-containers/usd-ram-provisioned-instances.md) %}
+
+
+#### CPU usage time {#prices-cpu-provisioned-instances}
+
+
+
+
+
+
+
+{% include notitle [usd-cpu-provisioned-instances.md](../_pricing/serverless-containers/usd-cpu-provisioned-instances.md) %}
 
 
 ### Outgoing traffic {#prices-traffic}

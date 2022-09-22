@@ -47,3 +47,15 @@ description: "Данные в сервисе {{ iot-full-name }} надежно 
 ## Получить список алиасов устройства {#alias-list}
 
 {% include [alias-list](../../_includes/iot-core/alias-list.md) %}
+
+## Получить список брокеров {#broker-list}
+
+{% include [broker-list](../../_includes/iot-core/broker-list.md) %}
+
+## Получить информацию о брокере {#broker-get}
+
+{% include [broker-get](../../_includes/iot-core/broker-get.md) %}
+
+## Получить список сертификатов брокера {#broker-certificates-list}
+
+{% include [broker-certificates-list](../../_includes/iot-core/broker-certificates-list.md) %}

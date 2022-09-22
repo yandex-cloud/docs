@@ -45,6 +45,16 @@ items:
             href: operations/device/device-update.md
           - name: Удаление устройства
             href: operations/device/device-delete.md
+      - name: Управление брокерами
+        items:
+          - name: Получение информации о брокере
+            href: operations/broker/broker-list.md
+          - name: Создание брокера
+            href: operations/broker/broker-create.md
+          - name: Изменение брокера
+            href: operations/broker/broker-update.md
+          - name: Удаление брокера
+            href: operations/broker/broker-delete.md
       - name: Управление сертификатами
         items:
           - name: Создание сертификата
@@ -53,21 +63,25 @@ items:
             href: operations/certificates/registry-certificates.md
           - name: Управление сертификатами устройства
             href: operations/certificates/device-certificates.md
+          - name: Управление сертификатами брокера
+            href: operations/certificates/broker-certificates.md
       - name: Управление паролями
         items:
           - name: Управление паролями реестра
             href: operations/password/registry-password.md
           - name: Управление паролями устройства
             href: operations/password/device-password.md
+          - name: Управление паролями брокера
+            href: operations/password/broker-password.md
   - name: Концепции
     items:
       - name: Авторизация
         href: concepts/authorization.md
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
-      - name: Параметры подключения MQTT-брокера
+      - name: Параметры подключения MQTT-сервера
         href: concepts/mqtt-properties.md
-      - name: Отправка сообщений MQTT-брокеру через gRPC
+      - name: Отправка сообщений MQTT-серверу через gRPC
         href: concepts/mqtt-grpc.md
       - name: Топик
         items:
@@ -107,10 +121,10 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API
+  - name: Справочник API Devices
     items:
       - name: Аутентификация в API
-        href: api-ref/authentication.md
+        href: api-ref/devices/authentication.md
       - name: gRPC (англ.)
         items:
           - name: Overview
@@ -203,6 +217,58 @@ items:
                 href: api-ref/Registry/listPasswords.md
               - name: update
                 href: api-ref/Registry/update.md
+  - name: Справочник API Broker
+    items:
+      - name: Аутентификация в API
+        href: api-ref/broker/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: BrokerDataService
+            href: api-ref/grpc/broker_data_service.md
+          - name: BrokerService
+            href: api-ref/grpc/broker_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: BrokerData
+            items:
+              - name: Overview
+                href: api-ref/BrokerData/index.md
+              - name: publish
+                href: api-ref/BrokerData/publish.md
+          - name: Broker
+            items:
+              - name: Overview
+                href: api-ref/Broker/index.md
+              - name: addCertificate
+                href: api-ref/Broker/addCertificate.md
+              - name: addPassword
+                href: api-ref/Broker/addPassword.md
+              - name: create
+                href: api-ref/Broker/create.md
+              - name: delete
+                href: api-ref/Broker/delete.md
+              - name: deleteCertificate
+                href: api-ref/Broker/deleteCertificate.md
+              - name: deletePassword
+                href: api-ref/Broker/deletePassword.md
+              - name: get
+                href: api-ref/Broker/get.md
+              - name: list
+                href: api-ref/Broker/list.md
+              - name: listCertificates
+                href: api-ref/Broker/listCertificates.md
+              - name: listOperations
+                href: api-ref/Broker/listOperations.md
+              - name: listPasswords
+                href: api-ref/Broker/listPasswords.md
+              - name: update
+                href: api-ref/Broker/update.md
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/iot-core

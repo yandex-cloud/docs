@@ -10,7 +10,7 @@ Adds new auth providers to Elasticsearch cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/auth/providers
+POST https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/auth/providers
 ```
  
 ## Path parameters {#path_params}

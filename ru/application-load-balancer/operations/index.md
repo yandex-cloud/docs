@@ -30,7 +30,8 @@ description: "Пошаговые инструкции по работе с {{ al
 * [{#T}](application-load-balancer-stop-and-start.md)
 * [{#T}](application-load-balancer-delete.md)
 
-## Ingress-контроллер для {{ managed-k8s-name }} {#k8s-ingress-controller}
+## Инструменты для {{ managed-k8s-name }} {#k8s-ingress-controller}
 
 * [{#T}](k8s-ingress-controller-install.md)
+* [{#T}](k8s-gateway-api-install.md)
 * [{#T}](k8s-ingress-controller-apply.md)

@@ -10,7 +10,7 @@ To list backups for an existing cluster, make a [listBackups](/docs/managed-mysq
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mysql/v1/backups
+GET https://{{ api-host-mdb }}/managed-mysql/v1/backups
 ```
  
 ## Query parameters {#query_params}

@@ -2,7 +2,7 @@
 
 You can connect to the [Yandex Disk](https://disk.yandex.com) file storage service from the {{ ml-platform-name }} interface.
 
-## Before you start {#before-begin}
+## Before you begin {#before-begin}
 
 1. [Register](https://yandex.com/dev/id/doc/dg/oauth/tasks/register-client.html) your project as an application in Yandex OAuth:
    1. Go to the [application creation page](https://oauth.yandex.com/client/new) and log in using your [Yandex ID](https://yandex.com/support/id/index.html).
@@ -19,15 +19,8 @@ You can connect to the [Yandex Disk](https://disk.yandex.com) file storage servi
 
    {% endnote %}
 
-1. Open the project {{ ml-platform-name }}:
+1. {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 
-   {% list tabs %}
-
-   - Management console
-
-      {% include [before-begin](../../../_includes/datasphere/before-begin.md) %}
-
-   {% endlist %}
 
 ## Uploading the contents from a file on Yandex Disk to a {{ ml-platform-name }} project file {#get-file}
 
@@ -104,7 +97,3 @@ You can connect to the [Yandex Disk](https://disk.yandex.com) file storage servi
    * `<Yandex_Disk_folder_path>` is the path to the folder on Yandex Disk to upload data to.
 
 1. Run the cell.
-
-#### See also {#see-also}
-
-* [How do I resolve the error: <q>The following variables cannot be serialized</q>?](../../qa/index.md#error-variables)

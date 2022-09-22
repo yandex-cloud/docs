@@ -26,12 +26,14 @@ Syntax:
 	- [yc serverless trigger create timer](create/timer.md) — Create timer trigger
 	- [yc serverless trigger create message-queue](create/message-queue.md) — Create message queue trigger
 	- [yc serverless trigger create internet-of-things](create/internet-of-things.md) — Create internet of things trigger
+	- [yc serverless trigger create iot-broker](create/iot-broker.md) — Create IoT broker trigger
 	- [yc serverless trigger create object-storage](create/object-storage.md) — Create object storage trigger
 	- [yc serverless trigger create container-registry](create/container-registry.md) — Create container registry trigger
 	- [yc serverless trigger create cloud-logs](create/cloud-logs.md) — Create cloud logs trigger
 	- [yc serverless trigger create logging](create/logging.md) — Create logging trigger
 	- [yc serverless trigger create billing-budget](create/billing-budget.md) — Create billing budget trigger
 	- [yc serverless trigger create yds](create/yds.md) — Create YDS trigger
+	- [yc serverless trigger create mail](create/mail.md) — Create Mail trigger
 
 #### Global Flags
 

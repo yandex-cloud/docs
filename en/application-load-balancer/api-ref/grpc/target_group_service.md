@@ -170,16 +170,6 @@ targets[] | **[Target](#Target3)**<br>List of targets in the target group.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 
 
-### Target {#Target3}
-
-Field | Description
---- | ---
-address_type | **oneof:** `ip_address`<br>Reference to the target. As of now, targets must only be referred to by their IP addresses.
-&nbsp;&nbsp;ip_address | **string**<br>IP address of the target. 
-subnet_id | **string**<br>ID of the subnet that the target is connected to. 
-private_ipv4_address | **bool**<br>If set, will not require `subnet_id` to validate the target. Instead, the address should belong to one of the following ranges: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 Only one of `subnet_id` or `private_ipv4_address` should be set. 
-
-
 ## Update {#Update}
 
 Updates the specified target group.
@@ -199,10 +189,10 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 name | **string**<br>New name for the target group. The name must be unique within the folder. Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `.
 description | **string**<br>New description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Target group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: <ol><li>Get the current set of labels with a [TargetGroupService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-targets[] | **[Target](#Target4)**<br>New list of targets in the target group. <br>Existing list of targets is completely replaced by the specified list, so if you just want to add or remove a target, make a [TargetGroupService.AddTargets](#AddTargets) request or a [TargetGroupService.RemoveTargets](#RemoveTargets) request. 
+targets[] | **[Target](#Target3)**<br>New list of targets in the target group. <br>Existing list of targets is completely replaced by the specified list, so if you just want to add or remove a target, make a [TargetGroupService.AddTargets](#AddTargets) request or a [TargetGroupService.RemoveTargets](#RemoveTargets) request. 
 
 
-### Target {#Target4}
+### Target {#Target3}
 
 Field | Description
 --- | ---
@@ -244,18 +234,8 @@ name | **string**<br>Name of the target group. The name is unique within the fol
 description | **string**<br>Description of the target group. 
 folder_id | **string**<br>ID of the folder that the target group belongs to. 
 labels | **map<string,string>**<br>Target group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
-targets[] | **[Target](#Target5)**<br>List of targets in the target group. 
+targets[] | **[Target](#Target4)**<br>List of targets in the target group. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-
-
-### Target {#Target5}
-
-Field | Description
---- | ---
-address_type | **oneof:** `ip_address`<br>Reference to the target. As of now, targets must only be referred to by their IP addresses.
-&nbsp;&nbsp;ip_address | **string**<br>IP address of the target. 
-subnet_id | **string**<br>ID of the subnet that the target is connected to. 
-private_ipv4_address | **bool**<br>If set, will not require `subnet_id` to validate the target. Instead, the address should belong to one of the following ranges: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 Only one of `subnet_id` or `private_ipv4_address` should be set. 
 
 
 ## Delete {#Delete}
@@ -313,10 +293,10 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 target_group_id | **string**<br>Required. ID of the target group to add targets to. <br>To get the target group ID, make a [TargetGroupService.List](#List) request. 
-targets[] | **[Target](#Target6)**<br>List of targets to add to the target group. The number of elements must be greater than 0.
+targets[] | **[Target](#Target4)**<br>List of targets to add to the target group. The number of elements must be greater than 0.
 
 
-### Target {#Target6}
+### Target {#Target4}
 
 Field | Description
 --- | ---
@@ -358,18 +338,8 @@ name | **string**<br>Name of the target group. The name is unique within the fol
 description | **string**<br>Description of the target group. 
 folder_id | **string**<br>ID of the folder that the target group belongs to. 
 labels | **map<string,string>**<br>Target group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
-targets[] | **[Target](#Target7)**<br>List of targets in the target group. 
+targets[] | **[Target](#Target5)**<br>List of targets in the target group. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-
-
-### Target {#Target7}
-
-Field | Description
---- | ---
-address_type | **oneof:** `ip_address`<br>Reference to the target. As of now, targets must only be referred to by their IP addresses.
-&nbsp;&nbsp;ip_address | **string**<br>IP address of the target. 
-subnet_id | **string**<br>ID of the subnet that the target is connected to. 
-private_ipv4_address | **bool**<br>If set, will not require `subnet_id` to validate the target. Instead, the address should belong to one of the following ranges: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 Only one of `subnet_id` or `private_ipv4_address` should be set. 
 
 
 ## RemoveTargets {#RemoveTargets}
@@ -387,10 +357,10 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 target_group_id | **string**<br>Required. ID of the target group to remove targets from. <br>To get the target group ID, make a [TargetGroupService.List](#List) request. 
-targets[] | **[Target](#Target8)**<br>List of targets to remove from the target group. The number of elements must be greater than 0.
+targets[] | **[Target](#Target5)**<br>List of targets to remove from the target group. The number of elements must be greater than 0.
 
 
-### Target {#Target8}
+### Target {#Target5}
 
 Field | Description
 --- | ---
@@ -432,18 +402,8 @@ name | **string**<br>Name of the target group. The name is unique within the fol
 description | **string**<br>Description of the target group. 
 folder_id | **string**<br>ID of the folder that the target group belongs to. 
 labels | **map<string,string>**<br>Target group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
-targets[] | **[Target](#Target9)**<br>List of targets in the target group. 
+targets[] | **[Target](#Target6)**<br>List of targets in the target group. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-
-
-### Target {#Target9}
-
-Field | Description
---- | ---
-address_type | **oneof:** `ip_address`<br>Reference to the target. As of now, targets must only be referred to by their IP addresses.
-&nbsp;&nbsp;ip_address | **string**<br>IP address of the target. 
-subnet_id | **string**<br>ID of the subnet that the target is connected to. 
-private_ipv4_address | **bool**<br>If set, will not require `subnet_id` to validate the target. Instead, the address should belong to one of the following ranges: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 Only one of `subnet_id` or `private_ipv4_address` should be set. 
 
 
 ## ListOperations {#ListOperations}

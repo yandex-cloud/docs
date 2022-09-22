@@ -10,7 +10,7 @@ Revokes permission from the specified MongoDB user.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}/users/{userName}:revokePermission
+POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users/{userName}:revokePermission
 ```
  
 ## Path parameters {#path_params}

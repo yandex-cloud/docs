@@ -135,6 +135,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `DeleteKey` | Удаление пары ключей для сервисного аккаунта
 `DetectLeakedCredential` | Удаление секретов, которые обнаружены в открытом доступе
 `DeleteServiceAccount` | Удаление сервисного аккаунта
+`DetectLeakedCredential` | Обнаружение секрета в открытом источнике
 `UpdateAccessKey` | Обновление ключа доступа
 `UpdateApiKey` | Обновление API-ключа
 `UpdateCertificate` | Обновление сертификата

@@ -10,7 +10,7 @@ Modifies the specified SQL Server user.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}/users/{userName}
+PATCH https://{{ api-host-mdb }}/mdb/sqlserver/v1/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path parameters {#path_params}

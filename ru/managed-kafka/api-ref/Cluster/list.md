@@ -10,7 +10,7 @@ Retrieves the list of Apache Kafka® clusters that belong to the specified folde
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-kafka/v1/clusters
+GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters
 ```
  
 ## Query parameters {#query_params}

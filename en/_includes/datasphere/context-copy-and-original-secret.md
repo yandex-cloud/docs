@@ -1,0 +1,1 @@
+A copied secret is separate from the original: you can edit and delete the copy without affecting the original.

@@ -10,7 +10,7 @@ Retrieves a list of hosts for the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}/hosts
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/hosts
 ```
  
 ## Path parameters {#path_params}

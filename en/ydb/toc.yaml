@@ -63,6 +63,8 @@ items:
             href: pricing/ru-docapi.md
           - name: Request cost for special APIs
             href: pricing/ru-special.md
+          - name: Cost of topic operations
+            href: pricing/ru-topics.md
       - name: Dedicated mode
         href: pricing/dedicated.md
   - name: Amazon DynamoDB-compatible Document API

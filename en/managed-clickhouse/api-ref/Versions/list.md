@@ -10,7 +10,7 @@ Returns list of available ClickHouse versions.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-clickhouse/v1/versions
+GET https://{{ api-host-mdb }}/managed-clickhouse/v1/versions
 ```
  
 ## Query parameters {#query_params}

@@ -1,14 +1,14 @@
 title: Yandex DataSphere
 description:
   - >-
-    Yandex DataSphere is a machine learning (ML) development environment where
-    you can use a familiar
-     Jupyter® Notebook interface, serverless computing technology,
-     and seamlessly combine a broad range of
-     computing resource configurations.
+    Yandex DataSphere is a service for end-to-end ML development that lets you
+    use all the advantages of cloud technologies. It combines an intuitive and
+    easy-to-use web interface, familiar IDEs, serverless computing technology,
+    and seamless use of different Yandex Cloud computing resource
+    configurations.
   - |-
-    Yandex DataSphere helps you significantly reduce the cost of machine
-     learning compared to computing on your own hardware or
+    Yandex DataSphere helps you significantly reduce the cost of machine 
+     learning compared to computing on your own hardware or 
      other cloud platforms.
   - >-
     The Yandex Cloud infrastructure <a
@@ -16,19 +16,13 @@ description:
     protected</a> pursuant to Russian Federal Law 152-FZ "On personal data".
   - >-
     The service is subject to the <a
-    href="https://yandex.ru/legal/cloud_sla">Service Level Agreement</a>. The
-    service level is defined in the <a
-    href="https://yandex.ru/legal/cloud_sla_speechkit">Service Level for
+    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
+    service level is defined in the  <a
+    href="https://yandex.com/legal/cloud_sla_speechkit">Service  Level for
     YandexCompute Cloud</a>.
 meta:
   title: Yandex DataSphere
 links:
-  - title: Getting started
-    description: Create your first project
-    href: quickstart
-  - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
-    href: operations/
   - title: Concepts
     description: Learn about the concepts and features of the service
     href: concepts/

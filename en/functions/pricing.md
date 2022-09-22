@@ -6,7 +6,7 @@ editable: false
 
 ## What goes into the cost of using {{ sf-name }} {#rules}
 
-In {{ sf-name }}, you're billed for the number of function calls, computing resources allocated for the function, and outgoing traffic.
+In {{ sf-name }}, you're billed for the number of function calls, computing resources allocated for the function, the prepared instances downtime and outgoing traffic.
 
 When billing computing resources (GB × hour), the memory allocated for the function and function execution time are taken into account:
 * The amount of memory specified when [creating a version](operations/function/version-manage.md#func-version-create), in GB.
@@ -76,6 +76,20 @@ You pay for the actual number of invocations. For instance, 1000 calls over the 
 
 
 {% include [usd.md](../_pricing/functions/usd-compute.md) %}
+
+
+### Prepared instances {#provisioned-instances}
+
+{% note info %}
+
+Prices are valid from October 17, 2022.
+
+{% endnote %}
+
+
+
+
+{% include [usd.md](../_pricing/functions/usd-compute-provisioned-instances.md) %}
 
 
 ### Outgoing traffic {#prices-traffic}

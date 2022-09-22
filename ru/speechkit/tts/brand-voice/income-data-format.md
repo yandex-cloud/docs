@@ -116,5 +116,4 @@
 
 #### Что дальше {#what-is-next}
 
-* [API {{ brand-voice-name }} (англ.)](../../new-v3/api-ref/grpc/).
-* [{#T}](import-data.md).
+* [API {{ brand-voice-name }} (англ.)](../../new-v3/api-ref/grpc/)

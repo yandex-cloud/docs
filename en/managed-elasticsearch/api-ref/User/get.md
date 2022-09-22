@@ -10,7 +10,7 @@ To get the list of available Elasticsearch users, make a [list](/docs/managed-el
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/users/{userName}
+GET https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path parameters {#path_params}

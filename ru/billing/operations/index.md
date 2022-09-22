@@ -38,3 +38,5 @@ description: "Из статьи вы узнаете, как работать с 
 [{#T}](budgets.md)
 
 [{#T}](edo.md)
+
+[{#T}](query-integration.md)

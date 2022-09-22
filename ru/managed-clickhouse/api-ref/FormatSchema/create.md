@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/mdb/clickhouse/api-ref/FormatSchema/create.md
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas
+POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas
 ```
  
 ## Path parameters {#path_params}

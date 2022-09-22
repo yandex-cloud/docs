@@ -10,7 +10,7 @@ Retrieves the list of MongoDB User resources in the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}/users
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users
 ```
  
 ## Path parameters {#path_params}

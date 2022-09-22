@@ -1,14 +1,10 @@
-# Установка зависимостей
+# Установить зависимости
 
 {% include [include](../../../_includes/datasphere/install-dependencies-intro.md) %}
 
 ## Перед началом {#before-begin}
 
-Если проект уже открыт, перейдите на вкладку ноутбука.
-
-Если нет, откройте проект:
-
-{% include [include](../../../_includes/datasphere/before-begin.md) %}
+{% include [find project](../../../_includes/datasphere/ui-before-begin.md) %}
 
 ## Установите пакет {#install}
 

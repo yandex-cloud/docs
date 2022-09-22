@@ -177,17 +177,6 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 rules[] | **[LifecycleRule](#LifecycleRule3)**<br>The rules of lifecycle policy. 
 
 
-### LifecycleRule {#LifecycleRule3}
-
-Field | Description
---- | ---
-description | **string**<br>Description of the lifecycle policy rule. The maximum string length in characters is 256.
-expire_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Period of time for automatic deletion. Period must be a multiple of 24 hours. The minimum value is 24h.
-tag_regexp | **string**<br>Tag for specifying a filter in the form of a regular expression. The maximum string length in characters is 256.
-untagged | **bool**<br>Tag for applying the rule to Docker images without tags. 
-retained_top | **int64**<br>Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired. The minimum value is 0.
-
-
 ## Update {#Update}
 
 Updates the specified lifecycle policy.
@@ -207,10 +196,10 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 name | **string**<br>Name of lifecycle policy. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of lifecycle policy. The maximum string length in characters is 256.
 status | **[LifecyclePolicy.Status](#LifecyclePolicy3)**<br>Required. Status of the lifecycle policy. 
-rules[] | **[LifecycleRule](#LifecycleRule4)**<br>The rules of the lifecycle policy. 
+rules[] | **[LifecycleRule](#LifecycleRule3)**<br>The rules of the lifecycle policy. 
 
 
-### LifecycleRule {#LifecycleRule4}
+### LifecycleRule {#LifecycleRule3}
 
 Field | Description
 --- | ---
@@ -254,18 +243,7 @@ repository_id | **string**<br>ID of the repository that the lifecycle policy bel
 description | **string**<br>Description of the lifecycle policy. The maximum string length in characters is 256. 
 status | enum **Status**<br>Status of lifecycle policy. <ul><li>`ACTIVE`: Policy is active and regularly deletes Docker images according to the established rules.</li><li>`DISABLED`: Policy is disabled and does not delete Docker images in the repository. Policies in this status can be used for preparing and testing rules.</li></ul>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-rules[] | **[LifecycleRule](#LifecycleRule5)**<br>The rules of lifecycle policy. 
-
-
-### LifecycleRule {#LifecycleRule5}
-
-Field | Description
---- | ---
-description | **string**<br>Description of the lifecycle policy rule. The maximum string length in characters is 256.
-expire_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Period of time for automatic deletion. Period must be a multiple of 24 hours. The minimum value is 24h.
-tag_regexp | **string**<br>Tag for specifying a filter in the form of a regular expression. The maximum string length in characters is 256.
-untagged | **bool**<br>Tag for applying the rule to Docker images without tags. 
-retained_top | **int64**<br>Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired. The minimum value is 0.
+rules[] | **[LifecycleRule](#LifecycleRule4)**<br>The rules of lifecycle policy. 
 
 
 ## Delete {#Delete}

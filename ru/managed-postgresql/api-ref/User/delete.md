@@ -10,7 +10,7 @@ Deletes the specified PostgreSQL user.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}/users/{userName}
+DELETE https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path parameters {#path_params}

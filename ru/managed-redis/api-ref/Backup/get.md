@@ -10,7 +10,7 @@ To get the list of available Redis backups, make a [list](/docs/managed-redis/ap
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-redis/v1/backups/{backupId}
+GET https://{{ api-host-mdb }}/managed-redis/v1/backups/{backupId}
 ```
  
 ## Path parameters {#path_params}

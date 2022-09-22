@@ -10,7 +10,7 @@ Deletes an Apache Kafka® connector.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}/connectors/{connectorName}
+DELETE https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/connectors/{connectorName}
 ```
  
 ## Path parameters {#path_params}

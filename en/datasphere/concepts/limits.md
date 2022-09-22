@@ -1,8 +1,3 @@
----
-title: Quotas and limits in Yandex DataSphere
-description: 'Yandex DataSphere has limits and quotas for the number of projects in one cloud, the maximum amount of data stored in DataSphere. You will learn more about the limitations of the service in this article. '
----
-
 # Quotas and limits in {{ ml-platform-name }}
 
 {{ ml-platform-full-name }} has the following limits:

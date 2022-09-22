@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для {{ ml-platform-name }}
 
+
+
 {% include [prices](../_includes/datasphere/migration/pricing.md) %}
 
 ### Использование кластеров {{ dataproc-name }} {#data-proc}
@@ -68,17 +70,6 @@ editable: false
 
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
 
-
-
-
-### Разметка аудио {#markup}
-
-В этом разделе указана стоимость [разметки аудио](tutorials/markup.md). Стоимость указана за единицу тарификации, итоговая стоимость разметки зависит от объема данных и будет посчитана после загрузки данных.
-
-
-| Услуга                                               | Цена за единицу тарификации,<br>вкл. НДС |
-|------------------------------------------------------|------------------------------------------|
-| [Разметка аудио](tutorials/markup.md) | {{ sku|RUB|ai.speech.transcribe.human.v1|string }} |
 
 
 

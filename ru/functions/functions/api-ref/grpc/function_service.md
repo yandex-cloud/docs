@@ -1026,32 +1026,6 @@ named_service_accounts | **map<string,string>**<br>Additional service accounts t
 secrets[] | **[Secret](#Secret9)**<br>Lockbox secrets to be used by the version 
 
 
-### Resources {#Resources9}
-
-Field | Description
---- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
-
-
-### Connectivity {#Connectivity9}
-
-Field | Description
---- | ---
-network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
-subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
-
-
-### Secret {#Secret9}
-
-Field | Description
---- | ---
-id | **string**<br>ID of lockbox secret 
-version_id | **string**<br>ID of secret version 
-key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
-reference | **oneof:** `environment_variable`<br>
-&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
-
-
 ## CreateFunctionVersion {#CreateFunctionVersion}
 
 Deprecated. Use [CreateVersion](#CreateVersion).
@@ -1070,7 +1044,7 @@ function_id | **string**<br>Required. ID of the function to create a version for
 runtime | **string**<br>Required. Runtime environment for the version. 
 description | **string**<br>Description of the version The string length in characters must be 0-256.
 entrypoint | **string**<br>Required. Entrypoint of the version. 
-resources | **[Resources](#Resources10)**<br>Required. Resources allocated to the version. 
+resources | **[Resources](#Resources9)**<br>Required. Resources allocated to the version. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account to associate with the version. 
 package_source | **oneof:** `package`, `content` or `version_id`<br>Source of the deployment package for the version.
@@ -1079,12 +1053,12 @@ package_source | **oneof:** `package`, `content` or `version_id`<br>Source of th
 &nbsp;&nbsp;version_id | **string**<br>ID of the version to be copied from. Source version must belong to the same folder as the created version and the user must have read permissions to the source version. 
 environment | **map<string,string>**<br>Environment settings for the version. The maximum string length in characters for each value is 4096. Each key must match the regular expression ` [a-zA-Z][a-zA-Z0-9_]* `.
 tag[] | **string**<br>Function version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). Each value must match the regular expression ` [a-z][-_0-9a-z]* `.
-connectivity | **[Connectivity](#Connectivity10)**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s). 
+connectivity | **[Connectivity](#Connectivity9)**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
-secrets[] | **[Secret](#Secret10)**<br>Lockbox secrets to be used by the version 
+secrets[] | **[Secret](#Secret9)**<br>Lockbox secrets to be used by the version 
 
 
-### Resources {#Resources10}
+### Resources {#Resources9}
 
 Field | Description
 --- | ---
@@ -1100,7 +1074,7 @@ object_name | **string**<br>Required. Name of the object in the bucket that stor
 sha256 | **string**<br>SHA256 hash of the version deployment package. 
 
 
-### Connectivity {#Connectivity10}
+### Connectivity {#Connectivity9}
 
 Field | Description
 --- | ---
@@ -1108,7 +1082,7 @@ network_id | **string**<br>Network the version will have access to. It's essenti
 subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
 
 
-### Secret {#Secret10}
+### Secret {#Secret9}
 
 Field | Description
 --- | ---
@@ -1152,7 +1126,7 @@ description | **string**<br>Description of the version. The string length in cha
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the version. 
 runtime | **string**<br>ID of the runtime environment for the function. <br>Supported environments and their identifiers are listed in the [Runtime environments](/docs/functions/concepts/runtime). 
 entrypoint | **string**<br>Entrypoint for the function: the name of the function to be called as the handler. <br>Specified in the format `<function file name>.<handler name>`, for example, `index.myFunction`. 
-resources | **[Resources](#Resources11)**<br>Resources allocated to the version. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to the version. 
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
@@ -1160,35 +1134,9 @@ status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version i
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
-connectivity | **[Connectivity](#Connectivity11)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
+connectivity | **[Connectivity](#Connectivity10)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
-secrets[] | **[Secret](#Secret11)**<br>Lockbox secrets to be used by the version 
-
-
-### Resources {#Resources11}
-
-Field | Description
---- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
-
-
-### Connectivity {#Connectivity11}
-
-Field | Description
---- | ---
-network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
-subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
-
-
-### Secret {#Secret11}
-
-Field | Description
---- | ---
-id | **string**<br>ID of lockbox secret 
-version_id | **string**<br>ID of secret version 
-key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
-reference | **oneof:** `environment_variable`<br>
-&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
+secrets[] | **[Secret](#Secret10)**<br>Lockbox secrets to be used by the version 
 
 
 ## ListRuntimes {#ListRuntimes}

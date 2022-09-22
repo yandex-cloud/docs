@@ -33,16 +33,12 @@ The local repository is ready to go.
 To clone an existing repository:
 
 1. Under the ![folder](../../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section on the left, select the folder where you want to clone the repository and change to it.
-
 1. In the top panel, click **Git** and select **Clone**.
-
 1. In the window that opens, enter the repository URI and click **Clone**.
 
 The cloned repository folder appears in the ![folder](../../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section.
 
 ## Creating a new branch {#new-branch}
-
-To create a new branch:
 
 1. Under the ![folder](../../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section on the left, select the folder with the repository and change to it.
 
@@ -92,7 +88,7 @@ To push the saved changes to the remote repository:
 
 1. Create a personal access token on [GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token).
 
-1. [Create a secret](../data/secret-create.md) for this token.
+1. [Create a secret](../data/secrets.md#create.md) for this token.
 
 1. Go to the ![git](../../../_assets/datasphere/jupyterlab/git.svg) **Git** section.
 
@@ -113,14 +109,9 @@ Changes are pushed to the remote repository.
 
 ## Pulling changes from a remote repository {#pull}
 
-To pull changes from the remote repository:
-
 1. Go to the ![git](../../../_assets/datasphere/jupyterlab/git.svg) **Git** section.
-
 1. Click ![git](../../../_assets/datasphere/jupyterlab/pull.svg) **Pull latest changes**.
-
 1. Wait until **Git Pull completed successfully** appears.
-
 1. Click **Dismiss**.
 
 Changes are pulled from the remote repository.

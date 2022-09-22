@@ -18,7 +18,6 @@ Specifics of background operations:
 
    {% endnote %}
 
-
 ## Running background operations {#run}
 
 To run a background operation, add the `#pragma async` comment to the cell.
@@ -26,7 +25,7 @@ To run a background operation, add the `#pragma async` comment to the cell.
 To run a test background operation:
 1. Specify a test model, such as:
 
-   ```
+   ```python
    mnist = tf.keras.datasets.mnist
 
    (x_train, y_train),(x_test, y_test) = mnist.load_data()
@@ -43,7 +42,7 @@ To run a test background operation:
 
 1. Start model training by adding the `#pragma async` comment at the beginning of the cell:
 
-   ```
+   ```python
    #pragma async
    model = create_model()
    model.compile(optimizer='adam',

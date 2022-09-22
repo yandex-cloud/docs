@@ -10,7 +10,7 @@ Deletes the specified Kafka topic.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}/topics/{topicName}
+DELETE https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/topics/{topicName}
 ```
  
 ## Path parameters {#path_params}

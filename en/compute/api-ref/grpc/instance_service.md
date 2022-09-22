@@ -160,16 +160,6 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### DnsRecord {#DnsRecord1}
-
-Field | Description
---- | ---
-fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
-dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
-ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
-ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
-
-
 ### SchedulingPolicy {#SchedulingPolicy}
 
 Field | Description
@@ -318,7 +308,7 @@ Field | Description
 --- | ---
 address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
 one_to_one_nat | **[OneToOneNat](#OneToOneNat1)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
-dns_records[] | **[DnsRecord](#DnsRecord2)**<br>Internal DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord1)**<br>Internal DNS configuration 
 
 
 ### OneToOneNat {#OneToOneNat1}
@@ -327,20 +317,10 @@ Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
 ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
-dns_records[] | **[DnsRecord](#DnsRecord2)**<br>External DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord1)**<br>External DNS configuration 
 
 
-### DnsRecord {#DnsRecord2}
-
-Field | Description
---- | ---
-fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
-dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
-ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
-ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
-
-
-### DnsRecord {#DnsRecord3}
+### DnsRecord {#DnsRecord1}
 
 Field | Description
 --- | ---
@@ -463,6 +443,13 @@ source | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot to restore the disk from. The maximum string length in characters is 50.
 
 
+### DiskPlacementPolicy {#DiskPlacementPolicy}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Placement group ID. 
+
+
 ### AttachedLocalDiskSpec {#AttachedLocalDiskSpec}
 
 Field | Description
@@ -508,16 +495,6 @@ dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>External DNS configu
 
 
 ### DnsRecordSpec {#DnsRecordSpec}
-
-Field | Description
---- | ---
-fqdn | **string**<br>Required. FQDN (required) 
-dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
-ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
-ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
-
-
-### DnsRecordSpec {#DnsRecordSpec1}
 
 Field | Description
 --- | ---
@@ -619,16 +596,6 @@ core_fraction | **int64**<br>Baseline level of CPU performance with the ability 
 gpus | **int64**<br>The number of GPUs available to the instance. 
 
 
-### MetadataOptions {#MetadataOptions3}
-
-Field | Description
---- | ---
-gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
-aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
-gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
-aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
-
-
 ### AttachedDisk {#AttachedDisk2}
 
 Field | Description
@@ -674,7 +641,7 @@ Field | Description
 --- | ---
 address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
 one_to_one_nat | **[OneToOneNat](#OneToOneNat2)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
-dns_records[] | **[DnsRecord](#DnsRecord4)**<br>Internal DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord2)**<br>Internal DNS configuration 
 
 
 ### OneToOneNat {#OneToOneNat2}
@@ -683,20 +650,10 @@ Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
 ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
-dns_records[] | **[DnsRecord](#DnsRecord4)**<br>External DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord2)**<br>External DNS configuration 
 
 
-### DnsRecord {#DnsRecord4}
-
-Field | Description
---- | ---
-fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
-dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
-ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
-ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
-
-
-### DnsRecord {#DnsRecord5}
+### DnsRecord {#DnsRecord2}
 
 Field | Description
 --- | ---
@@ -706,11 +663,53 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy3}
+## Update {#Update}
+
+Updates the specified instance.
+
+**rpc Update ([UpdateInstanceRequest](#UpdateInstanceRequest)) returns ([operation.Operation](#Operation1))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateInstanceMetadata](#UpdateInstanceMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Instance](#Instance3)<br>
+
+### UpdateInstanceRequest {#UpdateInstanceRequest}
 
 Field | Description
 --- | ---
-preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
+instance_id | **string**<br>Required. ID of the Instance resource to update. To get the instance ID, use a [InstanceService.List](#List) request. The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Instance resource are going to be updated. 
+name | **string**<br>Name of the instance. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+description | **string**<br>Description of the instance. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+platform_id | **string**<br>ID of the hardware platform configuration for the instance. This field affects the available values in `resources_spec` field. <br>Platforms allows you to create various types of instances: with a large amount of memory, with a large number of cores, with a burstable performance. For more information, see [Platforms](/docs/compute/concepts/vm-platforms). 
+resources_spec | **[ResourcesSpec](#ResourcesSpec)**<br>Computing resources of the instance, such as the amount of memory and number of cores. To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels). 
+metadata | **map<string,string>**<br>The metadata `key:value` pairs that will be assigned to this instance. This includes custom metadata and predefined keys. The total size of all keys and values must be less than 512 KB. <br>Existing set of `metadata` is completely replaced by the provided set. <br>Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance. The values must be 256 KB or less. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
+metadata_options | **[MetadataOptions](#MetadataOptions3)**<br>Options allow user to configure access to instance's metadata 
+service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
+network_settings | **[NetworkSettings](#NetworkSettings3)**<br>Network settings. 
+placement_policy | **[PlacementPolicy](#PlacementPolicy3)**<br>Placement policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy3)**<br>Scheduling policy configuration. 
+
+
+### ResourcesSpec {#ResourcesSpec1}
+
+Field | Description
+--- | ---
+memory | **int64**<br>Required. The amount of memory available to the instance, specified in bytes. The maximum value is 274877906944.
+cores | **int64**<br>Required. The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
+core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. <br>For example, if you need only 5% of the CPU performance, you can set core_fraction=5. For more information, see [Levels of core performance](/docs/compute/concepts/performance-levels). Value must be equal to 0,5,20,50,100.
+gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
+
+
+### MetadataOptions {#MetadataOptions3}
+
+Field | Description
+--- | ---
+gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
+aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
 
 
 ### NetworkSettings {#NetworkSettings3}
@@ -737,80 +736,7 @@ op | enum **Operator**<br>Include or exclude action
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
-## Update {#Update}
-
-Updates the specified instance.
-
-**rpc Update ([UpdateInstanceRequest](#UpdateInstanceRequest)) returns ([operation.Operation](#Operation1))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateInstanceMetadata](#UpdateInstanceMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Instance](#Instance3)<br>
-
-### UpdateInstanceRequest {#UpdateInstanceRequest}
-
-Field | Description
---- | ---
-instance_id | **string**<br>Required. ID of the Instance resource to update. To get the instance ID, use a [InstanceService.List](#List) request. The maximum string length in characters is 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Instance resource are going to be updated. 
-name | **string**<br>Name of the instance. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
-description | **string**<br>Description of the instance. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-platform_id | **string**<br>ID of the hardware platform configuration for the instance. This field affects the available values in `resources_spec` field. <br>Platforms allows you to create various types of instances: with a large amount of memory, with a large number of cores, with a burstable performance. For more information, see [Platforms](/docs/compute/concepts/vm-platforms). 
-resources_spec | **[ResourcesSpec](#ResourcesSpec)**<br>Computing resources of the instance, such as the amount of memory and number of cores. To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels). 
-metadata | **map<string,string>**<br>The metadata `key:value` pairs that will be assigned to this instance. This includes custom metadata and predefined keys. The total size of all keys and values must be less than 512 KB. <br>Existing set of `metadata` is completely replaced by the provided set. <br>Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance. The values must be 256 KB or less. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-metadata_options | **[MetadataOptions](#MetadataOptions4)**<br>Options allow user to configure access to instance's metadata 
-service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-network_settings | **[NetworkSettings](#NetworkSettings4)**<br>Network settings. 
-placement_policy | **[PlacementPolicy](#PlacementPolicy4)**<br>Placement policy configuration. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy4)**<br>Scheduling policy configuration. 
-
-
-### ResourcesSpec {#ResourcesSpec1}
-
-Field | Description
---- | ---
-memory | **int64**<br>Required. The amount of memory available to the instance, specified in bytes. The maximum value is 274877906944.
-cores | **int64**<br>Required. The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
-core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. <br>For example, if you need only 5% of the CPU performance, you can set core_fraction=5. For more information, see [Levels of core performance](/docs/compute/concepts/performance-levels). Value must be equal to 0,5,20,50,100.
-gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
-
-
-### MetadataOptions {#MetadataOptions4}
-
-Field | Description
---- | ---
-gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
-aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
-gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
-aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
-
-
-### NetworkSettings {#NetworkSettings4}
-
-Field | Description
---- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
-
-
-### PlacementPolicy {#PlacementPolicy4}
-
-Field | Description
---- | ---
-placement_group_id | **string**<br>Placement group ID. 
-host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule4)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
-
-
-### HostAffinityRule {#HostAffinityRule4}
-
-Field | Description
---- | ---
-key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action 
-values[] | **string**<br>Affinity value or host ID or host group ID 
-
-
-### SchedulingPolicy {#SchedulingPolicy4}
+### SchedulingPolicy {#SchedulingPolicy3}
 
 Field | Description
 --- | ---
@@ -855,17 +781,17 @@ platform_id | **string**<br>ID of the hardware platform configuration for the in
 resources | **[Resources](#Resources3)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
 status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-metadata_options | **[MetadataOptions](#MetadataOptions5)**<br>Options allow user to configure access to instance's metadata 
+metadata_options | **[MetadataOptions](#MetadataOptions4)**<br>Options allow user to configure access to instance's metadata 
 boot_disk | **[AttachedDisk](#AttachedDisk3)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk3)**<br>Array of secondary disks that are attached to the instance. 
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk3)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem3)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface3)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy5)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy4)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-network_settings | **[NetworkSettings](#NetworkSettings5)**<br>Network Settings 
-placement_policy | **[PlacementPolicy](#PlacementPolicy5)**<br>Placement policy configuration. 
+network_settings | **[NetworkSettings](#NetworkSettings4)**<br>Network Settings 
+placement_policy | **[PlacementPolicy](#PlacementPolicy4)**<br>Placement policy configuration. 
 
 
 ### Resources {#Resources3}
@@ -876,16 +802,6 @@ memory | **int64**<br>The amount of memory available to the instance, specified 
 cores | **int64**<br>The number of cores available to the instance. 
 core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. 
 gpus | **int64**<br>The number of GPUs available to the instance. 
-
-
-### MetadataOptions {#MetadataOptions5}
-
-Field | Description
---- | ---
-gce_http_endpoint | enum **MetadataOption**<br>Enabled access to GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
-aws_v1_http_endpoint | enum **MetadataOption**<br>Enabled access to AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
-gce_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with GCE flavored metadata <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
-aws_v1_http_token | enum **MetadataOption**<br>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1) <ul><li>`ENABLED`: Option is enabled</li><li>`DISABLED`: Option is disabled</li></ul>
 
 
 ### AttachedDisk {#AttachedDisk3}
@@ -933,7 +849,7 @@ Field | Description
 --- | ---
 address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
 one_to_one_nat | **[OneToOneNat](#OneToOneNat3)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
-dns_records[] | **[DnsRecord](#DnsRecord6)**<br>Internal DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord3)**<br>Internal DNS configuration 
 
 
 ### OneToOneNat {#OneToOneNat3}
@@ -942,20 +858,10 @@ Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
 ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
-dns_records[] | **[DnsRecord](#DnsRecord6)**<br>External DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord3)**<br>External DNS configuration 
 
 
-### DnsRecord {#DnsRecord6}
-
-Field | Description
---- | ---
-fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
-dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
-ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
-ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
-
-
-### DnsRecord {#DnsRecord7}
+### DnsRecord {#DnsRecord3}
 
 Field | Description
 --- | ---
@@ -963,37 +869,6 @@ fqdn | **string**<br>Name of the A/AAAA record as specified when creating the in
 dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
 ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
-
-
-### SchedulingPolicy {#SchedulingPolicy5}
-
-Field | Description
---- | ---
-preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
-
-
-### NetworkSettings {#NetworkSettings5}
-
-Field | Description
---- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
-
-
-### PlacementPolicy {#PlacementPolicy5}
-
-Field | Description
---- | ---
-placement_group_id | **string**<br>Placement group ID. 
-host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule5)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
-
-
-### HostAffinityRule {#HostAffinityRule5}
-
-Field | Description
---- | ---
-key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action 
-values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ## Delete {#Delete}
@@ -1093,17 +968,17 @@ platform_id | **string**<br>ID of the hardware platform configuration for the in
 resources | **[Resources](#Resources4)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
 status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-metadata_options | **[MetadataOptions](#MetadataOptions6)**<br>Options allow user to configure access to instance's metadata 
+metadata_options | **[MetadataOptions](#MetadataOptions4)**<br>Options allow user to configure access to instance's metadata 
 boot_disk | **[AttachedDisk](#AttachedDisk4)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk4)**<br>Array of secondary disks that are attached to the instance. 
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk4)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem4)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface4)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy6)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy4)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-network_settings | **[NetworkSettings](#NetworkSettings6)**<br>Network Settings 
-placement_policy | **[PlacementPolicy](#PlacementPolicy6)**<br>Placement policy configuration. 
+network_settings | **[NetworkSettings](#NetworkSettings4)**<br>Network Settings 
+placement_policy | **[PlacementPolicy](#PlacementPolicy4)**<br>Placement policy configuration. 
 
 
 ### Resources {#Resources4}
@@ -1116,7 +991,7 @@ core_fraction | **int64**<br>Baseline level of CPU performance with the ability 
 gpus | **int64**<br>The number of GPUs available to the instance. 
 
 
-### MetadataOptions {#MetadataOptions6}
+### MetadataOptions {#MetadataOptions4}
 
 Field | Description
 --- | ---
@@ -1171,7 +1046,7 @@ Field | Description
 --- | ---
 address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
 one_to_one_nat | **[OneToOneNat](#OneToOneNat4)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
-dns_records[] | **[DnsRecord](#DnsRecord8)**<br>Internal DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord4)**<br>Internal DNS configuration 
 
 
 ### OneToOneNat {#OneToOneNat4}
@@ -1180,20 +1055,10 @@ Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
 ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
-dns_records[] | **[DnsRecord](#DnsRecord8)**<br>External DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord4)**<br>External DNS configuration 
 
 
-### DnsRecord {#DnsRecord8}
-
-Field | Description
---- | ---
-fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
-dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
-ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
-ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
-
-
-### DnsRecord {#DnsRecord9}
+### DnsRecord {#DnsRecord4}
 
 Field | Description
 --- | ---
@@ -1203,29 +1068,29 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy6}
+### SchedulingPolicy {#SchedulingPolicy4}
 
 Field | Description
 --- | ---
 preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
 
 
-### NetworkSettings {#NetworkSettings6}
+### NetworkSettings {#NetworkSettings4}
 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
-### PlacementPolicy {#PlacementPolicy6}
+### PlacementPolicy {#PlacementPolicy4}
 
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
-host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule6)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule4)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
 
 
-### HostAffinityRule {#HostAffinityRule6}
+### HostAffinityRule {#HostAffinityRule4}
 
 Field | Description
 --- | ---
@@ -1350,17 +1215,17 @@ platform_id | **string**<br>ID of the hardware platform configuration for the in
 resources | **[Resources](#Resources5)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
 status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-metadata_options | **[MetadataOptions](#MetadataOptions7)**<br>Options allow user to configure access to instance's metadata 
+metadata_options | **[MetadataOptions](#MetadataOptions5)**<br>Options allow user to configure access to instance's metadata 
 boot_disk | **[AttachedDisk](#AttachedDisk5)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk5)**<br>Array of secondary disks that are attached to the instance. 
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk5)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem5)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface5)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy7)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy5)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-network_settings | **[NetworkSettings](#NetworkSettings7)**<br>Network Settings 
-placement_policy | **[PlacementPolicy](#PlacementPolicy7)**<br>Placement policy configuration. 
+network_settings | **[NetworkSettings](#NetworkSettings5)**<br>Network Settings 
+placement_policy | **[PlacementPolicy](#PlacementPolicy5)**<br>Placement policy configuration. 
 
 
 ### Resources {#Resources5}
@@ -1373,7 +1238,7 @@ core_fraction | **int64**<br>Baseline level of CPU performance with the ability 
 gpus | **int64**<br>The number of GPUs available to the instance. 
 
 
-### MetadataOptions {#MetadataOptions7}
+### MetadataOptions {#MetadataOptions5}
 
 Field | Description
 --- | ---
@@ -1428,7 +1293,7 @@ Field | Description
 --- | ---
 address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
 one_to_one_nat | **[OneToOneNat](#OneToOneNat5)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
-dns_records[] | **[DnsRecord](#DnsRecord10)**<br>Internal DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord5)**<br>Internal DNS configuration 
 
 
 ### OneToOneNat {#OneToOneNat5}
@@ -1437,20 +1302,10 @@ Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
 ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
-dns_records[] | **[DnsRecord](#DnsRecord10)**<br>External DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord5)**<br>External DNS configuration 
 
 
-### DnsRecord {#DnsRecord10}
-
-Field | Description
---- | ---
-fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
-dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
-ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
-ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
-
-
-### DnsRecord {#DnsRecord11}
+### DnsRecord {#DnsRecord5}
 
 Field | Description
 --- | ---
@@ -1460,29 +1315,29 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy7}
+### SchedulingPolicy {#SchedulingPolicy5}
 
 Field | Description
 --- | ---
 preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
 
 
-### NetworkSettings {#NetworkSettings7}
+### NetworkSettings {#NetworkSettings5}
 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
-### PlacementPolicy {#PlacementPolicy7}
+### PlacementPolicy {#PlacementPolicy5}
 
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
-host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule7)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule5)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
 
 
-### HostAffinityRule {#HostAffinityRule7}
+### HostAffinityRule {#HostAffinityRule5}
 
 Field | Description
 --- | ---
@@ -1570,10 +1425,17 @@ description | **string**<br>Description of the disk. The maximum string length i
 type_id | **string**<br>ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/grpc/disk_type_service#List) request. The maximum string length in characters is 50.
 size | **int64**<br>Required. Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
 block_size | **int64**<br>Block size of the disk, specified in bytes. The default is 4096. 
-disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy)**<br>Placement policy configuration. 
+disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy1)**<br>Placement policy configuration. 
 source | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image to create the disk from. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot to restore the disk from. The maximum string length in characters is 50.
+
+
+### DiskPlacementPolicy {#DiskPlacementPolicy1}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Placement group ID. 
 
 
 ### Operation {#Operation7}
@@ -1615,17 +1477,17 @@ platform_id | **string**<br>ID of the hardware platform configuration for the in
 resources | **[Resources](#Resources6)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
 status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-metadata_options | **[MetadataOptions](#MetadataOptions8)**<br>Options allow user to configure access to instance's metadata 
+metadata_options | **[MetadataOptions](#MetadataOptions6)**<br>Options allow user to configure access to instance's metadata 
 boot_disk | **[AttachedDisk](#AttachedDisk6)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk6)**<br>Array of secondary disks that are attached to the instance. 
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk6)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem6)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface6)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy8)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy6)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-network_settings | **[NetworkSettings](#NetworkSettings8)**<br>Network Settings 
-placement_policy | **[PlacementPolicy](#PlacementPolicy8)**<br>Placement policy configuration. 
+network_settings | **[NetworkSettings](#NetworkSettings6)**<br>Network Settings 
+placement_policy | **[PlacementPolicy](#PlacementPolicy6)**<br>Placement policy configuration. 
 
 
 ### Resources {#Resources6}
@@ -1638,7 +1500,7 @@ core_fraction | **int64**<br>Baseline level of CPU performance with the ability 
 gpus | **int64**<br>The number of GPUs available to the instance. 
 
 
-### MetadataOptions {#MetadataOptions8}
+### MetadataOptions {#MetadataOptions6}
 
 Field | Description
 --- | ---
@@ -1693,7 +1555,7 @@ Field | Description
 --- | ---
 address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
 one_to_one_nat | **[OneToOneNat](#OneToOneNat6)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
-dns_records[] | **[DnsRecord](#DnsRecord12)**<br>Internal DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord6)**<br>Internal DNS configuration 
 
 
 ### OneToOneNat {#OneToOneNat6}
@@ -1702,20 +1564,10 @@ Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
 ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
-dns_records[] | **[DnsRecord](#DnsRecord12)**<br>External DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord6)**<br>External DNS configuration 
 
 
-### DnsRecord {#DnsRecord12}
-
-Field | Description
---- | ---
-fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
-dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
-ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
-ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
-
-
-### DnsRecord {#DnsRecord13}
+### DnsRecord {#DnsRecord6}
 
 Field | Description
 --- | ---
@@ -1725,29 +1577,29 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy8}
+### SchedulingPolicy {#SchedulingPolicy6}
 
 Field | Description
 --- | ---
 preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
 
 
-### NetworkSettings {#NetworkSettings8}
+### NetworkSettings {#NetworkSettings6}
 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
-### PlacementPolicy {#PlacementPolicy8}
+### PlacementPolicy {#PlacementPolicy6}
 
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
-host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule8)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule6)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
 
 
-### HostAffinityRule {#HostAffinityRule8}
+### HostAffinityRule {#HostAffinityRule6}
 
 Field | Description
 --- | ---
@@ -1815,17 +1667,17 @@ platform_id | **string**<br>ID of the hardware platform configuration for the in
 resources | **[Resources](#Resources7)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
 status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-metadata_options | **[MetadataOptions](#MetadataOptions9)**<br>Options allow user to configure access to instance's metadata 
+metadata_options | **[MetadataOptions](#MetadataOptions7)**<br>Options allow user to configure access to instance's metadata 
 boot_disk | **[AttachedDisk](#AttachedDisk7)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk7)**<br>Array of secondary disks that are attached to the instance. 
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk7)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem7)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface7)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy9)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy7)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-network_settings | **[NetworkSettings](#NetworkSettings9)**<br>Network Settings 
-placement_policy | **[PlacementPolicy](#PlacementPolicy9)**<br>Placement policy configuration. 
+network_settings | **[NetworkSettings](#NetworkSettings7)**<br>Network Settings 
+placement_policy | **[PlacementPolicy](#PlacementPolicy7)**<br>Placement policy configuration. 
 
 
 ### Resources {#Resources7}
@@ -1838,7 +1690,7 @@ core_fraction | **int64**<br>Baseline level of CPU performance with the ability 
 gpus | **int64**<br>The number of GPUs available to the instance. 
 
 
-### MetadataOptions {#MetadataOptions9}
+### MetadataOptions {#MetadataOptions7}
 
 Field | Description
 --- | ---
@@ -1893,7 +1745,7 @@ Field | Description
 --- | ---
 address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
 one_to_one_nat | **[OneToOneNat](#OneToOneNat7)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
-dns_records[] | **[DnsRecord](#DnsRecord14)**<br>Internal DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord7)**<br>Internal DNS configuration 
 
 
 ### OneToOneNat {#OneToOneNat7}
@@ -1902,20 +1754,10 @@ Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
 ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
-dns_records[] | **[DnsRecord](#DnsRecord14)**<br>External DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord7)**<br>External DNS configuration 
 
 
-### DnsRecord {#DnsRecord14}
-
-Field | Description
---- | ---
-fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
-dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
-ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
-ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
-
-
-### DnsRecord {#DnsRecord15}
+### DnsRecord {#DnsRecord7}
 
 Field | Description
 --- | ---
@@ -1925,29 +1767,29 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy9}
+### SchedulingPolicy {#SchedulingPolicy7}
 
 Field | Description
 --- | ---
 preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
 
 
-### NetworkSettings {#NetworkSettings9}
+### NetworkSettings {#NetworkSettings7}
 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
-### PlacementPolicy {#PlacementPolicy9}
+### PlacementPolicy {#PlacementPolicy7}
 
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
-host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule9)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule7)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
 
 
-### HostAffinityRule {#HostAffinityRule9}
+### HostAffinityRule {#HostAffinityRule7}
 
 Field | Description
 --- | ---
@@ -2022,17 +1864,17 @@ platform_id | **string**<br>ID of the hardware platform configuration for the in
 resources | **[Resources](#Resources8)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
 status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-metadata_options | **[MetadataOptions](#MetadataOptions10)**<br>Options allow user to configure access to instance's metadata 
+metadata_options | **[MetadataOptions](#MetadataOptions8)**<br>Options allow user to configure access to instance's metadata 
 boot_disk | **[AttachedDisk](#AttachedDisk8)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk8)**<br>Array of secondary disks that are attached to the instance. 
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk8)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem8)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface8)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy10)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy8)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-network_settings | **[NetworkSettings](#NetworkSettings10)**<br>Network Settings 
-placement_policy | **[PlacementPolicy](#PlacementPolicy10)**<br>Placement policy configuration. 
+network_settings | **[NetworkSettings](#NetworkSettings8)**<br>Network Settings 
+placement_policy | **[PlacementPolicy](#PlacementPolicy8)**<br>Placement policy configuration. 
 
 
 ### Resources {#Resources8}
@@ -2045,7 +1887,7 @@ core_fraction | **int64**<br>Baseline level of CPU performance with the ability 
 gpus | **int64**<br>The number of GPUs available to the instance. 
 
 
-### MetadataOptions {#MetadataOptions10}
+### MetadataOptions {#MetadataOptions8}
 
 Field | Description
 --- | ---
@@ -2100,7 +1942,7 @@ Field | Description
 --- | ---
 address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
 one_to_one_nat | **[OneToOneNat](#OneToOneNat8)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
-dns_records[] | **[DnsRecord](#DnsRecord16)**<br>Internal DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord8)**<br>Internal DNS configuration 
 
 
 ### OneToOneNat {#OneToOneNat8}
@@ -2109,20 +1951,10 @@ Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
 ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
-dns_records[] | **[DnsRecord](#DnsRecord16)**<br>External DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord8)**<br>External DNS configuration 
 
 
-### DnsRecord {#DnsRecord16}
-
-Field | Description
---- | ---
-fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
-dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
-ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
-ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
-
-
-### DnsRecord {#DnsRecord17}
+### DnsRecord {#DnsRecord8}
 
 Field | Description
 --- | ---
@@ -2132,29 +1964,29 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy10}
+### SchedulingPolicy {#SchedulingPolicy8}
 
 Field | Description
 --- | ---
 preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
 
 
-### NetworkSettings {#NetworkSettings10}
+### NetworkSettings {#NetworkSettings8}
 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
-### PlacementPolicy {#PlacementPolicy10}
+### PlacementPolicy {#PlacementPolicy8}
 
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
-host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule10)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule8)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
 
 
-### HostAffinityRule {#HostAffinityRule10}
+### HostAffinityRule {#HostAffinityRule8}
 
 Field | Description
 --- | ---
@@ -2222,17 +2054,17 @@ platform_id | **string**<br>ID of the hardware platform configuration for the in
 resources | **[Resources](#Resources9)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
 status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-metadata_options | **[MetadataOptions](#MetadataOptions11)**<br>Options allow user to configure access to instance's metadata 
+metadata_options | **[MetadataOptions](#MetadataOptions9)**<br>Options allow user to configure access to instance's metadata 
 boot_disk | **[AttachedDisk](#AttachedDisk9)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk9)**<br>Array of secondary disks that are attached to the instance. 
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk9)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem9)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface9)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy11)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy9)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-network_settings | **[NetworkSettings](#NetworkSettings11)**<br>Network Settings 
-placement_policy | **[PlacementPolicy](#PlacementPolicy11)**<br>Placement policy configuration. 
+network_settings | **[NetworkSettings](#NetworkSettings9)**<br>Network Settings 
+placement_policy | **[PlacementPolicy](#PlacementPolicy9)**<br>Placement policy configuration. 
 
 
 ### Resources {#Resources9}
@@ -2245,7 +2077,7 @@ core_fraction | **int64**<br>Baseline level of CPU performance with the ability 
 gpus | **int64**<br>The number of GPUs available to the instance. 
 
 
-### MetadataOptions {#MetadataOptions11}
+### MetadataOptions {#MetadataOptions9}
 
 Field | Description
 --- | ---
@@ -2300,7 +2132,7 @@ Field | Description
 --- | ---
 address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
 one_to_one_nat | **[OneToOneNat](#OneToOneNat9)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
-dns_records[] | **[DnsRecord](#DnsRecord18)**<br>Internal DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord9)**<br>Internal DNS configuration 
 
 
 ### OneToOneNat {#OneToOneNat9}
@@ -2309,20 +2141,10 @@ Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
 ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
-dns_records[] | **[DnsRecord](#DnsRecord18)**<br>External DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord9)**<br>External DNS configuration 
 
 
-### DnsRecord {#DnsRecord18}
-
-Field | Description
---- | ---
-fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
-dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
-ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
-ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
-
-
-### DnsRecord {#DnsRecord19}
+### DnsRecord {#DnsRecord9}
 
 Field | Description
 --- | ---
@@ -2332,29 +2154,29 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy11}
+### SchedulingPolicy {#SchedulingPolicy9}
 
 Field | Description
 --- | ---
 preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
 
 
-### NetworkSettings {#NetworkSettings11}
+### NetworkSettings {#NetworkSettings9}
 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
-### PlacementPolicy {#PlacementPolicy11}
+### PlacementPolicy {#PlacementPolicy9}
 
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
-host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule11)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule9)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
 
 
-### HostAffinityRule {#HostAffinityRule11}
+### HostAffinityRule {#HostAffinityRule9}
 
 Field | Description
 --- | ---
@@ -2392,7 +2214,7 @@ address | **string**<br>
 dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>External DNS configuration 
 
 
-### DnsRecordSpec {#DnsRecordSpec2}
+### DnsRecordSpec {#DnsRecordSpec1}
 
 Field | Description
 --- | ---
@@ -2440,17 +2262,17 @@ platform_id | **string**<br>ID of the hardware platform configuration for the in
 resources | **[Resources](#Resources10)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
 status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-metadata_options | **[MetadataOptions](#MetadataOptions12)**<br>Options allow user to configure access to instance's metadata 
+metadata_options | **[MetadataOptions](#MetadataOptions10)**<br>Options allow user to configure access to instance's metadata 
 boot_disk | **[AttachedDisk](#AttachedDisk10)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk10)**<br>Array of secondary disks that are attached to the instance. 
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk10)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem10)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface10)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy12)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy10)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-network_settings | **[NetworkSettings](#NetworkSettings12)**<br>Network Settings 
-placement_policy | **[PlacementPolicy](#PlacementPolicy12)**<br>Placement policy configuration. 
+network_settings | **[NetworkSettings](#NetworkSettings10)**<br>Network Settings 
+placement_policy | **[PlacementPolicy](#PlacementPolicy10)**<br>Placement policy configuration. 
 
 
 ### Resources {#Resources10}
@@ -2463,7 +2285,7 @@ core_fraction | **int64**<br>Baseline level of CPU performance with the ability 
 gpus | **int64**<br>The number of GPUs available to the instance. 
 
 
-### MetadataOptions {#MetadataOptions12}
+### MetadataOptions {#MetadataOptions10}
 
 Field | Description
 --- | ---
@@ -2518,7 +2340,7 @@ Field | Description
 --- | ---
 address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
 one_to_one_nat | **[OneToOneNat](#OneToOneNat10)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
-dns_records[] | **[DnsRecord](#DnsRecord20)**<br>Internal DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord10)**<br>Internal DNS configuration 
 
 
 ### OneToOneNat {#OneToOneNat10}
@@ -2527,20 +2349,10 @@ Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
 ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
-dns_records[] | **[DnsRecord](#DnsRecord20)**<br>External DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord10)**<br>External DNS configuration 
 
 
-### DnsRecord {#DnsRecord20}
-
-Field | Description
---- | ---
-fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
-dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
-ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
-ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
-
-
-### DnsRecord {#DnsRecord21}
+### DnsRecord {#DnsRecord10}
 
 Field | Description
 --- | ---
@@ -2550,29 +2362,29 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy12}
+### SchedulingPolicy {#SchedulingPolicy10}
 
 Field | Description
 --- | ---
 preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
 
 
-### NetworkSettings {#NetworkSettings12}
+### NetworkSettings {#NetworkSettings10}
 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
-### PlacementPolicy {#PlacementPolicy12}
+### PlacementPolicy {#PlacementPolicy10}
 
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
-host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule12)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule10)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
 
 
-### HostAffinityRule {#HostAffinityRule12}
+### HostAffinityRule {#HostAffinityRule10}
 
 Field | Description
 --- | ---
@@ -2638,17 +2450,17 @@ platform_id | **string**<br>ID of the hardware platform configuration for the in
 resources | **[Resources](#Resources11)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
 status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-metadata_options | **[MetadataOptions](#MetadataOptions13)**<br>Options allow user to configure access to instance's metadata 
+metadata_options | **[MetadataOptions](#MetadataOptions11)**<br>Options allow user to configure access to instance's metadata 
 boot_disk | **[AttachedDisk](#AttachedDisk11)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk11)**<br>Array of secondary disks that are attached to the instance. 
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk11)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem11)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface11)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy13)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy11)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-network_settings | **[NetworkSettings](#NetworkSettings13)**<br>Network Settings 
-placement_policy | **[PlacementPolicy](#PlacementPolicy13)**<br>Placement policy configuration. 
+network_settings | **[NetworkSettings](#NetworkSettings11)**<br>Network Settings 
+placement_policy | **[PlacementPolicy](#PlacementPolicy11)**<br>Placement policy configuration. 
 
 
 ### Resources {#Resources11}
@@ -2661,7 +2473,7 @@ core_fraction | **int64**<br>Baseline level of CPU performance with the ability 
 gpus | **int64**<br>The number of GPUs available to the instance. 
 
 
-### MetadataOptions {#MetadataOptions13}
+### MetadataOptions {#MetadataOptions11}
 
 Field | Description
 --- | ---
@@ -2716,7 +2528,7 @@ Field | Description
 --- | ---
 address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
 one_to_one_nat | **[OneToOneNat](#OneToOneNat11)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
-dns_records[] | **[DnsRecord](#DnsRecord22)**<br>Internal DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord11)**<br>Internal DNS configuration 
 
 
 ### OneToOneNat {#OneToOneNat11}
@@ -2725,20 +2537,10 @@ Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
 ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
-dns_records[] | **[DnsRecord](#DnsRecord22)**<br>External DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord11)**<br>External DNS configuration 
 
 
-### DnsRecord {#DnsRecord22}
-
-Field | Description
---- | ---
-fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
-dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
-ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
-ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
-
-
-### DnsRecord {#DnsRecord23}
+### DnsRecord {#DnsRecord11}
 
 Field | Description
 --- | ---
@@ -2748,29 +2550,29 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy13}
+### SchedulingPolicy {#SchedulingPolicy11}
 
 Field | Description
 --- | ---
 preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
 
 
-### NetworkSettings {#NetworkSettings13}
+### NetworkSettings {#NetworkSettings11}
 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
-### PlacementPolicy {#PlacementPolicy13}
+### PlacementPolicy {#PlacementPolicy11}
 
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
-host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule13)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule11)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
 
 
-### HostAffinityRule {#HostAffinityRule13}
+### HostAffinityRule {#HostAffinityRule11}
 
 Field | Description
 --- | ---
@@ -2820,17 +2622,7 @@ address | **string**<br>
 dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>External DNS configuration 
 
 
-### DnsRecordSpec {#DnsRecordSpec3}
-
-Field | Description
---- | ---
-fqdn | **string**<br>Required. FQDN (required) 
-dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
-ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
-ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
-
-
-### DnsRecordSpec {#DnsRecordSpec4}
+### DnsRecordSpec {#DnsRecordSpec2}
 
 Field | Description
 --- | ---
@@ -2879,17 +2671,17 @@ platform_id | **string**<br>ID of the hardware platform configuration for the in
 resources | **[Resources](#Resources12)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
 status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-metadata_options | **[MetadataOptions](#MetadataOptions14)**<br>Options allow user to configure access to instance's metadata 
+metadata_options | **[MetadataOptions](#MetadataOptions12)**<br>Options allow user to configure access to instance's metadata 
 boot_disk | **[AttachedDisk](#AttachedDisk12)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk12)**<br>Array of secondary disks that are attached to the instance. 
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk12)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem12)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface12)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy14)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy12)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-network_settings | **[NetworkSettings](#NetworkSettings14)**<br>Network Settings 
-placement_policy | **[PlacementPolicy](#PlacementPolicy14)**<br>Placement policy configuration. 
+network_settings | **[NetworkSettings](#NetworkSettings12)**<br>Network Settings 
+placement_policy | **[PlacementPolicy](#PlacementPolicy12)**<br>Placement policy configuration. 
 
 
 ### Resources {#Resources12}
@@ -2902,7 +2694,7 @@ core_fraction | **int64**<br>Baseline level of CPU performance with the ability 
 gpus | **int64**<br>The number of GPUs available to the instance. 
 
 
-### MetadataOptions {#MetadataOptions14}
+### MetadataOptions {#MetadataOptions12}
 
 Field | Description
 --- | ---
@@ -2957,7 +2749,7 @@ Field | Description
 --- | ---
 address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
 one_to_one_nat | **[OneToOneNat](#OneToOneNat12)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
-dns_records[] | **[DnsRecord](#DnsRecord24)**<br>Internal DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord12)**<br>Internal DNS configuration 
 
 
 ### OneToOneNat {#OneToOneNat12}
@@ -2966,20 +2758,10 @@ Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
 ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
-dns_records[] | **[DnsRecord](#DnsRecord24)**<br>External DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord12)**<br>External DNS configuration 
 
 
-### DnsRecord {#DnsRecord24}
-
-Field | Description
---- | ---
-fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
-dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
-ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
-ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
-
-
-### DnsRecord {#DnsRecord25}
+### DnsRecord {#DnsRecord12}
 
 Field | Description
 --- | ---
@@ -2989,29 +2771,29 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy14}
+### SchedulingPolicy {#SchedulingPolicy12}
 
 Field | Description
 --- | ---
 preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
 
 
-### NetworkSettings {#NetworkSettings14}
+### NetworkSettings {#NetworkSettings12}
 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
-### PlacementPolicy {#PlacementPolicy14}
+### PlacementPolicy {#PlacementPolicy12}
 
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
-host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule14)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule12)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
 
 
-### HostAffinityRule {#HostAffinityRule14}
+### HostAffinityRule {#HostAffinityRule12}
 
 Field | Description
 --- | ---
@@ -3117,17 +2899,17 @@ platform_id | **string**<br>ID of the hardware platform configuration for the in
 resources | **[Resources](#Resources13)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
 status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
-metadata_options | **[MetadataOptions](#MetadataOptions15)**<br>Options allow user to configure access to instance's metadata 
+metadata_options | **[MetadataOptions](#MetadataOptions13)**<br>Options allow user to configure access to instance's metadata 
 boot_disk | **[AttachedDisk](#AttachedDisk13)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk13)**<br>Array of secondary disks that are attached to the instance. 
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk13)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem13)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface13)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy15)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy13)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-network_settings | **[NetworkSettings](#NetworkSettings15)**<br>Network Settings 
-placement_policy | **[PlacementPolicy](#PlacementPolicy15)**<br>Placement policy configuration. 
+network_settings | **[NetworkSettings](#NetworkSettings13)**<br>Network Settings 
+placement_policy | **[PlacementPolicy](#PlacementPolicy13)**<br>Placement policy configuration. 
 
 
 ### Resources {#Resources13}
@@ -3140,7 +2922,7 @@ core_fraction | **int64**<br>Baseline level of CPU performance with the ability 
 gpus | **int64**<br>The number of GPUs available to the instance. 
 
 
-### MetadataOptions {#MetadataOptions15}
+### MetadataOptions {#MetadataOptions13}
 
 Field | Description
 --- | ---
@@ -3195,7 +2977,7 @@ Field | Description
 --- | ---
 address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. 
 one_to_one_nat | **[OneToOneNat](#OneToOneNat13)**<br>One-to-one NAT configuration. If missing, NAT has not been set up. 
-dns_records[] | **[DnsRecord](#DnsRecord26)**<br>Internal DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord13)**<br>Internal DNS configuration 
 
 
 ### OneToOneNat {#OneToOneNat13}
@@ -3204,20 +2986,10 @@ Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
 ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
-dns_records[] | **[DnsRecord](#DnsRecord26)**<br>External DNS configuration 
+dns_records[] | **[DnsRecord](#DnsRecord13)**<br>External DNS configuration 
 
 
-### DnsRecord {#DnsRecord26}
-
-Field | Description
---- | ---
-fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
-dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
-ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
-ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
-
-
-### DnsRecord {#DnsRecord27}
+### DnsRecord {#DnsRecord13}
 
 Field | Description
 --- | ---
@@ -3227,29 +2999,29 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy15}
+### SchedulingPolicy {#SchedulingPolicy13}
 
 Field | Description
 --- | ---
 preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
 
 
-### NetworkSettings {#NetworkSettings15}
+### NetworkSettings {#NetworkSettings13}
 
 Field | Description
 --- | ---
 type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
-### PlacementPolicy {#PlacementPolicy15}
+### PlacementPolicy {#PlacementPolicy13}
 
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Placement group ID. 
-host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule15)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule13)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
 
 
-### HostAffinityRule {#HostAffinityRule15}
+### HostAffinityRule {#HostAffinityRule13}
 
 Field | Description
 --- | ---

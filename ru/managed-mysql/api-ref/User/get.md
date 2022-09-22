@@ -10,7 +10,7 @@ Retrieves information about the specified user.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}/users/{userName}
+GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path parameters {#path_params}

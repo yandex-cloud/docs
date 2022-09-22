@@ -10,7 +10,7 @@ Expands the specified Greenplum® cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-greenplum/v1/clusters/{clusterId}/expand
+POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/expand
 ```
  
 ## Path parameters {#path_params}

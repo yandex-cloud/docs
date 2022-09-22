@@ -10,7 +10,7 @@ To get the list of available PostgreSQL Backup resources, make a [list](/docs/ma
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-postgresql/v1/backups/{backupId}
+GET https://{{ api-host-mdb }}/managed-postgresql/v1/backups/{backupId}
 ```
  
 ## Path parameters {#path_params}

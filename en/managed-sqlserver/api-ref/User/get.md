@@ -10,7 +10,7 @@ To get the list of available SQL Server users, make a [list](/docs/managed-sqlse
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}/users/{userName}
+GET https://{{ api-host-mdb }}/mdb/sqlserver/v1/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path parameters {#path_params}

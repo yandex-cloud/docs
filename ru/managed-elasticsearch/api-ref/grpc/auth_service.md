@@ -195,6 +195,24 @@ Field | Description
 providers[] | **[AuthProvider](#AuthProvider3)**<br> 
 
 
+## UpdateProviders {#UpdateProviders}
+
+Replase the list of auth providers.
+
+**rpc UpdateProviders ([UpdateAuthProvidersRequest](#UpdateAuthProvidersRequest)) returns ([operation.Operation](#Operation1))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateAuthProvidersMetadata](#UpdateAuthProvidersMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[AuthProviders](#AuthProviders1)<br>
+
+### UpdateAuthProvidersRequest {#UpdateAuthProvidersRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Required. ID of the ElasticSearch cluster. The maximum string length in characters is 50.
+providers[] | **[AuthProvider](#AuthProvider3)**<br>Required. List of providers to set. The maximum number of elements is 10.
+
+
 ### AuthProvider {#AuthProvider3}
 
 Field | Description
@@ -212,55 +230,6 @@ settings | **oneof:** `saml`<br>
 
 
 ### SamlSettings {#SamlSettings3}
-
-Field | Description
---- | ---
-idp_entity_id | **string**<br> The maximum string length in characters is 250.
-idp_metadata_file | **bytes**<br> The maximum string length in characters is 10000.
-sp_entity_id | **string**<br> The maximum string length in characters is 250.
-kibana_url | **string**<br> The maximum string length in characters is 250.
-attribute_principal | **string**<br> The maximum string length in characters is 50.
-attribute_groups | **string**<br> The maximum string length in characters is 50.
-attribute_name | **string**<br> The maximum string length in characters is 50.
-attribute_email | **string**<br> The maximum string length in characters is 50.
-attribute_dn | **string**<br> The maximum string length in characters is 50.
-
-
-## UpdateProviders {#UpdateProviders}
-
-Replase the list of auth providers.
-
-**rpc UpdateProviders ([UpdateAuthProvidersRequest](#UpdateAuthProvidersRequest)) returns ([operation.Operation](#Operation1))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateAuthProvidersMetadata](#UpdateAuthProvidersMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[AuthProviders](#AuthProviders1)<br>
-
-### UpdateAuthProvidersRequest {#UpdateAuthProvidersRequest}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>Required. Required. ID of the ElasticSearch cluster. The maximum string length in characters is 50.
-providers[] | **[AuthProvider](#AuthProvider4)**<br>Required. List of providers to set. The maximum number of elements is 10.
-
-
-### AuthProvider {#AuthProvider4}
-
-Field | Description
---- | ---
-type | enum **Type**<br> 
-name | **string**<br> The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9_-]* `.
-order | **int64**<br> 
-enabled | **bool**<br> 
-hidden | **bool**<br>selector ui settings 
-description | **string**<br> The maximum string length in characters is 50.
-hint | **string**<br> The maximum string length in characters is 250.
-icon | **string**<br> The maximum string length in characters is 250.
-settings | **oneof:** `saml`<br>
-&nbsp;&nbsp;saml | **[SamlSettings](#SamlSettings4)**<br> 
-
-
-### SamlSettings {#SamlSettings4}
 
 Field | Description
 --- | ---
@@ -303,38 +272,7 @@ names[] | **string**<br>Names of the providers being added.
 
 Field | Description
 --- | ---
-providers[] | **[AuthProvider](#AuthProvider5)**<br> 
-
-
-### AuthProvider {#AuthProvider5}
-
-Field | Description
---- | ---
-type | enum **Type**<br> 
-name | **string**<br> The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9_-]* `.
-order | **int64**<br> 
-enabled | **bool**<br> 
-hidden | **bool**<br>selector ui settings 
-description | **string**<br> The maximum string length in characters is 50.
-hint | **string**<br> The maximum string length in characters is 250.
-icon | **string**<br> The maximum string length in characters is 250.
-settings | **oneof:** `saml`<br>
-&nbsp;&nbsp;saml | **[SamlSettings](#SamlSettings5)**<br> 
-
-
-### SamlSettings {#SamlSettings5}
-
-Field | Description
---- | ---
-idp_entity_id | **string**<br> The maximum string length in characters is 250.
-idp_metadata_file | **bytes**<br> The maximum string length in characters is 10000.
-sp_entity_id | **string**<br> The maximum string length in characters is 250.
-kibana_url | **string**<br> The maximum string length in characters is 250.
-attribute_principal | **string**<br> The maximum string length in characters is 50.
-attribute_groups | **string**<br> The maximum string length in characters is 50.
-attribute_name | **string**<br> The maximum string length in characters is 50.
-attribute_email | **string**<br> The maximum string length in characters is 50.
-attribute_dn | **string**<br> The maximum string length in characters is 50.
+providers[] | **[AuthProvider](#AuthProvider4)**<br> 
 
 
 ## DeleteProviders {#DeleteProviders}
@@ -395,10 +333,10 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. Required. ID of the ElasticSearch cluster. The maximum string length in characters is 50.
 name | **string**<br>Required. Required. Name of the provider to update. The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9_-]* `.
-provider | **[AuthProvider](#AuthProvider6)**<br>Required. Required. New provider defenition. 
+provider | **[AuthProvider](#AuthProvider4)**<br>Required. Required. New provider defenition. 
 
 
-### AuthProvider {#AuthProvider6}
+### AuthProvider {#AuthProvider4}
 
 Field | Description
 --- | ---
@@ -411,10 +349,10 @@ description | **string**<br> The maximum string length in characters is 50.
 hint | **string**<br> The maximum string length in characters is 250.
 icon | **string**<br> The maximum string length in characters is 250.
 settings | **oneof:** `saml`<br>
-&nbsp;&nbsp;saml | **[SamlSettings](#SamlSettings6)**<br> 
+&nbsp;&nbsp;saml | **[SamlSettings](#SamlSettings4)**<br> 
 
 
-### SamlSettings {#SamlSettings6}
+### SamlSettings {#SamlSettings4}
 
 Field | Description
 --- | ---
@@ -457,38 +395,7 @@ names[] | **string**<br>Names of the providers being added.
 
 Field | Description
 --- | ---
-providers[] | **[AuthProvider](#AuthProvider7)**<br> 
-
-
-### AuthProvider {#AuthProvider7}
-
-Field | Description
---- | ---
-type | enum **Type**<br> 
-name | **string**<br> The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9_-]* `.
-order | **int64**<br> 
-enabled | **bool**<br> 
-hidden | **bool**<br>selector ui settings 
-description | **string**<br> The maximum string length in characters is 50.
-hint | **string**<br> The maximum string length in characters is 250.
-icon | **string**<br> The maximum string length in characters is 250.
-settings | **oneof:** `saml`<br>
-&nbsp;&nbsp;saml | **[SamlSettings](#SamlSettings7)**<br> 
-
-
-### SamlSettings {#SamlSettings7}
-
-Field | Description
---- | ---
-idp_entity_id | **string**<br> The maximum string length in characters is 250.
-idp_metadata_file | **bytes**<br> The maximum string length in characters is 10000.
-sp_entity_id | **string**<br> The maximum string length in characters is 250.
-kibana_url | **string**<br> The maximum string length in characters is 250.
-attribute_principal | **string**<br> The maximum string length in characters is 50.
-attribute_groups | **string**<br> The maximum string length in characters is 50.
-attribute_name | **string**<br> The maximum string length in characters is 50.
-attribute_email | **string**<br> The maximum string length in characters is 50.
-attribute_dn | **string**<br> The maximum string length in characters is 50.
+providers[] | **[AuthProvider](#AuthProvider5)**<br> 
 
 
 ## DeleteProvider {#DeleteProvider}

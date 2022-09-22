@@ -1,44 +1,63 @@
----
-title: How to work with Yandex DataSphere. Instructions
-description: "From this article you will learn how to work with machine learning projects in Yandex Cloud. We will tell you how to create a machine learning project, install dependencies, run code samples on a laptop, work with checkpoints, manage computing resources, publish a laptop, work with Git."
----
-
 # Step-by-step instructions for {{ ml-platform-name }}
 
+## Community management {#community}
+
+* [{#T}](community/create.md)
+* [{#T}](community/add-user.md)
+* [{#T}](community/link-channel.md)
+* [{#T}](community/delete.md)
+
+## Project management {#project}
+
 * [{#T}](projects/create.md)
-* [{#T}](projects/install-dependencies.md)
-* [{#T}](projects/snippets.md)
-* [{#T}](projects/checkpoints.md)
-* [{#T}](projects/control-compute-resources.md)
-* [{#T}](projects/custom-limits.md)
-* [{#T}](projects/set-ds-budget.md)
 * [{#T}](projects/storage-resize.md)
-* [{#T}](user-images.md)
-* [{#T}](user-images-cell.md)
-* [{#T}](projects/clear-kernel-state.md)
-* [{#T}](projects/publication.md)
-* [{#T}](projects/export.md)
+* [{#T}](projects/add-user.md)
 * [{#T}](projects/update.md)
+* [{#T}](projects/python-version.md)
 * [{#T}](projects/delete.md)
-* [{#T}](projects/work-with-git.md)
+
 * [{#T}](data-proc-integration.md)
 
+## Working in a notebook {#notebook}
 
-## Working with data inside a project {#data-in-project}
+* [{#T}](projects/control-compute-resources.md)
+* [{#T}](projects/install-dependencies.md)
+* [{#T}](projects/clear-kernel-state.md)
+* [{#T}](projects/work-with-git.md)
+* [{#T}](user-images-cell.md)
 
-* [{#T}](data/secret-create.md)
-* [{#T}](data/secret-call.md)
-* [{#T}](data/secret-copy.md)
-* [{#T}](data/secret-change.md)
-* [{#T}](data/secret-delete.md)
-* [{#T}](taas-run.md)
+## Working with resources {#resources}
 
-## Getting data from sources {#data-source}
+* [{#T}](data/secrets.md)
+* [{#T}](projects/checkpoints.md)
+* [{#T}](user-images.md)
 
+## Connecting to data sources {#connections-to-data-sources}
+
+* [{#T}](data/connect-to-s3.md)
+* [{#T}](data/connect-to-google-drive.md)
 * [{#T}](data/connect-to-clickhouse.md)
 * [{#T}](data/connect-to-postgresql.md)
+* [{#T}](data/connect-to-ya-disk.md)
 
-## Deploying models {#deployment}
-* [{#T}](node-cell.md)
-* [{#T}](node-customization.md)
-* [{#T}](node-api.md)
+## Deploying models {#deploy}
+
+* [{#T}](deploy/node-create.md)
+* [{#T}](deploy/node-update.md)
+* [{#T}](deploy/node-delete.md)
+* [{#T}](deploy/node-customization.md)
+* [{#T}](deploy/node-api.md)
+* [{#T}](deploy/alias-create.md)
+* [{#T}](deploy/alias-update.md)
+* [{#T}](deploy/alias-delete.md)
+
+## Shared access to resources, projects, and computation results {#share}
+
+* [{#T}](projects/publication.md)
+* [{#T}](projects/export.md)
+
+
+## Additional features {{ ml-platform-name }}
+
+* [{#T}](taas-run.md)
+

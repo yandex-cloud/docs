@@ -1,13 +1,11 @@
-# Changing a project name or description
+# Change project settings
 
-To change the project name or description:
+On the project editing page, you can change the project name and description, set consumption limits, and configure integration with other {{ yandex-cloud }} services.
 
-1. {% include [include](../../../_includes/datasphere/first-step.md) %}
-1. Go to the **Projects** tab.
-1. Select the project you want to change and click ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
-1. Choose **Edit**.
-1. Enter a new name and description for the project.
-1. Click **Edit**.
+1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
+1. In the upper-right corner of the project page, click **More** and select **![pencil](../../../_assets/pencil.svg) Edit**.
+1. Change the project settings.
+1. Click **Save**.
 
 #### What's next {#what-is-next}
 

@@ -1,4 +1,4 @@
-# Визуализация данных из CSV-файла
+# Визуализация данных из файла
 
 В качестве исходных данных будет использоваться файл [SuperHeroes.csv](https://storage.yandexcloud.net/datalens/SuperHeroes.csv) с информацией о супергероях — имя, пол, раса, издатель комиксов и т. д.
 
@@ -26,40 +26,42 @@
 
 ## Шаг 1. Создайте подключение и датасет {#step1}
 
-Создайте датасет на основе [подключения](../../datalens/concepts/connection.md) к CSV-файлу.
+Создайте датасет на основе [подключения](../../datalens/concepts/connection.md) типа **File**.
 
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
 1. Нажмите кнопку **Создать подключение**.
 
    ![image](../../_assets/datalens/solution-01/01-create-connection.png)
 
+1. Выберите **File**.
 
-1. Выберите **CSV**.
+   ![image](../../_assets/datalens/solution-01/select-file-connection.png)
 
-   ![image](../../_assets/datalens/solution-01/02-CSV.png)
+1. Нажмите кнопку **Загрузить файлы**.
 
-1. Нажмите кнопку **Выбрать CSV-файл**.
-
-   ![image](../../_assets/datalens/solution-01/03-Choose-CSV.png)
+   ![image](../../_assets/datalens/solution-01/03-choose-file.png)
 
 1. Выберите необходимый файл. В данном примере **SuperHeroes.csv** ([ссылка на скачивание](https://storage.yandexcloud.net/datalens/SuperHeroes.csv)).
 
    Дождитесь, когда на экране появится содержимое таблицы.
 
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **Создать подключение**.
 
-   ![image](../../_assets/datalens/solution-01/04-Save-Connection.png)
+   ![image](../../_assets/datalens/solution-01/04-save-file-connection.png)
+
+1. Введите имя подключения `SuperHeroes` и нажмите **Создать**.
+
+   ![image](../../_assets/datalens/solution-01/04-2-save-file-connection.png)
 
 1. После сохранения нажмите кнопку **Создать датасет**.
 
-   ![image](../../_assets/datalens/solution-01/05-Create-Dataset.png)
-
+   ![image](../../_assets/datalens/solution-01/05-create-dataset_file_connection.png)
 
 ## Шаг 2. Создайте датасет {#step2}
 
 1. Если в рабочей области нет таблицы **SuperHeroes.csv**, то перетащите таблицу из панели выбора в рабочую область.
 
-    ![image](../../_assets/datalens/solution-01/06-Drag-Table.png)
+    ![image](../../_assets/datalens/solution-01/06-Drag-Table-file.png)
 
 1. Перейдите на вкладку **Поля**.
 

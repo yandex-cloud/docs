@@ -208,7 +208,8 @@ A set of methods for managing databases.
     "throttlingRcuLimit": "string",
     "storageSizeLimit": "string",
     "enableThrottlingRcuLimit": true,
-    "provisionedRcuLimit": "string"
+    "provisionedRcuLimit": "string",
+    "topicWriteQuota": "string"
   },
   // end of the list of possible fields
 
@@ -333,6 +334,7 @@ serverlessDatabase.<br>throttlingRcuLimit | **string** (int64)<br><p>Let's defin
 serverlessDatabase.<br>storageSizeLimit | **string** (int64)<br><p>Specify serverless database storage size limit. If zero, default value is applied.</p> 
 serverlessDatabase.<br>enableThrottlingRcuLimit | **boolean** (boolean)<br><p>If false, the database is throttled by cloud value.</p> 
 serverlessDatabase.<br>provisionedRcuLimit | **string** (int64)<br><p>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed.</p> 
+serverlessDatabase.<br>topicWriteQuota | **string** (int64)<br><p>write quota for topic service, defined in bytes per second.</p> 
 
 ## Methods {#methods}
 Method | Description

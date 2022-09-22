@@ -2,7 +2,7 @@
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-When you use M{{ ydb-name }} in Serverless mode, you are billed for each request made to the database. Users don't have to indicate the resources they need: the database quickly adapts to changes in the user load. Apart from requests, the user pays for the data stored in {{ ydb-name }} on an hourly basis. Other operations, such as restoring data from backups, are charged additionally.
+When you use {{ ydb-name }} in Serverless mode, you are billed for each request made to the database. Users don't have to indicate the resources they need: the database quickly adapts to changes in the user load. Apart from requests, the user pays for the data stored in {{ ydb-name }} on an hourly basis. Other operations, such as restoring data from backups, are charged additionally.
 
 ## What goes into the cost of using {{ ydb-name }} Serverless mode {#rules}
 
@@ -21,7 +21,7 @@ Other consumed resources to be additionally paid for:
 
 ### Data operations and request units {#rules-ru}
 
-{{ ydb-full-name }} serverless operation mode supports multiple ways to work with data:
+The serverless mode of {{ ydb-full-name }} supports multiple ways to work with data:
 
 * YQL is an SQL-like language that allows you to work with relational tables and is supported by the [SDK](https://ydb.tech/en/docs/reference/ydb-sdk/), [CLI](https://ydb.tech/en/docs/reference/ydb-cli/), and management consoles YDB.
 * Document API is the Amazon DynamoDB-compatible HTTP API. You can use this API to perform operations on document tables.
@@ -35,6 +35,7 @@ Rules for calculating the cost of requests to YDB in RU:
 * [YQL](ru-yql.md).
 * [Document API](ru-docapi.md).
 * [Special APIs](ru-special.md).
+* [Topic operations](ru-topics.md).
 
 #### Pricing for Request Unit consumption {#prices-ru}
 
@@ -44,6 +45,8 @@ Rules for calculating the cost of requests to YDB in RU:
 ### Amount of data stored {#rules-storage}
 
 In Serverless mode, data storage capacity is allocated automatically. The amount of stored data is calculated as the total amount of user and service data stored in the database. For example, creating a global index increases the total storage size by the index size.
+
+For topics with on-demand pricing, you also pay for the actually used disk space. Its usage starts once each message is published in a topic and it's released once the retention period set for the topic expires.
 
 ### Creating backups {#rules-backup-storage}
 
@@ -76,11 +79,17 @@ If you restore data using the ```ydb tools restore``` utility, billing is based 
 
 
 
+
+
+
 {% include notitle [usd-serverless](../../_pricing/ydb/usd-serverless.md) %}
+
+
+
 
 
 
 
 
 {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
-
+

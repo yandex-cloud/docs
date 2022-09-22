@@ -47,7 +47,7 @@ items:
             href: concepts/extensions/http.md
           - name: Integration with Object Storage
             href: concepts/extensions/object-storage.md
-          - name: DataSphere integration
+          - name: Integration with DataSphere
             href: concepts/extensions/datasphere.md
           - name: Data Streams integration
             href: concepts/extensions/datastreams.md

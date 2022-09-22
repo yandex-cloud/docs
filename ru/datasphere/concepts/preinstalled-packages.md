@@ -43,6 +43,8 @@
 %pip install tensorflow==2.3.1
 ```
 
+Подробнее о работе с системой управления пакетами pip читайте в [официальной документации Python](https://docs.python.org/3/installing/index.html).
+
 Обратите внимание, что версия TensorFlow, установленная по умолчанию, зависит от [выбранной версии Python](../operations/projects/python-version.md). В проектах с Python 3.7 устанавливается TensorFlow 1.15, с Python 3.8 — TensorFlow 2.6.
 
 {% note warning %}
@@ -56,4 +58,3 @@
 * [{#T}](../operations/projects/install-dependencies.md)
 * [{#T}](configurations.md)
 * [{#T}](limits.md)
-* [{#T}](../operations/index.md)

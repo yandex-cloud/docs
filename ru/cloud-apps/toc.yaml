@@ -1,0 +1,21 @@
+title: Cloud Apps
+stage: preview
+href: index.yaml
+editable: false
+items:
+  - name: Приложения
+    expanded: true
+    items:
+      - name: Demo Telegram Bot
+        href: telegram-bot.md
+      - name: Django Container
+        href: django-container.md
+      - name: Image Resizer
+        href: image-resizer.md
+      - name: Metrics Collector
+        href: metrics-collector.md
+      - name: VM Watchdog
+        href: vm-watchdog.md
+      - name: Instance Group Sheduled Scaler
+        href: yc-ig-sheduled-scale.md
+base: ru/cloud-apps

@@ -200,21 +200,6 @@ maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance even
 scale_policy | **[ScalePolicy](#ScalePolicy3)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
-### ScalePolicy {#ScalePolicy3}
-
-Field | Description
---- | ---
-scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale3)**<br> 
-
-
-### FixedScale {#FixedScale3}
-
-Field | Description
---- | ---
-size | **int64**<br> 
-
-
 ## Update {#Update}
 
 Updates the specified host group.
@@ -235,18 +220,18 @@ name | **string**<br>Name of the group. Value must match the regular expression 
 description | **string**<br>Description of the group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>The existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li></ul>
-scale_policy | **[ScalePolicy](#ScalePolicy4)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
+scale_policy | **[ScalePolicy](#ScalePolicy3)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
-### ScalePolicy {#ScalePolicy4}
+### ScalePolicy {#ScalePolicy3}
 
 Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale4)**<br> 
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale3)**<br> 
 
 
-### FixedScale {#FixedScale4}
+### FixedScale {#FixedScale3}
 
 Field | Description
 --- | ---
@@ -290,22 +275,7 @@ zone_id | **string**<br>Availability zone where all dedicated hosts are allocate
 status | enum **Status**<br>Status of the group. 
 type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
 maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li></ul>
-scale_policy | **[ScalePolicy](#ScalePolicy5)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
-
-
-### ScalePolicy {#ScalePolicy5}
-
-Field | Description
---- | ---
-scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale5)**<br> 
-
-
-### FixedScale {#FixedScale5}
-
-Field | Description
---- | ---
-size | **int64**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy4)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
 ## Delete {#Delete}
@@ -517,16 +487,6 @@ dns_records[] | **[DnsRecord](#DnsRecord)**<br>External DNS configuration
 
 
 ### DnsRecord {#DnsRecord}
-
-Field | Description
---- | ---
-fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
-dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
-ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
-ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
-
-
-### DnsRecord {#DnsRecord1}
 
 Field | Description
 --- | ---

@@ -10,7 +10,7 @@ Same as [listLogs](/docs/managed-elasticsearch/api-ref/Cluster/listLogs) but usi
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}:stream_logs
+GET https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}:stream_logs
 ```
  
 ## Path parameters {#path_params}

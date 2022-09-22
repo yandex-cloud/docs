@@ -10,7 +10,7 @@ Retrieves the list of available backups for the specified SQL Server cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}/backups
+GET https://{{ api-host-mdb }}/mdb/sqlserver/v1/clusters/{clusterId}/backups
 ```
  
 ## Path parameters {#path_params}

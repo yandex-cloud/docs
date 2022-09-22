@@ -182,6 +182,7 @@ text | **string**<br>Text in time frame.
 start_time_ms | **int64**<br>Start of time frame. 
 end_time_ms | **int64**<br>End of time frame. 
 confidence | **double**<br>Hypothesis confidence. Currently is not used. 
+languages[] | **[LanguageEstimation](#LanguageEstimation)**<br>Distribution over possible languages 
 
 
 ### Word {#Word}
@@ -191,6 +192,14 @@ Field | Description
 text | **string**<br>Word text. 
 start_time_ms | **int64**<br>Estimation of word start time in ms 
 end_time_ms | **int64**<br>Estimation of word end time in ms 
+
+
+### LanguageEstimation {#LanguageEstimation}
+
+Field | Description
+--- | ---
+language_code | **string**<br> 
+probability | **double**<br> 
 
 
 ### EouUpdate {#EouUpdate}
@@ -207,34 +216,6 @@ Field | Description
 final_index | **int64**<br>Index of final for which server sends additional information. 
 Type | **oneof:** `normalized_text`<br>Type of refinement.
 &nbsp;&nbsp;normalized_text | **[AlternativeUpdate](#AlternativeUpdate1)**<br>Normalized text instead of raw one. 
-
-
-### AlternativeUpdate {#AlternativeUpdate1}
-
-Field | Description
---- | ---
-alternatives[] | **[Alternative](#Alternative1)**<br>List of hypothesis for timeframes. 
-channel_tag | **string**<br>Tag for distinguish audio channels. 
-
-
-### Alternative {#Alternative1}
-
-Field | Description
---- | ---
-words[] | **[Word](#Word1)**<br>Words in time frame. 
-text | **string**<br>Text in time frame. 
-start_time_ms | **int64**<br>Start of time frame. 
-end_time_ms | **int64**<br>End of time frame. 
-confidence | **double**<br>Hypothesis confidence. Currently is not used. 
-
-
-### Word {#Word1}
-
-Field | Description
---- | ---
-text | **string**<br>Word text. 
-start_time_ms | **int64**<br>Estimation of word start time in ms 
-end_time_ms | **int64**<br>Estimation of word end time in ms 
 
 
 ### StatusCode {#StatusCode}

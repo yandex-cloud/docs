@@ -10,7 +10,7 @@ Creates a backup for the specified SQL Server cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}:backup
+POST https://{{ api-host-mdb }}/mdb/sqlserver/v1/clusters/{clusterId}:backup
 ```
  
 ## Path parameters {#path_params}

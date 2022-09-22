@@ -7,218 +7,139 @@ items:
     items:
       - name: All instructions
         href: operations/index.md
+      - name: Community management
+        items:
+          - name: Create a community
+            href: operations/community/create.md
+          - name: Add a user to a community
+            href: operations/community/add-user.md
+          - name: Add a communication channel
+            href: operations/community/link-channel.md
+          - name: Delete a community
+            href: operations/community/delete.md
       - name: Project management
         items:
-          - name: Creating a project
+          - name: Create a project
             href: operations/projects/create.md
-          - name: Choosing a Python version
+          - name: Add a user to a project
+            href: operations/projects/add-user.md
+          - name: Select a Python version
             href: operations/projects/python-version.md
-          - name: Installing dependencies
-            href: operations/projects/install-dependencies.md
-          - name: Managing computing resources
-            href: operations/projects/control-compute-resources.md
-          - name: Setting up consumption limits for a project
-            href: operations/projects/custom-limits.md
-          - name: Setting up consumption limits for a folder
-            href: operations/projects/set-ds-budget.md
-          - name: Resizing project storage
+          - name: Resize project storage
             href: operations/projects/storage-resize.md
-          - name: Changing a name or description
+          - name: Change project settings
             href: operations/projects/update.md
-          - name: Deleting a notebook or project
+          - name: Delete a notebook or project
             href: operations/projects/delete.md
-      - name: Sharing a notebook
+          - name: Configure integration with Data Proc
+            href: operations/data-proc-integration.md
+            hidden: true
+      - name: Working in a notebook
+        items:
+          - name: Select computing resources
+            href: operations/projects/control-compute-resources.md
+          - name: Install packages
+            href: operations/projects/install-dependencies.md
+          - name: Reset the interpreter state
+            href: operations/projects/clear-kernel-state.md
+          - name: Notebook code snippets
+            href: operations/projects/snippets.md
+          - name: Working with Git
+            href: operations/projects/work-with-git.md
+          - name: Run a Docker container in a separate cell
+            href: operations/user-images-cell.md
+      - name: Working with resources
+        items:
+          - name: Using secrets
+            href: operations/data/secrets.md
+          - name: Working with checkpoints
+            href: operations/projects/checkpoints.md
+          - name: Configuring the environment using a Docker image
+            href: operations/user-images.md
+      - name: Connecting to data sources
+        items:
+          - name: Connecting to S3 storage
+            href: operations/data/connect-to-s3.md
+          - name: Connecting to a {{ CH }} database
+            href: operations/data/connect-to-clickhouse.md
+          - name: Connecting to a {{ PG }} database
+            href: operations/data/connect-to-postgresql.md
+          - name: Connecting to Yandex Disk
+            href: operations/data/connect-to-ya-disk.md
+          - name: Connecting to Google Drive
+            href: operations/data/connect-to-google-drive.md
+      - name: Deploying models
+        items:
+          - name: Creating a node with Python code
+            href: operations/deploy/node-create.md
+          - name: Updating a node
+            href: operations/deploy/node-update.md
+          - name: Deleting a node
+            href: operations/deploy/node-delete.md
+          - name: Configuring the node environment
+            href: operations/deploy/node-customization.md
+          - name: Sending requests to nodes
+            href: operations/deploy/node-api.md
+          - name: Creating an alias
+            href: operations/deploy/alias-create.md
+          - name: Updating an alias
+            href: operations/deploy/alias-update.md
+          - name: Deleting an alias
+            href: operations/deploy/alias-delete.md
+      - name: Shared access
         items:
           - name: Publishing a notebook
             href: operations/projects/publication.md
           - name: Exporting a project
             href: operations/projects/export.md
-      - name: Working with a notebook
-        items:
-          - name: Running sample code in a notebook
-            href: operations/projects/snippets.md
-          - name: Versioning. Working with checkpoints
-            href: operations/projects/checkpoints.md
-          - name: Clearing the interpreter state
-            href: operations/projects/clear-kernel-state.md
-          - name: Working with Git
-            href: operations/projects/work-with-git.md
-      - name: Managing Docker images
-        items:
-          - name: Docker image for a project
-            href: operations/user-images.md
-          - name: Docker image in a cell
-            href: operations/user-images-cell.md
-      - name: Connecting to data sources
-        items:
-          - name: Connecting to a {{ CH }} database
-            href: operations/data/connect-to-clickhouse.md
-          - name: Connecting to a {{ PG }} database
-            href: operations/data/connect-to-postgresql.md
-          - name: Connecting to S3 storage
-            href: operations/data/connect-to-s3.md
-          - name: Connecting to Yandex Disk
-            href: operations/data/connect-to-ya-disk.md
-          - name: Connecting to Google Drive
-            href: operations/data/connect-to-google-drive.md
-      - name: Setting up integration with Data Proc
-        href: operations/data-proc-integration.md
-      - name: Working with confidential data
-        items:
-          - name: Creating a secret
-            href: operations/data/secret-create.md
-          - name: Referencing a secret
-            href: operations/data/secret-call.md
-          - name: Updating a secret
-            href: operations/data/secret-change.md
-          - name: Copying a secret
-            href: operations/data/secret-copy.md
-          - name: Destroying a secret
-            href: operations/data/secret-delete.md
       - name: Launching distributed training
         href: operations/taas-run.md
-      - name: Deploying models
-        items:
-          - name: Creating a node from a Python code cell
-            href: operations/node-cell.md
-          - name: Configuring the node environment
-            href: operations/node-customization.md
-          - name: Queries to nodes
-            href: operations/node-api.md
-          - name: Deleting a node
-            href: operations/node-delete.md
   - name: Concepts
     items:
-      - name: Overview
+      - name: About Yandex DataSphere
         href: concepts/index.md
-      - name: Project
-        href: concepts/project.md
-      - name: List of pre-installed software
-        href: concepts/preinstalled-packages.md
-      - name: Available commands
-        href: concepts/magic.md
-      - name: '#pragma service commands'
-        href: concepts/pragma.md
-      - name: Computing resource configurations
-        href: concepts/configurations.md
-      - name: Integration with version and data control systems
-        href: concepts/dvc-and-git.md
-      - name: Saving a state
-        href: concepts/save-state.md
-      - name: Integration with Data Proc
-        href: concepts/data-proc.md
-      - name: Background operations
-        href: concepts/async.md
-      - name: Datasets
-        href: concepts/dataset.md
-      - name: Private data storage
-        href: concepts/secrets.md
-      - name: Deploying models
+      - name: Relationships between resources in DataSphere
+        href: concepts/resource-model.md
+      - name: Communities
+        href: concepts/community.md
+      - name: Project and its environment
+        items:
+          - name: Project
+            href: concepts/project.md
+          - name: Computing resource configurations
+            href: concepts/configurations.md
+          - name: Interpreter state
+            href: concepts/save-state.md
+          - name: List of pre-installed software
+            href: concepts/preinstalled-packages.md
+          - name: Early access mode
+            href: concepts/early-access.md
+      - name: Computing and model training
+        items:
+          - name: Available commands
+            href: concepts/magic.md
+          - name: '#pragma service commands'
+            href: concepts/pragma.md
+          - name: Background operations
+            href: concepts/async.md
+          - name: EA — Special background cells
+            href: concepts/repeat.md
+          - name: Distributed training
+            href: concepts/taas.md
+          - name: Integration with Data Proc
+            href: concepts/data-proc.md
+      - name: Resources
+        items:
+          - name: Secrets
+            href: concepts/secrets.md
+          - name: Checkpoints
+            href: concepts/checkpoints.md
+          - name: Datasets
+            href: concepts/dataset.md
+      - name: Using models
         href: concepts/deploy/index.md
-      - name: Using TensorBoard in Yandex DataSphere
-        href: concepts/tensorboard.md
-      - name: Distributed training
-        href: concepts/taas.md
-      - name: Cost management
-        href: concepts/budget.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Early access
-    items:
-      - name: Overview
-        href: early-access/index.md
-      - name: Special background operations
-        href: early-access/repeat.md
-  - name: Practical guidelines
-    items:
-      - name: All tutorials
-        href: tutorials/index.md
-      - name: Getting started with Yandex DataSphere
-        href: tutorials/basics.md
-      - name: Voice biometrics
-        href: tutorials/speech-recognition.md
-      - name: Evaluating the quality of STT models
-        href: tutorials/estimate-quality.md
-      - name: Labeling audio files
-        href: tutorials/markup.md
-      - name: Classification of images in video frames
-        href: tutorials/video-recognition.md
-      - name: >-
-          Web analytics with funnels and cohorts calculated based on Yandex
-          Metrica data
-        href: tutorials/data-from-metrica-yc-visualization.md
-  - name: API reference
-    items:
-      - name: Authentication in the API
-        href: api-ref/authentication.md
-      - name: gRPC
-        items:
-          - name: Overview
-            href: api-ref/grpc/index.md
-          - name: AppTokenService
-            href: api-ref/grpc/app_token_service.md
-          - name: FolderBudgetService
-            href: api-ref/grpc/folder_budget_service.md
-          - name: NodeService
-            href: api-ref/grpc/node_service.md
-          - name: ProjectDataService
-            href: api-ref/grpc/project_data_service.md
-          - name: ProjectService
-            href: api-ref/grpc/project_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
-      - name: REST
-        items:
-          - name: Overview
-            href: api-ref/index.md
-          - name: AppToken
-            items:
-              - name: Overview
-                href: api-ref/AppToken/index.md
-              - name: validate
-                href: api-ref/AppToken/validate.md
-          - name: FolderBudget
-            items:
-              - name: Overview
-                href: api-ref/FolderBudget/index.md
-              - name: get
-                href: api-ref/FolderBudget/get.md
-              - name: set
-                href: api-ref/FolderBudget/set.md
-          - name: Node
-            items:
-              - name: Overview
-                href: api-ref/Node/index.md
-              - name: execute
-                href: api-ref/Node/execute.md
-          - name: Project
-            items:
-              - name: Overview
-                href: api-ref/Project/index.md
-              - name: create
-                href: api-ref/Project/create.md
-              - name: delete
-                href: api-ref/Project/delete.md
-              - name: execute
-                href: api-ref/Project/execute.md
-              - name: get
-                href: api-ref/Project/get.md
-              - name: getCellOutputs
-                href: api-ref/Project/getCellOutputs.md
-              - name: getNotebookMetadata
-                href: api-ref/Project/getNotebookMetadata.md
-              - name: getStateVariables
-                href: api-ref/Project/getStateVariables.md
-              - name: getUnitBalance
-                href: api-ref/Project/getUnitBalance.md
-              - name: list
-                href: api-ref/Project/list.md
-              - name: open
-                href: api-ref/Project/open.md
-              - name: setUnitBalance
-                href: api-ref/Project/setUnitBalance.md
-              - name: update
-                href: api-ref/Project/update.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

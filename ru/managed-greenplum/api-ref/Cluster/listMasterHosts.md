@@ -10,7 +10,7 @@ Retrieves a list of master hosts for the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-greenplum/v1/clusters/{clusterId}/master-hosts
+GET https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/master-hosts
 ```
  
 ## Path parameters {#path_params}

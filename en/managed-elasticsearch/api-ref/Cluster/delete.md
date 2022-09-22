@@ -10,7 +10,7 @@ Deletes the specified Elasticsearch cluster.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}
+DELETE https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

@@ -10,7 +10,7 @@ Stops the specified Apache Kafka® cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}:stop
+POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}:stop
 ```
  
 ## Path parameters {#path_params}

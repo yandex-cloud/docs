@@ -10,7 +10,7 @@ Updates the specified Kafka topic.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}/topics/{topicName}
+PATCH https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/topics/{topicName}
 ```
  
 ## Path parameters {#path_params}

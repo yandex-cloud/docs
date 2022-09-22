@@ -25,6 +25,8 @@ items:
             href: operations/invoke.md
           - name: Изменение контейнера
             href: operations/update.md
+          - name: Масштабирование контейнера
+            href: operations/scale.md
           - name: Мониторинг
             href: operations/monitoring.md
           - name: Просмотр журнала выполнения
@@ -51,6 +53,8 @@ items:
             href: operations/budget-trigger-create.md
           - name: Создание триггера для Data Streams
             href: operations/data-streams-trigger-create.md
+          - name: Создание триггера для почты
+            href: operations/mail-trigger-create.md
           - name: Изменение триггера
             href: operations/trigger-update.md
           - name: Мониторинг триггера
@@ -65,6 +69,8 @@ items:
         href: concepts/container.md
       - name: Вызов контейнера
         href: concepts/invoke.md
+      - name: Сетевое взаимодействие
+        href: concepts/networking.md
       - name: Среда выполнения
         href: concepts/runtime.md
       - name: Триггер
@@ -87,6 +93,8 @@ items:
             href: concepts/trigger/budget-trigger.md
           - name: Триггер для Data Streams
             href: concepts/trigger/data-streams-trigger.md
+          - name: Триггер для почты
+            href: concepts/trigger/mail-trigger.md
       - name: Dead Letter Queue
         href: concepts/dlq.md
       - name: Логи контейнера

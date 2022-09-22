@@ -1,4 +1,4 @@
-# Publishing a notebook
+# Publish a notebook
 
 You can export a notebook as a link to an HTML report. The report saves all calculation results and cell explanations so that you can send the link to customers or publish the results on your website.
 
@@ -12,7 +12,7 @@ To save the changes, on the notebook tab, click ![save](../../../_assets/datasph
 
 To publish a notebook:
 
-1. Under the ![folder](../../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section, select the notebook you want to export.
+1. Under the ![folder](../../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section, select the notebook you want to export
 1. In the top panel, click **File** and select **Export Notebook as HTML**.
 1. In the window that opens, click **Copy to clipboard**.
 

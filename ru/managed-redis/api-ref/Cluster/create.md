@@ -10,7 +10,7 @@ Creates a Redis cluster in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-redis/v1/clusters
+POST https://{{ api-host-mdb }}/managed-redis/v1/clusters
 ```
  
 ## Body parameters {#body_params}

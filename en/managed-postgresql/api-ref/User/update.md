@@ -10,7 +10,7 @@ Updates the specified PostgreSQL user.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}/users/{userName}
+PATCH https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path parameters {#path_params}

@@ -1,0 +1,1 @@
+Select the desired project in your community or on the {{ ml-platform-name }} [homepage]({{ link-datasphere-main }}) in the **Recent projects** tab.

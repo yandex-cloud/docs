@@ -10,7 +10,7 @@ Adds a ZooKeeper subcluster to the specified ClickHouse cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}:addZookeeper
+POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}:addZookeeper
 ```
  
 ## Path parameters {#path_params}

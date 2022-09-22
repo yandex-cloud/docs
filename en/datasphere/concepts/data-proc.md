@@ -20,10 +20,10 @@ The above parameters should be [specified in additional project settings](../ope
 
 * To create a {{ dataproc-name }} cluster, you need permission for the service account that {{ ml-platform-name }} will use to perform operations. This permission is included in the `iam.serviceAccounts.user` and `editor` roles and higher.
 * To manage {{ dataproc-name }} clusters, the service account needs the following roles:
-    * `datasphere.admin` to create {{ ml-platform-name }} resources. 
-    * `vpc.user` to access the network specified in the project settings.
-    * `mdb.admin` to create and use {{ dataproc-name }} clusters.
-    * `mdb.dataproc.agent` to create and use {{ dataproc-name }} clusters.
+   * `datasphere.admin` to create resources in {{ ml-platform-name }}.
+   * `vpc.user` to access the network specified in the project settings.
+   * `mdb.admin` to create and use {{ dataproc-name }} clusters.
+   * `mdb.dataproc.agent` to create and use {{ dataproc-name }} clusters.
 
 Read more about [access management](../security/index.md).
 

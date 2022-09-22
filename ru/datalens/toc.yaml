@@ -35,6 +35,8 @@ items:
         href: tutorials/data-from-monitoring-visualization.md
       - name: Построение чартов customer journeys на данных AppMetrica
         href: tutorials/data-from-appmetrica-yc-visualization.md
+      - name: Создание подключения к Битрикс24
+        href: tutorials/data-from-bitrix24-visualization.md
   - name: Концепции
     items:
       - name: Обзор сервиса
@@ -93,8 +95,8 @@ items:
         items:
           - name: Создание подключения к ClickHouse
             href: operations/connection/create-clickhouse.md
-          - name: Создание подключения к файлу CSV
-            href: operations/connection/create-csv.md
+          - name: Создание подключения к файлу
+            href: operations/connection/create-file.md
           - name: Создание подключения к Google Sheets
             href: operations/connection/create-google-sheets.md
           - name: Создание подключения к MySQL
@@ -127,8 +129,6 @@ items:
             href: operations/dataset/create.md
           - name: Объединение данных из нескольких таблиц
             href: operations/dataset/join-data.md
-          - name: Объединение данных из нескольких CSV-подключений
-            href: operations/dataset/join-data-csv.md
           - name: Создание поля данных
             href: operations/dataset/create-field.md
           - name: Создание вычисляемого поля данных
@@ -189,6 +189,8 @@ items:
             href: operations/dashboard/add-parameters.md
           - name: Автообновление дашборда
             href: operations/dashboard/auto-update.md
+          - name: Порядок отображения виджетов на мобильном устройстве
+            href: operations/dashboard/display-modes.md
       - name: Работа с правами доступа
         items:
           - name: Назначение прав доступа
@@ -261,6 +263,8 @@ items:
             href: visualization-ref/choropleth-map-chart.md
           - name: Тепловая карта
             href: visualization-ref/heat-map-chart.md
+      - name: Комбинированная диаграмма
+        href: visualization-ref/combined-chart.md
   - name: Справочник функций
     items:
       - name: Все функции

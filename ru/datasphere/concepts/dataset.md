@@ -1,6 +1,6 @@
 # Датасеты
 
-Датасет — это механизм хранения информации, который предоставляет быстрый доступ к большим объемам данных. Датасет может хранить до 4 ТБ, при этом доступ к данным будет быстрее, чем к основному хранилищу проекта. 
+_Датасет_ — это механизм хранения информации, который предоставляет быстрый доступ к большим объемам данных. Датасет может хранить до 4 ТБ, при этом доступ к данным будет быстрее, чем к основному хранилищу проекта. 
 
 Создание и наполнение датасета происходит во время инициализации. После инициализации датасет доступен только для чтения. 
 
@@ -10,7 +10,7 @@
 
 {% note info %}
 
-Во время инициализации датасета будет выделен весь запрошенный объем дискового хранилища, однако часть этого объема будет занята файловой системой. Указывайте размер датасета с запасом.
+Во время инициализации датасета будет выделен весь запрошенный объем дискового хранилища, однако часть этого объема будет занято файловой системой. Указывыйте размер датасета с запасом.
 
 Датасеты не включены в основное хранилище проекта.
 
@@ -26,27 +26,25 @@
   
   - Bash
   
-    Создание датасета `<имя_датасета>` из архива [CIFAR](https://www.cs.toronto.edu/~kriz/cifar.html):
+    Создание датасета `<DATASET_NAME>` из архива [CIFAR](https://www.cs.toronto.edu/~kriz/cifar.html):
     
     ```bash
     #!:bash
-    #pragma dataset init <имя_датасета> --size 1Gb
+    #pragma dataset init <DATASET_NAME> --size 1Gb
     
     set -e
-    cd /home/jupyter/mnt/datasets/<имя_датасета>
+    cd /home/jupyter/mnt/datasets/<DATASET_NAME>
     wget https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
     tar -xvf cifar-10-python.tar.gz
     rm -rf cifar-10-python.tar.gz
     ```
-
-    Где `<имя_датасета>` — имя создаваемого датасета.
   
   - Python 3
 
-    Создание датасета `<имя_датасета>` из архива [CIFAR](https://www.cs.toronto.edu/~kriz/cifar.html):
+    Создание датасета `<DATASET_NAME>` из архива [CIFAR](https://www.cs.toronto.edu/~kriz/cifar.html):
     
     ```python
-    #pragma dataset init <имя_датасета> --size 1Gb
+    #pragma dataset init <DATASET_NAME> --size 1Gb
     
     from urllib.request import urlopen
     import tarfile
@@ -54,7 +52,7 @@
     
     file_name = 'cifar-10-python.tar.gz'
     file_url = 'https://www.cs.toronto.edu/~kriz/' + file_name
-    dest_dir = '/home/jupyter/mnt/datasets/<имя_датасета>/'
+    dest_dir = '/home/jupyter/mnt/datasets/<DATASET_NAME>/'
     dest_file = dest_dir + file_name
     
     with urlopen(file_url) as i:
@@ -70,86 +68,58 @@
     # This prevents serialization of temporary variables
     del i, o, tar
     ```
-
-    Где `<имя_датасета>` — имя создаваемого датасета.
   
   {% endlist %}
 
 * Из объектов файловых хранилищ.
-
-  Для подключения к хранилищу вам понадобится аутентификационная информация — [ключи доступа](../../iam/operations/sa/create-access-key.md) и пароли. Мы рекомендуем использовать для хранения такой информации [секреты](../concepts/secrets.md).
 
   {% list tabs %}
   
   - {{ objstorage-short-name }}
   
     ```python
-    #pragma dataset init <имя_датасета> --size 1Gb
+    #pragma dataset init <DATASET_NAME> --size 1Gb
     
     from cloud_ml.storage.api import Storage
-    s3 = Storage.s3(access_key=<ключ_доступа>, secret_key=<секретный_ключ>)
-    s3.get('bucket/<путь_внутри_бакета>/file.txt', '/home/jupyter/mnt/datasets/<имя_датасета>/<путь>/file.txt')
+    s3 = Storage.s3(access_key=<access_key>, secret_key=<secret_key>])
+    s3.get('bucket/<path_within_S3>/file.txt', '/home/jupyter/mnt/datasets/<DATASET_NAME>/<path>/file.txt')
     ```
-
-    Где:
-
-    * `<имя_датасета>` — имя создаваемого датасета.
-    * `<ключ_доступа>` — идентификатор [статического ключа доступа](../../iam/operations/sa/create-access-key.md) к хранилищу.
-    * `<секретный_ключ>` — значение [секретного ключа доступа](../../iam/operations/sa/create-access-key.md) к хранилищу.
-    * `<путь_внутри_бакета>` — [ключ объекта или префикс](../../storage/concepts/object.md#key).
-    * `<путь>` — путь до файла внутри датасета.
     
   - Яндекс Диск
   
     Для подключения к Яндекс Диску вам понадобится идентификатор приложения и секрет. Чтобы их получить:
-
     1. На [странице регистрации приложений]({{ ya-client-app }}) в Яндекс ID выберите опцию **Веб-сервисы**.
-    1. Вставьте в поле **Callback URI** значение `{{ ya-oauth }}`.
+    1. Вставьте в поле **Callback URI** значение ```{{ ya-oauth }}```.
     1. Настройте разрешения для Яндекс Диска.
     1. Инициализируйте датасет в ячейке с кодом:
 
-       ```python
-       #pragma dataset init <имя_датасета> --size 1Gb
+    ```python
+    #pragma dataset init <DATASET_NAME> --size 1Gb
 
-       from cloud_ml.storage.api import Storage
+    from cloud_ml.storage.api import Storage
    
-       disk = Storage.ya_disk(application_id='<идентификатор_приложения>', application_secret='<секрет>')
+    disk = Storage.ya_disk(application_id='<id>', application_secret='<secret>')
     
-       # downloading contents of the remote file into the local one
-       disk.get('<путь_внутри_Яндекс_Диска>/file.txt', '/home/jupyter/mnt/datasets/<имя_датасета>/<путь>/file.txt')
-       ```
-
-       Где:
-
-       * `<имя_датасета>` — имя создаваемого датасета.
-       * `<идентификатор_приложения>` — идентификатор приложения для доступа к Яндекс Диску.
-       * `<секрет>` — секрет приложения для доступа к Яндекс Диску.
-       * `<путь_внутри_Яндекс_Диска>` — путь до каталога с файлом.
-       * `<путь>` — путь до файла внутри датасета.
+    # downloading contents of the remote file into the local one
+    disk.get('<path_within_ya_disk>/file.txt', '/home/jupyter/mnt/datasets/<DATASET_NAME>/<path>/file.txt')
+    ```  
   
   - Google Drive
   
-    Для подключения к Google Drive воспользуйтесь [инструкцией](https://developers.google.com/drive/api/v3/enable-drive-api) в официальной документации и создайте **OAuth client ID** типа **TVs and Limited Input devices**. 
+    Для подключения к Google Drive воспользуйтесь [инструкцией](https://developers.google.com/drive/api/v3/enable-drive-api) в официальной документации и создайте **OAuth client ID** типа **TVs and limited input devices**. 
   
     Используйте созданный **OAuth client ID** и инициализируйте датасет, выполнив в ячейке код: 
 
     ```python
-    #pragma dataset init <имя_датасета> --size 1Gb
+    #pragma dataset init <DATASET_NAME> --size 1Gb
 
-    client_secret = {<секрет_клиента>}
+    client_secret = {<client_secret>}
     
     gdrive = Storage.gdrive(client_secret)
-    gdrive_file_id = '<идентификатор_файла>'
-    dst_path = '/home/jupyter/mnt/datasets/<имя_датасета>/<путь>/file.txt'
+    gdrive_file_id = '<fileID>'
+    dst_path = '/home/jupyter/mnt/datasets/<DATASET_NAME>/<path>/file.txt'
     gdrive.get(gdrive_file_id, dst_path)
     ```
-    
-    Где:
-
-    * `<имя_датасета>` — имя создаваемого датасета.
-    * `<секрет_клиента>` — секретный ключ, полученный при создании **OAuth client ID**.
-    * `<идентификатор_файла>` — идентификатор файла в Google Drive.
-    * `<путь>` — путь до файла внутри датасета.
 
   {% endlist %}
 
@@ -163,24 +133,19 @@
 
     ```bash
     #!:bash
-    #pragma dataset init <имя_датасета> --size 1Gb
+    #pragma dataset init  <DATASET_NAME> --size 1Gb
     
     set -e
-    cp -r <имя_каталога_источника> /home/jupyter/mnt/datasets/<имя_датасета>
+    cp -r <SOURCE_FOLDER_NAME> /home/jupyter/mnt/datasets/<DATASET_NAME>
     ```
-
-    Где:
-
-    * `<имя_датасета>` — имя создаваемого датасета.
-    * `<имя_каталога_источника>` — имя локального каталога с файлами для копирования.
 
   {% endlist %}
 
 ## Использование датасета {#use}
 
-После инициализации датасеты доступны из кода по пути вида `/home/jupyter/mnt/datasets/<имя_датасета>`. 
+После инициализации датасеты доступны из кода по пути вида `/home/jupyter/mnt/datasets/<DATASET_NAME>`. 
 
-Чтобы посмотреть все доступные в проекте датасеты, откройте вкладку **Datasets** ![datasets](../../_assets/datasphere/jupyterlab/dataset.svg). В ней вы увидите список созданных датасетов и сможете посмотреть их содержимое. 
+Чтобы посмотреть все доступные в проекте датасеты, откройте вкладку **Datasets** ![](../../_assets/datasphere/jupyterlab/dataset.svg). В ней вы увидите список созданных датасетов и сможете посмотреть их содержимое. 
 
 Вывести список всех доступных в проекте датасетов можно, запустив ячейку с кодом:
 
@@ -192,10 +157,8 @@
 
 ## Удаление датасета {#delete}
 
-Чтобы удалить датасет `<имя_датасета>`, выполните ячейку с кодом:
+Чтобы удалить датасет `<DATASET_NAME>`, выполните ячейку с кодом 
 
 ```
-#pragma dataset delete <имя_датасета>
+#pragma dataset delete <DATASET_NAME>
 ```
-
-Где `<имя_датасета>` — имя удаляемого датасета.

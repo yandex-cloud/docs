@@ -10,7 +10,7 @@ For more information about logs, see the [Logs](/docs/managed-elasticsearch/oper
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}:logs
+GET https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}:logs
 ```
  
 ## Path parameters {#path_params}

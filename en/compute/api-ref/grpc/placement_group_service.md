@@ -155,10 +155,6 @@ placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strateg
 &nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](#SpreadPlacementStrategy3)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
 
 
-### SpreadPlacementStrategy {#SpreadPlacementStrategy3}
-
-
-
 ## Update {#Update}
 
 Updates the specified placement group.
@@ -214,10 +210,10 @@ name | **string**<br>Name of the placement group. The name is unique within the 
 description | **string**<br>Description of the placement group. 0-256 characters long. 
 labels | **map<string,string>**<br>Placement group labels as `key:value` pairs. 
 placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy. To specify a placement strategy, send the corresponding field containing an empty structure.
-&nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](#SpreadPlacementStrategy4)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
+&nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](#SpreadPlacementStrategy3)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
 
 
-### SpreadPlacementStrategy {#SpreadPlacementStrategy4}
+### SpreadPlacementStrategy {#SpreadPlacementStrategy3}
 
 
 
@@ -390,16 +386,6 @@ dns_records[] | **[DnsRecord](#DnsRecord)**<br>External DNS configuration
 
 
 ### DnsRecord {#DnsRecord}
-
-Field | Description
---- | ---
-fqdn | **string**<br>Name of the A/AAAA record as specified when creating the instance. Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). 
-dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
-ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
-ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
-
-
-### DnsRecord {#DnsRecord1}
 
 Field | Description
 --- | ---

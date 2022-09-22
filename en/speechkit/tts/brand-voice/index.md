@@ -30,6 +30,5 @@ Synthesis using {{ brand-voice-name }} Adaptive requires much less data for trai
 
 #### What's next {#what-is-next}
 
-* [{{ brand-voice-name }} API (Eng.)](../../new-v3/api-ref/grpc/).
-* [{#T}](income-data-format.md).
-* [{#T}](import-data.md).
+* [{{ brand-voice-name }} API (Eng.)](../../new-v3/api-ref/grpc/)
+* [{#T}](income-data-format.md)

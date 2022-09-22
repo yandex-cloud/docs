@@ -12,5 +12,3 @@ The key administrator role `kms.admin` includes the following permissions:
 These permissions are also part of the `admin` and `resource-manager.clouds.owner` roles.
 
 You can now assign this role to an [organization](../organization/index.yaml), [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../resource-manager/concepts/resources-hierarchy.md#folder), or [key](../kms/concepts/key).
-
-A cloud owner (the `resource-manager.clouds.owner` role) or administrator (the `admin` role), or an organization administrator (the `organization-manager.admin` role) can grant this role.

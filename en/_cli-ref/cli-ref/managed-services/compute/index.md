@@ -70,6 +70,21 @@ Syntax:
 	- [yc compute snapshot remove-labels](snapshot/remove-labels.md) — Remove labels from specified snapshot
 	- [yc compute snapshot delete](snapshot/delete.md) — Delete the specified snapshot
 	- [yc compute snapshot list-operations](snapshot/list-operations.md) — List operations for the specified snapshot
+- [yc compute snapshot-schedule](snapshot-schedule/index.md) — Manage snapshot schedules
+	- [yc compute snapshot-schedule get](snapshot-schedule/get.md) — Show information about the specified snapshot schedule
+	- [yc compute snapshot-schedule list](snapshot-schedule/list.md) — List snapshot schedules
+	- [yc compute snapshot-schedule create](snapshot-schedule/create.md) — Create a snapshot schedule
+	- [yc compute snapshot-schedule disable](snapshot-schedule/disable.md) — Disable the specified snapshot schedule
+	- [yc compute snapshot-schedule enable](snapshot-schedule/enable.md) — Enable the specified snapshot schedule
+	- [yc compute snapshot-schedule update](snapshot-schedule/update.md) — Update the specified snapshot schedule
+	- [yc compute snapshot-schedule add-disks](snapshot-schedule/add-disks.md) — Add disks to the specified snapshot schedule
+	- [yc compute snapshot-schedule remove-disks](snapshot-schedule/remove-disks.md) — Remove disks from the specified snapshot schedule
+	- [yc compute snapshot-schedule add-labels](snapshot-schedule/add-labels.md) — Add labels to specified snapshot schedule
+	- [yc compute snapshot-schedule remove-labels](snapshot-schedule/remove-labels.md) — Remove labels from specified snapshot schedule
+	- [yc compute snapshot-schedule delete](snapshot-schedule/delete.md) — Delete the specified snapshot schedule
+	- [yc compute snapshot-schedule list-operations](snapshot-schedule/list-operations.md) — List operations for the specified snapshot schedule
+	- [yc compute snapshot-schedule list-disks](snapshot-schedule/list-disks.md) — List disks attached to the specified snapshot schedule
+	- [yc compute snapshot-schedule list-snapshots](snapshot-schedule/list-snapshots.md) — List snapshots created by specified snapshot schedule
 - [yc compute zone](zone/index.md) — Show availability zones
 	- [yc compute zone get](zone/get.md) — Show information about the specified availability zone.
 	- [yc compute zone list](zone/list.md) — List availability zones

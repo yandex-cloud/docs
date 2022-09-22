@@ -1,31 +1,21 @@
-# Running sample code in a notebook
+# Notebook code snippets
 
-The notebook includes small code samples that upload data from different sources.
+The notebook contains code snippets for simple operations. Use them to extract files from a ZIP archive, to create a dataset, or to connect to file storage. The snippet library is subject to updates, so an up-to-date snippet list is available in the IDE.
 
 ## Before you begin {#before-begin}
 
-If a project is already open, open the tab with a notebook.
+{% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
 
-If not, open the project:
+## Running a snippet {#run}
 
-{% include [include](../../../_includes/datasphere/before-begin.md) %}
-
-## Run a code sample {#run}
-
-To run a code sample:
-
-1. In the top panel in the project window, click **Snippets**.
-1. In the menu that opens, click **Yandex Disk**.
-1. In the menu that opens, click the code example you want to run.
-1. The code example will be copied to the notebook cell.
-   1. Follow the steps from the example.
-   1. Run the cell. To do this, click ![Run](../../../_assets/datasphere/jupyterlab/run.svg).
+1. In **Snippets**, select the snippet that you want to run. The code will be added to a new notebook cell.
+1. Edit the appropriate parameters, such as file paths, names, logins, and passwords. To store private information, use [secrets](../../concepts/secrets.md).
+1. If a snippet contains additional instructions, run them as well.
+1. Run the cell. To do this, click ![Run](../../../_assets/datasphere/jupyterlab/run.svg).
+1. The result will be displayed under the cell.
 
 #### See also {#see-also}
 
 * [{#T}](../data/connect-to-ya-disk.md)
 * [{#T}](../data/connect-to-google-drive.md)
-
-#### What's next {#what-is-next}
-
-* [{#T}](checkpoints.md)
+* [{#T}](./work-with-git.md#clone)

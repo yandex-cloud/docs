@@ -23,6 +23,15 @@ Syntax:
 	- [yc iot registry remove-labels](registry/remove-labels.md) — Remove labels from specified registry
 	- [yc iot registry delete](registry/delete.md) — Delete specified registry
 	- [yc iot registry list-device-topic-aliases](registry/list-device-topic-aliases.md) — List all topic aliases set for devices in this registry
+- [yc iot broker](broker/index.md) — Manage IoT brokers
+	- [yc iot broker get](broker/get.md) — Show information about specified broker
+	- [yc iot broker list](broker/list.md) — List IoT brokers
+	- [yc iot broker create](broker/create.md) — Create new broker
+	- [yc iot broker update](broker/update.md) — Update specified broker
+	- [yc iot broker add-labels](broker/add-labels.md) — Add labels to specified broker
+	- [yc iot broker remove-labels](broker/remove-labels.md) — Remove labels from specified broker
+	- [yc iot broker delete](broker/delete.md) — Delete specified broker
+	- [yc iot broker logs](broker/logs.md) — Show logs for the specified broker
 - [yc iot device](device/index.md) — Manage IoT devices
 	- [yc iot device get](device/get.md) — Show information about specified device
 	- [yc iot device list](device/list.md) — List IoT devices

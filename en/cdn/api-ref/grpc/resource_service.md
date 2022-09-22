@@ -680,6 +680,14 @@ Field | Description
 id | **string**<br>ID of the custom certificate. 
 
 
+### ResourceOriginParams {#ResourceOriginParams}
+
+Field | Description
+--- | ---
+source | **string**<br>Source of the content. 
+meta | **[OriginMeta](#OriginMeta1)**<br>Set up type of the origin. 
+
+
 ### Operation {#Operation}
 
 Field | Description
@@ -719,6 +727,45 @@ origin_group_id | **int64**<br>ID of the origin group.
 origin_group_name | **string**<br>Name of the origin group. 
 origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li></ul>
 ssl_certificate | **[SSLCertificate](#SSLCertificate2)**<br>SSL certificate options. 
+
+
+### SSLCertificate {#SSLCertificate2}
+
+Field | Description
+--- | ---
+type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li></ul>
+status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: SSL certificate is creating.</li></ul>
+data | **[SSLCertificateData](#SSLCertificateData3)**<br>Certificate data. 
+
+
+## Update {#Update}
+
+Updates the specified CDN resource. <br>The method implements patch behaviour, i.e. only the fields specified in the request are updated in the resource. <br>Changes may take up to 15 minutes to apply. Afterwards, it is recommended to purge the resource's cache via a [CacheService.Purge](./cache_service#Purge) request.
+
+**rpc Update ([UpdateResourceRequest](#UpdateResourceRequest)) returns ([operation.Operation](#Operation1))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateResourceMetadata](#UpdateResourceMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Resource](#Resource3)<br>
+
+### UpdateResourceRequest {#UpdateResourceRequest}
+
+Field | Description
+--- | ---
+resource_id | **string**<br>Required. ID of updated resource. The maximum string length in characters is 50.
+origin_group_id | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>ID of updated origin group. 
+secondary_hostnames | **[SecondaryHostnames](#SecondaryHostnames1)**<br>List of additional CNAMEs. 
+options | **[ResourceOptions](#ResourceOptions3)**<br>Resource settings and options to tune CDN edge behavior. 
+origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li></ul>
+active | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Flag to create Resource either in active or disabled state. In active state Origins payload could be transmitted from CDN CNAME requests. Default value: true 
+ssl_certificate | **[SSLTargetCertificate](#SSLTargetCertificate1)**<br>SSL Certificate options. 
+
+
+### SecondaryHostnames {#SecondaryHostnames1}
+
+Field | Description
+--- | ---
+values[] | **string**<br>List of secondary hostname values. 
 
 
 ### ResourceOptions {#ResourceOptions3}
@@ -868,12 +915,11 @@ body | **string**<br>Pattern for rewrite. <br>The value must have the following 
 flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. It is not shown in the field. <ul><li>`LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.</li><li>`BREAK`: Stops processing of the current set of the Rewrite option.</li><li>`REDIRECT`: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme".</li><li>`PERMANENT`: Returns a permanent redirect with the 301 code.</li></ul>
 
 
-### SSLCertificate {#SSLCertificate2}
+### SSLTargetCertificate {#SSLTargetCertificate1}
 
 Field | Description
 --- | ---
 type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li></ul>
-status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: SSL certificate is creating.</li></ul>
 data | **[SSLCertificateData](#SSLCertificateData3)**<br>Certificate data. 
 
 
@@ -886,206 +932,6 @@ ssl_certificate_data_variant | **oneof:** `cm`<br>
 
 
 ### SSLCertificateCMData {#SSLCertificateCMData3}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the custom certificate. 
-
-
-## Update {#Update}
-
-Updates the specified CDN resource. <br>The method implements patch behaviour, i.e. only the fields specified in the request are updated in the resource. <br>Changes may take up to 15 minutes to apply. Afterwards, it is recommended to purge the resource's cache via a [CacheService.Purge](./cache_service#Purge) request.
-
-**rpc Update ([UpdateResourceRequest](#UpdateResourceRequest)) returns ([operation.Operation](#Operation1))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateResourceMetadata](#UpdateResourceMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Resource](#Resource3)<br>
-
-### UpdateResourceRequest {#UpdateResourceRequest}
-
-Field | Description
---- | ---
-resource_id | **string**<br>Required. ID of updated resource. The maximum string length in characters is 50.
-origin_group_id | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>ID of updated origin group. 
-secondary_hostnames | **[SecondaryHostnames](#SecondaryHostnames1)**<br>List of additional CNAMEs. 
-options | **[ResourceOptions](#ResourceOptions4)**<br>Resource settings and options to tune CDN edge behavior. 
-origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li></ul>
-active | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Flag to create Resource either in active or disabled state. In active state Origins payload could be transmitted from CDN CNAME requests. Default value: true 
-ssl_certificate | **[SSLTargetCertificate](#SSLTargetCertificate1)**<br>SSL Certificate options. 
-
-
-### SecondaryHostnames {#SecondaryHostnames1}
-
-Field | Description
---- | ---
-values[] | **string**<br>List of secondary hostname values. 
-
-
-### ResourceOptions {#ResourceOptions4}
-
-Field | Description
---- | ---
-disable_cache | **[BoolOption](#BoolOption4)**<br>Set up a cache status. 
-edge_cache_settings | **[EdgeCacheSettings](#EdgeCacheSettings4)**<br>Set up [EdgeCacheSettings](#EdgeCacheSettings4). 
-browser_cache_settings | **[Int64Option](#Int64Option4)**<br>Using [Int64Option](#Int64Option4). Set up a cache period for the end-users browser. Content will be cached due to origin settings. If there are no cache settings on your origin, the content will not be cached. The list of HTTP response codes that can be cached in browsers: 200, 201, 204, 206, 301, 302, 303, 304, 307, 308. Other response codes will not be cached. The default value is 4 days. 
-cache_http_headers | **[StringsListOption](#StringsListOption4)**<br>List HTTP headers that must be included in responses to clients. 
-query_params_options | **[QueryParamsOptions](#QueryParamsOptions4)**<br>Set up [QueryParamsOptions](#QueryParamsOptions4). 
-slice | **[BoolOption](#BoolOption4)**<br>Files larger than 10 MB will be requested and cached in parts (no larger than 10 MB each part). It reduces time to first byte. <br>The origin must support HTTP Range requests. <br>By default the option is disabled. 
-compression_options | **[CompressionOptions](#CompressionOptions4)**<br>Set up compression variant. 
-redirect_options | **[RedirectOptions](#RedirectOptions4)**<br>Set up redirects. 
-host_options | **[HostOptions](#HostOptions4)**<br>Set up host parameters. 
-static_headers | **[StringsMapOption](#StringsMapOption4)**<br>Set up static headers that CDN servers send in responses to clients. 
-cors | **[StringsListOption](#StringsListOption4)**<br>Parameter that lets browsers get access to selected resources from a domain different to a domain from which the request is received. [Read more](/docs/cdn/concepts/cors). 
-stale | **[StringsListOption](#StringsListOption4)**<br>List of errors which instruct CDN servers to serve stale content to clients. <br>Possible values: `error`, `http_403`, `http_404`, `http_429`, `http_500`, `http_502`, `http_503`, `http_504`, `invalid_header`, `timeout`, `updating`. 
-allowed_http_methods | **[StringsListOption](#StringsListOption4)**<br>HTTP methods for your CDN content. By default the following methods are allowed: GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS. In case some methods are not allowed to the user, they will get the 405 (Method Not Allowed) response. If the method is not supported, the user gets the 501 (Not Implemented) response. 
-proxy_cache_methods_set | **[BoolOption](#BoolOption4)**<br>Allows caching for GET, HEAD and POST requests. 
-disable_proxy_force_ranges | **[BoolOption](#BoolOption4)**<br>Disabling proxy force ranges. 
-static_request_headers | **[StringsMapOption](#StringsMapOption4)**<br>Set up custom headers that CDN servers send in requests to origins. The Header name field can contain letters (A-Z, a-z), numbers (0-9), dashes (-) and underscores (_). The Value field can contain letters (A-Z, a-z), numbers (0-9), dashes (-), underscores (_), slashes (/), colons (:), equal (=), dots (.), and spaces. 
-custom_server_name | **[StringOption](#StringOption4)**<br>Wildcard additional CNAME. If a resource has a wildcard additional CNAME, you can use your own certificate for content delivery via HTTPS. Read-only. 
-ignore_cookie | **[BoolOption](#BoolOption4)**<br>Using [BoolOption](#BoolOption4) for ignoring cookie. 
-rewrite | **[RewriteOption](#RewriteOption4)**<br>Changing or redirecting query paths. 
-
-
-### BoolOption {#BoolOption4}
-
-Field | Description
---- | ---
-enabled | **bool**<br>True - the option is enabled and its `value` is applied to the resource. False - the option is disabled and its default value is used for the resource. 
-value | **bool**<br>Value of the option. 
-
-
-### StringOption {#StringOption4}
-
-Field | Description
---- | ---
-enabled | **bool**<br>True - the option is enabled and its `value` is applied to the resource. False - the option is disabled and its default value is used for the resource. 
-value | **string**<br>Value of the option. 
-
-
-### Int64Option {#Int64Option4}
-
-Field | Description
---- | ---
-enabled | **bool**<br>True - the option is enabled and its `value` is applied to the resource. False - the option is disabled and its default value is used for the resource. 
-value | **int64**<br>Value of the option. 
-
-
-### StringsListOption {#StringsListOption4}
-
-Field | Description
---- | ---
-enabled | **bool**<br>True - the option is enabled and its `value` is applied to the resource. False - the option is disabled and its default value is used for the resource. 
-value[] | **string**<br>Value of the option. 
-
-
-### StringsMapOption {#StringsMapOption4}
-
-Field | Description
---- | ---
-enabled | **bool**<br>True - the option is enabled and its `value` is applied to the resource. False - the option is disabled and its default value is used for the resource. 
-value | **map<string,string>**<br>Value of the option. 
-
-
-### CachingTimes {#CachingTimes4}
-
-Field | Description
---- | ---
-simple_value | **int64**<br>Caching time for a response with codes 200, 206, 301, 302. Responses with codes 4xx, 5xx will not be cached. Use `0s` disable to caching. Use `custom_values` field to specify a custom caching time for a response with specific codes. 
-custom_values | **map<string,int64>**<br>Caching time for a response with specific codes. These settings have a higher priority than the value field. Response code (`304`, `404` for example). Use `any` to specify caching time for all response codes. Caching time in seconds (`0s`, `600s` for example). Use `0s` to disable caching for a specific response code. 
-
-
-### EdgeCacheSettings {#EdgeCacheSettings4}
-
-Field | Description
---- | ---
-enabled | **bool**<br>True - the option is enabled and its `values_variant` is applied to the resource. False - the option is disabled and its default value is used for the resource. 
-values_variant | **oneof:** `value` or `default_value`<br>
-&nbsp;&nbsp;value | **[CachingTimes](#CachingTimes4)**<br>Value of the option. 
-&nbsp;&nbsp;default_value | **int64**<br>Content will be cached according to origin cache settings. The value applies for a response with codes 200, 201, 204, 206, 301, 302, 303, 304, 307, 308 if an origin server does not have caching HTTP headers. Responses with other codes will not be cached. 
-
-
-### StringVariableMapOption {#StringVariableMapOption4}
-
-Field | Description
---- | ---
-enabled | **bool**<br>True - the option is enabled and its `value` is applied to the resource. False - the option is disabled and its default value is used for the resource. 
-value | **map<string,OneofString>**<br>Value of the option. 
-
-
-### OneofString {#OneofString4}
-
-Field | Description
---- | ---
-string_option | **oneof:** `value` or `values`<br>
-&nbsp;&nbsp;value | **[StringOption](#StringOption4)**<br>Using [StringOption](#StringOption4) to set value. 
-&nbsp;&nbsp;values | **[StringsListOption](#StringsListOption4)**<br>Using [StringsListOption](#StringsListOption4) to set values. 
-
-
-### QueryParamsOptions {#QueryParamsOptions4}
-
-Field | Description
---- | ---
-query_params_variant | **oneof:** `ignore_query_string`, `query_params_whitelist` or `query_params_blacklist`<br>
-&nbsp;&nbsp;ignore_query_string | **[BoolOption](#BoolOption4)**<br>Using [BoolOption](#BoolOption4). Selected by default. Files with different query parameters are cached as objects with the same key regardless of the parameter value. 
-&nbsp;&nbsp;query_params_whitelist | **[StringsListOption](#StringsListOption4)**<br>Ignore All Except. Files with the specified query parameters are cached as objects with different keys, files with other parameters are cached as objects with the same key. 
-&nbsp;&nbsp;query_params_blacklist | **[StringsListOption](#StringsListOption4)**<br>Ignore only. Files with the specified query parameters are cached as objects with the same key, files with other parameters are cached as objects with different keys. 
-
-
-### RedirectOptions {#RedirectOptions4}
-
-Field | Description
---- | ---
-redirect_variant | **oneof:** `redirect_http_to_https` or `redirect_https_to_http`<br>
-&nbsp;&nbsp;redirect_http_to_https | **[BoolOption](#BoolOption4)**<br>Using [BoolOption](#BoolOption4). Set up a redirect from HTTPS to HTTP. 
-&nbsp;&nbsp;redirect_https_to_http | **[BoolOption](#BoolOption4)**<br>Using [BoolOption](#BoolOption4). Set up a redirect from HTTP to HTTPS. 
-
-
-### HostOptions {#HostOptions4}
-
-Field | Description
---- | ---
-host_variant | **oneof:** `host` or `forward_host_header`<br>
-&nbsp;&nbsp;host | **[StringOption](#StringOption4)**<br>Custom value for the Host header. <br>Your server must be able to process requests with the chosen header. <br>Default value (if [StringOption.enabled](#StringOption4) is `false`) is [Resource.cname](#Resource3). 
-&nbsp;&nbsp;forward_host_header | **[BoolOption](#BoolOption4)**<br>Using [BoolOption](#BoolOption4). Choose the Forward Host header option if is important to send in the request to the Origin the same Host header as was sent in the request to CDN server. 
-
-
-### CompressionOptions {#CompressionOptions4}
-
-Field | Description
---- | ---
-compression_variant | **oneof:** `fetch_compressed`, `gzip_on` or `brotli_compression`<br>
-&nbsp;&nbsp;fetch_compressed | **[BoolOption](#BoolOption4)**<br>The Fetch compressed option helps you to reduce the bandwidth between origin and CDN servers. Also, content delivery speed becomes higher because of reducing the time for compressing files in a CDN. 
-&nbsp;&nbsp;gzip_on | **[BoolOption](#BoolOption4)**<br>Using [BoolOption](#BoolOption4). GZip compression at CDN servers reduces file size by 70% and can be as high as 90%. 
-&nbsp;&nbsp;brotli_compression | **[StringsListOption](#StringsListOption4)**<br>The option allows to compress content with brotli on the CDN's end. <br>Compression is performed on the Origin Shielding. If a pre-cache server doesn't active for a resource, compression does not occur even if the option is enabled. <br>Specify the content-type for each type of content you wish to have compressed. CDN servers will request only uncompressed content from the origin. 
-
-
-### RewriteOption {#RewriteOption4}
-
-Field | Description
---- | ---
-enabled | **bool**<br>True - the option is enabled and its `flag` is applied to the resource. False - the option is disabled and its default value of the `flag` is used for the resource. 
-body | **string**<br>Pattern for rewrite. <br>The value must have the following format: `<source path> <destination path>`, where both paths are regular expressions which use at least one group. E.g., `/foo/(.*) /bar/$1`. 
-flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. It is not shown in the field. <ul><li>`LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.</li><li>`BREAK`: Stops processing of the current set of the Rewrite option.</li><li>`REDIRECT`: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme".</li><li>`PERMANENT`: Returns a permanent redirect with the 301 code.</li></ul>
-
-
-### SSLTargetCertificate {#SSLTargetCertificate1}
-
-Field | Description
---- | ---
-type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li></ul>
-data | **[SSLCertificateData](#SSLCertificateData4)**<br>Certificate data. 
-
-
-### SSLCertificateData {#SSLCertificateData4}
-
-Field | Description
---- | ---
-ssl_certificate_data_variant | **oneof:** `cm`<br>
-&nbsp;&nbsp;cm | **[SSLCertificateCMData](#SSLCertificateCMData4)**<br>Custom (add your SSL certificate by uploading the certificate in PEM format and your private key). 
-
-
-### SSLCertificateCMData {#SSLCertificateCMData4}
 
 Field | Description
 --- | ---
@@ -1125,159 +971,12 @@ cname | **string**<br>CDN endpoint CNAME, must be unique among resources.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Update timestamp. 
 active | **bool**<br>Flag to create Resource either in active or disabled state. True - the content from CDN is available to clients. False - the content from CDN isn't available to clients. 
-options | **[ResourceOptions](#ResourceOptions5)**<br>Resource settings and options to tune CDN edge behavior. 
+options | **[ResourceOptions](#ResourceOptions4)**<br>Resource settings and options to tune CDN edge behavior. 
 secondary_hostnames[] | **string**<br>List of secondary hostname strings. 
 origin_group_id | **int64**<br>ID of the origin group. 
 origin_group_name | **string**<br>Name of the origin group. 
 origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li></ul>
 ssl_certificate | **[SSLCertificate](#SSLCertificate3)**<br>SSL certificate options. 
-
-
-### ResourceOptions {#ResourceOptions5}
-
-Field | Description
---- | ---
-disable_cache | **[BoolOption](#BoolOption5)**<br>Set up a cache status. 
-edge_cache_settings | **[EdgeCacheSettings](#EdgeCacheSettings5)**<br>Set up [EdgeCacheSettings](#EdgeCacheSettings5). 
-browser_cache_settings | **[Int64Option](#Int64Option5)**<br>Using [Int64Option](#Int64Option5). Set up a cache period for the end-users browser. Content will be cached due to origin settings. If there are no cache settings on your origin, the content will not be cached. The list of HTTP response codes that can be cached in browsers: 200, 201, 204, 206, 301, 302, 303, 304, 307, 308. Other response codes will not be cached. The default value is 4 days. 
-cache_http_headers | **[StringsListOption](#StringsListOption5)**<br>List HTTP headers that must be included in responses to clients. 
-query_params_options | **[QueryParamsOptions](#QueryParamsOptions5)**<br>Set up [QueryParamsOptions](#QueryParamsOptions5). 
-slice | **[BoolOption](#BoolOption5)**<br>Files larger than 10 MB will be requested and cached in parts (no larger than 10 MB each part). It reduces time to first byte. <br>The origin must support HTTP Range requests. <br>By default the option is disabled. 
-compression_options | **[CompressionOptions](#CompressionOptions5)**<br>Set up compression variant. 
-redirect_options | **[RedirectOptions](#RedirectOptions5)**<br>Set up redirects. 
-host_options | **[HostOptions](#HostOptions5)**<br>Set up host parameters. 
-static_headers | **[StringsMapOption](#StringsMapOption5)**<br>Set up static headers that CDN servers send in responses to clients. 
-cors | **[StringsListOption](#StringsListOption5)**<br>Parameter that lets browsers get access to selected resources from a domain different to a domain from which the request is received. [Read more](/docs/cdn/concepts/cors). 
-stale | **[StringsListOption](#StringsListOption5)**<br>List of errors which instruct CDN servers to serve stale content to clients. <br>Possible values: `error`, `http_403`, `http_404`, `http_429`, `http_500`, `http_502`, `http_503`, `http_504`, `invalid_header`, `timeout`, `updating`. 
-allowed_http_methods | **[StringsListOption](#StringsListOption5)**<br>HTTP methods for your CDN content. By default the following methods are allowed: GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS. In case some methods are not allowed to the user, they will get the 405 (Method Not Allowed) response. If the method is not supported, the user gets the 501 (Not Implemented) response. 
-proxy_cache_methods_set | **[BoolOption](#BoolOption5)**<br>Allows caching for GET, HEAD and POST requests. 
-disable_proxy_force_ranges | **[BoolOption](#BoolOption5)**<br>Disabling proxy force ranges. 
-static_request_headers | **[StringsMapOption](#StringsMapOption5)**<br>Set up custom headers that CDN servers send in requests to origins. The Header name field can contain letters (A-Z, a-z), numbers (0-9), dashes (-) and underscores (_). The Value field can contain letters (A-Z, a-z), numbers (0-9), dashes (-), underscores (_), slashes (/), colons (:), equal (=), dots (.), and spaces. 
-custom_server_name | **[StringOption](#StringOption5)**<br>Wildcard additional CNAME. If a resource has a wildcard additional CNAME, you can use your own certificate for content delivery via HTTPS. Read-only. 
-ignore_cookie | **[BoolOption](#BoolOption5)**<br>Using [BoolOption](#BoolOption5) for ignoring cookie. 
-rewrite | **[RewriteOption](#RewriteOption5)**<br>Changing or redirecting query paths. 
-
-
-### BoolOption {#BoolOption5}
-
-Field | Description
---- | ---
-enabled | **bool**<br>True - the option is enabled and its `value` is applied to the resource. False - the option is disabled and its default value is used for the resource. 
-value | **bool**<br>Value of the option. 
-
-
-### StringOption {#StringOption5}
-
-Field | Description
---- | ---
-enabled | **bool**<br>True - the option is enabled and its `value` is applied to the resource. False - the option is disabled and its default value is used for the resource. 
-value | **string**<br>Value of the option. 
-
-
-### Int64Option {#Int64Option5}
-
-Field | Description
---- | ---
-enabled | **bool**<br>True - the option is enabled and its `value` is applied to the resource. False - the option is disabled and its default value is used for the resource. 
-value | **int64**<br>Value of the option. 
-
-
-### StringsListOption {#StringsListOption5}
-
-Field | Description
---- | ---
-enabled | **bool**<br>True - the option is enabled and its `value` is applied to the resource. False - the option is disabled and its default value is used for the resource. 
-value[] | **string**<br>Value of the option. 
-
-
-### StringsMapOption {#StringsMapOption5}
-
-Field | Description
---- | ---
-enabled | **bool**<br>True - the option is enabled and its `value` is applied to the resource. False - the option is disabled and its default value is used for the resource. 
-value | **map<string,string>**<br>Value of the option. 
-
-
-### CachingTimes {#CachingTimes5}
-
-Field | Description
---- | ---
-simple_value | **int64**<br>Caching time for a response with codes 200, 206, 301, 302. Responses with codes 4xx, 5xx will not be cached. Use `0s` disable to caching. Use `custom_values` field to specify a custom caching time for a response with specific codes. 
-custom_values | **map<string,int64>**<br>Caching time for a response with specific codes. These settings have a higher priority than the value field. Response code (`304`, `404` for example). Use `any` to specify caching time for all response codes. Caching time in seconds (`0s`, `600s` for example). Use `0s` to disable caching for a specific response code. 
-
-
-### EdgeCacheSettings {#EdgeCacheSettings5}
-
-Field | Description
---- | ---
-enabled | **bool**<br>True - the option is enabled and its `values_variant` is applied to the resource. False - the option is disabled and its default value is used for the resource. 
-values_variant | **oneof:** `value` or `default_value`<br>
-&nbsp;&nbsp;value | **[CachingTimes](#CachingTimes5)**<br>Value of the option. 
-&nbsp;&nbsp;default_value | **int64**<br>Content will be cached according to origin cache settings. The value applies for a response with codes 200, 201, 204, 206, 301, 302, 303, 304, 307, 308 if an origin server does not have caching HTTP headers. Responses with other codes will not be cached. 
-
-
-### StringVariableMapOption {#StringVariableMapOption5}
-
-Field | Description
---- | ---
-enabled | **bool**<br>True - the option is enabled and its `value` is applied to the resource. False - the option is disabled and its default value is used for the resource. 
-value | **map<string,OneofString>**<br>Value of the option. 
-
-
-### OneofString {#OneofString5}
-
-Field | Description
---- | ---
-string_option | **oneof:** `value` or `values`<br>
-&nbsp;&nbsp;value | **[StringOption](#StringOption5)**<br>Using [StringOption](#StringOption5) to set value. 
-&nbsp;&nbsp;values | **[StringsListOption](#StringsListOption5)**<br>Using [StringsListOption](#StringsListOption5) to set values. 
-
-
-### QueryParamsOptions {#QueryParamsOptions5}
-
-Field | Description
---- | ---
-query_params_variant | **oneof:** `ignore_query_string`, `query_params_whitelist` or `query_params_blacklist`<br>
-&nbsp;&nbsp;ignore_query_string | **[BoolOption](#BoolOption5)**<br>Using [BoolOption](#BoolOption5). Selected by default. Files with different query parameters are cached as objects with the same key regardless of the parameter value. 
-&nbsp;&nbsp;query_params_whitelist | **[StringsListOption](#StringsListOption5)**<br>Ignore All Except. Files with the specified query parameters are cached as objects with different keys, files with other parameters are cached as objects with the same key. 
-&nbsp;&nbsp;query_params_blacklist | **[StringsListOption](#StringsListOption5)**<br>Ignore only. Files with the specified query parameters are cached as objects with the same key, files with other parameters are cached as objects with different keys. 
-
-
-### RedirectOptions {#RedirectOptions5}
-
-Field | Description
---- | ---
-redirect_variant | **oneof:** `redirect_http_to_https` or `redirect_https_to_http`<br>
-&nbsp;&nbsp;redirect_http_to_https | **[BoolOption](#BoolOption5)**<br>Using [BoolOption](#BoolOption5). Set up a redirect from HTTPS to HTTP. 
-&nbsp;&nbsp;redirect_https_to_http | **[BoolOption](#BoolOption5)**<br>Using [BoolOption](#BoolOption5). Set up a redirect from HTTP to HTTPS. 
-
-
-### HostOptions {#HostOptions5}
-
-Field | Description
---- | ---
-host_variant | **oneof:** `host` or `forward_host_header`<br>
-&nbsp;&nbsp;host | **[StringOption](#StringOption5)**<br>Custom value for the Host header. <br>Your server must be able to process requests with the chosen header. <br>Default value (if [StringOption.enabled](#StringOption5) is `false`) is [Resource.cname](#Resource4). 
-&nbsp;&nbsp;forward_host_header | **[BoolOption](#BoolOption5)**<br>Using [BoolOption](#BoolOption5). Choose the Forward Host header option if is important to send in the request to the Origin the same Host header as was sent in the request to CDN server. 
-
-
-### CompressionOptions {#CompressionOptions5}
-
-Field | Description
---- | ---
-compression_variant | **oneof:** `fetch_compressed`, `gzip_on` or `brotli_compression`<br>
-&nbsp;&nbsp;fetch_compressed | **[BoolOption](#BoolOption5)**<br>The Fetch compressed option helps you to reduce the bandwidth between origin and CDN servers. Also, content delivery speed becomes higher because of reducing the time for compressing files in a CDN. 
-&nbsp;&nbsp;gzip_on | **[BoolOption](#BoolOption5)**<br>Using [BoolOption](#BoolOption5). GZip compression at CDN servers reduces file size by 70% and can be as high as 90%. 
-&nbsp;&nbsp;brotli_compression | **[StringsListOption](#StringsListOption5)**<br>The option allows to compress content with brotli on the CDN's end. <br>Compression is performed on the Origin Shielding. If a pre-cache server doesn't active for a resource, compression does not occur even if the option is enabled. <br>Specify the content-type for each type of content you wish to have compressed. CDN servers will request only uncompressed content from the origin. 
-
-
-### RewriteOption {#RewriteOption5}
-
-Field | Description
---- | ---
-enabled | **bool**<br>True - the option is enabled and its `flag` is applied to the resource. False - the option is disabled and its default value of the `flag` is used for the resource. 
-body | **string**<br>Pattern for rewrite. <br>The value must have the following format: `<source path> <destination path>`, where both paths are regular expressions which use at least one group. E.g., `/foo/(.*) /bar/$1`. 
-flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. It is not shown in the field. <ul><li>`LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.</li><li>`BREAK`: Stops processing of the current set of the Rewrite option.</li><li>`REDIRECT`: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme".</li><li>`PERMANENT`: Returns a permanent redirect with the 301 code.</li></ul>
 
 
 ### SSLCertificate {#SSLCertificate3}
@@ -1286,22 +985,7 @@ Field | Description
 --- | ---
 type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li></ul>
 status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: SSL certificate is creating.</li></ul>
-data | **[SSLCertificateData](#SSLCertificateData5)**<br>Certificate data. 
-
-
-### SSLCertificateData {#SSLCertificateData5}
-
-Field | Description
---- | ---
-ssl_certificate_data_variant | **oneof:** `cm`<br>
-&nbsp;&nbsp;cm | **[SSLCertificateCMData](#SSLCertificateCMData5)**<br>Custom (add your SSL certificate by uploading the certificate in PEM format and your private key). 
-
-
-### SSLCertificateCMData {#SSLCertificateCMData5}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the custom certificate. 
+data | **[SSLCertificateData](#SSLCertificateData4)**<br>Certificate data. 
 
 
 ## Delete {#Delete}

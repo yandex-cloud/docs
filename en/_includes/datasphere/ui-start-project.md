@@ -1,0 +1,1 @@
+To run a project, click **Open project in JupyterLab**.

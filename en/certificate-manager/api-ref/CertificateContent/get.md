@@ -24,6 +24,7 @@ certificateId | <p>ID of the certificate to download content.</p>
 Parameter | Description
 --- | ---
 versionId | <p>Optional ID of the version.</p> 
+privateKeyFormat | <p>Desired format of private key</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -74,15 +74,6 @@ status | enum **RawLogsStatus**<br>Raw logs status. <ul><li>`RAW_LOGS_STATUS_NOT
 settings | **[RawLogsSettings](#RawLogsSettings1)**<br>Raw logs settings. 
 
 
-### RawLogsSettings {#RawLogsSettings1}
-
-Field | Description
---- | ---
-bucket_name | **string**<br>Required. Destination S3 bucket name, note that the suer should be owner of the bucket. The maximum string length in characters is 1024.
-bucket_region | **string**<br>Bucket region, unused for now, could be blank. The maximum string length in characters is 50.
-file_prefix | **string**<br>file_prefix: prefix each log object name with specified prefix. <br>The prefix makes it simpler for you to locate the log objects. For example, if you specify the prefix value logs/, each log object that S3 creates begins with the logs/ prefix in its key, so pseudo S3 folders could be setup. The maximum string length in characters is 50.
-
-
 ## Deactivate {#Deactivate}
 
 
@@ -141,10 +132,10 @@ resource_id | **string**<br>Required. ID of CDN resource to request status and s
 Field | Description
 --- | ---
 status | enum **RawLogsStatus**<br>Raw logs status. <ul><li>`RAW_LOGS_STATUS_NOT_ACTIVATED`: Raw logs wasn't activated.</li><li>`RAW_LOGS_STATUS_OK`: Raw logs was activated, and logs storing process works as expected.</li><li>`RAW_LOGS_STATUS_FAILED`: Raw logs was activated, but logs CDN provider has been failed to store logs.</li></ul>
-settings | **[RawLogsSettings](#RawLogsSettings2)**<br>Raw logs settings. 
+settings | **[RawLogsSettings](#RawLogsSettings1)**<br>Raw logs settings. 
 
 
-### RawLogsSettings {#RawLogsSettings2}
+### RawLogsSettings {#RawLogsSettings1}
 
 Field | Description
 --- | ---
@@ -168,10 +159,10 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 resource_id | **string**<br>Required. ID of CDN resource. The maximum string length in characters is 50.
-settings | **[RawLogsSettings](#RawLogsSettings3)**<br>Raw logs settings. 
+settings | **[RawLogsSettings](#RawLogsSettings2)**<br>Raw logs settings. 
 
 
-### RawLogsSettings {#RawLogsSettings3}
+### RawLogsSettings {#RawLogsSettings2}
 
 Field | Description
 --- | ---
@@ -208,15 +199,6 @@ resource_id | **string**<br>ID of CDN resource.
 Field | Description
 --- | ---
 status | enum **RawLogsStatus**<br>Raw logs status. <ul><li>`RAW_LOGS_STATUS_NOT_ACTIVATED`: Raw logs wasn't activated.</li><li>`RAW_LOGS_STATUS_OK`: Raw logs was activated, and logs storing process works as expected.</li><li>`RAW_LOGS_STATUS_FAILED`: Raw logs was activated, but logs CDN provider has been failed to store logs.</li></ul>
-settings | **[RawLogsSettings](#RawLogsSettings4)**<br>Raw logs settings. 
-
-
-### RawLogsSettings {#RawLogsSettings4}
-
-Field | Description
---- | ---
-bucket_name | **string**<br>Required. Destination S3 bucket name, note that the suer should be owner of the bucket. The maximum string length in characters is 1024.
-bucket_region | **string**<br>Bucket region, unused for now, could be blank. The maximum string length in characters is 50.
-file_prefix | **string**<br>file_prefix: prefix each log object name with specified prefix. <br>The prefix makes it simpler for you to locate the log objects. For example, if you specify the prefix value logs/, each log object that S3 creates begins with the logs/ prefix in its key, so pseudo S3 folders could be setup. The maximum string length in characters is 50.
+settings | **[RawLogsSettings](#RawLogsSettings3)**<br>Raw logs settings. 
 
 

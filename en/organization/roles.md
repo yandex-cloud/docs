@@ -12,7 +12,7 @@ For more information about access control in {{ yandex-cloud }}, see the {{ iam-
 
 * `organization-manager.admin`: The organization administrator role.
 
-   The role lets you edit organization settings, create identity federations, add and remove users, create other administrators, and manage the resources of an organization's clouds.
+   The role lets you edit organization settings, create identity federations, add and remove users, create other administrators.
 
 * `organization-manager.organizations.owner`: The organization owner role.
 

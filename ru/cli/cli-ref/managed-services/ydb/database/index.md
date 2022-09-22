@@ -20,6 +20,7 @@ Aliases:
 - [yc ydb database get](get.md) — Get information about the specified YDB database.
 - [yc ydb database list](list.md) — List YDB databases in a folder.
 - [yc ydb database create](create.md) — Create YDB database.
+- [yc ydb database move](move.md) — Move YDB database to another folder.
 - [yc ydb database backup](backup.md) — Backup YDB database.
 - [yc ydb database restore](restore.md) — Restore backup.
 - [yc ydb database update](update.md) — Update the specified YDB database.

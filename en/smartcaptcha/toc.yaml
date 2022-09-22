@@ -3,16 +3,32 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Creating a CAPTCHA
+        href: operations/create-captcha.md
+      - name: Deleting a CAPTCHA
+        href: operations/delete-captcha.md
+      - name: Getting keys
+        href: operations/get-keys.md
   - name: Concepts
     items:
+      - name: User validation
+        href: concepts/validation.md
       - name: Widget connection methods
         href: concepts/widget-methods.md
-      - name: Restricted mode
-        href: concepts/restricted-mode.md
       - name: Invisible CAPTCHA
         href: concepts/invisible-captcha.md
+      - name: CAPTCHA in React
+        href: concepts/react.md
+      - name: Restricted mode
+        href: concepts/restricted-mode.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
   - name: Pricing policy
     href: pricing.md
 base: en/smartcaptcha

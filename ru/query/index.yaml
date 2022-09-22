@@ -1,0 +1,27 @@
+title: Yandex Query
+description:
+  - >-
+    <em>Сервис Yandex Query находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
+  - >-
+    Yandex Query — интерактивный полностью управляемый сервис для инженеров
+    данных и аналитиков, позволяющий выполнять аналитические и потоковые запросы
+    реального времени с помощью единого диалекта SQL к структурированным и
+    частично структурированным данным.
+nav:
+  title: Yandex Query
+meta:
+  title: Yandex Query
+links:
+  - title: Концепции
+    description: Узнайте о концепциях и возможностях сервиса
+    href: concepts/index
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

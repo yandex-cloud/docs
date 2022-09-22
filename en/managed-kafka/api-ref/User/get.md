@@ -10,7 +10,7 @@ To get the list of available Kafka users, make a [list](/docs/managed-kafka/api-
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}/users/{userName}
+GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path parameters {#path_params}

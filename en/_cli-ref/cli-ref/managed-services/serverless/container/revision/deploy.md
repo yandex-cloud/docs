@@ -26,6 +26,8 @@ Syntax:
 |`--image`|<b>`string`</b><br/>Image to run|
 |`--command`|<b>`value[,value]`</b><br/>Comma-separated entrypoint for the container image. If not specified, the image's default ENTRYPOINT will be used. Pass an empty string to reset it to zero value.|
 |`--args`|<b>`value[,value]`</b><br/>Comma-separated list of arguments that are passed to the command, run by a container. If not specified, the image's default CMD will be used. Pass an empty string to reset it to zero value.|
+|`--secret`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Revision secret.<br/><br/>Possible property names:<br/><ul> <li><code>name</code>:     Specifies the secret name</li> <li><code>id</code>:     Specifies the secret id</li> <li><code>version-id</code>:     Specifies the secret version id. If not provided, current version of the secret will be used.</li> <li><code>key</code>:     Specifies key of the entry in the secret to use.</li> <li><code>environment-variable</code>:     Specifies environment variable name that the secret value will be loaded to.</li> </ul>|
+|`--min-instances`|<b>`int`</b><br/>Set the minimum number of concurrent instances.|
 |`--network-id`|<b>`string`</b><br/>Network id to be used in new revision.|
 |`--network-name`|<b>`string`</b><br/>Network name to be used in new revision.|
 |`--subnets`|<b>`value[,value]`</b><br/>Specifies the subnets for the revision. Can use subnet names or subnet ids, or both.<br/><br/>Example: `--subnets=id1,id2 --subnets=name3'.|

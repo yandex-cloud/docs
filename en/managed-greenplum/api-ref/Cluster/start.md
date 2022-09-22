@@ -10,7 +10,7 @@ Starts the specified Greenplum® cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-greenplum/v1/clusters/{clusterId}:start
+POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}:start
 ```
  
 ## Path parameters {#path_params}

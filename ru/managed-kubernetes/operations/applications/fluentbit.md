@@ -14,7 +14,7 @@
 1. [Назначьте ему роли](../../../iam/operations/sa/assign-role-for-sa.md) `logging.writer` и `monitoring.editor`.
 1. Создайте [авторизованный ключ](../../../iam/operations/sa/create-access-key.md) и сохраните его в файл `sa-key.json`.
 
-## Установка Fluent Bit с помощью {{ marketplace-full-name }} {#install-fb-marketplace}
+## Установка с помощью {{ marketplace-full-name }} {#install-fb-marketplace}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
 1. Нажмите на имя нужного кластера и выберите вкладку **{{ marketplace-short-name }}**.
@@ -36,7 +36,7 @@
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit-cloud-logging \
-     --version 1.0-3 \
+     --version <версия Fluent Bit> \
      --untar && \
    helm install \
      --namespace fluentbit \

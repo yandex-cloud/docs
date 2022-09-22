@@ -10,7 +10,7 @@ Creates a new ElasticSearch cluster from the specified backup.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters:restore
+POST https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters:restore
 ```
  
 ## Body parameters {#body_params}

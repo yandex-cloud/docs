@@ -10,7 +10,7 @@ See [the documentation](/docs/managed-mysql/concepts/backup) for details.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-mysql/v1/clusters:restore
+POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters:restore
 ```
  
 ## Body parameters {#body_params}

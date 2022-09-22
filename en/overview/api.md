@@ -60,7 +60,6 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
    - [{{ resmgr-full-name }}](../resource-manager/api-ref/)
 
 - Machine learning:
-   - [{{ ml-platform-full-name }}](../datasphere/api-ref/)
    - [{{ speechkit-full-name }}](../speechkit/)
    - [{{ translate-full-name }}](../translate/api-ref/)
    - [{{ vision-full-name }}](../message-queue/api-ref/)

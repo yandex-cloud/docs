@@ -6,17 +6,9 @@ You can connect to the [Google Drive](https://drive.google.com) file storage ser
 
 1. [Allow access to the API](https://developers.google.com/drive/api/guides/enable-drive-api) of your Google Drive.
 1. [Create an OAuth client ID](https://developers.google.com/workspace/guides/create-credentials#tvs-limited-input-devices) and specify the **TVs and Limited Input devices** application type. Save the `client_secret.json` file with a user secret. You'll need it when connecting to Google Drive.
-1. Open the project {{ ml-platform-name }}:
+1. {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 
-   {% list tabs %}
-
-   - Management console
-
-      {% include [before-begin](../../../_includes/datasphere/before-begin.md) %}
-
-   {% endlist %}
-
-1. [Create a secret](secret-create.md) that will store the contents of the `client_secret.json` file.
+1. [Create a secret](../data/secrets.md#create) that will store the contents of the `client_secret.json` file.
 
 ## Uploading the contents from a file on Google Drive to a {{ ml-platform-name }} project file {#get-file}
 
@@ -34,7 +26,7 @@ You can connect to the [Google Drive](https://drive.google.com) file storage ser
 
    * `<secret name>` is the name of the secret that stores the contents of the `client_secret.json` file.
    * `<Google_Drive_file_ID>` is the [ID of the Google Drive file](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics) whose contents need to be imported to {{ ml-platform-name }}.
-   * `<{{ ml-platform-name }}_project_file_path>` is the path to the {{ ml-platform-name }} project file to import data to.
+   * `<{{ ml-platform-name }}_project_file_path>` is the path to the {{ ml-platform-name }} project file that data is imported to.
 
 1. Run the cell. To do this, choose **Run** → **Run Selected Cells** or press **Shift** + **Enter**.
 
@@ -54,7 +46,7 @@ You can connect to the [Google Drive](https://drive.google.com) file storage ser
 
    * `<secret name>` is the name of the secret that stores the contents of the `client_secret.json` file.
    * `<Google_Drive_folder_ID>` is the [ID of the Google Drive folder](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics) whose contents need to be imported to {{ ml-platform-name }}.
-   * `<{{ ml-platform-name }}_project_folder_path>` is the path to the {{ ml-platform-name }} project folder to import data to.
+   * `<{{ ml-platform-name }}_project_folder_path>` is the path to the {{ ml-platform-name }} project folder that data is imported to.
 
 1. Run the cell.
 
@@ -74,7 +66,7 @@ You can connect to the [Google Drive](https://drive.google.com) file storage ser
 
    * `<secret name>` is the name of the secret that stores the contents of the `client_secret.json` file.
    * `<{{ ml-platform-name }}_project_file_path>` is the path to the {{ ml-platform-name }} project file whose contents need to be uploaded to Google Drive.
-   * `<Google_Drive_file_ID>` is the [ID of the Google Drive file](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics) to upload data to.
+   * `<Google_Drive_file_ID>` is the [ID of the Google Drive file](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics) that data is uploaded to.
 
 1. Run the cell.
 
@@ -94,6 +86,6 @@ You can connect to the [Google Drive](https://drive.google.com) file storage ser
 
    * `<secret name>` is the name of the secret that stores the contents of the `client_secret.json` file.
    * `<{{ ml-platform-name }}_project_folder_path>` is the path to the {{ ml-platform-name }} project folder whose contents need to be uploaded to Google Drive.
-   * `<Google_Drive_folder_ID>` is the [ID of the Google Drive folder](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics) to upload data to.
+   * `<Google_Drive_folder_ID>` is the [ID of the Google Drive folder](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics) that data is uploaded to.
 
 1. Run the cell.

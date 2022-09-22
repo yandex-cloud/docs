@@ -139,26 +139,11 @@ words[] | **[Word](#Word)**<br>Recognized words in this line.
 confidence | **double**<br>Confidence of the OCR results for the line. Range [0, 1]. 
 
 
-### Polygon {#Polygon1}
-
-Field | Description
---- | ---
-vertices[] | **[Vertex](#Vertex1)**<br>The bounding polygon vertices. 
-
-
-### Vertex {#Vertex1}
-
-Field | Description
---- | ---
-x | **int64**<br>X coordinate in pixels. 
-y | **int64**<br>Y coordinate in pixels. 
-
-
 ### Word {#Word}
 
 Field | Description
 --- | ---
-bounding_box | **[Polygon](#Polygon2)**<br>Area on the page where the word is located. 
+bounding_box | **[Polygon](#Polygon1)**<br>Area on the page where the word is located. 
 text | **string**<br>Recognized word value. 
 confidence | **double**<br>Confidence of the OCR results for the word. Range [0, 1]. 
 languages[] | **[DetectedLanguage](#DetectedLanguage)**<br>A list of detected languages together with confidence. 
@@ -171,21 +156,6 @@ Field | Description
 --- | ---
 language_code | **string**<br>Detected language code. 
 confidence | **double**<br>Confidence of detected language. Range [0, 1]. 
-
-
-### Polygon {#Polygon2}
-
-Field | Description
---- | ---
-vertices[] | **[Vertex](#Vertex2)**<br>The bounding polygon vertices. 
-
-
-### Vertex {#Vertex2}
-
-Field | Description
---- | ---
-x | **int64**<br>X coordinate in pixels. 
-y | **int64**<br>Y coordinate in pixels. 
 
 
 ### Entity {#Entity}
@@ -222,22 +192,7 @@ faces[] | **[Face](#Face)**<br>An array of detected faces for the specified imag
 
 Field | Description
 --- | ---
-bounding_box | **[Polygon](#Polygon3)**<br>Area on the image where the face is located. 
-
-
-### Polygon {#Polygon3}
-
-Field | Description
---- | ---
-vertices[] | **[Vertex](#Vertex3)**<br>The bounding polygon vertices. 
-
-
-### Vertex {#Vertex3}
-
-Field | Description
---- | ---
-x | **int64**<br>X coordinate in pixels. 
-y | **int64**<br>Y coordinate in pixels. 
+bounding_box | **[Polygon](#Polygon1)**<br>Area on the image where the face is located. 
 
 
 ### ImageCopySearchAnnotation {#ImageCopySearchAnnotation}
