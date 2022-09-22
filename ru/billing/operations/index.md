@@ -66,3 +66,7 @@ description: "Из статьи вы узнаете, как работать с 
 {% if product == "yandex-cloud" %}
 [{#T}](edo.md)
 {% endif %}
+
+{% if product == "yandex-cloud" %}
+[{#T}](query-integration.md)
+{% endif %}
