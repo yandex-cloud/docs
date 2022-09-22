@@ -51,6 +51,8 @@ items:
       - name: Построение чартов customer journeys на данных AppMetrica
         when: audience == "external"
         href: tutorials/data-from-appmetrica-yc-visualization.md
+      - name: Создание подключения к Битрикс24
+        href: tutorials/data-from-bitrix24-visualization.md
   - name: Концепции
     items:
       - name: Обзор сервиса
