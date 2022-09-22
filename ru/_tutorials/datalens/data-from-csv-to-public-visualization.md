@@ -29,30 +29,33 @@
 
 ## Шаг 1. Создайте подключение и датасет {#step1}
 
-Создайте датасет на основе [подключения](../../datalens/concepts/connection.md) к CSV-файлу.
+Создайте датасет на основе [подключения](../../datalens/concepts/connection.md) типа **File**.
 
 1. Перейдите в интерфейс [{{ datalens-short-name }}]({{ link-datalens-main }}).
 1. Нажмите кнопку **Создать подключение**.
 
-    ![image](../../_assets/datalens/solution-05/01-create-connection.png)
+   ![image](../../_assets/datalens/solution-05/01-create-connection.png)
 
-1. Выберите **CSV**.
+1. Выберите тип подключения **File**.
 
-    ![image](../../_assets/datalens/solution-05/02-CSV.png)
+   ![image](../../_assets/datalens/solution-05/select-file-connection.png)
 
-1. Нажмите кнопку **Выбрать CSV-файл**.
+1. Нажмите кнопку **Загрузить файлы**, затем выберите необходимый файл. В данном примере **Moscow Population 2018.csv** ([ссылка на скачивание](https://yadi.sk/d/H4dQKVDpU4Rd8g)). Загрузка может занять до нескольких минут, в зависимости от скорости подключения к интернету.
 
-    ![image](../../_assets/datalens/solution-05/03-choose-CSV.png)
+   ![image](../../_assets/datalens/solution-05/04-choose-file-upload.png)
 
-1. Выберите необходимый файл. В данном примере **Moscow Population 2018.csv** ([ссылка на скачивание](https://yadi.sk/d/H4dQKVDpU4Rd8g)).
-1. Дождитесь, когда на экране появится содержимое таблицы.
-1. Нажмите кнопку **Создать**.
+   После успешной загрузки вы увидите превью данных файла. Для просмотра используйте полосы прокрутки справа и внизу.
 
-    ![image](../../_assets/datalens/solution-05/04-save-connection.png)
+   ![image](../../_assets/datalens/solution-07/05-preview.png)
 
-1. После создания подключения нажмите кнопку **Создать датасет**.
+1. В правом верхнем углу нажмите кнопку **Создать подключение**.
+1. Введите имя подключения `Moscow Population 2018` и нажмите кнопку **Создать**.
 
-    ![image](../../_assets/datalens/solution-05/05-create-dataset.png)
+Подключение к файлу создано. Данные представлены в том же виде, что и в файле. Для дальнейшей работы с ними нужно создать датасет.
+
+1. Нажмите кнопку **Создать датасет**.
+
+   ![image](../../_assets/datalens/solution-07/07-create-dataset.png)
 
 ## Шаг 2. Создайте датасет {#step2}
 

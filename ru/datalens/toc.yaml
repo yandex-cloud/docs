@@ -115,12 +115,8 @@ items:
         items:
           - name: Создание подключения к ClickHouse
             href: operations/connection/create-clickhouse.md
-          - name: Создание подключения к файлу CSV
-            href: operations/connection/create-csv.md
-            when: audience == "external"
           - name: Создание подключения к файлу
             href: operations/connection/create-file.md
-            when: audience == "internal"
           - name: Создание подключения к Google Sheets
             href: operations/connection/create-google-sheets.md
           - name: Создание подключения к MySQL
@@ -165,9 +161,6 @@ items:
             href: operations/dataset/create.md
           - name: Объединение данных из нескольких таблиц
             href: operations/dataset/join-data.md
-          - name: Объединение данных из нескольких CSV-подключений
-            href: operations/dataset/join-data-csv.md
-            when: audience == "external"
           - name: Создание поля данных
             href: operations/dataset/create-field.md
           - name: Создание вычисляемого поля данных

@@ -3,8 +3,7 @@
 ## Создание подключения {#creating-connection}
 
 - [{#T}](connection/create-clickhouse.md)
-{% if audience != "internal" %} - [{#T}](connection/create-csv.md) {% endif %}
-{% if audience == "internal" %} - [{#T}](connection/create-file.md) {% endif %}
+- [{#T}](connection/create-file.md)
 - [{#T}](connection/create-google-sheets.md)
 - [{#T}](connection/create-mysql.md)
 - [{#T}](connection/create-postgresql.md)
@@ -23,7 +22,6 @@
 
 - [{#T}](dataset/create.md)
 - [{#T}](dataset/join-data.md)
-{% if audience != "internal" %} - [{#T}](dataset/join-data-csv.md) {% endif %}
 - [{#T}](dataset/create-field.md)
 - [{#T}](dataset/create-calculated-field.md)
 - [{#T}](dataset/create-filter.md)

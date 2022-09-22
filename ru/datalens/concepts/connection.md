@@ -8,7 +8,7 @@ _Подключение_ содержит информацию о парамет
 
 * [{{ CH }}](../operations/connection/create-clickhouse.md)
 {% if audience == "internal" %} * [CH over YT](../operations/connection/chyt/create-chyt.md) {% endif %}
-{% if audience == "internal" %} * [File (CSV)](../operations/connection/create-file.md){% else %}* [CSV-файл](../operations/connection/create-csv.md) {% endif %}
+* [File (CSV)](../operations/connection/create-file.md)
 * [Google Sheets](../operations/connection/create-google-sheets.md)
 * [{{ PG }}](../operations/connection/create-postgresql.md)
 * [{{ MY }}](../operations/connection/create-mysql.md)
