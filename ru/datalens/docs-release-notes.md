@@ -2,6 +2,10 @@
 
 ## Сентябрь 2022 {#september2022}
 
+### Концепции {#concepts092022}
+
+* Добавлено описание [Древовидной иерархии](concepts/data-types.md#tree-hierarchy).
+
 ### Справочник визуализаций {#visualization-ref092022}
 
 * Добавлен раздел [{#T}](visualization-ref/combined-chart.md)
