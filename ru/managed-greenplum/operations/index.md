@@ -7,7 +7,8 @@
 {% if audience != "internal" %}
 * [{#T}](cluster-stop.md)
 {% endif %}
-* [{#T}](cluster-hosts.md)
+* [{#T}](./hosts/cluster-hosts.md)
+* [{#T}](./hosts/cluster-expand.md)
 * [{#T}](update.md)
 * [{#T}](external-tables.md)
 * [{#T}](./extensions/cluster-extensions.md)

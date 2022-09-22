@@ -19,7 +19,11 @@ items:
         when: audience != "internal"
         href: operations/cluster-stop.md
       - name: Управление хостами кластера
-        href: operations/cluster-hosts.md
+        items:
+          - name: Просмотр хостов кластера
+            href: operations/hosts/cluster-hosts.md
+          - name: Расширение кластера
+            href: operations/hosts/cluster-expand.md
       - name: Изменение настроек кластера
         href: operations/update.md
       - name: Использование внешних таблиц

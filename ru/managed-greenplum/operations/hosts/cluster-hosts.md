@@ -13,7 +13,7 @@
 - Консоль управления
 
     1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mgp-name }}**.
-    1. Нажмите на имя нужного кластера, затем выберите вкладку ![hosts.svg](../../_assets/mdb/hosts.svg) **Хосты**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку ![hosts.svg](../../../_assets/mdb/hosts.svg) **Хосты**.
 
     В списке хостов в колонке **Роль** указывается роль каждого хоста:
 
@@ -23,9 +23,9 @@
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
     Чтобы получить список хостов-мастеров в кластере, выполните команду:
 
@@ -41,13 +41,13 @@
        --cluster-name=<имя кластера>
     ```
 
-    Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+    Имя кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
 
 - API
 
-    Воспользуйтесь методами API [listMasterHosts](../api-ref/Cluster/listMasterHosts.md) и [listSegmentHosts](../api-ref/Cluster/listSegmentHosts.md) и передайте значение идентификатора кластера в параметре `clusterId` запроса.
+    Воспользуйтесь методами API [listMasterHosts](../../api-ref/Cluster/listMasterHosts.md) и [listSegmentHosts](../../api-ref/Cluster/listSegmentHosts.md) и передайте значение идентификатора кластера в параметре `clusterId` запроса.
 
-    Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+    Идентификатор кластера можно получить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -65,7 +65,7 @@
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с описанием кластера и его хостов.
 
-        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+        О том, как создать такой файл, см. в разделе [{#T}](../cluster-create.md).
 
     1. Измените в описании кластера {{ mgp-name }} количество хостов:
 
@@ -79,11 +79,11 @@
 
     1. Проверьте корректность настроек.
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+        {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
     1. Подтвердите изменение ресурсов.
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
 
@@ -91,4 +91,4 @@
 
 {% endif %}
 
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+{% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}
