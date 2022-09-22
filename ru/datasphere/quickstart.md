@@ -1,52 +1,49 @@
 # Как начать работать с {{ ml-platform-name }}
 
-{{ ml-platform-name }} — сервис, который упрощает использование среды разработки JupyterLab на вычислительных мощностях {{ yandex-cloud }}. Это позволит вам производить сложные вычисления, например обучение нейронных сетей или анализ больших данных, используя привычный интерфейс Jupyter Notebook.
+{{ ml-platform-full-name }} — среда для ML-разработки полного цикла, которая сочетает в себе привычные IDE, технологию бессерверных вычислений и возможность бесшовного использования разных конфигураций вычислительных ресурсов {{ yandex-cloud }}. {{ ml-platform-full-name }} является частью платформы данных и предоставляет широкие возможности для простого взаимодействия с сервисами {{ yandex-cloud }}. В качестве IDE {{ ml-platform-name }} предоставляет [Jupyter® Notebook](https://jupyter.org/).
 
 В этом разделе вы научитесь:
-
-1. [Создавать проекты](#create-project), в которых вы будете работать в среде JupyterLab.
-1. [Устанавливать пакеты](#install-dependencies), которые нужны для работы.
-1. [Управлять вычислительными ресурсами](#control-compute-resources), изменяя конфигурацию вычислительных ресурсов.
+1. [Создавать проект](#create-project).
+1. [Запускать проект](#start-project).
+1. [Настраивать окружение](#install-dependencies).
+1. [Загружать данные в проект](#download-data). 
+1. [Запускать обучение](#start-ml).
+1. [Делиться результатами](#share-with-community).
 
 ## Перед началом работы {#before-you-begin}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
-{% if product == "yandex-cloud" %}
 1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
-{% endif %}
-
-## Назначьте роли для работы с DataSphere {#roles}
-
-В консоли управления на странице [Управление доступом]({{ link-console-access-management }}) убедитесь, что у вас есть необходимые роли:
-
-* Чтобы работать с уже существующими проектами, вам нужна роль `datasphere.user` или выше.
-
-* Чтобы создавать, редактировать и удалять проекты, необходима роль `datasphere.admin` или выше.
-
-Подробнее об [управлении доступом](security/index.md).
+1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}.
+1. Примите пользовательское соглашение.
+1. Выберите организацию, в которой вы будете работать с {{ ml-platform-name }}, или создайте новую.
 
 ## Создайте проект {#create-project}
 
-{% include [include](../_includes/datasphere/create-project.md) %}
+{% include [create-project](../_includes/datasphere/ui-create-project.md) %}
 
-## Установите зависимости {#install-dependencies}
+## Запустите проект {#start-project}
 
-{% include [include](../_includes/datasphere/install-dependencies-intro.md) %}
+{% include [start-project](../_includes/datasphere/ui-start-project.md) %}
 
-{% include [include](../_includes/datasphere/install-dependencies-steps.md) %}
+## Настройте окружение {#install-dependencies}
 
-## Увеличьте вычислительные ресурсы для ячейки {#control-compute-resources}
+{% include [install-dependencies-intro](../_includes/datasphere/install-dependencies-intro.md) %}
 
-{% include [include](../_includes/datasphere/control-compute-resources-intro.md) %}
+{% include [install-dependencies-steps](../_includes/datasphere/install-dependencies-steps.md) %}
 
-{% include [include](../_includes/datasphere/control-compute-resources-steps.md) %}
+Вы также можете настроить окружение для выполнения вашего кода, [используя Docker-образы](operations/user-images.md).
 
-## Обратитесь в поддержку из сервиса {#support}
+## Загрузите данные в проект {#download-data}
 
-{% include [include](../_includes/datasphere/notebook-support.md) %}
+{% include [download-data](../_includes/datasphere/download-data.md) %}
+
+## Запустите обучение {#start-ml}
+
+{% include [start-ml](../_includes/datasphere/start-ml.md) %}
 
 ## Что дальше {#what-is-next}
 
-- [Узнайте об особенностях сервиса](concepts/index.md).
-- [Поделитесь ссылкой на ноутбук со всеми результатами](operations/projects/publication.md).
-- [Посмотрите другие инструкции по работе с сервисом](operations/index.md).
+* [Узнайте об особенностях сервиса](concepts/index.md).
+* [Посмотрите другие инструкции по работе с сервисом](operations/index.md).
+* [Разверните обученную модель как сервис](concepts/deploy/index.md).

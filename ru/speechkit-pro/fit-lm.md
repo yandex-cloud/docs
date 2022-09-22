@@ -10,8 +10,8 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте проект](../datasphere/operations/projects/create.md) в {{ ml-platform-name }} и откройте его.
-1. [Склонируйте](../datasphere/operations/projects/work-with-git.md#clone) Git-репозиторий, в котором находятся ноутбуки с примерами использования {{ yandex-cloud }} API:
+1. [Создайте проект](../datasphere-old/operations/projects/create.md) в {{ ml-platform-name }} и откройте его.
+1. [Склонируйте](../datasphere-old/operations/projects/work-with-git.md#clone) Git-репозиторий, в котором находятся ноутбуки с примерами использования {{ yandex-cloud }} API:
 
     ```bash
     https://github.com/yandex-cloud/examples
@@ -35,7 +35,7 @@
 * `/raw_data/audio/` — каталог с аудиозаписями, которые будут использоваться для обучения и проверки алгоритма.
 * `/raw_data/references/` — каталог с текстами аудиоразметки. Текст в каждом файле содержит расшифровку речи на соответствующей записи из каталога `/raw_data/audio/`.
 
-    Аудиоразметка — это особый способ расшифровки аудиозаписей с оформлением результатов в текстовом виде. Воспользуйтесь [специальным сервисом](../datasphere/tutorials/markup.md), предоставляемым SpeechKit Pro, или сформируйте их самостоятельно.
+    Аудиоразметка — это особый способ расшифровки аудиозаписей с оформлением результатов в текстовом виде. Воспользуйтесь [специальным сервисом](../datasphere-old/tutorials/markup.md), предоставляемым SpeechKit Pro, или сформируйте их самостоятельно.
 
 ### Подготовьте текст {#text-prepare}
 
@@ -164,4 +164,4 @@
     Mean WER: 0.21885521885521886
     ```
 
-Подробнее об оценке качества моделей см. [{#T}](../datasphere/tutorials/estimate-quality.md).
+Подробнее об оценке качества моделей см. [{#T}](../datasphere-old/tutorials/estimate-quality.md).

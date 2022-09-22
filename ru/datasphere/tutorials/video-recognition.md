@@ -228,4 +228,5 @@
                                       modelFile="lightgbm_classifier.model")
   predictions = estimator.fit(image_uri_dataset)
   ```
+
 {% endif %}

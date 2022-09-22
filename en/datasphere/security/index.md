@@ -1,48 +1,71 @@
----
-title: Access management in Yandex DataSphere
-description: "Access management in the service providing an environment for ML development — Yandex DataSphere. To allow access to the resources of the DataSphere service, assign the user the necessary roles from the list given."
----
-
 # Access management in {{ ml-platform-name }}
 
-The list of operations available to {{ yandex-cloud }} users is determined by the roles they have. A role is assigned to a user at the folder or cloud level, and nested resources inherit this role.
+Access to {{ ml-platform-full-name }} is regulated by assigning permissions in an organization. Organizations are managed using [{{ org-full-name }}](../../organization/).
 
-To allow access to resources in {{ ml-platform-short-name }}, assign the required roles to the user from the list below.
+The list of operations available to {{ ml-platform-short-name }} users is determined by the roles they have. For more information about managing access to {{ yandex-cloud }}, see [{#T}](../../iam/concepts/access-control/index.md). 
 
-{% note info %}
+## What resources you can assign roles to {#resources}
 
-For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
+Access control is implemented at the level of [communities](../concepts/community.md) and [projects](../concepts/project.md). You can also grant resource access to all community users. The access rights granted apply to the entire hierarchy of resources. For example, if you assign a user a role for a {{ ml-platform-name }} project, all permissions are also valid for resources within this project. Learn more about [relationships between {{ ml-platform-name }} resources](../concepts/resource-model.md).
 
-{% endnote %}
+## How to assign a role {#grant-role}
 
-## Assigning roles {#grant-role}
+You can assign a role to a user in the {{ ml-platform-name }} interface:
+* [{#T}](../operations/community/add-user.md).
+* [{#T}](../operations/projects/add-user.md).
+* [Share resources with community members](../operations/index.md#share).
 
-To assign a user a role:
+You can also [grant access rights](../../organization/roles.md) through the {{ org-name }} interface.
 
-{% include [grant-role-console](../../_includes/grant-role-console.md) %}
+## What roles exist in the service {#roles-list}
 
-## Roles for managing clouds and folders {#rm-roles}
+### Service roles {#services}
 
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
+{% include [projects-viewer](../../_includes/roles-datasphere-project-viewer.md) %}
 
-## Service roles {#services}
+Users with the `{{ roles-datasphere-project-viewer }}` role are not displayed in the lists of project and community members, and you can't assign it in the {{ ml-platform-name }} interface.
 
-{% include [datasphere.user](../../_includes/roles-datasphere-user.md) %}
+{% include [projects-developer](../../_includes/roles-datasphere-projects-developer.md) %}
 
-{% include [datasphere.admin](../../_includes/roles-datasphere-admin.md) %}
+In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-project-developer }}` role have the `Developer` role in the **Members** tab on the project page.
 
-## Primitive roles {#primitive}
+{% include [projects-admin](../../_includes/roles-datasphere-projects-admin.md) %}
 
-### {{ roles-viewer }} {#viewer}
+In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-project-admin }}` role have the `Admin` role in the **Members** tab on the project page.
 
-The `{{ roles-viewer }}` role includes all permissions of the `{{ roles-datasphere-user }}` role. The user can view the list of projects and work with existing projects. The user can't create or delete projects.
+{% include [communities-viewer](../../_includes/roles-datasphere-communities-viewer.md) %}
 
-### {{ roles-editor }} {#editor}
+Users with the `{{ roles-datasphere-communities-viewer }}` role are not displayed in the list of community members.
 
-The `{{ roles-editor }}` role includes all permissions of the `{{ roles-viewer }}` role. In terms of access to {{ ml-platform-short-name }} service resources, these roles match.
+{% include [communities-editor](../../_includes/roles-datasphere-communities-editor.md) %}
 
-### {{ roles-admin }} {#admin}
+In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-communities-developer }}` role have the `Developer` role in the **Members** tab on the community page.
 
-Users with the `{{ roles-admin }}` role can manage resource access rights, such as allow other users to work with folders or view information about projects and user permissions.
+{% include [communities-admin](../../_includes/roles-datasphere-communities-admin.md) %}
 
-The `{{ roles-admin }}` role also includes all permissions of the `{{ roles-editor }}` role.
+In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-communities-admin }}` role have the `Admin` role in the **Members** tab on the community page.
+
+> {% include [example-for-sharing](../../_includes/datasphere/roles-for-sharing-example.md) %}
+
+### Roles of other services {#integration-roles}
+
+{{ ml-platform-name }} projects can interact with other {{ yandex-cloud }} services using [service accounts](../../iam/concepts/users/service-accounts.md). A service account may need these roles.
+
+#### resource-manager.editor {#resource-manager-editor}
+
+{% include [roles-resources](../../_includes/roles-resource-manager-editor.md) %}
+
+#### storage.editor {#storage-editor}
+
+{% include notitle [roles-s3](../../_includes/roles-storage-editor.md) %}
+
+### Primitive roles {#primitive}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+#### See also {#see-also}
+
+* [{{ org-full-name }}](../../organization/).
+* [{#T}](../../iam/concepts/access-control/index.md).
+* [{#T}](../../iam/concepts/users/service-accounts.md).
+* [More information on inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

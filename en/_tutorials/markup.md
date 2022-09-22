@@ -45,9 +45,9 @@ Despite the fact that audio recordings are processed by people, the audio markup
 
 ## Before you begin {#before-you-begin}
 
-1. [Create a project](../datasphere/operations/projects/create.md) in **{{ ml-platform-name }}** and open it.
+1. [Create a project](../datasphere-old/operations/projects/create.md) in **{{ ml-platform-name }}** and open it.
 
-1. [Clone](../datasphere/operations/projects/work-with-git.md#clone) the Git repository that contains the notebooks with {{ yandex-cloud }} API usage examples:
+1. [Clone](../datasphere-old/operations/projects/work-with-git.md#clone) the Git repository that contains the notebooks with {{ yandex-cloud }} API usage examples:
 
     ```text
     https://github.com/yandex-cloud/examples

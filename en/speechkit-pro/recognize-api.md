@@ -30,9 +30,9 @@ Take a look at different {{ cloud-stt-api-name }} use cases:
 
 1. [Grant the service account permission](../storage/operations/buckets/edit-acl.md) to read and write data in the `audio-examples` bucket.
 
-1. [Create a project](../datasphere/operations/projects/create.md) in {{ ml-platform-name }} and open it.
+1. [Create a project](../datasphere-old/operations/projects/create.md) in {{ ml-platform-name }} and open it.
 
-1. [Clone](../datasphere/operations/projects/work-with-git.md#clone) the Git repository that contains the {{ yandex-cloud }} API source code:
+1. [Clone](../datasphere-old/operations/projects/work-with-git.md#clone) the Git repository that contains the {{ yandex-cloud }} API source code:
 
     ```text
     https://github.com/yandex-cloud/cloudapi

@@ -12,7 +12,7 @@ Input data is imported using a {{ ml-platform-full-name }} project:
 
 1. [Create](../../resource-manager/operations/folder/create.md) a folder in your cloud to store your model training data. There can be only one model per folder.  
    
-1. In this folder, [create a project](../../datasphere/operations/projects/create.md) for {{ ml-platform-name }}.
+1. In this folder, [create a project](../../datasphere-old/operations/projects/create.md) for {{ ml-platform-name }}.
    
 1. Click a tab called **File Browser** ![File Browser](../../_assets/datasphere/jupyterlab/folder.svg).
 

@@ -25,6 +25,7 @@ items:
       href: stt/additional-training.md
     - name: Загрузка данных для дообучения модели
       href: stt/import-training-data.md
+      hidden: true
   - name: Синтез речи
     items:
     - name: О технологии
@@ -47,6 +48,7 @@ items:
         href: tts/brand-voice/income-data-format.md
       - name: Загрузка данных для Brand Voice
         href: tts/brand-voice/import-data.md
+        hidden: true
   - name: Форматы аудио
     href: formats.md
   - name: Интеграция телефонии

@@ -2,11 +2,11 @@
 
 Технология {{ brand-voice-name }} позволяет создавать уникальные голоса для модели синтеза речи. Для обучения и последующей проверки модели необходимы аудиозаписи голоса диктора и расшифровки записанных фраз. Подробнее см. [{#T}](income-data-format.md).
 
-Проверка и загрузка входных данных выполняется с помощью проекта [{{ ml-platform-full-name }}](../../../datasphere/):
+Проверка и загрузка входных данных выполняется с помощью проекта [{{ ml-platform-full-name }}](../../../datasphere-old/):
 
 1. [Создайте](../../../resource-manager/operations/folder/create.md) в своем облаке каталог, в котором вы будете хранить данные для обучения модели. В одном каталоге может быть только одна модель. 
    
-1. В этом каталоге [создайте проект](../../../datasphere/operations/projects/create.md) {{ ml-platform-name }}.
+1. В этом каталоге [создайте проект](../../../datasphere-old/operations/projects/create.md) {{ ml-platform-name }}.
    
 1. Перейдите на вкладку **File Browser** ![File Browser](../../../_assets/datasphere/jupyterlab/folder.svg).
 

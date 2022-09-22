@@ -178,7 +178,7 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateProjectMetadata'
-      x-y-operation-response: '[Project](/docs/datasphere/api-ref/Project#representation)'
+      x-y-operation-response: '[Project](/docs/datasphere-old/api-ref/Project#representation)'
   /datasphere/v1/projects/{projectId}:
     get:
       tags:
@@ -266,7 +266,7 @@ paths:
       x-y-navtitle: update
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateProjectMetadata'
-      x-y-operation-response: '[Project](/docs/datasphere/api-ref/Project#representation)'
+      x-y-operation-response: '[Project](/docs/datasphere-old/api-ref/Project#representation)'
   /datasphere/v1/projects/{projectId}:open:
     post:
       tags:

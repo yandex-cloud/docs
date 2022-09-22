@@ -34,8 +34,8 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте проект](../datasphere/operations/projects/create.md) в **{{ ml-platform-name }}** и откройте его.
-1. [Склонируйте](../datasphere/operations/projects/work-with-git.md#clone) Git-репозиторий, в котором находятся ноутбуки с примерами использования {{ yandex-cloud }} API:
+1. [Создайте проект](../datasphere-old/operations/projects/create.md) в **{{ ml-platform-name }}** и откройте его.
+1. [Склонируйте](../datasphere-old/operations/projects/work-with-git.md#clone) Git-репозиторий, в котором находятся ноутбуки с примерами использования {{ yandex-cloud }} API:
 
     ```text
     https://github.com/yandex-cloud/examples

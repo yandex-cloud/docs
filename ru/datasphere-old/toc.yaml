@@ -1,0 +1,191 @@
+title:
+  - text: Yandex DataSphere
+    when: product == "yandex-cloud"
+  - text: DataSphere
+    when: product == "cloud-il"
+href: index.yaml
+stage: tech-preview
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Управление проектом
+        items:
+        - name: Создание проекта
+          href: operations/projects/create.md
+        - name: Выбор версии Python
+          href: operations/projects/python-version.md
+        - name: Установка зависимостей
+          href: operations/projects/install-dependencies.md
+        - name: Управление вычислительными ресурсами
+          href: operations/projects/control-compute-resources.md
+        - name: Настроить ограничения вычислений для проекта
+          href: operations/projects/custom-limits.md
+        - name: Настроить ограничения вычислений для каталога
+          href: operations/projects/set-ds-budget.md
+        - name: Изменение размера хранилища проекта
+          href: operations/projects/storage-resize.md
+        - name: Изменение имени или описания
+          href: operations/projects/update.md
+        - name: Удаление ноутбука или проекта
+          href: operations/projects/delete.md
+      - name: Поделиться ноутбуком
+        items:
+        - name: Публикация ноутбука
+          href: operations/projects/publication.md
+        - name: Экспорт проекта
+          href: operations/projects/export.md
+      - name: Работа с ноутбуком
+        items:
+        - name: Запуск примеров кода в ноутбуке
+          href: operations/projects/snippets.md
+        - name: Версионирование. Работа с контрольными точками
+          href: operations/projects/checkpoints.md
+        - name: Очистка состояния интерпретатора
+          href: operations/projects/clear-kernel-state.md
+        - name: Работа с Git
+          href: operations/projects/work-with-git.md
+      - name: Управление Docker‑образами
+        items:
+          - name: Docker-образ для проекта
+            href: operations/user-images.md
+          - name: Docker-образ в ячейке
+            href: operations/user-images-cell.md
+      - name: Подключение к источникам данных
+        items:
+          - name: Подключение к базе данных {{ CH }}
+            href: operations/data/connect-to-clickhouse.md
+          - name: Подключение к базе данных {{ PG }}
+            href: operations/data/connect-to-postgresql.md
+          - name: Подключение к хранилищу S3
+            href: operations/data/connect-to-s3.md
+          - name: Подключение к Яндекс Диску
+            href: operations/data/connect-to-ya-disk.md
+          - name: Подключение к Google Drive
+            href: operations/data/connect-to-google-drive.md
+      - name: Настройка интеграции с Data Proc
+        href: operations/data-proc-integration.md
+        when: product == "yandex-cloud"
+      - name: Работа с приватными данными
+        items:
+          - name: Создание секрета
+            href: operations/data/secret-create.md
+          - name: Вызов секрета
+            href: operations/data/secret-call.md
+          - name: Изменение секрета
+            href: operations/data/secret-change.md
+          - name: Копирование секрета
+            href: operations/data/secret-copy.md
+          - name: Удаление секрета
+            href: operations/data/secret-delete.md
+      - name: Запуск распределенного обучения
+        href: operations/taas-run.md
+        when: product == "yandex-cloud"
+      - name: Развертывание эксплуатации моделей
+        items:
+          - name: Создание ноды из ячейки с кодом на Python
+            href: operations/node-cell.md
+          - name: Настройка окружения ноды
+            href: operations/node-customization.md
+          - name: Запросы в ноды
+            href: operations/node-api.md
+          - name: Удаление ноды
+            href: operations/node-delete.md
+  - name: Концепции
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Проект
+        href: concepts/project.md
+      - name: Список предустановленного ПО
+        href: concepts/preinstalled-packages.md
+      - name: Доступные команды
+        href: concepts/magic.md
+      - name: 'Служебные команды #pragma'
+        href: concepts/pragma.md       
+      - name: Конфигурации вычислительных ресурсов
+        href: concepts/configurations.md
+      - name: Интеграция с системами контроля версий и данных
+        href: concepts/dvc-and-git.md
+      - name: Сохранение состояния
+        href: concepts/save-state.md
+      - name: Интеграция с Data Proc
+        href: concepts/data-proc.md
+        when: product == "yandex-cloud"
+      - name: Фоновые операции
+        href: concepts/async.md
+      - name: Датасеты
+        href: concepts/dataset.md
+      - name: Хранение приватных данных
+        href: concepts/secrets.md
+      - name: Развертывание эксплуатации моделей
+        href: concepts/deploy/index.md
+      - name: Использование TensorBoard в DataSphere
+        href: concepts/tensorboard.md
+      - name: Распределенное обучение
+        href: concepts/taas.md
+        when: product == "yandex-cloud"
+      - name: Управление расходами
+        href: concepts/budget.md
+        when: product == "yandex-cloud"
+      - name: Ограничение используемых ресурсов
+        href: concepts/budget.md
+        when: product == "cloud-il"
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Ранний доступ
+    items:
+      - name: Обзор
+        href: early-access/index.md
+      - name: Специальные фоновые операции
+        href: early-access/repeat.md
+  - name: Практические руководства
+    items:
+      - name: Все руководства
+        href: tutorials/index.md
+      - name: Знакомство с DataSphere
+        href: tutorials/basics.md
+      - name: Голосовая биометрия
+        href: tutorials/speech-recognition.md
+      - name: Оценка качества STT моделей
+        href: tutorials/estimate-quality.md
+      - name: Разметка аудио
+        href: tutorials/markup.md
+      - name: Классификация изображений на видеокадрах
+        href: tutorials/video-recognition.md
+      - name: Развертывание модели в качестве микросервиса
+        href: tutorials/deploy-cells.md
+        when: audience == "draft"
+      - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
+        href: tutorials/data-from-metrica-yc-visualization.md
+  - name: Справочник API
+    items:
+        - name: Обзор
+          href: api-ref/overview.md
+        - name: Аутентификация в API
+          href: api-ref/authentication.md
+        - name: gRPC (англ.)
+          items: null
+          include:
+            repo: docs
+            path: en/_api-ref-grpc/datasphere/toc.yaml
+        - name: REST (англ.)
+          items: null
+          include:
+            repo: docs
+            path: en/_api-ref/datasphere/toc.yaml
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Публичные материалы
+    href: public-talks.md
+    when: product == "yandex-cloud"
+  - name: Релизы
+    href: release-notes.md
+    when: product == "yandex-cloud"
+  - name: Вопросы и ответы
+    href: qa/index.md

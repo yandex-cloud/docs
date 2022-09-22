@@ -1,14 +1,10 @@
-# Managing computing resources
+# Select computing resources
 
-{% include [include](../../../_includes/datasphere/control-compute-resources-intro.md) %}
+{% include [include](../../../_includes/datasphere/ui-control-compute-resources-intro.md) %}
 
 ## Before you start {#before-begin}
 
-If the project is already open, go to the notebook tab.
-
-If not, open the project:
-
-{% include [include](../../../_includes/datasphere/before-begin.md) %}
+{% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
 
 ## Change the configuration {#config}
 

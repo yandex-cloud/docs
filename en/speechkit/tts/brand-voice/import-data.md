@@ -2,11 +2,11 @@
 
 {{ brand-voice-name }} technology lets you create unique voices for a speech synthesis model. For model training and subsequent validation, audio recordings of the speaker's voice and transcriptions of recorded phrases are required. For details, see [{#T}](income-data-format.md).
 
-The input data is validated using a [{{ ml-platform-full-name }}](../../../datasphere/) project.
+The input data is validated using a [{{ ml-platform-full-name }}](../../../datasphere-old/) project.
 
 1. [Create](../../../resource-manager/operations/folder/create.md) in your cloud the folder where you'll store data for model training. There can be only one model per folder.
 
-1. In this folder, [create a project](../../../datasphere/operations/projects/create.md) {{ ml-platform-name }}.
+1. In this folder, [create a project](../../../datasphere-old/operations/projects/create.md) {{ ml-platform-name }}.
 
 1. Go to the **File Browser** ![File Browser](../../../_assets/datasphere/jupyterlab/folder.svg) tab
 

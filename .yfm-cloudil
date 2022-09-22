@@ -15,7 +15,7 @@ ignore:
   - "en/data-streams/*"
   - "en/datalens/*"
   - "en/datasphere/*"
-  - "en/datasphere-ui-preview/*"
+  - "en/datasphere-old/*"
   - "en/forms/*"
   - "en/free-trial/*"
   - "en/functions/*"

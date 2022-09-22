@@ -4,6 +4,14 @@ editable: false
 
 # Правила тарификации для {{ ml-platform-name }}
 
+{% if product == "cloud-il" %}
+
+На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ ml-platform-name }} не тарифицируется.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 {% include [prices](../_includes/datasphere/migration/pricing.md) %}
 
 ### Использование кластеров {{ dataproc-name }} {#data-proc}
@@ -131,23 +139,4 @@ editable: false
 
 {% endif %}
 
-### Разметка аудио {#markup}
-
-В этом разделе указана стоимость [разметки аудио](tutorials/markup.md). Стоимость указана за единицу тарификации, итоговая стоимость разметки зависит от объема данных и будет посчитана после загрузки данных.
-
-{% if region == "ru" %}
-
-| Услуга                                               | Цена за единицу тарификации,<br>вкл. НДС |
-|------------------------------------------------------|------------------------------------------|
-| [Разметка аудио](tutorials/markup.md) | {{ sku|RUB|ai.speech.transcribe.human.v1|string }} |
-
 {% endif %}
-
-{% if region == "kz" %}
-
-| Услуга                                                    | Цена за единицу тарификации,<br>вкл. НДС |
-|-----------------------------------------------------------|------------------------------------------|
-| [Разметка аудио](tutorials/markup.md) | {{ sku|KZT|ai.speech.transcribe.human.v1|string }} |
-
-{% endif %}
-

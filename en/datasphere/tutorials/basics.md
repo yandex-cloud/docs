@@ -37,7 +37,7 @@ To get started with the service:
 
    Invoking the `getcwd()` function from the `os` module returns the name of the current folder.
 
-1. Run this cell. To do this, choose **Run → Run Selected Cells** or press **Shift** + **Enter**.
+1. Run this cell. To do this, choose **Run → Run Selected Cells** or press **Shift**+**Enter**.
 
    {% note info %}
 
@@ -60,7 +60,7 @@ To get started with the service:
 1. Change the value of the `fname` variable in the cell:
 
    ```bash
-   fname='./input.zip'
+   fname=./input.zip
    ```
 
 1. Run this cell with the code.
@@ -70,7 +70,7 @@ This extracts files from the `input.zip` archive to the `input` directory inside
 
 ## Install dependencies {#satisfy-dependencies}
 
-1. Select and run the cell with the code in the **Introduction for this demo and Kaggle data** section:
+1. Select and run the cell with the code in the I**ntroduction for this demo and Kaggle data** section:
 
    ```python
    # Let's start with import and install all necessary libraries and packages

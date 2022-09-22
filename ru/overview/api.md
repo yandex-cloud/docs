@@ -63,7 +63,6 @@
 
 {% if product == "yandex-cloud" %}
 - Машинное обучение:
-   - [{{ ml-platform-full-name }}](../datasphere/api-ref/)
    - [{{ speechkit-full-name }}](../speechkit/)
    - [{{ translate-full-name }}](../translate/api-ref/)
    - [{{ vision-full-name }}](../vision/api-ref/)

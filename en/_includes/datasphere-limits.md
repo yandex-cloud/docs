@@ -3,8 +3,8 @@
 | Type of limit | Value |
 --- | ---
 | Number of projects per cloud | 10 |
-| Number of [custom images](../datasphere/operations/user-images.md) per cloud | 3 |
-| Number of [datasets](../datasphere/concepts/dataset.md) per project | 3 |
+| Number of [custom images](../datasphere-old/operations/user-images.md) per cloud | 3 |
+| Number of [datasets](../datasphere-old/concepts/dataset.md) per project | 3 |
 | Total dataset capacity per cloud | 500 GB |
 | Project storage capacity | 10 GB |
 | **VM use restrictions for individuals** |

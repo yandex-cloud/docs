@@ -10,9 +10,9 @@ To train a language model:
 
 ## Before you start {#before-you-begin}
 
-1. [Create a project](../datasphere/operations/projects/create.md) in {{ ml-platform-name }} and open it.
+1. [Create a project](../datasphere-old/operations/projects/create.md) in {{ ml-platform-name }} and open it.
 
-1. [Clone](../datasphere/operations/projects/work-with-git.md#clone) the Git repository that contains the notebooks with {{ yandex-cloud }} API usage examples:
+1. [Clone](../datasphere-old/operations/projects/work-with-git.md#clone) the Git repository that contains the notebooks with {{ yandex-cloud }} API usage examples:
 
     ```bash
     https://github.com/yandex-cloud/examples
@@ -40,7 +40,7 @@ In this use case, the following file and folder structure is used:
 
 * `/raw_data/references/`: A folder with audio markup texts. Text in each file contains a transcript of the speech in the corresponding audio recording from the `/raw_data/audio/` folder.
 
-    Audio markup is a special way to transcribe audio recordings and represent the results as text. Use the [service](../datasphere/tutorials/markup.md) provided by SpeechKit Pro or generate the resulting texts yourself.
+    Audio markup is a special way to transcribe audio recordings and represent the results as text. Use the [service](../datasphere-old/tutorials/markup.md) provided by SpeechKit Pro or generate the resulting texts yourself.
 
 ### Prepare texts {#text-prepare}
 
@@ -176,5 +176,5 @@ To evaluate the quality of the model:
     Mean WER: 0.21885521885521886
     ```
 
-For more information about evaluating the quality of models, see [{#T}](../datasphere/tutorials/estimate-quality.md).
+For more information about evaluating the quality of models, see [{#T}](../datasphere-old/tutorials/estimate-quality.md).
 

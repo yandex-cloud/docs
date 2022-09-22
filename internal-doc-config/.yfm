@@ -27,7 +27,7 @@ ignore:
   - "ru/data-proc/*"
   - "ru/datalens-api/*"
   - "ru/datasphere/*"
-  - "ru/datasphere-ui-preview/*"
+  - "ru/datasphere-old/*"
   - "ru/data-streams/*"
   - "ru/dns/*"
   - "ru/free-trial/*"

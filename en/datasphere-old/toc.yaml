@@ -1,0 +1,186 @@
+title:
+  - text: Yandex DataSphere
+    when: product == "yandex-cloud"
+  - text: DataSphere
+    when: product == "cloud-il"
+href: index.yaml
+stage: tech-preview
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Project management
+        items:
+        - name: Creating a project
+          href: operations/projects/create.md
+        - name: Choosing a Python version
+          href: operations/projects/python-version.md
+        - name: Installing dependencies
+          href: operations/projects/install-dependencies.md
+        - name: Managing computing resources
+          href: operations/projects/control-compute-resources.md
+        - name: Setting up consumption limits for a project
+          href: operations/projects/custom-limits.md
+        - name: Setting up consumption limits for a folder
+          href: operations/projects/set-ds-budget.md
+        - name: Resizing project storage
+          href: operations/projects/storage-resize.md
+        - name: Changing a name or description
+          href: operations/projects/update.md
+        - name: Deleting a notebook or project
+          href: operations/projects/delete.md
+      - name: Sharing a notebook
+        items:
+        - name: Publishing a notebook
+          href: operations/projects/publication.md
+        - name: Exporting a project
+          href: operations/projects/export.md
+      - name: Working with a notebook
+        items:
+        - name: Running sample code in a notebook
+          href: operations/projects/snippets.md
+        - name: Versioning. Working with checkpoints
+          href: operations/projects/checkpoints.md
+        - name: Clearing the interpreter state
+          href: operations/projects/clear-kernel-state.md
+        - name: Working with Git
+          href: operations/projects/work-with-git.md
+      - name: Managing Docker images
+        items:
+          - name: Docker image for a project
+            href: operations/user-images.md
+          - name: Docker image in a cell
+            href: operations/user-images-cell.md
+      - name: Connecting to data sources
+        items:
+          - name: Connecting to a {{ CH }} database
+            href: operations/data/connect-to-clickhouse.md
+          - name: Connecting to a {{ PG }} database
+            href: operations/data/connect-to-postgresql.md
+          - name: Connecting to S3 storage
+            href: operations/data/connect-to-s3.md
+          - name: Connecting to Yandex Disk
+            href: operations/data/connect-to-ya-disk.md
+          - name: Connecting to Google Drive
+            href: operations/data/connect-to-google-drive.md
+      - name: Setting up integration with Data Proc
+        href: operations/data-proc-integration.md
+        when: product == "yandex-cloud"
+      - name: Working with confidential data
+        items:
+          - name: Creating a secret
+            href: operations/data/secret-create.md
+          - name: Referencing a secret
+            href: operations/data/secret-call.md
+          - name: Updating a secret
+            href: operations/data/secret-change.md
+          - name: Copying a secret
+            href: operations/data/secret-copy.md
+          - name: Destroying a secret
+            href: operations/data/secret-delete.md
+      - name: Launching distributed training
+        href: operations/taas-run.md
+        when: product == "yandex-cloud"
+      - name: Deploying models
+        items:
+          - name: Creating a node from a Python code cell
+            href: operations/node-cell.md
+          - name: Configuring the node environment
+            href: operations/node-customization.md
+          - name: Queries to nodes
+            href: operations/node-api.md
+          - name: Deleting a node
+            href: operations/node-delete.md
+  - name: Concepts
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Project
+        href: concepts/project.md
+      - name: List of pre-installed software
+        href: concepts/preinstalled-packages.md
+      - name: Available commands
+        href: concepts/magic.md
+      - name: '#pragma service commands'
+        href: concepts/pragma.md
+      - name: Computing resource configurations
+        href: concepts/configurations.md
+      - name: Integration with version and data control systems
+        href: concepts/dvc-and-git.md
+      - name: Saving a state
+        href: concepts/save-state.md
+      - name: Integration with Data Proc
+        href: concepts/data-proc.md
+        when: product == "yandex-cloud"
+      - name: Background operations
+        href: concepts/async.md
+      - name: Datasets
+        href: concepts/dataset.md
+      - name: Private data storage
+        href: concepts/secrets.md
+      - name: Deploying models
+        href: concepts/deploy/index.md
+      - name: Using TensorBoard in Yandex DataSphere
+        href: concepts/tensorboard.md
+      - name: Distributed training
+        href: concepts/taas.md
+        when: product == "yandex-cloud"
+      - name: Cost management
+        href: concepts/budget.md
+        when: product == "yandex-cloud"
+      - name: The limit on resources used
+        href: concepts/budget.md
+        when: product == "cloud-il"
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Early access
+    items:
+      - name: Overview
+        href: early-access/index.md
+      - name: Special background operations
+        href: early-access/repeat.md
+  - name: Practical guidelines
+    items:
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: Getting started with Yandex DataSphere
+        href: tutorials/basics.md
+      - name: Voice biometrics
+        href: tutorials/speech-recognition.md
+      - name: Evaluating the quality of STT models
+        href: tutorials/estimate-quality.md
+      - name: Labeling audio files
+        href: tutorials/markup.md
+      - name: Classification of images in video frames
+        href: tutorials/video-recognition.md
+      - name: Web analytics with funnels and cohorts calculated based on Yandex Metrica data
+        href: tutorials/data-from-metrica-yc-visualization.md
+  - name: API reference
+    items:
+        - name: Authentication in the API
+          href: api-ref/authentication.md
+        - name: gRPC
+          items: null
+          include:
+            repo: docs
+            path: en/_api-ref-grpc/datasphere/toc.yaml
+        - name: REST
+          items: null
+          include:
+            repo: docs
+            path: en/_api-ref/datasphere/toc.yaml
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: Public materials
+    href: public-talks.md
+    when: product == "yandex-cloud"
+  - name: Releases
+    href: release-notes.md
+    when: product == "yandex-cloud"
+  - name: Questions and answers
+    href: qa/index.md

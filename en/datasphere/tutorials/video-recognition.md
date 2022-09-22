@@ -56,13 +56,12 @@ To get an idea of how the problem might be solved:
    ...
    ```
 
-1. Run the selected cell. To do this, choose **Run → Run Selected Cells** or press **Shift** + **Enter**.
-
+1. Run the selected cell. To do this, choose **Run → Run Selected Cells** or press **Shift**+**Enter**.
 1. Wait for the operation to complete.
 
 The solution uses the [Keras interface](https://keras.io/about/) of the TensorFlow library with a [CNTK backend](https://docs.microsoft.com/en-us/cognitive-toolkit/). The `boto3` package is used to connect to the S3 bucket: this is your image source. The cell also sets the environment variables needed to access the CNTK backend and connect to the S3 bucket.
 
-The packages listed in the cell are already installed in {{ ml-platform-name }} and you can import them using the `import` command. For the full list of packages pre-installed in {{ ml-platform-name }}, see [{#T}](../concepts/preinstalled-packages.md).
+The packages listed in the cell are already installed in {{ ml-platform-name }} and you can `import` them using the import command. For the full list of packages pre-installed in {{ ml-platform-name }}, see [{#T}](../concepts/preinstalled-packages.md).
 
 {% note info %}
 
@@ -111,7 +110,7 @@ To prepare the model and calculate the properties:
 
    ```
    #!g1.1
-   model = ResNet50(weights='imagenet',  input_shape=(224, 224, 3))
+   model = ResNet50(weights='imagenet', input_shape=(224, 224, 3))
    ...
    ```
 
@@ -170,7 +169,7 @@ To use the resulting model:
    ...
    ```
 
-1. Make sure that the probability value is close to 1 (you should get `≈0.98`).
+1. Make sure that the probability value is close to 1 (you should get ≈`0.98`).
 
 1. Edit the cell code before loading the model:
 
@@ -229,4 +228,5 @@ There are several practical uses of the model you built:
                                        modelFile="lightgbm_classifier.model")
    predictions = estimator.fit(image_uri_dataset)
    ```
+
 {% endif %}

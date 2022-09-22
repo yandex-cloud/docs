@@ -12,7 +12,7 @@
 
 1. [Создайте](../../resource-manager/operations/folder/create.md) в своем облаке каталог, в котором вы будете хранить данные для обучения модели. В одном каталоге может быть только одна модель. 
    
-1. В этом каталоге [создайте проект](../../datasphere/operations/projects/create.md) {{ ml-platform-name }}.
+1. В этом каталоге [создайте проект](../../datasphere-old/operations/projects/create.md) {{ ml-platform-name }}.
    
 1. Перейдите на вкладку **File Browser** ![File Browser](../../_assets/datasphere/jupyterlab/folder.svg).
 
