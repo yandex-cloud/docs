@@ -150,7 +150,6 @@ cloudil.audit.<имя сервиса>.<имя события>
 `DeleteCertificate` | Удаление сертификата для федерации
 `DeleteFederation` | Удаление федерации
 `DeleteKey` | Удаление пары ключей для сервисного аккаунта
-`DetectLeakedCredential` | Удаление секретов, которые обнаружены в открытом доступе
 `DeleteServiceAccount` | Удаление сервисного аккаунта
 `DetectLeakedCredential` | Обнаружение секрета в открытом источнике
 `UpdateAccessKey` | Обновление ключа доступа
