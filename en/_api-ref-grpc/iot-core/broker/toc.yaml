@@ -1,9 +1,9 @@
 items:
   - name: Overview
-    href: api-ref/grpc/index.md
+    href: broker/api-ref/grpc/index.md
   - name: BrokerDataService
-    href: api-ref/grpc/broker_data_service.md
+    href: broker/api-ref/grpc/broker_data_service.md
   - name: BrokerService
-    href: api-ref/grpc/broker_service.md
+    href: broker/api-ref/grpc/broker_service.md
   - name: OperationService
-    href: api-ref/grpc/operation_service.md
+    href: broker/api-ref/grpc/operation_service.md

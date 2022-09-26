@@ -788,7 +788,7 @@ components:
           description: |-
             Network IDs.
 
-            The number of elements must be in the range 0-10.
+            The number of elements must be in the range 0-100.
             The string length in characters for each value must be equal to 20.
           type: array
           items:
@@ -1095,7 +1095,7 @@ components:
           description: |-
             Network IDs.
 
-            The number of elements must be in the range 0-10.
+            The number of elements must be in the range 0-100.
             The string length in characters for each value must be equal to 20.
           type: array
           items:
@@ -1120,7 +1120,7 @@ components:
           description: |-
             Network IDs.
 
-            The number of elements must be in the range 0-10.
+            The number of elements must be in the range 0-100.
             The string length in characters for each value must be equal to 20.
           type: array
           items:
@@ -1154,7 +1154,7 @@ components:
           description: |-
             Network IDs.
 
-            The number of elements must be in the range 0-10.
+            The number of elements must be in the range 0-100.
             The string length in characters for each value must be equal to 20.
           type: array
           items:

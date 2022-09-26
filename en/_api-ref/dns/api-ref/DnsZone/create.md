@@ -39,7 +39,7 @@ description | **string**<br><p>Description of the DNS zone.</p> <p>The maximum s
 labels | **object**<br><p>DNS zone labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
 zone | **string**<br><p>Required. DNS zone suffix.</p> <p>The maximum string length in characters is 255. Value must match the regular expression ``[.]\|[a-z0-9][-a-z0-9.]*\.``.</p> 
 privateVisibility | **object**<br><p>Privately visible zone settings. At least one of two visibility fields must be set.</p> <p>Configuration for privately visible zones.</p> 
-privateVisibility.<br>networkIds[] | **string**<br><p>Network IDs.</p> <p>The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.</p> 
+privateVisibility.<br>networkIds[] | **string**<br><p>Network IDs.</p> <p>The number of elements must be in the range 0-100. The string length in characters for each value must be equal to 20.</p> 
 publicVisibility | **object**<br><p>Publicly visible zone settings. At least one of two visibility fields must be set.</p> <p>Configuration for publicly visible zones.</p> 
  
 ## Response {#responses}

@@ -56,7 +56,7 @@ public_visibility | **[PublicVisibility](#PublicVisibility)**<br>Publicly visibl
 
 Field | Description
 --- | ---
-network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
+network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-100. The string length in characters for each value must be equal to 20.
 
 
 ### PublicVisibility {#PublicVisibility}
@@ -106,7 +106,7 @@ public_visibility | **[PublicVisibility](#PublicVisibility1)**<br>Publicly visib
 
 Field | Description
 --- | ---
-network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
+network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-100. The string length in characters for each value must be equal to 20.
 
 
 ### PublicVisibility {#PublicVisibility1}
@@ -140,7 +140,7 @@ public_visibility | **[PublicVisibility](#PublicVisibility2)**<br>Publicly visib
 
 Field | Description
 --- | ---
-network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
+network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-100. The string length in characters for each value must be equal to 20.
 
 
 ### PublicVisibility {#PublicVisibility2}
@@ -212,7 +212,7 @@ public_visibility | **[PublicVisibility](#PublicVisibility3)**<br>Public visibil
 
 Field | Description
 --- | ---
-network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
+network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-100. The string length in characters for each value must be equal to 20.
 
 
 ### PublicVisibility {#PublicVisibility3}

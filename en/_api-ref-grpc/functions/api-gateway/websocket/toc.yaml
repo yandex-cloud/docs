@@ -1,5 +1,5 @@
 items:
   - name: Overview
-    href: apigateway/api-ref/grpc/index.md
+    href: apigateway/websocket/api-ref/grpc/index.md
   - name: ConnectionService
-    href: apigateway/api-ref/grpc/connection_service.md
+    href: apigateway/websocket/api-ref/grpc/connection_service.md

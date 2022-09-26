@@ -5,7 +5,7 @@ info:
     by sending HTTP requests to resource URLs or making RPC calls. For more information
     about API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
-  x-y-docUri: api-ref
+  x-y-docUri: broker/api-ref
   x-y-baseUrl: https://iot-broker.api.cloud.yandex.net
 paths:
   /iot-broker/v1/brokers/{brokerId}/publish:
