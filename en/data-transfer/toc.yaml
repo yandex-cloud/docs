@@ -42,7 +42,6 @@ items:
                 href: operations/endpoint/source/data-streams.md
               - name: "{{ ydb-full-name }}"
                 href: operations/endpoint/source/ydb.md
-                when: product == "yandex-cloud"
           - name: Configuring target endpoints
             items:
               - name: Apache Kafka®

@@ -24,35 +24,35 @@
             * [{{ CH }}](source/clickhouse.md)
             * [{{ eventhub-name }}](source/eventhub.md)
             * [{{ GP }}](source/greenplum.md)
-              {% if audience == "internal" %}
+{% if audience == "internal" %}
             * [{{ logbroker-name }}](source/logbroker.md)
             * [{{ logfeller-name }}](source/logfeller.md)
-              {% endif %}
+{% endif %}
             * [{{ MG }}](source/mongodb.md)
             * [{{ MY }}](source/mysql.md)
             * [Oracle](source/oracle.md)
             * [{{ PG }}](source/postgresql.md)
             * [{{ yds-full-name }}](source/data-streams.md)
             * [{{ ydb-full-name }}](source/ydb.md)
-              {% if audience == "internal" %}
+{% if audience == "internal" %}
             * [{{ yt-name }}](source/yt.md)
-              {% endif %}
+{% endif %}
         * Приемники:
             * [{{ KF }}](target/kafka.md)
             * [{{ CH }}](target/clickhouse.md)
             * [{{ GP }}](target/greenplum.md)
-              {% if audience == "internal" %}
+{% if audience == "internal" %}
             * [{{ logbroker-name }}](target/logbroker.md)
             * [{{ logfeller-name }}](target/logfeller.md)
-              {% endif %}
+{% endif %}
             * [{{ MG }}](target/mongodb.md)
             * [{{ MY }}](target/mysql.md)
             * [{{ objstorage-name }}](target/object-storage.md)
             * [{{ PG }}](target/postgresql.md)
             * [{{ ydb-name }}](target/yandex-database.md)
-              {% if audience == "internal" %}
+{% if audience == "internal" %}
             * [{{ yt-name }}](target/yt.md)
-              {% endif %}
+{% endif %}
     1. Нажмите кнопку **Создать**.
 
 - CLI
@@ -87,32 +87,56 @@
         Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных:
 
         * Источники:
-
-            * [{{ MY }}](source/mysql.md).
-            * [{{ PG }}](source/postgresql.md).
+            * [{{ CH }}](source/clickhouse.md)
+            * [{{ MG }}](source/mongodb.md)
+            * [{{ MY }}](source/mysql.md)
+            * [{{ PG }}](source/postgresql.md)
 
         * Приемники:
-
-            * [{{ MY }}](target/mysql.md).
-            * [{{ PG }}](target/postgresql.md).
+            * [{{ CH }}](target/clickhouse.md)
+            * [{{ MG }}](target/mongodb.md)
+            * [{{ MY }}](target/mysql.md)
+            * [{{ PG }}](target/postgresql.md)
 
 - {{ TF }}
-
+    {% if audience != "internal" %}
     {% note info %}
 
-    Создание эндпоинта с помощью {{ TF }} поддерживается только для источников и приемников типа {{ MY }} и {{ PG }}.
+    Создание эндпоинта с помощью {{ TF }} поддерживается только для источников и приемников типа {{ MY }}, {{ PG }}, {{MG}} и {{CH}}.
 
     {% endnote %}
+    {% endif %}
+
+    {% if audience == "internal" %}
+    [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language).
+    Подробную информацию о провайдере для Private API Yandex Cloud см. на [странице документации](https://storage.cloud-preprod.yandex.net/terraform/docs/latest/resources/datatransfer_endpoint.html).
+    {% else %}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
+    {% endif %} 
     Чтобы создать эндпоинт:
 
     1. В командной строке перейдите в директорию, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
+    {% if audience == "internal" %}
+    1. Если у вас еще нет {{ TF }}, [установите его и создайте конфигурационный файл с настройками провайдера](https://wiki.yandex-team.ru/cloud/devel/terraform-ycp/).
+    1. Создайте конфигурационный файл с описанием эндпоинта.
 
-    {% if audience != "internal" %}
+       Пример структуры конфигурационного файла:
+
+       ```hcl
+       resource "ycp_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+         name = "<имя эндпоинта>"
+         settings {
+           <тип эндпоинта> {
+             <параметры эндпоинта>
+           }
+         }
+       }
+       ```
+    Полную схему ресурсов можно получить, запустив `terraform providers schema`.   
+    {% else %}   
     1. Если у вас еще нет {{ TF }}, [установите его и создайте конфигурационный файл с настройками провайдера](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-    {% endif %}
     1. Создайте конфигурационный файл с описанием эндпоинта.
 
        Пример структуры конфигурационного файла:
@@ -127,32 +151,74 @@
          }
        }
        ```
+       {% endif %}
 
-       Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных:
+    1. Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных:
+         
+        {% if audience != "internal" %}
+  
+         * Источники:
+       
+           * [{{ CH }}](source/clickhouse.md)
+           * [{{ MG }}](source/mongodb.md)
+           * [{{ MY }}](source/mysql.md)
+           * [{{ PG }}](source/postgresql.md)
 
-       * Источники:
-
-           * [{{ CH }}](source/clickhouse.md).
-           * [{{ MG }}](source/mongodb.md).
-           * [{{ MY }}](source/mysql.md).
-           * [{{ PG }}](source/postgresql.md).
-
-       * Приемники:
-
-           * [{{ CH }}](target/clickhouse.md).
-           * [{{ MG }}](target/mongodb.md).
-           * [{{ MY }}](target/mysql.md).
-           * [{{ PG }}](target/postgresql.md).
+         * Приемники:
+       
+           * [{{ CH }}](target/clickhouse.md)
+           * [{{ MG }}](target/mongodb.md)
+           * [{{ MY }}](target/mysql.md)
+           * [{{ PG }}](target/postgresql.md)
+         
+         {% else %}
+  
+         * Источники:
+            * Airbyte®:
+               * [AWS CloudTrail](source/aws-cloudtrail.md)
+               * [BigQuery](source/bigquery.md)
+               * [S3](source/s3.md)
+            * [{{ KF }}](source/kafka.md)
+            * [{{ CH }}](source/clickhouse.md)
+            * [{{ eventhub-name }}](source/eventhub.md)
+            * [{{ GP }}](source/greenplum.md)
+            * [{{ logbroker-name }}](source/logbroker.md)
+            * [{{ logfeller-name }}](source/logfeller.md)
+            * [{{ MG }}](source/mongodb.md)
+            * [{{ MY }}](source/mysql.md)
+            * [Oracle](source/oracle.md)
+            * [{{ PG }}](source/postgresql.md)
+            * [{{ yds-full-name }}](source/data-streams.md)
+            * [{{ ydb-full-name }}](source/ydb.md)
+            * [{{ yt-name }}](source/yt.md)
+      
+         * Приемники:
+            * [{{ KF }}](target/kafka.md)
+            * [{{ CH }}](target/clickhouse.md)
+            * [{{ GP }}](target/greenplum.md)
+            * [{{ logbroker-name }}](target/logbroker.md)
+            * [{{ logfeller-name }}](target/logfeller.md)
+            * [{{ MG }}](target/mongodb.md)
+            * [{{ MY }}](target/mysql.md)
+            * [{{ objstorage-name }}](target/object-storage.md)
+            * [{{ PG }}](target/postgresql.md)
+            * [{{ ydb-name }}](target/yandex-database.md)
+            * [{{ yt-name }}](target/yt.md)
+         {% endif %}
 
     1. Проверьте корректность настроек.
 
-       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+        {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
     1. Подтвердите изменение ресурсов.
 
-       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+     
+        {% if audience != "internal" %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+    1. Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+    
+    {% endif %}
 
 - API
 
@@ -172,14 +238,16 @@
     Параметры эндпоинта см. в разделе настроек для нужного источника или приемника данных:
 
     * Источники:
-
-        * [{{ MY }}](source/mysql.md).
-        * [{{ PG }}](source/postgresql.md).
+        * [{{ CH }}](source/clickhouse.md)
+        * [{{ MG }}](source/mongodb.md)
+        * [{{ MY }}](source/mysql.md)
+        * [{{ PG }}](source/postgresql.md)
 
     * Приемники:
-
-        * [{{ MY }}](target/mysql.md).
-        * [{{ PG }}](target/postgresql.md).
+        * [{{ CH }}](target/clickhouse.md)
+        * [{{ MG }}](target/mongodb.md)
+        * [{{ MY }}](target/mysql.md)
+        * [{{ PG }}](target/postgresql.md)
 
 {% endlist %}
 

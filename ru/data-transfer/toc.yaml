@@ -56,7 +56,6 @@ items:
                 when: product == "yandex-cloud"
               - name: YDB
                 href: operations/endpoint/source/ydb.md
-                when: product == "yandex-cloud"
               - name: YT
                 href: operations/endpoint/source/yt.md
                 when: audience == "internal"
@@ -84,7 +83,6 @@ items:
                 href: operations/endpoint/target/postgresql.md
               - name: YDB
                 href: operations/endpoint/target/yandex-database.md
-                when: product == "yandex-cloud"
               - name: YT
                 href: operations/endpoint/target/yt.md
                 when: audience == "internal"
