@@ -1,6 +1,6 @@
 # Monitoring the transfer status
 
-Transfer status details are available in the management console. You can view them on the **Monitoring** tab of the {% if audience != "internal" %} transfer management page or in [{{ monitoring-full-name }}](../../monitoring/concepts/index.md){% endif %}.
+Transfer status details are available in the management console. {% if audience != "internal" %}You can view them on the **Monitoring** tab of the transfer management page or in [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).{% else %}To view the details, select a transfer, and under **General information**, click the **Dashboard link**.{% endif %}
 
 Diagnostic information about the transfer status is presented as charts.
 
@@ -10,13 +10,15 @@ You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }
 
 {% else %}
 
-You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }} to receive notifications about transfer failures. Two internal services can be used to configure alerts:
+You can configure alerts in {{ monitoring-full-name }} to receive notifications about transfer failures. Two internal services can be used to configure alerts:
 * Solomon: Stores {{ data-transfer-short-name }} process metrics.
 * Juggler: Tracks a collection of events and notifies of events using different methods.
 
 See detailed information about alerts on the service's [wiki page](https://wiki.yandex-team.ru/transfer-manager/replication/monitoring/alerts/).
 
 {% endif %}
+
+{% if audience != "internal" %}
 
 ## Monitoring the transfer status {#monitoring}
 
@@ -26,7 +28,11 @@ See detailed information about alerts on the service's [wiki page](https://wiki.
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **Transfers**.
-   1. Click on the name of the transfer and open the ![image](../../_assets/monitoring.svg) **Monitoring** tab.
+      {% if audience != "internal" %}
+   1. Click the name of the desired transfer and open the ![image](../../_assets/monitoring.svg) **Monitoring** tab.
+      {% else %}
+   1. Click the name of the desired transfer and under **General information**, click the **Link to dashboard**.
+      {% endif %}
    1. To get started with {{ monitoring-full-name }} metrics, dashboards, or alerts, click **Open in Monitoring** in the top panel.
 
 {% endlist %}
@@ -221,4 +227,6 @@ Alert parameters:
 
 * Alerts do not cover all transfer failures. Alert triggering does not always indicate a failure. If problems with the alerts recur, contact [technical support]({{ link-console-support }}) and specify the load, charts, metrics used, and the expected alert behavior.
 
-* Alerts can be triggered not only by transfer infrastructure problems, but also by {{ data-transfer-name }} problems. For example, due to an insufficiency of virtual machine resources for data replication. If this occurs, contact [technical support]({{ link-console-support }}).
+* Alerts can be triggered not only by transfer infrastructure problems, but also by {{ data-transfer-name }} problems. For example, due to an insufficiency of virtual machine resources for data replication. If this happens, contact [technical support]({{ link-console-support }}).
+
+{% endif %}
