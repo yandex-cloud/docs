@@ -77,6 +77,9 @@ CREATE EXTENSION <имя расширения>;
 || [plpgsql](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/5/greenplum-database/GUID-ref_guide-extensions-pl_sql.html)
 Включает поддержку процедурного языка PL/pgSQL.
 | 1.0 ||
+|| [postgis](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/5/greenplum-database/GUID-ref_guide-extensions-postGIS.html)
+Добавляет возможности хранения и обработки объектов геоинформационных систем (ГИС) в базах данных {{ PG }}.
+| 2.1.5 ||
 || [postgres_fdw](https://gpdb.docs.pivotal.io/latest/ref_guide/modules/postgres_fdw.html)
 Добавляет оболочку для обращений к удаленным базам данных {{ PG }}.
 | 1.0 ||
