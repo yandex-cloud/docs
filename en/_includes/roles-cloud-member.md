@@ -1,9 +1,13 @@
 This role alone doesn't give you the right to perform any operations and is only used in combination with other roles.
 
+{% if product == "yandex-cloud" %}
+
 How the role can be combined with other roles depends on whether a cloud belongs to an organization or not.
 
 
 #### For a cloud in an organization {#cloud-inside-org}
+
+{% endif %}
 
 The role is useful if the user needs access to {{ yandex-cloud }} resources not only via the CLI, API, and {{ TF }}, but also via the management console.
 
@@ -41,6 +45,7 @@ If there are multiple clouds in the organization and they are created and delete
 
 {% endnote %}
 
+{% if product == "yandex-cloud" %}
 
 #### For a cloud without an organization {#cloud-outside-org}
 
@@ -49,3 +54,5 @@ A role everyone requires to access cloud resources, except for [cloud owners](..
 Without this role, no other roles will work for the user.
 
 The role is assigned automatically when you add a new user to a cloud without an organization.
+
+{% endif %}
