@@ -184,6 +184,9 @@ items:
         href: dataplatform/sync-mysql.md
       - name: Migrating databases from {{ mmy-full-name }} to a third-party {{ MY }} cluster
         href: dataplatform/mmy-to-mysql-migration.md
+        # PG
+      - name: Migrating databases from third-party {{ PG }} cluster to {{ mpg-full-name }} cluster
+        href: dataplatform/postgresql-data-migration.md
         # RD
       - name: Migrating databases from a third-party {{ RD }} cluster to {{ mrd-full-name }}
         href: dataplatform/redis-data-migration.md
