@@ -36,7 +36,7 @@
 
 Стандарт ISO 27018 выдвигает требования к защите ПДн при их обработке провайдерами облачных сервисов. В стандарте изложены практические рекомендации по обеспечению ИБ для защиты личной информации клиентов. Эти рекомендации дополняют требования базового стандарта — ISO 27001.
 
-* [Сертификат ISO 27001/27017/27018](https://storage.yandexcloud.net/yc-compliance/certificates/ISO_27001_Certificate_TUV_AUSTRIA_SC_092022_EN.pdf).
+[Сертификат ISO 27001/27017/27018](https://storage.yandexcloud.net/yc-compliance/certificates/ISO_27001_Certificate_TUV_AUSTRIA_SC_092022_EN.pdf).
 
 {% endif %}
 
