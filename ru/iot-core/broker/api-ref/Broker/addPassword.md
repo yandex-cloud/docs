@@ -1,31 +1,28 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/broker/api-ref/Broker/create.md
+sourcePath: en/_api-ref/iot/broker/broker/api-ref/Broker/addPassword.md
 ---
 
-# Method create
-Creates a broker in the specified folder.
+# Method addPassword
+Adds password for the specified broker.
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://iot-broker.{{ api-host }}/iot-broker/v1/brokers
+POST https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/passwords
 ```
+ 
+## Path parameters {#path_params}
+ 
+Parameter | Description
+--- | ---
+brokerId | <p>Required. ID of the broker to add a password for.</p> <p>To get a broker ID make a <a href="/docs/iot-core/broker/api-ref/Broker/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  
 ```json 
 {
-  "folderId": "string",
-  "name": "string",
-  "description": "string",
-  "labels": "object",
-  "certificates": [
-    {
-      "certificateData": "string"
-    }
-  ],
   "password": "string"
 }
 ```
@@ -33,13 +30,7 @@ POST https://iot-broker.{{ api-host }}/iot-broker/v1/brokers
  
 Field | Description
 --- | ---
-folderId | **string**<br><p>Required. ID of the folder to create a broker in.</p> <p>To get a folder ID, make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Required. Name of the broker. The name must be unique within the folder.</p> <p>The maximum string length in characters is 50. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
-description | **string**<br><p>Description of the broker.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
-certificates[] | **object**<br><p>Broker certificates.</p> 
-certificates[].<br>certificateData | **string**<br><p>Public part of the broker certificate.</p> 
-password | **string**<br><p>Broker passwords.</p> <p>The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.</p> 
+password | **string**<br><p>Passwords for the broker.</p> <p>The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.</p> <p>The minimum string length in characters is 14.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

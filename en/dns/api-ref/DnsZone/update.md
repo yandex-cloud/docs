@@ -44,7 +44,7 @@ name | **string**<br><p>New name for the DNS zone. The name must be unique withi
 description | **string**<br><p>New description of the DNS zone.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>DNS zone labels as ``key:value`` pairs.</p> <p>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label:</p> <ol> <li>Get the current set of labels with a <a href="/docs/dns/api-ref/DnsZone/get">get</a> request.</li> <li>Add or remove a label in this set.</li> <li>Send the new set in this field.</li> </ol> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
 privateVisibility | **object**<br><p>Change network IDs for private visibility.</p> <p>Configuration for privately visible zones.</p> 
-privateVisibility.<br>networkIds[] | **string**<br><p>Network IDs.</p> <p>The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.</p> 
+privateVisibility.<br>networkIds[] | **string**<br><p>Network IDs.</p> <p>The number of elements must be in the range 0-100. The string length in characters for each value must be equal to 20.</p> 
 publicVisibility | **object**<br><p>Public visibility configuration.</p> <p>Configuration for publicly visible zones.</p> 
  
 ## Response {#responses}

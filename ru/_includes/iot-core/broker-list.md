@@ -30,6 +30,6 @@
 
 - API
 
-  Получить список брокеров можно с помощью метода API [list](../../iot-core/api-ref/Broker/list.md).
+  Получить список брокеров можно с помощью метода API [list](../../iot-core/broker/api-ref/Broker/list.md).
   
 {% endlist %}

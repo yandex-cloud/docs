@@ -73,30 +73,32 @@
         Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных:
 
         * Источники:
-
-            * [{{ MY }}](source/mysql.md).
-            * [{{ PG }}](source/postgresql.md).
+            * [{{ CH }}](source/clickhouse.md)
+            * [{{ MG }}](source/mongodb.md)
+            * [{{ MY }}](source/mysql.md)
+            * [{{ PG }}](source/postgresql.md)
 
         * Приемники:
-
-            * [{{ MY }}](target/mysql.md).
-            * [{{ PG }}](target/postgresql.md).
+            * [{{ CH }}](target/clickhouse.md)
+            * [{{ MG }}](target/mongodb.md)
+            * [{{ MY }}](target/mysql.md)
+            * [{{ PG }}](target/postgresql.md)
 
 - {{ TF }}
+        {% note info %}
 
-    {% note info %}
-
-    Создание эндпоинта с помощью {{ TF }} поддерживается только для источников и приемников типа {{ MY }} и {{ PG }}.
+    Создание эндпоинта с помощью {{ TF }} поддерживается только для источников и приемников типа {{ MY }}, {{ PG }}, {{MG}} и {{CH}}.
 
     {% endnote %}
 
+    
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
-
+ 
     Чтобы создать эндпоинт:
 
     1. В командной строке перейдите в директорию, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
-
-        1. Если у вас еще нет {{ TF }}, [установите его и создайте конфигурационный файл с настройками провайдера](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+       
+    1. Если у вас еще нет {{ TF }}, [установите его и создайте конфигурационный файл с настройками провайдера](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. Создайте конфигурационный файл с описанием эндпоинта.
 
        Пример структуры конфигурационного файла:
@@ -112,31 +114,35 @@
        }
        ```
 
-       Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных:
+    1. Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных:
+         
+          
+         * Источники:
+       
+           * [{{ CH }}](source/clickhouse.md)
+           * [{{ MG }}](source/mongodb.md)
+           * [{{ MY }}](source/mysql.md)
+           * [{{ PG }}](source/postgresql.md)
 
-       * Источники:
-
-           * [{{ CH }}](source/clickhouse.md).
-           * [{{ MG }}](source/mongodb.md).
-           * [{{ MY }}](source/mysql.md).
-           * [{{ PG }}](source/postgresql.md).
-
-       * Приемники:
-
-           * [{{ CH }}](target/clickhouse.md).
-           * [{{ MG }}](target/mongodb.md).
-           * [{{ MY }}](target/mysql.md).
-           * [{{ PG }}](target/postgresql.md).
+         * Приемники:
+       
+           * [{{ CH }}](target/clickhouse.md)
+           * [{{ MG }}](target/mongodb.md)
+           * [{{ MY }}](target/mysql.md)
+           * [{{ PG }}](target/postgresql.md)
+         
 
     1. Проверьте корректность настроек.
 
-       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+        {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
     1. Подтвердите изменение ресурсов.
 
-       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+     
+        
+    1. Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+    
 
 - API
 
@@ -156,14 +162,16 @@
     Параметры эндпоинта см. в разделе настроек для нужного источника или приемника данных:
 
     * Источники:
-
-        * [{{ MY }}](source/mysql.md).
-        * [{{ PG }}](source/postgresql.md).
+        * [{{ CH }}](source/clickhouse.md)
+        * [{{ MG }}](source/mongodb.md)
+        * [{{ MY }}](source/mysql.md)
+        * [{{ PG }}](source/postgresql.md)
 
     * Приемники:
-
-        * [{{ MY }}](target/mysql.md).
-        * [{{ PG }}](target/postgresql.md).
+        * [{{ CH }}](target/clickhouse.md)
+        * [{{ MG }}](target/mongodb.md)
+        * [{{ MY }}](target/mysql.md)
+        * [{{ PG }}](target/postgresql.md)
 
 {% endlist %}
 

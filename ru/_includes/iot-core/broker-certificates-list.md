@@ -32,6 +32,6 @@
 
 - API
 
-  Получить список сертификатов брокера можно с помощью метода API [listCertificates](../../iot-core/api-ref/Broker/listCertificates.md).
+  Получить список сертификатов брокера можно с помощью метода API [listCertificates](../../iot-core/broker/api-ref/Broker/listCertificates.md).
 
 {% endlist %}

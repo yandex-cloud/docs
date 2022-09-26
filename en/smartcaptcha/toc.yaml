@@ -13,6 +13,8 @@ items:
         href: operations/delete-captcha.md
       - name: Getting keys
         href: operations/get-keys.md
+      - name: Add a widget using the advanced method
+        href: operations/advanced-method.md
   - name: Concepts
     items:
       - name: User validation
