@@ -124,23 +124,23 @@ items:
       - name: gRPC (англ.)
         items:
           - name: Overview
-            href: apigateway/api-ref/grpc/index.md
+            href: apigateway/websocket/api-ref/grpc/index.md
           - name: ConnectionService
-            href: apigateway/api-ref/grpc/connection_service.md
+            href: apigateway/websocket/api-ref/grpc/connection_service.md
       - name: REST (англ.)
         items:
           - name: Overview
-            href: apigateway/api-ref/index.md
+            href: apigateway/websocket/api-ref/index.md
           - name: Connection
             items:
               - name: Overview
-                href: apigateway/api-ref/Connection/index.md
+                href: apigateway/websocket/api-ref/Connection/index.md
               - name: disconnect
-                href: apigateway/api-ref/Connection/disconnect.md
+                href: apigateway/websocket/api-ref/Connection/disconnect.md
               - name: get
-                href: apigateway/api-ref/Connection/get.md
+                href: apigateway/websocket/api-ref/Connection/get.md
               - name: send
-                href: apigateway/api-ref/Connection/send.md
+                href: apigateway/websocket/api-ref/Connection/send.md
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/api-gateway

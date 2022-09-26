@@ -39,7 +39,7 @@ You can add and remove databases, as well as view information about them.
 
 ## Creating a database {#add-db}
 
-You can create an unlimited number of databases in each {{ mpg-name }} cluster.
+{% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
 
 {% list tabs %}
 
@@ -94,17 +94,17 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
       ```bash
       {{ yc-mdb-pg }} database create <database name> \
-         --cluster-name=<cluster name> \
-         --owner=<DB owner username> \
-         --lc-collate=<collation locale> \
-         --lc-type=<character set locale>
+        --cluster-name=<cluster name> \
+        --owner=<DB owner username> \
+        --lc-collate=<collation locale> \
+        --lc-type=<character set locale>
       ```
 
       {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-      {{ mpg-short-name }} runs the create database operation.
+      The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      {{ mpg-short-name }} runs the create database operation.
 
 - {{ TF }}
 
@@ -165,7 +165,7 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
    ```bash
    {{ yc-mdb-pg }} database delete <database name> \
-      --cluster-name <cluster name>
+     --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).

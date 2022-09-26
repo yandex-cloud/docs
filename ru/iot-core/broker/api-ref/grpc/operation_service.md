@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/iot-core/api-ref/grpc/operation_service.md
+sourcePath: en/_api-ref-grpc/iot-core/broker/broker/api-ref/grpc/operation_service.md
 ---
 
 # OperationService

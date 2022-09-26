@@ -25,8 +25,8 @@
    To get a list of databases in a cluster, run the command:
 
    ```bash
-   {{ yc-mdb-ms }} database list\
-      --cluster-name <cluster name>
+   {{ yc-mdb-ms }} database list \
+     --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -41,7 +41,7 @@
 
 ## Creating a database {#add-db}
 
-You can create an unlimited number of databases in each {{ mms-name }} cluster.
+{% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
 
 {% list tabs %}
 
@@ -54,7 +54,7 @@ You can create an unlimited number of databases in each {{ mms-name }} cluster.
    1. Click **Add**.
    1. Enter the database name and click **Create**.
 
-      {% include [database-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
+       {% include [database-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
 
    1. [Grant the `DB_OWNER` role](grant.md) to the user that should become the owner of the new database.
 
@@ -139,6 +139,7 @@ You can create an unlimited number of databases in each {{ mms-name }} cluster.
 
    Use the [create](../api-ref/Database/create.md) API method and pass the following information in the request:
    * The ID of the cluster where you want to create a database, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+
    * Database name, in the `databaseSpec.name` parameter.
 
       {% include [database-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
@@ -177,8 +178,8 @@ For more information, see the [{{ MS }} documentation]({{ ms.docs }}/sql/relatio
    To delete a database, run the command:
 
    ```bash
-   {{ yc-mdb-ms }} database delete <database name>\
-      --cluster-name <cluster name>
+   {{ yc-mdb-ms }} database delete <database name> \
+     --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

@@ -31,10 +31,10 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
 1. На панели слева выберите **Магазин приложений**.
 1. Выберите **Demo Telegram Bot** и нажмите кнопку **Использовать**.
 1. Укажите:
-    * имя приложения;
-    * (опционально) описание приложения;
-    * сервисный аккаунт с ролью `admin` на каталог или выберите **Автоматически**, чтобы нужный сервисный аккаунт создался при установке приложения;
-    * идентификатор секрета {{ lockbox-full-name }}, который создали ранее.
+    * Имя приложения.
+    * (опционально) Описание приложения.
+    * Сервисный аккаунт с ролью `admin` на каталог или выберите **Автоматически**, чтобы нужный сервисный аккаунт создался при установке приложения. От имени этого сервисного аккаунта будут создаваться ресурсы приложения.
+    * Идентификатор секрета {{ lockbox-full-name }}, который создали ранее.
 1. Нажмите кнопку **Установить** и дождитесь, пока приложение установится.
 1. На странице **Обзор**, в разделе **Ресурсы приложения**, найдите API-шлюз, перейдите на его страницу и скопируйте ссылку на служебный домен.
 1. Чтобы настроить связь между функцией и Telegram-ботом, выполните запрос. Вместо `<токен бота>` укажите токен Telegram-бота, вместо `<домен API-шлюза>` — ссылку на служебный домен API-шлюза.
@@ -43,22 +43,32 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
 
     - Linux, macOS
 
+        ```bash
+        curl \
+          --request POST \
+          --url https://api.telegram.org/bot<токен бота>/setWebhook \
+          --header 'content-type: application/json' \
+          --data '{"url": "https://<Домен API-шлюза>/echo"}'
         ```
+
+    - Windows (cmd)
+
+        ```bash
         curl ^
-        --request POST ^
-        --url https://api.telegram.org/bot<токен бота>/setWebhook ^
-        --header "content-type: application/json" ^
-        --data "{\"url\": \"<домен API-шлюза>/fshtb-function\"}"
+          --request POST ^
+          --url https://api.telegram.org/bot<токен бота>/setWebhook ^
+          --header "content-type: application/json" ^
+          --data "{\"url\": \"https://<Домен API-шлюза>/echo\"}"
         ```
 
     - Windows (PowerShell)
 
-        ```
+        ```powershell
         curl.exe `
-        --request POST `
-        --url https://api.telegram.org/bot<токен бота>/setWebhook `
-        --header '"content-type: application/json"' `
-        --data '"{ \"url\": \"<домен API-шлюза>/fshtb-function\" }"'
+          --request POST `
+          --url https://api.telegram.org/bot<токен бота>/setWebhook `
+          --header '"content-type: application/json"' `
+          --data '"{ \"url\": \"https://<Домен API-шлюза>/echo\" }"'
         ```
 
     {% endlist %}

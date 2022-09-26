@@ -1,42 +1,45 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/broker/api-ref/Broker/update.md
+sourcePath: en/_api-ref/iot/broker/broker/api-ref/Broker/create.md
 ---
 
-# Method update
-Updates the specified broker.
+# Method create
+Creates a broker in the specified folder.
  
 
  
 ## HTTP request {#https-request}
 ```
-PATCH https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}
+POST https://iot-broker.{{ api-host }}/iot-broker/v1/brokers
 ```
- 
-## Path parameters {#path_params}
- 
-Parameter | Description
---- | ---
-brokerId | <p>Required. ID of the broker to update.</p> <p>To get a broker ID make a <a href="/docs/iot-core/broker/api-ref/Broker/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  
 ```json 
 {
-  "updateMask": "string",
+  "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "object"
+  "labels": "object",
+  "certificates": [
+    {
+      "certificateData": "string"
+    }
+  ],
+  "password": "string"
 }
 ```
 
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>Field mask that specifies which fields of the broker are going to be updated.</p> <p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-name | **string**<br><p>Name of the broker. The name must be unique within the folder.</p> <p>The maximum string length in characters is 50. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
+folderId | **string**<br><p>Required. ID of the folder to create a broker in.</p> <p>To get a folder ID, make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+name | **string**<br><p>Required. Name of the broker. The name must be unique within the folder.</p> <p>The maximum string length in characters is 50. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 description | **string**<br><p>Description of the broker.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>Existing set of ``labels`` is completely replaced by the provided set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
+labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
+certificates[] | **object**<br><p>Broker certificates.</p> 
+certificates[].<br>certificateData | **string**<br><p>Public part of the broker certificate.</p> 
+password | **string**<br><p>Broker passwords.</p> <p>The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

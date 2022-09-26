@@ -1,36 +1,24 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/broker/api-ref/Broker/addCertificate.md
+sourcePath: en/_api-ref/iot/broker/broker/api-ref/Broker/deleteCertificate.md
 ---
 
-# Method addCertificate
-Adds a certificate.
+# Method deleteCertificate
+Deletes the specified broker certificate.
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/certificates
+DELETE https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/certificates/{fingerprint}
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-brokerId | <p>Required. ID of the broker for which the certificate is being added.</p> <p>To get a broker ID make a <a href="/docs/iot-core/broker/api-ref/Broker/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
- 
-## Body parameters {#body_params}
- 
-```json 
-{
-  "certificateData": "string"
-}
-```
-
- 
-Field | Description
---- | ---
-certificateData | **string**<br><p>Public part of the certificate that is being added.</p> 
+brokerId | <p>Required. ID of the broker to delete a certificate for.</p> <p>To get a broker ID make a <a href="/docs/iot-core/broker/api-ref/Broker/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+fingerprint | <p>Required. Fingerprint of the certificate that is being deleted.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

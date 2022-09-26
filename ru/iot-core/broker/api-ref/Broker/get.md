@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/broker/api-ref/Broker/get.md
+sourcePath: en/_api-ref/iot/broker/broker/api-ref/Broker/get.md
 ---
 
 # Method get

@@ -1,36 +1,36 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/broker/api-ref/Broker/addPassword.md
+sourcePath: en/_api-ref/iot/broker/broker/api-ref/Broker/addCertificate.md
 ---
 
-# Method addPassword
-Adds password for the specified broker.
+# Method addCertificate
+Adds a certificate.
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/passwords
+POST https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/certificates
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-brokerId | <p>Required. ID of the broker to add a password for.</p> <p>To get a broker ID make a <a href="/docs/iot-core/broker/api-ref/Broker/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+brokerId | <p>Required. ID of the broker for which the certificate is being added.</p> <p>To get a broker ID make a <a href="/docs/iot-core/broker/api-ref/Broker/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  
 ```json 
 {
-  "password": "string"
+  "certificateData": "string"
 }
 ```
 
  
 Field | Description
 --- | ---
-password | **string**<br><p>Passwords for the broker.</p> <p>The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.</p> <p>The minimum string length in characters is 14.</p> 
+certificateData | **string**<br><p>Public part of the certificate that is being added.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

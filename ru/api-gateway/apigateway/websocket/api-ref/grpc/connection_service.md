@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/functions/api-gateway/websocket/apigateway/api-ref/grpc/connection_service.md
+sourcePath: en/_api-ref-grpc/functions/api-gateway/websocket/apigateway/websocket/api-ref/grpc/connection_service.md
 ---
 
 # ConnectionService

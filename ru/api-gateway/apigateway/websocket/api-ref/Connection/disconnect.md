@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/serverless/apigateway/websocket/apigateway/api-ref/Connection/disconnect.md
+sourcePath: en/_api-ref/serverless/apigateway/websocket/apigateway/websocket/api-ref/Connection/disconnect.md
 ---
 
 # Method disconnect
