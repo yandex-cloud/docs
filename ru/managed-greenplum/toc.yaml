@@ -40,6 +40,8 @@ items:
         href: operations/cluster-delete.md
       - name: Мониторинг состояния кластера и хостов
         href: operations/monitoring.md
+      - name: Управление ресурсными группами
+        href: operations/resource-groups.md
   - name: Практические руководства
     items:
       - name: Миграция базы данных в {{ mgp-name }}
