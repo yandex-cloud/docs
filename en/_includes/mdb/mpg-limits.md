@@ -1,17 +1,18 @@
 #### Quotas {#mpg-quotas}
 
-| Limits | Value |
-| :------------------------------------------------------------------------------- | :--------- |
+| Type of limit | Value |
+|:-------------------------------------------------------------------------------|:---------|
+| Connection time-to-live | 12 hours |
 | Number of clusters per cloud | 16 |
-| Total number of processor cores for all DB hosts per cloud | 96 |
-| Total virtual memory for all DB hosts per cloud | 640 GB |
+| Total number of processor cores for all the database hosts in a cloud | 96 |
+| Total virtual memory for all DBs per cloud | 640 GB |
 | Total storage capacity for all clusters per cloud | 4096 GB |
 
 #### Limits {#mpg-limits}
 
-| Limits | Minimum value | Maximum value |
-| :------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------ | :------------------------------------------------- |
-| Host class | b1.nano ([5%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Broadwell, 2 GB RAM) | m3-c80-m640 (80 vCPU Intel Ice Lake, 640 GB RAM) |
+| Type of limit | Minimum value | Maximum value |
+|:------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------|:-------------------------------------------------|
+| Host class | b1.nano (2 × [5%](../../compute/concepts/performance-levels.md) vCPU Intel Broadwell, 2 GB RAM) | m3-c80-m640 (80 vCPU Intel Ice Lake, 640 GB RAM) |
 | Number of hosts in a cluster when using HDD network or SSD network storage | 1 | 7 |
 | Number of hosts in a cluster when storing data on non-replicated or local SSDs | 3 | 7 |
 | Amount of data on the host when using SSD network storage | 10 GB | 4096 GB |

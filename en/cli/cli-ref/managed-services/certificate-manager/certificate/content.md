@@ -24,6 +24,7 @@ Aliases:
 |`--name`|<b>`string`</b><br/>Specifies the certificate name.|
 |`--chain`|<b>`string`</b><br/>Write certificate chain to the specified file in PEM format.|
 |`--key`|<b>`string`</b><br/>Write private key to the specified file in PEM format.|
+|`--key-format`|<b>`string`</b><br/>Specifies the format of the private key. Values: 'pkcs1', 'pkcs8'|
 
 #### Global Flags
 

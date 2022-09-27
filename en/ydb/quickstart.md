@@ -9,11 +9,9 @@ You can also work with the {{ ydb-full-name }} database through:
 * [AWS SDK](docapi/tools/aws-sdk/index.md).
 * [AWS CLI](docapi/tools/aws-cli/index.md).
 
-Install the necessary tools and set up a [DB connection](concepts/connect.md).
-
 ## Before you begin {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+1. Go to the [management console ]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
@@ -35,7 +33,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select a folder to create your database in.
-   1. In the list of services, select **{{ ydb-full-name }}**.
+   1. In the list of services, select **{{ ydb-name }}**.
    1. Click **Create database**.
    1. Enter the database **Name**. Naming requirements:
 
@@ -68,10 +66,10 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
       created_at: "2022-05-30T07:26:44Z"
       name: test
       status: PROVISIONING
-      endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaomkfvsleds/etn95g8jk8g0qk84hk20
+      endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etn95g8jk8g0qk84hk20
       serverless_database:
         storage_size_limit: "53687091200"
-      location_id: ru-central1
+      location_id: {{ region-id }}
       backup_config:
         backup_settings:
         - name: daily
@@ -81,7 +79,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
                 hours: 17
           backup_time_to_live: 172800s
           type: SYSTEM
-      document_api_endpoint: https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvsleds/etn95g8jk8g0qk84hk20
+      document_api_endpoint: https://docapi.serverless.yandexcloud.net/{{ region-id }}/b1gia87mbaomkfvsleds/etn95g8jk8g0qk84hk20
       monitoring_config: {}
       ```
 
@@ -117,7 +115,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
    1. Under **Network**, configure network settings:
       1. (optional) In the **Public IP addresses** field, select **Assign** if you plan to query the database from the {{ yandex-cloud }} network and the internet.
 
-         {% include [traffic_metering](_includes/traffic_metering.md) %}
+         {% include  [traffic_metering](_includes/traffic_metering.md) %}
 
       1. Select an existing network from the **Cloud network** list or create a new one:
          1. Click **Create new**.
@@ -172,7 +170,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
       created_at: "2022-05-31T10:10:12Z"
       name: test-ded
       status: PROVISIONING
-      endpoint: grpcs://lb.etnk1u65e4shtgj207sc.ydb.mdb.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaomkfvsleds/etnk1u65e4shtgj207sc
+      endpoint: grpcs://lb.etnk1u65e4shtgj207sc.ydb.mdb.yandexcloud.net:2135/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etnk1u65e4shtgj207sc
       resource_preset_id: medium
       storage_config:
         storage_options:
@@ -204,7 +202,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
         - e9b72lv142k40bul5qgv
         assign_public_ips: true
       assign_public_ips: true
-      location_id: ru-central1
+      location_id: {{ region-id }}
       backup_config:
         backup_settings:
         - name: daily
@@ -236,7 +234,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with the desired DB.
-   1. In the list of services, select **{{ ydb-full-name }}**.
+   1. In the list of services, select **{{ ydb-name }}**.
    1. Select the database you created earlier.
    1. Go to the **Navigation** tab.
    1. Click **SQL query** and enter the query text:
@@ -258,7 +256,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
    1. {% include [cli-install](../_includes/cli-install.md) %}
    1. To manage your databases from the command line, [install](https://ydb.tech/en/docs/reference/ydb-cli/install) the YDB CLI.
-   1. To log in to the YDB CLI in {{ yandex-cloud }}, get an [IAM token](../iam/concepts/authorization/iam-token.md) and export it to the following environment variable:
+   1. To authenticate the YDB CLI in {{ yandex-cloud }}, get an [IAM token](../iam/concepts/authorization/iam-token.md) and export it to the following environment variable:
 
       ```bash
       export IAM_TOKEN=`yc iam create-token`
@@ -274,18 +272,18 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
       ```text
       ...
-      endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2
+      endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2
       ...
       ```
 
-      Here, part of the `grpcs://ydb.serverless.yandexcloud.net:2135` string contains the endpoint and `/ru-central1/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2` specifies the DB path.
+      Here, part of the `grpcs://ydb.serverless.yandexcloud.net:2135` string contains the endpoint and `/{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2` specifies the DB path.
 
    1. Make a query to the previously created database using the obtained endpoint value and DB path:
 
       ```bash
       ydb \
         --endpoint grpcs://ydb.serverless.yandexcloud.net:2135 \
-        --database /ru-central1/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2 \
+        --database /{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2 \
         yql -s "SELECT 1;"
       ```
 
@@ -304,5 +302,5 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 ## What's next {#whats-next}
 
 * Learn more about [working with databases](operations/index.md).
-* Learn more about the [YQL](https://ydb.tech/en/docs/yql/reference/) query language.
 * Read about [service concepts](concepts/index.md).
+* Learn more about the [YQL](https://ydb.tech/en/docs/yql/reference/) query language.

@@ -329,7 +329,7 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
       +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
       |          ID          |      NAME      |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
       +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
-      | b0rbabc1m2edfu2ss579 | group-balancer | ru-central1 | EXTERNAL |              1 | b0rdabckribed1fbv2l1   | ACTIVE |
+      | b0rbabc1m2edfu2ss579 | group-balancer | {{ region-id }} | EXTERNAL |              1 | b0rdabckribed1fbv2l1   | ACTIVE |
       +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
       ```
 
@@ -512,7 +512,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the subnets.
-      1. Open the section **Virtual Private Cloud**.
+      1. Open the section **{{ vpc-name }}**.
       1. Click the name of the subnets' network.
       1. Click ![image](../../_assets/options.svg) in the line of the subnet to delete.
       1. In the resulting menu, click **Delete**.

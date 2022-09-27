@@ -8,7 +8,7 @@ Create a trigger for the {{ message-queue-full-name }} [message queue](../../mes
 
 {% endnote %}
 
-## Before you start {#before-begin}
+## Before you begin {#before-begin}
 
 To create a trigger, you need:
 
@@ -74,8 +74,8 @@ To create a trigger, you need:
 
       * A container, select one under **Container settings** and specify:
 
-         * [A container revision](../../serverless-containers/concepts/container.md#revision);
-         * [A service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the container.
+         * A [container revision](../../serverless-containers/concepts/container.md#revision);
+         * A [service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the container.
 
    1. Click **Create trigger**.
 
@@ -139,6 +139,84 @@ To create a trigger, you need:
 - API
 
    You can create a trigger for {{ message-queue-full-name }} using the [create](../../functions/triggers/api-ref/Trigger/create.md).
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   To create a trigger for the message queue:
+
+   1. In the configuration file, describe the trigger parameters:
+
+      * `name`: Timer name. Name format:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      * `description`: Trigger description.
+      * `message_queue`: Message queue parameters:
+         * `queue_id`: Queue ID.
+
+            To find out the queue ID:
+
+            1. In the [management console]({{ link-console-main }}), select the folder containing the queue.
+            1. Open **{{ message-queue-name }}**.
+            1. Select the desired queue.
+            1. You can see the queue ID under **General information** in the **ARN** field.
+
+         * `service_account_id`: ID of the service account with rights to invoke a function.
+         * `batch_size`: Message batch size. Optional. Values can be from 1 to 10. The default is 1.
+         * `batch_cutoff`: Maximum waiting time. Optional. Values can be from 0 to 20 seconds. The default is 10 seconds. The timer groups messages for a period not exceeding `batch-cutoff` and sends them to a function or container. At the same time, the number of messages does not exceed `batch-size`.
+      * `function`: Settings for the function, which will be activated by the trigger:
+         * `id`: Function ID.
+
+      Example configuration file structure:
+
+      ```hcl
+      resource "yandex_function_trigger" "my_trigger" {
+        name        = "<timer name>"
+        description = "<trigger description>"
+        message_queue {
+          queue_id           = "<queue ID>"
+          service_account_id = "<service account ID>"
+          batch_size         = "1"
+          batch_cutoff       = "10"
+        }
+        function {
+          id = "<function ID>"
+        }
+      }
+      ```
+
+      For more information about the resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/function_trigger).
+
+   1. Make sure that the configuration files are correct.
+
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run the check using the command:
+
+         ```
+         terraform plan
+         ```
+
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+
+   1. Deploy the cloud resources.
+
+      1. If the configuration doesn't contain any errors, run the command:
+
+         ```
+         terraform apply
+         ```
+
+      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+
+         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+
+         ```
+         yc serverless trigger get <trigger ID>
+         ```
 
 {% endlist %}
 

@@ -30,11 +30,7 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед началом работы зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
-1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен платежный аккаунт, и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md).
-
-   Если у вас есть активный платежный аккаунт, на [странице облака]({{ link-console-cloud }}) вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете создавать ресурсы.
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
 ### Необходимые платные ресурсы {#paid-resources}

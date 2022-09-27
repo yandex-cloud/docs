@@ -1,6 +1,6 @@
 # Настройка NodeLocal DNS Cache
 
-Чтобы снизить нагрузку по DNS-запросам в [кластере {{ k8s }}](../concepts/index.md#kubernetes-cluster), включите NodeLocal DNS Cache. Функция доступна в кластерах {{ k8s }} версии 1.18 и выше.
+Чтобы снизить нагрузку по DNS-запросам в [кластере {{ k8s }}](../concepts/index.md#kubernetes-cluster), включите NodeLocal DNS Cache. Функция доступна в кластерах {{ k8s }} версии 1.20 и выше.
 
 {% note tip %}
 
@@ -8,7 +8,7 @@
 
 {% endnote %}
 
-По умолчанию [поды](../concepts/index.md#pod) отправляют запросы к [сервису](../concepts/service.md) `kube-dns`. В поле `nameserver` в `/etc/resolv.conf` установлено значение `ClusterIp` [сервиса](../concepts/service.md) `kube-dns`. Для того, чтобы установить соединение с `ClusterIP`, используется [iptables](https://ru.wikipedia.org/wiki/Iptables) или [IP Virtual Server](https://en.wikipedia.org/wiki/IP_Virtual_Server).
+По умолчанию [поды](../concepts/index.md#pod) отправляют запросы к [сервису](../concepts/service.md) `kube-dns`. В поле `nameserver` в `/etc/resolv.conf` установлено значение `ClusterIp` сервиса `kube-dns`. Для того, чтобы установить соединение с `ClusterIP`, используется [iptables](https://ru.wikipedia.org/wiki/Iptables) или [IP Virtual Server](https://en.wikipedia.org/wiki/IP_Virtual_Server).
 
 При включении NodeLocal DNS Cache в кластере разворачивается [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/). На каждом узле начинает работу кеширующий агент (под `node-local-dns`). Поды пользователя теперь отправляют запросы к агенту на своем узле.
 
@@ -34,7 +34,7 @@
 
 1. Создайте кластер {{ k8s }} и группу узлов.
 
-   Вы можете использовать уже работающий кластер и группу узлов {{ k8s }} или создать новые. Убедитесь, что в поле **Версия {{ k8s }}** выбрана версия 1.19 или выше.
+   Вы можете использовать уже работающий кластер и группу узлов {{ k8s }} или создать новые. Убедитесь, что в поле **Версия {{ k8s }}** выбрана версия 1.20 или выше.
 
    {% cut "Как создать кластер {{ k8s }} и группу узлов" %}
 

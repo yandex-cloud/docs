@@ -1,6 +1,6 @@
 Create a [timer](../../functions/concepts/trigger/timer.md) — a trigger that calls a {{ sf-name }} [function](../../functions/concepts/function.md) or {{ serverless-containers-name }} [container](../../serverless-containers/concepts/container.md) on a schedule.
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 To create a trigger, you need:
 
@@ -53,15 +53,15 @@ To create a trigger, you need:
 
       * A container, select one under **Container settings** and specify:
 
-         * [A container revision](../../serverless-containers/concepts/container.md#revision);
-         * [A service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the container.
+         * A [container revision](../../serverless-containers/concepts/container.md#revision);
+         * A [service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the container.
 
    1. (optional) Under **Repeat request settings**:
 
       * In the **Interval** field, specify the time after which the function or the container will be invoked again if the current attempt fails. Values can be from 10 to 60 seconds. The default is 10 seconds.
       * In the **Number of attempts** field, specify the number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). Values can be from 1 to 5. The default is 1.
 
-   1. (optional) Under **Dead Letter Queue settings**, select the [Dead Letter Queue](../../functions/concepts/dlq.md) and the service account with write privileges to this queue.
+   1. (optional) Under **Dead Letter Queue settings**, select the [Dead Letter Queue](../../functions/concepts/dlq.md) and the service account with write privileges for this queue.
 
    1. Click **Create trigger**.
 
@@ -76,7 +76,7 @@ To create a trigger, you need:
    ```
    yc serverless trigger create timer \
      --name <timer name> \
-     --cron-expression '<cron-expression>' \
+     --cron-expression '<cron expression>' \
      --invoke-function-id <function ID> \
      --invoke-function-service-account-id <service account ID> \
      --retry-attempts 1 \
@@ -122,6 +122,70 @@ To create a trigger, you need:
 - API
 
    You can create a timer using the [create](../../functions/triggers/api-ref/Trigger/create.md).
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   To create a trigger that launches a function:
+
+   1. In the configuration file, describe the trigger parameters:
+
+      * `name`: Timer name. Name format:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      * `description`: Trigger description.
+      * `timer`: Trigger settings:
+         * `cron_expression`: Function invocation schedule in [cron expression](../../functions/concepts/trigger/timer.md#cron-expression) format.
+      * `function`: Settings for the function, which will be activated by the trigger:
+         * `id`: Function ID.
+
+      Example configuration file structure:
+
+      ```hcl
+      resource "yandex_function_trigger" "my_trigger" {
+        name        = "<timer name>"
+        description = "<trigger description>"
+        timer {
+          cron_expression = "* * * * ? *"
+        }
+        function {
+          id = "<function ID>"
+        }
+      }
+      ```
+
+      For more information about the resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/function_trigger).
+
+   1. Make sure that the configuration files are correct.
+
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run the check using the command:
+
+         ```
+         terraform plan
+         ```
+
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+
+   1. Deploy the cloud resources.
+
+      1. If the configuration doesn't contain any errors, run the command:
+
+         ```
+         terraform apply
+         ```
+
+      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+
+         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+
+         ```
+         yc serverless trigger get <trigger ID>
+         ```
 
 {% endlist %}
 

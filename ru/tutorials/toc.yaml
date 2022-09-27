@@ -75,6 +75,10 @@ items:
         href: testing/iot-emulation.md
       - name: Нагрузочное тестирование gRPC-сервиса
         href: testing/loadtesting-grpc.md
+      - name: >-
+          Развертывание и нагрузочное тестирование gRPC-сервиса с
+          масштабированием
+        href: testing/loadtesting-grpc-autoscaling.md
       - name: HTTPS-тест с постоянной нагрузкой с помощью Phantom
         href: testing/loadtesting-https-phantom.md
       - name: HTTPS-тест со ступенчатой нагрузкой с помощью Pandora
@@ -103,10 +107,6 @@ items:
           Создание кластера Linux-серверов «1С:Предприятия» с кластером {{
           mpg-name }}
         href: infrastructure-management/1c-postgresql-linux.md
-      - name: >-
-          Создание кластера Windows-серверов «1С:Предприятия» с базой данных {{
-          MS }}
-        href: infrastructure-management/1c-mssql-windows.md
       - name: Миграция в {{ yandex-cloud }} с помощью Hystax Acura
         href: infrastructure-management/hystax-migration.md
       - name: Защита от сбоев с помощью Hystax Acura
@@ -153,10 +153,22 @@ items:
         href: dataplatform/dp-mch-data-exchange.md
       - name: Настройка {{ mch-full-name }} для Graphite
         href: dataplatform/clickhouse-for-graphite.md
+      - name: Получение данных из {{ mkf-full-name }} в {{ mch-full-name }}
+        href: dataplatform/fetch-data-from-mkf.md
+      - name: Получение данных из {{ RMQ }} в {{ mch-full-name }}
+        href: dataplatform/fetch-data-from-rabbitmq.md
+      - name: Использование гибридного хранилища в {{ mch-full-name }}
+        href: dataplatform/clickhouse-hybrid-storage.md
+      - name: Шардирование таблиц {{ mch-full-name }}
+        href: dataplatform/clickhouse-sharding.md
       - name: >-
           Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз
           данных из других облачных сетей
         href: dataplatform/mdb-dns-peering.md
+      - name: >-
+          Настройка {{ dns-full-name }} для доступа к кластеру {{ mch-full-name
+          }} из других облачных сетей
+        href: dataplatform/clickhouse-dns-peering.md
       - name: >-
           Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с
           помощью Sqoop
@@ -190,29 +202,9 @@ items:
           }}
         href: dataplatform/mmy-to-mysql-migration.md
       - name: >-
-          Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с
-          помощью Sqoop
-        href: dataplatform/sqoop-mmy.md
-      - name: >-
-          Поставка данных из {{ mmy-full-name }} в {{ mkf-full-name }} с помощью
-          Debezium
-        href: dataplatform/debezium-mmy.md
-      - name: >-
-          Миграция базы данных из {{ PG }} в {{ CH }} с помощью {{
-          data-transfer-full-name }}
-        href: dataplatform/rdbms-to-clickhouse.md
-      - name: >-
-          Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью
-          {{ data-transfer-full-name }}
-        href: dataplatform/data-transfer-mpg.md
-      - name: >-
-          Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью
-          Debezium
-        href: dataplatform/debezium-mpg.md
-      - name: >-
-          Импорт данных из {{ mpg-full-name }} в {{ dataproc-full-name }} с
-          помощью Sqoop
-        href: dataplatform/sqoop-mpg.md
+          Миграция базы данных из стороннего кластера {{ PG }} в кластер {{
+          mpg-full-name }}
+        href: dataplatform/postgresql-data-migration.md
       - name: >-
           Миграция базы данных из стороннего кластера {{ RD }} в {{
           mrd-full-name }}
@@ -223,7 +215,7 @@ items:
         href: dataplatform/mssql-data-migration.md
       - name: Миграция базы данных из {{ mms-name }} в сторонний кластер {{ MS }}
         href: dataplatform/mssql-outbound-migration.md
-  - name: Windows в Yandex Cloud
+  - name: Продукты Microsoft в {{ yandex-cloud }}
     items:
       - name: Все руководства
         href: windows/index.md
@@ -245,11 +237,15 @@ items:
     items:
       - name: Все руководства
         href: routing/index.md
+      - name: Архитектура и защита базового интернет-сервиса
+        href: routing/web-service.md
+      - name: Настройки DHCP для работы с корпоративным DNS-сервером
+        href: routing/dhcp-options.md
       - name: Маршрутизация с помощью NAT-инстанса
         href: routing/nat-instance.md
-      - name: Создание VPN-туннеля
+      - name: Создание туннеля IPSec VPN
         href: routing/ipsec-vpn.md
-      - name: Установка виртуального роутера Cisco CSR1000v
+      - name: Установка виртуального роутера Cisco CSR 1000v
         href: routing/cisco.md
       - name: Установка виртуального роутера Mikrotik CHR
         href: routing/mikrotik.md
@@ -305,4 +301,8 @@ items:
         href: serverless/data-ingestion.md
       - name: Хранение журналов работы приложения
         href: serverless/log-ingestion.md
+      - name: Разработка пользовательской интеграции в {{ api-gw-name }}
+        href: serverless/api-gw-integration.md
+      - name: Разработка CRUD API для сервиса фильмов
+        href: serverless/movies-database.md
 base: ru/tutorials

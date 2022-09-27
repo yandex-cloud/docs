@@ -39,6 +39,9 @@ Syntax:
 |`--datatransfer-access`|Allow access for DataTransfer|
 |`--yandexquery-access`|Allow access for Yandex Query|
 |`--cloud-storage`|Whether to use Yandex Object Storage for storing ClickHouse data.|
+|`--cloud-storage-move-factor`|<b>`float`</b><br/>When to move data to Yandex Object Storage.|
+|`--cloud-storage-data-cache`|Whether to use cache for data on Yandex Object Storage.|
+|`--cloud-storage-data-cache-max-size`|<b>`int`</b><br/>Limit for cache for data on Yandex Object Storage.|
 |`--enable-sql-database-management`|Whether database management through SQL commands is enabled.|
 |`--enable-sql-user-management`|Whether user management through SQL commands is enabled.|
 |`--admin-password`|<b>`string`</b><br/>Password for entity. Usage of --read-admin-password is more secure|

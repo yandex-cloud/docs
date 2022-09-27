@@ -17,6 +17,8 @@ Aliases:
 
 - [yc managed-greenplum cluster](cluster/index.md) — Manage Greenplum clusters
 	- [yc managed-greenplum cluster get](cluster/get.md) — Show information about the specified Greenplum cluster
+	- [yc managed-greenplum cluster update](cluster/update.md) — Update the specified Greenplum cluster
+	- [yc managed-greenplum cluster update-config](cluster/update-config.md) — Update the specified Greenplum cluster config
 	- [yc managed-greenplum cluster list](cluster/list.md) — List Greenplum clusters
 	- [yc managed-greenplum cluster add-labels](cluster/add-labels.md) — Add labels to Greenplum cluster
 	- [yc managed-greenplum cluster remove-labels](cluster/remove-labels.md) — Remove labels from Greenplum cluster

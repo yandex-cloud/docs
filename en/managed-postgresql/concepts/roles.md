@@ -1,8 +1,9 @@
-# Assigning roles {{ PG }}
+# Assigning {{ PG }} roles
 
-{{ mpg-name }} doesn't let you access [default roles](https://www.postgresql.org/docs/current/default-roles.html). Instead, it provides special roles:
+{{ mpg-name }} does not let you access [predefined roles](https://www.postgresql.org/docs/current/predefined-roles.html). Instead, it provides special roles:
 
-* `mdb_admin`: For users who aren't database owners, but need administrative privileges.
+* `mdb_admin`: For users who are not database owners, but need administrative privileges.
+* `mdb_monitor`: For users who need to read different configuration parameters, statistics, and other system information.
 * `mdb_replication`: For users who need logical replication.
 
 To assign a user a role, [use](../operations/grant.md) the {{ yandex-cloud }} CLI or API: role assignment from a `GRANT` query is canceled when the next database operation is performed.
@@ -11,24 +12,38 @@ To assign a user a role, [use](../operations/grant.md) the {{ yandex-cloud }} CL
 
 The `mdb_admin` role includes the following privileges:
 
-* System role privileges:
+* Predefined role privileges:
    * `pg_monitor`
    * `pg_signal_backend`
-      For more information about system roles, see the [documentation](https://www.postgresql.org/docs/current/default-roles.html) for {{ PG }}.
+      For more information about predefined roles, see the {{ PG }} [documentation](https://www.postgresql.org/docs/current/predefined-roles.html).
 * Subscription for logical replication (`CREATE | DROP | ALTER SUBSCRIPTION`).
 * Extensions:
    * `dblink`
    * `pg_repack`
    * `postgres_fdw`
+   * `pg_cron`
 * Extension-specific functions:
    * `pg_stat_kcache_reset()` from the `pg_stat_kcache` extension.
    * `pg_stat_reset()` and `pg_stat_statements_reset()` from the `pg_stat_statements` extension.
+
+## mdb_monitor role {#mdb-monitor}
+
+The `mdb_monitor` role includes the following privileges:
+
+* Reading and executing various views and functions for monitoring.
+* Extensions:
+   * `pg_stat_statements`
+* Functions for working with ordinary files:
+   * `pg_ls_logdir()`
+   * `pg_ls_waldir()`
+   * `pg_ls_archive_statusdir()`
+   * `pg_ls_tmpdir ()`
 
 ## mdb_replication role {#mdb-replication}
 
 The `mdb_replication` role includes the following privileges:
 
 * Connecting to a cluster using the logical replication protocol (`replication=database`).
-* Using a replication function:
-   * `pg_create_logical_replication_slot`
-   * `pg_drop_replication_slot`
+* Replication functions:
+   * `pg_create_logical_replication_slot()`
+   * `pg_drop_replication_slot()`

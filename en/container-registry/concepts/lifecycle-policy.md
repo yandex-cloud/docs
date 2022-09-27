@@ -6,7 +6,6 @@ You can [configure a lifecycle policy](../operations/lifecycle-policy/lifecycle-
 
 {% include [lifecycle restrictions](../../_includes/container-registry/lifecycle-restrictions.md) %}
 
-
 ## Lifecycle policy statuses {#status}
 
 A lifecycle policy can have the following statuses:
@@ -37,9 +36,9 @@ When [creating a lifecycle policy](../operations/lifecycle-policy/lifecycle-poli
 1. Filtering Docker images by tag:
    * `tag_regexp`: Tag to specify a filter as a regular expression.
 
-      Usage examples for `tag_regexp`:
-      * `.*`: All images with tags.
-      * `prefix.*`: Images with tags that start with the `prefix`.
+     Usage examples for `tag_regexp`:
+     * `.*`: All images with tags.
+     * `prefix.*`: Images with tags that start with the `prefix`.
    * `untagged`: Tag to have rules applied to untagged Docker images.
 1. Conditions for deleting Docker images:
    * `expire_period`: The period of time that must pass after creating a Docker image for it to suit the automatic deletion criteria. It must be a multiple of 24 hours.
@@ -74,7 +73,6 @@ The `Untagged` rule deletes all images that meet the following conditions:
 ```
 
 Where:
-
 * `description`: Description of the policy rule.
 * `tag_regexp`: Docker image tag for filtering. A `test.*` regular expression for `tag_regexp` lets you get all images with tags starting with `test`.
 * `untagged`: Flag indicating that the rule applies to Docker images without tags.

@@ -89,10 +89,11 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2` or `redis_config_7_0`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
 &nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
+&nbsp;&nbsp;redis_config_7_0 | **[config.RedisConfigSet7_0](#RedisConfigSet7_0)**<br>Configuration of a Redis 7.0 server. 
 resources | **[Resources](#Resources)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access)**<br>Access policy to DB 
@@ -206,10 +207,11 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2` or `redis_config_7_0`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
 &nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
+&nbsp;&nbsp;redis_config_7_0 | **[config.RedisConfigSet7_0](#RedisConfigSet7_0)**<br>Configuration of a Redis 7.0 server. 
 resources | **[Resources](#Resources1)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access1)**<br>Access policy to DB 
@@ -294,10 +296,11 @@ persistence_mode | **[Cluster.PersistenceMode](#Cluster2)**<br>Persistence mode
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis used in the cluster. 
-redis_spec | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration of a Redis cluster.
+redis_spec | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2` or `redis_config_7_0`<br>Configuration of a Redis cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfig5_0](#RedisConfig5_0)**<br>Configuration of a Redis cluster. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfig6_0](#RedisConfig6_0)**<br>Configuration of a Redis cluster. 
 &nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfig6_2](#RedisConfig6_2)**<br>Configuration of a Redis cluster. 
+&nbsp;&nbsp;redis_config_7_0 | **[config.RedisConfig7_0](#RedisConfig7_0)**<br>Configuration of a Redis cluster. 
 resources | **[Resources](#Resources2)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access2)**<br>Access policy to DB 
@@ -392,29 +395,14 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2` or `redis_config_7_0`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
 &nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
+&nbsp;&nbsp;redis_config_7_0 | **[config.RedisConfigSet7_0](#RedisConfigSet7_0)**<br>Configuration of a Redis 7.0 server. 
 resources | **[Resources](#Resources3)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access3)**<br>Access policy to DB 
-
-
-### Resources {#Resources3}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
-
-
-### Access {#Access3}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allow access for DataLens 
 
 
 ### MaintenanceWindow {#MaintenanceWindow2}
@@ -477,16 +465,17 @@ persistence_mode | **[Cluster.PersistenceMode](#Cluster3)**<br>Persistence mode
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis used in the cluster. 
-redis_spec | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration of a Redis cluster.
+redis_spec | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2` or `redis_config_7_0`<br>Configuration of a Redis cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfig5_0](#RedisConfig5_0)**<br>Configuration of a Redis cluster. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfig6_0](#RedisConfig6_0)**<br>Configuration of a Redis cluster. 
 &nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfig6_2](#RedisConfig6_2)**<br>Configuration of a Redis cluster. 
-resources | **[Resources](#Resources4)**<br>Resources allocated to Redis hosts. 
+&nbsp;&nbsp;redis_config_7_0 | **[config.RedisConfig7_0](#RedisConfig7_0)**<br>Configuration of a Redis cluster. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access4)**<br>Access policy to DB 
+access | **[Access](#Access3)**<br>Access policy to DB 
 
 
-### Resources {#Resources4}
+### Resources {#Resources3}
 
 Field | Description
 --- | ---
@@ -495,7 +484,7 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Access {#Access4}
+### Access {#Access3}
 
 Field | Description
 --- | ---
@@ -585,50 +574,14 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2` or `redis_config_7_0`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
 &nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
-resources | **[Resources](#Resources5)**<br>Resources allocated to Redis hosts. 
+&nbsp;&nbsp;redis_config_7_0 | **[config.RedisConfigSet7_0](#RedisConfigSet7_0)**<br>Configuration of a Redis 7.0 server. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access5)**<br>Access policy to DB 
-
-
-### Resources {#Resources5}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
-
-
-### Access {#Access5}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allow access for DataLens 
-
-
-### MaintenanceWindow {#MaintenanceWindow4}
-
-Field | Description
---- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br>Maintenance operation can be scheduled on a weekly basis. 
-
-
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
-
-
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
-
-Field | Description
---- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
-hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
+access | **[Access](#Access4)**<br>Access policy to DB 
 
 
 ### MaintenanceOperation {#MaintenanceOperation3}
@@ -736,7 +689,7 @@ network_id | **string**<br>
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
 status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
@@ -758,16 +711,17 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2` or `redis_config_7_0`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
 &nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
-resources | **[Resources](#Resources6)**<br>Resources allocated to Redis hosts. 
+&nbsp;&nbsp;redis_config_7_0 | **[config.RedisConfigSet7_0](#RedisConfigSet7_0)**<br>Configuration of a Redis 7.0 server. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access6)**<br>Access policy to DB 
+access | **[Access](#Access4)**<br>Access policy to DB 
 
 
-### Resources {#Resources6}
+### Resources {#Resources4}
 
 Field | Description
 --- | ---
@@ -776,27 +730,27 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Access {#Access6}
+### Access {#Access4}
 
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
 
 
-### MaintenanceWindow {#MaintenanceWindow5}
+### MaintenanceWindow {#MaintenanceWindow4}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
 
 Field | Description
 --- | ---
@@ -869,7 +823,7 @@ network_id | **string**<br>
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
 status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
@@ -891,16 +845,17 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2` or `redis_config_7_0`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
 &nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
-resources | **[Resources](#Resources7)**<br>Resources allocated to Redis hosts. 
+&nbsp;&nbsp;redis_config_7_0 | **[config.RedisConfigSet7_0](#RedisConfigSet7_0)**<br>Configuration of a Redis 7.0 server. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access7)**<br>Access policy to DB 
+access | **[Access](#Access5)**<br>Access policy to DB 
 
 
-### Resources {#Resources7}
+### Resources {#Resources5}
 
 Field | Description
 --- | ---
@@ -909,27 +864,27 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Access {#Access7}
+### Access {#Access5}
 
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
 
 
-### MaintenanceWindow {#MaintenanceWindow6}
+### MaintenanceWindow {#MaintenanceWindow5}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
 
 Field | Description
 --- | ---
@@ -1005,7 +960,7 @@ network_id | **string**<br>
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
 status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
@@ -1027,16 +982,17 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2` or `redis_config_7_0`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
 &nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
-resources | **[Resources](#Resources8)**<br>Resources allocated to Redis hosts. 
+&nbsp;&nbsp;redis_config_7_0 | **[config.RedisConfigSet7_0](#RedisConfigSet7_0)**<br>Configuration of a Redis 7.0 server. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access8)**<br>Access policy to DB 
+access | **[Access](#Access6)**<br>Access policy to DB 
 
 
-### Resources {#Resources8}
+### Resources {#Resources6}
 
 Field | Description
 --- | ---
@@ -1045,27 +1001,27 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Access {#Access8}
+### Access {#Access6}
 
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
 
 
-### MaintenanceWindow {#MaintenanceWindow7}
+### MaintenanceWindow {#MaintenanceWindow6}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
 
 Field | Description
 --- | ---
@@ -1138,7 +1094,7 @@ network_id | **string**<br>
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
 status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
@@ -1160,16 +1116,17 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2` or `redis_config_7_0`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
 &nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
-resources | **[Resources](#Resources9)**<br>Resources allocated to Redis hosts. 
+&nbsp;&nbsp;redis_config_7_0 | **[config.RedisConfigSet7_0](#RedisConfigSet7_0)**<br>Configuration of a Redis 7.0 server. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access9)**<br>Access policy to DB 
+access | **[Access](#Access7)**<br>Access policy to DB 
 
 
-### Resources {#Resources9}
+### Resources {#Resources7}
 
 Field | Description
 --- | ---
@@ -1178,27 +1135,27 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Access {#Access9}
+### Access {#Access7}
 
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
 
 
-### MaintenanceWindow {#MaintenanceWindow8}
+### MaintenanceWindow {#MaintenanceWindow7}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
 
 Field | Description
 --- | ---
@@ -1240,6 +1197,7 @@ folder_id | **string**<br>ID of the folder to create the Redis cluster in. The m
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>TLS port and functionality on\off 
 persistence_mode | **[Cluster.PersistenceMode](#Cluster8)**<br>Persistence mode 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### ConfigSpec {#ConfigSpec2}
@@ -1247,16 +1205,17 @@ persistence_mode | **[Cluster.PersistenceMode](#Cluster8)**<br>Persistence mode
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis used in the cluster. 
-redis_spec | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration of a Redis cluster.
+redis_spec | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2` or `redis_config_7_0`<br>Configuration of a Redis cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfig5_0](#RedisConfig5_0)**<br>Configuration of a Redis cluster. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfig6_0](#RedisConfig6_0)**<br>Configuration of a Redis cluster. 
 &nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfig6_2](#RedisConfig6_2)**<br>Configuration of a Redis cluster. 
-resources | **[Resources](#Resources10)**<br>Resources allocated to Redis hosts. 
+&nbsp;&nbsp;redis_config_7_0 | **[config.RedisConfig7_0](#RedisConfig7_0)**<br>Configuration of a Redis cluster. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access10)**<br>Access policy to DB 
+access | **[Access](#Access8)**<br>Access policy to DB 
 
 
-### Resources {#Resources10}
+### Resources {#Resources8}
 
 Field | Description
 --- | ---
@@ -1265,7 +1224,7 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Access {#Access10}
+### Access {#Access8}
 
 Field | Description
 --- | ---
@@ -1324,7 +1283,7 @@ network_id | **string**<br>
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
 status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
@@ -1346,45 +1305,30 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2` or `redis_config_7_0`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
 &nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
-resources | **[Resources](#Resources11)**<br>Resources allocated to Redis hosts. 
+&nbsp;&nbsp;redis_config_7_0 | **[config.RedisConfigSet7_0](#RedisConfigSet7_0)**<br>Configuration of a Redis 7.0 server. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access11)**<br>Access policy to DB 
+access | **[Access](#Access9)**<br>Access policy to DB 
 
 
-### Resources {#Resources11}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
-
-
-### Access {#Access11}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allow access for DataLens 
-
-
-### MaintenanceWindow {#MaintenanceWindow9}
+### MaintenanceWindow {#MaintenanceWindow8}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
 
 Field | Description
 --- | ---
@@ -1460,7 +1404,7 @@ network_id | **string**<br>
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
 status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
@@ -1482,16 +1426,17 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2` or `redis_config_7_0`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
 &nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
-resources | **[Resources](#Resources12)**<br>Resources allocated to Redis hosts. 
+&nbsp;&nbsp;redis_config_7_0 | **[config.RedisConfigSet7_0](#RedisConfigSet7_0)**<br>Configuration of a Redis 7.0 server. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access12)**<br>Access policy to DB 
+access | **[Access](#Access9)**<br>Access policy to DB 
 
 
-### Resources {#Resources12}
+### Resources {#Resources9}
 
 Field | Description
 --- | ---
@@ -1500,27 +1445,27 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Access {#Access12}
+### Access {#Access9}
 
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
 
 
-### MaintenanceWindow {#MaintenanceWindow10}
+### MaintenanceWindow {#MaintenanceWindow9}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow10)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow10)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow10}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow10}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
 
 Field | Description
 --- | ---
@@ -1595,7 +1540,7 @@ network_id | **string**<br>
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
 status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation10)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
@@ -1617,16 +1562,17 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2` or `redis_config_7_0`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
 &nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
-resources | **[Resources](#Resources13)**<br>Resources allocated to Redis hosts. 
+&nbsp;&nbsp;redis_config_7_0 | **[config.RedisConfigSet7_0](#RedisConfigSet7_0)**<br>Configuration of a Redis 7.0 server. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access13)**<br>Access policy to DB 
+access | **[Access](#Access10)**<br>Access policy to DB 
 
 
-### Resources {#Resources13}
+### Resources {#Resources10}
 
 Field | Description
 --- | ---
@@ -1635,27 +1581,27 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Access {#Access13}
+### Access {#Access10}
 
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
 
 
-### MaintenanceWindow {#MaintenanceWindow11}
+### MaintenanceWindow {#MaintenanceWindow10}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow11)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow11)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow10)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow10)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow11}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow10}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow11}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow10}
 
 Field | Description
 --- | ---
@@ -1846,7 +1792,7 @@ name | **string**<br>Name of the Redis host. The host name is assigned by MDB at
 cluster_id | **string**<br>ID of the Redis cluster. The ID is assigned by MDB at creation time. 
 zone_id | **string**<br>ID of the availability zone where the Redis host resides. 
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
-resources | **[Resources](#Resources14)**<br>Resources allocated to the Redis host. 
+resources | **[Resources](#Resources11)**<br>Resources allocated to the Redis host. 
 role | enum **Role**<br>Role of the host in the cluster. <ul><li>`ROLE_UNKNOWN`: Role of the host in the cluster is unknown.</li><li>`MASTER`: Host is the master Redis server in the cluster.</li><li>`REPLICA`: Host is a replica (standby) Redis server in the cluster.</li></ul>
 health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded, and can perform only some of its essential functions.</li></ul>
 services[] | **[Service](#Service)**<br>Services provided by the host. 
@@ -1855,7 +1801,7 @@ replica_priority | **[google.protobuf.Int64Value](https://developers.google.com/
 assign_public_ip | **bool**<br>Flag showing public IP assignment status to this host. 
 
 
-### Resources {#Resources14}
+### Resources {#Resources11}
 
 Field | Description
 --- | ---
@@ -2233,7 +2179,7 @@ network_id | **string**<br>
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
 status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow12)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation11)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
@@ -2255,16 +2201,17 @@ link | **string**<br>Link to the monitoring system charts for the Redis cluster.
 Field | Description
 --- | ---
 version | **string**<br>Version of Redis server software. 
-redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0` or `redis_config_6_2`<br>Configuration for Redis servers in the cluster.
+redis_config | **oneof:** `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2` or `redis_config_7_0`<br>Configuration for Redis servers in the cluster.
 &nbsp;&nbsp;redis_config_5_0 | **[config.RedisConfigSet5_0](#RedisConfigSet5_0)**<br>Configuration of a Redis 5.0 server. 
 &nbsp;&nbsp;redis_config_6_0 | **[config.RedisConfigSet6_0](#RedisConfigSet6_0)**<br>Configuration of a Redis 6.0 server. 
 &nbsp;&nbsp;redis_config_6_2 | **[config.RedisConfigSet6_2](#RedisConfigSet6_2)**<br>Configuration of a Redis 6.2 server. 
-resources | **[Resources](#Resources15)**<br>Resources allocated to Redis hosts. 
+&nbsp;&nbsp;redis_config_7_0 | **[config.RedisConfigSet7_0](#RedisConfigSet7_0)**<br>Configuration of a Redis 7.0 server. 
+resources | **[Resources](#Resources12)**<br>Resources allocated to Redis hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access14)**<br>Access policy to DB 
+access | **[Access](#Access11)**<br>Access policy to DB 
 
 
-### Resources {#Resources15}
+### Resources {#Resources12}
 
 Field | Description
 --- | ---
@@ -2273,27 +2220,27 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Access {#Access14}
+### Access {#Access11}
 
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
 
 
-### MaintenanceWindow {#MaintenanceWindow12}
+### MaintenanceWindow {#MaintenanceWindow11}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow12)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow12)**<br>Maintenance operation can be scheduled on a weekly basis. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow11)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow11)**<br>Maintenance operation can be scheduled on a weekly basis. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow12}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow11}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow12}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow11}
 
 Field | Description
 --- | ---

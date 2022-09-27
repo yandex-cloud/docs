@@ -109,6 +109,15 @@ Field | Description
 resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
+### Resources {#Resources}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-elasticsearch/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage). 
+
+
 ### MaintenanceWindow {#MaintenanceWindow}
 
 Field | Description
@@ -218,14 +227,23 @@ Field | Description
 --- | ---
 config | **oneof:** `elasticsearch_config_set_7`<br>
 &nbsp;&nbsp;elasticsearch_config_set_7 | **[config.ElasticsearchConfigSet7](#ElasticsearchConfigSet7)**<br>Elasticsearch 7.x data node configuration. 
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode1}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to Elasticsearch master nodes. 
+
+
+### Resources {#Resources1}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-elasticsearch/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage). 
 
 
 ### MaintenanceWindow {#MaintenanceWindow1}
@@ -312,14 +330,23 @@ Field | Description
 --- | ---
 config | **oneof:** `elasticsearch_config_7`<br>Elasticsearch data node configuration.
 &nbsp;&nbsp;elasticsearch_config_7 | **[config.ElasticsearchConfig7](#ElasticsearchConfig7)**<br>Elasticsearch data node configuration. 
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode2}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to Elasticsearch master nodes. 
+
+
+### Resources {#Resources2}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-elasticsearch/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage). 
 
 
 ### UserSpec {#UserSpec}
@@ -450,35 +477,14 @@ Field | Description
 --- | ---
 config | **oneof:** `elasticsearch_config_set_7`<br>
 &nbsp;&nbsp;elasticsearch_config_set_7 | **[config.ElasticsearchConfigSet7](#ElasticsearchConfigSet7)**<br>Elasticsearch 7.x data node configuration. 
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode3}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
-
-
-### MaintenanceWindow {#MaintenanceWindow3}
-
-Field | Description
---- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow3)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow3)**<br> 
-
-
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
-
-
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow3}
-
-Field | Description
---- | ---
-day | enum **WeekDay**<br> 
-hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+resources | **[Resources](#Resources3)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
 ### MaintenanceOperation {#MaintenanceOperation2}
@@ -512,7 +518,7 @@ name | **string**<br>New name for the Elasticsearch cluster. The maximum string 
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Window of maintenance operations. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Window of maintenance operations. 
 
 
 ### ConfigSpecUpdate {#ConfigSpecUpdate}
@@ -540,30 +546,39 @@ Field | Description
 --- | ---
 config | **oneof:** `elasticsearch_config_7`<br>Elasticsearch data node configuration.
 &nbsp;&nbsp;elasticsearch_config_7 | **[config.ElasticsearchConfig7](#ElasticsearchConfig7)**<br>Elasticsearch data node configuration. 
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode4}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
-### MaintenanceWindow {#MaintenanceWindow4}
+### Resources {#Resources3}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-elasticsearch/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage). 
+
+
+### MaintenanceWindow {#MaintenanceWindow3}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br> 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow3)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow3)**<br> 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow3}
 
 Field | Description
 --- | ---
@@ -613,7 +628,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Window of maintenance operations. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Maintenance operation planned at nearest maintenance_window. 
 
 
@@ -650,35 +665,14 @@ Field | Description
 --- | ---
 config | **oneof:** `elasticsearch_config_set_7`<br>
 &nbsp;&nbsp;elasticsearch_config_set_7 | **[config.ElasticsearchConfigSet7](#ElasticsearchConfigSet7)**<br>Elasticsearch 7.x data node configuration. 
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode5}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
-
-
-### MaintenanceWindow {#MaintenanceWindow5}
-
-Field | Description
---- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br> 
-
-
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
-
-
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
-
-Field | Description
---- | ---
-day | enum **WeekDay**<br> 
-hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+resources | **[Resources](#Resources4)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
 ### MaintenanceOperation {#MaintenanceOperation3}
@@ -791,7 +785,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Window of maintenance operations. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Maintenance operation planned at nearest maintenance_window. 
 
 
@@ -828,30 +822,39 @@ Field | Description
 --- | ---
 config | **oneof:** `elasticsearch_config_set_7`<br>
 &nbsp;&nbsp;elasticsearch_config_set_7 | **[config.ElasticsearchConfigSet7](#ElasticsearchConfigSet7)**<br>Elasticsearch 7.x data node configuration. 
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode6}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
-### MaintenanceWindow {#MaintenanceWindow6}
+### Resources {#Resources4}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-elasticsearch/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage). 
+
+
+### MaintenanceWindow {#MaintenanceWindow4}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br> 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br> 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
 
 Field | Description
 --- | ---
@@ -926,7 +929,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Window of maintenance operations. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Maintenance operation planned at nearest maintenance_window. 
 
 
@@ -963,30 +966,39 @@ Field | Description
 --- | ---
 config | **oneof:** `elasticsearch_config_set_7`<br>
 &nbsp;&nbsp;elasticsearch_config_set_7 | **[config.ElasticsearchConfigSet7](#ElasticsearchConfigSet7)**<br>Elasticsearch 7.x data node configuration. 
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode7}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
-### MaintenanceWindow {#MaintenanceWindow7}
+### Resources {#Resources5}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-elasticsearch/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage). 
+
+
+### MaintenanceWindow {#MaintenanceWindow5}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br> 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br> 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
 
 Field | Description
 --- | ---
@@ -1061,7 +1073,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Window of maintenance operations. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Maintenance operation planned at nearest maintenance_window. 
 
 
@@ -1098,30 +1110,39 @@ Field | Description
 --- | ---
 config | **oneof:** `elasticsearch_config_set_7`<br>
 &nbsp;&nbsp;elasticsearch_config_set_7 | **[config.ElasticsearchConfigSet7](#ElasticsearchConfigSet7)**<br>Elasticsearch 7.x data node configuration. 
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode8}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
-### MaintenanceWindow {#MaintenanceWindow8}
+### Resources {#Resources6}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-elasticsearch/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage). 
+
+
+### MaintenanceWindow {#MaintenanceWindow6}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br> 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br> 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
 
 Field | Description
 --- | ---
@@ -1196,7 +1217,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Window of maintenance operations. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Maintenance operation planned at nearest maintenance_window. 
 
 
@@ -1233,30 +1254,39 @@ Field | Description
 --- | ---
 config | **oneof:** `elasticsearch_config_set_7`<br>
 &nbsp;&nbsp;elasticsearch_config_set_7 | **[config.ElasticsearchConfigSet7](#ElasticsearchConfigSet7)**<br>Elasticsearch 7.x data node configuration. 
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode9}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
-### MaintenanceWindow {#MaintenanceWindow9}
+### Resources {#Resources7}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-elasticsearch/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage). 
+
+
+### MaintenanceWindow {#MaintenanceWindow7}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br> 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br> 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
 
 Field | Description
 --- | ---
@@ -1364,14 +1394,23 @@ Field | Description
 --- | ---
 config | **oneof:** `elasticsearch_config_7`<br>Elasticsearch data node configuration.
 &nbsp;&nbsp;elasticsearch_config_7 | **[config.ElasticsearchConfig7](#ElasticsearchConfig7)**<br>Elasticsearch data node configuration. 
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode10}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to Elasticsearch master nodes. 
+
+
+### Resources {#Resources8}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-elasticsearch/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage). 
 
 
 ### HostSpec {#HostSpec1}
@@ -1437,7 +1476,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Window of maintenance operations. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Maintenance operation planned at nearest maintenance_window. 
 
 
@@ -1474,30 +1513,30 @@ Field | Description
 --- | ---
 config | **oneof:** `elasticsearch_config_set_7`<br>
 &nbsp;&nbsp;elasticsearch_config_set_7 | **[config.ElasticsearchConfigSet7](#ElasticsearchConfigSet7)**<br>Elasticsearch 7.x data node configuration. 
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch data nodes. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode11}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Elasticsearch master nodes. 
+resources | **[Resources](#Resources9)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
-### MaintenanceWindow {#MaintenanceWindow10}
+### MaintenanceWindow {#MaintenanceWindow8}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow10)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow10)**<br> 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br> 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow10}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow10}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
 
 Field | Description
 --- | ---
@@ -1655,14 +1694,14 @@ name | **string**<br>Name of the host.
 cluster_id | **string**<br>ID of the Elasticsearch cluster. 
 zone_id | **string**<br>ID of the availability zone where the host resides. 
 type | enum **Type**<br>Host type. <ul><li>`DATA_NODE`: the host is an Elasticsearch data node.</li><li>`MASTER_NODE`: the host is an Elasticsearch master node.</li></ul>
-resources | **[Resources](#Resources)**<br> 
+resources | **[Resources](#Resources9)**<br> 
 health | enum **Health**<br>Aggregated host health data. <ul><li>`UNKNOWN`: health of the host is unknown.</li><li>`ALIVE`: the host is performing all its functions normally.</li><li>`DEAD`: the host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: the host is degraded and can perform only some of its essential functions.</li></ul>
 services[] | **[Service](#Service)**<br>Services provided by the host. 
 subnet_id | **string**<br>ID of the subnet the host resides in. 
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the host. <br>If the value is `true`, then this host is available on the Internet via it's public IP address. 
 
 
-### Resources {#Resources}
+### Resources {#Resources9}
 
 Field | Description
 --- | ---
@@ -1836,7 +1875,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Window of maintenance operations. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Maintenance operation planned at nearest maintenance_window. 
 
 
@@ -1873,30 +1912,39 @@ Field | Description
 --- | ---
 config | **oneof:** `elasticsearch_config_set_7`<br>
 &nbsp;&nbsp;elasticsearch_config_set_7 | **[config.ElasticsearchConfigSet7](#ElasticsearchConfigSet7)**<br>Elasticsearch 7.x data node configuration. 
-resources | **[Resources](#Resources1)**<br>Resources allocated to Elasticsearch data nodes. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to Elasticsearch data nodes. 
 
 
 ### MasterNode {#MasterNode12}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources1)**<br>Resources allocated to Elasticsearch master nodes. 
+resources | **[Resources](#Resources10)**<br>Resources allocated to Elasticsearch master nodes. 
 
 
-### MaintenanceWindow {#MaintenanceWindow11}
+### Resources {#Resources10}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-elasticsearch/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_type_id | **string**<br>Type of the storage environment for the host. All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage). 
+
+
+### MaintenanceWindow {#MaintenanceWindow9}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow11)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow11)**<br> 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br> 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow11}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow11}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
 
 Field | Description
 --- | ---

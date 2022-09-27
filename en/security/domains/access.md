@@ -136,7 +136,11 @@ Be sure to fully protect your federated account with the `{{ roles-cloud-owner }
 
 To view the list of IDs of the current accounts with the `{{ roles-cloud-owner }}` role, run the following script:
 
-`yc resource-manager cloud list-access-bindings --id b1gkmtuljp4d2k3g5aph --format json | jq -r '.[] | select(.role_id=="resource-manager.clouds.owner") | .subject.id'`
+```
+yc resource-manager cloud list-access-bindings \
+    --id <cloud_id> \
+    --format json | jq -r '.[] | select(.role_id=="resource-manager.clouds.owner") | .subject.id'
+```
 
 Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and billing accounts. Minimize the number of accounts with these roles and regularly review the expedience of these roles for the accounts they are assigned to.
 

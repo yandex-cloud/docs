@@ -46,7 +46,7 @@ Before creating a VM:
 
 To create security groups for the load balancer and an instance group:
 
-1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}**.
+1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
 1. Open the **Security groups** tab.
 1. Create a security group for the load balancer:
    1. Click **Create group**.
@@ -85,7 +85,7 @@ Backends of your application are deployed on the VM instance of the [target grou
 
 To create an instance group with the minimum configuration:
 
-1. In the [management console]({{ link-console-main }}), open **{{ compute-name }}**.
+1. In the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
 1. Open the **Instance groups** tab and click **Create group**.
 1. Under **Basic parameters**:
    * Name the instance group like `alb-vm-group`.
@@ -164,7 +164,7 @@ For the backends, groups will implement [health checks](../../application-load-b
 
 To create a backend group:
 
-1. Open **{{ alb-name }}** in the folder where the instance group was created.
+1. Select **{{ alb-name }}** in the folder where the instance group was created.
 
 1. Open the **Backend groups** tab.
 1. Click **Create backend group**.
@@ -221,7 +221,7 @@ The instructions below describe how to configure DNS for the `alb-example.com` d
 
 ### Add a zone
 
-1. Open **{{ dns-name }}** in the folder where the instance group was created.
+1. Select **{{ dns-name }}** in the folder where the instance group was created.
 1. Click **Create zone**.
 1. Specify the zone settings:
    * **Zone**: `alb-example.com`. Specify your registered domain.
@@ -234,7 +234,7 @@ The instructions below describe how to configure DNS for the `alb-example.com` d
 
 Create DNS records in the public zone:
 
-1. Open **{{ alb-name }}**. Find the IP address of the previously created `alb-1` load balancer in the list of load balancers.
+1. Select **{{ alb-name }}**. Find the IP address of the previously created `alb-1` load balancer in the list of load balancers.
 1. In **{{ dns-name }}**, select `alb-example.com.`. from the list.
 1. Create an [A](../../dns/concepts/resource-record.md#a) record:
    1. Click **Create record**.
@@ -256,7 +256,7 @@ Create DNS records in the public zone:
 
 ## Test the fault tolerance {#test-ha}
 
-1. In the [management console]({{ link-console-main }}), open **{{ compute-name }}**.
+1. In the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
 1. Go to the page of the VM from the previously created group. Under **Network**, find the VM's public IP address.
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM via SSH.
 1. Stop the web service to simulate a failure on the web server:

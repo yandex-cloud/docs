@@ -1,4 +1,4 @@
-# Compliance
+`# Compliance
 
 
 ## Federal law No. 152-FZ "On personal data" {#law}
@@ -26,7 +26,7 @@ For more information on the subject, see the [Data Processing Addendum](https://
 ## ISO certification {#iso}
 
 
-The {{ yandex-cloud }} Information Security Management System (ISMS) satisfies the requirements of the International Organization for Standardization (ISO). The ISMS was audited by an international team from BSI. Based on their findings, {{ yandex-cloud }} was certified ISO 27001, ISO 27017, and ISO 27018 compliant.
+The {{ yandex-cloud }} Information Security Management System (ISMS) satisfies the requirements of the International Organization for Standardization (ISO).
 
 ISO 27001 defines the requirements for information security (IS) management systems, including their implementation, operation, maintenance, and regular improvement. The ISO 27001 guidelines help organizations guarantee a high level of security for their core information assets.
 
@@ -34,11 +34,7 @@ ISO 27017 includes a set of practical information security recommendations for c
 
 ISO 27018 addresses the requirements for the security of personal data processed by cloud service providers. The standard sets out information security guidelines for protecting the personal information of clients. They supplement the requirements of the basic standard, ISO 27001.
 
-You can read more at:
-
-* [ISO 27001 certificate](https://storage.yandexcloud.net/yc-compliance/certificates/ISO-27001-EN.pdf).
-* [ISO 27017 certificate](https://storage.yandexcloud.net/yc-compliance/certificates/ISO-27017-EN.pdf).
-* [ISO 27018 certificate](https://storage.yandexcloud.net/yc-compliance/certificates/ISO-27018-EN.pdf).
+[ISO 27001/27017/27018 certificate](https://storage.yandexcloud.net/yc-compliance/certificates/ISO_27001_Certificate_TUV_AUSTRIA_SC_092022_EN.pdf).
 
 
 

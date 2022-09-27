@@ -28,8 +28,6 @@
 
 {% include notitle [monitoring](monitoring.md) %}
 
-
-
 ## Licensing {#licensing}
 
 {% include notitle [licensing](../../_includes/compute/qa-licensing.md) %}

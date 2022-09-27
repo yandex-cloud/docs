@@ -58,8 +58,7 @@
 * **Scanned / returned** — показывает соотношения:
     * `scanned_docs / returned_docs` — количество просканированных документов к количеству возвращенных;
     * `scanned_keys / returned_docs` — количество просканированных ключей индекса к количеству возвращенных документов.
-* **TTL indexes activity** — использование индексов при обработке документов с истекшим сроком жизни (Time to Life, TTL).
-* **TTL indexes total** — общее количество [индексов TTL](https://docs.mongodb.com/manual/core/index-ttl/).
+* **TTL indexes activity** — общее количество [индексов TTL](https://docs.mongodb.com/manual/core/index-ttl/).
 * **Total operations count on cluster** — общее количество выполненных в кластере операций.
 * **Total operations time on cluster** — общее время выполнения операций в кластере (в миллисекундах).
 * **WiredTiger cache pages evicted on primary** — среднее количество страниц оперативной памяти, вытесненных на первичной реплике.
@@ -87,6 +86,7 @@
 * **Network Bytes** — скорость обмена данными по сети (байт/с).
 * **Network Packets** — интенсивность обмена данными по сети (пакетов/с).
 
+
 ## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
 
 {% list tabs %}
@@ -104,7 +104,7 @@
 
     1. На нужном графике нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Создать алерт**.
 
-    1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов см. [документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md). 
+    1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов см. [документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
 
     1. Задайте значения порогов `Alarm` и `Warning` для срабатывания алерта.
 
@@ -125,6 +125,7 @@
 Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster).
 
 Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#managed-mongodb).
+
 
 ### Отслеживание перехода в read-only {#read-only-alert}
 

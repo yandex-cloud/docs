@@ -10,13 +10,14 @@ In this article, you will learn how to create a backup of a {{ k8s }} cluster no
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. [Install the kubectl command-line tool](https://kubernetes.io/docs/tasks/tools/install-kubectl).
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. Choose the [most recent version of the Velero client](https://github.com/vmware-tanzu/velero/releases) for your platform.
 1. Download the Velero client, extract the contents of the archive, and install it. For more information about installation, see the [Velero documentation](https://velero.io/docs/v1.5/basic-install/#install-the-cli).
 1. View a description of any Velero command:
@@ -67,7 +68,9 @@ If you no longer need these resources, [delete them](#clear-out).
 
 To back up cluster group data:
 1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating the node group, select automatic IP assignment.
-1. [Configure kubectl](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) to work with the cluster you created.
+
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. Install the Velero server in the {{ managed-k8s-name }} cluster:
 
    ```bash
@@ -81,11 +84,10 @@ To back up cluster group data:
      --secret-file ./credentials \
      --features=EnableCSI \
      --use-volume-snapshots=true \
-     --snapshot-location-config region=ru-central1
+     --snapshot-location-config region={{ region-id }}
    ```
 
    Where:
-
    * `--backup-location-config`: Backup storage parameters. URL of {{ objstorage-name }} storage and [availability zones](../../overview/concepts/geo-scope.md).
    * `--bucket`: Name of the backup storage bucket.
    * `--plugins`: Plugin images for AWS API compatibility.
@@ -140,25 +142,24 @@ To back up cluster group data:
 
 To restore data from the {{ managed-k8s-name }} cluster node group:
 1. [Create a new {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating the node group, select automatic IP assignment.
-1. [Configure kubectl](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) to work with the new cluster.
+1. [Configure kubectl](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) to work with the new cluster.
 1. Install the Velero server in the {{ managed-k8s-name }} cluster:
 
    ```bash
    kubectl label volumesnapshotclasses.snapshot.storage.k8s.io yc-csi-snapclass \
    velero.io/csi-volumesnapshot-class="true" && \
    velero install \
-     --backup-location-config s3Url=https://{{ s3-storage-host }},region=ru-central1 \
+     --backup-location-config s3Url=https://{{ s3-storage-host }},region={{ region-id }} \
      --bucket velero-backup \
      --plugins velero/velero-plugin-for-aws:v1.3.0,velero/velero-plugin-for-csi:v0.2.0 \
      --provider aws \
      --secret-file ./credentials \
      --features=EnableCSI \
      --use-volume-snapshots=true \
-     --snapshot-location-config region=ru-central1
+     --snapshot-location-config region={{ region-id }}
    ```
 
    Where:
-
    * `--backup-location-config`: Backup storage parameters. URL of {{ objstorage-name }} storage and [availability zones](../../overview/concepts/geo-scope.md).
    * `--bucket`: Name of the backup storage bucket.
    * `--plugins`: Plugin images for AWS API compatibility.
@@ -203,7 +204,6 @@ To restore data from the {{ managed-k8s-name }} cluster node group:
    ```
 
    Where:
-
    * `--exclude-namespaces`: Parameter that allows users not to restore objects from the `velero` namespace.
    * `--from-backup`: Name of the bucket where the backup is stored.
 

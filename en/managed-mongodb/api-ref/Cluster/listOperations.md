@@ -10,7 +10,7 @@ Retrieves the list of Operation resources for the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}/operations
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/operations
 ```
  
 ## Path parameters {#path_params}
@@ -23,7 +23,7 @@ clusterId | <p>Required. ID of the MongoDB Cluster resource to list operations f
  
 Parameter | Description
 --- | ---
-pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-mongodb/api-ref/Cluster/listOperations#query_params">pageSize</a>, the service returns a <a href="/docs/managed-mongodb/api-ref/Cluster/listOperations#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-mongodb/api-ref/Cluster/listOperations#query_params">pageSize</a>, the service returns a <a href="/docs/managed-mongodb/api-ref/Cluster/listOperations#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive. Default value: 100.</p> <p>The maximum value is 1000.</p> 
 pageToken | <p>Page token. To get the next page of results, set <a href="/docs/managed-mongodb/api-ref/Cluster/listOperations#query_params">pageToken</a> to the <a href="/docs/managed-mongodb/api-ref/Cluster/listOperations#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}

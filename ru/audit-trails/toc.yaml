@@ -34,6 +34,8 @@ items:
             href: operations/export-folder-bucket.md
   - name: Практические руководства
     items:
+      - name: Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}
+        href: tutorials/query.md
       - name: Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
         href: tutorials/search-bucket.md
       - name: Поиск событий {{ yandex-cloud }} в {{ cloud-logging-name }}
@@ -42,10 +44,14 @@ items:
         href: tutorials/alerts-monitoring.md
       - name: Настройка реагирования в {{ sf-name }}
         href: tutorials/logging-functions.md
+      - name: Загрузка аудитных логов в MaxPatrol SIEM
+        href: tutorials/maxpatrol.md
       - name: >-
           Загрузка аудитных логов в {{ mch-full-name }} и визуализация данных в
           {{ datalens-full-name }}
         href: tutorials/logs-analysis.md
+      - name: Загрузка аудитных логов в SIEM Splunk
+        href: tutorials/export-logs-to-splunk.md
   - name: Концепции
     expanded: true
     items:

@@ -47,7 +47,7 @@ You must create two buckets: one, `ycprojektblue-storage`, will store files, and
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ objstorage-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ objstorage-name }}**.
    1. Create a bucket for files:
 
       1. Click **Create bucket**.
@@ -108,7 +108,7 @@ You must create two buckets: one, `ycprojektblue-storage`, will store files, and
         token     = "<OAuth>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
-        zone      = "ru-central1-a"
+        zone      = "{{ region-id }}-a"
       }
 
       resource "yandex_storage_bucket" "storage" {
@@ -188,7 +188,7 @@ You need to check that, when user requests are made, files are downloaded from t
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ objstorage-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ objstorage-name }}**.
    1. Select `ycprojektblue-storage`.
    1. Click **Upload**.
    1. In the window that opens, select the `ycgame-update-v1.1.exe` patch file and click **Open**.
@@ -266,7 +266,7 @@ You need to check that, when user requests are made, files are downloaded from t
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ cdn-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ cdn-name }}**.
    1. If the CDN provider hasn't been activated yet, click **Activate provider**.
    1. Create a CDN resource:
 
@@ -403,23 +403,23 @@ You need to check that, when user requests are made, files are downloaded from t
 
 ## Set up DNS for your domain {#dns-setup}
 
-1. Get a domain name generated for the created CDN resource on the `.gcdn.co` domain:
+1. Get a domain name generated for the created CDN resource on the `.edgecdn.ru` domain:
 
    {% list tabs %}
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), open **{{ cdn-name }}**.
+      1. In the [management console]({{ link-console-main }}), select **{{ cdn-name }}**.
       1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.ycprojektblue.example`).
-      1. On the **Overview** tab, under **DNS settings**, copy the name generated on the `.gcdn.co` domain to the clipboard.
+      1. On the **Overview** tab, under **DNS settings**, copy the name generated on the `.edgecdn.ru` domain to the clipboard.
 
    {% endlist %}
 
 1. Go to your domain's DNS settings on the site of your DNS hosting provider.
-1. Edit the CNAME record for `cdn` so that it points to the previously copied URL on the `.gcdn.co` domain, for example:
+1. Edit the CNAME record for `cdn` so that it points to the previously copied URL on the `.edgecdn.ru` domain, for example:
 
    ```http
-   cdn CNAME cl-.....6bb.gcdn.co.
+   cdn CNAME cl-.....6bb.edgecdn.ru.
    ```
 
    If you use {{ dns-name }}, follow these instructions to configure the record:
@@ -430,7 +430,7 @@ You need to check that, when user requests are made, files are downloaded from t
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), open **{{ dns-name }}**.
+      1. In the [management console]({{ link-console-main }}), select **{{ dns-name }}**.
       1. If you don't have a public DNS zone, create one:
 
          1. Click **Create zone**.
@@ -445,7 +445,7 @@ You need to check that, when user requests are made, files are downloaded from t
          1. Click **Create record**.
          1. In the **Name** field, specify `cdn` to make the record match the `cdn.ycprojektblue.example` domain name.
          1. Select the record **Type**: **CNAME**.
-         1. In the **Value** field, paste the URL you copied on the `.gcdn.co` domain with a dot at the end.
+         1. In the **Value** field, paste the URL you copied on the `.edgecdn.ru` domain with a dot at the end.
          1. Click **Create**.
 
    - CLI
@@ -476,7 +476,7 @@ You need to check that, when user requests are made, files are downloaded from t
       1. Create a record in the zone:
 
          ```bash
-         yc dns zone add-records --name cdn-dns-a --record "cdn CNAME cl-.....6bb.gcdn.co."
+         yc dns zone add-records --name cdn-dns-a --record "cdn CNAME cl-.....6bb.edgecdn.ru."
          ```
 
          Where:
@@ -501,7 +501,7 @@ You need to check that, when user requests are made, files are downloaded from t
          | ycprojektblue.example.     | 3600 | SOA   | ns1.yandexcloud.net.           |
          |                            |      |       | mx.cloud.yandex.net. 1 10800   |
          |                            |      |       | 900 604800 86400               |
-         | cdn.ycprojektblue.example. |  600 | CNAME | cl-.....6bb.gcdn.co.           |
+         | cdn.ycprojektblue.example. |  600 | CNAME | cl-.....6bb.edgecdn.ru.           |
          +----------------------------+------+-------+--------------------------------+
          ```
 
@@ -510,7 +510,7 @@ You need to check that, when user requests are made, files are downloaded from t
    - API
 
       1. If you do not have a public DNS zone, create one using a gRPC API call to [DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create) or the REST API [create](../../dns/api-ref/DnsZone/create.md) method. To make the zone public, add the `public_visibility` (gRPC) or `publicVisibility` (REST) field to the request body.
-      1. In the zone, create a record named `cdn CNAME cl-.....6bb.gcdn.co.` using a gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) call or the REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) method.
+      1. In the zone, create a record named `cdn CNAME cl-.....6bb.edgecdn.ru.` using a gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) call or the REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) method.
 
    {% endlist %}
 
@@ -522,7 +522,7 @@ You need to check that, when user requests are made, files are downloaded from t
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ cdn-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ cdn-name }}**.
    1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.ycprojektblue.example`).
    1. Go to the **Content** tab.
    1. Click **Preload content**.
@@ -570,7 +570,7 @@ You need to check that, when user requests are made, files are downloaded from t
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), open **{{ objstorage-name }}**.
+      1. In the [management console]({{ link-console-main }}), select **{{ objstorage-name }}**.
       1. Select `ycprojektblue-logs`.
       1. Click on the name of the object corresponding to the `ycgame-update-v1.1.exe` download time.
       1. Click **Download**.

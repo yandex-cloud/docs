@@ -178,39 +178,39 @@ To view detailed information about the status of individual {{ mrd-name }} hosts
 
 {% endlist %}
 
-## Integration with {{ monitoring-full-name }} {#monitoring-integration}
+## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
+
+To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
 
 {% list tabs %}
 
 - Management console
 
-   To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
-
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
-   1. Select **Monitoring**.
-   1. Under **Service dashboards**, select **{{ mrd-name }}**.
-   1. In the desired chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
-   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more on the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
-   1. Set the `Alarm` and `Warning` notification threshold values.
+   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
+   1. Under **Service dashboards**, select:
+      * **{{ mpg-name }}: Cluster Overview **to configure cluster alerts.
+      * **{{ mpg-name }}: Host Overview **to configure host alerts.
+   1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
+   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+   1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
    1. Click **Create alert**.
-
-   To have other cluster health indicators monitored automatically:
-
-      1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
-   1. Add a status metric.
-   1. Set the alert threshold values in the alert settings.
-
-   Recommended threshold values:
-
-   | Metric                                                                                                    | Parameter          | `Alarm`              | `Warning` |
-   |----------------------------------------------------------------------------------------------------------:|:-------------------:|:-------------------:|:-------------------:|
-   | DB write availability                                                                                   | `can_write`         | `Equal to 0`            | — |
-   | Number of Out of Memory errors, per hour                                                                    | `redis_oom_count`   | `More than 2`          | `More than 0`           |
-   | RAM utilization (only for [noeviction policy](../concepts/settings-list.md#settings-maxmemory-policy)) | `redis_used_memory`  | 90% RAM    | 75% RAM    |
 
 {% endlist %}
 
+{% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
+
+Recommended threshold values:
+
+| Metric                                                                                                    | Parameter          | `Alarm`              | `Warning` |
+|----------------------------------------------------------------------------------------------------------:|:-------------------:|:-------------------:|:-------------------:|
+| DB write availability                                                                                   | `can_write`         | `Equal to 0`            |: |
+| Number of Out of Memory errors, per hour                                                                    | `redis_oom_count`   | `More than 2`          | `More than 0`           |
+| RAM utilization (only for [noeviction policy](../concepts/settings-list.md#settings-maxmemory-policy)) | `redis_used_memory`  | 90% RAM    | 75% RAM    |
+
 You can view a host's current RAM amount in the [cluster details](cluster-list.md#get-cluster).
+
+For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-redis).
 
 ## Cluster state and status {#cluster-health-and-status}
 
@@ -224,7 +224,7 @@ To view a cluster's state and status:
 
    1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
    1. Select **{{ mrd-name }}**.
-   1. Hover over the indicator in the **Status** column in the row of the cluster you need.
+   1. Hover over the indicator in the **Availability** column in the row of the cluster you need.
 
 {% endlist %}
 

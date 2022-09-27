@@ -30,6 +30,8 @@ yc managed-postgresql cluster list-logs <идентификатор класте
 
 Подробнее о кешировании данных дисков в Linux см. в [документации](https://www.linuxatemyram.com/).
 
+
 #### Как получать уведомления о критических показателях кластера {{ PG }}? {#notifications}
 
 Воспользуйтесь сервисом [{{ monitoring-full-name }}]({{ link-monitoring }}) и [настройте уведомления](../operations/monitoring.md#monitoring-integration) по критичным для вас параметрам.
+

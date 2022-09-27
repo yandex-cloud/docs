@@ -5,13 +5,13 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [{#T}](#change-disk-size)  (unavailable for non-replicated SSD [storage](../concepts/storage.md)).
+* [{#T}](#change-disk-size).
 
 * [Configure {{ PG }} servers](#change-postgresql-config) according to the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config.html).
 
 * [Changing additional cluster settings](#change-additional-settings).
 
-* [Manually switch the master in the cluster](#start-manual-failover).
+* [{#T}](#start-manual-failover).
 
 * [Move a cluster](#move-cluster) to another folder.
 
@@ -36,7 +36,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 - Management console
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel. 
+   1. Select the cluster and click **Edit cluster** in the top panel.
    1. Under **Host class**, select the class for the {{ PG }} hosts.
    1. Click **Save changes**.
 
@@ -115,9 +115,13 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
 - API
 
-   Use the API [update](../api-ref/Cluster/update.md) method and pass the requisite value in the `configSpec.resources.resourcePresetId` parameter.
+   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Host class ID in the `configSpec.resources.resourcePresetId` parameter. To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
+   * List of settings to update (`configSpec.resources.resourcePresetId` in this case) in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -129,7 +133,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
 {% endnote %}
 
-{% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
+Make sure the cloud has enough quota to increase the storage size. Open the cloud's [Quotas]({{ link-console-quotas }}) page and make sure there is space available under **Managed Databases** in the **HDD storage capacity** or the **SDD storage capacity** line.
 
 {% list tabs %}
 
@@ -138,7 +142,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
    To increase a cluster's storage size:
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel. 
+   1. Select the cluster and click **Edit cluster** in the top panel.
    1. Under **Storage size**, specify the required value.
    1. Click **Save changes**.
 
@@ -201,11 +205,11 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
    To increase a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in in the call:
 
-   * The cluster ID in the `clusterId` parameter.
-   * New storage size in the `configSpec.postgresqlConfig_<version {{ PG }}>.resources.diskSize` parameter.
-   * List of cluster configuration fields to be changed in the `updateMask` parameter.
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * New storage size in the `configSpec.resources.diskSize` parameter.
+   * List of settings to update (`configSpec.resources.diskSize` in this case) in the `updateMask` parameter.
 
-      {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -225,7 +229,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel. 
+   1. Select the cluster and click **Edit cluster** in the top panel.
    1. Change the [{{ PG }} settings](../concepts/settings-list.md) by clicking **Configure** under **DBMS settings**.
    1. Click **Save**.
    1. Click **Save changes**.
@@ -298,7 +302,13 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - API
 
-   Use the API [update](../api-ref/Cluster/update.md) method and pass the requisite values in the `configSpec.postgresqlConfig_<version>.config` parameter.
+   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Required setting values in the `configSpec.postgresqlConfig_<{{ PG }} version>` parameter.
+   * The list of settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -309,7 +319,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel. 
+   1. Select the cluster and click **Edit cluster** in the top panel.
    1. Change additional cluster settings:
 
       {% include [mpg-extra-settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
@@ -349,7 +359,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    *`--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
 
-   * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
+   * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
    * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
             
@@ -360,7 +370,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [deletion-protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Cluster deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -417,7 +427,7 @@ You can change the DBMS settings of the hosts in your cluster.
       }
       ```
 
-   1. {% include [maintenance-window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
+   1. {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
@@ -428,7 +438,7 @@ You can change the DBMS settings of the hosts in your cluster.
       }
       ```
 
-      {% include [deletion-protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    1. Make sure the settings are correct.
 
@@ -444,24 +454,18 @@ You can change the DBMS settings of the hosts in your cluster.
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter.
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * [Connection pooler mode](../concepts/pooling.md) in the `configSpec.poolerConfig.poolingMode` parameter.
    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
-      {% include [deletion-protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-   * List of cluster configuration fields to be changed in the `updateMask` parameter.
+   * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
-   You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
-
-   {% note warning %}
-
-   This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, be sure to pass the names of the fields to be changed in the `updateMask` parameter.
-
-   {% endnote %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
       
    To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass `true` for the `configSpec.access.serverless` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
@@ -471,14 +475,14 @@ You can change the DBMS settings of the hosts in your cluster.
 
 {% endlist %}
 
-## Switching the master {#start-manual-failover}
+## Manually switching the master {#start-manual-failover}
 
-In a failover {{ PG }} cluster with multiple hosts, you can switch the master role from the current master host to the cluster's replica host. After this operation, the current master host becomes the replica host of the new master.
+In a fault-tolerant {{ mpg-name }} cluster with multiple hosts, you can switch the master role from the current master host to one of the replicas. After this operation, the current master host becomes the replica host of the new master.
 
 Specifics of switching master hosts in {{ mpg-name }}
 
-1. You can't switch the master host to a replica that the source of the replication thread is explicitly given for.
-1. If you don't specify the replica host name explicitly, the master host will switch to one of the quorum replicas.
+* You can't switch the master host to a replica for which the source of the replication stream is explicitly given.
+* If you don't specify the replica host name explicitly, the master host will switch to one of the quorum replicas.
 
 For more information, see [{#T}](../concepts/replication.md).
 
@@ -489,10 +493,10 @@ To switch the master:
 - Management console
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click on the name of the cluster you want and select the **Hosts** tab.
-   1. Click **Switch master**.
-   1. To switch the master to one of the quorum replicas, leave the **Choose master host automatically** option enabled.
-   1. To switch the master to a specific replica, disable the **Choose master host automatically** option and then select the desired replica from the drop-down list.
+   1. Click the name of the cluster you want and select the ![icon-hosts.svg](../../_assets/mdb/hosts.svg) **Hosts** tab.
+   1. Click ![icon-autofailover.svg](../../_assets/mdb/autofailover.svg) **Switch master**.
+      * To switch the master to one of the quorum replicas, leave the **Choose master host automatically** option enabled.
+      * To switch the master to a specific replica, disable the **Choose master host automatically** option and then select the desired replica from the drop-down list.
    1. Click **Switch**.
 
 - CLI
@@ -522,9 +526,8 @@ To switch the master:
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
-          ...
-          host_master_name = "<replica host name: the name attribute of the appropriate host block>"
-        }
+        ...
+        host_master_name = "<replica host name: the name attribute of the appropriate host block>"
       }
       ```
 
@@ -541,8 +544,9 @@ To switch the master:
 - API
 
    Use the API [startFailover](../api-ref/Cluster/startFailover.md) method and pass the following in the request:
-   1. In the `clusterId` parameter, the ID of the cluster where you want to switch the master. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   1. In the `hostName` parameter, the name of the replica host to switch to. To find out the name, [request a list of hosts in the cluster](hosts.md#list).
+
+   * In the `clusterId` parameter, the ID of the cluster where you want to switch the master. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * (Optional) In the `hostName` parameter, the name of the replica host to switch to. To find out the name, [request a list of hosts in the cluster](hosts.md#list).
 
 {% endlist %}
 
@@ -553,7 +557,7 @@ To switch the master:
 - Management console
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon to the right of the cluster you want to move.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon to the right of the cluster you wish to move.
    1. Click **Move**.
    1. Select the folder you want to move the cluster to.
    1. Click **Move**.
@@ -597,7 +601,7 @@ To switch the master:
 - Management console
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel. 
+   1. Select the cluster and click **Edit cluster** in the top panel.
    1. Under **Network settings**, select security groups for cluster network traffic.
 
 - CLI
@@ -652,9 +656,11 @@ To switch the master:
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-   * The list of groups in the `securityGroupIds` parameter.
-   * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * The list of security group IDs in the `securityGroupIds` parameter.
+   * List of settings to update (`securityGroupIds` in this case) in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

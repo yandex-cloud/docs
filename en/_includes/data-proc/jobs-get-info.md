@@ -15,9 +15,9 @@
    To get general information about the job, run the command:
 
    ```bash
-   yc dataproc job get \
-      --cluster-name <cluster name> \
-      --name <job name>
+   {{ yc-dp }} job get \
+      --cluster-name=<cluster name> \
+      --name=<job name>
    ```
 
    You can find out the cluster ID and name in a [list of clusters in the folder](../../data-proc/operations/cluster-list.md#list).

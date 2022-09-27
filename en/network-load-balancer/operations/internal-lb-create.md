@@ -1,13 +1,5 @@
 # Create an internal network load balancer
 
-
-{% note warning %}
-
-Internal load balancer will become [generally available](../../overview/concepts/launch-stages.md) and [paid](../pricing.md) on August 12th, 2022.
-
-{% endnote %}
-
-
 {% note info %}
 
 The internal load balancer's listener is assigned a random IP address from the range of addresses of the selected subnet.

@@ -39,7 +39,7 @@
    output {
      stdout { codec => rubydebug}
      kinesis {
-       stream_name => "/ru-central1/aoegtvhtp8ob9rqq8sto/cc8004q4lbo6bv9iivr0/test"
+       stream_name => "/{{ region-id }}/aoegtvhtp8ob9rqq8sto/cc8004q4lbo6bv9iivr0/test"
        region => "ru-central-1"
        verify_certificate => false
        codec => json_lines
@@ -82,8 +82,8 @@
      "host" => "127.0.0.1",
      "json" => "message"
    }
-   Stage 1 Triggers: { stream: '/ru-central1/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/logstash_stream', manual: 0, count: 0, size: 0, matches: 0, timed: 0, UserRecords: 0, KinesisRecords: 0 }
-   Stage 2 Triggers: { stream: '/ru-central1/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/logstash_stream', manual: 0, count: 0, size: 0, matches: 0, timed: 1, KinesisRecords: 1, PutRecords: 1 }
+   Stage 1 Triggers: { stream: '/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/logstash_stream', manual: 0, count: 0, size: 0, matches: 0, timed: 0, UserRecords: 0, KinesisRecords: 0 }
+   Stage 2 Triggers: { stream: '/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/logstash_stream', manual: 0, count: 0, size: 0, matches: 0, timed: 1, KinesisRecords: 1, PutRecords: 1 }
    (test) Average Processing Time: 723 ms
    ```
 

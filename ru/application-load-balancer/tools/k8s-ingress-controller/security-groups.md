@@ -2,7 +2,7 @@
 
 {% include [security-groups-note](../../_includes_service/security-groups-note.md) %}
 
-Для корректной работы [Ingress-контроллера](index.md) нужно настроить [группы безопасности](../../../vpc/concepts/security-groups.md) [кластера](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [групп узлов {{ managed-k8s-full-name }}](../../../managed-kubernetes/concepts/index.md#node-group) и балансировщика {{ alb-name }}. Для кластера, групп узлов и балансировщика можно использовать разные группы безопасности (рекомендуется) или одну и ту же группу.
+Для корректной работы [Ingress-контроллера](index.md) или [Gateway API](../k8s-gateway-api/index.md) нужно настроить [группы безопасности](../../../vpc/concepts/security-groups.md) [кластера](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [групп узлов {{ managed-k8s-full-name }}](../../../managed-kubernetes/concepts/index.md#node-group) и балансировщика {{ alb-name }}. Для кластера, групп узлов и балансировщика можно использовать разные группы безопасности (рекомендуется) или одну и ту же группу.
 
 В группах безопасности должны быть настроены:
 * Все стандартные правила, описанные в соответствующих разделах документации:
@@ -16,7 +16,10 @@
 * по [созданию](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [изменению](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md#update-cluster) кластера;
 * по [созданию](../../../managed-kubernetes/operations/node-group/node-group-create.md) и [изменению](../../../managed-kubernetes/operations/node-group/node-group-update.md) группы узлов.
 
-Идентификаторы групп безопасности балансировщика указываются в аннотации `ingress.alb.yc.io/security-groups` ресурса `Ingress`. Если балансировщик создается по нескольким `Ingress`, ему назначаются все указанные в этих `Ingress` группы безопасности.
+Идентификаторы групп безопасности балансировщика указываются: 
+
+* В ресурсе `Ingress` — в аннотации `ingress.alb.yc.io/security-groups`. Если балансировщик создается по нескольким `Ingress`, ему назначаются все указанные в этих `Ingress` группы безопасности.
+* В ресурсе `Gateway` — в аннотации `gateway.alb.yc.io/security-groups`.
 
 ## Пример настройки {#example}
 

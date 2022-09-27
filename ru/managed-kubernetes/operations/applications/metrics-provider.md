@@ -4,11 +4,6 @@ Metrics Provider — связующий элемент между объекто
 
 Провайдер преобразует запрос на получение внешних метрик от объекта в кластере {{ k8s }} в нужный {{ monitoring-name }} формат, а также выполняет обратное преобразование — от {{ monitoring-name }} до объекта кластера.
 
-Чтобы установить Metrics Provider:
-1. [Создайте сервисный аккаунт](#create-sa-key).
-1. [Установите провайдер с помощью {{ marketplace-full-name }}](#marketplace-install).
-
-
 ## Создание сервисного аккаунта и статического ключа доступа {#create-sa-key}
 
 Для работы провайдера нужно создать [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и получить для него ключ.
@@ -31,7 +26,7 @@ Metrics Provider — связующий элемент между объекто
      -o key.json
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```text
    {
@@ -85,3 +80,53 @@ Metrics Provider — связующий элемент между объекто
    * **Приватный ключ сервисного аккаунта** — скопируйте в это поле содержимое файла `key.pem`.
 1. Нажмите кнопку **Установить**.
 
+## Установка с помощью Helm-чарта {#helm-install}
+
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте](../connect/index.md) его на работу с вашим кластером.
+1. Установите менеджер пакетов {{ k8s }} [Helm 3](https://helm.sh/ru/docs/intro/install).
+1. Добавьте репозиторий `metric-provider`:
+
+   ```bash
+   export HELM_EXPERIMENTAL_OCI=1 && \
+   cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/marketplace/metric-provider \
+     --version=0.1.3 \
+     --untar
+   ```
+
+1. Настройте и установите Metrics Provider:
+
+   ```bash
+   helm install \
+     --namespace <пространство имен> \
+     --set folderId=<идентификатор каталога> \
+     --set window=<ширина временного окна> \
+     --set-file saKeySecretKey=key.json \
+     --set gridAggregation=<функция агрегации> \
+     --set gapFilling=<заполнение данных> \
+     --set maxPoints=<максимальное количество точек> \
+     --set gridInterval=<ширина временного окна прореживания> \
+     --set disabled=<true или false> \
+     metric-provider ./metric-provider/
+   ```
+
+   Обязательные параметры:
+   * `namespace` — [пространство имен](../../concepts/index.md#namespace), где будет развернут провайдер.
+   * `folderId` — [идентификатор каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать провайдер.
+   * `window` — ширина временного окна, за которую будут собираться метрики (в формате `DdHhMmSs`, например `5d10h30m20s`).
+
+   Параметры прореживания (`downsampling`). Для работы провайдера нужно выбрать хотя бы один из параметров:
+   * `gridAggregation` — [функция агрегации](../../../monitoring/concepts/querying.md#combine-functions) данных. Значение по умолчанию — `AVG`.
+   * `gapFilling` — настройки заполнения пропусков в данных:
+     * `NULL` — возвращает `null` в качестве значения метрики и `timestamp` в качестве временной метки.
+     * `NONE` — не возвращает значений.
+     * `PREVIOUS` — возвращает значение из предыдущей точки.
+   * `maxPoints` — максимальное количество точек, которое будет получено в ответе на запрос. Значение параметра должно быть больше `10`.
+   * `gridInterval` — ширину временного окна (сетки) в миллисекундах. Используется для прореживания: точки внутри окна объединяются в одну при помощи функции агрегации. Значение параметра должно быть больше `0`.
+   * `disabled` — отключение прореживания данных.
+
+     {% note info %}
+
+     Используйте только один из параметров `maxPoints`, `gridInterval` или `disabled`. Подробнее о параметрах прореживания см. в [документации API](../../../monitoring/api-ref/MetricsData/read.md).
+
+     {% endnote %}

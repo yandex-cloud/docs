@@ -22,10 +22,7 @@ To use the instructions in this section, you will need:​
 
 1. A working ADFS farm. If you didn't configure ADFS on your server, [install and configure it now](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm). To deploy ADFS, you also need to install and configure Active Directory Domain Services (AD DS).
 
-   
-   
-   If you don't have a Windows machine to deploy an ADFS server, you can [create a VM](../../../compute/quickstart/quick-create-windows.md) in {{ yandex-cloud }}.
-
+
 
    {% note tip %}
 

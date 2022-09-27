@@ -77,7 +77,7 @@
           ip_version: IPV4
       security_group_ids:
       - enpcuhcljhb0jq9s3sb7
-    fqdn: steel-machine.ru-central1.internal
+    fqdn: steel-machine.{{ region-id }}.internal
     scheduling_policy:
       preemptible: true
     network_settings:

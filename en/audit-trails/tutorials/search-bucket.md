@@ -1,4 +1,4 @@
-# Searching a bucket
+# Searching for {{ yandex-cloud }} events in {{ objstorage-name }}
 
 ## Before you begin {#before-you-begin}
 1. Install and set up [s3fs](../../storage/tools/s3fs.md) or [goofys](../../storage/tools/goofys.md) to mount {{ objstorage-name }} buckets using [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace).
@@ -27,19 +27,19 @@
    find <directory path> -type f -exec cat {} \; | jq  '.[] | select((.event_type | test("yandex\\.cloud\\.audit\\.compute\\..*Instance")) and .details.instance_id == "<VM instance ID>") | .authentication'
    ```
 
-1. To find out what actions a user performed over a period of time, search by the subject ID:
+3. To find out what actions a user performed over a period of time, search by the subject ID:
 
-   ```bash
-   find <directory path> -type f -exec cat {} \; | jq  '.[] | select(.authentication.subject_id == "<user ID>" and .event_time > "2021-03-01" and .event_time < "2021-04-01")'
-   ```
+```bash
+find <directory path> -type f -exec cat {} \; | jq  '.[] | select(.authentication.subject_id == "<user ID>" and .event_time > "2021-03-01" and .event_time < "2021-04-01")'
+```
 
-   You can also search by the subject name:
+You can also search by the subject name:
 
-   ```bash
-   find <directory path> -type f -exec cat {} \; | jq  '.[] | select(.authentication.subject_name == "<username>" and .event_time > "2021-03-01" and .event_time < "2021-04-01")'
-   ```
+```bash
+find <directory path> -type f -exec cat {} \; | jq  '.[] | select(.authentication.subject_name == "<username>" and .event_time > "2021-03-01" and .event_time < "2021-04-01")'
+```
 
-1. To find out which events occurred to objects in a certain folder, search by the folder ID:
+4. To find out which events occurred to objects in a certain folder, search by the folder ID:
 
    ```bash
    find <directory path> -type f -exec cat {} \; | jq  '.[] | select(.resource_metadata != null and .resource_metadata.path != null) | select( .resource_metadata.path[] | .resource_type == "resource-manager.folder" and .resource_id == "<folder ID>")'

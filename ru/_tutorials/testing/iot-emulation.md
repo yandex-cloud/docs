@@ -61,7 +61,7 @@
 1. Отредактируйте файл `variables.tf`, указав следующие параметры для эмуляции:
 
     * `token` — [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) для доступа к {{ yandex-cloud }}.
-    * `cloud_id` — идентификатор облака.
+    * `cloud_id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md).
     * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
     * `zone` — [зона доступности](../../overview/concepts/geo-scope.md).
     * `device_count` — количество эмулируемых устройств.

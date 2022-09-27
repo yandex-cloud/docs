@@ -10,6 +10,8 @@
 1. [Настройте кластер {{ k8s }}](#configure-k8s).
 1. [Создайте External Secret](#create-es).
 
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
 ## Перед началом работы {#before-you-begin}
 
 1. {% include [cli-install](../_includes/cli-install.md) %}
@@ -20,8 +22,7 @@
 1. Установите утилиту `jq`:
 
    ```bash
-   sudo apt update && \
-   sudo apt install jq
+   sudo apt update && sudo apt install jq
    ```
 
 1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) с именем `eso-service-account`, необходимый для работы External Secrets Operator.
@@ -39,65 +40,74 @@
 
 ## Установите External Secrets Operator {#install-eso}
 
-1. Добавьте Helm-репозиторий `external-secrets`:
+{% list tabs %}
 
-   ```bash
-   helm repo add external-secrets https://charts.external-secrets.io
-   ```
+- С помощью {{ marketplace-full-name }}
 
-1. Установите External Secrets Operator в кластер {{ k8s }}:
+  Чтобы установить [External Secrets Operator](/marketplace/products/yc/external-secrets) с помощью {{ marketplace-name }}, [воспользуйтесь инструкцией](../managed-kubernetes/operations/applications/external-secrets-operator.md#install-eso-marketplace).
 
-   ```bash
-   helm install external-secrets \
-     external-secrets/external-secrets \
-     --namespace external-secrets \
-     --create-namespace
-   ```
+- С помощью Helm
 
-   {% note info %}
+  1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/).
 
-   Эта команда создаст новое пространство имен `external-secrets`, необходимое для работы External Secrets Operator.
+  1. Добавьте Helm-репозиторий `external-secrets`:
 
-   {% endnote %}
+     ```bash
+     helm repo add external-secrets https://charts.external-secrets.io
+     ```
 
-   Результат:
+  1. Установите External Secrets Operator в кластер {{ k8s }}:
 
-   ```text
-   NAME: external-secrets
-   LAST DEPLOYED: Sun Sep 19 11:20:58 2021
-   NAMESPACE: external-secrets
-   STATUS: deployed
-   REVISION: 1
-   TEST SUITE: None
-   NOTES:
-   external-secrets has been deployed successfully!
-   ...
-   ```
+    ```bash
+    helm install external-secrets \
+      external-secrets/external-secrets \
+      --namespace external-secrets \
+      --create-namespace
+    ```
+
+     {% note info %}
+
+     Эта команда создаст новое пространство имен `external-secrets`, необходимое для работы External Secrets Operator.
+
+     {% endnote %}
+
+     Результат выполнения команды:
+
+     ```text
+     NAME: external-secrets
+     LAST DEPLOYED: Sun Sep 19 11:20:58 2021
+     NAMESPACE: external-secrets
+     STATUS: deployed
+     REVISION: 1
+     TEST SUITE: None
+     NOTES:
+     external-secrets has been deployed successfully!
+     ...
+     ```
+
+{% endlist %}
 
 ## Настройте {{ lockbox-name }} {#configure-lockbox}
 
-1. Создайте секрет с именем `lockbox-secret`:
-
-   ```bash
-   yc lockbox secret create \
-     --name lockbox-secret \
-     --payload '[{"key": "password","textValue": "p@$$w0rd"}]'
-   ```
-
+1. [Создайте секрет](../lockbox/operations/secret-create.md):
+   * **Имя** — `lockbox-secret`.
+   * **Ключ/Значение**:
+     * **Ключ** — `password`.
+     * **Значение** → **Текст** — `p@$$w0rd`.
 1. Получите идентификатор секрета:
 
    ```bash
    yc lockbox secret list
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```text
-   +----------------------------------------+----------------+------------+---------------------+----------------------+--------+
-   |                   ID                   |      NAME      | KMS KEY ID |     CREATED AT      |  CURRENT VERSION ID  | STATUS |
-   +----------------------------------------+----------------+------------+---------------------+----------------------+--------+
+   +--------------------------------------------+----------------+------------+---------------------+----------------------+--------+
+   |                     ID                     |      NAME      | KMS KEY ID |     CREATED AT      |  CURRENT VERSION ID  | STATUS |
+   +--------------------------------------------+----------------+------------+---------------------+----------------------+--------+
    | <идентификатор {{ lockbox-name }}-секрета> | lockbox-secret |            | 2021-09-19 04:33:44 | e6qlkguf0hs4q3i6jpen | ACTIVE |
-   +----------------------------------------+----------------+------------+---------------------+----------------------+--------+
+   +--------------------------------------------+----------------+------------+---------------------+----------------------+--------+
    ```
 
 1. Чтобы сервисный аккаунт `eso-service-account` имел доступ к секрету, присвойте этому аккаунту роль `lockbox.payloadViewer`:
@@ -181,3 +191,11 @@
    ```text
    p@$$w0rd
    ```
+
+## Удалите созданные ресурсы {#clear-out}
+
+Если созданные ресурсы вам больше не нужны, удалите их:
+
+1. [Удалите кластер {{ managed-k8s-name }}](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. Если вы зарезервировали для кластера публичный статический IP-адрес, [удалите его](../vpc/operations/address-delete.md).
+1. [Удалите секрет](../lockbox/operations/secret-delete.md) `lockbox-secret`.

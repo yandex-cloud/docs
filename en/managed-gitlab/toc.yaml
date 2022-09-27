@@ -19,6 +19,12 @@ items:
             href: operations/instance/instance-delete.md
       - name: Connecting to instances
         href: operations/connect.md
+  - name: Practical guidelines
+    items:
+      - name: >-
+          Continuous deployment of {{ managed-k8s-name }} containerized
+          applications
+        href: tutorials/gitlab-containers.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -27,6 +33,8 @@ items:
         href: concepts/security.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
   - name: Pricing policy
     href: pricing.md
 base: en/managed-gitlab

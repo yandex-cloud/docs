@@ -1,6 +1,66 @@
-# Images {{ dataproc-full-name }}
+# Image revision history {{ dataproc-full-name }}
 
 For a complete listing of current and deprecated {{ dataproc-name }} images, please see [{#T}](../concepts/environment.md).
+
+
+## 2.0.48 {#2.0.48}
+
+* Added the ability to use [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sql-distributed-sql-engine.html). For more information, see [{#T}](../concepts/settings-list.md#spark-thrift-server).
+* Corrected the `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider` error that might have appeared on lightweight Apache Spark configurations.
+
+## 2.0.47 {#2.0.47}
+
+* Corrected a TCP session leak with the metadata service on high-load clusters. The leak could have resulted in an IAM token not updating for authorization in {{ objstorage-name }} and other services.
+* Corrected the `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider` error that caused tables from Hive Metastore not to load.
+
+## 2.0.46 {#2.0.46}
+
+* Some Spark properties are also used in Zeppelin, such as `spark.submit.deployMode`, `spark.driver.cores`, `spark.driver.memory`, `spark.executor.cores`, `spark.executor.memory`, `spark.files`, `spark.jars`, and `spark.jars.packages`.
+
+## 2.0.45 {#2.0.45}
+
+* Fixed an error with the MapReduce Application History Server not being hosted on the cluster master host.
+* Enabled the HIVE configuration without YARN.
+* Allowed running HiveServer2 with MapReduce only.
+
+## 2.0.43 {#2.0.43}
+
+* Unified cores/memory calculations for Spark/YARN.
+
+## 2.0.42 {#2.0.42}
+
+* Upgraded Apache Spark to version 3.0.3 and built it with the [hadoop-cloud](https://spark.apache.org/docs/3.0.3/cloud-integration.html) profile to use [Magic Committer](https://hadoop.apache.org/docs/r3.2.3/hadoop-aws/tools/hadoop-aws/committers.html#Using_the_Magic_committer) and Parquet format.
+* Fixed an error when the `hive.metastore.uris` settings were ignored for Spark while using external Hive metastore.
+
+## 2.0.41 {#2.0.41}
+
+* Added `hive-site.xml` to classpath for Spark apps.
+* Fixed an error when system Python was used instead of a Conda environment while running PySpark.
+
+## 2.0.40 {#2.0.40}
+
+* Fixed an error when user scenarios failed to run.
+
+## 2.0.39 {#2.0.39}
+
+* Added support for lightweight clusters (without HDFS and data storage subclusters).
+
+## 2.0.38 and 1.4.35 {#2.0.38-1.4.35}
+
+* Adapted images to be used in subnets with a user-defined DNS zone.
+
+## 2.0.37 {#2.0.37}
+
+* Added the YC CLI to `PATH` for initialization scripts.
+
+## 2.0.36 {#2.0.36}
+
+* The YC CLI is installed on all cluster hosts by default.
+* Added the following values to environment variables for initialization scripts: `CLUSTER_ID`, `S3_BUCKET`, `ROLE`, `CLUSTER_SERVICES`, `MIN_WORKER_COUNT`, and `MAX_WORKER_COUNT`.
+
+## 2.0.35 {#2.0.35}
+
+* Added support for cluster initialization scripts.
 
 ## 2.0 {#2.0}
 
@@ -78,3 +138,4 @@ The following libraries have been updated:
 * scikit-learn — 0.21.3.
 * TensorFlow— 1.15.0.
 * XGBoost — 0.90.
+

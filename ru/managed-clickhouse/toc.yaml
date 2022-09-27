@@ -91,7 +91,7 @@ items:
                 href: concepts/instance-types-archive/instance-types-01062020.md
           - name: Использование устаревших классов хостов
             href: concepts/using-deprecated-instances.md
-      - name: Сеть в Managed Service for ClickHouse
+      - name: Сеть в {{ mch-name }}
         href: concepts/network.md
       - name: Квоты и лимиты
         href: concepts/limits.md

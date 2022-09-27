@@ -10,7 +10,7 @@ Starts a manual failover for a cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}:startFailover
+POST https://{{ api-host-mdb }}/mdb/sqlserver/v1/clusters/{clusterId}:startFailover
 ```
  
 ## Path parameters {#path_params}

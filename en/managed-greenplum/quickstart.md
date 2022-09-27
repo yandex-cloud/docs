@@ -14,7 +14,7 @@ To get started with the service:
 
 1. You can connect to a cluster from both inside and outside {{ yandex-cloud }}:
 
-   * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)).
+   * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md).
    * To be able to connect to the cluster from the internet, request public access when creating the cluster.
 
    {% note info %}

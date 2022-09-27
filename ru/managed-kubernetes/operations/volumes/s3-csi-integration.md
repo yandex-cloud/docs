@@ -45,7 +45,7 @@
    provisioner: ru.yandex.s3.csi
    parameters:
      mounter: geesefs
-     options: "--memory-limit 1000 --dir-mode 0777 --file-mode 0666"
+     options: "--memory-limit=1000 --dir-mode=0777 --file-mode=0666"
      bucket: <опционально: имя существующего бакета>
      csi.storage.k8s.io/provisioner-secret-name: csi-s3-secret
      csi.storage.k8s.io/provisioner-secret-namespace: kube-system
@@ -276,7 +276,7 @@
           volumeAttributes:
             capacity: 10Gi
             mounter: geesefs
-            options: "--memory-limit 1000 --dir-mode 0777 --file-mode 0666 --uid 1001"
+            options: "--memory-limit=1000 --dir-mode=0777 --file-mode=0666 --uid=1001"
       ```
 
       В этом примере настройки GeeseFS для работы с бакетом изменены по сравнению со `StorageClass`. В них добавлена опция `--uid`, в которой указан идентификатор пользователя-владельца всех файлов в хранилище — `1001`. Подробнее о настройке GeeseFS для статического `PersistentVolumeClaim` см. [выше](#spvc-csi-usage).

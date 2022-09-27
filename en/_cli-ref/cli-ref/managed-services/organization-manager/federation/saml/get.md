@@ -19,6 +19,7 @@ Aliases:
 |----|----|
 |`--id`|<b>`string`</b><br/>federation id.|
 |`--name`|<b>`string`</b><br/>federation name.|
+|`--organization-id`|<b>`string`</b><br/>Set the ID of the organization to use.|
 
 #### Global Flags
 

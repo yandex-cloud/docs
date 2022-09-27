@@ -10,7 +10,7 @@ Exports the last database backup to an external backup.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}/databases/{databaseName}:export
+POST https://{{ api-host-mdb }}/mdb/sqlserver/v1/clusters/{clusterId}/databases/{databaseName}:export
 ```
  
 ## Path parameters {#path_params}

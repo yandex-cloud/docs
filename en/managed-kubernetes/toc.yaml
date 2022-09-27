@@ -9,22 +9,36 @@ items:
     items:
       - name: All instructions
         href: operations/index.md
-      - name: Configuring security groups
-        href: operations/security-groups.md
       - name: Connecting to a node over SSH
         href: operations/node-connect-ssh.md
-      - name: Creating a configuration file
-        href: operations/create-static-conf.md
       - name: Updating {{ k8s }}
         href: operations/update-kubernetes.md
+      - name: Configuring autoscaling
+        href: operations/autoscale.md
+      - name: Connecting to a cluster
+        items:
+          - name: Connection method overview
+            href: operations/connect/index.md
+          - name: Configuring security groups
+            href: operations/connect/security-groups.md
+          - name: Creating a static configuration file
+            href: operations/connect/create-static-conf.md
       - name: Installing applications
         items:
           - name: Basics of working with {{ marketplace-name }}
             href: operations/applications/marketplace.md
+          - name: Installing the {{ alb-name }} Ingress controller
+            href: operations/applications/alb-ingress-controller.md
+          - name: Installing Crossplane
+            href: operations/applications/crossplane.md
+          - name: Installing Fluent Bit
+            href: operations/applications/fluentbit.md
           - name: Installing Jaeger
             href: operations/applications/jaeger.md
           - name: Installing Metrics Provider
             href: operations/applications/metrics-provider.md
+          - name: Installing NodeLocal DNS
+            href: operations/applications/node-local-dns.md
       - name: Network scenarios
         items:
           - name: Granting access to an app running in a {{ k8s }} cluster
@@ -35,10 +49,6 @@ items:
             href: operations/cilium.md
           - name: Configuring NodeLocal DNS for the Cilium network policy controller
             href: operations/cilium-node-local-dns.md
-      - name: Encrypting secrets
-        href: operations/encrypting-secrets.md
-      - name: Automatic scaling
-        href: operations/autoscale.md
       - name: Working with persistent volumes
         items:
           - name: Dynamic volume provisioning
@@ -57,10 +67,6 @@ items:
             href: operations/volumes/s3-csi-integration.md
       - name: Managing a {{ k8s }} cluster
         items:
-          - name: >-
-              Adding {{ k8s }} cluster credentials to the kubectl configuration
-              file
-            href: operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md
           - name: Getting information about a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-list.md
           - name: Creating a {{ k8s }} cluster
@@ -74,10 +80,14 @@ items:
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
       - name: Managing a node group
         items:
-          - name: Getting information about a node group
+          - name: Information about existing node groups
             href: operations/node-group/node-group-list.md
           - name: Creating a node group
             href: operations/node-group/node-group-create.md
+          - name: Connecting to a node over SSH
+            href: operations/node-connect-ssh.md
+          - name: Configuring autoscaling
+            href: operations/autoscale.md
           - name: Changing a node group
             href: operations/node-group/node-group-update.md
           - name: Managing {{ k8s }} cluster node labels
@@ -90,6 +100,8 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: Creating a new {{ k8s }} project in {{ yandex-cloud }}
+        href: tutorials/new-kubernetes-project.md
       - name: Integration with {{ container-registry-name }}
         href: tutorials/container-registry.md
       - name: Running workloads with GPUs
@@ -98,7 +110,7 @@ items:
         href: tutorials/ingress-cert-manager.md
       - name: Configuring the {{ alb-name }} Ingress controller
         href: tutorials/alb-ingress-controller.md
-      - name: Backup to {{ objstorage-name }}
+      - name: Backups to {{ objstorage-name }}
         href: tutorials/backup.md
       - name: Horizontal application scaling in a cluster
         href: tutorials/autoscaling.md
@@ -106,7 +118,7 @@ items:
         href: tutorials/vpa-autoscaling.md
       - name: Working with snapshots
         href: tutorials/pvc-snapshot-restore.md
-      - name: Integration with a corporate DNS zone
+      - name: Integrating into a corporate DNS zone
         href: tutorials/custom-dns.md
       - name: Automatic DNS scaling by cluster size
         href: tutorials/dns-autoscaler.md

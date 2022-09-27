@@ -41,12 +41,12 @@ List of important {{ yandex-cloud }}-level events for search in audit logs:
 
 ### Exporting events to SIEM {#export}
 
-#### Audit Trails {#export-at}
+#### {{ at-name }} {#export-at}
 
 
 Solutions for exporting {{ yandex-cloud }} audit logs are available for the following SIEM systems:
 
-- Yandex Managed Service for Elasticsearch (ELK)
+- {{ mes-full-name }} (ELK)
 
    ![](../../_assets/overview/solution-library-icon.svg)[Solution: Collecting, monitoring, and analyzing audit logs in Yandex Managed Service for Elasticsearch](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main)
 
@@ -93,7 +93,7 @@ Customers may collect events that occur at the level of applications deployed on
 
 ## Network level {#network-level}
 
-Currently, VPC network traffic event logs (Flow Logs) can only be collected by customers. You can use {{ marketplace-full-name }} solutions (such as [NGFW](/marketplace?tab=software&search=NGFW), [IDS/IPS](/marketplace?tab=software&search=IDS%2FIPS), or [network products](/marketplace?categories=network)) or free software for collecting and transmitting events.
+Currently, {{ vpc-short-name }} network traffic event logs (Flow Logs) can only be collected by customers. You can use {{ marketplace-full-name }} solutions (such as [NGFW](/marketplace?tab=software&search=NGFW), [IDS/IPS](/marketplace?tab=software&search=IDS%2FIPS), or [network products](/marketplace?categories=network)) or free software for collecting and transmitting events.
 
 ## Time synchronization {#time-synch}
 

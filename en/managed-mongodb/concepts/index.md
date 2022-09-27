@@ -1,4 +1,3 @@
----
 title: "Relationship of resources of the Yandex Managed Service for MongoDB"
 description: "The main entity operated by the Managed Service for MongoDB is a database cluster. Each cluster consists of one or more database hosts - virtual machines with deployed DBMS servers. Cluster hosts can be located in different availability zones. A cluster of several hosts automatically fault tolerant - one of the replica hosts will take over the role of master if the current master host fails."
 ---
@@ -19,6 +18,8 @@ When creating a cluster, specify:
 * _Environment_: The environment where the cluster will be deployed:
    * `PRODUCTION`: For stable versions of your apps.
    * `PRESTABLE`: For testing, including the {{ mmg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+
+* _Edition of {{ MG }}_. For a list of available editions and supported features, see [{#T}](./editions.md).
 
 A database cluster created in a folder can be accessed by all VMs connected to the same cloud network. [Learn more about networking](../../vpc/).
 

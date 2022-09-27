@@ -61,7 +61,7 @@ For the bot to respond to user messages with an image, create a bucket in {{ obj
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../storage/concepts/bucket.md).
-  1. Open the **Object Storage** service.
+  1. Select the **{{ objstorage-short-name }}** service.
   1. Click **Create bucket**.
   1. On the bucket creation page:
       1. Enter a name for the bucket, such as `for-serverless-hello-telegram-bot`. Save the bucket name. You will need it later.
@@ -80,7 +80,7 @@ For the bot to respond to user messages with an image, create a bucket in {{ obj
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder that contains the previously created bucket.
-  1. Open the **Object Storage** service.
+  1. Select the **{{ objstorage-short-name }}** service.
   1. Select a previously created bucket.
   1. Click **Upload**.
   1. In the resulting window, select `sayhello.png` from the saved archive and click **Open**. The management console will display the file selected for upload.
@@ -95,7 +95,7 @@ For the bot to respond to user messages with an image, create a bucket in {{ obj
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder that contains the previously created bucket.
-  1. Open the **Object Storage** service.
+  1. Select the **{{ objstorage-short-name }}** service.
   1. Select a previously created bucket.
   1. Select `sayhello.png`.
   1. Click **Get link**.
@@ -112,7 +112,7 @@ Create and configure an [API Gateway](../api-gateway/concepts/index.md).
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create an API gateway.
-  1. Open **{{ api-gw-name }}**.
+  1. Select **{{ api-gw-name }}**.
   1. Click Create **API gateway**.
   1. Enter a name for the gateway: `for-serverless-hello-telegram-bot`.
   1. Clear the contents of the **Specification** field and replace them with the code below. In the `bucket` field, enter a name for the bucket. In the `service_account_id` field, enter the [service account ID](../iam/operations/sa/get-id.md).
@@ -148,7 +148,7 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create the function.
-  1. Open **{{ sf-name }}**.
+  1. Select **{{ sf-name }}**.
   1. Click **Create function**.
   1. Enter a name for the function: `fshtb-function`.
   1. Click **Create**.
@@ -214,7 +214,7 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-  1. Open **{{ api-gw-name }}**.
+  1. Select **{{ api-gw-name }}**.
   1. Select the `for-serverless-hello-telegram-bot` API gateway.
   1. Edit the API gateway specification by adding a `fshtb-function` section. Use the `function_id` field to specify the `fshtb-function` function ID.
 

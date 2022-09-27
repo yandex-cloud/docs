@@ -11,7 +11,7 @@ to the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters
+GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
 ```
  
 ## Query parameters {#query_params}

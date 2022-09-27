@@ -17,7 +17,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/>New name for the MySQL cluster|
 |`--description`|<b>`string`</b><br/>Cluster description.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the MySQL cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
 |`--mysql-version`|<b>`string`</b><br/>Version of MYSQL used in the cluster|
@@ -25,6 +25,7 @@ Syntax:
 |`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host|
 |`--disk-type`|<b>`string`</b><br/>Type of the storage environment for a host|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
+|`--backup-retain-period-days`|<b>`int`</b><br/>Retention policy of automated backups.|
 |`--datalens-access`|Allow access for DataLens|
 |`--websql-access`|Allow access for Web SQL|
 |`--datatransfer-access`|Allow access for DataTransfer|

@@ -1,6 +1,6 @@
 # Установка NodeLocal DNS
 
-[NodeLocal DNS](../marketplace/products/yc/node-local-dns) снижает нагрузку по DNS-запросам за счет запуска кеша на каждом [узле](../../concepts/index.md#node-group) в [кластере {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster). Это позволяет повысить производительность и отказоустойчивость кластера.
+[NodeLocal DNS](/marketplace/products/yc/node-local-dns) снижает нагрузку по DNS-запросам за счет запуска кеша на каждом [узле](../../concepts/index.md#node-group) в [кластере {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster). Это позволяет повысить производительность и отказоустойчивость кластера.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -38,7 +38,7 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 &&\
-   helm pull oci://cr.yandex/yc-marketplace/yandex/dns/node-local-dns --version 1.3 --untar && \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex/dns/node-local-dns --version 1.3 --untar && \
    KUBE_DNS_IP="$(kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP})" && \
    helm install node-local-dns node-local-dns/. \
      --set config.cilium=false \

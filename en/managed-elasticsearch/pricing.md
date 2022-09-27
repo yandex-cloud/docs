@@ -55,6 +55,17 @@ The following is charged:
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
+### Example of cluster cost calculation {#example}
+
+For example, you created a cluster:
+
+* With 3 hosts with the `Data node` role that have the `s2.micro` class (2 vCPU, 8 GB RAM).
+* With 3 hosts with the `Master node` role that have the `s2.micro` class (2 vCPU, 8 GB RAM).
+* With 100 GB of storage on HDD network drives.
+
+Cost per hour for the hosts: `3 × (2 × $0.013440 + 8 × $0.016800) + 3 × (2 × $0.013440 + 4 × $0.016800) = $0.967680`
+
+Total cluster cost per month (hosts and storage): `720 × $0.967680 + 100 × $0.025600 = $699.289600`
 
 
 ## Pricing {#prices}

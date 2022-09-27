@@ -24,7 +24,7 @@ items:
       - name: Connecting external dictionaries
         href: operations/dictionaries.md
       - name: Adding your own geobase
-        href: operations/internal-dictionaries.md
+        href: operations/geobase.md
       - name: Managing machine learning models
         href: operations/ml-models.md
       - name: Managing data format schemas
@@ -67,7 +67,7 @@ items:
         href: tutorials/fetch-data-from-mkf.md
       - name: Getting data from RabbitMQ
         href: tutorials/fetch-data-from-rabbitmq.md
-      - name: Exchanging data with Data Proc
+      - name: Exchanging data with {{ dataproc-full-name }}
         href: tutorials/exchange-data-with-dp.md
       - name: >-
           Configuring {{ dns-full-name }} for accessing clusters from other
@@ -75,7 +75,7 @@ items:
         href: tutorials/dns-peering.md
       - name: Analyzing Object Storage logs in DataLens
         href: tutorials/storage-logs-analysis.md
-      - name: Configuring a cluster for Graphite
+      - name: Configuring {{ mch-name }} for Graphite
         href: tutorials/clickhouse-for-graphite.md
   - name: Concepts
     items:

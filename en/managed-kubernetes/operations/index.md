@@ -5,18 +5,20 @@ description: "In this article you will learn how to work with managed {{ k8s }} 
 
 # All instructions
 
-* [{#T}](security-groups.md)
+* [{#T}](connect/security-groups.md)
 * [{#T}](node-connect-ssh.md)
-* [{#T}](create-static-conf.md)
 * [{#T}](update-kubernetes.md)
-* [{#T}](encrypting-secrets.md)
 
 
 ## Installing applications {#marketplace}
 
 * [{#T}](applications/marketplace.md)
+* [{#T}](applications/crossplane.md)
+* [{#T}](applications/fluentbit.md)
+* [{#T}](applications/alb-ingress-controller.md)
 * [{#T}](applications/jaeger.md)
 * [{#T}](applications/metrics-provider.md)
+* [{#T}](applications/node-local-dns.md)
 
 
 ## Network scenarios {#network-scenarios}
@@ -41,7 +43,6 @@ description: "In this article you will learn how to work with managed {{ k8s }} 
 
 ## Managing a {{ k8s }} cluster {#kubernetes-cluster}
 
-* [{#T}](kubernetes-cluster/kubernetes-cluster-get-credetials.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-list.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-update.md)

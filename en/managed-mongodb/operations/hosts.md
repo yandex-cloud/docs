@@ -30,8 +30,8 @@ You can add and remove cluster hosts, resync the hosts, and [manage settings {{ 
    +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
    |            NAME            |  CLUSTER ID  |  TYPE  | SHARD NAME |     ROLE     |  HEALTH  |    ZONE ID    | PUBLIC IP |
    +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
-   | rc1b...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | PRIMARY      | ALIVE    | ru-central1-b | false     |
-   | rc1a...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | SECONDARY    | ALIVE    | ru-central1-a | false     |
+   | rc1b...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | PRIMARY      | ALIVE    | {{ region-id }}-b | false     |
+   | rc1a...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | SECONDARY    | ALIVE    | {{ region-id }}-a | false     |
    +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
    ```
 
@@ -72,14 +72,12 @@ You can add different types of hosts to a cluster. Their number depends on the [
 
    1. Click **Add host**.
 
-   
    1. Specify the host parameters:
 
       * Availability zone.
-      * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
+      * Subnet (if the required subnet is not on the list, create it).
       * Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
       * Host type and shard name, if [sharding](../concepts/sharding.md) is enabled for the cluster.
-
 
    1. Click **Save**.
 
@@ -91,7 +89,7 @@ You can add different types of hosts to a cluster. Their number depends on the [
 
    To add a host to the cluster:
 
-      1. Request a list of cluster subnets to select one for the new host:
+   1. Request a list of cluster subnets to select one for the new host:
 
       ```
       yc vpc subnet list
@@ -99,14 +97,14 @@ You can add different types of hosts to a cluster. Their number depends on the [
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
-      | b0cl69... | default-c | enp6rq7... | ru-central1-c | [172.16.0.0/20]  |
-      | e2lkj9... | default-b | enp6rq7... | ru-central1-b | [10.10.0.0/16]   |
-      | e9b0ph... | a-2       | enp6rq7... | ru-central1-a | [172.16.32.0/20] |
-      | e9b9v2... | default-a | enp6rq7... | ru-central1-a | [172.16.16.0/20] |
+      | b0cl69... | default-c | enp6rq7... | {{ region-id }}-c | [172.16.0.0/20]  |
+      | e2lkj9... | default-b | enp6rq7... | {{ region-id }}-b | [10.10.0.0/16]   |
+      | e9b0ph... | a-2       | enp6rq7... | {{ region-id }}-a | [172.16.32.0/20] |
+      | e9b9v2... | default-a | enp6rq7... | {{ region-id }}-a | [172.16.16.0/20] |
       +-----------+-----------+------------+---------------+------------------+
       ```
 
-      If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md). 
+      If the necessary subnet is not in the list, create it.
 
    1. View a description of the CLI command for adding a host:
 

@@ -14,7 +14,7 @@
    To get a list of jobs, run the command:
 
    ```bash
-   yc dataproc job list --cluster-name <cluster name>
+   {{ yc-dp }} job list --cluster-name=<cluster name>
    ```
 
    You can find out the cluster ID and name in a [list of clusters in the folder](../../data-proc/operations/cluster-list.md#list).

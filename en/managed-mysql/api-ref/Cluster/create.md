@@ -10,7 +10,7 @@ Creates a cluster in a folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-mysql/v1/clusters
+POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters
 ```
  
 ## Body parameters {#body_params}

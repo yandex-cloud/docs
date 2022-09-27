@@ -71,13 +71,13 @@ name | **string**<br><p>Name of the bucket.</p>
 maxSize | **integer** (int64)<br><p>Maximum size of the bucket, in bytes.</p> 
 usedSize | **string** (int64)<br><p>Size of used space in the bucket, in bytes.</p> 
 storageClassMaxSizes[] | **object**<br><p>Size of available space in the bucket by storage class, in bytes.</p> 
-storageClassMaxSizes[].<br>storageClass | **string**<br><p>Storage class. Supported classes are standard storage (``STANDARD``) and cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms). For details, see <a href="/docs/storage/concepts/storage-class">documentation</a>.</p> 
+storageClassMaxSizes[].<br>storageClass | **string**<br><p>Storage class. Supported classes are standard storage (``STANDARD``), cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms), and ice storage (``ICE`` and ``GLACIER`` are synonyms). For details, see <a href="/docs/storage/concepts/storage-class">documentation</a>.</p> 
 storageClassMaxSizes[].<br>classSize | **integer** (int64)<br><p>Size of available space in the bucket for the storage class.</p> 
 storageClassUsedSizes[] | **object**<br><p>Size of used space in the bucket by storage class, in bytes.</p> 
-storageClassUsedSizes[].<br>storageClass | **string**<br><p>Storage class. Supported classes are standard storage (``STANDARD``) and cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms). For details, see <a href="/docs/storage/concepts/storage-class">documentation</a>.</p> 
+storageClassUsedSizes[].<br>storageClass | **string**<br><p>Storage class. Supported classes are standard storage (``STANDARD``), cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms), and ice storage (``ICE`` and ``GLACIER`` are synonyms). For details, see <a href="/docs/storage/concepts/storage-class">documentation</a>.</p> 
 storageClassUsedSizes[].<br>classSize | **string** (int64)<br><p>Size of used space in the bucket for the storage class.</p> 
 storageClassCounters[] | **object**<br><p>Object-related statistics by storage class and type of upload (simple vs. multipart), in bytes.</p> 
-storageClassCounters[].<br>storageClass | **string**<br><p>Storage class. Supported classes are standard storage (``STANDARD``) and cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms). For details, see <a href="/docs/storage/concepts/storage-class">documentation</a>.</p> 
+storageClassCounters[].<br>storageClass | **string**<br><p>Storage class. Supported classes are standard storage (``STANDARD``), cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms), and ice storage (``ice`` and ``GLACIER`` are synonyms). For details, see <a href="/docs/storage/concepts/storage-class">documentation</a>.</p> 
 storageClassCounters[].<br>counters | **object**<br><p>Object-related statistics for the storage class by type of upload.</p> 
 storageClassCounters[].<br>counters.<br>simpleObjectSize | **string** (int64)<br><p>Total size of objects uploaded in single operation, in bytes.</p> 
 storageClassCounters[].<br>counters.<br>simpleObjectCount | **string** (int64)<br><p>Number of objects uploaded in single operation.</p> 
@@ -86,7 +86,7 @@ storageClassCounters[].<br>counters.<br>objectsPartsCount | **string** (int64)<b
 storageClassCounters[].<br>counters.<br>multipartObjectsSize | **string** (int64)<br><p>Total size of objects uploaded in multiple parts, in bytes.</p> 
 storageClassCounters[].<br>counters.<br>multipartObjectsCount | **string** (int64)<br><p>Number of objects uploaded in multiple parts.</p> 
 storageClassCounters[].<br>counters.<br>activeMultipartCount | **string** (int64)<br><p>Number of incomplete multipart uploads.</p> 
-defaultStorageClass | **string**<br><p>Default storage class for objects in the bucket. Supported classes are standard storage (``STANDARD``) and cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms). For details, see <a href="/docs/storage/concepts/storage-class">documentation</a>.</p> 
+defaultStorageClass | **string**<br><p>Default storage class for objects in the bucket. Supported classes are standard storage (``STANDARD``), cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms), and ice storage (``ICE`` and ``GLACIER`` are synonyms). For details, see <a href="/docs/storage/concepts/storage-class">documentation</a>.</p> 
 anonymousAccessFlags | **object**<br><p>Flags for configuring public (anonymous) access to the bucket's content and settings. For details, see <a href="/docs/storage/concepts/bucket#bucket-access">documentation</a>.</p> 
 anonymousAccessFlags.<br>read | **boolean** (boolean)<br><p>Specifies whether public (anonymous) access to read objects in the bucket is enabled.</p> 
 anonymousAccessFlags.<br>list | **boolean** (boolean)<br><p>Specifies whether public (anonymous) access to the list of objects in the bucket is enabled.</p> 

@@ -8,7 +8,7 @@ Within the security groups, you must configure:
 
 * All the standard rules described in the relevant documentation sections:
 
-   * For a cluster and node groups: see {{ managed-k8s-name }} documentation, [{#T}](../../../managed-kubernetes/operations/security-groups.md).
+   * For a cluster and node groups: see {{ managed-k8s-name }} documentation, [{#T}](../../../managed-kubernetes/operations/connect/security-groups.md).
    * For a load balancer: see [{#T}](../../concepts/application-load-balancer.md#security-groups). The final rule for outgoing traffic to the VM backends must allow connections to the cluster [node group](../../../managed-kubernetes/concepts/index.md#node-group) subnets and security groups.
 
 * Backend state check rules, allowing:

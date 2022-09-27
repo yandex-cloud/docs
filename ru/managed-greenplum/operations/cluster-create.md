@@ -70,9 +70,11 @@
 
         * Класс хоста — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-мастеры кластера.
         * В блоке **Хранилище**:
-          * Выберите [тип хранилища](../concepts/storage.md).
+          * Выберите [тип диска](../concepts/storage.md).
 
-                        {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+            
+            {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+
 
     1. Укажите параметры хостов-сегментов на вкладке **Segment**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](calculate-specs.md#segment).
 
@@ -80,9 +82,11 @@
         * Количество сегментов на хост. Максимальное значение этого параметра зависит от класса хостов.
         * Класс хоста — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-сегменты кластера.
         * В блоке **Хранилище**:
-           * Выберите [тип хранилища](../concepts/storage.md).
+           * Выберите [тип диска](../concepts/storage.md).
 
-                          {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+             
+             {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+             
 
     1. Нажмите кнопку **Создать**.
 
@@ -122,10 +126,10 @@
            --user-password=<пароль пользователя> \
            --master-config resource-id=<класс хоста>,`
                           `disk-size=<объем хранилища, ГБ>,`
-                          `disk-type=<тип хранилища> \
+                          `disk-type=<тип диска> \
            --segment-config resource-id=<класс хоста>,`
                           `disk-size=<объем хранилища, ГБ>,`
-                          `disk-type=<тип хранилища> \
+                          `disk-type=<тип диска> \
            --zone-id=<зона доступности> \
            --subnet-id=<идентификатор подсети> \
            --assign-public-ip=<доступ к хостам через публичный IP-адрес: true или false> \
@@ -151,7 +155,7 @@
         * `--master-config` и `--segment-config` — конфигурация хостов-мастеров и хостов-сегментов:
             * `resource-id` — [класс хоста](../concepts/instance-types.md#available-flavors).
             * `disk-size` — объем хранилища в гигабайтах.
-            * `disk-type` — [тип хранилища](../concepts/storage.md):
+            * `disk-type` — [тип диска](../concepts/storage.md):
                 * `network-hdd`;
                 * `network-ssd`;
                 * `local-ssd`;
@@ -203,13 +207,13 @@
         * `day` — день недели для типа `weekly` в формате `DDD`. Например, `MON`.
         * `hour` — час дня по UTC для типа `weekly` в формате `HH`. Например, `21`.
 
-    1. Чтобы разрешить доступ из других сервисов, передайте значение `true` в их параметрах при создании кластера:
+    1. Чтобы разрешить доступ из [{{ datalens-full-name }}](../../datalens/concepts/index.md) или [{{ data-transfer-full-name }}](../../data-transfer/index.yaml), передайте значение `true` в соответствующих параметрах при создании кластера:
 
         ```bash
         {{ yc-mdb-gp }} cluster create <имя кластера> \
            ...
-           --datalens-access=<доступ из DataLens: true или false> \
-           --websql-access=<доступ из консоли управления: true или false>
+           --datalens-access=<доступ из {{ datalens-full-name }}: true или false> \
+           --datatransfer-access=<доступ из {{ data-transfer-full-name }}: true или false>
         ```
 
 - {{ TF }}
@@ -263,7 +267,7 @@
             resources {
               resource_preset_id = "<класс хоста>"
               disk_size          = <объем хранилища, ГБ>
-              disk_type_id       = "<тип хранилища>"
+              disk_type_id       = "<тип диска>"
             }
           }
   
@@ -271,7 +275,7 @@
             resources {
               resource_preset_id = "<класс хоста>"
               disk_size          = <объем хранилища, ГБ>
-              disk_type_id       = "<тип хранилища>"
+              disk_type_id       = "<тип диска>"
             }
           }
   
@@ -316,6 +320,7 @@
     * Настройки публичного доступа в параметре `assignPublicIp`.
     * Настройки окна резервного копирования в параметре `config.backupWindowStart`.
     * Настройки доступа из [{{ datalens-full-name }}](../../datalens/concepts/index.md) в параметре `config.access.dataLens`.
+    * Настройки доступа из [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) в параметре `config.access.dataTransfer`.
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
     * [Настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings) в параметре `configSpec.greenplumConfig_<версия>`.
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.

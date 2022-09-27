@@ -10,7 +10,7 @@ Performing migration with {{ data-transfer-name }} lets you:
 
 For more information, see [What tasks is {{ data-transfer-full-name }} used for](../concepts/use-cases.md).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 1. Allow connecting to the source cluster from the internet.
 
@@ -21,11 +21,26 @@ For more information, see [What tasks is {{ data-transfer-full-name }} used for]
       Migration with a {{ PG }} version downgrade is impossible.
 
    * When creating a cluster, specify the same database name as in the source cluster.
-   * Enable the same [{{ PG }} extensions](../../managed-postgresql/operations/cluster-extensions.md) as in the source cluster.
+   * Enable the same [{{ PG }} extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md) as in the source cluster.
 
 ## Transferring data {#data-transfer}
 
 {% include notitle [MPG moving data with Data Transfer](../../_tutorials/datatransfer/managed-postgresql.md) %}
+
+## Transferring tables with tsvector columns {#tsvector}
+
+By default, tables with the [`tsvector` data type]({{ pg-docs }}/datatype-textsearch.html#DATATYPE-TSVECTOR) are copied using `INSERT` commands, which is much slower than standard copying. To accelerate [data transfers](#data-transfer), follow these steps:
+
+1. When preparing a [target cluster](../../data-transfer/operations/prepare.md#target-pg), create tables with `tsvector` columns in the target cluster manually, but change the column type from `tsvector` to `text`.
+1. When creating a [target endpoint](../../data-transfer/operations/endpoint/index.md#create), specify the `Do not clean` value for the **Cleanup policy** field in the settings.
+1. After [activating the transfer](../../data-transfer/operations/transfer.md#activate) and changing its status to {{ dt-status-repl }}, convert the data in the desired columns to the `tsvector` type:
+
+   ```sql
+   ALTER TABLE <table name>
+   ALTER COLUMN <column name> SET DATA TYPE tsvector
+   USING
+   to_tsvector(<column name>);
+   ```
 
 ## See also {#see-also}
 

@@ -13,6 +13,7 @@ You can edit parameter values on dashboards using selectors with manual input. H
 
 * Use the **Multiple choice** option.
 * Choose an operation in a selector (leave a dash in the selection field from the **Operation** drop-down list).
+* When using a selector based on a dataset parameter, you must unlink the selector from any others on the dashboard tab (set **Ignore** as your [link](dashboard.md#link) type).
 
 You can also specify parameter values in chart links. To do this, add `?` at the end of a URL, write a parameter name with no space after the URL, put `=`, and specify a parameter value with no space. You can list multiple parameters in a URL using `&` as a separator. Sample link: `https://datalens.yandex-team.ru/wizard/5fw75yaukoamx-parametrizirovannyy-pokazatel?measure_control=profit&scale=year`, where `measure_control` and `scale` are parameter names and `profit` and `year` are parameter values.
 
@@ -24,6 +25,7 @@ To use a chart with a parameter:
 
    * Select **Manual input**.
    * In the **Field or parameter name** field, enter the name of the parameter from the chart.
+   * Leave a dash in the selection field from the **Operation** drop-down list.
    * In the **Default value** field, specify the value to be substituted in the chart parameter.
    * Enter the selector **Title** to be displayed on the dashboard.
 
@@ -48,6 +50,7 @@ Set up visualization of a sales chart on a dashboard by changing the detail leve
 
    * Select **Manual input**.
    * In the **Field or parameter name** field, specify `scale`.
+   * Leave a dash in the selection field from the **Operation** drop-down list.
    * In the **Possible values** window, add: `year`, `month`, `week`, and `day`.
    * In the **Default value** field, specify `year` to round dates to a year in the chart by default.
    * In the **Title** field, enter the selector name to be displayed on the dashboard.
@@ -77,6 +80,7 @@ Enable dimension selection using a selector to display it in your chart on a das
 
    * Select **Manual input**.
    * In the **Field or parameter name** field, specify `dimension_control`.
+   * Leave a dash in the selection field from the **Operation** drop-down list.
    * In the **Possible values** window, add: `by shop`, `by product category`, and `by product subcategory`.
    * In the **Default value** field, specify `by shop` to display sales amounts by shop by default.
    * In the **Title** field, enter the selector name to be displayed on the dashboard.
@@ -98,6 +102,7 @@ Use a selector to enable selecting a dimension to color in your chart:
 
    * Select **Manual input**.
    * In the **Field or parameter name** field, specify `colors`.
+   * Leave a dash in the selection field from the **Operation** drop-down list.
    * In the **Possible values** window, add: `categories` and `subcategories`.
    * In the **Default value** field, specify `categories` to color sales amounts by product category by default.
    * In the **Title** field, enter the selector name to be displayed on the dashboard.

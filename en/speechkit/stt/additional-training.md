@@ -52,20 +52,6 @@ Hello, are you {first-name=first-names.tsv}{middle-name=middle-names.tsv} {last-
 Hello, can I talk to {first-name=first-names-ablative.tsv} {middle-name=middle-names-ablative.tsv} representative?
 ```
 
-### Importing retraining data {#import-data}
-
-For information on importing retraining data, see [{#T}](import-training-data.md).
-
-### Testing the quality of retraining {#testing}
-
-A trained model is tested using the following data sets:
-1. A basket for evaluating a specific task that is created based on the received audio recordings.
-1. A basket for evaluating everyday language.
-1. (Optional) Audio recordings that are at least 1 hour long to evaluate the quality of model retraining. The structure of the recorded utterances should repeat the provided patterns.
-
-The quality of speech recognition is evaluated based on the [WER](https://en.wikipedia.org/wiki/Word_error_rate) (Word Error Rate) metric. The lower the resulting metric value, the more accurately a speech fragment is recognized. Model retraining is considered successful if the quality of recognition of specific vocabulary has significantly improved, while the quality of recognition of everyday language has either improved or remained unchanged. You can judge the quality of speech recognition for yourself using [{{ ml-platform-full-name }}](../../datasphere/tutorials/speech-recognition.md).
-
-If a new version of the model meets the requirements of the quality evaluation metrics after retraining, it will be prepared for release in the `general:rc` status.
 
 ### Model availability dates
 

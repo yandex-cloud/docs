@@ -52,7 +52,7 @@ Resource names must meet the following requirements:
 
 {% include [names](../../_includes/name-format.md) %}
 
-The machines will have different vCPU and memory configurations: 2 vCPUs and 2 GB of RAM for `terraform1` and 4 vCPUs and 4 GB of RAM for `terraform2`. The VMs will automatically get public and private IP addresses from the `192.168.10.0/24` range in the `subnet-1` subnet located in the `ru-central1-a` availability zone and belonging to the `network-1` cloud network. The Ubuntu OS will be installed on the VMs and the public part of the key used to access the VMs via SSH will be stored on them.
+The machines will have different vCPU and memory configurations: 2 vCPUs and 2 GB of RAM for `terraform1` and 4 vCPUs and 4 GB of RAM for `terraform2`. The VMs will automatically get public and private IP addresses from the `192.168.10.0/24` range in the `subnet-1` subnet located in the `{{ region-id }}-a` availability zone and belonging to the `network-1` cloud network. The Ubuntu OS will be installed on the VMs and the public part of the key used to access the VMs via SSH will be stored on them.
 
 In the VM configuration, you'll need to specify the boot disk image ID. You can retrieve a list of available public images by using the [CLI](../../cli/quickstart.md) command `yc compute image list --folder-id standard-images`.
 

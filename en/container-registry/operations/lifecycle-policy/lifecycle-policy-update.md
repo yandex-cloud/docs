@@ -8,25 +8,25 @@ To access the policy, use its ID. For information about getting a policy ID, see
 
 - CLI
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   1. See the description of the CLI command for updating policy parameters:
+  1. See the description of the CLI command for updating policy parameters:
 
-      ```bash
-      yc container repository lifecycle-policy update --help
-      ```
+     ```bash
+     yc container repository lifecycle-policy update --help
+     ```
 
-   1. Change the policy parameters, such as by renaming it:
+  1. Change the policy parameters, such as by renaming it:
 
-      ```bash
-      yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-name new-policy
-      ```
+     ```bash
+     yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-name new-policy
+     ```
 
 - API
 
-   To edit a lifecycle policy, use the [Update](../../api-ref/grpc/lifecycle_policy_service.md#Update) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource. Specify the policy ID in the `lifecycle_policy_id` property.
+  To edit a lifecycle policy, use the [Update](../../api-ref/grpc/lifecycle_policy_service.md#Update) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource. Specify the policy ID in the `lifecycle_policy_id` property.
 
-   You can retrieve a list of policies using the [List](../../api-ref/grpc/lifecycle_policy_service.md#List) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource.
+  You can retrieve a list of policies using the [List](../../api-ref/grpc/lifecycle_policy_service.md#List) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource.
 
 {% endlist %}
 
@@ -40,34 +40,34 @@ To access the policy, use its ID. For information about getting a policy ID, see
 
 - CLI
 
-   1. Prepare new [policy rules](../../concepts/lifecycle-policy.md#lifecycle-rules) and save them to a file named `new-rules.json`.
+  1. Prepare new [policy rules](../../concepts/lifecycle-policy.md#lifecycle-rules) and save them to a file named `new-rules.json`.
 
-      {% include [lifecycle-rules](../../../_includes/container-registry/lifecycle-rules.md) %}
+     {% include [lifecycle-rules](../../../_includes/container-registry/lifecycle-rules.md) %}
 
-   1. Change the policy rules by running the command with the following parameter:
-      * `new-rules`: Path to the file with the new policy description.
+  1. Change the policy rules by running the command with the following parameter:
+     * `new-rules`: Path to the file with the new policy description.
 
-      {% note alert %}
+     {% note alert %}
 
-      Updating the policy completely overwrites all current rules by destroying them.
+     Updating the policy completely overwrites all current rules by destroying them.
 
-      {% endnote %}
+     {% endnote %}
 
-      ```bash
-      yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-rules ./new-rules.json
-      ```
+     ```bash
+     yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-rules ./new-rules.json
+     ```
 
-      Result:
+     Command output:
 
-      ```bash
-      WARN: All current lifecycle rules will be overwritten. Are you sure?[y/N] y
-      id: crp6lg1868p3i0emkv1b
-      name: test-policy
-      ...
-        expire_period: 172800s
-        tag_regexp: test.*
-        untagged: true
-      ```
+     ```bash
+     WARN: All current lifecycle rules will be overwritten. Are you sure?[y/N] y
+     id: crp6lg1868p3i0emkv1b
+     name: test-policy
+     ...
+       expire_period: 172800s
+       tag_regexp: test.*
+       untagged: true
+     ```
 
 {% endlist %}
 
@@ -79,23 +79,23 @@ To access the policy, use its ID. For information about getting a policy ID, see
 
 - CLI
 
-   Activate a deactivated lifecycle policy by running the command below with the `--activate` flag:
+  Activate a deactivated lifecycle policy by running the command below with the `--activate` flag:
 
-   ```bash
-   yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --activate
-   ```
+  ```bash
+  yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --activate
+  ```
 
-   Result:
+  Command output:
 
-   ```bash
-   id: crp6lg1868p3i0emkv1b
-   name: test-policy
-   repository_id: crp3cpm16edqql0t30s2
-   ...
-     expire_period: 172800s
-     tag_regexp: test.*
-     untagged: true
-   ```
+  ```bash
+  id: crp6lg1868p3i0emkv1b
+  name: test-policy
+  repository_id: crp3cpm16edqql0t30s2
+  ...
+    expire_period: 172800s
+    tag_regexp: test.*
+    untagged: true
+  ```
 
 {% endlist %}
 
@@ -105,23 +105,23 @@ To access the policy, use its ID. For information about getting a policy ID, see
 
 - CLI
 
-   Deactivate an active policy by running the command below with the `--disable` flag:
+  Deactivate an active policy by running the command below with the `--disable` flag:
 
-   ```bash
-   yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --disable
-   ```
+  ```bash
+  yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --disable
+  ```
 
-   Result:
+  Command output:
 
-   ```bash
-   id: crp6lg1868p3i0emkv1b
-   name: test-policy
-   repository_id: crp3cpm16edqql0t30s2
-   ...
-     expire_period: 172800s
-     tag_regexp: test.*
-     untagged: true
-   ```
+  ```bash
+  id: crp6lg1868p3i0emkv1b
+  name: test-policy
+  repository_id: crp3cpm16edqql0t30s2
+  ...
+    expire_period: 172800s
+    tag_regexp: test.*
+    untagged: true
+  ```
 
 {% endlist %}
 
@@ -131,27 +131,27 @@ To access the policy, use its ID. For information about getting a policy ID, see
 
 - CLI
 
-   Change the policy name by running the command:
+  Change the policy name by running the command:
 
-   ```bash
-   yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-name new-policy
-   ```
+  ```bash
+  yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-name new-policy
+  ```
 
-   Where `new-name` is the new policy name.
+  Where `new-name` is the new policy name.
 
-      {% include [name-format](../../../_includes/name-format.md) %}
+  {% include [name-format](../../../_includes/name-format.md) %}
 
-   Result:
+  Command output:
 
-   ```bash
-   id: crp6lg1868p3i0emkv1b
-   name: new-policy
-   repository_id: crp3cpm16edqql0t30s2
-   ...
-     expire_period: 172800s
-     tag_regexp: test.*
-     untagged: true
-   ```
+  ```bash
+  id: crp6lg1868p3i0emkv1b
+  name: new-policy
+  repository_id: crp3cpm16edqql0t30s2
+  ...
+    expire_period: 172800s
+    tag_regexp: test.*
+    untagged: true
+  ```
 
 {% endlist %}
 
@@ -161,24 +161,24 @@ To access the policy, use its ID. For information about getting a policy ID, see
 
 - CLI
 
-   Change the policy description by running the command:
+  Change the policy description by running the command:
 
-   ```bash
-   yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-description "new description"
-   ```
+  ```bash
+  yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-description "new description"
+  ```
 
-   Where `new-description` is the new policy description.
+  Where `new-description` is the new policy description.
 
-   Result:
+  Command output:
 
-   ```bash
-   id: crp6lg1868p3i0emkv1b
-   name: test-policy
-   repository_id: crp3cpm16edqql0t30s2
-   ...
-     expire_period: 172800s
-     tag_regexp: test.*
-     untagged: true
-   ```
+  ```bash
+  id: crp6lg1868p3i0emkv1b
+  name: test-policy
+  repository_id: crp3cpm16edqql0t30s2
+  ...
+    expire_period: 172800s
+    tag_regexp: test.*
+    untagged: true
+  ```
 
 {% endlist %}

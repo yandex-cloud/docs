@@ -10,7 +10,7 @@ Deletes a cluster.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}
+DELETE https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

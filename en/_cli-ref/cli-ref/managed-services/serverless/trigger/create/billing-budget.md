@@ -14,7 +14,7 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/>Trigger name.|
 |`--description`|<b>`string`</b><br/>Trigger description.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--billing-account-id`|<b>`string`</b><br/>Billing account ID to subscribe.|
 |`--budget-id`|<b>`string`</b><br/>Budget ID to subscribe.|
 |`--invoke-function-id`|<b>`string`</b><br/>Function to be invoked by worker on the data from Billing.|

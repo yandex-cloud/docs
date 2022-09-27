@@ -22,7 +22,7 @@ You cannot cancel jobs with the status `ERROR`, `DONE`, or `CANCELLED`. To find 
    To cancel a job, run the command below:
 
    ```bash
-   yc dataproc job cancel <job ID or name> \
+   {{ yc-dp }} job cancel <job ID or name> \
       --cluster-name=<cluster name>
    ```
 

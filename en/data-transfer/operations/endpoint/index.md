@@ -23,8 +23,11 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ MY }}](source/mysql.md).
          * [Oracle](source/oracle.md).
          * [{{ PG }}](source/postgresql.md).
-         * [{{ yds-full-name }}](source/data-streams.md).
-         
+
+         * [{{ yds-full-name }}](source/data-streams.md)
+
+         * [{{ ydb-full-name }}](source/ydb.md)
+
       * For targets:
          * [{{ CH }}](target/clickhouse.md).
          * [{{ GP }}](target/greenplum.md).
@@ -111,11 +114,15 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
       * Sources:
 
+         * [{{ CH }}](source/clickhouse.md).
+         * [{{ MG }}](source/mongodb.md).
          * [{{ MY }}](source/mysql.md).
          * [{{ PG }}](source/postgresql.md).
 
       * Targets:
 
+         * [{{ CH }}](target/clickhouse.md).
+         * [{{ MG }}](target/mongodb.md).
          * [{{ MY }}](target/mysql.md).
          * [{{ PG }}](target/postgresql.md).
 

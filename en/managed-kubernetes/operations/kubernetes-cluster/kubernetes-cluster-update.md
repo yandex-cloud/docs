@@ -9,15 +9,21 @@ You can change the following parameters of a [{{ k8s }} cluster](../../concepts/
 * Description.
 * [Service accounts](../../../iam/operations/sa/create.md).
 * {{ k8s }} version.
-* List of [security groups](../../../vpc/concepts/security-groups.md).
-* [Update](../../concepts/release-channels-and-updates.md) policy.
+* [Update](../../concepts/release-channels-and-updates.md#updates) policy.
+* List of [security groups](../connect/security-groups.md).
+
+  {% note alert %}
+
+  Do not delete the security groups bound to a running cluster as this might result in disruptions in its operation and data loss.
+
+  {% endnote %}
 
 {% list tabs %}
 
 - Management console
 
   To change a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
-  1. Open **{{ managed-k8s-name }}** in the folder where you want to change the {{ k8s }} cluster.
+  1. Select **{{ managed-k8s-name }}** in the folder where you want to change the {{ k8s }} cluster.
   1. Click on the name of the {{ k8s }} cluster.
   1. Click **Edit** in the upper-right corner.
   1. Change the necessary parameters in the window that opens.
@@ -49,7 +55,6 @@ You can change the following parameters of a [{{ k8s }} cluster](../../concepts/
      ```
 
      Where:
-
      * `--new-name`: Cluster name.
      * `--description`: Cluster description.
      * `--service-account-id`, `--service-account-name`: Service account for managing the cluster.

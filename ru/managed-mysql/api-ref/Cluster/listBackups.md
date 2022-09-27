@@ -10,7 +10,7 @@ To list all backups in a folder, make a [list](/docs/managed-mysql/api-ref/Backu
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}/backups
+GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/backups
 ```
  
 ## Path parameters {#path_params}

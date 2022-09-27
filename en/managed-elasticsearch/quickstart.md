@@ -15,7 +15,7 @@ To get started with the service:
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to an {{ ES }} cluster from both inside and outside {{ yandex-cloud }}:
-   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine, which must be in the same network as the cluster.
+   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)-based virtual machine, which must be in the same network as the cluster.
    * To connect to a cluster from the internet, [request public access](operations/cluster-create.md#change-data-node-settings) to hosts with the [_Data node_ role](concepts/hosts-roles.md#data-node) when creating a cluster.
 
 {% note info %}

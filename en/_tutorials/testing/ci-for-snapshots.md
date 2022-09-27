@@ -21,7 +21,7 @@ To configure CI for VM disk snapshots:
 Before creating a VM:
 
 1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
-1. Make sure the selected folder has a network with a subnet that the VM can be connected to. To do this, select **Virtual Private Cloud** on the folder page. If the list contains a network, click on its name to see the list of subnets. If there aren't any networks or subnets, [create them](../../vpc/quickstart.md).
+1. Make sure the selected folder has a network with a subnet that the VM can be connected to. To do this, select **{{ vpc-short-name }}** on the folder page. If the list contains a network, click on its name to see the list of subnets. If there aren't any networks or subnets, [create them](../../vpc/quickstart.md).
 
 ## 1. Create a VM for the test application {#create-vm}
 
@@ -261,7 +261,7 @@ To make sure the test application is running and the web server is configured co
 To easily transfer the created application and web server configuration to VMs created with CI, you need to take a snapshot of the test VM disk.
 
 1. In the {{ yandex-cloud }} management console, select the folder where the VM was created.
-1. Choose **Compute Cloud**.
+1. Select **{{ compute-short-name }}**.
 1. Find the `ci-tutorial-test-app` VM and select it.
 1. Click **Stop**.
 1. In the window that opens, click **Stop**.
@@ -492,7 +492,7 @@ You need to define the configuration for CI.
 
 1. In the `snapshot_name` field, enter a name for the snapshot of the first VM.
 In the `folder_id` field, specify the ID of the folder where the VMs are created.
-In the `subnet_name` field, specify the name of the subnet that the VMs will connect to. To find the name in the management console, open the appropriate folder and go to the Virtual Private Cloud page.
+In the `subnet_name` field, specify the name of the subnet that the VMs will connect to. To find the name in the management console, open the appropriate folder and go to the {{ vpc-name }} page.
 1. Click **Commit changes**.
 
 ## 9. Check how the application works on the VM created using CI {#test-new-vm}
@@ -502,7 +502,7 @@ After the commit, you need to make sure that CI worked correctly. A new VM shoul
 To check the created VM:
 
 1. Open the {{ yandex-cloud }} management console.
-1. In the folder where the VMs were created, open the **Compute Cloud** service.
+1. In the folder where the VMs were created, select the **{{ compute-short-name }}** service.
 1. If everything was configured correctly, the list of VMs should include a new VM with a name like `ci-tutorial-test-app-1543910277`.
 1. Select the VM you created and copy the public address of the created VM.
 1. In the browser, open a link in this format:

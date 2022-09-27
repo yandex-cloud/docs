@@ -386,7 +386,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
       |          ID          |      NAME      |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
       +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
-      | b0ruab1ccvpd26efgii4 | load-generator | ru-central1 | EXTERNAL |              1 | b0r1tabcphde28fj1dd3   | ACTIVE |
+      | b0ruab1ccvpd26efgii4 | load-generator | {{ region-id }} | EXTERNAL |              1 | b0r1tabcphde28fj1dd3   | ACTIVE |
       +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
       ```
 

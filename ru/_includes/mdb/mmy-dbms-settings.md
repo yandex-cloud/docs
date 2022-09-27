@@ -55,6 +55,21 @@
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_rows_query_log_events).
 
+- **Binlog transaction dependency tracking**{#setting-binlog-transaction-dependency-tracking} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Схема для вычисления логических временных меток, с помощью которых реплики определяют, какие транзакции могут выполняться параллельно. Используется при генерации информации о зависимостях, которая записывается в бинарный лог при включенной многопоточной репликации ([Slave parallel workers](#setting-slave-parallel-workers)) с политикой [Slave parallel type](#setting-slave-parallel-type) `LOGICAL_CLOCK`.
+
+  Доступные значения:
+
+  - `COMMIT_ORDER` (по умолчанию) — две транзакции считаются независимыми, если интервал времени фиксации первой транзакции пересекается с интервалом времени фиксации второй транзакции.
+  - `WRITESET` — схема основана на `COMMIT_ORDER`. Дополнительно к ней две транзакции считаются конфликтующими, если есть некоторое число (хэш), которое встречается в наборах записи обеих транзакций.
+  - `WRITESET_SESSION` — две транзакции считаются зависимыми, если выполняется хотя бы одно из условий:
+
+    - Транзакции зависимы в соответствии со схемой `WRITESET`.
+    - Транзакции были зафиксированы в одном сеансе пользователя.
+
+  Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
+
 - **Character set server**{#setting-character-set-server} {{ tag-all }}
 
   [Кодировка](https://dev.mysql.com/doc/refman/8.0/en/charset.html), которую кластер {{ MY }} использует при работе с данными и обмене информацией с клиентами {{ MY }}. Выбор кодировки влияет на работу SQL-функций для манипуляций со строками и другие возможности.
@@ -134,14 +149,37 @@
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
 
+- **Innodb compression level**{#setting-innodb-compression-level} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Уровень сжатия `zlib`, используемый для сжатых таблиц и индексов InnoDB.
+
+  Минимальное значение — `0`, максимальное значение — `9`, по умолчанию — `6`.
+
+  Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_compression_level).
+
 - **Innodb flush log at trx commit**{#setting-flush-log-commit} {{ tag-all }}
 
   Определяет поведение {{ MY }} для операций подтверждения транзакций (`COMMIT`):
-  - `0` — логи пишутся и сбрасываются (flush) на диск раз в секунду. В случае сбоя данные транзакций, логи для которых не были сброшены на диск, могут быть утеряны.
   - `1` (по умолчанию) — строгое следование принципам [ACID](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_acid). Логи пишутся и сбрасываются на диск при подтверждении каждой транзакции.
   - `2` — логи пишутся при подтверждении каждой транзакции, но сбрасываются на диск раз в секунду. В случае сбоя данные транзакций, логи для которых не были сброшены на диск, могут быть утеряны.
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit).
+
+- **Innodb ft max token size**{#setting-ft-max-token-size} {{ tag-all }}
+
+  Максимальная длина слов, хранящихся в индексе InnoDB `FULLTEXT`.
+
+  Минимальное значение — `10`, максимальное значение — `84`, по умолчанию — `84`.
+
+  Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size).
+
+- **Innodb ft min token size**{#setting-ft-min-token-size} {{ tag-all }}
+
+  Минимальная длина слов, хранящихся в индексе InnoDB `FULLTEXT`.
+
+  Минимальное значение — `0`, максимальное значение — `16`, по умолчанию — `3`.
+
+  Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size).
 
 - **Innodb io capacity**{#setting-innodb-io-capacity} {{ tag-all }}
 
@@ -193,6 +231,22 @@
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_numa_interleave).
 
+- **Innodb online alter log max size**{#setting-online-alter-log-max-size} {{ tag-all }}
+
+  Размер временных лог-файлов Innodb (в байтах), получаемых во время [онлайн DDL-запросов](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_online_ddl). Увеличение значения позволяет использовать больше [операций DML](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_dml) во время DDL-запросов, но также увеличивает период времени в конце DDL-запроса, в течение которого таблица заблокирована для применения данных из лога.
+
+  Минимальное значение — `65536` (64 КБ), максимальное значение — `107374182400` (100 ГБ), по умолчанию — `134217728` (128 МБ).
+
+  Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size).
+
+- **Innodb page size**{#setting-innodb-page-size} {{ tag-all }}
+
+  Размер страницы для табличных пространств InnoDB (в байтах). Эту настройку нельзя изменить после создания кластера.
+
+  Допустимые значения: `4096` (4 КБ), `8192` (8 КБ), `16384` (16 КБ), `32768` (32 КБ), `65536` (64 КБ). По умолчанию — `16384` (16 КБ).
+
+  Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_page_size).
+
 - **Innodb print all deadlocks**{#setting-print-all-deadlocks} {{ tag-all }}
 
   Управляет выводом всей информации о [взаимных блокировках](https://dev.mysql.com/doc/refman/8.0/en/innodb-deadlocks.html) в лог ошибок. Если эта настройка выключена, то при выполнении команды `SHOW ENGINE INNODB STATUS` будет выведена информация только о последней блокировке.
@@ -216,6 +270,22 @@
   Минимальное значение — `1`, максимальное значение — `16`, по умолчанию — `4`.
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_read_io_threads).
+
+- **Innodb status output**{#setting-innodb-status-output} {{ tag-con }}
+
+  Управляет выводом стандартного [монитора](https://dev.mysql.com/doc/refman/8.0/en/innodb-enabling-monitors.html) InnoDB.
+
+  По умолчанию стандартный монитор выключен.
+
+  Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_status_output).
+
+- **Innodb strict mode**{#setting-strict-mode} {{ tag-con }}
+
+  Управляет [строгим режимом](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_strict_mode) Innodb. При включении определенные условия, которые обычно рассматриваются как предупреждения, считаются ошибками.
+
+  По умолчанию строгий режимом Innodb включен.
+
+  Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_strict_mode).
 
 - **Innodb temp data file max size**{#setting-temp-data-max-size} {{ tag-all }}
 
@@ -241,6 +311,14 @@
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_write_io_threads).
 
+- **Interactive timeout**{#setting-interactive-timeout} {{ tag-all }}
+
+  Интервал времени (в секундах), в течение которого сервер ожидает активности при интерактивном соединении, прежде чем закрыть его.
+
+  Минимальное значение — `600` (10 минут), максимальное значение — `86400` (1 сутки), по умолчанию — `28800` (8 часов).
+
+  Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_interactive_timeout).
+
 - **Join buffer size**{#setting-join-buffer-size} {{ tag-all }}
 
   Минимальный размер буфера (в байтах), который используется для:
@@ -253,6 +331,15 @@
   Минимальное значение — `1024` (1 КБ), максимальное значение — `16777216` (16 МБ), по умолчанию — `262144` (256 КБ).
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_join_buffer_size).
+
+- **Log error verbosity**{#setting-log-error-verbosity} {{ tag-con }}
+
+  Определяет тип событий, записываемых в логе ошибок:
+
+  - `2` — ошибки и предупреждения.
+  - `3` (по умолчанию) — ошибки, предупреждения и информационные сообщения.
+
+  Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_log_error_verbosity).
 
 - **Log slow filter**{#setting-log-slow-filter} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -271,18 +358,7 @@
 
   Подробнее см. в [документации Percona](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter).
 
-- **Log slow rate type**{#setting-log-slow-rate-type} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
-
-  Задает тип записей лога медленных запросов для настройки [Log slow rate limit](#setting-log-slow-rate-limit):
-  
-  * `query` — на уровне запроса;
-  * `session` — на уровне сессии.
-
-  Значение по умолчанию — `query`.
-
-  Подробнее см. в [документации Percona](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type).
-
-- **Log slow rate limit**{#setting-log-slow-rate-limit} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+- **Log slow rate limit**{#setting-log-slow-rate-limit} {{ tag-all }}
 
   Настройка указывает, какая часть запросов будет попадать в лог медленных запросов. В зависимости от значения настройки [Log slow rate type](#setting-log-slow-rate-type), настройка применяется к отдельным запросам (`QUERY`) или к сессиям (`SESSION`).
 
@@ -294,7 +370,18 @@
 
   Подробнее см. в [документации Percona](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit).
 
-- **Log slow sp statements**{#setting-log-slow-sp-statements} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+- **Log slow rate type**{#setting-log-slow-rate-type} {{ tag-all }}
+
+  Задает тип записей лога медленных запросов для настройки [Log slow rate limit](#setting-log-slow-rate-limit):
+  
+  * `query` — на уровне запроса;
+  * `session` — на уровне сессии.
+
+  Значение по умолчанию — `query`.
+
+  Подробнее см. в [документации Percona](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type).
+
+- **Log slow sp statements**{#setting-log-slow-sp-statements} {{ tag-all }}
 
   Управляет записью выражений, выполняемых хранимыми процедурами, в лог медленных запросов.
 
@@ -309,6 +396,17 @@
   Минимальное значение — `0`, максимальное значение — `3600` (1 час), по умолчанию — `10`.
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time).
+
+- **Lower case table names**{#setting-lower-case-table-names} {{ tag-all }}
+
+  Определяет тип хранения и сравнения имен таблиц:
+
+  - `0` (по умолчанию) — имена таблиц сохраняются без изменений. Сравнения чувствительны к регистру.
+  - `1` — имена таблиц сохраняются в нижнем регистре. Сравнения не чувствительны к регистру.
+
+  Эту настройку нельзя изменить после создания кластера.
+
+  Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names).
 
 - **Max allowed packet**{#setting-max-allowed-packet} {{ tag-all }}
 
@@ -331,6 +429,14 @@
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
 
+- **Max digest length**{#setting-max-digest-length} {{ tag-con }}
+
+  Размер памяти (в байтах), зарезервированной для вычисления [дайджестов нормализованных выражений](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-statement-digests.html).
+
+  Минимальное значение — `1024` (1 КБ), максимальное значение — `8192` (8 КБ), по умолчанию — `1024` (1 КБ).
+
+  Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_digest_length).
+
 - **Max heap table size**{#setting-max-heap-table-size} {{ tag-all }}
 
   Максимальный размер пользовательских [MEMORY-таблиц](https://dev.mysql.com/doc/refman/8.0/en/memory-storage-engine.html) (в байтах). Изменение значения этой настройки не влияет на уже существующие MEMORY-таблицы. Эта настройка также используется совместно с [Tmp table size](#setting-tmp-table-size) для ограничения размера внутренних таблиц, хранящихся в оперативной памяти.
@@ -339,12 +445,38 @@
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_heap_table_size).
 
-- **Mdb preserve binlog bytes**{#setting-max-heap-table-size} {{ tag-con }} {{ tag-cli }}
+- **Max sp recursion depth**{#setting-max-sp-recursion-depth} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Максимальное количество рекурсивных вызовов хранимых процедур.
+
+  Минимальное значение — `0` (рекурсия выключена), максимальное значение — `255`, по умолчанию — `0`.
+
+  Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_sp_recursion_depth).
+
+- **Mdb offline mode disable lag**{#setting-mdb-offline-mode-disable-lag} {{ tag-all }}
+
+  Задержка репликации (в секундах) перед переключением {{ MY }} в режим `offline_mode = OFF`. Значение должно быть меньше, чем значение настройки [Mdb offline mode enable lag](#setting-mdb-offline-mode-enable-lag).
+
+  Минимальное значение — `60` (1 минута), максимальное значение — `86400` (1 сутки), по умолчанию — `300` (5 минут).
+
+- **Mdb offline mode enable lag**{#setting-mdb-offline-mode-enable-lag} {{ tag-all }}
+
+  Задержка репликации (в секундах) перед переключением {{ MY }} в режим `offline_mode = ON`, чтобы пользователи получили актуальные данные.
+
+  Минимальное значение — `600` (10 минут), максимальное значение — `432000` (5 суток), по умолчанию — `86400` (1 сутки).
+
+- **Mdb preserve binlog bytes**{#setting-mdb-preserve-binlog-bytes} {{ tag-all }}
 
   Размер бинарных логов (в байтах) для хранения на хостах кластера.
   
   Минимальное значение — `1073741824` (1 ГБайт), максимальное значение — `107374182400` (100 ГБайт), по умолчанию — `1073741824` (1 ГБайт).
-  
+
+- **Mdb priority choice max lag**{#setting-mdb-priority-choice-max-lag} {{ tag-all }}
+
+  Задержка репликации (в секундах) перед изменением роли хоста кластера с реплики на мастер. Значение должно быть меньше, чем значение настройки [Mdb offline mode enable lag](#setting-mdb-offline-mode-enable-lag).
+
+  Минимальное значение — `0`, максимальное значение — `86400` (1 сутки), по умолчанию — `60` (1 минута).
+
 - **Net read timeout**{#setting-net-read-timeout} {{ tag-all }}
 
   Максимальное время ожидания чтения (в секундах) при передаче данных по сети.
@@ -360,6 +492,14 @@
   Минимальное значение — `1`, максимальное значение — `1200` (20 минут), по умолчанию — `60`.
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_net_write_timeout).
+
+- **Range optimizer max mem size**{#setting-range-optimizer-max-mem-size} {{ tag-all }}
+
+  Максимальное потребление памяти (в байтах) оптимизатором диапазона.
+
+  Минимальное значение — `1048576` (1 МБ), максимальное значение — `268435456` (256 МБ), по умолчанию — `8388608` (8 МБ).
+
+  Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size).
 
 - **Regexp time limit**{#setting-regexp-time-limit} {{ tag-all }}
 
@@ -393,7 +533,7 @@
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_slave_parallel_workers).
 
-- **Slow query log**{#setting-slow-query-log} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+- **Slow query log**{#setting-slow-query-log} {{ tag-all }}
 
   Разрешает ведение лога медленных запросов. Запрос считается медленным, если время его выполнения превышает заданное настройкой [Long query time](#setting-long-query-time).
 
@@ -406,7 +546,7 @@
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log).
 
-- **Slow query log always write time**{#setting-slow-query-log-always-write-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+- **Slow query log always write time**{#setting-slow-query-log-always-write-time} {{ tag-all }}
 
   Время обработки запроса (в секундах), при превышении которого запрос будет безоговорочно записан в [лог медленных запросов](#setting-slow-query-log), игнорируя настройку [Log slow rate limit](#setting-log-slow-rate-limit).
 
@@ -557,3 +697,11 @@
   - `SERIALIZABLE` — уровень аналогичен `REPEATABLE-READ`, за исключением того, что InnoDB неявно конвертирует `SELECT` в `SELECT ... FOR SHARE`, если [autocommit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_autocommit) выключен. Если autocommit включен, то `SELECT` находится в своей собственной транзакции в режиме `read only` и может быть сериализован.
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_isolation).
+
+- **Wait timeout**{#setting-wait-timeout} {{ tag-all }}
+
+  Интервал времени (в секундах), в течение которого сервер ожидает активности при неинтерактивном соединении, прежде чем закрыть его.
+
+  Минимальное значение — `600` (10 минут), максимальное значение — `86400` (1 сутки), по умолчанию — `28800` (8 часов).
+
+  Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_wait_timeout).

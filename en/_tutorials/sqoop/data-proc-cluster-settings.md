@@ -2,13 +2,13 @@ Specify the settings for the storage to import the data to:
 
 {% list tabs %}
 
-- Bucket {{ objstorage-full-name }}
+* Bucket {{ objstorage-name }}
 
-   * **Service account**: `bucket-sa`.
-   * **Bucket name**: `my-bucket`.
+   * **Service account**: The name of the previously created service account.
+   * **Bucket name**: The name of the previously created bucket.
    * **Services**: `Sqoop`.
 
-- HDFS directory
+* HDFS directory
 
    **Services**:
 
@@ -18,7 +18,7 @@ Specify the settings for the storage to import the data to:
    * `Yarn`,
    * `Zookeeper`.
 
-- Apache Hive
+* Apache Hive
 
    * **Services**:
 
@@ -30,7 +30,7 @@ Specify the settings for the storage to import the data to:
 
    * **Properties**: The `hive:hive.execution.engine` key with the `mr` value.
 
-- Apache HBase
+* Apache HBase
 
    **Services**:
 

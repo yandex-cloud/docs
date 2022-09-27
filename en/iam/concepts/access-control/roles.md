@@ -148,6 +148,10 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 {% include [kms-keys-encrypterdecrypter](../../../_includes/roles-kms-keys-encrypterdecrypter.md) %}
 
+{% include [kms-editor](../../../_includes/roles-kms-editor.md) %}
+
+{% include [kms-viewer](../../../_includes/roles-kms-viewer.md) %}
+
 ## {{ monitoring-name }} {#monitoring-roles}
 
 {% include [roles-monitoring-viewer](../../../_includes/roles-monitoring-viewer.md) %}
@@ -192,6 +196,14 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 {% include [serverless-containers-roles-editor](../../../_includes/roles-serverless-containers-editor.md) %}
 
 {% include [serverless-containers-roles-admin](../../../_includes/roles-serverless-containers-admin.md) %}
+
+## {{ captcha-name }} {#smartcaptcha}
+
+{% include [smartcaptcha-viewer](../../../_includes/roles-smartcaptcha-viewer.md) %}
+
+{% include [smartcaptcha-editor](../../../_includes/roles-smartcaptcha-editor.md) %}
+
+{% include [smartcaptcha-admin](../../../_includes/roles-smartcaptcha-admin.md) %}
 
 
 ## {{ vpc-name }} {#vpc-roles}

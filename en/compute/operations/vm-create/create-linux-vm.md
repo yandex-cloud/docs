@@ -7,9 +7,6 @@ description: "Following this guide, you will be able to create a virtual machine
 
 
 
-This section provides guidelines for creating a VM with a Linux OS. To create a Windows-based VM, follow the instructions [{#T}](create-windows-vm.md).
-
-
 {% list tabs %}
 
 - Management console
@@ -200,6 +197,7 @@ This section provides guidelines for creating a VM with a Linux OS. To create a 
       
         name        = "linux-vm"
         platform_id = "standard-v3"
+        zone       = "<availability zone>"
       
         resources {
           cores  = <number of vCPU cores>

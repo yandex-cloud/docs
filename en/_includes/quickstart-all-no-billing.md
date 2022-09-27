@@ -1,6 +1,5 @@
 * Infrastructure and network:
   * [Create a Linux VM instance](../compute/quickstart/quick-create-linux.md).
-  * [Create a Windows VM instance](../compute/quickstart/quick-create-windows.md).
   * [Creating an instance group](../compute/quickstart/ig.md).
   * [Add files to {{ objstorage-name }}](../storage/quickstart.md).
   * [Create a cloud network in {{ vpc-name }}](../vpc/quickstart.md).

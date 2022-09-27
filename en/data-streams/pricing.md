@@ -1,8 +1,15 @@
 # Pricing for {{ yds-full-name }}
 
-## What goes into the cost of using {{ yds-name }} {#rules}
+{{ yds-name }} supports two pricing modes:
 
-While using {{ yds-name }}, the number of units of written data and resources allocated for streaming data are billed.
+* [Based on allocated resources](#rules): You pay a fixed hourly rate for the established throughput limit and message retention period and additionally for the number of units of actually written data.
+* [On-demand](#on-demand): You pay for data writes and reads performed, the amount of data read/written, and the size of storage actually used for messages with a valid retention period.
+
+Pricing mode is set for each data stream individually. By default, streams in {{ yds-name }} are created with pricing based on allocated resources.
+
+## Pricing based on allocated resources {#rules} 
+
+If pricing for allocated resources is used, the number of units of written data and resources allocated for streaming data are billed.
 
 Pricing for allocated resources is based on the limit of the shard throughput and data retention period.
 
@@ -41,27 +48,40 @@ Where:
 
 
 
+
+
+
 {% include [usd.md](../_pricing/data-streams/usd-example.md) %}
+
+
+### Pricing {#prices}
+
+#### Cost of a unit of written data {#event}
+
+The first 2000000 units of written data per month are free of charge.
 
 
-## Pricing {#prices}
 
-### Cost of a unit of written data {#event}
-
-The first 2000000 units per month are free of charge.
 
 
 
 
 {% include [usd.md](../_pricing/data-streams/usd-event.md) %}
+
 
-
-### Cost of allocated resources {#resources}
+#### Cost of allocated resources {#resources}
 
 Cost of using allocated resources per hour:
 
 
 
 
-{% include [usd.md](../_pricing/data-streams/usd-resources.md) %}
 
+
+
+{% include [usd.md](../_pricing/data-streams/usd-resources.md) %}
+
+
+## On-demand pricing {#on-demand}
+
+With on-demand pricing, data streams are billed at the level of YDB Serverless database topics where their data is stored. Go to the [Pricing policy for YDB Serverless mode](../ydb/pricing/serverless.md) page to learn more about pricing and cost calculation.

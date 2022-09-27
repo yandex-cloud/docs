@@ -33,7 +33,6 @@
    metadata:
      name: "hubble-ui"
      namespace: kube-system
-
    ---
    # Source: cilium/templates/hubble-ui-configmap.yaml
    apiVersion: v1

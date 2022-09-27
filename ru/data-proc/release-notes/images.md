@@ -3,6 +3,16 @@
 Полный состав актуальных и устаревших образов {{ dataproc-name }} см. в разделе [{#T}](../concepts/environment.md).
 
 
+## 2.0.48 {#2.0.48}
+
+* Добавлена возможность использования [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sql-distributed-sql-engine.html). Подробнее см. в разделе [{#T}](../concepts/settings-list.md#spark-thrift-server).
+* Исправлена ошибка `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider`, которая могла появляться на легковесных конфигурациях Apache Spark.
+
+## 2.0.47 {#2.0.47}
+
+* Устранена утечка TCP-сессий с сервисом метаданных на высоконагруженных кластерах. Утечка могла приводить к ситуации, когда не обновлялся IAM-токен для авторизации в {{ objstorage-name }} и других сервисах.
+* Исправлена ошибка, из-за которой могли не подгружаться таблицы из Hive Metastore: `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider`.
+
 ## 2.0.46 {#2.0.46}
 
 * Часть свойств Spark теперь применяется также и в Zeppelin: `spark.submit.deployMode`, `spark.driver.cores`, `spark.driver.memory`, `spark.executor.cores`, `spark.executor.memory`, `spark.files`, `spark.jars` и `spark.jars.packages`.

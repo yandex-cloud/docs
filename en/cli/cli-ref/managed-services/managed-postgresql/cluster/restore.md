@@ -27,13 +27,13 @@ Syntax:
 |`--websql-access`|Allow access for Web SQL|
 |`--serverless-access`|Allow access for Serverless|
 |`--datatransfer-access`|Allow access for DataTransfer|
-|`--postgresql-version`|<b>`string`</b><br/>Version of PostgreSQL used in the cluster. Values: 14, 13, 12, 11, 10, 10_1c|
+|`--postgresql-version`|<b>`string`</b><br/>Version of PostgreSQL used in the cluster. Values: 14, 13, 12, 11, 10, 14-1c, 13-1c, 12-1c, 11-1c, 10-1c|
 |`--resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|
 |`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host.|
 |`--disk-type`|<b>`string`</b><br/>Type of the storage environment for the host.|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--backup-retain-period-days`|<b>`int`</b><br/>Retention policy of automated backups.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the PostgreSQL cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
 |`--host-group-ids`|<b>`value[,value]`</b><br/>A list of host groups to place VMs of cluster on.|

@@ -7,13 +7,17 @@ To set up a local DNS in a {{ k8s }} cluster:
 1. [Create a test environment](#create-test-environment).
 1. [Test NodeLocal DNS](#test-nodelocaldns).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
+1. [Create a service account](../../iam/operations/sa/create.md) and [grant it](../../iam/operations/sa/assign-role-for-sa.md) the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles.
 1. [Create a {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with the following settings:
+   1. A **service account for resources** is a previously created service account with the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles.
    1. **Release channel**: `RAPID`.
    1. Under **Cluster network settings**, select **Enable tunnel mode**.
 1. [Create a node group](node-group/node-group-create.md) in any suitable configuration.
-1. [Install kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl/) and [set it up](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) for working with the cluster created.
+
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. Retrieve the service IP address for `kube-dns`:
 
    ```bash
@@ -24,9 +28,10 @@ To set up a local DNS in a {{ k8s }} cluster:
 
 1. Create a file named `node-local-dns.yaml`. In the `node-local-dns` DaemonSet settings, specify the `kube-dns` service IP address:
 
-   {% cut "node-local-dns.yaml" %}
+   `node-local-dns.yaml`
 
    ```yaml
+   ---
    apiVersion: v1
    kind: ServiceAccount
    metadata:
@@ -106,7 +111,9 @@ To set up a local DNS in a {{ k8s }} cluster:
          reload
          loop
          bind 0.0.0.0
-         forward . __PILLAR__UPSTREAM__SERVERS__
+         forward . __PILLAR__UPSTREAM__SERVERS__ {
+           prefer_udp
+         }
          prometheus :9253
        }
    ---
@@ -144,12 +151,12 @@ To set up a local DNS in a {{ k8s }} cluster:
            operator: "Exists"
          containers:
          - name: node-cache
-           image: k8s.gcr.io/dns/k8s-dns-node-cache:1.15.16
+           image: k8s.gcr.io/dns/k8s-dns-node-cache:1.17.0
            resources:
              requests:
                cpu: 25m
                memory: 5Mi
-           args: [ "-localip", "169.254.20.10,<kube-dns service IP address> "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream", "-skipteardown=true", "-setupinterface=false", "-setupiptables=false" ]
+           args: [ "-localip", "169.254.20.10, <kube-dns service IP>", "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream", "-skipteardown=true", "-setupinterface=false", "-setupiptables=false" ]
            securityContext:
              privileged: true
            ports:
@@ -192,8 +199,6 @@ To set up a local DNS in a {{ k8s }} cluster:
                - key: Corefile
                  path: Corefile.base
    ```
-
-   {% endcut %}
 
 1. Create a file named `node-local-dns-lrp.yaml`:
 
@@ -252,14 +257,14 @@ To set up a local DNS in a {{ k8s }} cluster:
    ```text
    ciliumlocalredirectpolicy.cilium.io/NodeLocal DNS created
    ```
+
 ## Create a test environment {#create-test-environment}
 
-To test the local DNS, a [pod](../concepts/index.md#pod) with `nettool` will be launched in your cluster containing the `dnsutils` network utility suite.
-
+To test the local DNS, a `nettool` [pod](../concepts/index.md#pod) will be launched in your cluster containing the `dnsutils` network utility suite.
 1. Launch the `nettool` pod:
 
    ```bash
-   kubectl run nettool --image praqma/network-multitool -- sleep infinity
+   kubectl run nettool --image {{ registry }}/yc/demo/network-multitool -- sleep infinity
    ```
 
 1. Make sure the pod status changed to `Running`:
@@ -268,7 +273,7 @@ To test the local DNS, a [pod](../concepts/index.md#pod) with `nettool` will be 
    kubectl get pods
    ```
 
-1. Find out which cluster node {{ k8s }} is hosting the `nettool` pod on:
+1. Find out which {{ k8s }} cluster node is hosting the `nettool` pod:
 
    ```bash
    kubectl get pod nettool -o wide
@@ -277,7 +282,7 @@ To test the local DNS, a [pod](../concepts/index.md#pod) with `nettool` will be 
    The name of the node is shown in the `NODE` column as below:
 
    ```text
-   NAME     READY  STATUS   RESTARTS  AGE  IP         NODE         NOMINATED NODE  READINESS GATES
+   NAME     READY  STATUS   RESTARTS  AGE  IP         NODE        NOMINATED NODE  READINESS GATES
    nettool  1/1    Running  0         23h  10.1.0.68  <node name>  <none>          <none>
    ```
 
@@ -296,22 +301,21 @@ To test the local DNS, a [pod](../concepts/index.md#pod) with `nettool` will be 
 ## Test NodeLocal DNS {#test-nodelocaldns}
 
 To test the local DNS from the `nettool` pod, several DNS requests will be executed. This will change the metrics for the number of DNS requests on the pod servicing NodeLocal DNS.
-
 1. Retrieve the values of the metrics for DNS requests before testing:
 
    ```bash
-   kubectl exec -ti nettool -- curl http://<pod IP address>:9253/metrics | grep coredns_dns_request_count_total
+   kubectl exec -ti nettool -- curl http://<pod IP address>:9253/metrics | grep coredns_dns_requests_total
    ```
 
    Result:
 
    ```text
-   # HELP coredns_dns_request_count_total Counter of DNS requests made per zone, protocol and family.
-   # TYPE coredns_dns_request_count_total counter
-   coredns_dns_request_count_total{family="1",proto="udp",server="dns://0.0.0.0:53",zone="."} 5
-   coredns_dns_request_count_total{family="1",proto="udp",server="dns://0.0.0.0:53",zone="cluster.local."} 8
-   coredns_dns_request_count_total{family="1",proto="udp",server="dns://0.0.0.0:53",zone="in-addr.arpa."} 1
-   coredns_dns_request_count_total{family="1",proto="udp",server="dns://0.0.0.0:53",zone="ip6.arpa."} 1
+   # HELP coredns_dns_requests_total Counter of DNS requests made per zone, protocol and family.
+   # TYPE coredns_dns_requests_total counter
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://0.0.0.0:53",type="other",zone="."} 1
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://0.0.0.0:53",type="other",zone="cluster.local."} 1
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://0.0.0.0:53",type="other",zone="in-addr.arpa."} 1
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://0.0.0.0:53",type="other",zone="ip6.arpa."} 1
    ```
 
 1. Run the DNS requests:
@@ -322,46 +326,48 @@ To test the local DNS from the `nettool` pod, several DNS requests will be execu
    kubectl exec -ti nettool -- nslookup ya.ru
    ```
 
-   Result (IP addresses may differ):
+   Result (IPs may differ):
 
    ```text
-   Name:    kubernetes.default.svc.cluster.local
+   Name:   kubernetes.default.svc.cluster.local
    Address: 10.2.0.1
 
-   Server:  10.2.0.2
-   Address: 10.2.0.2#53
+   Server:         10.2.0.2
+   Address:        10.2.0.2#53
 
-   Name:    kubernetes.default.svc.cluster.local
+   Name:   kubernetes.default.svc.cluster.local
    Address: 10.2.0.1
-   Server:  10.2.0.2
-   Address: 10.2.0.2#53
+
+   Server:         10.2.0.2
+   Address:        10.2.0.2#53
 
    Non-authoritative answer:
-   Name:    ya.ru
+   Name:   ya.ru
    Address: 87.250.250.242
-   Name:    ya.ru
+   Name:   ya.ru
    Address: 2a02:6b8::2:242
    ```
 
 1. Make sure that the metric values have increased:
 
    ```bash
-   kubectl exec -ti nettool -- curl http://<pod IP address>:9253/metrics | grep coredns_dns_request_count_total
+   kubectl exec -ti nettool -- curl http://<pod IP address>:9253/metrics | grep coredns_dns_requests_total
    ```
 
    Result:
 
    ```text
-   # HELP coredns_dns_request_count_total Counter of DNS requests made per zone, protocol and family.
-   # TYPE coredns_dns_request_count_total counter
-   coredns_dns_request_count_total{family="1",proto="udp",server="dns://0.0.0.0:53",zone="."} 9
-   coredns_dns_request_count_total{family="1",proto="udp",server="dns://0.0.0.0:53",zone="cluster.local."} 16
-   coredns_dns_request_count_total{family="1",proto="udp",server="dns://0.0.0.0:53",zone="in-addr.arpa."} 1
-   coredns_dns_request_count_total{family="1",proto="udp",server="dns://0.0.0.0:53",zone="ip6.arpa."} 1
+   # HELP coredns_dns_requests_total Counter of DNS requests made per zone, protocol and family.
+   # TYPE coredns_dns_requests_total counter
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://0.0.0.0:53",type="A",zone="."} 3
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://0.0.0.0:53",type="A",zone="cluster.local."} 6
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://0.0.0.0:53",type="AAAA",zone="."} 1
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://0.0.0.0:53",type="AAAA",zone="cluster.local."} 2
+   ...
    ```
 
 ## Delete the resources you created {#clear-out}
 
 If you no longer need these resources, delete them:
 1. [Delete the {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-delete.md).
-1. If static public IP addresses were used to access the cluster or nodes, release and [delete](../../vpc/operations/address-delete.md) them.
+1. If static public IP addresses were used for cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.

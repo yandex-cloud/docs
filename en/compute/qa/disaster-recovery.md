@@ -1,6 +1,6 @@
 # Disaster recovery
 
-#### Troubleshooting instructions in the event of VM disk failures
+#### What should I do if virtual machine disks have errors? {#disk-failure}
 
 {% note warning %}
 

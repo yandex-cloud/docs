@@ -31,6 +31,8 @@ items:
             href: operations/buckets/edit-acl.md
           - name: Включение механизма логирования
             href: operations/buckets/enable-logging.md
+          - name: Настройка блокировок версий объектов
+            href: operations/buckets/configure-object-lock.md
       - name: Объекты
         items:
           - name: Загрузка объекта
@@ -39,8 +41,12 @@ items:
             href: operations/objects/info.md
           - name: Скачивание объекта
             href: operations/objects/download.md
+          - name: Восстановление версии объекта
+            href: operations/objects/restore-object-version.md
           - name: Получение публичной ссылки на объект
             href: operations/objects/link-for-download.md
+          - name: Настройка блокировок версии объекта
+            href: operations/objects/edit-object-lock.md
           - name: Удаление объекта
             href: operations/objects/delete.md
           - name: Удаление всех объектов
@@ -91,6 +97,8 @@ items:
         href: concepts/object.md
       - name: Версионирование бакета
         href: concepts/versioning.md
+      - name: Блокировка версии объекта (object lock)
+        href: concepts/object-lock.md
       - name: Жизненные циклы объектов
         href: concepts/lifecycles.md
       - name: CORS

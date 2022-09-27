@@ -1,6 +1,8 @@
 title: Yandex Data Transfer
 href: index.yaml
 items:
+  - name: Доступные трансферы
+    href: transfer-matrix.md
   - name: Начало работы
     href: quickstart.md
   - name: Пошаговые инструкции
@@ -23,6 +25,8 @@ items:
                 href: operations/endpoint/source/bigquery.md
               - name: ClickHouse
                 href: operations/endpoint/source/clickhouse.md
+              - name: Eventhub
+                href: operations/endpoint/source/eventhub.md
               - name: Greenplum®
                 href: operations/endpoint/source/greenplum.md
               - name: MongoDB
@@ -37,6 +41,8 @@ items:
                 href: operations/endpoint/source/s3.md
               - name: Yandex Data Streams
                 href: operations/endpoint/source/data-streams.md
+              - name: YDB
+                href: operations/endpoint/source/ydb.md
           - name: Настройка эндпоинтов-приемников
             items:
               - name: Apache Kafka®
@@ -85,6 +91,8 @@ items:
         href: concepts/index.md
       - name: Сеть в {{ data-transfer-full-name }}
         href: concepts/network.md
+      - name: Скорость копирования данных в {{ data-transfer-full-name }}
+        href: concepts/copy-speed.md
       - name: Какие задачи решает сервис
         href: concepts/use-cases.md
       - name: Жизненный цикл трансфера
@@ -94,19 +102,7 @@ items:
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Решение проблем
-    items:
-      - name: Обзор
-        href: troubleshooting/index.md
-      - name: '{{ MG }}'
-        href: troubleshooting/mongodb.md
-      - name: '{{ MY }}'
-        href: troubleshooting/mysql.md
-      - name: '{{ PG }}'
-        href: troubleshooting/postgresql.md
-      - name: '{{ ydb-full-name }} и {{ yds-full-name }}'
-        href: troubleshooting/ydb.md
-      - name: Сеть
-        href: troubleshooting/network.md
+    href: troubleshooting/index.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

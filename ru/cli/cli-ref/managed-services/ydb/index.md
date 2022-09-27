@@ -17,6 +17,7 @@ Syntax:
 	- [yc ydb database get](database/get.md) — Get information about the specified YDB database.
 	- [yc ydb database list](database/list.md) — List YDB databases in a folder.
 	- [yc ydb database create](database/create.md) — Create YDB database.
+	- [yc ydb database move](database/move.md) — Move YDB database to another folder.
 	- [yc ydb database backup](database/backup.md) — Backup YDB database.
 	- [yc ydb database restore](database/restore.md) — Restore backup.
 	- [yc ydb database update](database/update.md) — Update the specified YDB database.

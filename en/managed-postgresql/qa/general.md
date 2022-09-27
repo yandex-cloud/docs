@@ -86,7 +86,7 @@ For more information, see [{#T}](../concepts/maintenance.md).
 
 #### Which version of {{ PG }} does {{ mpg-short-name }} use? {#dbms-version}
 
-{{ mpg-short-name }} supports {{ PG }} 10, 11, 12, 13, and 14, as well as PostgreSQL 10, 11, and 12 for 1C.
+{{ mpg-short-name }} supports {{ PG }} 11, 12, 13, and 14, as well as PostgreSQL 11, 12, 13, and 14 for 1C.
 
 #### Which {{ PG }} version and settings are best suited when creating databases for 1C? {#1c-version}
 
@@ -160,7 +160,7 @@ For more information about {{ mpg-short-name }} limits, see [{#T}](../concepts/l
 
 #### What {{ PG }} extensions are supported in {{ mpg-short-name }}? {#pg-extension}
 
-The list of supported {{ PG }} extensions is provided in [{#T}](../operations/cluster-extensions.md).
+The list of supported {{ PG }} extensions is provided in [{#T}](../operations/extensions/cluster-extensions.md).
 
 #### Which data center stores {{ PG }} cluster backups? {#data-center}
 

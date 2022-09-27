@@ -39,7 +39,7 @@ You can add and remove databases, as well as view information about them.
 
 ## Creating a database {#add-db}
 
-You can create an unlimited number of databases in each {{ mpg-name }} cluster.
+{% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
 
 {% list tabs %}
 
@@ -94,17 +94,17 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
       ```bash
       {{ yc-mdb-pg }} database create <database name> \
-         --cluster-name=<cluster name> \
-         --owner=<DB owner username> \
-         --lc-collate=<collation locale> \
-         --lc-type=<character set locale>
+        --cluster-name=<cluster name> \
+        --owner=<DB owner username> \
+        --lc-collate=<collation locale> \
+        --lc-type=<character set locale>
       ```
 
       {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-      {{ mpg-short-name }} runs the create database operation.
+      The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      {{ mpg-short-name }} runs the create database operation.
 
 - {{ TF }}
 
@@ -112,20 +112,17 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+      For a complete list of available {{ mpg-name }} cluster database configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_postgresql_database).
 
-   1. Add a `database` block to the {{ mpg-name }} cluster description. If necessary, specify the required collation locale and character set (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`):
+   1. Add the `yandex_mdb_postgresql_database` resource. If necessary, specify the required collation locale and character set (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`):
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
-        ...
-        database {
-          name       = "<database name>"
-          owner      = "<owner username: must be specified in the user section>"
-          lc_collate = "<sorting locale>"
-          lc_type    = "<character set locale>"
-          ...
-        }
+      resource "yandex_mdb_postgresql_database" "<database name>" {
+        cluster_id = "<cluster ID>"
+        name       = "<database name>"
+        owner      = "<owner username: must be specified in yandex_mdb_postgresql_user resource>"
+        lc_collate = "<collation locale>"
+        lc_type    = "<character set locale>"
       }
       ```
 
@@ -138,8 +135,6 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
    1. Confirm the update of resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
@@ -170,7 +165,7 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
    ```bash
    {{ yc-mdb-pg }} database delete <database name> \
-      --cluster-name <cluster name>
+     --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -181,9 +176,9 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+      For a complete list of available {{ mpg-name }} cluster database configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_postgresql_database).
 
-   1. Delete the `database` block with the DB name from the {{ mpg-name }} cluster description.
+   1. Delete the `yandex_mdb_postgresql_database` resource with the name of the database to delete.
 
    1. Make sure the settings are correct.
 
@@ -192,8 +187,6 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
    1. Confirm the update of resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 

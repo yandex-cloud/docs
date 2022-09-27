@@ -20,21 +20,26 @@ Learn more about the chart sections in [{#T}](../../concepts/chart/types.md#hori
 To display an Y-axis grouped bar chart:
 
 1. Go to the bar chart that you created.
-
 1. Depending on the number of measures in the **X** section, follow these steps:
 
-    {% list tabs %}
+   {% list tabs %}
 
-    - One measure
-        1. Check if there is a dimension in the **Colors** section.
-        1. Duplicate this dimension in the **Y** section. The sequence of dimensions affects the grouping order.
+   - One measure
 
-      <iframe src="https://datalens.yandex/5th7z71ms5w6z?_embedded=1&_theme=system" width="600" height="400" frameborder="0"></iframe>
+     1. Check if there is a dimension in the **Colors** section.
+     1. Duplicate this dimension in the **Y** section. The sequence of dimensions affects the grouping order.
 
-    - Two or more measures
-        1. Drag the `Measure Names` dimension to the **Colors** section.
-        1. Drag the `Measure Names` dimension to the **Y** section. The sequence of dimensions affects the grouping order.
+     <iframe src="https://datalens.yandex/5th7z71ms5w6z?_embedded=1&_theme=system" width="600" height="400" frameborder="0"></iframe>
 
-      <iframe src="https://datalens.yandex/0oxyakxold4gu?_embedded=1&_theme=system" width="600" height="400" frameborder="0"></iframe>
+   - Two or more measures
+
+     1. Drag the `Measure Names` dimension to the **Colors** section.
+     1. Drag the `Measure Names` dimension to the **Y** section. The sequence of dimensions affects the grouping order.
+
+     <iframe src="https://datalens.yandex/0oxyakxold4gu?_embedded=1&_theme=system" width="600" height="400" frameborder="0"></iframe>
 
     {% endlist %}
+
+## Configuring the display of `null` values {#null-settings}
+
+{% include [datalens-chart-null-settings](../../../_includes/datalens/datalens-chart-null-settings.md) %}

@@ -10,7 +10,7 @@ Creates a backup for the specified ClickHouse cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}:backup
+POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}:backup
 ```
  
 ## Path parameters {#path_params}

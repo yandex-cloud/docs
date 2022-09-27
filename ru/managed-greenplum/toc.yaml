@@ -18,13 +18,21 @@ items:
       - name: Остановка и запуск кластера
         href: operations/cluster-stop.md
       - name: Управление хостами кластера
-        href: operations/cluster-hosts.md
+        items:
+          - name: Просмотр хостов кластера
+            href: operations/hosts/cluster-hosts.md
+          - name: Расширение кластера
+            href: operations/hosts/cluster-expand.md
       - name: Изменение настроек кластера
         href: operations/update.md
       - name: Использование внешних таблиц
         href: operations/external-tables.md
-      - name: Управление расширениями Greenplum
-        href: operations/cluster-extensions.md
+      - name: Расширения Greenplum
+        items:
+          - name: Управление расширениями
+            href: operations/extensions/cluster-extensions.md
+          - name: pgcrypto
+            href: operations/extensions/pgcrypto.md
       - name: Просмотр логов кластера
         href: operations/cluster-logs.md
       - name: Удаление кластера
@@ -45,7 +53,9 @@ items:
         href: concepts/network.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Типы хранилища
+      - name: Ресурсные группы
+        href: concepts/resource-groups.md
+      - name: Типы дисков
         href: concepts/storage.md
       - name: Шардирование
         href: concepts/sharding.md
@@ -97,6 +107,8 @@ items:
                 href: api-ref/Cluster/create.md
               - name: delete
                 href: api-ref/Cluster/delete.md
+              - name: expand
+                href: api-ref/Cluster/expand.md
               - name: get
                 href: api-ref/Cluster/get.md
               - name: list

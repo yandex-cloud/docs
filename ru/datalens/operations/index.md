@@ -3,7 +3,7 @@
 ## Создание подключения {#creating-connection}
 
 - [{#T}](connection/create-clickhouse.md)
- - [{#T}](connection/create-csv.md) 
+- [{#T}](connection/create-file.md)
 - [{#T}](connection/create-google-sheets.md)
 - [{#T}](connection/create-mysql.md)
 - [{#T}](connection/create-postgresql.md)
@@ -20,7 +20,6 @@
 
 - [{#T}](dataset/create.md)
 - [{#T}](dataset/join-data.md)
- - [{#T}](dataset/join-data-csv.md) 
 - [{#T}](dataset/create-field.md)
 - [{#T}](dataset/create-calculated-field.md)
 - [{#T}](dataset/create-filter.md)
@@ -33,18 +32,7 @@
 
 ## Создание и настройка чартов {#creating-and-configuring-charts}
 
-- [{#T}](chart/create-line-chart.md)
-- [{#T}](chart/create-column-chart.md)
-- [{#T}](chart/create-area-chart.md)
-- [{#T}](chart/create-pie-chart.md)
-- [{#T}](chart/create-ring-chart.md)
-- [{#T}](chart/create-bar-chart.md)
-- [{#T}](chart/create-scatter-chart.md)
-- [{#T}](chart/create-map-chart.md)
-- [{#T}](chart/create-table.md)
-- [{#T}](chart/create-pivot-table.md)
-- [{#T}](chart/create-indicator-chart.md)
-- [{#T}](chart/create-tree-chart.md)
+- [{#T}](chart/create-chart.md)
 - [{#T}](chart/create-sql-chart.md)
 - [{#T}](chart/create-multidataset-chart.md)
 - [{#T}](chart/add-hierarchy.md)

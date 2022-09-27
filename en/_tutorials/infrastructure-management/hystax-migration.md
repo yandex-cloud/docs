@@ -151,11 +151,10 @@ The agents are installed on virtual machines to be migrated to {{ yandex-cloud }
      1. Unpack the downloaded OVA agent file to the VMs in your cluster.
      1. Start the VMs with the agent.
 
-   
    - Windows
      1. Click **Next**.
      1. Click **Download Agent** and wait for the agent to download.
-     1. Unpack the archive and install the agent from the file `hwragent.msi` on the VMs you would like to migrate.
+     1. Unpack the archive and install the agent from the file `hwragent.msi` on the VMs you would like to migrate.
 
    - Linux
 

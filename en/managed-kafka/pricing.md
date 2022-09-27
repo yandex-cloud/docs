@@ -59,12 +59,29 @@ The minimum billing unit is a minute (for example, 1.5 minutes of host usage cos
 You pay for the storage allocated for DB clusters.
 
 * You can only order local SSD storage (`local-ssd`) for clusters with three or more broker hosts:
-   * For Intel Cascade Lake: In 100-GB increments.
+   * For Intel Cascade Lake: In 100 GB increments.
    * For Intel Ice Lake: In {{ local-ssd-v3-step }} increments.
 * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
+### Example of cluster cost calculation {#example}
+
+{% list tabs %}
+
+* Standard hosts
+
+   For example, you created a cluster:
+
+   * With 3 {{ KF }} broker hosts with the `s2.micro` class (Intel Cascade Lake, 2 vCPU, 100% vCPU, 8 GB RAM).
+   * With 3 automatically created {{ ZK }} hosts with the `b2.medium` class (Intel Cascade Lake, 2 vCPU, 50% vCPU, 4 GB RAM). Each {{ ZK }} host gets 10 GB of network SSD storage.
+   * With 100 GB of network HDD storage (allocated to each broker host).
+
+   Hourly cost to run hosts ({{ KF }} and {{ ZK }}): `3 × (2 × $0.013440 + 8 × $0.003600) + 3 × (2 × $0.006240 + 4 × $0.002560) = $0.068160`
+
+   Storage cost (HDD and SSD): `3 × 100 × $0.025600 + 3 × 10 × $0.104080 = $10.802400`
+
+   Total monthly cluster cost (hosts and storage): `720 × $0.068160 + $10.802400 = $59.877600`
 
 {% endlist %}
 

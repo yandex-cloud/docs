@@ -37,7 +37,7 @@ There are three ways to migrate data from a third-party _source cluster_ to a {{
    Migration with a {{ PG }} version downgrade is impossible.
 
 * When creating a cluster, specify the same database name as in the source cluster.
-* Enable the same [{{ PG }} extensions](../operations/cluster-extensions.md) as in the source cluster.
+* Enable the same [{{ PG }} extensions](../operations/extensions/cluster-extensions.md) as in the source cluster.
 
 ## Transferring data using {{ data-transfer-full-name }} {#data-transfer}
 
@@ -122,7 +122,7 @@ If you no longer need these resources, [delete them](#clear-out-logical).
 Use the `pg_dump` utility to create a file with the database schema to be applied in the target cluster.
 
 ```bash
-pg_dump -h <IP address or FQDN of source cluster's master host> \
+pg_dump -h <IP address or FQDN of source cluster’s master host> \
         -U <username> \
         -p <port> \
         --schema-only \
@@ -139,7 +139,7 @@ This export command skips all data associated with privileges and roles to avoid
 Using the `pg_restore` utility, restore the database schema in the target cluster:
 
 ```bash
-pg_restore -h <IP address or FQDN of target cluster's master host> \
+pg_restore -h <IP address or FQDN of target cluster’s master host> \
            -U <username> \
            -p {{ port-mpg }} \
            -Fd -v \
@@ -180,13 +180,13 @@ For logical replication to work, create a publication (a group of logically repl
    CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<source cluster address> port=<port> user=<username> sslmode=disable dbname=<database name>' PUBLICATION p_data_migration;
    ```
 
-1. To get the replication status, check the `pg_subscription_rel` directories. You can get the general replication status in the target cluster using `pg_stat_subscription` and in the source cluster using `pg_stat_replication`.
+1. To get the replication status, check the `pg_subscription_rel` directories.
 
    ```sql
    SELECT * FROM pg_subscription_rel;
    ```
 
-   First of all, check the `srsubstate` field. `R` in this field means that synchronization has ended and the databases are ready to be replicated.
+   The `r` value in the `srsubstate` field means that replication was completed.
 
 ### Migrate {{ PG }} sequences after replication {#transfer-sequences}
 
@@ -196,7 +196,7 @@ To complete synchronization of the source cluster and the target cluster:
 1. Create a dump with {{ PG }}-sequences in the source cluster:
 
    ```bash
-   pg_dump -h <IP address or FQDN of source cluster's master host> \
+   pg_dump -h <IP address or FQDN of source cluster’s master host> \
            -U <username> \
            -p <port> \
            -d <DB name> \
@@ -210,7 +210,7 @@ To complete synchronization of the source cluster and the target cluster:
 1. Restore the dump with sequences in the target cluster:
 
    ```bash
-   psql -h <IP address or FQDN of target cluster's master host> \
+   psql -h <IP address or FQDN of target cluster’s master host> \
         -U <username> \
         -p {{ port-mpg }} \
         -d <DB name> \
@@ -233,6 +233,12 @@ If you no longer need these resources, delete the [{{ mpg-full-name }} cluster](
 
 ## Transferring data by creating and restoring a logical dump {#backup}
 
+{% note warning %}
+
+Use this method only if it's not possible to migrate data using [{{ data-transfer-name }}](#data-transfer) or [logical replication](#logical-replication).
+
+{% endnote %}
+
 Create a dump of the necessary database in the source cluster using the `pg_dump` utility. To restore the dump in the target cluster, use the `pg_restore` utility.
 
 {% note info %}
@@ -251,11 +257,11 @@ If you no longer need these resources, [delete them](#clear-out-backup).
 
 ### Create a database dump {#dump}
 
-1. Switch the database to the <q>read-only</q>  mode.
+1. Switch the database to the <q>read-only</q> mode.
 1. Create a dump using the [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) utility. To speed up the process, run it in multithreaded mode by passing the number of available CPU cores in the `-j` argument:
 
    ```bash
-   pg_dump -h <IP address or FQDN of source cluster's master host> \
+   pg_dump -h <IP address or FQDN of source cluster’s master host> \
            -U <username> \
            -j <number of processor cores> \
            -Fd -d <DB name> \
@@ -279,7 +285,7 @@ The required amount of RAM and processor cores depends on the amount of data to 
 
 To prepare the virtual machine to restore the dump:
 
-1. In the management console, [create a new VM](../../compute/operations/vm-create/create-linux-vm.md) from an [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image in the **{{ marketplace-name }}**. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
+1. In the management console, [create a new VM](../../compute/operations/vm-create/create-linux-vm.md) from an [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image on **{{ marketplace-name }}**. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
 
 
     The virtual machine must be in the same network and availability zone as the {{ PG }} cluster. Additionally, the VM must be assigned a public IP address so that you can load the dump from outside {{ yandex-cloud }}.
@@ -290,19 +296,16 @@ To prepare the virtual machine to restore the dump:
 
    ```bash
    sudo apt install postgresql-client-common
-
-   # For PostgreSQL 10
-   sudo apt install postgresql-client-10
-
+   
    # For PostgreSQL 11
    sudo apt install postgresql-client-11
-
+   
    # For PostgreSQL 12
    sudo apt install postgresql-client-12
-
+   
    # For PostgreSQL 13
    sudo apt install postgresql-client-13
-
+   
    # For PostgreSQL 14
    sudo apt install postgresql-client-14
    ```
@@ -325,12 +328,12 @@ Restore the database dump using the [pg_restore](https://www.postgresql.org/docs
 
 The version of `pg_restore` must match the `pg_dump` version, and the major version must be at least as high as on the DB where the dump is deployed.
 
-That is, to restore a dump of {{ PG }} 10, {{ PG }} 11, {{ PG }} 12, {{ PG }} 13, and {{ PG }} 14 use `pg_restore 10`, `pg_restore 11`, `pg_restore 12`, `pg_restore 13`, and `pg_restore 14`, respectively.
+That is, to restore a dump of {{ PG }} 11, {{ PG }} 12, {{ PG }} 13, and {{ PG }} 14 use `pg_restore 11`, `pg_restore 12`, `pg_restore 13`, and `pg_restore 14`, respectively.
 
 If you only need to restore a single schema, add the `-n <schema name>` flag (without it, the command only runs on behalf of the database owner). Best practice is to restore data with the `--single-transaction` flag to avoid an inconsistent state of the database if an error occurs:
 
 ```bash
-pg_restore -h <IP address or FQDN of target cluster's master host> \
+pg_restore -h <IP address or FQDN of target cluster’s master host> \
            -U <username>
            -d <DB name> \
            -p {{ port-mpg }} \

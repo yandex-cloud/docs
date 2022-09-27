@@ -31,15 +31,24 @@ description: "Из статьи вы узнаете как работать с {
 * [{#T}](device/alias/alias-update.md)
 * [{#T}](device/alias/alias-delete.md)
 
+## Управление брокерами {#broker}
+
+* [{#T}](broker/broker-list.md)
+* [{#T}](broker/broker-create.md)
+* [{#T}](broker/broker-update.md)
+* [{#T}](broker/broker-delete.md)
+
 ## Управление сертификатами {#certificates}
 
 * [{#T}](certificates/create-certificates.md)
 * [{#T}](certificates/registry-certificates.md)
 * [{#T}](certificates/device-certificates.md)
+* [{#T}](certificates/broker-certificates.md)
 
 ## Управление паролями {#password}
 
 * [{#T}](password/registry-password.md)
 * [{#T}](password/device-password.md)
+* [{#T}](password/broker-password.md)
 
 

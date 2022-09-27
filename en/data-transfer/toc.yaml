@@ -1,6 +1,8 @@
 title: Yandex Data Transfer
 href: index.yaml
 items:
+  - name: Available transfers
+    href: transfer-matrix.md
   - name: Getting started
     href: quickstart.md
   - name: Step-by-step instructions
@@ -9,16 +11,18 @@ items:
         href: operations/index.md
       - name: Preparing for the transfer
         href: operations/prepare.md
-      - name: Endpoints
+      - name: Configuring endpoints
         items:
           - name: Endpoint management
             href: operations/endpoint/index.md
-          - name: Source endpoint parameters
+          - name: Configuring source endpoints
             items:
               - name: Apache Kafka®
                 href: operations/endpoint/source/kafka.md
               - name: ClickHouse
                 href: operations/endpoint/source/clickhouse.md
+              - name: Eventhub
+                href: operations/endpoint/source/eventhub.md
               - name: Greenplum®
                 href: operations/endpoint/source/greenplum.md
               - name: MongoDB
@@ -31,8 +35,12 @@ items:
                 href: operations/endpoint/source/postgresql.md
               - name: '{{ yds-full-name }}'
                 href: operations/endpoint/source/data-streams.md
+              - name: '{{ ydb-full-name }}'
+                href: operations/endpoint/source/ydb.md
           - name: Configuring target endpoints
             items:
+              - name: Apache Kafka®
+                href: operations/endpoint/target/kafka.md
               - name: ClickHouse
                 href: operations/endpoint/target/clickhouse.md
               - name: Greenplum®
@@ -66,7 +74,7 @@ items:
       - name: Migrating databases to {{ mpg-full-name }}
         href: tutorials/managed-postgresql.md
       - name: Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }}
-        href: tutorials/kafka-cdc.md
+        href: tutorials/cdc-mpg.md
       - name: Migrating data from {{ PG }} to {{ CH }}
         href: tutorials/rdbms-to-clickhouse.md
   - name: Concepts
@@ -75,6 +83,8 @@ items:
         href: concepts/index.md
       - name: Network in {{ data-transfer-full-name }}
         href: concepts/network.md
+      - name: Speed for copying data in {{ data-transfer-full-name }}
+        href: concepts/copy-speed.md
       - name: What tasks is the service used for?
         href: concepts/use-cases.md
       - name: Transfer lifecycle

@@ -13,13 +13,16 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](buckets/bucket-availability.md)
 * [{#T}](buckets/edit-acl.md)
 * [{#T}](buckets/enable-logging.md)
+* [{#T}](buckets/configure-object-lock.md)
 
 ## Объекты {#objects}
 
 * [{#T}](objects/upload.md)
 * [{#T}](objects/info.md)
 * [{#T}](objects/download.md)
+* [{#T}](objects/restore-object-version.md)
 * [{#T}](objects/link-for-download.md)
+* [{#T}](objects/edit-object-lock.md)
 * [{#T}](objects/delete.md)
 * [{#T}](objects/delete-all.md)
 * [{#T}](objects/deleting-multipart.md)

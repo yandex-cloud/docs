@@ -3,6 +3,13 @@
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
 
+
+{% include [01.09.2022 — CVE-2022-2992 — GitLab-1532-1524-1516](../../_includes/security/security-bulletins/cve-2022-2992-GitLab-1532-1524-1516.md) %}
+
+{% include [31.08.2022 — CVE-2020-8561 — redirect-kube-apiserver](../../_includes/security/security-bulletins/cve-2020-8561-redirect-kube-apiserver.md) %}
+
+{% include [25.08.2022 — CVE-2022-2884 — github-import-in-gitlab](../../_includes/security/security-bulletins/cve-2022-2884-github-import-in-gitlab.md) %}
+
 {% include [04.07.2022 — CVE-2022-27228 — Vulnerability of the «vote» CMS 1C-Bitrix module](../../_includes/security/security-bulletins/cve-2022-27228-bitrix.md) %}
 
 {% include [21.06.2022 — CVE-2022-1680 — Critical Account Takeover Vulnerability in GitLab](../../_includes/security/security-bulletins/cve-2022-1680-gitlab.md) %}
@@ -293,7 +300,7 @@ A number of [CVE-2021-3156](https://nvd.nist.gov/vuln/detail/CVE-2021-3156) vuln
 The following Linux OS images were updated:
 * All images from the {{ yandex-cloud }} publisher available in {{ marketplace-name }}.
 * A {{ coi }}.
-* An image that is used to create {{ managed-k8s-short-name }} nodes.
+* An image that is used to create {{ managed-k8s-name }} nodes.
 * Images that are used to create managed database clusters.
 * An image that is used to create {{ dataproc-short-name }} clusters.
 

@@ -6,8 +6,8 @@
 
 {% note info %}
 
-* Количество хостов, которые можно создать вместе с {{ MY }}-кластером, зависит от выбранного [типа хранилища](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
-* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+* Количество хостов, которые можно создать вместе с {{ MY }}-кластером, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
 
@@ -28,7 +28,7 @@
   1. Выберите класс хостов — он определяет технические характеристики виртуальных машин, на которых будут развернуты хосты БД. Все доступные варианты перечислены в разделе [{#T}](../concepts/instance-types.md). При изменении класса хостов для кластера меняются характеристики всех уже созданных хостов.
   1. В блоке **Размер хранилища**:
 
-      * Выберите [тип хранилища](../concepts/storage.md).
+      * Выберите [тип диска](../concepts/storage.md).
 
           {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
@@ -102,7 +102,8 @@
        --disk-size <размер хранилища в гигабайтах> \
        --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
        --security-group-ids <список идентификаторов групп безопасности> \
-       --deletion-protection=<защита от удаления кластера: true или fasle>
+       --deletion-protection=<защита от удаления кластера: true или false> \
+       --datalens-access=<доступ к кластеру из {{ datalens-name }}: true или false>
      ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -163,7 +164,7 @@
 
        resources {
          resource_preset_id = "<класс хоста>"
-         disk_type_id       = "<тип хранилища>"
+         disk_type_id       = "<тип диска>"
          disk_size          = "<размер хранилища в гигабайтах>"
        }
 
@@ -204,6 +205,8 @@
 
      1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
+     1. {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
+
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mmy }}).
 
   1. Проверьте корректность конфигурационных файлов.
@@ -231,6 +234,8 @@
     * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
 
     {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+
+    {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
 
 {% endlist %}
 

@@ -7,8 +7,6 @@ items:
         href: quickstart/index.md
       - name: Creating a Linux VM
         href: quickstart/quick-create-linux.md
-      - name: Creating a Windows VM
-        href: quickstart/quick-create-windows.md
       - name: Creating instance groups
         href: quickstart/ig.md
   - name: Step-by-step instructions
@@ -19,8 +17,6 @@ items:
         items:
           - name: Creating a Linux VM
             href: operations/vm-create/create-linux-vm.md
-          - name: Creating a Windows VM
-            href: operations/vm-create/create-windows-vm.md
           - name: Creating a VM from a set of disks
             href: operations/vm-create/create-from-disks.md
           - name: Creating a VM with disks from snapshots
@@ -69,8 +65,6 @@ items:
         items:
           - name: Stopping and starting a VM
             href: operations/vm-control/vm-stop-and-start.md
-          - name: Resetting a VM user password
-            href: operations/vm-control/vm-reset-password.md
           - name: Attaching a disk to a VM
             href: operations/vm-control/vm-attach-disk.md
           - name: Detaching a disk from a VM
@@ -95,24 +89,12 @@ items:
         items:
           - name: Connecting to a VM via SSH
             href: operations/vm-connect/ssh.md
-          - name: Connecting to a VM via RDP
-            href: operations/vm-connect/rdp.md
-          - name: Connecting to a VM via PowerShell
-            href: operations/vm-connect/powershell.md
           - name: Working with {{ yandex-cloud }} from inside a VM
             href: operations/vm-connect/auth-inside-vm.md
           - name: Installing NVIDIA drivers
             href: operations/vm-operate/install-nvidia-drivers.md
           - name: Restoring access to a VM
             href: operations/vm-connect/recovery-access.md
-      - name: Managing the password reset agent
-        items:
-          - name: Verifying agent operation
-            href: operations/vm-guest-agent/check.md
-          - name: Installing the agent
-            href: operations/vm-guest-agent/install.md
-          - name: Deleting the agent
-            href: operations/vm-guest-agent/uninstall.md
       - name: Creating new disks
         items:
           - name: Creating an empty disk
@@ -247,8 +229,6 @@ items:
         href: tutorials/autoscale-monitoring.md
       - name: Updating an instance group under load
         href: tutorials/updating-under-load.md
-      - name: Deploying Remote Desktop Gateway
-        href: tutorials/rds-gw.md
       - name: Transferring logs from a VM instance to Yandex Cloud Logging
         href: tutorials/vm-fluent-bit-logging.md
       - name: Creating a VM backup with Hystax Acura Backup
@@ -279,8 +259,6 @@ items:
             href: concepts/vm-statuses.md
           - name: Metadata
             href: concepts/vm-metadata.md
-          - name: Resetting a Windows VM password
-            href: concepts/guest-agent.md
       - name: Graphics accelerators
         href: concepts/gpus.md
       - name: Disks and file storage
@@ -627,40 +605,40 @@ items:
             items:
               - name: Overview
                 href: api-ref/InstanceGroup/index.md
-              - name: list
-                href: api-ref/InstanceGroup/list.md
-              - name: get
-                href: api-ref/InstanceGroup/get.md
-              - name: listLogRecords
-                href: api-ref/InstanceGroup/listLogRecords.md
-              - name: updateFromYaml
-                href: api-ref/InstanceGroup/updateFromYaml.md
-              - name: updateAccessBindings
-                href: api-ref/InstanceGroup/updateAccessBindings.md
-              - name: pauseProcesses
-                href: api-ref/InstanceGroup/pauseProcesses.md
-              - name: stop
-                href: api-ref/InstanceGroup/stop.md
-              - name: start
-                href: api-ref/InstanceGroup/start.md
-              - name: delete
-                href: api-ref/InstanceGroup/delete.md
-              - name: listInstances
-                href: api-ref/InstanceGroup/listInstances.md
               - name: createFromYaml
                 href: api-ref/InstanceGroup/createFromYaml.md
               - name: update
                 href: api-ref/InstanceGroup/update.md
-              - name: setAccessBindings
-                href: api-ref/InstanceGroup/setAccessBindings.md
-              - name: listOperations
-                href: api-ref/InstanceGroup/listOperations.md
+              - name: list
+                href: api-ref/InstanceGroup/list.md
+              - name: get
+                href: api-ref/InstanceGroup/get.md
+              - name: delete
+                href: api-ref/InstanceGroup/delete.md
+              - name: start
+                href: api-ref/InstanceGroup/start.md
+              - name: stop
+                href: api-ref/InstanceGroup/stop.md
               - name: create
                 href: api-ref/InstanceGroup/create.md
               - name: listAccessBindings
                 href: api-ref/InstanceGroup/listAccessBindings.md
+              - name: setAccessBindings
+                href: api-ref/InstanceGroup/setAccessBindings.md
               - name: resumeProcesses
                 href: api-ref/InstanceGroup/resumeProcesses.md
+              - name: updateFromYaml
+                href: api-ref/InstanceGroup/updateFromYaml.md
+              - name: listLogRecords
+                href: api-ref/InstanceGroup/listLogRecords.md
+              - name: listInstances
+                href: api-ref/InstanceGroup/listInstances.md
+              - name: pauseProcesses
+                href: api-ref/InstanceGroup/pauseProcesses.md
+              - name: updateAccessBindings
+                href: api-ref/InstanceGroup/updateAccessBindings.md
+              - name: listOperations
+                href: api-ref/InstanceGroup/listOperations.md
   - name: Questions and answers
     items:
       - name: General questions

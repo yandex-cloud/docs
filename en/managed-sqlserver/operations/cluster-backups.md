@@ -9,7 +9,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 {% note warning %}
 
-You cannot use SQL commands to modify the [recovery model]({{ ms.docs }}/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016) for backup and restore operations.
+You can't use SQL commands to modify the [recovery model]({{ ms.docs }}/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016) for backup and restore operations.
 
 {% endnote %}
 
@@ -40,7 +40,7 @@ You cannot use SQL commands to modify the [recovery model]({{ ms.docs }}/sql/rel
 
    To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
-   To get a list of backups for all the **{{ mms-name }}** clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` request parameter.
+   To get a list of backups for all the {{ mms-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -181,7 +181,7 @@ For a new cluster, you need to set up all [its parameters required at creation](
       +-------------------+---------------------+----------------------+---------------------+-----------+
       ```
 
-      The time the backup was completed is shown in the `CREATED AT` column containing a list of available backups in `yyyy-mm-dd hh:mm:ss` format (`2022-01-13 13:59:57` in the example above). You can restore a cluster to any point in time starting with the specified one.
+      The time the backup was completed is shown in the `CREATED AT` column containing a list of available backups in `yyyy-mm-dd hh:mm:ss` format (`2022-01-13 13:59:57` in the example above). You can restore a cluster to any point in time starting with the point when the backup is created.
 
    1. Request that a cluster be restored from a backup (the parameter list in the example is not exhaustive):
 
@@ -286,7 +286,7 @@ When restoring a database from a backup, you create a new database in the curren
       +-------------------+---------------------+----------------------+---------------------+-----------+
       ```
 
-      The time the backup was completed is shown in the `CREATED AT` column containing a list of available backups in `yyyy-mm-dd hh:mm:ss` format (`2022-01-13 13:59:57` in the example above). You can restore a database to any point in time starting with the specified one.
+      The time the backup was completed is shown in the `CREATED AT` column containing a list of available backups in `yyyy-mm-dd hh:mm:ss` format (`2022-01-13 13:59:57` in the example above). You can restore a database to any point in time starting with the point when the backup is created.
 
    1. Restore a database from a backup (the parameter list in the example is not exhaustive):
 
@@ -375,15 +375,12 @@ When restoring a database from a backup, you create a new database in the curren
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
    - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    - The new backup start time, in the `configSpec.backupWindowStart` parameter.
-   - List of cluster configuration fields to be edited (in this case, `configSpec.backupWindowStart`) in the `updateMask` parameter.
+   - List of cluster configuration fields to update in the `updateMask` parameter (`uiProxy` in this case).
 
-   {% note warning %}
-
-   This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, list the settings you want to change in the `updateMask` parameter (in a single line, separated by commas).
-
-   {% endnote %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -410,6 +407,19 @@ To export a database backup to a [{{ objstorage-name }} bucket](../../storage/co
 1. Perform the export:
 
    {% list tabs %}
+
+   - Management console
+
+      1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
+      1. Click on the name of the cluster you need and select the **Databases** tab.
+      1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired database and select **Export**.
+      1. Specify the settings for the export operation:
+
+         * **Bucket name**: Name of the bucket in {{ objstorage-name }} where the database files will be saved.
+         * **Bucket directory**: Path to the bucket folder. The path must be specified in absolute terms and must start with `/`. The folder must be empty.
+         * **Backup name prefix**: Arbitrary file name prefix. For large databases, several files will be created in the folder with names like `<prefix>_000.bak`, `<prefix>_001.bak`, and so on.
+
+      1. Click **Export**.
 
    - CLI
 
@@ -466,6 +476,20 @@ In a cluster, to restore a database from a backup stored in a [{{ objstorage-nam
 
    {% list tabs %}
 
+   - Management console
+
+      1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
+      1. Click on the name of the cluster you need and select the **Databases** tab.
+      1. Click ![image](../../_assets/plus-sign.svg) **Import**.
+      1. Specify the settings for the import operation:
+
+         * **New database name**: Name of the database to restore from a backup in the cluster. At the time of the restore, the cluster should have no databases with the same name.
+         * **Bucket name**: Name of the bucket in {{ objstorage-name }} storing the database backup.
+         * **Bucket folder**: Path to the folder storing the backup files. The path must be absolute and must begin with a `/`.
+         * **Backup file list**: Backup file name in the directory. Click **Add** and enter all the backup file names if there are more than one. All the files specified must exist.
+
+      1. Click **Import**.
+
    - CLI
 
       {% include [cli-install](../../_includes/cli-install.md) %}
@@ -505,6 +529,9 @@ In a cluster, to restore a database from a backup stored in a [{{ objstorage-nam
       * Name of the bucket in {{ objstorage-name }} storing the backup, in the `s3Bucket` parameter.
       * Path to the folder storing backup files, in the `s3Path` parameter. The path must be absolute and must begin with a `/`.
       * List of backup files in the `files[]` array.
+      * List of cluster configuration fields to update in the `UpdateMask` parameter.
+
+      {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
    {% endlist %}
 

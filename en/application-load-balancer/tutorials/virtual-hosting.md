@@ -1,3 +1,8 @@
+---
+title: Virtual hosting. How to create
+description: "This tutorial will show you how to set up virtual hosting with multiple websites and different domain names on the same IP address."
+---
+
 # Setting up a virtual hosting
 
 This use case describes how to set up virtual hosting, that is, how to use {{ alb-full-name }} to host multiple websites with different domain names on the same IP address.
@@ -43,7 +48,7 @@ To create a network:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
    1. Click **Create network**.
    1. Specify the Network **name**: `vhosting-network`.
    1. In the **Advanced** field, select **Create subnets**.
@@ -61,7 +66,7 @@ To reserve an address:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
    1. Go to the **IP addresses** tab. Click **Reserve address**.
    1. In the window that opens, select the `{{ region-id }}-a` availability zone. Click **Reserve address**.
 
@@ -79,7 +84,7 @@ To create security groups:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
    1. Open the **Security groups** tab.
    1. Create a security group for the load balancer:
 
@@ -129,7 +134,7 @@ To import an existing certificate for `site-a.com`:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ certificate-manager-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ certificate-manager-name }}**.
    1. Click **Add certificate** and select **User certificate**.
    1. Enter the **Name** for the certificate: `vhosting-cert-a`.
    1. In the **Certificate** field, click **Add certificate**. Upload the **File** with your certificate or enter its **Contents** and click **Add**.
@@ -151,7 +156,7 @@ To create an instance group for `site-a.com`:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ compute-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
    1. Open the **Instance groups** tab. Click **Create group**.
    1. Enter the instance group name: `vhosting-ig-a`.
    1. Under **Allocation**, select multiple availability zones to ensure fault tolerance of your hosting.
@@ -246,7 +251,7 @@ For the backends, groups will implement [health checks](../concepts/backend-grou
 
 To create a backend group for `site-a.com`:
 
-1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
+1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
 1. Open the **Backend groups** tab. Click **Create backend group**.
 1. Enter the **Name** for the backend group: `vhosting-bg-a`.
 1. Under **Backends**, click **Add**.
@@ -272,7 +277,7 @@ To create an HTTP router for `site-a.com`:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
    1. Open the **HTTP routers** tab. Click **Create HTTP router**.
    1. Enter the **Name** of the HTTP router: `vhosting-router-a`.
    1. Click **Add virtual host**.
@@ -295,7 +300,7 @@ To create an HTTP router for the `default.com` site:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
    1. Open the **HTTP routers** tab. Click **Create HTTP router**.
    1. Enter the **Name** of the HTTP router: `vhosting-router-default`.
    1. Click **Add virtual host**.
@@ -326,7 +331,7 @@ To create a load balancer:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
    1. Click **Create L7 load balancer**.
    1. Enter the **Name** of the load balancer: `vhosting-alb`.
    1. Under **Network settings**, select the `vhosting-sg-balancer` security group that you [created previously](#create-security-groups).
@@ -363,7 +368,7 @@ The domain names `site-a.com`, `site-b.com`, and `default.com` must be linked to
 
 To configure the DNS for `site-a.com`:
 
-1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
+1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
 1. Copy the IP address of the load balancer that you created.
 1. On the site of your DNS hosting provider, go to the DNS settings.
 1. Create or edit the A record for `site-a.com` so that it links to the copied IP address:
@@ -380,7 +385,7 @@ To configure the DNS for `site-a.com`:
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), open **{{ dns-name }}**.
+      1. In the [management console]({{ link-console-main }}), select **{{ dns-name }}**.
       1. If you don't have a public DNS zone, create one:
 
          1. Click **Create zone**.

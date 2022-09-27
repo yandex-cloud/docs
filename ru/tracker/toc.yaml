@@ -15,7 +15,7 @@ items:
         href: quick-start.md
       - name: Как работать в Tracker
         items:
-          - name: Начальная страница
+          - name: Стартовая страница
             href: user/startpage.md
           - name: Мои задачи
             href: user/my-tickets.md
@@ -195,6 +195,8 @@ items:
         href: user/agile.md
       - name: Изменить и удалить доску
         href: manager/edit-agile-board.md
+      - name: Бэклог
+        href: manager/backlog.md
       - name: Спринты
         href: manager/create-agile-sprint.md
       - name: Эпики
@@ -259,7 +261,7 @@ items:
             href: user/edit-dashboard.md
           - name: Общий доступ к дашбордам
             href: user/share-dashboard.md
-          - name: Как сделать дашборд начальной страницей
+          - name: Как сделать дашборд стартовой страницей
             href: user/startpage-dashboard.md
       - name: Статистика очереди
         href: manager/statistics.md

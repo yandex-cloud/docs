@@ -6,8 +6,8 @@
 
 {% note info %}
 
-* Количество хостов, которые можно создать вместе с {{ RD }}-кластером, зависит от выбранного [типа хранилища](../concepts/storage.md#storage-type-selection), [класса хостов](../concepts/instance-types.md#available-flavors) и использования [шардирования](../concepts/sharding.md).
-* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+* Количество хостов, которые можно создать вместе с {{ RD }}-кластером, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection), [класса хостов](../concepts/instance-types.md#available-flavors) и использования [шардирования](../concepts/sharding.md).
+* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
 
@@ -59,7 +59,7 @@
   1. В блоке **Размер хранилища**:
       
              
-        * Выберите [тип хранилища](../concepts/storage.md):
+        * Выберите [тип диска](../concepts/storage.md):
             * либо более гибкое хранилище — на сетевых SSD-дисках (`network-ssd`) или на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`);
             * либо более быстрое хранилище — на локальных SSD-дисках (`local-ssd`).
 
@@ -124,17 +124,19 @@
   
       ```bash
       {{ yc-mdb-rd }} cluster create \
-        --name <имя кластера> \
-        --environment <окружение, prestable или production> \
-        --network-name <имя сети> \
-        --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
-        --security-group-ids <список идентификаторов групп безопасности> \
-        --enable-tls \
-        --resource-preset <класс хоста> \
-        --disk-size <размер хранилища в гигабайтах> \
-        --password=<пароль пользователя> \
-        --backup-window-start <время начала резервного копирования в формате ЧЧ:ММ:СС>
-        --deletion-protection=<защита от удаления кластера: true или false>
+         --name=<имя кластера> \
+         --environment=<окружение, prestable или production> \
+         --network-name=<имя сети> \
+         --host zone-id=<зона доступности>,`
+               `subnet-id=<идентификатор подсети>,`
+               `assign-public-ip=<публичный доступ к хосту: true или false> \
+         --security-group-ids=<список идентификаторов групп безопасности> \
+         --enable-tls \
+         --resource-preset=<класс хоста> \
+         --disk-size=<размер хранилища в гигабайтах> \
+         --password=<пароль пользователя> \
+         --backup-window-start=<время начала резервного копирования в формате ЧЧ:ММ:СС> \
+         --deletion-protection=<защита от удаления кластера: true или false>
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -194,13 +196,15 @@
 
          resources {
            resource_preset_id = "<класс хоста>"
-           disk_type_id       = "<тип хранилища>"
+           disk_type_id       = "<тип диска>"
            disk_size          = <размер хранилища в гигабайтах>
          }
 
          host {
-           zone      = "<зона доступности>"
-           subnet_id = "<идентификатор подсети>"
+           zone             = "<зона доступности>"
+           subnet_id        = "<идентификатор подсети>"
+           assign_public_ip = <публичный доступ к хосту: true или false>
+           replica_priority = <приоритет хоста>
          }
        }
 
@@ -220,7 +224,7 @@
 
        1. {% include [Maintenance window](../../_includes/mdb/mrd/terraform/maintenance-window.md) %}
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mrd }})
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mrd }}).
 
     1. Проверьте корректность настроек.
 

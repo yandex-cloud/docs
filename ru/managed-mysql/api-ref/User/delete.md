@@ -10,7 +10,7 @@ Deletes a user in a cluster.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}/users/{userName}
+DELETE https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path parameters {#path_params}

@@ -5,8 +5,8 @@
 
 {% note info %}
 
-* Количество хостов, которые можно создать вместе с {{ MG }}-кластером, зависит от выбранного [типа хранилища](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
-* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+* Количество хостов, которые можно создать вместе с {{ MG }}-кластером, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
 
@@ -39,9 +39,9 @@
 
   1. В блоке **Размер хранилища**:
 
-      * Выберите [тип хранилища](../concepts/storage.md).
+      * Выберите [тип диска](../concepts/storage.md).
 
-        От выбранного типа хранилища зависит, с каким шагом можно будет изменить его размер:
+        От выбранного типа диска зависит, с каким шагом можно будет изменить его размер:
 
           * на сетевых SSD — с шагом 1 ГБ;
           * на сетевых HDD — с шагом 1 ГБ;
@@ -70,7 +70,7 @@
      * Если хост должен быть доступен снаружи {{ yandex-cloud }}, включите опцию **Публичный доступ**.
 
 
-     Чтобы обеспечить отказоустойчивость, для типов хранилищ `local-ssd` и `network-ssd-nonreplicated` необходимо как минимум 3 хоста. Подробнее см. в разделе [Хранилище](../concepts/storage.md).
+     Чтобы обеспечить отказоустойчивость, для типов диска `local-ssd` и `network-ssd-nonreplicated` необходимо как минимум 3 хоста. Подробнее см. в разделе [Хранилище](../concepts/storage.md).
 
      По умолчанию хосты создаются в разных зонах доступности. См. подробнее об [управлении хостами](hosts.md).
   
@@ -122,7 +122,7 @@
         --database name=<имя базы данных> \
         --mongod-disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
         --mongod-disk-size <размер хранилища в гигабайтах> \
-        --deletion-protection=<защита от удаления кластера: true или fasle>
+        --deletion-protection=<защита от удаления кластера: true или false>
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -191,7 +191,7 @@
 
        resources {
          resource_preset_id = "<класс хоста>"
-         disk_type_id       = "<тип хранилища>"
+         disk_type_id       = "<тип диска>"
          disk_size          = <размер хранилища, ГБ>
        }
 

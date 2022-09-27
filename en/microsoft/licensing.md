@@ -2,42 +2,13 @@
 
 {% include [ms-licensing-personal-data-note](../_includes/ms-licensing-personal-data-note.md) %}
 
-## Using Microsoft software in {{ yandex-cloud }} {#images}
-
-{{ yandex-cloud }} provides ready-to-use images with pre-installed Microsoft Windows Server Datacenter Edition and Microsoft SQL Server. The software licenses in these images are fully compliant with Microsoft requirements. When using ready-made {{ yandex-cloud }} images, you pay for the required licenses and {{ compute-name }} resources. You'll be charged depending on your [service plan](pricing.md).
-
-
-Purchasing images with a pre-installed Microsoft software license from {{ yandex-cloud }} has a number of advantages:
-
-
-
-* {{ yandex-cloud }} monitors for compliance with the license requirements and license usage reports.
-* {{ marketplace-name }} supports different versions of Windows Server and SQL Server.
-* Client licenses for Windows Server are pre-installed. You don't need to buy them separately.
-* Windows Server images include two RDS licenses for system administration.
-
-By using Microsoft software in {{ yandex-cloud }}, you agree to the {{ marketplace-full-name }} [Terms of Use](https://yandex.ru/legal/cloud_terms_marketplace/) and the [Microsoft License Terms](https://www.microsoft.com/licensing/contracts).
-
-
-
-### Features of using {{ MS }} licenses in {{ compute-full-name }} {#sql-server-compute-licensing}
-
-You are charged in advance for using {{ MS }} licenses in {{ compute-full-name }}. This means that payment is collected at the start of a billing period even before you actually use the resource. In the list below, references to virtual machines are references to virtual machines with a {{ MS }} image.
-
-* The billing period is one calendar month.
-* If you create a new virtual machine during a billing cycle (including creating one by restoring it from a [disk snapshot](../compute/concepts/backups.md)), you pay the full licensing cost for the entire billing period.
-* If you shut down or delete a virtual machine during a billing cycle, license costs for this cycle are not refunded.
-* The first time a virtual machine, which was stopped prior to the current billing cycle, is restarted, you will be charged the full cost of the licenses for the entire billing cycle. If you stop and restart a virtual machine multiple times within one cycle, you will only need to pay the license fees the first time.
-* If you change a virtual machine configuration and reduce resource usage during a billing cycle, the cost of the licenses released in this cycle is not subject to refund. The new pricing will take effect on the first day of the following billing cycle.
-* If you change your virtual machine configuration and increase resource usage during a billing cycle, you will need additional licenses. If this is the case, you will be charged the full cost of these licenses for the entire billing cycle regardless of the date you made the changes.
-
-
 
 ## Using your own licenses in {{ yandex-cloud }} {#byol}
 
 If you already have corporate Microsoft licenses under Microsoft Software Assurance ([SA](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3)) or Microsoft Enterprise Agreement ([EA](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2)), you can use them in {{ yandex-cloud }}.In this case, you'll be charged under the [BYOL](pricing.md) plan.
 
-You can use your license in the shared infrastructure according to the [License Mobility](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility) through Software Assurance program rules and as part of the dedicated hardware under the Microsoft Product Terms.
+You can use your license in a shared infrastructure according to the [License Mobility](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility) through Software Assurance program rules and on dedicated hardware under the Microsoft Product Terms.
+
 
 ### Using existing licenses under the License Mobility through Software Assurance program {#mobility}
 
@@ -65,13 +36,14 @@ A number of restrictions apply to the License Mobility through Software Assuranc
    * Forefront Unified Access Gateway
    * Remote Desktop Services
 
-   The complete rules of the license mobility program are provided in the official [Microsoft documentation](https://www.microsoft.com/en-us/licensing/product-licensing/products).
+   The complete rules of the License Mobility program are provided in the official [Microsoft documentation](https://www.microsoft.com/en-us/licensing/product-licensing/products).
 
-#### License mobility requirements for Microsoft SQL Server {#SQLmobility}
+#### License Mobility requirements for Microsoft SQL Server {#SQLmobility}
 
 The number of licenses required to run Microsoft SQL Server in a virtual environment depends on the SQL Server version and the resources you use. However, Microsoft requires a minimum of 4 licenses to enable licensing of 4 vCPUs. The minimum number of licenses required does not depend on the licensing model.
 
-When running Microsoft software under the License Mobility support program, you are responsible for compliance with the licensing rules. For more information on [license mobility program requirements](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=2) for Microsoft SQL Server, visit the official Microsoft website.
+When running Microsoft software under the License Mobility program, you're responsible for compliance with the licensing rules. For more information on [License Mobility program requirements](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=2) for Microsoft SQL Server, visit the official Microsoft website.
+
 
 ### License transfer rules under License Mobility through Software Assurance {#rules}
 
@@ -81,7 +53,7 @@ To use your licenses in {{ yandex-cloud }} under the License Mobility through So
 
 ### Using existing licenses on a dedicated {{ yandex-cloud }} host {#dedicated-hosts}
 
-A [dedicated host](../compute/concepts/dedicated-host.md) is a physical server that is intended solely for hosting your VMs in {{ yandex-cloud }}.
+A [dedicated host ](../compute/concepts/dedicated-host.md)is a physical server that is intended solely for hosting your VMs in {{ yandex-cloud }}.
 
 If you need separate dedicated hardware to support your products, you can use Microsoft software licenses on a dedicated {{ compute-name }} host. To use your licenses on dedicated hardware, you must have a valid agreement with Microsoft perpetual licenses.
 

@@ -63,6 +63,8 @@ items:
             href: pricing/ru-docapi.md
           - name: Стоимость запроса для специальных API
             href: pricing/ru-special.md
+          - name: Стоимость операций с топиками
+            href: pricing/ru-topics.md
       - name: Режим с выделенными инстансами
         href: pricing/dedicated.md
   - name: Document API, совместимый с Amazon DynamoDB

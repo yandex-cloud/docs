@@ -1,4 +1,4 @@
-# Скачать Helm-чарт в реестр
+# Скачать Helm-чарт из реестра
 
 Вы можете скачать [Helm-чарты](https://helm.sh/docs/topics/charts/) в репозитории {{ container-registry-name }}. В {{ container-registry-name }} Helm-чарты хранятся так же, как и обычные [Docker-образы](../../concepts/docker-image.md).
 
@@ -12,7 +12,7 @@
   helm pull oci://{{ registry }}/<ID реестра>/<имя Helm-чарта> --version <версия>
   ```
 
-  Результат:
+  Результат выполнения команды:
 
   ```bash
   Pulled: {{ registry }}/<ID реестра>/<имя Helm-чарта>:<версия>

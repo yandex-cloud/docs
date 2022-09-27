@@ -78,16 +78,61 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
    You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
+- {{ TF }}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+      For a complete list of available {{ mes-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
+
+   1. In the {{ mes-name }} cluster description, change the `resource_preset_id` attribute value under `config.data_node.resources` or `config.master_node.resources`:
+
+      ```hcl
+      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+        ...
+        config {
+          data_node {
+            resources {
+              resource_preset_id = "<host class>"
+              ...
+            }
+          }
+
+          master_node {
+            resources {
+              resource_preset_id = "<host class>"
+              ...
+            }
+          }
+        }
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Host class in the parameters:
       * `configSpec.elasticsearchSpec.dataNode.resources.resourcePresetId` (for hosts with the *Data node* role).
       * `configSpec.elasticsearchSpec.masterNode.resources.resourcePresetId` (for hosts with the *Master node* role).
-   * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
 
-   To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
+      To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
+
+   * List of settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -135,15 +180,61 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
    You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
+- {{ TF }}
+
+   To increase a cluster's storage size:
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+      For a complete list of available {{ mes-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
+
+   1. In the {{ mes-name }} cluster description, change the `disk_size` attribute value under `config.data_node.resources` or `config.master_node.resources`:
+
+      ```hcl
+      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+        ...
+        config {
+          data_node {
+            resources {
+              disk_size = <storage size, GB>
+              ...
+            }
+          }
+
+          master_node {
+            resources {
+              disk_size = <storage size, GB>
+              ...
+            }
+          }
+        }
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+
 
 - API
 
    To increase a cluster's storage size, use the [update](../api-ref/Cluster/update.md) method and pass the following in in the call:
+
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Required storage size (in bytes) in the parameters:
       * `configSpec.elasticsearchSpec.dataNode.resources.diskSize` (for hosts with the *Data node* role).
       * `configSpec.elasticsearchSpec.masterNode.resources.diskSize` (for hosts with the *Master node* role).
-   * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+   * List of settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 
 {% endlist %}
@@ -203,7 +294,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
    * The cluster ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required DBMS values in the `configSpec.elasticsearchSpec.dataNode.elastcsearchConfig_7` parameter.
-   * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+   * List of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
 
    All supported settings are described in [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
 
@@ -259,12 +350,45 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
    {{ mes-short-name }} will launch the `admin` password update for a cluster.
 
+- {{ TF }}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+      For a complete list of available {{ mes-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
+
+   1. In the {{ mes-name }} cluster description, change the `admin_password` attribute value under `config`:
+
+      ```hcl
+      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+        ...
+        config {
+          admin_password = "<new administrator password>"
+          ...
+        }
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The new password in the `configSpec.adminPassword` parameter. The maximum password length is 128 characters.
-   * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+   * List of settings to update (`configSpec.adminPassword` in this case) in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -279,7 +403,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
    1. To change the service account used to work with the cluster, select an account from the drop-down list.
    1. Change additional cluster settings:
 
-      {% include [extra-settings](../../_includes/mdb/mes/extra-settings.md) %}
+      {% include [MES cluster extra settings](../../_includes/mdb/mes/extra-settings.md) %}
 
    1. Set the DBMS settings:
 
@@ -314,34 +438,87 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
    * `--plugins`: List of [{{ ES }} plugins](cluster-plugins.md#elasticsearch) available in the cluster. Plugins that are not included in the list will be disabled.
 
-   * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
+   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
+
+      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+      {% include [Cluster deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
    You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- {{ TF }}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+      For a complete list of available {{ mes-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
+
+   1. To change the service account used for cluster operations, specify the ID of another service account in the `service_account_id` cluster description field:
+
+      ```hcl
+      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+        ...
+        service_account_id = <ID of another service account>
+      }
+      ```
+
+   1. {% include [Maintenance window](../../_includes/mdb/mes/terraform/maintenance-window.md) %}
+
+   1. To change the list of [{{ ES }} plugins](cluster-plugins.md#elasticsearch), change the value of the `plugins` parameter under `config` in the cluster description:
+
+      ```hcl
+      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+        ...
+        config {
+          plugins = [ "<list of plugin names>" ]
+        }
+      }
+      ```
+
+      Plugins that are not included in the list will be disabled.
+
+   1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
+
+      ```hcl
+      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+        ...
+        deletion_protection = <protect cluster from deletion: true or false>
+      }
+      ```
+
+      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+
    * The list of [{{ ES }} plugins](cluster-plugins.md#elasticsearch) in the `plugins` parameter.
 
    
    * ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations in the `serviceAccountId` parameter.
 
 
-   * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
+   * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
 
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
-      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+      {% include [Cluster deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-   {% note warning %}
-
-   This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, be sure to pass the names of the fields to be changed in the `updateMask` parameter.
-
-   {% endnote %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}

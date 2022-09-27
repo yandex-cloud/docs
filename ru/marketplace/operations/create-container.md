@@ -2,7 +2,7 @@
 
 Чтобы добавить программный продукт для {{ managed-k8s-name }} в {{ marketplace-short-name }}, его пакеты необходимо загрузить в [реестр](../../container-registry/concepts/registry.md) {{ yandex-cloud }}. Этот раздел поможет подготовить продукт {{ marketplace-short-name }} для {{ managed-k8s-full-name }}. 
 
-Вы также можете создать продукты для {{ compute-full-name }} на базе ОС [Linux](create-image.md) и [Windows](create-image-ms.md), воспользовавшись соответствующими рекомендациями.
+Вы также можете создать продукты для {{ compute-full-name }} на базе ОС [Linux](create-image.md), воспользовавшись соответствующими рекомендациями.
 
 ## Размещение и именование образов {#registry}
 
@@ -50,8 +50,8 @@ Helm chart должен содержать файл `values.yaml`, в котор
 ```yaml
 # pod spec
 spec:
-   containers:
-   - image: cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
+  containers:
+  - image: cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
 ```
 
 Спецификация пода, в котором имя образа заменено на переменную YAML path, описанную в файле `values.yaml`:
@@ -59,14 +59,14 @@ spec:
 ```yaml
 # pod spec
 spec:
-   containers:
-   - image: {{ .Values.images.pushgateway }}
+  containers:
+  - image: {{ .Values.images.pushgateway }}
 ```
 
 ```yaml
 # values.yaml
 images:
-   pushgateway: cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
+  pushgateway: cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
 ```
 
 ## Манифест {#manifest}
@@ -77,7 +77,7 @@ images:
 
 1. `helm_chart` — обязательное поле. Содержит имя и тег helm chart продукта.
 
-   ``` 
+   ```yaml
    helm_chart:
      name: cr.yandex/<registry-id>/<vendor-name>/<product-name>/<chart>
      tag: <tag>
@@ -85,7 +85,7 @@ images:
 
 1. `requirements` — обязательное поле. Обязательные параметры кластера, в котором продукт будет разворачиваться. Раздел должен содержать параметр `k8s_version`, определяющий диапазон поддерживаемых версий {{ k8s }}.
 
-   ``` 
+   ```yaml
    requirements:
      k8s_version: ">=1.18"
    ```
@@ -94,17 +94,17 @@ images:
   
    * Имя образа, адрес реестра и тег описаны отдельными полями:
 
-      ``` 
+      ```yaml
       images:
       - registry: images.app.image.registry
         name_without_registry: images.app.image.name
         tag: images.app.image.tag
       ```
 
-      ```
+      ```yaml
       # values.yaml
       images:
-         app:
+        app:
           image:
             registry: "cr.yandex"
             name: "<registry-id>/<vendor-name>/<product-name>/<component-name>"
@@ -113,13 +113,13 @@ images:
 
    * Имя образа и адрес реестра описаны в одном поле, тег — в другом: 
    
-      ```
+      ```yaml
       images:
         - name_with_registry: images.app.config.image.name
           tag: images.app.config.image.tag
       ```
    
-      ```
+      ```yaml
       # values.yaml
       images:
         app:
@@ -131,12 +131,12 @@ images:
 
    * Описан полный путь до образа:
 
-      ```
+      ```yaml
       images:
         - full: images.app.image.name
       ```
    
-      ```
+      ```yaml
       # values.yaml
       images:
         app:
@@ -148,16 +148,16 @@ images:
    * `name` — YAML Path переменной из файла `values.yaml`;
    * `title` — краткое название переменной, может быть на русском и английском языке. Значение должно начинаться с заглавной буквы.
    
-     ```
+     ```yaml
      user_values:
      - name: app.port
        title:
-       en: <English_title>
-       ru: <Заголовок_на_русском>
-       ```
+         en: <English_title>
+         ru: <Заголовок_на_русском>
+     ```
    * `description` — описание переменной, может быть на русском и английском языке. Значение должно начинаться с заглавной буквы.
 
-      ```
+      ```yaml
       user_values:
         - name: app.port
           title: <Заголовок>
@@ -169,8 +169,8 @@ images:
    * тип переменной. Доступны значения:
       * `boolean_value`. Может содержать значение по умолчанию.
 
-        ```
-        user_values
+        ```yaml
+        user_values:
           - name: <Название>
             title: <Заголовок>
             description: <Описание>
@@ -180,7 +180,7 @@ images:
 
       * `integer_value`. Может содержать значение по умолчанию, флаг <q>обязательно для заполнения</q> и диапазон допустимых значений.
 
-        ```
+        ```yaml
         user_values:
           - name: <Название>
             title: <Заголовок>
@@ -195,8 +195,8 @@ images:
 
       * `string_value`. Может содержать флаги <q>обязательно для заполнения</q>> и <q>>поле с секретом</q>, а также ограничение на длину значения.
 
-        ```
-        user_values
+        ```yaml
+        user_values:
           - name: <Название>
             title: <Заголовок>
             description: <Описание>
@@ -210,8 +210,8 @@ images:
 
       * `string_selector_value` — строка из определенного списка. Может содержать значение по умолчанию, флаг <Q>обязательно для заполнения</q> и список допустимых значений.
 
-        ```
-        user_values
+        ```yaml
+        user_values:
           - name: <Название>
             title: <Заголовок>
             description: <Описание>
@@ -226,8 +226,8 @@ images:
 
       * `integer_selector_value` — целочисленное значение из определенного списка. Может содержать значение по умолчанию, флаг <q>обязательно для заполнения</q> и список допустимых значений.
 
-        ```
-        user_values
+        ```yaml
+        user_values:
           - name: <Название>
             title: <Заголовок>
             description: <Описание>
@@ -246,7 +246,7 @@ images:
 
 ### Манифест {#manifest}
 
-```
+```yaml
 # Link to helm chart in publisher registry.
 helm_chart:
   name: cr.yandex/{{ tf-cloud-id }}/Vendor/Product/chart
@@ -334,28 +334,28 @@ user_values:
 
 ### Файл переменных values.yaml {#values}
 
-```
+```yaml
 # An example of values.xml related to publisher manifest above.
 replicaCount: 1
 podAnnotations: {}
 podSecurityContext: {}
 ...
 app1:
- image:
-  registry: cr.yandex/{{ tf-cloud-id }}/
-  name: service-images/application-1
-  tag: 1.0
+  image:
+    registry: cr.yandex/{{ tf-cloud-id }}/
+    name: service-images/application-1
+    tag: 1.0
 app2:
   name: application-name
   config:
-  # image can be declared on any level
-   image:
-    name: cr.yandex/{{ tf-cloud-id }}/service-images/application-2
-    tag: 2.0
-   pullPolicy: IfNotPresent
+    # image can be declared on any level
+    image:
+      name: cr.yandex/{{ tf-cloud-id }}/service-images/application-2
+      tag: 2.0
+    pullPolicy: IfNotPresent
 another-whatever-key: # key name is not fixed
- subkey:
-  name: cr.yandex/{{ tf-cloud-id }}/service-images/application-3:3.0
+  subkey:
+    name: cr.yandex/{{ tf-cloud-id }}/service-images/application-3:3.0
 ...
 
 # values

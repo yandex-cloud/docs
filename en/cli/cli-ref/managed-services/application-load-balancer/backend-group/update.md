@@ -20,7 +20,11 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/>A new name of the backend group.|
 |`--description`|<b>`string`</b><br/>A description of the backend group.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
+|`--connection-affinity`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Connection affinity type for backend-group.<br/><br/>Possible property names:<br/><ul> <li><code>source-ip</code>:     Use IP address to define a connection for session affinity.</li> </ul>|
+|`--cookie-affinity`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Cookie affinity type for backend-group.<br/><br/>Possible property names:<br/><ul> <li><code>name</code>:     Name of the cookie.</li> <li><code>ttl</code>:     TTL of the cookie.</li> </ul>|
+|`--header-affinity`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Header affinity type for backend-group.<br/><br/>Possible property names:<br/><ul> <li><code>name</code>:     Name of the header.</li> </ul>|
+|`--clean-session-affinity`|Clean session affinity value|
 
 #### Global Flags
 

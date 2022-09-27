@@ -1,6 +1,6 @@
 # Configuring the Cilium network policy controller
 
-This scenario shows the implementation of [L3/L4 and L7 network policies](https://docs.cilium.io/en/v1.10/gettingstarted/http/) that are managed by the [Cilium network policy controller](../concepts/network-policy.md#cilium).
+This scenario shows the [implementation of L3/L4 and L7 network policies](https://docs.cilium.io/en/v1.10/gettingstarted/http/) that are managed by the [Cilium network policy controller](../concepts/network-policy.md#cilium).
 
 To use the Cilium network policy controller in a cluster:
 * [Install and configure the Hubble networking and security observability platform](#install-hubble).
@@ -8,13 +8,16 @@ To use the Cilium network policy controller in a cluster:
 * [Create an L3/L4 network policy](#l3-l4-policy).
 * [Create an L7 network policy](#l7-policy).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
+1. [Create a service account](../../iam/operations/sa/create.md) and [grant it](../../iam/operations/sa/assign-role-for-sa.md) the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles.
 1. [Create a {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with the following settings:
+   1. A **service account for resources** is a previously created service account with the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles.
    1. **Release channel**: `RAPID`.
    1. Under **Cluster network settings**, select **Enable tunnel mode**.
 1. [Create a node group](node-group/node-group-create.md) in any suitable configuration.
-1. [Install kubectl](https://kubernetes.io/docs/tasks/tools/) and [set it up](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) for working with the cluster created.
+
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Install and configure Hubble {#install-hubble}
 
@@ -30,7 +33,6 @@ To use the Cilium network policy controller in a cluster:
    metadata:
      name: "hubble-ui"
      namespace: kube-system
-
    ---
    # Source: cilium/templates/hubble-ui-configmap.yaml
    apiVersion: v1
@@ -65,9 +67,9 @@ To use the Cilium network policy controller in a cluster:
                                  route:
                                    cluster: backend
                                    prefix_rewrite: "/"
-                                    timeout: 0s
-                                    max_stream_duration:
-                                    grpc_timeout_header_max: 0s
+                                   timeout: 0s
+                                   max_stream_duration:
+                                     grpc_timeout_header_max: 0s
                                - match:
                                    prefix: "/"
                                  route:
@@ -249,7 +251,7 @@ To use the Cilium network policy controller in a cluster:
                name: hubble-ui-envoy
    ```
 
-    {% endcut %}
+   {% endcut %}
 
 1. Create resources:
 
@@ -257,7 +259,7 @@ To use the Cilium network policy controller in a cluster:
    kubectl apply -f hubble-ui.yaml
    ```
 
-   Result:
+   Command result:
 
    ```text
    serviceaccount/hubble-ui created
@@ -275,11 +277,11 @@ To use the Cilium network policy controller in a cluster:
      | grep hubble | grep -v certs
    ```
 
-   Result:
+   Command result:
 
    ```text
-   hubble-relay-6b9c774ffc-2jm7t            Running
-   hubble-ui-95d74d44c-7jpvl                Running
+   hubble-relay-6b9c774ffc-2jm7t  Running
+   hubble-ui-95d74d44c-7jpvl      Running
    ```
 
 1. Download the Hubble client to the local computer:
@@ -336,15 +338,15 @@ To use the Cilium network policy controller in a cluster:
        matchLabels:
          org: empire
          class: deathstar
-       template:
-         metadata:
-           labels:
-             org: empire
-             class: deathstar
-         spec:
-           containers:
-           - name: deathstar
-             image: docker.io/cilium/starwars
+     template:
+       metadata:
+         labels:
+           org: empire
+           class: deathstar
+       spec:
+         containers:
+         - name: deathstar
+           image: docker.io/cilium/starwars
    ---
    apiVersion: v1
    kind: Pod
@@ -371,7 +373,7 @@ To use the Cilium network policy controller in a cluster:
        image: docker.io/tgraf/netperf
    ```
 
-    {% endcut %}
+   {% endcut %}
 
 1. Create applications:
 
@@ -379,7 +381,7 @@ To use the Cilium network policy controller in a cluster:
    kubectl create -f http-sw-app.yaml
    ```
 
-   Result:
+   Command result:
 
    ```text
    service/deathstar created
@@ -394,7 +396,7 @@ To use the Cilium network policy controller in a cluster:
    kubectl get pods,svc
    ```
 
-   Result:
+   Command result:
 
    ```text
    NAME                            READY   STATUS    RESTARTS   AGE
@@ -414,7 +416,7 @@ To use the Cilium network policy controller in a cluster:
    kubectl -n kube-system get pods -l k8s-app=cilium
    ```
 
-   Result:
+   Command result:
 
    ```text
    NAME           READY   STATUS    RESTARTS   AGE
@@ -422,7 +424,6 @@ To use the Cilium network policy controller in a cluster:
    ```
 
    In this example, the Cilium controller pod name is `cilium-67c4p`. If there are multiple nodes in the created node group, the Cilium controller pod is run on each of them. In this case, use the name of any of the pods.
-
 1. Make sure that network policies are disabled: the `POLICY (ingress) ENFORCEMENT` and `POLICY (egress) ENFORCEMENT` columns are set to `Disabled`:
 
    ```bash
@@ -436,7 +437,7 @@ To use the Cilium network policy controller in a cluster:
    kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   Result:
+   Command result:
 
    ```text
    Ship landed
@@ -452,7 +453,6 @@ For access differentiation, the following labels are assigned to pods when creat
 * `org: alliance` for the `xwing` pod.
 
 The L3/L4 network policy only allows `org: empire` labeled pods to access `deathstar`.
-
 1. Create a file named `sw_l3_l4_policy.yaml` with a specification of the policy:
 
    {% cut "sw_l3_l4_policy.yaml" %}
@@ -499,7 +499,7 @@ The L3/L4 network policy only allows `org: empire` labeled pods to access `death
    kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   Result:
+   Command result:
 
    ```text
    Ship landed
@@ -514,14 +514,13 @@ The L3/L4 network policy only allows `org: empire` labeled pods to access `death
    Press **Ctrl** + **C** to abort the command. The network policy has denied this pod access to the service.
 
 1. Learn how the policy works:
-
    * To view the policy specification and status, run the command:
 
       ```bash
       kubectl describe cnp rule1
       ```
 
-   * To check if the pods can connect to `deathstar`, open the Hubble UI. To do this, [follow this link](http://localhost:12000/default).
+   * To check if the pods can connect to `deathstar`, open the Hubble UI. To do this, [follow the link](http://localhost:12000/default).
 
 ## Create an L7 network policy {#l7-policy}
 
@@ -530,14 +529,13 @@ In this part of the scenario, we'll change the access policy for the `tiefighter
 * Access to the `deathstar.default.svc.cluster.local/v1/request-landing` API method remains unchanged.
 
 Access for the `xwing` pod remains unchanged. This pod can't access `deathstar`.
-
 1. Check that the `tiefighter` pod can access the `deathstar.default.svc.cluster.local/v1/exhaust-port` method in the current policy version:
 
    ```bash
    kubectl exec tiefighter -- curl -s -XPUT deathstar.default.svc.cluster.local/v1/exhaust-port
    ```
 
-   Result:
+   Command result:
 
    ```text
    Panic: deathstar exploded
@@ -595,7 +593,7 @@ Access for the `xwing` pod remains unchanged. This pod can't access `deathstar`.
    kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   Result:
+   Command result:
 
    ```text
    Ship landed
@@ -607,7 +605,7 @@ Access for the `xwing` pod remains unchanged. This pod can't access `deathstar`.
    kubectl exec tiefighter -- curl -s -XPUT deathstar.default.svc.cluster.local/v1/exhaust-port
    ```
 
-   Result:
+   Command result:
 
    ```text
    Access denied
@@ -624,14 +622,14 @@ Access for the `xwing` pod remains unchanged. This pod can't access `deathstar`.
 1. Learn how the policy works:
    * To view the updated policy specification and status, run the command:
 
-     ```bash
-     kubectl describe cnp rule1
-     ```
+      ```bash
+      kubectl describe cnp rule1
+      ```
 
-   * To check if the pods can connect to `deathstar`, open the Hubble UI. To do this, [follow this link](http://localhost:12000/default).
+   * To check if the pods can connect to `deathstar`, open the Hubble UI. To do this, [follow the link](http://localhost:12000/default).
 
-## Delete the created resources {#clear-out}
+## Delete the resources you created {#clear-out}
 
 If you finished working with the test scenario, delete the resources:
-1. [Delete the {{ k8s }} cluster](./kubernetes-cluster/kubernetes-cluster-delete.md).
-1. If static public IP addresses were used to access the cluster or nodes, release and [delete](../../vpc/operations/address-delete.md) them.
+1. [Delete the {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-delete.md).
+1. If static public IP addresses were used for cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.

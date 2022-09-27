@@ -1,5 +1,5 @@
-1. In [management console]({{ link-console-main }}), select the folder where you want to create your {{ k8s }} cluster.
-1. In the list of services, select **{{ managed-k8s-name }}**.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster{{ k8s }}.
+1. Select **{{ managed-k8s-name }}**.
 1. Click **Create cluster**.
 1. Enter a name and description for the {{ k8s }} cluster. The cluster name must be unique within {{ yandex-cloud }}.
 1. Specify a **service account for the resources**. This is used to create the resources.
@@ -8,7 +8,7 @@
 
    {% include [write-once-settings](write-once-setting.md) %}
 
-1. Specify a [release channel](../../managed-kubernetes/concepts/release-channels-and-updates.md).
+1. Specify a [release channel](../../managed-kubernetes/concepts/release-channels-and-updates.md). You cannot edit this setting after you create a cluster.
 1. Under **Master configuration**:
    * In the **{{ k8s }} version** field, select the {{ k8s }} version to be installed on the master.
    * In the **Public IP** field, choose a method for assigning an IP address:
@@ -19,13 +19,13 @@
 
      
      * **Regional**: A master created and distributed in three subnets in each availability zone.
-   * Select the [availability zone](../../overview/concepts/geo-scope.md) where you want to create the [master](../../managed-kubernetes/concepts/index.md#master) node address.
+   * Select the [availability zone](../../overview/concepts/geo-scope.md) to create a [master](../../managed-kubernetes/concepts/index.md#master) in.
 
      This step is only available for the zonal master.
 
 
-   * In the **Cloud network** field, select the network to create the master in.
-   * In the **Subnet** field, select the subnet to create the master in.
+   * In the **Cloud network** field, select the network to create the master on. If there aren't any networks, [create one](../../vpc/operations/network-create.md).
+   * In the **Subnet** field, select the subnet to create the master in. If aren't any subnets, [create one](../../vpc/operations/subnet-create.md).
 
      
      For the regional master, specify a subnet in each availability zone.

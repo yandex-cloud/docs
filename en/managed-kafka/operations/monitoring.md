@@ -16,11 +16,13 @@ To view detailed information about the {{ mkf-name }} cluster status:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
+   1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
    1. Click on the name of the cluster and open the **Monitoring** tab.
 
-   1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}The page displays the following charts:
+   1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
+
+   The page displays the following charts:
 
    * **Alive brokers**: Number of functional brokers for each host with the `KAFKA` role.
    * **Bytes In/Out**: Write and message read speed for each host with the `KAFKA` role (bytes per second).
@@ -48,7 +50,7 @@ To view detailed information about the status of individual {{ mkf-name }} hosts
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
+   1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
    1. Click the name of the desired cluster and select **Hosts** → **Monitoring**.
    1. Select the host from the drop-down list.
@@ -64,37 +66,52 @@ To view detailed information about the status of individual {{ mkf-name }} hosts
 
 {% endlist %}
 
-## Integration with {{ monitoring-full-name }} {#monitoring-integration}
+## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
+
+To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
 
 {% list tabs %}
 
 - Management console
 
-   To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
-
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
-   1. In the list of services, select **Monitoring**.
+   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
    1. Under **Service dashboards**, select **{{ mkf-name }} — Cluster Overview**.
-   1. In the desired chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
+   1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
    1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more on the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). 
-   1. Set the `Alarm` and `Warning` notification threshold values.
+   1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
    1. Click **Create alert**.
-
-   To have other cluster health indicators monitored automatically:
-
-      1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
-   1. Add a status metric.
-   1. Set the alert threshold values in the alert settings.
-
-   Recommended threshold values:
-
-   | Metric                             | Parameter                                              | `Alarm`                     | `Warning`                  |
-   |------------------------------------|---------------------------------------------------------|----------------------------|----------------------------|
-   | Number of healthy hosts | `kafka_is_alive`                                         | `<number of hosts> - 2`   | `<number of hosts> - 1`   |
-   | Partition replication status       | `kafka_server_ReplicaManager_UnderReplicatedPartitions` | —                           | `Greater than 0`                  |
-   | Number of lagging replicas              | `kafka_server_ReplicaManager_UnderMinIsrPartitionCount` | `More than 0`                  | —                           |
-   | Storage space used    | `disk.used_bytes`                                        | `90% of storage size`  | `80% of storage size`  |
 
 {% endlist %}
 
-You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster).
+{% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
+
+Recommended threshold values:
+
+| Metric                             | Parameter                                              | `Alarm`                     | `Warning`                  |
+|------------------------------------|---------------------------------------------------------|----------------------------|----------------------------|
+| Number of healthy hosts | `kafka_is_alive`                                         | `<number of hosts> - 2`   | `<number of hosts> - 1`   |
+| Partition replication status       | `kafka_server_ReplicaManager_UnderReplicatedPartitions` | —                           | `Greater than 0`                  |
+| Number of lagging replicas              | `kafka_server_ReplicaManager_UnderMinIsrPartitionCount` | `More than 0`                  | —                           |
+| Storage space used    | `disk.used_bytes`                                        | `90% of storage size`  | `80% of storage size`  |
+
+You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).
+
+For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-kafka).
+
+## Cluster state and status {#cluster-health-and-status}
+
+{% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
+
+To view a cluster's state and status:
+
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ mkf-name }}**.
+1. Hover over the indicator in the **Availability** column in the row of the cluster you need.
+
+### Cluster states {#cluster-health}
+
+{% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
+
+### Cluster statuses {#cluster-status}
+
+{% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}

@@ -2,7 +2,7 @@
 
 Вызвать контейнер можно:
 * через [HTTPS](#https);
-* с помощью [триггера {{ sf-full-name }}](../../functions/concepts/trigger/index.md);
+* с помощью [триггера](../concepts/trigger/index.md);
 * с помощью [расширения {{ api-gw-full-name }}](../../api-gateway/concepts/extensions/containers.md).
 
 {% note info %}
@@ -26,7 +26,7 @@ curl -H "Authorization: Bearer $(yc iam create-token)" https://bba3fva6ka5g*****
 - Консоль управления
 
 	1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-	1. Откройте сервис **{{ serverless-containers-name }}**.
+	1. Выберите сервис **{{ serverless-containers-name }}**.
 	1. Выберите контейнер. Ссылка для вызова будет в поле **Ссылка для вызова**.
 
 - CLI

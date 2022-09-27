@@ -29,10 +29,14 @@ items:
         href: tutorials/data-from-podcasts.md
       - name: Визуализация данных с помощью QL-чарта
         href: tutorials/data-from-ch-to-sql-chart.md
+      - name: Визуализация данных с использованием параметров
+        href: tutorials/data-from-ch-with-parameters.md
       - name: Визуализация данных Yandex Monitoring
         href: tutorials/data-from-monitoring-visualization.md
       - name: Построение чартов customer journeys на данных AppMetrica
         href: tutorials/data-from-appmetrica-yc-visualization.md
+      - name: Создание подключения к Битрикс24
+        href: tutorials/data-from-bitrix24-visualization.md
   - name: Концепции
     items:
       - name: Обзор сервиса
@@ -55,8 +59,6 @@ items:
         items:
           - name: Обзор
             href: concepts/chart/index.md
-          - name: Типы чартов
-            href: concepts/chart/types.md
           - name: Настройки чарта
             href: concepts/chart/settings.md
           - name: Measure Values и Measure Names
@@ -93,8 +95,8 @@ items:
         items:
           - name: Создание подключения к ClickHouse
             href: operations/connection/create-clickhouse.md
-          - name: Создание подключения к файлу CSV
-            href: operations/connection/create-csv.md
+          - name: Создание подключения к файлу
+            href: operations/connection/create-file.md
           - name: Создание подключения к Google Sheets
             href: operations/connection/create-google-sheets.md
           - name: Создание подключения к MySQL
@@ -127,8 +129,6 @@ items:
             href: operations/dataset/create.md
           - name: Объединение данных из нескольких таблиц
             href: operations/dataset/join-data.md
-          - name: Объединение данных из нескольких CSV-подключений
-            href: operations/dataset/join-data-csv.md
           - name: Создание поля данных
             href: operations/dataset/create-field.md
           - name: Создание вычисляемого поля данных
@@ -149,30 +149,8 @@ items:
             href: operations/dataset/add-parameter-dataset.md
       - name: Работа с чартами
         items:
-          - name: Создание линейной диаграммы
-            href: operations/chart/create-line-chart.md
-          - name: Создание диаграммы с областями
-            href: operations/chart/create-area-chart.md
-          - name: Создание круговой диаграммы
-            href: operations/chart/create-pie-chart.md
-          - name: Создание кольцевой диаграммы
-            href: operations/chart/create-ring-chart.md
-          - name: Создание столбчатой диаграммы
-            href: operations/chart/create-column-chart.md
-          - name: Создание линейчатой диаграммы
-            href: operations/chart/create-bar-chart.md
-          - name: Создание точечной диаграммы
-            href: operations/chart/create-scatter-chart.md
-          - name: Создание карты
-            href: operations/chart/create-map-chart.md
-          - name: Создание таблицы
-            href: operations/chart/create-table.md
-          - name: Создание сводной таблицы
-            href: operations/chart/create-pivot-table.md
-          - name: Создание индикатора
-            href: operations/chart/create-indicator-chart.md
-          - name: Создание древовидной диаграммы
-            href: operations/chart/create-tree-chart.md
+          - name: Создание чарта
+            href: operations/chart/create-chart.md
           - name: Создание QL-чарта
             href: operations/chart/create-sql-chart.md
           - name: Создание мультидатасетного чарта
@@ -211,6 +189,8 @@ items:
             href: operations/dashboard/add-parameters.md
           - name: Автообновление дашборда
             href: operations/dashboard/auto-update.md
+          - name: Порядок отображения виджетов на мобильном устройстве
+            href: operations/dashboard/display-modes.md
       - name: Работа с правами доступа
         items:
           - name: Назначение прав доступа
@@ -239,6 +219,52 @@ items:
         href: security/row-level-security.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник визуализаций
+    items:
+      - name: Все визуализации
+        href: visualization-ref/index.md
+      - name: Линейная диаграмма
+        href: visualization-ref/line-chart.md
+      - name: Накопительная диаграмма с областями
+        href: visualization-ref/area-chart.md
+      - name: Нормированная диаграмма с областями
+        href: visualization-ref/normalized-area-chart.md
+      - name: Столбчатая диаграмма
+        href: visualization-ref/column-chart.md
+      - name: Нормированная столбчатая диаграмма
+        href: visualization-ref/normalized-column-chart.md
+      - name: Линейчатая диаграмма
+        href: visualization-ref/bar-chart.md
+      - name: Нормированная линейчатая диаграмма
+        href: visualization-ref/normalized-bar-chart.md
+      - name: Точечная диаграмма
+        href: visualization-ref/scatter-chart.md
+      - name: Круговая диаграмма
+        href: visualization-ref/pie-chart.md
+      - name: Индикатор
+        href: visualization-ref/indicator-chart.md
+      - name: Древовидная диаграмма
+        href: visualization-ref/tree-chart.md
+      - name: Кольцевая диаграмма
+        href: visualization-ref/ring-chart.md
+      - name: Таблица
+        href: visualization-ref/table-chart.md
+      - name: Сводная таблица
+        href: visualization-ref/pivot-table-chart.md
+      - name: Карта
+        items:
+          - name: Обзор
+            href: visualization-ref/map-chart.md
+          - name: Точечная карта
+            href: visualization-ref/point-map-chart.md
+          - name: Полилинейная карта
+            href: visualization-ref/polyline-map-chart.md
+          - name: Фоновая карта
+            href: visualization-ref/choropleth-map-chart.md
+          - name: Тепловая карта
+            href: visualization-ref/heat-map-chart.md
+      - name: Комбинированная диаграмма
+        href: visualization-ref/combined-chart.md
   - name: Справочник функций
     items:
       - name: Все функции
@@ -539,6 +565,8 @@ items:
             href: function-ref/DAY.md
           - name: DAYOFWEEK
             href: function-ref/DAYOFWEEK.md
+          - name: GENERICNOW
+            href: function-ref/GENERICNOW.md
           - name: HOUR
             href: function-ref/HOUR.md
           - name: MINUTE
@@ -621,6 +649,10 @@ items:
             href: function-ref/DB_CAST.md
           - name: FLOAT
             href: function-ref/FLOAT.md
+          - name: GENERICDATETIME
+            href: function-ref/GENERICDATETIME.md
+          - name: GENERICDATETIME_PARSE
+            href: function-ref/GENERICDATETIME_PARSE.md
           - name: GEOPOINT
             href: function-ref/GEOPOINT.md
           - name: GEOPOLYGON
@@ -677,6 +709,12 @@ items:
       - name: Cannot parse number
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-NUMBER.md
+      - name: >-
+          ROUND with precision parameter is not supported for double precision
+          data type in PostgreSQL
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-INVALID_FUNCTION-PG_DOUBLE_PRECISION_ROUND.md
       - name: Columns in JOIN have different types
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md

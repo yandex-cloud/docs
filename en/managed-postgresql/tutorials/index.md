@@ -3,7 +3,8 @@
 * [{#T}](./1c-postgresql.md)
 * [{#T}](./sqoop.md)
 * [{#T}](./profiling.md)
-* [Delivering data using Debezium](./kafka-cdc.md)
+* [{#T}](./cdc-data-transfer.md)
+* [{#T}](./cdc-debezium.md)
 
 ## Replication and migration {#replication-and-migration}
 

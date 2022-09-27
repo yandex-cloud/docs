@@ -31,12 +31,16 @@ items:
         href: tutorials/data-from-podcasts.md
       - name: Visualizing data with a QL chart
         href: tutorials/data-from-ch-to-sql-chart.md
+      - name: Data visualization {{ monitoring-name }}
+        href: tutorials/data-from-monitoring-visualization.md
       - name: Building customer journey charts based on AppMetrica data
         href: tutorials/data-from-appmetrica-yc-visualization.md
   - name: Concepts
     items:
       - name: Service overview
         href: concepts/index.md
+      - name: Organizations in DataLens
+        href: concepts/organizations.md
       - name: Connection
         href: concepts/connection.md
       - name: Data types
@@ -57,6 +61,8 @@ items:
             href: concepts/chart/types.md
           - name: Chart settings
             href: concepts/chart/settings.md
+          - name: Measure Values and Measure Names
+            href: concepts/chart/measure-values.md
       - name: Dashboards
         href: concepts/dashboard.md
       - name: Combining data
@@ -83,8 +89,6 @@ items:
         href: concepts/caching.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Organizations in DataLens
-        href: concepts/organizations.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -107,6 +111,8 @@ items:
             href: operations/connection/create-oracle.md
           - name: Creating a YDB connection
             href: operations/connection/create-ydb.md
+          - name: Creating a Yandex Monitoring connection
+            href: operations/connection/create-monitoring.md
           - name: Creating a Yandex Metrica API connection
             href: operations/connection/create-metrica-api.md
           - name: Creating an AppMetrica connection
@@ -185,6 +191,8 @@ items:
             href: operations/chart/add-guid.md
           - name: Adding parameters to a chart
             href: operations/chart/add-parameter-chart.md
+          - name: Configuring the display of null values
+            href: operations/chart/chart-null-settings.md
       - name: Working with dashboards
         items:
           - name: Creating dashboards
@@ -337,6 +345,8 @@ items:
             href: function-ref/DAY.md
           - name: DAYOFWEEK
             href: function-ref/DAYOFWEEK.md
+          - name: GENERICNOW
+            href: function-ref/GENERICNOW.md
           - name: HOUR
             href: function-ref/HOUR.md
           - name: MINUTE
@@ -571,6 +581,10 @@ items:
             href: function-ref/DB_CAST.md
           - name: FLOAT
             href: function-ref/FLOAT.md
+          - name: GENERICDATETIME
+            href: function-ref/GENERICDATETIME.md
+          - name: GENERICDATETIME_PARSE
+            href: function-ref/GENERICDATETIME_PARSE.md
           - name: GEOPOINT
             href: function-ref/GEOPOINT.md
           - name: GEOPOLYGON
@@ -669,9 +683,18 @@ items:
       - name: Cannot parse number
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-NUMBER.md
+      - name: >-
+          ROUND with precision parameter is not supported for double precision
+          data type in PostgreSQL
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-INVALID_FUNCTION-PG_DOUBLE_PRECISION_ROUND.md
       - name: Columns in JOIN have different types
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md
+      - name: Could not create \<object type>
+        hidden: true
+        href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
       - name: Data is not available because materialization is not yet complete
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
@@ -695,6 +718,9 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
+      - name: Invalid grouping configuration
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-INVALID_GROUP_BY_CONFIGURATION.md
       - name: Invalid top-level LOD dimension found in expression
         hidden: true
         href: >-
@@ -703,6 +729,9 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-SOURCE_ACCESS_DENIED-INVALID_TOKEN.md
+      - name: Measure filter is unsupported for this type of query
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md
       - name: Memory limit has been exceeded during query execution
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md
@@ -732,6 +761,10 @@ items:
       - name: Unknown field
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FIELD-NOT_FOUND.md
+      - name: Window function has unselected dimension
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-BFB_UNSELECTED_DIMENSION.md
       - name: Window function has no aggregated expressions among its arguments
         hidden: true
         href: >-

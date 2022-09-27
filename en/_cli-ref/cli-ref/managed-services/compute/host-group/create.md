@@ -14,7 +14,7 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/>A name of the host group.|
 |`--description`|<b>`string`</b><br/>A textual description of the host group.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--zone`|<b>`string`</b><br/>The zone of the host group to create.|
 |`--type`|<b>`string`</b><br/>Specifies the type of the host group to create.|
 |`--fixed-size`|<b>`int`</b><br/>Specifies the size of the host group to create.|

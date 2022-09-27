@@ -11,7 +11,6 @@ You can add and remove databases, as well as view information about them.
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
    1. Click on the name of the cluster you need and select the **Databases** tab.
 
-
 - CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
@@ -20,13 +19,12 @@ You can add and remove databases, as well as view information about them.
 
    To get a list of databases in a cluster, run the command:
 
-   ```
-   {{ yc-mdb-mg }} database list
-     --cluster-name=<cluster name>
+   ```bash
+   {{ yc-mdb-mg }} database list \
+     --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
-
 
 - API
 
@@ -36,13 +34,7 @@ You can add and remove databases, as well as view information about them.
 
 ## Creating a database {#add-db}
 
-There are no limits to the number of databases in a cluster.
-
-{% note info %}
-
-Created databases are not available to cluster users by default. To allow a user to connect to a new database, don't forget to grant them the necessary permission.
-
-{% endnote %}
+{% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
 
 {% list tabs %}
 
@@ -53,9 +45,10 @@ Created databases are not available to cluster users by default. To allow a user
    1. Select the **Databases** tab.
    1. Click **Add**.
    1. Enter the database name and click **Add**.
-   1. Make sure you [granted permission](cluster-users.md#updateuser) to the appropriate cluster user (currently only available via the CLI and API) to access the created DB.
 
-   {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+      {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
+   1. [Authorize](cluster-users.md#updateuser) the appropriate cluster users for access to the database created.
 
 - CLI
 
@@ -65,18 +58,18 @@ Created databases are not available to cluster users by default. To allow a user
 
    Run the create database command and set the name of the new database:
 
-   ```
+   ```bash
    {{ yc-mdb-mg }} database create <database name> \
      --cluster-name <cluster name>
    ```
 
    {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
-   {{ mmg-short-name }} runs the create database operation.
-
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   Make sure you [granted permission](cluster-users.md#updateuser) to access the created database to the appropriate cluster user.
+   {{ mmg-short-name }} runs the create database operation.
+
+   [Authorize](cluster-users.md#updateuser) the appropriate cluster users for access to the database created.
 
 - {{ TF }}
 
@@ -125,7 +118,6 @@ Created databases are not available to cluster users by default. To allow a user
    1. Click on the name of the cluster you need and select the **Databases** tab.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the desired DB and select **Delete**.
 
-
 - CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
@@ -134,9 +126,9 @@ Created databases are not available to cluster users by default. To allow a user
 
    To delete a database, run the command:
 
-   ```
-   {{ yc-mdb-mg }} database delete <database name>
-     --cluster-name=<cluster name>
+   ```bash
+   {{ yc-mdb-mg }} database delete <database name> \
+     --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

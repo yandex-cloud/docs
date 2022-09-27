@@ -303,6 +303,7 @@ Method | Description
 --- | ---
 [create](create.md) | Creates a Greenplum® cluster in the specified folder.
 [delete](delete.md) | Deletes the specified Greenplum® cluster.
+[expand](expand.md) | Expands the specified Greenplum® cluster.
 [get](get.md) | Returns the specified Greenplum® cluster.
 [list](list.md) | Retrieves a list of Greenplum® clusters that belong to the specified folder.
 [listBackups](listBackups.md) | Retrieves a list of available backups for the specified Greenplum® cluster.

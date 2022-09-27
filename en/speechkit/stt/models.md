@@ -27,8 +27,8 @@ Versions available by the `general:deprecated` tag stop being supported when new
    * `kk-KK`: Kazakh.
    * `en-US`: English.
    * `de-DE`: German.
-   * `fr-FR`: French.
-   * `fi-FI`: Finnish.
+   * `fr-FR`: French.
+   * `fi-FI`: Finnish.
    * `sv-SE`: Swedish.
    * `nl-NL`: Dutch.
    * `pl-PL`: Polish.

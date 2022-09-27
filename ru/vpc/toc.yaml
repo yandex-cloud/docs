@@ -42,6 +42,8 @@ items:
             href: operations/static-route-create.md
           - name: Включить NAT в интернет
             href: operations/enable-nat.md
+          - name: Создать и настроить NAT-шлюз
+            href: operations/create-nat-gateway.md
       - name: Группы безопасности
         items:
           - name: Создать группу безопасности
@@ -64,12 +66,24 @@ items:
         href: operations/connections-view.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Архитектура и защита базового интернет-сервиса
         href: tutorials/web-service.md
-      - name: Настройки DHCP для работы с корпоративным DNS-сервером
-        href: tutorials/dhcp-options.md
+      - name: Маршрутизация с помощью NAT-инстанса
+        href: tutorials/nat-instance.md
+      - name: Создание туннеля IPSec VPN
+        href: tutorials/ipsec-vpn.md
+      - name: Установка виртуального роутера Cisco CSR 1000v
+        href: tutorials/cisco.md
+      - name: Установка виртуального роутера Mikrotik CHR
+        href: tutorials/mikrotik.md
       - name: Соединение с облачной сетью при помощи OpenVPN
         href: tutorials/openvpn.md
+      - name: Создание и настройка шлюза UserGate в режиме прокси-сервера
+        href: tutorials/usergate-proxy.md
+      - name: Настройка сети для {{ dataproc-full-name }}
+        href: tutorials/dataproc-nat-instance.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -82,6 +96,8 @@ items:
         href: concepts/static-routes.md
       - name: Группы безопасности
         href: concepts/security-groups.md
+      - name: Шлюзы
+        href: concepts/gateways.md
       - name: Мониторинг сетевых соединений
         href: concepts/monitoring-connections.md
       - name: Диапазоны публичных IP-адресов

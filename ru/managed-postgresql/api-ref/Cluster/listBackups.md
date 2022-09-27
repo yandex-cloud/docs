@@ -10,7 +10,7 @@ Retrieves the list of available backups for the specified PostgreSQL cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}/backups
+GET https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/backups
 ```
  
 ## Path parameters {#path_params}

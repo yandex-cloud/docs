@@ -1,6 +1,8 @@
-# Setting up computations on Apache Spark™ clusters
+# Setting up a project for computing on Apache Spark™ clusters
 
 To start computing on Apache Spark™ clusters, prepare a {{ ml-platform-name }} project. To run computations, create a new {{ dataproc-name }} cluster or use an existing one.
+
+{% include [need-updates](../../_includes/datasphere/migration/need-updates.md) %}
 
 ## Set up a project to work with the {{ dataproc-name }} cluster {#settings}
 
@@ -25,7 +27,7 @@ You can calculate the total SSD space required for different configurations usin
 ```
 
 | Cluster type | Number of hosts | SSD size |
------------- | :---------------: | ----------------
+|--------------|:-----------------:|------------------|
 | XS | 1 | 384 GB |
 | S | 4 | 1152 GB |
 | M | 8 | 2176 GB |
@@ -61,9 +63,9 @@ Once created, a cluster can have the following statuses:
 You can manage the life cycle of a cluster that you created manually. To ensure proper integration, you need to create a cluster with the following parameters:
 * **Version**: 1.3 and higher.
 * **Enabled services**: `LIVY`, `SPARK`, `YARN`, and `HDFS`.
-* **Cluster availability zone**: `{{ region-id }}-a`.
+   * **Cluster availability zone**: `{{ region-id }}-a`.
 
-{% cut "How to create a {{ dataproc-name }} cluster" %}
+{% cut "How to create a {{ dataproc-name }} cluster " %}
 
 {% list tabs %}
 
@@ -76,7 +78,7 @@ You can manage the life cycle of a cluster that you created manually. To ensure 
    1. In the **Services** field, select: `LIVY`, `SPARK`, `YARN`, and `HDFS`.
    1. Enter the public part of your SSH key in the **Public key** field. For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
    1. Select or create a [service account](../../iam/concepts/users/service-accounts.md) to be granted cluster access.
-         1. In the **Availability zone** field, select `{{ region-id }}-a`.
+   1. In the **Availability** zone field, select `{{ region-id }}-a`.
    1. If necessary, set the properties of Hadoop and its components, for example:
 
       ```

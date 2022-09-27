@@ -39,6 +39,9 @@ _Роль_ — это набор разрешений, который опре�
 {% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
 
 
+
+
+
 ## {{ cdn-name }} {#cdn-roles}
 
 {% include [roles-cdn-viewer](../../../_includes/roles-cdn-viewer.md) %}
@@ -89,6 +92,8 @@ _Роль_ — это набор разрешений, который опре�
 ## {{ dataproc-short-name }} {#dataproc-roles}
 
 {% include [mdb.dataproc.agent](../../../_includes/roles-dataproc-agent.md) %}
+
+{% include [data-proc-roles](../../../_includes/data-proc/data-proc-roles.md) %}
 
 
 
@@ -212,6 +217,14 @@ _Роль_ — это набор разрешений, который опре�
 {% include [serverless-containers-roles-editor](../../../_includes/roles-serverless-containers-editor.md) %}
 
 {% include [serverless-containers-roles-admin](../../../_includes/roles-serverless-containers-admin.md) %}
+
+## {{ captcha-name }} {#smartcaptcha}
+
+{% include [smartcaptcha-viewer](../../../_includes/roles-smartcaptcha-viewer.md) %}
+
+{% include [smartcaptcha-editor](../../../_includes/roles-smartcaptcha-editor.md) %}
+
+{% include [smartcaptcha-admin](../../../_includes/roles-smartcaptcha-admin.md) %}
 
 
 ## {{ vpc-name }} {#vpc-roles}

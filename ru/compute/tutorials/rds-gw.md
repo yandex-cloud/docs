@@ -1,1 +1,0 @@
-{% include [rds-gw.md](../../_tutorials/rds-gw.md) %}

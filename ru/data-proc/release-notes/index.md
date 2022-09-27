@@ -3,6 +3,15 @@
 {% include [Tags](../../_includes/mdb/release-notes-tags.md) %}
 
 
+## 01.09.2022 {#01.09.2022}
+
+* Добавлена поддержка [новых настроек](https://github.com/apache/airflow/pull/25158) в Airflow-операторе `DataprocCreateClusterOperator`.
+
+## 01.08.2022 {#01.08.2022}
+
+* Добавлены классы хостов `cpu-optimized` с соотношением количества гигабайт RAM к количеству vCPU 2 к 1. Новые конфигурации доступны только для платформы Intel Ice Lake.
+* Опубликовано [руководство](../tutorials/geesefs-init-actions.md) по использованию скриптов инициализации для настройки GeeseFS.
+
 ## 01.07.2022 {#01.07.2022}
 
 * Доступна версия образа 2.1.

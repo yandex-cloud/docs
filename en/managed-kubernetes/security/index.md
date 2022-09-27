@@ -36,7 +36,7 @@ Role | Permissions
 `k8s.admin` | Lets you create, delete, edit, stop, and start clusters and node groups. In the future, it will also let you manage granular access to clusters and groups.
 `k8s.editor` | Lets you create, delete, edit, stop, and start clusters and node groups.
 `k8s.viewer` | Lets you view information about {{ managed-k8s-name }} clusters and node groups.
-`k8s.clusters.agent` | A special role for cluster service accounts. Lets you create node groups, disks, and internal load balancers. Lets you use previously created [KMS keys](../../kms/concepts/key.md) to encrypt and decrypt secrets and connect previously created [security groups](../operations/security-groups.md).<br>When combined with the `load-balancer.admin` role, it lets you create a network load balancer with a public IP address.<br>It includes such roles as `compute.admin`, `vpc.privateAdmin`, `load-balancer.privateAdmin`, `kms.keys.encrypterDecrypter`, and `iam.serviceAccounts.user`.
+`k8s.clusters.agent` | A special role for cluster service accounts. Lets you create node groups, disks, and internal load balancers. Lets you use previously created [KMS keys](../../kms/concepts/key.md) to encrypt and decrypt secrets and connect previously created [security groups](../operations/connect/security-groups.md).<br>When combined with the `load-balancer.admin` role, it lets you create a network load balancer with a public IP address.<br>It includes such roles as `compute.admin`, `vpc.privateAdmin`, `load-balancer.privateAdmin`, `kms.keys.encrypterDecrypter`, and `iam.serviceAccounts.user`.
 
 ### Roles required to access the {{ k8s }} API {#k8s-api}
 
@@ -82,7 +82,7 @@ When creating a cluster in {{ managed-k8s-name }}, you should specify two servic
 
 ## Accessing the {{ managed-k8s-name }} management console {#ui-annotation}
 
-To access {{ managed-k8s-name }} via the {{ yandex-cloud }} [management console]({{ link-console-main }}), the minimum required role is `k8s.viewer.`
+To access {{ managed-k8s-name }} via the {{ yandex-cloud }} [management console]({{ link-console-main }}), the minimum required role is `k8s.viewer`.
 
 To get detailed information about clusters and node groups, you'll need an additional role: `k8s.cluster-api.viewer`. This role corresponds to the `viewer` role in {{ k8s }} RBAC and grants access rights to a limited set of resources in the {{ k8s }} API, so the console's features are limited.
 

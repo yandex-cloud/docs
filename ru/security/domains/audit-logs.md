@@ -10,7 +10,7 @@
 
 {% note info %}
 
-О событиях Kubernetes читайте в разделе [Сбор, мониторинг и анализ аудитных логов в {{ managed-k8s-full-name }}](./kubernetes.md#collection-monitoring-analysis-audit-logs).
+О событиях {{ k8s }} читайте в разделе [Сбор, мониторинг и анализ аудитных логов в {{ managed-k8s-full-name }}](./kubernetes.md#collection-monitoring-analysis-audit-logs).
 
 {% endnote %}
 
@@ -30,7 +30,7 @@
 
 Кроме того, {{ monitoring-name }} можно применять для мониторинга работоспособности самого сервиса {{ at-name }} и мониторинга событий безопасности.
 
-![](../../_assets/overview/solution-library-icon.svg)[Решение: Мониторинг Audit Trails и событий безопасности с помощью {{ monitoring-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trail_monitoring)
+![](../../_assets/overview/solution-library-icon.svg)[Решение: Мониторинг {{ at-name }} и событий безопасности с помощью {{ monitoring-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trail_monitoring)
 
 Аудитные логи возможно экспортировать в лог-группу [{{ cloud-logging-name }}](../../logging/index.yaml) и в [SIEM-систему клиента](#export) для анализа информации о событиях и инцидентах.
 
@@ -39,13 +39,13 @@
 
 ### Экспорт событий в SIEM {#export}
 
-#### Audit Trails {#export-at}
+#### {{ at-name }} {#export-at}
 
 Решения для экспорта аудитных логов {{ yandex-cloud }} подготовлены для следующих SIEM-систем:
 
-- Yandex Managed Service for Elasticsearch (ELK)
+- {{ mes-full-name }} (ELK)
 
-  ![](../../_assets/overview/solution-library-icon.svg)[Решение: Сбор, мониторинг и анализ аудитных логов в Yandex Managed Service for Elasticsearch](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main)
+  ![](../../_assets/overview/solution-library-icon.svg)[Решение: Сбор, мониторинг и анализ аудитных логов в {{ mes-full-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main)
 
 - ArcSight
 
@@ -65,11 +65,11 @@
 
 C помощью {{ sf-full-name }} можно настроить оповещения о событиях {{ at-name }}, а так же автоматическое реагирование на вредоносные действия, например  удаление опасных правил или прав доступа.
 
-![](../../_assets/overview/solution-library-icon.svg)[Решение: уведомления и реагирование на события ИБ Audit Trails с помощью Cloud Logging/Cloud Functions + Telegram](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trails-function-detector)
+![](../../_assets/overview/solution-library-icon.svg)[Решение: уведомления и реагирование на события ИБ {{ at-name }} с помощью {{ iam-short-name }} / {{ sf-name }} + Telegram](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trails-function-detector)
 
 ## Уровень ОС {#os-level}
 
-При использовании облачных сервисов по модели IaaS и использовании групп узлов Kubernetes клиент отвечает за безопасность ОС и выполняет сбор событий уровня ОС самостоятельно. Для сбора стандартных событий, которые генерирует ОС, и их экспорта в SIEM-систему клиента существуют бесплатные инструменты, такие как:
+При использовании облачных сервисов по модели IaaS и использовании групп узлов {{ k8s }} клиент отвечает за безопасность ОС и выполняет сбор событий уровня ОС самостоятельно. Для сбора стандартных событий, которые генерирует ОС, и их экспорта в SIEM-систему клиента существуют бесплатные инструменты, такие как:
   - [Osquery](https://osquery.io/)
   - [Filebeat (ELK)](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-system.html)
   - [Wazuh](https://documentation.wazuh.com/current/getting-started/use_cases/log_analysis.html)
@@ -88,7 +88,7 @@ C помощью {{ sf-full-name }} можно настроить оповеще
 
 ## Уровень сети {#network-level}
 
-Запись событий о сетевом трафике VPC (Flow Logs) на текущий момент может выполняться только средствами клиента. Для сбора и передачи событий могут использоваться решения из {{ marketplace-full-name }} (например, [NGFW](/marketplace?tab=software&search=NGFW), [IDS/IPS](/marketplace?tab=software&search=IDS%2FIPS), [сетевые продукты](/marketplace?categories=network)) либо бесплатное ПО.
+Запись событий о сетевом трафике {{ vpc-short-name }} (Flow Logs) на текущий момент может выполняться только средствами клиента. Для сбора и передачи событий могут использоваться решения из {{ marketplace-full-name }} (например, [NGFW](/marketplace?tab=software&search=NGFW), [IDS/IPS](/marketplace?tab=software&search=IDS%2FIPS), [сетевые продукты](/marketplace?categories=network)) либо бесплатное ПО.
 
 ## Синхронизация времени {#time-synch}
 

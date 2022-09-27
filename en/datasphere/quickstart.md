@@ -1,50 +1,49 @@
 # Getting started with {{ ml-platform-name }}
 
-{{ ml-platform-name }} is a service that simplifies the use of the JupyterLab development environment on {{ yandex-cloud }} computing resources. This lets you perform complex calculations, such as training neural networks or analyzing big data, using the familiar Jupyter Notebook interface.
+{{ ml-platform-full-name }} is an end-to-end ML development environment where you can use familiar IDEs, serverless computing technology, and seamlessly combine a broad range of {{ yandex-cloud }} computing resource configurations. {{ ml-platform-full-name }} is part of the data platform and offers powerful features to easily interact with {{ yandex-cloud }} services. As an IDE, {{ ml-platform-name }} provides [Jupyter® Notebook](https://jupyter.org/).
 
 In this section, you'll learn how to:
-
-1. [Create projects](#create-project) for the JupyterLab environment.
-1. [Install packages](#install-dependencies) you need.
-1. [Manage computing resources](#control-compute-resources) by changing their configurations.
+1. [Create projects](#create-project).
+1. [Run projects](#start-project).
+1. [Configure the environment](#install-dependencies).
+1. [Upload data to projects](#download-data).
+1. [Start training](#start-ml).
+1. [Share your results](#share-with-community).
 
 ## Before you begin {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
-   1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-
-## Assign roles for using DataSphere {#roles}
-
-In the management console on the [Access management]({{ link-console-access-management }}) page, make sure you have relevant roles:
-
-* To work with existing projects, you need the `datasphere.user` role or higher.
-
-* To create, edit, and delete projects, you need the `datasphere.admin` role or higher.
-
-Read more about [access management](security/index.md).
+1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. Open the [homepage]({{ link-datasphere-main }}) {{ ml-platform-name }}.
+1. Accept the user agreement.
+1. Select the organization to work with {{ ml-platform-name }} in or create a new one.
 
 ## Create a project {#create-project}
 
-{% include [include](../_includes/datasphere/create-project.md) %}
+{% include [create-project](../_includes/datasphere/ui-create-project.md) %}
 
-## Install dependencies {#install-dependencies}
+## Run the project {#start-project}
 
-{% include [include](../_includes/datasphere/install-dependencies-intro.md) %}
+{% include [start-project](../_includes/datasphere/ui-start-project.md) %}
 
-{% include [include](../_includes/datasphere/install-dependencies-steps.md) %}
+## Configure the environment {#install-dependencies}
 
-## Increase computing resources for your cell {#control-compute-resources}
+{% include [install-dependencies-intro](../_includes/datasphere/install-dependencies-intro.md) %}
 
-{% include [include](../_includes/datasphere/control-compute-resources-intro.md) %}
+{% include [install-dependencies-steps](../_includes/datasphere/install-dependencies-steps.md) %}
 
-{% include [include](../_includes/datasphere/control-compute-resources-steps.md) %}
+You can also configure the environment to run your code [using Docker images](operations/user-images.md).
 
-## Contact support in the service {#support}
+## Upload data to the project {#download-data}
 
-{% include [include](../_includes/datasphere/notebook-support.md) %}
+{% include [download-data](../_includes/datasphere/download-data.md) %}
+
+## Start training {#start-ml}
+
+{% include [start-ml](../_includes/datasphere/start-ml.md) %}
 
 ## What's next {#what-is-next}
 
-- [Learn about service features](concepts/index.md).
-- [Share a link to the notebook with all the results](operations/projects/publication.md).
-- [See other instructions on how to use the service](operations/index.md).
+* [Learn about service features](concepts/index.md).
+* [See other instructions on how to use the service](operations/index.md).
+* [Deploy the trained model as a service](concepts/deploy/index.md).
