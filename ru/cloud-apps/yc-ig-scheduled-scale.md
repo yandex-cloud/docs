@@ -1,4 +1,4 @@
-# Instance Group Sheduled Scaler
+# Instance Group Scheduled Scaler
 
 Приложение на базе [{{ sf-full-name}}](../functions). Изменяет размер указанной [группы виртуальных машин](../compute/concepts/instance-groups/index.md) {{ compute-full-name }} по расписанию.
 
@@ -13,7 +13,7 @@
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите развернуть приложение.
 1. Выберите сервис **{{ cloud-apps-name }}**.
 1. На панели слева выберите **Магазин приложений**.
-1. Выберите **IG Scheduled Scaler** и нажмите кнопку **Использовать**.
+1. Выберите **Instance Group Scheduled Scaler** и нажмите кнопку **Использовать**.
 1. Укажите:
     * Имя приложения.
     * (опционально) Описание приложения.
