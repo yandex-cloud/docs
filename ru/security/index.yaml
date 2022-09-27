@@ -33,13 +33,13 @@ links:
     href: security-bulletins/
   - title: Безопасность Kubernetes
     description: ''
-    href: domains/kubernetes.md
+    href: domains/kubernetes
   - title: Сетевая безопасность
     description: ''
-    href: domains/network.md
+    href: domains/network
   - title: Аутентификация и управление доступом
     description: ''
-    href: domains/access.md
+    href: domains/access
   - title: Шифрование данных
     description: ''
-    href: domains/encryption.md
+    href: domains/encryption

@@ -1,4 +1,4 @@
-`# Compliance
+# Compliance
 
 {% if product == "yandex-cloud" %}
 
