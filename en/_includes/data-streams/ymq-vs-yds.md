@@ -40,6 +40,6 @@ Order of receiving messages| Guaranteed for FIFO queues and not guaranteed for r
 Throughput | Up to 300 messages per second for regular queues and up to 30 messages per second for FIFO queues | Not limited, depends on the number of shards
 What you pay for | Message write and read requests | Shards, their performance, and the amount of data stored
 Supported protocol | [Amazon SQS API](../../message-queue/api-ref/index.md) | [Amazon Kinesis Data Streams API](../../data-streams/kinesisapi/api-ref.md)
-Which {{ yandex-cloud }} services integration is available for | [{{ sf-full-name }}](../../functions/index.yaml), [{{ api-gw-full-name }}](../../api-gateway/index.yaml) | [{{ sf-full-name }}](../../functions/index.yaml), [{{ api-gw-full-name }}](../../api-gateway/index.yaml), [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
+Which {{ yandex-cloud }} services integration is available for | [{{ sf-full-name }}](../../functions/), [{{ api-gw-full-name }}](../../api-gateway/) | [{{ sf-full-name }}](../../functions/), [{{ api-gw-full-name }}](../../api-gateway/), [{{ data-transfer-full-name }}](../../data-transfer/)
 Reliability | Data is stored in all availability zones | Data is stored in all availability zones
 Scalability for reads | Server | Client ([KCL](https://docs.aws.amazon.com/streams/latest/dev/shared-throughput-kcl-consumers.html)). KCL 1.x versions are supported

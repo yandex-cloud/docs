@@ -1,6 +1,6 @@
 # Editing an object ACL
 
-Aside from {% if audience != "internal" %}[{{ iam-short-name }}](../../../iam/index.yaml){% else %}{{ iam-short-name }}{% endif %}, {{ objstorage-name }} supports access control through [ACL](../../concepts/acl.md).
+Aside from {% if audience != "internal" %}[{{ iam-short-name }}](../../../iam/){% else %}{{ iam-short-name }}{% endif %}, {{ objstorage-name }} supports access control through [ACL](../../concepts/acl.md).
 
 {% list tabs %}
 

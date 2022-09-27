@@ -1,6 +1,6 @@
 # Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}
 
-В [{{ yq-full-name }}](../../query/index.yaml) интегрирована поддержка {{ at-name }}. Вы можете анализировать события ресурсов {{ yandex-cloud }}, выполняя [аналитические](../../query/concepts/batch-processing.md) и [потоковые](../../query/concepts/stream-processing.md) запросы на языке {{ yql-short-name }}.
+В [{{ yq-full-name }}](../../query/) интегрирована поддержка {{ at-name }}. Вы можете анализировать события ресурсов {{ yandex-cloud }}, выполняя [аналитические](../../query/concepts/batch-processing.md) и [потоковые](../../query/concepts/stream-processing.md) запросы на языке {{ yql-short-name }}.
 
 Аналитические запросы можно выполнять для логов, которые хранятся [в бакете](../operations/export-organization-bucket.md), а потоковые — для логов [в потоке данных](../operations/export-organization-bucket.md) {{ yds-full-name }}.
 

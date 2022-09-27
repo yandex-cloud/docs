@@ -10,7 +10,7 @@ If your cloud resources need to exchange data with the internet and other extern
 
 To enable access to the internet from specific addresses, [use a dedicated NAT instance](../../tutorials/routing/nat-instance.md) and register its address as static. This is suitable, for example, for setting up access policies or firewalls when interacting with partner companies. This way your VMs can use a shared internet access point via a fixed address as part of the access network.
 
-This model also lets you enable secure access to [{{ objstorage-short-name }}](../../storage/index.yaml) without accessing the internet. To do this, set up an [access policy](../../storage/concepts/policy.md) for a [bucket](../../storage/concepts/bucket.md) by only adding your NAT instance's fixed IP address to the white list (see [sample settings](https://github.com/alex-vlasov-l1/nat-insatnce-terraform-example)).
+This model also lets you enable secure access to [{{ objstorage-short-name }}](../../storage/) without accessing the internet. To do this, set up an [access policy](../../storage/concepts/policy.md) for a [bucket](../../storage/concepts/bucket.md) by only adding your NAT instance's fixed IP address to the white list (see [sample settings](https://github.com/alex-vlasov-l1/nat-insatnce-terraform-example)).
 
 #### Use load balancers {#use-load-balancer}
 
@@ -18,7 +18,7 @@ To publish your applications, use [{{ network-load-balancer-name }}](../../netwo
 
 #### Publish static files using {{ objstorage-short-name }}{% if product == "yandex-cloud" %} and {{ cdn-short-name }}{% endif %} {#publishing-static-files}
 
-To publish static files, use [{{ objstorage-short-name }}](../../storage/index.yaml){% if product == "yandex-cloud" %} along with [{{ cdn-short-name }}](../../cdn/index.yaml){% endif %}. This way you'll save the computing resources of your VMs and make their usage more cost-efficient. {% if product == "yandex-cloud" %}You can also use a CDN to speed up content delivery to users and make your services more reliable.{% endif %}
+To publish static files, use [{{ objstorage-short-name }}](../../storage/){% if product == "yandex-cloud" %} along with [{{ cdn-short-name }}](../../cdn/){% endif %}. This way you'll save the computing resources of your VMs and make their usage more cost-efficient. {% if product == "yandex-cloud" %}You can also use a CDN to speed up content delivery to users and make your services more reliable.{% endif %}
 
 Read more:
 

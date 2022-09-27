@@ -7,7 +7,7 @@ The key user role `kms.keys.encrypterDecrypter` includes the following permissio
 
 {% include [roles-editor-includes-permissions](iam/roles-editor-includes-permissions.md) %}
 
-You can now assign this role to an [organization](../organization/index.yaml), [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../resource-manager/concepts/resources-hierarchy.md#folder), or [key](../kms/concepts/key).
+You can now assign this role to an [organization](../organization/), [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../resource-manager/concepts/resources-hierarchy.md#folder), or [key](../kms/concepts/key).
 
 A {{ kms-short-name }} administrator can grant a role (the `kms.admin` role).
 

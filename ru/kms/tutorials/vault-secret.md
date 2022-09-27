@@ -1,6 +1,6 @@
 # Auto Unseal в Hashicorp Vault
 
-Сборка [Hashicorp Vault](https://www.vaultproject.io/) с поддержкой [{{ kms-name }}](../index.yaml) доступна в виде [образа ВМ](/marketplace/products/yc/vault-yckms) в {{ marketplace-name }} и docker-образа.
+Сборка [Hashicorp Vault](https://www.vaultproject.io/) с поддержкой [{{ kms-name }}](../) доступна в виде [образа ВМ](/marketplace/products/yc/vault-yckms) в {{ marketplace-name }} и docker-образа.
 
 Сборка  позволяет использовать {{ kms-name }} в качестве доверенного сервиса для шифрования секретов. Реализуется это через механизм [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal).
 

@@ -1,6 +1,6 @@
 # Network security
 
-This section provides customers with recommendations on security settings in [{{ vpc-full-name }}](../../vpc/index.yaml).
+This section provides customers with recommendations on security settings in [{{ vpc-full-name }}](../../vpc/).
 
 {% if product == "yandex-cloud" %}
 
@@ -23,13 +23,13 @@ To control network access to your resources, use one of the following:
 
    ![](../../_assets/overview/solution-library-icon.svg)[Solution: Installing an NGFW on a {{ yandex-cloud }} VM: Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
 
-* The Router-on-a-Stick method based on [Cloud Interconnect](../../interconnect/index.yaml): you can connect your own firewall to the {{ yandex-cloud }} infrastructure via a dedicated channel and route traffic to cloud networks through this firewall.
+* The Router-on-a-Stick method based on [Cloud Interconnect](../../interconnect/): you can connect your own firewall to the {{ yandex-cloud }} infrastructure via a dedicated channel and route traffic to cloud networks through this firewall.
 {% endif %}
 {% if product == "cloud-il" %}
 * A separate VM as a firewall.
 {% endif %}
 
-To deliver traffic to an application within your cloud infrastructure, we recommend that you use a network load balancer, such as [{{ alb-full-name }}](../../application-load-balancer/index.yaml), to route your traffic through the selected ports only. We recommend that you use the network load balancer together with security groups to limit the list of IP addresses that have access to the application.
+To deliver traffic to an application within your cloud infrastructure, we recommend that you use a network load balancer, such as [{{ alb-full-name }}](../../application-load-balancer/), to route your traffic through the selected ports only. We recommend that you use the network load balancer together with security groups to limit the list of IP addresses that have access to the application.
 
 To isolate applications from each other, put resources in different security groups, and, if strict isolation is required, in different {{ vpc-short-name }}s. Traffic inside a {{ vpc-short-name }} is allowed by default and is not allowed between {{ vpc-short-name }}s (only via VMs with two network interfaces in different networks{% if product == "cloud-il" %}or VPN{% endif %}{% if product == "yandex-cloud" %}, VPN or Cloud Interconnect){% endif %}.
 
@@ -54,7 +54,7 @@ To enable administrators to establish remote connections to your cloud resources
 
 * A client VPN between remote devices and {{ yandex-cloud }}. As a remote access gateway, use a VM featuring a client VPN based on an [image](/marketplace?categories=network) from {{ marketplace-name }}. See the instructions in [Creating a VPN connection using OpenVPN](../../tutorials/routing/openvpn.md).
 {% if product == "yandex-cloud" %}
-* A dedicated private connection between a remote site and {{ yandex-cloud }} using [Cloud Interconnect](../../interconnect/index.yaml).
+* A dedicated private connection between a remote site and {{ yandex-cloud }} using [Cloud Interconnect](../../interconnect/).
 {#gost-vpn}
 * VPN on certified data cryptographic security tools:
 

@@ -7,7 +7,7 @@ The `kms.editor` role includes the following permissions:
 * [Encrypt](../kms/operations/encryption.md#encryption) and [decrypt](../kms/operations/encryption.md#decryption) data.
 * [Rotate a key](../kms/operations/key.md#rotate).
 
-You can now assign this role to an [organization](../organization/index.yaml), [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../resource-manager/concepts/resources-hierarchy.md#folder), or [key](../kms/concepts/key).
+You can now assign this role to an [organization](../organization/), [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../resource-manager/concepts/resources-hierarchy.md#folder), or [key](../kms/concepts/key).
 
 A {{ kms-short-name }} administrator can grant a role (the `kms.admin` role).
 

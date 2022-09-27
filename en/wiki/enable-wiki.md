@@ -2,7 +2,7 @@
 
 Users of organizations registered on the {{ yandex-cloud }} platform can use {{ wiki-full-name }} to create a corporate knowledge base. Learn more about the features of {{ wiki-full-name }} in [{#T}](overview.md).
 
-You can connect {{ wiki-full-name }} to an existing organization or create a new one. Read more about organizations in the [{{ org-full-name }} documentation](../organization/index.yaml).
+You can connect {{ wiki-full-name }} to an existing organization or create a new one. Read more about organizations in the [{{ org-full-name }} documentation](../organization/).
 
 ## Activate {{ wiki-name }} in an existing organization {#current-org}
 

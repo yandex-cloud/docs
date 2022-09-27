@@ -39,5 +39,5 @@
 
 * [Статический веб-сайт в {{ objstorage-name }}](../../tutorials/web/static.md)
 {% if product == "yandex-cloud" %}
-* [{{ api-gw-full-name }}](../../api-gateway/index.yaml)
+* [{{ api-gw-full-name }}](../../api-gateway/)
 {% endif %}

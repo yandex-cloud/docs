@@ -8,7 +8,7 @@ Users of organizations registered on the {{ yandex-cloud }} platform enjoy advan
 
 - {{ forms-full-name }} for business can be enabled for an existing organization, or you can create a new organization. To learn more about enabling {{ forms-full-name }} for business, go to [{#T}](enable-forms.md).
 
-  You can learn more about managing organizations in the [{{ org-full-name }} documentation](../organization/index.yaml).
+  You can learn more about managing organizations in the [{{ org-full-name }} documentation](../organization/).
 
 - Access to forms for business can be granted to the users of the organization registered in {{ org-full-name }}.
 

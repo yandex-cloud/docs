@@ -26,7 +26,7 @@
 
 {% endnote %}
 
-{% if audience != "internal" %} Для сбора метрик, анализа некоторых событий уровня {{ yandex-cloud }} и настройки оповещений рекомендуется использовать сервис [{{ monitoring-full-name }}](../../monitoring/index.yaml). {% endif %} С его помощью возможно отслеживать, например, резкое возрастание нагрузки на {{ compute-name }}, RPS сервиса {{ alb-name }}, значительные изменения в статистике событий сервиса {{ iam-name }}.
+{% if audience != "internal" %} Для сбора метрик, анализа некоторых событий уровня {{ yandex-cloud }} и настройки оповещений рекомендуется использовать сервис [{{ monitoring-full-name }}](../../monitoring/). {% endif %} С его помощью возможно отслеживать, например, резкое возрастание нагрузки на {{ compute-name }}, RPS сервиса {{ alb-name }}, значительные изменения в статистике событий сервиса {{ iam-name }}.
 
 Кроме того, {{ monitoring-name }} можно применять для мониторинга работоспособности самого сервиса {{ at-name }} и мониторинга событий безопасности.
 
@@ -34,7 +34,7 @@
 ![](../../_assets/overview/solution-library-icon.svg)[Решение: Мониторинг {{ at-name }} и событий безопасности с помощью {{ monitoring-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trail_monitoring)
 
 {% endif %}
-Аудитные логи возможно экспортировать {% if product == "yandex-cloud" %}в лог-группу [{{ cloud-logging-name }}](../../logging/index.yaml) и {% endif %}в [SIEM-систему клиента](#export) для анализа информации о событиях и инцидентах.
+Аудитные логи возможно экспортировать {% if product == "yandex-cloud" %}в лог-группу [{{ cloud-logging-name }}](../../logging/) и {% endif %}в [SIEM-систему клиента](#export) для анализа информации о событиях и инцидентах.
 
 {% if product == "yandex-cloud" %}
 Список важных событий уровня {{ yandex-cloud }} для поиска в аудитных логах:

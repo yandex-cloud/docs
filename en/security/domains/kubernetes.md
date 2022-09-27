@@ -1,6 +1,6 @@
 # Kubernetes security
 
-The section includes recommendations for {{ yandex-cloud }} users on security settings in [{{ managed-k8s-full-name }}](../../managed-kubernetes/index.yaml).
+The section includes recommendations for {{ yandex-cloud }} users on security settings in [{{ managed-k8s-full-name }}](../../managed-kubernetes/).
 
 ## Responsibility {#division-of-responsibility}
 
@@ -183,7 +183,7 @@ There exist dedicated free solutions for Kubernetes nodes from Google or Argus, 
 
 At the Kubernetes etcd level, encrypt secrets using an in-built [mechanism from {{ yandex-cloud }}](../../managed-kubernetes/concepts/encryption.md).
 
-We recommend that you use SecretManager solutions to work with Kubernetes secrets. [{{ lockbox-name }}](../../lockbox/index.yaml) is such a solution in {{ yandex-cloud }}.
+We recommend that you use SecretManager solutions to work with Kubernetes secrets. [{{ lockbox-name }}](../../lockbox/) is such a solution in {{ yandex-cloud }}.
 
 {% if product == "yandex-cloud" %}
 {{ lockbox-name }} was integrated with Kubernetes using the [External Secrets](https://external-secrets.io/latest/) open-source project. The solution is available in {{ marketplace-name }} for Kubernetes in the basic simplified scenario: [External Secrets Operator with Yandex Lockbox support](/marketplace/products/yc/external-secrets).

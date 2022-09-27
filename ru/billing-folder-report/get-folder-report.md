@@ -94,4 +94,4 @@
 ##### См. также
 
 * [Посмотреть детализацию для облака](../billing/operations/check-charges.md)
-* [Документация биллинга в {{ yandex-cloud }}](../billing/index.yaml)
+* [Документация биллинга в {{ yandex-cloud }}](../billing/)

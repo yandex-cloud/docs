@@ -97,7 +97,7 @@ You can set up log processing using {{ sf-full-name }}. To do this, create a [tr
 
 {% note warning %}
 
-Currently, you can get the ID of the load balancer's log group and [create a trigger](../../functions/operations/trigger/cloudlogs-trigger-create.md) with this ID through the {{ yandex-cloud }} [CLI](../../cli/index.yaml) or API only.
+Currently, you can get the ID of the load balancer's log group and [create a trigger](../../functions/operations/trigger/cloudlogs-trigger-create.md) with this ID through the {{ yandex-cloud }} [CLI](../../cli/) or API only.
 
 {% endnote %}
 

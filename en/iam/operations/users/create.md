@@ -1,6 +1,6 @@
 # Adding a user to the cloud
 
-Add a user to your [organization](../../../organization/index.yaml) to [grant](../../../iam/operations/roles/grant.md) him or her access to {{ yandex-cloud }} resources.
+Add a user to your [organization](../../../organization/) to [grant](../../../iam/operations/roles/grant.md) him or her access to {{ yandex-cloud }} resources.
 
 You can add [users with a {% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %}account](#passport-user) as well as [federated users](#federated-user). To do this, you need to be the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role).
 

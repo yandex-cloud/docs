@@ -1,6 +1,6 @@
 # Федерации удостоверений
 
-С помощью [{{ org-full-name }}](../../organization/index.yaml) вы можете настроить Single Sign-On аутентификацию в {{ yandex-cloud }} через ваш Identity Provider, например Active Directory или Google Workspace. 
+С помощью [{{ org-full-name }}](../../organization/) вы можете настроить Single Sign-On аутентификацию в {{ yandex-cloud }} через ваш Identity Provider, например Active Directory или Google Workspace. 
 
 Такой подход к аутентификации называется федерация удостоверений: сотрудники компании используют свои корпоративные аккаунты и аутентифицируются только в корпоративной системе аутентификации. Для доступа к ресурсам в {{ yandex-cloud }} им не нужны аккаунты {% if product == "yandex-cloud" %}в Яндекс ID{% endif %}{% if product == "cloud-il" %}Google{% endif %}.
 

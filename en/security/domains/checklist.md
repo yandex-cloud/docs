@@ -13,7 +13,7 @@
 
 {% endif %}
 
-* **Secure access from outside the cloud infrastructure (VPN)**: If you need remote access to cloud resources, configure a site-to-site VPN (see the [setup instructions using the strongSwan daemon](../../tutorials/routing/ipsec-vpn.md)){% if product == "yandex-cloud" %}) or use the [{{ interconnect-name }}](../../interconnect/index.yaml) service (the GOST VPN service is also available){% endif %}.
+* **Secure access from outside the cloud infrastructure (VPN)**: If you need remote access to cloud resources, configure a site-to-site VPN (see the [setup instructions using the strongSwan daemon](../../tutorials/routing/ipsec-vpn.md)){% if product == "yandex-cloud" %}) or use the [{{ interconnect-name }}](../../interconnect/) service (the GOST VPN service is also available){% endif %}.
 
 {% if product == "yandex-cloud" %}
 
@@ -62,7 +62,7 @@
 
 * **Client-side encryption (if required)**: Use data encryption with {{ kms-name }} keys. See an [overview of encryption methods](../../kms/tutorials/encrypt/index.md).
 * **{{ kms-name }} key protection**: Grant only granular access to individual {{ kms-name }} keys — the `kms.keys.encrypterDecrypter` role. Use [key rotation](../../kms/concepts/version.md).
-* **Secret management**: Use secret management services, such as [{{ lockbox-name }}](../../lockbox/index.yaml){% if product == "yandex-cloud" %} or [HashiCorp Vault with {{ kms-name }} support](/marketplace/products/f2eokige6vtlf94uvgs2) from {{ marketplace-name }}{% endif %}.
+* **Secret management**: Use secret management services, such as [{{ lockbox-name }}](../../lockbox/){% if product == "yandex-cloud" %} or [HashiCorp Vault with {{ kms-name }} support](/marketplace/products/f2eokige6vtlf94uvgs2) from {{ marketplace-name }}{% endif %}.
 
 ## Secure configuration {#secure-configuration}
 
@@ -82,7 +82,7 @@
 {% endif %}
 
 * **Secure configuration of {{ container-registry-full-name }}**: We do not recommend using privileged containers to run loads.{% if product == "yandex-cloud" %} Use the built-in image [vulnerability scanner](../../container-registry/tutorials/image-auto-scan.md).{% endif %}
-* **{{ certificate-manager-full-name }}**: Use [{{ certificate-manager-name }](../../certificate-manager/index.yaml) to store, receive, and update TLS certificates from Let's Encrypt® and to upload your own certificates. The service is integrated with {{ objstorage-name }}{% if product == "yandex-cloud" %}, {{ api-gw-full-name }}{% endif %}, and {{ alb-full-name }}.
+* **{{ certificate-manager-full-name }}**: Use [{{ certificate-manager-name }](../../certificate-manager/) to store, receive, and update TLS certificates from Let's Encrypt® and to upload your own certificates. The service is integrated with {{ objstorage-name }}{% if product == "yandex-cloud" %}, {{ api-gw-full-name }}{% endif %}, and {{ alb-full-name }}.
 
 ## Protection against malicious code {#malicious-code-protection}
 
@@ -115,7 +115,7 @@
 ## Collecting, monitoring, and analyzing audit logs {#logs-analysis}
 
 * **{{ at-full-name }}**: Enable [{{ at-name }}](../../audit-trails/quickstart.md) for all clouds and folders.
-* **Collecting events on the guest OS and applications side**: Collect events, for example,{% if product == "yandex-cloud" %} using [{{ mes-full-name }}](../../managed-elasticsearch/index.yaml) or{% endif %} free solutions, such as Osquery and Wazuh.
+* **Collecting events on the guest OS and applications side**: Collect events, for example,{% if product == "yandex-cloud" %} using [{{ mes-full-name }}](../../managed-elasticsearch/) or{% endif %} free solutions, such as Osquery and Wazuh.
 * **Collecting Flow logs (if required)**: For example,{% if product == "yandex-cloud" %} using NGFW from {{ marketplace-name }} or free software (options are available in service plans){% endif %}{% if product == "cloud-il" %} using a firewall{% endif %}.
 * **Exporting {{ at-name }} events to SIEM**{% if product == "cloud-il" %}: To set up export to any SIEM, use utilities such as [GeeseFS and s3fs](checklist.md#export-at).{% endif %}{% if product == "yandex-cloud" %}.{% endif %}
 
@@ -133,7 +133,7 @@
 
 {% endif %}
 
-* **Regular status audit**: Use the [CLI](../../cli/index.yaml) for queries to the current state of the cloud infrastructure{% if product == "yandex-cloud" %} or the [Cloud Advisor](https://cloud.yandex.ru/blog/posts/2021/03/cloud-advisor-review){% endif %} partner solution.
+* **Regular status audit**: Use the [CLI](../../cli/) for queries to the current state of the cloud infrastructure{% if product == "yandex-cloud" %} or the [Cloud Advisor](https://cloud.yandex.ru/blog/posts/2021/03/cloud-advisor-review){% endif %} partner solution.
 
 ## Physical security {#physical-security}
 
@@ -170,7 +170,7 @@
 ### Data encryption and key/secret management {#kubernetes-data-encryption}
 
 * **Server-side encryption**: Enable secret encryption in etcd. See the [instructions](../../kms/tutorials/k8s.md). Do this at all times, regardless of whether you use secret management services or not.
-* **Secret management**: Use [{{ lockbox-name }}](../../lockbox/index.yaml){% if product == "yandex-cloud" %} or [HashiCorp Vault with {{ kms-name }} support](/marketplace/products/f2eokige6vtlf94uvgs2) from {{ marketplace-name }}{% endif %}.
+* **Secret management**: Use [{{ lockbox-name }}](../../lockbox/){% if product == "yandex-cloud" %} or [HashiCorp Vault with {{ kms-name }} support](/marketplace/products/f2eokige6vtlf94uvgs2) from {{ marketplace-name }}{% endif %}.
 
 {% if product == "yandex-cloud" %}
 
@@ -225,7 +225,7 @@
 
 * **Collecting and analyzing audit logs of workloads and node groups**: For example, using open-source tools, such as Fluent Bit and Beats.
 
-* **Monitoring abnormal loads**: Use [{{ monitoring-full-name }}](../../monitoring/index.yaml).
+* **Monitoring abnormal loads**: Use [{{ monitoring-full-name }}](../../monitoring/).
 
 {% endif %}
 

@@ -118,7 +118,7 @@
 
     {% if product == "yandex-cloud" %}* `--datalens-access` — разрешает доступ из [{{ datalens-full-name }}](../../datalens/concepts/index.md). Значение по умолчанию — `false`.{% endif %}
 
-    * `--datatransfer-access` — разрешает доступ из [{{ data-transfer-full-name }}](../../data-transfer/index.yaml). Значение по умолчанию — `false`.
+    * `--datatransfer-access` — разрешает доступ из [{{ data-transfer-full-name }}](../../data-transfer/). Значение по умолчанию — `false`.
 
     * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров):
 

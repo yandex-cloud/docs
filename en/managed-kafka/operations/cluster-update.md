@@ -465,7 +465,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
 
-   * Cluster access configuration settings for [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) in Serverless mode: in the `configSpec.access.dataTransfer` parameter.
+   * Cluster access configuration settings for [{{ data-transfer-full-name }}](../../data-transfer/) in Serverless mode: in the `configSpec.access.dataTransfer` parameter.
 
       This enables you to connect to {{ data-transfer-full-name }} running in {{ k8s }} via a special network. It will also cause other operations to run faster, such as transfer launch and deactivation.
 

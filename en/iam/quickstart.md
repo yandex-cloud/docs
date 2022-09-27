@@ -2,7 +2,7 @@
 
 {{ iam-short-name }} lets you manage access to {{ yandex-cloud }} resources.
 
-Follow these instructions to add a user to an [organization](../organization/index.yaml) and grant them access to a resource in one of your [clouds](../resource-manager/concepts/resources-hierarchy.md#cloud).
+Follow these instructions to add a user to an [organization](../organization/) and grant them access to a resource in one of your [clouds](../resource-manager/concepts/resources-hierarchy.md#cloud).
 
 These instructions require the following [roles](./concepts/access-control/roles.md):
 
