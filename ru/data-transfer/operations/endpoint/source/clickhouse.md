@@ -133,3 +133,22 @@
     * `<имя таблицы>` — таблица в схеме по умолчанию.
 
 {% endlist %}
+
+## Известные ограничения {#known-limitations}
+
+Если таблицы источника {{ CH }} будут содержать колонки следующих типов, трансфер завершится с ошибкой:
+
+| Тип                 | Пример ошибки                                                     |
+|---------------------|-------------------------------------------------------------------|
+| `Int128`            | `unhandled type Int128`                                           |
+| `Int256`            | `unhandled type Int256`                                           |
+| `UInt128`           | `unhandled type UInt128`                                          |
+| `UInt256`           | `unhandled type UInt256`                                          |
+| `Bool`              | `unhandled type Bool`                                             |
+| `Date32`            | `unhandled type Date32`                                           |
+| `JSON`              | `unhandled type '<имя поля> <название типа>'`                     |
+| `Array(Date)`       | `Can't transfer type 'Array(Date)', column '<имя колонки>'`       |
+| `Array(DateTime)`   | `Can't transfer type 'Array(DateTime)', column '<имя колонки>'`   |
+| `Array(DateTime64)` | `Can't transfer type 'Array(DateTime64)', column '<имя колонки>'` |
+| `Map(,)`            | `unhandled type Map(<название типа>, <название типа>)`            |
+
