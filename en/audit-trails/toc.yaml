@@ -53,6 +53,9 @@ items:
       - name: Uploading audit logs to {{ mch-full-name }} and data visualiation in {{ datalens-full-name }}
         href: tutorials/logs-analysis.md
         when: product == "yandex-cloud"
+      - name: Exporting audit logs to SIEM Splunk systems
+        href: tutorials/export-logs-to-splunk.md
+        when: product == "yandex-cloud"
   - name: Concepts
     expanded: true
     items:
