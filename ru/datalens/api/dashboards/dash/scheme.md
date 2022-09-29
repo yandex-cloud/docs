@@ -7,6 +7,15 @@
 
 ```json
 {
+  // описание дашборда
+  "description": "Dashboard description",
+
+  // текст, показываемый при отсутствии прав доступа к дашборду
+  "accessDescription": "Message when access restricted",
+
+  // текст, показываемый при обращении в поддержку
+  "supportDescription": "Message on contact support",
+  
   // вкладки
   // обязательное
   "tabs": [
