@@ -159,7 +159,7 @@
   **Перед подключением установите зависимости:**
   
   ```bash
-  sudo apt update && sudo apt install -y golang git && \
+  sudo apt update && sudo apt install --yes golang git && \
   go get github.com/elastic/go-elasticsearch
   ```
   

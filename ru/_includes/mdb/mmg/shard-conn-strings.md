@@ -47,7 +47,7 @@
 **Перед подключением установите зависимости:**
 
 ```bash
-sudo apt update && sudo apt install -y golang git && \
+sudo apt update && sudo apt install --yes golang git && \
 go get go.mongodb.org/mongo-driver/mongo
 ```
 
@@ -153,22 +153,25 @@ go run connect.go
 1. Установите зависимости:
 
     ```bash
-    sudo apt update && sudo apt install -y default-jdk maven
+    sudo apt update && sudo apt install --yes default-jdk maven
     ```
 
 1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ MG }} мог использовать этот сертификат при защищенном подключении к хостам кластера. При этом задайте пароль в параметре `-storepass` для дополнительной защиты хранилища:
 
     ```bash
     cd ~/.mongodb && \
-        keytool -importcert -alias YARootCrt -file root.crt \
-        -keystore YATrustStore -storepass <пароль хранилища сертификатов> \
-        --noprompt
+    sudo keytool -importcert \
+                 -alias {{ crt-alias }} -file root.crt \
+                 -keystore ssl -storepass <пароль хранилища сертификатов, не короче 6 символов> \
+                 --noprompt
     ```
 
 1. Создайте директорию для проекта Maven:
 
     ```bash
-    cd ~/ && mkdir -p project/src/java/com/example && cd project/
+    cd ~/ && \
+    mkdir --parents project/src/java/com/example && \
+    cd ~/project
     ```
 
 1. Создайте конфигурационный файл для Maven:
@@ -354,7 +357,7 @@ mvn clean package && \
 **Перед подключением установите зависимости**:
 
 ```bash
-sudo apt update && sudo apt install -y nodejs npm && \
+sudo apt update && sudo apt install --yes nodejs npm && \
 npm install mongodb
 ```
 
@@ -442,7 +445,7 @@ node app.js
 **Перед подключением установите зависимости:**
 
 ```bash
-sudo apt update && sudo apt install -y php php-mongodb
+sudo apt update && sudo apt install --yes php php-mongodb
 ```
 
 {% list tabs %}
@@ -561,7 +564,7 @@ php connect.php
 **Перед подключением установите зависимости:**
 
 ```bash
-sudo apt update && sudo apt install -y python3 python3-pip && \
+sudo apt update && sudo apt install --yes python3 python3-pip && \
 pip3 install pyMongo
 ```
 
