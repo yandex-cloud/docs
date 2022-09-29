@@ -33,18 +33,7 @@
 
 ## Creating and configuring charts {#creating-and-configuring-charts}
 
-- [{#T}](chart/create-line-chart.md)
-- [{#T}](chart/create-column-chart.md)
-- [{#T}](chart/create-area-chart.md)
-- [{#T}](chart/create-pie-chart.md)
-- [{#T}](chart/create-ring-chart.md)
-- [{#T}](chart/create-bar-chart.md)
-- [{#T}](chart/create-scatter-chart.md)
-- [{#T}](chart/create-map-chart.md)
-- [{#T}](chart/create-table.md)
-- [{#T}](chart/create-pivot-table.md)
-- [{#T}](chart/create-indicator-chart.md)
-- [{#T}](chart/create-tree-chart.md)
+- [{#T}](chart/create-chart.md)
 - [{#T}](chart/create-sql-chart.md)
 - [{#T}](chart/create-multidataset-chart.md)
 - [{#T}](chart/add-hierarchy.md)

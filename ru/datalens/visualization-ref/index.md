@@ -32,7 +32,7 @@
 
 * **Другое**:
 
-    - [Индикатор](#indicator)
+    - [Индикатор](indicator-chart.md)
 
     
 {% note info %}
