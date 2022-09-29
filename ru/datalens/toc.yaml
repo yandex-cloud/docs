@@ -309,7 +309,6 @@ items:
           - name: Точечная карта
             href: visualization-ref/point-map-chart.md
           - name: Точечная карта с кластеризацией
-            when: audience == "internal"
             href: visualization-ref/cluster-point-map-chart.md
           - name: Полилинейная карта
             href: visualization-ref/polyline-map-chart.md
