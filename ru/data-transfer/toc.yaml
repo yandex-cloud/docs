@@ -129,6 +129,8 @@ items:
         href: concepts/data-type-bindings.md
       - name: Захват изменения данных
         href: concepts/cdc.md
+      - name: Шардированное копирование
+        href: concepts/sharded.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Решение проблем
