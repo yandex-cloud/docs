@@ -23,3 +23,9 @@
 {% if product == "yandex-cloud" %}
 * [Создание SAP-программы в {{ yandex-cloud }}](sap.md)
 {% endif %}
+* [Настройка локального кеширующего DNS-резолвера](local-dns-cache.md)
+{% if product == "yandex-cloud" %}
+* [Миграция DNS-зон из Яндекс 360 в {{ dns-full-name }}](connect-migration.md)
+{% endif %}
+* [Интеграция {{ dns-name }} и корпоративного сервиса DNS](dns-integration.md)
+* [Создание веб-хука резолвера ACME для ответов на DNS01-проверки](cert-manager-webhook.md)

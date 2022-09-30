@@ -43,6 +43,8 @@ items:
         href: concepts/limits.md
   - name: Practical guidelines
     items:
+      - name: All practical guidelines
+        href: tutorials/index.md
       - name: Configuring a local caching DNS resolver
         href: tutorials/local-dns-cache.md
       - name: Migrating DNS zones from Yandex 360

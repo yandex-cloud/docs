@@ -123,6 +123,15 @@ items:
       - name: Creating an SAP program in {{ yandex-cloud }}
         href: infrastructure-management/sap.md
         when: product == "yandex-cloud"
+      - name: Configuring a local caching DNS resolver
+        href: infrastructure-management/local-dns-cache.md
+      - name: Migrating DNS zones from Yandex 360
+        href: infrastructure-management/connect-migration.md
+        when: product == "yandex-cloud"
+      - name: Integrating with a corporate DNS service
+        href: infrastructure-management/dns-integration.md
+      - name: Creating an ACME resolver webhook for responses to DNS01 checks
+        href: infrastructure-management/cert-manager-webhook.md
   - name: Building a data platform
     items:
       - name: All tutorials

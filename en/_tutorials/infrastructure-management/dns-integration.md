@@ -1,6 +1,6 @@
-If you have your own corporate networks connected to internal networks in your {{ yandex-cloud }} cloud{% if product == yandex-cloud %}(for example, via [{{ interconnect-name }}](../interconnect/concepts/index.md)){% endif %}, then you can integrate {{ dns-name }} with your corporate DNS. This lets you access resources and services by their name, regardless of their location, both in corporate and cloud networks.
+If you have your own corporate networks connected to internal networks in your {{ yandex-cloud }} cloud{% if product == yandex-cloud %}(for example, via [{{ interconnect-name }}](../../interconnect/concepts/index.md)){% endif %}, then you can integrate {{ dns-name }} with your corporate DNS. This lets you access resources and services by their name, regardless of their location, both in corporate and cloud networks.
 
-You can't delegate DNS record management in [private zones](../dns/concepts/dns-zone.md#private-zones) in {{ yandex-cloud }} to your DNS servers in the corporate network, because NS records are ignored for private zones. To ensure domain name recognition for cloud network services and resources in private zones, configure separate DNS forwarders in your cloud subnets. _DNS forwarders_ are DNS servers that redirect requests differently depending on the name specified in the request.
+You can't delegate DNS record management in [private zones](../../dns/concepts/dns-zone.md#private-zones) in {{ yandex-cloud }} to your DNS servers in the corporate network, because NS records are ignored for private zones. To ensure domain name recognition for cloud network services and resources in private zones, configure separate DNS forwarders in your cloud subnets. _DNS forwarders_ are DNS servers that redirect requests differently depending on the name specified in the request.
 
 {% note info %}
 
@@ -19,7 +19,7 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 ## Integration example {#network-desc}
 
-![DNS integration example](../_assets/dns/dns-integration.svg "DNS integration example")
+![DNS integration example](../../_assets/dns/dns-integration.svg "DNS integration example")
 
 1. The corporate network consists of two subnets: `172.16.1.0/24` and `172.16.2.0/24`.
 
@@ -35,7 +35,7 @@ If you no longer need the created resources, [delete them](#clear-out).
 
     {{ yandex-cloud }} DNS servers are hosted in these subnets: `172.16.3.2` and `172.16.4.2`.
 
-    The servers serve [internal DNS zones in the cloud network](../dns/concepts/dns-zone.md).
+    The servers serve [internal DNS zones in the cloud network](../../dns/concepts/dns-zone.md).
 
 1. The corporate and cloud networks are interconnected so that all subnets of one network are accessible from subnets of the other network and vice versa.
 
@@ -49,11 +49,11 @@ They will redirect DNS requests as follows:
 * Requests to the `corp.example.net` zone — via corporate DNS servers `172.16.1.5` and `172.16.2.5`.
 * All other requests (to the `.` zone) — via internal {{ yandex-cloud }} DNS servers to the corresponding subnets: `172.16.3.2` and `172.16.4.2`.
 
-To ensure fault tolerance for DNS forwarders, they will be placed behind the [internal network load balancer](../network-load-balancer/concepts/index.md) of {{ network-load-balancer-full-name }}. All requests to DNS forwarders (both from the cloud network and from the corporate network) will pass through this load balancer.
+To ensure fault tolerance for DNS forwarders, they will be placed behind the [internal network load balancer](../../network-load-balancer/concepts/index.md) of {{ network-load-balancer-full-name }}. All requests to DNS forwarders (both from the cloud network and from the corporate network) will pass through this load balancer.
 
 ## Before you start {#before-you-begin}
 
-1. To install DNS forwarders in each of the cloud subnets (both in `subnet3` and `subnet4`), [create a VM instance](../compute/operations/vm-create/create-linux-vm.md) from a public Ubuntu 20.04 image using the following parameters:
+1. To install DNS forwarders in each of the cloud subnets (both in `subnet3` and `subnet4`), [create a VM instance](../../compute/operations/vm-create/create-linux-vm.md) from a public Ubuntu 20.04 image using the following parameters:
     * **Name**:
         * `forwarder1`: For the VM in `subnet3`.
         * `forwarder2`: For the VM in `subnet4`.
@@ -69,7 +69,7 @@ To ensure fault tolerance for DNS forwarders, they will be placed behind the [in
       * **Public address**: Auto.
       * **Internal address**: Auto.
 
-1. To be able to install software from the internet in `subnet3` and `subnet4`: [Enable Egress NAT](../vpc/operations/enable-nat.md).
+1. To be able to install software from the internet in `subnet3` and `subnet4`: [Enable Egress NAT](../../vpc/operations/enable-nat.md).
 
 ## Set up Cloud DNS {#setup-cloud-dns}
 
@@ -83,7 +83,7 @@ To ensure fault tolerance for DNS forwarders, they will be placed behind the [in
 
 * CoreDNS
 
-  1. [Connect to the VM instance](../compute/operations/vm-connect/ssh) to install a DNS forwarder via the `test1` intermediate VM instance.
+  1. [Connect to the VM instance](../../compute/operations/vm-connect/ssh) to install a DNS forwarder via the `test1` intermediate VM instance.
 
   1. Download the current `CoreDNS` version from the [developer page](https://github.com/coredns/coredns/releases/latest) and install it:
 
@@ -165,7 +165,7 @@ To ensure fault tolerance for DNS forwarders, they will be placed behind the [in
 
 * unbound
 
-  1. [Connect to the VM instance](../compute/operations/vm-connect/ssh) of the DNS forwarder via the `test1` intermediate VM instance.
+  1. [Connect to the VM instance](../../compute/operations/vm-connect/ssh) of the DNS forwarder via the `test1` intermediate VM instance.
 
   1. Install the `unbound` package:
 
@@ -235,7 +235,7 @@ To ensure fault tolerance for DNS forwarders, they will be placed behind the [in
 
 ### Set up the network load balancer {#setup-cloud-balancer}
 
-Create a [network load balancer](../network-load-balancer/operations/internal-lb-create.md) with the following parameters:
+Create a [network load balancer](../../network-load-balancer/operations/internal-lb-create.md) with the following parameters:
 
 * **Type**: **Internal**.
 
@@ -268,13 +268,13 @@ When you create a load balancer, it's automatically assigned an IP address from 
 
 {% note info %}
 
-The internal network load balancer won't respond to DNS requests from forwarders that make up its target group: `forwarder1` and `forwarder2`. This has to do with its implementation. For more information, see [{#T}](../network-load-balancer/concepts/internal-load-balancer.md).
+The internal network load balancer won't respond to DNS requests from forwarders that make up its target group: `forwarder1` and `forwarder2`. This has to do with its implementation. For more information, see [{#T}](../../network-load-balancer/concepts/internal-load-balancer.md).
 
 {% endnote %}
 
 ### Set up DHCP {#setup-cloud-dhcp}
 
-To make sure that hosts in the cloud network automatically use the corporate DNS service, in the [DHCP settings](../vpc/concepts/dhcp-options.md) for `subnet3` and `subnet4`, specify:
+To make sure that hosts in the cloud network automatically use the corporate DNS service, in the [DHCP settings](../../vpc/concepts/dhcp-options.md) for `subnet3` and `subnet4`, specify:
 
 1. **DNS server address**: The IP address that was [assigned to the load balancer](#setup-cloud-balancer).
 1. (Optional) **Domain name**: `corp.example.net`.
@@ -289,7 +289,7 @@ Once the network settings are updated, the hosts in the cloud network will use t
 
 ## Set up corporate DNS servers {#setup-on-prem-dns}
 
-Configure the corporate servers so that DNS queries to the [{{ yandex-cloud }} private zones](../dns/concepts/dns-zone#private-zones) are forwarded to the IP address that was [assigned to the load balancer](#setup-cloud-balancer).
+Configure the corporate servers so that DNS queries to the [{{ yandex-cloud }} private zones](../../dns/concepts/dns-zone#private-zones) are forwarded to the IP address that was [assigned to the load balancer](#setup-cloud-balancer).
 
 ## Run a health check for the service {#check-dns-service}
 
@@ -319,5 +319,5 @@ Configure the corporate servers so that DNS queries to the [{{ yandex-cloud }} p
 
 ## Delete the resources you no longer need {#clear-out}
 
-* If you no longer need some of the created VM instances, [delete them](../compute/operations/vm-control/vm-delete).
-* Delete the [target groups](../network-load-balancer/operations/target-group-delete.md), [listeners](../network-load-balancer/operations/listener-remove.md), and [network load balancer](../network-load-balancer/operations/load-balancer-delete.md).
+* If you no longer need some of the created VM instances, [delete them](../../compute/operations/vm-control/vm-delete).
+* Delete the [target groups](../../network-load-balancer/operations/target-group-delete.md), [listeners](../../network-load-balancer/operations/listener-remove.md), and [network load balancer](../../network-load-balancer/operations/load-balancer-delete.md).

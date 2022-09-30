@@ -22,3 +22,9 @@
 {% if product == "yandex-cloud" %}
 * [Creating an SAP program in {{ yandex-cloud }}](sap.md)
 {% endif %}
+* [Configuring a local caching DNS resolver](local-dns-cache.md)
+{% if product == "yandex-cloud" %}
+* [Migrating DNS zones from Yandex 360 to {{ dns-full-name }}](connect-migration.md)
+{% endif %}
+* [Integrating {{ dns-name }} and a corporate DNS service](dns-integration.md)
+* [Creating an ACME resolver webhook for responses to DNS01 checks](cert-manager-webhook.md)
