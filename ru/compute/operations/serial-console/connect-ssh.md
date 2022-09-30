@@ -54,7 +54,7 @@ ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/<имя закрытого клю
 Пример для пользователя `yc-user` и виртуальной машины с идентификатором `fhm0b28lgfp4tkoa3jl6`:
 
 ```bash
-ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_rsa fhm0b28lgfp4tkoa3jl6.yc-user@serialssh.cloud.yandex.net
+ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 fhm0b28lgfp4tkoa3jl6.yc-user@serialssh.cloud.yandex.net
 ```
 
 

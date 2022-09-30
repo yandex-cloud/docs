@@ -63,7 +63,7 @@
   yc compute instance create \
     --name my-instance \
     --network-interface subnet-name=default,nat-ip-version=ipv4 \
-    --ssh-key ~/.ssh/id_rsa.pub \
+    --ssh-key ~/.ssh/id_ed25519.pub \
     --service-account-name my-robot
   ```
 

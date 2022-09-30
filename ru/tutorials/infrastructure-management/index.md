@@ -12,3 +12,7 @@
 * [Резервное копирование ВМ с помощью Hystax Acura Backup](hystax-backup.md)
 * [Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}](fault-tolerance.md)
 * [Создание SAP-программы в {{ yandex-cloud }}](sap.md)
+* [Настройка локального кеширующего DNS-резолвера](local-dns-cache.md)
+* [Миграция DNS-зон из Яндекс 360 в {{ dns-full-name }}](connect-migration.md)
+* [Интеграция {{ dns-name }} и корпоративного сервиса DNS](dns-integration.md)
+* [Создание веб-хука резолвера ACME для ответов на DNS01-проверки](cert-manager-webhook.md)

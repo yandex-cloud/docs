@@ -75,6 +75,8 @@ items:
         href: testing/iot-emulation.md
       - name: Load testing of the gRPC service
         href: testing/loadtesting-grpc.md
+      - name: Deploying and load testing a gRPC service with scaling
+        href: testing/loadtesting-grpc-autoscaling.md
       - name: Using Phantom to run a fixed-load HTTPS test
         href: testing/loadtesting-https-phantom.md
       - name: Using Pandora to run a step-load HTTPS test
@@ -107,6 +109,14 @@ items:
         href: infrastructure-management/fault-tolerance.md
       - name: Creating an SAP program in {{ yandex-cloud }}
         href: infrastructure-management/sap.md
+      - name: Configuring a local caching DNS resolver
+        href: infrastructure-management/local-dns-cache.md
+      - name: Migrating DNS zones from Yandex 360
+        href: infrastructure-management/connect-migration.md
+      - name: Integrating with a corporate DNS service
+        href: infrastructure-management/dns-integration.md
+      - name: Creating an ACME resolver webhook for responses to DNS01 checks
+        href: infrastructure-management/cert-manager-webhook.md
   - name: Building a data platform
     items:
       - name: All tutorials

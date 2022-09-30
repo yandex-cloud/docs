@@ -11,3 +11,7 @@
 * [Creating a VM backup with Hystax Acura Backup](hystax-backup.md)
 * [Configuring a fault-tolerant architecture in {{ yandex-cloud }}](fault-tolerance.md)
 * [Creating an SAP program in {{ yandex-cloud }}](sap.md)
+* [Configuring a local caching DNS resolver](local-dns-cache.md)
+* [Migrating DNS zones from Yandex 360 to {{ dns-full-name }}](connect-migration.md)
+* [Integrating {{ dns-name }} and a corporate DNS service](dns-integration.md)
+* [Creating an ACME resolver webhook for responses to DNS01 checks](cert-manager-webhook.md)

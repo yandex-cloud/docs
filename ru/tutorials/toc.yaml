@@ -117,6 +117,14 @@ items:
         href: infrastructure-management/fault-tolerance.md
       - name: Создание SAP-программы в {{ yandex-cloud }}
         href: infrastructure-management/sap.md
+      - name: Настройка локального кеширующего DNS-резолвера
+        href: infrastructure-management/local-dns-cache.md
+      - name: "Миграция DNS-зон из Яндекс\_360"
+        href: infrastructure-management/connect-migration.md
+      - name: Интеграция с корпоративным сервисом DNS
+        href: infrastructure-management/dns-integration.md
+      - name: Создание веб-хука резолвера ACME для ответов на DNS01-проверки
+        href: infrastructure-management/cert-manager-webhook.md
   - name: Построение Data Platform
     items:
       - name: Все руководства

@@ -1,8 +1,10 @@
 # Creating a {{ dataproc-name }} cluster
 
+The minimum required role for creating a {{ dataproc-name }} cluster is `editor`. For more information, see the [role description](../../iam/concepts/access-control/roles#editor).
+
 ## Configure a network {#setup-network}
 
-In the subnet that the subcluster with the master host will connect to, [enable egress NAT](../../vpc/operations/enable-nat.md). This will enable the subcluster to interact with {{ yandex-cloud }} services or hosts on other networks.
+In the subnet that the subcluster with master host will connect to, enable [egress NAT](../../vpc/operations/enable-nat.md). This will enable the subcluster to interact with {{ yandex-cloud }} services or hosts on other networks.
 
 ## Configure security groups {#change-security-groups}
 
@@ -244,13 +246,12 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       * `--ui-proxy`: Access to [{{ dataproc-name }} component web interfaces](../concepts/interfaces.md).
       * `--security-group-ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
-
-            * `--log-group-id`: [Log group ID](../concepts/logs.md).
+               * `--log-group-id`: [Log group ID](../concepts/logs.md).
 
       To create a cluster with multiple data storage or processing subclusters, pass the necessary number of `--subcluster` arguments in the cluster create command:
 
       ```bash
-      {{ yc-dp }} cluster create \
+      {{ yc-dp }} cluster create <cluster name> \
          ...
          --subcluster <subcluster parameters> \
          --subcluster <subcluster parameters> \
@@ -347,7 +348,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       ```
 
 
-   1. Create a configuration file with a description of the [service account](../../iam/concepts/users/service-accounts.md) to be granted access to the cluster as well as a description of the [static key](../../iam/concepts/authorization/access-key.md) and [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md) to store jobs and output.
+   1. Create a configuration file with a description of the [service account](../../iam/concepts/users/service-accounts.md) to be granted access to the cluster as well as a description of the [static key](../../iam/concepts/authorization/access-key.md) and [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md) to store jobs and results.
 
       ```hcl
       resource "yandex_iam_service_account" "<name of service account in {{ TF }}>" {
@@ -454,7 +455,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       }
       ```
 
-      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
 
@@ -493,7 +494,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       }
       ```
 
-      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
+      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
 
    1. Check the {{ TF }} configuration files for errors:
 

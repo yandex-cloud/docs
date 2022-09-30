@@ -98,7 +98,7 @@
         --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
         --preemptible \
         --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
-        --ssh-key ~/.ssh/id_rsa.pub
+        --ssh-key ~/.ssh/id_ed25519.pub
       ```
 
 

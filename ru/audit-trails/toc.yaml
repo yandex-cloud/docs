@@ -44,14 +44,18 @@ items:
         href: tutorials/alerts-monitoring.md
       - name: Настройка реагирования в {{ sf-name }}
         href: tutorials/logging-functions.md
-      - name: Загрузка аудитных логов в MaxPatrol SIEM
-        href: tutorials/maxpatrol.md
       - name: >-
           Загрузка аудитных логов в {{ mch-full-name }} и визуализация данных в
           {{ datalens-full-name }}
         href: tutorials/logs-analysis.md
-      - name: Загрузка аудитных логов в SIEM Splunk
-        href: tutorials/export-logs-to-splunk.md
+      - name: Экспорт аудитных логов в SIEM
+        items:
+          - name: Загрузка аудитных логов в MaxPatrol SIEM
+            href: tutorials/maxpatrol.md
+          - name: Загрузка аудитных логов в SIEM Splunk
+            href: tutorials/export-logs-to-splunk.md
+          - name: Загрузка аудитных логов в SIEM ArcSight
+            href: tutorials/export-logs-to-arcsight.md
   - name: Концепции
     expanded: true
     items:
