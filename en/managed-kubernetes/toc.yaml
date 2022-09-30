@@ -28,7 +28,7 @@ items:
           href: operations/connect/security-groups.md
         - name: Creating a static configuration file
           href: operations/connect/create-static-conf.md
-      - name: Installing applications
+      - name: Installing applications 
         when: product == "yandex-cloud"
         items:
           - name: Basics of working with {{ marketplace-name }}
@@ -48,7 +48,7 @@ items:
       - name: Network scenarios
         items:
           - name: >-
-              Granting access to an app running in a {{ k8s }} cluster
+              Granting access to an app running in a {{k8s}} cluster
             href: operations/create-load-balancer.md
           - name: Configuring the Calico network policy controller
             href: operations/calico.md
@@ -73,17 +73,17 @@ items:
             href: operations/volumes/mode-block.md
           - name: Integration with {{ objstorage-name }}
             href: operations/volumes/s3-csi-integration.md
-      - name: Managing a {{ k8s }} cluster
+      - name: Managing a {{k8s}} cluster
         items:
-          - name: Getting information about a {{ k8s }} cluster
+          - name: Getting information about a {{k8s}} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-list.md
-          - name: Creating a {{ k8s }} cluster
+          - name: Creating a {{k8s}} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-create.md
-          - name: Editing a {{ k8s }} cluster
+          - name: Editing a {{k8s}} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-update.md
-          - name: Creating a namespace in a {{ k8s }} cluster
+          - name: Creating a namespace in a {{k8s}} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
-          - name: Deleting a {{ k8s }} cluster
+          - name: Deleting a {{k8s}} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
       - name: Managing a node group
         items:
@@ -124,6 +124,9 @@ items:
         href: tutorials/autoscaling.md
       - name: Vertical application scaling in a cluster
         href: tutorials/vpa-autoscaling.md
+      - name: Deploying and load testing a gRPC service with scaling
+        href: tutorials/load-testing-grpc-autoscaling.md
+        when: product == "yandex-cloud"
       - name: Working with snapshots
         href: tutorials/pvc-snapshot-restore.md
       - name: Integrating into a corporate DNS zone

@@ -77,6 +77,9 @@ items:
       - name: Load testing of the gRPC service
         href: testing/loadtesting-grpc.md
         when: product == "yandex-cloud"
+      - name: Deploying and load testing a gRPC service with scaling
+        href: testing/loadtesting-grpc-autoscaling.md
+        when: product == "yandex-cloud"
       - name: Using Phantom to run a fixed-load HTTPS test
         href: testing/loadtesting-https-phantom.md
         when: product == "yandex-cloud"

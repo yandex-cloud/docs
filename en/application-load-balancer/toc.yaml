@@ -77,6 +77,9 @@ items:
       - name: Writing load balancer logs to {{ PG }}
         href: tutorials/logging.md
         when: product == "yandex-cloud"
+      - name: Deploying and load testing a gRPC service with scaling
+        href: tutorials/load-testing-grpc-autoscaling.md
+        when: product == "yandex-cloud"
   - name: Concepts
     items:
       - name: Overview

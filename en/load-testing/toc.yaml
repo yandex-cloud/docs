@@ -20,6 +20,9 @@ items:
     items:
       - name: Load testing of the gRPC service
         href: tutorials/loadtesting-grpc.md
+      - name: Deploying and load testing a gRPC service with scaling
+        href: tutorials/loadtesting-grpc-autoscaling.md
+        when: product == "yandex-cloud"
       - name: Using Phantom to run a fixed-load HTTPS test
         href: tutorials/loadtesting-https-phantom.md
       - name: Using Pandora to run a step-load HTTPS test
