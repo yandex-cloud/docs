@@ -60,11 +60,11 @@ ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/<имя закрытого клю
 Пример для пользователя `yc-user` и виртуальной машины с идентификатором `fhm0b28lgfp4tkoa3jl6`:
 
 {% if product == "yandex-cloud" %}```bash
-ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_rsa fhm0b28lgfp4tkoa3jl6.yc-user@serialssh.cloud.yandex.net
+ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 fhm0b28lgfp4tkoa3jl6.yc-user@serialssh.cloud.yandex.net
 ```{% endif %}
 
 {% if product == "cloud-il" %}```bash
-ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_rsa fhm0b28lgfp4tkoa3jl6.yc-user@serialssh.cloudil.co.il
+ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 fhm0b28lgfp4tkoa3jl6.yc-user@serialssh.cloudil.co.il
 ```{% endif %}
 
 Пользователь `yc-user` создается автоматически при создании виртуальной машины. Подробнее читайте в разделе [{#T}](../vm-create/create-linux-vm.md).

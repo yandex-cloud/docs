@@ -94,7 +94,7 @@
         --public-ip \
         --create-boot-disk snapshot-name=first-snapshot \
         --create-disk snapshot-name=second-snapshot \
-        --ssh-key ~/.ssh/id_rsa.pub
+        --ssh-key ~/.ssh/id_ed25519.pub
       ```
 
       Данная команда создаст виртуальную машину именем `first-instance` в зоне `{{ region-id }}-a`, с публичным IP и дисками из снимков.

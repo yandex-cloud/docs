@@ -47,7 +47,7 @@
        --gpus=1 \
        --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts-gpu \
-       --ssh-key ~/.ssh/id_rsa.pub
+       --ssh-key ~/.ssh/id_ed25519.pub
      ```
 
      Где:

@@ -46,7 +46,7 @@
   В API вы указываете метаданные в свойстве `metadata` в виде JSON-объекта, например так:
     ```json
     "metadata": {
-      "ssh-keys": "ssh-rsa AAAAB3Nza... user@example.com",
+      "ssh-keys": "ssh-ed25519 AAAAB3Nza... user@example.com",
       "serial-port-enable": "1"
     }
     ```
@@ -80,11 +80,11 @@
 
       ```json
       "metadata": {
-        "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-rsa AAAAB3Nza......OjbSMRX user@example.com\n      - ssh-rsa AAAAB3Nza......Pu00jRN user@desktop"
+        "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3Nza......OjbSMRX user@example.com\n      - ssh-ed25519 AAAAB3Nza......Pu00jRN user@desktop"
       }
       ```
 
-  * `ssh-keys` — Ключ для доставки SSH-ключа на виртуальные машины Linux. Ключ указывается в формате `<любое имя>:<содержимое SSH-ключа>`, например `user:ssh-rsa AAAAB3Nza... user@example.com`. Если указать несколько ключей, будет использован только первый из них.
+  * `ssh-keys` — Ключ для доставки SSH-ключа на виртуальные машины Linux. Ключ указывается в формате `<любое имя>:<содержимое SSH-ключа>`, например `user:ssh-ed25519 AAAAB3Nza... user@example.com`. Если указать несколько ключей, будет использован только первый из них.
 
       {% note warning %}
 

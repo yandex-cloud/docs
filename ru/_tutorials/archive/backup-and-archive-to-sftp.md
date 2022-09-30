@@ -192,33 +192,33 @@
 
 1. Создайте SSH-ключи для пользователя `fuser`. Команда должна выполняться от имени пользователя `fuser`:
     ```bash
-    sudo runuser -l  fuser -c 'ssh-keygen'
+    sudo runuser -l  fuser -c 'ssh-keygen -t ed25519'
     ```
 
     Процесс генерации ключа приведен ниже. Поле `passphrase` оставьте пустым.  
 
     ```
-    [yc-user@ftp-server ~]$ sudo runuser -l fuser -c 'ssh-keygen'      
-    Generating public/private rsa key pair.
-    Enter file in which to save the key (/home/fuser/.ssh/id_rsa): 
+    [yc-user@ftp-server ~]$ sudo runuser -l fuser -c 'ssh-keygen -t ed25519'      
+    Generating public/private ed25519 key pair.
+    Enter file in which to save the key (/home/fuser/.ssh/id_ed25519): 
     Created directory '/home/fuser/.ssh'.
     Enter passphrase (empty for no passphrase): 
     Enter same passphrase again: 
-    Your identification has been saved in /home/fuser/.ssh/id_rsa.
-    Your public key has been saved in /home/fuser/.ssh/id_rsa.pub.
+    Your identification has been saved in /home/fuser/.ssh/id_ed25519.
+    Your public key has been saved in /home/fuser/.ssh/id_ed25519.pub.
     The key fingerprint is:
-    SHA256:S2jRD3/A6ClHW/RZUOeOrl6BsK3pfWdhusGBGZiHE44 fuser@ftp-server.{{ region-id }}.internal
+    SHA256:sXiE7EfPl8mo9mZCG+ta7fBxwdwdhbjNux63P8EIYNs fuser@ftp-server.{{ region-id }}.internal
     The key's randomart image is:
-    +---[RSA 2048]----+
-    |         .. .oo .|
-    |       .o+=. o o |
-    |      .E=*=oo   .|
-    |       = Bo=+. o |
-    |      + S +o+.o .|
-    |     . + . +...+ |
-    |        . o  o= .|
-    |         . . +o o|
-    |          ..+o.o |
+    +--[ED25519 256]--+
+    |             . ..|
+    |     . . o  . . .|
+    |      o = +  + . |
+    |     . + * E.+o..|
+    |      o S + X +..|
+    |       ooo . o.o |
+    |       .=+o . ..o|
+    |       o+=oo  .+.|
+    |      .o.++  ...+|
     +----[SHA256]-----+
     ```
 
@@ -239,8 +239,8 @@
     Вывод должен быть таким:
     ```bash
     -rw-------. 1 fuser fuser  421 Aug  7 08:31 authorized_keys
-    -rw-------. 1 fuser fuser 1675 Aug  7 08:29 id_rsa
-    -rw-r--r--. 1 fuser fuser  419 Aug  7 08:29 id_rsa.pub
+    -rw-------. 1 fuser fuser  419 Aug  7 08:29 id_ed25519
+    -rw-r--r--. 1 fuser fuser  107 Aug  7 08:29 id_ed25519.pub
     ```
 
 1. Добавьте SFTP-пользователя в SFTP-группу:
@@ -262,7 +262,7 @@
 
 1. Выведите публичный ключ на экране SFTP-клиента:
     ```bash
-    cat ~/.ssh/id_rsa.pub
+    cat ~/.ssh/id_ed25519.pub
     ```
 
 1. Зайдите на SFTP-сервер и откройте файл `/home/fuser/.ssh/authorized_keys`: 

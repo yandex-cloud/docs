@@ -144,7 +144,7 @@
      --network-interface subnet-id=<идентификатор подсети>,nat-ip-version=ipv4,security-group-ids=<идентификатор группы безопасности, если группа была настроена ранее> \
      --create-boot-disk name=hystax-acura-disk,size=200,image-id=<идентификатор образа Hystax Acura> \
      --service-account-id <идентификатор сервисного аккаунта> \
-     --ssh-key ~/.ssh/id_rsa.pub
+     --ssh-key ~/.ssh/id_ed25519.pub
      ```
 
    Где:

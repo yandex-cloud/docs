@@ -55,7 +55,7 @@
          --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
          --hostname ya-sample-store \
          --use-boot-disk disk-name=web-store-lab-dataplatform \
-         --ssh-key ~/.ssh/id_rsa.pub
+         --ssh-key ~/.ssh/id_ed25519.pub
       ```
 
    {% endlist %}
