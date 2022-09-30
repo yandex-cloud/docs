@@ -29,6 +29,8 @@ The list below shows all roles that are considered when verifying access rights 
 
 {% include [mdb.dataproc.agent](../../_includes/roles-dataproc-agent.md) %}
 
+{% include [data-proc-roles](../../_includes/data-proc/data-proc-roles.md) %}
+
 ### {{ roles-viewer }} {#viewer}
 
 A user with the role `{{ roles-viewer }}` can connect to hosts in a {{ dataproc-name }}

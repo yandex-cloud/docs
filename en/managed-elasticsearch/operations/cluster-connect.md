@@ -20,7 +20,7 @@ Settings of rules depend on the connection method you select:
 - Over the internet
 
    
-   [Configure all security groups](../../vpc/operations/security-group-add-rule.md) of a cluster to allow incoming traffic from any IP on ports 443 (Kibana) and 9200 ({{ ES }}). To do this, create the following rules for incoming traffic:
+   [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic from any IP on ports 443 (Kibana GUI and Kibana API) and 9200 ({{ ES }}). To do this, create the following rules for incoming traffic:
 
 
    - Port range: `443`, `9200`.
@@ -33,7 +33,7 @@ Settings of rules depend on the connection method you select:
 - With a VM in Yandex.Cloud
 
    
-   1. [Configure all security groups](../../vpc/operations/security-group-add-rule.md) of your cluster to allow incoming traffic on ports 443 (Kibana) and 9200 ({{ ES }}) from the security group where your VM is located. To do this, create the following rules for incoming traffic in these security groups:
+   1. [Configure all the security groups](../../vpc/operations/security-group-add-rule.md) of your cluster to allow incoming traffic on ports 443 (Kibana GUI and Kibana API) and 9200 ({{ ES }}) from the security group where your VM is located. To do this, create the following rules for incoming traffic in these security groups:
 
 
          - Protocol: `TCP`.
@@ -73,7 +73,7 @@ Settings of rules depend on the connection method you select:
 
 You can set more detailed rules for security groups, such as allowing traffic in only specific subnets.
 
-Security groups must be configured correctly for all subnets that will include cluster hosts. If the security group settings are incomplete or incorrect, you might lose access the cluster.
+Security groups must be configured correctly for all subnets that will include cluster hosts. If the security group settings are incomplete or incorrect, you might lose access to the cluster.
 
 {% endnote %}
 

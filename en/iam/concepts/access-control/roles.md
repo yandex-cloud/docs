@@ -85,6 +85,8 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 {% include [mdb.dataproc.agent](../../../_includes/roles-dataproc-agent.md) %}
 
+{% include [data-proc-roles](../../../_includes/data-proc/data-proc-roles.md) %}
+
 
 ## {{ data-transfer-name }} {#data-transfer-roles}
 

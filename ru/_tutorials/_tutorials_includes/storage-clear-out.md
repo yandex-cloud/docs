@@ -1,1 +1,3 @@
-Чтобы перестать платить за хранение файлов, [удалите](../../storage/operations/objects/delete.md) загруженные файлы.
+Чтобы перестать платить за созданные ресурсы:
+* [удалите](../../storage/operations/objects/delete.md) объекты в бакете;
+* [удалите](../../storage/operations/buckets/delete.md) бакет.  

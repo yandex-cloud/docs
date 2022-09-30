@@ -94,7 +94,7 @@
         --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
         --use-boot-disk disk-name=first-disk \
         --attach-disk disk-name=second-disk \
-        --ssh-key ~/.ssh/id_rsa.pub
+        --ssh-key ~/.ssh/id_ed25519.pub
       ```
   
       Данная команда создаст виртуальную машину:
@@ -117,7 +117,7 @@
         --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
         --use-boot-disk disk-name=first-disk,auto-delete=yes \
         --attach-disk disk-name=second-disk,auto-delete=yes \
-        --ssh-key ~/.ssh/id_rsa.pub
+        --ssh-key ~/.ssh/id_ed25519.pub
       ```
   
 - API

@@ -30,11 +30,20 @@ For the resource to run properly, you must have:
 * Rights to all the domain names you entered.
 * Access to DNS settings for domain names.
 
-   For each name, in the settings of your DNS hosting, you must create a CNAME record linking this name with the domain name of the CDN load balancer, in the format `cl-<random characters>.edgecdn.ru`. It's displayed when creating a resource and also in the management console (on the page of an existing resource). This is a sample record for the `cdn.example.com` domain name:
+   For each name, in the settings of your DNS hosting, create a CNAME record linking this name with the domain name of the CDN load balancer, in the format `cl-<random characters>.edgecdn.ru`. It's displayed when creating a resource and also in the management console (on the page of an existing resource). This is a sample record for the `cdn.example.com` domain name:
 
    ```
    cdn.example.com. CNAME cl-4sne12sd.edgecdn.ru
    ```
+
+## Resource statuses {#status}
+
+A {{ cdn-name }} resource can have one of the following statuses:
+
+* `Active` if the content is available to everyone.
+* `Not active` if the content is not available to anyone.
+
+The **End-user access to content** option in the basic resource settings is used to switch between them.
 
 ## Resource usage statistics {#stats}
 
@@ -55,3 +64,4 @@ You can view statistics on the resource page in the [management console]({{ link
 #### See also {#see-also}
 
 * [Instructions for operations with resources](../operations/index.md#resources).
+* [Instructions for operations with the basic resource settings](../operations/resources/configure-basics.md).

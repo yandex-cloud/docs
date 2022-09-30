@@ -42,7 +42,7 @@
    * Если вы будете использовать SFTP, создайте файл `authorized_keys` с открытым SSH-ключом:
 
      ```
-     ssh-rsa AAAAB3Nz.....BdZoeQ==
+     ssh-ed25519 AAAAB3Nz.....BdZoeQ==
      ```
 
      Инструкцию по созданию пары SSH-ключей см. в [документации {{ compute-name }}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).

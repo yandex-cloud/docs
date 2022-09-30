@@ -21,7 +21,7 @@
    Пример текстового файла для пользователя `yc-user`:
 
    ```txt
-   yc-user:ssh-rsa AAAAB3Nza......OjbSMRX yc-user@example.com
+   yc-user:ssh-ed25519 AAAAB3Nza......OjbSMRX yc-user@example.com
    ```
 
    По умолчанию пользовательские SSH-ключи хранятся в каталоге `~/.ssh` этого пользователя. Получить открытый ключ можно с помощью команды `cat ~/.ssh/<имя открытого ключа>.pub`.

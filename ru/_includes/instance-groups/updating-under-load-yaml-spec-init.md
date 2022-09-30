@@ -39,7 +39,7 @@ instance_template:
             tty: false
             stdin: false
     ssh-keys: | # Параметр для передачи SSH-ключа на ВМ.
-      yc-user:ssh-rsa ABC...d01 user@desktop.ru # Имя пользователя для подключения к ВМ.
+      yc-user:ssh-ed25519 ABC...d01 user@desktop.ru # Имя пользователя для подключения к ВМ.
 deploy_policy: # Политика развертывания ВМ в группе.
   max_unavailable: 4
 scale_policy: # Политика масштабирования ВМ в группе.

@@ -34,7 +34,7 @@
     ```
     yc compute connect-to-serial-port \
       --instance-name first-instance \
-      --ssh-key ~/.ssh/id_rsa
+      --ssh-key ~/.ssh/id_ed25519
     ```
 
     Или к SAC Windows:
