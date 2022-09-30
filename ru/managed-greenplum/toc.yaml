@@ -26,6 +26,8 @@ items:
             href: operations/hosts/cluster-expand.md
       - name: Изменение настроек кластера
         href: operations/update.md
+      - name: Управление ролями и пользователями
+        href: operations/roles-and-users.md
       - name: Использование внешних таблиц
         href: operations/external-tables.md
       - name: Расширения Greenplum

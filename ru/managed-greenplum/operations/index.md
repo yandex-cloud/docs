@@ -10,6 +10,7 @@
 * [{#T}](./hosts/cluster-hosts.md)
 * [{#T}](./hosts/cluster-expand.md)
 * [{#T}](update.md)
+* [{#T}](roles-and-users.md)
 * [{#T}](external-tables.md)
 * [{#T}](./extensions/cluster-extensions.md)
 * [{#T}](cluster-logs.md)
