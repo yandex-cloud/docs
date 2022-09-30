@@ -103,7 +103,7 @@
   ```powershell
    curl `
      -Certificate <absolute path to the certificate file> `
-     -Uri https://c-{{ ES }} cluster ID>.rw.{{ dns-zone }}:9200 `
+     -Uri https://c-<{{ ES }} cluster ID>.rw.{{ dns-zone }}:9200 `
      -Credential <username>
   ```
 
