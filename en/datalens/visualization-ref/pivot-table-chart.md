@@ -75,6 +75,22 @@ To create a pivot table:
 1. Under **Columns**, click the icon to the left of the dimension or measure name.
 1. In the window that opens, change the **Name** field value and click **Apply**.
 
+### Adding a row with totals {#add-totals}
+
+1. In the left part of the screen, click ![image](../../_assets/datalens/gear.svg) next to the chart type.
+1. Enable the **Totals** settings.
+1. Click **Apply**.
+
+The **Total** row is displayed in the table. Values in the row are calculated using the same formulas as [aggregation](../concepts/dataset/data-model.md#aggregation) in the measure.
+
+{% note info %}
+
+* Values in the row with totals are calculated only for measures. For dimensions, the row is empty.
+* The **Total** row doesn't support filtering by [measure](../concepts/dataset/data-model.md#field). You can hide the **Total** row by dragging a measure to the **Filters** or **Dashboard filters** section.
+* Calculations using [LOD expressions](../concepts/lod-aggregation.md), [window functions](../function-ref/window-functions.md), and [time series functions](../function-ref/time-series-functions.md) may not work correctly in the row with totals.
+
+{% endnote %}
+
 ## Recommendations {#recomendations}
 
 * Use a pivot table to represent aggregate data in table format.
