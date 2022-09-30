@@ -5,7 +5,7 @@
 ## Creating secrets {#create}
 
 1. Open the project page where you would like to create a secret.
-1. Under **Resources**, click ![secret](../../../_assets/datasphere/jupyterlab/secret.svg) **Secret**.
+1. Under **Resources**, click ![secret](../../../_assets/datasphere/jupyterlab/secret.svg)**Secret**.
 1. Click **Create**.
 1. In the **Name** field, enter a name for the secret.
 
@@ -14,14 +14,14 @@
 1. In the **Content** field, enter a value to be stored in encrypted form.
 1. Click **Create**. This will display the created secret's info page.
 
-To make the secret available, restart the system kernel. {% include [restart-kernel](../../../_includes/datasphere/restart-kernel.md) %}
+To make the secret available, restart the system kernel. To do this, select **Kernel** ⟶ **Restart kernel** in the menu of the project opened in JupyterLab.
 
 ## Sharing secrets {#share}
 
 Only a community admin can share a secret in the community. To learn more about roles that apply in {{ ml-platform-name }}, see [{#T}](../../security/index.md).
 
 1. Open the project page with the secret to share.
-1. Under **Resources**, click ![secret](../../../_assets/datasphere/jupyterlab/secret.svg) **Secret**.
+1. Under **Resources**, click ![secret](../../../_assets/datasphere/jupyterlab/secret.svg)**Secret**.
 1. Select the appropriate secret from the list.
 1. Go to the **Access** tab.
 1. Enable the visibility option next to the name of the community to share the secret in.
