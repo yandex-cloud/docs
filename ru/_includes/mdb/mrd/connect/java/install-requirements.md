@@ -3,7 +3,7 @@
 1. Установите зависимости:
 
     ```bash
-    sudo apt update && sudo apt install -y default-jdk maven
+    sudo apt update && sudo apt install --yes default-jdk maven
     ```
 
 1. Создайте директорию для проекта Maven:

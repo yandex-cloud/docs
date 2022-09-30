@@ -3,6 +3,14 @@
 Полный состав актуальных и устаревших образов {{ dataproc-name }} см. в разделе [{#T}](../concepts/environment.md).
 
 
+## 2.0.50 {#2.0.50}
+
+* Результаты выполнения пользовательских сценариев теперь по умолчанию отправляются на `masternode`.
+
+## 2.0.49 {#2.0.49}
+
+* Устранена ошибка с игнорированием пользовательских настроек в Hive Metastore Server.
+
 ## 2.0.48 {#2.0.48}
 
 * Добавлена возможность использования [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sql-distributed-sql-engine.html). Подробнее см. в разделе [{#T}](../concepts/settings-list.md#spark-thrift-server).

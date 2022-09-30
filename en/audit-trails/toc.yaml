@@ -46,6 +46,8 @@ items:
           Uploading audit logs to {{ mch-full-name }} and data visualiation in
           {{ datalens-full-name }}
         href: tutorials/logs-analysis.md
+      - name: Exporting audit logs to SIEM Splunk systems
+        href: tutorials/export-logs-to-splunk.md
   - name: Concepts
     expanded: true
     items:

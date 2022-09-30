@@ -133,3 +133,23 @@ Connecting to the database with explicitly specified network addresses and ports
    * `<table name>`: Table in the default schema.
 
 {% endlist %}
+
+## Known limitations {#known-limitations}
+
+For now, transfer cannot move columns of the following types from {{ CH }}:
+
+| Type              | Error sample                                                    |
+|-------------------|-----------------------------------------------------------------|
+| Int128            | unhandled type Int128                                           |
+| Int256            | unhandled type Int256                                           |
+| UInt128           | unhandled type UInt128                                          |
+| UInt256           | unhandled type UInt256                                          |
+| Bool              | unhandled type Bool                                             |
+| Date32            | unhandled type Date32                                           |
+| JSON              | unhandled type '<field name> <type name>'                       |
+| Array(Date)       | Can't transfer type 'Array(Date)', column '<column name>'       |
+| Array(DateTime)   | Can't transfer type 'Array(DateTime)', column '<column name>'   |
+| Array(DateTime64) | Can't transfer type 'Array(DateTime64)', column '<column name>' |
+| Map(,)            | unhandled type Map(<type name>, <type name>)                    |
+
+If the source tables contain columns of these types, the transfer will fail. Examples of errors are shown in the table above.

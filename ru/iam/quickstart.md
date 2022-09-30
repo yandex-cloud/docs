@@ -2,7 +2,7 @@
 
 Сервис {{ iam-short-name }} позволяет вам управлять доступом к ресурсам {{ yandex-cloud }}.
 
-По этой инструкции вы добавите пользователя в [организацию](../organization/index.yaml) и дадите ему доступ к ресурсу в одном из ваших [облаков](../resource-manager/concepts/resources-hierarchy.md#cloud).
+По этой инструкции вы добавите пользователя в [организацию](../organization/) и дадите ему доступ к ресурсу в одном из ваших [облаков](../resource-manager/concepts/resources-hierarchy.md#cloud).
 
 Для выполнения инструкции потребуются [роли](./concepts/access-control/roles.md):
 

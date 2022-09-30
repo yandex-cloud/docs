@@ -1,18 +1,11 @@
 # Получение идентификатора или почты пользователя
 
-
-Вы можете получить следующую информацию о любом зарегистрированном пользователе {{ yandex-cloud }}:
-* идентификатор;
-* логин;
-* почта (только через CLI и API).
-
 {% list tabs %}
 
-- Консоль управления
+- Cloud Organization
 
-  1. Войдите в [консоль управления]({{ link-console-main }}).
-  1. [Выберите](../../../resource-manager/operations/cloud/switch-cloud.md) облако.
-  1. Перейдите на вкладку **Права доступа**.
+  {% include [users-info](../../../_includes/users-info.md) %}
+
 
 - CLI
 
@@ -42,5 +35,6 @@
   Получите информацию о пользователе (ресурс [UserAccount](../../api-ref/UserAccount/index.md)):
   * Если вы знаете логин пользователя, используйте метод [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md) для ресурса [YandexPassportUserAccount](../../api-ref/YandexPassportUserAccount/index.md).
   * Если вы знаете идентификатор пользователя, используйте метод [get](../../api-ref/UserAccount/get.md) для ресурса [UserAccount](../../api-ref/UserAccount/index.md).
+
 
 {% endlist %}

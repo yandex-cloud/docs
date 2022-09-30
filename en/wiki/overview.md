@@ -8,7 +8,7 @@ On {{ wiki-name}} pages, you can store information that employees need for work:
 
 ## Access to {{ wiki-full-name }} {#access}
 
-Users registered in [{{ org-full-name }}](../organization/index.yaml) can work in {{ wiki-full-name }}. For an organization, its own knowledge base is created in {{ wiki-full-name }}, which is only accessible to employees. Read about how to connect {{ wiki-full-name }} in the cluster [{#T}](enable-wiki.md).
+Users registered in [{{ org-full-name }}](../organization/) can work in {{ wiki-full-name }}. For an organization, its own knowledge base is created in {{ wiki-full-name }}, which is only accessible to employees. Read about how to connect {{ wiki-full-name }} in the cluster [{#T}](enable-wiki.md).
 
 To get access to {{ wiki-name }}, [log in to the account](login.md) that you use for the organization.
 

@@ -1,12 +1,15 @@
 #### Quotas {#dataproc-quotas}
 
-| Limits                           | Value |
-| -------------------------------- | ----: |
-| Number of active transfers       |    10 |
+| Type of limit | Value |
+|----------------------------------|---------:|
+| Endpoints | 100 |
+| Transfers | 50 |
+| Running transfers | 10 |
 
 #### Limits {#dataproc-limits}
 
-| Limits                           | Value |
-| -------------------------------- | ----: |
-| Number of active transfers       |  1000 |
-
+| Type of limit | Value |
+|----------------------------------|---------:|
+| Endpoints | 400 |
+| Transfers | 200 |
+| Running transfers | 50 |

@@ -16,6 +16,6 @@ items:
         href: metrics-collector.md
       - name: VM Watchdog
         href: vm-watchdog.md
-      - name: Instance Group Sheduled Scaler
-        href: yc-ig-sheduled-scale.md
+      - name: Instance Group Scheduled Scaler
+        href: yc-ig-scheduled-scale.md
 base: ru/cloud-apps

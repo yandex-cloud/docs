@@ -1,6 +1,6 @@
 # Configuring a response in {{ cloud-logging-full-name }} and {{ sf-full-name }}
 
-You can configure [{{ sf-name }}](../../functions/index.yaml) to automatically respond to audit log events. For example, to send messages through convenient notification channels or automatically modify {{ yandex-cloud }} resource settings to compensate for changes.
+You can configure [{{ sf-name }}](../../functions/) to automatically respond to audit log events. For example, to send messages through convenient notification channels or automatically modify {{ yandex-cloud }} resource settings to compensate for changes.
 
 ## How it works {#scheme}
 

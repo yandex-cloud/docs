@@ -1,6 +1,6 @@
 # Creating a test with data from a bucket
 
-You can upload payloads from a [{{ objstorage-full-name }}](../../storage/index.yaml) [bucket](../../storage/concepts/bucket.md) to {{ load-testing-name }}. This method allows you to:
+You can upload payloads from a [{{ objstorage-full-name }}](../../storage/) [bucket](../../storage/concepts/bucket.md) to {{ load-testing-name }}. This method allows you to:
 * Handle large volumes of payloads (over 100 MB).
 * Store payloads and reuse them easily.
 * Ensure maximum security (payloads remain in the user's cloud and associated networks).

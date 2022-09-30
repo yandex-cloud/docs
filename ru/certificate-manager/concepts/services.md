@@ -29,4 +29,4 @@
 #### См. также {#see-also}
 
 * [Статический веб-сайт в {{ objstorage-name }}](../../tutorials/web/static.md)
-* [{{ api-gw-full-name }}](../../api-gateway/index.yaml)
+* [{{ api-gw-full-name }}](../../api-gateway/)

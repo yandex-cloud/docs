@@ -41,8 +41,6 @@ items:
         href: notifications.md
       - name: Отправить письмо
         href: send-mail.md
-      - name: Опубликовать форму в Дзене
-        href: forms-lite.md
       - name: Подключить Метрику
         href: metrica.md
       - name: Создать задачу в Tracker

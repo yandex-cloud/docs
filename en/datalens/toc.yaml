@@ -57,8 +57,6 @@ items:
         items:
           - name: Overview
             href: concepts/chart/index.md
-          - name: Chart types
-            href: concepts/chart/types.md
           - name: Chart settings
             href: concepts/chart/settings.md
           - name: Measure Values and Measure Names
@@ -151,30 +149,8 @@ items:
             href: operations/dataset/add-parameter-dataset.md
       - name: Working with charts
         items:
-          - name: Creating a line chart
-            href: operations/chart/create-line-chart.md
-          - name: Creating an area chart
-            href: operations/chart/create-area-chart.md
-          - name: Creating a pie chart
-            href: operations/chart/create-pie-chart.md
-          - name: Creating a donut chart
-            href: operations/chart/create-ring-chart.md
-          - name: Creating a column chart
-            href: operations/chart/create-column-chart.md
-          - name: Creating a bar chart
-            href: operations/chart/create-bar-chart.md
-          - name: Creating a scatter chart
-            href: operations/chart/create-scatter-chart.md
-          - name: Creating a map
-            href: operations/chart/create-map-chart.md
-          - name: Creating a table
-            href: operations/chart/create-table.md
-          - name: Creating a pivot table
-            href: operations/chart/create-pivot-table.md
-          - name: Creating an indicator
-            href: operations/chart/create-indicator-chart.md
-          - name: Creating a tree chart
-            href: operations/chart/create-tree-chart.md
+          - name: Creating a chart
+            href: operations/chart/create-chart.md
           - name: Creating a QL chart
             href: operations/chart/create-sql-chart.md
           - name: Creating a multi-dataset chart
@@ -239,6 +215,52 @@ items:
         href: security/row-level-security.md
   - name: Pricing policy
     href: pricing.md
+  - name: Visualization reference
+    items:
+      - name: All visualizations
+        href: visualization-ref/index.md
+      - name: Line chart
+        href: visualization-ref/line-chart.md
+      - name: Stacked area chart
+        href: visualization-ref/area-chart.md
+      - name: Normalized stacked area chart
+        href: visualization-ref/normalized-area-chart.md
+      - name: Column chart
+        href: visualization-ref/column-chart.md
+      - name: Normalized column chart
+        href: visualization-ref/normalized-column-chart.md
+      - name: Bar chart
+        href: visualization-ref/bar-chart.md
+      - name: Normalized bar chart
+        href: visualization-ref/normalized-bar-chart.md
+      - name: Scatter chart
+        href: visualization-ref/scatter-chart.md
+      - name: Pie chart
+        href: visualization-ref/pie-chart.md
+      - name: Indicator
+        href: visualization-ref/indicator-chart.md
+      - name: Tree chart
+        href: visualization-ref/tree-chart.md
+      - name: Donut chart
+        href: visualization-ref/ring-chart.md
+      - name: Table
+        href: visualization-ref/table-chart.md
+      - name: Pivot table
+        href: visualization-ref/pivot-table-chart.md
+      - name: Map
+        items:
+          - name: Overview
+            href: visualization-ref/map-chart.md
+          - name: Point map
+            href: visualization-ref/point-map-chart.md
+          - name: Point map with clusters
+            href: visualization-ref/cluster-point-map-chart.md
+          - name: Polyline map
+            href: visualization-ref/polyline-map-chart.md
+          - name: Choropleth map
+            href: visualization-ref/choropleth-map-chart.md
+          - name: Heat map
+            href: visualization-ref/heat-map-chart.md
   - name: Function reference
     items:
       - name: All Functions

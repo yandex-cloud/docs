@@ -87,7 +87,7 @@
 
 {% note warning %}
 
-Сейчас получить идентификатор лог-группы балансировщика и [создать триггер](../../functions/operations/trigger/cloudlogs-trigger-create.md) с этим идентификатором можно только через [CLI](../../cli/index.yaml) или API {{ yandex-cloud }}.
+Сейчас получить идентификатор лог-группы балансировщика и [создать триггер](../../functions/operations/trigger/cloudlogs-trigger-create.md) с этим идентификатором можно только через [CLI](../../cli/) или API {{ yandex-cloud }}.
 
 {% endnote %}
 

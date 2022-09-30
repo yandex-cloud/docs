@@ -57,4 +57,4 @@ To label each column with its measure name, add `Measure Values` to the **Labels
 The following restrictions apply to the `Measure Names` and `Measure Values` fields:
 
 * You can't use `Measure Names` and `Measure Values` to filter your chart.
-* You can use `Measure Names` and `Measure Values` to sort data only in the [{#T}](types.md#area-chart) and [{#T}](types.md#normalized-area-chart) charts.
+* You can use `Measure Names` and `Measure Values` to sort data only in the [{#T}](../../visualization-ref/area-chart.md) and [{#T}](../../visualization-ref/normalized-area-chart.md) charts.

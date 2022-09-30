@@ -33,6 +33,10 @@ items:
         href: domains/physical-security.md
       - name: Безопасность Kubernetes
         href: domains/kubernetes.md
+  - name: Практические руководства
+    items:
+      - name: ViPNet Coordinator в {{ yandex-cloud }}
+        href: tutorials/vipnet-to-yc.md
   - name: Инструкции
     items:
       - name: Удаление паспортного аккаунта из {{ org-full-name }}

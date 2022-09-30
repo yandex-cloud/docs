@@ -69,7 +69,7 @@ To test the backup feature, [restore a cluster from a backup](../operations/clus
 
 ## Exporting database backups to {{ objstorage-full-name }} and restoring from a backup {#send-to-objstorage}
 
-The service supports exporting database backups to and restoring databases from [{{ objstorage-name }}](../../storage/index.yaml) buckets. In both the cases, a cluster must have a [service account](../../iam/concepts/users/service-accounts) with bucket access linked to it.
+The service supports exporting database backups to and restoring databases from [{{ objstorage-name }}](../../storage/) buckets. In both the cases, a cluster must have a [service account](../../iam/concepts/users/service-accounts) with bucket access linked to it.
 
 Backups are exported in unencrypted form, which is why we recommend restricting access to the bucket. A backup stored in {{ objstorage-name }} that will be used to restore a database must be unencrypted as well.
 

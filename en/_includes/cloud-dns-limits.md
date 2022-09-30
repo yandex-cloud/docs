@@ -12,4 +12,4 @@
 | ----- | ----- |
 | Maximum number of records per record set | 100 |
 | Maximum number of simultaneously updated record sets | 1000 |
-| Maximum number of networks per zone | 10 |
+| Maximum number of networks per zone | 50 |

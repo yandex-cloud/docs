@@ -26,14 +26,14 @@ See the {{ objstorage-full-name }} security guidelines in [{#T}](secure-config.m
 
 {% endnote %}
 
- To collect metrics, analyze {{ yandex-cloud }}-level events, and set up notifications, we recommend using [{{ monitoring-full-name }}](../../monitoring/index.yaml).  It helps you track, for example, a sharp increase in the load on {{ compute-name }}, the number of {{ alb-name }} requests per second (RPS), or significant changes in event statistics in {{ iam-name }}.
+ To collect metrics, analyze {{ yandex-cloud }}-level events, and set up notifications, we recommend using [{{ monitoring-full-name }}](../../monitoring/).  It helps you track, for example, a sharp increase in the load on {{ compute-name }}, the number of {{ alb-name }} requests per second (RPS), or significant changes in event statistics in {{ iam-name }}.
 
 You can also use {{ monitoring-name }} to monitor the health of the {{ at-name }} service itself and track security events.
 
 
 ![](../../_assets/overview/solution-library-icon.svg)[Solution: Monitoring Audit Trails and security events using {{ monitoring-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trail_monitoring)
 
-You can export audit logs to a log group in [{{ cloud-logging-name }}](../../logging/index.yaml) and to [a customer's SIEM system](#export) to analyze information about events and incidents.
+You can export audit logs to a log group in [{{ cloud-logging-name }}](../../logging/) and to [a customer's SIEM system](#export) to analyze information about events and incidents.
 
 
 List of important {{ yandex-cloud }}-level events for search in audit logs:

@@ -24,7 +24,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Supported tools {#supported-tools}
 
-Most of the steps in the tutorial can be completed in any standard tool: the [management console]({{ link-console-main }}), command line interfaces (CLI) [{{ yandex-cloud }}](../cli/index.yaml) and [AWS](../storage/tools/aws-cli.md), {{ TF }}, and [{{ yandex-cloud }} APIs](../api-design-guide). Each step lists tools supported for it.
+Most of the steps in the tutorial can be completed in any standard tool: the [management console]({{ link-console-main }}), command line interfaces (CLI) [{{ yandex-cloud }}](../cli/) and [AWS](../storage/tools/aws-cli.md), {{ TF }}, and [{{ yandex-cloud }} APIs](../api-design-guide). Each step lists tools supported for it.
 
 Some steps don't support certain tools:
 

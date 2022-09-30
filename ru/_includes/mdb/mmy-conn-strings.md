@@ -5,7 +5,7 @@
   **Перед подключением установите утилиту `mysql`:**
 
   ```bash
-  sudo apt update && sudo apt install -y mysql-client
+  sudo apt update && sudo apt install --yes mysql-client
   ```
 
   **Подключение с использованием SSL-соединения:**
@@ -64,7 +64,7 @@
   **Перед подключением установите зависимости:**
 
   ```bash
-  sudo apt update && sudo apt install -y python3 python3-pip libmysqlclient-dev && \
+  sudo apt update && sudo apt install --yes python3 python3-pip libmysqlclient-dev && \
   pip3 install mysqlclient
   ```
 
@@ -122,7 +122,7 @@
   **Перед подключением установите зависимости:**
   
   ```bash
-  sudo apt update && apt install -y php php-mysql
+  sudo apt update && apt install --yes php php-mysql
   ```
 
   **Пример кода для подключения с использованием SSL-соединения:**
@@ -179,7 +179,7 @@
   1. Установите зависимости:
   
      ```bash
-     sudo apt update && sudo apt install -y default-jdk maven
+     sudo apt update && sudo apt install --yes default-jdk maven
      ```
 
   1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ MY }} мог использовать этот сертификат при защищенном подключении к хостам кластера. При этом задайте пароль в параметре `-storepass` для защиты хранилища:
@@ -194,7 +194,9 @@
   1. Создайте директорию для проекта Maven:
      
      ```bash
-     cd ~/ && mkdir -p project/src/java/com/example && cd project/
+     cd ~/ && \
+     mkdir --parents project/src/java/com/example && \
+     cd ~/project
      ```
      
   1. Создайте конфигурационный файл для Maven:  
@@ -346,7 +348,7 @@
   **Перед подключением установите зависимости:**
 
   ```bash
-  sudo apt update && sudo apt install -y nodejs npm && \
+  sudo apt update && sudo apt install --yes nodejs npm && \
   npm install mysql2
   ```
   
@@ -416,7 +418,7 @@
   **Перед подключением установите зависимости:**
 
   ```bash
-  sudo apt update && sudo apt install -y golang git && \
+  sudo apt update && sudo apt install --yes golang git && \
   go get github.com/go-sql-driver/mysql
   ```
 
@@ -537,7 +539,7 @@
   **Перед подключением установите зависимости:**
   
   ```bash
-  sudo apt update && sudo apt install -y ruby ruby-mysql2
+  sudo apt update && sudo apt install --yes ruby ruby-mysql2
   ```
   
   **Пример кода для подключения с использованием SSL-соединения:**
@@ -597,7 +599,7 @@
   **Перед подключением установите зависимости:**
   
   ```bash
-  sudo apt update && sudo apt install -y unixodbc && \
+  sudo apt update && sudo apt install --yes unixodbc && \
   wget https://dev.mysql.com/get/Downloads/Connector-ODBC/8.0/mysql-connector-odbc_8.0.21-1ubuntu20.04_amd64.deb && \
   sudo dpkg -i mysql-connector-odbc_8.0.21-1ubuntu20.04_amd64.deb
   ```

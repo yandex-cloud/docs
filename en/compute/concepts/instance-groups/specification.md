@@ -5,7 +5,7 @@ You can create or edit an instance group based on the specification in the [YAML
 * The basic attributes and settings of the group: name, description, [labels](../../../overview/concepts/services.md#labels), [service account](../../../iam/concepts/users/service-accounts.md), and deletion protection.
 * The [VM instance template](instance-template.md) and [variables](variables-in-the-template.md) used in it.
 * Policies for [allocation](policies/allocation-policy.md), [deployment](policies/deploy-policy.md), and [scaling](policies/scale-policy.md).
-* Settings for balancing the traffic between VM instances using [{{ network-load-balancer-full-name }}](../../../network-load-balancer/index.yaml) or [{{ alb-full-name }}](../../../application-load-balancer/index.yaml).
+* Settings for balancing the traffic between VM instances using [{{ network-load-balancer-full-name }}](../../../network-load-balancer/) or [{{ alb-full-name }}](../../../application-load-balancer/).
 
 ## Example {#example}
 

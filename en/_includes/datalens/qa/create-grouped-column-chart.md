@@ -2,5 +2,5 @@
 
 By default, a stacked column chart is displayed (see the [screenshot](https://storage.yandexcloud.net/doc-files/bar-chart.png)).
 
-Use the [instructions](../../../datalens/operations/chart/create-column-chart.md#grouped-column-chart) to display a grouped column chart.
+Use the [instructions](../../../datalens/visualization-ref/column-chart.md#create-diagram) to display a grouped column chart.
 

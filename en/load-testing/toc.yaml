@@ -52,6 +52,8 @@ items:
         href: concepts/testing-stream.md
       - name: Reports
         href: concepts/reports.md
+      - name: Load test results
+        href: concepts/load-test-results.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

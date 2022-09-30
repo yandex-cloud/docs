@@ -48,7 +48,7 @@ For more information about transfer states, operations applicable to transfers, 
 
          * **{{ yandex-cloud }}**:
 
-            * **Sharded copying parameters** are parameters for parallel reading from tables to increase transfer bandwidth. Parallel reading is only available for tables that contain a primary key in [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
+            * **Sharded copying parameters** are parameters for parallel reading from tables to increase transfer bandwidth. In a {{ PG }} source, concurrent access is only available for tables that contain a primary key in [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
 
                * **Number of instances** is the number of virtual machines in {{ compute-full-name }} that the transfer will be run on. We recommend a value between 2 and 8.
                * **Number of processes** is the number of streams to run the transfer in the instance. We recommend a value between 4 and 8.

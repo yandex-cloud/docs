@@ -467,7 +467,7 @@
 
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
 
-    * Настройки доступа к кластеру из сервиса [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) в Serverless-режиме в параметре `configSpec.access.dataTransfer`.
+    * Настройки доступа к кластеру из сервиса [{{ data-transfer-full-name }}](../../data-transfer/) в Serverless-режиме в параметре `configSpec.access.dataTransfer`.
 
         Это позволит через специальную сеть подключаться к {{ data-transfer-full-name }}, запущенному в {{ k8s }}. В результате будут быстрее выполняться, например, запуск и деактивация трансфера.
 

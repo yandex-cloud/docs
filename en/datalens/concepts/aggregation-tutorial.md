@@ -259,7 +259,7 @@ Measures in the **Colors** section also affect data grouping.
 
 {% endnote %}
 
-In some chart sections, you can drag only a dimension or only a measure. This depends on the [chart type](chart/types.md). For example, in the **Y** section of the [column chart](chart/types.md#bar-chart), you can only drag a measure. If you drag a dimension to this section, it'll be automatically converted to a measure as a result of the **Number of unique** aggregation.
+In some chart sections, you can drag only a dimension or only a measure. This depends on the [chart type](../visualization-ref/index.md). For example, in the **Y** section of the [column chart](../visualization-ref/bar-chart.md), you can only drag a measure. If you drag a dimension to this section, it'll be automatically converted to a measure as a result of the **Number of unique** aggregation.
 
 ![image](../../_assets/datalens/concepts/tutorial/aggregation-13.png)
 
