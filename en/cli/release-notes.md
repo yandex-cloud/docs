@@ -1,18 +1,119 @@
 # YC CLI Releases
 
-## Version 0.94.0 (16.08.22) {#latest-release}
+## Version 0.95.0 (02.09.22) {#latest-release}
 
 ### Changes to {{ yandex-cloud }} services {#services}
 
+{% if product == "yandex-cloud" and audience != "internal" %}
+
+#### {{ api-gw-name }} {#api-gw}
+
+* Added the following parameters to the `yc serverless api-gateway add-domain` command:
+
+   * `--domain` to indicate the FQDN of a connected [domain](../certificate-manager/concepts/domains/index.md) from {{ certificate-manager-name }}.
+   * `--certificate-id` to indicate the ID of a certificate from {{ certificate-manager-name }}.
+
+   The `--domain-id` parameter is considered obsolete. Use the `--domain` and `--certificate-id` parameters instead.
+
+* Added a group of `yc serverless api-gateway websocket` commands to manage WebSocket connections:
+
+   * `yc serverless api-gateway websocket get`: Getting connection data.
+   * `yc serverless api-gateway websocket send`: Sending connection data.
+   * `yc serverless api-gateway websocket disconnect`: Terminating a connection.
+
+{% endif %}
+
+
+{% if audience != "internal" %}
+
+#### {{ certificate-manager-name }} {#certificate-manager}
+
+* Added the `--key-format` parameter to the `yc certificate-manager certificate content` command to select the primary key format: `PKCS1` or `PKCS8`.
+
+{% endif %}
+
+
+{% if audience != "internal" %}
+
+#### {{ compute-name }} {#compute}
+
+* Added the `--os-type` parameter to the `yc compute image create` command to specify the OS type for an image you create: `linux` or `windows`.
+
+{% endif %}
+
+
+{% if audience != "internal" %}
+
+#### {{ dns-name }} {#dns}
+
+* The `yc dns zone add-records`, `yc dns zone update-records`, `yc dns zone delete-records`, and `yc dns zone replace-records` commands now return a list of changes made.
+
+{% endif %}
+
+
+{% if audience != "internal" %}
+
+#### {{ iam-name }} {#iam}
+
+* Fixed an error in the `yc iam federation` command group, which occurred when specifying the name of a SAML-compatible identity federation as a positional argument.
+
+{% endif %}
+
+
+{% if product == "yandex-cloud" and audience != "internal" %}
+
+#### {{ iot-name }} {#iot}
+
+* The `yc iot registry logs` and `yc iot device logs` commands now return logs from {{ cloud-logging-name }}. Added the following parameters to the commands:
+
+   * `--levels` to search for records with the specified logging level.
+   * `--filter` to filter records.
+
+   {% if audience != "internal" %}For more information about possible values of new parameters, see [{#T}](../logging/concepts/filter.md). {% endif %}
+
+{% endif %}
+
+
+#### Managed database services {#managed-db}
+
+**{{ mkf-name }}**
+
+* Added support for {{ KF }} 3.0, 3.1, and 3.2.
+
 {% if product == "yandex-cloud" %}
 
-#### {{ cloud-logging-name }} {#cloud-logging}
+**{{ mrd-name }}**
+
+* {{ RD }} 5.0 and 6.0 are no longer supported.
+
+{% endif %}
+
+
+{% if audience != "internal" %}
+
+#### {{ org-name }} {#organization}
+
+* Added the `--organization-id` parameter to the commands of the `yc organization-manager federation saml` group to specify organization IDs. Fixed an error that occurred in these commands when specifying the name of a SAML-compatible identity federation as a positional argument.
+* Added a group of `yc organization-manager group` commands to manage [user groups](../organization/manage-groups.md).
+
+{% endif %}
+
+
+## Previous releases {#previous-releases}
+
+### Version 0.94.0 (16.08.22) {#version0.94.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+{% if product == "yandex-cloud" %}
+
+##### {{ cloud-logging-name }} {#cloud-logging}
 
 * Added the `--stream-name` parameter to the `yc logging read` and `yc logging write` commands.
 
 {% endif %}
 
-#### Managed database services {#managed-db}
+##### Managed database services {#managed-db}
 
 {% if product == "yandex-cloud" %}
 
@@ -31,7 +132,8 @@
 
 **{{ mrd-name }}**
 
-* Added the flags to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`, `yc managed-redis hosts add`, `yc managed-redis hosts update`, and `yc managed-redis shards add` commands:
+* Added the flags to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`,
+   `yc managed-redis hosts add`, `yc managed-redis hosts update`, and `yc managed-redis shards add` commands:
 
    * `--assign-public-ip=true|false`: Assigns or deletes a host's public IP address.
    * `--replica-priority=50`: Sets the replica priority (for non-sharded clusters only).
@@ -56,12 +158,10 @@
    - `offsets-retention-minutes`
    - `ssl-cipher-suites`
 
-#### {{ vpc-name }} {#vpc}
+##### {{ vpc-name }} {#vpc}
 
 * Added the `yc vpc gateway` command group to manage routing gateways.
 * Added the ability to specify a gateway as a route destination to the `yc vpc route-table` group commands.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.93.0 (19.07.22) {#version0.93.0}
 
@@ -84,7 +184,7 @@
 
 **{{ mpg-name }}**
 
-* The `yc managed-postgresql database create`, `yc managed-postgresql database list`, and `yc managed-postgresql database get` commands
+* The `yc managed-postgresql database create`, `yc managed-postgresql database list`, and `yc managed-postgresql database get` commands.
 
    Added support for templates when creating a database using `--template-db string`.
 
@@ -99,11 +199,11 @@
 ##### {{ managed-k8s-name }} {#k8s}
 
 * Commands `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update`.
-
+   
 
    * Added the `--node-name` flag that can be used to specify a node name template within a group.
 
-   * Added the `--template-labels` and `--template-labels-from-files` flags that can be used to specify {% if audience == "external" %}[resource labels {{ yandex-cloud }}](../overview/concepts/services.md#labels){% endif %}{% if audience == "internal" %}resource labels {{ yandex-cloud }}{% endif %} for VMs — group nodes (not to be confused with {% if audience == "external" %}[node labels {{ k8s }}](../managed-kubernetes/concepts/index.md#node-labels){% endif %}{% if audience == "internal" %}node labels {{ k8s }}{% endif %}).
+   * Added the `--template-labels` and `--template-labels-from-files` flags that can be used to specify {% if audience == "external" %}[{{ yandex-cloud }} resource labels](../overview/concepts/services.md#labels){% endif %}{% if audience == "internal" %}{{ yandex-cloud }} resource labels{% endif %} for VMs — group nodes (not to be confused with {% if audience == "external" %}[{{ k8s }} node labels](../managed-kubernetes/concepts/index.md#node-labels){% endif %}{% if audience == "internal" %}{{ k8s }} node labels{% endif %}).
 
 {% if product == "yandex-cloud" %}
 
@@ -349,7 +449,7 @@ This is the first CLI version available for {{ yandex-cloud }}.
 
 ##### {{ compute-name }} {#compute}
 
-* Added the `yc compute disk move` and `yc compute instance move` to move disks and instances between folders
+* Added the `yc compute disk move` and `yc compute instance move` to move disks and instances between folders.
 
 ##### Managed database services {#managed-db}
 
@@ -431,7 +531,7 @@ This is the first CLI version available for {{ yandex-cloud }}.
 
 * Added the `--labels` parameter, which defines a set of database labels, to the `yc ydb database create` command.
 * Added the `--labels` parameter, which changes the entire set of database labels, to the `yc ydb database update` command.
-* Added the `yc ydb database add-labels` and `yc ydb database remove-labels` commands to manage abels.
+* Added the `yc ydb database add-labels` and `yc ydb database remove-labels` commands to manage labels.
 
 ### Version 0.85.0 (29.11.21) {#version0.85.0}
 
@@ -694,7 +794,7 @@ Added new flags to the `yc managed-clickhouse cluster create` and `yc managed-cl
 **{{ mms-name }}**
 
 * Added the `yc managed-sqlserver database restore` command.
-
+   
 
    It lets you restore the specified database on an existing cluster from a backup. You can restore it under a different name.
 
@@ -707,7 +807,7 @@ Added new flags to the `yc managed-clickhouse cluster create` and `yc managed-cl
 * Commands `yc dataproc cluster create` and `yc dataproc cluster update`.
 
    The `--deletion-protection` flag lets you enable/disable cluster protection against accidental deletion.
-
+   
 
    To disable cluster protection from deletion, specify `--deletion-protection=false`.
 
@@ -741,7 +841,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 {{ cloud-logging-name }} is a service for reading and recording service logs and user applications.
 
-{% if audience != "internal" %}The {{ cloud-logging-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage. {% endif %}Read more about  in the [documentation](../logging/).
+{% if audience != "internal" %}The {{ cloud-logging-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage. {% endif %}Read more about in the [documentation](../logging/).
 
 #### {{ sf-name }} {#serverless-functions}
 
@@ -765,7 +865,7 @@ Added support for {{ cloud-logging-full-name }}.
 #### {{ managed-k8s-name }} {#k8s}
 
 * Commands `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update`.
-
+   
 
    Added the `--network-acceleration-type` flag, which lets you specify a network type for node groups: standard or software-accelerated.
 
@@ -1118,7 +1218,7 @@ Added primary support for {{ mkf-name }}:
 
    Added the `--security-group-ids` flag to set cluster security groups.
 * Commands `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update`.
-
+   
 
    Added the `--network-interface` flag that lets you configure more detailed network specifications for nodes. For example, manage security group settings for network interfaces and configure node interfaces for concurrent use of IPv4 and IPv6 in {{ k8s }} clusters.
 
@@ -1349,7 +1449,7 @@ Added support for {{ api-gw-full-name }}.
 
 {{ api-gw-name }} is a service for managing API gateways that supports [OpenAPI Specification 3.0](https://github.com/OAI/OpenAPI-Specification) and a set of extensions for interacting with other cloud services.
 
-{% if audience != "internal" %}The {{ api-gw-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage. {% endif %}Read more about  in the [documentation](../api-gateway/).
+{% if audience != "internal" %}The {{ api-gw-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage. {% endif %}Read more about in the [documentation](../api-gateway/).
 
 #### {{ iam-name }} {#iam}
 
@@ -1377,7 +1477,7 @@ Added support for {{ api-gw-full-name }}.
 ##### {{ managed-k8s-name }} {#k8s}
 
 * Commands `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update`.
-
+   
 
    Added the `--gpus=GPUS` flag to specify the number of GPUs on the nodes.
 
@@ -1485,7 +1585,7 @@ Added support for {{ api-gw-full-name }}.
 
    Added the `--node-ipv4-mask-size` flag to configure the size of `CIDR` allocated to each cluster node.
 * Commands `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update`.
-
+   
 
    Added the `--max-unavailable` and `--max-expansion` flags to control the number of nodes deleted and created at instance group update.
 
