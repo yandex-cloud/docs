@@ -28,6 +28,6 @@ links:
   - title: VM Watchdog
     description: Останавливает и запускает ВМ по расписанию
     href: vm-watchdog.m
-  - title: Instance Group Sheduled Scaler
+  - title: Instance Group Scheduled Scaler
     description: Изменяет размер группы ВМ по расписанию
-    href: yc-ig-sheduled-scale
+    href: yc-ig-scheduled-scale

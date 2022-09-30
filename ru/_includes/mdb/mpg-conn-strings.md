@@ -15,7 +15,7 @@
 Перед подключением установите зависимости:
 
 ```bash
-sudo apt update && sudo apt install -y postgresql-client
+sudo apt update && sudo apt install --yes postgresql-client
 ```
 
 {% list tabs %}
@@ -26,11 +26,11 @@ sudo apt update && sudo apt install -y postgresql-client
 
       ```bash
       psql "host=c-<идентификатор кластера>.rw.{{ dns-zone }} \
-          port=6432 \
-          sslmode=disable \
-          dbname=<имя БД> \
-          user=<имя пользователя> \
-          target_session_attrs=read-write"
+            port=6432 \
+            sslmode=disable \
+            dbname=<имя БД> \
+            user=<имя пользователя> \
+            target_session_attrs=read-write"
       ```
 
       После выполнения команды введите пароль пользователя для завершения процедуры подключения.
@@ -104,7 +104,7 @@ sudo apt update && sudo apt install -y postgresql-client
 Перед подключением установите зависимости:
 
 ```bash
-sudo apt update && sudo apt install -y golang git && \
+sudo apt update && sudo apt install --yes golang git && \
 go mod init example && go get github.com/jackc/pgx/v4
 ```
 
@@ -266,7 +266,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 1. Установите зависимости:
 
     ```bash
-    sudo apt update && sudo apt install -y default-jdk maven
+    sudo apt update && sudo apt install --yes default-jdk maven
     ```
 
 1. Создайте директорию для проекта Maven:
@@ -439,7 +439,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 Перед подключением установите зависимости:
 
 ```bash
-sudo apt update && sudo apt install -y nodejs npm && \
+sudo apt update && sudo apt install --yes nodejs npm && \
 npm install pg
 ```
 
@@ -519,7 +519,7 @@ node app.js
 Перед подключением установите зависимости:
 
 ```bash
-sudo apt update && sudo apt install -y unixodbc odbc-postgresql
+sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
 ```
 
 Драйвер {{ PG }} ODBC будет автоматически зарегистрирован в файле `/etc/odbcinst.ini`.
@@ -584,7 +584,7 @@ sudo apt update && sudo apt install -y unixodbc odbc-postgresql
 Перед подключением установите зависимости:
 
 ```bash
-sudo apt update && sudo apt install -y php php-pgsql
+sudo apt update && sudo apt install --yes php php-pgsql
 ```
 
 {% list tabs %}
@@ -818,7 +818,7 @@ pip3 install psycopg2-binary
 
     1. Пример кода:
 
-        `connect.R`
+        `connect.r`
 
         ```R
         library(DBI)
@@ -848,7 +848,7 @@ pip3 install psycopg2-binary
 
     1. Пример кода:
 
-        `connect.R`
+        `connect.r`
 
         ```R
         library(DBI)
@@ -882,7 +882,7 @@ pip3 install psycopg2-binary
 Перед подключением установите зависимости:
 
 ```bash
-sudo apt update && sudo apt install -y ruby ruby-pg
+sudo apt update && sudo apt install --yes ruby ruby-pg
 ```
 
 {% list tabs %}

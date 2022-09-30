@@ -2,7 +2,7 @@
 
 Users of organizations registered on the {{ yandex-cloud }} platform can use the {{ forms-full-name }} service in their work: create forms for conducting surveys and tests and accept applications and requests from clients. To learn more about the features of {{ forms-full-name }} for business, go to [{#T}](forms-for-org.md).
 
-{{ forms-full-name }} can be connected to an existing organization, or you can create a new organization. You can learn more about managing organizations in the [{{ org-full-name }} documentation](../organization/index.yaml).
+{{ forms-full-name }} can be connected to an existing organization, or you can create a new organization. You can learn more about managing organizations in the [{{ org-full-name }} documentation](../organization/).
 
 ## Activate {{ forms-full-name }} in the existing organization {#current-org}
 

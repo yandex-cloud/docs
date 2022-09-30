@@ -10,7 +10,7 @@ In this section, you'll learn:
 
 ## What resources you can assign roles to {#resources}
 
-You can assign a role to an [organization](../../organization/index.yaml), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Roles assigned to an organization, cloud, or folder also apply to the CAPTCHAS in them.
+You can assign a role to an [organization](../../organization/), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Roles assigned to an organization, cloud, or folder also apply to the CAPTCHAS in them.
 
 
 ## What roles exist in the service {#roles}

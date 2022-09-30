@@ -20,7 +20,7 @@ If the selected billing account has overdue payments or has been suspended, you 
 
 {% endnote %}
 
-If you linked a billing account with an active trial period or created a new account, the paid version will be automatically activated for your account. This means that money can be debited from your account to pay for services {{ yandex-cloud }}. If you haven't used the starting grant yet, you will be able to use it after switching to the paid version. Read more about the starting grant in [Getting started in {{ yandex-cloud }}](../getting-started/index.yaml).
+If you linked a billing account with an active trial period or created a new account, the paid version will be automatically activated for your account. This means that money can be debited from your account to pay for services {{ yandex-cloud }}. If you haven't used the starting grant yet, you will be able to use it after switching to the paid version. Read more about the starting grant in [Getting started in {{ yandex-cloud }}](../getting-started/).
 
 ## Creating a billing account {#create}
 
@@ -76,7 +76,7 @@ If you linked a billing account with an active trial period or created a new acc
 
 
 
-After creating a billing account, [link it to {{ tracker-name }}](#bind). You can also use the starting grant to explore {{ yandex-cloud }} services if you haven't activated the trial period or purchased paid services before. Read more about the starting grant in [Getting started in {{ yandex-cloud }}](../getting-started/index.yaml).
+After creating a billing account, [link it to {{ tracker-name }}](#bind). You can also use the starting grant to explore {{ yandex-cloud }} services if you haven't activated the trial period or purchased paid services before. Read more about the starting grant in [Getting started in {{ yandex-cloud }}](../getting-started/).
 
 
 

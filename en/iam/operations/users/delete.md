@@ -6,7 +6,7 @@ Deleting a user from the cloud is an operation that cannot be undone. If you ac
 
 {% endnote %}
 
-These instructions describe how to revoke all cloud roles from a user. If the cloud belongs to an [organization](../../../organization/index.yaml), [check](../../../organization/manage-users.md) and, if needed, [revoke](../../../organization/edit-account.md) roles in {{ org-full-name }}.
+These instructions describe how to revoke all cloud roles from a user. If the cloud belongs to an [organization](../../../organization/), [check](../../../organization/manage-users.md) and, if needed, [revoke](../../../organization/edit-account.md) roles in {{ org-full-name }}.
 
 {% list tabs %}
 

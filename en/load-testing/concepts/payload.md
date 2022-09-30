@@ -17,7 +17,7 @@ Types of payloads:
 * [RAW](payloads/raw.md)
 * [HTTP_JSON](payloads/http-json.md)
 
-To store payloads, you can use [{{ objstorage-full-name }}](../../storage/index.yaml). In this case, a data file is uploaded to a [bucket](../../storage/concepts/bucket.md) and remains in the user's cloud.
+To store payloads, you can use [{{ objstorage-full-name }}](../../storage/). In this case, a data file is uploaded to a [bucket](../../storage/concepts/bucket.md) and remains in the user's cloud.
 
 {% note info %}
 

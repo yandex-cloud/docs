@@ -186,6 +186,10 @@ items:
           cluster
         href: dataplatform/mmy-to-mysql-migration.md
       - name: >-
+          Migrating databases from third-party {{ PG }} cluster to {{
+          mpg-full-name }} cluster
+        href: dataplatform/postgresql-data-migration.md
+      - name: >-
           Migrating databases from a third-party {{ RD }} cluster to {{
           mrd-full-name }}
         href: dataplatform/redis-data-migration.md

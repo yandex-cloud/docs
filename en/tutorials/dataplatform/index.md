@@ -48,6 +48,7 @@
 
 ## {{ PG }} {#postgresql}
 
+* [{#T}](postgresql-data-migration.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](./data-transfer-mpg.md)
 * [{#T}](./debezium-mpg.md)

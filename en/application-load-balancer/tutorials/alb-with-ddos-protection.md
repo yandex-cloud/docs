@@ -327,7 +327,7 @@ To create an instance group:
 
 {% note info %}
 
-You can't do this using the [CLI](../../cli/index.yaml).
+You can't do this using the [CLI](../../cli/).
 
 {% endnote %}
 

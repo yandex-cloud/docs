@@ -257,6 +257,8 @@ items:
             href: visualization-ref/map-chart.md
           - name: Точечная карта
             href: visualization-ref/point-map-chart.md
+          - name: Точечная карта с кластеризацией
+            href: visualization-ref/cluster-point-map-chart.md
           - name: Полилинейная карта
             href: visualization-ref/polyline-map-chart.md
           - name: Фоновая карта

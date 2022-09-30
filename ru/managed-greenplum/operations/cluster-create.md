@@ -207,7 +207,7 @@
         * `day` — день недели для типа `weekly` в формате `DDD`. Например, `MON`.
         * `hour` — час дня по UTC для типа `weekly` в формате `HH`. Например, `21`.
 
-    1. Чтобы разрешить доступ из [{{ datalens-full-name }}](../../datalens/concepts/index.md) или [{{ data-transfer-full-name }}](../../data-transfer/index.yaml), передайте значение `true` в соответствующих параметрах при создании кластера:
+    1. Чтобы разрешить доступ из [{{ datalens-full-name }}](../../datalens/concepts/index.md) или [{{ data-transfer-full-name }}](../../data-transfer/), передайте значение `true` в соответствующих параметрах при создании кластера:
 
         ```bash
         {{ yc-mdb-gp }} cluster create <имя кластера> \
@@ -320,7 +320,7 @@
     * Настройки публичного доступа в параметре `assignPublicIp`.
     * Настройки окна резервного копирования в параметре `config.backupWindowStart`.
     * Настройки доступа из [{{ datalens-full-name }}](../../datalens/concepts/index.md) в параметре `config.access.dataLens`.
-    * Настройки доступа из [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) в параметре `config.access.dataTransfer`.
+    * Настройки доступа из [{{ data-transfer-full-name }}](../../data-transfer/) в параметре `config.access.dataTransfer`.
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
     * [Настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings) в параметре `configSpec.greenplumConfig_<версия>`.
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.

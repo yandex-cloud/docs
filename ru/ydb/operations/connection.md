@@ -68,7 +68,7 @@
 * [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) — позволяет выполнять команды только от имени [аккаунта в {{ yandex-cloud }}](../../iam/concepts/index.md#passport). Время жизни токена 1 год. Режим не рекомендуется для продуктовых сред.
 * [IAM-токен](../../iam/concepts/authorization/iam-token.md) — рекомендуется для выполнения разовых операций от имени [аккаунта в {{ yandex-cloud }}](../../iam/concepts/index.md#passport) или [федеративного аккаунта](../../iam/concepts/index.md#saml-federation). Время жизни токена не более 12 часов.
 * [Авторизованный ключ доступа](../../iam/concepts/authorization/key.md) — рекомендуется для выполнения команд {{ ydb-short-name }} CLI снаружи {{ yandex-cloud }} от имени [сервисного аккаунта](../../iam/concepts/index#sa).
-* [Сервис метаданных](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm.md) — наиболее безопасный и производительный режим. Применяется при выполнении команд на виртуальных машинах внутри {{ yandex-cloud }}. Также поддерживается сервисом [{{ sf-full-name }}](../../functions/index.yaml).
+* [Сервис метаданных](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm.md) — наиболее безопасный и производительный режим. Применяется при выполнении команд на виртуальных машинах внутри {{ yandex-cloud }}. Также поддерживается сервисом [{{ sf-full-name }}](../../functions/).
 
 Настройте выбранный режим:
 
@@ -112,7 +112,7 @@
 
 - IAM-токен
 
-  1. С помощью [CLI {{ yandex-cloud }}](../../cli/index.yaml) получите IAM-токен:
+  1. С помощью [CLI {{ yandex-cloud }}](../../cli/) получите IAM-токен:
 
       ```bash
       yc iam create-token
@@ -156,7 +156,7 @@
 
   1. {% include [cli-install](../../_includes/cli-install.md) %}
   1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт для доступа к БД. Сервисный аккаунт должен располагаться в том же каталоге, что и БД и иметь роль `viewer` или `viewer` + `editor` в зависимости от того, какой доступ к БД необходим.
-  1. С помощью [CLI {{ yandex-cloud }}](../../cli/index.yaml) создайте авторизованный ключ для сервисного аккаунта:
+  1. С помощью [CLI {{ yandex-cloud }}](../../cli/) создайте авторизованный ключ для сервисного аккаунта:
 
       ```bash
       yc iam key create \

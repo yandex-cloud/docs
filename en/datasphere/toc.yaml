@@ -94,6 +94,8 @@ items:
             href: operations/projects/export.md
       - name: Launching distributed training
         href: operations/taas-run.md
+      - name: How to migrate to the new interface
+        href: operations/migration.md
   - name: Concepts
     items:
       - name: About Yandex DataSphere

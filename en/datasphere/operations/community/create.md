@@ -9,7 +9,7 @@
    {% include [name-format](../../../_includes/name-format.md) %}
 
 1. (optional) Enter a community description.
-1. Select the [organization](../../../organization/index.yaml) to link the community to.
+1. Select the [organization](../../../organization/) to link the community to.
 1. Click **Create**.
 
 #### What's next {#what-is-next}

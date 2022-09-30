@@ -55,7 +55,7 @@
     {% include [include](../../../_includes/sa-assign-role-note.md) %}
 * `federatedUser` — аккаунт пользователя  [федерации удостоверений](../../../organization/add-federation.md), например из Active Directory.
 
-* `group` — группа пользователей, созданная в [{{ org-full-name }}](../../../organization/index.yaml).
+* `group` — группа пользователей, созданная в [{{ org-full-name }}](../../../organization/).
 
 * `system` — [системная группа](system-group.md).
 

@@ -56,7 +56,7 @@ For topics with on-demand pricing, you also pay for the actually used disk space
 
 #### On-demand backups {#rules-auto-backup-storage}
 
-You can force a database backup, saving a copy to [{{ objstorage-full-name }}](../../storage/index.yaml). The cost of this operation depends on the amount of data copied. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
+You can force a database backup, saving a copy to [{{ objstorage-full-name }}](../../storage/). The cost of this operation depends on the amount of data copied. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
 
 {% note warning %}
 

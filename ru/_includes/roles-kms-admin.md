@@ -11,4 +11,4 @@
 
 Эти разрешения также входят в роли `admin` и `resource-manager.clouds.owner`.
 
-Сейчас эту роль можно назначить на [организацию](../organization/index.yaml), [облако](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../resource-manager/concepts/resources-hierarchy.md#folder) или [ключ](../kms/concepts/key).
+Сейчас эту роль можно назначить на [организацию](../organization/), [облако](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../resource-manager/concepts/resources-hierarchy.md#folder) или [ключ](../kms/concepts/key).
