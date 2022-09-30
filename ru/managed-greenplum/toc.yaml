@@ -66,7 +66,7 @@ items:
         href: concepts/sharding.md
       - name: Типы хранения данных
         href: concepts/tables.md
-      - name: Управление пользователями
+      - name: Пользователи и роли
         href: concepts/cluster-users.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
