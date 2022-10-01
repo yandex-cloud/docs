@@ -184,7 +184,7 @@
           command: ["/bin/sh"]
           args: ["-c", "for i in {1..10}; do echo $(date -u) >> /data/s3-dynamic/dynamic-date.txt; sleep 10; done"]
           volumeMounts:
-            - mountPath: /data/dynamic
+            - mountPath: /data/s3-dynamic
               name: s3-volume
         volumes:
           - name: s3-volume
