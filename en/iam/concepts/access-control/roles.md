@@ -110,11 +110,15 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 {% endif %}
 
+{% if product == "yandex-cloud" %}
+
 ## {{ ml-platform-name }} {#datasphere-roles}
 
 {% include [datasphere-user](../../../_includes/roles-datasphere-user.md) %}
 
 {% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md) %}
+
+{% endif %}
 
 {% if product == "yandex-cloud" %}
 
@@ -132,11 +136,15 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ## {{ iot-name }} {#iot-roles}
 
 {% include [iot-devices-writer](../../../_includes/roles-iot-devices-writer.md) %}
 
 {% include [iot-registries-writer](../../../_includes/roles-iot-registries-writer.md) %}
+
+{% endif %}
 
 {% if product == "yandex-cloud" %}
 

@@ -133,11 +133,15 @@ _Роль_ — это набор разрешений, который опре�
 
 {% endif %}
 
+{% if product == "yandex-cloud" %}
+
 ## {{ ml-platform-name }} {#datasphere-roles}
 
 {% include [datasphere-user](../../../_includes/roles-datasphere-user.md) %}
 
 {% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md) %}
+
+{% endif %}
 
 {% if product == "yandex-cloud" %}
 
@@ -155,11 +159,15 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ## {{ iot-name }} {#iot-roles}
 
 {% include [iot-devices-writer](../../../_includes/roles-iot-devices-writer.md) %}
 
 {% include [iot-registries-writer](../../../_includes/roles-iot-registries-writer.md) %}
+
+{% endif %}
 
 {% if product == "yandex-cloud" %}
 
@@ -252,6 +260,12 @@ _Роль_ — это набор разрешений, который опре�
 {% include [smartcaptcha-admin](../../../_includes/roles-smartcaptcha-admin.md) %}
 
 {% endif %}
+
+## {{ speechkit-name }} {#speechkit-roles}
+
+{% include [roles-speechkit-stt-user](../../../_includes/roles-speechkit-stt-user.md) %}
+
+{% include [roles-speechkit-tts-user](../../../_includes/roles-speechkit-tts-user.md) %}
 
 ## {{ vpc-name }} {#vpc-roles}
 
