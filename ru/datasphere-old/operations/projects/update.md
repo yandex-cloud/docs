@@ -1,5 +1,7 @@
 # Изменение имени или описания проекта
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 Чтобы изменить имя или описание проекта:
 
 1. {% include [include](../../../_includes/datasphere/first-step.md) %}

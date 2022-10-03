@@ -1,5 +1,7 @@
 # Создание секрета
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 1. Откройте проект, в котором нужно создать [секрет](../../concepts/secrets.md).
 1. Чтобы создать секрет, перейдите на вкладку ![Secrets](../../../_assets/datasphere/jupyterlab/secret.svg) и нажмите значок ![plus](../../../_assets/datasphere/jupyterlab/add.svg).
 1. В диалоговом окне заполните поля:

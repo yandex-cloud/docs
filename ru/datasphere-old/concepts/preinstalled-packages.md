@@ -1,5 +1,7 @@
 # Список предустановленного ПО
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 В {{ ml-platform-short-name }} уже предустановлены пакеты для анализа данных и машинного обучения. Если какого-то пакета вам не хватает, вы можете [установить его](../operations/projects/install-dependencies.md) прямо из ячейки ноутбука.
 
 {% include [packs](../../_includes/datasphere/migration/preinstalled-packs.md) %}

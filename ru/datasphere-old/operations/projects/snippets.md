@@ -1,5 +1,7 @@
 # Запуск примеров кода в ноутбуке
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 В ноутбуке представлены небольшие примеры кода для загрузки данных из разных источников.
 
 ## Перед началом {#before-begin}

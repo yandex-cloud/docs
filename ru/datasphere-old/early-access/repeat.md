@@ -1,5 +1,7 @@
 # Специальные фоновые операции
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 Специальные фоновые операции позволяют:
 
 * выполнять асинхронный запуск последовательности операций;

@@ -1,5 +1,7 @@
 # Режим раннего доступа
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 Режим раннего доступа — это возможность опробовать новые функции {{ ml-platform-name }} до их релиза. Режим включается для проекта.
 
 {% include [early-access-setup](../../_includes/datasphere/early-access-before-begin.md) %}

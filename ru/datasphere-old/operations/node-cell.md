@@ -1,5 +1,7 @@
 # Создание ноды из ячейки с кодом на Python
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 Для развертывания ячейки в виде микросервиса необходима [контрольная точка](projects/checkpoints.md).
 
 {% note info %}

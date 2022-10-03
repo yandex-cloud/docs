@@ -1,5 +1,7 @@
 # Настроить ограничения вычислений для проекта
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 {{ ml-platform-name }} позволяет задавать ограничения на потребление отдельных проектов. Подробнее о типах ограничений см. [{#T}](../../concepts/budget.md).
 
 {% include [datasphere-api-auth](../../../_includes/datasphere/datasphere-api-auth.md) %}

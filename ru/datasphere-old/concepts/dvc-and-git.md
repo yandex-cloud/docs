@@ -1,5 +1,7 @@
 # Интеграция с системами контроля версий и данных
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 {{ ml-platform-short-name }} интегрирован с системой контроля данных [DVC](https://dvc.org/) и системой контроля версий [Git](https://git-scm.com/).
 
 ## Интеграция с системой контроля данных DVC {#dvc}

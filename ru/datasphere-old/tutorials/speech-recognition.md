@@ -1,5 +1,7 @@
 # Голосовая биометрия
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 {{ ml-platform-full-name }} позволяет строить модели машинного обучения, используя интерфейс Jupyter Notebook. Познакомьтесь с решением задачи распознавания спикера по голосу с помощью моделирования речевых сигналов числовыми признаками:
 
 1. [Установите зависимости](#satisfy-dependencies).

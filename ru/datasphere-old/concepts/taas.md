@@ -1,5 +1,7 @@
 # Распределенное обучение в {{ ml-platform-name }}
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 {% note info %}
 
 Возможность распределенного обучения находится на стадии [Preview](../../overview/concepts/launch-stages.md). Доступ предоставляется по запросу в техническую поддержку.

@@ -1,5 +1,7 @@
 # Как начать работать с {{ ml-platform-name }}
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../_includes/datasphere/datasphere-old-note.md) %}
+
 {{ ml-platform-name }} — сервис, который упрощает использование среды разработки JupyterLab на вычислительных мощностях {{ yandex-cloud }}. Это позволит вам производить сложные вычисления, например обучение нейронных сетей или анализ больших данных, используя привычный интерфейс Jupyter Notebook.
 
 В этом разделе вы научитесь:

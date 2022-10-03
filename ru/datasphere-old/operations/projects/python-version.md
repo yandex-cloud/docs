@@ -1,5 +1,7 @@
 # Выбор версии Python
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 По умолчанию в проектах {{ ml-platform-short-name }} используется Python 3.8. Чтобы изменить версию для проекта:
 
 1. {% include [include](../../../_includes/datasphere/first-step.md) %}

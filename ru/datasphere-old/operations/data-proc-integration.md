@@ -1,5 +1,7 @@
 # Настройка вычислений на кластерах Apache Spark™ 
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 Чтобы начать вычисления на кластерах Apache Spark™, подготовьте проект {{ ml-platform-name }}. Для вычислений создайте новый кластер {{ dataproc-name }} или используйте уже существующий.
 
 ## Подготовьте проект для работы с кластером {{ dataproc-name }} {#settings}

@@ -1,5 +1,7 @@
 # Удаление ноды 
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 {% include [pricing nodes](../../_includes/datasphere/nodes-pricing-warn.md) %}
 
 Если развернутый сервис вам больше не нужен, удалите ноду. 

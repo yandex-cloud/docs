@@ -1,5 +1,7 @@
 # Подключение к Google Drive
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 Вы можете подключиться к сервису хранения файлов [Google Drive](https://drive.google.com) из интерфейса {{ ml-platform-name }}.
 
 ## Перед началом {#before-begin}

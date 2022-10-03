@@ -1,5 +1,7 @@
 # Удаление ноутбука или проекта
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 ## Удалить ноутбук {#delete-notebook}
 
 Чтобы удалить ноутбук из проекта:

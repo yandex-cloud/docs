@@ -5,6 +5,8 @@ description: 'В {{ ml-platform-full-name }} действуют лимиты и 
 
 # Квоты и лимиты в {{ ml-platform-name }}
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 В сервисе {{ ml-platform-full-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}

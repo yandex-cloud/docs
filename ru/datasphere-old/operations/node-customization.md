@@ -1,5 +1,7 @@
 # Настройка окружения для развертывания микросервиса
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 1. [Создайте Docker-образ](user-images.md) в проекте и установите необходимые зависимости в скрипте сборки. Соберите образ.
 
 1. [Создайте секрет](data/secret-create.md) с паролем для вашего реестра контейнеров. Если вы используете реестр {{ container-registry-full-name }}, [аутентифицируйтесь по авторизованному ключу](../../container-registry/operations/authentication.md#sa-json) для [сервисного аккаунта](../../iam/concepts/users/service-accounts.md). Чтобы сгенерировать авторизованный ключ, в CLI выполните команду:

@@ -1,5 +1,7 @@
 # Подключение к хранилищу S3
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 Вы можете подключиться к объектному хранилищу S3 из интерфейса Jupyter Notebook.
 
 1. Получите ключ доступа у вашего S3-провайдера. Чтобы сделать это в {{ objstorage-full-name }}:

@@ -5,6 +5,8 @@ description: "Как получить логи моей работы в серв
 
 # Общие вопросы про {{ ml-platform-name }}
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 {% include [qa-logs.md](../../_includes/qa-logs.md) %}
 
 #### Что делать, если в проекте невозможно установить пакет или нет доступа к интернету? {#error-connection}

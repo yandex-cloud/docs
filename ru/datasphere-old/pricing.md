@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для {{ ml-platform-name }}
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../_includes/datasphere/datasphere-old-note.md) %}
+
 {% include [prices](../_includes/datasphere/migration/pricing.md) %}
 
 ### Использование кластеров {{ dataproc-name }} {#data-proc}

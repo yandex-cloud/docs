@@ -1,5 +1,7 @@
 # Оценка качества STT-моделей
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 Результаты распознавания речи (Speech-to-Text, STT) на платформе {{ speechkit-full-name }} зависят от выбора [модели распознавания](../../speechkit/stt/models.md). Для оценки качества распознавания используйте общепринятую метрику [WER](https://en.wikipedia.org/wiki/Word_error_rate) (Word Error Rate). Чем меньше значение метрики — тем точнее распознан фрагмент речи. Для вычисления метрики в {{ speechkit-name}} разработана библиотека `stt_metrics`. 
 
 Чтобы вычислить метрику WER в {{ ml-platform-full-name }} с помощью этой библиотеки:

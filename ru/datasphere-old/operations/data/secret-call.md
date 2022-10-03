@@ -1,5 +1,7 @@
 # Вызов секрета 
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 Созданный секрет можно использовать в коде как переменные окружения.
 
 {% list tabs %}

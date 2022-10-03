@@ -6,6 +6,8 @@
 
 {% endnote %}
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 [Распределенное обучение](../concepts/taas.md) поддерживает PyTorch и PyTorch Lighting. По умолчанию в {{ ml-platform-name }} установлена версия PyTorch 1.6.0. Обновите ее до версии 1.9.1, чтобы {{ taas }} мог работать корректно:
 
 ```bash

@@ -1,5 +1,7 @@
 # Сохранение состояния
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 Состояние ноутбука — это код ячеек, вывод и значения переменных в определенный момент времени, а также данные хранилища проекта. 
 
 {% include [include](../../_includes/datasphere/saving-variables-warn.md) %}

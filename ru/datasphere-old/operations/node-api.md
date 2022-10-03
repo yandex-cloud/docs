@@ -1,5 +1,7 @@
 # Запросы в ноды, созданные из ячейки с кодом на Python
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 Для отправки запросов в ноды необходимо иметь роль {{ roles-datasphere-user }} или {{ roles-datasphere-admin }} на каталог, в котором созданы проект и нода.
 
 {% include [datasphere-api-auth](../../_includes/datasphere/datasphere-api-auth.md) %}

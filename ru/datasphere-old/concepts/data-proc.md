@@ -1,5 +1,7 @@
 # Интеграция с Apache Spark™ 
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 С помощью интеграции {{ ml-platform-name }} с сервисом {{ dataproc-full-name }} вы можете производить вычисления на кластерах Apache Spark™. Вычисления производятся в сессиях, созданных с помощью [Apache Livy](https://livy.apache.org/).
 
 ## Кластер {{ dataproc-name }} {#cluster}

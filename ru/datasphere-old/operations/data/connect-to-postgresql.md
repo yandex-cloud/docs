@@ -1,5 +1,7 @@
 # Подключение к базе данных {{ PG }}
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 В инфраструктуре {{ yandex-cloud }} разворачивать и поддерживать кластеры серверов [{{ PG }}](https://www.postgresql.org/) позволяет сервис {{ mpg-short-name }}.
 
 ## Перед началом {#before-begin}

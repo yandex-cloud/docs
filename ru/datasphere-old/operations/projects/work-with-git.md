@@ -1,5 +1,7 @@
 # Работа с Git
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 ## Создание локального репозитория {#init}
 
 Чтобы начать работу с локальным репозиторием:

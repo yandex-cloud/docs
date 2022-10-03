@@ -1,5 +1,7 @@
 # Использование TensorBoard в {{ ml-platform-name }}
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 TensorBoard — это дашборд для визуализации логов обучения ваших моделей. Результаты можно просматривать с помощью графов, гистограмм и других инструментов. 
 
 Полное описание возможностей TensorBoard см. на [сайте TensorFlow](https://www.tensorflow.org/tensorboard?hl=en).

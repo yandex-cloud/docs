@@ -1,5 +1,7 @@
 # Служебные команды #pragma
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 Вы можете задать параметры запуска ячейки с помощью служебной команды `#pragma`.
 
 | Команда | Описание |

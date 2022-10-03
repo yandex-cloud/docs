@@ -1,6 +1,8 @@
 {% if product == "yandex-cloud" %} 
 
-# Управление расходами  
+# Управление расходами
+
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
 
 Существует несколько способов контролировать расходы на вычисления.
 

@@ -1,5 +1,7 @@
 # Подключение к Яндекс Диску
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 Вы можете подключиться к сервису хранения файлов [Яндекс Диск]{% if lang == "ru" %}(https://disk.yandex.ru){% endif %}{% if lang == "en" %}(https://disk.yandex.com){% endif %} из интерфейса {{ ml-platform-name }}.
 
 ## Перед началом {#before-begin}

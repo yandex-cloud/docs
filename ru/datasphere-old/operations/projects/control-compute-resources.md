@@ -1,5 +1,7 @@
 # Управление вычислительными ресурсами
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 {% include [include](../../../_includes/datasphere/control-compute-resources-intro.md) %}
 
 ## Перед началом {#before-begin}
