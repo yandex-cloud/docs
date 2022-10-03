@@ -46,6 +46,7 @@
      ...
      - job_name: 'yc-monitoring-export'
        metrics_path: '/monitoring/v2/prometheusMetrics'
+       scheme: 'https'
        params:
          folderId:
          - '<folderId>' # например, aoeng2krmasimogorn5m
