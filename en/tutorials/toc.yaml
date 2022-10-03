@@ -275,4 +275,8 @@ items:
         href: serverless/data-ingestion.md
       - name: Storing application runtime logs
         href: serverless/log-ingestion.md
+      - name: Developing user integration in {{ api-gw-name }}
+        href: serverless/api-gw-integration.md
+      - name: Developing CRUD APIs for movie services
+        href: serverless/movies-database.md
 base: en/tutorials

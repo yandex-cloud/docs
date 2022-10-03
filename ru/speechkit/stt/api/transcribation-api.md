@@ -2,7 +2,7 @@
 
 ## Перед началом {#before-you-begin}
 
-1. Запрос на распознавание необходимо отправлять от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) с ролью [`editor`](../../../iam/concepts/access-control/roles.md#editor) на каталог, в котором он создан.
+1. Запрос на распознавание необходимо отправлять от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) с ролью [`ai.speechkit-stt.user`](../../../iam/concepts/access-control/roles.md#speechkit-roles) на каталог, в котором он создан.
 
    Если необходимо, воспользуйтесь инструкциями:
    * [{#T}](../../../iam/operations/sa/create.md). В консоли управления вы можете назначить необходимые роли при создании сервисного аккаунта.

@@ -29,9 +29,13 @@ items:
         href: tutorials/slack-bot-serverless.md
       - name: Developing a Telegram bot
         href: tutorials/telegram-bot-serverless.md
+      - name: Developing user integration
+        href: tutorials/api-gw-integration.md
+      - name: Developing CRUD APIs for movie services
+        href: tutorials/movies-database.md
   - name: Concepts
     items:
-      - name: Relationship between service resources
+      - name: Relationships between service resources
         href: concepts/index.md
       - name: Specification extensions
         items:
@@ -49,9 +53,9 @@ items:
             href: concepts/extensions/object-storage.md
           - name: Integration with DataSphere
             href: concepts/extensions/datasphere.md
-          - name: Data Streams integration
+          - name: Integration with Data Streams
             href: concepts/extensions/datastreams.md
-          - name: Message Queue integration
+          - name: Integration with Message Queue
             href: concepts/extensions/ymq.md
           - name: Greedy parameters
             href: concepts/extensions/greedy-parameters.md
