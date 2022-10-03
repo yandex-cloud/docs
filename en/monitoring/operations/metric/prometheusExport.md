@@ -47,6 +47,7 @@ An example of metric collection setup from {{ monitoring-name }} in {{ prometheu
      ...
      - job_name: 'yc-monitoring-export'
        metrics_path: '/monitoring/v2/prometheusMetrics'
+       scheme: 'https'
        params:
          folderId:
          - '<folderId>' # for example, aoeng2krmasimogorn5m

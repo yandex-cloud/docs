@@ -113,11 +113,13 @@ _Роль_ — это набор разрешений, который опре�
 {% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md) %}
 
 
+
 ## {{ ml-platform-name }} {#datasphere-roles}
 
 {% include [datasphere-user](../../../_includes/roles-datasphere-user.md) %}
 
 {% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md) %}
+
 
 
 ## {{ sf-short-name }} {#functions-roles}
@@ -133,11 +135,13 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
 
+
 ## {{ iot-name }} {#iot-roles}
 
 {% include [iot-devices-writer](../../../_includes/roles-iot-devices-writer.md) %}
 
 {% include [iot-registries-writer](../../../_includes/roles-iot-registries-writer.md) %}
+
 
 
 ## {{ cloud-logging-name }} {#logging}
@@ -226,6 +230,12 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [smartcaptcha-admin](../../../_includes/roles-smartcaptcha-admin.md) %}
 
+
+## {{ speechkit-name }} {#speechkit-roles}
+
+{% include [roles-speechkit-stt-user](../../../_includes/roles-speechkit-stt-user.md) %}
+
+{% include [roles-speechkit-tts-user](../../../_includes/roles-speechkit-tts-user.md) %}
 
 ## {{ vpc-name }} {#vpc-roles}
 

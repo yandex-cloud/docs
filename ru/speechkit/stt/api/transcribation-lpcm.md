@@ -59,7 +59,7 @@
       export IAM_TOKEN=<IAM-токен>
       curl -X POST \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -d "@body.json'"\
+          -d "@body.json"\
           https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
       ```
 

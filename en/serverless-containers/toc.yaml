@@ -47,6 +47,10 @@ items:
         href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Practical guidelines
+    items:
+      - name: Developing CRUD APIs for movie services
+        href: tutorials/movies-database.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

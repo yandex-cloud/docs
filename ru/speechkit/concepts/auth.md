@@ -13,7 +13,7 @@ description: "Для выполнения операций через API {{ spe
 - Аккаунт на Яндексе
 
   1. [Получите IAM-токен](../../iam/operations/iam-token/create.md).
-  1. Получите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `editor` или выше.
+  1. Получите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `ai.speechkit-stt.user` или выше.
   1. {% include [iam-token-usage](../../_includes/iam-token-usage-speechkit-v3.md) %}
 
 - Сервисный аккаунт

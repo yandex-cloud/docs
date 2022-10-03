@@ -19,7 +19,13 @@ description: "Управление доступом в сервисе речев
 
 ### Сервисные роли {#service-roles}
 
-{% include [service-roles](../../_includes/roles-service-roles-speechkit.md) %}
+#### ai.speechkit-stt.user {#ai-speechkit-stt-user}
+
+{% include notitle [roles-speechkit-stt-user](../../_includes/roles-speechkit-stt-user.md) %}
+
+#### ai.speechkit-tts.user {#ai-speechkit-tts-user}
+
+{% include notitle [roles-speechkit-tts-user](../../_includes/roles-speechkit-tts-user.md) %}
 
 Более подробную информацию о сервисных ролях читайте на странице [{#T}](../../iam/concepts/access-control/roles.md) в документации сервиса {{ iam-full-name }}.
 

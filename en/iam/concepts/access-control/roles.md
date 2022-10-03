@@ -104,11 +104,13 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 {% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md) %}
 
 
+
 ## {{ ml-platform-name }} {#datasphere-roles}
 
 {% include [datasphere-user](../../../_includes/roles-datasphere-user.md) %}
 
 {% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md) %}
+
 
 
 ## {{ sf-short-name }} {#functions-roles}
@@ -124,11 +126,13 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
 
+
 ## {{ iot-name }} {#iot-roles}
 
 {% include [iot-devices-writer](../../../_includes/roles-iot-devices-writer.md) %}
 
 {% include [iot-registries-writer](../../../_includes/roles-iot-registries-writer.md) %}
+
 
 
 ## {{ cloud-logging-name }} {#logging}
