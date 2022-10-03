@@ -622,7 +622,7 @@ Cоберите приложение в виде Docker-образа и запу
 #### См. также {#see-also}
 
 * [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md)
-* [Справочник Terraform. Провайдер yandex-cloud]({{ tf-provider-link }})
+* [Справочник Terraform. Провайдер {{ yandex-cloud }}]({{ tf-provider-link }})
 * [Документная таблица](../../ydb/operations/schema.md)
 * [Расширение x-yc-apigateway-integration](../../api-gateway/concepts/extensions/containers.md)
 * [{#T}](../../serverless-containers/concepts/logs.md)
