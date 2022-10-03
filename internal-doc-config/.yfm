@@ -1,5 +1,5 @@
 allowHTML: true
-langs: ['ru', 'en']
+langs: ['ru']
 
 ignore:
   - "en/_api-ref/*"
@@ -74,7 +74,7 @@ ignore:
 docs-viewer:
   project-name: cloud
   abc-slug: cloud
-  langs: ['ru', 'en']
+  langs: ['ru']
   show-revision: false
   show-toc-header: true
   vcs-url-prefix: https://bb.yandex-team.ru/projects/CLOUD/repos/docs/browse
