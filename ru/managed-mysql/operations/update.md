@@ -443,7 +443,11 @@
 
     {% include [DataTransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
+    {% if product == "yandex-cloud" %}
+
     {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
+
+    {% endif %}
 
     Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 

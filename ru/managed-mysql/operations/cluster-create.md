@@ -88,11 +88,13 @@
 
   1. Посмотрите описание команды CLI для создания кластера:
 
-      ```
-      {{ yc-mdb-my }} cluster create --help
-      ```
+     ```
+     {{ yc-mdb-my }} cluster create --help
+     ```
 
   1. Укажите параметры кластера в команде создания:
+
+     {% if product == "yandex-cloud" %}
 
      {% if audience != "internal" %}
 
@@ -113,7 +115,7 @@
        --datalens-access=<доступ к кластеру из {{ datalens-name }}: true или false>
      ```
 
-      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
+     Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
 
      {% else %}
 
@@ -135,10 +137,32 @@
      ```
 
      {% endif %}
+  
+     {% endif %}
 
-      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+     {% if product == "cloud-il" %}
 
-      При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
+     ```bash
+     {{ yc-mdb-my }} cluster create \
+       --name=<имя кластера> \
+       --environment <окружение, prestable или production> \
+       --network-name <имя сети> \
+       --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
+       --mysql-version <версия {{ MY }}: {{ versions.cli.str }}> \
+       --resource-preset <класс хоста> \
+       --user name=<имя пользователя>,password=<пароль пользователя> \
+       --database name=<имя базы данных> \
+       --disk-size <размер хранилища в гигабайтах> \
+       --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+       --security-group-ids <список идентификаторов групп безопасности> \
+       --deletion-protection=<защита от удаления кластера: true или false>
+     ```
+
+     {% endif %}
+
+     {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+     При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
 
 - {{ TF }}
 
@@ -335,7 +359,11 @@
 
     {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
+    {% if product == "yandex-cloud" %}
+
     {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
+
+    {% endif %}
 
 {% endlist %}
 
