@@ -3,6 +3,7 @@
 ## {{ KF }} {#kafka}
 
 * [{#T}](kafka-connector.md)
+* [{#T}](data-transfer-mmy.md)
 * [{#T}](data-transfer-mpg.md)
 * [{#T}](debezium-mmy.md)
 * [{#T}](debezium-mpg.md)
@@ -59,6 +60,7 @@
 {% if product == "yandex-cloud" %}
 * [{#T}](sqoop-mmy.md)
 {% endif %}
+* [{#T}](./data-transfer-mmy.md)
 * [{#T}](./debezium-mmy.md)
 
 ## {{ PG }} {#postgresql}

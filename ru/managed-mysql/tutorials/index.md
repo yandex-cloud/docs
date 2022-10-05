@@ -6,4 +6,5 @@
 {% if audience != "internal" and product == "yandex-cloud" %}
 * [{#T}](sqoop.md)
 {% endif %}
+* [{#T}](cdc-data-transfer.md)
 * [{#T}](cdc-debezium.md)

@@ -102,6 +102,8 @@ items:
       - name: Миграция базы данных в {{ mmg-full-name }}
         href: tutorials/managed-mongodb.md
         when: product == "yandex-cloud"
+      - name: Поставка данных из {{ mmy-full-name }} в {{ mkf-full-name }}
+        href: tutorials/cdc-mmy.md
       - name: Миграция базы данных в {{ mmy-full-name }}
         href: tutorials/managed-mysql.md
       - name: Миграция базы данных из {{ mmy-full-name }} в {{ MY }}
