@@ -9,6 +9,8 @@ You can host resources in the following availability zones:
 * `{{ region-id }}-b`;
 * `{{ region-id }}-c` (with limitations — see the [details](ru-central1-c-deprecation.md)).
 
+In the second half of 2023, a new data center will open in Kaluga resulting in a new availability zone. [For more information, see the blog](https://cloud.yandex.ru/blog/posts/2022/09/cloud-data-center-kaluga).
+
 {% note info %}
 
 When new availability zones appear or existing ones change location, {{ yandex-cloud }} notifies all its customers.
