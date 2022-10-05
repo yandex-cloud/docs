@@ -1,7 +1,16 @@
 # Перенос данных с использованием сервиса {{ data-transfer-full-name }} {#data-transfer}
 
+Чтобы перенести базу данных из {{ MY }} в {{ mmy-name }}:
+
+1. [Запустите перенос данных](#start-transfer).
+1. [Завершите перенос данных](#finish-transfer).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+## Запустите перенос данных {#start-transfer}
+
 1. [Подготовьте кластер-источник](../../data-transfer/operations/prepare.md#source-my).
-1. Подготовьте инфраструктуру:
+1. Подготовьте инфраструктуру и запустите перенос данных:
 
     {% list tabs %}
 
@@ -9,7 +18,7 @@
 
         1. [Создайте кластер-приемник {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) любой подходящей конфигурации. При этом:
 
-            * Версия {{ MY }} должна быть не ниже чем в кластере-источнике.
+            * Версия {{ MY }} должна быть не ниже, чем в кластере-источнике.
 
                 Перенос данных c повышением мажорной версии {{ MY }} возможен, но не гарантируется. Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
 
@@ -44,6 +53,7 @@
 
     * С помощью {{ TF }}
 
+        1. [Подготовьте кластер-источник](../../data-transfer/operations/prepare.md#source-my).
         1. Если у вас еще нет {{ TF }}, {% if audience != "internal" %}[установите и настройте его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите и настройте его{% endif %}.
         1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и {% if audience != "internal" %}[укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider){% else %}укажите значения параметров{% endif %}.
         1. Скачайте в ту же рабочую директорию файл конфигурации [data-transfer-mysql-mmy.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-mysql-mmy/data-transfer-mysql-mmy.tf).
@@ -87,6 +97,8 @@
 
     {% endlist %}
 
+## Завершите перенос данных {#finish-transfer}
+
 1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
 1. Переведите кластер-источник в режим <q>только чтение</q> и переключите нагрузку на кластер-приемник.
 1. На странице [мониторинга трансфера](../../data-transfer/operations/monitoring.md) дождитесь снижения до нуля характеристики **Maximum lag on delivery**. Это значит, что в кластер-приемник перенесены все изменения, произошедшие в кластере-источнике после завершения копирования данных.
@@ -94,35 +106,35 @@
 
     Подробнее о статусах трансфера см. в разделе [Жизненный цикл трансфера](../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
-1. Удалите созданные ресурсы:
+## Удалите созданные ресурсы {#clear-out}
 
-    {% list tabs %}
+{% list tabs %}
 
-    * Ресурсы созданы вручную
+* Вручную
 
-        * [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
-        * [Удалите остановленный трансфер](../../data-transfer/operations/transfer.md#delete-transfer).
-        * [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+    * [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
+    * [Удалите остановленный трансфер](../../data-transfer/operations/transfer.md#delete-transfer).
+    * [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
 
-    * Ресурсы созданы с помощью {{ TF }}
+* С помощью {{ TF }}
 
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        1. Удалите конфигурационный файл `data-transfer-mysql-mmy.tf`.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. В терминале перейдите в директорию с планом инфраструктуры.
+    1. Удалите конфигурационный файл `data-transfer-mysql-mmy.tf`.
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-            ```bash
-            terraform validate
-            ```
+        ```bash
+        terraform validate
+        ```
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
-        1. Подтвердите изменение ресурсов.
+    1. Подтвердите изменение ресурсов.
 
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            Все ресурсы, которые были описаны в конфигурационном файле `data-transfer-mysql-mmy.tf`, будут удалены.
+        Все ресурсы, которые были описаны в конфигурационном файле `data-transfer-mysql-mmy.tf`, будут удалены.
 
-    {% endlist %}
+{% endlist %}
 
 {% if audience != "internal" %}
 
