@@ -58,10 +58,12 @@ keywords:
 
 - Настроить бакет для [хостинга статических веб-сайтов](hosting.md).
 - Загрузить [конфигурацию CORS](cors.md) для бакета.
+{% if product == "yandex-cloud" and audience != "internal" %}
 - Включить [шифрование бакета](../operations/buckets/encrypt.md).
 
-    Объекты, добавляемые в этот бакет, будут по умолчанию шифроваться указанным {% if audience != "internal" %}[ключом {{ kms-short-name }}](../../kms/concepts/key.md){% else %}ключом {{ kms-short-name }}{% endif %}.
-    
+    Объекты, добавляемые в этот бакет, будут по умолчанию шифроваться указанным [ключом {{ kms-short-name }}](../../kms/concepts/key.md).
+
+{% endif %}
 - Настроить [жизненные циклы объектов](lifecycles.md).
 
 ## Доступ к бакетам {#bucket-access}

@@ -23,6 +23,7 @@ items:
             href: operations/buckets/bucket-availability.md
           - name: Шифрование бакета
             href: operations/buckets/encrypt.md
+            when: product == "yandex-cloud" and audience != "internal"
           - name: Управление жизненными циклами объектов
             href: operations/buckets/lifecycles.md
           - name: Управление конфигурацией CORS
@@ -84,6 +85,7 @@ items:
         href: tutorials/billing-resource-detailing.md
       - name: Шифрование на стороне сервера
         href: tutorials/server-side-encryption.md
+        when: product == "yandex-cloud" and audience != "internal"
       - name: Интеграция L7-балансировщика с CDN и Object Storage
         href: tutorials/cdn-storage-integration.md
         when: product == "yandex-cloud"
@@ -112,6 +114,7 @@ items:
         when: product == "yandex-cloud"
       - name: Шифрование
         href: concepts/encryption.md
+        when: product == "yandex-cloud" and audience != "internal"
       - name: Жизненные циклы объектов
         href: concepts/lifecycles.md
       - name: CORS
@@ -203,6 +206,7 @@ items:
                     href: s3/api-ref/bucket/create.md
                   - name: getBucketEncryption
                     href: s3/api-ref/bucket/getbucketencryption.md
+                    when: product == "yandex-cloud" and audience != "internal"
                   - name: getMeta
                     href: s3/api-ref/bucket/getmeta.md
                   - name: listObjects
@@ -213,8 +217,10 @@ items:
                     href: s3/api-ref/bucket/delete.md
                   - name: deleteBucketEncryption
                     href: s3/api-ref/bucket/deletebucketencryption.md
+                    when: product == "yandex-cloud" and audience != "internal"
                   - name: putBucketEncryption
                     href: s3/api-ref/bucket/putbucketencryption.md
+                    when: product == "yandex-cloud" and audience != "internal"
                   - name: putBucketVersioning
                     href: s3/api-ref/bucket/putBucketVersioning.md
                   - name: getBucketVersioning

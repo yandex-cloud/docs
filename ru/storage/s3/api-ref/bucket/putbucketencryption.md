@@ -1,6 +1,6 @@
 # Метод putBucketEncryption
 
-Добавляет шифрование бакету. Объекты, добавляемые в этот бакет, будут по умолчанию шифроваться указанным {% if audience != "internal" %}[ключом {{ kms-short-name }}](../../../../kms/concepts/key.md){% else %}ключом {{ kms-short-name }}{% endif %}. Подробнее о шифровании бакета читайте в разделе [{#T}](../../../operations/buckets/encrypt.md).
+Добавляет шифрование бакету. Объекты, добавляемые в этот бакет, будут по умолчанию шифроваться указанным [ключом {{ kms-short-name }}](../../../../kms/concepts/key.md). Подробнее о шифровании бакета читайте в разделе [{#T}](../../../concepts/encryption.md).
 
 ## Запрос {#request}
 
@@ -47,7 +47,7 @@ PUT /{bucket}?encryption HTTP/2
 Элемент | Описание
 ----- | -----
 `ApplyServerSideEncryptionByDefault` | Указание применить к объекту шифрование по умолчанию, если в запросе не указаны другие параметры шифрования.<br/><br/>Путь: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault`.
-`KMSMasterKeyID` | Идентификатор {% if audience != "internal" %}[ключа {{ kms-short-name }}](../../../../kms/concepts/key.md){% else %}ключа {{ kms-short-name }}{% endif %}.<br/><br/>Путь: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\KMSMasterKeyID`.
+`KMSMasterKeyID` | Идентификатор [ключа {{ kms-short-name }}](../../../../kms/concepts/key.md).<br/><br/>Путь: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\KMSMasterKeyID`.
 `Rule` | Правило шифрования на стороне сервера. <br/><br/>Шифрование определяется элементами `KMSMasterKeyID` и `SSEAlgorithm`.<br/><br/>Путь: `ServerSideEncryptionConfiguration\Rule`.
 `ServerSideEncryptionConfiguration` | Конфигурация шифрования, по умолчанию применяемая к новым объектам в бакете.<br/><br/>Путь: `ServerSideEncryptionConfiguration`.
 `SSEAlgorithm` | Алгоритм шифрования. Доступные значения: `aws:kms`.<br/><br/>Путь: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\SSEAlgorithm`.

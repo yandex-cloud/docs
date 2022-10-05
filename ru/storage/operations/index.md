@@ -11,6 +11,13 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](buckets/delete.md)
 * [{#T}](buckets/limit-max-volume.md)
 * [{#T}](buckets/bucket-availability.md)
+{% if product == "yandex-cloud" and audience != "internal"%}
+* [{#T}](buckets/encrypt.md)
+{% endif %}
+* [{#T}](buckets/lifecycles.md)
+* [{#T}](buckets/cors.md)
+* [{#T}](buckets/policy.md)
+* [{#T}](buckets/versioning.md)
 * [{#T}](buckets/edit-acl.md)
 {% if product == "yandex-cloud" %}
 * [{#T}](buckets/enable-logging.md)
