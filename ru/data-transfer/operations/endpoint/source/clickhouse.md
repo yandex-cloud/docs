@@ -15,6 +15,12 @@
 
     {% include [Managed ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-clickhouse.md) %}
 
+- CLI
+
+    * Тип эндпоинта — `clickhouse-source`.
+
+    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-clickhouse.md) %}
+
 - Terraform
 
     * Тип эндпоинта — `clickhouse_source`.
@@ -48,6 +54,10 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
+- API
+
+    {% include [Managed ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/managed-clickhouse.md) %}
+
 {% endlist %}
 
 ## Пользовательская инсталляция {#on-premise}
@@ -59,6 +69,12 @@
 - Консоль управления
 
     {% include [On premise ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-clickhouse.md) %}
+
+- CLI
+
+    * Тип эндпоинта — `clickhouse-source`.
+
+    {% include [On premise ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-clickhouse.md) %}
 
 - Terraform
 
@@ -73,6 +89,8 @@
       name = "<имя эндпоинта>"
       settings {
         clickhouse_source {
+          security_groups = [ "список идентификаторов групп безопасности" ]
+          subnet_id       = "<идентификатор подсети>"
           connection {
             connection_options {
               on_premise {
@@ -102,6 +120,10 @@
     ```
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+
+- API
+
+    {% include [On premise ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-clickhouse.md) %}
 
 {% endlist %}
 
