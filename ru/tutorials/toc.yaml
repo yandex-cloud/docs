@@ -56,7 +56,7 @@ items:
         href: archive/object-storage-duplicati.md
       - name: Резервное копирование в {{ objstorage-name }} через Bacula
         href: archive/backup-with-bacula.md
-      - name: Резервное копирование в {{ objstorage-name }} через Veritas Backup Exec
+      - name: Резервное копирование в {{ objstorage-name }} с помощью Veritas Backup Exec
         href: archive/object-storage-veritas.md
       - name: Оцифровка архива в {{ vision-full-name }}
         href: archive/archive-from-vision-to-object-storage.md

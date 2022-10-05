@@ -9,4 +9,4 @@
 {% if product == "yandex-cloud" %}
 * [Оцифровка архива в {{ vision-full-name }} ](archive-from-vision-to-object-storage.md)
 {% endif %}
-* [Резервное копирование в {{ objstorage-full-name }} через Veritas Backup Exec](object-storage-veritas.md)
+* [Резервное копирование в {{ objstorage-full-name }} с помощью Veritas Backup Exec](object-storage-veritas.md)
