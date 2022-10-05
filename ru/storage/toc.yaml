@@ -110,6 +110,8 @@ items:
       - name: Блокировка версии объекта (object lock)
         href: concepts/object-lock.md
         when: product == "yandex-cloud"
+      - name: Шифрование
+        href: concepts/encryption.md
       - name: Жизненные циклы объектов
         href: concepts/lifecycles.md
       - name: CORS

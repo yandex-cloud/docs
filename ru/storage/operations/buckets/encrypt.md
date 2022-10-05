@@ -35,7 +35,7 @@
 
   Если у вас ещё нет {{ TF }}, {% if audience != "internal" %}[установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его и настройте провайдер {{ yandex-cloud }}{% endif %}.
 
-  Перед началом работы, {% if audience != "internal" %}[получите IAM-токен](../../../iam/operations/iam-token/create-for-sa.md#via-cli){% else %}получите IAM-токен{% endif %} для сервисного аккаунта и запишите его в файл.
+  Перед началом работы {% if audience != "internal" %}[получите IAM-токен](../../../iam/operations/iam-token/create-for-sa.md#via-cli){% else %}получите IAM-токен{% endif %} для сервисного аккаунта и запишите его в файл.
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -132,6 +132,7 @@
   1. Разверните облачные ресурсы.
 
      1. Если в конфигурации нет ошибок, выполните команду:
+
      ```
      terraform apply
      ```
@@ -223,3 +224,8 @@
      Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
+
+
+#### См. также {#see-also}
+
+* [{#T}](../../concepts/encryption.md)
