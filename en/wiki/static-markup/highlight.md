@@ -1,27 +1,28 @@
-# Syntax highlighting in code
+# Highlighting syntax in code
 
-You can format source code with syntax highlighting on {{wiki-name}} pages. To do this, use the following markup:
+You can highlight code syntax in {{wiki-name}} pages. To do this, use the markup:
 
 ```
-%%(<language label> nomark nohighlight)
-software code
+%%(<coding language> nomark nohighlight)
+your code
 %%
 ```
 
 | Parameter | Description |
 | ----- | ----- |
-| Language label | [Programming language](#formatters-name) for syntax highlighting |
+| Coding language | [The programming language](#formatters-name) for highlighting syntax |
 | `nomark` | Optional parameter, disables line numbering |
 | `nohighlight` | Optional parameter, disables line numbering and syntax highlighting |
 
 
-By default, to display code with syntax highlighting in {{wiki-name}}, the font set in the browser as <q>monospaced</q> is used. You can change this font in your browser settings.
+
+Your browser's <q>monospaced</q> font is used for code highlighting in {{wiki-name}} by default. You can change this font in your browser settings.
 
 ## Supported programming languages {#formatters-name}
 
 {% cut "List of the supported programming languages" %}
 
-| Programming language | Label |
+| Programming language | Designation |
 | ----- | ----- |
 | 1C | 1c, 1c |
 | ActionScript | actionscript |
@@ -73,7 +74,7 @@ By default, to display code with syntax highlighting in {{wiki-name}}, the font 
 
 {% endcut %}
 
-## Sample source code formatting {#examples}
+## Examples of source code formatting {#examples}
 
 #### Standard formatting {#examples-standart}
 
@@ -92,7 +93,7 @@ print $s;
 
 {% endcut %}
 
-#### Without line numbering {#examples-without-line-numbering}
+#### No line numbering {#examples-without-line-numbering}
 
    ```
    %%(python nomark)
@@ -115,7 +116,7 @@ print $s;
 
    {% endcut %}
 
-#### Without syntax highlighting {#examples-without-highlighting}
+#### No syntax highlight {#examples-without-highlighting}
 
    ```
     %%(code nohighlight)
@@ -138,9 +139,9 @@ print $s;
 
    {% endcut %}
 
-#### One-line code {#examples-one-string}
+#### Single-line code {#examples-one-string}
 
-  Software code written in one line, remains one-line after formatting.
+  Single-line program code remains single-line after formatting.
 
    ```
    %%(css)body {display: none;}%%
@@ -151,5 +152,6 @@ print $s;
    ![](../../_assets/wiki/formatter-example-string.png)
 
    {% endcut %}
+
 
 

@@ -1,8 +1,8 @@
-# Bookmarks on pages
+# Bookmark on a page
 
-The `anchor` block contains an *anchor*, which is a label that redirects users to specified area on a page. You can't use anchors to redirect users to a specific line in a [dynamic table](../create-grid.md).
+The `anchor` block contains an *anchor* that enables users to navigate to a certain place on the page. You can't use anchors to navigate to rows in a [dynamic table](../create-grid.md).
 
-## Calling the block {#anchor-call}
+## Using a block {#anchor-call}
 
 ```
 {{anchor href="anchor"}}
@@ -19,16 +19,16 @@ or
 | Parameter | Description |
 | --- | --- |
 | `href` | Required parameter. Contains the anchor name. |
-| `title` | Contains the anchor header. |
-| `text` | Contains the anchor text. Displayed on the page. |
+| `title` | Contains the anchor heading. |
+| `text` | Contains the anchor text. Shown on the page. |
 
-To insert an anchor link, enter the `#` symbol to the right of the page address followed by the anchor name:
+To insert an anchor link, add the `#` symbol to the right of the page address and place the anchor name after it:
 
 ```
 {{ wiki-pagename }}/#Anchor
 ```
 
-You don't have to enter the full address if you want to paste a link to an anchor located on the same page:
+To add a link to an anchor on the same page, you don't need the full URL:
 
 ```
 #Anchor

@@ -1,53 +1,54 @@
-# {{ tracker-full-name }} issues
+# Issues from {{ tracker-full-name }}
 
-[{{ tracker-full-name }}]({{ link-tracker }}) is a service for managing projects and activities. Learn more about the service features in [service documentation {{ tracker-full-name }}](../../tracker/).
+[{{ tracker-full-name }}]({{ link-tracker }}) is a service for managing projects and workflows. Read more about the service in the [{{ tracker-full-name }} documentation](../../tracker/).
 
-{{ tracker-full-name }} users can embed links to individual issues or issue lists on {{ wiki-name }} pages.
+{{ tracker-full-name }} users can add a link to an issue or to a list of issues in {{ wiki-name }} pages.
 
 
-## Link to the issue {#ticket}
 
-You can insert _magic links_ on Wiki pages to individual issues and issue lists. Such links always contain the issue key, name, status, and the assignee's username. To insert a link to an issue, copy the issue key and paste it into the page text.
+## Link to an issue {#ticket}
+
+You can add _magic links_ to specific issues directly to the [Wiki page text and using the visual editor](../pages-types.md). These links always include the key, name, status of the issue, and the username of the performer. To insert a link to an issue, copy its key and paste it to the text of the page.
 
 Example:
 
 | Markup | Result |
 | ----- | ----- |
-| ``` Fixing mistake in TEST-123 ``` | ![](../../_assets/tracker/magic-link.png) |
+| ``` Fix a mistake in TEST-123 ``` | ![](../../_assets/wiki/tracker-magic-link.png) |
 
-## Issue list {#ticket-list}
+## List of issues {#ticket-list}
 
-You can use the `not_var{{tasks}}` block to embed a generated issue list on your page. Example:
+Using the `not_var{{tasks}}` section, you can add an automatically generated list of issues to your Wiki page. For example:
 
 ```
 {{tasks url="URL of the filter or the queue"}}
 ```
 
-* To display all issues in a queue, find the `url` parameter and specify the [queue key](../../tracker/manager/create-queue.md#key) or a link from your browser's address bar in the parameter.
+* To display all the issues in the queue, in the `url` parameter, specify its [key](../../tracker/manager/create-queue.md#key) or a link copied from the browser's address bar.
 
-* To display an issue [filter](../../tracker/user/create-filter.md), add a link to the filter from your browser's address bar in the `url` parameter.
+* To display [filtered](../../tracker/user/create-filter.md) issues, in the `url` parameter, specify a link to the filter copied from the browser's address bar.
 
     {% note info %}
 
-    The `url` parameter in the `issues` block does not support the `"` symbol. If the filter link from the address bar contains this symbol, replace it with `%22`.
+    The `"` character isn't supported in the `url` parameter of the `tasks` block. If this character is present in the filter's URL copied from the address bar, replace it with `%22`.
 
     {% endnote %}
 
 ### Issue lists with parameters {#tasks-vars}
 
-You can use dynamic tables to display issue lists and their main parameters on Wiki pages:
+Using dynamic tables, you can add a list of issues and their main parameters to your Wiki page:
 
 1. [Create](../create-grid.md) a dynamic table.
 
-1. Create a column and set its data type to **Tracker issue**.
+1. Create a column with the **Tracker issue** data type.
 
-1. Add the required number of rows and list the issue keys in them.
+1. Add the required number of rows and list the task keys in them.
 
-1. Create additional columns. Specify the required issue parameters as your data type. For example, specify the issue's **Heading**, **Owner**, or **Type**.
+1. Create additional columns. Specify the necessary task parameters as the data type. For example, **Title**, **Author** or **Type** issues.
 
-1. Save your table.
+1. Save the table.
 
-The columns with issue parameters will be filled in automatically. The resulting table can be [posted on a Wiki page](../add-grid.md).
+As a result, the columns with the task parameters will be filled in automatically. The resulting table can be [embedded in a wiki page](../add-grid.md).
 
 Example:
 ![](../../_assets/wiki/tickets-grid-example.png)

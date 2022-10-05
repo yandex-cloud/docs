@@ -408,7 +408,9 @@
 
     {% include [DataTransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
+    
     {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
+
 
     Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 

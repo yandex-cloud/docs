@@ -54,7 +54,7 @@
 * [distro](https://github.com/nir0s/distro/tree/python2.6-support)
 * [docker](https://docker-py.readthedocs.io/en/stable/)
 * [docopt](https://github.com/docopt/docopt)
-* [docutils](https://github.com/docutils-mirror/docutils)
+* [docutils](https://github.com/docutils)
 * [dpath](https://github.com/akesterson/dpath-python)
 * [DVC](https://dvc.org/)
 * [ecdsa](https://github.com/tlsfuzzer/python-ecdsa)

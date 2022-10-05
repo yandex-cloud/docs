@@ -43,7 +43,7 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
 
          {% endnote %}
 
-      * Enable support for encrypted SSL connections to a cluster as required.
+      * If required, enable support for encrypted SSL connections to the cluster.
 
          {% note warning %}
 
@@ -73,12 +73,12 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
    1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
    1. Under **Hosts**:
 
-      * To change host settings, click the ![pencil](../../_assets/pencil.svg) icon in the row next to its name.
+      * To change the settings of a host, click the ![pencil](../../_assets/pencil.svg) icon in the line with its name.
 
          * **Availability zone**: Select an [availability zone](../../overview/concepts/geo-scope.md).
          * **Subnet**: Specify a [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
          * **Public access**: Enable access to the host from the internet if the cluster is created with **TLS support** activated.
-         * **Shard name**: Enables you to change the shard name for the host. The field is only available if the cluster is created with **Cluster sharding** enabled.
+         * **Shard name**: Enables you to change the shard name for the host. The field is only available if the cluster is created with the enabled **Cluster sharding** setting.
 
       * To add hosts to the cluster, click **Add host**.
 
@@ -124,22 +124,24 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
 
       ```bash
       {{ yc-mdb-rd }} cluster create \
-        --name <cluster name> \
-        --environment <environment, prestable or production> \
-        --network-name <network name> \
-        --host zone-id=<availability zone>,subnet-id=<subnet ID> \
-        --security-group-ids <list of security group IDs> \
-        --enable-tls \
-        --resource-preset <host class> \
-        --disk-size <storage size in GB> \
-        --password=<user password> \
-        --backup-window-start <backup start time in HH:MM:SS format>
-        --deletion-protection=<protection against deleting a cluster: true or false>
+         --name=<cluster name> \
+         --environment=<environment, prestable or production> \
+         --network-name=<network name> \
+         --host zone-id=<availability zone>,`
+               `subnet-id=<subnet ID>,`
+               `assign-public-ip=<public host access: true or false> \
+         --security-group-ids=<list of security group IDs> \
+         --enable-tls \
+         --resource-preset=<host class> \
+         --disk-size=<storage size in GB> \
+         --password=<user password> \
+         --backup-window-start=<backup start time in HH:MM:SS format> \
+         --deletion-protection=<cluster deletion protection: true or false>
       ```
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
 - {{ TF }}
 
@@ -172,7 +174,7 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
       }
 
       provider "yandex" {
-        token     = "<service account OAuth or static key>"
+        token     = "<An OAuth or static key of the service account>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
         zone      = "<availability zone>"
@@ -185,11 +187,11 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
         security_group_ids  = [ "<IDs of security groups>" ]
         tls_enabled         = true
         sharded             = <sharding: true or false>
-        deletion_protection = <protection from cluster deletion: true or false>
+        deletion_protection = <cluster deletion protection: true or false>
 
         config {
           password = "<password>"
-          version  = "<version {{ RD }}:{{ versions.tf.str }}>"
+          version  = "<{{ RD }} version: {{ versions.tf.str }}>"
         }
 
         resources {
@@ -199,8 +201,10 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
         }
 
         host {
-          zone      = "<availability zone>"
-          subnet_id = "<subnet ID>"
+          zone             = "<availability zone>"
+          subnet_id        = "<subnet ID>"
+          assign_public_ip = <public host access: true or false>
+          replica_priority = <host priority>
         }
       }
 
@@ -216,11 +220,11 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
 
 
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       1. {% include [Maintenance window](../../_includes/mdb/mrd/terraform/maintenance-window.md) %}
 
-      For more details about resources that you can create using {{ TF }}, see [the provider's documentation]({{ tf-provider-mrd }})
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mrd }}).
 
    1. Make sure the settings are correct.
 
@@ -260,19 +264,19 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    To create a cluster with a single host, pass a single `--host` parameter.
 
-   Let's say we need to create a {{ RD }} cluster with the following characteristics:
+   Create a {{ mrd-name }} cluster with test characteristics:
 
    * Named `myredis`.
    * Version `{{ versions.cli.latest }}`.
    * Environment `production`.
    * Network `default`.
-   * With a single `hm1.nano` host in the `b0rcctk2rvtr8efcch64` subnet, the `{{ zone-id }}` availability zone, and the `{{ security-group }}` security group.
+   * A single `hm1.nano` class host in the `b0rcctk2rvtr8efcch64` subnet, `{{ region-id }}-a` availability zone, and `{{ security-group }}` security group.
    * With SSL support.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
    * With the `user1user1` password.
    * With protection against accidental cluster deletion.
 
-   Run the command:
+   Run the following command:
 
    ```bash
    {{ yc-mdb-rd }} cluster create \
@@ -281,7 +285,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      --environment production \
      --network-name default \
      --resource-preset hm1.nano \
-     --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
+     --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch64 \
      --security-group-ids {{ security-group }} \
      --enable-tls \
      --disk-type-id {{ disk-type-example }} \
@@ -292,7 +296,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - {{ TF }}
 
-   Let's say we need to create a {{ RD }} cluster and a network for it with the following characteristics:
+   Create a {{ mrd-name }} cluster and a network for it with test characteristics:
 
    * Named `myredis`.
    * Version `{{ versions.tf.latest }}`.
@@ -300,7 +304,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Cloud with the `{{ tf-cloud-id }}` ID.
    * Folder with the `{{ tf-folder-id }}` ID.
    * New network `mynet`.
-   * With a single `{{ host-class }}` host in the new subnet `mysubnet` and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   * A single `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
    * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any addresses in the `mysubnet` subnet.
    * With SSL support.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
@@ -320,10 +324,10 @@ If you specified security group IDs when creating a cluster, you may also need t
    }
 
    provider "yandex" {
-     token     = "<service account OAuth or static key>"
+     token     = "<An OAuth or static key of the service account>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ zone-id }}"
+     zone      = "{{ region-id }}-a"
    }
 
    resource "yandex_mdb_redis_cluster" "myredis" {
@@ -346,7 +350,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      }
 
      host {
-       zone      = "{{ zone-id }}"
+       zone      = "{{ region-id }}-a"
        subnet_id = yandex_vpc_subnet.mysubnet.id
      }
    }
@@ -372,9 +376,9 @@ If you specified security group IDs when creating a cluster, you may also need t
      }
    }
 
-   resource  "yandex_vpc_subnet" "mysubnet" {
+   resource "yandex_vpc_subnet" "mysubnet" {
      name           = "mysubnet"
-     zone           = "{{ zone-id }}"
+     zone           = "{{ region-id }}-a"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.5.0.0/24"]
    }
@@ -390,7 +394,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - {{ TF }}
 
-   Let's say we need to create a [sharded](../concepts/sharding.md) {{ RD }} cluster with the following characteristics:
+   Create a [sharded](../concepts/sharding.md) {{ mgp-name }} cluster with test characteristics:
 
    * Named `myredis`.
    * Environment `PRODUCTION`.
@@ -423,7 +427,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      token     = "<service account OAuth or static key>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ zone-id }}"
+     zone      = "{{ region-id }}-a"
    }
 
    resource "yandex_mdb_redis_cluster" "myredis" {

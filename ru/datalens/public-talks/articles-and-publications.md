@@ -11,7 +11,6 @@
    - [Визуализация: как погода могла повлиять на самоизоляцию](https://vc.ru/yandex.cloud/130267-vizualizaciya-kak-pogoda-mogla-povliyat-na-samoizolyaciyu)
 
 ## Новости {#news}
-   - [Новости сервиса Yandex DataLens](https://cloud.yandex.ru/blog/posts/2020/04/datalens-digest)
    - [В Яндекс.Облаке открыт доступ к анализу данных по самоизоляции и распространению коронавируса](https://habr.com/ru/company/yandex/news/t/497766/)
    - [Новости Yandex DataLens 2021-06-10](https://cloud.yandex.ru/blog/posts/2021/06/datalens-digest-june-2021)
    - [Новости Yandex DataLens 2021-02-02](https://cloud.yandex.ru/blog/posts/2021/02/datalens-digest)

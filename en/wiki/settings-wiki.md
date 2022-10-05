@@ -1,13 +1,12 @@
-# Customize the appearance of Wiki pages
+# Customizing the interface {{ wiki-name }}
 
-You can customize the appearance of the Wiki pages you're viewing:
+You can customize the layout of pages you're viewing:
 
-1. Click your profile picture in the upper-right corner of any Wiki page and select **Settings**.
+1. In the bottom-left corner of any Wiki page, click ![](../_assets/wiki/svg/settings.svg) **Settings**.
 
-1. Set the following parameters:
-
+1. Set the parameters:
      * **Language and region**. Interface language: Russian or English.
-     * **Appearance**. Interface theme: light, dark or system.
-     * **Experiments**. Here you can enable the new interface.
+     * **Appearance**. Interface theme: Light, Dark, or System.
+     * **Experiments**. Here you can enable or disable the new interface {{ wiki-name }}.
 
-These settings only apply to you and do not affect other users
+Your custom interface settings won't affect other users.

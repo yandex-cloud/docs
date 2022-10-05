@@ -54,6 +54,8 @@
 
 {% include [no-new-tables](../../_includes/data-transfer/troubles/no-new-tables.md) %}
 
+{% include [aws-binlog-time](../../_includes/data-transfer/troubles/mysql/aws-binlog-time.md) %}
+
 ## {{ PG }} {#postgresql}
 
 {% include [master-trans-stop](../../_includes/data-transfer/troubles/postgresql/master-trans-stop.md) %}

@@ -1,28 +1,28 @@
 # Editing dynamic tables
 
-To edit a table, open it and click **Edit** in the lower-right corner.
+To edit a [dynamic table](pages-types.md#grid), edit it, then in the bottom-right corner, click **Edit**.
 
-## Edit cell contents {#edit-cell}
+## Edit the contents of table cells {#edit-cell}
 
-Select a cell and enter text. Use the [Markdown markup](basic-markup.md) for text formatting. To move to a new line within a cell, use the [keyboard shortcut](#shortcuts) **Shift** + **Enter**.
+Select a cell and enter your text. Use [Markdown](basic-markup.md) for formatting text. To add a new line in a cell, press the [hotkey](#shortcuts) **Shift** + **Enter**.
 
-To save your changes, click **Finish**. Each time you save changes, a new copy of the table is created in the [edit history](history.md). In edit history, your can view all previous versions of a table, compare changes, and restore any of the versions.
+To save the changes, click **Complete**. Each time you save your changes, a new copy of the table is added to its [history](history.md#grid). Using the history, you can view all previous versions of the table, compare them, or roll back to any of them.
 
 ## Configuring parameters of table columns {#column-params}
 
-1. Click the **≡** icon in the first cell of the column.
+1. Click **≡** in a column's first cell.
 
-1. Change the column parameters in the window that pops up:
+1. In the pop-up window, change the column parameters:
 
     * Enter the column heading in the top field.
 
     * Specify the column's width in pixels or as a percentage of the table's width.
 
-    * To mark cells as mandatory to fill in, choose the **Required** option.
+    * If you want the cells to be required for filling in, choose the **Required** option.
 
-    * Enable **Mark as done** for columns with the **Checkbox** data type. If the option is enabled, all checked rows will turn gray.
+    * For columns with the **Checkbox** data type, enable the **Mark as done** option. If the option is enabled, all rows selected with the checkbox will turn gray.
 
-1. Click **Apply** to save your changes.
+1. Click **Apply**  to save your changes.
 
 ## Adding and removing columns {#edit-column}
 
@@ -34,47 +34,47 @@ To add a column:
 
     * Enter the column heading in the top field.
 
-    * In the drop-down list, choose an applicable [data type](#data-types) for the column. You can't change the data type after saving.
+    * In the drop-down list, select a [data type](#data-types) for the column cells. After you save the settings, you can't edit the data type.
 
     * Specify the column's width in pixels or as a percentage of the table's width.
 
-    * To mark cells as mandatory to fill in, choose the **Required** option.
+    * If you want the cells to be required for filling in, choose the **Required** option.
 
-    * Enable **Mark as done** for columns with the **Checkbox** data type. If the option is enabled, all checked rows will turn gray.
+    * For columns with the **Checkbox** data type, enable the **Mark as done** option. If the option is enabled, all rows selected with the checkbox will turn gray.
 
-1. Click **Add**.
+1. Click **Add** .
 
-To remove a column:
+To delete a column:
 
-1. Click the **≡** icon in the first cell of the column.
+1. Click **≡** in a column's first cell.
 
 1. Click **Delete column**.
 
 ### Data types {#data-types}
 
-Specify data type for the column:
+Specifying the data type for a table column:
 
-* **Text**. Any text formatted using [Markdown markup](basic-markup.md).
+* **Text** Any text formatted by [Markdown](basic-markup.md).
 
 * **Number**.
 
-* **Checkbox**. You can mark items in a checkbox field. To mark the entire row, enable **Mark as finished**. If the option is enabled, all checked rows will turn gray.
+* **Checkbox**. A field that can be ticked on/off. To mark an entire row, enable the **Mark made** option. If the option is enabled, all rows selected with the checkbox will turn gray.
 
 * **Date**.
 
-* **List**. You can select an item from a list of suggestions.
+* **List**. A field where a user can select one value from a list.
 
-* **Multi-select list**. You can select multiple items from a list of suggestions.
+* **Multiple-choice list**. A field where a user can select multiple values from the list.
 
-* **Employee**. An employee's first and last name.
+* **Employee**. The employee's first and last name.
 
-* **Multiple employees**. First and last names of the employees.
+* **Multiple employees.** First and last names for a list of employees.
 
-* **Issue on {{ tracker-name }}**. An issue key that works as a link to {{ tracker-name }}.
+* **Issue in {{ tracker-name }}**. The key of the issue that will function as a link in {{ tracker-name }}.
 
 {% note alert %}
 
-You can only select data type when creating a column.
+This data type can only be selected when creating a column.
 
 {% endnote %}
 
@@ -82,78 +82,76 @@ You can only select data type when creating a column.
 
 * To add a row, select **Add row** at the bottom of the page.
 
-* To delete a row, hover your cursor over the row and click the icon ![](../_assets/wiki/del-row.png) on the right.
+* To delete a line, hover the cursor over it and click ![](../_assets/wiki/del-row.png) to the right of the line.
 
 ## Renaming tables {#rename-tab}
 
-1. Open the table.
+{% note tip %}
 
-1. Click ![](../_assets/wiki/table-settings-sidebar.png) in the panel on the right.
-
-1. Set a new table name.
-
-1. Click **Save**.
-
-{% note info %}
-
-You don't have to enable edit mode to rename your table.
+You can rename the table without switching to editing mode. For this, click the name at the top of the page and enter a new name.
 
 {% endnote %}
 
+1. In the panel on the left, click ![](../_assets/wiki/table-settings-sidebar.png).
+
+1. Enter a new table name.
+
+1. Click **Save**.
+
 ## Sorting table rows {#sort-line}
 
-Rows in dynamic tables can be quickly sorted by column:
+Rows of a dynamic table can be quickly sorted by any of the columns:
 
-1. In the column header, click ![](../_assets/wiki/sort-column.png).
+1. To sort rows by values in a column, click the column header.
 
-1. Click the icon again to sort the rows in reverse order.
+1. To sort the rows in reverse order, click the column header again.
 
 ## Sorting tables by multiple columns at the same time {#sort-multi-column}
 
-You can apply multiple sort orders as the same time. Sorting types are specified in descending order of priority.
+You can set multiple sorting parameters at the same time. Sorting parameters are set in descending order of priority.
 
-To create a new sort order:
+To create a new sorting parameter:
 
-1. Click ![](../_assets/wiki/table-settings-sidebar.png) in the panel on the right.
+1. In the panel on the left, click ![](../_assets/wiki/table-settings-sidebar.png).
 
-1. Click **Add sort order**.
+1. Click **Add sort**.
 
-1. Choose a column and sort order.
+1. Select the column and sort order.
 
-## Filtering tables {#filter}
+## Filtering a table {#filter}
 
-You can set conditions for displaying rows and columns in your table if the table is embedded into a Wiki page via the ["grid" dynamic block](actions/grid-reference.md).
+You can set conditions for displaying rows or columns for tables embedded using the [dynamic block `grid`](actions/grid-reference.md).
 
-To add filters to your table:
+To filter a table:
 
-1. Get the dynamic table's code. To do this, click the icon on the left-hand panel ![](../_assets/wiki/table-link.png).
+1. Get the code for the dynamic table. To do this, in the panel on the left, click ![](../_assets/wiki/table-settings-sidebar.png).
 
-1. Copy the code and paste it onto the Wiki page.
+1. Copy the code and paste it to the Wiki page.
 
-1. Specify the filter parameters:
+1. Specify the filtering conditions:
 
-    * To customize row display, use the ["filter" parameter](actions/grid-reference.md#row-filter).
+    * To filter rows, use the [`filter` parameter](actions/grid-reference.md#row-filter).
 
-    * To customize column display, use the ["column" parameter](actions/grid-reference.md#col-filter).
+    * To filter columns, use the [`column` parameter](actions/grid-reference.md#col-filter).
 
 ## Keyboard shortcuts in dynamic tables {#shortcuts}
 
-You can use keyboard shortcuts to manage data in dynamic tables.
+Use keyboard shortcuts to manage data in dynamic tables.
 
 | **Action** | **Windows, Linux** | **MacOS** |
 | --- | --- | --- |
 | Add a row | **Ctrl** + **Enter** | **⌘** + **Enter** |
 | Save a row | **Enter** | **Enter** |
-| Exit edit mode | **Esc** | **Esc** |
-| Move between columns | **Tab** | **Tab** |
-| Move back between columns | **Shift** + **Tab** | **Shift** + **Tab** |
-| Move between cells | **Ctrl** + **→** **←** **↑** **↓** | **⌘** + **→** **←** **↑** **↓** |
-| Move to the start of the row | **Home** (double-click) | — |
-| Move to the end of the row | **End** (double-click) | — |
-| Move to the start of the cell | **↑** | **↑** |
-| Move to the end of the cell | **↓** | **↓** |
-| Create a new line within a cell | **Shift** + **Enter**. | **Shift** + **Enter**. |
-| Check a **Checkbox** cell | **Space** | **Space** |
+| Exit editing mode | **Esc** | **Esc** |
+| Move across columns | **Tab** | **Tab** |
+| Reverse move across columns | **Shift** + **Tab** | **Shift** + **Tab** |
+| Move across cells | **Ctrl** + **→** **←** **↑** **↓** | **⌘** + **→** **←** **↑** **↓** |
+| Go to row start | **Home (press twice)** | — |
+| Go to row end | **End** (press twice) | — |
+| Go to the beginning of the cell | **↑** | **↑** |
+| Go to the end of the cell | **↓** | **↓** |
+| Add a new line in the cell | **Shift** + **Enter** | **Shift** + **Enter** |
+| Select a **Checkbox** | **Space** | **Space** |
 
 #### See also
 

@@ -13,7 +13,6 @@
 
 ## News {#news}
 
-   - [Yandex DataLens news](https://cloud.yandex.ru/blog/posts/2020/04/datalens-digest)
    - [{{ yandex-cloud }} allows access to data analysis on self-isolation and the spread of coronavirus](https://habr.com/ru/company/yandex/news/t/497766/)
    - [Yandex DataLens news, June 10, 2021](https://cloud.yandex.ru/blog/posts/2021/06/datalens-digest-june-2021)
    - [Yandex DataLens news, February 02, 2021](https://cloud.yandex.ru/blog/posts/2021/02/datalens-digest)

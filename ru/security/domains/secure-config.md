@@ -70,7 +70,7 @@
 - [Wazuh](https://documentation.wazuh.com/current/learning-wazuh/detect-fs-changes.html)
 - [Osquery](https://osquery.readthedocs.io/en/stable/deployment/file-integrity-monitoring/)
 
-В {{ marketplace-full-name }} также доступны платные решения — например, [Kaspersky Security](/marketplace/products/kaspersky/kaspersky-hybrid-cloud-security-payg).
+В {{ marketplace-full-name }} также доступны платные решения — например, [CloudGuard](/marketplace?search=payg).
 
 ### Атаки по побочным каналам {#side-channel}
 
@@ -142,7 +142,7 @@ ACL позволяет предоставить доступ к объекту �
 
 При использовании сервиса {{ objstorage-short-name }} для хранения критичных данных необходимо включать логирование действий с бакетами, а также настроить для объектов с логами механизм версионирования и жизненный цикл. Подробнее в разделе [{#T}](../../storage/concepts/server-logs.md) документации {{ objstorage-short-name }}.
 
-Дополнительно возможен анализ логов {{ objstorage-short-name }} при помощи {{ datalens-short-name }}. Подробнее в статье [Анализ логов {{ objstorage-name }} при помощи {{ datalens-short-name }}](https://cloud.yandex.ru/blog/posts/2021/04/storage-logs).
+Дополнительно возможен анализ логов {{ objstorage-short-name }} при помощи {{ datalens-short-name }}.
 
 
 

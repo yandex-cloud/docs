@@ -176,4 +176,4 @@ The load on processor cores.
 | `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>`1` if a cluster is available for reads, `0` if not. |
 | `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>`1` if a cluster is available for writes, `0` if not. |
 
-Read more about the service in the [{{ mmy-full-name }}](../../managed-mysql/) documentation.
+Read more about the service in the [{{ mmy-full-name }}](../../../managed-mysql/) documentation.

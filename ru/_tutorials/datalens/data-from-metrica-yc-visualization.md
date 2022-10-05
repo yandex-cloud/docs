@@ -7,39 +7,39 @@
 
 Для визуализации и исследования данных [подготовьте облако к работе](#before-you-begin), затем выполните следующие шаги:
 
-1. [Подключите {{ CH }} и {{ ml-platform-short-name }}](#ch-datasphere-connection)
-    1. [Подключите {{ CH }}](#ch-connection)
-    1. [Подключите {{ ml-platform-short-name }}](#datasphere-connection)
-    1. [Клонируйте репозиторий в {{ ml-platform-short-name }}](#clone-repo-to-datasphere)
-1. [Получите и загрузите данные в {{ CH }}](#get-download-data-in-ch)
-    1. [Яндекс Метрика. Создайте приложение и получите токен доступа](#create-metrica-app-token)
-    1. [{{ ml-platform-short-name }}. Выгрузите данные через Logs API Яндекс Метрики](#uploading-data-logs-api)
-    1. [{{ ml-platform-short-name }}. Выгрузите данные тестового счетчика через Яндекс Диск](#uploading-data-counter-from-disk)
-    1. [{{ CH }}. Получите адрес кластера](#getting-ch-cluster-host)
-    1. [{{ ml-platform-short-name }}. Загрузите данные в {{ CH }}](#uploading-data-counter-to-ch)
-1. [Подключите {{ datalens-short-name }} и создайте чарты](#datalens-connection-chart-creation)
-    1. [Подключитесь к {{ datalens-short-name }}](#datalens-connection)
-    1. [Создайте подключение к {{ CH }} в {{ datalens-short-name }}](#creation-datalens-connection-to-ch)
-    1. [Создайте датасет на базе подключения](#creating-dataset-based-on-connection)
-    1. [Создайте чарт — накопительная диаграмма с областями](#creating-area-chart)
-    1. [Создайте чарт — сводная таблица](#creating-pivot-table)
-1. [Создайте и настройте дашборд в {{ datalens-short-name }}](#creating-configuring-dashboard)
-    1. [Создайте дашборд](#creating-dashboard)
-    1. [Настройте дашборд](#configuring-dashboard)
-1. [Воронки](#funnels)
-    1. [{{ ml-platform-short-name }}. Постройте воронки](#calculating-funnels-datasphere)
-    1. [{{ datalens-short-name }}. Воронки по браузерам. Создайте датасет](#calculating-browser-funnels-dataset)
-    1. [{{ datalens-short-name }}. Воронки по браузерам. Создайте чарт](#calculating-browser-funnels-chart)
-    1. [{{ datalens-short-name }}. Воронки по браузерам. Добавьте чарт на дашборд](#add-browser-funnels-chart-on-dashboard})
-    1. [{{ datalens-short-name }}. Воронки по браузерам. Настройте дашборд](#setting-browser-funnels-chart-on-dashboard)
-1. [Когорты](#cohorts)
-    1. [{{ ml-platform-short-name }}. Проведите Когортный анализ](#cohort-analysis)
-    1. [{{ datalens-short-name }}. Создайте датасет и чарт с визуализацией когорт](#creating-dataset-chart-with-cohort)
-    1. [{{ datalens-short-name }}. Настройте чарт с визуализацией когорт](#creating-chart-with-cohort)
-    1. [{{ datalens-short-name }}. Создайте чарт с ретеншеном](#creating-chart-with-retention)
-    1. [{{ datalens-short-name }}. Добавьте чарты на новую вкладку дашборда](#adding-charts-to-dashboard-tab)
-    1. [{{ datalens-short-name }}. Создайте чарты](#creating-chart)
-    1. [{{ datalens-short-name }}. Добавьте чарты на дашборд](#adding-chart-to-dashboard)
+1. [Подключите {{ CH }} и {{ ml-platform-short-name }}](#ch-datasphere-connection):
+    1. [Подключите {{ CH }}](#ch-connection).
+    1. [Подключите {{ ml-platform-short-name }}](#datasphere-connection).
+    1. [Клонируйте репозиторий в {{ ml-platform-short-name }}](#clone-repo-to-datasphere).
+1. [Получите и загрузите данные в {{ CH }}](#get-download-data-in-ch):
+    1. [Яндекс Метрика. Создайте приложение и получите токен доступа](#create-metrica-app-token).
+    1. [{{ ml-platform-short-name }}. Выгрузите данные через Logs API Яндекс Метрики](#uploading-data-logs-api).
+    1. [{{ ml-platform-short-name }}. Выгрузите данные тестового счетчика через Яндекс Диск](#uploading-data-counter-from-disk).
+    1. [{{ CH }}. Получите адрес кластера](#getting-ch-cluster-host).
+    1. [{{ ml-platform-short-name }}. Загрузите данные в {{ CH }}](#uploading-data-counter-to-ch).
+1. [Подключите {{ datalens-short-name }} и создайте чарты](#datalens-connection-chart-creation):
+    1. [Подключитесь к {{ datalens-short-name }}](#datalens-connection).
+    1. [Создайте подключение к {{ CH }} в {{ datalens-short-name }}](#creation-datalens-connection-to-ch).
+    1. [Создайте датасет на базе подключения](#creating-dataset-based-on-connection).
+    1. [Создайте чарт — накопительная диаграмма с областями](#creating-area-chart).
+    1. [Создайте чарт — сводная таблица](#creating-pivot-table).
+1. [Создайте и настройте дашборд в {{ datalens-short-name }}](#creating-configuring-dashboard):
+    1. [Создайте дашборд](#creating-dashboard).
+    1. [Настройте дашборд](#configuring-dashboard).
+1. [Воронки](#funnels):
+    1. [{{ ml-platform-short-name }}. Постройте воронки](#calculating-funnels-datasphere).
+    1. [{{ datalens-short-name }}. Воронки по браузерам. Создайте датасет](#calculating-browser-funnels-dataset).
+    1. [{{ datalens-short-name }}. Воронки по браузерам. Создайте чарт](#calculating-browser-funnels-chart).
+    1. [{{ datalens-short-name }}. Воронки по браузерам. Добавьте чарт на дашборд](#add-browser-funnels-chart-on-dashboard}).
+    1. [{{ datalens-short-name }}. Воронки по браузерам. Настройте дашборд](#setting-browser-funnels-chart-on-dashboard).
+1. [Когорты](#cohorts):
+    1. [{{ ml-platform-short-name }}. Проведите Когортный анализ](#cohort-analysis).
+    1. [{{ datalens-short-name }}. Создайте датасет и чарт с визуализацией когорт](#creating-dataset-chart-with-cohort).
+    1. [{{ datalens-short-name }}. Настройте чарт с визуализацией когорт](#creating-chart-with-cohort).
+    1. [{{ datalens-short-name }}. Создайте чарт с ретеншеном](#creating-chart-with-retention).
+    1. [{{ datalens-short-name }}. Добавьте чарты на новую вкладку дашборда](#adding-charts-to-dashboard-tab).
+    1. [{{ datalens-short-name }}. Создайте чарты](#creating-chart).
+    1. [{{ datalens-short-name }}. Добавьте чарты на дашборд](#adding-chart-to-dashboard).
 
 ## Подготовьте облако к работе {#before-you-begin}
 

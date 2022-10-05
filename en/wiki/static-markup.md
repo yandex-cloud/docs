@@ -4,7 +4,7 @@ The markup language is the set of rules for creating the structure and visual de
 
 {{ wiki-name }} supports additional formatting elements that are not present in the standard Markdown syntax.
 
-You can use Markdown to:
+You can use Markdown markup both on [Wiki pages and in dynamic tables](pages-types.md):
 
 * [Set the Wiki page structure](static-markup/document-structure.md)
 

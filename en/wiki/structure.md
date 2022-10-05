@@ -1,4 +1,4 @@
-# {{ wiki-full-name }} structure
+# Structure of {{ wiki-full-name }}
 
 ## Page tree {#structure}
 
@@ -27,6 +27,8 @@ Pages {{ wiki-name }} form _clusters_:
 ![](../_assets/wiki/clusters.png)
 
 A cluster is a page with all its subpages. Pages within a cluster are usually related to a common topic.
+
+To [view or change the cluster structure](cluster-overview.md#subpages), in the top panel, click ![](../_assets/wiki/svg/structure-icon.svg).
 
 ## Personal cluster {#personal_cluster}
 

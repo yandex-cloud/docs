@@ -49,7 +49,7 @@ _Yandex accounts_ are your accounts in Yandex.Passport or [Yandex 360](https://
 
 {% include [sa-def](../_includes_service/sa-def.md) %}
 
-By using service accounts you can flexibly configure access rights to resources for programs you wrote. For more information, see [{#T}](users/service-accounts.md).
+By using service accounts you can flexibly configure access rights to resources for programs you wrote. For more information, see [{#T}](./users/service-accounts.md).
 
 ### Federated account {#saml-federation}
 

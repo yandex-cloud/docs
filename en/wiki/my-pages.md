@@ -1,14 +1,14 @@
-# Viewing the list of my pages
+# View a list of my pages
 
-To find the list of pages you own, open your **Bookmarks**:
+To view a list of pages that you are an author of, go to **Created and edited**:
 
-1. In the top {{ wiki-name }} panel, open the **Bookmarks**.
+1. In the {{ wiki-name }} panel on the left, click ![](../_assets/wiki/svg/edited-icon.svg) **Created and edited**.
 
-1. Go to **My pages**.
+1. To the right of the **Search by name** field, select **I'm an author**.
 
-## How to embed the list of my pages to a Wiki page
+## How to insert a list of all my pages on a Wiki page
 
-Insert the `not_var{{mypages}}` dynamic block into the Wiki page text.
+Add a `not_var{{mypages}}` dynamic block to your Wiki page text.
 
-You can use [additional block parameters](actions/page-lists.md#mypages) to set a sort order for the list and display another user's list.
+You can use [additional parameters of the block](actions/page-lists.md#mypages) to sort the list and display lists of other users.
 

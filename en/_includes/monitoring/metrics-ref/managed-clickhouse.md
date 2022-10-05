@@ -423,4 +423,4 @@ For each metric, the increment per unit of time (second) is calculated.
 | `is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if a DB host is alive, `0` if not. |
 
 
-Read more about the service in the [{{ mch-full-name }}](../../managed-clickhouse/) documentation.
+Read more about the service in the [{{ mch-full-name }}](../../../managed-clickhouse/) documentation.

@@ -2,6 +2,14 @@
 
 A page can be deleted by its author or the administrator of the [organization](overview.md#access).
 
+{% note alert %}
+
+Deleting a page cannot be undone. All information on the page and its history will be erased.
+
+If you want to keep a page that you might need in the future, consider [moving](page-management/move-page.md) it to another cluster instead of deleting it. 
+
+{% endnote %}
+
 To delete a page:
 
 1. Open the page.
@@ -11,12 +19,6 @@ To delete a page:
 1. Check what pages link to the page being deleted and, if necessary, delete or replace the links.
 
 1. Confirm deletion.
-
-{% note tip %}
-
-You can change the address of your page in {{ wiki-name }}. Instead of deleting and recreating the page in another cluster, you can [relocate](page-management/move-page.md) it.
-
-{% endnote %}
 
 #### See also
 

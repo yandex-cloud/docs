@@ -48,7 +48,7 @@ New paragraph.
 
 {% note info %}
 
-To get several empty lines between blocks of text, insert a backslash `\` at the beginning of each line.
+To add multiple empty lines between blocks of text, use a backslash `\` at the beginning of each line.
 
 {% endnote %}
 

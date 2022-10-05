@@ -1,8 +1,8 @@
 # Viewing the pages you edited
 
-The list of all pages you've edited is found under **Bookmarks**:
+To view a list of pages you edited, go to **Created and edited**:
 
-1. In the top {{ wiki-name }} panel, open the **Bookmarks**.
+1. In the {{ wiki-name }} panel on the left, click ![](../_assets/wiki/svg/edited-icon.svg) **Created and edited**.
 
-1. Choose **Edited by me**.
+1. To the right of the **Search by name** field, select **I'm an editor**.
 

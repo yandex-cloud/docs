@@ -1,12 +1,87 @@
 # YC CLI Releases
 
-## Version 0.95.0 (02.09.22) {#latest-release}
+## Version 0.96.0 (19.09.22) {#latest-release}
+
+### Changes to the CLI {#cli}
 
 ### Changes to {{ yandex-cloud }} services {#services}
 
 
 
-#### {{ api-gw-name }} {#api-gw}
+#### {{ alb-name }} {#alb}
+
+* Added the `yc application-load-balancer load-balancer autoscale` command to manage the number of load balancer resource units.
+   The command includes the following parameters:
+   * `--min-zone-size`: Minimum number of resource units in a single zone.
+   * `--max-size`: Maximum total number of resource units in all zones.
+
+* Added the following flags the `yc alb load-balancer create` command:
+   * `--log-group-id`, `--log-group-name`: Specify a log group from {{ cloud-logging-name }}.
+   * `--disable-logging`: Create a load balancer without logging to a log group from {{ cloud-logging-name }}.
+
+* Added the following flags to the `yc alb load-balancer update` command:
+   * `--log-group-id`, `--log-group-name`: Specify a log group from {{ cloud-logging-name }}.
+   * `--enable-logging` and `--disable-logging`: Enable and disable load balancer logging to a log group from {{ cloud-logging-name }}.
+
+
+
+
+#### {{ compute-name }} {#compute}
+
+* Added the `yc compute snapshot-schedule` set of commands to manage scheduled disk snapshots.
+* Added the `--metadata-options` flag to the `yc compute instance create` command to manage VM metadata access.
+
+
+
+
+##### {{ dns-name }} {#dns}
+
+* Added the ability to filter by name and record type to the `yc dns zone list-records` command using the `--record-name` and the `--record-type` parameters.
+
+
+#### Changes to managed database services {#managed-db}
+
+**{{ mpg-name }}**
+
+* `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore`: added the `11-1c`, `12-1c`, `13-1c`, and `14-1c` values for the `--postgresql-version string` flag to create {{ PG }} clusters with versions 11-1c, 12-1c, 13-1c, and 14-1c.
+
+
+
+#### {{ iot-name }} {#iot}
+
+* Added the `yc iot broker` command group to manage the MQTT broker.
+
+
+
+
+#### {{ sf-name }} {#serverless-functions}
+
+Added the following commands:
+
+* `yc serverless trigger create iot-broker`: Create triggers for MQTT brokers.
+* `yc serverless trigger create mail`: Create mail triggers.
+
+`yc serverless function version create`: Added the `--secret` parameter to add [secrets](../lockbox/) to the version.
+
+
+
+
+#### {{ serverless-containers-name }} {#serverless-containers}
+
+Added the following flags to the `yc serverless container revision deploy` command:
+* `--secret`: Add secrets to the revision.
+* `--min-instances`: Specify the minimum number of prepared container instances.
+
+
+## Previous releases {#previous-releases}
+
+### Version 0.95.0 (02.09.22) {#version0.95.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+
+
+##### {{ api-gw-name }} {#api-gw}
 
 * Added the following parameters to the `yc serverless api-gateway add-domain` command:
 
@@ -25,7 +100,7 @@
 
 
 
-#### {{ certificate-manager-name }} {#certificate-manager}
+##### {{ certificate-manager-name }} {#certificate-manager}
 
 * Added the `--key-format` parameter to the `yc certificate-manager certificate content` command to select the primary key format: `PKCS1` or `PKCS8`.
 
@@ -33,7 +108,7 @@
 
 
 
-#### {{ compute-name }} {#compute}
+##### {{ compute-name }} {#compute}
 
 * Added the `--os-type` parameter to the `yc compute image create` command to specify the OS type for an image you create: `linux` or `windows`.
 
@@ -41,7 +116,7 @@
 
 
 
-#### {{ dns-name }} {#dns}
+##### {{ dns-name }} {#dns}
 
 * The `yc dns zone add-records`, `yc dns zone update-records`, `yc dns zone delete-records`, and `yc dns zone replace-records` commands now return a list of changes made.
 
@@ -49,7 +124,7 @@
 
 
 
-#### {{ iam-name }} {#iam}
+##### {{ iam-name }} {#iam}
 
 * Fixed an error in the `yc iam federation` command group, which occurred when specifying the name of a SAML-compatible identity federation as a positional argument.
 
@@ -57,7 +132,7 @@
 
 
 
-#### {{ iot-name }} {#iot}
+##### {{ iot-name }} {#iot}
 
 * The `yc iot registry logs` and `yc iot device logs` commands now return logs from {{ cloud-logging-name }}. Added the following parameters to the commands:
 
@@ -68,7 +143,7 @@
 
 
 
-#### Managed database services {#managed-db}
+##### Managed database services {#managed-db}
 
 **{{ mkf-name }}**
 
@@ -84,14 +159,11 @@
 
 
 
-#### {{ org-name }} {#organization}
+##### {{ org-name }} {#organization}
 
 * Added the `--organization-id` parameter to the commands of the `yc organization-manager federation saml` group to specify organization IDs. Fixed an error that occurred in these commands when specifying the name of a SAML-compatible identity federation as a positional argument.
 * Added a group of `yc organization-manager group` commands to manage [user groups](../organization/manage-groups.md).
 
-
-
-## Previous releases {#previous-releases}
 
 ### Version 0.94.0 (16.08.22) {#version0.94.0}
 

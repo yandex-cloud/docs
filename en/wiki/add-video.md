@@ -1,30 +1,32 @@
-# Embedding video or audio
+# Adding a video or audio
 
 
-To add a video or audio to your Wiki page, use the [not_var{{iframe}}](actions/iframe.md) dynamic block. The block is used to embed media files from external sources, such as Yandex Music, Vimeo, or Youtube.
+
+To add a video or audio file to a Wiki page, use a [dynamic block not_var{{iframe}}](actions/iframe.md). It enables you to add media files from external sources, such as Yandex&#160;Music, Vimeo, or Youtube.
 
 
-1. Open the Wiki page and click **Edit**.
 
-1. Add the dynamic block code with a link to the media file to the Wiki page. Use the auto-generated link for posting the video on other websites. Such links are usually called "Embed Code" or "HTML code".
+1. Open the wiki page and click **Edit**.
+
+1. Add the dynamic block code with a link to the media file to the Wiki page. Use the link for publishing on external resources. These links are usually referred to as the "Embed code" or "HTML code".
 
 {% note tip %}
 
-* When adding a video from Youtube, use a link in the following format:
+* When adding a video from Youtube, use a link in the format:
 
     ```
     https://www.youtube.com/embed/oCRQj_zyPjk
     ```
 
-    To get the link, click **Share** → **Embed** under the video on Youtube. Then, copy the value for the `src` parameter.
+    To generate this link, under the YouTube video, select **Share** → **Embed** and copy the value of the `src` parameter.
 
-* When adding a track from Yandex Music, use a link in the following format:
+* When adding a track from Yandex&#160;Music, use a link in the format:
 
     ```
     {{ yandex-music }}/iframe/#track/71263/419460
     ```
 
-    To get the link, click **Share** → **HTML code** in the track menu. Then, copy the value for the `src` parameter.
+    To generate this link, select **Share** → **HTML code** in the track menu, then copy the value of the `src` parameter.
 
 {% endnote %}
 
@@ -34,11 +36,12 @@ Example of a dynamic block with a video:
 {{iframe src="https://player.vimeo.com/video/207028770" width="640" height="300" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>}}
 ```
 
-Example of a dynamic block with an audio:
+Example of a dynamic block with audio:
 
 ```
 {{iframe frameborder="0" style="border:none;width:100%;height:180px;" width="100%" height="180" src="{{ yandex-music }}/iframe/#track/71263/419460"}}
 ```
+
 
 
 ### See also

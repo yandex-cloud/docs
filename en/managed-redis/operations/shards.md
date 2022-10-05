@@ -46,7 +46,7 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
 
 - API
 
-   Use the API [listShards](../api-ref/Cluster/listShards.md) method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [listShards](../api-ref/Cluster/listShards.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
    You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md).
 
@@ -70,10 +70,10 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
 
 - API
 
-   Use the API [getShard](../api-ref/Cluster/getShard.md) method and pass the following in the request:
+   Use the [getShard](../api-ref/Cluster/getShard.md) API method and pass the following in the request:
 
    * The cluster ID in the `clusterId` parameter.
-   * In the `shardName` parameter, the name of the desired shard.
+   * In the `shardName` parameter, the name of the shard.
 
 {% endlist %}
 
@@ -106,9 +106,14 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
    To add a two-host shard to the cluster:
 
    ```bash
-   {{ yc-mdb-rd }} shards add --name <new shard's name> --cluster-name <cluster name> \
-      --host zone-id=<availability zone>,subnet-name=<subnet name> \
-      --host zone-id=<availability zone>,subnet-name=<subnet name>
+   {{ yc-mdb-rd }} shards add --name=<new shard name> \
+      --cluster-name=<cluster name> \
+      --host zone-id=<availability zone>,`
+            `subnet-name=<subnet name>,`
+            `assign-public-ip=<public host access: true or false> \
+      --host zone-id=<availability zone>,`
+            `subnet-name=<subnet name>,`
+            `assign-public-ip=<public host access: true or false>
    ```
 
 - {{ TF }}
@@ -123,9 +128,11 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
       resource "yandex_mdb_redis_cluster" "<cluster name>" {
         ...
         host {
-          zone       = "<availability zone>"
-          subnet_id  = <subnet ID>
-          shard_name = "<shard name>"
+          zone             = "<availability zone>"
+          subnet_id        = <subnet ID>
+          assign_public_ip = <public host access: true or false>
+          replica_priority = <host priority>
+          shard_name       = "<shard name>"
         }
       }
       ```
@@ -144,11 +151,11 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
 
 - API
 
-   Use the API [addShard](../api-ref/Cluster/addShard.md) method and pass the following in the request:
+   Use the [addShard](../api-ref/Cluster/addShard.md) API method and pass the following in the request:
 
    * The cluster ID in the `clusterId` parameter.
-   * In the `shardName` parameter, the name of the desired shard.
-   * In the array of `hostSpecs` parameters, the shard's host configuration.
+   * In the `shardName` parameter, the name of the shard.
+   * In the array of `hostSpecs` parameters, the shard host configuration.
 
    You can request the shard name with a [list of cluster shards](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md).
 
@@ -211,7 +218,7 @@ All the shard hosts are deleted with the shard.
 
 - API
 
-   Use the API [deleteShard](../api-ref/Cluster/deleteShard.md) method and pass the following in the request:
+   Use the [deleteShard](../api-ref/Cluster/deleteShard.md) API method and pass the following in the request:
 
    * The cluster ID in the `clusterId` parameter.
    * In the `shardName` parameter, the name of the shard to delete.

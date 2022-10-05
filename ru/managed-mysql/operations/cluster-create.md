@@ -82,12 +82,13 @@
 
   1. Посмотрите описание команды CLI для создания кластера:
 
-      ```
-      {{ yc-mdb-my }} cluster create --help
-      ```
+     ```
+     {{ yc-mdb-my }} cluster create --help
+     ```
 
   1. Укажите параметры кластера в команде создания:
 
+     
      
      ```bash
      {{ yc-mdb-my }} cluster create \
@@ -106,12 +107,14 @@
        --datalens-access=<доступ к кластеру из {{ datalens-name }}: true или false>
      ```
 
-      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
+     Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
+
+  
 
 
-      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+     {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
+     При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
 
 - {{ TF }}
 
@@ -235,7 +238,9 @@
 
     {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
+    
     {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
+
 
 {% endlist %}
 

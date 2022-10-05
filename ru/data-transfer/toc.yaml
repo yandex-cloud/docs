@@ -75,6 +75,8 @@ items:
         href: tutorials/managed-greenplum.md
       - name: Миграция базы данных в {{ mmg-full-name }}
         href: tutorials/managed-mongodb.md
+      - name: Поставка данных из {{ mmy-full-name }} в {{ mkf-full-name }}
+        href: tutorials/cdc-mmy.md
       - name: Миграция базы данных в {{ mmy-full-name }}
         href: tutorials/managed-mysql.md
       - name: Миграция базы данных из {{ mmy-full-name }} в {{ MY }}

@@ -1,4 +1,4 @@
-# Borders, width, and alignment of blocks
+# Borders, width and alignment of blocks
 
 For [text blocks with special formatting](../formatter.md), you can add frames, adjust the width of a block and its position relative to the edges of the page. To do this, add additional parameters to the block markup.
 

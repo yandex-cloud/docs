@@ -244,4 +244,4 @@ Metrics collected using the [API](https://www.elastic.co/guide/en/elasticsearch/
 | `elasticsearch_status`<br/>`DGAUGE`, 0/1/2 | Cluster health and technical condition: <br/>`0` (red): The cluster is unhealthy or partially functional. At least one of the primary shards is unavailable. If the cluster responds to queries, incomplete search results will be returned.<br/>`1` (yellow): The cluster is healthy. There is no access to at least one of the replica shards. The search results in the cluster responses are complete, but if there are more unavailable shards, the cluster's performance will be disrupted.<br/>`2` (green): The cluster is healthy. All cluster shards are available. |
 | `elasticsearch_unassigned_shards`<br/>`DGAUGE`, pcs | Number of inactive shards with no host assigned. |
 
-Read more about the service in the [{{ mes-full-name }}](../../managed-elasticsearch/) documentation.
+Read more about the service in the [{{ mes-full-name }}](../../../managed-elasticsearch/) documentation.

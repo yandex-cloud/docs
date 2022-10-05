@@ -35,7 +35,7 @@ Simple tables are static tables that are created manually using markup elements.
 
         {% cut "See the result" %}
 
-        ![](../../_assets/wiki/table-without-border.png)
+        ![](../../_assets/wiki/table-without-border.png =500x)
 
         {% endcut %}
 
@@ -48,7 +48,7 @@ Simple tables are static tables that are created manually using markup elements.
 - Markdown table
 
     Add an empty row before the table.
-To create a table, use the markup:
+    To create a table, use the markup:
 
     ```
     | Heading 1 | Heading 2 | Heading 3 |
@@ -89,9 +89,9 @@ To create a table, use the markup:
 
     Markup parameters:
 
-    - `delimiter` — a field separator used in CSV tables.
+    - `delimiter`: A field separator used in CSV tables.
 
-    - `head` — if set to 1, the first row of the table becomes a title.
+    - `head`: If set to 1, the first row of the table becomes a title.
 
     {% note info %}
 

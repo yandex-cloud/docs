@@ -5,9 +5,9 @@ You can insert in {{ wiki-name }} formulas created with the help of markup [TeX]
 - Standard formula design, suitable for inserting a separate line:
 
    ```
-   First line.
+   Some text here.
    %%(math outline) formula %%
-   Second line.
+   Some text here.
    ```
 
    {% cut "See the result" %}

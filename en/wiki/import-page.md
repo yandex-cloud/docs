@@ -4,13 +4,13 @@
 
 To convert a .txt text file or a .docx document to a Wiki page:
 
-1. On any Wiki page, click **Create** or choose **Actions** → **Create subpage**.
+1. On any wiki page, click ![](../_assets/wiki/svg/create-page.svg) **Create a page** in the left panel or select ![](../_assets/wiki/svg/actions-icon.svg) **Actions** → **Create subpage** in the upper-right corner.
 
 1. Select **Page**.
 
 1. Set the page title and address in the same way as with [normal page creation](create-page.md).
 
-1. Click **Upload file** and choose the file you want to convert to a page.
+1. Click **Select a file** and open the file you want to convert to a page.
 
 1. Click **Create**.
 
@@ -28,6 +28,8 @@ You can create dynamic tables from CSV or TXT files:
 
 1. [Create](create-grid.md) a new dynamic table or open an existing one.
 
+1. Click **Edit**.
+
 1. In the lower-left corner of the table, select ![](../_assets/wiki/table-settings-footer.png) → **Import data**.
 
 1. Select a CSV or TXT file and check the delimiter settings.
@@ -38,9 +40,9 @@ You can create dynamic tables from CSV or TXT files:
 
 1. Specify how you want to add the selected columns:
 
-    - To a new column: Such columns will be placed to the right of the existing columns.
+    * To a new column: Such columns will be placed to the right of the existing columns.
 
-    - To an existing column: Such columns will be appended to the end of the existing columns.
+    * To an existing column: Such columns will be appended to the end of the existing columns.
 
     Column insertion behavior can be set up for each individual column after you import them from the file.
 

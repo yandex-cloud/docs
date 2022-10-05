@@ -253,4 +253,4 @@ shard | Идентификатор шарда
 | `oplog-maxSize`<br/>`DGAUGE`, байты | Максимальный размер журнала операций. | 
 | `replset_status-replicationLag`<br/>`DGAUGE`, секунды | Задержка репликации. |
 
-Подробнее о сервисе в документации [{{ mmg-full-name }}](../../managed-mongodb/).
+Подробнее о сервисе в документации [{{ mmg-full-name }}](../../../managed-mongodb/).
