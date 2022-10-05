@@ -51,7 +51,7 @@
 
 * Создание [пользовательских фильтров задач](user/create-filter.md).
 
-* Создание [проектов](manager/projects.md), [компонентов](manager/components.md) и [версий](manager/versions.md).
+* Создание [проектов](manager/project-new.md), [компонентов](manager/components.md) и [версий](manager/versions.md).
 
 * Работа с [досками задач](manager/agile.md) и [дашбордами](user/dashboard.md).
 

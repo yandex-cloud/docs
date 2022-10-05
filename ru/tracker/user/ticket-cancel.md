@@ -15,6 +15,3 @@
 {% endnote %}
 
 {% endif %}
-
-
-

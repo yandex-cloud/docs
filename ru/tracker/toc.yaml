@@ -156,6 +156,7 @@ items:
         - name: Форматировать текст в задаче
           href: user/markup.md
         - name: Выполнить макрос
+          when: audience == "old"
           href: user/macroses.md
         - name: Проголосовать за задачу
           href: user/votes.md
@@ -182,21 +183,19 @@ items:
     - name: Связи между задачами
       href: user/links.md
     - name: Проекты
-      href: manager/projects.md
+      items:
+      - name: Обзор
+        href: manager/project-new.md
+      - name: Создать проект
+        href: manager/create-project.md
+      - name: Список задач проекта
+        href: manager/project-list.md
+      - name: Диаграмма Ганта
+        href: manager/gantt-project.md
     - name: Компоненты
       href: manager/components.md
     - name: Версии
       href: manager/versions.md
-- name: Проекты (бета)
-  items:
-    - name: Обзор
-      href: manager/project-new.md
-    - name: Создать проект
-      href: manager/create-project.md
-    - name: Список задач проекта
-      href: manager/project-list.md
-    - name: Диаграмма Ганта
-      href: manager/gantt-project.md
 - name: Инструменты гибкой разработки
   items:
     - name: Обзор
