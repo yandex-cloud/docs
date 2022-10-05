@@ -20,6 +20,8 @@ _Снимок диска_ в {{ yandex-cloud }} — это копия файло
 
 Для одного диска в один момент времени может создаваться только один снимок.
 
+{% include [snapshot-disk-types](../../_includes/compute/snapshot-disk-types.md) %}
+
 
 ## Снимок диска как ресурс {{ yandex-cloud }} {#snapshot-as-resource}
 
