@@ -1,7 +1,8 @@
-# Delta text
+# Texts from Delta
 
-[Delta](https://delta.yandex-team.ru/) is a service for co-editing texts online with other users. It offers a convenient way to log meetings or take notes collectively during a presentation.
-A text created in Delta can be [uploaded to {{ wiki-name }}](#delta-save).
+[Delta](https://delta.yandex-team.ru/) is a service for online text collaboration. It's convenient for keeping minutes at meetings or collaborative note-taking during presentations.
+
+From Delta, you can [export texts to {{ wiki-name }}](#delta-save).
 
 ## How to create a new entry {#delta-create}
 
@@ -9,27 +10,29 @@ A text created in Delta can be [uploaded to {{ wiki-name }}](#delta-save).
 
 1. Click **Create**.
 
-1. Select a programming language from the list in the upper-left corner.
-Select `plain_text` to create a text entry with Wiki markup elements. Enable the **Wiki Mode** feature to view the formatted text in the box on the right.
+1. In the upper-left corner, select a programming language from the list.
 
-1. To co-edit a text with your colleagues, send them a link to the Wiki page from the browser address bar.
+
+For text entries that support Wiki markup, select `plain_text`. Enable **Wiki Mode** to see the formatted text in the area on the right.
+
+1. To collaborate on text with your colleagues, copy the Wiki page's URL from the browser's address bar and share it with them.
 
 {% note alert %}
 
-* Delta pages can be accessed by all Yandex employees. So keep in mind that anyone at Yandex might accidentally see your text.
+* Pages stored in Delta are available to all Yandex employees. It's possible that someone might accidentally see your text.
 
-* There is no search on Delta. Memorize your notebook's name or save the link so you won't lose it.
+* There is no search functionality in Delta. Remember the name of your notebook or save a link to it to make sure that you don't lose it.
 
 {% endnote %}
 
-## How to save Delta notes on {{ wiki-name }} {#delta-save}
+## How to save text from Delta to {{ wiki-name }} {#delta-save}
 
-Delta notes can be saved on any editable Wiki page in {{ wiki-name }}. For example, any co-editor can save the text to their personal cluster.
+You can save Delta notes on any editable Wiki page in {{ wiki-name }}. For example, each collaborator can save the text to their private cluster.
 
-To save the text to {{wiki-name}}:
+To save your text to {{wiki-name}}:
 
-1. Click **Upload to Wiki** and specify the relative link to the Wiki page in the following format:
+1. Click the **Export to Wiki** button, then specify a relative link to your Wiki page in the format: 
 ```{{ wiki-pagename }}```
 
-1. Click **Continue**. If you upload different versions of a note to the same address on {{ wiki-name }}, the older versions will be overwritten. However, you can view all the versions in the [edit history](history.md).
+1. Click **Continue**. If you export different versions of your note to the same URL in {{ wiki-name }}, the page is overwritten. You can view all versions in the [page history](history.md).
 

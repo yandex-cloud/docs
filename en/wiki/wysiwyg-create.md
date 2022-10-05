@@ -1,8 +1,14 @@
-# Creating a Wysiwyg page
+# Creating a WYSIWYG page
 
-The visual editor only works on [Wysiwyg pages](pages-types.md#wysiwyg) and is at the beta stage, so it may be unstable.
+On a WYSIWYG page, you can format text in a visual editor, similar to Microsoft Word or Google Docs.
 
-You can't convert Wysiwyg pages into regular Wiki pages or use Wiki markup and [dynamic blocks](actions.md) on them. To mark up a Wysiwyg page, you can use [{{ yfm }} markup]({{ yfm-link }}).
+You can't convert WYSIWYG pages into regular Wiki pages and can't use Wiki markup or [dynamic blocks](actions.md) in them. To edit the source text of a WYSIWYG page, you can use [{{ yfm }} markup]({{ yfm-link }}).
+
+{% note warning %}
+
+The visual editor only works on [WYSIWYG pages](pages-types.md#wysiwyg) and is at the beta stage, so it may be unstable.
+
+{% endnote %}
 
 To create a page in the Wysiwyg visual editor:
 
@@ -12,5 +18,7 @@ To create a page in the Wysiwyg visual editor:
 
 1. Set the page title and address in the same way as when [creating a regular Wiki page](create-page.md).
 
-1. Click **Create**. The new page opens in the visual editor.
+1. Click **Create**.
+
+1. Add text to your page using a [visual editor](wysiwyg-edit.md).
 

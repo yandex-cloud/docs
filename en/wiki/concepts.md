@@ -1,41 +1,42 @@
-# Work in {{ wiki-full-name }}
+# How to work in {{ wiki-full-name }}
 
-In {{ wiki-name }}, you can create pages in private or public [clusters](structure.md#clusters). You can use [personal pages](structure.md#personal_cluster) to store drafts and private working documents. Documents that might be useful to other employees should be stored in shared clusters.
+In {{ wiki-name }}, you can create pages in private or public [clusters](structure.md#clusters). Use [private pages](structure.md#personal_cluster) to store your drafts and work materials. Use shared themed clusters for documents that can be helpful to colleagues.
 
 {% if audience == "internal" %}
-Examples of thematic clusters:
 
-* Yandex service clusters are pages with service descriptions, plans, reports, and statistics.
+Examples of themed clusters:
 
-* Division clusters are pages for divisions, departments, and Yandex internal services.
+* Clusters of Yandex services are pages with service descriptions, roadmaps, reports, and analytics.
 
-## Managing access {#access}
+* Clusters of divisions are pages maintained by Yandex departments, groups, and service teams.
 
-By default, the pages can be accessed by all Yandex employees. [External employees](page-management/access-setup.md#outstaff) may have limited access.
+## Access control {#access}
 
-Page access is managed by page owners. Department and service managers ensure that all documents under DNA have the appropriate [privacy settings](page-management/access-setup.md).
+All Yandex employees have access to pages by default. For [outstaffers](page-management/access-setup.md#outstaff), access can be limited.
+
+Authors are responsible for granting access rights for their pages. Department heads and service team leaders are responsible for [privacy settings](page-management/access-setup.md) for NDA documents.
 {% endif %}
 
 ## Recommendations for working with public pages {#common-rules}
 
-{{ wiki-full-name }} has no strict workflow rules{% if audience == "external" %}: each organization can have its own cluster hierarchy{% endif %}. You can follow the general guidelines to facilitate information exchange between colleagues:
+{{ wiki-full-name }} provides no strict work rules{% if audience == "external" %}: each organization can configure their own custom cluster structure{% endif %}. To make it easier to exchange information with colleagues, follow the general recommendations:
 {% if audience == "internal" %}
 
-* Create pages in a cluster that is associated with the service, project, or department in question.
+* Create pages in the cluster of the service, project, or department you are writing about.
 {% else %}
 
-* Create public pages in clusters with appropriate topics.
+* Create public pages in clusters with a relevant theme.
 {% endif %}
 
-  If you accidentally created a page in the wrong cluster, you can [move](page-management/move-page.md) the page.
+  If you created a page in a wrong cluster by mistake, you can [move](page-management/move-page.md) the page.
 
-* Adding [cross-links](static-markup/links.md#wiki-ref) to other pages within the cluster will make it easier to search for necessary information.
+* Add [cross links](static-markup/links.md#wiki-ref) to other cluster pages so that people can easily find relevant information.
 
-* Open [page access](page-management/access-setup.md) to all employees{% if audience == "internal" %}, divisions, or service teams{% endif %} who may need it.
+* Grant [access](page-management/access-setup.md) to the page to all employees{% if audience == "internal" %}, departments, or service teams{% endif %} that need it.
 
-  By default, all users who have access to a page can edit it. The owner of a document can always [undo changes](history.md#return-to-old) and roll back to the previous version of the page.
+  By default, all users who have access to a page can edit it. The author can always [undo changes](history.md#return-to-old) and revert to a previous page version.
 
-* You can make the page [read-only](page-management/read-only.md) if you need to.
+* Make your page [read-only](page-management/access-setup.md#read-only) if you don't want others to edit it.
 
-* If you don't want to edit someone else's page, leave a comment. The page owner and page followers will be notified about it.
+* If you want to avoid editing someone else's page, leave a comment to it: both the author and followers will be notified.
 

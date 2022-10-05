@@ -18,7 +18,7 @@ Dynamic tables let users sort values, specify data types to display, and set req
 
 ## Visual editor (Wysiwyg) {#wysiwyg}
 
-In the visual editor, you can create a page whose text can be formatted without using a [markup language](static-markup.md) as in common text editors such as Microsoft Word or Google Docs. The visual editor only works on Wysiwyg pages.
+In the visual editor, you can create a page whose text can be formatted without using [markup language](static-markup.md). You can edit text as usual, like in Microsoft Word or Google Docs. The visual editor only works on Wysiwyg pages.
 
 * [{#T}](wysiwyg-create.md)
 * [{#T}](wysiwyg-edit.md)

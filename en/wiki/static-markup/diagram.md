@@ -43,9 +43,9 @@ Configure the appearance of your diagrams using optional parameters:
 
 * `dot`, `neato`, `circo`, `twopi`, `fdp`: The name of the utility to use to create graphs. By default, `dot` is used.
 
-* `width` — maximum graph width in pixels.
+* `width`: The maximum graph width in pixels.
 
-* `height` — maximum graph height in pixels.
+* `height`: The maximum graph height in pixels.
 
 ## Blockdiag {#blockdiag}
 
@@ -74,9 +74,9 @@ orientation = portrait
 
 You can configure the appearance of your diagrams using optional parameters:
 
-* `width` – maximum width of the flowchart in pixels.
+* `width`: The maximum width of the flowchart in pixels.
 
-* `height` – maximum height of the flowchart in pixels.
+* `height`: The maximum height of the flowchart in pixels.
 
 ## Seqdiag {#seqdiag}
 
@@ -115,9 +115,9 @@ Markup example:
 
 You can configure the appearance of your diagrams using optional parameters:
 
-* `width` — maximum width of the diagram in pixels.
+* `width`: The maximum width of the diagram in pixels.
 
-* `height` — maximum height of the diagram in pixels.
+* `height`: The maximum height of the diagram in pixels.
 
 ## PlantUML {#plantuml}
 

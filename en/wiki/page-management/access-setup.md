@@ -1,22 +1,38 @@
 # Configuring access to a page
 
-You can restrict other users' access to the page if you are its author:
+Edit access rights for the page to set which users can view and edit it.
 
-1. Open the page.
+{% note alert %}
 
-1. At the top of the page, click the button that specifies the access mode for the page (by default **Available to all employees**).
+Access settings can be edited by the {% if audience == "external" %}[page author](../roles.md) or the administrator of the [organization](../overview.md#access).{% else %}page [author](../roles.md) only. If the author of a page is no longer a Yandex employee, send an email to [tools@](mailto:tools@yandex-team.ru). Your request will be handled by the internal services support team.{% endif %}
+
+{% endnote %}
+
+To configure access rights for a page:
+
+1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../../_assets/wiki/svg/access-setup.svg) **Settings** or click the button that specifies the access mode for the page (it's **Available to all employees** by default).
+
+   {% if audience == "external" %}
+
+   {% note tip %}
+
+   If you are an administrator of your organization, and you can't access the page, you can use a direct link to access the settings. To do this, add `.access` at the end of the page's URL.
+
+   {% endnote %}
+
+   {% endif %}
 
 1. Specify who the page will be available to:
 
 {% if audience == "external" %}
 
-   * **All employees**: To all employees of your organization.
+   * **All employees**: The page is available to all employees of your organization.
 {% else %}
 
-   * **All full-time employees**: To all full-time Yandex employees.
+   * **All staff employees**: The page is available to all Yandex staff employees.
 {% endif %}
 
-   * **Only authors**: Only to authors and organization owners.
+   * **Only authors**: The page is available only to its [authors](../roles.md){% if audience == "external" %} and the organization's administrator.{% endif %}
 
    * **Specific employees**: Specify the usernames of people or the group to grant access to.
 
@@ -50,9 +66,10 @@ After any of the page authors approves your request, you'll get access to it.
 
 {% if audience == "external" %}If the author of a page no longer works for the organization, you can also submit a request for access permissions. The request is forwarded to the organization administrator who will handle it.
 
-If the administrator has no access to the page, they can [assign a new author](page-settings.md).
+If the administrator doesn't have access to the page, they can [assign a new author](page-settings.md) for it.
 {% else %}
-If the author of a page is no longer a Yandex employee, click **Become an author**. Your request is forwarded to the internal services support team that will handle it.
+
+If the author of a page is no longer a Yandex employee, click **Become an author**. Your request is forwarded to the internal services support team and they will process it.
 {% endif %}
 
 {% endnote %}
@@ -81,17 +98,15 @@ By default, all users who have access to a page can edit it. You can make the pa
 
 1. Open the page.
 
-1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Settings**.
+1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../../_assets/wiki/svg/access-setup.svg) **Settings**.
 
 1. In the **Page settings** window, enable the option **Only the authors can edit the page**. Users who have [access to the page](access-setup.md) will be able to view it, but will not be able to edit it.
 
     {% note info %}
 
-    {% if audience == "external" %}The administrator of the [organization](../overview.md#access) will be able to{% else %}The internal services support team will be able to{% endif %} edit the page even if its author has prohibited editing it. {% if audience == "internal" %}If necessary, write a request to [tools@](mailto:tools@yandex-team.ru) and we'll do our best to help you.{% endif %}
+    {% if audience == "external" %}The administrator of the [organization](../overview.md#access) will be able to{% else %}The internal services support team will be able to{% endif %} edit the page even if its author has prohibited editing it. {% if audience == "internal" %}If necessary, write a request to [tools@](mailto:tools@yandex-team.ru), and they'll help.{% endif %}
 
     {% endnote %}
-
-1. To prohibit comments on the page, click **Comments**, select **Disabled** and click **Save**.
 
 #### See also
 

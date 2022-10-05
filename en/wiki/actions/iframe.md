@@ -1,14 +1,14 @@
 # Objects from external sources
 
-You can use the `iframe` block to embed other pages, objects, audio, or video clips from external sources (such as Youtube, Vimeo, and Coub) to your page.
+The `iframe` block enables you to add other pages, objects, audio clips, or videos from external sources (such as YouTube, Vimeo, and Coub) to your page.
 
 {% if audience == "internal" %}
 
-Use the `iframe` dynamic block to embed [Office documents](../office365/embed-iframe.md) on the page along with other content formatted using the Wiki markup.
+Use `iframe` dynamic blocks to insert [Office documents](../office365/embed-iframe.md) with other content formatted by Wiki markup.
 
 {% endif %}
 
-## Calling the block {#iframe-call}
+## Using a block {#iframe-call}
 
 ```
 {{iframe src="http://pageURL" width=700px height=600px frameborder=0 scrolling=no}}
@@ -18,16 +18,16 @@ Use the `iframe` dynamic block to embed [Office documents](../office365/embed-if
 
 | Parameter | Description |
 | --- | --- |
-| `src` | Required parameter. Contains the object address. |
+| `src` | Required parameter. Contains the address of the object. |
 | `width` | Indicates the width of the frame in pixels or as a percentage of the page width. |
 | `height` | Indicates the height of the frame in pixels. |
-| `frameborder` | Indicates the presence or absence of frames. |
-| `scrolling` | Indicates the presence of scrollbars for the frame window. |
-| `allowfullscreen` | Allows full-screen mode for the frame. Always set to `true`. |
+| `frameborder` | Indicates the presence or absence of a frame border. |
+| `scrolling` | Indicates the presence of scrollbars for the window's frame. |
+| `allowfullscreen` | Allows full-screen mode for the frame. Always is set to `true`. |
 
-## Enables subdomains {#video-domain}
+## Subdomains allowed {#video-domain}
 
-The `src` parameter may contain addresses that belong to the following domains:
+The `src` parameter can contain addresses that belong to domains:
 
 - `vimeo.com`
 
@@ -61,7 +61,7 @@ The `src` parameter may contain addresses that belong to the following domains:
 
 {% note info %}
 
-Some resources don't allow embedding their pages via iframe. For example, the {{ link-yandex }} home page.
+Some resources might prohibit inserting their pages in iframes. For example, the {{ link-yandex }} home page.
 
 {% endnote %}
 

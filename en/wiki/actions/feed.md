@@ -1,16 +1,16 @@
-# RSS news feeds
+# RSS news feed
 
-Use the `feed` block to embed an RSS feed with entries from [Atushka](https://my.at.yandex-team.ru/) or external sources.
+In the `feed` section, to can embed an RSS feed from [Atushka](https://my.at.yandex-team.ru/) or external sources.
 
-## Calling the block {#feed-call}
+## Using a block {#feed-call}
 
-Display entries from Atushka:
+Show articles from Atushka:
 
 ```
 {{feed url="http://my.at.yandex-team.ru/rss/popular.xml" notitlelink=1 max=5 nomark=1 time=1 dateformat="d.m H:M" today=1}}
 ```
 
-Display entires from external websites:
+Show articles from an external site:
 
 ```
 {{feed url="http://rss.newsru.com/top/big/" nodesc="1" max=3 nomark=1 time=1 dateformat="d.m"}} 
@@ -20,12 +20,12 @@ Display entires from external websites:
 
 | Parameter | Description |
 | --- | --- |
-| `url` | Address of the RSS feed. |
-| `notitlelink` | Don't convert the RSS feed element header into a link. |
-| `max`\|`limit` | Maximum number of entries in the RSS feed. |
-| `nomark` | By default, the RSS feed is displayed in a frame (`nomark = 0`). To hide the frame, set the value: `nomark = 1`. |
+| `url` | The RSS feed URL. |
+| `notitlelink` | Don't make the header of an RSS feed entry a link. |
+| `max`\|`limit` | The maximum number of entries in an RSS feed. |
+| `nomark` | By default, RSS feeds are shown with a border (`nomark = 0`). To hide the border, use `nomark = 1`. |
 | `title` | RSS feed header. |
-| `time` | The parameter for displaying an entry's publication date. To hide the date, set the value: `time = 0`. |
-| `dateformat` | Date display format ([strftime](https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior) method). |
-| `today` | To display the `today` flag next to the entries published today, set the value: `today = 1`. You'll see the flag if `time = 1`. |
+| `time` | This parameter displays the publication date for the entry. To hide the date, use `time = 0`. |
+| `dateformat` | The date display format (the [strftime](https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior) method). |
+| `today` | Use `today = 1` to show `today` next to entries published today. This label is shown if `time = 1`. |
 

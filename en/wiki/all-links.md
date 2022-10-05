@@ -1,18 +1,18 @@
-# Viewing all links to a page
+# View all links to the page
 
-You can view a list of all pages that link to a certain Wiki page.
+You can view a list of all pages linked to the wiki page.
 
-This feature allows you to find and remove all the links related to a page you want to delete.
+This feature helps you get your page ready for deletion: find and delete all links to it first.
 
-1. Open a page.
+1. Open the page.
 
-1. In the upper-right corner of the page, click ![](../_assets/wiki/ico-actions.png) **Action** and choose **Referring pages** or simply write `.referrers` at the end of the page address in your address bar.
+1. In the upper-right corner of the page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/delete-page.svg) **Delete**.
 
 1. Wait a few seconds for the data to load.
 
 {% note warning %}
 
-You can't use this method to find the link leading to the page's [anchor](static-markup/links#section-link) rather than the page itself. {% if audience == "internal" %}You won't be unable to find pages that have this page embedded via the ["include" dynamic block](actions/include).{% endif %}
+This method won't find links leading to [anchors](static-markup/links#section-link) on the page. {% if audience == "internal" %}Pages inserted using the [`include` dynamic block](actions/include) won't be found either.{% endif %}
 
 {% endnote %}
 

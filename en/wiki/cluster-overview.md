@@ -1,4 +1,4 @@
-# Viewing the structure of pages and clusters
+# Viewing the page and cluster hierarchy
 
 ## Table of contents of a Wiki page {#toc}
 
@@ -20,7 +20,7 @@ A page with all its subpages forms a [cluster](structure.md). To view the cluste
 
 1. To see all subpages, click the expand list icon ![](../_assets/wiki/svg/navigation-tree-item.svg) to the left of the parent page name.
 
-1. To change the position of pages in the tree, click on the desired page and drag it along the structure of the cluster.
+1. To change the position of pages in the tree, click on the desired page and drag it along the structure of the cluster, then click **Save**.
 
 ## Embedding a cluster tree in a Wiki page {#action-tree}
 

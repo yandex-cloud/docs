@@ -86,11 +86,27 @@ To change or delete a link:
 
 ## Embedded content {#content-wysiwyg}
 
-In the visual editor, you can't upload an image or objects from external sources to a page. You can add a picture or object by copying its address from another Wiki page or an external resource. A user can only see this object on your page if they have access to the original page.
+{% if audience == "draft" %}
+In the visual editor, you can't upload an image or object from an external source to your page. You can add a picture or object by copying its address from another Wiki page or an external resource. A user can only see this object on your page if they have access to the original page.
+{% endif %}
 
-### Image {#image}
+### Inserting an image from the clipboard {#clipboard}
 
-To insert an image:
+1. Copy an image to the clipboard:
+
+    - Copy a picture from the image editor or take a screenshot.
+
+    - Copy a picture from a web page.
+
+    - Copy an image file from the file manager on your computer.
+
+1. Open the page and click **Edit**.
+
+1. Insert an image from the clipboard into the page text.
+
+The image is automatically uploaded to {{ wiki-name }} and added to a [list of attached files](attach-file.md).
+
+### Inserting an image using a link {#image}
 
 1. Upload the image to a [Wiki page](add-image.md) or a file hosting service{% if audience == "internal" %} such as [Jing](https://jing.yandex-team.ru/){% endif %}.
 

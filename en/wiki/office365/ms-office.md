@@ -20,7 +20,7 @@ To edit a document embedded in a Wiki page or create a new cloud document, log i
 
 1. If you have a license, you'll be forwarded to the Office 365 homepage.
 
-   If not, you'll see a message saying:
+   If not, you'll see the message:
    ![](../../_assets/wiki/login-office.png)
 
    To get an MS Office 365 license, send an email to `help@yandex-team.ru`.

@@ -4,13 +4,13 @@ items:
 - name: Getting started
   when: audience == "external"
   items:
-  - name: Enable {{ wiki-full-name }}
+  - name: Enabling {{ wiki-full-name }}
     href: enable-wiki.md
-  - name: Log in to your account
+  - name: Logging in to {{ wiki-full-name }}
     href: login.md
-  - name: Create your first Wiki page
+  - name: Creating the first page
     href: quick-guide.md
-  - name: Customize the appearance of Wiki pages
+  - name: Customizing the interface {{ wiki-name }}
     href: settings-wiki.md
 - name: Getting started
   when: audience == "internal"
@@ -19,7 +19,9 @@ items:
   items:
   - name: Service overview
     href: overview.md
-  - name: Work in {{ wiki-full-name }}
+  - name: Roles and access rights
+    href: roles.md  
+  - name: How to work in {{ wiki-full-name }}
     href: concepts.md
   - name: Structure of {{ wiki-full-name }}
     href: structure.md
@@ -31,16 +33,16 @@ items:
     href: create-page.md
   - name: Dynamic table
     href: create-grid.md
-  - name: Importing data from a file
+  - name: Importing a page from a file
     href: import-page.md
   - name: Microsoft Office 365 document
     when: audience == "internal"
     href: create-office.md
-  - name: Wysiwyg page
+  - name: WYSIWYG page
     href: wysiwyg-create.md
 - name: Editing Wiki pages and dynamic tables
   items:
-  - name: Editing Wiki pages and notes
+  - name: Editing a Wiki page
     href: edit-page.md
   - name: Editing dynamic tables
     href: edit-grid.md
@@ -52,7 +54,7 @@ items:
       href: add-image.md
     - name: Insert a table
       href: add-grid.md
-    - name: Embedding video or audio
+    - name: Adding a video or audio
       href: add-video.md
   - name: Advanced features
     items:
@@ -71,53 +73,55 @@ items:
     - name: RSS news feeds
       when: audience == "internal"
       href: actions/feed.md
-    - name: Formulas, diagrams, and flowcharts
+    - name: Formulas, diagrams and flowcharts
       href: add-diagram-formula.md
   - name: Structuring content
     items:
     - name: Table of contents
       href: actions/toc.md
-    - name: Bookmarks on pages
+    - name: Bookmark on a page
       href: actions/anchor.md
     - name: Page lists
       href: actions/page-lists.md
-- name: Working in the visual editor (Wysiwyg)
+- name: Working in the visual editor (WYSIWYG)
   href: wysiwyg-edit.md
 - name: Managing pages
   items:
-  - name: Page settings
+  - name: Page actions
     href: page-management/page-settings.md
-  - name: Restrict page viewing
+  - name: Configuring access to a page
     href: page-management/access-setup.md
   - name: Prohibit page editing
     href: page-management/read-only.md
-  - name: Assign page owners
+  - name: Editing a list of page authors
     href: page-management/edit-owner.md
-  - name: Changing the page address
+  - name: Move a page
     href: page-management/move-page.md
 # - name: Adding keywords (tags)
 #   href: add-key-words.md
 # - name: Marking pages as outdated
 #   href: exp-page.md
-  - name: Viewing edit history
+  - name: Viewing the history of page changes
     href: history.md
-  - name: Attaching a file
+  - name: Attach a file
     href: attach-file.md
-  - name: Deleting pages
+  - name: Deleting a page
     href: delete-page.md
 - name: Navigation in {{ wiki-name }}
   items:
-  - name: Searching {{ wiki-name }}
+  - name: Overview
+    href: navigation.md
+  - name: Search by {{ wiki-name }}
     href: search.md
   - name: Subscriptions and favorites
     href: notifications.md
   - name: Viewing the page and cluster hierarchy
     href: cluster-overview.md
-  - name: Viewing the list of my pages
+  - name: View a list of my pages
     href: my-pages.md
   - name: Viewing the pages you edited
     href: edited-pages-list.md
-  - name: Viewing all links to a page
+  - name: View all links to the page
     href: all-links.md
 - name: Integration with other services
   items:
@@ -125,7 +129,7 @@ items:
       href: actions/forms.md
     - name: Yandex Tracker issues
       href: actions/tracker.md
-    - name: Yandex.Metrica tag
+    - name: Yandex Metrica tag
       href: add-metrika.md
     - name: Diagrams from {{ datalens-full-name }}
       when: audience == "internal"
@@ -182,19 +186,19 @@ items:
       href: static-markup/files.md
     - name: Tables
       href: static-markup/grids.md
-    - name: Quotations
+    - name: Quotes
       href: static-markup/quoting.md
     - name: Source code formatting
       href: static-markup/source.md
     - name: HTML elements
       href: static-markup/html-code.md
-    - name: Escaping symbols
+    - name: Escape characters
       href: static-markup/escaping.md
   - name: Blocks with special formatting
     items:
     - name: Overview
       href: formatter.md
-    - name: Syntax highlighting in code
+    - name: Highlighting syntax in code
       href: static-markup/highlight.md
     - name: Formatting CSV data
       href: static-markup/csv.md
@@ -202,7 +206,7 @@ items:
       href: static-markup/formulas.md
     - name: Diagrams and flowcharts
       href: static-markup/diagram.md
-    - name: Borders, width, and block alignment
+    - name: Borders, width and alignment of blocks
       href: static-markup/wrappers.md
 - name: Pricing
   when: audience == "external"

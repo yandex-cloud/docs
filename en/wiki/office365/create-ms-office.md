@@ -48,8 +48,9 @@ If your documents are stored in your OneDrive personal folder, before embedding 
 
 To embed a document in a new page:
 
-1. Find the desired file on the [Sharepoint portal]({{link-sharepoint-common}}) or in your [OneDrive personal folder]({{link-sharepoint-personal}}) and check that access to the file is granted to the users you want to share the file with in {{wiki-name}}.
-If the file is stored on a Sharepoint shared website, it's available to all full-time employees and contractors by default. Learn more in [Configuring access to documents](doc-access.md).
+1. Find the file on the [Sharepoint portal]({{link-sharepoint-common}}) or in your [OneDrive personal folder]({{link-sharepoint-personal}}) and make sure that you granted access to it to the users you want to share the file with in {{wiki-name}}.
+
+If the file is stored on a Sharepoint shared website, it's available to all full-time and freelance employees by default. Learn more in [Configuring access to documents](doc-access.md).
 
 1. Copy the link to the document or get the embed code.
     * Open the document in your browser and copy the link from the address bar.

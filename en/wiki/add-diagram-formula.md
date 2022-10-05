@@ -1,6 +1,6 @@
-# Formulas, diagrams, and flowcharts
+# Formulas, diagrams and flowcharts
 
-You can embed formulas, sequence diagrams, flowcharts, or graphs in Wiki pages.
+You can embed formulas, sequence diagrams, flowcharts, and graphs in [Wiki](pages-types.md#page) pages.
 
 Use a special text markup to format formulas and diagrams so they are converted into images:
 

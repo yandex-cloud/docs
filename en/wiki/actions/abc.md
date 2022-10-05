@@ -1,8 +1,8 @@
-# Information about the ABC service team
+# Information about an ABC service team
 
-The `serviceteam` block displays members of the team in charge of a service. This block can automatically identify services based on the Wiki page address and information from the [Yandex service catalog](https://abc.yandex-team.ru/). If an ABC service card includes a link to a page with the `serviceteam` block, that block will display information about the team in charge of the service.
+In the `serviceteam` block, you can see members of the team that is developing the service. Based on the Wiki page URL and data in the [Yandex services catalog](https://abc.yandex-team.ru/), this block automatically determines the service name. If the ABC service card includes a link to a page with the `serviceteam` block, this block will display information about this service's team.
 
-## Calling the block {#serviceteam-call}
+## Using a block {#serviceteam-call}
 
 ```
 {{serviceteam id=287}} 
@@ -12,7 +12,7 @@ The `serviceteam` block displays members of the team in charge of a service. Thi
 
 | Parameter | Description |
 | --- | --- |
-| `id` | Service ID (number). For example, {{wiki-name}} = 287. |
-| `slug` | Service ID (text). For example, in the link to the service {{wiki-name}} `slug` = `_wiki_`: <br>https://abc.yandex-team.ru/services/\_wiki_/. |
-| `contacts` | Service contact information. |
+| `id` | Numeric ID of the service. For example: {{wiki-name}} = 287. |
+| `slug` | The text ID of the service. For example, in the link to the {{wiki-name}} service, `slug` = `_wiki_`: <br>https://abc.yandex-team.ru/services/\_wiki_/. |
+| `contacts` | Contacts for the service. |
 

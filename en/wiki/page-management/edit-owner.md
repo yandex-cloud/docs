@@ -1,6 +1,6 @@
 # Editing a list of page authors
 
-A page can have one or more authors. The main author is the page [owner](#edit-owner). By default, this is the user who created it. The owner's name is indicated above the page title. All other authors are called co-authors and have the same rights as the page owner.
+A page can have one or more [authors](../roles.md). The main author is the page [owner](#edit-owner). By default, this is the user who created it. The owner's name is indicated above the page title. All other authors are called co-authors and have the same rights as the page owner.
 
 {% note alert %}
 
@@ -14,7 +14,7 @@ To add a page author:
 
   1. Open the page.
 
-  1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Settings**.
+  1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../../_assets/wiki/svg/access-setup.svg) **Settings**.
 
   1. Click the line **Authors** and specify the username of the new author of the page.
 
@@ -26,7 +26,7 @@ To remove a page author:
 
   1. Open the page.
 
-  1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Settings**.
+  1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../../_assets/wiki/svg/access-setup.svg) **Settings**.
 
   1. Click the line **Authors**.
 
@@ -36,17 +36,17 @@ To remove a page author:
 
 {% note alert %}
 
-If you remove the page owner from the list of authors, the user whose name is first in the list of authors will be automatically assigned a new owner.
+If you remove the page owner from the list of authors, the user whose name is first in the list of authors will be automatically assigned as the new owner.
 
 {% endnote %}
 
 ## Becoming an author of someone else's page {#addme}
 
-  1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Settings**.
+  1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../../_assets/wiki/svg/access-setup.svg) **Settings**.
 
-  1. Click the line **Authors** and view the list of all authors.
+  1. On the **Authors** tab, click **Become an author**.
 
-  1. Contact one of the current authors and ask them to add you to this list.
+The current page owner will receive your request by email. When they confirm your request, you will be added to the list of page authors and be notified of this by email.
 
 {% if audience == "internal" %} 
 The internal services support team can edit the list of authors for any page.
@@ -67,11 +67,11 @@ If the author of a page is no longer a Yandex employee:
 
 ## Changing the page owner {#edit-owner}
 
-To assign the owner of a page whose author{% if audience == "external" %} or organization administrator{% endif %} you are:
+If you are a {% if audience == "external" %}page author or the organization administrator{% else %}page author{% endif %}, you can assign a page owner:
 
   1. Open the page.
 
-  1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Settings**.
+  1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../../_assets/wiki/svg/access-setup.svg) **Settings**.
 
   1. Click the line **Authors**.
 

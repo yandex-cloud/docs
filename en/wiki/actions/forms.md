@@ -1,20 +1,30 @@
-# {{ forms-full-name }}
+# Forms from {{ forms-full-name }}
 
-[{{ forms-full-name }}]{% if audience == "external" %}({{ link-forms-b2b }}){% else %}({{ link-forms-int }}){% endif %} is a service where you can conduct surveys and quizzes, collect feedback, and receive requests. To learn more about the service and its features, read [service documentation {{ forms-full-name }}](../../forms/).
+[{{ forms-full-name }}]{% if audience == "external" %}({{ link-forms-b2b }}){% else %}({{ link-forms-int }}){% endif %} is a service where you can conduct surveys, collect feedback, and accept requests. Read more about the service features in the [{{ forms-full-name }} documentation](../../forms/).
 
-## Add response to {{ wiki-name }} {#forms-wiki}
+## Add a response to {{ wiki-name }} {#forms-wiki}
 
-To save user responses on a Wiki page, configure [integration with {{ wiki-name }} in the form](../../forms/send-wiki.md).
+To save user responses on your Wiki page, set up [integration with {{ wiki-name }} using the form](../../forms/send-wiki.md).
 
-## Adding forms to a page {#insert-form}
+## Adding a form to a wiki page {#insert-form}
 
-You can use the `forms` block to embed forms created in {{ forms-full-name }}.
-
-### Calling the block {#forms-call}
+The `forms` section enables you to add a form to your [Wiki page](../pages-types.md#page).
 
 ```
 {{forms id="form_id"}}
 ```
 
-To find out how to get the embed code for a form, read the [documentation {{ forms-full-name }}](../../forms/publish#section_xvx_g2c_tbb).
+Learn about how to get an embed code for the form in the [{{ forms-full-name }} documentation](../../forms/publish#section_xvx_g2c_tbb).
+
+## Adding a form in the visual editor {#wysiwyg}
+
+To add a form to your page using the [visual editor](../pages-types.md#wysiwyg):
+
+1. Get the iframe embed code for the form. Read more in the [{{ forms-full-name }} documentation](../../forms/publish.md#section_c21_gdb_42b).
+
+1. Copy the `src` attribute value from the `iframe` tag.
+
+1. In the visual editor's toolbar, click ![](../../_assets/wiki/svg/wysiwyg/iframe.svg).
+
+1. Paste the copied form URL into the **Link** field and set the frame dimensions.
 
