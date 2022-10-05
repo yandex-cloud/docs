@@ -4,6 +4,7 @@
 
 API сервисов {{ yandex-cloud }} поддерживают наборы алгоритмов (cipher suits) и версии протокола TLS, отвечающие требованиям стандарта PCI DSS и другим стандартам.
 
+
 ## Шифрование в состоянии покоя (at rest) {#encryption-at-rest}
 
 По умолчанию все пользовательские данные в состоянии покоя (at rest) зашифрованы на уровне {{ yandex-cloud }}. Шифрование на уровне {{ yandex-cloud }} является реализации одной из лучших практик по защите данных пользователей и выполняется на ключах {{ yandex-cloud }}.
@@ -17,24 +18,14 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 ### {{objstorage-full-name}} {#storage-at-rest}
 
-При использовании сервиса [{{objstorage-full-name}}](../../storage/) критичные данные должны быть зашифрованы. Для шифрования данных используйте любой из перечисленных подходов:
-
-* Шифрование бакета {{ objstorage-name }} с помощью ключей {{ kms-short-name }} (server-side encryption) – рекомендуемый подход. Такое шифрование защищает от случайного или намеренного опубликования содержимого бакета в интернете. См. инструкцию в разделе [{#T}](../../storage/operations/buckets/encrypt.md) документации {{ objstorage-name }}.
-
-   {% note alert %}
-
-   Данные в {{ objstorage-short-name }} шифруются по схеме [envelope encryption](../../kms/concepts/envelope.md). Удаление ключа равносильно уничтожению зашифрованных им данных.
-
-   {% endnote %}
-
-* Интеграция Object Storage с сервисом {{ kms-short-name }} для шифрования данных на уровне приложения (client-side encryption). Подробнее в разделе [{#T}](#libs) ниже.
-* Шифрование данных на уровне приложения перед отправкой их в Object Storage с помощью сторонних библиотек. При использовании сторонних библиотек и собственных способов управления ключами следует убедиться, что схема работы, используемые алгоритмы и длины ключей соответствуют требованиям регуляторов.
+Для защиты критичных данных в [{{ objstorage-full-name }}](../../storage/) рекомендуется использовать шифрование бакета на стороне сервера с помощью ключей [{{ kms-full-name }}](../../kms/) (server-side encryption). Такое шифрование защищает от случайной или намеренной публикации содержимого бакета в интернете. Подробнее см. в разделе [{#T}](../../storage/concepts/encryption.md) документации {{ objstorage-name }}.
+
 
 ### {{managed-k8s-name}} {#kubernetes}
 
 [{{managed-k8s-name}}](../../managed-kubernetes/) предоставляет встроенный механизм шифрования секретов. Подробнее в разделе [{#T}](#k8s-secrets) ниже.
 
-## Шифрование в состоянии передачи (in transit)
+## Шифрование в состоянии передачи (in transit) {#in-transit}
 
 В большинстве случаев соединение с сервисами {{ yandex-cloud }} возможно только с использованием HTTPS. Однако в некоторых сценариях data plane-доступ к сервисам может быть осуществлен и по HTTP, без шифрования соединения на прикладном уровне. Во всех таких сценариях у пользователя есть возможность выбрать в настройках сервиса, какой протокол использовать при data plane-операциях: HTTP или HTTPS, а в случае выбора HTTPS указать собственный TLS-сертификат.
 
@@ -48,8 +39,9 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 - [{{objstorage-full-name}}](#storage-in-transit)
 - [{{alb-full-name}}](#load-balancer)
 - [{{vpc-name}} (VPC)](#vpc)
+
 - [{{api-gw-full-name}}](#api-gw)
-- [{{cdn-full-name}}](#cdn)
+- [{{cdn-full-name}}](#cdn)
 
 ### {{objstorage-full-name}} {#storage-in-transit}
 
@@ -68,10 +60,12 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 Возможные варианты организации шифрованных каналов связи приведены в разделе [{#T}](network.md#remote-access).
 
+
 Обратите внимание: услуга [{{interconnect-full-name}}](../../interconnect/) не предоставляет встроенных механизмов шифрования. Необходимо защищать данные при передаче (encryption in transit) самостоятельно с помощью:
 - установки в облаке VPN-шлюзов с функцией шифрования: например, виртуальных машин на основе образов [Check Point](/marketplace?search=Check+Point) из {{ marketplace-full-name }};
 - шифрования на уровне приложений;
-- услуги [ГОСТ VPN](network.md#gost-vpn).
+- услуги [ГОСТ VPN](network.md#gost-vpn).
+
 
 ### {{api-gw-full-name}} {#api-gw}
 
@@ -80,24 +74,33 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 ### {{cdn-full-name}} {#cdn}
 
 [{{cdn-full-name}}](../../cdn/) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности для доступа к вашему [CDN-ресурсу](../../cdn/concepts/resource.md) по протоколу HTTPS.
-
-## Самостоятельное шифрование
+
+## Самостоятельное шифрование {#self-encryption}
 
 При использовании сервисов, которые не имеют встроенных функций шифрования, шифрование критичных данных является ответственностью клиента.
 
-### {{ compute-full-name }}
+
+### {{ compute-full-name }} {#self-encryption-compute}
 
 Если согласно требованиям регуляторов необходимо шифрование диска, разместите файлы приложения на дополнительном (не загрузочном) диске виртуальной машины и настройте для этого диска полное шифрование (full disk encryption).
 
 ![](../../_assets/overview/solution-library-icon.svg)[Решение: Шифрование диска ВМ с помощью {{ kms-short-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM)
-
-### Managed Services for Databases
+
+### Managed Services for Databases {#mdb}
 
 Если согласно требованиям регуляторов необходимо шифрование данных, следует шифровать их на уровне приложения перед записью в базы данных, например, с помощью {{ kms-short-name }}.
 
-### {{ message-queue-full-name }}
+### {{ message-queue-full-name }} {#message-queue}
 
 Если сервис [{{message-queue-full-name}}](../../message-queue/) используется для передачи критичных данных или секретов (ключей шифрования, API-ключей и т. д.), то необходимо шифровать эти данные на уровне приложения перед отправкой в {{ message-queue-short-name }}, например, с помощью {{ kms-short-name }}. Для ключа {{ kms-short-name }} рекомендуется настроить период ротации больше либо равный максимальному времени обработки сообщения {{ message-queue-short-name }}.
+
+
+### {{ objstorage-full-name }} {#storage-self-encryption}
+
+Для шифрования данных на уровне приложения (client-side encryption) перед их отправкой в бакет [{{ objstorage-full-name }}](../../storage/) вы можете использовать следующие подходы:
+
+{% include [storage-encryption-client-side](../../_includes/storage/encryption-client-side.md) %}
+
 
 ### Рекомендуемые криптографические библиотеки {#libs}
 
@@ -115,7 +118,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 {{ kms-short-name }} использует схему шифрования AES-GCM. Вы можете выбрать длину ключа: 128, 192 или 256 — и настроить период ротации ключей в зависимости своих потребностей. Вы также можете создать ключ, все криптооперации с которым будут выполняться только внутри специализированного аппаратного устройства, см. раздел [{#T}](../../kms/concepts/hsm.md).
 
-### Аутентификация и авторизация в {{ kms-short-name }}
+### Аутентификация и авторизация в {{ kms-short-name }} {#kms-authorization}
 
 Для доступа к сервису {{ kms-short-name }} необходимо использовать [IAM-токен](../../iam/concepts/authorization/iam-token.md).
 
@@ -125,7 +128,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 Подробнее о мерах безопасности при управлении доступом читайте в разделе [{#T}](access.md).
 
-### Ротация ключей
+### Ротация ключей {#key-rotation}
 
 Для повышения безопасности инфраструктуры рекомендуется разделить ключи шифрования на две группы:
 1. Ключи для сервисов, которые обрабатывают критичные данные, но не хранят их. Например, {{ message-queue-full-name }}, {{ sf-full-name }}.
@@ -145,21 +148,22 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 Подробнее о ротации ключей см. в разделе [{#T}](../../kms/concepts/version.md) документации {{ kms-short-name }}.
 
-## Управление секретами
+## Управление секретами {#secrets}
 
 Критичные данные и секреты для доступа к данным (токены аутентификации, API-ключи, ключи шифрования и т. п.) не следует использовать в открытом виде в коде, в названиях и описаниях объектов облака, в метаданных виртуальных машин и т. д. Вместо этого используйте сервисы для хранения секретов, такие как {{ lockbox-name }} или HashiCorp Vault.
 
-### {{ lockbox-name }}
+### {{ lockbox-name }} {#lockbox}
 
 Сервис {{ lockbox-name }} обеспечивает безопасное хранение секретов: секреты хранятся только в зашифрованном виде, шифрование выполняется с помощью {{ kms-short-name }}. Для разграничения доступа к секретам используйте сервисные роли.
 
 Инструкции по работе с сервисом см. в [документации](../../lockbox/) Locbox.
 
-### HashiCorp Vault
+### HashiCorp Vault {#hashicorp-vault}
 
 [Vault](https://www.vaultproject.io/) позволяет использовать {{ kms-short-name }} в качестве доверенного сервиса для шифрования секретов. Реализуется это через механизм [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal).
 
-Для хранения секретов с помощью Vault можно использовать виртуальную машину на основе образа из [{{ marketplace-full-name }}](/marketplace/products/yc/vault-yckms) с предустановленной сборкой HashiCorp Vault и поддержкой Auto Unseal. Инструкция по настройке Auto Unseal приведена в разделе [{#T}](../../kms/tutorials/vault-secret.md) документации {{ kms-short-name }}.
+
+Для хранения секретов с помощью Vault можно использовать виртуальную машину на основе образа из [{{ marketplace-full-name }}](/marketplace/products/yc/vault-yckms) с предустановленной сборкой HashiCorp Vault и поддержкой Auto Unseal. Инструкция по настройке Auto Unseal приведена в разделе [{#T}](../../kms/tutorials/vault-secret.md) документации {{ kms-short-name }}.
 
 ### Секреты в {{ k8s }} {#k8s-secrets}
 
@@ -173,12 +177,14 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
    См. инструкцию в разделе [{#T}](../../lockbox/tutorials/kubernetes-lockbox-secrets.md) документации {{ lockbox-name }}.
 
-- [HashiCorp Vault c поддержкой {{ kms-short-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-full-name }}.
 
-### Передача секретов в ВМ с помощью {{ TF }} и {{ kms-short-name }}
+- [HashiCorp Vault c поддержкой {{ kms-short-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-full-name }}.
+
+### Передача секретов в ВМ с помощью {{ TF }} и {{ kms-short-name }} {#secrets-tf-kms}
 
 {{ kms-short-name }} предоставляет возможность шифрования секретов, используемых в конфигурации {{ TF }}, в частности, для передачи секретов на виртуальную машину в зашифрованном виде. См. инструкцию в разделе [{#T}](../../kms/tutorials/terraform-secret.md) документации {{ kms-short-name }}. Передача секретов через переменные окружения в открытом виде небезопасна, поскольку они отображаются в свойствах ВМ.
 
-![](../../_assets/overview/solution-library-icon.svg)[Решение: Шифрование секретов в {{ TF }} для передачи в ВМ с Container Optimized Image](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/terraform%2BKMS%2BCOI)
 
+![](../../_assets/overview/solution-library-icon.svg)[Решение: Шифрование секретов в {{ TF }} для передачи в ВМ с Container Optimized Image](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/terraform%2BKMS%2BCOI)
+
 Другие рекомендации по безопасному использованию {{ TF }} см. в разделе [Безопасная конфигурация: {{ TF }}](secure-config.md#terraform).

@@ -1,14 +1,14 @@
 # Dynamic tables
 
-You can use `grid` blocks to embed [dynamic tables](../create-grid.md) on your page and configure display settings for them.
+Using the `grid` block, you can embed a [dynamic table](../create-grid.md) in your page and set up its format.
 
-### Calling the block {#tab-call}
+### Using a block {#tab-call}
 
 ```
 {{grid page="tableURL"}}
 ```
 
-You can edit dynamic tables right on the page where they're embedded. All changes are automatically applied to the main table and all its occurrences on other pages.
+
 
 ### Block parameters {#tab-params}
 
@@ -16,75 +16,75 @@ You can edit dynamic tables right on the page where they're embedded. All change
 | --- | --- |
 | `page` | Required parameter. Contains the address of the table you want to embed. |
 | `width` | The table's width as a percentage of the page's width:<br>`{{grid page="tableURL" width="60%"}}` |
-| `readonly` | If specified, the table is embedded in <q>read-only</q> mode. |
-| `num` | If specified, the table row numbers aren't displayed. |
-| `sort` | If specified, the sorting settings of the original table don't affect other tables. |
-| `filter` | Use the parameter to set [filters for displaying table rows](#row-filter). |
-| `columns` | Use the parameter to [set columns to be displayed on the page](#col-filter). |
+| `readonly` | If specified, the table is embedded in <q>read-only mode</q>. |
+| `num` | If specified, the row numbers are not displayed. |
+| `sort` | If specified, the sorting settings of the source table are not taken into account. |
+| `filter` | Use it to set [filters for displaying table rows](#row-filter). |
+| `columns` | Use it to [set columns to display on the page](#col-filter). |
 
 ## Setting filters for displaying rows {#row-filter}
 
-Use the `filter` parameter to set the rows to be displayed in the embedded table. Example:
+Use the `filter` parameter to set which rows should be displayed in the embedded table. For example:
 
 ```
 {{grid page="tableURL" filter="[id1]=value1, [id2]=value2"}}
 ```
 
-This filter will only display rows that meet all the following criteria:
+This filter will only output the rows where the conditions are met at the same time:
 
-- The column with ID `[id1]` has `value1`.
+- The column with the ID `[id1]` has the value `value1`.
 
-- The column with ID `[id2]` has `value2`.
+- The column with the ID `[id2]` has the value `value2`.
 
-To find out a column's ID, switch to table edit mode (**Edit**) and click the **≡** icon in the corresponding column header. For example, if ID in the header is set to `Id-101`, the condition should entered as follows: `filter="[101]=value1"`.
+To find a column's ID, switch to table editing mode (**Edit**) and click the **≡** icon in the header of the corresponding column. For example, if you used `Id-101` for the header, the condition should look like: `filter="[101]=value1"`.
 
-To display rows that meet at least one of the specified criteria, use the `OR` operator.
+To output all rows that meet at least one of the specified conditions, use the `OR` operator.
 
 {% cut "How to specify values for comparison" %}
 
-There are multiple ways to choose values for comparison based on the table's data type:
+Depending on the column's data type, the values for comparison are specified differently:
 
 | Data type | Example | Description |
 | --- | --- | --- |
-| Text | `'bicycle'` | Text in single quotes |
+| Text | `'bicycle'` | Text in single quotes. |
 | Number | `-7` | Number without quotes. |
-| Checkbox | `true` | You can use different formatting options.<br><br>For Boolean true value: `no, off, false, unchecked`.<br><br>For Boolean false value: `yes, on, true, checked, done`. |
-| Date | `2012-12-12` | Date format: `YYYY-MM-DD`. |
-| List | `'bicycle'` | Text in single quotes |
-| Multi-select list | `'bicycle'` | Text in single quotes |
-| Employee | `login@` | Employee's username without quotes. |
-| Issue in {{ tracker-name }} | `KEY-1234` | Issue key in {{ tracker-name }} without quotes. |
+| Checkbox | `true` | Various formats are supported.<br><br>Boolean \"false\" value: `no, off, false, unchecked`.<br><br>Boolean \"true\" value: `yes, on, true, checked, done`. |
+| Date | `2012-12-12` | Date in the format `YYYY-MM-DD` |
+| List | `'bicycle'` | Text in single quotes. |
+| Multiple list | `'bicycle'` | Text in single quotes. |
+| Employee | `login@` | The employee's username without quotes. |
+| An issue in {{ tracker-name }} | `KEY-1234` | The key of the issue without quotes. {{ tracker-name }} |
 
 {% endcut %}
 
 {% cut "Supported comparison operations" %}
 
-| Operation | Operator | Example |
+| Operation | Book | Example |
 | --- | --- | --- |
-| Equal to | `=`, `is` | `[13] is 'bicycle'` |
+| Equals | `=`, `is` | `[13] is 'bicycle'` |
 | Not equal to | `!=`, `is not` | `[13] is not 'bicycle'` |
 | Comparison | `<`, `>`, `<=`, `>=` | `[13] > 50 ` |
-| Contains substring | `~` | `[13] ~ 'bi'` |
-| No substring | `!~` | `[13] !~ 'bi'` |
-| Value from ... to ... (works with numbers and dates) | `between ... and ...` | `[13] between 100 and 1000` |
-| Equal to either of ... | `in (...)` | `[13] in ('bicycle', 'motorcycle', 'helicopter')` |
-| Not equal to either of ... | `not in (...)` | `[13] not in ('submarine', 'spaceship')` |
+| Contains a substring | `~` | `[13] ~ 'bike'` |
+| Does not contain a substring | `!~` | `[13] !~ 'bike'` |
+| In the range from ... to ... (works with numbers and dates) | `between ... and ...` | `[13] between 100 and 1000` |
+| Is equal to one of ... | `in (...)` | `[13] in ('bicycle', 'motorcycle', 'helicopter')` |
+| Is not equal to any of the ... | `not in (...)` | `[13] not in ('submarine', 'spaceship')` |
 
 {% endcut %}
 
 ## Choosing columns to display {#col-filter}
 
-You can choose to only display specific columns from your dynamic table. To do this:
+You can display only the specified columns of a dynamic table on the page. To do this:
 
-1. Get an embed code and place it in the page text.
+1. Get the code for embedding a table and place it in the text of the page.
 
-1. Add the `columns` parameter to your code to only display specific columns:
+1. Add the `columns` parameter to your code in order to display only the specified columns:
 
 ```
 {{grid page="tableURL" columns="id1, id2, id3"}}
 ```
 
-This type of dynamic block only includes columns with the following IDs: `id1, id2, id3`.
+This type of dynamic block only includes columns with IDs: `id1, id2, id3`.
 
-To find out a column's ID, switch to table edit mode (**Edit**) and click the **≡** icon in the corresponding column header.
+To find a column's ID, switch to table editing mode (**Edit**) and click the **≡** icon in the header of the corresponding column.
 

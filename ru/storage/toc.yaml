@@ -99,6 +99,8 @@ items:
         href: concepts/versioning.md
       - name: Блокировка версии объекта (object lock)
         href: concepts/object-lock.md
+      - name: Шифрование
+        href: concepts/encryption.md
       - name: Жизненные циклы объектов
         href: concepts/lifecycles.md
       - name: CORS

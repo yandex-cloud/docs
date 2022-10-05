@@ -118,14 +118,24 @@ Public access to hosts can only be configured for clusters created with enabled 
       {{ yc-mdb-rd }} host add \
          --cluster-name=<cluster name> \
          --host zone-id=<availability zone>,`
-               `subnet-id=<subnet ID>
+               `subnet-id=<subnet ID>,`
+               `assign-public-ip=<public host access: true or false>,`
+               `replica-priority=<host priority>,`
+               `shard-name=<shard name>
       ```
 
-      {{ mrd-short-name }} will run the add host operation.
+      Where:
 
-      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mrd-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      * `--cluster-name` is the name of a {{ mrd-name }} cluster.
+      * `--host`: Host parameters:
 
-      If you are adding a host to a sharded cluster, use the `shard-name` parameter to specify the name of the shard to add the host to.
+         * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
+         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
+         * `assign-public-ip` indicates whether the host is reachable from the internet over a public IP address.
+         * `replica-priority`: Priority for selecting the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+         * `shard-name`: Name of the shard to which the host must be added if the cluster is sharded.
+
+      The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -141,8 +151,11 @@ Public access to hosts can only be configured for clusters created with enabled 
       resource "yandex_mdb_redis_cluster" "<cluster name>" {
         ...
         host {
-          zone      = "<availability zone>"
-          subnet_id = <subnet ID>
+          zone             = "<availability zone>"
+          subnet_id        = "<subnet ID>"
+          assign_public_ip = <public host access: true or false>
+          replica_priority = <host priority>
+          shard_name       = "<shard name>"
         }
       }
       ```
@@ -176,8 +189,6 @@ If you can't [connect](connect/index.md) to the added host, check that the clust
 
 ## Changing a host {#update}
 
-You can modify public access settings for every host in a {{ mrd-short-name }} cluster.
-
 {% include [mrd-public-access](../../_includes/mdb/mrd/note-public-access.md) %}
 
 {% list tabs %}
@@ -192,18 +203,67 @@ You can modify public access settings for every host in a {{ mrd-short-name }} c
    1. Enable **Public access** if a host must be accessible from outside {{ yandex-cloud }}.
    1. Click **Save**.
 
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To change the parameters of the host, run the command:
+
+   ```bash
+   {{ yc-mdb-rd }} host update <host name> \
+      --cluster-name=<cluster name> \
+      --assign-public-ip=<public host access: true or false> \
+      --replica-priority=<host priority>
+   ```
+
+   The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- {{ TF }}
+
+   To change the parameters of the cluster host:
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+   1. In the {{ mrd-name }} cluster description, change the attributes of the `host` block corresponding to the host to update.
+
+      ```hcl
+      resource "yandex_mdb_redis_cluster" "<cluster name>" {
+        ...
+        host {
+          zone             = "<availability zone>"
+          subnet_id        = "<subnet ID>"
+          assign_public_ip = <public host access: true or false>
+          replica_priority = <host priority>
+          shard_name       = "<shard name>"
+        }
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mrd }}).
 
 - API
 
    To change the parameters of the host, use the [updateHosts](../api-ref/Cluster/updateHosts.md) API method and pass the following in the query:
 
-   1. In the `clusterId` parameter, the ID of the cluster where you want to change the host. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
-   1. In the `updateHostSpecs.hostName` parameter, the name of the host you want to change. To find out the name, request a [list of hosts in the cluster](#list).
-   1. Host public access settings as `updateHostSpecs.assignPublicIp`.
-   1. Host priority as `updateHostSpecs.replicaPriority`.
-   1. List of cluster configuration fields to be changed in the `updateMask` parameter.
+   - In the `clusterId` parameter, the ID of the cluster where you want to change the host. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   - In the `updateHostSpecs.hostName` parameter, the name of the host you want to change. To find out the name, [request a list of hosts in the cluster](#list).
+   - Host public access settings as `updateHostSpecs.assignPublicIp`.
+   - Host priority as `updateHostSpecs.replicaPriority`.
+   - List of cluster configuration fields to update in the `UpdateMask` parameter.
 
-   {% include [Note warning update mask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

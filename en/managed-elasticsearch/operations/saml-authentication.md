@@ -4,7 +4,7 @@ Security Assertion Markup Language (SAML) is used for exchanging authentication 
 
 When using SAML and SSO, a {{ mes-name }} cluster gets information from an identity provider (IdP).
 
-For more information about SAML and SSO, see the [OASIS documentation](https://wiki.oasis-open.org/security).
+For more information about SAML and SSO, see the [OASIS documentation](https://wiki.oasis-open.org/security/saml/).
 
 {{ mes-name }} works with any SAML 2.0 compatible identity provider.
 

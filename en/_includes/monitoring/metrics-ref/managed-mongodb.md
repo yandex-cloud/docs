@@ -253,4 +253,4 @@ Collected for each `<dbname>` database, including service ones (admin, config, a
 | `oplog-maxSize`<br/>`DGAUGE`, bytes | Maximum size of the operation log. |
 | `replset_status-replicationLag`<br/>`DGAUGE`, seconds | Replication lag. |
 
-Read more about the service in the [{{ mmg-full-name }}](../../managed-mongodb/) documentation.
+Read more about the service in the [{{ mmg-full-name }}](../../../managed-mongodb/) documentation.

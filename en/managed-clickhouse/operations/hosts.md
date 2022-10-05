@@ -69,7 +69,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
    
    1. Specify the host parameters:
 
-      * Availability zone.
+      * The availability zone.
       * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
       * Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
       * Name of the shard.
@@ -161,7 +161,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -214,17 +214,45 @@ You can modify public access settings for every host in a {{ mch-short-name }} c
 
    The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
+- {{ TF }}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+   1. In the host, use the `host` section to add or edit the `assign_public_ip` parameter.
+
+      ```hcl
+      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+        ...
+        host {
+          ...
+          assign_public_ip = <host public access: true or false>
+        }
+        ...
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
 - API
 
-   To change the parameters of thehost, use the [updateHosts](../api-ref/Cluster/updateHosts.md) API method and pass the following in the query:
+   To change the parameters of the host, use the [updateHosts](../api-ref/Cluster/updateHosts.md) API method and pass the following in the query:
 
-   1. In the `clusterId` parameter, the ID of the cluster where you want to change the host. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
-   1. In the `updateHostSpecs.hostName` parameter, the name of the host you want to change. To find out the name, request a [list of hosts in the cluster](#list-hosts).
-   1. Host public access settings as `updateHostSpecs.assignPublicIp`.
-   1. A list of cluster configuration fields to modify (`assignPublicIp` in this case) as `updateMask`.
+   - In the `clusterId` parameter, the ID of the cluster where you want to change the host. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
+   - In the `updateHostSpecs.hostName` parameter, the name of the host you want to change. To find out the name, request a [list of hosts in the cluster](#list-hosts).
+   - Host public access settings as `updateHostSpecs.assignPublicIp`.
+   - A list of cluster configuration fields to modify (`assignPublicIp` in this case) as `updateMask`.
 
-   {% include [Note warning update mask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -285,7 +313,7 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

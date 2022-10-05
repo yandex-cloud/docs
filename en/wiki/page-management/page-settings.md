@@ -1,55 +1,32 @@
-# Page settings
+# Page actions
 
-{% note alert %}
+To open the menu of actions that can be performed with a page:
 
-Settings can be edited by the page author or the administrator of the [organization](../overview.md#access).
+1. Go to the page you have access to.
 
-{% endnote %}
+1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions**.
 
-Using settings, you can add page authors, change the owner, set permissions to view and edit pages, configure a redirect, comments, and keywords.
+## Managing pages {#manage}
 
-To go to the page settings:
+* Managing the change [history](../history.md).
 
-1. Open the page.
+* Uploading [files](../attach-file.md) to the page.
 
-1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Settings** or add `.settings` at the end of the page URL in the address bar.
+* Creating [subpages](../create-page.md#create-subpage).
 
-## Page authors {#author}
+* Editing the page [address](./move-page.md#move-with-menu) and creating [copies](../create-page.md#create-copy) of pages.
 
-Edit page [authors](edit-owner.md). They can manage [page access permissions](access-setup.md).
+* [Deleting](../delete-page.md) pages.
 
-## Configuring access to a page
+* Changing page [authors](./edit-owner.md) and [access control](./access-setup.md).
 
-Edit [access rights](access-setup.md) to the page to set which users can view and edit it.
+* Adding [subscribers](../notifications.md#subscribes) to a page or cluster.
 
-## Adding a cover
+## Page layout {#view}
 
-You can add a cover to each page, which is the background of the upper part where the owner of the page, its title, and the date of the last update are indicated.
+You can add a cover to a page: this is a background that specifies the owner of the page, the name of the page, and the date of the last update.
 
-To set a cover:
-
-  1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select![](../../_assets/wiki/svg/add-cover.svg) **Add cover**.
-
-  1. In the **Select cover** menu, click on the cover you like and it immediately applies to the page.
-
-  1. Close the cover selection window.
+To set the background, in the actions menu, select ![](../../_assets/wiki/svg/add-cover.svg) **Add cover**. All {{ wiki-name }} users will see the cover.
 
 
-{% endnote %}
-
-## Redirects {#redirect}
-
-In this field, specify the address of the page where the user will be automatically redirected from this page.
-
-In addition, this setting is filled in automatically if the page was [moved to another cluster](move-page.md). The old page address will then automatically redirect users to the new page.
-
-## Comments {#comments}
-
-To prevent users from adding comments to a page, disable this feature:
-
-* Click **Comments** and set **Disabled**.
-
-* To make sure the new setting value isn't applied to subpages, uncheck the checkbox to the right of **Comments**.
-
-* Click **Save**.
 

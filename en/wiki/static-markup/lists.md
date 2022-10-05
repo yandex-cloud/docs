@@ -32,7 +32,7 @@ Markup:
 
 {% cut "See the result" %}
 
-![](../../_assets/wiki/numerated-list-numbers-example.png)
+![](../../_assets/wiki/numerated-list-numbers-example.png =300x)
 
 {% endcut %}
 
@@ -62,7 +62,7 @@ I. List item
 
 {% cut "See the result" %}
 
-![](../../_assets/wiki/numerated-list-letters-example.png)
+![](../../_assets/wiki/numerated-list-letters-example.png =200x)
 
 {% endcut %}
 
@@ -130,9 +130,9 @@ For [cuts](document-structure.md#section-cut), [quotes](quoting.md), [code block
 
 A to-do list (checklist) is a numbered or bulleted list where you can mark completed items. To create a to-do list, add a space and the following characters after the number or bullet in each item:
 
-- `[]` for an unchecked item.
+- `[]` for an unmarked item.
 
-- `[x]` for a checked item.
+- `[x]` for a marked item.
 
 {% list tabs %}
 

@@ -139,7 +139,7 @@ The storage period of critical data in a bucket is determined by the client's in
 
 When using {{ objstorage-short-name }} to store critical data, be sure to enable logging of actions with buckets and configure the versioning mechanism and lifecycle for objects with logs. For more information, see the {{ objstorage-short-name }} documentation, [{#T}](../../storage/concepts/server-logs.md).
 
-You can also analyze {{ objstorage-short-name }} logs in {{ datalens-short-name }}. Learn more in the article [Analyzing {{ objstorage-name }} logs using {{ datalens-short-name }}](https://cloud.yandex.ru/blog/posts/2021/04/storage-logs).
+You can also analyze {{ objstorage-short-name }} logs in {{ datalens-short-name }}.
 
 
 

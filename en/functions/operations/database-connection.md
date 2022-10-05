@@ -8,7 +8,7 @@ Create a connection to access {{ mpg-full-name }} and {{ mch-full-name }} cluste
 
 - Management console
 
-   1. In [the management console]({{ link-console-main }}), select the folder where you want to create your connection.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your connection.
    1. Select **{{ sf-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/functions/db-connections.svg) **Database connections**.
    1. Click **Create connection**.
@@ -31,6 +31,10 @@ To access DB cluster hosts from a function using the created connection:
 * In the function version settings, specify the service account with the `serverless.mdbProxies.user` role. [How to assign a role.](./function-public.md#add-access)
 * In advanced cluster settings, enable the **Access from Serverless** option.
 
+To connect to a DB from a function, use the [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account specified in the function version settings as your password. [Getting IAM token](./function-sa.md).
+
+You can connect to a DB out of a function over SSL only.
+
 ## Examples of functions for connecting to databases
 
 The connection ID and the entry point are available on the connection page in the [management console]({{ link-console-main }}).
@@ -41,37 +45,37 @@ The connection ID and the entry point are available on the connection page in th
 
 - Node.js
 
-    **index.js**
+   **index.js**
 
-    ```js
-    const pg = require('pg');
+   ```js
+   const pg = require('pg');
 
-    module.exports.handler = async function (event, context) {
-        let proxyId = "akfaf7nqdu**********"; // Connection ID
-        let proxyEndpoint = "akfaf7nqdu**********.postgresql-proxy.serverless.yandexcloud.net:6432"; // Entry point
-        let user = "user1"; // DB user
-        console.log(context.token);
-        let conString = "postgres://" + user + ":" + context.token.access_token + "@" + proxyEndpoint + "/" + proxyId + "?ssl=true";
+   module.exports.handler = async function (event, context) {
+       let proxyId = "akfaf7nqdu**********"; // Connection ID
+       let proxyEndpoint = "akfaf7nqdu**********.postgresql-proxy.serverless.yandexcloud.net:6432"; // Entry point
+       let user = "user1"; // DB user
+       console.log(context.token);
+       let conString = "postgres://" + user + ":" + context.token.access_token + "@" + proxyEndpoint + "/" + proxyId + "?ssl=true";
 
-        let client = new pg.Client(conString);
-        client.connect();
+       let client = new pg.Client(conString);
+       client.connect();
 
-        let result = await client.query("SELECT 1;");
-        return result;
-    };
-    ```
+       let result = await client.query("SELECT 1;");
+       return result;
+   };
+   ```
 
-    **package.json**
+   **package.json**
 
-    ```
-    {
-      "name": "my-app",
-      "version": "1",
-      "dependencies": {
-        "pg": "8.7.3"
-      }
-    }
-    ```
+   ```
+   {
+     "name": "my-app",
+     "version": "1",
+     "dependencies": {
+       "pg": "8.7.3"
+     }
+   }
+   ```
 
 - Python
 
@@ -257,7 +261,7 @@ The connection ID and the entry point are available on the connection page in th
        Body       interface{} `json:"body"`
    }
 
-   //  Getting IAM token the service account specified in function settings
+   // Getting IAM token the service account specified in function settings
    func getToken(ctx context.Context) string {
        resp, err := ycsdk.InstanceServiceAccount().IAMToken(ctx)
        if err != nil {

@@ -34,6 +34,7 @@
       name = "<имя эндпоинта>"
       settings {
         postgres_target {
+          security_groups = [ "список идентификаторов групп безопасности" ]
           connection {
             mdb_cluster_id = "<идентификатор кластера {{ mpg-name }}>"
           }
@@ -84,6 +85,7 @@
       name = "<имя эндпоинта>"
       settings {
         postgres_target {
+          security_groups = [ "список идентификаторов групп безопасности" ]
           connection {
             on_premise {
               hosts = ["<список хостов>"]

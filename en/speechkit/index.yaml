@@ -35,10 +35,10 @@ links:
     href: hybrid-speechkit/
   - title: Authentication in the API
     description: Get an access token and use it in requests
-    href: concepts/auth
-  - title: APIv3 reference
-    description: API method descriptions
     href: api-ref/authentication
+  - title: API v3 reference
+    description: API method descriptions
+    href: v3/api-ref/grpc/
   - title: Response format
     description: Response headers and response codes
     href: concepts/response

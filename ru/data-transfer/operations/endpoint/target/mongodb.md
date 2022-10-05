@@ -16,6 +16,12 @@
 
     {% include [Managed MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/managed-mongodb.md) %}
 
+- CLI
+
+    * Тип эндпоинта — `mongo-target`.
+
+    {% include [Managed MongodDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mongodb.md) %}
+
 - Terraform
 
     * Тип эндпоинта — `mongo_target`.
@@ -49,6 +55,10 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
+- API
+
+    {% include [Managed MongodDB API](../../../../_includes/data-transfer/necessary-settings/api/managed-mongodb.md) %}
+
 {% endlist %}
 
 
@@ -61,6 +71,12 @@
 - Консоль управления
 
     {% include [On premise MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mongodb.md) %}
+
+- CLI
+
+    * Тип эндпоинта — `mongo-target`.
+
+    {% include [Managed MongoDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mongodb.md) %}
 
 - Terraform
 
@@ -103,6 +119,10 @@
     ```
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+
+- API
+
+    {% include [On premise MongoDB API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-mongodb.md) %}
 
 {% endlist %}
 

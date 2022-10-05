@@ -127,4 +127,4 @@ The load on processor cores.
 | `kafka_server_ReplicaManager_UnderReplicatedPartitions`<br/>`DGAUGE`, pcs | Number of partitions whose replication factor is greater than the number of their in-sync replicas (ISRs). |
 | `kafka_server_ZooKeeperClientMetrics_ZooKeeperRequestLatencyMs`<br/>`DGAUGE`, ms | Request latency in {{ ZK }}.<br/>Additional labels: `quantile` |
 
-Read more about the service in the [{{ mkf-full-name }}](../../managed-kafka/) documentation.
+Read more about the service in the [{{ mkf-full-name }}](../../../managed-kafka/) documentation.
