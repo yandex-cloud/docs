@@ -48,7 +48,6 @@ description: "In this article you will learn how to work with managed {{ k8s }} 
 * [{#T}](kubernetes-cluster/kubernetes-cluster-list.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-update.md)
-* [{#T}](kubernetes-cluster/kubernetes-cluster-get-credetials.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-namespace-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-delete.md)
 

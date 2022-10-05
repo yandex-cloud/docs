@@ -4,7 +4,6 @@
 * [Website on LAMP or LEMP stack](lamp-lemp.md)
 * [Fault-tolerant website with load balancing by {{ network-load-balancer-full-name }}](load-balancer-website.md)
 * [Fault-tolerant website with load balancing by {{ alb-full-name }}](application-load-balancer-website.md)
-* [Fault tolerant website with DNS load balancing](dns-load-balancer.md)
 * [Joomla website with PostgreSQL](joomla-postgresql.md)
 * [Creating a website in WordPress](wordpress.md)
 * [WordPress website on a MySQL database cluster](wordpress-mysql.md)
