@@ -410,9 +410,6 @@ Domains in the Public Suffix List get the properties of top-level domains, such 
 * Browsers won't save the cookies set for the listed domains.
 * Browsers don't let you change the page's `Origin` request headers to root domains.
 
-For more information, see [our blog](https://cloud.yandex.ru/blog/posts/2019/08/storage-domains).
-
-
 ### Impact on {{ yandex-cloud }} services
 
 These changes will improve the security for {{ yandex-cloud }} users.

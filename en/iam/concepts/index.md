@@ -58,7 +58,7 @@ _Google accounts_ are your accounts in [Google Accounts](https://accounts.google
 
 {% include [sa-def](../_includes_service/sa-def.md) %}
 
-By using service accounts you can flexibly configure access rights to resources for programs you wrote. For more information, see [{#T}](users/service-accounts.md).
+By using service accounts you can flexibly configure access rights to resources for programs you wrote. For more information, see [{#T}](./users/service-accounts.md).
 
 ### Federated account {#saml-federation}
 

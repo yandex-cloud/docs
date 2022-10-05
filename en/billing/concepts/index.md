@@ -10,6 +10,7 @@ description: "The following basic concepts are used in {{ yandex-cloud }} billin
 * [{#T}](contract.md)
 * [{#T}](credit-limit.md)
 * [{#T}](personal-account.md)
+* [{#T}](individual-bill.md)
 * [{#T}](billing-account.md)
 * [{#T}](promo-code.md)
 * [{#T}](trial-period.md)

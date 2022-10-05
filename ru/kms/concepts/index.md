@@ -21,7 +21,7 @@ description: '{{ kms-name }} — сервис для создания ключе
 {% if product == "yandex-cloud" %}
 * SDK: на [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk) или [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
 {% endif %}
-* API: [REST](../api-ref/) или [gRPC](../grpc/).
+* API: [REST](../api-ref/) или [gRPC](../../_api-ref/grpc/).
 
 ## Управление ключами {#keys-control}
 

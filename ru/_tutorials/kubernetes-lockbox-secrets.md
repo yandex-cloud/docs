@@ -1,6 +1,6 @@
-[External Secrets Operator](https://external-secrets.io/latest/provider-yandex-lockbox/) позволяет настроить синхронизацию секретов [{{ lockbox-name }}](../lockbox/) с секретами кластера {{ managed-k8s-name }}.
+[External Secrets Operator](https://external-secrets.io/latest/provider/yandex-lockbox/) позволяет настроить синхронизацию секретов [{{ lockbox-name }}](../lockbox/) с секретами кластера {{ managed-k8s-name }}.
 
-Существует [несколько схем интеграции](https://external-secrets.io/latest/guides-multi-tenancy/) {{ lockbox-name }} с сервисом {{ managed-k8s-name }}. Далее для примера рассматривается схема [ESO as a Service](https://external-secrets.io/latest/guides-multi-tenancy/#eso-as-a-service):
+Существует [несколько схем интеграции](https://external-secrets.io/latest/guides/multi-tenancy/) {{ lockbox-name }} с сервисом {{ managed-k8s-name }}. Далее для примера рассматривается схема [ESO as a Service](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service):
 
 {% if product == "yandex-cloud" %}![image](../_assets/managed-kubernetes/mks-lockbox-eso.svg){% endif %}{% if product == "cloud-il" %}![image](../_assets/managed-kubernetes/mks-lockbox-eso-il.svg){% endif %}
 
@@ -134,7 +134,7 @@
      --from-file=authorized-key=authorized-key.json
    ```
 
-1. Создайте хранилище секретов [SecretStore](https://external-secrets.io/latest/api-secretstore/), содержащее секрет `yc-auth`:
+1. Создайте хранилище секретов [SecretStore](https://external-secrets.io/latest/api/secretstore/), содержащее секрет `yc-auth`:
 
    ```bash
    kubectl --namespace ns apply -f - <<< '
@@ -153,7 +153,7 @@
 
 ## Создайте External Secret {#create-es}
 
-1. Создайте объект [ExternalSecret](https://external-secrets.io/latest/api-externalsecret/), указывающий на секрет `lockbox-secret` в хранилище `secret-store`:
+1. Создайте объект [ExternalSecret](https://external-secrets.io/latest/api/externalsecret/), указывающий на секрет `lockbox-secret` в хранилище `secret-store`:
 
    ```bash
    kubectl --namespace ns apply -f - <<< '

@@ -16,7 +16,7 @@
 
 * [{#T}](#SQL-management)
 
-* [Настроить серверы](#change-clickhouse-config) {{ CH }} согласно [документации {{ CH }}]({{ ch.docs }}/operations/server_settings/settings/).
+* [Настроить серверы](#change-clickhouse-config) {{ CH }} согласно [документации {{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings).
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 

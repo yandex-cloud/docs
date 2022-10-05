@@ -95,7 +95,7 @@ Benefits of {{ alb-name }} Ingress controller:
 
 #### Restricting access to the metadata of VMs in the node group {#metadata-access-restriction}
 
-For all pods, create a network policy to block network traffic to port 169.254.169.254 or use the default-deny policy from the [example](../../managed-kubernetes/operations/calico#enable-isolation). The policy must block workload node group metadata access because these node groups contain sensitive data, such as the token of the service account assigned to the node.
+For all pods, create a network policy to block network traffic to port 169.254.169.254 or use the default-deny policy from the [example](../../managed-kubernetes/operations/calico.md#enable-isolation). The policy must block workload node group metadata access because these node groups contain sensitive data, such as the token of the service account assigned to the node.
 
 ## Authentication and access control {{ managed-k8s-name }} {#authentication-and-access-control}
 
@@ -190,12 +190,12 @@ We recommend that you use SecretManager solutions to work with Kubernetes secret
 
 Useful instructions on working with External Secrets:
 
-* [Instructions](https://external-secrets.io/latest/provider-yandex-lockbox/) to work with External Secrets and {{ lockbox-name }} from the project description.
+* [Instructions](https://external-secrets.io/latest/provider/yandex-lockbox/) to work with External Secrets and {{ lockbox-name }} from the project description.
 * [Instructions](../../lockbox/tutorials/kubernetes-lockbox-secrets.md) to work with External Secrets and {{ lockbox-name }} from the {{ yandex-cloud }} documentation.
 
-Many methods to differentiate access to secrets using this tool have been [described](https://external-secrets.io/latest/guides-multi-tenancy/#eso-as-a-service).
+Many methods to differentiate access to secrets using this tool have been [described](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service).
 
-The most secure recommended option for encrypting secrets is ESO as a Service (External Secrets Operator as a service). In this case, the global administrator has access to the namespace where ESO is installed, and administrators of specific namespaces create their respective [`SecretStore`](https://external-secrets.io/latest/api-secretstore/) objects (where they specify {{ iam-short-name }} authorized access keys for their {{ lockbox-name }} secrets). If this `SecretStore` object is compromised, only the authorized key of one specific namespace is compromised (rather than all of them, as in the case of Shared ClusterSecretStore).
+The most secure recommended option for encrypting secrets is ESO as a Service (External Secrets Operator as a service). In this case, the global administrator has access to the namespace where ESO is installed, and administrators of specific namespaces create their respective [`SecretStore`](https://external-secrets.io/latest/api/secretstore/) objects (where they specify {{ iam-short-name }} authorized access keys for their {{ lockbox-name }} secrets). If this `SecretStore` object is compromised, only the authorized key of one specific namespace is compromised (rather than all of them, as in the case of Shared ClusterSecretStore).
 
 {% endif %}
 ### Encryption in transit {#encryption-in-transist}
@@ -328,7 +328,7 @@ Audit events are collected from the Kubernetes API level by {{ cloud-logging-nam
 {% endif %}
 ### Kubernetes nodes level {#kubernetes-nodes-level}
 
-Kubernetes node level events are collected and exported similarly to [collecting OS audit logs](audit-logs#os-level).
+Kubernetes node level events are collected and exported similarly to [collecting OS audit logs](audit-logs.md#os-level).
 
 ### Kubernetes pods level {#kubernetes-pods-level}
 
