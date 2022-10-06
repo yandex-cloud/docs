@@ -28,6 +28,8 @@ items:
         href: operations/update.md
       - name: Управление ролями и пользователями
         href: operations/roles-and-users.md
+      - name: Управление клиентскими процессами
+        href: operations/cluster-process.md
       - name: Использование внешних таблиц
         href: operations/external-tables.md
       - name: Расширения Greenplum

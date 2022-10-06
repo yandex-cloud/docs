@@ -11,6 +11,7 @@
 * [{#T}](./hosts/cluster-expand.md)
 * [{#T}](update.md)
 * [{#T}](roles-and-users.md)
+* [{#T}](cluster-process.md)
 * [{#T}](external-tables.md)
 * [{#T}](./extensions/cluster-extensions.md)
 * [{#T}](cluster-logs.md)
