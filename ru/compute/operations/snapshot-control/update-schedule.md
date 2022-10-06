@@ -36,6 +36,9 @@
 - API
 
   1. Получите список расписаний с помощью метода [SnapshotScheduleService/List](../../api-ref/grpc/snapshot_schedule_service.md#List) gRPC API или метода [list](../../api-ref/SnapshotSchedule/list.md) для ресурса `SnapshotSchedule` REST API.
+
+      {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
+
   1. Измените расписание снимков с помощью метода [SnapshotScheduleService/Update](../../api-ref/grpc/snapshot_schedule_service.md#Update) gRPC API или метода [update](../../api-ref/SnapshotSchedule/update.md) для ресурса `SnapshotSchedule` REST API.
 
 {% endlist %}
@@ -54,6 +57,9 @@
   1. На вкладке **Расписания снимков** выберите расписание, в котором нужно изменить список дисков.
   1. Измените список дисков:
       * Чтобы добавить новый диск, в блоке **Диски** нажмите кнопку ![image](../../../_assets/plus-sign.svg) **Добавить диск**. В открывшемся окне выберите диск, который нужно добавить к расписанию, и нажмите кнопку **Сохранить**.
+      
+        {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
+      
       * Чтобы удалить диск, в блоке **Диски** напротив диска, который нужно удалить из расписания, нажмите ![image](../../../_assets/options.svg) и выберите **Удалить из расписания**.
 
 - API

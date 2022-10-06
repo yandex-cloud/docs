@@ -27,6 +27,8 @@ items:
         href: operations/update.md
       - name: Управление ролями и пользователями
         href: operations/roles-and-users.md
+      - name: Управление клиентскими процессами
+        href: operations/cluster-process.md
       - name: Использование внешних таблиц
         href: operations/external-tables.md
       - name: Расширения Greenplum
@@ -61,6 +63,8 @@ items:
         href: concepts/resource-groups.md
       - name: Типы дисков
         href: concepts/storage.md
+      - name: Ресурсные группы
+        href: concepts/resource-groups.md
       - name: Шардирование
         href: concepts/sharding.md
       - name: Типы хранения данных
@@ -157,4 +161,20 @@ items:
     items:
       - name: Общие вопросы
         href: qa/general.md
+      - name: Подключение
+        href: qa/connection.md
+      - name: Резервное копирование
+        href: qa/backup.md
+      - name: Изменение кластера
+        href: qa/update.md
+      - name: Кластер и хосты {{ mgp-short-name }}
+        href: qa/cluster-hosts.md
+      - name: Работа с внешними таблицами
+        href: qa/pxf.md
+      - name: Управление пользователями
+        href: qa/users.md
+      - name: Мониторинг
+        href: qa/monitoring.md
+      - name: Все вопросы на одной странице
+        href: qa/all.md
 base: ru/managed-greenplum

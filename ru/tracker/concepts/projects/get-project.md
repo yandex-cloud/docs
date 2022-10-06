@@ -3,7 +3,7 @@ sourcePath: ru/tracker/api-ref/concepts/projects/get-project.md
 ---
 # Получить параметры проекта
 
-Запрос позволяет получить информацию о [проекте](../../manager/projects.md).
+Запрос позволяет получить информацию о [проекте](../../manager/project-new.md).
 
 ## Формат запроса {#query}
 

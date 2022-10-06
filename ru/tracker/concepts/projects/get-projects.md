@@ -3,7 +3,7 @@ sourcePath: ru/tracker/api-ref/concepts/projects/get-projects.md
 ---
 # Получить список всех проектов
 
-Запрос позволяет получить список всех [проектов](../../manager/projects.md) организации.
+Запрос позволяет получить список всех [проектов](../../manager/project-new.md) организации.
 
 ## Формат запроса {#query}
 

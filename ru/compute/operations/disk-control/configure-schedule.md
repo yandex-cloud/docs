@@ -7,6 +7,8 @@
 
 ## Добавить расписание к диску {#add-schedule}
 
+{% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
+
 {% list tabs %}
 
 - Консоль управления
