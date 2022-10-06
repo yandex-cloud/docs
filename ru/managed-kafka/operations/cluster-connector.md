@@ -21,9 +21,24 @@
     1. В списке сервисов выберите **{{ mkf-name }}**.
     1. Выберите нужный кластер и перейдите на вкладку **Коннекторы**.
 
+* CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы получить список коннекторов, выполните команду:
+
+  ```bash
+  {{ yc-mdb-kf }} connector list
+    --cluster-name <имя кластера>
+  ```
+
 * API
 
-    Воспользуйтесь методом API [list](../api-ref/Connector/list.md) и передайте в запросе идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    Воспользуйтесь методом API [list](../api-ref/Connector/list.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+
+    Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -62,7 +77,48 @@
 
     1. Нажмите кнопку **Создать**.
 
+* CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы создать коннектор Mirrormaker:
+
+    1. Посмотрите описание команды CLI для создания коннектора Mirrormaker:
+
+       ```bash
+       {{ yc-mdb-kf }} mirrormaker create --help
+       ```
+
+    2. Создайте коннектор Mirrormaker:
+
+       ```bash
+       {{ yc-mdb-kf }} mirrormaker create <имя коннектора> \
+         --cluster-id <идентификатор кластера> \
+         --tasks-max <лимит задач> \
+         --direction <направление репликации: egress или ingress> \
+         --replication-factor <фактор репликации> \
+         --topics <шаблон для топиков> \
+         --this-cluster-alias <префикс для обозначения текущего кластера> \
+         --external-cluster `
+           ` alias=<префикс для обозначения внешнего кластера>, `
+           ` bootstrap-servers=<список FQDN хостов-брокеров>, `
+           ` security-protocol=<протокол безопасности>, `
+           ` sasl-mechanism=<механизм шифрования>, `
+           ` sasl-username=<имя пользователя>, `
+           ` sasl-password=<пароль пользователя>, `
+           ` ssl-truststore-certificates=<содержимое PEM-сертификата> \
+         --properties <ключ1:значение1,ключ2:значение2,...,ключN:значениеN>
+       ```
+       
+       Параметр `--direction` принимает значение: 
+       * `egress` — если текущий кластер является кластером-источником. 
+       * `ingress` — если текущий кластер является кластером-приемником.
+
 * Terraform
+
+    1. Ознакомьтесь со списком настроек коннектора [Mirrormaker](#settings-mm2). 
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -84,11 +140,12 @@
             source_cluster {
               alias = "<префикс для обозначения кластера>"
               external_cluster {
-                bootstrap_servers = "<список FQDN хостов-брокеров>"
-                sasl_username     = "<имя пользователя>"
-                sasl_password     = "<пароль пользователя>"
-                sasl_mechanism    = "<механизм шифрования>"
-                security_protocol = "<протокол безопасности>"
+                bootstrap_servers           = "<список FQDN хостов-брокеров>"
+                sasl_username               = "<имя пользователя>"
+                sasl_password               = "<пароль пользователя>"
+                sasl_mechanism              = "<механизм шифрования>"
+                security_protocol           = "<протокол безопасности>"
+                ssl-truststore-certificates = "<содержимое PEM-сертификата>"
               }
             }
             target_cluster {
@@ -131,6 +188,93 @@
     1. Внесите необходимые изменения в свойства коннектора.
     1. Нажмите кнопку **Сохранить**.
 
+* CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы изменить настройки коннектора Mirrormaker:
+
+    1. Посмотрите описание команды CLI для изменения коннектора Mirrormaker:
+
+       ```bash
+       {{ yc-mdb-kf }} mirrormaker update --help
+       ```
+
+    2. Измените коннектор Mirrormaker:
+
+       ```bash
+       {{ yc-mdb-kf }} mirrormaker create <имя коннектора> \
+         --cluster-id <идентификатор кластера> \
+         --tasks-max <лимит задач> \
+         --direction <направление репликации: egress или ingress> \
+         --replication-factor <фактор репликации> \
+         --topics <шаблон для топиков> \
+         --this-cluster-alias <префикс для обозначения текущего кластера> \
+         --external-cluster `
+           ` alias=<префикс для обозначения внешнего кластера>, `
+           ` bootstrap-servers=<список FQDN хостов-брокеров>, `
+           ` security-protocol=<протокол безопасности>, `
+           ` sasl-mechanism=<механизм шифрования>, `
+           ` sasl-username=<имя пользователя>, `
+           ` sasl-password=<пароль пользователя>, `
+           ` ssl-truststore-certificates=<содержимое PEM-сертификата> \
+         --properties <ключ1:значение1,ключ2:значение2,...,ключN:значениеN>
+       ```
+
+       Параметр `--direction` принимает значение: 
+       * `egress` — если текущий кластер является кластером-источником. 
+       * `ingress` — если текущий кластер является кластером-приемником.
+
+* Terraform
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+       О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените значение параметров в описании ресурса `yandex_mdb_kafka_connector`:
+
+        ```hcl
+        resource "yandex_mdb_kafka_connector" "<имя коннектора>" {
+          cluster_id = "<идентификатор кластера>"
+          name       = "<имя коннектора>"
+          tasks_max  = <лимит задач>
+          properties = {
+            <дополнительные свойства>
+          }
+          connector_config_mirrormaker {
+            topics             = "<шаблон для топиков>"
+            replication_factor = <фактор репликации>
+            source_cluster {
+              alias = "<префикс для обозначения кластера>"
+              external_cluster {
+                bootstrap_servers           = "<список FQDN хостов-брокеров>"
+                sasl_username               = "<имя пользователя>"
+                sasl_password               = "<пароль пользователя>"
+                sasl_mechanism              = "<механизм шифрования>"
+                security_protocol           = "<протокол безопасности>"
+                ssl-truststore-certificates = "<содержимое PEM-сертификата>"
+              }
+            }
+            target_cluster {
+              alias = "<префикс для обозначения кластера>"
+              this_cluster {}
+            }
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_connect).
+
 * API
 
     Воспользуйтесь методом API [update](../api-ref/Connector/update.md) и передайте в запросе:
@@ -158,6 +302,27 @@
     1. Выберите нужный кластер и перейдите на вкладку **Коннекторы**.
     1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем нужного коннектора и выберите пункт **Приостановить**.
 
+* CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы приостановить коннектор:
+
+    1. Посмотрите описание команды CLI для остановки коннектора:
+
+       ```bash
+       {{ yc-mdb-kf }} connector pause --help
+       ```
+
+    1. Приостановите коннектор:
+
+       ```bash
+       {{ yc-mdb-kf }} connector pause <имя коннектора> \
+         --cluster-id <идентификатор кластера>
+       ```
+    
 * API
 
     Воспользуйтесь методом API [pause](../api-ref/Connector/pause.md) и передайте в запросе:
@@ -177,6 +342,27 @@
     1. В списке сервисов выберите **{{ mkf-name }}**.
     1. Выберите нужный кластер и перейдите на вкладку **Коннекторы**.
     1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем нужного коннектора и выберите пункт **Возобновить**.
+
+* CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы возобновить работу коннектора:
+
+    1. Посмотрите описание команды CLI для возобновления работы коннектора:
+
+       ```bash
+       {{ yc-mdb-kf }} connector resume --help
+       ```
+
+    1. Возобновите работу коннектора:
+
+       ```bash
+       {{ yc-mdb-kf }} connector resume <имя коннектора> \
+         --cluster-id <идентификатор кластера>
+       ```
 
 * API
 
@@ -199,6 +385,27 @@
     1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем нужного коннектора и выберите пункт **Удалить**.
     1. Нажмите кнопку **Удалить**.
 
+* CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы удалить коннектор:
+
+    1. Посмотрите описание команды CLI для удаления коннектора:
+
+       ```bash
+       {{ yc-mdb-kf }} connector delete --help
+       ```
+
+    1. Удалите коннектор:
+
+       ```bash
+       {{ yc-mdb-kf }} connector delete <имя коннектора> \
+         --cluster-id <идентификатор кластера>
+       ```
+    
 * Terraform
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -255,6 +462,7 @@
     * **Протокол безопасности** — выберите протокол подключения коннектора:
       * `PLAINTEXT`, `SASL_PLAINTEXT` – для подключений без SSL;
       * `SSL`, `SASL_SSL` – для подключений с SSL.
+    * **Сертификат в формате PEM** — загрузите PEM-сертификат для доступа к внешнему кластеру.
 
   * В блоке **Кластер-приемник** укажите параметры для подключения к кластеру-приемнику:
     * **Псевдоним** — префикс для обозначения кластера-приемника в настройках коннектора.
@@ -269,6 +477,7 @@
     * **Протокол безопасности** — выберите протокол подключения коннектора:
       * `PLAINTEXT`, `SASL_PLAINTEXT` – для подключений без SSL;
       * `SSL`, `SASL_SSL` – для подключений с SSL.
+    * **Сертификат в формате PEM** — загрузите PEM-сертификат для доступа к внешнему кластеру.
 
 * Terraform
 
@@ -292,6 +501,7 @@
             * **security_protocol** — протокол подключения коннектора:
                 * `PLAINTEXT`, `SASL_PLAINTEXT` – для подключений без SSL;
                 * `SSL`, `SASL_SSL` – для подключений с SSL.
+            * **ssl_truststore_certificates** — содержимое PEM-сертификата.
 
 {% endlist %}
 
@@ -315,7 +525,7 @@
 
     {% if audience != "internal" %}
 
-    * (Опционально) **Идентификатор ключа доступа**, **Секретный ключ** — [идентификатор и содержимое ключа сервисного аккаунта](../../iam/operations/authorized-key/create.md).
+    * (Опционально) **Идентификатор ключа доступа**, **Секретный ключ** — [идентификатор и содержимое AWS-совместимого ключа](../../iam/concepts/authorization/access-key.md).
 
     {% endif %}
 
