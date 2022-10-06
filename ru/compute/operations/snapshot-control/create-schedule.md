@@ -17,6 +17,9 @@
 
       * Если требуется, укажите произвольное текстовое описание расписания.
       * Выберите диски, снимки которых нужно создавать по расписанию. В одно расписание можно добавить несколько дисков, а один диск можно добавить в несколько расписаний в пределах [лимитов](../../concepts/limits.md#compute-limits-snapshot-schedule).
+      
+        {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
+        
       * В поле **Создавать снимки** выберите периодичность создания снимков: **По часам**, **По дням**, **По неделям** или [**По cron-выражению**](../../concepts/snapshot-schedule.md#cron). Время создания снимка указывается в часовом поясе [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
       * В поле **Начиная с** укажите дату, начиная с которой будет работать расписание.
       * Выберите политику хранения снимков:
@@ -34,6 +37,9 @@
 - API
 
   1. Получите список дисков с помощью метода [DiskService/List](../../api-ref/grpc/disk_service.md#List) gRPC API или метода [list](../../api-ref/Disk/list.md) для ресурса `Disk` REST API.
+
+      {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
+
   1. Создайте расписание снимков с помощью метода [SnapshotScheduleService/Create](../../api-ref/grpc/snapshot_schedule_service.md#Create) gRPC API или метода [create](../../api-ref/SnapshotSchedule/create.md) для ресурса `SnapshotSchedule` REST API.
 
 {% endlist %}
