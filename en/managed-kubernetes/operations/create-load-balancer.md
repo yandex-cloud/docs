@@ -157,10 +157,13 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
      name: hello
    spec:
      ports:
-     - port: 80 # Network load balancer port to handle user requests.
+     # The network load balancer port to handle user requests.
+     - port: 80
        name: plaintext
-       targetPort: 8080 # Container port the application listens on.
-     selector: # Selector labels used in a pod template when creating a Deployment object.
+       # The container port where the application is available.
+       targetPort: 8080
+     # Selector labels used in a pod template when creating a Deployment object.
+     selector:
        app: hello
      type: LoadBalancer
    ```
@@ -253,7 +256,7 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
 
 {% endnote %}
 
-To create a network load balancer with an internal IP address, specify the `yandex.cloud/load-balancer-type` and `yandex.cloud/subnet-id` parameters in the YAML specification for the service under `annotations`:
+To create an internal network load balancer, specify the `yandex.cloud/load-balancer-type` and `yandex.cloud/subnet-id` parameters in the YAML specification for the service under `annotations`:
 
 ```yaml
 apiVersion: v1
@@ -261,16 +264,23 @@ kind: Service
 metadata:
   name: hello
   annotations:
+    # Load balancer type: Internal.
     yandex.cloud/load-balancer-type: internal
-    yandex.cloud/subnet-id: e1b23q26ab1c0dce8te9 # ID for the subnet to allocate an IP address for the network load balancer in.
+    # ID of the subnet to allocate an IP address for
+    yandex.cloud/subnet-id: e1b23q26ab1c0dce8te9
 spec:
-  ports:
-  - port: 80 # Network load balancer port to handle user requests.
-    name: plaintext
-    targetPort: 8080 # Container port the application listens on.
-  selector: # Selector labels used in a pod template when creating a Deployment object.
-    app: hello
   type: LoadBalancer
+  ports:
+  # The internal network load balancer port to
+  # handle user requests.
+  - port: 80
+    name: plaintext
+    # The container port where the application is available.
+    targetPort: 8080
+  # Selector labels used in a pod template when creating
+  # a Deployment object.
+  selector:
+    app: hello
 ```
 
 ## loadBalancerIP and externalTrafficPolicy parameters {#advanced}
@@ -330,7 +340,6 @@ apiVersion: v1
 ```
 
 Where:
-
 * `yandex.cloud/load-balancer-healthcheck-healthy-threshold` is the number of consecutive successful checks required to consider the node available.
 
   The minimum value is `2` and the maximum is `10`.
@@ -348,7 +357,7 @@ For more information, see the [{{ network-load-balancer-full-name }} documentati
 
 ## Create a NetworkPolicy object {#network-policy}
 
-To connect to services published via {{ network-load-balancer-full-name }} from certain IP addresses, enable [network policies](../concepts/network-policy.md) in the cluster. To set up access via the load balancer, create a [NetworkPolicy]({{ k8s-api-link }}#netowrkpolicy-v1-networking-k8s-io) object with the `Ingress` policy type:
+To connect to services published via {{ network-load-balancer-name }} from certain IP addresses, enable [network policies](../concepts/network-policy.md) in the cluster. To set up access via the load balancer, create a [NetworkPolicy]({{ k8s-api-link }}#netowrkpolicy-v1-networking-k8s-io) object with the `Ingress` policy type:
 
 ```yaml
 ---
@@ -376,14 +385,13 @@ spec:
 ```
 
 Where:
-
 * `metadata.name`: Policy name.
 * `metadata.namespace`: [Namespace](../concepts/index.md#namespace).
 * `spec.podSelector`: Filtering rules for [pods](../concepts/index.md#pod).
 * `spec.policyTypes`: Policy type. Enter `Ingress`.
 * `spec.ingress.from.ipBlock.cidr`: IP ranges allowed to access the load balancer.
 
-  The ranges `198.18.235.0/24` and `198.19.248.0/24` [are reserved by {{ network-load-balancer-full-name }}](../../network-load-balancer/concepts/health-check.md) to check the health of nodes. They are required in the NetworkPolicy object settings.
+  The ranges `198.18.235.0/24` and `198.19.248.0/24` [are reserved by {{ network-load-balancer-name }}](../../network-load-balancer/concepts/health-check.md) to check the health of nodes. They are required in the NetworkPolicy object settings.
 
 {% cut "Example of setting up a NetworkPolicy object" %}
 
