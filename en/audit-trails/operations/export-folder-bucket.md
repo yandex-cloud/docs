@@ -61,8 +61,7 @@ To collect folder audit logs:
          * `id`: The ID of the folder to host the trail:
          * `service-account-id`: The ID of your service account.
 
-      {% if product == "yandex-cloud" %}
-      * Assign the role [`kms.keys.encrypterDecrypter`](../../kms/security/index.md#service) for the encryption key:
+      {% if product == "yandex-cloud" %}* Assign the role [`kms.keys.encrypterDecrypter`](../../kms/security/index.md#service) for the encryption key:
 
          ```
          yc kms symmetric-key add-access-binding \
