@@ -2,11 +2,13 @@
 
 Follow these instructions to create a new trail that will upload audit logs of a cloud's resources to an {{ objstorage-name }} bucket with encryption enabled.
 
+
 {% note tip %}
 
 The setup is similar for buckets where encryption is disabled. The only difference is that you don't have to assign {{ kms-full-name }} roles.
 
 {% endnote %}
+
 
 
 ## Prepare the environment {#before-you-begin}
@@ -57,17 +59,17 @@ To collect audit logs of an individual cloud:
 
       * Assign the [`kms.keys.encrypterDecrypter` role](../../kms/security/index.md#service) to the encryption key:
 
-         ```
-         yc kms symmetric-key add-access-binding \
-           --role kms.keys.encrypterDecrypter \
-           --id <KMS key ID> \
-           --service-account-id <service account ID>
-         ```
+        ```
+        yc kms symmetric-key add-access-binding \
+          --role kms.keys.encrypterDecrypter \
+          --id <KMS key ID> \
+          --service-account-id <service account ID>
+        ```
 
-         Where:
-         * `role`: The role assigned.
-         * `id`: The ID of the KMS key.
-         * `service-account-id`: The ID of your service account.
+        Where:
+        * `role`: The role assigned.
+        * `id`: The ID of the KMS key.
+        * `service-account-id`: The ID of your service account.
 
    {% endlist %}
 

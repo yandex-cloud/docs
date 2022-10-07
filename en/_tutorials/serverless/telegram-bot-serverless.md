@@ -17,21 +17,24 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Before you begin {#before-begin}
 
-{% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+1. [Download](https://storage.yandexcloud.net/doc-files/telegrambot.zip) the file archive needed to create the bot.
+1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `editor` and the `serverless.functions.invoker` roles for your folder.
 
 
 ### Required paid resources {#paid-resources}
 
 The cost of Telegram bot support includes:
-* Payment for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-name }} pricing](../functions/pricing.md)).
-* Payment for the amount of stored data, the number of data transactions, and outgoing traffic (see [{{ objstorage-name }} pricing](../storage/pricing.md)).
-* Payment for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-full-name }} pricing](../api-gateway/pricing.md)).
+* Payment for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Payment for the amount of stored data, the number of data transactions, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Payment for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
 
 
 ## Create resources {#create-resources}
 
 1. [Download](https://storage.yandexcloud.net/doc-files/telegrambot.zip) the file archive needed to create the bot.
-1. [Create](../iam/operations/sa/create.md) a service account and [assign](../iam/operations/sa/assign-role-for-sa.md) it the `editor` and the `serverless.functions.invoker` roles for your folder.
+1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `editor` and the `serverless.functions.invoker` roles for your folder.
 
 ## Register the Telegram bot {#create-bot}
 
@@ -63,7 +66,7 @@ For the bot to respond to user messages with an image, create a bucket in {{ obj
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../storage/concepts/bucket.md).
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
    1. Select **{{ objstorage-short-name }}**.
    1. Click **Create bucket**.
    1. On the bucket creation page:
@@ -108,7 +111,7 @@ For the bot to respond to user messages with an image, create a bucket in {{ obj
 
 ## Create an API gateway {#create-gateway}
 
-Create and configure an [API Gateway](../api-gateway/concepts/index.md).
+Create and configure an [API Gateway](../../api-gateway/concepts/index.md).
 
 {% list tabs %}
 
@@ -139,7 +142,7 @@ Create and configure an [API Gateway](../api-gateway/concepts/index.md).
 
       Where:
       * `bucket`: Bucket name.
-      * `service_account_id`: [ID of the service account](../iam/operations/sa/get-id.md) created when [setting up resources](#create-resources).
+      * `service_account_id`: [ID of the service account](../../iam/operations/sa/get-id.md) created when [setting up resources](#create-resources).
 
    1. Click **Create**.
    1. Select the created API gateway. Save the name of the **Service domain** field from the **General information** section. You will need it later.
@@ -148,7 +151,7 @@ Create and configure an [API Gateway](../api-gateway/concepts/index.md).
 
 ## Create a function {#create-function}
 
-To have the Telegram bot respond to the `/start` and `/help` commands and send an image in response to any other text, create a [function](../functions/concepts/function.md).
+To have the Telegram bot respond to the `/start` and `/help` commands and send an image in response to any other text, create a [function](../../functions/concepts/function.md).
 
 {% list tabs %}
 
@@ -207,10 +210,10 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
       * Runtime environment: `nodejs12`.
       * Entry point: `index.handler`.
       * Timeout: `5 seconds`.
-   1. Add the `BOT_TOKEN` variable to the environment. In the **Value** field, specify the Telegram bot token.
-   1. Click **Create version**.
-   1. Make sure that the function is [public](../functions/operations/function-public.md#public). To do this, go to the **Overview** page and, under **General information**, switch the **Public function** option to on.
-   1. Save your function ID. You will need it later.
+  1. Add the `BOT_TOKEN` variable to the environment. In the **Value** field, specify the Telegram bot token.
+  1. Click **Create version**.
+  1. Make sure that the function is [public](../../functions/operations/function-public.md#public). To do this, go to the **Overview** page and, under **General information**, switch the **Public function** option to on.
+  1. Save your function ID. You will need it later.
 
 {% endlist %}
 
@@ -304,7 +307,7 @@ Talk to the bot:
 
 ## How to delete created resources {#clear-out}
 
-To stop paying for the resources created:
-* [Delete the function](../functions/operations/function/function-delete.md).
-* [Delete the API gateway](../api-gateway/operations/api-gw-delete.md).
-* [Delete the bucket](../storage/operations/buckets/delete.md).
+To stop paying for the resources created, delete them:
+1. [Delete the function](../../functions/operations/function/function-delete.md).
+1. [Delete the API gateway](../../api-gateway/operations/api-gw-delete.md).
+1. [Delete the bucket](../../storage/operations/buckets/delete.md).

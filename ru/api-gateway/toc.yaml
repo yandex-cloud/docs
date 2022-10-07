@@ -21,7 +21,9 @@ items:
         href: operations/api-gw-logs.md
   - name: Практические руководства
     items:
-      - name: Развертывание веб-приложения
+      - name: Все практические руководства
+        href: tutorials/index.md
+      - name: Развертывание веб-приложения с использованием Java Servlet API
         href: tutorials/java-servlet-todo-list.md
       - name: Разработка навыка Алисы и сайта с авторизацией
         href: tutorials/alice-shareable-todolist.md

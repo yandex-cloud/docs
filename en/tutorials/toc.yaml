@@ -195,10 +195,16 @@ items:
           Migrating databases from {{ mmy-full-name }} to a third-party {{ MY }}
           cluster
         href: dataplatform/mmy-to-mysql-migration.md
+      - name: Creating a {{ PG }} cluster for 1C
+        href: dataplatform/1c-postgresql.md
+      - name: Performance analysis and tuning in {{ mpg-name }}
+        href: dataplatform/mpg-profiling.md
       - name: >-
           Migrating databases from third-party {{ PG }} cluster to {{
           mpg-full-name }} cluster
         href: dataplatform/postgresql-data-migration.md
+      - name: Migrating databases from {{ mpg-name }}
+        href: dataplatform/outbound-replication.md
       - name: >-
           Migrating databases from a third-party {{ RD }} cluster to {{
           mrd-full-name }}
@@ -275,8 +281,16 @@ items:
         href: serverless/data-ingestion.md
       - name: Storing application runtime logs
         href: serverless/log-ingestion.md
+      - name: Deploying a web application using the Java Servlet API
+        href: serverless/java-servlet-todo-list.md
+      - name: Developing a Slack bot
+        href: serverless/slack-bot-serverless.md
+      - name: Developing a Telegram bot
+        href: serverless/telegram-bot-serverless.md
       - name: Developing user integration in {{ api-gw-name }}
         href: serverless/api-gw-integration.md
       - name: Developing CRUD APIs for movie services
         href: serverless/movies-database.md
+      - name: Developing a skill for Alice and a website with authorization
+        href: serverless/alice-shareable-todolist.md
 base: en/tutorials

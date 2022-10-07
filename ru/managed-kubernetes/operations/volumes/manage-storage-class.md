@@ -1,12 +1,24 @@
 # Управление классами хранилищ
 
-_Класс хранилищ_ (`StorageClass`) предоставляет администраторам возможность разделить хранилища, которые они предлагают, на классы с определенными параметрами.
+_Класс хранилищ_ (`StorageClass`) предоставляет администраторам возможность разделить хранилища, которые они предлагают, на классы с определенными параметрами. Классы отличаются [типом создаваемого диска](../../../compute/concepts/disk.md#disks_types) и правилами тарификации.
+
+{% note alert %}
+
+Стоимость использования хранилища зависит от типа его диска. Ознакомьтесь с [ценами на диски {{ compute-full-name }}](../../../compute/concepts/disk.md#disks_types) перед созданием хранилища.
+
+{% endnote %}
 
 
-В {{ managed-k8s-name }} автоматически доступны два класса хранилищ `yc-network-hdd` и `yc-network-ssd` со следующими параметрами:
-* [Volume Binding Mode](https://kubernetes.io/docs/concepts/storage/storage-classes/#volume-binding-mode): `WaitForFirstConsumer`.
-* [Reclaim Policy](https://kubernetes.io/docs/concepts/storage/storage-classes/#reclaim-policy): `Delete`.
-* Классом по умолчанию является `yc-network-hdd`.
+В {{ managed-k8s-name }} доступны следующие классы хранилищ:
+* `yc-network-hdd` (используется по умолчанию) — хранилище на сетевых HDD-дисках (`network-hdd`).
+* `yc-network-ssd` — хранилище на сетевых SSD-дисках (`network-ssd`).
+* `yc-network-ssd-nonreplicated` — хранилище на нереплицируемых SSD-дисках с повышенной производительностью (`network-ssd-nonreplicated`).
+
+{% include [Нереплицируемый диск не имеет резервирования](../../../_includes/managed-kubernetes/nrd-no-backup-note.md) %}
+
+Все хранилища создаются с параметрами:
+* [Volume Binding Mode](https://kubernetes.io/docs/concepts/storage/storage-classes/#volume-binding-mode) — `WaitForFirstConsumer`.
+* [Reclaim Policy](https://kubernetes.io/docs/concepts/storage/storage-classes/#reclaim-policy) — `Delete`.
 
 Данные классы допускают использование объектов `PersistentVolumeClaim` и `PersistentVolume` только в [режиме доступа](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) `ReadWriteOnce`.
 
@@ -85,14 +97,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
 ### Формат спецификации для создания класса хранилищ {#sc-spec}
 
-Каждый объект `StorageClass` содержит параметры `provisioner`, `parameters` и `reclaimPolicy`, которые используются для динамического выделения объекта `PersistentVolume`.
-
-Допустимые значения параметров:
-* `provisioner`: `disk-csi-driver.mks.ycloud.io`.
-* `parameters`
-  * `type`: `network-hdd` или `network-ssd`.
-  * `csi.storage.k8s.io/fstype`: `ext2`, `ext3` или `ext4`.
-* `reclaimPolicy`: `Retain` или `Delete`.
+Каждый объект `StorageClass` содержит параметры `parameters`, `allowVolumeExpansion` и `reclaimPolicy`, которые используются для динамического выделения объекта `PersistentVolume`.
 
 Структура YAML-файла:
 
@@ -103,12 +108,19 @@ metadata:
   name: <имя класса хранилищ> # Используется для обращения к классу хранилищ.
 provisioner: <имя поставщика>
 volumeBindingMode: WaitForFirstConsumer
-parameters: # Параметры класcа хранилищ.
+parameters: # Параметры класса хранилищ.
   type: <тип диска>
   csi.storage.k8s.io/fstype: <тип файловой системы>
-allowVolumeExpansion: false
+allowVolumeExpansion: <включение механизма увеличения размера тома>
 reclaimPolicy: <политика переиспользования>
 ```
+
+Допустимые значения параметров:
+* `parameters`
+  * `type` — `network-hdd`, `network-ssd` или `network-ssd-nonreplicated`.
+  * `csi.storage.k8s.io/fstype` — `ext2`, `ext3` или `ext4`.
+* `reclaimPolicy` — `Retain` или `Delete`.
+* `allowVolumeExpansion` — `true` или `false`.
 
 
 ## Измените класс хранилищ по умолчанию {#sc-default}

@@ -16,16 +16,16 @@ To deploy a project:
 
 1. [Download the archive](https://storage.yandexcloud.net/doc-files/alice-shareable-todolist.zip) with project files or clone the [examples repository](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) using Git.
 
-1. [Create a folder](../resource-manager/operations/folder/create.md) if you don't have any. For convenience, you can use a separate folder named `alice-skill`.
+1. [Create a folder](../../resource-manager/operations/folder/create.md) if you don't have any. For convenience, you can use a separate folder named `alice-skill`.
 
 1. Install and initialize the following software programs:
-    * [Yandex Cloud CLI](../cli/quickstart.md).
+    * [Yandex Cloud CLI](../../cli/quickstart.md).
     * [{{ ydb-short-name }} CLI](https://ydb.tech/en/docs/getting_started/cli);
     * [Bash command interpreter](http://www.gnu.org/software/bash/).
-    * [AWS CLI](../storage/tools/aws-cli).
+    * [AWS CLI](../../storage/tools/aws-cli).
     * [jq](https://stedolan.github.io/jq/download/).
     * [Node.js](https://nodejs.org/en/download/package-manager/).
-    * [{{ TF }}](../tutorials/infrastructure-management/terraform-quickstart).
+    * [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 
 1. To finalize the project, you'll additionally need:
     * [The Go programming language](https://go.dev/).
@@ -34,11 +34,11 @@ To deploy a project:
 
 ## Create resources {#create-resources}
 
-1. [Create a bucket](../storage/operations/buckets/create) named `frontend-statics` in {{ objstorage-name }}.
+1. [Create a bucket](../../storage/operations/buckets/create) named `frontend-statics` in {{ objstorage-name }}.
 
-1. [Create an API gateway](../api-gateway/operations/api-gw-create) named `gate-1`. Save the **ID** and **Service domain** field values from the **General information** section to use them in the configuration.
+1. [Create an API gateway](../../api-gateway/operations/api-gw-create) named `gate-1`. Save the **ID** and **Service domain** field values from the **General information** section to use them in the configuration.
 
-1. [Create a database](../ydb/quickstart.md#serverless) in Serverless mode. Save the **Database** and **Endpoint** field values from the **YDB endpoint** section to use them in the configuration.
+1. [Create a database](../../ydb/quickstart.md#serverless) in Serverless mode. Save the **Database** and **Endpoint** field values from the **YDB endpoint** section to use them in the configuration.
 
 1. [Create an app](https://oauth.yandex.com/) in Yandex.OAuth:
 
@@ -77,7 +77,7 @@ Set the project parameters in the `variables.json` file:
 * `oauth-client-id`: ID of the client app registered in [Yandex.OAuth](https://oauth.yandex.com/).
 * `database`: DB from the {{ ydb-name }} configuration.
 * `database-endpoint`: Endpoint from the {{ ydb-name }} configuration.
-* `yc-profile`: Yandex Cloud CLI [profile name](../cli/operations/profile/profile-list.md).
+* `yc-profile`: Yandex Cloud CLI [profile name](../../cli/operations/profile/profile-list.md).
 * `secure-config-path`: Path to the secret file.
 * `storage-bucket`: Name of the bucket you created for storing static data, `frontend-statics`.
 * `gateway-id`: ID of the API gateway.
@@ -114,7 +114,7 @@ To create tables in the database, run the command:
 
 ### Upload the backend code to {{ sf-name }} {#deploy-backend}
 
-Use {{ TF }} to automate your operations. Before you start, [initialize it](../tutorials/infrastructure-management/terraform-quickstart#configure-provider).
+Use {{ TF }} to automate your operations. Before you start, [initialize it](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
 
 To do this, go to the folder with the app.tf config file and run the command:
 
@@ -122,7 +122,7 @@ To do this, go to the folder with the app.tf config file and run the command:
 terraform init
 ```
 
-Once {{ TF }} is initialized, run the command passing the [OAuth token](../iam/concepts/authorization/oauth-token) value to be used for authorization in {{ yandex-cloud }}:
+Once {{ TF }} is initialized, run the command passing the [OAuth token](../../iam/concepts/authorization/oauth-token) value to be used for authorization in {{ yandex-cloud }}:
 
 ```
 terraform apply -var-file ./variables.json -var yc-token=<OAuth token>

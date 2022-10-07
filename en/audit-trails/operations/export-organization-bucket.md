@@ -2,11 +2,13 @@
 
 Follow these instructions to create a new trail that will upload audit logs of all of an organization's resources to an {{ objstorage-name }} bucket with encryption enabled.
 
+
 {% note tip %}
 
 The setup is similar for buckets where encryption is disabled. The only difference is that you don't have to assign {{ kms-full-name }} roles.
 
 {% endnote %}
+
 
 
 ## Prepare the environment {#before-you-begin}
