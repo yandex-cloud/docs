@@ -9,6 +9,7 @@
 * Описание.
 * Количество узлов.
 * Версию {{ k8s }}.
+* [Среду запуска контейнеров](../../concepts/index.md#config).
 * Список [групп безопасности](../connect/security-groups.md).
 
   {% note alert %}
@@ -66,6 +67,10 @@
 
     {% endnote %}
 
+  * `--container-runtime` — изменить [среду запуска контейнеров](../../concepts/index.md#config), `docker` или `containerd`.
+
+    {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
+
   * `--latest-revision` — получить все доступные обновления для текущей версии [мастера](../../concepts/index.md#master).
   * `--auto-upgrade` — управлять автоматическими обновлениями.
   * Управление окном обновлений:
@@ -88,6 +93,23 @@
 
      О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
   1. Измените параметры в описании группы узлов.
+
+     Чтобы изменить [среду запуска контейнеров](../../concepts/index.md#config), добавьте блок `container_runtime`:
+  
+     ```hcl
+     resource "yandex_kubernetes_node_group" "<имя группы>" {
+       ...
+       instance_template {
+         ...
+         container_runtime {
+           type = "<docker | containerd>"
+         }
+       }
+     }
+     ```
+
+     {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
+
   1. Проверьте корректность конфигурационных файлов.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
@@ -101,6 +123,10 @@
 - API
 
   Чтобы изменить параметры [группы узлов](../../concepts/index.md#node-group), воспользуйтесь методом [update](../../api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../api-ref/NodeGroup).
+
+  Чтобы изменить [среду запуска контейнеров](../../concepts/index.md#config), передайте значение `docker` или `containerd` в параметре `nodeTemplate.containerRuntimeSettings.type`.
+
+  {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
 
 {% endlist %}
 
