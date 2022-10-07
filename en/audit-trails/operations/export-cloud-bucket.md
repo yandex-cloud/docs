@@ -1,6 +1,8 @@
 # Uploading cloud audit logs to {{ objstorage-name }}
 
-Follow these instructions to create a new trail that will upload audit logs of a cloud's resources to an {{ objstorage-name }} bucket with encryption enabled.
+Follow these instructions to create a new trail that will upload audit logs of a cloud's resources to an {{ objstorage-name }} bucket{% if product == "yandex-cloud" %} with encryption enabled{% endif %}.
+
+{% if product == "yandex-cloud" %}
 
 {% note tip %}
 
@@ -8,14 +10,18 @@ The setup is similar for buckets where encryption is disabled. The only differen
 
 {% endnote %}
 
+{% endif %}
+
 
 ## Prepare the environment {#before-you-begin}
 
 To collect audit logs of an individual cloud:
 
 1. [Create a new bucket](../../storage/operations/buckets/create.md) to use for uploading audit logs.
+{% if product == "yandex-cloud" %}
 1. Create an [encryption key](../../kms/operations/key.md#create) in {{ kms-short-name }}.
 1. [Enable bucket encryption](../../storage/operations/buckets/encrypt.md#add) using the previously created encryption key.
+{% endif %}
 1. [Create](../../iam/operations/sa/create.md) a service account.
 1. Assign roles to a service account:
 
@@ -55,6 +61,7 @@ To collect audit logs of an individual cloud:
          * `id`: The ID of the folder to host the trail:
          * `service-account-id`: The ID of your service account.
 
+      {% if product == "yandex-cloud" %}
       * Assign the [`kms.keys.encrypterDecrypter` role](../../kms/security/index.md#service) to the encryption key:
 
          ```
@@ -68,6 +75,7 @@ To collect audit logs of an individual cloud:
          * `role`: The role assigned.
          * `id`: The ID of the KMS key.
          * `service-account-id`: The ID of your service account.
+      {% endif %}
 
    {% endlist %}
 

@@ -58,11 +58,11 @@ You can:
 - Configure a bucket for [static website hosting](hosting.md).
 
 - Download a [CORS configuration](cors.md) for a bucket.
-
+{% if product == "yandex-cloud" and audience != "internal" %}
 - Enable [bucket encryption](../operations/buckets/encrypt.md).
 
     By default, the objects added to the bucket are encrypted with the specified [{{ kms-short-name }} key](../../kms/concepts/key.md).
-
+{% endif %}
 - Set up [object lifecycles](lifecycles.md).
 
 ## Bucket access {#bucket-access}

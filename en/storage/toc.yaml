@@ -23,6 +23,7 @@ items:
             href: operations/buckets/bucket-availability.md
           - name: Bucket encryption
             href: operations/buckets/encrypt.md
+            when: product == "yandex-cloud" and audience != "internal"
           - name: Managing object lifecycles
             href: operations/buckets/lifecycles.md
           - name: Managing CORS configurations
@@ -76,6 +77,7 @@ items:
         href: tutorials/billing-resource-detailing.md
       - name: Server-side encryption
         href: tutorials/server-side-encryption.md
+        when: product == "yandex-cloud" and audience != "internal"
       - name: Integrating an L7 load balancer with the CDN and Object Storage
         href: tutorials/cdn-storage-integration.md
         when: product == "yandex-cloud"
@@ -189,6 +191,7 @@ items:
                     href: s3/api-ref/bucket/create.md
                   - name: getBucketEncryption
                     href: s3/api-ref/bucket/getbucketencryption.md
+                    when: product == "yandex-cloud" and audience != "internal"
                   - name: getMeta
                     href: s3/api-ref/bucket/getmeta.md
                   - name: listObjects
@@ -199,8 +202,10 @@ items:
                     href: s3/api-ref/bucket/delete.md
                   - name: deleteBucketEncryption
                     href: s3/api-ref/bucket/deletebucketencryption.md
+                    when: product == "yandex-cloud" and audience != "internal"
                   - name: putBucketEncryption
                     href: s3/api-ref/bucket/putbucketencryption.md
+                    when: product == "yandex-cloud" and audience != "internal"
                   - name: putBucketVersioning
                     href: s3/api-ref/bucket/putBucketVersioning.md
                   - name: getBucketVersioning
