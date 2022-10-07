@@ -1,5 +1,11 @@
 # Static volume provisioning
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 Create a [pod](../../concepts/index.md#pod) with a statically provisioned [volume](../../concepts/volume.md):
 1. [Create a PersistentVolume](#create-pv).
 1. [Create a PersistentVolumeClaim](#create-claim).
@@ -7,56 +13,98 @@ Create a [pod](../../concepts/index.md#pod) with a statically provisioned [volum
 
 {% note tip %}
 
-You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-full-name }} as storage for the pod. For more information, see [{#T}](s3-csi-integration.md).
+You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/bucket.md) as storage for the pod. For more information, see [{#T}](s3-csi-integration.md).
 
 {% endnote %}
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-Retrieve a unique identifier for the [disk](../../../compute/concepts/disk.md) to be used to create the `PersistentVolume` object or create a new disk:
-1. If you don't have a disk yet, [create one](../../../compute/operations/disk-create/empty.md).
-1. Look up the unique disk ID:
+1. [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) and [configure](../connect/create-static-conf.md) it to work with your [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
+1. Look up the unique ID of the [disk](../../../compute/concepts/disk.md) to be used to create a `PersistentVolume`:
+   1. If you don't have a disk yet, [create one](../../../compute/operations/disk-create/empty.md).
+
+      {% note warning %}
+
+      Make sure the disk is located in the same [availability zone](../../../overview/concepts/geo-scope.md) as the [nodes of the group](../../concepts/index.md#node-group) that the pods will be running on.
+
+      {% endnote %}
+
+   1. Get the disk ID (the `ID` column):
+
+      ```bash
+      yc compute disk list
+      ```
+
+      Command result:
+
+      ```text
+      +----------------------+------+------------+-------------------+--------+--------------+-------------+
+      |          ID          | NAME |    SIZE    |       ZONE        | STATUS | INSTANCE IDS | DESCRIPTION |
+      +----------------------+------+------------+-------------------+--------+--------------+-------------+
+      | ef3ouo4sgl86740ridn6 | k8s  | 4294967296 | {{ region-id }}-a | READY  |              |             |
+      +----------------------+------+------------+-------------------+--------+--------------+-------------+
+      ```
+
+1. Check what [storage classes](manage-storage-class.md) are available and select the appropriate one:
 
    ```bash
-   yc compute disk list
+   kubectl get storageclass
    ```
 
-   Result:
+   Command result:
 
+   {% if product == "yandex-cloud" %}
+
+   ```text
+   NAME                          PROVISIONER                    RECLAIMPOLICY  VOLUMEBINDINGMODE     ALLOWVOLUMEEXPANSION  AGE
+   yc-network-hdd (default)      disk-csi-driver.mks.ycloud.io  Delete         WaitForFirstConsumer  true                  12d
+   yc-network-nvme               disk-csi-driver.mks.ycloud.io  Delete         WaitForFirstConsumer  true                  12d
+   yc-network-ssd                disk-csi-driver.mks.ycloud.io  Delete         WaitForFirstConsumer  true                  12d
+   yc-network-ssd-nonreplicated  disk-csi-driver.mks.ycloud.io  Delete         WaitForFirstConsumer  true                  12d
    ```
-   +----------------------+------+--------------+-------------------+--------+----------------------+-------------+
-   |          ID          | NAME |     SIZE     |        ZONE       | STATUS |     INSTANCE IDS     | DESCRIPTION |
-   +----------------------+------+--------------+-------------------+--------+----------------------+-------------+
-   | ef3ouo4sgl86740ridn6 | k8s  |   4294967296 | {{ region-id }}-a | READY  |                      |             |
-   | ef3qh55ckuu7md2kqhbt |      | 103079215104 | {{ region-id }}-a | READY  | ef3sin41eksav1kn4gct |             |
-   | epd9vda1h0knttpcuhfu |      |  10737418240 | {{ region-id }}-a | READY  | epdegdecs9o14r13gbad |             |
-   +----------------------+------+--------------+-------------------+--------+----------------------+-------------+
+
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   ```text
+   NAME                          PROVISIONER                    RECLAIMPOLICY  VOLUMEBINDINGMODE     ALLOWVOLUMEEXPANSION  AGE
+   yc-network-ssd (default)      disk-csi-driver.mks.ycloud.io  Delete         WaitForFirstConsumer  true                  12d
    ```
+
+   {% endif %}
+
+   {% note info %}
+
+   Please note that [{{ k8s }} storage classes](manage-storage-class.md) and [{{ compute-full-name }} disk types](../../../compute/concepts/disk.md#disks_types) are different concepts.
+
+   {% endnote %}
 
 ## Create a PersistentVolume object {#create-pv}
 
 1. Save the specification you used to create your `PersistentVolume` to a YAML file named `test-pv.yaml`.
 
-   More information on specifications is available in the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/).
+   For more information about the specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/).
 
-   When specifying the `capacity: storage` parameter, please make sure that exact disk size is specified. {{ CSI }} does not verify disk size for statically provisioned volumes.
+   When setting the `spec.capacity.storage` parameter, make sure you specified the exact size of the disk. {{ CSI }} doesn't validate the disk size for statically prepared volumes.
 
    To create a `PersistentVolume` from an existing cloud drive, enter its unique disk ID in the `volumeHandle` parameter.
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: PersistentVolume
    metadata:
-     name: test-pv
+     name: <PersistentVolume name>
    spec:
      capacity:
-       storage: 4Gi
+       storage: <PersistentVolume size>
      accessModes:
        - ReadWriteOnce
      csi:
        driver: disk-csi-driver.mks.ycloud.io
        fsType: ext4
-       volumeHandle: ef3ouo4sgl86740ridn6
+       volumeHandle: <disk ID>
+     storageClassName: <storage class name>
    ```
 
 1. Run the command:
@@ -65,67 +113,56 @@ Retrieve a unique identifier for the [disk](../../../compute/concepts/disk.md) t
    kubectl create -f test-pv.yaml
    ```
 
-   Result:
+   Command result:
 
-   ```
-   persistentvolume/test-pv created
+   ```text
+   persistentvolume/<PersistentVolume name> created
    ```
 
-1. View information about the `PersistentVolume` created:
+1. View information about the created `PersistentVolume`:
 
    ```bash
-   kubectl describe persistentvolume test-pv
+   kubectl describe persistentvolume <PersistentVolume name>
    ```
 
-   Result:
+   Command result:
 
-   {% if product == "yandex-cloud" %}
-
-   ```
-   Name:            test-pv
+   ```text
+   Name:            <PersistentVolume name>
    Labels:          <none>
    Annotations:     <none>
    Finalizers:      [kubernetes.io/pv-protection]
-   StorageClass:    yc-network-hdd
+   StorageClass:    <storage class name>
    Status:          Available
    ...
    ```
-
-   {% endif %}
-
-   {% if product == "cloud-il" %}
-
-   ```
-   Name:            test-pv
-   Labels:          <none>
-   Annotations:     <none>
-   Finalizers:      [kubernetes.io/pv-protection]
-   StorageClass:    yc-network-ssd
-   Status:          Available
-   ...
-   ```
-
-   {% endif %}
 
 ## Create a PersistentVolumeClaim object {#create-claim}
 
 1. Save the `PersistentVolumeClaim` creation specification to a YAML file named `test-claim.yaml`.
 
-   More information on specifications is available in the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/).
+   For more information about the specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: PersistentVolumeClaim
    metadata:
-     name: test-claim
+     name: <PersistentVolumeClaim name>
    spec:
      accessModes:
        - ReadWriteOnce
      resources:
        requests:
-         storage: 4Gi
-     volumeName: test-pv
+         storage: <PersistentVolumeClaim size>
+     storageClassName: <storage class name>
+     volumeName: <PersistentVolume name>
    ```
+
+   {% note info %}
+
+   The size of `PersistentVolumeClaim` must be less than or equal to that of `PersistentVolume`.
+
+   {% endnote %}
 
    1. Run the command:
 
@@ -133,51 +170,34 @@ Retrieve a unique identifier for the [disk](../../../compute/concepts/disk.md) t
       kubectl create -f test-claim.yaml
       ```
 
-      Result:
+      Command result:
 
-      ```
-      persistentvolumeclaim/test-claim created
+      ```text
+      persistentvolumeclaim/<PersistentVolumeClaim name> created
       ```
 
    1. View information about the `PersistentVolumeClaim` created:
 
       ```bash
-      kubectl describe persistentvolumeclaim test-claim
+      kubectl describe persistentvolumeclaim <PersistentVolumeClaim name>
       ```
 
-      Result:
+      Command result:
 
-      {% if product == "yandex-cloud" %}
-
-      ```
-      Name:          test-claim
+      ```text
+      Name:          <PersistentVolumeClaim name>
       Namespace:     default
-      StorageClass:  yc-network-hdd
+      StorageClass:  <storage class name>
       Status:        Bound
-      Volume:        test-pv
+      Volume:        <PersistentVolume name>
       ...
       ```
-
-      {% endif %}
-
-      {% if product == "cloud-il" %}
-
-      ```
-      Name:          test-claim
-      Namespace:     default
-      StorageClass:  yc-network-ssd
-      Status:        Bound
-      Volume:        test-pv
-      ...
-      ```
-
-      {% endif %}
 
 ## Create a pod with a statically provisioned volume {#create-pod}
 
-1. Save the following example to a YAML file named `test-pod.yaml`:
+1. Create a file named `test-pod.yaml` with a manifest of a pod that uses `PersistentVolumeClaim`:
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: Pod
    metadata:
@@ -194,10 +214,10 @@ Retrieve a unique identifier for the [disk](../../../compute/concepts/disk.md) t
      volumes:
      - name: persistent-storage
        persistentVolumeClaim:
-         claimName: test-claim
+         claimName: <PersistentVolumeClaim name>
    ```
 
-   More information on specifications is available in the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
+   For more information about the specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
 
 1. Run the command:
 
@@ -205,9 +225,9 @@ Retrieve a unique identifier for the [disk](../../../compute/concepts/disk.md) t
    kubectl create -f test-pod.yaml
    ```
 
-   Result:
+   Command result:
 
-   ```
+   ```text
    pod/test-pod created
    ```
 
@@ -217,22 +237,16 @@ Retrieve a unique identifier for the [disk](../../../compute/concepts/disk.md) t
    kubectl describe pod test-pod
    ```
 
-   Result:
+   Command result:
 
-   ```
+   ```text
    Name:         test-pod
    Namespace:    default
    Priority:     0
-   Node:         cl1gqrct5oier258n08t-ypap/10.0.0.9
-   Start Time:   Tue, 23 Jul 2019 18:34:57 +0300
-   Labels:       <none>
-   Annotations:  <none>
-   Status:       Pending
    ...
-   Events:
-     Type    Reason     Age   From               Message
-     ----    ------     ----  ----               -------
-     Normal  Scheduled  3s    default-scheduler  Successfully assigned default/test-pod to cl1gqrct5oier258n08t-ypap
+     ----    ------                  ----  ----                     -------
+     Normal  Scheduled               20m   default-scheduler        Successfully assigned default/test-pod to cl1jtehftl7q1umj18ll-icut
+     Normal  SuccessfulAttachVolume  20m   attachdetach-controller  AttachVolume.Attach succeeded for volume "<PersistentVolume name>"
    ```
 
-In the **{{ compute-full-name }}** management console under **Disks**, you will see the word **Active** next to the disk you're using.
+In the **{{ compute-name }}** management console under **Disks**, you will see the word **Active** next to the disk you're using.
