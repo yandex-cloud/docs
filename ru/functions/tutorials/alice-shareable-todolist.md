@@ -3,4 +3,4 @@ title: "Как создать навык Алисы – Инструкция"
 description: "В этом сценарии вы создадите навык Алисы и развернете веб-приложение, которое позволит делать, читать и редактировать списки дел с помощью Алисы, а также делиться списками с другими пользователями на сайте."
 ---
 
-{% include [alice-shareable-todolist](../../_includes/alice-shareable-todolist.md) %}
+{% include [alice-shareable-todolist](../../_tutorials/serverless/alice-shareable-todolist.md) %}

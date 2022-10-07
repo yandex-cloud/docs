@@ -18,16 +18,16 @@
 
 1. [Скачайте архив](https://storage.yandexcloud.net/doc-files/alice-shareable-todolist.zip) с файлами проекта или клонируйте [репозиторий examples](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) с помощью Git.
 
-1. [Создайте каталог](../resource-manager/operations/folder/create.md), если его еще нет. Для удобства можно использовать отдельный каталог с именем `alice-skill`.
+1. [Создайте каталог](../../resource-manager/operations/folder/create.md), если его еще нет. Для удобства можно использовать отдельный каталог с именем `alice-skill`.
 
 1. Установите и инициализируйте следующие программы:
-    * [Yandex Cloud CLI](../cli/quickstart.md);
+    * [Yandex Cloud CLI](../../cli/quickstart.md);
     * [{{ ydb-short-name }} CLI](https://ydb.tech/ru/docs/getting_started/cli);
     * [Командный интерпретатор Bash](http://www.gnu.org/software/bash/);
-    * [AWS CLI](../storage/tools/aws-cli);
+    * [AWS CLI](../../storage/tools/aws-cli);
     * [jq](https://stedolan.github.io/jq/download/);
     * [Node.js](https://nodejs.org/en/download/package-manager/);
-    * [{{ TF }}](../tutorials/infrastructure-management/terraform-quickstart).
+    * [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart).
 
 1. Для доработки проекта дополнительно потребуются:
     * [Язык программирования Go](https://go.dev/).
@@ -36,9 +36,9 @@
 
 ## Создайте ресурсы {#create-resources}
 
-1. [Создайте бакет](../storage/operations/buckets/create) в {{ objstorage-name }} с именем `frontend-statics`.
-1. [Создайте API-шлюз](../api-gateway/operations/api-gw-create) с именем `gate-1`. Для использования в конфигурации сохраните поля **Идентификатор** и **Служебный домен** из раздела **Общая информация**.
-1. [Создайте базу данных](../ydb/quickstart.md#serverless) в режиме Serverless. Для использовании в конфигурации сохраните поля **База данных** и **Эндпойнт** из раздела **YDB эндпойнт**.
+1. [Создайте бакет](../../storage/operations/buckets/create) в {{ objstorage-name }} с именем `frontend-statics`.
+1. [Создайте API-шлюз](../../api-gateway/operations/api-gw-create) с именем `gate-1`. Для использования в конфигурации сохраните поля **Идентификатор** и **Служебный домен** из раздела **Общая информация**.
+1. [Создайте базу данных](../../ydb/quickstart.md#serverless) в режиме Serverless. Для использовании в конфигурации сохраните поля **База данных** и **Эндпойнт** из раздела **YDB эндпойнт**.
 1. [Создайте приложение](https://oauth.yandex.ru/) в Яндекс.OAuth:
     1. Перейдите на [сайт сервиса](https://oauth.yandex.ru/) и авторизуйтесь.
     1. Нажмите кнопку **Зарегистрировать новое приложение**:
@@ -71,7 +71,7 @@ cp variables-template.json variables.json
 *  `oauth-client-id` — идентификатор приложения, зарегистрированного в [Яндекс.OAuth](https://oauth.yandex.ru/).
 *  `database` — база данных из конфигурации {{ ydb-name }}.
 *  `database-endpoint` — эндпойнт из конфигурации {{ ydb-name }}.
-*  `yc-profile` — [название профиля](../cli/operations/profile/profile-list.md) Yandex Cloud CLI.
+*  `yc-profile` — [название профиля](../../cli/operations/profile/profile-list.md) Yandex Cloud CLI.
 *  `secure-config-path` — путь к файлу секретов.
 *  `storage-bucket` — имя созданного бакета для хранения статических данных, `frontend-statics`.
 *  `gateway-id` — идентификатор API-шлюза.
@@ -106,14 +106,14 @@ cp secure-config-template.json secure-config.json
 
 ### Загрузите код бэкенда в {{ sf-name }} {#deploy-backend}
 
-Используйте {{ TF }} для автоматизации действий. Перед использованием [проинициализируйте его](../tutorials/infrastructure-management/terraform-quickstart#configure-provider).
+Используйте {{ TF }} для автоматизации действий. Перед использованием [проинициализируйте его](../../tutorials/infrastructure-management/terraform-quickstart#configure-provider).
 
 Для этого в папке с конфигурационным файлом app.tf выполните команду:
 ```
 terraform init
 ```
 
-После успешной инициализации выполните команду, передав значение [OAuth-токена](../iam/concepts/authorization/oauth-token) для авторизации в {{ yandex-cloud }}:
+После успешной инициализации выполните команду, передав значение [OAuth-токена](../../iam/concepts/authorization/oauth-token) для авторизации в {{ yandex-cloud }}:
 ```
 terraform apply -var-file ./variables.json -var yc-token=<OAuth token>
 ```

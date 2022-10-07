@@ -4,25 +4,25 @@ In this use case, you'll learn how to use serverless technologies and the Java S
 
 1. [Download](https://storage.yandexcloud.net/doc-files/servlet.zip) the archive with project files.
 
-1. [Create](../iam/operations/sa/create.md#create-sa) a service account and [assign](../iam/operations/roles/grant#access-to-sa) it the `viewer` and `editor` roles for your folder.
+1. [Create](../../iam/operations/sa/create.md#create-sa) a service account and [assign](../../iam/operations/roles/grant.md#access-to-sa) it the `viewer` and `editor` roles for your folder.
 
-1. Create a [bucket](../storage/concepts/bucket.md) and upload `index.html` there:
+1. Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` there:
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
     1. Select **{{ objstorage-name }}**.
     1. Click **Create bucket**.
     1. On the bucket creation page:
-        1. Enter the bucket name following the [naming conventions](../storage/concepts/bucket.md#naming).
+        1. Enter the bucket name following the [naming conventions](../../storage/concepts/bucket.md#naming).
         1. If necessary, limit the maximum bucket size.
-        1. Select the type of [access](../storage/concepts/bucket.md#bucket-access).
-        1. Select the default [storage class](../storage/concepts/storage-class.md).
+        1. Select the type of [access](../../storage/concepts/bucket.md#bucket-access).
+        1. Select the default [storage class](../../storage/concepts/storage-class.md).
         1. Click **Create bucket** to complete the operation.
     1. Click **Upload**.
     1. In the window that opens, in the project folder, select `index.html` (located at the path `src/main/resources/`) and click **Open**.
-    1. Select the [storage class](../storage/concepts/storage-class.md) for the file and click **Upload**.
+    1. Select the [storage class](../../storage/concepts/storage-class.md) for the file and click **Upload**.
 
 ## Create a database {#create-db}
 
-1. Create a database in [Serverless mode](../ydb/concepts/serverless-and-dedicated.md#serverless):
+1. Create a database in [Serverless mode](../../ydb/concepts/serverless-and-dedicated.md#serverless):
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database.
     1. Select **{{ ydb-name }}**.
     1. Click **Create database**.
@@ -82,7 +82,7 @@ In this use case, you'll learn how to use serverless technologies and the Java S
 
 ## Create functions {#create-functions}
 
-Create a [function](../functions/concepts/function.md) for each servlet:
+Create a [function](../../functions/concepts/function.md) for each servlet:
 
 {% list tabs %}
 
@@ -174,7 +174,7 @@ Create a [function](../functions/concepts/function.md) for each servlet:
 
 - API
 
-  Use the [create](../functions/functions/api-ref/Function/create) and [createVersion](../functions/functions/api-ref/Function/createVersion) API methods.
+  Use the [create](../../functions/functions/api-ref/Function/create) and [createVersion](../../functions/functions/api-ref/Function/createVersion) API methods.
 
 - {{ yandex-cloud }} Toolkit
 

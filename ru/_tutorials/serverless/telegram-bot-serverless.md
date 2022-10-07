@@ -18,21 +18,21 @@
 
 ## Перед началом работы {#before-begin}
 
-{% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки Telegram-бота входят:
-* плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../functions/pricing.md));
-* плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик (см. [тарифы {{ objstorage-name }}](../storage/pricing.md));
-* плата за количество запросов к созданному API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../api-gateway/pricing.md)).
+* плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../../functions/pricing.md));
+* плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md));
+* плата за количество запросов к созданному API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md)).
 
 
 ## Подготовьте ресурсы {#create-resources}
 
 1. [Скачайте](https://storage.yandexcloud.net/doc-files/telegrambot.zip) архив с файлами, необходимыми для создания бота.
-1. [Создайте](../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему роли `editor` и `serverless.functions.invoker` на ваш каталог. 
+1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роли `editor` и `serverless.functions.invoker` на ваш каталог. 
 
 ## Зарегистрируйте Telegram-бота {#create-bot}
 
@@ -64,7 +64,7 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../storage/concepts/bucket.md).
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
   1. Выберите сервис **{{ objstorage-short-name }}**.
   1. Нажмите кнопку **Создать бакет**.
   1. На странице создания бакета:
@@ -109,7 +109,7 @@
 
 ## Создайте API-шлюз {#create-gateway}
 
-Создайте и сконфигурируйте [API-шлюз](../api-gateway/concepts/index.md).
+Создайте и сконфигурируйте [API-шлюз](../../api-gateway/concepts/index.md).
 
 {% list tabs %}
 
@@ -140,7 +140,7 @@
       
       Где:
       * `bucket` — имя бакета;
-      * `service_account_id` — [идентификатор сервисного аккаунта](../iam/operations/sa/get-id.md), созданного ранее при [подготовке ресурсов](#create-resources).
+      * `service_account_id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md), созданного ранее при [подготовке ресурсов](#create-resources).
 
   1. Нажмите кнопку **Создать**.
   1. Выберите созданный API-шлюз. Сохраните значение поля **Служебный домен** из раздела **Общая информация**, оно потребуется в дальнейшем.
@@ -149,7 +149,7 @@
 
 ## Создайте функцию {#create-function}
 
-Чтобы Telegram-бот отвечал на команды `/start`, `/help` и отправлял изображение в ответ на любой другой текст, создайте [функцию](../functions/concepts/function.md).
+Чтобы Telegram-бот отвечал на команды `/start`, `/help` и отправлял изображение в ответ на любой другой текст, создайте [функцию](../../functions/concepts/function.md).
 
 {% list tabs %}
 
@@ -210,7 +210,7 @@
       * таймаут — `5 секунд`.
   1. Добавьте переменную окружения `BOT_TOKEN`. В поле **Значение** укажите токен Telegram-бота.
   1. Нажмите **Создать версию**.
-  1. Убедитесь, что функция [публичная](../functions/operations/function-public.md#public). Для этого на странице **Обзор**, в разделе **Общая информация**, переведите переключатель **Публичная функция** в активное состояние.
+  1. Убедитесь, что функция [публичная](../../functions/operations/function-public.md#public). Для этого на странице **Обзор**, в разделе **Общая информация**, переведите переключатель **Публичная функция** в активное состояние.
   1. Сохраните идентификатор вашей функции, он потребуется в дальнейшем.
 
 {% endlist %}
@@ -306,6 +306,6 @@
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
-* [удалите функцию](../functions/operations/function/function-delete.md);
-* [удалите API-шлюз](../api-gateway/operations/api-gw-delete.md);
-* [удалите бакет](../storage/operations/buckets/delete.md).
+* [удалите функцию](../../functions/operations/function/function-delete.md);
+* [удалите API-шлюз](../../api-gateway/operations/api-gw-delete.md);
+* [удалите бакет](../../storage/operations/buckets/delete.md).

@@ -21,7 +21,9 @@ items:
         href: operations/api-gw-logs.md
   - name: Practical guidelines
     items:
-      - name: Deploying a web application
+      - name: All practical guidelines
+        href: tutorials/index.md
+      - name: Deploying a web application using the Java Servlet API
         href: tutorials/java-servlet-todo-list.md
       - name: Developing a skill for Alice and a website with authorization
         href: tutorials/alice-shareable-todolist.md
