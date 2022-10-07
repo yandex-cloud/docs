@@ -224,7 +224,7 @@
        deletion_protection = <защита от удаления кластера: true или false>
 
        config {
-         version = "<версия {{ PG }}: {{ versions.tf.str }}>"
+         version = "<версия {{ PG }}: {{ pg.versions.tf.str }}>"
          resources {
            resource_preset_id = "<класс хоста>"
            disk_type_id       = "<тип диска>"
@@ -294,7 +294,7 @@
        deletion_protection = <защита от удаления кластера: true или false>
 
        config {
-         version = "<версия {{ PG }}: {{ versions.tf.str }}>"
+         version = "<версия {{ PG }}: {{ pg.versions.tf.str }}>"
          resources {
            resource_preset_id = "<класс хоста>"
            disk_type_id       = "<тип диска>"
@@ -474,7 +474,7 @@
   Создайте кластер {{ mpg-name }} и сеть для него с тестовыми характеристиками:
 
   * С именем `mypg`.
-  * Версии `{{ versions.tf.latest }}`.
+  * Версии `{{ pg.versions.tf.latest }}`.
   * В окружении `PRESTABLE`.
   * В облаке с идентификатором `{{ tf-cloud-id }}`.
   * В каталоге с идентификатором `{{ tf-folder-id }}`.
@@ -514,7 +514,7 @@
     deletion_protection = true
 
     config {
-      version = {{ versions.tf.latest }}
+      version = {{ pg.versions.tf.latest }}
       resources {
         resource_preset_id = "{{ host-class }}"
         disk_type_id       = "{{ disk-type-example }}"
@@ -593,7 +593,7 @@
     deletion_protection = true
 
     config {
-      version = {{ versions.tf.latest }}
+      version = {{ pg.versions.tf.latest }}
       resources {
         resource_preset_id = "{{ host-class }}"
         disk_type_id       = "{{ disk-type-example }}"

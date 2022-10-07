@@ -1,6 +1,6 @@
 # Все сценарии
 
-* [{#T}](./1c-postgresql.md)
+* [Создание кластера {{ PG }} для <q>1С:Предприятия</q>](./1c-postgresql.md)
 {% if audience != "internal" and product == "yandex-cloud" %}
 * [{#T}](./sqoop.md)
 {% endif %}

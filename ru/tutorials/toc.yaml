@@ -207,8 +207,14 @@ items:
       - name: Миграция базы данных из {{ mmy-full-name }} в сторонний кластер {{ MY }}
         href: dataplatform/mmy-to-mysql-migration.md
         # PG
+      - name: Создание кластера {{ PG }} для 1С
+        href: dataplatform/1c-postgresql.md
+      - name: Анализ производительности и оптимизация {{ mpg-name }}
+        href: dataplatform/mpg-profiling.md
       - name: Миграция базы данных из стороннего кластера {{ PG }} в кластер {{ mpg-full-name }}
         href: dataplatform/postgresql-data-migration.md
+      - name: Миграция базы данных из {{ mpg-name }}
+        href: dataplatform/outbound-replication.md
         # RD
       - name: Миграция базы данных из стороннего кластера {{ RD }} в {{ mrd-full-name }}
         href: dataplatform/redis-data-migration.md

@@ -56,6 +56,9 @@
 
 ## {{ PG }} {#postgresql}
 
+* [Creating a {{ PG }} cluster for <q>1C:Enterprise</q>](1c-postgresql.md)
+* [{#T}](mpg-profiling.md)
+* [{#T}](outbound-replication.md)
 * [{#T}](postgresql-data-migration.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](./data-transfer-mpg.md)

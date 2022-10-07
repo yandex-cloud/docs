@@ -65,6 +65,9 @@
 
 ## {{ PG }} {#postgresql}
 
+* [Создание кластера {{ PG }} для <q>1С:Предприятия</q>](1c-postgresql.md)
+* [{#T}](mpg-profiling.md)
+* [{#T}](outbound-replication.md)
 * [{#T}](postgresql-data-migration.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](./data-transfer-mpg.md)
