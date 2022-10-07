@@ -8,9 +8,9 @@
 
 1. [Скачайте](https://storage.yandexcloud.net/doc-files/slackbot.zip) архив с файлами, необходимыми для создания бота. 
 
-1. Если у вас еще нет каталога, [создайте](../resource-manager/operations/folder/create.md) его.
+1. Если у вас еще нет каталога, [создайте](../../resource-manager/operations/folder/create.md) его.
 
-1. [Создайте](../iam/operations/sa/create.md#create-sa) сервисный аккаунт и [назначьте](../iam/operations/roles/grant.md#access-to-sa) ему роль `editor` на ваш каталог. 
+1. [Создайте](../../iam/operations/sa/create.md#create-sa) сервисный аккаунт и [назначьте](../../iam/operations/roles/grant.md#access-to-sa) ему роль `editor` на ваш каталог. 
 
 ## Создайте приложение и подключите его к {{ yandex-cloud }} {#app}
 
@@ -30,11 +30,11 @@
 
 ### Настройте связь между Slack и {{ yandex-cloud }} {#connect-app}
 
-1. [Создайте](../api-gateway/operations/api-gw-create.md) API-шлюз с именем `for-slack-bot`.
+1. [Создайте](../../api-gateway/operations/api-gw-create.md) API-шлюз с именем `for-slack-bot`.
 
-1. [Создайте](../functions/operations/function/function-create.md) функцию с именем `for-slack-bot-challenge`. Убедитесь, что она [приватная](../functions/operations/function-public.md#private).
+1. [Создайте](../../functions/operations/function/function-create.md) функцию с именем `for-slack-bot-challenge`. Убедитесь, что она [приватная](../../functions/operations/function-public.md#private).
 
-1. [Создайте](../functions/operations/function/version-manage.md#version-create) версию функции:
+1. [Создайте](../../functions/operations/function/version-manage.md#version-create) версию функции:
    1. Создайте файл `index.py` и вставьте в него содержимое файла `0_for-slack-bot-challenge.py` из [архива](#start).
    1. Укажите:
       * среду выполнения `python37`; 
@@ -42,7 +42,7 @@
       * таймаут 5 секунд;
       * сервисный аккаунт.
 
-1. [Отредактируйте](../api-gateway/operations/api-gw-update.md) API-шлюз `for-slack-bot`. Добавьте в параметр `paths` конфигурацию метода `POST`:
+1. [Отредактируйте](../../api-gateway/operations/api-gw-update.md) API-шлюз `for-slack-bot`. Добавьте в параметр `paths` конфигурацию метода `POST`:
     ```
     paths:
       /:
@@ -87,9 +87,9 @@
 
 Ответы на команды и сообщения в чате бот будет брать из {{ ydb-name }}. Для этого подготовьте таблицу:
 
-1. [Создайте]{% if audience == "external" %}(../ydb/quickstart.md#serverless){% else %}(https://cloud.yandex.ru/docs/ydb/quickstart#serverless){% endif %} базу данных с именем `for-slack-bot` в режиме Serverless.
+1. [Создайте]{% if audience == "external" %}(../../ydb/quickstart.md#serverless){% else %}(https://cloud.yandex.ru/docs/ydb/quickstart#serverless){% endif %} базу данных с именем `for-slack-bot` в режиме Serverless.
 
-1. В базе `for-slack-bot` [создайте]{% if audience == "external" %}[](../ydb/operations/schema.md#create-table){% else %}(https://cloud.yandex.ru/docs/ydb/operations/schema#create-table){% endif %} YDB-таблицу с именем `coffee`:
+1. В базе `for-slack-bot` [создайте]{% if audience == "external" %}[](../../ydb/operations/schema.md#create-table){% else %}(https://cloud.yandex.ru/docs/ydb/operations/schema#create-table){% endif %} YDB-таблицу с именем `coffee`:
    1. Перейдите на вкладку **Навигация**.
    1. В правом верхнем углу нажмите кнопку **SQL-запрос**. Откроется страница **Запрос**.
    1. В поле **Запрос** введите:
@@ -103,7 +103,7 @@
           ```
    1. Нажмите кнопку **Выполнить**.
 
-1. [Добавьте]{% if audience == "external" %}(../ydb/operations/crud.md#web-sql){% else %}(https://cloud.yandex.ru/docs/ydb/operations/crud#web-sql){% endif %} в таблицу запись. Например, укажите название сорта кофе и id = 1.
+1. [Добавьте]{% if audience == "external" %}(../../ydb/operations/crud.md#web-sql){% else %}(https://cloud.yandex.ru/docs/ydb/operations/crud#web-sql){% endif %} в таблицу запись. Например, укажите название сорта кофе и id = 1.
 
 ## Создайте функции {#create-functions}
 
@@ -114,9 +114,9 @@
 
 ### Функция для обмена сообщениями {#message-func}
 
-1. [Создайте](../functions/operations/function/function-create.md) функцию с именем `for-slack-bot-small-talk`. Убедитесь, что она [приватная](../functions/operations/function-public.md#private).
+1. [Создайте](../../functions/operations/function/function-create.md) функцию с именем `for-slack-bot-small-talk`. Убедитесь, что она [приватная](../../functions/operations/function-public.md#private).
 
-1. [Создайте](../functions/operations/function/version-manage.md#version-create) версию функции:
+1. [Создайте](../../functions/operations/function/version-manage.md#version-create) версию функции:
    1. Создайте файл `requirements.txt` и укажите в нем библиотеки:
       ```
       slack_sdk
@@ -135,9 +135,9 @@
    
 ### Функция для реагирования на команду {#command-func}
 
-1. [Создайте](../functions/operations/function/function-create.md) функцию с именем `for-slack-bot-hello-from-serverless`. Убедитесь, что она [приватная](../functions/operations/function-public.md#private).
+1. [Создайте](../../functions/operations/function/function-create.md) функцию с именем `for-slack-bot-hello-from-serverless`. Убедитесь, что она [приватная](../../functions/operations/function-public.md#private).
 
-1. [Создайте](../functions/operations/function/version-manage.md#version-create) версию функции:
+1. [Создайте](../../functions/operations/function/version-manage.md#version-create) версию функции:
    1. Создайте файл `requirements.txt` и укажите в нем библиотеки:
       ```
       slack_sdk
@@ -156,9 +156,9 @@
 
 ### Функция для выбора ответа на команду {#db-func}
 
-1. [Создайте](../functions/operations/function/function-create.md) функцию с именем `for-slack-bot-what-kind-of-coffee`. Убедитесь, что она [приватная](../functions/operations/function-public.md#private).
+1. [Создайте](../../functions/operations/function/function-create.md) функцию с именем `for-slack-bot-what-kind-of-coffee`. Убедитесь, что она [приватная](../../functions/operations/function-public.md#private).
 
-1. [Создайте](../functions/operations/function/version-manage.md#version-create) версию функции:
+1. [Создайте](../../functions/operations/function/version-manage.md#version-create) версию функции:
    1. Создайте файл `requirements.txt` и укажите в нем библиотеки и номер версии **{{ ydb-name }}**:
       ```
       slack_sdk
@@ -182,7 +182,7 @@
 
 ## Отредактируйте API-шлюз {#create-api-gw}
 
-Чтобы бот начал отвечать на сообщения пользователей, созданные функции необходимо связать с приложением. Для этого [отредактируйте](../api-gateway/operations/api-gw-update.md) API-шлюз `for-slack-bot` и добавьте в параметр `paths` конфигурации метода `POST`:
+Чтобы бот начал отвечать на сообщения пользователей, созданные функции необходимо связать с приложением. Для этого [отредактируйте](../../api-gateway/operations/api-gw-update.md) API-шлюз `for-slack-bot` и добавьте в параметр `paths` конфигурации метода `POST`:
 ```
 paths:
   /:

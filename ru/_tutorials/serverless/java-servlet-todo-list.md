@@ -4,26 +4,26 @@
 
 1. [Скачайте](https://storage.yandexcloud.net/doc-files/servlet.zip) архив с файлами проекта.
 
-1. [Создайте](../iam/operations/sa/create.md#create-sa) сервисный аккаунт и [назначьте](../iam/operations/roles/grant#access-to-sa) ему роли `viewer` и `editor` на ваш каталог.
+1. [Создайте](../../iam/operations/sa/create.md#create-sa) сервисный аккаунт и [назначьте](../../iam/operations/roles/grant#access-to-sa) ему роли `viewer` и `editor` на ваш каталог.
 
-1. Создайте [бакет](../storage/concepts/bucket.md) и загрузите в него файл `index.html`:
+1. Создайте [бакет](../../storage/concepts/bucket.md) и загрузите в него файл `index.html`:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
     1. Выберите сервис **{{ objstorage-name }}**.
     1. Нажмите кнопку **Создать бакет**.
     1. На странице создания бакета:
-        1. Введите имя бакета в соответствии с [правилами именования](../storage/concepts/bucket.md#naming).
+        1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
         1. При необходимости ограничьте максимальный размер бакета.
-        1. Выберите тип [доступа](../storage/concepts/bucket.md#bucket-access).
-        1. Выберите [класс хранилища](../storage/concepts/storage-class.md) по умолчанию.
+        1. Выберите тип [доступа](../../storage/concepts/bucket.md#bucket-access).
+        1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию.
         1. Нажмите кнопку **Создать бакет** для завершения операции.
     1. Нажмите кнопку **Загрузить**.
     1. В появившемся окне выберите в папке с проектом файл `index.html` (находится по пути `src/main/resources/`) и нажмите кнопку **Открыть**.
-    1. Выберите [класс хранилища](../storage/concepts/storage-class.md) для файла и нажмите кнопку **Загрузить**.
+    1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) для файла и нажмите кнопку **Загрузить**.
 
 ## Создайте базу данных {#create-db}
 
-1. Создайте базу данных в [режиме Serverless](../ydb/concepts/serverless-and-dedicated#serverless):
+1. Создайте базу данных в [режиме Serverless](../../ydb/concepts/serverless-and-dedicated#serverless):
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать базу данных.
     1. Выберите сервис **{{ ydb-name }}**.
@@ -79,7 +79,7 @@
 
 ## Создайте функции {#create-functions}
 
-Создайте [функцию](../functions/concepts/function.md) для каждого сервлета:
+Создайте [функцию](../../functions/concepts/function.md) для каждого сервлета:
 
 {% list tabs %}
 
@@ -171,7 +171,7 @@
 
 - API
 
-  Воспользуйтесь API методами [create](../functions/functions/api-ref/Function/create) и [createVersion](../functions/functions/api-ref/Function/createVersion).
+  Воспользуйтесь API методами [create](../../functions/functions/api-ref/Function/create) и [createVersion](../../functions/functions/api-ref/Function/createVersion).
 
 - Yandex Cloud Toolkit
 

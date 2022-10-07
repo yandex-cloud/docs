@@ -306,9 +306,17 @@ items:
       - name: Storing application runtime logs
         href: serverless/log-ingestion.md
         when: audience == "external"
+      - name: Deploying a web application using the Java Servlet API
+        href: serverless/java-servlet-todo-list.md
+      - name: Developing a Slack bot
+        href: serverless/slack-bot-serverless.md
+      - name: Developing a Telegram bot
+        href: serverless/telegram-bot-serverless.md
       - name: Developing user integration in {{ api-gw-name }}
         href: serverless/api-gw-integration.md
         when: audience == "external"
       - name: Developing CRUD APIs for movie services
         href: serverless/movies-database.md
         when: audience == "external"
+      - name: Developing a skill for Alice and a website with authorization
+        href: serverless/alice-shareable-todolist.md

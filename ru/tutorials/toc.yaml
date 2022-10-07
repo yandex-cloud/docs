@@ -324,9 +324,17 @@ items:
       - name: Хранение журналов работы приложения
         href: serverless/log-ingestion.md
         when: audience == "external"
+      - name: Развертывание веб-приложения с использованием Java Servlet API
+        href: serverless/java-servlet-todo-list.md
+      - name: Разработка Slack-бота
+        href: serverless/slack-bot-serverless.md
+      - name: Разработка Telegram-бота
+        href: serverless/telegram-bot-serverless.md
       - name: Разработка пользовательской интеграции в {{ api-gw-name }}
         href: serverless/api-gw-integration.md
         when: audience == "external"
       - name: Разработка CRUD API для сервиса фильмов
         href: serverless/movies-database.md
         when: audience == "external"
+      - name: Разработка навыка Алисы и сайта с авторизацией
+        href: serverless/alice-shareable-todolist.md
