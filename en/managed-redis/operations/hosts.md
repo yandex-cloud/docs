@@ -20,8 +20,8 @@ You can add and remove cluster hosts and manage their settings.
    To get a list of cluster hosts, run the command:
 
    ```bash
-   {{ yc-mdb-rd }} host list\
-      --cluster-name <cluster name>
+   {{ yc-mdb-rd }} host list \
+      --cluster-name=<cluster name>
    ```
 
    {% if audience == "external" %}
@@ -324,8 +324,8 @@ If the host is the master when deleted, {{ mrd-short-name }} automatically assig
    To remove a host from the cluster, run:
 
    ```bash
-   {{ yc-mdb-rd }} host delete <hostname>
-      --cluster-name <cluster name>
+   {{ yc-mdb-rd }} host delete <hostname> \
+      --cluster-name=<cluster name>
    ```
 
    The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
