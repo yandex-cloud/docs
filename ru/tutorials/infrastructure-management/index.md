@@ -16,12 +16,23 @@
 {% endif %}
 {% if product == "yandex-cloud" %}
 * [Резервное копирование ВМ с помощью Hystax Acura Backup](hystax-backup.md)
-{% endif %}
-{% if product == "yandex-cloud" %}
 * [Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}](fault-tolerance.md)
+* [Создание SAP-программы в {{ yandex-cloud }}](sap.md)
+{% endif %}
+* [Настройка синхронизации часов с помощью NTP](ntp.md)
+{% if product == "yandex-cloud" %}
+* [Работа с группой виртуальных машин с автоматическим масштабированием](vm-autoscale.md)
+* [Масштабирование группы виртуальных машин по расписанию](vm-scale-scheduled.md)
+{% endif %}
+* [Автоматическое масштабирование группы виртуальных машин для обработки сообщений из очереди {{ message-queue-full-name }}](autoscale-monitoring.md)
+{% if product == "yandex-cloud" %}
+* [Обновление группы виртуальных машин под нагрузкой](updating-under-load.md)
+{% endif %}
+{% if product == "cloud-il" %}
+* [Развертывание Remote Desktop Gateway](rds-gw.md)
 {% endif %}
 {% if product == "yandex-cloud" %}
-* [Создание SAP-программы в {{ yandex-cloud }}](sap.md)
+* [Передача логов с ВМ в {{ cloud-logging-full-name }}](vm-fluent-bit-logging.md)
 {% endif %}
 * [Настройка локального кеширующего DNS-резолвера](local-dns-cache.md)
 {% if product == "yandex-cloud" %}

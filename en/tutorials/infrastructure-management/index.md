@@ -10,6 +10,15 @@
 {% if product == "yandex-cloud" %}
 * [Emergency recovery to {{ yandex-cloud }} using Hystax Acura](hystax-disaster-recovery.md)
 {% endif %}
+* [Configuring clock synchronization using NTP](ntp.md)
+{% if product == "yandex-cloud" %}
+* [Running instance groups with auto scaling](vm-autoscale.md)
+{% endif %}
+* [Automatically scaling an instance group for handling messages from a queue in {{ message-queue-full-name }}](autoscale-monitoring.md)
+{% if product == "yandex-cloud" %}
+* [Updating an instance group under load](updating-under-load.md)
+* [Transferring logs from a VM instance to {{ cloud-logging-full-name }}](vm-fluent-bit-logging.md)
+{% endif %}
 {% if product == "yandex-cloud" %}
 * [Creating a VM backup with Hystax Acura Backup](hystax-backup.md)
 {% endif %}

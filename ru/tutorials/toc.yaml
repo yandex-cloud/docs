@@ -116,6 +116,22 @@ items:
       - name: Защита от сбоев с помощью Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
         when: product == "yandex-cloud"
+      - name: Настройка синхронизации времени NTP
+        href: infrastructure-management/ntp.md
+      - name: Работа с группой ВМ с автоматическим масштабированием
+        href: infrastructure-management/vm-autoscale.md
+        when: product == "yandex-cloud"
+      - name: Автомасштабирование группы ВМ по расписанию
+        href: infrastructure-management/vm-scale-scheduled.md
+        when: product == "yandex-cloud"
+      - name: Автомасштабирование группы ВМ для обработки сообщений из очереди
+        href: infrastructure-management/autoscale-monitoring.md
+      - name: Обновление группы ВМ под нагрузкой
+        href: infrastructure-management/updating-under-load.md
+        when: product == "yandex-cloud"
+      - name: Передача логов с ВМ в Yandex Cloud Logging
+        href: infrastructure-management/vm-fluent-bit-logging.md
+        when: product == "yandex-cloud"
       - name: Резервное копирование ВМ с помощью Hystax Acura Backup
         href: infrastructure-management/hystax-backup.md
         when: product == "yandex-cloud"
