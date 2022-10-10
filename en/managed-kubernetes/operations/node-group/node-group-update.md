@@ -20,12 +20,18 @@ You can change the following parameters of a [node group](../../concepts/index.m
 * Computing resources and node disk size.
 * [Update](../../concepts/release-channels-and-updates.md#updates) policy.
 
+{% note alert %}
+
+Do not update the names of virtual machines that belong to a {{ managed-k8s-name }} cluster. This will disrupt the operation of the node group and the entire cluster.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Management console
 
   To change a [node group](../../concepts/index.md#node-group):
-  1. Select **{{ managed-k8s-name }}** in the folder where you want to change the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
+  1. Open **{{ managed-k8s-name }}** in the folder where you want to change the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
   1. Click on the name of the desired cluster.
   1. Go to the **Node group** tab.
   1. Click **Edit** in the upper-right corner.
@@ -54,11 +60,11 @@ You can change the following parameters of a [node group](../../concepts/index.m
     * `standard`: no acceleration.
     * `software-accelerated`: Software-accelerated network.
 
-    {% note warning %}
+      {% note warning %}
 
-    Prior to activating a software-accelerated network, please make sure that you have sufficient [cloud resources available](../../concepts/limits.md) to create an additional node.
+      Before activating a software-accelerated network, make sure that you have sufficient [cloud resources available](../../concepts/limits.md) to create an additional node.
 
-    {% endnote %}
+      {% endnote %}
 
   * `--latest-revision`: get all available updates for current version of [master](../../concepts/index.md#master).
   * `--auto-upgrade`: Manage automatic updates.
@@ -69,11 +75,11 @@ You can change the following parameters of a [node group](../../concepts/index.m
 
   {% note warning %}
 
-  * The `user-data` metadata switch is not supported for virtual machine post-configuration or user data transmission.
+  * The `user-data` metadata key is not supported for VM post-configuration or user data transmission.
   * To manage SSH keys, [use the `ssh-keys` key](../../../compute/concepts/vm-metadata.md).
   * For post-configuring nodes, use privileged DaemonSets. For example, [sysctl-tuner](https://github.com/elemir/yc-recipes/tree/master/sysctl-tuner).
 
-   {% endnote %}
+  {% endnote %}
 
 - {{ TF }}
 
@@ -104,7 +110,7 @@ You can change the following parameters of a [node group](../../concepts/index.m
 
 - Management console
 
-  1. Go to the folder page and select **{{ compute-name}}**.
+  1. Go to the folder page and select **{{ compute-name }}**.
   1. Click the name of the desired VM.
   1. Under **Network**, click ![options](../../../_assets/horizontal-ellipsis.svg) and select **Add public IP address**.
   1. Specify the appropriate settings and click **Add**.
@@ -159,7 +165,7 @@ You can perform the following actions with node group [labels](../../../overview
   yc managed-kubernetes node-group add-labels my-node-group --labels new_label=test_label
   ```
 
-  Result:
+  Command result:
 
   ```bash
   done (28s)
@@ -216,7 +222,7 @@ You can perform the following actions with node group [labels](../../../overview
   yc managed-kubernetes node-group update my-node-group --labels test_label=my_ng_label
   ```
 
-  Result:
+  Command result:
 
   ```bash
   done (3s)
@@ -268,7 +274,7 @@ You can perform the following actions with node group [labels](../../../overview
   yc managed-kubernetes node-group remove-labels my-node-group --labels test_label
   ```
 
-  Result:
+  Command result:
 
   ```bash
   done (2s)
