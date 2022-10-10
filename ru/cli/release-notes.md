@@ -1,14 +1,46 @@
 # Релизы YC CLI
 
-## Версия 0.96.0 (19.09.22) {#latest-release}
+## Текущая версия {#latest-release}
 
-### Изменения в CLI {#cli}
+### Версия 0.97.0 (10.10.22) {#version0.97.0}
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 {% if product == "yandex-cloud" and audience != "internal" %}
 
-#### {{ alb-name }} {#alb}
+##### {{ api-gw-name }} {#api-gw}
+
+* Параметр `domainId` команды `add-domain` больше не поддерживается.
+
+{% endif %}
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+{% if product == "yandex-cloud" %}
+
+**{{ mgp-name }}**
+
+* Добавлена команда `yc managed-greenplum cluster expand`, которая позволяет расширить существующий кластер {{ mgp-name }}. Параметры команды:
+
+  * `--segment-host-count` — количество добавляемых в кластер хостов;
+  * `--add-segments-per-host-count` — количество сегментов, добавляемых на каждый хост кластера;
+  * `--duration-seconds` — максимальная длительность сеанса распределения данных в секундах.
+
+{% endif %}
+
+**{{ mkf-name }}**
+
+* Прекращена поддержка {{ KF }} версий 2.1 и 2.6.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.96.0 (19.09.22) {#version0.96.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+{% if product == "yandex-cloud" and audience != "internal" %}
+
+##### {{ alb-name }} {#alb}
 
 * Добавлена команда `yc application-load-balancer load-balancer autoscale` для управления количеством ресурсных единиц балансировщика.
   В команду есть параметры:
@@ -27,7 +59,7 @@
 
 {% if audience != "internal" %}
 
-#### {{ compute-name }} {#compute}
+##### {{ compute-name }} {#compute}
 
 * Добавлена группа команд `yc compute snapshot-schedule` для управления снимками диска по расписанию.
 * В команду `yc compute instance create` добавлен флаг `--metadata-options` для управления доступом к метаданным ВМ.
@@ -36,13 +68,13 @@
 
 {% if audience != "internal" %}
 
-##### {{ dns-name }} {#dns}
+###### {{ dns-name }} {#dns}
 
 * Команда `yc dns zone list-records` теперь имеет фильтрацию по имени и типу записи с помощью параметров `--record-name` и `--record-type`.
 
 {% endif %}
 
-#### Изменения в сервисах управляемых баз данных {#managed-db}
+##### Изменения в сервисах управляемых баз данных {#managed-db}
 
 **{{ mpg-name }}**
 
@@ -50,7 +82,7 @@
 
 {% if product == "yandex-cloud" and audience != "internal" %}
 
-#### {{ iot-name }} {#iot}
+##### {{ iot-name }} {#iot}
 
 * Добавлена группа команд `yc iot broker` для управления MQTT-брокером.
 
@@ -58,28 +90,26 @@
 
 {% if product == "yandex-cloud" and audience != "internal" %}
 
-#### {{ sf-name }} {#serverless-functions}
+##### {{ sf-name }} {#serverless-functions}
 
 Добавлены команды:
 
 * `yc serverless trigger create iot-broker` — для создания триггеров для MQTT-брокеров.
 * `yc serverless trigger create mail` — для создания триггеров для почты.
-  
+
 В команду `yc serverless function version create` добавлен параметр `--secret` для добавления [секретов](../lockbox/) к версии.
 
 {% endif %}
 
 {% if product == "yandex-cloud" and audience != "internal" %}
 
-#### {{ serverless-containers-name }} {#serverless-containers}
+##### {{ serverless-containers-name }} {#serverless-containers}
 
 В команду `yc serverless container revision deploy` добавлены флаги:
 * `--secret` — для добавления секретов к ревизии;
 * `--min-instances` — чтобы указать минимальное количество подготовленных экземпляров контейнера.
 
 {% endif %}
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.95.0 (02.09.22) {#version0.95.0}
 
