@@ -247,6 +247,14 @@ default:
       auditor: managed-elasticsearch.auditor
       editor: managed-elasticsearch.editor
       viewer: managed-elasticsearch.viewer
+    mch:
+      admin: managed-clickhouse.admin
+      auditor: managed-clickhouse.auditor
+      editor: managed-clickhouse.editor
+      oncall: managed-clickhouse.onCall
+      support: managed-clickhouse.support
+      supportadmin: managed-clickhouse.supportAdmin
+      viewer: managed-clickhouse.viewer
   roles-admin: admin
   roles-owner: owner
   roles-editor: editor
