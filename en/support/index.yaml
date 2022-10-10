@@ -6,13 +6,11 @@ title:
 description:
   - text:
       - >-
-        Technical support for Yandex Cloud is provided in accordance with the <a
-        href="https://yandex.ru/legal/cloud_technicalregulations">Maintenance
-        Regulations</a> in Russian and English.
+        Yandex Cloud provides technical support in Russian and English in accordance with the <a href="https://yandex.ru/legal/cloud_technicalregulations">Maintenance Regulations (in Russian)</a>.
     when: product == "yandex-cloud"
   - text:
       - >-
-        Technical support for CloudIL is provided in English.
+        CloudIL provides technical support in English.
     when: product == "cloud-il"
 meta:
   title:
