@@ -7,9 +7,46 @@
 1. [{#T}](#create-snapshot).
 1. [{#T}](#restore-from-snapshot).
 
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте кластер {{ managed-k8s-name }} ](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации с версией {{ k8s }} не ниже 1.20.
+1. Создайте ресурсы {{ k8s }}:
+
+   {% list tabs %}
+
+   - Вручную
+
+     [Создайте кластер {{ managed-k8s-name }} ](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации с версией {{ k8s }} не ниже 1.20.
+
+   - С помощью {{ TF }}
+
+     1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+     1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf). В файле описаны:
+        * Сеть.
+        * Подсеть.
+        * Группа безопасности по умолчанию и правила, необходимые для работы кластера:
+          * Правила для служебного трафика.
+          * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` (через порты 443 и 6443).
+        * Кластер {{ managed-k8s-name }}.
+        * Сервисный аккаунт, необходимый для создания кластера и группы узлов {{ managed-k8s-name }}.
+     1. Укажите в файле конфигурации [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+     1. Выполните команду `terraform init` в директории с конфигурационными файлами. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
+     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+        ```bash
+        terraform validate
+        ```
+
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+     1. Создайте необходимую инфраструктуру:
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+   {% endlist %}
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -264,7 +301,7 @@
    kubectl get pod pod-restore
    ```
 
-1.  Убедитесь, что новый `PersistentVolumeClaim` перешел в состояние `Bound`:
+1. Убедитесь, что новый `PersistentVolumeClaim` перешел в состояние `Bound`:
 
    ```bash
    kubectl get pvc pvc-restore
@@ -287,6 +324,32 @@
 ## Удалите созданные ресурсы {#clear-out}
 
 Если созданные ресурсы вам больше не нужны, удалите их:
-1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. Удалите кластер {{ managed-k8s-name }}:
+
+   {% list tabs %}
+
+   - Вручную
+
+     [Удалите кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+
+   - С помощью {{ TF }}
+
+     1. В командной строке перейдите в каталог, в котором расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+     1. Удалите ресурсы с помощью команды:
+
+        ```bash
+        terraform destroy
+        ```
+
+        {% note alert %}
+
+        {{ TF }} удалит все ресурсы, которые были созданы с его помощью: кластеры, сети, подсети, виртуальные машины и т. д.
+
+        {% endnote %}
+
+     1. Подтвердите удаление ресурсов.
+
+   {% endlist %}
+
 1. Если вы зарезервировали для кластера публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
 1. [Удалите снимок диска](../../compute/operations/snapshot-control/delete.md).
