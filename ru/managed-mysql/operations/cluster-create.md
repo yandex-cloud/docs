@@ -329,7 +329,11 @@
 
      1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
+     {% if product == "yandex-cloud" %}
+
      1. {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
+
+     {% endif %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mmy }}).
 

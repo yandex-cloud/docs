@@ -93,7 +93,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
       ```
       {{ yc-mdb-my }} cluster update <cluster name>
-           --resource-preset <class ID>
+        --resource-preset <class ID>
       ```
 
       {{ mmy-short-name }} will run the update host class command for the cluster.
@@ -134,6 +134,9 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    * The desired host class in the `configSpec.resources.resourcePresetId` parameter. To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
+   * List of settings to update (`configSpec.resources.resourcePresetId` in this case) in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -211,9 +214,9 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    * Storage size in the `configSpec.resources.diskSize` parameter.
-   * List of cluster configuration fields to be changed in the `updateMask` parameter.
+   * List of cluster configuration fields to update in the `updateMask` parameter (`configSpec.resources.diskSize` in this case).
 
-      {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -226,7 +229,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel. 
+   1. Select the cluster and click **Edit cluster** in the top panel.
    1. Change the [{{ MY }} settings](../concepts/settings-list.md#dbms-cluster-settings) by clicking **Configure** under **DBMS settings**:
    1. Click **Save**.
    1. Click **Save changes**.
@@ -251,7 +254,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
       ```
       {{ yc-mdb-my }} cluster update-config <cluster name>
-           --set log_min_duration_statement=100,<parameter name>=<value>,...
+         --set log_min_duration_statement=100,<parameter name>=<value>,...
       ```
 
       {{ mmy-short-name }} runs the update cluster settings operation.
@@ -294,6 +297,9 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    * An array with new {{ MY }} settings in the following parameter:
       * `configSpec.mysqlConfig_5_7.sqlMode` for {{ MY }} 5.7.
       * `configSpec.mysqlConfig_8_0.sqlMode` for {{ MY }} 8.0.
+   * List of cluster configuration fields to update in the `UpdateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -304,7 +310,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel. 
+   1. Select the cluster and click **Edit cluster** in the top panel.
    1. Change additional cluster settings:
 
       {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
@@ -332,10 +338,10 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
         --backup-window-start <backup start time> \
         --datalens-access=<true or false> \
         --maintenance-window type=<maintenance type: anytime or weekly>,`
-                           `day=<day of the week for the weekly type>,`
-                           `hour=<hour of the day for the weekly type> \
+                            `day=<day of week for weekly>,`
+                            `hour=<hour for weekly> \
         --websql-access=<true or false> \
-        --deletion-protection=<protection from cluster deletion: true or false>
+        --deletion-protection=<cluster deletion protection: true or false>
       ```
 
       {% endif %}
@@ -346,9 +352,9 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       {{ yc-mdb-my }} cluster update <cluster name> \
         --backup-window-start <backup start time> \
         --maintenance-window type=<maintenance type: anytime or weekly>,`
-                           `day=<day of the week for the weekly type>,`
-                           `hour=<hour of the day for the weekly type> \
-        --deletion-protection=<protection from cluster deletion: true or false>
+                            `day=<day of week for weekly>,`
+                            `hour=<hour for weekly> \
+        --deletion-protection=<cluster deletion protection: true or false>
       ```
 
       {% endif %}
@@ -357,11 +363,13 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   {% if product == "yandex-cloud" %}*`--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).{% endif %}
+   {% if product == "yandex-cloud" %}* `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).{% endif %}
+
+   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
 
    * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-   {% if product == "yandex-cloud" %}* `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.{% endif %}
+   {% if product == "yandex-cloud" %}*`--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.{% endif %}
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -390,23 +398,11 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    {% if product == "yandex-cloud" %}
 
-   1. To allow access to [SQL queries from the management console](web-sql-query.md){% if product == "yandex-cloud" %} and [DataLens](datalens-connect.md){% endif %}, add a block named `access` to the {{ mmy-name }} cluster description:
-
-      ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
-        ...
-        access {
-          web_sql   = <true or false>
-          data_lens = <true or false>
-          ...
-        }
-        ...
-      }
-      ```
+   1. {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
 
    {% endif %}
 
-   1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
+   1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
@@ -435,19 +431,27 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter.
-   {% if product == "yandex-cloud" %}
+   * The cluster ID in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+      {% if product == "yandex-cloud" %}
    * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
-   {% endif %}
+      {% endif %}
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
-   * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
+   * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-   * List of cluster configuration fields to be changed in the `updateMask` parameter.
+   * List of settings to update in the `updateMask` parameter.
 
-      {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+   {% include [DataTransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+
+   {% if product == "yandex-cloud" %}
+
+   {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
+
+   {% endif %}
 
    You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -460,7 +464,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 - Management console
 
    1. Go to the folder page and select **{{ mmy-name }}**.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon to the right of the cluster you want to move.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon to the right of the cluster you wish to move.
    1. Click **Move**.
    1. Select the folder you want to move the cluster to.
    1. Click **Move**.
@@ -504,7 +508,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel. 
+   1. Select the cluster and click **Edit cluster** in the top panel.
    1. Under **Network settings**, select security groups for cluster network traffic.
 
 - CLI
@@ -539,7 +543,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster name>" {
         ...
-        security_group_ids = ["<security group ID list>"]
+        security_group_ids  = ["<security group ID list>"]
       }
       ```
 
@@ -559,11 +563,11 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * The list of security group IDs in the `securityGroupIds` parameter.
-   * The list of settings to update in the `updateMask` parameter.
+   * List of settings to update (`securityGroupIds` in this case) in the `updateMask` parameter.
 
-   {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
