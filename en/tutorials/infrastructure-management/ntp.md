@@ -1,0 +1,1 @@
+{% include [ntp](../../_tutorials/infrastructure-management/ntp.md) %}

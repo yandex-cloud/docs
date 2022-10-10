@@ -237,11 +237,13 @@ items:
     href: ../cos/
   - name: Практические руководства
     items:
-      - name: Настройка синхронизации времени NTP
+      - name: Все руководства
+        href: tutorials/index.md
+      - name: Настройка синхронизации часов с помощью NTP
         href: tutorials/ntp.md
-      - name: Работа с группой ВМ с автоматическим масштабированием
+      - name: Работа с группой ВМ с автомасштабированием
         href: tutorials/vm-autoscale.md
-      - name: Автомасштабирование группы ВМ по расписанию
+      - name: Масштабирование группы ВМ по расписанию
         href: tutorials/vm-scale-scheduled.md
       - name: Автомасштабирование группы ВМ для обработки сообщений из очереди
         href: tutorials/autoscale-monitoring.md

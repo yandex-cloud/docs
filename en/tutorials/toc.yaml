@@ -103,6 +103,18 @@ items:
         href: infrastructure-management/hystax-migration.md
       - name: Fault protection with Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
+      - name: Configuring NTP time synchronization
+        href: infrastructure-management/ntp.md
+      - name: Running instance groups with auto scaling
+        href: infrastructure-management/vm-autoscale.md
+      - name: >-
+          Automatically scaling an instance group for handling messages from a
+          queue
+        href: infrastructure-management/autoscale-monitoring.md
+      - name: Updating an instance group under load
+        href: infrastructure-management/updating-under-load.md
+      - name: Transferring logs from a VM instance to Yandex Cloud Logging
+        href: infrastructure-management/vm-fluent-bit-logging.md
       - name: Creating a VM backup with Hystax Acura Backup
         href: infrastructure-management/hystax-backup.md
       - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}

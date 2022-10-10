@@ -22,25 +22,61 @@ description: "Управление доступом в сервисе созда
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-{% include [roles-mdb](../../_includes/roles-mdb.md) %}
+### {{ roles-mdb-admin }} {#mdb-admin}
 
-## Какие роли мне необходимы {#required-roles}
+{% include [roles-mdb-admin](../../_includes/roles-mdb-admin.md) %}
 
-В таблице ниже перечислено, какие роли нужны для выполнения указанного действия. Вы всегда можете назначить роль, которая дает более широкие разрешения, нежели указанная. Например, назначить `{{ roles-editor }}` вместо `{{ roles-viewer }}`.
+### {{ roles-mdb-viewer }} {#mdb-viewer}
 
-Действие | Методы | Необходимые роли
------ | ----- | -----
-**Просмотр информации** | |
-Просмотр информации о кластере и связанных ресурсах | `get`, `list` | `{{ roles-viewer }}` на каталог с кластером
-Просмотр информации об управляемых базах данных кластера и логах их работы | `get`, `list` | `{{ roles-mdb-viewer }}` на каталог с кластером
-Просмотр информации об управляемых базах данных кластера (без доступа к данным и логам работы) | `get`, `list` | `{{ roles-mdb-auditor }}` на каталог с кластером
-**Управление ресурсами** | |
-Создание кластеров и бэкапов в каталоге | `create` | `{{ roles-mdb-admin }}` или `{{ roles-editor }}` на каталог
-Создание кластеров с хостами, для которых включен публичный доступ | `create` | Либо `{{ roles-vpc-public-admin }}` вместе с `{{ roles-mdb-admin }}`, либо `{{ roles-editor }}` на каталог
-Изменение, удаление кластеров и связанных ресурсов | `update`, `delete` | `{{ roles-mdb-admin }}` или `{{ roles-editor }}` на каталог с кластером
-**Управление доступом к ресурсам** | |
-[Добавление](../operations/cluster-users.md#adduser), [изменение](../operations/cluster-users.md#updateuser), [удаление](../operations/cluster-users.md#removeuser) пользователей в кластере | `create`, `update`, `delete` | `{{ roles-editor }}` на каталог с кластером
-[Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `{{ roles-admin }}` на этот каталог или облако
+{% include [roles-mdb-viewer](../../_includes/roles-mdb-viewer.md) %}
+
+### {{ roles-mdb-auditor }} {#mdb-auditor}
+
+{% include [roles-mdb-auditor](../../_includes/roles-mdb-auditor.md) %}
+
+### {{ roles-cloud-member }} {#resmgr-clouds-member}
+
+{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
+
+### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
+
+{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
+
+{% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
+
+### {{ roles-viewer }} {#viewer}
+
+{% include [roles-viewer](../../_includes/roles-viewer.md) %}
+
+### {{ roles-editor }} {#editor}
+
+{% include [roles-editor](../../_includes/roles-editor.md) %}
+
+### {{ roles-admin }} {#admin}
+
+{% include [roles-admin](../../_includes/roles-admin.md) %}
+
+### {{ roles.mch.admin }} {#mch-admin}
+
+{% include [roles-mch-admin](../../_includes/roles-mch-admin.md) %}
+
+### {{ roles.mch.auditor }} {#mch-auditor}
+
+{% include [roles-mch-auditor](../../_includes/roles-mch-auditor.md) %}
+
+### {{ roles.mch.editor }} {#mch-editor}
+
+{% include [roles-mch-editor](../../_includes/roles-mch-editor.md) %}
+
+### {{ roles.mch.viewer }} {#mch-viewer}
+
+{% include [roles-mch-viewer](../../_includes/roles-mch-viewer.md) %}
+
+## Какие роли необходимы {#required-roles}
+
+Чтобы пользоваться сервисом, необходима [роль](../../iam/concepts/access-control/roles.md) `editor` или выше на каталог, в котором создается кластер. Роль `viewer` позволит только просматривать список кластеров.
+
+Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `admin` вместо `editor`.
 
 ## Что дальше {#whats-next}
 

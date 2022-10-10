@@ -1,4 +1,4 @@
-Обработчик логов [Fluent Bit](https://fluentbit.io/) позволяет транслировать логи с [виртуальных машин](../compute/concepts/vm.md) в сервис [{{ cloud-logging-full-name }}](../logging/). Для передачи логов используется модуль [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
+Обработчик логов [Fluent Bit](https://fluentbit.io/) позволяет транслировать логи с [виртуальных машин](../../compute/concepts/vm.md) в сервис [{{ cloud-logging-full-name }}](../../logging/). Для передачи логов используется модуль [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
 
 Чтобы настроить передачу логов:
 
@@ -8,9 +8,9 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) с ролью `logging.writer`  на каталог.
-1. [Создайте ВМ](../compute/operations/vm-create/create-linux-vm.md) из публичного образа Linux. В настройках ВМ укажите сервисный аккаунт, который создали на предыдущем шаге.
-1. [Подключитесь к ВМ](../compute/operations/vm-connect/ssh.md#vm-connect) по SSH.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `logging.writer`  на каталог.
+1. [Создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) из публичного образа Linux. В настройках ВМ укажите сервисный аккаунт, который создали на предыдущем шаге.
+1. [Подключитесь к ВМ](../../compute/operations/vm-connect/ssh.md#vm-connect) по SSH.
 1. Установите на ВМ:
     * [Go не ниже версии 1.17](https://go.dev/doc/install):
         ```bash
@@ -278,7 +278,7 @@
         authorization   instance-service-account
     ```
 
-    В поле `folder_id` укажите [идентификатор каталога](../resource-manager/operations/folder/get-id.md), в [лог-группу по умолчанию](../logging/concepts/log-group.md) которого будут передаваться логи.
+    В поле `folder_id` укажите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в [лог-группу по умолчанию](../../logging/concepts/log-group.md) которого будут передаваться логи.
 1. Перезапустите сервис `td-agent-bit`:
     ```bash
     sudo systemctl restart td-agent-bit
@@ -299,9 +299,9 @@
 
 - CLI
 
-    {% include [cli-install](../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
     Чтобы посмотреть записи в лог-группе, выполните команду:
     ```
@@ -312,7 +312,7 @@
 
 - API
 
-    Посмотреть записи в лог-группе можно с помощью метода API [read](../logging/api-ref/grpc/log_reading_service.md).
+    Посмотреть записи в лог-группе можно с помощью метода API [read](../../logging/api-ref/grpc/log_reading_service.md).
 
 {% endlist %}
 
@@ -320,5 +320,5 @@
 
 Если созданные ресурсы вам больше не нужны, удалите их:
 
-1. [Удалите виртуальную машину](../compute/operations/vm-control/vm-delete.md).
-1. [Удалите лог-группу](../logging/operations/delete-group.md).
+1. [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
+1. [Удалите лог-группу](../../logging/operations/delete-group.md).

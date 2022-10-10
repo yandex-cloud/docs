@@ -1,4 +1,4 @@
-### vpc.publicAdmin {#vpc-public-admin}
+### {{ roles-vpc-public-admin }} {#vpc-public-admin}
 
 Роль `{{ roles-vpc-public-admin }}` позволяет управлять внешней связностью:
 - создавать и удалять [статические публичные IP-адреса](../vpc/concepts/address.md);

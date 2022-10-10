@@ -1,12 +1,10 @@
 title: Billing
 description:
   - >-
-    The Billing service is where you can get information about the amount of
-    resources used,
-     monitor your costs, and pay for resource consumption.
-  - |-
-    In Yandex Cloud, you only pay for resources consumed and the time of their
-     actual usage.
+    Yandex Cloud only charges for resources consumed, and the Billing section
+    provides answers to
+     all of your questions about your account balance, your service usage costs, and allows you to
+     make payments.
 meta:
   title: Billing
 links:

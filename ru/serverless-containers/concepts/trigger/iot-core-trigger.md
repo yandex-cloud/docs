@@ -1,6 +1,6 @@
 # Триггер для {{ iot-short-name }}
 
-Триггер для {{ iot-short-name }} предназначен для управления сообщениями, которыми обмениваются устройства и реестры. Он создается для топиков: принимает из них копии сообщений и передает в контейнер {{serverless-containers-name }} для обработки.
+[Триггер](../trigger/) для {{ iot-short-name }} предназначен для управления сообщениями, которыми обмениваются устройства и реестры. Он создается для [топиков](../../../iot-core/concepts/topic/index.md): принимает из них копии сообщений и передает в контейнер {{serverless-containers-name }} для обработки.
  
 {% include [trigger](../../../_includes/iot-core/trigger.md) %}
  
@@ -9,46 +9,15 @@
 ## Роли, необходимые для корректной работы триггера для {{ iot-short-name }} {#roles}
 
 * Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor) и выше.
-* Для работы триггера сервисному аккаунту необходима роль: `serverless.containers.invoker` на каталог с контейнером, который вызывает триггер.
+* Для работы триггера сервисному аккаунту необходима роль `serverless.containers.invoker` на каталог с контейнером, который вызывает триггер.
 
 Подробнее об [управлении доступом](../../security/index.md).
 
-## Формат сообщения от триггера {{ iot-short-name }} {#iot-format}
+## Формат сообщения от триггера {{ iot-short-name }} {#format}
 
 Перед тем как передать копию сообщения в контейнер, триггер приводит ее к следующему формату: 
 
-```json
-{
-    "messages": [
-        {
-            "event_metadata": {
-                 "event_id": "2153b5d2-c6af-4c69-a28d-74ce965b7613",
-                 "event_type": "yandex.cloud.events.iot.IoTMessage",
-                 "created_at": "2019-09-25T15:51:17.872320525Z"
-            },
-            "details": {
-                 "registry_id": "arenou2oj4ct42eq8g3n",
-                 "device_id": "areqjd6un3afc3cefcvm",
-                 "mqtt_topic": "$devices/areqjd6un3afc3cefcvm/events",
-                 "payload": "VGVzdCA0"
-            }
-        },
-        {
-            "event_metadata": {
-                 "event_id": "2153b5d2-c6af-4c69-a28d-74ce965b7613",
-                 "event_type": "yandex.cloud.events.iot.IoTMessage",
-                 "created_at": "2019-09-25T15:51:17.872320525Z"
-            },
-            "details": {
-                 "registry_id": "arenou2oj4ct42eq8g3n",
-                 "device_id": "areqjd6un3afc3cefcvm",
-                 "mqtt_topic": "$devices/areqjd6un3afc3cefcvm/events",
-                 "payload": "VGVzdCA0"
-            }
-        }
-    ]
-}
-```
+{% include [iot-format](../../../_includes/functions/iot-format.md) %}
 
 ## См. также {#see-also_}
 
