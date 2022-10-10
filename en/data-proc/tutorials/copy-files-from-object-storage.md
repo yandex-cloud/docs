@@ -31,10 +31,7 @@ To authenticate in {{objstorage-name}}, you can use one of the following approac
 
    For more information about these roles, see the [{{objstorage-name}} documentation](../../storage/security/index.md).
 
-> For example, get a list of files located in the `yc-mdb-examples` public bucket at the path `dataproc/example01/set01`.
->
-> 1. [Connect](../operations/connect.md) to the cluster.
-> 1. Run the command:
+> For example, get a list of files located in the `yc-mdb-examples` public bucket at the path `dataproc/example01/set01`. To do this, [connect](../operations/connect.md) to the cluster and run the command:
 >
 > ```bash
 > hadoop fs -ls s3a://yc-mdb-examples/dataproc/example01/set01
@@ -57,8 +54,12 @@ To use a secret storage provider, place the secrets within the components that n
 1. Specify the `access key` and `secret key`, for example:
 
    ```bash
-   hadoop credential create fs.s3a.access.key -value <access key> -provider localjceks://file/home/jack/yc.jceks
-   hadoop credential create fs.s3a.secret.key -value <secret key> -provider localjceks://file/home/jack/yc.jceks
+   hadoop credential create fs.s3a.access.key \
+          -value <access key> \
+          -provider localjceks://file/home/jack/yc.jceks && \
+   hadoop credential create fs.s3a.secret.key \
+          -value <secret key> \
+          -provider localjceks://file/home/jack/yc.jceks
    ```
 
 1. Copy the secrets file to your local HDFS:
