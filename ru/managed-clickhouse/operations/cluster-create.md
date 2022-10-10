@@ -94,7 +94,13 @@
 
   1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
-  1. В блоке **Хосты** укажите параметры хостов БД, создаваемых вместе с кластером. Чтобы изменить добавленный хост, наведите курсор на строку хоста и нажмите на значок ![image](../../_assets/pencil.svg).
+  1. В блоке **Хосты** укажите параметры хостов БД, создаваемых вместе с кластером. Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/pencil.svg) в строке с его номером:
+
+      * **Зона доступности** — выберите {% if audience != "internal" %}[зону доступности](../../overview/concepts/geo-scope.md){% else %}зону доступности{% endif %}.
+      * **Подсеть** — укажите {% if audience != "internal" %}[подсеть](../../vpc/concepts/network.md#subnet){% else %}подсеть{% endif %} в выбранной зоне доступности.
+      * **Публичный доступ** — разрешите [доступ](connect.md) к хосту из интернета.
+
+      Чтобы добавить хосты в кластер, нажмите кнопку **Добавить хост**.
 
   1. При необходимости задайте дополнительные настройки кластера:
      
@@ -139,7 +145,10 @@
        --name <имя кластера> \
        --environment <окружение: prestable или production> \
        --network-name <имя сети> \
-       --host type=<clickhouse или zookeeper>,zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
+       --host type=<clickhouse или zookeeper>,`
+            `zone-id=<зона доступности>,`
+            `subnet-id=<идентификатор подсети>,`
+            `assign-public-ip=<публичный доступ к хосту: true или false> \
        --clickhouse-resource-preset <класс хоста> \
        --clickhouse-disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
        --clickhouse-disk-size <размер хранилища в гигабайтах> \
@@ -159,7 +168,9 @@
         --name <имя кластера> \
         --environment <окружение, prestable или production> \
         --network-id ' ' \
-        --host type=<clickhouse или zookeeper>,zone-id=<зона доступности> \
+        --host type=<clickhouse или zookeeper>,`
+              `zone-id=<зона доступности>,`
+              `assign-public-ip=<публичный доступ к хосту: true или false> \
         --clickhouse-resource-preset <класс хоста> \
         --clickhouse-disk-type <local-ssd | local-hdd> \
         --clickhouse-disk-size <размер хранилища в гигабайтах> \
@@ -301,9 +312,10 @@
          }
 
          host {
-           type      = "CLICKHOUSE"
-           zone      = "<зона доступности>"
-           subnet_id = yandex_vpc_subnet.<имя подсети в {{ TF }}>.id
+           type             = "CLICKHOUSE"
+           zone             = "<зона доступности>"
+           subnet_id        = yandex_vpc_subnet.<имя подсети в {{ TF }}>.id
+           assign_public_ip = <публичный доступ к хосту: true или false>
          }
        }
        ```
@@ -378,6 +390,8 @@
   * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
   * Идентификатор сети в параметре `networkId`.
   * Идентификаторы групп безопасности в параметре `securityGroupIds`.
+
+  Чтобы разрешить [подключение](connect.md) к хостам кластера из интернета, передайте значение `true` в параметре `hostSpecs.assignPublicIp`.
 
   При необходимости включите управление пользователями и базами данных через SQL:
   * `configSpec.sqlUserManagement` — задайте значение `true` для включения режима [управления пользователями через SQL](cluster-users.md#sql-user-management).
