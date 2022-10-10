@@ -4,7 +4,7 @@
 
 {% if audience == "external" %}
 
-1. Убедитесь, что у очереди настроен [почтовый адрес](../manager/queue-mail.md#section_gwv_hqb_hgb) для создания задач.
+1. Убедитесь, что у очереди настроен [почтовый адрес](../manager/queue-mail.md) для создания задач.
 
 1. Убедитесь, что у вас есть [доступ к очереди](../manager/queue-access.md).
 
@@ -22,7 +22,7 @@
 
 1. Опишите задачу в теле письма.
 
-1. Отправьте письмо на адрес{% if audience == "internal" %} `<КЛЮЧ>-bugs@yandex-team.ru`, где `<КЛЮЧ>` — ключ очереди{% else %}, указанный в [настройках очереди](../manager/queue-mail.md#section_gwv_hqb_hgb){% endif %}.
+1. Отправьте письмо на адрес{% if audience == "internal" %} `<КЛЮЧ>-bugs@yandex-team.ru`, где `<КЛЮЧ>` — ключ очереди{% else %}, указанный в [настройках очереди](../manager/queue-mail.md){% endif %}.
 
 {% if audience == "external" %}В ответном письме вы получите уведомление о создании новой задачи.{% endif %}
 
