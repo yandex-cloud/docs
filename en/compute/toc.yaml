@@ -219,6 +219,8 @@ items:
     href: ../cos/
   - name: Practical guidelines
     items:
+      - name: All guidelines
+        href: tutorials/index.md
       - name: Configuring NTP time synchronization
         href: tutorials/ntp.md
       - name: Running instance groups with auto scaling

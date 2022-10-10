@@ -1,4 +1,4 @@
-The [Fluent Bit](https://fluentbit.io/) log processor lets you transfer logs from [VM instances](../compute/concepts/vm.md) to [{{ cloud-logging-full-name }}](../logging/). The [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex) module is used to transfer logs.
+The [Fluent Bit](https://fluentbit.io/) log processor lets you transfer logs from [VM instances](../../compute/concepts/vm.md) to [{{ cloud-logging-full-name }}](../../logging/). The [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex) module is used to transfer logs.
 
 To set up transfer of logs:
 
@@ -8,9 +8,9 @@ To set up transfer of logs:
 
 ## Before you start {#before-you-begin}
 
-1. [Create a service account](../iam/operations/sa/create.md) with the `logging.writer` role for the folder.
-1. [Create a VM instance](../compute/operations/vm-create/create-linux-vm.md) from the public Linux image. In the VM settings, specify the service account that you created in the previous step.
-1. [Connect to the VM instance](../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
+1. [Create a service account](../../iam/operations/sa/create.md) with the `logging.writer` role for the folder.
+1. [Create a VM instance](../../compute/operations/vm-create/create-linux-vm.md) from the public Linux image. In the VM settings, specify the service account that you created in the previous step.
+1. [Connect to the VM instance](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
 1. On the VM instance, install:
     * [Go version 1.17 or higher](https://go.dev/doc/install):
         ```bash
@@ -278,7 +278,7 @@ To set up transfer of logs:
         authorization   instance-service-account
     ```
 
-    In the `folder_id` field, specify the [ID of the folder](../resource-manager/operations/folder/get-id.md) to the [default log group](../logging/concepts/log-group.md) of which the logs will be transmitted.
+    In the `folder_id` field, specify the [ID of the folder](../../resource-manager/operations/folder/get-id.md) to the [default log group](../../logging/concepts/log-group.md) of which the logs will be transmitted.
 1. Restart the `td-agent-bit` service:
     ```bash
     sudo systemctl restart td-agent-bit
@@ -299,9 +299,9 @@ To set up transfer of logs:
 
 - CLI
 
-    {% include [cli-install](../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
     To view records in the log group, run the command:
     ```
@@ -312,7 +312,7 @@ To set up transfer of logs:
 
 - API
 
-    You can view the entries in a log group using the API [read](../logging/api-ref/grpc/log_reading_service.md) method.
+    You can view the entries in a log group using the API [read](../../logging/api-ref/grpc/log_reading_service.md) method.
 
 {% endlist %}
 
@@ -320,6 +320,6 @@ To set up transfer of logs:
 
 If you no longer need these resources, delete them:
 
-1. [Delete the VM](../compute/operations/vm-control/vm-delete.md).
-1. [Delete the log group](../logging/operations/delete-group.md).
+1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
+1. [Delete the log group](../../logging/operations/delete-group.md).
 

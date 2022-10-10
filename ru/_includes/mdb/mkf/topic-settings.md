@@ -12,7 +12,7 @@
 
 * **Compression type** {{ tag-all }} {#settings-topic-compression-type }
 
-    В консоли управления  этой настройке соответствует **Тип сжатия**.
+    В консоли управления этой настройке соответствует **Тип сжатия**.
 
     См. описание настройки уровня кластера [Compression type](#settings-compression-type).
 
@@ -48,13 +48,15 @@
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#topicconfigs_flush.ms).
 
-* **Maximum batch size** {{ tag-all }} {#settings-topic-max-message-bytes}
+* **Max message bytes** {{ tag-all }} {#settings-topic-max-message-bytes}
 
     В консоли управления этой настройке соответствует **Максимальный размер группы сообщений**.
 
-    См. описание настройки уровня кластера [Log segment bytes](#settings-log-segment-bytes).
+    См. описание настройки уровня кластера [Message max bytes](#settings-message-max-bytes).
 
-    Минимальное значение — `0`, значение по умолчанию — `1048588` (1 мегабайт).
+    Для корректной репликации между брокерами значение этой настройки должно быть меньше значения [Replica fetch max bytes](#settings-message-max-bytes).
+
+    Минимальное значение — `0`, значение по умолчанию — `1048588` (1 мегабайт).
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#max.message.bytes).
 
@@ -131,10 +133,12 @@
 
 * **Segment bytes** {{ tag-all }} {#settings-topic-segment-bytes}
 
-    Размер сегмента для файлов лога в байтах.
+    Размер сегмента для файлов лога (в байтах).
 
     Сохранение и очистка файлов сегмента выполняются пофайлово. Чем меньше заданный размер сегмента, тем больше файлов будет в логе, зато контроль над хранением будет более гибким.
 
-    Минимальное значение — `14`, значение по умолчанию — `1073741824` (1 гигабайт).
+    Минимальное значение — `14`, значение по умолчанию — `1073741824` (1 гигабайт).
+
+    См. описание настройки уровня кластера [Log segment bytes](#settings-log-segment-bytes).
 
     Подробнее см. в разделе [{#T}](../../../managed-kafka/concepts/storage.md#maximum-log-segment-size) и в [документации {{ KF }}](https://kafka.apache.org/documentation/#topicconfigs_segment.bytes).
