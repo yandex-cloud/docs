@@ -2,20 +2,18 @@ title: Billing
 description:
   - text:
     - >-
-      The Billing service is where you can get information about the amount of resources used,
-       monitor your costs, and pay for resource consumption.
-    - >-
-      In Yandex Cloud, you only pay for resources consumed and the time of their
-       actual usage.
+      Yandex Cloud only charges for resources consumed, and the Billing section provides answers to
+       all of your questions about your account balance, your service usage costs, and allows you to
+       make payments.
     when: product == "yandex-cloud"
   - text:
     - >-
-      The Billing service is where you can get information about the amount of resources used,
-       monitor your costs, and pay for resource consumption.
+      CloudIL only charges for resources consumed, and the Billing section provides answers to
+       all of your questions about your account balance, your service usage costs, and allows you to
+       make payments.
     - >-
-      CloudIL is available at the <a href="/docs/overview/concepts/launch-stages\">Preview</a> stage,
-       so you can use services free of charge. The Billing service lets you estimate the amount of resources consumed and the time of their
-      actual usage.
+      CloudIL is in <a href="/docs/overview/concepts/launch-stages\">Preview</a> mode,
+       so the services are free to use.
     when: product == "cloud-il"
 
 meta:
