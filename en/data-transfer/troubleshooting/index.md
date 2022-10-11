@@ -2,6 +2,18 @@
 
 This section describes typical problems that may arise during [transfer](../operations/transfer.md#activate) [activation](../concepts/index.md#transfer) or operation, and the relevant resolution methods.
 
+* [{#T}](#common)
+* [{#T}](#api)
+* [{#T}](#network)
+* [{#T}](#clickhouse)
+* [{#T}](#mongodb)
+* [{#T}](#mysql)
+* [{#T}](#postgresql)
+{% if product == "yandex-cloud" %}
+* [{#T}](#ydb)
+* [{#T}](#yds)
+{% endif %}
+
 Key features about preparing sources and targets for a transfer are described in the [relevant section](../operations/prepare.md).
 
 Limitations on sources and targets while a transfer is running are described in [{#T}](../operations/db-actions.md).
