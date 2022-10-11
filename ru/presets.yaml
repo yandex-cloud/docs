@@ -255,6 +255,8 @@ default:
       support: managed-clickhouse.support
       supportadmin: managed-clickhouse.supportAdmin
       viewer: managed-clickhouse.viewer
+  roles-speechkit-stt: ai.speechkit-stt.user
+  roles-speechkit-tts: ai.speechkit-tts.user
   roles-admin: admin
   roles-owner: owner
   roles-editor: editor

@@ -1,8 +1,10 @@
+{% if product == "yandex-cloud" %}
+
 #### Квоты {#speechkit-quotas}
 
 Вид ограничения | Значение
 ----- | -----
-[**Потоковый режим распознавания**](../speechkit/stt/streaming.md) API v1 |
+[**Потоковый режим распознавания**](../speechkit/stt/streaming.md) API v2 |
 Запросов в секунду | 40
 Количество одновременно запущенных потоков | 60
 [**Синхронное распознавание**](../speechkit/stt/request.md) |
@@ -14,7 +16,11 @@
 [**Синтез речи**](../speechkit/tts/request.md) |
 Запросов в секунду | 40
 
+{% endif %}
+
 #### Лимиты {#speechkit-limits}
+
+{% if product == "yandex-cloud" %}
 
 Вид ограничения | Значение
 ----- | -----
@@ -30,6 +36,21 @@
 Максимальный размер файла | {{ stt-long-fileSize }}
 Максимальная длительность аудио | {{ stt-long-audioLength }}
 Срок хранения результатов распознавания на сервере | {{ stt-long-resultsStorageTime }}
-[**Синтез речи**](../speechkit/tts/request.md) |
+[**Синтез речи**](../speechkit/tts/index.md) |
 Максимальный размер запроса REST | 5000 символов
 Максимальный размер запроса gRPC | {{ tts-v3-count }} и {{ tts-v3-time }}
+
+{% endif %}
+{% if product == "cloud-il" %}
+
+Вид ограничения | Значение
+----- | -----
+[**Распознавание речи**](../speechkit/stt/streaming.md) |
+Максимальная длительность переданного аудио за всю сессию | {{ stt-streaming-audioLength }}
+Максимальный размер переданных аудиоданных | {{ stt-streaming-fileSize }}
+Максимальное количество аудиоканалов | {{ stt-short-channelsCount }}
+Максимальный промежуток между аудиофрагментами до разрыва соединения | 5 секунд
+[**Синтез речи**](../speechkit/tts/index.md) |
+Максимальный размер запроса gRPC | {{ tts-v3-count }} и {{ tts-v3-time }}
+
+{% endif %}

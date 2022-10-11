@@ -234,6 +234,8 @@ default:
       auditor: managed-elasticsearch.auditor
       editor: managed-elasticsearch.editor
       viewer: managed-elasticsearch.viewer
+  roles-speechkit-stt: ai.speechkit-stt.user
+  roles-speechkit-tts: ai.speechkit-tts.user
   roles-admin: admin
   roles-owner: owner
   roles-editor: editor

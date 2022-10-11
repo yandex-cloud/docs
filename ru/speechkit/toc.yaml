@@ -7,47 +7,74 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
+    when: product == "yandex-cloud"
   - name: Распознавание речи
+    when: product == "yandex-cloud"
     items:
-    - name: О технологии
-      href: stt/index.md
-    - name: Потоковое распознавание
-      href: stt/streaming.md
-    - name: Распознавание аудиофайлов
-      items:
-      - name: Синхронное распознавание
-        href: stt/request.md
-      - name: Асинхронное распознавание
-        href: stt/transcribation.md
-    - name: Модели распознавания
-      href: stt/models.md
-    - name: Расширение модели распознавания речи
-      href: stt/additional-training.md
+      - name: О технологии
+        href: stt/index.md
+      - name: Потоковое распознавание
+        href: stt/streaming.md
+      - name: Распознавание аудиофайлов
+        items:
+          - name: Синхронное распознавание
+            href: stt/request.md
+          - name: Асинхронное распознавание
+            href: stt/transcribation.md
+      - name: Модели распознавания
+        href: stt/models.md
+      - name: Расширение модели распознавания речи
+        href: stt/additional-training.md
+  - name: Распознавание речи
+    when: product == "cloud-il"
+    items:
+      - name: О технологии
+        href: stt/index.md
+      - name: Потоковое распознавание
+        href: stt/streaming.md
+      - name: Модели распознавания
+        href: stt/models.md
+      - name: Расширение модели распознавания речи
+        href: stt/additional-training.md
   - name: Синтез речи
+    when: product == "yandex-cloud"
     items:
-    - name: О технологии
-      href: tts/index.md
-    - name: Список голосов
-      href: tts/voices.md
-    - name: Разметка текста
-      items:
-      - name: TTS-разметка
+      - name: О технологии
+        href: tts/index.md
+      - name: Список голосов
+        href: tts/voices.md
+      - name: Разметка текста
+        items:
+          - name: TTS-разметка
+            href: tts/tts-markup.md
+          - name: Разметка SSML
+            href: tts/ssml.md
+          - name: Список поддерживаемых фонем в SSML
+            href: tts/supported-phonemes.md
+      - name: "{{ brand-voice-name }}"
+        items:
+          - name: О технологии "{{ brand-voice-name }}"
+            href: tts/brand-voice/index.md
+          - name: Формат входных данных Brand Voice Adaptive
+            href: tts/brand-voice/income-data-format.md
+  - name: Синтез речи
+    when: product == "cloud-il"
+    items:
+      - name: О технологии
+        href: tts/index.md
+      - name: Список голосов
+        href: tts/voices.md
+      - name: Разметка текста
         href: tts/tts-markup.md
-      - name: Разметка SSML
-        href: tts/ssml.md
-      - name: Список поддерживаемых фонем в SSML
-        href: tts/supported-phonemes.md
-    - name: SpeechKit Brand Voice
-      items:
-      - name: О технологии SpeechKit Brand Voice
+      - name: "{{ brand-voice-name }}"
         href: tts/brand-voice/index.md
-      - name: Формат входных данных Brand Voice Adaptive
-        href: tts/brand-voice/income-data-format.md
   - name: Форматы аудио
     href: formats.md
   - name: Интеграция телефонии
     href: concepts/ivr-integration.md
+    when: product == "yandex-cloud"
   - name: Использование API
+    when: product == "yandex-cloud"
     items:
       - name: Аутентификация в API
         href: concepts/auth.md
@@ -57,56 +84,81 @@ items:
         href: concepts/support-headers.md
       - name: Справочники API распознавания
         items:
-        - name: API v2
-          items:
-          - name: API потокового распознавания
-            href: stt/api/streaming-api.md
-          - name: API синхронного распознавания
-            href: stt/api/request-api.md
-          - name: API асинхронного распознавания
-            href: stt/api/transcribation-api.md
-        - name: API v3 gRPC (англ.)
-          items: null
-          include:
-            repo: docs
-            path: en/_api-ref-grpc/ai/stt/v3/toc.yaml
+          - name: API v2
+            items:
+              - name: API потокового распознавания
+                href: stt/api/streaming-api.md
+              - name: API синхронного распознавания
+                href: stt/api/request-api.md
+              - name: API асинхронного распознавания
+                href: stt/api/transcribation-api.md
+          - name: API v3 gRPC (англ.)
+            items: null
+            include:
+              repo: docs
+              path: en/_api-ref-grpc/ai/stt/v3/toc.yaml
       - name: Примеры использования API распознавания
         items:
-        - name: Потоковое распознавание API v3
-          href: stt/api/streaming-examples-v3.md
-        - name: Потоковое распознавание API v2
-          href: stt/api/streaming-examples.md
-        - name: Синхронное распознавание API v2
-          href: stt/api/request-examples.md
-        - name: Асинхронное распознавание формата LPCM — API v2
-          href: stt/api/transcribation-lpcm.md
-        - name: Асинхронное распознавание формата OggOpus — API v2
-          href: stt/api/transcribation-ogg.md
+          - name: Потоковое распознавание API v3
+            href: stt/api/streaming-examples-v3.md
+          - name: Потоковое распознавание API v2
+            href: stt/api/streaming-examples.md
+          - name: Синхронное распознавание API v2
+            href: stt/api/request-examples.md
+          - name: Асинхронное распознавание формата LPCM — API v2
+            href: stt/api/transcribation-lpcm.md
+          - name: Асинхронное распознавание формата OggOpus — API v2
+            href: stt/api/transcribation-ogg.md
       - name: Справочники API синтеза
         items:
-        - name: API v1
-          href: tts/request.md
-        - name: API v3 gRPC (англ.)
-          items: null
-          include:
-            repo: docs
-            path: en/_api-ref-grpc/ai/tts/new-v3/toc.yaml
+          - name: API v1
+            href: tts/request.md
+          - name: API v3 gRPC (англ.)
+            items: null
+            include:
+              repo: docs
+              path: en/_api-ref-grpc/ai/tts/new-v3/toc.yaml
       - name: Примеры использования API синтеза
         items:
-        - name: Синтез API v3
-          href: tts/api/tts-examples-v3.md
-        - name: Синтезировать речь в формате WAV — API v1
-          href: tts/api/tts-wav.md
-        - name: Синтезировать речь в формате OggOpus — API v1
-          href: tts/api/tts-ogg.md
-        - name: Синтезировать SSML-текст — API v1
-          href: tts/api/tts-ssml.md
-  - name: SpeechKit Hybrid
+          - name: Синтез API v3
+            href: tts/api/tts-examples-v3.md
+          - name: Синтезировать речь в формате WAV — API v1
+            href: tts/api/tts-wav.md
+          - name: Синтезировать речь в формате OggOpus — API v1
+            href: tts/api/tts-ogg.md
+          - name: Синтезировать SSML-текст — API v1
+            href: tts/api/tts-ssml.md
+  - name: Использование API
+    when: product == "cloud-il"
     items:
-        - name: О технологии
-          href: hybrid-speechkit/index.md
-        - name: Системные требования
-          href: hybrid-speechkit/system-requirements.md
+      - name: Аутентификация в API
+        href: concepts/auth.md
+      - name: Формат ответа
+        href: concepts/response.md
+      - name: Справочник распознавания API v3 gRPC
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/ai/stt/v3/toc.yaml
+      - name: Справочник синтеза API v3 gRPC
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/ai/tts/new-v3/toc.yaml
+      - name: Пример использования API распознавания
+        href: stt/api/streaming-examples-v3.md
+      - name: Пример использования API синтеза
+        href: tts/api/tts-examples-v3.md
+  - name: SpeechKit Hybrid
+    when: product == "yandex-cloud"
+    items:
+      - name: О технологии
+        href: hybrid-speechkit/index.md
+      - name: Системные требования
+        href: hybrid-speechkit/system-requirements.md
+  - name: SpeechKit Hybrid
+    href: hybrid-speechkit/index.md
+    when: product == "cloud-il"
   - name: Квоты и лимиты
     href: concepts/limits.md
   - name: Управление доступом
@@ -124,7 +176,9 @@ items:
         href: release-notes.md
   - name: Публичные материалы
     href: public-talks.md
+    when: product == "yandex-cloud"
   - name: Вопросы и ответы
+    when: product == "yandex-cloud"
     items:
       - name: Общие вопросы
         href: qa/general.md

@@ -6,8 +6,8 @@
 
 * [язык](../index.md#langs) — русский;
 * формат аудиопотока — [LPCM](../../formats.md#LPCM) с частотой дискретизации 8000 Гц;
-* [количество аудиоканалов](transcribation-api.md#sendfile-params) — 1 (значение по умолчанию);
-* [фильтр ненормативной лексики](../../v3/api-ref/grpc/stt_service#TextNormalizationOptions) — True;
+* [количество аудиоканалов](../../v3/api-ref/grpc/stt_service#RawAudio) — 1 (значение по умолчанию);
+* включен [фильтр ненормативной лексики](../../v3/api-ref/grpc/stt_service#TextNormalizationOptions);
 * остальные параметры оставлены по умолчанию.
 
 Работа с API выполняется с помощью пакета `grpcio-tools`.
