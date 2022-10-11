@@ -1,6 +1,6 @@
 # Триггер для {{ objstorage-name }}
 
-[Триггер](../trigger/) для {{ objstorage-name }} запускает [контейнер](../container.md) {{ serverless-containers-name }}, когда наступает определенное событие с [объектом](../../../storage/concepts/object.md) {{ objstorage-full-name }}. Триггер должен находиться в одном облаке с бакетом, на события которого он подписан.
+[Триггер](../trigger/) для {{ objstorage-name }} запускает [контейнер](../container.md) {{ serverless-containers-name }}, когда наступает определенное событие с [объектом](../../../storage/concepts/object.md) {{ objstorage-name }}. Триггер должен находиться в одном облаке с бакетом, на события которого он подписан.
 
 Триггеру для {{ objstorage-name }} необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова контейнера.
 
@@ -19,6 +19,6 @@
 
 {% include [os-format](../../../_includes/functions/os-format.md) %}
 
-## См. также {#see-also_}
+## См. также {#see-also}
 
 * [Триггер для {{ objstorage-name }}, который запускает функцию {{ sf-name }}](../../../functions/concepts/trigger/os-trigger.md).

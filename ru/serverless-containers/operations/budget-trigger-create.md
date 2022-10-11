@@ -50,6 +50,6 @@
 
 {% include [check-result](../../_includes/serverless-containers/check-result.md) %}
 
-## См. также
+## См. также {#see-also}
 
 * [Триггер для бюджетов, который запускат функцию {{ sf-name }}](../../functions/operations/trigger/budget-trigger-create.md).

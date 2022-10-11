@@ -1,6 +1,6 @@
 # Триггер для бюджетов
 
-Триггер для [бюджетов](../../../billing/concepts/budget.md) запускает [контейнер](../container.md) {{ serverless-containers-name }} при превышении пороговых значений.
+[Триггер](../trigger/) для [бюджетов](../../../billing/concepts/budget.md) запускает [контейнер](../container.md) {{ serverless-containers-name }} при превышении пороговых значений.
 
 Триггеру для бюджетов необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова контейнера.
 
@@ -15,6 +15,6 @@
 
 {% include [budget-format](../../../_includes/functions/budget-format.md) %}
 
-## См. также {#see-also_}
+## См. также {#see-also}
 
 * [Триггер для бюджетов, который запускат функцию {{ sf-name }}](../../../functions/concepts/trigger/budget-trigger.md).

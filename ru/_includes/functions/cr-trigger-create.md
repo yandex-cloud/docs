@@ -1,6 +1,4 @@
-Создайте [триггер для {{ container-registry-full-name }}](../../functions/concepts/trigger/cr-trigger.md), который будет вызывать [функцию](../../functions/concepts/function.md) {{ sf-name }} при создании и удалении [Docker-образов](../../container-registry/concepts/docker-image.md) {{ container-registry-name }} или их тегов.
-
-О том, как создать триггер для {{ container-registry-name }}, который будет вызывать контейнер, читайте в [документации {{ serverless-containers-full-name }}](../../serverless-containers/operations/cr-trigger-create.md).
+Создайте [триггер для {{ container-registry-name }}](../../functions/concepts/trigger/cr-trigger.md), который будет вызывать [функцию](../../functions/concepts/function.md) {{ sf-name }} при создании и удалении [Docker-образов](../../container-registry/concepts/docker-image.md) {{ container-registry-name }} или их тегов.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -27,10 +25,10 @@
     1. В блоке **Базовые параметры**:
 
         * Введите имя и описание триггера.
-        * В поле **Тип** выберите **Container Registry**.
+        * В поле **Тип** выберите **{{ container-registry-name }}**.
         * В поле **Запускаемый ресурс** выберите **Функция**.
 
-    1. В блоке **Настройки Container Registry**:
+    1. В блоке **Настройки {{ container-registry-name }}**:
 
         * В поле **Реестр** выберите реестр, для событий с образами в котором необходимо создать триггер.
         * В поле **Типы событий** выберите [события](../../functions/concepts/trigger/cr-trigger.md#event), после наступления которых триггер будет запускаться.
@@ -39,15 +37,13 @@
 
     1. В блоке **Настройки функции** выберите функцию и укажите:
 
-        * [тег версии функции](../../functions/concepts/function.md#tag);
-        * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого будет вызываться функция.
+        {% include [function-settings](function-settings.md) %}
 
     1. (опционально) В блоке **Настройки повторных запросов**:
 
-        * В поле **Интервал** укажите время, через которое будет сделан повторный вызов функции, если текущий завершился неуспешно. Допустимые значения — от 10 до 60 секунд, значение по умолчанию — 10 секунд.
-        * В поле **Количество попыток** укажите количество повторных вызовов функции, которые будут сделаны, прежде чем триггер отправит сообщение в [Dead Letter Queue](../../functions/concepts/dlq.md). Допустимые значения — от 1 до 5, значение по умолчанию — 1.
+        {% include [repeat-request.md](repeat-request.md) %}
 
-    1. (опционально) В блоке **Настройки Dead Letter Queue** выберите очередь [Dead Letter Queue](../../functions/concepts/dlq.md) и сервисный аккаунт с правами на запись в нее.
+    1. (опционально) В блоке **Настройки Dead Letter Queue** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
 
     1. Нажмите кнопку **Создать триггер**.
 
@@ -77,12 +73,8 @@
     * `--name` — имя триггера.
     * `--registry-id` — [идентификатор реестра](../../container-registry/operations/registry/registry-list.md).
     * `--events` — [события](../../functions/concepts/trigger/cr-trigger.md#event), после наступления которых триггер запускается.
-    * `--invoke-function-id` — идентификатор функции.
-    * `--invoke-function-service-account-id` — сервисный аккаунт с правами на вызов функции.
-    * `--retry-attempts` — время, через которое будет сделан повторный вызов функции, если текущий завершился неуспешно. Необязательный параметр. Допустимые значения — от 10 до 60 секунд, значение по умолчанию — 10 секунд.
-    * `--retry-interval` — количество повторных вызовов, которые будут сделаны, прежде чем триггер отправит сообщение в [Dead Letter Queue](../../functions/concepts/dlq.md). Необязательный параметр. Допустимые значения — от 1 до 5, значение по умолчанию — 1.
-    * `--dlq-queue-id` — идентификатор очереди [Dead Letter Queue](../../functions/concepts/dlq.md). Необязательный параметр.
-    * `--dlq-service-account-id` — сервисный аккаунт с правами на запись в очередь [Dead Letter Queue](../../functions/concepts/dlq.md). Необязательный параметр.
+    
+    {% include [trigger-cli-param](trigger-cli-param.md) %}
 
     Результат:
 
@@ -120,3 +112,7 @@
 ## Проверить результат {#check-result}
 
 {% include [check-result](check-result.md) %}
+
+## См. также {#see-also}
+
+* [Триггер для {{ container-registry-name }}, который запускает контейнер {{ serverless-containers-name }}](../../serverless-containers/operations/cr-trigger-create.md).

@@ -1,6 +1,6 @@
-# Триггер для {{ yds-full-name }}
+# Триггер для {{ yds-name }}
 
-{% if audience == "external" %} Триггер для {{ yds-full-name }} запускает [контейнер](../container.md) {{ serverless-containers-name }} при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts). {% endif %}
+{% if audience == "external" %} [Триггер](../trigger/) для {{ yds-name }} запускает [контейнер](../container.md) {{ serverless-containers-name }} при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts). {% endif %}
 
 Триггеру для {{ yds-name }} необходимы [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md) для управления потоком и вызова контейнера. Вы можете использовать один и тот же сервисный аккаунт для обеих операций. 
 
@@ -17,6 +17,6 @@
 
 {% include [yds-format](../../../_includes/functions/yds-format.md) %}
 
-## См. также {#see-also_}
+## См. также {#see-also}
 
 * [Триггер для {{ yds-name }}, который запускает функцию {{ sf-name }}](../../../functions/concepts/trigger/data-streams-trigger.md).
