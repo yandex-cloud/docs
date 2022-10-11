@@ -49,15 +49,15 @@ Do not update the names of virtual machines that belong to a {{ managed-k8s-name
   Use the following parameters to edit the node group:
   * `--new-name`: Change the name.
   * `--description`: Edit the description.
-  * `--service-account-id`, `--service-account-name`: edit resource [service account](../../../iam/concepts/index.md#sa).
-  * `--node-service-account-id`, `--node-service-account-name`: edit node service account.
-  * `--version`: change {{ k8s }} version.
+  * `--service-account-id`, `--service-account-name`: Edit resource [service account](../../../iam/concepts/index.md#sa).
+  * `--node-service-account-id`, `--node-service-account-name`: Edit node service account.
+  * `--version`: Change {{ k8s }} version.
   * `--network-interface`: [Network](../../../vpc/concepts/network.md#network) settings:
 
     {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
   * `--network-acceleration-type`: The type of [network acceleration](../../../vpc/concepts/software-accelerated-network.md):
-    * `standard`: no acceleration.
+    * `standard`: No acceleration.
     * `software-accelerated`: Software-accelerated network.
 
       {% note warning %}
@@ -66,12 +66,12 @@ Do not update the names of virtual machines that belong to a {{ managed-k8s-name
 
       {% endnote %}
 
-  * `--latest-revision`: get all available updates for current version of [master](../../concepts/index.md#master).
+  * `--latest-revision`: Get all available updates for current version of [master](../../concepts/index.md#master).
   * `--auto-upgrade`: Manage automatic updates.
   * Managing the maintenance window:
     * `--anytime-maintenance-window`: Perform maintenance at any time.
-    * `--daily-maintenance-window`: update daily at specified time.
-    * `--weekly-maintenance-window`: update on specified days.
+    * `--daily-maintenance-window`: Update daily at specified time.
+    * `--weekly-maintenance-window`: Update on specified days.
 
   {% note warning %}
 
