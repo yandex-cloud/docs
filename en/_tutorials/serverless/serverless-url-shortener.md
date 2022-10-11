@@ -367,7 +367,7 @@ To create and set up a URL shortening function:
   1. Copy the following text and paste it into the `requirements.txt` file under **Function code**.
 
       ```txt
-      ydb==0.0.41
+      ydb
       ```
 
   1. Specify the entry point: `index.handler`.
