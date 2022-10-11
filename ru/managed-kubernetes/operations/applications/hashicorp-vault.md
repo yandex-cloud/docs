@@ -73,8 +73,8 @@
 
      ```bash
      export HELM_EXPERIMENTAL_OCI=1 && \
-     cat authorized-key.json | helm registry login cr.yandex --username 'json_key' --password-stdin && \
-     helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/vault/chart/vault \
+     cat authorized-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
+     helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/vault/chart/vault \
        --version <версия Helm-чарта> \
        --untar && \
      helm install \

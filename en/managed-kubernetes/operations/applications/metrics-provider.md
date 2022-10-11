@@ -13,7 +13,7 @@ For the provider to work, you need to create a [service account](../../../iam/co
    sudo apt update && sudo apt install jq
    ```
 
-1. [Create a service account](../../../iam/operations/sa/create.md) with the `monitoring.viewer` role.
+1. Create a [service account](../../../iam/operations/sa/create.md) with the `monitoring.viewer` role.
 1. Create a service account key and save it to your local machine:
 
    ```bash
@@ -26,7 +26,7 @@ For the provider to work, you need to create a [service account](../../../iam/co
      -o key.json
    ```
 
-   Result:
+   Command result:
 
    ```text
    {
@@ -50,10 +50,10 @@ For the provider to work, you need to create a [service account](../../../iam/co
    jq -r .private_key key.json > key.pem
    ```
 
-## Installation using {{ marketplace-name }} {#marketplace-install}
+## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the catalog page and select **{{ managed-k8s-name }}**.
-1. Click the name of the desired cluster and select the **{{ marketplace-short-name }}** tab.
+1. Go to the folder page and select **{{ managed-k8s-name }}**.
+1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
 1. Under **Applications available for installation** select [Metrics Provider](/marketplace/products/yc/metric-provider) and click **Use**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
@@ -83,7 +83,7 @@ For the provider to work, you need to create a [service account](../../../iam/co
 ## Installation using a Helm chart {#helm-install}
 
 1. [Install kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) and [configure](../connect/index.md) it to work with your cluster.
-1. Install the [Helm 3]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install){% endif %} package manager for {{ k8s }}.
+1. Install the {{ k8s }} [Helm 3]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install){% endif %} package manager.
 1. Add the `metric-provider` repository:
 
    ```bash
@@ -111,8 +111,8 @@ For the provider to work, you need to create a [service account](../../../iam/co
    ```
 
    Required parameters:
-   * `namespace`: [Namespace](../../concepts/index.md#namespace) where the provider will be deployed.
-   * `folderId`: [ID of the folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the provider will run.
+   * `namespace`: [namespace](../../concepts/index.md#namespace) where the provider will be deployed.
+   * `folderId`: [ID of the folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), where the provider will run.
    * `window`: Time window for which metrics will be collected (in `DdHhMmSs` format, such as `5d10h30m20s`).
 
    Decimation parameters (`downsampling`). For the provider to work, you need to select at least one of the parameters below:

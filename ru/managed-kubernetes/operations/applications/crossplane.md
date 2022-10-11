@@ -43,7 +43,7 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://cr.yandex/yc-marketplace/crossplane/crossplane/crossplane --version 1.6.3-5 --untar && \
+   helm pull oci://{{ registry }}/yc-marketplace/crossplane/crossplane/crossplane --version 1.6.3-5 --untar && \
    helm install crossplane crossplane/. --namespace <пространство имен> --set-file providerJetYC.creds=key.json
    ```
 
@@ -87,7 +87,7 @@
 1. Установите провайдер:
 
    ```bash
-   kubectl crossplane install provider cr.yandex/crp0kch415f0lke009ft/crossplane/provider-jet-yc:v0.1.33
+   kubectl crossplane install provider {{ registry }}/crp0kch415f0lke009ft/crossplane/provider-jet-yc:v0.1.33
    ```
 
    Актуальная версия провайдера доступна в [GitHub-репозитории](https://github.com/yandex-cloud/provider-jet-yc).

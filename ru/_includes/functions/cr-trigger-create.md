@@ -1,4 +1,4 @@
-Создайте [триггер для {{ container-registry-name }}](../../functions/concepts/trigger/cr-trigger.md), который будет вызывать [функцию](../../functions/concepts/function.md) {{ sf-name }} при создании и удалении [Docker-образов](../../container-registry/concepts/docker-image.md) {{ container-registry-full-name }} или их тегов.
+Создайте [триггер для {{ container-registry-full-name }}](../../functions/concepts/trigger/cr-trigger.md), который будет вызывать [функцию](../../functions/concepts/function.md) {{ sf-name }} при создании и удалении [Docker-образов](../../container-registry/concepts/docker-image.md) {{ container-registry-name }} или их тегов.
 
 О том, как создать триггер для {{ container-registry-name }}, который будет вызывать контейнер, читайте в [документации {{ serverless-containers-full-name }}](../../serverless-containers/operations/cr-trigger-create.md).
 
@@ -59,7 +59,7 @@
 
     Чтобы создать триггер, который запускает функцию, выполните команду:
 
-    ```
+    ```bash
     yc serverless trigger create container-registry \
       --name <имя триггера> \
       --registry-id <идентификатор реестра> \

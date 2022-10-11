@@ -28,17 +28,19 @@ items:
           href: operations/connect/security-groups.md
         - name: Creating a static configuration file
           href: operations/connect/create-static-conf.md
-      - name: Installing applications 
+      - name: Installing applications from {{ marketplace-name }}
         when: product == "yandex-cloud"
         items:
           - name: Basics of working with {{ marketplace-name }}
             href: operations/applications/marketplace.md
-          - name: Installing the {{ alb-name }} Ingress controller
-            href: operations/applications/alb-ingress-controller.md
           - name: Installing Crossplane
             href: operations/applications/crossplane.md
           - name: Installing Fluent Bit
             href: operations/applications/fluentbit.md
+          - name: Installing HashiCorp Vault with {{ kms-name }} support
+            href: operations/applications/hashicorp-vault.md
+          - name: Installing the {{ alb-name }} Ingress controller
+            href: operations/applications/alb-ingress-controller.md
           - name: Installing Jaeger
             href: operations/applications/jaeger.md
           - name: Installing Metrics Provider
@@ -48,7 +50,7 @@ items:
       - name: Network scenarios
         items:
           - name: >-
-              Granting access to an app running in a {{k8s}} cluster
+              Granting access to an app running in a {{ k8s }} cluster
             href: operations/create-load-balancer.md
           - name: Configuring the Calico network policy controller
             href: operations/calico.md
@@ -73,17 +75,17 @@ items:
             href: operations/volumes/mode-block.md
           - name: Integration with {{ objstorage-name }}
             href: operations/volumes/s3-csi-integration.md
-      - name: Managing a {{k8s}} cluster
+      - name: Managing a {{ k8s }} cluster
         items:
-          - name: Getting information about a {{k8s}} cluster
+          - name: Getting information about a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-list.md
-          - name: Creating a {{k8s}} cluster
+          - name: Creating a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-create.md
-          - name: Editing a {{k8s}} cluster
+          - name: Editing a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-update.md
-          - name: Creating a namespace in a {{k8s}} cluster
+          - name: Creating a namespace in a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
-          - name: Deleting a {{k8s}} cluster
+          - name: Deleting a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
       - name: Managing a node group
         items:
@@ -143,6 +145,8 @@ items:
       - name: Using {{ marketplace-name }} products
         when: product == "yandex-cloud"
         items:
+          - name: Integration with Crossplane
+            href: tutorials/marketplace/crossplane.md
           - name: Using Jaeger to trace requests in {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
   - name: Concepts
