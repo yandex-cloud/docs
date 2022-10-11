@@ -1,12 +1,12 @@
 # Роли
 
-_Роль_ — это набор разрешений, который определяет допустимые операции с ресурсами в {{ yandex-cloud }}.
+_Роль_ — это набор разрешений, который определяет допустимые операции с ресурсами в {{ yandex-cloud }}.
 
 Роли бывают двух типов:
 * _Примитивные роли_ содержат разрешения, действующие для всех типов ресурсов {{ yandex-cloud }}. Это роли `{{ roles-admin }}`, `{{ roles-editor }}` и `{{ roles-viewer }}`.
 * _Сервисные роли_ содержат разрешения только для определенного типа ресурсов в указанном сервисе. Идентификатор сервисной роли указывается в формате `service.resources.role`. Например, роль `{{ roles-image-user }}` позволяет использовать образы в сервисе {{ compute-full-name }}.
 
-    Сервисную роль можно назначить на ресурс, для которого предназначена роль, или на ресурс, от которого наследуются права доступа. Например, роль `{{ roles-image-user }}` можно назначить на каталог или облако, так как образ наследует разрешения от них.
+  Сервисную роль можно назначить на ресурс, для которого предназначена роль, или на ресурс, от которого наследуются права доступа. Например, роль `{{ roles-image-user }}` можно назначить на каталог или облако, так как образ наследует разрешения от них.
 
 На данный момент пользователи не могут создавать новые роли со своим набором разрешений.
 
@@ -24,7 +24,7 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [roles-admin](../../../_includes/roles-admin.md) %}
 
-## {{ alb-name }} {#alb-roles}
+## {{ alb-full-name }} {#alb-roles}
 
 {% include [roles-alb-viewer](../../../_includes/roles-alb-viewer.md) %}
 
@@ -32,32 +32,27 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [roles-alb-admin](../../../_includes/roles-alb-admin.md) %}
 
-## {{ certificate-manager-name }} {#certificate-manager-roles}
+## {{ certificate-manager-full-name }} {#certificate-manager-roles}
 
 {% include [roles-certificate-manager-admin](../../../_includes/roles-certificate-manager-admin.md) %}
 
 {% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
 
-
 {% if product == "yandex-cloud" and audience == "draft" %}
 
-## {{ backup-name }} {#backup-roles}
-
+## {{ backup-full-name }} {#backup-roles}
 
 {% include [roles-backup-viewer](../../../_includes/roles-backup-viewer.md) %}
 
-
 {% include [roles-backup-editor](../../../_includes/roles-backup-editor.md) %}
-
 
 {% include [roles-backup-admin](../../../_includes/roles-backup-admin.md) %}
 
 {% endif %}
 
-
 {% if product == "yandex-cloud" %}
 
-## {{ cdn-name }} {#cdn-roles}
+## {{ cdn-full-name }} {#cdn-roles}
 
 {% include [roles-cdn-viewer](../../../_includes/roles-cdn-viewer.md) %}
 
@@ -67,7 +62,7 @@ _Роль_ — это набор разрешений, который опре�
 
 {% endif %}
 
-## {{ dns-name }} {#dns-roles}
+## {{ dns-full-name }} {#dns-roles}
 
 {% include [roles-dns-viewer](../../../_includes/iam/roles/dns-viewer.md) %}
 
@@ -87,13 +82,31 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [roles-compute-operator](../../../_includes/roles-compute-operator.md) %}
 
-## {{ container-registry-name }} {#cr-roles}
+## {{ container-registry-full-name }} {#cr-roles}
 
 {% include [container-registry-admin](../../../_includes/roles-container-registry-admin.md) %}
 
 {% include [container-registry-puller](../../../_includes/roles-container-registry-puller.md) %}
 
 {% include [container-registry-pusher](../../../_includes/roles-container-registry-pusher.md) %}
+
+## {{ managed-k8s-full-name }}
+
+{% include [k8s-admin](../../../_includes/roles-k8s-admin.md) %}
+
+{% include [k8s-editor](../../../_includes/roles-k8s-editor.md) %}
+
+{% include [k8s-viewer](../../../_includes/roles-k8s-viewer.md) %}
+
+{% include [k8s-clusters-agent](../../../_includes/roles-k8s-clusters-agent.md) %}
+
+{% include [k8s-cluster-api-cluster-admin](../../../_includes/roles-k8s-cluster-api-cluster-admin.md) %}
+
+{% include [k8s-cluster-api-editor](../../../_includes/roles-k8s-cluster-api-editor.md) %}
+
+{% include [k8s-cluster-api-viewer](../../../_includes/roles-k8s-cluster-api-viewer.md) %}
+
+Подробнее см. в разделе [{#T}](../../../managed-kubernetes/security/index.md).
 
 ## Управляемые базы данных {#mdb-roles}
 
@@ -103,10 +116,9 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [mdb.auditor](../../../_includes/iam/roles/mdb.auditor.md) %}
 
-
 {% if product == "yandex-cloud" %}
 
-## {{ dataproc-short-name }} {#dataproc-roles}
+## {{ dataproc-full-name }} {#dataproc-roles}
 
 {% include [mdb.dataproc.agent](../../../_includes/roles-dataproc-agent.md) %}
 
@@ -114,8 +126,7 @@ _Роль_ — это набор разрешений, который опре�
 
 {% endif %}
 
-
-## {{ data-transfer-name }} {#data-transfer-roles}
+## {{ data-transfer-full-name }} {#data-transfer-roles}
 
 {% include [data-transfer-viewer](../../../_includes/roles-data-transfer-viewer.md) %}
 
@@ -125,7 +136,7 @@ _Роль_ — это набор разрешений, который опре�
 
 {% if product == "yandex-cloud" %}
 
-## {{ datalens-name }} {#datalens-roles}
+## {{ datalens-full-name }} {#datalens-roles}
 
 {% include [datalens-instances-user](../../../_includes/roles-datalens-user.md) %}
 
@@ -145,7 +156,7 @@ _Роль_ — это набор разрешений, который опре�
 
 {% if product == "yandex-cloud" %}
 
-## {{ sf-short-name }} {#functions-roles}
+## {{ sf-full-name }} {#functions-roles}
 
 {% include [serverless.functions.invoker](../../../_includes/roles-functions-invoker.md) %}
 
@@ -155,13 +166,13 @@ _Роль_ — это набор разрешений, который опре�
 
 {% endif %}
 
-## {{ iam-name }} {#iam-roles}
+## {{ iam-full-name }} {#iam-roles}
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
 
 {% if product == "yandex-cloud" %}
 
-## {{ iot-name }} {#iot-roles}
+## {{ iot-full-name }} {#iot-roles}
 
 {% include [iot-devices-writer](../../../_includes/roles-iot-devices-writer.md) %}
 
@@ -171,7 +182,7 @@ _Роль_ — это набор разрешений, который опре�
 
 {% if product == "yandex-cloud" %}
 
-## {{ cloud-logging-name }} {#logging}
+## {{ cloud-logging-full-name }} {#logging}
 
 {% include [logging-roles-viewer](../../../_includes/roles-logging-viewer.md) %}
 
@@ -185,7 +196,7 @@ _Роль_ — это набор разрешений, который опре�
 
 {% endif %}
 
-## {{ kms-name }} {#kms-roles}
+## {{ kms-full-name }} {#kms-roles}
 
 {% include [kms-admin](../../../_includes/roles-kms-admin.md) %}
 
@@ -195,7 +206,7 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [kms-viewer](../../../_includes/roles-kms-viewer.md) %}
 
-## {{ mes-name }} {#mes-roles}
+## {{ mes-full-name }} {#mes-roles}
 
 {% include [elasticsearch-viewer](../../../_includes/iam/roles/elasticsearch-viewer.md) %}
 
@@ -205,7 +216,7 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [elasticsearch-auditor](../../../_includes/iam/roles/elasticsearch-auditor.md) %}
 
-## {{ monitoring-name }} {#monitoring-roles}
+## {{ monitoring-full-name }} {#monitoring-roles}
 
 {% include [roles-monitoring-viewer](../../../_includes/roles-monitoring-viewer.md) %}
 
@@ -213,7 +224,7 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [roles-monitoring-admin](../../../_includes/roles-monitoring-admin.md) %}
 
-## {{ network-load-balancer-name }} {#load-balancer-roles}
+## {{ network-load-balancer-full-name }} {#load-balancer-roles}
 
 {% include [roles-lb-viewer](../../../_includes/roles-lb-viewer.md) %}
 
@@ -221,7 +232,7 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [roles-lb-admin](../../../_includes/roles-lb-admin.md) %}
 
-## {{ objstorage-name }} {#object-storage}
+## {{ objstorage-full-name }} {#object-storage}
 
 {% include [storage.admin](../../../_includes/roles-storage-admin.md) %}
 
@@ -235,13 +246,13 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [storage.viewer](../../../_includes/roles-storage-viewer.md) %}
 
-## {{ resmgr-name }} {#yrm-roles}
+## {{ resmgr-full-name }} {#yrm-roles}
 
 {% include [cloud-roles](../../../_includes/cloud-roles.md) %}
 
 {% if product == "yandex-cloud" %}
 
-## {{ serverless-containers-name }} {#serverless-containers}
+## {{ serverless-containers-full-name }} {#serverless-containers}
 
 {% include [serverless-containers-roles-viewer](../../../_includes/roles-serverless-containers-viewer.md) %}
 
@@ -251,7 +262,7 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [serverless-containers-roles-admin](../../../_includes/roles-serverless-containers-admin.md) %}
 
-## {{ captcha-name }} {#smartcaptcha}
+## {{ captcha-full-name }} {#smartcaptcha}
 
 {% include [smartcaptcha-viewer](../../../_includes/roles-smartcaptcha-viewer.md) %}
 
@@ -261,13 +272,13 @@ _Роль_ — это набор разрешений, который опре�
 
 {% endif %}
 
-## {{ speechkit-name }} {#speechkit-roles}
+## {{ speechkit-full-name }} {#speechkit-roles}
 
 {% include [roles-speechkit-stt-user](../../../_includes/roles-speechkit-stt-user.md) %}
 
 {% include [roles-speechkit-tts-user](../../../_includes/roles-speechkit-tts-user.md) %}
 
-## {{ vpc-name }} {#vpc-roles}
+## {{ vpc-full-name }} {#vpc-roles}
 
 {% include [roles-vpc-viewer](../../../_includes/roles-vpc-viewer.md) %}
 

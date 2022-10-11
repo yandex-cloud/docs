@@ -242,6 +242,16 @@ default:
       admin: gitlab.admin
       editor: gitlab.editor
       viewer: gitlab.viewer
+    k8s:
+      admin: k8s.admin
+      editor: k8s.editor
+      viewer: k8s.viewer
+      clusters:
+        agent: k8s.clusters.agent
+      cluster-api:
+        cluster-admin: k8s.cluster-api.cluster-admin
+        editor: k8s.cluster-api.editor
+        viewer: k8s.cluster-api.viewer
     mes:
       admin: managed-elasticsearch.admin
       auditor: managed-elasticsearch.auditor
@@ -303,7 +313,7 @@ default:
   mpg-backup-retention: 7
   mmg-backup-retention-min: 7
   mmg-backup-retention-max: 35
-  mrd-max-disk-size: 4096 ГБ
+  mrd-max-disk-size: 4096 ГБ
   mrd-memory-used: 75%
   mrd-memory-reserved: 25%
   CSI: Container Storage Interface
@@ -325,12 +335,12 @@ default:
   CK: ClickHouse Keeper
   ZK: ZooKeeper
   ssms: SQL Server Management Studio
-  tag-con: <code><b><small>Консоль управления</small></b></code>
+  tag-con: <code><b><small>Консоль управления</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
   tag-api: <code><b><small>API</small></b></code>
   tag-sql: <code><b><small>SQL</small></b></code>
-  tag-all: <code><b><small>Все интерфейсы</small></b></code>
+  tag-all: <code><b><small>Все интерфейсы</small></b></code>
   zone-id: ru-central1-c
   subnet-name: default-ru-central1-c
   region-id: ru-central1
@@ -339,132 +349,132 @@ default:
 
   # Классы хостов
   host-class: s2.micro
-  b1-nano: b1.nano (2 × 5% vCPU, 2 ГБ)
-  b1-micro: b1.micro (2 × 20% vCPU, 2 ГБ)
-  b1-small: b1.small (2 × 20% vCPU, 4 ГБ)
-  b1-medium: b1.medium (2 × 50% vCPU, 4 ГБ)
-  m1-micro: m1.micro (2 vCPU, 16 ГБ)
-  m1-small: m1.small (4 vCPU, 32 ГБ)
-  m1-medium: m1.medium (6 vCPU, 48 ГБ)
-  m1-large: m1.large (8 vCPU, 64 ГБ)
-  m1-xlarge: m1.xlarge (12 vCPU, 96 ГБ)
-  m1-2xlarge: m1.2xlarge (16 vCPU, 128 ГБ)
-  m1-3xlarge: m1.3xlarge (24 vCPU, 192 ГБ)
-  m1-4xlarge: m1.4xlarge (32 vCPU, 256 ГБ)
-  s1-nano: s1.nano (1 vCPU, 4 ГБ)
-  s1-micro: s1.micro (2 vCPU, 8 ГБ)
-  s1-small: s1.small (4 vCPU, 16 ГБ)
-  s1-medium: s1.medium (8 vCPU, 32 ГБ)
-  s1-large: s1.large (16 vCPU, 64 ГБ)
-  s1-xlarge: s1.xlarge (32 vCPU, 128 ГБ)
-  b2-nano: b2.nano (2 × 5% vCPU, 2 ГБ)
-  b2-micro: b2.micro (2 × 20% vCPU, 2 ГБ)
-  b2-small: b2.small (2 × 20% vCPU, 4 ГБ)
-  b2-medium: b2.medium (2 × 50% vCPU, 4 ГБ)
-  m2-micro: m2.micro (2 vCPU, 16 ГБ)
-  m2-small: m2.small (4 vCPU, 32 ГБ)
-  m2-medium: m2.medium (6 vCPU, 48 ГБ)
-  m2-large: m2.large (8 vCPU, 64 ГБ)
-  m2-xlarge: m2.xlarge (12 vCPU, 96 ГБ)
-  m2-2xlarge: m2.2xlarge (16 vCPU, 128 ГБ)
-  m2-3xlarge: m2.3xlarge (24 vCPU, 192 ГБ)
-  m2-4xlarge: m2.4xlarge (32 vCPU, 256 ГБ)
-  m2-5xlarge: m2.5xlarge (40 vCPU, 320 ГБ)
-  m2-6xlarge: m2.6xlarge (48 vCPU, 384 ГБ)
-  m2-7xlarge: m2.7xlarge (56 vCPU, 448 ГБ)
-  m2-8xlarge: m2.8xlarge (64 vCPU, 512 ГБ)
-  m2-9xlarge: m2.9xlarge (80 vCPU, 640 ГБ)
-  s2-micro: s2.micro (2 vCPU, 8 ГБ)
-  s2-small: s2.small (4 vCPU, 16 ГБ)
-  s2-medium: s2.medium (8 vCPU, 32 ГБ)
-  s2-large: s2.large (12 vCPU, 48 ГБ)
-  s2-xlarge: s2.xlarge (16 vCPU, 64 ГБ)
-  s2-2xlarge: s2.2xlarge (24 vCPU, 96 ГБ)
-  s2-3xlarge: s2.3xlarge (32 vCPU, 128 ГБ)
-  s2-4xlarge: s2.4xlarge (40 vCPU, 160 ГБ)
-  s2-5xlarge: s2.5xlarge (48 vCPU, 192 ГБ)
-  s2-6xlarge: s2.6xlarge (64 vCPU, 256 ГБ)
-  s2-7xlarge: s2.7xlarge (80 vCPU, 320 ГБ)
+  b1-nano: b1.nano (2 × 5% vCPU, 2 ГБ)
+  b1-micro: b1.micro (2 × 20% vCPU, 2 ГБ)
+  b1-small: b1.small (2 × 20% vCPU, 4 ГБ)
+  b1-medium: b1.medium (2 × 50% vCPU, 4 ГБ)
+  m1-micro: m1.micro (2 vCPU, 16 ГБ)
+  m1-small: m1.small (4 vCPU, 32 ГБ)
+  m1-medium: m1.medium (6 vCPU, 48 ГБ)
+  m1-large: m1.large (8 vCPU, 64 ГБ)
+  m1-xlarge: m1.xlarge (12 vCPU, 96 ГБ)
+  m1-2xlarge: m1.2xlarge (16 vCPU, 128 ГБ)
+  m1-3xlarge: m1.3xlarge (24 vCPU, 192 ГБ)
+  m1-4xlarge: m1.4xlarge (32 vCPU, 256 ГБ)
+  s1-nano: s1.nano (1 vCPU, 4 ГБ)
+  s1-micro: s1.micro (2 vCPU, 8 ГБ)
+  s1-small: s1.small (4 vCPU, 16 ГБ)
+  s1-medium: s1.medium (8 vCPU, 32 ГБ)
+  s1-large: s1.large (16 vCPU, 64 ГБ)
+  s1-xlarge: s1.xlarge (32 vCPU, 128 ГБ)
+  b2-nano: b2.nano (2 × 5% vCPU, 2 ГБ)
+  b2-micro: b2.micro (2 × 20% vCPU, 2 ГБ)
+  b2-small: b2.small (2 × 20% vCPU, 4 ГБ)
+  b2-medium: b2.medium (2 × 50% vCPU, 4 ГБ)
+  m2-micro: m2.micro (2 vCPU, 16 ГБ)
+  m2-small: m2.small (4 vCPU, 32 ГБ)
+  m2-medium: m2.medium (6 vCPU, 48 ГБ)
+  m2-large: m2.large (8 vCPU, 64 ГБ)
+  m2-xlarge: m2.xlarge (12 vCPU, 96 ГБ)
+  m2-2xlarge: m2.2xlarge (16 vCPU, 128 ГБ)
+  m2-3xlarge: m2.3xlarge (24 vCPU, 192 ГБ)
+  m2-4xlarge: m2.4xlarge (32 vCPU, 256 ГБ)
+  m2-5xlarge: m2.5xlarge (40 vCPU, 320 ГБ)
+  m2-6xlarge: m2.6xlarge (48 vCPU, 384 ГБ)
+  m2-7xlarge: m2.7xlarge (56 vCPU, 448 ГБ)
+  m2-8xlarge: m2.8xlarge (64 vCPU, 512 ГБ)
+  m2-9xlarge: m2.9xlarge (80 vCPU, 640 ГБ)
+  s2-micro: s2.micro (2 vCPU, 8 ГБ)
+  s2-small: s2.small (4 vCPU, 16 ГБ)
+  s2-medium: s2.medium (8 vCPU, 32 ГБ)
+  s2-large: s2.large (12 vCPU, 48 ГБ)
+  s2-xlarge: s2.xlarge (16 vCPU, 64 ГБ)
+  s2-2xlarge: s2.2xlarge (24 vCPU, 96 ГБ)
+  s2-3xlarge: s2.3xlarge (32 vCPU, 128 ГБ)
+  s2-4xlarge: s2.4xlarge (40 vCPU, 160 ГБ)
+  s2-5xlarge: s2.5xlarge (48 vCPU, 192 ГБ)
+  s2-6xlarge: s2.6xlarge (64 vCPU, 256 ГБ)
+  s2-7xlarge: s2.7xlarge (80 vCPU, 320 ГБ)
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   t4-ice-lake: Intel Ice Lake with NVIDIA® Tesla® T4
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
   a100-epyc: AMD EPYC™ with NVIDIA® Ampere® A100
-  b3-c1-m4: b3-c1-m4 (2 × 50% vCPU, 4 ГБ)
-  m3-c2-m16: m3-c2-m16 (2 vCPU, 16 ГБ)
-  m3-c4-m32: m3-c4-m32 (4 vCPU, 32 ГБ)
-  m3-c6-m48: m3-c6-m48 (6 vCPU, 48 ГБ)
-  m3-c8-m64: m3-c8-m64 (8 vCPU, 64 ГБ)
-  m3-c12-m96: m3-c12-m96 (12 vCPU, 96 ГБ)
-  m3-c16-m128: m3-c16-m128 (16 vCPU, 128 ГБ)
-  m3-c24-m192: m3-c24-m192 (24 vCPU, 192 ГБ)
-  m3-c32-m256: m3-c32-m256 (32 vCPU, 256 ГБ)
-  m3-c40-m320: m3-c40-m320 (40 vCPU, 320 ГБ)
-  m3-c48-m384: m3-c48-m384 (48 vCPU, 384 ГБ)
-  m3-c56-m448: m3-c56-m448 (56 vCPU, 448 ГБ)
-  m3-c64-m512: m3-c64-m512 (64 vCPU, 512 ГБ)
-  m3-c80-m640: m3-c80-m640 (80 vCPU, 640 ГБ)
-  s3-c2-m8: s3-c2-m8 (2 vCPU, 8 ГБ)
-  s3-c4-m16: s3-c4-m16 (4 vCPU, 16 ГБ)
-  s3-c8-m32: s3-c8-m32 (8 vCPU, 32 ГБ)
-  s3-c12-m48: s3-c12-m48 (12 vCPU, 48 ГБ)
-  s3-c16-m64: s3-c16-m64 (16 vCPU, 64 ГБ)
-  s3-c24-m96: s3-c24-m96 (24 vCPU, 96 ГБ)
-  s3-c32-m128: s3-c32-m128 (32 vCPU, 128 ГБ)
-  s3-c40-m160: s3-c40-m160 (40 vCPU, 160 ГБ)
-  s3-c48-m192: s3-c48-m192 (48 vCPU, 192 ГБ)
-  s3-c64-m256: s3-c64-m256 (64 vCPU, 256 ГБ)
-  s3-c80-m320: s3-c80-m320 (80 vCPU, 320 ГБ)
-  s3-c96-m576: s3-c96-m576 (96 vCPU, 576 ГБ)
-  hm1-nano: hm1.nano (2 vCPU, 8 ГБ)
-  hm1-micro: hm1.micro (2 vCPU, 12 ГБ)
-  hm1-small: hm1.small (2 vCPU, 16 ГБ)
-  hm1-medium: hm1.medium (4 vCPU, 24 ГБ)
-  hm1-large: hm1.large (4 vCPU, 32 ГБ)
-  hm1-xlarge: hm1.xlarge (4 vCPU, 48 ГБ)
-  hm1-2xlarge: hm1.2xlarge (4 vCPU, 64 ГБ)
-  hm1-3xlarge: hm1.3xlarge (4 vCPU, 80 ГБ)
-  hm1-4xlarge: hm1.4xlarge (8 vCPU, 96 ГБ)
-  hm1-5xlarge: hm1.5xlarge (8 vCPU, 128 ГБ)
-  hm1-6xlarge: hm1.6xlarge (8 vCPU, 160 ГБ)
-  hm1-7xlarge: hm1.7xlarge (8 vCPU, 192 ГБ)
-  hm1-8xlarge: hm1.8xlarge (8 vCPU, 224 ГБ)
-  hm1-9xlarge: hm1.9xlarge (8 vCPU, 256 ГБ)
-  hm2-nano: hm2.nano (2 vCPU, 8 ГБ)
-  hm2-micro: hm2.micro (2 vCPU, 12 ГБ)
-  hm2-small: hm2.small (4 vCPU, 16 ГБ)
-  hm2-medium: hm2.medium (4 vCPU, 24 ГБ)
-  hm2-large: hm2.large (4 vCPU, 32 ГБ)
-  hm2-xlarge: hm2.xlarge (4 vCPU, 48 ГБ)
-  hm2-60xlarge: hm2.60xlarge (6 vCPU, 60 ГБ)
-  hm2-78xlarge: hm2.78xlarge (6 vCPU, 78 ГБ)
-  hm2-96xlarge: hm2.96xlarge (6 vCPU, 96 ГБ)
-  hm2-128xlarge: hm2.128xlarge (8 vCPU, 128 ГБ)
-  hm2-160xlarge: hm2.160xlarge (10 vCPU, 160 ГБ)
-  hm2-192xlarge: hm2.192xlarge (12 vCPU, 192 ГБ)
-  hm2-224xlarge: hm2.224xlarge (14 vCPU, 224 ГБ)
-  hm2-256xlarge: hm2.256xlarge (16 vCPU, 256 ГБ)
-  hm2-320xlarge: hm2.320xlarge (20 vCPU, 320 ГБ)
-  hm2-384xlarge: hm2.384xlarge (24 vCPU, 384 ГБ)
-  hm2-448xlarge: hm2.448xlarge (28 vCPU, 448 ГБ)
-  hm2-512xlarge: hm2.512xlarge (32 vCPU, 512 ГБ)
-  hm3-c2-m8: hm3-c2-m8 (2 vCPU, 8 ГБ)
-  hm3-c2-m12: hm3-c2-m12 (2 vCPU, 12 ГБ)
-  hm3-c4-m16: hm3-c4-m16 (4 vCPU, 16 ГБ)
-  hm3-c4-m24: hm3-c4-m24 (4 vCPU, 24 ГБ)
-  hm3-c4-m32: hm3-c4-m32 (4 vCPU, 32 ГБ)
-  hm3-c4-m48: hm3-c4-m48 (4 vCPU, 48 ГБ)
-  hm3-c6-m60: hm3-c6-m60 (6 vCPU, 60 ГБ)
-  hm3-c6-m78: hm3-c6-m78 (6 vCPU, 78 ГБ)
-  hm3-c6-m96: hm3-c6-m96 (6 vCPU, 96 ГБ)
-  hm3-c8-m128: hm3-c8-m128 (8 vCPU, 128 ГБ)
-  hm3-c8-m160: hm3-c8-m160 (8 vCPU, 160 ГБ)
-  hm3-c12-m192: hm3-c12-m192 (12 vCPU, 192 ГБ)
-  hm3-c14-m224: hm3-c14-m224 (14 vCPU, 224 ГБ)
-  hm3-c16-m256: hm3-c16-m256 (16 vCPU, 256 ГБ)
-  hm3-c20-m320: hm3-c20-m320 (20 vCPU, 320 ГБ)
-  hm3-c24-m384: hm3-c24-m384 (24 vCPU, 384 ГБ)
-  hm3-c28-m448: hm3-c28-m448 (28 vCPU, 448 ГБ)
-  hm3-c32-m512: hm3-c32-m512 (32 vCPU, 512 ГБ)
+  b3-c1-m4: b3-c1-m4 (2 × 50% vCPU, 4 ГБ)
+  m3-c2-m16: m3-c2-m16 (2 vCPU, 16 ГБ)
+  m3-c4-m32: m3-c4-m32 (4 vCPU, 32 ГБ)
+  m3-c6-m48: m3-c6-m48 (6 vCPU, 48 ГБ)
+  m3-c8-m64: m3-c8-m64 (8 vCPU, 64 ГБ)
+  m3-c12-m96: m3-c12-m96 (12 vCPU, 96 ГБ)
+  m3-c16-m128: m3-c16-m128 (16 vCPU, 128 ГБ)
+  m3-c24-m192: m3-c24-m192 (24 vCPU, 192 ГБ)
+  m3-c32-m256: m3-c32-m256 (32 vCPU, 256 ГБ)
+  m3-c40-m320: m3-c40-m320 (40 vCPU, 320 ГБ)
+  m3-c48-m384: m3-c48-m384 (48 vCPU, 384 ГБ)
+  m3-c56-m448: m3-c56-m448 (56 vCPU, 448 ГБ)
+  m3-c64-m512: m3-c64-m512 (64 vCPU, 512 ГБ)
+  m3-c80-m640: m3-c80-m640 (80 vCPU, 640 ГБ)
+  s3-c2-m8: s3-c2-m8 (2 vCPU, 8 ГБ)
+  s3-c4-m16: s3-c4-m16 (4 vCPU, 16 ГБ)
+  s3-c8-m32: s3-c8-m32 (8 vCPU, 32 ГБ)
+  s3-c12-m48: s3-c12-m48 (12 vCPU, 48 ГБ)
+  s3-c16-m64: s3-c16-m64 (16 vCPU, 64 ГБ)
+  s3-c24-m96: s3-c24-m96 (24 vCPU, 96 ГБ)
+  s3-c32-m128: s3-c32-m128 (32 vCPU, 128 ГБ)
+  s3-c40-m160: s3-c40-m160 (40 vCPU, 160 ГБ)
+  s3-c48-m192: s3-c48-m192 (48 vCPU, 192 ГБ)
+  s3-c64-m256: s3-c64-m256 (64 vCPU, 256 ГБ)
+  s3-c80-m320: s3-c80-m320 (80 vCPU, 320 ГБ)
+  s3-c96-m576: s3-c96-m576 (96 vCPU, 576 ГБ)
+  hm1-nano: hm1.nano (2 vCPU, 8 ГБ)
+  hm1-micro: hm1.micro (2 vCPU, 12 ГБ)
+  hm1-small: hm1.small (2 vCPU, 16 ГБ)
+  hm1-medium: hm1.medium (4 vCPU, 24 ГБ)
+  hm1-large: hm1.large (4 vCPU, 32 ГБ)
+  hm1-xlarge: hm1.xlarge (4 vCPU, 48 ГБ)
+  hm1-2xlarge: hm1.2xlarge (4 vCPU, 64 ГБ)
+  hm1-3xlarge: hm1.3xlarge (4 vCPU, 80 ГБ)
+  hm1-4xlarge: hm1.4xlarge (8 vCPU, 96 ГБ)
+  hm1-5xlarge: hm1.5xlarge (8 vCPU, 128 ГБ)
+  hm1-6xlarge: hm1.6xlarge (8 vCPU, 160 ГБ)
+  hm1-7xlarge: hm1.7xlarge (8 vCPU, 192 ГБ)
+  hm1-8xlarge: hm1.8xlarge (8 vCPU, 224 ГБ)
+  hm1-9xlarge: hm1.9xlarge (8 vCPU, 256 ГБ)
+  hm2-nano: hm2.nano (2 vCPU, 8 ГБ)
+  hm2-micro: hm2.micro (2 vCPU, 12 ГБ)
+  hm2-small: hm2.small (4 vCPU, 16 ГБ)
+  hm2-medium: hm2.medium (4 vCPU, 24 ГБ)
+  hm2-large: hm2.large (4 vCPU, 32 ГБ)
+  hm2-xlarge: hm2.xlarge (4 vCPU, 48 ГБ)
+  hm2-60xlarge: hm2.60xlarge (6 vCPU, 60 ГБ)
+  hm2-78xlarge: hm2.78xlarge (6 vCPU, 78 ГБ)
+  hm2-96xlarge: hm2.96xlarge (6 vCPU, 96 ГБ)
+  hm2-128xlarge: hm2.128xlarge (8 vCPU, 128 ГБ)
+  hm2-160xlarge: hm2.160xlarge (10 vCPU, 160 ГБ)
+  hm2-192xlarge: hm2.192xlarge (12 vCPU, 192 ГБ)
+  hm2-224xlarge: hm2.224xlarge (14 vCPU, 224 ГБ)
+  hm2-256xlarge: hm2.256xlarge (16 vCPU, 256 ГБ)
+  hm2-320xlarge: hm2.320xlarge (20 vCPU, 320 ГБ)
+  hm2-384xlarge: hm2.384xlarge (24 vCPU, 384 ГБ)
+  hm2-448xlarge: hm2.448xlarge (28 vCPU, 448 ГБ)
+  hm2-512xlarge: hm2.512xlarge (32 vCPU, 512 ГБ)
+  hm3-c2-m8: hm3-c2-m8 (2 vCPU, 8 ГБ)
+  hm3-c2-m12: hm3-c2-m12 (2 vCPU, 12 ГБ)
+  hm3-c4-m16: hm3-c4-m16 (4 vCPU, 16 ГБ)
+  hm3-c4-m24: hm3-c4-m24 (4 vCPU, 24 ГБ)
+  hm3-c4-m32: hm3-c4-m32 (4 vCPU, 32 ГБ)
+  hm3-c4-m48: hm3-c4-m48 (4 vCPU, 48 ГБ)
+  hm3-c6-m60: hm3-c6-m60 (6 vCPU, 60 ГБ)
+  hm3-c6-m78: hm3-c6-m78 (6 vCPU, 78 ГБ)
+  hm3-c6-m96: hm3-c6-m96 (6 vCPU, 96 ГБ)
+  hm3-c8-m128: hm3-c8-m128 (8 vCPU, 128 ГБ)
+  hm3-c8-m160: hm3-c8-m160 (8 vCPU, 160 ГБ)
+  hm3-c12-m192: hm3-c12-m192 (12 vCPU, 192 ГБ)
+  hm3-c14-m224: hm3-c14-m224 (14 vCPU, 224 ГБ)
+  hm3-c16-m256: hm3-c16-m256 (16 vCPU, 256 ГБ)
+  hm3-c20-m320: hm3-c20-m320 (20 vCPU, 320 ГБ)
+  hm3-c24-m384: hm3-c24-m384 (24 vCPU, 384 ГБ)
+  hm3-c28-m448: hm3-c28-m448 (28 vCPU, 448 ГБ)
+  hm3-c32-m512: hm3-c32-m512 (32 vCPU, 512 ГБ)
   c3-c2-m4: c3-c2-m4 (2 vCPU, 4 ГБ)
   c3-c4-m8: c3-c4-m8 (4 vCPU, 8 ГБ)
   c3-c8-m16: c3-c8-m16 (8 vCPU, 16 ГБ)
@@ -478,15 +488,15 @@ default:
   c3-c80-m160: c3-c80-m160 (80 vCPU, 160 ГБ)
   c3-c96-m192: c3-c96-m192 (96 vCPU, 192 ГБ)
   i2:
-    2xlarge: i2.2xlarge (16 vCPU, 128 ГБ)
-    4xlarge: i2.4xlarge (32 vCPU, 256 ГБ)
-    5xlarge: i2.5xlarge (40 vCPU, 320 ГБ)
+    2xlarge: i2.2xlarge (16 vCPU, 128 ГБ)
+    4xlarge: i2.4xlarge (32 vCPU, 256 ГБ)
+    5xlarge: i2.5xlarge (40 vCPU, 320 ГБ)
   i3:
-    c16-m128: i3-c16-m128 (16 vCPU, 128 ГБ)
-    c32-m256: i3-c32-m256 (32 vCPU, 256 ГБ)
-    c40-m320: i3-c40-m320 (40 vCPU, 320 ГБ)
-  local-ssd-v3-max: 2944 ГБ
-  local-ssd-v3-step: 368 ГБ
+    c16-m128: i3-c16-m128 (16 vCPU, 128 ГБ)
+    c32-m256: i3-c32-m256 (32 vCPU, 256 ГБ)
+    c40-m320: i3-c40-m320 (40 vCPU, 320 ГБ)
+  local-ssd-v3-max: 2944 ГБ
+  local-ssd-v3-step: 368 ГБ
   graph-update: 15 секунд
   graph-update-burstable: 150 секунд
   mch-backup-retention: 7
@@ -599,10 +609,10 @@ default:
   yq-short-name: YQ
 
   # ML
-  stt-short-fileSize: 1 МБ
+  stt-short-fileSize: 1 МБ
   stt-short-audioLength: 30 секунд
   stt-short-channelsCount: 1
-  stt-long-fileSize: 1 ГБ
+  stt-long-fileSize: 1 ГБ
   stt-long-resultsStorageTime: 3 суток
   stt-long-audioLength: 4 часа
   stt-streaming-fileSize: 10 МБ
@@ -614,7 +624,7 @@ default:
   ds-api-addr: datasphere.api.cloud.yandex.net:443
   taas-name: Training as a Service
   taas: TaaS
-  ml-project-size: 10 ГБ
+  ml-project-size: 10 ГБ
 
   # Marketplace
   mp-test-product-id: f2e4tmlj4qqciunhr7e6
@@ -746,12 +756,12 @@ internal:
   ZK: ZooKeeper
   MS: Microsoft SQL Server
   RMQ: RabbitMQ
-  tag-con: <code><b><small>Консоль управления</small></b></code>
+  tag-con: <code><b><small>Консоль управления</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
   tag-api: <code><b><small>API</small></b></code>
   tag-sql: <code><b><small>SQL</small></b></code>
-  tag-all: <code><b><small>Все интерфейсы</small></b></code>
+  tag-all: <code><b><small>Все интерфейсы</small></b></code>
   zone-id: vla
   host-class: db1.micro
   zk-host-class: b2.medium
