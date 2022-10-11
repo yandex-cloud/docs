@@ -1,22 +1,23 @@
-# yc serverless api-gateway add-domain
+# yc managed-greenplum cluster expand
 
-Attach domain to the specified API Gateway
+Expands the specified Greenplum cluster
 
 #### Command Usage
 
 Syntax: 
 
-`yc serverless api-gateway add-domain <API-GATEWAY-NAME>|<API-GATEWAY-ID> --domain <DOMAIN> --certificate-id <CERTIFICATE-ID> [Flags...] [Global Flags...]`
+`yc managed-greenplum cluster expand <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>Api-gateway id.|
-|`--name`|<b>`string`</b><br/>Api-gateway name.|
+|`--segment-host-count`|<b>`int`</b><br/>Number of hosts for add to the segment subcluster. Default is 1.|
+|`--add-segments-per-host-count`|<b>`int`</b><br/>Number of segments per host to add. Default is 1.|
+|`--duration-seconds`|<b>`int`</b><br/>Redistribute duration, in seconds. Default is 2 hours (7200 seconds)|
+|`--id`|<b>`string`</b><br/>Greenplum cluster id.|
+|`--name`|<b>`string`</b><br/>Greenplum cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`-d`,`--domain`|<b>`string`</b><br/>FQDN of attaching domain.|
-|`-c`,`--certificate-id`|<b>`string`</b><br/>Id of domain certificate.|
 
 #### Global Flags
 
