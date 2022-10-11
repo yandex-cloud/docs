@@ -1,4 +1,4 @@
-**Cost of storing data with a throughput limit per shard of 128 KB/s:**
+Cost of storing data with a throughput limit per shard of 128 KB/s:
 
 | Data retention period | Cost, including VAT |
 | --- | --- |
@@ -7,7 +7,7 @@
 | 12 hours | {{ sku|RUB|yds.reserved_resources.128k.12h|string }} |
 | 24 hours | {{ sku|RUB|yds.reserved_resources.128k.24h|string }} |
 
-**Cost of storing data with a throughput limit per shard of 512 KB/s:**
+Cost of storing data with a throughput limit per shard of 512 KB/s:
 
 | Data retention period | Cost, including VAT |
 | --- | --- |
@@ -16,7 +16,7 @@
 | 12 hours | {{ sku|RUB|yds.reserved_resources.512k.12h|string }} |
 | 24 hours | {{ sku|RUB|yds.reserved_resources.512k.24h|string }} |
 
-**Cost of storing data with a throughput limit per shard of 1 MB/s:**
+Cost of storing data with a throughput limit per shard of 1 MB/s:
 
 | Data retention period | Cost, including VAT |
 | --- | --- |
