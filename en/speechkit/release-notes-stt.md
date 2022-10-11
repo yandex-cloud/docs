@@ -6,13 +6,17 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
+### Release 20.09.22 {#200922}
+
+Improved Moscow district and medication recognition accuracy in the `general:rc` model. The fixes are available for testing.
+
+## Previous versions {#previous}
+
 ### Release 29.06.22 {#290622}
 
 1. The `general` version of the multi-language model is available.
 1. In the `general:rc` and `general` versions, the multi-language model can accept hints about which languages are contained in the speech.
 1. Upgrades to `general:rc` [from June 7](#070622) are available in the `general` model for Russian.
-
-## Previous versions {#previous}
 
 ### Release 07.06.22 {#070622}
 
