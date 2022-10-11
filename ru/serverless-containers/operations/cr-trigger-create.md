@@ -1,6 +1,6 @@
 # Создание триггера для {{ container-registry-name }}
 
-Создайте [триггер для {{ container-registry-name }}](../concepts/trigger/cr-trigger.md), который будет вызывать [контейнер](../concepts/container.md) {{ serverless-containers-name }} при создании и удалении [Docker-образов](../../container-registry/concepts/docker-image.md) {{ container-registry-full-name }} или их тегов.
+Создайте [триггер для {{ container-registry-name }}](../concepts/trigger/cr-trigger.md), который будет вызывать [контейнер](../concepts/container.md) {{ serverless-containers-name }} при создании и удалении [Docker-образов](../../container-registry/concepts/docker-image.md) {{ container-registry-name }} или их тегов.
 
 ## Перед началом работы {#before-begin}
 
@@ -55,6 +55,6 @@
 
 {% include [check-result](../../_includes/serverless-containers/check-result.md) %}
 
-## См. также
+## См. также {#see-also}
 
 * [Триггер для {{ container-registry-name }}, который запускает функцию {{ sf-name }}](../../functions/operations/trigger/cr-trigger-create.md).

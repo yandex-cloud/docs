@@ -31,6 +31,10 @@ items:
             href: operations/logs.md
           - name: Deleting a container
             href: operations/delete.md
+      - name: Managing triggers
+        items:
+          - name: Creating a trigger for Container Registry
+            href: operations/cr-trigger-create.md
   - name: Concepts
     items:
       - name: Overview

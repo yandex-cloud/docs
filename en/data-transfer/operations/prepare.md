@@ -60,8 +60,6 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. [Configure access to the source cluster from {{ yandex-cloud }}](../concepts/network.md#source-external).
 
-   1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [materialized views]({{ ch.docs }}/engines/table-engines/special/materializedview/) (MaterializedView) will transfer.
-
    1. Create a user with access to the source database.
 
 {% endlist %}
@@ -408,7 +406,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
          * `USAGE` for the schemas of these tables and sequences.
          * `ALL PRIVILEGES` (`CREATE` and `USAGE`) to the housekeeping table schema defined by the [endpoint parameter](./endpoint/source/postgresql.md#additional-settings) if the endpoint is going to be used for the _{{ dt-type-repl }}_ or _{{ dt-type-copy-repl }}_ transfer types.
 
-   1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This lets replication continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, please refer to the [Troubleshooting](../troubleshooting/postgresql.md#master-change) section.
+   1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This lets replication continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, please refer to the [Troubleshooting](../troubleshooting/index.md#master-change) section.
 
    1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
@@ -513,7 +511,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
       1. Restart PostgreSQL.
 
-   1. If the replication source is a cluster, install and enable the [pg_tm_aux](https://github.com/x4m/pg_tm_aux) extension on its hosts. This lets replication continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, please refer to the [Troubleshooting](../troubleshooting/postgresql.md#master-change) section.
+   1. If the replication source is a cluster, install and enable the [pg_tm_aux](https://github.com/x4m/pg_tm_aux) extension on its hosts. This lets replication continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, please refer to the [Troubleshooting](../troubleshooting/index.md#master-change) section.
 
    1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 

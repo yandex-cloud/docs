@@ -32,6 +32,7 @@ description: "Из статьи вы узнаете как работать с {
 * [{#T}](trigger/iot-core-trigger-create.md)
 * [{#T}](trigger/budget-trigger-create.md)
 * [{#T}](trigger/data-streams-trigger-create.md)
+* [{#T}](trigger/mail-trigger-create.md)
 * [{#T}](trigger/trigger-update.md)
 * [{#T}](trigger/trigger-monitoring.md)
 * [{#T}](trigger/trigger-delete.md)

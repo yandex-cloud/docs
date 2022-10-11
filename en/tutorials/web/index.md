@@ -9,5 +9,9 @@
 * [WordPress website on a MySQL database cluster](wordpress-mysql.md)
 * [Transferring a WordPress website from a different hosting provider to {{ yandex-cloud }}](wordpress-transfer.md)
 * [1C-Bitrix website](bitrix-website.md)
+* [Setting up a virtual hosting](virtual-hosting.md)
 
+* [Creating a load balancer with DDoS protection](alb-with-ddos-protection.md)
+* [Integrating an L7 load balancer with the {{ cdn-short-name }} and {{ objstorage-short-name }}](cdn-storage-integration.md)
 * [Enabling blue-green and canary deployment of web service versions](blue-green-canary-deployment.md)
+* [Terminating TLS connections](tls-termination.md)

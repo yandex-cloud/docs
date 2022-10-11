@@ -31,8 +31,18 @@ items:
           Integrating an L7 load balancer with the {{ cdn-name }} and {{
           objstorage-name }}
         href: web/cdn-storage-integration.md
+      - name: Setting up a virtual hosting
+        href: web/virtual-hosting.md
+      - name: Creating a load balancer with DDoS protection
+        href: web/alb-with-ddos-protection.md
+      - name: >-
+          Integrating an L7 load balancer with the {{ cdn-short-name }} and {{
+          objstorage-short-name }}
+        href: web/cdn-storage-integration.md
       - name: Blue-green and canary deployment of service versions
         href: web/blue-green-canary-deployment.md
+      - name: Terminating TLS connections
+        href: web/tls-termination.md
   - name: Online stores
     items:
       - name: All tutorials
@@ -129,6 +139,8 @@ items:
         href: infrastructure-management/dns-integration.md
       - name: Creating an ACME resolver webhook for responses to DNS01 checks
         href: infrastructure-management/cert-manager-webhook.md
+      - name: Writing load balancer logs to {{ PG }}
+        href: infrastructure-management/logging.md
   - name: Building a data platform
     items:
       - name: All tutorials

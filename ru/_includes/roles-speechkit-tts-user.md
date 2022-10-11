@@ -1,3 +1,3 @@
-### ai.speechkit-tts.user {#ai-speechkit-tts-user}
+### {{ roles-speechkit-tts }} {#ai-speechkit-tts-user}
 
-Роль `ai.speechkit-tts.user` позволяет использовать сервис {{ speechkit-name }} для синтеза речи.
+Роль `{{ roles-speechkit-tts }}` позволяет использовать сервис {{ speechkit-name }} для синтеза речи.

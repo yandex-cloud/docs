@@ -6,8 +6,8 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 {% note info %}
 
-* The number of hosts you can create together with a {{ MY }} cluster depends on the selected [storage type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
-* Available storage types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
+* The number of hosts you can create together with a {{ MY }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
 
@@ -18,6 +18,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
+
    1. Select **{{ mmy-name }}**.
    1. Click **Create cluster**.
    1. Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
@@ -28,7 +29,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
    1. Under **Storage size**:
 
-      * Select the [storage type](../concepts/storage.md).
+      * Select the [disk type](../concepts/storage.md).
 
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
@@ -89,6 +90,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    1. Specify the cluster parameters in the create command:
 
       
+      
       ```bash
       {{ yc-mdb-my }} cluster create \
         --name=<cluster name> \
@@ -99,13 +101,16 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         --resource-preset <host class> \
         --user name=<username>,password=<user password> \
         --database name=<database name> \
-        --disk-size <storage size in gigabytes> \
+        --disk-size <storage size, GB> \
         --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
-        --security-group-ids <list of IDs of security groups> \
-        --deletion-protection=<cluster deletion protection: true or false>
+        --security-group-ids <list of security group IDs> \
+        --deletion-protection=<cluster deletion protection: true or false> \
+        --datalens-access=<cluster access from {{ datalens-name }}: true or false>
       ```
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
+
+
 
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -147,7 +152,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       }
 
       provider "yandex" {
-        token     = "<An OAuth or static key of the service account>"
+        token     = "<service account OAuth or static key>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
         zone      = "<availability zone>"
@@ -163,8 +168,8 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
         resources {
           resource_preset_id = "<host class>"
-          disk_type_id       = "<storage type>"
-          disk_size          = "<storage size in gigabytes>"
+          disk_type_id       = "<disk type>"
+          disk_size          = "<storage size in GB>"
         }
 
         host {
@@ -204,6 +209,10 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
+      
+      1. {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
+
+
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmy }}).
 
    1. Make sure that the configuration files are correct.
@@ -231,6 +240,10 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    * Security [group identifiers](../concepts/network.md#security-groups), in the `securityGroupIds` parameter.
 
    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+
+   
+   {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
+
 
 {% endlist %}
 
@@ -261,7 +274,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With a single `{{ host-class }}` class host in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone.
    * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
    * With one user, `user1`, with the password `user1user1`.
-   * With one `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`.
+   * With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`.
    * With protection against accidental cluster deletion.
 
 

@@ -1,3 +1,3 @@
-### ai.speechkit-stt.user {#ai-speechkit-stt-user}
+### {{ roles-speechkit-stt }} {#ai-speechkit-stt-user}
 
-Роль `ai.speechkit-stt.user` позволяет использовать сервис {{ speechkit-name }} для распознавания речи.
+Роль `{{ roles-speechkit-stt }}` позволяет использовать сервис {{ speechkit-name }} для распознавания речи.

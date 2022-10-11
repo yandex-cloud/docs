@@ -1,6 +1,6 @@
 # Триггер для {{ objstorage-name }}
 
-[Триггер](../trigger/) для {{ objstorage-name }} запускает [функцию](../function.md) {{ sf-name }}, когда наступает определенное событие с [объектом](../../../storage/concepts/object.md) {{ objstorage-full-name }}. Триггер должен находиться в одном облаке с бакетом, на события которого он подписан.
+[Триггер](../trigger/) для {{ objstorage-name }} запускает [функцию](../function.md) {{ sf-name }}, когда наступает определенное событие с [объектом](../../../storage/concepts/object.md) {{ objstorage-name }}. Триггер должен находиться в одном облаке с бакетом, на события которого он подписан.
 
 Триггеру для {{ objstorage-name }} необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова функции.
 
@@ -26,35 +26,12 @@
 
 Подробнее об [управлении доступом](../../security/index.md).
 
-## Формат сообщения от триггера {{ objstorage-name }} {#ymq-format}
+## Формат сообщения от триггера {{ objstorage-name }} {#format}
 
 После того как триггер сработает, он отправит в функцию следующее сообщение: 
 
-```json
-{
-  "messages": [
-    {
-      "event_metadata": {
-        "event_id": "bb1dd06d-a82c-49b4-af98-d8e0c5a1d8f0",
-        "event_type": "yandex.cloud.events.storage.ObjectDelete",
-        "created_at": "2019-12-19T14:17:47.847365Z",
-        "tracing_context": {
-          "trace_id": "dd52ace79c62892f",
-          "span_id": "",
-          "parent_span_id": ""
-        },
-        "cloud_id": "b1gvlrnlei4l5idm9cbj",
-        "folder_id": "b1g88tflru0ek1omtsu0"
-      },
-      "details": {
-        "bucket_id": "s3-for-trigger",
-        "object_id": "dev/0_15a775_972dbde4_orig12.jpg"
-      }
-    }
-  ]
-}
-```
+{% include [os-format](../../../_includes/functions/os-format.md) %}
 
-## См. также {#see-also_}
+## См. также {#see-also}
 
 * [Триггер для {{ objstorage-name }}, который запускает контейнер {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/os-trigger.md).
