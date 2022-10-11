@@ -28,7 +28,7 @@ curl -X POST \
     -H "x-data-logging-enabled: true" \
     -H "authorization: Bearer ${IAM_TOKEN}" \
     --data-binary "@speech.ogg" \
-    "https://stt.{{ api-host }}/speech/v1/stt:recognize?folderId=${FOLDER_ID}"
+    "https://stt.{{ api-host }}/speech/v2/stt:recognize?folderId=${FOLDER_ID}"
 ```
 
 Где:

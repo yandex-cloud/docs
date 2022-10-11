@@ -6,8 +6,9 @@ _Проект_ — это основное рабочее место польз�
 
 {% include [include](../../../_includes/datasphere/ui-create-project.md) %}
 
+Настройки созданного проекта можно [изменить](update.md): привязать сеть, сервисный аккаунт, настроить связи с другими сервисами {{ yandex-cloud }}.
+
 #### Что дальше {#what-is-next}
 
-* [{#T}](install-dependencies.md).
-* [{#T}](control-compute-resources.md).
-* [{#T}](export.md).
+* [{#T}](install-dependencies.md)
+* [{#T}](control-compute-resources.md)

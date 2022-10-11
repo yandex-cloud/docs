@@ -94,19 +94,7 @@ items:
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Troubleshooting
-    items:
-      - name: Overview
-        href: troubleshooting/index.md
-      - name: '{{ MG }}'
-        href: troubleshooting/mongodb.md
-      - name: '{{ MY }}'
-        href: troubleshooting/mysql.md
-      - name: '{{ PG }}'
-        href: troubleshooting/postgresql.md
-      - name: '{{ ydb-full-name }} and {{ yds-full-name }}'
-        href: troubleshooting/ydb.md
-      - name: Network
-        href: troubleshooting/network.md
+    href: troubleshooting/index.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

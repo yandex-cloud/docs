@@ -9,15 +9,15 @@ Pricing mode is set for each data stream individually. By default, streams in {{
 
 ## Pricing based on allocated resources {#rules} 
 
-If pricing for allocated resources is used, the number of units of written data and resources allocated for streaming data are billed.
+While using {{ yds-name }}, the number of units of written data and resources allocated for streaming data are billed.
 
-Pricing for allocated resources is based on the limit of the shard throughput and data retention period.
+Pricing for the allocated resources includes the established segment throughput limit as well as storage time and size.
 
 {% include [not-charged-streams.md](../_includes/pricing/price-formula/not-charged-streams.md) %}
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-### Example of cost calculation {#price-example}
+### Examples of cost calculation {#price-example}
 
 A single-shard stream receives two 50 KB messages per second. The message retention period is 12 hours.
 
@@ -48,11 +48,8 @@ Where:
 
 
 
-
-
-
 {% include [usd.md](../_pricing/data-streams/usd-example.md) %}
-
+
 
 ### Pricing {#prices}
 
@@ -63,25 +60,31 @@ The first 2000000 units of written data per month are free of charge.
 
 
 
-
-
-
 {% include [usd.md](../_pricing/data-streams/usd-event.md) %}
-
+
 
 #### Cost of allocated resources {#resources}
+
+#### Pricing based on storage time {#time-limit}
 
 Cost of using allocated resources per hour:
 
 
 
 
-
-
-
 {% include [usd.md](../_pricing/data-streams/usd-resources.md) %}
-
+
+
+#### Pricing based on storage size {#storage-limit}
+
+Data is stored for up to 7 days.
+
+
+
+
+{% include [usd.md](../_pricing/data-streams/usd-resources-storage-limit.md) %}
+
 
 ## On-demand pricing {#on-demand}
 
-With on-demand pricing, data streams are billed at the level of YDB Serverless database topics where their data is stored. Go to the [Pricing policy for YDB Serverless mode](../ydb/pricing/serverless.md) page to learn more about pricing and cost calculation.
+With on-demand pricing, data streams are billed at the level of {{ ydb-short-name }} Serverless database topics where their data is stored. Go to the [Pricing policy for {{ ydb-short-name }} Serverless mode](../ydb/pricing/serverless.md) page to learn more about pricing and cost calculation.

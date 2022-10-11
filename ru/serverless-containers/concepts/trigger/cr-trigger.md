@@ -1,6 +1,6 @@
 # Триггер для {{ container-registry-name }}
 
-[Триггер](../trigger/) для {{ container-registry-name }} запускает [контейнер](../container.md) {{ serverless-containers-name }}, когда с [Docker-образом](../../../container-registry/concepts/docker-image.md) {{ container-registry-full-name }} происходят определенные события. Триггер должен находиться в одном облаке с [реестром](../../../container-registry/concepts/registry.md), на события которого он подписан.
+[Триггер](../trigger/) для {{ container-registry-name }} запускает [контейнер](../container.md) {{ serverless-containers-name }}, когда с [Docker-образом](../../../container-registry/concepts/docker-image.md) {{ container-registry-name }} происходят определенные события. Триггер должен находиться в одном облаке с [реестром](../../../container-registry/concepts/registry.md), на события которого он подписан.
 
 Триггеру для {{ container-registry-name }} необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова контейнера.
 
@@ -21,6 +21,6 @@
 
 {% include [cr-format](../../../_includes/functions/cr-format.md) %}
 
-## См. также {#see-also_}
+## См. также {#see-also}
 
 * [Триггер для {{ container-registry-name }}, который запускает функцию {{ sf-name }}](../../../functions/concepts/trigger/cr-trigger.md).

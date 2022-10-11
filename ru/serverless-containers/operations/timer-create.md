@@ -48,6 +48,6 @@
 
 {% include [check-result](../../_includes/serverless-containers/check-result.md) %}
 
-## См. также
+## См. также {#see-also}
 
 * [Таймер для запуска функции {{ sf-name }}](../../functions/operations/trigger/timer-create.md).

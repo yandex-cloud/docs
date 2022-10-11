@@ -20,7 +20,6 @@ If you no longer need data input, [delete the resources used](#clear-out).
 
 {% include [prepare-register-billing](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The cost of supporting data input into storage systems includes:
@@ -41,13 +40,13 @@ The cost of supporting data input into storage systems includes:
 1. Click **Create cluster**.
 1. Specify the settings for a {{ CH }} cluster:
    1. Under **Basic parameters**:
-   * Enter a name for the cluster.
-   * Select the service account you created earlier.
+      * Enter a name for the cluster.
+      * Select the service account you created earlier.
    1. Under **Database**, specify the DB name, username, and password.
    1. Under **Hosts**, click ![pencil](../../_assets/pencil.svg). Enable **Public access** and click **Save**.
    1. Under **Additional settings**, enable the following options:
-   * Access from {{ data-transfer-short-name }}.
-   * Access from management console.
+      * Access from {{ data-transfer-short-name }}.
+      * Access from management console.
    1. Specify the remaining cluster parameters according to the [instructions](../../managed-clickhouse/operations/cluster-create.md).
 1. Click **Create cluster**.
 
@@ -99,7 +98,7 @@ Wait for the API gateway to start. When the API gateway is ready for use, its st
 1. Click **Create**.
 1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the created transfer and select **Activate**.
 
-Wait until the transfer is activated. When the transfer is ready for use, its status changes from `Creating` to `Incrementing`.
+Wait until the transfer is activated. When the transfer is ready for use, its status changes from {{ dt-status-creation }} to {{ dt-status-repl }}.
 
 ## Test sending and receiving data {#test-ingestion}
 
@@ -108,6 +107,8 @@ Wait until the transfer is activated. When the transfer is ready for use, its st
    ```bash
    curl -X POST -d 'test massage' https://<url>/<paths>
    ```
+
+   Where:
 
    * `<url>`: The earlier saved **Service domain** value of the API gateway.
    * `<paths>`: The earlier saved **Name** value of the API gateway.

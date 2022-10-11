@@ -20,3 +20,4 @@
 * [Migrating DNS zones from Yandex 360 to {{ dns-full-name }}](connect-migration.md)
 * [Integrating {{ dns-name }} and a corporate DNS service](dns-integration.md)
 * [Creating an ACME resolver webhook for responses to DNS01 checks](cert-manager-webhook.md)
+* [Writing load balancer logs to {{ PG }}](logging.md)

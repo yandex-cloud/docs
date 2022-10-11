@@ -98,6 +98,6 @@
 
 {% include [check-result](../../_includes/serverless-containers/check-result.md) %}
 
-## См. также
+## См. также {#see-also}
 
 * [Триггер для почты, который запускает функцию {{ sf-name }}](../../functions/operations/trigger/mail-trigger-create.md).

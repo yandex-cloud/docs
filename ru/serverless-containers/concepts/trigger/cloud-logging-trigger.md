@@ -1,6 +1,6 @@
-# Триггер для {{ cloud-logging-full-name }}
+# Триггер для {{ cloud-logging-name }}
 
-[Триггер](../trigger/) для {{ cloud-logging-full-name }} запускает [контейнер](../container.md) {{ serverless-containers-name }}, когда в [лог-группу](../../../logging/concepts/log-group.md) добавляют записи.
+[Триггер](../trigger/) для {{ cloud-logging-name }} запускает [контейнер](../container.md) {{ serverless-containers-name }}, когда в [лог-группу](../../../logging/concepts/log-group.md) добавляют записи.
 
 Триггеру для {{ cloud-logging-name }} необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для чтения из лог-группы и вызова контейнера.
 
@@ -17,6 +17,6 @@
 
 {% include [logging-format](../../../_includes/functions/logging-format.md) %}
 
-## См. также {#see-also_}
+## См. также {#see-also}
 
 * [Триггер для {{ cloud-logging-name }}, который запускает функцию {{ sf-name }}](../../../functions/concepts/trigger/cloud-logging-trigger.md).

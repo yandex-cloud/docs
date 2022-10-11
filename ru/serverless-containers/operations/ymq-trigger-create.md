@@ -1,6 +1,6 @@
 # Создание триггера для {{ message-queue-short-name }}
 
-Создайте [триггер для очереди сообщений](../concepts/trigger/ymq-trigger.md) сервиса {{ message-queue-full-name }} и обрабатывайте их с помощью [контейнера](../concepts/container.md) {{ serverless-containers-name }}.
+Создайте [триггер для очереди сообщений](../concepts/trigger/ymq-trigger.md) сервиса {{ message-queue-short-name }} и обрабатывайте их с помощью [контейнера](../concepts/container.md) {{ serverless-containers-name }}.
 
 {% note warning %}
 
@@ -86,6 +86,6 @@
 
 {% endlist %}
 
-## См. также
+## См. также {#see-also}
 
 * [Триггер для {{ message-queue-name }}, который передает сообщения в функцию {{ sf-name }}](../../functions/operations/trigger/ymq-trigger-create.md).

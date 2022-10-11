@@ -1,4 +1,4 @@
-# Создание триггера для {{ cloud-logging-full-name }}
+# Создание триггера для {{ cloud-logging-name }}
 
 Создайте [триггер для {{ cloud-logging-name }}](../concepts/trigger/cloud-logging-trigger.md), который будет вызывать [контейнер](../concepts/container.md) {{ serverless-containers-name }} при добавлении записей в [лог-группу](../../logging/concepts/log-group.md).
 
@@ -64,6 +64,6 @@
 
 {% include [check-result](../../_includes/serverless-containers/check-result.md) %}
 
-## См. также
+## См. также {#see-also}
 
 * [Триггер для {{ cloud-logging-name }}, который запускает функцию {{ sf-name }}](../../functions/operations/trigger/cloud-logging-trigger-create.md).

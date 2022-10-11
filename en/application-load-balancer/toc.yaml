@@ -55,6 +55,8 @@ items:
             href: operations/k8s-ingress-controller-apply.md
   - name: Practical guidelines
     items:
+      - name: All practical guidelines
+        href: tutorials/index.md
       - name: Setting up a virtual hosting
         href: tutorials/virtual-hosting.md
       - name: Creating a load balancer with DDoS protection

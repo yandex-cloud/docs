@@ -23,30 +23,6 @@ items:
             href: quickstart/create-function/bash-function-quickstart.md
           - name: Java
             href: quickstart/create-function/java-function-quickstart.md
-      - name: Создание триггера
-        items:
-          - name: Обзор
-            href: quickstart/create-trigger/index.md
-          - name: Таймер
-            href: quickstart/create-trigger/timer-quickstart.md
-          - name: Триггер для Message Queue
-            href: quickstart/create-trigger/ymq-trigger-quickstart.md
-          - name: Триггер для Object Storage
-            href: quickstart/create-trigger/os-trigger-quickstart.md
-          - name: Триггер для Container Registry
-            href: quickstart/create-trigger/cr-trigger-quickstart.md
-          - name: Триггер для Cloud Logs
-            href: quickstart/create-trigger/cloudlogs-trigger-quickstart.md
-          - name: Триггер для Cloud Logging
-            href: quickstart/create-trigger/cloud-logging-trigger-quickstart.md
-          - name: Триггер для Yandex IoT Core
-            href: quickstart/create-trigger/iot-core-trigger-quickstart.md
-          - name: Триггер для бюджетов
-            href: quickstart/create-trigger/budget-trigger-quickstart.md
-          - name: Триггер для Data Streams
-            href: quickstart/create-trigger/data-streams-trigger-quickstart.md
-          - name: Триггер для почты
-            href: quickstart/create-trigger/mail-trigger-quickstart.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции

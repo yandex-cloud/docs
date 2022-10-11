@@ -1,0 +1,1 @@
+Make sure the trigger is working properly. To do this, view [container logs](../../serverless-containers/concepts/logs.md) that show information about invocations.

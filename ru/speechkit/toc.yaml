@@ -33,9 +33,9 @@ items:
             href: tts/ssml.md
           - name: Список поддерживаемых фонем в SSML
             href: tts/supported-phonemes.md
-      - name: SpeechKit Brand Voice
+      - name: '{{ brand-voice-name }}'
         items:
-          - name: О технологии SpeechKit Brand Voice
+          - name: О технологии "{{ brand-voice-name }}"
             href: tts/brand-voice/index.md
           - name: Формат входных данных Brand Voice Adaptive
             href: tts/brand-voice/income-data-format.md

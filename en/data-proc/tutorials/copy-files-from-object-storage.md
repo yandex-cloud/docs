@@ -31,10 +31,7 @@ To authenticate in {{objstorage-name}}, you can use one of the following approac
 
    For more information about these roles, see the [{{objstorage-name}} documentation](../../storage/security/index.md).
 
-> For example, get a list of files located in the `yc-mdb-examples` public bucket at the path `dataproc/example01/set01`.
->
-> 1. [Connect](../operations/connect.md) to the cluster.
-> 1. Run the command:
+> For example, get a list of files located in the `yc-mdb-examples` public bucket at the path `dataproc/example01/set01`. To do this, [connect](../operations/connect.md) to the cluster and run the command:
 >
 > ```bash
 > hadoop fs -ls s3a://yc-mdb-examples/dataproc/example01/set01
@@ -57,8 +54,12 @@ To use a secret storage provider, place the secrets within the components that n
 1. Specify the `access key` and `secret key`, for example:
 
    ```bash
-   hadoop credential create fs.s3a.access.key -value <access key> -provider localjceks://file/home/jack/yc.jceks
-   hadoop credential create fs.s3a.secret.key -value <secret key> -provider localjceks://file/home/jack/yc.jceks
+   hadoop credential create fs.s3a.access.key \
+          -value <access key> \
+          -provider localjceks://file/home/jack/yc.jceks && \
+   hadoop credential create fs.s3a.secret.key \
+          -value <secret key> \
+          -provider localjceks://file/home/jack/yc.jceks
    ```
 
 1. Copy the secrets file to your local HDFS:
@@ -116,6 +117,7 @@ hadoop distcp \
 ```
 
 
+
 ## Optimizing file reads from {{ objstorage-name }} {#optimize-s3-reading}
 
 The method for reading data from a bucket depends on the `fs.s3a.experimental.input.fadvise` [setting](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/performance.html#Improving_data_input_performance_through_fadvise). Its value depends on the image version used:
@@ -124,15 +126,17 @@ The method for reading data from a bucket depends on the `fs.s3a.experimental.in
 * For version `2.0` images, the default is `normal`: files are accessed sequentially but if an application is performing random access operations, the mode automatically switches to `random`.
 
 For more information on the component versions used, see [{#T}](../concepts/environment.md).
-
+
 
 ## Optimizing file writes to {{objstorage-name}} {#optimize-s3-writing}
+
 
 
 The method of writing data to a {{ objstorage-name }} bucket depends on the `core:fs.s3a.fast.upload` setting. Its value depends on the image version used:
 
 * In image versions `1.0` through `1.4`, the default value is `false` to save RAM. Set this property to `true` in the cluster component properties or the job settings. This will improve bucket write performance for large files and prevent node storage from filling up.
 * In image `2.0`, the `fs.s3a.fast.upload` setting is enabled by default.
+
 
 
 

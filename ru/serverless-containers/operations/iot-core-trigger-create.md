@@ -59,6 +59,6 @@
 
 {% include [check-result](../../_includes/serverless-containers/check-result.md) %}
 
-## См. также
+## См. также {#see-also}
 
 * [Триггер для {{ iot-name }}, который передает сообщения в функцию {{ sf-name }}](../../functions/operations/trigger/iot-core-trigger-create.md).

@@ -19,6 +19,6 @@ _Таймер_ — это [триггер](../trigger/), который запу
 
 {% include [timer-format](../../../_includes/functions/timer-format.md) %}
 
-## См. также {#see-also_}
+## См. также {#see-also}
 
 * [Таймер для запуска функции {{ sf-name }}](../../../functions/concepts/trigger/timer.md).

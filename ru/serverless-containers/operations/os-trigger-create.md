@@ -55,6 +55,6 @@
 
 {% include [check-result](../../_includes/serverless-containers/check-result.md) %}
 
-## См. также
+## См. также {#see-also}
 
 * [Триггер для {{ objstorage-name }}, который запускает функцию {{ sf-name }}](../../functions/operations/trigger/os-trigger-create.md).

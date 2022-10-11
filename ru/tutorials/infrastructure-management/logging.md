@@ -1,0 +1,1 @@
+{% include [logging](../../_tutorials/infrastructure-management/logging.md) %}

@@ -208,7 +208,9 @@
 
      1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
+     
      1. {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
+
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mmy }}).
 

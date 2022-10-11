@@ -73,7 +73,7 @@ Prepare the keys for use with your {{ k8s }} cluster node. To do this:
 
 ## Convert the public key to the relevant format {#key-format}
 
-Users and SSH keys are managed with [OS Login](https://cloud.google.com/compute/docs/oslogin/), so the keys must be passed in a specific format.
+You can manage users and SSH keys via metadata, which is why you must transmit keys in a defined format.
 
 The file with the public key is created in the format:
 
@@ -166,7 +166,7 @@ To connect, specify the node [public IP address](../../vpc/concepts/address.md#p
      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
      |          ID          |      CLUSTER ID      |      NAME      |  INSTANCE GROUP ID   |     CREATED AT      | STATUS  | SIZE |
      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
-     | cat684ojo3irchtpeg84 | cata9ertn6tcr09bh9rm | test-nodegroup | cl17i6943n92sb98jifg | 2019-04-12 12:38:35 | RUNNING |    2 |
+     | cat684ojo3irchtpeg84 | cata9ertn6tcr09bh9rm | test-nodegroup | cl17i6943n92sb98jifg | 2019-04-12 12:38:35 | RUNNING |  2   |
      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
      ```
 

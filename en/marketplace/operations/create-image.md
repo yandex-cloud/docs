@@ -24,7 +24,15 @@ To use the image for a Marketplace product, also follow these steps:
 
 1. Make sure that:
    * The image only has the system users that the applications need.
-   * There are no pre-generated SSH keys or passwords in the image. If necessary, application passwords are generated at VM startup. The user can change them the first time they log in via the serial console or SSH. Password-based access via SSH must be disabled for all users. They may log in only using a key obtained from the [metadata service](../../compute/operations/vm-info/get-info.md#inside-instance).
+   * Password-based access via SSH is disabled for all users. They must log in using a key obtained from the [metadata service](../../compute/operations/vm-info/get-info.md#inside-instance).
+   * There are no pre-generated SSH keys or passwords in the image.
+
+      {% note warning %}
+
+      Application passwords must be generated when the VM starts to enable a user to change them when logging in for the first time via the serial console or SSH.
+
+      {% endnote %}
+
    * The `/etc/sudoers*` file has no extra privileges configured for users.
 
 1. Use the supplemental guidelines for configuring images for the Marketplace:
@@ -36,7 +44,7 @@ You can clean up and check the system by the [yc-image-cleanup.sh](https://githu
 
 You should run the `yc-image-cleanup.sh` script inside the image as a `root` user.
 
-The `yc-image-cleanup.sh` script does not check the product image for compliance with all requirements and is not compatible with all distributions. Before uploading the image to the Marketplace, you'll need to perform additional checks yourself. To learn whether `yc-image-cleanup.sh` supports your distribution, run the script with the `-o` option. For the supported distributions, the script outputs the distribution name and version and detects the package manager. If the distribution is not supported, the resulting line will be `Unsupported OS/distribution; can't determine package manager type`.
+The `yc-image-cleanup.sh` script does not check the product image for compliance with all requirements and is not compatible with all distributions. Before uploading the image to the Marketplace, you'll need to perform additional checks yourself. To learn whether `yc-image-cleanup.sh` supports your distribution, run the script with the `-o` option. For the supported distributions, the script prints the distribution name and version and detects the package manager. If the distribution is not supported, the resulting line will be `Unsupported OS/distribution; can't determine package manager type`.
 
 To clean up a VM before creating an image from it, run the command:
 
@@ -60,7 +68,7 @@ To check the image for compliance with some [requirements](#requirements), run t
 
 To check the VM that you [created](../../compute/operations/image-create/upload.md#create-vm-from-user-image) from the image, run the command:
 
-```
+```bash
 ./yc-image-cleanup.sh -t
 ```
 
@@ -75,12 +83,12 @@ If your system design doesn't allow for any verification when starting with the 
 
 You can run the `yc-image-cleanup.sh` script with the `-t` key in `verbose` mode to display the details of the verification process. When running with details for each verification stage, invalid configuration parameter values or a list of users who failed the check is displayed. Detail mode is supported only by the `normal` level. To run the verification script in detail mode, run the command (the keys must follow the specified order):
 
-```
+```bash
 ./yc-image-cleanup.sh -v normal -t
 ```
 
 To view all available script parameters and all environment variables that affect its execution, run the command:
 
-```
+```bash
 ./yc-image-cleanup.sh -h
 ```

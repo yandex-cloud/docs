@@ -8,6 +8,7 @@ description: "Как получить логи моей работы в серв
 ## Общие вопросы {#general}
 
 {% include notitle [general](../../_qa/speechkit/general.md) %}
+
 ## Распознавание речи (STT) {#stt}
 
 {% include notitle [stt](../../_qa/speechkit/stt.md) %}

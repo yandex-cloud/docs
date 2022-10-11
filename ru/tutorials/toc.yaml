@@ -25,10 +25,16 @@ items:
         href: web/wordpress-transfer.md
       - name: Веб-сайт на базе 1С-Битрикс
         href: web/bitrix-website.md
+      - name: Организация виртуального хостинга
+        href: web/virtual-hosting.md
+      - name: Создание балансировщика с защитой от DDoS
+        href: web/alb-with-ddos-protection.md
       - name: Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name }}
         href: web/cdn-storage-integration.md
       - name: Сине-зеленое и канареечное развертывание версий сервиса
         href: web/blue-green-canary-deployment.md
+      - name: Терминирование TLS-соединений
+        href: web/tls-termination.md
   - name: Интернет-магазины
     items:
       - name: Все руководства
@@ -137,6 +143,8 @@ items:
         href: infrastructure-management/dns-integration.md
       - name: Создание веб-хука резолвера ACME для ответов на DNS01-проверки
         href: infrastructure-management/cert-manager-webhook.md
+      - name: Запись логов балансировщика в {{ PG }}
+        href: infrastructure-management/logging.md
   - name: Построение Data Platform
     items:
       - name: Все руководства
