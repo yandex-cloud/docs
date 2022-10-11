@@ -35,6 +35,8 @@ items:
             href: operations/projects/storage-resize.md
           - name: Изменить настройки проекта
             href: operations/projects/update.md
+          - name: Задать ограничения для проекта
+            href: operations/projects/restrictions.md
           - name: Удалить ноутбук или проект
             href: operations/projects/delete.md
           - name: Настроить интеграцию с Data Proc
