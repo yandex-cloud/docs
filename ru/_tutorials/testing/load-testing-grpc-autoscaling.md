@@ -17,19 +17,19 @@
 
 1. Зарегистрируйте доменное имя для вашего сайта. 
 
-1. Если для вашего облака включены [группы безопасности](../vpc/concepts/security-groups.md), [создайте](../vpc/operations/security-group-create.md) группу с правилами, описанными в разделе [{#T}](../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+1. Если для вашего облака включены [группы безопасности](../../vpc/concepts/security-groups.md), [создайте](../../vpc/operations/security-group-create.md) группу с правилами, описанными в разделе [{#T}](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
 
    Если группы безопасности недоступны в вашем облаке, для ресурсов будет разрешен весь входящий и исходящий трафик, и дополнительной настройки не требуется.
 
-1. [Подготовьте кластер {{managed-k8s-name}}](../managed-kubernetes/quickstart.md) к работе.
+1. [Подготовьте кластер {{managed-k8s-name}}](../../managed-kubernetes/quickstart.md) к работе.
 
-1. [Установите Metrics Provider](../managed-kubernetes/operations/applications/metrics-provider.md).
+1. [Установите Metrics Provider](../../managed-kubernetes/operations/applications/metrics-provider.md).
 
 1. Установите Ingress-контроллер:
 
-   1. [Создайте](../application-load-balancer/tools/k8s-ingress-controller/service-account.md) сервисный аккаунт для Ingress-контроллера.
+   1. [Создайте](../../application-load-balancer/tools/k8s-ingress-controller/service-account.md) сервисный аккаунт для Ingress-контроллера.
 
-   2. [Установите](../application-load-balancer/operations/k8s-ingress-controller-install.md) Ingress-контроллер {{alb-name}} для {{managed-k8s-name}}.
+   2. [Установите](../../application-load-balancer/operations/k8s-ingress-controller-install.md) Ingress-контроллер {{alb-name}} для {{managed-k8s-name}}.
 
 {% if product == "yandex-cloud" and audience != "internal" %}
 
@@ -37,9 +37,9 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за использование мастера и исходящий трафик {{managed-k8s-name}} (см. {% if audience != "internal" %}[тарифы {{managed-k8s-name}}](../managed-kubernetes/pricing.md){% else %}тарифы {{managed-k8s-name}}{% endif %});
-* плата за использование вычислительных ресурсов L7-балансировщика (см. {% if audience != "internal" %}[тарифы {{ alb-name }}](../application-load-balancer/pricing.md){% else %}тарифы {{ alb-name }}{% endif %});
-* плата за публичные DNS-запросы и DNS-зоны, если вы используете {{ dns-full-name }} (см. {% if audience != "internal" %}[тарифы {{ dns-name }}](../dns/pricing.md){% else %}тарифы {{ dns-name }}{% endif %}).
+* плата за использование мастера и исходящий трафик {{managed-k8s-name}} (см. {% if audience != "internal" %}[тарифы {{managed-k8s-name}}](../../managed-kubernetes/pricing.md){% else %}тарифы {{managed-k8s-name}}{% endif %});
+* плата за использование вычислительных ресурсов L7-балансировщика (см. {% if audience != "internal" %}[тарифы {{ alb-name }}](../../application-load-balancer/pricing.md){% else %}тарифы {{ alb-name }}{% endif %});
+* плата за публичные DNS-запросы и DNS-зоны, если вы используете {{ dns-full-name }} (см. {% if audience != "internal" %}[тарифы {{ dns-name }}](../../dns/pricing.md){% else %}тарифы {{ dns-name }}{% endif %}).
 
 {% endif %}
 
@@ -115,7 +115,7 @@
 
 ## Подготовьте домен {#prepare-domain}
 
-1. [Создайте](../dns/operations/zone-create-public) публичную зону DNS и делегируйте домен.
+1. [Создайте](../../dns/operations/zone-create-public.md) публичную зону DNS и делегируйте домен.
 
    {% note info %}
 
@@ -123,14 +123,14 @@
 
    {% endnote %}
 
-2. [Создайте](../certificate-manager/operations/managed/cert-create.md) сертификат от `Let's Encrypt®`.
+2. [Создайте](../../certificate-manager/operations/managed/cert-create.md) сертификат от `Let's Encrypt®`.
 
-3. [Пройдите](../certificate-manager/operations/managed/cert-validate.md) процедуры проверки прав на домен.
+3. [Пройдите](../../certificate-manager/operations/managed/cert-validate.md) процедуры проверки прав на домен.
 
 
 ## Установите Ingress {#install-ingress}
 
-1. Создайте манифест ресурса [Ingress](../application-load-balancer/k8s-ref/ingress.md) в файле `ingress.yaml`:
+1. Создайте манифест ресурса [Ingress](../../application-load-balancer/k8s-ref/ingress.md) в файле `ingress.yaml`:
 
    ```
    apiVersion: networking.k8s.io/v1
@@ -174,7 +174,7 @@
    * `secretName` — указание на TLS-сертификат из {{certificate-manager-full-name}} в формате `yc-certmgr-cert-id-<идентификатор сертификата>`.
    * `hosts`, `host`  — доменное имя, которому соответствует TLS-сертификат.
    
-   Подробнее см. [поля и аннотации ресурса Ingress](../application-load-balancer/k8s-ref/ingress).
+   Подробнее см. [поля и аннотации ресурса Ingress](../../application-load-balancer/k8s-ref/ingress.md).
 
 2. Создайте ресурс `Ingress`:
 
@@ -202,7 +202,7 @@
 
    В столбце ADDRESS должен появиться IP-адрес. В противном случае балансировщик не создался или создался некорректно — проверьте логи пода `yc-alb-ingress-controller-*`.
 
-4. [Создайте](../dns/operations/resource-record-create.md) в {{dns-name}} A-запись, указывающую на публичный адрес балансировщика.
+4. [Создайте](../../dns/operations/resource-record-create.md) в {{dns-name}} A-запись, указывающую на публичный адрес балансировщика.
 
 
 ## Настройте горизонтальное автомасштабирование подов {#configure-autoscaling}
@@ -259,15 +259,15 @@
 ## Проведите нагрузочное тестирование gRPC-сервиса {#load-testing}
 
 1. Создайте сервисный аккаунт:
-   1. [Создайте](../iam/operations/sa/create.md) сервисный аккаунт `sa-loadtest` в каталоге, где будет размещаться агент, с которого будет подаваться нагрузка.
-   2. [Назначьте](../iam/operations/roles/grant.md) роли сервисному аккаунту:
+   1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт `sa-loadtest` в каталоге, где будет размещаться агент, с которого будет подаваться нагрузка.
+   2. [Назначьте](../../iam/operations/roles/grant.md) роли сервисному аккаунту:
       * `loadtesting.generatorClient` — позволяет запускать агент, тест на агенте и загружать результаты в хранилище.
       * `compute.admin` — позволяет управлять виртуальной машиной в {{compute-name}}.
       * `vpc.user` — позволяет подключаться к сетевым ресурсам {{vpc-name}} и использовать их.
       
-2. [Включите](../vpc/operations/enable-nat.md) NAT в интернет в подсети, где размещается цель тестирования и будет размещен агент. Это обеспечит доступ агента к сервису {{load-testing-name}}.
+2. [Включите](../../vpc/operations/enable-nat.md) NAT в интернет в подсети, где размещается цель тестирования и будет размещен агент. Это обеспечит доступ агента к сервису {{load-testing-name}}.
 
-3. [Создайте](../load-testing/tutorials/loadtesting-grpc#create-agent.md) агент тестирования.
+3. [Создайте](../../load-testing/tutorials/loadtesting-grpc.md#create-agent) агент тестирования.
 
 4. Подготовьте файл с тестовыми данными `ammo.json`:
 
@@ -324,7 +324,7 @@
 
    * `target` — название вашего сайта и порт (для HTTPS: 443).
    
-6. [Запустите тест](../load-testing/tutorials/loadtesting-grpc#run-test):
+6. [Запустите тест](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
 
    * В поле **Файл с тестовыми данными** загрузите файл `ammo.json`.
    * В поле **Файл конфигурации** загрузите файл `load.yaml`.
@@ -344,6 +344,6 @@
 
 Чтобы остановить работу инфраструктуры и перестать платить за созданные ресурсы:
 
-1. Если вы настраивали CNAME-записи в {{ dns-name }}, {% if audience != "internal" %}[удалите](../dns/operations/zone-delete.md){% else %}удалите{% endif %} зону DNS.
-1. {% if audience != "internal" %}[Удалите](../application-load-balancer/operations/application-load-balancer-delete.md){% else %}Удалите{% endif %} L7-балансировщик.
-1. [Удалите](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) кластер {{ managed-k8s-name }}.
+1. Если вы настраивали CNAME-записи в {{ dns-name }}, {% if audience != "internal" %}[удалите](../../dns/operations/zone-delete.md){% else %}удалите{% endif %} зону DNS.
+1. {% if audience != "internal" %}[Удалите](../../application-load-balancer/operations/application-load-balancer-delete.md){% else %}Удалите{% endif %} L7-балансировщик.
+1. [Удалите](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) кластер {{ managed-k8s-name }}.

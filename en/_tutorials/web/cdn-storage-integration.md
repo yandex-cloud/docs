@@ -1,4 +1,4 @@
-# Integrating an L7 load balancer with the CDN and Object Storage
+# Integrating an L7 load balancer with the {{ cdn-short-name }} and {{ objstorage-short-name }}
 
 In this tutorial a {{ objstorage-full-name }} bucket is used as the {{ alb-full-name }} L7 load balancer backend. User requests are transmitted to the load balancer via the {{ cdn-full-name }} content delivery network (CDN) that reduces the time of content delivery.
 
@@ -24,7 +24,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Supported tools {#supported-tools}
 
-Most of the steps in the tutorial can be completed in any standard tool: the [management console]({{ link-console-main }}), command line interfaces (CLI) [{{ yandex-cloud }}](../cli/) and [AWS](../storage/tools/aws-cli.md), {{ TF }}, and [{{ yandex-cloud }} APIs](../api-design-guide). Each step lists tools supported for it.
+Most of the steps in the tutorial can be completed in any standard tool: the [management console]({{ link-console-main }}), command line interfaces (CLI) [{{ yandex-cloud }}](../../cli/) and [AWS](../../storage/tools/aws-cli.md), {{ TF }}, and [{{ yandex-cloud }} APIs](../../api-design-guide). Each step lists tools supported for it.
 
 Some steps don't support certain tools:
 
@@ -35,7 +35,7 @@ Some steps don't support certain tools:
 
 ## Before you start {#before-you-begin}
 
-{% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 We use a folder named `example-folder` as an example.
 
@@ -43,14 +43,14 @@ We use a folder named `example-folder` as an example.
 
 The cost of this infrastructure includes:
 
-* A fee for data storage in {{ objstorage-name }}, operations with data, and outgoing traffic (see [{{ objstorage-name }} pricing](../storage/pricing.md)).
-* A fee for using computing resources of the L7 load balancer (see {% if audience != "internal" %}[{{ alb-name }} pricing](../application-load-balancer/pricing.md){% else %}{{ alb-name }} pricing{% endif %}).
-* A fee for outgoing traffic from CDN servers (see {% if audience != "internal" %}[{{ cdn-name }} pricing](../cdn/pricing.md){% else %}{{ cdn-name }} pricing{% endif %}).
-* A fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see {% if audience != "internal" %}[{{ dns-name }} pricing](../dns/pricing.md){% else %}{{ dns-name }} pricing{% endif %}).
+* A fee for data storage in {{ objstorage-name }}, operations with data, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* A fee for using computing resources of the L7 load balancer (see {% if audience != "internal" %}[{{ alb-name }} pricing](../../application-load-balancer/pricing.md){% else %}{{ alb-name }} pricing{% endif %}).
+* A fee for outgoing traffic from CDN servers (see {% if audience != "internal" %}[{{ cdn-name }} pricing](../../cdn/pricing.md){% else %}{{ cdn-name }} pricing{% endif %}).
+* A fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see {% if audience != "internal" %}[{{ dns-name }} pricing](../../dns/pricing.md){% else %}{{ dns-name }} pricing{% endif %}).
 
 ## Create a cloud network and subnets {#create-network}
 
-All resources belong to the same {% if audience != "internal" %}[cloud network](../vpc/concepts/network.md){% else %}cloud network{% endif %}.
+All resources belong to the same {% if audience != "internal" %}[cloud network](../../vpc/concepts/network.md){% else %}cloud network{% endif %}.
 
 To create a network and subnets:
 
@@ -67,9 +67,9 @@ To create a network and subnets:
 
 - CLI
 
-   {% include [cli-install](cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    1. Create a network named `example-network`:
 
@@ -87,7 +87,7 @@ To create a network and subnets:
       default_security_group_id: enpbsnnop4akg7ng70ll
       ```
 
-      For more information about the `yc vpc network create` command, see the [CLI reference](../cli/cli-ref/managed-services/vpc/network/create.md).
+      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/create.md).
 
    1. Create subnets in all availability zones.
 
@@ -157,11 +157,11 @@ To create a network and subnets:
          - 10.3.0.0/16
          ```
 
-      For more information about the `yc vpc subnet create` command, see the [CLI reference](../cli/cli-ref/managed-services/vpc/subnet/create.md).
+      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, {% if audience != "internal" %}[install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}install it and configure the {{ yandex-cloud }} provider{% endif %}.
+   If you do not have {{ TF }} yet, {% if audience != "internal" %}[install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}install it and configure the {{ yandex-cloud }} provider{% endif %}.
 
    1. In the configuration file, describe the parameters of `example-network` and its subnets: `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c`:
 
@@ -217,8 +217,8 @@ To create a network and subnets:
 
 - API
 
-   1. Create the `example-network` network using the gRPC API {% if audience != "internal" %}[NetworkService/Create](../vpc/api-ref/grpc/network_service.md#Create){% else %}NetworkService/Create{% endif %} call or the REST API {% if audience != "internal" %}[create](../vpc/api-ref/Network/create.md){% else %}create{% endif %} method.
-   1. Create the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c` subnets in the three availability zones by calling the gRPC API {% if audience != "internal" %}[SubnetService/Create](../vpc/api-ref/grpc/subnet_service.md#Create){% else %}SubnetService/Create{% endif %} or the REST API {% if audience != "internal" %}[create](../vpc/api-ref/Subnet/create.md){% else %}create{% endif %} method.
+   1. Create the `example-network` network using the gRPC API {% if audience != "internal" %}[NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create){% else %}NetworkService/Create{% endif %} call or the REST API {% if audience != "internal" %}[create](../../vpc/api-ref/Network/create.md){% else %}create{% endif %} method.
+   1. Create the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c` subnets in the three availability zones by calling the gRPC API {% if audience != "internal" %}[SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create){% else %}SubnetService/Create{% endif %} or the REST API {% if audience != "internal" %}[create](../../vpc/api-ref/Subnet/create.md){% else %}create{% endif %} method.
 
 {% endlist %}
 
@@ -302,7 +302,7 @@ Create a bucket named `example-bucket`:
 
 - API
 
-   Use the [create](../storage/s3/api-ref/bucket/create.md) REST API method.
+   Use the [create](../../storage/s3/api-ref/bucket/create.md) REST API method.
 
 {% endlist %}
 
@@ -391,15 +391,15 @@ Create a bucket named `example-bucket`:
 
    - API
 
-      Use the [upload](../storage/s3/api-ref/object/upload.md) REST API method.
+      Use the [upload](../../storage/s3/api-ref/object/upload.md) REST API method.
 
    {% endlist %}
 
 ## Create a security group {#create-security-group}
 
-{% include [security-groups-note](../application-load-balancer/_includes_service/security-groups-note.md) %}
+{% include [security-groups-note](../../application-load-balancer/_includes_service/security-groups-note.md) %}
 
-{% if audience != "internal" %}[Security groups](../vpc/concepts/security-groups.md){% else %}Security groups{% endif %} contain rules that allow the L7 load balancer to receive incoming traffic and send it to backend buckets.
+{% if audience != "internal" %}[Security groups](../../vpc/concepts/security-groups.md){% else %}Security groups{% endif %} contain rules that allow the L7 load balancer to receive incoming traffic and send it to backend buckets.
 
 To create security groups:
 
@@ -497,7 +497,7 @@ To create security groups:
        - 198.18.248.0/24
    ```
 
-   For more information about the `yc vpc security-group create` command, see the [CLI reference](../cli/cli-ref/managed-services/vpc/security-group/create.md).
+   For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
 
 - {{ TF }}
 
@@ -559,7 +559,7 @@ To create security groups:
 
 - API
 
-   Use the {% if audience != "internal" %}[SecurityGroupService/Create](../vpc/api-ref/grpc/security_group_service.md#Create){% else %}SecurityGroupService/Create{% endif %} gRPC API call or the {% if audience != "internal" %}[create](../vpc/api-ref/SecurityGroup/create.md){% else %}create{% endif %} REST API method.
+   Use the {% if audience != "internal" %}[SecurityGroupService/Create](../../vpc/api-ref/grpc/security_group_service.md#Create){% else %}SecurityGroupService/Create{% endif %} gRPC API call or the {% if audience != "internal" %}[create](../../vpc/api-ref/SecurityGroup/create.md){% else %}create{% endif %} REST API method.
 
 {% endlist %}
 
@@ -586,7 +586,7 @@ To create security groups:
 
 - API
 
-   Use the gRPC API {% if audience != "internal" %}[BackendGroupService/Create](../application-load-balancer/api-ref/grpc/backend_group_service.md#Create){% else %}BackendGroupService/Create{% endif %} call or the {% if audience != "internal" %}[create](../application-load-balancer/api-ref/BackendGroup/create.md){% else %}create{% endif %} REST API method.
+   Use the gRPC API {% if audience != "internal" %}[BackendGroupService/Create](../../application-load-balancer/api-ref/grpc/backend_group_service.md#Create){% else %}BackendGroupService/Create{% endif %} call or the {% if audience != "internal" %}[create](../../application-load-balancer/api-ref/BackendGroup/create.md){% else %}create{% endif %} REST API method.
 
 {% endlist %}
 
@@ -633,7 +633,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       created_at: "2022-04-04T10:31:41.027649223Z"
       ```
 
-      For more information about the `yc alb http-router create` command, see the [CLI reference](../cli/cli-ref/managed-services/application-load-balancer/http-router/create.md).
+      For more information about the `yc alb http-router create` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/http-router/create.md).
 
    1. Create the `example-vh` virtual host:
 
@@ -652,7 +652,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       - cdn.yandexcloud.example
       ```
 
-      For more information about the `yc alb virtual-host create` command, see the [CLI reference](../cli/cli-ref/managed-services/application-load-balancer/virtual-host/create.md).
+      For more information about the `yc alb virtual-host create` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/create.md).
 
    1. Create the `example-route` route in the `example-vh` virtual host:
 
@@ -681,7 +681,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
             backend_group_id: ds7pbm5fj2v09ptnn29p
       ```
 
-      For more information about the `yc alb virtual-host append-http-route` command, see the [CLI reference](../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
+      For more information about the `yc alb virtual-host append-http-route` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
 
 - {{ TF }}
 
@@ -735,8 +735,8 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
 - API
 
-   1. Create the `example-router` HTTP router using the gRPC API {% if audience != "internal" %}[HttpRouterService/Create](../application-load-balancer/api-ref/grpc/http_router_service.md#Create){% else %}HttpRouterService/Create{% endif %} call or the {% if audience != "internal" %}[create](../application-load-balancer/api-ref/HttpRouter/create.md){% else %}create{% endif %} REST API method.
-   1. Create the `example-vh` virtual host linked to the router and its route using the gRPC API {% if audience != "internal" %}[VirtualHostService/Create](../application-load-balancer/api-ref/grpc/virtual_host_service.md#Create){% else %}VirtualHostService/Create{% endif %} call or the {% if audience != "internal" %}[create](../application-load-balancer/api-ref/VirtualHost/create.md){% else %}create{% endif %} REST API method.
+   1. Create the `example-router` HTTP router using the gRPC API {% if audience != "internal" %}[HttpRouterService/Create](../../application-load-balancer/api-ref/grpc/http_router_service.md#Create){% else %}HttpRouterService/Create{% endif %} call or the {% if audience != "internal" %}[create](../../application-load-balancer/api-ref/HttpRouter/create.md){% else %}create{% endif %} REST API method.
+   1. Create the `example-vh` virtual host linked to the router and its route using the gRPC API {% if audience != "internal" %}[VirtualHostService/Create](../../application-load-balancer/api-ref/grpc/virtual_host_service.md#Create){% else %}VirtualHostService/Create{% endif %} call or the {% if audience != "internal" %}[create](../../application-load-balancer/api-ref/VirtualHost/create.md){% else %}create{% endif %} REST API method.
 
 {% endlist %}
 
@@ -786,7 +786,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
       ```
 
-      For more information about the `yc vpc network list-subnets` command, see the [CLI reference](../cli/cli-ref/managed-services/vpc/network/list-subnets.md).
+      For more information about the `yc vpc network list-subnets` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/list-subnets.md).
 
    1. Get the `example-sg` security group ID:
 
@@ -800,7 +800,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       id: enpd133ngcnrgc8475cc
       ```
 
-      For more information about the `yc vpc security-group get` command, see the [CLI reference](../cli/cli-ref/managed-services/vpc/security-group/get.md).
+      For more information about the `yc vpc security-group get` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/get.md).
 
    1. Create a load balancer named `example-balancer`:
 
@@ -837,7 +837,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       created_at: "2022-04-04T10:55:49.134935148Z"
       ```
 
-      For more information about the `yc alb load-balancer create` command, see the [CLI reference](../cli/cli-ref/managed-services/application-load-balancer/load-balancer/create.md).
+      For more information about the `yc alb load-balancer create` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/create.md).
 
    1. Add a listener to the load balancer:
 
@@ -884,7 +884,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       created_at: "2022-04-04T10:55:49.134935148Z"
       ```
 
-      For more information about the `yc alb load-balancer add-listener` command, see the [CLI reference](../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
+      For more information about the `yc alb load-balancer add-listener` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
 
 - {{ TF }}
 
@@ -958,7 +958,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
 - API
 
-   Use the gRPC API {% if audience != "internal" %}[LoadBalancerService/Create](../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create){% else %}LoadBalancerService/Create{% endif %} call or the {% if audience != "internal" %}[create](../application-load-balancer/api-ref/LoadBalancer/create.md){% else %}create{% endif %} REST API method.
+   Use the gRPC API {% if audience != "internal" %}[LoadBalancerService/Create](../../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create){% else %}LoadBalancerService/Create{% endif %} call or the {% if audience != "internal" %}[create](../../application-load-balancer/api-ref/LoadBalancer/create.md){% else %}create{% endif %} REST API method.
 
 {% endlist %}
 
@@ -1024,7 +1024,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
         enabled: true
       ```
 
-      For more information about the `yc cdn origin-group create` command, see the [CLI reference](../cli/cli-ref/managed-services/cdn/origin-group/create.md).
+      For more information about the `yc cdn origin-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/cdn/origin-group/create.md).
 
 
    1. Copy the `origin_group_id` from the previous step and create a CDN resource by running the command:
@@ -1050,7 +1050,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       ...
       ```
 
-      For more information about the `yc cdn resource create` command, see the [CLI reference](../cli/cli-ref/managed-services/cdn/resource/create.md).
+      For more information about the `yc cdn resource create` command, see the [CLI reference](../../cli/cli-ref/managed-services/cdn/resource/create.md).
 
 - {{ TF }}
 
@@ -1110,7 +1110,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
 - API
 
-   Use the gRPC API {% if audience != "internal" %}[ResourceService/Create](../cdn/api-ref/grpc/resource_service.md#Create){% else %}ResourceService/Create{% endif %} call or the {% if audience != "internal" %}[create](../cdn/api-ref/Resource/create.md){% else %}create{% endif %} REST API method.
+   Use the gRPC API {% if audience != "internal" %}[ResourceService/Create](../../cdn/api-ref/grpc/resource_service.md#Create){% else %}ResourceService/Create{% endif %} call or the {% if audience != "internal" %}[create](../../cdn/api-ref/Resource/create.md){% else %}create{% endif %} REST API method.
 
 {% endlist %}
 
@@ -1188,7 +1188,7 @@ To configure DNS:
          public_visibility: {}
          ```
 
-         For more information about the `yc dns zone create` command, see the [CLI reference](../cli/cli-ref/managed-services/dns/zone/create.md).
+         For more information about the `yc dns zone create` command, see the [CLI reference](../../cli/cli-ref/managed-services/dns/zone/create.md).
 
       1. In the zone, create a CNAME record for `cdn.yandexcloud.example` with a copied value in the `cl-....edgecdn.ru` format:
 
@@ -1198,7 +1198,7 @@ To configure DNS:
            --record "cdn CNAME cl-....edgecdn.ru" \
          ```
 
-         For more information about the `yc dns zone add-records` command, see the [CLI reference](../cli/cli-ref/managed-services/dns/zone/add-records.md).
+         For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
 
    - {{ TF }}
 
@@ -1246,8 +1246,8 @@ To configure DNS:
 
    - API
 
-      1. Create a DNS zone named `example-dns-zone` using the gRPC API {% if audience != "internal" %}[DnsZoneService/Create](../dns/api-ref/grpc/dns_zone_service.md#Create){% else %}DnsZoneService/Create{% endif %} call or the {% if audience != "internal" %}[create](../dns/api-ref/DnsZone/create.md){% else %}create{% endif %} REST API method.
-      1. Add the `cdn` CNAME record to the zone, copying the `cl-....edgecdn.ru` value with the gRPC API {% if audience != "internal" %}[DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets){% else %}DnsZoneService/UpdateRecordSets{% endif %} call or the {% if audience != "internal" %}[updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md){% else %}updateRecordSets{% endif %} REST API method.
+      1. Create a DNS zone named `example-dns-zone` using the gRPC API {% if audience != "internal" %}[DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create){% else %}DnsZoneService/Create{% endif %} call or the {% if audience != "internal" %}[create](../../dns/api-ref/DnsZone/create.md){% else %}create{% endif %} REST API method.
+      1. Add the `cdn` CNAME record to the zone, copying the `cl-....edgecdn.ru` value with the gRPC API {% if audience != "internal" %}[DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets){% else %}DnsZoneService/UpdateRecordSets{% endif %} call or the {% if audience != "internal" %}[updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md){% else %}updateRecordSets{% endif %} REST API method.
 
    {% endlist %}
 
@@ -1275,10 +1275,10 @@ To check the service performance, open `https://cdn.yandexcloud.example/index.ht
 
 To shut down the infrastructure and stop paying for the created resources:
 
-1. If you set up CNAME records in {{ dns-name }}, {% if audience != "internal" %}[delete](../dns/operations/zone-delete.md){% else %}delete{% endif %} the `example-dns-zone` DNS zone.
-1. {% if audience != "internal" %}[Delete](../cdn/operations/resources/delete-resource.md){% else %}Delete{% endif %} the CDN resource with the primary `cdn.yandexcloud.example` domain name.
-1. {% if audience != "internal" %}[Delete](../application-load-balancer/operations/application-load-balancer-delete.md){% else %}Delete{% endif %} the `example-balancer` L7 load balancer.
-1. [Delete](../storage/operations/objects/delete.md) all objects from the `example-bucket` bucket.
-1. [Delete](../storage/operations/buckets/delete.md) the `example-bucket` bucket.
-1. {% if audience != "internal" %}[Delete](../vpc/operations/subnet-delete.md){% else %}Delete{% endif %} the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c` subnets.
-1. {% if audience != "internal" %}[Delete](../vpc/operations/network-delete.md){% else %}Delete{% endif %} the `example-network` network.
+1. If you set up CNAME records in {{ dns-name }}, {% if audience != "internal" %}[delete](../../dns/operations/zone-delete.md){% else %}delete{% endif %} the `example-dns-zone` DNS zone.
+1. {% if audience != "internal" %}[Delete](../../cdn/operations/resources/delete-resource.md){% else %}Delete{% endif %} the CDN resource with the primary `cdn.yandexcloud.example` domain name.
+1. {% if audience != "internal" %}[Delete](../../application-load-balancer/operations/application-load-balancer-delete.md){% else %}Delete{% endif %} the `example-balancer` L7 load balancer.
+1. [Delete](../../storage/operations/objects/delete.md) all objects from the `example-bucket` bucket.
+1. [Delete](../../storage/operations/buckets/delete.md) the `example-bucket` bucket.
+1. {% if audience != "internal" %}[Delete](../../vpc/operations/subnet-delete.md){% else %}Delete{% endif %} the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c` subnets.
+1. {% if audience != "internal" %}[Delete](../../vpc/operations/network-delete.md){% else %}Delete{% endif %} the `example-network` network.

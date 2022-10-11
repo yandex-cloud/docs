@@ -17,19 +17,19 @@ When testing is complete, [delete the created resources](#clear-out) if you no l
 
 1. Register a domain name for your website.
 
-1. If [security groups](../vpc/concepts/security-groups.md) are enabled for your cloud, [create](../vpc/operations/security-group-create.md) a group according to the rules described in [{#T}](../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+1. If [security groups](../../vpc/concepts/security-groups.md) are enabled for your cloud, [create](../../vpc/operations/security-group-create.md) a group according to the rules described in [{#T}](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
 
    If security groups are not available in your cloud, all incoming and outgoing traffic will be enabled for the resources and no additional setup is required.
 
-1. [Set up the {{managed-k8s-name}} cluster](../managed-kubernetes/quickstart.md).
+1. [Set up the {{managed-k8s-name}} cluster](../../managed-kubernetes/quickstart.md).
 
-1. [Install Metrics Provider](../managed-kubernetes/operations/applications/metrics-provider.md).
+1. [Install Metrics Provider](../../managed-kubernetes/operations/applications/metrics-provider.md).
 
 1. Install the Ingress controller:
 
-   1. [Create](../application-load-balancer/tools/k8s-ingress-controller/service-account.md) a service account for the Ingress controller.
+   1. [Create](../../application-load-balancer/tools/k8s-ingress-controller/service-account.md) a service account for the Ingress controller.
 
-   2. [Install](../application-load-balancer/operations/k8s-ingress-controller-install.md) the {{alb-name}} Ingress controller for {{managed-k8s-name}}.
+   2. [Install](../../application-load-balancer/operations/k8s-ingress-controller-install.md) the {{alb-name}} Ingress controller for {{managed-k8s-name}}.
 
 {% if product == "yandex-cloud" and audience != "internal" %}
 
@@ -37,9 +37,9 @@ When testing is complete, [delete the created resources](#clear-out) if you no l
 
 The cost of this infrastructure includes:
 
-* A fee for using the master and outgoing {{managed-k8s-name}} traffic (see {% if audience != "internal" %}[Pricing for {{managed-k8s-name}}](../managed-kubernetes/pricing.md){% else %}Pricing for {{managed-k8s-name}}{% endif %}).
-* A fee for using computing resources of the L7 load balancer (see {% if audience != "internal" %}[{{ alb-name }} pricing](../application-load-balancer/pricing.md){% else %}{{ alb-name }} pricing{% endif %}).
-* A fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see {% if audience != "internal" %}[{{ dns-name }} pricing](../dns/pricing.md){% else %}{{ dns-name }} pricing{% endif %}).
+* A fee for using the master and outgoing {{managed-k8s-name}} traffic (see {% if audience != "internal" %}[Pricing for {{managed-k8s-name}}](../../managed-kubernetes/pricing.md){% else %}Pricing for {{managed-k8s-name}}{% endif %}).
+* A fee for using computing resources of the L7 load balancer (see {% if audience != "internal" %}[{{ alb-name }} pricing](../../application-load-balancer/pricing.md){% else %}{{ alb-name }} pricing{% endif %}).
+* A fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see {% if audience != "internal" %}[{{ dns-name }} pricing](../../dns/pricing.md){% else %}{{ dns-name }} pricing{% endif %}).
 
 {% endif %}
 
@@ -115,7 +115,7 @@ This instruction will use a gRPC service as a test target.
 
 ## Prepare a domain {#prepare-domain}
 
-1. [Create](../dns/operations/zone-create-public) a public DNS zone and delegate the domain.
+1. [Create](../../dns/operations/zone-create-public) a public DNS zone and delegate the domain.
 
    {% note info %}
 
@@ -123,14 +123,14 @@ This instruction will use a gRPC service as a test target.
 
    {% endnote %}
 
-2. [Create](../certificate-manager/operations/managed/cert-create.md) a `Let's Encrypt®` certificate.
+2. [Create](../../certificate-manager/operations/managed/cert-create.md) a `Let's Encrypt®` certificate.
 
-3. [Check](../certificate-manager/operations/managed/cert-validate.md) the rights for the domain.
+3. [Check](../../certificate-manager/operations/managed/cert-validate.md) the rights for the domain.
 
 
 ## Install Ingress {#install-ingress}
 
-1. Create an [Ingress](../application-load-balancer/k8s-ref/ingress.md) resource manifest in the `ingress.yaml` file:
+1. Create an [Ingress](../../application-load-balancer/k8s-ref/ingress.md) resource manifest in the `ingress.yaml` file:
 
    ```
    apiVersion: networking.k8s.io/v1
@@ -174,7 +174,7 @@ This instruction will use a gRPC service as a test target.
    * `secretName`: A reference to a TLS certificate from {{certificate-manager-full-name}} as `yc-certmgr-cert-id-<certificate ID>`.
    * `hosts`, `host`: The domain name the TLS certificate corresponds to.
 
-   For more information, see [Ingress fields and annotations](../application-load-balancer/k8s-ref/ingress).
+   For more information, see [Ingress fields and annotations](../../application-load-balancer/k8s-ref/ingress).
 
 2. Create an `Ingress` resource:
 
@@ -202,7 +202,7 @@ This instruction will use a gRPC service as a test target.
 
    The ADDRESS column must contain an IP address. Otherwise, the load balancer was not created or was created with an error. Check the logs for the `yc-alb-ingress-controller-*` pod.
 
-4. In {{dns-name}}, [create](../dns/operations/resource-record-create.md) an A record referring to the load balancer's public address.
+4. In {{dns-name}}, [create](../../dns/operations/resource-record-create.md) an A record referring to the load balancer's public address.
 
 
 ## Configure horizontal pod autoscaling {#configure-autoscaling}
@@ -259,15 +259,15 @@ This instruction will use a gRPC service as a test target.
 ## Perform load testing of the gRPC service {#load-testing}
 
 1. Create a service account:
-   1. [Create](../iam/operations/sa/create.md) a `sa-loadtest` service account in the folder to host the agent that will generate the load.
-   2. [Assign](../iam/operations/roles/grant.md) a role to a service account.
+   1. [Create](../../iam/operations/sa/create.md) a `sa-loadtest` service account in the folder to host the agent that will generate the load.
+   2. [Assign](../../iam/operations/roles/grant.md) a role to a service account.
       * `loadtesting.generatorClient`: Enables you to run agents and tests on agents and upload test results to the storage.
       * `compute.admin`: Enables you to manage a VM in {{compute-name}}.
       * `vpc.user`: Enables you to connect to {{vpc-name}} network resources and use them.
 
-2. [Enable](../vpc/operations/enable-nat.md) NAT to the internet on the subnet where the test target is and the agent will be located. This ensures the agent has access to {{load-testing-name}}.
+2. [Enable](../../vpc/operations/enable-nat.md) NAT to the internet on the subnet where the test target is and the agent will be located. This ensures the agent has access to {{load-testing-name}}.
 
-3. [Create](../load-testing/tutorials/loadtesting-grpc#create-agent.md) a test agent.
+3. [Create](../../load-testing/tutorials/loadtesting-grpc#create-agent.md) a test agent.
 
 4. Prepare the `ammo.json` file with test data:
 
@@ -324,7 +324,7 @@ This instruction will use a gRPC service as a test target.
 
    * `target` is the name of your website and port (for HTTPS: 443).
 
-6. [Run a test](../load-testing/tutorials/loadtesting-grpc#run-test):
+6. [Run a test](../../load-testing/tutorials/loadtesting-grpc#run-test):
 
    * Upload the `ammo.json` file to the **File with test data** field.
    * Upload the `load.yaml` file to the **Configuration file** field.
@@ -344,6 +344,6 @@ This instruction will use a gRPC service as a test target.
 
 To shut down the infrastructure and stop paying for the created resources:
 
-1. If you set up CNAME records in {{ dns-name }}, {% if audience != "internal" %}[delete](../dns/operations/zone-delete.md){% else %}delete{% endif %} the DNS zone.
-1. {% if audience != "internal" %}[Delete](../application-load-balancer/operations/application-load-balancer-delete.md){% else %}Delete{% endif %} the L7 load balancer.
-1. [Delete](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) the {{ managed-k8s-name }} cluster.
+1. If you set up CNAME records in {{ dns-name }}, {% if audience != "internal" %}[delete](../../dns/operations/zone-delete.md){% else %}delete{% endif %} the DNS zone.
+1. {% if audience != "internal" %}[Delete](../../application-load-balancer/operations/application-load-balancer-delete.md){% else %}Delete{% endif %} the L7 load balancer.
+1. [Delete](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) the {{ managed-k8s-name }} cluster.

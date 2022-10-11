@@ -1,4 +1,4 @@
-# Интеграция L7-балансировщика с CDN и Object Storage
+# Интеграция L7-балансировщика с {{ cdn-short-name }} и {{ objstorage-short-name }}
 
 В этом руководстве в качестве бэкенда L7-балансировщика {{ alb-full-name }} используется бакет {{ objstorage-full-name }}. Запросы пользователей передаются балансировщику через сеть распространения контента {{ cdn-full-name }}, чтобы сократить время доставки контента.
 
@@ -24,7 +24,7 @@
 
 ## Поддерживаемые инструменты {#supported-tools}
 
-Бо́льшую часть шагов можно выполнить с помощью любого из стандартных инструментов: [консоли управления]({{ link-console-main }}), интерфейсов командной строки (CLI) [{{ yandex-cloud }}](../cli/) и [AWS](../storage/tools/aws-cli.md), {{ TF }} и [API {{ yandex-cloud }}](../api-design-guide). В каждом шаге перечислены поддерживаемые для него инструменты.
+Бо́льшую часть шагов можно выполнить с помощью любого из стандартных инструментов: [консоли управления]({{ link-console-main }}), интерфейсов командной строки (CLI) [{{ yandex-cloud }}](../../cli/) и [AWS](../../storage/tools/aws-cli.md), {{ TF }} и [API {{ yandex-cloud }}](../../api-design-guide). В каждом шаге перечислены поддерживаемые для него инструменты.
 
 Некоторые инструменты поддерживаются не для всех шагов:
 
@@ -35,7 +35,7 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-{% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 В качестве примера будет использоваться каталог с именем `example-folder`.
 
@@ -45,16 +45,16 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за хранение данных в {{ objstorage-name }}, операции с ними и исходящий трафик (см. [тарифы {{ objstorage-name }}](../storage/pricing.md));
-* плата за использование вычислительных ресурсов L7-балансировщика (см. {% if audience != "internal" %}[тарифы {{ alb-name }}](../application-load-balancer/pricing.md){% else %}тарифы {{ alb-name }}{% endif %});
-* плата за исходящий трафик с CDN-серверов (см. {% if audience != "internal" %}[тарифы {{ cdn-name }}](../cdn/pricing.md){% else %}тарифы {{ cdn-name }}{% endif %});
-* плата за публичные DNS-запросы и DNS-зоны, если вы используете {{ dns-full-name }} (см. {% if audience != "internal" %}[тарифы {{ dns-name }}](../dns/pricing.md){% else %}тарифы {{ dns-name }}{% endif %}).
+* плата за хранение данных в {{ objstorage-name }}, операции с ними и исходящий трафик (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md));
+* плата за использование вычислительных ресурсов L7-балансировщика (см. {% if audience != "internal" %}[тарифы {{ alb-name }}](../../application-load-balancer/pricing.md){% else %}тарифы {{ alb-name }}{% endif %});
+* плата за исходящий трафик с CDN-серверов (см. {% if audience != "internal" %}[тарифы {{ cdn-name }}](../../cdn/pricing.md){% else %}тарифы {{ cdn-name }}{% endif %});
+* плата за публичные DNS-запросы и DNS-зоны, если вы используете {{ dns-full-name }} (см. {% if audience != "internal" %}[тарифы {{ dns-name }}](../../dns/pricing.md){% else %}тарифы {{ dns-name }}{% endif %}).
 
 {% endif %}
 
 ## Создайте облачную сеть и подсети {#create-network}
 
-Все ресурсы будут относиться к одной {% if audience != "internal" %}[облачной сети](../vpc/concepts/network.md){% else %}облачной сети{% endif %}.
+Все ресурсы будут относиться к одной {% if audience != "internal" %}[облачной сети](../../vpc/concepts/network.md){% else %}облачной сети{% endif %}.
 
 Чтобы создать сеть и подсети:
 
@@ -71,9 +71,9 @@
 
 - CLI
 
-  {% include [cli-install](cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
   
-  {% include [default-catalogue](default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Создайте сеть `example-network`:
   
@@ -91,7 +91,7 @@
      default_security_group_id: enpbsnnop4akg7ng70ll
      ```
      
-     Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../cli/cli-ref/managed-services/vpc/network/create.md).
+     Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
      
   1. Создайте подсети во всех зонах доступности:
   
@@ -161,11 +161,11 @@
        - 10.3.0.0/16
        ```
        
-     Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../cli/cli-ref/managed-services/vpc/subnet/create.md).
+     Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
 
 - {{ TF }}
 
-  Если у вас ещё нет {{ TF }}, {% if audience != "internal" %}[установите его и настройте провайдер {{ yandex-cloud }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его и настройте провайдер {{ yandex-cloud }}{% endif %}.
+  Если у вас ещё нет {{ TF }}, {% if audience != "internal" %}[установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его и настройте провайдер {{ yandex-cloud }}{% endif %}.
   
   1. Опишите в конфигурационном файле параметры сети `example-network` и ее подсетей `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` и `example-subnet-{{ region-id }}-c`:
   
@@ -221,8 +221,8 @@
 
 - API
 
-  1. Создайте сеть `example-network` с помощью вызова gRPC API {% if audience != "internal" %}[NetworkService/Create](../vpc/api-ref/grpc/network_service.md#Create){% else %}NetworkService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../vpc/api-ref/Network/create.md){% else %}create{% endif %}.
-  1. Создайте подсети `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` и `example-subnet-{{ region-id }}-c` в трех зонах доступности с помощью вызова gRPC API {% if audience != "internal" %}[SubnetService/Create](../vpc/api-ref/grpc/subnet_service.md#Create){% else %}SubnetService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../vpc/api-ref/Subnet/create.md){% else %}create{% endif %}.
+  1. Создайте сеть `example-network` с помощью вызова gRPC API {% if audience != "internal" %}[NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create){% else %}NetworkService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../../vpc/api-ref/Network/create.md){% else %}create{% endif %}.
+  1. Создайте подсети `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` и `example-subnet-{{ region-id }}-c` в трех зонах доступности с помощью вызова gRPC API {% if audience != "internal" %}[SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create){% else %}SubnetService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../../vpc/api-ref/Subnet/create.md){% else %}create{% endif %}.
 
 {% endlist %}
 
@@ -306,7 +306,7 @@
 
 - API
 
-  Используйте метод REST API [create](../storage/s3/api-ref/bucket/create.md).
+  Используйте метод REST API [create](../../storage/s3/api-ref/bucket/create.md).
 
 {% endlist %}
 
@@ -395,15 +395,15 @@
 
    - API
    
-     Используйте метод REST API [upload](../storage/s3/api-ref/object/upload.md).
+     Используйте метод REST API [upload](../../storage/s3/api-ref/object/upload.md).
 
    {% endlist %}
 
 ## Создайте группу безопасности {#create-security-group}
 
-{% include [security-groups-note](../application-load-balancer/_includes_service/security-groups-note.md) %}
+{% include [security-groups-note](../../application-load-balancer/_includes_service/security-groups-note.md) %}
 
-{% if audience != "internal" %}[Группы безопасности](../vpc/concepts/security-groups.md){% else %}Группы безопасности{% endif %} содержат правила, которые разрешают L7-балансировщику получать входящий трафик и отправлять его на бакеты-бэкенды.
+{% if audience != "internal" %}[Группы безопасности](../../vpc/concepts/security-groups.md){% else %}Группы безопасности{% endif %} содержат правила, которые разрешают L7-балансировщику получать входящий трафик и отправлять его на бакеты-бэкенды.
 
 Чтобы создать группы безопасности:
 
@@ -501,7 +501,7 @@
       - 198.18.248.0/24
   ```
 
-  Подробнее о команде `yc vpc security-group create` см. в [справочнике CLI](../cli/cli-ref/managed-services/vpc/security-group/create.md).
+  Подробнее о команде `yc vpc security-group create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
 
 - {{ TF }}
 
@@ -563,7 +563,7 @@
 
 - API
 
-  Используйте вызов gRPC API {% if audience != "internal" %}[SecurityGroupService/Create](../vpc/api-ref/grpc/security_group_service.md#Create){% else %}SecurityGroupService/Create{% endif %} или метод REST API {% if audience != "internal" %}[create](../vpc/api-ref/SecurityGroup/create.md){% else %}create{% endif %}.
+  Используйте вызов gRPC API {% if audience != "internal" %}[SecurityGroupService/Create](../../vpc/api-ref/grpc/security_group_service.md#Create){% else %}SecurityGroupService/Create{% endif %} или метод REST API {% if audience != "internal" %}[create](../../vpc/api-ref/SecurityGroup/create.md){% else %}create{% endif %}.
      
 {% endlist %}
 
@@ -590,7 +590,7 @@
 
 - API
 
-  Используйте вызов gRPC API {% if audience != "internal" %}[BackendGroupService/Create](../application-load-balancer/api-ref/grpc/backend_group_service.md#Create){% else %}BackendGroupService/Create{% endif %} или метод REST API {% if audience != "internal" %}[create](../application-load-balancer/api-ref/BackendGroup/create.md){% else %}create{% endif %}.
+  Используйте вызов gRPC API {% if audience != "internal" %}[BackendGroupService/Create](../../application-load-balancer/api-ref/grpc/backend_group_service.md#Create){% else %}BackendGroupService/Create{% endif %} или метод REST API {% if audience != "internal" %}[create](../../application-load-balancer/api-ref/BackendGroup/create.md){% else %}create{% endif %}.
      
 {% endlist %} 
 
@@ -637,7 +637,7 @@
      created_at: "2022-04-04T10:31:41.027649223Z"
      ```
      
-     Подробнее о команде `yc alb http-router create` см. в [справочнике CLI](../cli/cli-ref/managed-services/application-load-balancer/http-router/create.md).
+     Подробнее о команде `yc alb http-router create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/http-router/create.md).
 
   1. Создайте виртуальный хост `example-vh`:
   
@@ -656,7 +656,7 @@
      - cdn.yandexcloud.example
      ```
      
-     Подробнее о команде `yc alb virtual-host create` см. в [справочнике CLI](../cli/cli-ref/managed-services/application-load-balancer/virtual-host/create.md).
+     Подробнее о команде `yc alb virtual-host create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/create.md).
      
   1. Создайте маршрут `example-route` в виртуальном хосте `example-vh`:
   
@@ -685,7 +685,7 @@
            backend_group_id: ds7pbm5fj2v09ptnn29p
      ```
      
-     Подробнее о команде `yc alb virtual-host append-http-route` см. в [справочнике CLI](../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
+     Подробнее о команде `yc alb virtual-host append-http-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
 
 - {{ TF }}
 
@@ -739,8 +739,8 @@
 
 - API
 
-  1. Создайте HTTP-роутер `example-router` с помощью вызова gRPC API {% if audience != "internal" %}[HttpRouterService/Create](../application-load-balancer/api-ref/grpc/http_router_service.md#Create){% else %}HttpRouterService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../application-load-balancer/api-ref/HttpRouter/create.md){% else %}create{% endif %}.
-  1. Создайте виртуальный хост `example-vh`, привязанный к роутеру, и его маршрут с помощью вызова gRPC API {% if audience != "internal" %}[VirtualHostService/Create](../application-load-balancer/api-ref/grpc/virtual_host_service.md#Create){% else %}VirtualHostService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../application-load-balancer/api-ref/VirtualHost/create.md){% else %}create{% endif %}.
+  1. Создайте HTTP-роутер `example-router` с помощью вызова gRPC API {% if audience != "internal" %}[HttpRouterService/Create](../../application-load-balancer/api-ref/grpc/http_router_service.md#Create){% else %}HttpRouterService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../../application-load-balancer/api-ref/HttpRouter/create.md){% else %}create{% endif %}.
+  1. Создайте виртуальный хост `example-vh`, привязанный к роутеру, и его маршрут с помощью вызова gRPC API {% if audience != "internal" %}[VirtualHostService/Create](../../application-load-balancer/api-ref/grpc/virtual_host_service.md#Create){% else %}VirtualHostService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../../application-load-balancer/api-ref/VirtualHost/create.md){% else %}create{% endif %}.
 
 {% endlist %}
 
@@ -790,7 +790,7 @@
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
      ```
      
-     Подробнее о команде `yc vpc network list-subnets` см. в [справочнике CLI](../cli/cli-ref/managed-services/vpc/network/list-subnets.md).
+     Подробнее о команде `yc vpc network list-subnets` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/list-subnets.md).
 
   1. Получите идентификатор группы безопасности `example-sg`:
   
@@ -804,7 +804,7 @@
      id: enpd133ngcnrgc8475cc
      ```
      
-     Подробнее о команде `yc vpc security-group get` см. в [справочнике CLI](../cli/cli-ref/managed-services/vpc/security-group/get.md).
+     Подробнее о команде `yc vpc security-group get` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/security-group/get.md).
   
   1. Создайте балансировщик `example-balancer`:
   
@@ -841,7 +841,7 @@
      created_at: "2022-04-04T10:55:49.134935148Z"
      ```
      
-     Подробнее о команде `yc alb load-balancer create` см. в [справочнике CLI](../cli/cli-ref/managed-services/application-load-balancer/load-balancer/create.md).
+     Подробнее о команде `yc alb load-balancer create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/create.md).
      
   1. Добавьте к балансировщику обработчик:
   
@@ -888,7 +888,7 @@
      created_at: "2022-04-04T10:55:49.134935148Z"
      ```
      
-     Подробнее о команде `yc alb load-balancer add-listener` см. в [справочнике CLI](../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
+     Подробнее о команде `yc alb load-balancer add-listener` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
 
 - {{ TF }}
 
@@ -962,7 +962,7 @@
 
 - API
 
-  Используйте вызов gRPC API {% if audience != "internal" %}[LoadBalancerService/Create](../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create){% else %}LoadBalancerService/Create{% endif %} или метод REST API {% if audience != "internal" %}[create](../application-load-balancer/api-ref/LoadBalancer/create.md){% else %}create{% endif %}.
+  Используйте вызов gRPC API {% if audience != "internal" %}[LoadBalancerService/Create](../../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create){% else %}LoadBalancerService/Create{% endif %} или метод REST API {% if audience != "internal" %}[create](../../application-load-balancer/api-ref/LoadBalancer/create.md){% else %}create{% endif %}.
           
 {% endlist %}
 
@@ -1028,7 +1028,7 @@
         enabled: true
       ```
 
-      Подробнее о команде `yc cdn origin-group create` см. в [справочнике CLI](../cli/cli-ref/managed-services/cdn/origin-group/create.md).
+      Подробнее о команде `yc cdn origin-group create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/cdn/origin-group/create.md).
 
 
   1. Скопируйте идентификатор группы источников `origin_group_id` из предыдушего шага и создайте CDN-ресурс, выполнив команду:
@@ -1054,7 +1054,7 @@
       ...
       ```
 
-      Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../cli/cli-ref/managed-services/cdn/resource/create.md).
+      Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/cdn/resource/create.md).
 
 - {{ TF }}
 
@@ -1114,7 +1114,7 @@
 
 - API
 
-  Используйте вызов gRPC API {% if audience != "internal" %}[ResourceService/Create](../cdn/api-ref/grpc/resource_service.md#Create){% else %}ResourceService/Create{% endif %} или метод REST API {% if audience != "internal" %}[create](../cdn/api-ref/Resource/create.md){% else %}create{% endif %}.
+  Используйте вызов gRPC API {% if audience != "internal" %}[ResourceService/Create](../../cdn/api-ref/grpc/resource_service.md#Create){% else %}ResourceService/Create{% endif %} или метод REST API {% if audience != "internal" %}[create](../../cdn/api-ref/Resource/create.md){% else %}create{% endif %}.
   
 {% endlist %}
 
@@ -1192,7 +1192,7 @@
         public_visibility: {}
         ```
         
-        Подробнее о команде `yc dns zone create` см. в [справочнике CLI](../cli/cli-ref/managed-services/dns/zone/create.md).
+        Подробнее о команде `yc dns zone create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/create.md).
         
      1. Создайте в зоне CNAME-запись для `cdn.yandexcloud.example` со скопированным значением вида `cl-....edgecdn.ru`:
      
@@ -1202,7 +1202,7 @@
           --record "cdn CNAME cl-....edgecdn.ru" \
         ```
 
-        Подробнее о команде `yc dns zone add-records` см. в [справочнике CLI](../cli/cli-ref/managed-services/dns/zone/add-records.md).
+        Подробнее о команде `yc dns zone add-records` см. в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
    
    - {{ TF }}
    
@@ -1250,8 +1250,8 @@
 
    - API
     
-     1. Создайте DNS-зону `example-dns-zone` с помощью вызова gRPC API {% if audience != "internal" %}[DnsZoneService/Create](../dns/api-ref/grpc/dns_zone_service.md#Create){% else %}DnsZoneService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../dns/api-ref/DnsZone/create.md){% else %}create{% endif %}.
-     1. Добавьте в зону CNAME-запись `cdn` со скопированным значением вида `cl-....edgecdn.ru` с помощью вызова gRPC API {% if audience != "internal" %}[DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets){% else %}DnsZoneService/UpdateRecordSets{% endif %} или метода REST API {% if audience != "internal" %}[updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md){% else %}updateRecordSets{% endif %}.
+     1. Создайте DNS-зону `example-dns-zone` с помощью вызова gRPC API {% if audience != "internal" %}[DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create){% else %}DnsZoneService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../../dns/api-ref/DnsZone/create.md){% else %}create{% endif %}.
+     1. Добавьте в зону CNAME-запись `cdn` со скопированным значением вида `cl-....edgecdn.ru` с помощью вызова gRPC API {% if audience != "internal" %}[DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets){% else %}DnsZoneService/UpdateRecordSets{% endif %} или метода REST API {% if audience != "internal" %}[updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md){% else %}updateRecordSets{% endif %}.
         
    {% endlist %}
    
@@ -1279,10 +1279,10 @@
 
 Чтобы остановить работу инфраструктуры и перестать платить за созданные ресурсы:
 
-1. Если вы настраивали CNAME-записи в {{ dns-name }}, {% if audience != "internal" %}[удалите](../dns/operations/zone-delete.md){% else %}удалите{% endif %} зону DNS `example-dns-zone`.
-1. {% if audience != "internal" %}[Удалите](../cdn/operations/resources/delete-resource.md){% else %}Удалите{% endif %} CDN-ресурс с основным доменным именем `cdn.yandexcloud.example`.
-1. {% if audience != "internal" %}[Удалите](../application-load-balancer/operations/application-load-balancer-delete.md){% else %}Удалите{% endif %} L7-балансировщик `example-balancer`.
-1. [Удалите](../storage/operations/objects/delete.md) все объекты из бакета `example-bucket`.
-1. [Удалите](../storage/operations/buckets/delete.md) бакет `example-bucket`.
-1. {% if audience != "internal" %}[Удалите](../vpc/operations/subnet-delete.md){% else %}Удалите{% endif %} подсети `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` и `example-subnet-{{ region-id }}-c`.
-1. {% if audience != "internal" %}[Удалите](../vpc/operations/network-delete.md){% else %}Удалите{% endif %} сеть `example-network`.
+1. Если вы настраивали CNAME-записи в {{ dns-name }}, {% if audience != "internal" %}[удалите](../../dns/operations/zone-delete.md){% else %}удалите{% endif %} зону DNS `example-dns-zone`.
+1. {% if audience != "internal" %}[Удалите](../../cdn/operations/resources/delete-resource.md){% else %}Удалите{% endif %} CDN-ресурс с основным доменным именем `cdn.yandexcloud.example`.
+1. {% if audience != "internal" %}[Удалите](../../application-load-balancer/operations/application-load-balancer-delete.md){% else %}Удалите{% endif %} L7-балансировщик `example-balancer`.
+1. [Удалите](../../storage/operations/objects/delete.md) все объекты из бакета `example-bucket`.
+1. [Удалите](../../storage/operations/buckets/delete.md) бакет `example-bucket`.
+1. {% if audience != "internal" %}[Удалите](../../vpc/operations/subnet-delete.md){% else %}Удалите{% endif %} подсети `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` и `example-subnet-{{ region-id }}-c`.
+1. {% if audience != "internal" %}[Удалите](../../vpc/operations/network-delete.md){% else %}Удалите{% endif %} сеть `example-network`.

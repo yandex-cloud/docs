@@ -40,3 +40,6 @@
 {% endif %}
 * [Интеграция {{ dns-name }} и корпоративного сервиса DNS](dns-integration.md)
 * [Создание веб-хука резолвера ACME для ответов на DNS01-проверки](cert-manager-webhook.md)
+{% if product == "yandex-cloud" %}
+* [Запись логов балансировщика в {{ PG }}](logging.md)
+{% endif %}

@@ -34,3 +34,6 @@
 {% endif %}
 * [Integrating {{ dns-name }} and a corporate DNS service](dns-integration.md)
 * [Creating an ACME resolver webhook for responses to DNS01 checks](cert-manager-webhook.md)
+{% if product == "yandex-cloud" %}
+* [Writing load balancer logs to {{ PG }}](logging.md)
+{% endif %}

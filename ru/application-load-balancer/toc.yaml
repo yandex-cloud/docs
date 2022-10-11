@@ -65,6 +65,8 @@ items:
             href: operations/k8s-ingress-controller-apply.md
   - name: Практические руководства
     items:
+      - name: Все практические руководства
+        href: tutorials/index.md
       - name: Организация виртуального хостинга
         href: tutorials/virtual-hosting.md
       - name: Создание балансировщика с защитой от DDoS
