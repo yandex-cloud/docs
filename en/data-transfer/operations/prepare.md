@@ -60,8 +60,6 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. [Configure access to the source cluster from {{ yandex-cloud }}](../concepts/network.md#source-external).
 
-   1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [materialized views]({{ ch.docs }}/engines/table-engines/special/materializedview/) (MaterializedView) will transfer.
-
    1. Create a user with access to the source database.
 
 {% endlist %}
