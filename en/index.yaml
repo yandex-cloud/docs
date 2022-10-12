@@ -1,5 +1,4 @@
 title: Yandex Cloud documentation
-description: []
 meta:
   title: Yandex Cloud
   noIndex: true
@@ -8,7 +7,7 @@ links:
     description: Yandex Cloud API architecture
     href: api-design-guide/
   - title: API Gateway
-    description: Integration with Yandex.Cloud services using the API
+    description: Integration with Yandex Cloud services using the API
     href: api-gateway/
   - title: Application Load Balancer
     description: Application-level load balancers
@@ -56,8 +55,8 @@ links:
     description: Domain name management
     href: dns/
   - title: Trial period
-    description: Description of the Yandex.Cloud trial period
-    href: getting-started/free-trial/concepts/quickstart.md
+    description: Description of the Yandex Cloud trial period
+    href: getting-started\free-trial\concepts\quickstart.md
   - title: Cloud Functions
     description: Run code as a function
     href: functions/
@@ -73,15 +72,18 @@ links:
   - title: Yandex Lockbox
     description: Creating and storing secrets
     href: lockbox/
+  - title: Managed Service for Apache Kafka®
+    description: Apache Kafka® cluster management
+    href: managed-kafka/
   - title: Managed Service for ClickHouse
     description: ClickHouse database management
     href: managed-clickhouse/
   - title: Managed Service for Elasticsearch
     description: Elasticsearch cluster management
     href: managed-elasticsearch/
-  - title: Managed Service for Apache Kafka®
-    description: Apache Kafka® cluster management
-    href: managed-kafka/
+  - title: Managed Service for Greenplum®
+    description: Greenplum® cluster management
+    href: managed-greenplum/
   - title: Managed Service for Kubernetes®
     description: Kubernetes cluster management
     href: managed-kubernetes/
@@ -124,7 +126,7 @@ links:
   - title: Yandex Cloud overview
     description: Overview of Yandex Cloud resources
     href: overview/
-  - title: Yandex.Cloud partner program
+  - title: Yandex Cloud partner program
     description: Partner program description
     href: partner/
   - title: Resource Manager
@@ -133,7 +135,7 @@ links:
   - title: Serverless Containers
     description: Running containers without Kubernetes®
     href: serverless-containers/
-  - title: Yandex Cloud practical guidelines
+  - title: Yandex Cloud tutorials
     description: Instructions for handling various tasks using cloud services
     href: tutorials/
   - title: SmartCaptcha
@@ -146,7 +148,7 @@ links:
     description: Scalable data storage
     href: storage/
   - title: Yandex Cloud technical support
-    description: Support
+    description: Technical support
     href: support/
   - title: Tracker
     description: A tool for effective team collaboration

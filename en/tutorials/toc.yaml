@@ -211,6 +211,8 @@ items:
           Migrating databases from a third-party {{ MY }} cluster to a {{
           mmy-full-name }} cluster
         href: dataplatform/mysql-data-migration.md
+      - name: Performance analysis and tuning of {{ mmy-name }}
+        href: dataplatform/profiling-mmy.md
       - name: >-
           Syncing data from a third-party {{ MY }} cluster to {{ mmy-full-name
           }} using {{ data-transfer-full-name }}
@@ -233,6 +235,8 @@ items:
           Migrating databases from a third-party {{ RD }} cluster to {{
           mrd-full-name }}
         href: dataplatform/redis-data-migration.md
+      - name: Using {{ mrd-name }} clusters as PHP session storage
+        href: dataplatform/redis-as-php-sessions-storage.md
       - name: >-
           Migrating databases from a third-party {{ MS }} cluster to {{
           mms-full-name }}

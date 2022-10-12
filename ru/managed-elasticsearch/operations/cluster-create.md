@@ -14,7 +14,7 @@ keywords:
 {% note info %}
 
 * Количество хостов с ролью _Data node_, которые можно создать вместе с {{ ES }}-кластером, зависит от выбранного [типа дисков](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
-* Доступные типы дисков [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы дисков [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
 
 {% endnote %}
 
@@ -62,7 +62,7 @@ keywords:
 
         * Выберите [тип диска](../concepts/storage.md).
 
-            {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+            {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
         * Выберите объем хранилища, который будет использоваться для данных.
 

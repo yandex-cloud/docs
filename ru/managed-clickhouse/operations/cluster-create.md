@@ -5,8 +5,8 @@
 
 {% note info %}
 
-* Количество хостов, которые можно создать вместе с {{ CH }}-кластером, зависит от выбранного [типа хранилища](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
-* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+* Количество хостов, которые можно создать вместе с {{ CH }}-кластером, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
 
 {% endnote %}
 
@@ -49,7 +49,7 @@
   1. В блоке **Размер хранилища**:
 
       
-      * Выберите [тип хранилища](../concepts/storage.md).
+      * Выберите [тип диска](../concepts/storage.md).
 
           {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
@@ -243,7 +243,7 @@
          clickhouse {
            resources {
              resource_preset_id = "<класс хоста>"
-             disk_type_id       = "<тип хранилища>"
+             disk_type_id       = "<тип диска>"
              disk_size          = <объем хранилища, ГБ>
            }
          }

@@ -1,4 +1,4 @@
-# Performance analysis and tuning
+# Performance analysis and tuning of {{ mmy-name }}
 
 The following issues normally impact {{ mmy-name }} cluster performance:
 
@@ -6,17 +6,17 @@ The following issues normally impact {{ mmy-name }} cluster performance:
 * [Inefficient query execution in {{ MY }}](#inefficient-queries).
 * [Locks](#localize-locking-issues).
 
-[Monitoring](../operations/monitoring.md) tools for {{ MY }} to [troubleshoot performance issues](../operations/performance-diagnostics.md) in {{ mmy-name }} clusters and special {{ MY }} queries will help detect these problems.
+[Monitoring](../../managed-mysql/operations/monitoring.md) tools for {{ MY }} to [troubleshoot performance issues](../../managed-mysql/operations/performance-diagnostics.md) in {{ mmy-name }} clusters and special {{ MY }} queries will help detect these problems.
 
 ## Before you begin {#before-start}
 
 1. Select databases to troubleshoot.
-1. [Enable statistics collection](../operations/performance-diagnostics.md).
-1. Create a [{{ MY }} user](../operations/cluster-users.md#adduser) with the [`PROCESS`](../operations/grant.md#db-privileges) privilege for these databases. Troubleshooting queries must run under this user's account.
+1. [Enable statistics collection](../../managed-mysql/operations/performance-diagnostics.md).
+1. Create a [{{ MY }} user](../../managed-mysql/operations/cluster-users.md#adduser) with the [`PROCESS`](../../managed-mysql/operations/grant.md#db-privileges) privilege for these databases. Troubleshooting queries must run under this user's account.
 
 ## Diagnosing resource shortages {#cpu-io-deficit}
 
-Resource shortage is a likely cause of cluster performance degradation. Resource shortages become evident from [cluster monitoring](../operations/monitoring.md) charts (CPU, disk I/O operations, network connections). If a continuously increasing resource utilization plot has leveled out, resource usage has reached its [limit](../concepts/limits.md) or exceeded the guaranteed service level.
+Resource shortage is a likely cause of cluster performance degradation. Resource shortages become evident from [cluster monitoring](../../managed-mysql/operations/monitoring.md) charts (CPU, disk I/O operations, network connections). If a continuously increasing resource utilization plot has leveled out, resource usage has reached its [limit](../../managed-mysql/concepts/limits.md) or exceeded the guaranteed service level.
 
 Special queries can help determine the reasons for elevated resource utilization:
 
@@ -113,4 +113,4 @@ You can try to tune any problematic queries identified in the course of troubles
 
 - [Optimize InnoDB tables](https://dev.mysql.com/doc/refman/5.7/en/optimizing-innodb.html) to reduce disk workload.
 
-If you can't optimize the identified problem queries or manage without them, you can [raise the host class](../operations/update#change-resource-preset).
+If you can't optimize the identified problem queries or manage without them, you can [raise the host class](../../managed-mysql/operations/update.md#change-resource-preset).

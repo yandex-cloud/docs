@@ -5,7 +5,7 @@
 {% note info %}
 
 * Количество хостов, которые можно создать вместе с кластером {{ MS }}, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
-* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
 
 {% endnote %}
 
@@ -37,7 +37,7 @@
       
       * Выберите [тип диска](../concepts/storage.md).
 
-        {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
       * Выберите объем, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [{#T}](../concepts/backup.md).

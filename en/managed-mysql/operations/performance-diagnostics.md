@@ -1,6 +1,6 @@
 # Performance diagnostics
 
-{{ mmy-name }} has a built-in tool for collecting session and query statistics. These metrics can be useful when [analyzing the performance and optimizing the settings](../tutorials/profiling.md) of a cluster.
+{{ mmy-name }} has a built-in tool for collecting session and query statistics. These metrics can be useful when [analyzing the performance and optimizing the settings](../tutorials/profiling-mmy.md) of a cluster.
 
 ## Enabling statistics collection {#activate-stats-collector}
 

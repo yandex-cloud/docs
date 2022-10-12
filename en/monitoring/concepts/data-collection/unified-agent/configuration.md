@@ -934,7 +934,7 @@ Parameter descriptions:
         # The URL to send metrics to.
         url: https://monitoring.{{ api-host }}/monitoring/v2/data/write # optional, the default value is https://monitoring.{{ api-host }}/monitoring/v2/data/write
 
-        folder_id: b1ge2vt0gml6ce48qcks #required, the folder ID
+        folder_id: b1ge2vt0gml6ce48qcks # required, the folder ID
 
         # IAM authentication settings.
         iam: # required

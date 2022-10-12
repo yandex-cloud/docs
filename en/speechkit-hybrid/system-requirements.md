@@ -6,9 +6,9 @@
 
 ## Software requirements {#software}
 
-A dedicated {{ sk-hybrid-name }} server should support running CUDA® 11.4 containers and higher and have the appropriate NVIDIA drivers. For more information on CUDA Toolkit requirements, see the [official NVIDIA documentation](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html).
+A server dedicated for {{ sk-hybrid-name }} should enable running containers based on CUDA® 11.4 and higher and have the appropriate NVIDIA drivers. For more information about the CUDA Toolkit requirements, see the [official NVIDIA documentation](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html).
 
-To install and configure {{ sk-hybrid-name }} services, you will need the {{ yandex-cloud }} CLI and a registry in {{ container-registry-full-name }}.
+To install and configure {{ sk-hybrid-name }} services, you need the {{ yandex-cloud }} CLI and a registry in {{ container-registry-full-name }}.
 
 1. {% include [cli-install](../_includes/cli-install.md) %}
 
@@ -29,4 +29,4 @@ To install and configure {{ sk-hybrid-name }} services, you will need the {{ yan
    created_at: "2021-08-25T12:24:56.286Z"
    ```
 
-1. Pass the `id` of the registry you created to the {{ speechkit-name }} team. All the required containers will appear in your registry, and you'll be given `docker-compose.yaml`.
+1. Notify the {{ speechkit-name }} team of the created registry's `id`. All the required containers will appear in your registry, and you'll be provided `docker-compose.yaml`.

@@ -10,7 +10,7 @@ To configure and test the architecture:
 1. [Set up a test bench](#prepare):
     - [Create TodoList app containers](#create-app).
     - [Deploy the infrastructure](#create-environment).
-    - [Create and run the Yandex.Tank app](#create-tank).
+    - [Create and run the Load Testing Tool app](#create-load-testing-tool).
 1. [Run the following test scenarios](#run):
     - [VM failure](#error-vm).
     - [Application failure](#error-app).
@@ -128,27 +128,27 @@ The following resources are created:
 
 To access the application, go to the `lb_address` received after executing the `terraform apply` command.
 
-### Create and run the Yandex.Tank app {#create-tank}
+### Create and run the Load Testing Tool app {#create-load-testing-tool}
 
 {% note warning %}
 
-Before creating your Yandex.Tank app, [create TodoList app containers](#create-app) and [deploy the infrastructure](#create-environment).
+Before creating your Load Testing Tool app, [create TodoList app containers](#create-app) and [deploy the infrastructure](#create-environment).
 
 {% endnote %}
 
-1. Go to the directory with the Yandex.Tank specification:
+1. Go to the directory with the Load Testing Tool specification:
 
     ```bash
-    cd tank
+    cd load-testing-tool
     ```
 
-1. Initialize {{ TF }} in the Yandex.Tank spec directory:
+1. Initialize {{ TF }} in the Load Testing Tool spec directory:
 
     ```bash
     terraform init
     ```
 
-1. In a file named `tank/main.tf`, specify the path to the public and private SSH keys (the default values are `~/.ssh/id_rsa.pub` and `~/.ssh/id_rsa`).
+1. In a file named `load-testing-tool/main.tf`, specify the path to the public and private SSH keys (the default values are `~/.ssh/id_rsa.pub` and `~/.ssh/id_rsa`).
 
 1. Deploy and run the VM:
 
@@ -158,13 +158,13 @@ Before creating your Yandex.Tank app, [create TodoList app containers](#create-a
 
     Where:
 
-    * `folder_id`: The folder where the Yandex.Tank app will be deployed.
-    * `yc_token`: The OAuth-token of the user that you want to deploy the Yandex.Tank app under.
+    * `folder_id`: The folder where the Load Testing Tool app will be deployed.
+    * `yc_token`: The OAuth-token of the user that you want to deploy the Load Testing Tool app under.
     * `overload_token`: The token that is used to connect to `<overload.yandex.net>`. To get the token, log in, click on your profile at the top right, and select **My api token** from the drop-down menu.
 
 1. Connect to the VM over SSH. The connection address is specified in the `terraform apply` command output.
 
-1. Run the Yandex.Tank app:
+1. Run the Load Testing Tool app:
 
     ```bash
     sudo yandex-tank -c load.yaml
@@ -194,7 +194,7 @@ Test bench reaction:
    1. Waits for the application to start on the machine.
    1. Adds the VM instance to load balancing.
 
-The load balancer and {{ ig-name }} require some time to detect the problem and disable traffic to the faulty VM instance. This may cause Connection Timeout errors (HTTP code `0` in the **Quantities** and **HTTP codes** charts in the Yandex.Tank monitoring tool).
+The load balancer and {{ ig-name }} require some time to detect the problem and disable traffic to the faulty VM instance. This may cause Connection Timeout errors (HTTP code `0` in the **Quantities** and **HTTP codes** charts in the Load Testing Tool monitoring tool).
 
 After disabling load balancing for the unavailable VM instance, the user load is handled correctly.
 
@@ -226,7 +226,7 @@ Test bench reaction:
    1. Waits for the application to start on the machine.
    1. Adds the VM instance to load balancing.
 
-{{ ig-name }} polls the instance several times before disabling traffic and starting the recovery procedure. This may cause Service Unavailable errors (HTTP code `503` in the **Quantities** and **HTTP codes** charts in the Yandex.Tank monitoring tool).
+{{ ig-name }} polls the instance several times before disabling traffic and starting the recovery procedure. This may cause Service Unavailable errors (HTTP code `503` in the **Quantities** and **HTTP codes** charts in the Load Testing Tool monitoring tool).
 
 After disabling load balancing for the faulty VM instance, the user load is handled correctly.
 
@@ -257,7 +257,7 @@ Test bench reaction:
 
 The number of VM instances that can be simultaneously created and deleted depends on the [deployment policy](../../compute/concepts/instance-groups/policies/deploy-policy.md).
 
-While disabling load balancing for VM instances, Connection Timeout errors may occur (HTTP code `0` in the **Quantities** and **HTTP codes** charts in the Yandex.Tank monitoring tool).
+While disabling load balancing for VM instances, Connection Timeout errors may occur (HTTP code `0` in the **Quantities** and **HTTP codes** charts in the Load Testing Tool monitoring tool).
 
 After load balancing is disabled for the VM instances, the user load is handled correctly.
 
@@ -288,7 +288,7 @@ Refresh the app page. If the network load balancer sends your request to a VM in
 
 The number of VM instances that can be simultaneously created and deleted depends on the [deployment policy](../../compute/concepts/instance-groups/policies/deploy-policy.md).
 
-While disabling load balancing for VM instances, Connection Timeout errors may occur (HTTP code `0` in the **Quantities** and **HTTP codes** charts in the Yandex.Tank monitoring tool).
+While disabling load balancing for VM instances, Connection Timeout errors may occur (HTTP code `0` in the **Quantities** and **HTTP codes** charts in the Load Testing Tool monitoring tool).
 
 After load balancing is disabled for the VM instances, the user load is handled correctly.
 
@@ -310,7 +310,7 @@ To scale the DB configuration:
 
 {{mpg-short-name}} will run the update command for the cluster.
 
-When switching between the master and a replica (at the beginning and end of the update process), an Internal Server Error may occur (HTTP code `500` in the **Quantities** and **HTTP codes** charts in the Yandex.Tank monitoring tool).
+When switching between the master and a replica (at the beginning and end of the update process), an Internal Server Error may occur (HTTP code `500` in the **Quantities** and **HTTP codes** charts in the Load Testing Tool monitoring tool).
 
 After switching, the user load is handled correctly.
 
@@ -318,11 +318,11 @@ After switching, the user load is handled correctly.
 
 {% note warning %}
 
-If a VM with Yandex.Tank is created, make sure you delete it first, otherwise deleting the {{ vpc-short-name }} will fail.
+If a VM with Load Testing Tool is created, make sure you delete it first, otherwise deleting the {{ vpc-short-name }} will fail.
 
 {% endnote %}
 
-To delete the Yandex.Tank app, go to the `tank` directory and run the following command:
+To delete the Load Testing Tool app, go to the `load-testing-tool` directory and run the following command:
 
 ```bash
 terraform destroy -var yc_folder=<folder_id> -var yc_token=<yc_token> -var user=$USER -var overload_token=not-used
