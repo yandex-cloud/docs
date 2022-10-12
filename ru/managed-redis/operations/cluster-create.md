@@ -7,7 +7,7 @@
 {% note info %}
 
 * Количество хостов, которые можно создать вместе с {{ RD }}-кластером, зависит от выбранного {% if audience != "internal" %}[типа диска](../concepts/storage.md#storage-type-selection){% else %}[типа диска](../concepts/storage.md){% endif %}, [класса хостов](../concepts/instance-types.md#available-flavors) и использования [шардирования](../concepts/sharding.md).
-* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
 
 {% endnote %}
 
@@ -57,15 +57,15 @@
      * Выберите конфигурацию [хостов](../concepts/instance-types.md) — она определяет технические характеристики виртуальных машин, на которых будут развернуты хосты БД. При изменении конфигурации меняются характеристики всех уже созданных хостов.
 
   1. В блоке **Размер хранилища**:
-      
+
         {% if audience != "internal" %}
-     
+
         * Выберите [тип диска](../concepts/storage.md):
             * либо более гибкое хранилище — на сетевых SSD-дисках (`network-ssd`) или на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`);
             * либо более быстрое хранилище — на локальных SSD-дисках (`local-ssd`).
 
-            {% include [storages-step-settings-no-ice-lake](../../_includes/mdb/settings-storages-no-v3.md) %}
-      
+            {% include [storages-step-settings-no-hdd](../../_includes/mdb/settings-storages-no-hdd.md) %}
+
         {% endif %}
 
         * Выберите размер хранилища. Доступный размер хранилища ограничен [квотами и лимитами](../concepts/limits.md#mrd-limits).

@@ -10,8 +10,8 @@
 
 {% note info %}
 
-* Количество хостов, которые можно создать вместе с {{ CH }}-кластером, зависит от выбранного {% if audience != "internal" %}[типа хранилища](../concepts/storage.md#storage-type-selection){% else %}[типа хранилища](../concepts/storage.md){% endif %} и [класса хостов](../concepts/instance-types.md#available-flavors).
-* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+* Количество хостов, которые можно создать вместе с {{ CH }}-кластером, зависит от выбранного {% if audience != "internal" %}[типа диска](../concepts/storage.md#storage-type-selection){% else %}[типа диска](../concepts/storage.md){% endif %} и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
 
 {% endnote %}
 
@@ -69,7 +69,7 @@
 
       {% if audience != "internal" %}
 
-      * Выберите [тип хранилища](../concepts/storage.md).
+      * Выберите [тип диска](../concepts/storage.md).
 
           {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
@@ -294,7 +294,7 @@
          clickhouse {
            resources {
              resource_preset_id = "<класс хоста>"
-             disk_type_id       = "<тип хранилища>"
+             disk_type_id       = "<тип диска>"
              disk_size          = <объем хранилища, ГБ>
            }
          }

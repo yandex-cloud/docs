@@ -7,7 +7,7 @@
 {% note info %}
 
 * Количество хостов, которые можно создать вместе с {{ MG }}-кластером, зависит от выбранного {% if audience != "internal" %}[типа диска](../concepts/storage.md#storage-type-selection){% else %}[типа диска](../concepts/storage.md){% endif %} и [класса хостов](../concepts/instance-types.md#available-flavors).
-* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
 
 {% endnote %}
 
@@ -54,12 +54,7 @@
 
       * Выберите [тип диска](../concepts/storage.md).
 
-        От выбранного типа диска зависит, с каким шагом можно будет изменить его размер:
-
-          * на сетевых SSD — с шагом 1 ГБ;
-          * на сетевых HDD — с шагом 1 ГБ;
-          * на локальных SSD — с шагом 100 ГБ;
-          * на сетевых нереплицируемых SSD — с шагом 93 ГБ.
+        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
       * Выберите объем, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [{#T}](../concepts/backup.md).
       

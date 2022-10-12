@@ -125,7 +125,7 @@ description: "Вы можете создавать резервные копии
          --host type=<clickhouse или zookeeper>,`
                `zone-id=<зона доступности> \
          --clickhouse-disk-size=<размер хранилища в гигабайтах> \
-         --clickhouse-disk-type=<тип хранилища> \
+         --clickhouse-disk-type=<тип диска> \
          --clickhouse-resource-preset=<класс хоста>
       ```
 
@@ -141,7 +141,7 @@ description: "Вы можете создавать резервные копии
                `zone-id=<зона доступности>,`
                `subnet-id=<идентификатор подсети> \
          --clickhouse-disk-size=<размер хранилища в гигабайтах> \
-         --clickhouse-disk-type=<тип хранилища> \
+         --clickhouse-disk-type=<тип диска> \
          --clickhouse-resource-preset=<класс хоста>
       ```
 
@@ -165,7 +165,7 @@ description: "Вы можете создавать резервные копии
 
       * `--resource-preset` — [класс хоста](../concepts/instance-types.md#available-flavors).
       * `--disk-size` — объем хранилища в гигабайтах.
-      * `--disk-type` — [тип хранилища](../concepts/storage.md):
+      * `--disk-type` — [тип диска](../concepts/storage.md):
           {% if audience != "internal" %}
 
           * `network-hdd`;
