@@ -1,23 +1,23 @@
 # Synthesize speech in WAV format using API v1
 
-In this example, we synthesize the submitted text in LPCM format with a sampling rate of 48kHz and save it to the file `speech.raw`. This file is then converted to WAV format using the [SoX](http://sox.sourceforge.net/) utility.
+The example shows how you can synthesize speech from text with [TTS markup](../tts-markup.md) to a [WAV]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/WAV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/WAV){% endif %} file using the [API v1](../request.md).
 
-[API v1](../request) is used for synthesis.
+The example uses the following synthesis parameters:
+* Synthesized audio file [format](../../formats.md): LPCM with a sample rate of 48000 Hz, [WAV]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/WAV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/WAV){% endif %} container.
+* [Language](../index.md#langs): Russian.
+* [Voice](../voices.md): `filipp`.
 
-{% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
+Conversion and recording the result in WAV are performed using the [SoX](http://sox.sourceforge.net/) utility.
 
-1. Synthesize a file in LCPM format, specifying the [folder ID](../../../resource-manager/operations/folder/get-id.md) and [IAM token](../../../iam/concepts/authorization/iam-token.md) in the parameters:
+The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you don't need to pass the folder ID in the request. For more information about authentication in the {{speechkit-name}} API, see [{#T}](../../concepts/auth.md).
+
+1. Synthesize a file in LPCM format:
 
    {% list tabs %}
 
    - cURL
 
-      Send the [request](../request.md) to convert speech to text, specifying the following in its parameters:
-      * `text`: Text to be recognized with the applied URL encoding.
-      * `lang`: [Language](../index.md#langs) of the text.
-      * `voice`: [Voice](../voices.md) for speech synthesis.
-      * `folderId`: ID of the folder.
-      * `IAM_TOKEN`: IAM token.
+      Send the [request](../request.md) to convert speech to text:
 
       ```bash
       read -r -d '' TEXT << EOM
@@ -35,7 +35,19 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
        https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
       ```
 
+      Where:
+
+      * `TEXT`: Text in [TTS markup](../tts-markup.md) for synthesis.
+      * `FOLDER_ID`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md).
+      * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
+      * `lang`: [Language](../index.md#langs) of the text.
+      * `voice`: [Voice](../voices.md) for speech synthesis.
+      * `format`: Synthesized audio file [format](../../formats.md).
+      * `sampleRateHertz`: Sample rate of an [LPCM](../../formats.md#LPCM) audio file.
+
    - C#
+
+      Send the [request](../request.md) to convert speech to text:
 
       ```c#
       using System;
@@ -62,7 +74,7 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
             var values = new Dictionary<string, string>
             {
-              { "text", "I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too! },
+              { "text", "I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!" },
               { "lang", "ru-RU" },
               { "voice", "filipp" },
               { "folderId", folderId },
@@ -78,6 +90,16 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
       }
       ```
 
+      Where:
+
+      * `iamToken`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
+      * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
+      * `TEXT`: Text in [TTS markup](../tts-markup.md) for synthesis.
+      * `lang`: [Language](../index.md#langs) of the text.
+      * `voice`: [Voice](../voices.md) for speech synthesis.
+      * `format`: Synthesized audio file [format](../../formats.md).
+      * `sampleRateHertz`: Sample rate of an [LPCM](../../formats.md#LPCM) audio file.
+
    - Python 3
 
       * Create a file (for example, `test.py`), and add the following code to it:
@@ -85,7 +107,6 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
          ```python
          import argparse
          import requests
-
 
          def synthesize(folder_id, iam_token, text):
              url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
@@ -123,15 +144,35 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
                      f.write(audio_content)
          ```
 
-      * Execute the created file by passing arguments with the [folder ID](../../../resource-manager/operations/folder/get-id.md), [IAM token](../../../iam/concepts/authorization/iam-token.md), text, and name of the file for audio recording:
+         Where:
+
+         * `lang`: [Language](../index.md#langs) of the text.
+         * `voice`: [Voice](../voices.md) for speech synthesis.
+         * `format`: Synthesized audio file [format](../../formats.md).
+         * `sampleRateHertz`: Sample rate of an [LPCM](../../formats.md#LPCM) audio file.
+
+      * Run the created file:
 
          ```bash
          export FOLDER_ID=<folder ID>
          export IAM_TOKEN=<IAM token>
-         python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.raw --text "I'm Yandex SpeechK+it. I can turn any text into speech. Now y+ou can, too!
+         python test.py
+           --token ${IAM_TOKEN}
+           --folder_id ${FOLDER_ID}
+           --output speech.raw
+           --text "I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!
          ```
 
+         Where:
+
+         * `FOLDER_ID`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md).
+         * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
+         * `--output`: Name of the file for audio recording.
+         * `--text`: Text in [TTS markup](../tts-markup.md) for synthesis.
+
    - PHP
+
+      Send the [request](../request.md) to convert speech to text:
 
       ```php
       <?php
@@ -144,10 +185,10 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
       $post = array(
           'text' => "I'm Yandex Sp+eech kit. I can turn any text into speech. Now y+ou can, too!",
           'folderId' => $folderId,
-          'sampleRateHertz' => '48000',
           'lang' => 'ru-RU',
           'voice' => 'filipp',
-          'format' => 'lpcm');
+          'format' => 'lpcm',
+          'sampleRateHertz' => '48000');
 
       $ch = curl_init();
 
@@ -161,7 +202,6 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
           curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
       }
       curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
 
       $response = curl_exec($ch);
       if (curl_errno($ch)) {
@@ -177,10 +217,27 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
       curl_close($ch);
       ```
 
+      Where:
+
+      * `token`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
+      * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
+      * `TEXT`: Text in [TTS markup](../tts-markup.md) for synthesis.
+      * `lang`: [Language](../index.md#langs) of the text.
+      * `voice`: [Voice](../voices.md) for speech synthesis.
+      * `format`: Synthesized audio file [format](../../formats.md).
+      * `sampleRateHertz`: Sample rate of an [LPCM](../../formats.md#LPCM) audio file.
+
    {% endlist %}
 
-1. Convert the file to WAV format using the [SoX](http://sox.sourceforge.net/) utility.
+1. Convert the resulting file to WAV format using the [SoX](http://sox.sourceforge.net/) utility.
 
    ```bash
    sox -r 48000 -b 16 -e signed-integer -c 1 speech.raw speech.wav
    ```
+
+#### See also {#see-also}
+
+* [{#T}](../request.md)
+* [{#T}](tts-ogg.md)
+* [{#T}](tts-ssml.md)
+* [{#T}](../../concepts/auth.md)

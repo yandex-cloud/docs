@@ -1,10 +1,14 @@
-# Example uses for the synthesis API v3
+# Example use for the synthesis API v3
 
-This example uses the {{ speechkit-short-name }} [API v3](../../new-v3/api-ref/grpc/) for synthesis and recording of the following text to an audio file:
+The example shows how you can synthesize speech from text with [TTS markup](../tts-markup.md) to a [WAV]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/WAV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/WAV){% endif %} file using the {{ speechkit-short-name }} [API v3](../../new-v3/api-ref/grpc/).
 
-> I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!
+The example uses the following synthesis parameters:
+* Synthesized audio file [format](../../formats.md): LPCM with a sample rate of 22050 Hz, [WAV]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/WAV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/WAV){% endif %} container (default).
+* [Volume normalization](../index.md#volume): LUFS (default).
 
-The example uses the default settings: data in the audio file is saved in [LPCM]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Импульсно-кодовая_модуляция){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Pulse-code_modulation){% endif %} format with a sampling rate of 22050 Hz and depth of 16 bit. Data is then packaged into a [WAV]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/WAV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/WAV){% endif %} container.
+Conversion and recording of a result are performed using the `grpcio-tools` and `pydub` packages and the [FFmpeg](https://ffmpeg.org/) utility.
+
+An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to authenticate the service account. For more information about authentication in the {{speechkit-name}} API, see [{#T}](../../concepts/auth.md).
 
 To implement an example:
 
@@ -70,7 +74,7 @@ To implement an example:
          import yandex.cloud.ai.tts.v3.tts_pb2 as tts_pb2
          import yandex.cloud.ai.tts.v3.tts_service_pb2_grpc as tts_service_pb2_grpc
 
-
+         # Define request parameters.
          def synthesize(iam_token, text) -> pydub.AudioSegment:
              request = tts_pb2.UtteranceSynthesisRequest(
                  text=text,
@@ -82,7 +86,7 @@ To implement an example:
                  loudness_normalization_type=tts_pb2.UtteranceSynthesisRequest.LUFS
              )
 
-             # Establish a connection with the server.
+             # Establish connection with server.
              cred = grpc.ssl_channel_credentials()
              channel = grpc.secure_channel('tts.{{ api-host }}:443', cred)
              stub = tts_service_pb2_grpc.SynthesizerStub(channel)
@@ -116,14 +120,28 @@ To implement an example:
                  audio.export(fp, format='wav')
          ```
 
-      1. Set the IAM token of the service account, text for synthesis, name of the audio file, and execute the created file:
+      1. Execute the file from the previous step:
 
          ```bash
          export IAM_TOKEN=<service_account_IAM token>
          export TEXT='I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!'
-         python output/test.py --token ${IAM_TOKEN} --output speech.wav --text ${TEXT}
+         python output/test.py \
+           --token ${IAM_TOKEN} \
+           --output speech.wav \
+           --text ${TEXT}
          ```
+
+         Where:
+
+         * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account.
+         * `TEXT`: Text in [TTS markup](../tts-markup.md) for synthesis.
+         * `--output`: Name of the file for audio recording.
 
          As a result, the `speech.wav` file with synthesized speech will be created in the `cloudapi` directory.
 
    {% endlist %}
+
+#### See also {#see-also}
+
+* [Learn more about the API v3](../../new-v3/api-ref/grpc/)
+* [{#T}](../../concepts/auth.md)
