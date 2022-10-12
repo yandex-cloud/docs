@@ -8,17 +8,17 @@ Delivery of system metrics for virtual machines run on Windows and macOS is plan
 
 {% endnote %}
 
-To configure {{unified-agent-full-name}} to collect system metrics from a {{ yandex-cloud }} VM, follow these steps:
+To configure {{ unified-agent-full-name }} to collect system metrics from a {{ yandex-cloud }} VM, follow these steps:
 
 1. Set up a service account from which metrics will be written to {{ monitoring-full-name }}.
 
    1. [Create a service account](../../../iam/operations/sa/create.md) in the folder you want to write metrics to and [assign it](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-monitoring-editor }}` role.
 
-   1. [Link your service account](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to a virtual machine with {{unified-agent-short-name}} installed.
+   1. [Link your service account](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to a virtual machine with {{ unified-agent-short-name }} installed.
 
-1. Install and configure {{unified-agent-full-name}}.
+1. Install and configure {{ unified-agent-full-name }}.
 
-   1. Create a file named **config.yml** in your home folder.
+   1. Create a file named **config.yml** in your home folder:
 
       **config.yml:**
       ```yaml
@@ -72,9 +72,9 @@ To configure {{unified-agent-full-name}} to collect system metrics from a {{ yan
          - /etc/yandex/unified_agent/conf.d/*.yml
       ```
 
-      Where `$FOLDER_ID` is the ID of the folder you want to write metrics.
+      Where `$FOLDER_ID` is the ID of the folder to write metrics to.
 
-   1. Install {{unified-agent-short-name}} on your VM by running the following command in the home folder:
+   1. Install {{ unified-agent-short-name }} on your VM by running the following command in the home folder:
 
       ```bash
       docker run \
