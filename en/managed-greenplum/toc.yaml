@@ -39,6 +39,8 @@ items:
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Resource groups
+        href: concepts/resource-groups.md
       - name: Storage types
         href: concepts/storage.md
       - name: Sharding

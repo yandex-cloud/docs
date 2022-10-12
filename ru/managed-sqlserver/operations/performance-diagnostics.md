@@ -33,5 +33,5 @@
 
 Чтобы посмотреть эти данные:
 * [Выполните SQL-запрос]({{ ms.docs }}/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15#performance-auditing-and-troubleshooting) напрямую к хранилищу запросов.
-* Используйте [SQL Server Management Studio]({{ ms.docs }}/sql/relational-databases/performance/performance-dashboard?view=sql-server-ver15).
+* Используйте [SQL Server Management Studio]({{ ms.docs }}/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15).
 * Используйте [встроенные хранимые процедуры](sessions.md).

@@ -13,11 +13,11 @@ _Metrics_ are time series that shows a change of some value over time. For examp
 Metrics are identified using text labels.
 
 ### Labels {#label}
-_A label_ is a metric characteristic in `key: "value"` format. Each metric is identified by an unordered set of labels. Use a parameter that takes a limited set of values as a label. For example, the HTTP status code, the types of procedures being performed in a database, and so on.
+A _label_ is a metric characteristic in `key: "value"` format. Each metric is identified by an unordered set of labels. Use a parameter that takes a limited set of values as a label. For example, the HTTP status code, the types of procedures being performed in a database, and so on.
 
 The service has mandatory and optional labels. Mandatory labels:
 
-- `cloudId`: The ID of the cloud that the resource belongs to.
+- `cloudId`: The [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) that the resource belongs to.
 - `folderId`: The ID of the folder that the resource belongs to.
 - `service`: Indicates the {{ yandex-cloud }} service that the resource belongs to. For example, `compute` or `managed-postgresql`.
 

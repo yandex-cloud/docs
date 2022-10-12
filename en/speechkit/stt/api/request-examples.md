@@ -1,14 +1,23 @@
-# Example uses for Synchronous Recognition API
+# Example use for synchronous recognition API
 
-{% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
+The example shows how the [API v2](request-api.md) helps synchronously recognize speech in the [OggOpus](../../formats.md#OggOpus) audio file format.
+
+The example uses the following parameters:
+
+* [Language](../index.md#langs): Russian.
+* Other parameters were left with their default values.
+
+Use the [cURL](https://curl.haxx.se) utility to generate and send a request to the server for recognition.
+
+The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you don't need to pass the folder ID in the request. Learn more about [authentication in the {{speechkit-name}} API](../../concepts/auth.md).
 
 ## Example query{#request_examples}
-
-Run the request indicating the [folder ID](../../../resource-manager/operations/folder/get-id.md) and [IAM token](../../../iam/concepts/authorization/iam-token.md) for authorization:
 
 {% list tabs %}
 
 - POST request
+
+   Send a [request](../request.md) to convert speech to text:
 
    ```httpget
    POST /speech/v1/stt:recognize?topic=general&lang=ru-RU&folderId={<folder ID>} HTTP/1.1
@@ -18,9 +27,18 @@ Run the request indicating the [folder ID](../../../resource-manager/operations/
    ... (binary content of an audio file)
    ```
 
+   Where:
+
+   * `topic`: [Language model](../models.md).
+   * `lang`: [Language](../index.md#langs) that recognition is performed for.
+   * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
+   * `<IAM token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
+
 - cURL
 
-   ```httpget
+   Send a [request](../request.md) to convert speech to text:
+
+   ```bash
    export FOLDER_ID=<folder ID>
    export IAM_TOKEN=<IAM token>
    curl -X POST \
@@ -30,7 +48,16 @@ Run the request indicating the [folder ID](../../../resource-manager/operations/
         "https://stt.{{ api-host }}/speech/v1/stt:recognize?topic=general&folderId=${FOLDER_ID}"
    ```
 
+   Where:
+
+   * `FOLDER_ID`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md).
+   * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
+   * `--data-binary`: Name of an audio file for recognition.
+   * `topic`: [Language model](../models.md).
+
 - Python 3
+
+   Send a [request](../request.md) to convert speech to text:
 
    ```python
    import urllib.request
@@ -58,7 +85,17 @@ Run the request indicating the [folder ID](../../../resource-manager/operations/
        print(decodedData.get("result"))
    ```
 
+   Where:
+
+   * `FOLDER_ID`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md).
+   * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
+   * `speech.ogg`: Name of an audio file for recognition.
+   * `topic`: [Language model](../models.md).
+   * `lang`: [Language](../index.md#langs) that recognition is performed for.
+
 - PHP
+
+   Send a [request](../request.md) to convert speech to text:
 
    ```php
    <?php
@@ -92,14 +129,27 @@ Run the request indicating the [folder ID](../../../resource-manager/operations/
    fclose($file);
    ```
 
+   Where:
+
+   * `token`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
+   * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
+   * `audioFileName`: Name of an audio file for recognition.
+   * `lang`: [Language](../index.md#langs) that recognition is performed for.
+   * `format`: [Format](../../formats.md) of the submitted audio.
+
 {% endlist %}
 
 ## Response example {#response_examples}
 
-```
+```text
 HTTP/1.1 200 OK
 YaCloud-Billing-Units: 15
 {
   "result": "your number is 212-85-06"
 }
 ```
+
+#### See also {#see-also}
+
+* [{#T}](request-api.md)
+* [{#T}](../../concepts/auth.md)

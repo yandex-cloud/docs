@@ -84,7 +84,7 @@ db.currentOp({ "$ownOps": true })
 
 - API
 
-    Воспользуйтесь методом API [listLogs](../api-ref/Cluster/listLogs.md) и передайте идентификатор кластера в параметре `clusterId` запроса.
+    Воспользуйтесь методом API [listLogs](../api-ref/Cluster/listLogs.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 

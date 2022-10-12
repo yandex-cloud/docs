@@ -7,7 +7,6 @@
 ### Changes to {{ yandex-cloud }} services {#services}
 
 
-
 #### {{ alb-name }} {#alb}
 
 * Added the `yc application-load-balancer load-balancer autoscale` command to manage the number of load balancer resource units.
@@ -22,7 +21,6 @@
 * Added the following flags to the `yc alb load-balancer update` command:
    * `--log-group-id`, `--log-group-name`: Specify a log group from {{ cloud-logging-name }}.
    * `--enable-logging` and `--disable-logging`: Enable and disable load balancer logging to a log group from {{ cloud-logging-name }}.
-
 
 
 
@@ -30,14 +28,13 @@
 
 * Added the `yc compute snapshot-schedule` set of commands to manage scheduled disk snapshots.
 * Added the `--metadata-options` flag to the `yc compute instance create` command to manage VM metadata access.
-
 
 
 
 ##### {{ dns-name }} {#dns}
 
 * Added the ability to filter by name and record type to the `yc dns zone list-records` command using the `--record-name` and the `--record-type` parameters.
-
+
 
 #### Changes to managed database services {#managed-db}
 
@@ -46,11 +43,9 @@
 * `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore`: added the `11-1c`, `12-1c`, `13-1c`, and `14-1c` values for the `--postgresql-version string` flag to create {{ PG }} clusters with versions 11-1c, 12-1c, 13-1c, and 14-1c.
 
 
-
 #### {{ iot-name }} {#iot}
 
 * Added the `yc iot broker` command group to manage the MQTT broker.
-
 
 
 
@@ -62,7 +57,6 @@ Added the following commands:
 * `yc serverless trigger create mail`: Create mail triggers.
 
 `yc serverless function version create`: Added the `--secret` parameter to add [secrets](../lockbox/) to the version.
-
 
 
 
@@ -71,14 +65,13 @@ Added the following commands:
 Added the following flags to the `yc serverless container revision deploy` command:
 * `--secret`: Add secrets to the revision.
 * `--min-instances`: Specify the minimum number of prepared container instances.
-
+
 
 ## Previous releases {#previous-releases}
 
 ### Version 0.95.0 (02.09.22) {#version0.95.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
-
 
 
 ##### {{ api-gw-name }} {#api-gw}
@@ -95,7 +88,6 @@ Added the following flags to the `yc serverless container revision deploy` comma
    * `yc serverless api-gateway websocket get`: Getting connection data.
    * `yc serverless api-gateway websocket send`: Sending connection data.
    * `yc serverless api-gateway websocket disconnect`: Terminating a connection.
-
 
 
 
@@ -103,7 +95,6 @@ Added the following flags to the `yc serverless container revision deploy` comma
 ##### {{ certificate-manager-name }} {#certificate-manager}
 
 * Added the `--key-format` parameter to the `yc certificate-manager certificate content` command to select the primary key format: `PKCS1` or `PKCS8`.
-
 
 
 
@@ -111,7 +102,6 @@ Added the following flags to the `yc serverless container revision deploy` comma
 ##### {{ compute-name }} {#compute}
 
 * Added the `--os-type` parameter to the `yc compute image create` command to specify the OS type for an image you create: `linux` or `windows`.
-
 
 
 
@@ -119,7 +109,6 @@ Added the following flags to the `yc serverless container revision deploy` comma
 ##### {{ dns-name }} {#dns}
 
 * The `yc dns zone add-records`, `yc dns zone update-records`, `yc dns zone delete-records`, and `yc dns zone replace-records` commands now return a list of changes made.
-
 
 
 
@@ -127,7 +116,6 @@ Added the following flags to the `yc serverless container revision deploy` comma
 ##### {{ iam-name }} {#iam}
 
 * Fixed an error in the `yc iam federation` command group, which occurred when specifying the name of a SAML-compatible identity federation as a positional argument.
-
 
 
 
@@ -140,7 +128,7 @@ Added the following flags to the `yc serverless container revision deploy` comma
    * `--filter` to filter records.
 
    For more information about possible values of new parameters, see [{#T}](../logging/concepts/filter.md). 
-
+
 
 
 ##### Managed database services {#managed-db}
@@ -150,11 +138,9 @@ Added the following flags to the `yc serverless container revision deploy` comma
 * Added support for {{ KF }} 3.0, 3.1, and 3.2.
 
 
-
 **{{ mrd-name }}**
 
 * {{ RD }} 5.0 and 6.0 are no longer supported.
-
 
 
 
@@ -163,21 +149,19 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 * Added the `--organization-id` parameter to the commands of the `yc organization-manager federation saml` group to specify organization IDs. Fixed an error that occurred in these commands when specifying the name of a SAML-compatible identity federation as a positional argument.
 * Added a group of `yc organization-manager group` commands to manage [user groups](../organization/manage-groups.md).
-
+
 
 ### Version 0.94.0 (16.08.22) {#version0.94.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
 
-
 ##### {{ cloud-logging-name }} {#cloud-logging}
 
 * Added the `--stream-name` parameter to the `yc logging read` and `yc logging write` commands.
-
+
 
 ##### Managed database services {#managed-db}
-
 
 
 **{{ mgp-name }}**
@@ -188,7 +172,6 @@ Added the following flags to the `yc serverless container revision deploy` comma
    * `yc managed-greenplum cluster update-config`: Lets you change the configuration parameters of existing clusters.
 
 * Added the `--datatransfer-access` flag to the `yc managed-greenplum create cluster` command to allow access from {{ data-transfer-name }}.
-
 
 
 
@@ -199,7 +182,7 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
    * `--assign-public-ip=true|false`: Assigns or deletes a host's public IP address.
    * `--replica-priority=50`: Sets the replica priority (for non-sharded clusters only).
-
+
 
 **{{ mch-name }}**
 
@@ -250,11 +233,10 @@ Added the following flags to the `yc serverless container revision deploy` comma
    Added support for templates when creating a database using `--template-db string`.
 
 
-
 **{{ mmg-name }}**
 
 * When creating a new cluster, MongoDB version 5.0 is selected by default.
-
+
 
 ##### {{ managed-k8s-name }} {#k8s}
 
@@ -266,11 +248,10 @@ Added the following flags to the `yc serverless container revision deploy` comma
    * Added the `--template-labels` and `--template-labels-from-files` flags that can be used to specify [{{ yandex-cloud }} resource labels](../overview/concepts/services.md#labels) for VMs — group nodes (not to be confused with [{{ k8s }} node labels](../managed-kubernetes/concepts/index.md#node-labels)).
 
 
-
 ##### {{ serverless-containers-name }} {#serverless-containers}
 
 * Added the `--network-id` and `--network-name` flags to the `yc serverless container revision deploy` command to specify the network that the container revision will use. Also added the `--subnets` flag, which can be used to get a detailed list of subnets, to the command.
-
+
 
 ### Version 0.92.0 (05.07.22) {#version0.92.0}
 
@@ -290,7 +271,6 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 
 
-
 ##### Managed database services {#managed-db}
 
 **{{ mrd-name }}**
@@ -306,11 +286,9 @@ Added commands for {{ mgp-name }} primary support:
 **{{ mms-name }}**
 
 * Added the `yc managed-sqlserver hosts update <HOST> --assign-public-ip=true|false` command that assigns or deletes a host's public IP address.
-
+
 
 ### Version 0.91.0 (12.05.22){#version0.91.0}
-
-
 
 
 
@@ -378,7 +356,6 @@ Added commands for {{ mgp-name }} primary support:
 **{{ mkf-name }}**
 
 * Added the `--assign-public-ip` flag to the `yc managed-kafka cluster update` command to manage public access to brokers.
-
 
 
 
@@ -1449,9 +1426,8 @@ The {{ certificate-manager-name }} service is at the [Preview](../overview/conce
 * Commands `yc compute instance create-with-container` and `yc compute instance update-container`.
 
    
-
    Added the `--coi-spec-file` flag to pass an [image specification](../cos/concepts/coi-specifications.md#coi-spec-example).
-
+
 
 ##### {{ vpc-name }} {#vpc}
 
@@ -1897,9 +1873,8 @@ The {{ kms-name }} service is at the [Preview](../overview/concepts/launch-stage
 **Improved**
 
 
-
 * [Federated authentication](operations/authentication/federated-user.md) is now supported for non-interactive `yc` calls. This mode is used when the CLI is not started directly by the user, like when it is started via a script or `kubectl` when working with [{{ k8s }} clusters](../managed-kubernetes/concepts/index.md#kubernetes-cluster) in {{ managed-k8s-full-name }}.
-
+
 
 ### Version 0.46.0 (13.12.19) {#version0.46.0}
 
@@ -1908,9 +1883,8 @@ The {{ kms-name }} service is at the [Preview](../overview/concepts/launch-stage
 **Improved**
 
 
-
 * To facilitate authorization diagnostics, CRC32 of the sent [IAM token](../iam/concepts/authorization/iam-token.md) is written to the request debug log.
-
+
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
@@ -1959,16 +1933,14 @@ The {{ kms-name }} service is at the [Preview](../overview/concepts/launch-stage
 ### Version 0.43.1 (14.11.19)
 
 
-
 #### Changes to the CLI {#cli}
 
 **Fixed**
 
 * For Windows Subsystem for Linux (WSL), the browser now opens correctly when logging in to the CLI using [SAML-compatible identity federations](../organization/add-federation.md).
-
+
 
 ### Version 0.43.0 (11.11.19) {#version0.43.0}
-
 
 
 #### Changes to the CLI {#cli}
@@ -1976,16 +1948,15 @@ The {{ kms-name }} service is at the [Preview](../overview/concepts/launch-stage
 * Added CLI authentication using [SAML-compatible identity federations](../organization/add-federation.md).
 
    To do this, run the `yc init --federation-id=<FEDERATION_ID>` command to use the CLI on behalf of the federated user.
-
+
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
 #### {{ compute-name }} {#compute}
 
 
-
 * Added details to the logged data and error text on [authorization from within a VM](../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) (using an IAM token from the metadata).
-
+
 
 #### Changes to managed database services {#managed-db}
 
@@ -2337,4 +2308,4 @@ The {{ kms-name }} service is at the [Preview](../overview/concepts/launch-stage
    * If the `--host` flag is not specified, the shard parameters are copied from the old shard.
    * If the `--host` flag is specified, all parameters must be entered.
    * If there are no shards, all parameters have to be entered to create a shard.
-
+

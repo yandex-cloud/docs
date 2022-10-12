@@ -47,6 +47,7 @@
 ## {{ MY }} {#mysql}
 
 * [{#T}](mysql-data-migration.md)
+* [{#T}](profiling-mmy.md)
 * [{#T}](sync-mysql.md)
 * [{#T}](mmy-to-mysql-migration.md)
 * [{#T}](sqoop-mmy.md)
@@ -68,6 +69,7 @@
 
 ## {{ RD }} {#redis}
 * [{#T}](redis-data-migration.md)
+* [{#T}](redis-as-php-sessions-storage.md)
 
 
 

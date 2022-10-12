@@ -22,7 +22,7 @@
 
 - API
 
-    Воспользуйтесь методом API [listLogs](../api-ref/Cluster/listLogs.md) и передайте идентификатор кластера в параметре `clusterId` запроса.
+    Воспользуйтесь методом API [listLogs](../api-ref/Cluster/listLogs.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     {% include [log-limits](../../_includes/mdb/mkf/log-limits.md) %}
 

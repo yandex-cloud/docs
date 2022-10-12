@@ -98,8 +98,18 @@
 | second.example.com. | CNAME | 600 | host.example.com. |
 | host.example.com.   | A     | 600 | 192.0.2.100       |
 
-Подробнее о CNAME-записях см. в [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.1).
+Обратите внимание, что CNAME нельзя совмещать с другими записями в одном домене. Подробнее о CNAME-записях и их ограничениях см. в [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.1).
 
+## ANAME {#aname}
+
+`ANAME` — запись работает аналогично записи `CNAME`, но может использоваться в одном домене с другими записями. Например, можно использовать `ANAME` в домене второго уровне вместе с `MX`-записями.
+
+| Имя                  | Тип   | TTL | Значение                           |
+|----------------------|-------|-----|------------------------------------|
+| example.com.         | ANAME | 600 | example.com.website.yandexcloud.net |
+| example.com.         | MX    | 600 | 10 mx.example.com                  |
+| example.com.         | TXT   | 600 | v=spf1 redirect=_spf.example.com   |
+| example.com.         | TXT   | 600 | v=DKIM1; k=rsa; t=s; p=<ключ>      |
 
 ## MX {#mx}
 

@@ -36,7 +36,7 @@
 
     1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-    1. Скачайте в ту же рабочую директорию файл конфигурации [sqlserver-data-migration.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/sqlserver-data-migration.tf).
+    1. Скачайте в ту же рабочую директорию файл конфигурации [to-mms-logical-repl-and-snapshot.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/sqlserver-migration/to-mms-logical-repl-and-snapshot.tf).
 
         В этом файле описаны:
 
@@ -45,7 +45,7 @@
         - [группа безопасности](../../vpc/concepts/security-groups.md) и правило, разрешающее подключение к кластеру;
         - кластер {{ mms-name }} с публичным доступом из интернета.
 
-    1. Укажите параметры инфраструктуры в файле конфигурации `sqlserver-data-migration.tf` в блоке `locals`:
+    1. Укажите параметры инфраструктуры в файле конфигурации `to-mms-logical-repl-and-snapshot.tf` в блоке `locals`:
 
         - `sql_server_version` — версия {{ MS }}.
         - `sql_server_collation` — значение настройки **SQL Server Collation**. Оно должно совпадать со значением настройки **SQL Server Collation** в кластере-источнике.
@@ -258,7 +258,7 @@
     Чтобы удалить инфраструктуру, созданную с помощью {{ TF }}:
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `sqlserver-data-migration.tf`.
+    1. Удалите конфигурационный файл `to-mms-logical-repl-and-snapshot.tf`.
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
@@ -271,6 +271,6 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        Все ресурсы, которые были описаны в конфигурационном файле `sqlserver-data-migration.tf`, будут удалены.
+        Все ресурсы, которые были описаны в конфигурационном файле `to-mms-logical-repl-and-snapshot.tf`, будут удалены.
 
 {% endlist %}

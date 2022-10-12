@@ -43,7 +43,7 @@
 
 - API
 
-  Воспользуйтесь методом API [stop](../api-ref/Cluster/stop.md) и передайте идентификатор кластера в параметре `clusterId` запроса.
+  Воспользуйтесь методом API [stop](../api-ref/Cluster/stop.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
   {% include [Получение идентификатора кластера](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
@@ -87,7 +87,7 @@
 
 - API
 
-  Воспользуйтесь методом API [start](../api-ref/Cluster/start.md) и передайте идентификатор кластера в параметре `clusterId` запроса.
+  Воспользуйтесь методом API [start](../api-ref/Cluster/start.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
   Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
 

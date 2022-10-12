@@ -7,7 +7,7 @@
 {% note info %}
 
 * Количество хостов, которые можно создать вместе с {{ RD }}-кластером, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection), [класса хостов](../concepts/instance-types.md#available-flavors) и использования [шардирования](../concepts/sharding.md).
-* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
 
 {% endnote %}
 
@@ -39,7 +39,7 @@
        {% note warning %}
 
        Включить шардирование можно только при создании нового кластера. Шардировать уже созданный нешардированный кластер невозможно, как и отключить шардирование кластера, для которого оно включено.
-    
+
        {% endnote %}
 
      * Если требуется, включите поддержку шифрованных SSL-соединений с кластером.
@@ -57,17 +57,17 @@
      * Выберите конфигурацию [хостов](../concepts/instance-types.md) — она определяет технические характеристики виртуальных машин, на которых будут развернуты хосты БД. При изменении конфигурации меняются характеристики всех уже созданных хостов.
 
   1. В блоке **Размер хранилища**:
-      
-             
+
+        
         * Выберите [тип диска](../concepts/storage.md):
             * либо более гибкое хранилище — на сетевых SSD-дисках (`network-ssd`) или на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`);
             * либо более быстрое хранилище — на локальных SSD-дисках (`local-ssd`).
+            
+            {% include [storages-step-settings-no-hdd](../../_includes/mdb/settings-storages-no-hdd.md) %}
 
-            {% include [storages-step-settings-no-ice-lake](../../_includes/mdb/settings-storages-no-v3.md) %}
-      
 
         * Выберите размер хранилища. Доступный размер хранилища ограничен [квотами и лимитами](../concepts/limits.md#mrd-limits).
-        
+
   1. В блоке **Настройки кластера** в поле **Пароль** укажите пароль пользователя, от 8 до 128 символов.
   1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
   1. В блоке **Хосты**:
@@ -101,7 +101,7 @@
 
   1. Проверьте, есть ли в каталоге подсети для хостов кластера:
   
-     ```
+     ```bash
      yc vpc subnet list
      ```
   
@@ -110,13 +110,13 @@
   
   1. Посмотрите описание команды CLI для создания кластера:
   
-      ```
+      ```bash
       {{ yc-mdb-rd }} cluster create --help
       ```
   
   1. При создании кластера с помощью CLI нельзя напрямую указать тип хоста и объем оперативной памяти. Вместо этого выберите подходящий [класс хостов](../concepts/instance-types.md). Чтобы просмотреть доступные классы хостов, выполните команду:
   
-     ```
+     ```bash
      {{ yc-mdb-rd }} resource-preset list
      ```
   
@@ -124,19 +124,20 @@
   
       ```bash
       {{ yc-mdb-rd }} cluster create \
-         --name=<имя кластера> \
-         --environment=<окружение, prestable или production> \
-         --network-name=<имя сети> \
-         --host zone-id=<зона доступности>,`
-               `subnet-id=<идентификатор подсети>,`
-               `assign-public-ip=<публичный доступ к хосту: true или false> \
-         --security-group-ids=<список идентификаторов групп безопасности> \
-         --enable-tls \
-         --resource-preset=<класс хоста> \
-         --disk-size=<размер хранилища в гигабайтах> \
-         --password=<пароль пользователя> \
-         --backup-window-start=<время начала резервного копирования в формате ЧЧ:ММ:СС> \
-         --deletion-protection=<защита от удаления кластера: true или false>
+        --name <имя кластера> \
+        --environment <окружение, prestable или production> \
+        --network-name <имя сети> \
+        --host zone-id=<зона доступности>,`
+              `subnet-id=<идентификатор подсети>,`
+              `assign-public-ip=<публичный доступ к хосту: true или false>,`
+              `replica-priority=<приоритет хоста> \
+        --security-group-ids <список идентификаторов групп безопасности> \
+        --enable-tls \
+        --resource-preset <класс хоста> \
+        --disk-size <размер хранилища в гигабайтах> \
+        --password=<пароль пользователя> \
+        --backup-window-start <время начала резервного копирования в формате ЧЧ:ММ:СС> \
+        --deletion-protection=<защита от удаления кластера: true или false>
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -155,7 +156,7 @@
     1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
        * Кластер базы данных — описание кластера и его хостов. При необходимости здесь же можно задать [настройки СУБД](../concepts/settings-list.md).
-       
+
        
        * Сеть — описание [облачной сети](../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
        * Подсети — описание [подсетей](../../vpc/concepts/network.md#network), к которым будут подключены хосты кластера. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
@@ -270,7 +271,7 @@
   * Версия `{{ versions.cli.latest }}`.
   * Окружение — `production`.
   * Сеть `default`.
-  * Один хост класса `hm1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ region-id }}-a` и группе безопасности с идентификатором `{{ security-group }}`.
+  * Один хост класса `hm1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ region-id }}-a` и группе безопасности с идентификатором `{{ security-group }}`, с публичным доступом и [приоритетом хоста](../concepts/replication.md#master-failover) `50`.
   * С поддержкой SSL-соединений.
   * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 16 ГБ.
   * Пароль `user1user1`.
@@ -285,7 +286,7 @@
     --environment production \
     --network-name default \
     --resource-preset hm1.nano \
-    --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch64 \
+    --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch64,assign-public-ip=true,replica-priority=50 \
     --security-group-ids {{ security-group }} \
     --enable-tls \
     --disk-type-id {{ disk-type-example }} \
@@ -304,7 +305,7 @@
     * Облако с идентификатором `{{ tf-cloud-id }}`.
     * Каталог с идентификатором `{{ tf-folder-id }}`.
     * Новая сеть `mynet`.
-    * Один хост класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    * Один хост класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`, с публичным доступом и [приоритетом хоста](../concepts/replication.md#master-failover) `50`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
     * Новая группа безопасности `redis-sg`, разрешающая подключения через порт `{{ port-mrd-tls }}` с любых адресов подсети `mysubnet`.
     * С поддержкой SSL-соединений.
     * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 16 ГБ.
@@ -350,8 +351,10 @@
     }
 
     host {
-      zone      = "{{ region-id }}-a"
-      subnet_id = yandex_vpc_subnet.mysubnet.id
+      zone             = "{{ region-id }}-a"
+      subnet_id        = yandex_vpc_subnet.mysubnet.id
+      assign_public_ip = true
+      replica_priority = 50
     }
   }
 

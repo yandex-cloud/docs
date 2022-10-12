@@ -71,7 +71,7 @@ description: "Вы можете запросить детальную инфор
 
 - API
 
-  Воспользуйтесь методом API [get](../api-ref/Cluster/get.md) и передайте идентификатор кластера в параметре `clusterId` запроса.
+  Воспользуйтесь методом API [get](../api-ref/Cluster/get.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
   {% include [Получение идентификатора кластера](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
@@ -105,7 +105,7 @@ description: "Вы можете запросить детальную инфор
 
 - API
 
-  Воспользуйтесь методом API [listOperations](../api-ref/Cluster/listOperations.md) и передайте идентификатор кластера в параметре `clusterId` запроса.
+  Воспользуйтесь методом API [listOperations](../api-ref/Cluster/listOperations.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
   {% include [Получение идентификатора кластера](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 

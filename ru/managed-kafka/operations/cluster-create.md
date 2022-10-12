@@ -5,7 +5,7 @@
 {% note info %}
 
 * Количество хостов-брокеров, которые можно создать вместе с кластером {{ KF }}, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
-* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
 
 {% endnote %}
 
@@ -47,7 +47,7 @@
 
      * Выберите [тип диска](../concepts/storage.md).
 
-        {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
         Тип диска для кластера {{ mkf-name }} нельзя изменить после создания.
 

@@ -74,7 +74,7 @@
 
 - API
 
-    Воспользуйтесь методом API [listUILinks](../api-ref/Cluster/listUILinks.md) и передайте идентификатор кластера в параметре `clusterId` запроса.
+    Воспользуйтесь методом API [listUILinks](../api-ref/Cluster/listUILinks.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list).
 

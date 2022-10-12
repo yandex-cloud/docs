@@ -1,17 +1,29 @@
-# Example uses for streaming the recognition API v3
+# Example use for streaming the recognition API v3
+
+The example shows how you can recognize speech in LPCM format in real time using the {{ speechkit-short-name }} [API v3](../../new-v3/api-ref/grpc/).
+
+The example uses the following parameters:
+
+* [Language](../index.md#langs): Russian.
+* Format of the audio stream: [LPCM](../../formats.md#LPCM) with a sampling rate of 8000 Hz.
+* [Number of audio channels](transcribation-api.md#sendfile-params): 1 (default).
+* [Profanity filter](../../v3/api-ref/grpc/stt_service#TextNormalizationOptions): True.
+* Other parameters were left with their default values.
+
+To use the API, you need the `grpcio-tools` package.
+
+An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to authenticate the service account. Learn more about [authentication in the {{speechkit-name}} API](../../concepts/auth.md).
 
 To implement an example from this section:
 
 1. Clone the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository:
 
-   ```
+   ```bash
    git clone https://github.com/yandex-cloud/cloudapi
    ```
 
-1. [Create](../../../iam/operations/sa/create.md) a service account to work with the {{ speechkit-short-name }} API.
-1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the service account the `{{ roles-editor }}` role or a higher role for the folder where it was created.
-1. [Get](../../../iam/operations/iam-token/create-for-sa.md) an IAM token for the service account.
-1. Download a [sample](https://{{ s3-storage-host }}/speechkit/speech.pcm) audio file for recognition. The audio file is in [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) format with a sampling rate of 8000.
+1. Download a [sample](https://{{ s3-storage-host }}/speechkit/speech.pcm) audio file for recognition.
+
 1. Create a client application:
 
    {% list tabs %}
@@ -32,13 +44,13 @@ To implement an example from this section:
          python -m grpc_tools.protoc -I . -I third_party/googleapis \
            --python_out=output \
            --grpc_python_out=output \
-           google/api/http.proto \
-           google/api/annotations.proto \
-           yandex/cloud/api/operation.proto \
-           google/rpc/status.proto \
-           yandex/cloud/operation/operation.proto \
-           yandex/cloud/ai/stt/v3/stt_service.proto \
-           yandex/cloud/ai/stt/v3/stt.proto
+             google/api/http.proto \
+             google/api/annotations.proto \
+             yandex/cloud/api/operation.proto \
+             google/rpc/status.proto \
+             yandex/cloud/operation/operation.proto \
+             yandex/cloud/ai/stt/v3/stt_service.proto \
+             yandex/cloud/ai/stt/v3/stt.proto
          ```
 
          As a result, the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, `stt_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
@@ -54,11 +66,10 @@ To implement an example from this section:
          import yandex.cloud.ai.stt.v3.stt_pb2 as stt_pb2
          import yandex.cloud.ai.stt.v3.stt_service_pb2_grpc as stt_service_pb2_grpc
 
-
          CHUNK_SIZE = 4000
 
          def gen(audio_file_name):
-             # Specify recognition settings.
+             # Specify the recognition settings.
              recognize_options = stt_pb2.StreamingOptions(
                  recognition_model=stt_pb2.RecognitionModelOptions(
                      audio_format=stt_pb2.AudioFormatOptions(
@@ -118,22 +129,36 @@ To implement an example from this section:
                  print(f'Error code {err._state.code}, message: {err._state.details}')
                  raise err
 
-
          if __name__ == '__main__':
              parser = argparse.ArgumentParser()
              parser.add_argument('--token', required=True, help='IAM token')
              parser.add_argument('--path', required=True, help='audio file path')
              args = parser.parse_args()
              run(args.token, args.path)
-
          ```
 
-      1. Set the IAM token of the service account and execute the created file. In the `path` parameter, specify the path to the audio file to recognize:
+         Where:
+
+         * `audio_encoding`: [Format](../../formats.md) of the audio stream.
+         * `sample_rate_hertz`: Sampling rate.
+         * `audio_channel_count`: Number of audio channels.
+         * `profanity_filter`: [Profanity filter](../../v3/api-ref/grpc/stt_service#TextNormalizationOptions).
+         * `literature_text`: [Flag to generate the recognized text in a literary style](../../v3/api-ref/grpc/stt_service#TextNormalizationOptions).
+         * `language_code`: [Language](../index.md#langs) that recognition is performed for.
+
+      1. Use the [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account:
 
          ```bash
-         export IAM_TOKEN=<service_account_IAM token>
-         python output/test.py --token ${IAM_TOKEN} --path <path_to_speech.pcm_file>
+         export IAM_TOKEN=<service_account_IAM-token>
          ```
+
+      1. Run the created file:
+
+         ```bash
+         python output/test.py --token ${IAM_TOKEN} --path <path_to_speech.pcm>
+         ```
+
+         Where `path` is the path to the audio file to recognize:
 
          Result:
 
@@ -149,3 +174,8 @@ To implement an example from this section:
          ```
 
    {% endlist %}
+
+#### See also {#see-also}
+
+* [Learn more about the API v3](../../new-v3/api-ref/grpc/)
+* [{#T}](../../concepts/auth.md)

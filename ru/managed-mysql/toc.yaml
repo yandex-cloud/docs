@@ -73,8 +73,8 @@ items:
     items:
       - name: Все сценарии
         href: tutorials/index.md
-      - name: Анализ производительности и оптимизация
-        href: tutorials/profiling.md
+      - name: Анализ производительности и оптимизация {{ mmy-name }}
+        href: tutorials/profiling-mmy.md
       - name: Выгрузка базы данных в {{ dataproc-full-name }}
         href: tutorials/sqoop.md
       - name: Миграция базы данных из стороннего кластера {{ MY }}

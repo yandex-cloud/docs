@@ -29,7 +29,7 @@
 
 - API
 
-  Воспользуйтесь методом API [list](../api-ref/User/list.md) и передайте идентификатор кластера в параметре `clusterId` запроса.
+  Воспользуйтесь методом API [list](../api-ref/User/list.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
   {% include [Получение идентификатора кластера](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
