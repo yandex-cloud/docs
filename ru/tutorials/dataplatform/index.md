@@ -55,6 +55,7 @@
 ## {{ MY }} {#mysql}
 
 * [{#T}](mysql-data-migration.md)
+* [{#T}](profiling-mmy.md)
 * [{#T}](sync-mysql.md)
 * [{#T}](mmy-to-mysql-migration.md)
 {% if product == "yandex-cloud" %}
@@ -81,6 +82,7 @@
 
 ## {{ RD }} {#redis}
 * [{#T}](redis-data-migration.md)
+* [{#T}](redis-as-php-sessions-storage.md)
 
 {% endif %}
 

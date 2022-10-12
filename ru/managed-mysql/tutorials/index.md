@@ -1,6 +1,6 @@
 # Все сценарии
 
-* [{#T}](profiling.md)
+* [{#T}](profiling-mmy.md)
 * [{#T}](data-migration.md)
 * [{#T}](mmy-to-mysql-migration.md)
 {% if audience != "internal" and product == "yandex-cloud" %}

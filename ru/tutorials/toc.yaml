@@ -228,6 +228,8 @@ items:
         # MY
       - name: Миграция базы данных из стороннего кластера {{ MY }} в кластер {{ mmy-full-name }}
         href: dataplatform/mysql-data-migration.md
+      - name: Анализ производительности и оптимизация {{ mmy-name }}
+        href: dataplatform/profiling-mmy.md    
       - name: Синхронизация данных из стороннего кластера {{ MY }} в {{ mmy-full-name }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/sync-mysql.md
       - name: Миграция базы данных из {{ mmy-full-name }} в сторонний кластер {{ MY }}
@@ -244,6 +246,8 @@ items:
         # RD
       - name: Миграция базы данных из стороннего кластера {{ RD }} в {{ mrd-full-name }}
         href: dataplatform/redis-data-migration.md
+      - name: Использование кластера {{ mrd-name }} в качестве хранилища сессий PHP
+        href: dataplatform/redis-as-php-sessions-storage.md        
         when: product == "yandex-cloud"
         # MS
       - name: Миграция базы данных из стороннего кластера {{ MS }} в {{ mms-full-name }}

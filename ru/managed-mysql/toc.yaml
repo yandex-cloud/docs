@@ -85,8 +85,8 @@ items:
     items:
       - name: Все сценарии
         href: tutorials/index.md
-      - name: Анализ производительности и оптимизация
-        href: tutorials/profiling.md
+      - name: Анализ производительности и оптимизация {{ mmy-name }}
+        href: tutorials/profiling-mmy.md
       - name: Выгрузка базы данных в {{ dataproc-full-name }}
         when: audience != "internal" and product == "yandex-cloud"
         href: tutorials/sqoop.md
