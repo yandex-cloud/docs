@@ -2,6 +2,8 @@
 
 Кластер {{ mgp-name }} состоит из хостов-мастеров, которые принимают запросы от клиента, и хостов-сегментов, которые обеспечивают обработку и хранение данных.
 
+Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
+
 Подробнее см. в разделе [{#T}](../concepts/index.md).
 
 ## Как создать кластер {{ mgp-name }} {#create-cluster}
@@ -22,7 +24,7 @@
 
     {% if product == "yandex-cloud" and audience != "internal" %}
 
-    1. (опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер.
+    1. (Опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер.
        
         {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
@@ -70,13 +72,14 @@
 
     1. Укажите параметры хостов-мастеров на вкладке **Master**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](calculate-specs.md#master).
 
-        * Класс хоста — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-мастеры кластера.
+        * [Класс хоста](../concepts/instance-types.md) — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-мастеры кластера.
+
         * В блоке **Хранилище**:
           * Выберите [тип диска](../concepts/storage.md).
 
             {% if audience != "internal" %}
 
-            {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+            {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
 
             {% endif %}
 
@@ -84,13 +87,13 @@
 
         * Количество хостов-сегментов.
         * Количество сегментов на хост. Максимальное значение этого параметра зависит от класса хостов.
-        * Класс хоста — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-сегменты кластера.
+        * [Класс хоста](../concepts/instance-types.md) — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-сегменты кластера.
         * В блоке **Хранилище**:
            * Выберите [тип диска](../concepts/storage.md).
 
              {% if audience != "internal" %}
 
-             {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+             {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
              
              {% endif %}
 
@@ -162,13 +165,14 @@
         * `--user-name` — имя пользователя. Может содержать латинские буквы, цифры, дефис и нижнее подчеркивание, но должно начинаться с буквы, цифры или нижнего подчеркивания. Длина от 1 до 32 символов.
         * `--user-password` — пароль. Длина от 8 до 128 символов.
         * `--master-config` и `--segment-config` — конфигурация хостов-мастеров и хостов-сегментов:
-            * `resource-id` — [класс хоста](../concepts/instance-types.md#available-flavors).
+            * `resource-id` — [класс хоста](../concepts/instance-types.md).
             * `disk-size` — объем хранилища в гигабайтах.
             * `disk-type` — [тип диска](../concepts/storage.md):
                 * `network-hdd`;
                 * `network-ssd`;
                 * `local-ssd`;
                 * `network-ssd-nonreplicated`.
+
         * `--zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
         * `--subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
         * `--assign-public-ip` — флаг, который указывается, если хостам требуется [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).
@@ -211,11 +215,12 @@
         * `--user-name` — имя пользователя. Может содержать латинские буквы, цифры, дефис и нижнее подчеркивание, но должно начинаться с буквы, цифры или нижнего подчеркивания. Длина от 1 до 32 символов.
         * `--user-password` — пароль. Длина от 8 до 128 символов.
         * `--master-config` и `--segment-config` — конфигурация хостов-мастеров и хостов-сегментов:
-            * `resource-id` — [класс хоста](../concepts/instance-types.md#available-flavors).
+            * `resource-id` — [класс хоста](../concepts/instance-types.md).
             * `disk-size` — объем хранилища в гигабайтах.
             * `disk-type` — [тип диска](../concepts/storage.md):
                 * `local-ssd`;
                 * `local-hdd`.
+
         * `--zone-id` — зона доступности.
         * `--security-group-ids` — список идентификаторов групп безопасности.
         * `--deletion-protection` — защита от удаления кластера.
