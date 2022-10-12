@@ -46,19 +46,19 @@ description: "Вы можете создавать резервные копии
 
   1. Посмотрите описание команды CLI для восстановления кластера {{ RD }}:
 
-      ```
+      ```bash
       {{ yc-mdb-rd }} cluster restore --help
       ```
 
   1. Получите список доступных резервных копий {{ RD }}-кластеров:
 
-      ```
+      ```bash
       {{ yc-mdb-rd }} backup list
       ```
-	  
+
       Результат:
-	  
-      ```
+
+      ```text
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
@@ -69,13 +69,13 @@ description: "Вы можете создавать резервные копии
 
   1. Запросите создание кластера из резервной копии:
 
-      ```
+      ```bash
       {{ yc-mdb-rd }} cluster restore \
          --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
-         --cluster-name mynewrd \
+         --name mynewrd \
          --environment=PRODUCTION \
          --network-name default \
-         --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch63 \
+         --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch63,assign-public-ip=true,replica-priority=50 \
          --password P@ssWord \
          --disk-size 20
       ```
@@ -85,7 +85,7 @@ description: "Вы можете создавать резервные копии
       * С именем `mynewrd`.
       * В окружении `PRODUCTION`.
       * В сети `default`.
-      * С одним хостом класса `hm1.nano` в подсети `b0rcctk2rvtr8efcch63`, в зоне доступности `{{ region-id }}-a`.
+      * С одним хостом класса `hm1.nano` в подсети `b0rcctk2rvtr8efcch63`, в зоне доступности `{{ region-id }}-a`, публичным доступом и приоритетом реплики `50`.
       * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
 
 {% endlist %}
@@ -111,13 +111,13 @@ description: "Вы можете создавать резервные копии
 
   1. Посмотрите описание команды CLI для создания резервной копии {{ RD }}:
 
-      ```
+      ```bash
       {{ yc-mdb-rd }} cluster backup --help
       ```
 
   1. Запросите создание резервной копии, указав имя или идентификатор кластера:
 
-      ```
+      ```bash
       {{ yc-mdb-rd }} cluster backup my-rd-cluster
       ```
 
@@ -155,12 +155,13 @@ description: "Вы можете создавать резервные копии
 
   Чтобы получить список резервных копий кластеров {{ RD }}, доступных в каталоге по умолчанию, выполните команду:
 
-  ```
+  ```bash
   {{ yc-mdb-rd }} backup list
   ```
+
   Результат:
 
-  ```
+  ```text
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
   +----------+----------------------+----------------------+----------------------+
@@ -229,7 +230,7 @@ description: "Вы можете создавать резервные копии
 
   ```bash
   {{ yc-mdb-rd }} cluster create \
-    --cluster-name <имя кластера> \
+    --name <имя кластера> \
     --environment <окружение, prestable или production> \
     --network-name <имя сети> \
     --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
@@ -240,7 +241,7 @@ description: "Вы можете создавать резервные копии
 
   ```bash
   {{ yc-mdb-rd }} cluster update \
-     --cluster-name <имя кластера> \
+     --name <имя кластера> \
      --backup-window-start 11:25:00
   ```
 

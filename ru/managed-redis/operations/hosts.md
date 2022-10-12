@@ -107,10 +107,10 @@
       ```bash
       yc vpc subnet list
 	  ```
-	  
+
 	  Результат:
-	  
-	  ```
+
+	  ```text
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
@@ -122,13 +122,13 @@
       ```
 
       {% if audience != "internal" %}
- 
+
       Если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md).
- 
+
       {% else %}
- 
+
       Если нужной подсети в списке нет, создайте ее.
- 
+
       {% endif %}
 
   1. Посмотрите описание команды CLI для добавления хостов:
@@ -151,16 +151,13 @@
 
       Где:
 
-      * `--cluster-name` — имя кластера {{ mrd-name }}.
+      * `--cluster-name` — имя кластера {{ mrd-name }}. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
       * `--host` — параметры хоста:
-
           * `zone-id` — {% if audience != "internal" %}[зона доступности](../../overview/concepts/geo-scope.md){% else %}зона доступности{% endif %}.
           * `subnet-id` — {% if audience != "internal" %}[идентификатор подсети](../../vpc/concepts/network.md#subnet){% else %}идентификатор подсети{% endif %}. Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
           * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу.
-          * `replica-priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
+          * `replica-priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover). Доступен только для нешардированного кластера.
           * `shard-name` — имя шарда, в который следует добавить хост, если кластер шардированный.
-
-      Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -285,7 +282,7 @@
     - Идентификатор кластера, в котором нужно изменить хост, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     - Имя хоста, который нужно изменить, в параметре `updateHostSpecs.hostName`. Чтобы узнать имя, [получите список хостов в кластере](#list).
     - Настройки публичного доступа к хосту в параметре `updateHostSpecs.assignPublicIp`.
-    - Приоритет хоста в параметре `updateHostSpecs.replicaPriority`.
+    - [Приоритет хоста](../concepts/replication.md#master-failover) в параметре `updateHostSpecs.replicaPriority`.
     - Список изменяемых полей конфигурации кластера в параметре `updateMask`.
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}

@@ -103,17 +103,23 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы добавить шард c двумя хостами в кластер:
+  Посмотрите описание команды CLI для добавления шардов:
+
+  ```bash
+  {{ yc-mdb-rd }} shards add --help
+  ```
+
+  Чтобы добавить шард c двумя хостами в кластер, один с публичным доступом, а другой с [приоритетом хоста](../concepts/replication.md#master-failover) `50`:
 
   ```bash
   {{ yc-mdb-rd }} shards add --name=<имя нового шарда> \
      --cluster-name=<имя кластера> \
      --host zone-id=<зона доступности>,`
            `subnet-name=<имя подсети>,`
-           `assign-public-ip=<публичный доступ к хосту: true или false> \
+           `assign-public-ip=true \
      --host zone-id=<зона доступности>,`
            `subnet-name=<имя подсети>,`
-           `assign-public-ip=<публичный доступ к хосту: true или false>
+           `replica-priority=50
   ```
 
 - {{ TF }}
