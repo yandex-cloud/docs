@@ -45,6 +45,8 @@ items:
         href: tutorials/data-migration.md
       - name: Миграция базы данных в сторонний кластер {{ MS }}
         href: tutorials/outbound-migration.md
+      - name: Миграция базы данных между {{ mms-name }} с помощью {{ objstorage-full-name }}
+        href: tutorials/migration-with-bucket.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
