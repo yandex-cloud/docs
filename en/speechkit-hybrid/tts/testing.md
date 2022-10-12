@@ -76,6 +76,8 @@ INFO: 2021-09-22 15:07:00.059 +0000 load_test.cpp:262 q=0.99: 505ms
       tts-tools
    ```
 
+   Where:
+
    * `ENVOY_HOST`: The IP address of the speech synthesis service. If you run tests on the same server as the speech synthesis service, enter `0.0.0.0`.
    * `ENVOY_TTS_PORT`: The port of the speech synthesis service (`9080` by default).
    * `RPS`: The number of speech synthesis requests per second.
