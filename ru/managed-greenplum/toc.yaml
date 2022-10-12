@@ -50,6 +50,8 @@ items:
     items:
       - name: Миграция базы данных в {{ mgp-name }}
         href: tutorials/data-migration.md
+      - name: Создание внешней таблицы на базе таблицы из бакета {{ objstorage-full-name }} с помощью конфигурационного файла
+        href: tutorials/config-server-for-s3.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
