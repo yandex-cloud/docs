@@ -93,7 +93,7 @@ JSON-структура ответа:
           "isAuthorized": false
       };
 
-      if (event.headers.authorization === "secretToken") {
+      if (event.headers.Authorization === "secretToken") {
           response = {
               "isAuthorized": true,
               "context": {
