@@ -301,7 +301,7 @@ To prepare configuration files for {{ TF }}:
    }
 
    module "crud-api" {
-     source = "https://github.com/yandex-cloud-examples/yc-serverless-ydb-api"
+     source = "github.com/yandex-cloud-examples/yc-serverless-ydb-api"
 
      folder_id                 = local.folder_id
      api_name                  = "movies-api"
