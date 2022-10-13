@@ -147,6 +147,7 @@ Make sure the uploaded image is in the `READY` status.
       
         name        = "vm-from-image"
         platform_id = "standard-v3"
+        zone        = "<availability zone>"
       
         resources {
           cores  = <number of vCPU cores>
