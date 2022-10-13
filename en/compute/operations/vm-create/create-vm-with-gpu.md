@@ -103,6 +103,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
       
         name        = "vm-with-gpu"
         platform_id = "gpu-standard-v3"
+        zone        = "<availability zone>"
       
         resources {
           cores  = <number of vCPU cores>
