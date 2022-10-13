@@ -31,14 +31,16 @@
 
 ### Создание источника данных в {{datalens-full-name}} {#create_connection_lens}
 
-Для создания подключения вам потребуется [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с [ролью](../../iam/operations/sa/assign-role-for-sa.md) **viewer**.
+Для создания подключения вам потребуется [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с [ролью](../../iam/operations/sa/assign-role-for-sa.md) **editor**.
 
 
 Чтобы создать подключение к {{ yq-full-name }} необходимо:
 
+1. Перейти на [страницу подключений](https://datalens.yandex.ru/connections).
 
-1. Перейти [по ссылке](https://datalens.yandex.ru/connections/new/yq) на мастер создания подключений. 
+1. Нажать кнопку **Создать подключение**.
 
+1. Выбрать подключение **{{ yq-full-name }}**.
 
 1. Выбрать каталог, в котором будет создано подключение к {{yq-full-name}}.
 1. Указать параметры подключения:

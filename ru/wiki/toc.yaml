@@ -85,6 +85,8 @@ items:
         href: page-management/edit-owner.md
       - name: Настроить доступ к странице
         href: page-management/access-setup.md
+      - name: Пометить устаревшие страницы
+        href: exp-page.md
       - name: Удалить страницу
         href: delete-page.md
   - name: Навигация по {{ wiki-name }}
