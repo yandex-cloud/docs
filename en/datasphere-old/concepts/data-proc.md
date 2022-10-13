@@ -1,5 +1,7 @@
 # Integration with Apache Spark™
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 {{ ml-platform-name }} integration with {{ dataproc-full-name }} lets you perform calculations on Apache Spark™ clusters. Calculations are performed in sessions created by [Apache Livy](https://livy.apache.org/).
 
 ## {{ dataproc-name }} cluster {#cluster}

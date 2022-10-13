@@ -1,5 +1,7 @@
 # List of pre-installed software
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 Packages for data analysis and machine learning are pre-installed in {{ ml-platform-short-name }}. If you are missing a package, you can [install it](../operations/projects/install-dependencies.md) right from the notebook cell.
 
 ## List of pre-installed packages {#preinstalled-packages}

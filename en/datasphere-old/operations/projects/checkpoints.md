@@ -1,5 +1,7 @@
 # Versioning. Working with checkpoints
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 A checkpoint in {{ ml-platform-name }} is the [saved state](../../concepts/save-state.md). A checkpoint includes cell code, output, and variable values as well as project storage data. Data versioning is maintained if the amount of data does not exceed {{ ml-project-size }}. Checkpoints with versioned data are marked with ![](../../../_assets/datasphere/disk.svg).
 
 ## Before you start {#before-begin}

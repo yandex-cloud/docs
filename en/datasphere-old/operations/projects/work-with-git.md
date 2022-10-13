@@ -1,5 +1,7 @@
 # Working with Git
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 ## Creating a local repository {#init}
 
 To get started with a local repository:

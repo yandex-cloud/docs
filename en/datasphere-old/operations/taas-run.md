@@ -1,5 +1,7 @@
 # Launching distributed training
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 {% note info %}
 
 The distributed training feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. To access the feature, contact support.

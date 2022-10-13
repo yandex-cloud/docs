@@ -1,5 +1,7 @@
 # Running sample code in a notebook
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 The notebook includes small code samples that upload data from different sources.
 
 ## Before you begin {#before-begin}

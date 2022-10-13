@@ -1,5 +1,7 @@
 # Deploying models
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 You can use {{ ml-platform-name }} to deploy trained models as microservices and grant third-party resources access to them.
 
 Models are deployed on _instances_: virtual machines that preserve the interpreter state and the model code.

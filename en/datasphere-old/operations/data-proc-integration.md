@@ -1,5 +1,7 @@
 # Setting up computations on Apache Spark™ clusters
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 To start computing on Apache Spark™ clusters, prepare a {{ ml-platform-name }} project. To run computations, create a new {{ dataproc-name }} cluster or use an existing one.
 
 ## Set up a project to work with the {{ dataproc-name }} cluster {#settings}

@@ -1,5 +1,7 @@
 # Connecting to a {{ PG }} database
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 In the {{ yandex-cloud }} infrastructure, [{{ PG }}](https://www.postgresql.org/) server clusters are deployed and supported using {{ mpg-short-name }}.
 
 To utilize a {{ mpg-short-name }} cluster host as a data source for {{ ml-platform-name }}:

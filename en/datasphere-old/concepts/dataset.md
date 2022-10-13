@@ -1,5 +1,7 @@
 # Datasets
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 A dataset is an information storage mechanism providing quick access to large amounts of data. A dataset can store up to 4 TB of information giving faster access to data than the main project store.
 
 A dataset is created and populated during initialization. After initialization, a dataset is read-only.

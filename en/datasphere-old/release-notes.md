@@ -1,5 +1,7 @@
 # {{ ml-platform-full-name }} releases
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../_includes/datasphere/datasphere-old-note.md) %}
+
 {% note tip %}
 
 To keep up to date with the latest changes and updates, subscribe to our [{{ ml-platform-full-name }} Community](https://t.me/yandex_datasphere) Telegram news channel.

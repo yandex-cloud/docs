@@ -5,6 +5,8 @@ description: "Access management in the service providing an environment for ML d
 
 # Access management in {{ ml-platform-name }}
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 The list of operations available to {{ yandex-cloud }} users is determined by the roles they have. A role is assigned to a user at the folder or cloud level, and nested resources inherit this role.
 
 To allow access to resources in {{ ml-platform-short-name }}, assign the required roles to the user from the list below.

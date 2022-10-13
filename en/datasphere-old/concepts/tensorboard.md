@@ -1,5 +1,7 @@
 # Using TensorBoard in {{ ml-platform-name }}
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 TensorBoard is a dashboard that visualizes your model training logs. You can view results using graphs, histograms, and other tools.
 
 See the full description of TensorBoard features on the [TensorFlow site](https://www.tensorflow.org/tensorboard?hl=en).

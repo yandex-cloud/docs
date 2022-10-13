@@ -1,5 +1,7 @@
 # Changing a project name or description
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 To change the project name or description:
 
 1. {% include [include](../../../_includes/datasphere/first-step.md) %}

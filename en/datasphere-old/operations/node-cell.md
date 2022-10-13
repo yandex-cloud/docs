@@ -1,5 +1,7 @@
 # Creating a node from a Python code cell
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 To deploy a cell as a microservice, you need a [checkpoint](projects/checkpoints.md).
 
 {% note info %}

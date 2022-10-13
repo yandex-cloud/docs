@@ -5,6 +5,8 @@ description: "From this article you will learn how to work with machine learning
 
 # Step-by-step instructions for {{ ml-platform-name }}
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 * [{#T}](projects/create.md)
 * [{#T}](projects/install-dependencies.md)
 * [{#T}](projects/snippets.md)

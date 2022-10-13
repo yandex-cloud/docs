@@ -1,5 +1,7 @@
 # Evaluating the quality of STT models
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 Speech-to-Text (STT) recognition results on the {{ speechkit-full-name }} platform depend on the choice of [recognition model](../../speechkit/stt/models.md). To evaluate the quality of speech recognition, use a common [WER](https://en.wikipedia.org/wiki/Word_error_rate) metric. The lower the metric value, the more accurately a speech fragment is recognized. The metric in {{ speechkit-name}} is calculated using a special library named `stt_metrics`.
 
 To calculate the WER metric in {{ ml-platform-full-name }} using this library:

@@ -1,8 +1,10 @@
 # Clearing the interpreter state
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 {% note alert %}
 
-This action resets all results and clears the state of variables.
+Clearing the interpreter state will reset all the results and variable states.
 
 {% endnote %}
 

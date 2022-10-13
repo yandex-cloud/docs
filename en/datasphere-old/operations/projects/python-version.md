@@ -1,5 +1,7 @@
 # Choosing a Python version
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 Python 3.8 is used in {{ ml-platform-short-name }} projects by default. To change the version for the project:
 
 1. {% include [include](../../../_includes/datasphere/first-step.md) %}

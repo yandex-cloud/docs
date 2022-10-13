@@ -1,5 +1,7 @@
 # Integration with version and data control systems
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 {{ ml-platform-short-name }} is integrated with the [DVC](https://dvc.org/) version control system and [Git](https://git-scm.com/) version control system.
 
 ## Integration with the DVC data version control system {#dvc}

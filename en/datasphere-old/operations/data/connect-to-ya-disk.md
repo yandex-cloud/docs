@@ -1,5 +1,7 @@
 # Connecting to Yandex Disk
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 You can connect to the [Yandex Disk]{% if lang == "ru" %}(https://disk.yandex.ru){% endif %}{% if lang == "en" %}(https://disk.yandex.com){% endif %} file storage service from the {{ ml-platform-name }} interface.
 
 ## Before you start {#before-begin}

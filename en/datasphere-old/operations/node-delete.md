@@ -1,5 +1,7 @@
 # Deleting a node
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 {% include [pricing nodes](../../_includes/datasphere/nodes-pricing-warn.md) %}
 
 If you no longer need the deployed service, delete the node.

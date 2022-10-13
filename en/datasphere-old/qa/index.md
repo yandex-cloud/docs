@@ -5,6 +5,8 @@ description: "How to get the logs of my work in the Yandex DataSphere service? A
 
 # General questions about {{ ml-platform-name }}
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 {% include [qa-logs.md](../../_includes/qa-logs.md) %}
 
 #### What do I do if I can't install a package in my project or don't have internet access? {#error-connection}

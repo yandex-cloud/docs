@@ -1,5 +1,7 @@
 # Saving a state
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 A notebook's state includes cell code, output, and variable values at a specific point in time as well as project storage data.
 
 {% include [include](../../_includes/datasphere/saving-variables-warn.md) %}

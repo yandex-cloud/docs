@@ -1,5 +1,7 @@
 # Updating a secret
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 1. Select the secret you wish to edit from the list of visible secrets and click the ![pencil](../../../_assets/pencil.svg) icon.
 1. In the dialog box, enter a new value in the appropriate field.
    * To change the value of a secret, replace `***` with the new value.

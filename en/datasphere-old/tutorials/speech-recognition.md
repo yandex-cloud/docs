@@ -1,5 +1,7 @@
 # Voice biometrics
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 {{ ml-platform-full-name }} lets you build machine learning (ML) models using the Jupyter Notebook interface. Take a look at the case of speaker voice recognition using speech signal modeling with numerical features:
 
 1. [Install dependencies](#satisfy-dependencies).

@@ -1,5 +1,7 @@
 # Exporting a project
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 You can export a project as a ZIP archive. In this case, both a file with a notebook and all files that you see in the **File Explorer** window are exported. This lets you start your notebook locally, provided the environments match.
 
 ## Before you begin {#before-begin}

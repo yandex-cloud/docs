@@ -1,5 +1,7 @@
 # Getting started with {{ ml-platform-name }}
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../_includes/datasphere/datasphere-old-note.md) %}
+
 {{ ml-platform-name }} is a service that simplifies the use of the JupyterLab development environment on {{ yandex-cloud }} computing resources. This lets you perform complex calculations, such as training neural networks or analyzing big data, using the familiar Jupyter Notebook interface.
 
 In this section, you'll learn how to:

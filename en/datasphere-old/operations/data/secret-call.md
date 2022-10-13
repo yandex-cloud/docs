@@ -1,5 +1,7 @@
 # Referencing a secret
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 Once you create a secret, you can reference it from your code as an environment variable.
 
 {% list tabs %}

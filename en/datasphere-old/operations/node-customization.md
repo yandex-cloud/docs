@@ -1,5 +1,7 @@
 # Configuring the environment for deploying a microservice
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 1. [Create a Docker image](user-images.md) in the project and install necessary dependencies in the build script. Build the image.
 
 1. [Create a secret](data/secret-create.md) with a password for your container registry. If you use the {{ container-registry-full-name }} registry, [authenticate using the authorized key](../../container-registry/operations/authentication.md#sa-json) for your [service account](../../iam/concepts/users/service-accounts.md). To generate the authorized key, run the command in the CLI:

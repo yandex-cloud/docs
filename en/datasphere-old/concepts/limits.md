@@ -5,6 +5,8 @@ description: 'Yandex DataSphere has limits and quotas for the number of projects
 
 # Quotas and limits in {{ ml-platform-name }}
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 {{ ml-platform-full-name }} has the following limits:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}

@@ -1,5 +1,7 @@
 # Requests to nodes created from a cell with Python code
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 To send requests to nodes, you must have the {{ roles-datasphere-user }} or {{ roles-datasphere-admin }} role for the folder where the project and node were created.
 
 {% include [datasphere-api-auth](../../_includes/datasphere/datasphere-api-auth.md) %}

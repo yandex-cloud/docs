@@ -1,5 +1,7 @@
 # Deleting a notebook or project
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 ## Deleting a notebook {#delete-notebook}
 
 To delete a notebook from a project:

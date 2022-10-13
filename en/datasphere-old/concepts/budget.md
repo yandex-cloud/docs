@@ -2,6 +2,8 @@
 
 # Cost management
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 There are several ways to control computing costs.
 
 1. Billing enables you to [set up notifications](../../billing/operations/budgets.md) about exceeding the budget set for {{ ml-platform-name }}. The budget does not affect consumption: {{ ml-platform-name }} will continue running even if the budget is exceeded.

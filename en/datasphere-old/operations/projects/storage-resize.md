@@ -1,5 +1,7 @@
 # Resizing project storage
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 To resize project storage:
 
 1. {% include [include](../../../_includes/datasphere/first-step.md) %}

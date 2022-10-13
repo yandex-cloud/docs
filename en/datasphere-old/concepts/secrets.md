@@ -1,5 +1,7 @@
 # Private data storage
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 {{ ml-platform-name }} provides a special tool called _Vault_ for the secure handling of private data (such as keys and passwords). You can find the Vault on the ![Secrets](../../_assets/datasphere/jupyterlab/secret.svg) tab.
 
 A _secret_ is a key-value pair with the value stored in an encrypted format. After you create the secret, you will see `***` instead of the value.

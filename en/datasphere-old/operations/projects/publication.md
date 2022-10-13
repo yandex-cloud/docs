@@ -1,5 +1,7 @@
 # Publishing a notebook
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 You can export a notebook as a link to an HTML report. The report saves all calculation results and cell explanations so that you can send the link to customers or publish the results on your website.
 
 ## Before you start {#before-begin}

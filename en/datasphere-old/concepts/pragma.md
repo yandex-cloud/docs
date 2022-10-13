@@ -1,5 +1,7 @@
 # #pragma service commands
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 You can set cell running parameters using the `#pragma` service command.
 
 | Team | Description |

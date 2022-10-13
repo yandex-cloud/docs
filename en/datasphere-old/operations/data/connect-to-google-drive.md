@@ -1,5 +1,7 @@
 # Connecting to Google Drive
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 You can connect to the [Google Drive](https://drive.google.com) file storage service from the {{ ml-platform-name }} interface.
 
 ## Before you start {#before-begin}

@@ -1,5 +1,7 @@
 # Public materials about {{ ml-platform-name }}
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../_includes/datasphere/datasphere-old-note.md) %}
+
 ## Conferences and webinars {#conf-and-webinars}
 
 ### 2021: Webinar {#webinar-2021}

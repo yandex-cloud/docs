@@ -1,5 +1,7 @@
 # Installing dependencies
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 Popular packages for data analysis and machine learning are pre-installed and ready for use, see the [list](../../concepts/preinstalled-packages.md).
 
 You can install missing packages using the pip package manager.

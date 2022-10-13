@@ -1,5 +1,7 @@
 # Setting up consumption limits for a folder
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 {{ ml-platform-name }} allows you to set consumption limits for projects in your folder. For more information about the types of limits, see [{#T}](../../concepts/budget.md).
 
 {% include [datasphere-api-auth](../../../_includes/datasphere/datasphere-api-auth.md) %}

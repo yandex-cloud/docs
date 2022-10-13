@@ -1,5 +1,7 @@
 # Connecting to a {{ CH }} database
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 In the {{ yandex-cloud }} infrastructure, [{{ CH }}](https://{{ ch-domain }}/) server clusters are deployed and supported using {{ mch-short-name }}.
 
 To utilize a {{ mch-short-name }} cluster host as a data source for {{ ml-platform-name }}:

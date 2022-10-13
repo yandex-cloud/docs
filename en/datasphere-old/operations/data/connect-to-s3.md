@@ -1,5 +1,7 @@
 # Connecting to S3 storage
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
+
 You can connect to S3 object storage from the Jupyter Notebook interface.
 
 1. Get an access key from your S3 storage provider. Follow these steps in {{objstorage-full-name }}:

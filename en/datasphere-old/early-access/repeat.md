@@ -1,5 +1,7 @@
 # Special background operations
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 Special background operations enable you:
 
 * To start a sequence of operations asynchronously.

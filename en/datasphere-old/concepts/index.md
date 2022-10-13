@@ -1,5 +1,7 @@
 # About {{ ml-platform-name }}
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 {{ ml-platform-full-name }} is a machine learning (ML) development environment where you can use a familiar Jupyter® Notebook interface, serverless computing technology, and seamlessly combine a broad range of computing resource configurations. {{ ml-platform-full-name }} helps you significantly reduce the cost of machine learning compared to computing on your own hardware or other cloud platforms.
 
 If you never used Jupyter Notebook, try it: notebooks are convenient as they help you execute code sequentially and immediately visualize the results. Notebooks are also convenient for drafting analytical reports and papers: you can add comments between code cells using the [Markdown](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html) language.

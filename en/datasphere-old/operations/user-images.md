@@ -1,5 +1,7 @@
 # Creating a custom Docker image for a project
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 You can configure the environment to run your code using Docker images.
 
 {{ ml-platform-full-name }} lets you create repositories of Docker images in a project and select an image for the project. The selected image will be used when running code in all project notebooks.

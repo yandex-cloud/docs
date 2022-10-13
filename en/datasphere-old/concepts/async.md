@@ -1,5 +1,7 @@
 # Background operations
 
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
+
 You can run time-consuming operations like model training in the background. To do this, use special cells where your code is executed asynchronously. In this case, you can continue working with a notebook.
 
 If another part of a notebook uses the same variable as an asynchronous operation, a notification appears in the notebook, and you'll need to specify the variable value explicitly when the asynchronous operation is complete.
