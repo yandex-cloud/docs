@@ -11,7 +11,7 @@ You can upgrade a {{ mpg-name }} cluster to any supported version.
 
 You can only upgrade to a version that immediately follows the current one, such as version 11 to 12. Upgrades to higher versions are performed in steps. To upgrade {{ PG }} from version 11 to version 13, for instance, follow the steps: 11 → 12 → 13.
 
-In single-host clusters, the only master host is brought out of its running state for upgrades. During an upgrade, these clusters are unavailable.
+In single-host clusters, the only master host is brought out of its running state for upgrades. During an upgrade, these clusters will be unavailable for reading and writing.
 
 In multi-host clusters, upgrades follow the procedure below:
 
@@ -37,7 +37,7 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 {% note alert %}
 
 * Once your DBMS is upgraded, you cannot roll a cluster back to the previous version.
-* The success of {{ PG }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you first [upgrade a test cluster](#before-update) that uses the same data and settings.
+* The success of a {{ PG }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you first [upgrade a test cluster](#before-update) that uses the same data and settings.
 
 {% endnote %}
 
@@ -51,6 +51,8 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
    1. Click **Save changes**.
 
    Once the upgrade is launched, the cluster status changes to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+
+   The time it takes a cluster to upgrade depends on database size and normally is a few minutes. If a database is very large, an upgrade may take 10 or more minutes.
 
 - CLI
 
@@ -78,6 +80,8 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
       ```
 
    Once the upgrade is launched, the cluster status changes to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+
+   The time it takes a cluster to upgrade depends on database size and normally is a few minutes. If the database is very large, an upgrade may take up to 10 minutes.
 
 - {{ TF }}
 
