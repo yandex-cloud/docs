@@ -148,6 +148,7 @@ To create a VM from a set of disks:
       
         name        = "vm-from-disks"
         platform_id = "standard-v3"
+        zone        = "<availability zone>"
       
         resources {
           cores  = <number of vCPU cores>
