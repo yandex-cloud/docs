@@ -151,6 +151,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
       
         name        = "preemptible-vm"
         platform_id = "standard-v3"
+        zone        = "<availability zone>"
       
         resources {
           cores  = <number of vCPU cores>
