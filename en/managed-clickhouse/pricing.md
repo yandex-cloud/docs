@@ -91,6 +91,17 @@ Cost per hour for all hosts: `3 × (2 × $0.018240 + 8 × $0.004160) + 3 × (2 �
 
 Total cost of the cluster per month (hosts and storage): `720 × $0.277440 + 100 × $0.025600 = $202.316800`
 
+## Discount for committed volumes of services (CVoS) {#cvos}
+
+{% include [cvos](../_includes/mdb/cvos.md) %}
+
+{{mch-name}} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+
+{% note info %}
+
+You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). You currently can't order storage or web traffic this way.
+
+{% endnote %}
 
 ## Pricing {#prices}
 
@@ -104,7 +115,6 @@ All prices are shown without VAT.
 
 
 {% include [usd-host-ch.md](../_pricing/managed-clickhouse/usd-host-ch.md) %}
-
 
 
 ### {{ ZK }} host computing resources {#prices-zookeeper}
@@ -121,7 +131,6 @@ You can't order {{ ZK }} host resources using a CVoS.
 {% include [usd-host-zoo.md](../_pricing/managed-clickhouse/usd-host-zoo.md) %}
 
 
-
 ### Storage and backups {#prices-storage}
 
 
@@ -130,13 +139,11 @@ You can't order {{ ZK }} host resources using a CVoS.
 {% include [usd-storage.md](../_pricing/managed-clickhouse/usd-storage.md) %}
 
 
-
 ### Outgoing traffic {#prices-traffic}
 
 
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-
 
 

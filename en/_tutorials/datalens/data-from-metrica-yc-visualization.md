@@ -7,41 +7,43 @@ This scenario is also available as a [recording](https://www.youtube.com/watch?v
 
 To visualize and explore data, [set up your cloud](#before-you-begin), then follow the steps below:
 
-1. [Connect {{ CH }} and {{ ml-platform-short-name }}](#ch-datasphere-connection)
-   1. [Connect {{ CH }}](#ch-connection)
-   1. [Connect {{ ml-platform-short-name }}](#datasphere-connection)
-   1. [Clone the repository to {{ ml-platform-short-name }}](#clone-repo-to-datasphere)
-1. [Retrieve and upload data to {{ CH }}](#get-download-data-in-ch)
-   1. [Yandex Metrica Create an app and get an access token](#create-metrica-app-token)
-   1. [{{ ml-platform-short-name }}. Upload data via the Yandex Metrica Logs API](#uploading-data-logs-api)
-   1. [{{ ml-platform-short-name }}. Download test tag data via Yandex Disk](#uploading-data-counter-from-disk)
-   1. [{{ CH }}. Get the cluster's IP address](#getting-ch-cluster-host)
-   1. [{{ ml-platform-short-name }}. Upload the data to {{ CH }}](#uploading-data-counter-to-ch)
-1. [Connect {{ datalens-short-name }} and create charts](#datalens-connection-chart-creation)
-   1. [Connect to {{ datalens-short-name }}](#datalens-connection)
-   1. [Create a connection to {{ CH }} in {{ datalens-short-name }}](#creation-datalens-connection-to-ch)
-   1. [Create a dataset based on the connection](#creating-dataset-based-on-connection)
-   1. [Create a stacked area chart](#creating-area-chart)
-   1. [Create a pivot table chart](#creating-pivot-table)
-1. [Create and configure a dashboard in {{ datalens-short-name }}](#creating-configuring-dashboard)
-   1. [Create a dashboard](#creating-dashboard)
-   1. [Set up a dashboard](#configuring-dashboard)
-1. [Funnels](#funnels)
-   1. [{{ ml-platform-short-name }}. Build funnels](#calculating-funnels-datasphere)
-   1. [{{ datalens-short-name }}. Funnels by browser. Create a dataset](#calculating-browser-funnels-dataset)
-   1. [{{ datalens-short-name }}. Funnels by browser. Create a chart](#calculating-browser-funnels-chart)
-   1. [{{ datalens-short-name }}. Funnels by browser. Add a chart to your dashboard](#add-browser-funnels-chart-on-dashboard)
-   1. [{{ datalens-short-name }}. Funnels by browser. Set up a dashboard](#setting-browser-funnels-chart-on-dashboard)
-1. [Cohorts](#cohorts)
-   1. [{{ ml-platform-short-name }}. Perform a Cohort analysis](#cohort-analysis)
-   1. [{{ datalens-short-name }}. Create a dataset and a chart with cohort visualization](#creating-dataset-chart-with-cohort)
-   1. [{{ datalens-short-name }}. Configure a chart with cohort visualization](#creating-chart-with-cohort)
-   1. [{{ datalens-short-name }}. Create a chart with retention](#creating-chart-with-retention)
-   1. [{{ datalens-short-name }}. Add charts to a new dashboard tab](#adding-charts-to-dashboard-tab)
-   1. [{{ datalens-short-name }}. Create charts](#creating-chart)
-   1. [{{ datalens-short-name }}. Add charts to the dashboard](#adding-chart-to-dashboard)
+1. [Connect {{ CH }} and {{ ml-platform-short-name }}](#ch-datasphere-connection):
+   1. [Connect {{ CH }}](#ch-connection).
 
-## Before you start {#before-you-begin}
+   1. [Connect {{ ml-platform-short-name }}](#datasphere-connection).
+
+   1. [Clone the repository to {{ ml-platform-short-name }}](#clone-repo-to-datasphere).
+1. [Retrieve and upload data to {{ CH }}](#get-download-data-in-ch):
+   1. [Yandex Metrica Create an app and get an access token](#create-metrica-app-token).
+   1. [{{ ml-platform-short-name }}. Upload data via the Yandex Metrica Logs API](#uploading-data-logs-api).
+   1. [{{ ml-platform-short-name }}. Download the test tag data via Yandex Disk](#uploading-data-counter-from-disk).
+   1. [{{ CH }}. Get the cluster's IP address](#getting-ch-cluster-host).
+   1. [{{ ml-platform-short-name }}. Upload the data to {{ CH }}](#uploading-data-counter-to-ch).
+1. [Connect {{ datalens-short-name }} and create charts](#datalens-connection-chart-creation):
+   1. [Connect to {{ datalens-short-name }}](#datalens-connection).
+   1. [Create a connection to {{ CH }} in {{ datalens-short-name }}](#creation-datalens-connection-to-ch).
+   1. [Create a dataset based on the connection](#creating-dataset-based-on-connection).
+   1. [Create a stacked area chart ](#creating-area-chart).
+   1. [Create a pivot table chart](#creating-pivot-table).
+1. [Create and configure a dashboard in {{ datalens-short-name }}](#creating-configuring-dashboard):
+   1. [Create a dashboard](#creating-dashboard).
+   1. [Set up a dashboard](#configuring-dashboard).
+1. [Funnels](#funnels):
+   1. [{{ ml-platform-short-name }}. Build funnels](#calculating-funnels-datasphere).
+   1. [{{ datalens-short-name }}. Funnels by browser. Create a dataset](#calculating-browser-funnels-dataset).
+   1. [{{ datalens-short-name }}. Funnels by browser. Create a chart](#calculating-browser-funnels-chart).
+   1. [{{ datalens-short-name }}. Funnels by browser. Add a chart to your dashboard](#add-browser-funnels-chart-on-dashboard}).
+   1. [{{ datalens-short-name }}. Funnels by browser. Set up a dashboard](#setting-browser-funnels-chart-on-dashboard).
+1. [Cohorts](#cohorts):
+   1. [{{ ml-platform-short-name }}. Perform a Cohort analysis](#cohort-analysis).
+   1. [{{ datalens-short-name }}. Create a dataset and a chart with cohort visualization](#creating-dataset-chart-with-cohort).
+   1. [{{ datalens-short-name }}. Configure a chart with cohort visualization](#creating-chart-with-cohort).
+   1. [{{ datalens-short-name }}. Create a chart with retention](#creating-chart-with-retention).
+   1. [{{ datalens-short-name }}. Add charts to a new dashboard tab](#adding-charts-to-dashboard-tab).
+   1. [{{ datalens-short-name }}. Create charts](#creating-chart).
+   1. [{{ datalens-short-name }}. Add charts to the dashboard](#adding-chart-to-dashboard).
+
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -70,10 +72,10 @@ To visualize and explore data, [set up your cloud](#before-you-begin), then foll
 
    1. Under **Hosts**, click ![pencil](../../_assets/pencil.svg). Enable **Public access** and click **Save**.
    1. Under **Additional settings**, enable 4 options:
-      * {{ datalens-short-name }} access
+      * Access from {{ datalens-short-name }}
       * Access from the management console
       * Access from Yandex Metrica and AppMetrica
-      * Serverless access
+      * Access from Serverless
    1. After configuring all the settings, click **Create cluster**.
 
 ### 1.2 Connect {{ ml-platform-short-name }} {#datasphere-connection}
@@ -81,7 +83,7 @@ To visualize and explore data, [set up your cloud](#before-you-begin), then foll
 1. Go to the [management console]({{ link-console-main }}).
 1. Select **{{ ml-platform-name }}** from the list on the left.
 1. In the window that opens, click **Create project**.
-1. Specify a name for the project and click **Create**.
+1. Specify a name for the project and click **Сreate**.
 1. Open the project. To do this, in the line with the project name, click ![image](../../_assets/datalens/horizontal-ellipsis.svg) → **Open**.
 
 Now we see the JupyterLab development environment, where we'll continue to work.
@@ -111,7 +113,7 @@ If you have a Yandex Metrica tag and can access it, go to step [2.1](#create-met
    1. A description of our application appears in the window that opens. Copy the ID of your app.
 
 1. Click `https://oauth.yandex.com/authorize?response_type=token&client_id=<app ID>`. For the `client_id` parameter, add the copied ID of your app.
-1. Click **Log in as …**
+1. Click **Log in as …**.
 1. Copy the received access token.
 
 ### 2.2 {{ ml-platform-short-name }}. Upload data via the Yandex Metrica Logs API {#uploading-data-logs-api}
@@ -193,7 +195,8 @@ Skip this section if you are using your own tag data.
 
    ![image](../../_assets/datalens/solution-11/09-datalens-field.png)
 
-1. For the **Hits** field, select the **Sum** value in the aggregation.
+1. For the **Hits** field, select the **Amount** value in the aggregation.
+1. Rename the **Browser** field to **Browser**.
 1. In the upper-right corner, click **Save**.
 1. Name the dataset `ch_metrica_data_hits` and click **Create**.
 
@@ -485,3 +488,27 @@ Add charts with cohort visualization to the dashboard.
 1. Arrange the charts side by side.
 
    ![image](../../_assets/datalens/solution-11/27-new-dashboard.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

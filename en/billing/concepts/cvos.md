@@ -10,17 +10,15 @@ The agreement only provides for a discount on a certain volume of services withi
 
 ## Discount amount {#amount}
 
-The amount of the guaranteed discount depends on the amount of service resources that you plan to use and the CVoS validity period. The longer the CVoS validity period, the greater the discount. To learn about the benefits of purchasing a CVoS, email us at [cloud-sales@yandex-team.ru](mailto:cloud-sales@yandex-team.ru). To find out the current prices and pricing rules, go to the [Pricing](https://cloud.yandex.com/prices) page.
-
+The amount of the guaranteed discount depends on the amount of service resources that you plan to use and the CVoS validity period. The longer the CVoS validity period, the greater the discount. For more information about pricing rules for all services, see the [Pricing](https://cloud.yandex.com/prices) page. If you have any questions, we'll help you calculate the benefits of committing to a certain volume of resources. Email us at [cloud-sales@yandex-team.ru](mailto:cloud-sales@yandex-team.ru).
 
 ## Purchase and validity period {#how-to-enable}
 
-To enable a CVoS, contact your account manager or [support]({{ link-console-support }}).
+You can view the available offers and purchase a CVoS in the management console under **Commitments**.
 
-When purchasing a CVoS, you need to select:
-* Validity period: 1 or 3 years.
+When [purchasing a CVoS](../operations/purchase-cvos.md), you choose the following on your own:
+* Validity period: 6 months or 1 year.
 * Start date: The next calendar day or desired date.
-
 
 
 
@@ -42,7 +40,7 @@ See details of using and paying for your CVoS below.
 
 ![image](../../_assets/billing/cud-scheme.svg)
 
-1. You can purchase a CVoS for 1 or 3 years. The CVoS is valid from the date you selected when purchasing it.
+1. You can purchase a CVoS for 6 months or 1 year. The CVoS is valid from the date you selected when purchasing it.
 1. The CVoS validity period is verified throughout the entire billing period.
 
    2.1. If the validity period expired (the current date > the CVoS expiration date), [standard prices](https://cloud.yandex.com/prices) apply to {{ yandex-cloud }} service usage.
@@ -83,17 +81,18 @@ The amount charged for the CVoS is determined using the following formulas:
 
 The total amount charged depends on whether any {{ yandex-cloud }} services that are not covered by the CVoS terms were used during the billing period. For more information, see [How to pay for resources](../payment/index.md).
 
+## Changes and extensions {#how-to-update}
+
+According to the agreement, you may not change the terms of the purchased CVoS, extend it, or cancel it.
+
+However, you can purchase a new CVoS if you have any offers available in the management console. For detailed instructions, see [Purchase a CVoS](../operations/purchase-cvos.md).
 
 ## Services that you can purchase a CVoS for {#cvos-services}
 
-Services that you can purchase a CVoS for:
-* {{ mch-name }}
-* {{ mmg-name }}
-* {{ mes-name }}
-* {{ mgp-name }}
-* {{ mmy-name }}
-* {{ mpg-name }}
-* {{ mrd-name }}
-* {{ mkf-name }}
-* {{ ydb-name }}
-
+Prices for services that you can purchase a CVoS for:
+* [{{ mch-name }}](../../managed-clickhouse/pricing.md#cvos)
+* [{{ mmy-name }}](../../managed-mysql/pricing.md#cvos)
+* [{{ mpg-name }}](../../managed-postgresql/pricing.md#cvos)
+* [{{ mrd-name }}](../../managed-redis/pricing.md#cvos)
+* [{{ mkf-name }}](../../managed-kafka/pricing.md#cvos)
+* [{{ ydb-name }}](../../ydb/pricing/dedicated.md#cvos)

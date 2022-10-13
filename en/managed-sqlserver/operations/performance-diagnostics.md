@@ -35,5 +35,5 @@ To begin gathering statistics, enable the [query store]({{ ms.docs }}/sql/relati
 To view this data:
 
 * [Run the SQL query]({{ ms.docs }}/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15#performance-auditing-and-troubleshooting) directly to the query store.
-* Use [SQL Server Management Studio]({{ ms.docs }}/sql/relational-databases/performance/performance-dashboard?view=sql-server-ver15).
+* Use [SQL Server Management Studio]({{ ms.docs }}/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15).
 * Use [built-in stored procedures](sessions.md).
