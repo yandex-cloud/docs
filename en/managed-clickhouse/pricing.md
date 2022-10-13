@@ -97,8 +97,6 @@ Cost per hour for all hosts: {% if region == "ru" %}`3 × (2 × ₽2.28 + 8 × �
 
 Total cost of the cluster per month (hosts and storage): {% if region == "ru" %}`720 × ₽34.68 + 100 × ₽3.20 = ₽25289.6`{% endif %}{% if region == "int" %}`720 × $0.277440 + 100 × $0.025600 = $202.316800`{% endif %}{% if region == "kz" %}`720 × ₸173.4000 + 100 × ₸16.0000 = ₸126448.0000`{% endif %}
 
-{% if audience == "cvos" %}
-
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -110,8 +108,6 @@ Total cost of the cluster per month (hosts and storage): {% if region == "ru" %}
 You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). You currently can't order storage or web traffic this way.
 
 {% endnote %}
-
-{% endif %}
 
 ## Pricing {#prices}
 
@@ -145,7 +141,6 @@ All prices are shown without VAT.
 
 {% endif %}
 
-
 ### {{ ZK }} host computing resources {#prices-zookeeper}
 
 {% note info %}
@@ -172,7 +167,6 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 {% endif %}
 
-
 ### Storage and backups {#prices-storage}
 
 {% if region == "ru" %}
@@ -192,7 +186,6 @@ You can't order {{ ZK }} host resources using a CVoS.
 {% include [usd-storage.md](../_pricing/managed-clickhouse/usd-storage.md) %}
 
 {% endif %}
-
 
 ### Outgoing traffic {#prices-traffic}
 
@@ -215,4 +208,3 @@ You can't order {{ ZK }} host resources using a CVoS.
 {% endif %}
 
 {% endif %}
-

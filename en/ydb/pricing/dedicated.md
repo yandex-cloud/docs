@@ -49,6 +49,18 @@ All prices are shown with VAT. Prices are given for a 30-day month. For shorter 
 
 {% endif %}
 
+## Discount for committed volumes of services (CVoS) {#cvos}
+
+{% include [cvos](../../_includes/mdb/cvos.md) %}
+
+{{ ydb-name }} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also pre-estimate your monthly payments for the desired number of vCPUs and RAM.
+
+{% note info %}
+
+You currently can't order storage or web traffic this way.
+
+{% endnote %}
+
 ### Host computing resources {#prices-compute-units}
 
 {% if region == "ru" %}

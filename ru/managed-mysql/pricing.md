@@ -18,7 +18,6 @@ editable: false
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
-
 ## Из чего складывается стоимость использования {{ mmy-short-name }} {#rules}
 
 Расчет стоимости использования {{ mmy-name }} учитывает:
@@ -26,7 +25,6 @@ editable: false
 {% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
-
 
 ### Использование хостов БД {#rules-hosts-uptime}
 
@@ -54,8 +52,6 @@ editable: false
 
 Цена указывается за 1 месяц использования. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
 
-{% if audience == "cvos" %}
-
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -67,8 +63,6 @@ editable: false
 По схеме CVoS можно заказать только ресурсы определенного вида: для недоступных видов ресурсов в колонках CVoS в разделе [Цены](#prices) стоят прочерки. Объем хранилища и интернет-трафика заказать таким образом пока невозможно.
 
 {% endnote %}
-
-{% endif %}
 
 ## Цены {#prices}
 
