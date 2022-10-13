@@ -213,8 +213,8 @@ This section provides guidelines for creating a VM with a Linux OS. To create a 
         zone       = "<availability zone>"
       
         resources {
-          cores  = <number of vCPU cores>
-          memory = <RAM amount, GB>
+          cores  = "<number of vCPU cores>"
+          memory = "<RAM amount, GB>"
         }
       
         boot_disk {
@@ -238,9 +238,10 @@ This section provides guidelines for creating a VM with a Linux OS. To create a 
       }
       
       resource "yandex_vpc_subnet" "subnet-1" {
-        name       = "subnet1"
-        zone       = "<availability zone>"
-        network_id = "${yandex_vpc_network.network-1.id}"
+        name           = "subnet1"
+        zone           = "<availability zone>"
+        v4_cidr_blocks = ["192.168.10.0/24"]
+        network_id     = "${yandex_vpc_network.network-1.id}"
       }
       ```
 

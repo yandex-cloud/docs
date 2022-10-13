@@ -225,8 +225,8 @@ description: "Следуя данной инструкции вы сможете
        zone        = "<зона доступности>"
 
        resources {
-         cores  = <количество ядер vCPU>
-         memory = <объем RAM в ГБ>
+         cores  = "<количество ядер vCPU>"
+         memory = "<объем RAM в ГБ>"
        }
 
        boot_disk {
@@ -250,9 +250,10 @@ description: "Следуя данной инструкции вы сможете
      }
 
      resource "yandex_vpc_subnet" "subnet-1" {
-       name       = "subnet1"
-       zone       = "<зона доступности>"
-       network_id = "${yandex_vpc_network.network-1.id}"
+       name           = "subnet1"
+       zone           = "<зона доступности>"
+       v4_cidr_blocks = ["192.168.10.0/24"]
+       network_id     = "${yandex_vpc_network.network-1.id}"
      }
      ```
 
