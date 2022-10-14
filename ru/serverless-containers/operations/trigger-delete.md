@@ -2,7 +2,7 @@
 
 {% include [trigger-list-note](../../_includes/serverless-containers/trigger-list-note.md) %}
 
-## Удалить триггер
+## Удалить триггер {#delete}
 
 {% list tabs %}
 

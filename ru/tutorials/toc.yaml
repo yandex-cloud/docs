@@ -29,6 +29,8 @@ items:
         href: web/virtual-hosting.md
       - name: Создание балансировщика с защитой от DDoS
         href: web/alb-with-ddos-protection.md
+      - name: Публикация обновлений для игр
+        href: web/prefetch.md
       - name: Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name }}
         href: web/cdn-storage-integration.md
       - name: Сине-зеленое и канареечное развертывание версий сервиса
@@ -220,7 +222,13 @@ items:
       - name: >-
           Миграция коллекций из стороннего кластера {{ MG }} в {{ mmg-full-name
           }}
-        href: dataplatform/mongodb-migration.md
+        href: dataplatform/mongodb-migration-with-data-transfer.md
+      - name: Миграция данных в {{ mmg-full-name }}
+        href: dataplatform/mongodb-data-migration.md
+      - name: Шардирование коллекций {{ MG }}
+        href: dataplatform/mongodb-sharding.md
+      - name: Анализ производительности и оптимизация {{ MG }}
+        href: dataplatform/mongodb-profiling.md
       - name: >-
           Миграция базы данных из стороннего кластера {{ MY }} в кластер {{
           mmy-full-name }}

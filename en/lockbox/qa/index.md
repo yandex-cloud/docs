@@ -5,4 +5,4 @@ description: "How to get the logs of my work in the {{ lockbox-full-name }} serv
 
 # General questions about {{ lockbox-name }}
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

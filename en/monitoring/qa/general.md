@@ -5,7 +5,7 @@ description: "How can I supply metrics of my application to {{ monitoring-full-n
 
 # General questions about {{ monitoring-name }}
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}
 
 #### How do I view service dashboards? {#dont-see-dashboards}
 

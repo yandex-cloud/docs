@@ -5,4 +5,4 @@ description: "How to get the logs of my work in the Yandex Data Transfer service
 
 # General questions about {{ data-transfer-name }}
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

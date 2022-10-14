@@ -24,6 +24,7 @@
 
 {% endnote %}
 
+
 ## Получение SSL-сертификата {#get-ssl-cert}
 
 Чтобы подключиться к {{ MG }}-хостам с публичным доступом, получите SSL-сертификат:
@@ -45,6 +46,7 @@
 {% endlist %}
 
 {% include [ide-ssl-cert](../../../_includes/mdb/mdb-ide-ssl-cert.md) %}
+
 
 ## Настройка групп безопасности {#configuring-security-groups}
 
@@ -109,6 +111,7 @@
 {% endnote %}
 
 Подробнее см. в разделе [{#T}](../../concepts/network.md#security-groups).
+
 
 ## Ограничения на количество подключений {#connection-limits}
 

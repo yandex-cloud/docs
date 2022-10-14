@@ -12,5 +12,6 @@
 * [Организация виртуального хостинга](virtual-hosting.md)
 * [Создание балансировщика с защитой от DDoS](alb-with-ddos-protection.md)
 * [Интеграция L7-балансировщика с {{ cdn-short-name }} и {{ objstorage-short-name }}](cdn-storage-integration.md)
+* [Публикация обновлений для игр с помощью {{ cdn-full-name }}](prefetch.md)
 * [Организация сине-зеленого и канареечного развертывания версий веб-сервиса](blue-green-canary-deployment.md)
 * [Терминирование TLS-соединений](tls-termination.md)

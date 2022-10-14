@@ -34,6 +34,7 @@ FQDN можно использовать для доступа к хосту в 
 
 Помимо имен хостов для подключения к кластеру можно использовать [особые FQDN](../operations/connect.md#special-fqdns), указывающие на текущий хост-мастер и наименее отстающую реплику.
 
+
 ## Группы безопасности {#security-groups}
 
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
@@ -45,3 +46,4 @@ FQDN можно использовать для доступа к хосту в 
 {% endnote %}
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
+

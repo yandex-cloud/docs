@@ -28,4 +28,4 @@ description: "Для чего нужен сервис {{ iam-full-name }}?
 
 Использование сервиса {{ iam-short-name }} не тарифицируется.
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

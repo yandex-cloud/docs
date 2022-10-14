@@ -65,7 +65,7 @@ The IP address of the client that called the container is passed in the `X-Forwa
 
 ## {{ sf-full-name }} trigger {#trigger}
 
-When calling a container using a {{ sf-full-name }} trigger, the JSON description of a trigger event is passed in the body of an HTTP request to the container. Read more about triggers in the [{{ sf-full-name }} documentation](../../functions/concepts/trigger/index.md).
+When calling a container using a {{ sf-full-name }} trigger, the JSON description of a trigger event is passed in the body of an HTTP request to the container. Read more about [triggers](trigger/index.md).
 
 ## {{ api-gw-full-name }} extension {#extension}
 
