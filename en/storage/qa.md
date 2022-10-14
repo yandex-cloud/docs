@@ -113,5 +113,5 @@ This is why we can't specify a particular response time value. However, we do no
 
 {% endif %}
 
-{% include [qa-logs.md](../_includes/qa-logs.md) %}
+{% include [logs.md](../_qa/logs.md) %}
 

@@ -68,4 +68,4 @@ Subnets can only use private addresses from IPv4 ranges defined by [RFC 1918](ht
 
 {% endif %}
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

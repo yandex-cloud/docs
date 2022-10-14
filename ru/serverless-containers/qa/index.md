@@ -5,4 +5,4 @@ description: "Как получить логи моей работы в серв
 
 # Общие вопросы про {{ serverless-containers-name }}
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

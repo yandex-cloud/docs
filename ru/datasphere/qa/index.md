@@ -5,7 +5,7 @@ description: "Как получить логи моей работы в серв
 
 # Общие вопросы про {{ ml-platform-name }}
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}
 
 #### Что делать, если в проекте невозможно установить пакет или нет доступа к интернету? {#error-connection}
 

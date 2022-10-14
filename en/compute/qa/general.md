@@ -94,7 +94,7 @@ Public boot disk images that have been tested in {{ yandex-cloud }} are availabl
 
 You can contact technical support under [Support]({{ link-console-support }}) in the management console.
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}
 
 #### How do I find out the cost? {#pricing}
 
