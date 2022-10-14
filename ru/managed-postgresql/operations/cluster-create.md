@@ -59,7 +59,11 @@
 
            {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
 
+  {% if audience != "internal" %}
+
   1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
+
+  {% endif %}
 
   1. В блоке **Хосты** выберите параметры хостов баз данных, создаваемых вместе с кластером. Открыв блок **Расширенные настройки**, вы можете выбрать конкретные подсети для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.
 
@@ -107,7 +111,7 @@
 
   1. Укажите параметры кластера в команде создания (в примере приведены не все доступные параметры):
 
-  {% if audience != "internal" %}
+      {% if audience != "internal" %}
 
       ```bash
       {{ yc-mdb-pg }} cluster create \
@@ -128,7 +132,7 @@
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
 
-  {% else %}
+      {% else %}
 
       ```bash
       {{ yc-mdb-pg }} cluster create \
@@ -140,11 +144,10 @@
          --user name=<имя пользователя>,password=<пароль пользователя> \
          --database name=<имя базы данных>,owner=<имя владельца базы данных> \
          --disk-size <объем хранилища, ГБ> \
-         --security-group-ids <список идентификаторов групп безопасности> \
          --serverless-access=<true или false>
       ```
 
-  {% endif %}
+      {% endif %}
 
       Доступные [режимы работы менеджера соединений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
 
@@ -172,6 +175,7 @@
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
   {% if audience != "internal" %}
 
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -199,6 +203,8 @@
      Пример структуры конфигурационного файла:
 
      {% if product == "yandex-cloud" %}
+
+     {% if audience != "internal" %}
 
      ```hcl
      terraform {
@@ -264,6 +270,74 @@
        v4_cidr_blocks = ["<диапазон>"]
      }
      ```
+
+     {% else %}
+
+     ```hcl
+     terraform {
+       required_providers {
+         yandex = {
+           source = "yandex-cloud/yandex"
+         }
+       }
+     }
+
+     provider "yandex" {
+       token     = "<OAuth или статический ключ сервисного аккаунта>"
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "<зона доступности>"
+     }
+
+     resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+       name                = "<имя кластера>"
+       environment         = "<окружение, PRESTABLE или PRODUCTION>"
+       network_id          = "<идентификатор сети>"
+       deletion_protection = <защита от удаления кластера: true или false>
+
+       config {
+         version = "<версия {{ PG }}: {{ pg.versions.tf.str }}>"
+         resources {
+           resource_preset_id = "<класс хоста>"
+           disk_type_id       = "<тип диска>"
+           disk_size          = <объем хранилища, ГБ>
+         }
+         pooler_config {
+           pool_discard = <параметр Odyssey pool_discard: true или false>
+           pooling_mode = "<режим работы: SESSION, TRANSACTION или STATEMENT>"
+         }
+         ...
+       }
+
+       host {
+         zone      = "<зона доступности>"
+         subnet_id = "<идентификатор подсети>"
+       }
+     }
+
+     resource "yandex_mdb_postgresql_database" "<имя базы данных>" {
+       cluster_id = "<идентификатор кластера>"
+       name       = "<имя базы данных>"
+       owner      = "<имя владельца базы данных>"
+     }
+
+     resource "yandex_mdb_postgresql_user" "<имя пользователя>" {
+       cluster_id = "<идентификатор кластера>"
+       name       = "<имя пользователя>"
+       password   = "<пароль пользователя>"
+     }
+
+     resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
+
+     resource "yandex_vpc_subnet" "<имя подсети>" {
+       name           = "<имя подсети>"
+       zone           = "<зона доступности>"
+       network_id     = "<идентификатор сети>"
+       v4_cidr_blocks = ["<диапазон>"]
+     }
+     ```
+
+     {% endif %}
 
      {% endif %}
 
@@ -345,11 +419,11 @@
 
      Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
-  1. Проверьте корректность настроек.
+  2. Проверьте корректность настроек.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Создайте кластер.
+  3. Создайте кластер.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -365,7 +439,9 @@
     * Идентификатор сети в параметре `networkId`.
     * Конфигурацию кластера в параметре `configSpec`.
     * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
+    {% if audience != "internal" %}
     * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
+    {% endif %}
     * Конфигурацию баз данных в одном или нескольких параметрах `databaseSpecs`.
     * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
 
@@ -389,11 +465,15 @@
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 {% note warning %}
 
 Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups).
 
-{% endnote %}  
+{% endnote %}
+
+{% endif %}
 
 ## Примеры {#examples}
 
@@ -423,7 +503,6 @@
 
   * С именем `mypg`.
   * В окружении `production`.
-  * В группе безопасности `{{ security-group }}`.
   * С одним хостом класса `db1.micro`, в зоне доступности `man`.
   * С хранилищем на локальных SSD-дисках (`local-ssd`) объемом 20 ГБ.
   * С одним пользователем (`user1`), с паролем `user1user1`.
@@ -464,7 +543,7 @@
      --disk-size 20 \
      --user name=user1,password=user1user1 \
      --database name=db1,owner=user1 \
-     --security-group-ids {{ security-group }}
+     --deletion-protection=true
   ```
 
   {% endif %}
@@ -479,7 +558,9 @@
   * В облаке с идентификатором `{{ tf-cloud-id }}`.
   * В каталоге с идентификатором `{{ tf-folder-id }}`.
   * В новой сети `mynet`.
+  {% if audience != "internal" %}
   * В новой группе безопасности `pgsql-sg`, разрешающей подключение к кластеру из интернета через порт `6432`.
+  {% endif %}
   * С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
   * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
   * С одним пользователем (`user1`), с паролем `user1user1`.
@@ -489,6 +570,8 @@
   Конфигурационный файл для такого кластера выглядит так:
 
   {% if product == "yandex-cloud" %}
+
+  {% if audience != "internal" %}
 
   ```hcl
   terraform {
@@ -563,6 +646,71 @@
     }
   }
   ```
+
+  {% else %}
+
+  ```hcl
+  terraform {
+    required_providers {
+      yandex = {
+        source = "yandex-cloud/yandex"
+      }
+    }
+  }
+
+  provider "yandex" {
+    token     = "<OAuth или статический ключ сервисного аккаунта>"
+    cloud_id  = "{{ tf-cloud-id }}"
+    folder_id = "{{ tf-folder-id }}"
+    zone      = "{{ region-id }}-a"
+  }
+
+  resource "yandex_mdb_postgresql_cluster" "mypg" {
+    name                = "mypg"
+    environment         = "PRESTABLE"
+    network_id          = yandex_vpc_network.mynet.id
+    deletion_protection = true
+
+    config {
+      version = {{ pg.versions.tf.latest }}
+      resources {
+        resource_preset_id = "{{ host-class }}"
+        disk_type_id       = "{{ disk-type-example }}"
+        disk_size          = "20"
+      }
+    }
+
+    host {
+      zone      = "{{ region-id }}-a"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
+    }
+  }
+
+  resource "yandex_mdb_postgresql_database" "db1" {
+    cluster_id = yandex_mdb_postgresql_cluster.mypg.id
+    name       = "db1"
+    owner      = "user1"
+  }
+
+  resource "yandex_mdb_postgresql_user" "user1" {
+    cluster_id = yandex_mdb_postgresql_cluster.mypg.id
+    name       = "user1"
+    password   = "user1user1"
+  }
+
+  resource "yandex_vpc_network" "mynet" {
+    name = "mynet"
+  }
+
+  resource "yandex_vpc_subnet" "mysubnet" {
+    name           = "mysubnet"
+    zone           = "{{ region-id }}-a"
+    network_id     = yandex_vpc_network.mynet.id
+    v4_cidr_blocks = ["10.5.0.0/24"]
+  }
+  ```
+
+  {% endif %}
 
   {% endif %}
 

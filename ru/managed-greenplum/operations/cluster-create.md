@@ -28,8 +28,6 @@
        
         {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
-    {% endif %}
-
     1. В блоке **Сетевые настройки**:
         * Выберите облачную сеть для размещения кластера.
         * В параметре **Группы безопасности** укажите [группу безопасности](../operations/connect.md#configuring-security-groups), которая содержит правила, разрешающие любой исходящий и входящий трафик по любому протоколу с любых IP-адресов.
@@ -40,9 +38,11 @@
 
             {% endnote %}
 
+    {% endif %}
+
         * Выберите зону доступности и подсеть для размещения кластера. Чтобы создать новую подсеть, нажмите кнопку **Создать новую** рядом с нужной зоной доступности.
         * Выберите опцию **Публичный доступ**, чтобы подключаться к кластеру из интернета.
-  
+
     1. Укажите настройки пользователя-администратора. Это специальный пользователь, который необходим для управления кластером и не может быть удален. Подробнее в разделе [{#T}](../concepts/cluster-users.md).
 
         * **Имя пользователя** — может содержать латинские буквы, цифры, дефис и нижнее подчеркивание, но не может начинаться с дефиса. Длина от 1 до 32 символов.
@@ -195,7 +195,6 @@
                           `disk-size=<объем хранилища, ГБ>,`
                           `disk-type=<тип диска> \
            --zone-id=<зона доступности> \
-           --security-group-ids=<список идентификаторов групп безопасности> \
            --deletion-protection=<защита от удаления кластера: true или false>
         ```
 
@@ -222,7 +221,6 @@
                 * `local-hdd`.
 
         * `--zone-id` — зона доступности.
-        * `--security-group-ids` — список идентификаторов групп безопасности.
         * `--deletion-protection` — защита от удаления кластера.
 
         {% endif %}
@@ -288,69 +286,112 @@
 
     1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
 
-  {% if audience != "internal" %}
+    {% if audience != "internal" %}
+
     1. Если у вас еще нет {{ TF }}, [установите его и создайте конфигурационный файл с настройками провайдера](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-    1. Создайте конфигурационный файл с описанием [облачной сети](../../vpc/concepts/network.md#network) и [подсетей](../../vpc/concepts/network.md#subnet).
+    2. Создайте конфигурационный файл с описанием [облачной сети](../../vpc/concepts/network.md#network) и [подсетей](../../vpc/concepts/network.md#subnet).
 
        Кластер размещается в облачной сети. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
+
        Хосты кластера размещаются в подсетях выбранной облачной сети. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
 
        Пример структуры конфигурационного файла, в котором описывается облачная сеть с одной подсетью:
 
-        ```hcl
-        resource "yandex_vpc_network" "<имя сети в {{ TF }}>" { name = "<имя сети>" }
+       ```hcl
+       resource "yandex_vpc_network" "<имя сети в {{ TF }}>" { name = "<имя сети>" }
   
-        resource "yandex_vpc_subnet" "<имя подсети в {{ TF }}>" {
-          name           = "<имя подсети>"
-          zone           = "<зона доступности>"
-          network_id     = yandex_vpc_network.<имя сети в {{ TF }}>.id
-          v4_cidr_blocks = ["<подсеть>"]
-        }
-        ```
+       resource "yandex_vpc_subnet" "<имя подсети в {{ TF }}>" {
+         name           = "<имя подсети>"
+         zone           = "<зона доступности>"
+         network_id     = yandex_vpc_network.<имя сети в {{ TF }}>.id
+         v4_cidr_blocks = ["<подсеть>"]
+       }
+       ```
 
-  {% endif %}
+    {% endif %}
 
     1. Создайте конфигурационный файл с описанием кластера и его хостов.
 
        Пример структуры конфигурационного файла:
 
-        ```hcl
-        resource "yandex_mdb_greenplum_cluster" "<имя кластера в {{ TF }}>" {
-          name                = "<имя кластера>"
-          environment         = "<окружение>"
-          network_id          = yandex_vpc_network.<имя сети в {{ TF }}>.id
-          zone                = "<зона доступности>"
-          subnet_id           = yandex_vpc_subnet.<имя сети в {{ TF }}>.id
-          assign_public_ip    = <получение публичного IP-адреса: true или false>
-          deletion_protection = <защита от удаления кластера: true или false>
-          version             = "<версия {{ GP }}>"
-          master_host_count   = <количество хостов-мастеров: 1 или 2>
-          segment_host_count  = <количество хостов-сегментов: от 2 до 32>
-          segment_in_host     = <количество сегментов на хост>
+       {% if audience != "internal" %}
+
+       ```hcl
+       resource "yandex_mdb_greenplum_cluster" "<имя кластера в {{ TF }}>" {
+         name                = "<имя кластера>"
+         environment         = "<окружение>"
+         network_id          = yandex_vpc_network.<имя сети в {{ TF }}>.id
+         zone                = "<зона доступности>"
+         subnet_id           = yandex_vpc_subnet.<имя сети в {{ TF }}>.id
+         assign_public_ip    = <получение публичного IP-адреса: true или false>
+         deletion_protection = <защита от удаления кластера: true или false>
+         version             = "<версия {{ GP }}>"
+         master_host_count   = <количество хостов-мастеров: 1 или 2>
+         segment_host_count  = <количество хостов-сегментов: от 2 до 32>
+         segment_in_host     = <количество сегментов на хост>
   
-          master_subcluster {
-            resources {
-              resource_preset_id = "<класс хоста>"
-              disk_size          = <объем хранилища, ГБ>
-              disk_type_id       = "<тип диска>"
-            }
-          }
+         master_subcluster {
+           resources {
+             resource_preset_id = "<класс хоста>"
+             disk_size          = <объем хранилища, ГБ>
+             disk_type_id       = "<тип диска>"
+           }
+         }
   
-          segment_subcluster {
-            resources {
-              resource_preset_id = "<класс хоста>"
-              disk_size          = <объем хранилища, ГБ>
-              disk_type_id       = "<тип диска>"
-            }
-          }
+         segment_subcluster {
+           resources {
+             resource_preset_id = "<класс хоста>"
+             disk_size          = <объем хранилища, ГБ>
+             disk_type_id       = "<тип диска>"
+           }
+         }
   
-          user_name     = "<имя пользователя>"
-          user_password = "<пароль>"
+         user_name     = "<имя пользователя>"
+         user_password = "<пароль>"
   
-          security_group_ids = ["<список идентификаторов групп безопасности>"]
-        }
-        ```
+         security_group_ids = ["<список идентификаторов групп безопасности>"]
+       }
+       ```
+
+       {% else %}
+
+       ```hcl
+       resource "yandex_mdb_greenplum_cluster" "<имя кластера в {{ TF }}>" {
+         name                = "<имя кластера>"
+         environment         = "<окружение>"
+         network_id          = yandex_vpc_network.<имя сети в {{ TF }}>.id
+         zone                = "<зона доступности>"
+         subnet_id           = yandex_vpc_subnet.<имя сети в {{ TF }}>.id
+         assign_public_ip    = <получение публичного IP-адреса: true или false>
+         deletion_protection = <защита от удаления кластера: true или false>
+         version             = "<версия {{ GP }}>"
+         master_host_count   = <количество хостов-мастеров: 1 или 2>
+         segment_host_count  = <количество хостов-сегментов: от 2 до 32>
+         segment_in_host     = <количество сегментов на хост>
+  
+         master_subcluster {
+           resources {
+             resource_preset_id = "<класс хоста>"
+             disk_size          = <объем хранилища, ГБ>
+             disk_type_id       = "<тип диска>"
+           }
+         }
+  
+         segment_subcluster {
+           resources {
+             resource_preset_id = "<класс хоста>"
+             disk_size          = <объем хранилища, ГБ>
+             disk_type_id       = "<тип диска>"
+           }
+         }
+  
+         user_name     = "<имя пользователя>"
+         user_password = "<пароль>"
+       }
+       ```
+
+       {% endif %}
 
        Включенная защита от удаления кластера не помешает подключиться вручную и удалить содержимое базы данных.
 
@@ -377,7 +418,9 @@
     * Имя пользователя в параметре `userName`.
     * Пароль пользователя в параметре `userPassword`.
     * Идентификатор сети в параметре `networkId`.
+    {% if audience != "internal" %}
     * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
+    {% endif %}
     * Конфигурацию хостов-мастеров в параметре `masterConfig`.
     * Конфигурацию хостов-сегментов в параметре `segmentConfig`.
 
@@ -438,7 +481,6 @@
 
     * В зоне доступности `{{ zone-id }}`.
     * С публичным доступом к хостам.
-    * В группе безопасности `{{ security-group }}`.
     * С защитой от случайного удаления кластера.
 
     {% endif %}
@@ -486,7 +528,6 @@
                        `disk-type=local-ssd \
        --zone-id={{ zone-id }} \
        --assign-public-ip=true \
-       --security-group-ids={{ security-group }} \
        --deletion-protection=true
     ```
 

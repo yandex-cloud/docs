@@ -56,7 +56,11 @@
 
          Для [классического шардирования](#shard-example) создание групп шардов не требуется.
 
+    {% if audience != "internal" %}
+
     1. [Настройте группы безопасности](../../managed-clickhouse/operations/connect.md#configuring-security-groups) кластера, чтобы к нему можно было подключаться из интернета.
+
+    {% endif %}
 
 - С помощью {{ TF }}
 

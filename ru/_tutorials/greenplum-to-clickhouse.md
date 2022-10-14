@@ -20,9 +20,13 @@
 
     1. [Создайте кластер-приемник {{ mch-full-name }}](../managed-clickhouse/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с базой данных `db1`.
 
+    {% if audience != "internal" %}
+
     1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
         * [{{ mch-name }}](../managed-clickhouse/operations/connect.md#configuring-security-groups).
         * [{{ mgp-name }}](../managed-greenplum/operations/connect.md#configuring-security-groups).
+
+    {% endif %}
 
 * С помощью {{ TF }}
 
@@ -33,7 +37,9 @@
         В этом файле описаны:
 
         * {% if audience != "internal" %}[сети](../vpc/concepts/network.md#network){% else %}сети{% endif %} и {% if audience != "internal" %}[подсети](../vpc/concepts/network.md#subnet){% else %}подсети{% endif %} для размещения кластеров;
-        * {% if audience != "internal" %}[группы безопасности](../vpc/concepts/security-groups.md){% else %}группы безопасности{% endif %} для подключения к кластерам;
+        {% if audience != "internal" %}
+        * [группы безопасности](../vpc/concepts/security-groups.md) для подключения к кластерам;
+        {% endif %}
         * кластер-источник {{ mgp-name }};
         * кластер-приемник {{ mch-name }}.
 

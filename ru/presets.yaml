@@ -688,6 +688,7 @@ default:
   port-k8s: 6443
   port-mch-cli: 9440
   port-mch-http: 8443
+  port-mes: 9200
   port-mgp: 5432
   port-mkf-ssl: 9091
   port-mkf-text: 9092
@@ -697,6 +698,7 @@ default:
   port-mmy: 3306
   port-mpg: 6432
   port-mrd-sentinel: 26379
+  port-mrd-sentinel-tls: 26380
   port-mrd-tls: 6380
   port-mrd: 6379
   port-ssh: 22

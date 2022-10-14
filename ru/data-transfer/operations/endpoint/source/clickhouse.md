@@ -29,6 +29,8 @@
 
     Пример структуры конфигурационного файла:
 
+    {% if audience != "internal" %}
+
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
       name = "<имя эндпоинта>"
@@ -51,6 +53,32 @@
       }
     }
     ```
+
+    {% else %}
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+      name = "<имя эндпоинта>"
+      settings {
+        clickhouse_source {
+          subnet_id = "<идентификатор подсети>"
+          connection {
+            connection_options {
+              mdb_cluster_id = "<идентификатор кластера {{ mch-name }}>"
+              database       = "<имя переносимой базы данных>"
+              user           = "<имя пользователя для подключения>"
+              password {
+                raw = "<пароль пользователя>"
+              }
+            }
+          }
+          <дополнительные настройки эндпоинта>
+        }
+      }
+    }
+    ```
+
+    {% endif %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
@@ -83,6 +111,8 @@
     {% include [On premise ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse.md) %}
 
     Пример структуры конфигурационного файла:
+
+    {% if audience != "internal" %}
 
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
@@ -118,6 +148,44 @@
       }
     }
     ```
+
+    {% else %}
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+      name = "<имя эндпоинта>"
+      settings {
+        clickhouse_source {
+          subnet_id = "<идентификатор подсети>"
+          connection {
+            connection_options {
+              on_premise {
+                http_port   = "<порт для подключения по HTTP>"
+                native_port = "<порт для подключения к нативному интерфейсу>"
+                shards {
+                  name  = "<имя шарда>"
+                  hosts = [ "список IP-адресов или FQDN хостов шарда" ]
+                }
+                tls_mode {
+                  enabled {
+                    ca_certificate = "<сертификат в формате PEM>"
+                  }
+                }
+              }
+              database = "<имя переносимой базы данных>"
+              user     = "<имя пользователя для подключения>"
+              password {
+                raw = "<пароль пользователя>"
+              }
+            }
+          }
+          <дополнительные настройки эндпоинта>
+        }
+      }
+    }
+    ```
+
+    {% endif %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 

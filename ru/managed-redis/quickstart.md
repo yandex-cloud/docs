@@ -1,16 +1,16 @@
 # Как начать работать с {{ mrd-name }}
 
+Чтобы начать работу с сервисом:
+1. [Создайте кластер](#cluster-create).
+1. [Подключитесь к кластеру](#connect).
+
 {% if audience == "internal" %}
 
 Для внутреннего сервиса MDB развернут [веб-интерфейс]({{ console-link }}), где кластер БД можно накликать. Подробнее про [квоты]({{ link-console-quotas }}) и соответствие ABC-сервисов облакам и каталогам читайте в разделе [{#T}](../mdb/access.md).
 
-## Доступ к кластерам БД {#access}
+{% include [Internal access](../_includes/mdb/internal-access.md) %}
 
-В [Панчере](https://puncher.yandex-team.ru/) уже сделаны правила для доступа к кластерам MDB: из [серверных сетей Яндекса](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3), и [для штатных разработчиков](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
-
-Если этих правил не хватает, запросите доступ к макросу `_PGAASINTERNALNETS_`. Для подключения к кластерам {{ RD }} нужен доступ к портам 26379 (Sentinel) и 6379 ({{ RD }}).
-
-## Настройка CLI
+## Настройка CLI {#cli-setup}
 
 Если вы планируете использовать CLI, установите и настройте его согласно [инструкции](../cli/quickstart.md).
 
@@ -21,10 +21,6 @@
 ```
 
 {% else %}
-
-Чтобы начать работу с сервисом:
-1. [Создайте кластер](#cluster-create).
-1. [Подключитесь к кластеру](#connect).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -57,7 +53,12 @@
 
     {% include [install-certificate](../_includes/mdb/mrd/install-certificate.md) %}
 
+{% if audience != "internal" %}
+
 1. [Настройте группы безопасности](operations/connect/index.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
+
+{% endif %}
+
 1. Подключитесь к кластеру, используя `redis-cli`.
 
    {% note info %}

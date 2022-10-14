@@ -4,7 +4,9 @@
 * {% include [Field HTTP-port](../../fields/clickhouse/ui/http-port.md) %}
 * {% include [Field Native Port](../../fields/clickhouse/ui/native-port.md) %}
 * {% include [Field Subnet ID](../../fields/common/ui/subnet-id.md) %}
+{% if audience != "internal" %}
 * {% include [Field Security Group](../../fields/common/ui/security-group.md) %}
+{% endif %}
 * {% include [Field Username](../../fields/common/ui/username.md) %}
 * {% include [Field Password](../../fields/common/ui/password.md) %}
 * {% include [Field Database Name](../../fields/common/ui/database-name.md) %}

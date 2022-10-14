@@ -4,7 +4,9 @@
 * {% include [Field CLI Subnet ID](../../fields/common/cli/subnet-id.md) %}
 * {% include [Field CLI Database](../../fields/common/cli/database.md) %}
 * {% include [Field CLI User](../../fields/common/cli/username.md) %}
+{% if audience != "internal" %}
 * {% include [Field CLI Security Group](../../fields/common/cli/security-group.md) %}
+{% endif %}
 
 * Чтобы задать пароль пользователя для доступа к базе данных, используйте один из параметров:
 

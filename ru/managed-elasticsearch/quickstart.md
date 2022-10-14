@@ -1,22 +1,26 @@
 # Как начать работать с {{ mes-name }}
 
 Чтобы начать работу с сервисом:
+
 1. [{#T}](#cluster-create).
+
+{% if audience != "internal" %}
+
 1. [{#T}](#configuring-security-groups).
+
+{% endif %}
+
 1. [{#T}](#connect).
+
 1. [{#T}](#connect-kibana).
 
 {% if audience == "internal" %}
 
 Для внутреннего сервиса MDB развернут [веб-интерфейс]({{ console-link }}), где кластер БД можно накликать. Подробнее про [квоты]({{ link-console-quotas }}) и соответствие ABC-сервисов облакам и каталогам читайте в разделе [{#T}](../mdb/access.md).
 
-## Доступ к кластерам БД {#access}
+{% include [Internal access](../_includes/mdb/internal-access.md) %}
 
-В [Панчере](https://puncher.yandex-team.ru/) уже сделаны правила для доступа к кластерам MDB: из [серверных сетей Яндекса](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3), и [для штатных разработчиков](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
-
-Если этих правил не хватает, запросите доступ к макросу `_PGAASINTERNALNETS_`. Для подключения к {{ ES }} в заявке нужно указать порт 9200 (Elasticsearch) и/или порт 443 (Kibana).
-
-## Настройка CLI
+## Настройка CLI {#cli-setup}
 
 Если вы планируете использовать CLI, установите и настройте его согласно [инструкции](../cli/quickstart.md).
 
@@ -31,12 +35,15 @@
 ## Перед началом работы {#before-you-begin}
 
 1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь, если вы еще не зарегистрированы.
+
 1. Если у вас еще нет каталога, создайте его:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. Подключаться к кластеру {{ ES }} можно как изнутри, так и извне {{ yandex-cloud }}:
+
    * Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md){% if product == "cloud-il" %} или [Windows](../compute/quickstart/quick-create-windows.md){% endif %} в той же сети, что и кластер.
+
    * Чтобы подключиться к кластеру из интернета, [запросите публичный доступ](operations/cluster-create.md#change-data-node-settings) к хостам с [ролью _Data node_](concepts/hosts-roles.md#data-node) при создании кластера.
 
 {% note info %}
@@ -59,16 +66,20 @@
    1. Выберите опцию **Публичный доступ**.
    1. Нажмите кнопку **Сохранить**.
 
-   Публичный доступ можно запросить для одного или нескольких хостов с ролью _Data node_. После создания кластера станет доступно [подключение к Kibana](#connect-kibana), расположенной на этих хостах. Может потребоваться дополнительная [настройка групп безопасности](operations/cluster-connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
+   Публичный доступ можно запросить для одного или нескольких хостов с ролью _Data node_. После создания кластера станет доступно [подключение к Kibana](#connect-kibana), расположенной на этих хостах. {% if audience != "internal" %} Может потребоваться дополнительная [настройка групп безопасности](operations/cluster-connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру. {% endif %}
 
    {% include [mes-tip-public-kibana](../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 
 1. Нажмите кнопку **Создать**.
 1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mes-name }} сменится на **Creating** и далее — на **Alive**. Это может занять некоторое время.
 
+{% if audience != "internal" %}
+
 ## Настройте группы безопасности {#configuring-security-groups}
 
 [Настройте группы безопасности](operations/cluster-connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
+
+{% endif %}
 
 ## Подключитесь к кластеру {#connect}
 

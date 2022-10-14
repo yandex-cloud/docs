@@ -15,7 +15,11 @@
 
 1. В той же сети, что и кластер {{ mkf-name }}, {% if audience != "internal" %}[создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md){% else %}создайте виртуальную машину{% endif %} c Ubuntu 20.04 и публичным IP-адресом.
 
+{% if audience != "internal" %}
+
 1. Чтобы разрешить прохождение трафика между кластером {{ mkf-name }} и виртуальной машиной, [настройте группы безопасности](../../managed-kafka/operations/connect.md#configuring-security-groups).
+
+{% endif %}
 
 ## Создайте скрипты производителя и потребителя {#create-scripts}
 

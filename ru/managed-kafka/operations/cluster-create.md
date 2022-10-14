@@ -53,20 +53,13 @@
 
      * Выберите объем хранилища, который будет использоваться для данных.
 
+  {% if audience != "internal" %}
+
   1. В блоке **Сетевые настройки**:
-     {% if audience != "internal" %}
 
      1. Выберите одну или несколько [зон доступности](../../overview/concepts/geo-scope.md), в которых нужно разместить брокеры {{ KF }}. Если создать кластер с одной зоной доступности, то в дальнейшем увеличить количество зон и брокеров будет невозможно.
      1. Выберите [сеть](../../vpc/concepts/network.md).
      1. Выберите подсети в каждой зоне доступности для этой сети. Чтобы [создать новую подсеть](../../vpc/operations/subnet-create.md), нажмите на кнопку **Создать новую** рядом с нужной зоной доступности.
-
-     {% else %}
-
-     1. Выберите одну или несколько зон доступности, в которых нужно разместить брокеры {{ KF }}.
-     1. Выберите сеть.
-     1. Выберите подсети в каждой зоне доступности для этой сети. Чтобы создать новую подсеть, нажмите на кнопку **Создать новую** рядом с нужной зоной доступности.
-
-     {% endif %}
 
         {% note info %}
 
@@ -77,6 +70,8 @@
      1. Выберите группы безопасности для сетевого трафика кластера.
 
      1. Для доступа к хостам-брокерам из интернета выберите опцию **Публичный доступ**. В этом случае подключаться к ним можно только с использованием SSL-соединения. Запросить публичный доступ после создания кластера невозможно. Подробнее см. в разделе [{#T}](connect.md).
+
+  {% endif %}
 
   1. В блоке **Хосты**:
   
@@ -153,7 +148,6 @@
         --disk-type <local-ssd | local-hdd> \
         --disk-size <размер хранилища в гигабайтах> \
         --assign-public-ip <публичный доступ> \
-        --security-group-ids <список идентификаторов групп безопасности> \
         --deletion-protection=<защита от удаления кластера: true или false>
       ```
 
@@ -239,6 +233,8 @@
 
         {% if product == "yandex-cloud" %}
 
+        {% if audience != "internal" %}
+
         ```hcl
         terraform {
           required_providers {
@@ -292,6 +288,63 @@
           v4_cidr_blocks = ["<диапазон>"]
         }
         ```
+
+        {% else %}
+
+        ```hcl
+        terraform {
+          required_providers {
+            yandex = {
+             source = "yandex-cloud/yandex"
+            }
+          }
+        }
+
+        provider "yandex" {
+          token     = "<OAuth или статический ключ сервисного аккаунта>"
+          cloud_id  = "<идентификатор облака>"
+          folder_id = "<идентификатор каталога>"
+          zone      = "<зона доступности>"
+        }
+
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+          environment         = "<окружение: PRESTABLE или PRODUCTION>"
+          name                = "<имя кластера>"
+          network_id          = "<идентификатор сети>"
+          deletion_protection = <защита от удаления кластера: true или false>
+
+          config {
+            assign_public_ip = "<публичный доступ к кластеру: true или false>"
+            brokers_count    = <количество брокеров>
+            version          = "<версия {{ mkf-name }}: {{ versions.tf.str }}>"
+            schema_registry  = "<управление схемами данных: true или false>"
+            kafka {
+              resources {
+                disk_size          = <размер хранилища в гигабайтах>
+                disk_type_id       = "<тип диска>"
+                resource_preset_id = "<класс хоста>"
+              }
+            }
+
+            zones = [
+              "<зоны доступности>"
+            ]
+          }
+        }
+
+        resource "yandex_vpc_network" "<имя сети>" {
+          name = "<имя сети>"
+        }
+
+        resource "yandex_vpc_subnet" "<имя подсети>" {
+          name           = "<имя подсети>"
+          zone           = "<зона доступности>"
+          network_id     = "<идентификатор сети>"
+          v4_cidr_blocks = ["<диапазон>"]
+        }
+        ```
+
+        {% endif %}
 
         {% endif %}
 
@@ -378,7 +431,9 @@
 
     * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
     * Имя кластера в параметре `name`.
+    {% if audience != "internal" %}
     * Идентификаторы групп безопасности в параметре `securityGroupIds`.
+    {% endif %}
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
@@ -403,11 +458,15 @@
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 {% note warning %}
 
 Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups).
 
 {% endnote %}
+
+{% endif %}
 
 ## Примеры {#examples}
 
@@ -438,7 +497,6 @@
   * В окружении `production`.
   * С {{ KF }} версии `{{ versions.cli.latest }}`.
   * В сети `{{ network-name }}`.
-  * В группе безопасности `{{ security-group }}`.
   * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ region-id }}-a`.
   * С одним брокером.
   * С хранилищем на локальных SSD-дисках (`{{ disk-type-example }}`) объемом 10 ГБ.
@@ -481,7 +539,6 @@
     --disk-size 10 \
     --disk-type {{ disk-type-example }} \
     --assign-public-ip \
-    --security-group-ids {{ security-group }} \
     --deletion-protection=true
   ```
 
@@ -497,7 +554,9 @@
     * В окружении `PRODUCTION`.
     * С {{ KF }} версии `{{ versions.tf.latest }}`.
     * В новой сети `mynet` с подсетью `mysubnet`.
+    {% if audience != "internal" %}
     * В новой группе безопасности `mykf-sg`, разрешающей подключение к кластеру из интернета по порту `9091`.
+    {% endif %}
     * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ region-id }}-a`.
     * С одним брокером.
     * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 10 ГБ.
@@ -507,6 +566,8 @@
   Конфигурационный файл для такого кластера выглядит так:
 
     {% if product == "yandex-cloud" %}
+
+    {% if audience != "internal" %}
 
     ```hcl
     terraform {
@@ -572,6 +633,62 @@
       }
     }
     ```
+
+    {% else %}
+
+    ```hcl
+    terraform {
+      required_providers {
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
+      }
+    }
+
+    provider "yandex" {
+      token     = "<OAuth или статический ключ сервисного аккаунта>"
+      cloud_id  = "{{ tf-cloud-id }}"
+      folder_id = "{{ tf-folder-id }}"
+      zone      = "{{ region-id }}-a"
+    }
+
+    resource "yandex_mdb_kafka_cluster" "mykf" {
+      environment         = "PRODUCTION"
+      name                = "mykf"
+      network_id          = yandex_vpc_network.mynet.id
+      deletion_protection = true
+
+      config {
+        assign_public_ip = true
+        brokers_count    = 1
+        version          = "{{ versions.tf.latest }}"
+        kafka {
+          resources {
+            disk_size          = 10
+            disk_type_id       = "{{ disk-type-example }}"
+            resource_preset_id = "{{ host-class }}"
+          }
+        }
+
+        zones = [
+          "{{ region-id }}-a"
+        ]
+      }
+    }
+
+    resource "yandex_vpc_network" "mynet" {
+      name = "mynet"
+    }
+
+    resource "yandex_vpc_subnet" "mysubnet" {
+      name           = "mysubnet"
+      zone           = "{{ region-id }}-a"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.5.0.0/24"]
+    }
+    ```
+
+    {% endif %}
 
     {% endif %}
 

@@ -8,11 +8,7 @@
 
 Для внутреннего сервиса MDB развернут [веб-интерфейс]({{ console-link }}), где кластер БД можно накликать. Подробнее про [квоты]({{ link-console-quotas }}) и соответствие ABC-сервисов облакам и каталогам читайте в разделе [{#T}](../mdb/access.md).
 
-## Доступ к кластерам БД {#access}
-
-В [Панчере](https://puncher.yandex-team.ru/) уже сделаны правила для доступа к кластерам MDB: из [серверных сетей Яндекса](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3), и [для штатных разработчиков](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
-
-Если этих правил не хватает, запросите доступ к макросу `_PGAASINTERNALNETS_`. Для подключения к хостам {{ CH }} нужен доступ к портам 8443 (HTTPS) и 9440 (нативный протокол с TLS).
+{% include [Internal access](../_includes/mdb/internal-access.md) %}
 
 ## Настройка CLI {#cli-setup}
 
@@ -29,12 +25,15 @@
 ## Перед началом работы {#before-you-begin}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
+
 1. Если у вас еще нет каталога, создайте его:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. Подключаться к кластерам БД можно как изнутри, так и извне {{ yandex-cloud }}:
+
    * Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md){% if product == "cloud-il" %} или [Windows](../compute/quickstart/quick-create-windows.md){% endif %} в той же сети, что и кластер БД.
+
    * Чтобы подключиться к кластеру из интернета, запросите публичный доступ к хостам при создании кластера.
 
    {% note info %}
@@ -44,6 +43,7 @@
    {% endnote %}
 
 1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
+
 1. Подключите [DEB-репозиторий]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
    ```bash
@@ -77,12 +77,18 @@
 
 ## Подключитесь к БД {#connect}
 
+{% if audience != "internal" %}
+
 1. [Настройте группы безопасности](operations/connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
+
+{% endif %}
+
 1. Для подключения к серверу БД получите SSL-сертификат:
 
     {% include [install-certificate](../_includes/mdb/mch/install-certificate.md) %}
 
 1. Используйте для подключения ClickHouse CLI:
+
    1. Укажите путь к SSL-сертификату в [конфигурационном файле]({{ ch.docs }}/interfaces/cli/#interfaces_cli_configuration), в элементе `<caConfig>`:
 
       ```xml

@@ -1,4 +1,6 @@
+{% if audience != "internal" %}
 * {% include [Field Terraform Security Group](../../fields/mysql/terraform/security-group.md) %}
+{% endif %}
 * {% include [Field Terraform Cluster ID](../../fields/common/terraform/cluster-id.md) %}
 * {% include [Field Terraform Database](../../fields/mysql/terraform/database-target.md) %}
 * {% include [Field Terraform User](../../fields/common/terraform/username.md) %}

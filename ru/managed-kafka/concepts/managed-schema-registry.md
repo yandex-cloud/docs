@@ -43,7 +43,11 @@
 
 Чтобы воспользоваться этим реестром, включите соответствующую опцию при [создании кластера](../operations/cluster-create.md).
 
+{% if audience != "internal" %}
+
 Для работы с {{ mkf-msr }} требуется дополнительная [настройка групп безопасности](../operations/connect.md#configuring-security-groups).
+
+{% endif %}
 
 ## Авторизация в {{ mkf-msr }} {#msr-auth}
 

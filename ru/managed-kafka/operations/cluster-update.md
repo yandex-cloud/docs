@@ -9,7 +9,9 @@
 * [{#T}](#change-additional-settings).
 * [{#T}](#change-kafka-settings).
 * [{#T}](#move-cluster) из текущего каталога в другой каталог.
+{% if audience != "internal" %}
 * [{#T}](#change-sg-set).
+{% endif %}
 
 ## Включить управление пользователями и топиками с помощью Admin API {#enable-api}
 
@@ -618,6 +620,8 @@
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 ## Изменить группы безопасности {#change-sg-set}
 
 {% list tabs %}
@@ -689,3 +693,5 @@
 {% endlist %}
 
 Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для подключения к кластеру.
+
+{% endif %}

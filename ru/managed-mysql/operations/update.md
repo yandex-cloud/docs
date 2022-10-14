@@ -24,7 +24,11 @@
 
 * [Переместить кластер](#move-cluster) в другой каталог.
 
+{% if audience != "internal" %}
+
 * [{#T}](#change-sg-set).
+
+{% endif %}
 
 ## Изменить класс хостов {#change-resource-preset}
 
@@ -501,6 +505,8 @@
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 ## Изменить группы безопасности {#change-sg-set}
 
 {% list tabs %}
@@ -576,3 +582,5 @@
 Может потребоваться дополнительная [настройка групп безопасности](connect.md#configure-security-groups) для подключения к кластеру.
 
 {% endnote %}
+
+{% endif %}

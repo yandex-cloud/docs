@@ -64,10 +64,14 @@
       * Имя пользователя.
       * Пароль пользователя. Минимум 8 символов.
 
+  {% if audience != "internal" %}
+
   1. В блоке **Сетевые настройки** выберите:
 
       * Облачную сеть для размещения кластера.
       * Группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
+
+  {% endif %}
 
   1. В блоке **Хосты** добавьте хосты БД, создаваемые вместе с кластером:
 
@@ -170,6 +174,7 @@
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
   {% if audience != "internal" %}
 
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -179,6 +184,7 @@
   Если у вас еще нет {{ TF }}, установите его и настройте провайдер.
 
   {% endif %}
+
   Чтобы создать кластер:
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
@@ -192,6 +198,8 @@
      Пример структуры конфигурационного файла:
 
      {% if product == "yandex-cloud" %}
+
+     {% if audience != "internal" %}
 
      ```hcl
      terraform {
@@ -254,6 +262,71 @@
        v4_cidr_blocks = ["<диапазон>"]
      }
      ```
+
+     {% else %}
+
+     ```hcl
+     terraform {
+       required_providers {
+         yandex = {
+           source = "yandex-cloud/yandex"
+         }
+       }
+     }
+
+     provider "yandex" {
+       token     = "<OAuth или статический ключ сервисного аккаунта>"
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "<зона доступности>"
+     }
+
+     resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+       name                = "<имя кластера>"
+       environment         = "<окружение: PRESTABLE или PRODUCTION>"
+       network_id          = "<идентификатор сети>"
+       deletion_protection = <защита от удаления кластера: true или false>
+
+       cluster_config {
+         version = "<версия {{ MG }}: {{ versions.tf.str }}>"
+       }
+
+       database {
+         name = "<имя базы данных>"
+       }
+
+       user {
+         name     = "<имя пользователя>"
+         password = "<пароль пользователя>"
+         permission {
+           database_name = "<имя базы данных>"
+           roles         = [ "<список ролей пользователя>" ]
+         }
+       }
+
+       resources {
+         resource_preset_id = "<класс хоста>"
+         disk_type_id       = "<тип диска>"
+         disk_size          = <размер хранилища, ГБ>
+       }
+
+       host {
+         zone_id   = "<зона доступности>"
+         subnet_id = "<идентификатор подсети>"
+       }
+     }
+
+     resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
+
+     resource "yandex_vpc_subnet" "<имя подсети>" {
+       name           = "<имя подсети>"
+       zone           = "<зона доступности>"
+       network_id     = "<идентификатор сети>"
+       v4_cidr_blocks = ["<диапазон>"]
+     }
+     ```
+
+     {% endif %}
 
      {% endif %}
 
@@ -330,11 +403,11 @@
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mmg }}).
 
-  1. Проверьте корректность настроек.
+  2. Проверьте корректность настроек.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Создайте кластер.
+  3. Создайте кластер.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -352,7 +425,9 @@
     * Идентификатор сети в параметре `networkId`.
     * Конфигурацию кластера в параметре `configSpec`.
     * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
+    {% if audience != "internal" %}
     * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
+    {% endif %}
     * Конфигурацию баз данных в одном или нескольких параметрах `databaseSpecs`.
     * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
@@ -361,11 +436,15 @@
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 {% note warning %}
 
 Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups).
 
 {% endnote %}
+
+{% endif %}
 
 ## Примеры {#examples}
 
@@ -395,7 +474,6 @@
 
   * С именем `mymg`.
   * В окружении `production`.
-  * В группе безопасности с идентификатором `{{ security-group }}`.
   * С одним хостом класса `{{ host-class }}` в зоне доступности `{{ region-id }}-a`.
   * С хранилищем на сетевых SSD-дисках (`local-ssd`) объемом 20 ГБ.
   * С одним пользователем, `user1`, с паролем `user1user1`.
@@ -430,7 +508,6 @@
     --name mymg \
     --environment production \
     --network-id {{ network-name }} \
-    --security-group-ids {{ security-group }} \
     --mongod-resource-preset {{ host-class }} \
     --host zone-id={{ region-id }}-a \
     --mongod-disk-size 20 \
@@ -453,7 +530,9 @@
     * В каталоге с идентификатором `{{ tf-folder-id }}`.
     * В новой сети `mynet`.
     * С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    {% if audience != "internal" %}
     * В новой группе безопасности `mymg-sg`, разрешающей TCP-подключения к кластеру из интернета через порт `{{ port-mmg }}`.
+    {% endif %}
     * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
     * С одним пользователем, `user1`, с паролем `user1user1`.
     * С одной базой данных, `db1`.
@@ -462,6 +541,8 @@
   Конфигурационный файл для такого кластера выглядит так:
 
   {% if product == "yandex-cloud" %}
+
+  {% if audience != "internal" %}
 
   ```hcl
   terraform {
@@ -537,6 +618,72 @@
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```
+
+  {% else %}
+
+  ```hcl
+  terraform {
+    required_providers {
+      yandex = {
+        source = "yandex-cloud/yandex"
+      }
+    }
+  }
+
+  provider "yandex" {
+    token     = "<OAuth или статический ключ сервисного аккаунта>"
+    cloud_id  = "{{ tf-cloud-id }}"
+    folder_id = "{{ tf-folder-id }}"
+    zone      = "{{ region-id }}-a"
+  }
+
+  resource "yandex_mdb_mongodb_cluster" "mymg" {
+    name                = "mymg"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.mynet.id
+    deletion_protection = true
+
+    cluster_config {
+      version = "{{ versions.tf.latest }}"
+    }
+
+    database {
+      name = "db1"
+    }
+
+    user {
+      name     = "user1"
+      password = "user1user1"
+      permission {
+        database_name = "db1"
+      }
+    }
+
+    resources {
+      resource_preset_id = "{{ host-class }}"
+      disk_type_id       = "{{ disk-type-example }}"
+      disk_size          = 20
+    }
+
+    host {
+      zone_id   = "{{ region-id }}-a"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
+    }
+  }
+
+  resource "yandex_vpc_network" "mynet" {
+    name = "mynet"
+  }
+
+  resource "yandex_vpc_subnet" "mysubnet" {
+    name           = "mysubnet"
+    zone           = "{{ region-id }}-a"
+    network_id     = yandex_vpc_network.mynet.id
+    v4_cidr_blocks = ["10.5.0.0/24"]
+  }
+  ```
+
+  {% endif %}
 
   {% endif %}
 

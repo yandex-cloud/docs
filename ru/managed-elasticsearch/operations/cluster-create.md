@@ -48,7 +48,9 @@ keywords:
      1. Выберите из списка версию {{ ES }}.
      1. Выберите из списка [редакцию {{ ES }}](../concepts/es-editions.md).
 
+  {% if audience != "internal" %}
   1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](cluster-connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
+  {% endif %}
   1. В блоке **Пользователь** укажите пароль для пользователя `admin`.
 
      {% include [mes-superuser](../../_includes/mdb/mes-superuser.md) %}
@@ -142,6 +144,8 @@ keywords:
 
     1. Укажите параметры кластера в команде создания (в примере приведены не все параметры):
 
+        {% if audience != "internal" %}
+
         ```bash
         {{ yc-mdb-es }} cluster create \
           --name <имя кластера> \
@@ -161,6 +165,29 @@ keywords:
           --plugins=<имя плагина 1>,...,<имя плагина N> \
           --deletion-protection=<защита от удаления кластера: true или false>
         ```
+
+        {% else %}
+
+        ```bash
+        {{ yc-mdb-es }} cluster create \
+          --name <имя кластера> \
+          --environment <окружение: prestable или production> \
+          --network-name <имя сети> \
+          --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети>,assign-public-ip=<публичный доступ>,type=<тип хоста: datanode или masternode> \
+          --datanode-resource-preset <класс хостов c ролью Data node> \
+          --datanode-disk-size <размер хранилища в гигабайтах для хостов с ролью Data node> \
+          --datanode-disk-type <тип хранилища для хостов с ролью Data node> \
+          --masternode-resource-preset <класс хостов с ролью Master node> \
+          --masternode-disk-size <размер хранилища в гигабайтах для хостов с ролью Master node> \
+          --masternode-disk-type <тип хранилища для хостов с ролью Master node> \
+          --version <версия {{ ES }}: {{ versions.cli.str }}> \
+          --edition <редакция {{ ES }}: basic или platinum> \
+          --admin-password <пароль пользователя admin> \
+          --plugins=<имя плагина 1>,...,<имя плагина N> \
+          --deletion-protection=<защита от удаления кластера: true или false>
+        ```
+
+        {% endif %}
 
         Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности больше одной подсети.
 
@@ -189,6 +216,8 @@ keywords:
         Пример структуры конфигурационного файла:
 
         {% if product == "yandex-cloud" %}
+
+        {% if audience != "internal" %}
 
         ```hcl
         terraform {
@@ -257,6 +286,76 @@ keywords:
           v4_cidr_blocks = ["<диапазон>"]
         }
         ```
+
+        {% else %}
+
+        ```hcl
+        terraform {
+          required_providers {
+            yandex = {
+              source = "yandex-cloud/yandex"
+            }
+          }
+        }
+
+        provider "yandex" {
+          token     = "<OAuth или статический ключ сервисного аккаунта>"
+          cloud_id  = "<идентификатор облака>"
+          folder_id = "<идентификатор каталога>"
+          zone      = "<зона доступности>"
+        }
+
+        resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
+          name        = "<имя кластера>"
+          environment = "<окружение, PRESTABLE или PRODUCTION>"
+          network_id  = "<идентификатор сети>"
+
+          config {
+            version = "<(необязательно) версия {{ ES }}: {{ versions.tf.str }}>"
+            edition = "<(необязательно) редакция {{ ES }}: basic или platinum>"
+
+            admin_password = "<пароль пользователя-администратора>"
+
+            data_node {
+              resources {
+                resource_preset_id = "<класс хоста>"
+                disk_type_id       = "<тип диска>"
+                disk_size          = <объем хранилища, ГБ>
+              }
+            }
+
+            master_node {
+              resources {
+                resource_preset_id = "<класс хоста>"
+                disk_type_id       = "<тип диска>"
+                disk_size          = <объем хранилища, ГБ>
+              }
+            }
+
+            plugins = [ "<список имен плагинов>" ]
+
+          }
+
+          host {
+            name = "<имя хоста>"
+            zone = "<зона доступности>"
+            type = "<роль хоста: DATA_NODE или MASTER_NODE>"
+            assign_public_ip = <публичный доступ к хосту: true или false>
+            subnet_id = "<идентификатор подсети>"
+          }
+        }
+
+        resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
+
+        resource "yandex_vpc_subnet" "<имя подсети>" {
+          name           = "<имя подсети>"
+          zone           = "<зона доступности>"
+          network_id     = "<идентификатор сети>"
+          v4_cidr_blocks = ["<диапазон>"]
+        }
+        ```
+
+        {% endif %}
 
         {% endif %}
 
@@ -360,17 +459,23 @@ keywords:
         * Класс хостов с ролью _Data node_ в параметре `configSpec.elasticsearchSpec.dataNode.resources`.
     * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
     * Идентификатор сети в параметре `networkId`.
+    {% if audience != "internal" %}
     * Идентификаторы групп безопасности в параметре `securityGroupIds`.
+    {% endif %}
     * Список плагинов в параметре `configSpec.elasticsearchSpec.plugins`.
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
 
 {% endlist %}
+
+{% if audience != "internal" %}
 
 {% note warning %}
 
 Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](cluster-connect.md#configuring-security-groups).
 
 {% endnote %}
+
+{% endif %}
 
 ## Примеры {#examples}
 
@@ -389,13 +494,17 @@ keywords:
     * Редакция `Platinum`.
     * Окружение `PRODUCTION`.
     * Сеть `default`.
+    {% if audience != "internal" %}
     * Группа безопасности с идентификатором `enpp2s8l3irhk5eromd7`.
+    {% endif %}
     * Один публично доступный хост с ролью _Data node_ класса `{{ host-class }}` в подсети `{{ subnet-id }}`, в зоне доступности `{{ region-id }}-a`.
     * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
     * Пароль `esadminpwd` для пользователя `admin`.
     * Защита от случайного удаления кластера.
 
     Выполните следующую команду:
+
+    {% if audience != "internal" %}
 
     ```bash
     {{ yc-mdb-es }} cluster create \
@@ -413,6 +522,25 @@ keywords:
       --deletion-protection=true
     ```
 
+    {% else %}
+
+    ```bash
+    {{ yc-mdb-es }} cluster create \
+      --name my-es-clstr \
+      --environment production \
+      --network-name default \
+      --host zone-id={{ region-id }}-a,assign-public-ip=true,type=datanode \
+      --datanode-resource-preset {{ host-class }} \
+      --datanode-disk-type={{ disk-type-example }} \
+      --datanode-disk-size=20 \
+      --admin-password=esadminpwd \
+      --version {{ versions.cli.latest }} \
+      --edition platinum \
+      --deletion-protection=true
+    ```
+
+    {% endif %}
+
 - {{ TF }}
 
     Создайте кластер {{ mes-name }} с тестовыми характеристиками:
@@ -424,7 +552,9 @@ keywords:
     * Облако с идентификатором `{{ tf-cloud-id }}`.
     * Каталог с идентификатором `{{ tf-folder-id }}`.
     * Новая сеть `mynet`.
+    {% if audience != "internal" %}
     * Новая группа безопасности `es-sg`, разрешающая подключение к кластеру из интернета через порты 443 (Kibana) и 9200 ({{ ES }}).
+    {% endif %}
     * Один публично доступный хост с ролью _Data node_ класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
     * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
     * Пароль `esadminpwd` для пользователя `admin`.
@@ -432,6 +562,8 @@ keywords:
     Конфигурационный файл для такого кластера выглядит так:
 
     {% if product == "yandex-cloud" %}
+
+    {% if audience != "internal" %}
 
     ```hcl
     terraform {
@@ -512,6 +644,69 @@ keywords:
       }
     }
     ```
+
+    {% else %}
+
+    ```hcl
+    terraform {
+      required_providers {
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
+      }
+    }
+
+    provider "yandex" {
+      token     = "<OAuth или статический ключ сервисного аккаунта>"
+      cloud_id  = "{{ tf-cloud-id }}"
+      folder_id = "{{ tf-folder-id }}"
+      zone      = "{{ region-id }}-a"
+    }
+
+    resource "yandex_mdb_elasticsearch_cluster" "my-es-clstr" {
+      name        = "my-es-clstr"
+      environment = "PRODUCTION"
+      network_id  = yandex_vpc_network.mynet.id
+
+      config {
+        edition = "basic"
+        version = "{{ versions.tf.latest }}"
+
+        admin_password = "esadminpwd"
+
+        data_node {
+          resources {
+            resource_preset_id = "s2.micro"
+            disk_type_id       = "network-ssd"
+            disk_size          = 20
+          }
+        }
+
+      }
+
+      host {
+        name = "node"
+        zone = "{{ region-id }}-a"
+        type = "DATA_NODE"
+        assign_public_ip = true
+        subnet_id = yandex_vpc_subnet.mysubnet.id
+      }
+
+    }
+
+    resource "yandex_vpc_network" "mynet" {
+      name = "mynet"
+    }
+
+    resource "yandex_vpc_subnet" "mysubnet" {
+      name           = "mysubnet"
+      zone           = "{{ region-id }}-a"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.5.0.0/24"]
+    }
+    ```
+
+    {% endif %}
 
     {% endif %}
 

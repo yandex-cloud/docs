@@ -130,11 +130,15 @@ keywords:
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 {% note warning %}
 
 Если после добавления хоста к нему невозможно [подключиться](cluster-connect.md), убедитесь, что [группа безопасности](../concepts/network.md#security-groups) кластера настроена корректно для подсети, в которую помещен хост.
 
 {% endnote %}
+
+{% endif %}
 
 ## Удалить хосты из кластера {#delete-hosts}
 

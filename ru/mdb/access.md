@@ -55,4 +55,14 @@
 - из [всех серверных сетей Яндекса](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3),
 - для [всех штатных разработчиков и администраторов](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
 
-Поэтому в общем случае ковырять дырки не требуется.
+Поэтому в общем случае ковырять дырки не требуется. Если этих правил не хватает, запросите доступ в [Панчере](https://puncher.yandex-team.ru/) к макросу `_PGAASINTERNALNETS_` и укажите в заявке нужные порты:
+
+* {{ mch-name }} — порты {{ port-mch-http }} (HTTPS) и {{ port-mch-cli }} (нативный протокол с TLS).
+* {{ mes-name }} — порт {{ port-mes }} (Elasticsearch) и/или порт {{ port-https }} (Kibana).
+* {{ mgp-name }} — порты {{ port-mgp }} и {{ port-mpg }}.
+* {{ mkf-name }} — порт {{ port-mkf-ssl }} (SASL_TLS).
+* {{ mmg-name }} — порты {{ port-mmg-sharded }} (mongos) и {{ port-mmg }} (mongod).
+* {{ mmy-name }} — порт {{ port-mmy }}.
+* {{ mpg-name }} — порт {{ port-mpg }}.
+* {{ mrd-name }} — порты {{ port-mrd-sentinel }}, {{ port-mrd-sentinel-tls }} (Sentinel), {{ port-mrd }} и {{ port-mrd-tls }} (Redis).
+* {{ mms-name }} — порт {{ port-mmy }}.

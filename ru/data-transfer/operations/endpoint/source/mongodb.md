@@ -31,6 +31,8 @@
 
     Пример структуры конфигурационного файла:
 
+    {% if audience != "internal" %}
+
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
       name = "<имя эндпоинта>"
@@ -53,6 +55,32 @@
       }
     }
     ```
+
+    {% else %}
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+      name = "<имя эндпоинта>"
+      settings {
+        mongo_source {
+          subnet_id = "<идентификатор подсети>"
+          connection {
+            connection_options {
+              mdb_cluster_id = "<идентификатор кластера {{ mmg-name }}>"
+              auth_source    = "<имя базы данных>"
+              user           = "<имя пользователя>"
+              password {
+                raw = "<пароль пользователя>"
+              }
+            }
+          }
+          <дополнительные настройки эндпоинта>
+        }
+      }
+    }
+    ```
+
+{% endif %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
@@ -88,6 +116,8 @@
 
     Пример структуры конфигурационного файла:
 
+    {% if audience != "internal" %}
+
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
       name = "<имя эндпоинта>"
@@ -119,6 +149,41 @@
       }
     }
     ```
+
+    {% else %}
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+      name = "<имя эндпоинта>"
+      settings {
+        mongo_source {
+          subnet_id = "<идентификатор подсети>"
+          connection {
+            connection_options {
+              on_premise {
+                hosts       = [ "список хостов набора реплик" ]
+                port        = "<порт для подключения>"
+                replica_set = "<имя набора реплик>"
+                tls_mode {
+                  enabled {
+                    ca_certificate = "<сертификат в формате PEM>"
+                  }
+                }
+              }
+              auth_source = "<имя базы данных>"
+              user        = "<имя пользователя>"
+              password {
+                raw = "<пароль пользователя>"
+              }
+            }
+          }
+          <дополнительные настройки эндпоинта>
+        }
+      }
+    }
+    ```
+
+    {% endif %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 

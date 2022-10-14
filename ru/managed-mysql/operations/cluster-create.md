@@ -46,7 +46,11 @@
       * Имя пользователя — владельца БД. Имя пользователя должно содержать только латинские буквы, цифры и подчеркивания.
       * Пароль пользователя, от 8 до 128 символов.
 
+  {% if audience != "internal" %}
+
   1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configure-security-groups) для того, чтобы можно было подключаться к кластеру.
+
+  {% endif %}
 
   1. В блоке **Хосты** выберите параметры хостов БД, создаваемых вместе с кластером. Открыв блок **Расширенные настройки**, вы можете выбрать конкретные подсети для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.
 
@@ -75,6 +79,7 @@
      ```
      yc vpc subnet list
      ```
+
      {% if audience != "internal" %}
 
      Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
@@ -93,7 +98,7 @@
      ```
 
   1. Укажите параметры кластера в команде создания:
-
+  
      {% if product == "yandex-cloud" %}
 
      {% if audience != "internal" %}
@@ -116,7 +121,7 @@
      ```
 
      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
-
+  
      {% else %}
 
      ```bash
@@ -131,7 +136,6 @@
        --database name=<имя базы данных> \
        --disk-size <размер хранилища в гигабайтах> \
        --disk-type <local-ssd | local-hdd> \
-       --security-group-ids <список идентификаторов групп безопасности> \
        --deletion-protection=<защита от удаления кластера: true или false> \
        --datalens-access=<доступ к кластеру из {{ datalens-name }}: true или false>
      ```
@@ -196,6 +200,8 @@
 
      {% if product == "yandex-cloud" %}
 
+     {% if audience != "internal" %}
+
      ```hcl
      terraform {
        required_providers {
@@ -256,6 +262,70 @@
        v4_cidr_blocks = ["<диапазон>"]
      }
      ```
+
+     {% else %}
+
+     ```hcl
+     terraform {
+       required_providers {
+         yandex = {
+           source = "yandex-cloud/yandex"
+         }
+       }
+     }
+
+     provider "yandex" {
+       token     = "<OAuth или статический ключ сервисного аккаунта>"
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "<зона доступности>"
+     }
+
+     resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
+       name                = "<имя кластера>"
+       environment         = "<окружение, PRESTABLE или PRODUCTION>"
+       network_id          = "<идентификатор сети>"
+       version             = "<версия MySQL: {{ versions.tf.str }}>"
+       deletion_protection = <защита от удаления кластера: true или false>
+
+       resources {
+         resource_preset_id = "<класс хоста>"
+         disk_type_id       = "<тип диска>"
+         disk_size          = "<размер хранилища в гигабайтах>"
+       }
+
+       host {
+         zone      = "<зона доступности>"
+         subnet_id = "<идентификатор подсети>"
+       }
+     }
+
+     resource "yandex_mdb_mysql_database" "<имя базы данных>" {
+       cluster_id = "<идентификатор кластера>"
+       name       = "<имя базы данных>"
+     }
+
+     resource "yandex_mdb_mysql_user" "<имя пользователя>" {
+       cluster_id = "<идентификатор кластера>"
+       name       = "<имя пользователя>"
+       password   = "<пароль пользователя>"
+       permission {
+         database_name = "<имя базы данных>"
+         roles         = ["ALL"]
+       }
+     }
+
+     resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
+
+     resource "yandex_vpc_subnet" "<имя подсети>" {
+       name           = "<имя подсети>"
+       zone           = "<зона доступности>"
+       network_id     = "<идентификатор сети>"
+       v4_cidr_blocks = ["<диапазон>"]
+     }
+     ```
+
+     {% endif %}
 
      {% endif %}
 
@@ -359,7 +429,9 @@
     * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
     * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
     * Идентификатор сети в параметре `networkId`.
+    {% if audience != "internal" %}
     * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
+    {% endif %}
 
     {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
@@ -371,11 +443,15 @@
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 {% note warning %}
 
 Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect.md#configure-security-groups).
 
 {% endnote %}
+
+{% endif %}
 
 ## Примеры {#examples}
 
@@ -474,7 +550,9 @@
     * В каталоге с идентификатором `{{ tf-folder-id }}`.
     * В новой сети `mynet`.
     * С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    {% if audience != "internal" %}
     * В новой группе безопасности `mysql-sg`, разрешающей подключение к кластеру из интернета через порт `{{ port-mmy }}`.
+    {% endif %}
     * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
     * С одним пользователем (`user1`), с паролем `user1user1`.
     * С одной базой данных `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
@@ -483,6 +561,8 @@
   Конфигурационный файл для такого кластера выглядит так:
 
   {% if product == "yandex-cloud" %}
+
+  {% if audience != "internal" %}
 
   ```hcl
   terraform {
@@ -519,7 +599,6 @@
       subnet_id = yandex_vpc_subnet.mysubnet.id
     }
   }
-
 
   resource "yandex_mdb_mysql_database" "db1" {
     cluster_id = yandex_mdb_mysql_cluster.my-mysql.id
@@ -559,6 +638,72 @@
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```
+
+  {% else %}
+
+  ```hcl
+  terraform {
+    required_providers {
+      yandex = {
+        source = "yandex-cloud/yandex"
+      }
+    }
+  }
+
+  provider "yandex" {
+    token     = "<OAuth или статический ключ сервисного аккаунта>"
+    cloud_id  = "{{ tf-cloud-id }}"
+    folder_id = "{{ tf-folder-id }}"
+    zone      = "{{ region-id }}-a"
+  }
+
+  resource "yandex_mdb_mysql_cluster" "my-mysql" {
+    name                = "my-mysql"
+    environment         = "PRESTABLE"
+    network_id          = yandex_vpc_network.mynet.id
+    version             = "{{ versions.tf.latest }}"
+    deletion_protection = true
+
+    resources {
+      resource_preset_id = "{{ host-class }}"
+      disk_type_id       = "{{ disk-type-example }}"
+      disk_size          = 20
+    }
+
+    host {
+      zone      = "{{ region-id }}-a"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
+    }
+  }
+
+  resource "yandex_mdb_mysql_database" "db1" {
+    cluster_id = yandex_mdb_mysql_cluster.my-mysql.id
+    name       = "db1"
+  }
+
+  resource "yandex_mdb_mysql_user" "<имя пользователя>" {
+    cluster_id = yandex_mdb_mysql_cluster.my-mysql.id
+    name       = "user1"
+    password   = "user1user1"
+    permission {
+      database_name = yandex_mdb_mysql_database.db1.name
+      roles         = ["ALL"]
+    }
+  }
+
+  resource "yandex_vpc_network" "mynet" {
+    name = "mynet"
+  }
+
+  resource "yandex_vpc_subnet" "mysubnet" {
+    name           = "mysubnet"
+    zone           = "{{ region-id }}-a"
+    network_id     = yandex_vpc_network.mynet.id
+    v4_cidr_blocks = ["10.5.0.0/24"]
+  }
+  ```
+
+  {% endif %}
 
   {% endif %}
 

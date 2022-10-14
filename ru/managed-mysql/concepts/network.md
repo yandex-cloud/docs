@@ -12,7 +12,7 @@
 
 {% else %}
 
-Все кластеры создаются внутри нашей сети, куда уже [есть доступ](../../mdb/access.md#network-access) из большинства сетей и от большинства сотрудников. Если у вас нет доступа, запросите доступ в [Панчере](https://puncher.yandex-team.ru/) к макросу `_PGAASINTERNALNETS_`. Для подключения к {{ MY }} в заявке нужно указать порт 3306.
+{% include notitle [Internal access](../../_includes/mdb/internal-access.md) %}
 
 {% endif %}
 
@@ -42,6 +42,8 @@ FQDN можно использовать для доступа к хосту в 
 
 Помимо имен хостов для подключения к кластеру можно использовать [особые FQDN](../operations/connect.md#special-fqdns), указывающие на текущий хост-мастер и наименее отстающую реплику.
 
+{% if audience != "internal" %}
+
 ## Группы безопасности {#security-groups}
 
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
@@ -53,3 +55,5 @@ FQDN можно использовать для доступа к хосту в 
 {% endnote %}
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
+
+{% endif %}

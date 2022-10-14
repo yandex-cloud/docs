@@ -1,4 +1,6 @@
+{% if audience != "internal" %}
 * {% include [Field Terraform Security Group](../../fields/mysql/terraform/security-group.md) %}
+{% endif %}
 * {% include [Field Terraform Host](../../fields/mysql/terraform/hosts.md) %}
 * {% include [Field Terraform Port](../../fields/common/terraform/port.md) %}
 * {% include [Field Terraform CA Certificate](../../fields/common/terraform/ca-certificate.md) %}

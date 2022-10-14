@@ -29,6 +29,8 @@
 
     Пример структуры конфигурационного файла:
 
+    {% if audience != "internal" %}
+
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
       name = "<имя эндпоинта>"
@@ -48,6 +50,29 @@
       }
     }
     ```
+
+    {% else %}
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+      name = "<имя эндпоинта>"
+      settings {
+        mysql_source {
+          connection {
+            mdb_cluster_id = "<идентификатор кластера {{ mmy-name }}>"
+          }
+          database = "<имя переносимой базы данных>"
+          user     = "<имя пользователя для подключения>"
+          password {
+            raw = "<пароль пользователя>"
+          }
+          <дополнительные настройки эндпоинта>
+        }
+      }
+    }
+    ```
+
+    {% endif %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
@@ -81,6 +106,8 @@
 
     Пример структуры конфигурационного файла:
 
+    {% if audience != "internal" %}
+
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
       name = "<имя эндпоинта>"
@@ -103,6 +130,32 @@
       }
     }
     ```
+
+    {% else %}
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+      name = "<имя эндпоинта>"
+      settings {
+        mysql_source {
+          connection {
+            on_premise {
+              hosts = ["<список хостов>"]
+              port  = <порт для подключения>
+            }
+          }
+          database = "<имя переносимой базы данных>"
+          user     = "<имя пользователя для подключения>"
+          password {
+            raw = "<пароль пользователя>"
+          }
+          <дополнительные настройки эндпоинта>
+        }
+      }
+    }
+    ```
+
+    {% endif %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 

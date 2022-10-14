@@ -22,7 +22,11 @@
 
 * [Переместить кластер](#move-cluster) в другой каталог.
 
+{% if audience != "internal" %}
+
 * [Изменить группы безопасности кластера](#change-sg-set).
+
+{% endif %}
 
 ## Изменить настройки сервисного аккаунта {#change-service-account}
 
@@ -733,6 +737,8 @@
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 ## Изменить группы безопасности {#change-sg-set}
 
 {% list tabs %}
@@ -808,3 +814,5 @@
 Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для подключения к кластеру.
 
 {% endnote %}
+
+{% endif %}

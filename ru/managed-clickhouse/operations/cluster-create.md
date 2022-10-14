@@ -92,7 +92,11 @@
 
       При использовании этих настроек укажите пароль пользователя `admin`.
 
+  {% if audience != "internal" %}
+
   1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
+  
+  {% endif %}
 
   1. В блоке **Хосты** укажите параметры хостов БД, создаваемых вместе с кластером. Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/pencil.svg) в строке с его номером:
 
@@ -176,7 +180,6 @@
         --clickhouse-disk-size <размер хранилища в гигабайтах> \
         --user name=<имя пользователя>,password=<пароль пользователя> \
         --database name=<имя базы данных> \
-        --security-group-ids <список идентификаторов групп безопасности> \
         --yandexquery-access=<доступ через {{ yq-full-name }}: true или false> \
         --deletion-protection=<защита от удаления кластера: true или false>
       ```
@@ -283,6 +286,8 @@
 
        Пример структуры конфигурационного файла, в котором описывается кластер из одного хоста:
 
+       {% if audience != "internal" %}
+
        ```hcl
        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
          name                = "<имя кластера>"
@@ -320,6 +325,46 @@
        }
        ```
 
+       {% else %}
+
+       ```hcl
+       resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+         name                = "<имя кластера>"
+         environment         = "<окружение>"
+         network_id          = yandex_vpc_network.<имя сети в {{ TF }}>.id
+         deletion_protection = <защита от удаления кластера: true или false>
+
+         clickhouse {
+           resources {
+             resource_preset_id = "<класс хоста>"
+             disk_type_id       = "<тип диска>"
+             disk_size          = <объем хранилища, ГБ>
+           }
+         }
+
+         database {
+           name = "<имя базы данных>"
+         }
+
+         user {
+           name     = "<имя пользователя БД>"
+           password = "<пароль>"
+           permission {
+             database_name = "<имя БД, в которой создается пользователь>"
+           }
+         }
+
+         host {
+           type             = "CLICKHOUSE"
+           zone             = "<зона доступности>"
+           subnet_id        = yandex_vpc_subnet.<имя подсети в {{ TF }}>.id
+           assign_public_ip = <публичный доступ к хосту: true или false>
+         }
+       }
+       ```
+
+       {% endif %}
+
        {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
        1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
@@ -349,8 +394,8 @@
            resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
              ...
              access {
-               metrika    = <Доступ из Метрики и AppMetrika: true или false>
-               web_sql    = <Выполнение SQL-запросов из консоли управления: true или false>
+               metrika = <Доступ из Метрики и AppMetrika: true или false>
+               web_sql = <Выполнение SQL-запросов из консоли управления: true или false>
              }
              ...
            }
@@ -389,7 +434,9 @@
   * Конфигурацию кластера в параметре `configSpec`.
   * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
   * Идентификатор сети в параметре `networkId`.
+  {% if audience != "internal" %}
   * Идентификаторы групп безопасности в параметре `securityGroupIds`.
+  {% endif %}
 
   Чтобы разрешить [подключение](connect.md) к хостам кластера из интернета, передайте значение `true` в параметре `hostSpecs.assignPublicIp`.
 
@@ -428,11 +475,15 @@
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 {% note warning %}
 
 Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups).
 
 {% endnote %}
+
+{% endif %}
 
 ## Примеры {#examples}
 
@@ -464,7 +515,6 @@
   * Имя `mych`.
   * Окружение `production`.
   * Сеть `default`.
-  * Группа безопасности `{{ security-group }}`.
   * Один хост {{ CH }} класса `{{host-class}}` в зоне доступности `{{zone-id}}`.
   * {{ CK }}.
   * Хранилище на локальных SSD-дисках (`local-ssd`) объемом 20 ГБ.
@@ -524,7 +574,9 @@
   * Облако с идентификатором `{{ tf-cloud-id }}`.
   * Каталог с идентификатором `{{ tf-folder-id }}`.
   * Новая облачная сеть `cluster-net`.
+  {% if audience != "internal" %}
   * Новая [группа безопасности по умолчанию](connect.md#configuring-security-groups) `cluster-sg` (в сети `cluster-net`), разрешающая подключение к любому хосту кластера из любой сети (в том числе из интернета) по портам `8443`, `9440`.
+  {% endif %}
   * Один хост класса `{{ host-class }}` в новой подсети `cluster-subnet-{{ region-id }}-a`.
   
     Параметры подсети:
@@ -546,9 +598,13 @@
 
       {% include [terraform-mdb-single-network](../../_includes/mdb/terraform-single-network.md) %}
 
+  {% if audience != "internal" %}
+
   1. Конфигурационный файл с описанием группы безопасности:
 
       {% include [terraform-mch-sg](../../_includes/mdb/mch/terraform/security-groups.md) %}
+
+  {% endif %}
 
   1. Конфигурационный файл с описанием кластера и его хоста:
 
@@ -579,7 +635,9 @@
 
     Эти подсети будут принадлежать сети `cluster-net`.
 
+  {% if audience != "internal" %}
   * Новая [группа безопасности по умолчанию](connect.md#configuring-security-groups) `cluster-sg` (в сети `cluster-net`), разрешающая подключение к любому хосту кластера из любой сети (в том числе из интернета) по портам `8443`, `9440`.
+  {% endif %}
   * Хранилище на {% if audience != "internal" %}сетевых{% else %}локальных{% endif %} SSD-дисках (`{{ disk-type-example }}`) объемом 32 ГБ для каждого {{ CH }}-хоста кластера.
   * Хранилище на {% if audience != "internal" %}сетевых{% else %}локальных{% endif %} SSD-дисках (`{{ disk-type-example }}`) объемом 10 ГБ для каждого {{ ZK }}-хоста кластера.
   * Имя базы данных `db1`.
@@ -595,9 +653,13 @@
 
       {% include [terraform-mdb-multiple-networks](../../_includes/mdb/terraform-multiple-networks.md) %}
 
+  {% if audience != "internal" %}
+
   1. Конфигурационный файл с описанием группы безопасности:
 
       {% include [terraform-mch-sg](../../_includes/mdb/mch/terraform/security-groups.md) %}
+
+  {% endif %}
 
   1. Конфигурационный файл с описанием кластера и его хостов:
 

@@ -8,6 +8,8 @@
 
 {% include [cluster-connect-note-monolithic](../../_includes/mdb/cluster-connect-note-monolithic.md) %}
 
+{% if audience != "internal" %}
+
 ## Настройка групп безопасности {#configuring-security-groups}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
@@ -26,7 +28,7 @@
 
     1. {% include [Cluster security group rules](../../_includes/mdb/mgp/cluster-sg-rules.md) %}
 
-    1. {% if audience != "internal" %}[Настройте группу безопасности](../../vpc/operations/security-group-add-rule.md){% else %}Настройте группу безопасности{% endif %}, в которой находится ВМ так, чтобы можно было подключаться к ВМ и был разрешен трафик между ВМ и хостами кластера.
+    1. [Настройте группу безопасности](../../vpc/operations/security-group-add-rule.md), в которой находится ВМ так, чтобы можно было подключаться к ВМ и был разрешен трафик между ВМ и хостами кластера.
 
         Пример правил для ВМ:
 
@@ -59,6 +61,12 @@
 {% endnote %}
 
 Подробнее см. в разделе [{#T}](../concepts/network.md#security-groups).
+
+{% endif %}
+
+{% else %}
+
+{% include [Internal access](../../_includes/mdb/internal-access.md) %}
 
 {% endif %}
 

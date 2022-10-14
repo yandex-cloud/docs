@@ -46,9 +46,13 @@
       * Имя пользователя — `user1`.
       * Пароль — `<пароль приемника>`.
 
+  {% if audience != "internal" %}
+
   1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
      * [{{ mch-full-name }}](../managed-clickhouse/operations/connect.md#configuring-security-groups).
      * [{{ mpg-full-name }}](../managed-postgresql/operations/connect.md#configuring-security-groups).
+
+  {% endif %}
 
 {% endlist %}
 
