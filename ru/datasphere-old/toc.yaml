@@ -117,6 +117,8 @@ items:
         when: product == "yandex-cloud"
       - name: Фоновые операции
         href: concepts/async.md
+      - name: Специальные фоновые операции
+        href: concepts/repeat.md
       - name: Датасеты
         href: concepts/dataset.md
       - name: Хранение приватных данных

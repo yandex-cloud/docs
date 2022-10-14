@@ -4,25 +4,41 @@
 
 Create a request and attach examples so that developers can make adjustments to the next releases of the speech synthesis model.
 
+{% if audience == "internal" %}
+
 We also recommend sending your examples via the **Feedback form**. You can find it in the management console under **AI API** → **{{ speechkit-short-name }}** → **Recognition Benchmark**.
+
+{% endif %}
 
 #### Poor speech recognition quality at 8kHz {#at-8khz}
 
 If the issue is systematic (tens of percent of the total number of speech recognition requests), submit a request and attach examples for analysis. The more examples you send, the more likely the developers will discover the bug.
 
+{% if audience == "internal" %}
+
 We recommend sending your examples via the **Feedback form**. You can find it in the management console under **AI API** → **{{ speechkit-short-name }}** → **Recognition Benchmark**.
 
+{% endif %}
+
 #### Feedback form on speech recognition quality {#feedback}
+
+{% if audience == "internal" %}
 
 You can find the **Feedback form** in the management console under **AI API** → **{{ speechkit-short-name }}** → **Recognition Benchmark**.
 
 Direct link, substitute the folder_id if possible: {% if lang == "ru" %}https://console.cloud.yandex.ru/folders/<folder_id>/api/speechkit?section=recognition-benchmark{% endif %}{% if lang == "en" %}https://console.cloud.yandex.com/folders/<folder_id>/api/speechkit?section=recognition-benchmark{% endif %}
 
+{% endif %}
+
 #### Noises, beeps, silence is reproduced as a strange speech {#strange-speech}
 
 Try using [a different recognition model](../../speechkit/stt/models.md#tags), such as `general:rc`. For streaming recognition, there is a [setting](../../speechkit/stt/api/streaming-api.md#additional-settings) that reduces the sensitivity of background noise recognition.
 
+{% if audience == "internal" %}
+
 We also recommend sending your examples via the **Feedback form**. You can find it in the management console under **AI API** → **{{ speechkit-short-name }}** → **Recognition Benchmark**.
+
+{% endif %}
 
 #### Two channels were recognized as one / How to recognize each channel separately {#two-channels}
 
@@ -46,7 +62,11 @@ If you recognize streaming audio, try using different API versions: [API v1](../
 
 To recognize an audio file, try different [models](../../speechkit/stt/models.md).
 
+{% if audience == "internal" %}
+
 We also recommend sending your examples via the **Feedback form**. You can find it in the management console under **AI API** → **{{ speechkit-short-name }}** → **Recognition Benchmark**.
+
+{% endif %}
 
 #### The file doesn't exceed the limit, but an error occurs during recognition {#multi-channel-limits}
 
