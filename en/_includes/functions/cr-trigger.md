@@ -1,11 +1,12 @@
-A trigger for {{ container-registry-name }} needs a [service account](../../iam/concepts/users/service-accounts.md) to invoke a function or a container.
+A {{ sf-name }} [trigger](../../functions/concepts/trigger/index.md) launches a [function](../../functions/concepts/function.md) when certain events occur with a {{ container-registry-name }} [Docker image](../../container-registry/concepts/docker-image.md). The trigger must be in the same cloud as the [registry](../../container-registry/concepts/registry.md) whose events it's subscribed to.
+
+A trigger for {{ container-registry-name }} needs a [service account](../../iam/concepts/users/service-accounts.md) to call the function.
 
 ## Events for setting up a trigger {#event}
 
 Events with Docker images that can be tracked using a trigger:
-
 * [Creating a Docker image](../../container-registry/operations/docker-image/docker-image-push.md).
-* [Deleting a Docker image](../../container-registry/operations/docker-image/docker-image-delete.md).
+* [Delete Docker images](../../container-registry/operations/docker-image/docker-image-delete.md).
 * Creating a Docker image tag.
 * Deleting a Docker image tag.
 
@@ -22,18 +23,15 @@ Events are filtered using tags and names of Docker images that you push. When us
 ## Roles required for the proper operation of a trigger for {{ container-registry-name }} {#roles}
 
 To create a trigger, you need:
-
-* Permission for a service account that runs the trigger executing the operation. This permission is included in the roles [iam.serviceAccounts.user](../../iam/concepts/access-control/roles.md#sa-user), [editor](../../iam/concepts/access-control/roles.md#editor), and higher.
+* Permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../iam/concepts/access-control/roles.md#sa-user) and [editor](../../iam/concepts/access-control/roles.md#editor) roles and higher.
 * The `{{ roles-cr-puller }}` role for the registry whose events the trigger handles.
-* Assign a role to a service account:
-  * `{{ roles-functions-ivoker }}` for the folder with the function that the trigger invokes.
-  * `serverless.containers.invoker` for the folder with the container that invokes the trigger.
+* In the service account, assign the `{{ roles-functions-ivoker }}` role for the folder containing the function called by the trigger.
 
 Read more about [access management](../../functions/security/index.md).
 
 ## {{ container-registry-name }} trigger message format {#ymq-format}
 
-After the trigger is activated, it sends the following message to the function or the container:
+After the trigger is activated, it sends the following message to the function:
 
 ```json
 {
@@ -60,5 +58,3 @@ After the trigger is activated, it sends the following message to the function o
     }
   }]
 }
-
-

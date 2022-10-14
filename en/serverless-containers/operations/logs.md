@@ -1,6 +1,6 @@
 ---
 title: "Viewing the execution log in Yandex Serverless Containers"
-description: "You can view the monitoring schedule in Yandex Serverless Containersusing the management console. To do this, select the  Serverless Containers service, click on the container whose execution log you want to view. In the window that opens, go to the Logs section and specify the period. By default, the period is set in 1 hour. The function execution logs are stored for 14 days. The time in the log is specified in UTC."
+description: "You can view the monitoring schedule in Yandex Serverless Containersusing the management console. To do this, select the Serverless Containers service, click on the container whose execution log you want to view. In the window that opens, go to the Logs section and specify the period. By default, the period is set in 1 hour. The function execution logs are stored for 14 days. The time in the log is specified in UTC."
 ---
 
 # Viewing the execution log
@@ -23,12 +23,12 @@ Container runtime logs are stored for 14 days. The log uses [UTC]{% if lang == "
 
     {% include [timeslot](../../_includes/functions/timeslot.md) %}
 
-    {% include [function-list-note](../../_includes/serverless-containers/container-list-note.md) %}
+    {% include [serverless-containers-list-note](../../_includes/serverless-containers/container-list-note.md) %}
 
     View the container runtime log:
 
     ```
-     yc logging read --resource-ids=<container_ID>
+    yc logging read --resource-ids=<container_ID>
     ```
     
     Result:
