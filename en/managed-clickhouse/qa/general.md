@@ -149,4 +149,4 @@ The cluster characteristics change within 30 minutes. During this period, other 
 
 
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

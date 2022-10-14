@@ -2,6 +2,10 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## 01.09.2022 {#01.09.2022}
+
+* Added a `Free space` plot on the [cluster monitoring](operations/monitoring.md#monitoring-cluster) tab and an `Inode usage` plot on the [host monitoring](operations/monitoring.md#monitoring-hosts) page. {{ tag-con }}
+
 ## 01.08.2022 {#01.08.2022}
 
 * Added the `binlog_transaction_dependency_tracking` setting.

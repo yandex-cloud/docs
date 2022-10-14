@@ -5,4 +5,4 @@ description: "How can I get the logs of my work in the {{ message-queue-full-nam
 
 # General questions about {{ message-queue-name }}
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

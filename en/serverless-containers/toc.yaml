@@ -33,8 +33,30 @@ items:
             href: operations/delete.md
       - name: Managing triggers
         items:
+          - name: Getting information about a trigger
+            href: operations/trigger-list.md
+          - name: Creating a timer
+            href: operations/timer-create.md
+          - name: Creating a trigger for Message Queue
+            href: operations/ymq-trigger-create.md
+          - name: Creating a trigger for Object Storage
+            href: operations/os-trigger-create.md
           - name: Creating a trigger for Container Registry
             href: operations/cr-trigger-create.md
+          - name: Creating a trigger for Cloud Logging
+            href: operations/cloud-logging-trigger-create.md
+          - name: Creating a trigger for Yandex IoT Core
+            href: operations/iot-core-trigger-create.md
+          - name: Creating a trigger for budgets
+            href: operations/budget-trigger-create.md
+          - name: Creating a trigger for Data Streams
+            href: operations/data-streams-trigger-create.md
+          - name: Updating a trigger
+            href: operations/trigger-update.md
+          - name: Trigger monitoring
+            href: operations/trigger-monitoring.md
+          - name: Deleting a trigger
+            href: operations/trigger-delete.md
   - name: Concepts
     items:
       - name: Overview
@@ -45,6 +67,28 @@ items:
         href: concepts/invoke.md
       - name: Runtime environment
         href: concepts/runtime.md
+      - name: Trigger
+        items:
+          - name: Overview
+            href: concepts/trigger/index.md
+          - name: Timer
+            href: concepts/trigger/timer.md
+          - name: Trigger for Message Queue
+            href: concepts/trigger/ymq-trigger.md
+          - name: Trigger for Object Storage
+            href: concepts/trigger/os-trigger.md
+          - name: Trigger for Container Registry
+            href: concepts/trigger/cr-trigger.md
+          - name: Trigger for Cloud Logging
+            href: concepts/trigger/cloud-logging-trigger.md
+          - name: Trigger for Yandex IoT Core
+            href: concepts/trigger/iot-core-trigger.md
+          - name: Trigger for budgets
+            href: concepts/trigger/budget-trigger.md
+          - name: Trigger for Data Streams
+            href: concepts/trigger/data-streams-trigger.md
+      - name: Dead Letter Queue
+        href: concepts/dlq.md
       - name: Container logs
         href: concepts/logs.md
       - name: Backups

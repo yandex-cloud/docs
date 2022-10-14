@@ -5,4 +5,4 @@ description: "How can I get the logs of my work in the Yandex Vision service? An
 
 # General questions about {{ vision-name }}
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

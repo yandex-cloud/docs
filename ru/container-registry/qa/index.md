@@ -24,7 +24,7 @@ Docker-клиент подставляет тег `latest` автоматиче�
 
 Ознакомьтесь с информацией в разделе [{#T}](../error/index.md), где перечислены часто встречающиеся ошибки и способы их решения.
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}
 
 #### Что означает ошибка "Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock"? {#permission-denied}
 

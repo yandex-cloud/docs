@@ -5,7 +5,7 @@ description: "Create a trigger in Yandex Cloud Functions that will launch a func
 
 # Creating a trigger
 
-Create a trigger that will run a function or a container when a certain event occurs or on a schedule.
+Create a trigger that will run a function when a certain event occurs or on a schedule.
 
 - [{#T}](timer-quickstart.md)
 - [{#T}](ymq-trigger-quickstart.md)

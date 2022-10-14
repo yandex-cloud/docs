@@ -149,4 +149,4 @@ RENAME DICTIONARY <имя_словаря> TO <новое_имя>
 
 
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

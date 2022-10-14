@@ -42,7 +42,10 @@
 
 ## {{ MG }} {#mongodb}
 
-* [{#T}](mongodb-migration.md)
+* [{#T}](mongodb-migration-with-data-transfer.md)
+* [{#T}](mongodb-data-migration.md)
+* [{#T}](mongodb-sharding.md)
+* [{#T}](mongodb-profiling.md)
 
 ## {{ MY }} {#mysql}
 

@@ -5,7 +5,7 @@ description: "Как мне поставлять в {{ monitoring-full-name }} �
 
 # Общие вопросы про {{ monitoring-name }}
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}
 
 #### Как посмотреть сервисные дашборды? {#dont-see-dashboards}
 

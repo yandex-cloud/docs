@@ -2,6 +2,10 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## 01.09.2022 {#01.09.2022}
+
+* Added support for managing connectors in the CLI with the `{{ yc-mdb-kf }} connector` command and MirrorMaker connectors with the `{{ yc-mdb-kf }} connector-mirrormaker` command. {{ tag-cli }}
+
 ## 01.08.2022 {#01.08.2022}
 
 * Improved the performance of transactions to modify user privileges for a large number of topics.

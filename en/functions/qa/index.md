@@ -5,7 +5,7 @@ description: "How can I get the logs of my work in the Yandex Cloud Functions se
 
 # General questions about {{ sf-name }}
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}
 
 #### Using the CLI to upload a ZIP file with the source code for a Serverless function update? {#version-create}
 

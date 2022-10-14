@@ -1,18 +1,17 @@
 # Trigger for {{ cloud-logging-full-name }}
 
-Triggers for {{ cloud-logging-full-name }} launch a [function](../function.md) in {{ sf-name }} or a [container](../../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }} when records are added to a [log group](../../../logging/concepts/log-group.md).
+A trigger for {{ cloud-logging-full-name }} runs a {{ sf-name }} [function](../function.md) when messages are received in a [log group](../../../logging/concepts/log-group.md).
 
 ## Roles required for the proper operation of a trigger for {{ cloud-logging-name }} {#roles}
 
-* To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the roles [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor), and higher.
+* To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user) and [editor](../../../iam/concepts/access-control/roles#editor) roles and higher.
 * For a trigger to work, the service account needs:
-    * `serverless.functions.invoker` for the function that the trigger invokes.
-    * `serverless-containers-invoker` for the container that the trigger invokes.
-    * `logging.reader` for the log group which, when records are added, activates the trigger.
+   * `serverless.functions.invoker` for the function that the trigger invokes.
+   * `logging.reader` for the log group which, when records are added, activates the trigger.
 
 ## Format of the message from the trigger for {{ cloud-logging-name }} {#format}
 
-After the trigger is activated, it sends the following message to the function or the container:
+After the trigger is activated, it sends the following message to the function:
 
 ```
 {
@@ -48,3 +47,6 @@ After the trigger is activated, it sends the following message to the function o
 }
 ```
 
+## See also {#see-also_}
+
+* [Trigger for {{ cloud-logging-name }} that calls a {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/cloud-logging-trigger.md).

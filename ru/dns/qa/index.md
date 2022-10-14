@@ -8,4 +8,4 @@
 
 Рекомендуем использовать [кеширующие резолверы](../tutorials/local-dns-cache.md), например: `systemd-resolved`, `dnsmasq`, `unbound`. С их помощью можно снизить количество публичных DNS-запросов и, таким образом, уменьшить расходы.
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

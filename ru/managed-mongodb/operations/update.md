@@ -12,7 +12,9 @@
 
 - [Переместить кластер](#move-cluster) в другой каталог.
 
+
 - [{#T}](#change-sg-set).
+
 
 ## Изменить класс хостов {#change-resource-preset}
 
@@ -433,6 +435,7 @@
 
 {% endlist %}
 
+
 ## Изменить группы безопасности {#change-sg-set}
 
 {% list tabs %}
@@ -510,3 +513,4 @@
 Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для подключения к кластеру.
 
 {% endnote %}
+

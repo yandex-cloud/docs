@@ -2,6 +2,10 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## 01.09.2022 {#01.09.2022}
+
+* On the [cluster monitoring](operations/monitoring.md#monitoring-cluster) tab, added the `Inode usage`, `Memory usage`, and `Free space` plots.
+
 ## 01.08.2022 {#01.08.2022}
 
 * {{ PG }} 10 is [no longer](https://www.postgresql.org/about/news/postgresql-143-137-1211-1116-and-1021-released-2449/) supported. As of August 15, you can no longer create new clusters of this version, and an automatic cluster update is scheduled from September 1 as part of the maintenance window. For information about updating a cluster on your own, see [{#T}](operations/cluster-version-update.md).

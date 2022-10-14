@@ -5,4 +5,4 @@ description: "How can I get the logs of my work in the {{ kms-full-name }}? Answ
 
 # General questions about {{ kms-name }}
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

@@ -1,4 +1,6 @@
 # All use cases
 
-* [{#T}](./sharding.md)
+* [{#T}](./data-migration.md)
 * [{#T}](./profiling.md)
+* [{#T}](./sharding.md)
+* [{#T}](./mongodb-migration-with-data-transfer)

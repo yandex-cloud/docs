@@ -5,4 +5,4 @@ description: "How can I get the logs of my work in the Yandex Translate service?
 
 # General questions
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

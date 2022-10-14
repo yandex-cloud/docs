@@ -1,24 +1,12 @@
-Create a {{ objstorage-name }} [trigger](../../functions/concepts/trigger/os-trigger.md)that invokes a {{ sf-name }} [function](../../functions/concepts/function.md) or {{ serverless-containers-name }} [container](../../serverless-containers/concepts/container.md) when you create, move, or delete an [object](../../storage/concepts/object.md) in a bucket.
+Create a [trigger](../../functions/concepts/trigger/os-trigger.md) for {{ objstorage-name }} that calls a {{ sf-name }} [function](../../functions/concepts/function.md) when you create, move, or delete an [object](../../storage/concepts/object.md) in a bucket.
 
-To create a trigger, you need:
+For more information about creating a trigger for {{ objstorage-name }} that calls a container, see the {{ serverless-containers-full-name }} [documentation](../../serverless-containers/operations/os-trigger-create.md).
 
-* A function or a container the trigger will launch.
+## Before you begin {#before-you-begin}
 
-   * If you don't have a function:
-
-      * [Create a function](../../functions/operations/function/function-create.md).
-      * [Create a function version](../../functions/operations/function/version-manage.md#func-version-create).
-
-   * If you don't have a container:
-
-      * [Create a container](../../serverless-containers/operations/create.md).
-      * [Create a container revision](../../serverless-containers/operations/manage-revision.md#create).
+{% include [trigger-before-you-begin](trigger-before-you-begin.md) %}
 
 * [Bucket](../../storage/concepts/bucket.md) whose object events will fire the trigger. If you don't have a bucket, [create one](../../storage/operations/buckets/create.md).
-
-* (optional) A [Dead Letter Queue](../../functions/concepts/dlq.md) where messages that could not be processed by a function or a container will be redirected. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
-
-* [Service account](../../iam/concepts/users/service-accounts.md) with rights to invoke a function or a container and (optionally) write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). You can use the same service account or different ones. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -40,7 +28,7 @@ To create a trigger, you need:
 
       * Enter a name and description for the trigger.
       * In the **Type** field, select **Object Storage**.
-      * Choose what the trigger will launch — a function or a container.
+      * In the **Launched resource** field, select **Function**.
 
    1. Under **Object Storage settings**:
 
@@ -49,21 +37,14 @@ To create a trigger, you need:
       * (optional) In the **Object key prefix** field, enter a [prefix](../../functions/concepts/trigger/os-trigger.md#filter) for filtering.
       * (optional) In the **Object key suffix** field, enter a [suffix](../../functions/concepts/trigger/os-trigger.md#filter) for filtering.
 
-   1. If the trigger launches:
+   1. Under **Function settings**, select a function and specify:
 
-      * A function, select one under **Function settings** and specify:
-
-         * [Tag of the function version](../../functions/concepts/function.md#tag);
-         * A [service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the function.
-
-      * A container, select one under **Container settings** and specify:
-
-         * A [container revision](../../serverless-containers/concepts/container.md#revision);
-         * A [service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the container.
+      * [Tag of the function version](../../functions/concepts/function.md#tag);
+      * A [service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the function.
 
    1. (optional) Under **Repeat request settings**:
 
-      * In the **Interval** field, specify the time after which the function or the container will be invoked again if the current attempt fails. Values can be from 10 to 60 seconds. The default is 10 seconds.
+      * In the **Interval** field, specify the time after which the function will be invoked again if the current attempt fails. Values can be from 10 to 60 seconds. The default is 10 seconds.
       * In the **Number of attempts** field, specify the number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). Values can be from 1 to 5. The default is 1.
 
    1. (optional) Under **Dead Letter Queue settings**, select the [Dead Letter Queue](../../functions/concepts/dlq.md) and the service account with write privileges for this queue.

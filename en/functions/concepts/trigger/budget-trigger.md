@@ -1,18 +1,17 @@
 # Trigger for budgets
 
-Triggers for [budgets](../../../billing/concepts/budget.md) launch a [function](../function.md) in {{ sf-name }} or a [container](../../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }} when threshold values are exceeded.
+Trigger for [budgets](../../../billing/concepts/budget.md) calls a {{ sf-name }} [function](../function.md) when threshold values are exceeded.
 
 ## Roles required for the proper operation of a trigger for budgets {#roles}
 
-* To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the roles [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor), and higher.
+* To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user) and [editor](../../../iam/concepts/access-control/roles#editor) roles and higher.
 * For a trigger to work, the service account needs:
-    * `serverless.functions.invoker` for the function that the trigger invokes.
-    * `serverless.containers.invoker` for the container that the trigger invokes.
-    * `viewer` for the cloud that the billing account is linked to.
+   * `serverless.functions.invoker` for the function that the trigger invokes.
+   * `viewer` for the cloud that the billing account is linked to.
 
 ## Format of the message from the trigger for budgets {#format}
 
-After the trigger is activated, it sends the following message to the function or the container:
+After the trigger is activated, it sends the following message to the function:
 
 ```
 {
@@ -43,6 +42,9 @@ Where:
 * `budgeted_amount`: Budget amount.
 * `threshold_amount`: Consumption threshold that triggered notifications.
 * `threshold_type`: Threshold type:
-  * `amount`: Currency.
-  * `percent`: Percentage.
+   * `amount`: Currency.
+   * `percent`: Percentage.
 
+## See also {#see-also_}
+
+* [Trigger for budgets that calls a {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/budget-trigger.md).

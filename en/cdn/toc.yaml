@@ -49,6 +49,8 @@ items:
             href: operations/origin-groups/delete-group.md
   - name: Practical guidelines
     items:
+      - name: All practical guidelines
+        href: tutorials/index.md
       - name: Publishing game updates
         href: tutorials/prefetch.md
       - name: Integrating an L7 load balancer with the CDN and Object Storage

@@ -11,11 +11,11 @@
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) и [назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md) `k8s.tunnelClusters.agent` и `vpc.publicAdmin`.
-1. [Создайте кластер](kubernetes-cluster/kubernetes-cluster-create.md) {{ k8s }} со следующими настройками:
-   1. **Сервисный аккаунт для ресурсов** — созданный ранее сервисный аккаунт с ролями `k8s.tunnelClusters.agent` и `vpc.publicAdmin`.
-   1. **Релизный канал** — `RAPID`.
-   1. В блоке **Сетевые настройки кластера** выберите опцию **Включить туннельный режим**.
-1. [Создайте группу узлов](node-group/node-group-create.md) любой подходящей вам конфигурации.
+1. [Создайте кластер](kubernetes-cluster/kubernetes-cluster-create.md) {{ k8s }} любой подходящей конфигурации.
+
+   В блоке **Сетевые настройки кластера** выберите опцию **Включить туннельный режим**.
+
+1. [Создайте группу узлов](node-group/node-group-create.md) любой подходящей конфигурации.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 

@@ -24,7 +24,7 @@ Don't assign the `container-registry.images.pusher`, `editor` or `admin` roles t
 
 See [{#T}](../error/index.md). It lists common errors and ways to solve them.
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}
 
 #### What does the "Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock" error mean? {#permission-denied}
 

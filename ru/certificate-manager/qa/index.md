@@ -5,4 +5,4 @@ description: "Как получить логи моей работы в серв
 
 # Общие вопросы про {{ certificate-manager-name }}
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

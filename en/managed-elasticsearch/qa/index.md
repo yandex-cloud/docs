@@ -43,4 +43,4 @@ Clusters running a deprecated version of {{ ES }} are updated according to the [
 
 The owners of the affected clusters receive advanced notice of expected work times and DB availability.
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

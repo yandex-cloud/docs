@@ -56,8 +56,8 @@ items:
       - name: Миграция данных в {{ mmg-name }}
         href: tutorials/data-migration.md
       - name: Миграция коллекций из стороннего кластера {{ MG }}
-        href: tutorials/mongodb-migration.md
-      - name: Анализ производительности и оптимизация
+        href: tutorials/mongodb-migration-with-data-transfer.md
+      - name: Анализ производительности и оптимизация {{ MG }}
         href: tutorials/profiling.md
   - name: Концепции
     items:

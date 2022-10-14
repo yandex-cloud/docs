@@ -31,7 +31,7 @@ Settings of rules depend on the connection method you select:
    * Source: `CIDR`.
    * CIDR blocks: `0.0.0.0/0`.
 
-- With a VM in {{ yandex-cloud }} 
+- With a VM in {{ yandex-cloud }}
    
    1. [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic from the security group where your VM is located on port {{ port-mmy }}. To do this, create the following rule for incoming traffic in these groups:
 
@@ -84,7 +84,7 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 - Linux (Bash)
 
-  {% include [install-certificate](../../_includes/mdb/mmy/install-certificate.md) %}
+   {% include [install-certificate](../../_includes/mdb/mmy/install-certificate.md) %}
 
    The certificate will be saved in the `$HOME/.mysql/root.crt` directory.
 
@@ -177,7 +177,7 @@ A FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` always points to the current clus
 
 When connecting to this FQDN, both read and write operations are allowed.
 
-An example of connecting to a master host for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
+Example of connecting to a master host for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
 
 ```bash
 mysql --host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
@@ -196,7 +196,7 @@ FQDN like `c-<cluster ID>.ro.{{ dns-zone }}` points to the least lagging [replic
 **Specifics:**
 
 * When connecting to this FQDN, only read operations are allowed.
-* If there are no active replicas in the cluster, you can't connect to this FQDN: the corresponding CNAME record in the DNS will point to <q>nowhere</q> (`null`).
+* If there are no active replicas in a cluster, you can't connect to this FQDN: the corresponding DNS CNAME record will point to a null object (`null`).
 
 An example of connecting to the least lagging replica for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
 

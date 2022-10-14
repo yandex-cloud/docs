@@ -8,6 +8,7 @@
 
 {% include [cluster-connect-note-monolithic](../../_includes/mdb/cluster-connect-note-monolithic.md) %}
 
+
 ## Настройка групп безопасности {#configuring-security-groups}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
@@ -47,6 +48,7 @@
             Это правило разрешает любой исходящий трафик, что позволяет не только подключаться к кластеру, но и устанавливать на ВМ необходимые для этого сертификаты и утилиты.
 
 {% endlist %}
+
 
 
 ## Автоматический выбор первичного мастера {#automatic-master-host-selection}

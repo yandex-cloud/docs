@@ -62,6 +62,15 @@
         ])
     ```
 
+1. Создайте и скомпилируйте модель:
+
+    ```python
+    model = create_model()
+    model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+    ```
+
 1. Запустите обучение модели, указав служебную команду `#pragma repeat` в начале ячейки: 
 
     ```python

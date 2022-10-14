@@ -2,6 +2,14 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## 01.09.2022 {#01.09.2022}
+
+* Added support for the [postgis](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/5/greenplum-database/GUID-ref_guide-extensions-postGIS.html) extension.
+* Added the ability to edit clusters and cluster settings via CLI as well as to grant access from {{ data-transfer-full-name }}. For more information, see [YC CLI Releases](../cli/release-notes.md#version0.94.0). {{ tag-cli }}
+* Updated the master failover mechanism: a former master is returned to a cluster as a replica and becomes available for another failover right after the first one completes.
+* Added the `gp_cancel_backend` function to forcibly stop user queries.
+* Added the `gp_terminate_backend` function to forcibly terminate user DB connections.
+
 ## 01.08.2022 {#01.08.2022}
 
 * Added the ability to change the administrator password. {{ tag-cli }} {{ tag-tf }}

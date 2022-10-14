@@ -8,7 +8,7 @@
 
 ## Перенос данных с использованием сервиса {{ data-transfer-full-name }} {#data-transfer}
 
-{% include notitle [MMG collections migration with Data Transfer](../_tutorials/datatransfer/managed-mongodb.md) %}
+{% include notitle [MMG collections migration with Data Transfer](../datatransfer/managed-mongodb.md) %}
 
 ## Пример переноса коллекции {#example}
 
@@ -69,17 +69,17 @@
 
 - Нешардированный кластер-приемник
 
-  1. [Создайте кластер](../managed-mongodb/operations/cluster-create.md) {{ mmg-name }} любой подходящей конфигурации.
-  1. [Создайте базу данных](../managed-mongodb/operations/databases.md#add-db) `db1`.
-  1. [Создайте пользователя](../managed-mongodb/operations/cluster-users.md#adduser) `user_transfer` с ролью [`readWrite`](../managed-mongodb/concepts/users-and-roles.md#readWrite) на созданную базу.
+  1. [Создайте кластер](../../managed-mongodb/operations/cluster-create.md) {{ mmg-name }} любой подходящей конфигурации.
+  1. [Создайте базу данных](../../managed-mongodb/operations/databases.md#add-db) `db1`.
+  1. [Создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) `user_transfer` с ролью [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) на созданную базу.
   
 - Шардированный кластер-приемник
 
-  1. [Создайте кластер](../managed-mongodb/operations/cluster-create.md) {{ mmg-name }} любой подходящей конфигурации. В кластере должно быть не менее двух хостов.
-  1. [Включите шардирование](../managed-mongodb/operations/shards.md).
-  1. [Создайте базу данных](../managed-mongodb/operations/databases.md#add-db) `db1`.
-  1. [Создайте пользователя](../managed-mongodb/operations/cluster-users.md#adduser) `user_transfer` с ролью [`readWrite`](../managed-mongodb/concepts/users-and-roles.md#readWrite) на созданную базу и ролью [`mdbShardingManager`](../managed-mongodb/concepts/users-and-roles.md#mdbShardingManager) на служебную базу `admin`.
-  1. Следуя [инструкции](../managed-mongodb/tutorials/sharding.md), создайте и настройте в базе `db1` пустую шардированную коллекцию `collection1`.
+  1. [Создайте кластер](../../managed-mongodb/operations/cluster-create.md) {{ mmg-name }} любой подходящей конфигурации. В кластере должно быть не менее двух хостов.
+  1. [Включите шардирование](../../managed-mongodb/operations/shards.md).
+  1. [Создайте базу данных](../../managed-mongodb/operations/databases.md#add-db) `db1`.
+  1. [Создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) `user_transfer` с ролью [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) на созданную базу и ролью [`mdbShardingManager`](../../managed-mongodb/concepts/users-and-roles.md#mdbShardingManager) на служебную базу `admin`.
+  1. Следуя [инструкции](../../managed-mongodb/tutorials/sharding.md), создайте и настройте в базе `db1` пустую шардированную коллекцию `collection1`.
 
 {% endlist %}
 
@@ -89,7 +89,7 @@
 
 - Нешардированный кластер-приемник
 
-  1. [Создайте эндпоинт для кластера-источника](../data-transfer/operations/endpoint/index.md#create):
+  1. [Создайте эндпоинт для кластера-источника](../../data-transfer/operations/endpoint/index.md#create):
       * **Тип базы данных** — `{{ MG }}`.
       * **Настройки подключения** — `Пользовательская инсталляция`.
         * **Сертификат CA** — загрузите файл сертификата, если при подключении к кластеру-источнику требуется шифрование.
@@ -98,21 +98,21 @@
         * **Источник аутентификации** — `db1`.
         * **Имя пользователя** — `user1`.
         * **Пароль** — укажите пароль пользователя `user1`.
-  1. [Создайте эндпоинт для кластера-приемника](../data-transfer/operations/endpoint/index.md#create):
+  1. [Создайте эндпоинт для кластера-приемника](../../data-transfer/operations/endpoint/index.md#create):
       * **Тип базы данных** — `{{ MG }}`.
       * **Настройки подключения** — `Кластер MDB`.
         * Укажите идентификатор кластера-приемника.
         * **Имя пользователя** — `user_transfer`.
         * **Пароль** — укажите пароль пользователя `user_transfer`.
         * **Политика очистки** — `DROP`.
-  1. [Создайте трансфер](../data-transfer/operations/transfer.md#create):
+  1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create):
      * **Тип трансфера** — `{{ dt-type-copy-repl }}`.
      * **Источник** — выберите созданный эндпоинт для кластера-источника.
      * **Приемник** — выберите созданный эндпоинт для кластера-приемника.
 
 - Шардированный кластер-приемник
 
-  1. [Создайте эндпоинт для кластера-источника](../data-transfer/operations/endpoint/index.md#create):
+  1. [Создайте эндпоинт для кластера-источника](../../data-transfer/operations/endpoint/index.md#create):
       * **Тип базы данных** — `{{ MG }}`.
       * **Настройки подключения** — `Пользовательская инсталляция`.
         * **Сертификат CA** — загрузите файл сертификата, если при подключении к кластеру-источнику требуется шифрование.
@@ -121,14 +121,14 @@
         * **Источник аутентификации** — `db1`.
         * **Имя пользователя** — `user1`.
         * **Пароль** — укажите пароль пользователя `user1`.
-  1. [Создайте эндпоинт для кластера-приемника](../data-transfer/operations/endpoint/index.md#create):
+  1. [Создайте эндпоинт для кластера-приемника](../../data-transfer/operations/endpoint/index.md#create):
       * **Тип базы данных** — `{{ MG }}`.
       * **Настройки подключения** — `Кластер MDB`.
          * Укажите идентификатор кластера-приемника.
          * **Имя пользователя** — `user_transfer`.
          * **Пароль** — укажите пароль пользователя `user_transfer`.
          * **Политика очистки** — `DISABLED` или `TRUNCATE`.
-  1. [Создайте трансфер](../data-transfer/operations/transfer.md#create):
+  1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create):
       * **Тип трансфера** — `{{ dt-type-copy-repl }}`.
       * **Источник** — выберите созданный эндпоинт для кластера-источника.
       * **Приемник** — выберите созданный эндпоинт для кластера-приемника.
@@ -141,11 +141,11 @@
 
 - Нешардированный кластер-приемник
 
-  1. [Активируйте](../data-transfer/operations/transfer.md#activate) созданный трансфер.
+  1. [Активируйте](../../data-transfer/operations/transfer.md#activate) созданный трансфер.
   1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
   1. Переведите кластер-источник в режим <q>только чтение</q> и переключите нагрузку на кластер-приемник.
-  1. На странице [мониторинга трансфера](../data-transfer/operations/monitoring.md) дождитесь снижения до нуля характеристики **Maximum lag on delivery, [s]**. Это значит, что на кластер-приемник перенесены все изменения, произошедшие в кластере-источнике после завершения копирования данных.
-  1. [Подключитесь](../managed-mongodb/operations/connect/non-sharded.md) к кластеру-приемнику.
+  1. На странице [мониторинга трансфера](../../data-transfer/operations/monitoring.md) дождитесь снижения до нуля характеристики **Maximum lag on delivery, [s]**. Это значит, что на кластер-приемник перенесены все изменения, произошедшие в кластере-источнике после завершения копирования данных.
+  1. [Подключитесь](../../managed-mongodb/operations/connect/non-sharded.md) к кластеру-приемнику.
   1. Проверьте, что коллекция `collection1` перенесена и количество документов в ней равно 200 000, как в кластере-источнике:
   
      ```javascript
@@ -159,11 +159,11 @@
 
 - Шардированный кластер-приемник
 
-  1. [Активируйте](../data-transfer/operations/transfer.md#activate) созданный трансфер.
+  1. [Активируйте]../../data-transfer/operations/transfer.md#activate) созданный трансфер.
   1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
   1. Переведите кластер-источник в режим <q>только чтение</q> и переключите нагрузку на кластер-приемник.
-  1. На странице [мониторинга трансфера](../data-transfer/operations/monitoring.md) дождитесь снижения до нуля характеристики **Maximum lag on delivery, [s]**. Это значит, что на кластер-приемник перенесены все изменения, произошедшие в кластере-источнике после завершения копирования данных.
-  1. [Подключитесь](../managed-mongodb/operations/connect/sharded.md) к кластеру-приемнику.
+  1. На странице [мониторинга трансфера](../../data-transfer/operations/monitoring.md) дождитесь снижения до нуля характеристики **Maximum lag on delivery, [s]**. Это значит, что на кластер-приемник перенесены все изменения, произошедшие в кластере-источнике после завершения копирования данных.
+  1. [Подключитесь](../../managed-mongodb/operations/connect/sharded.md) к кластеру-приемнику.
   1. Проверьте, что коллекция `collection1` перенесена, количество документов в ней равно 200 000, как в кластере-источнике, и документы распределены по шардам:
        
       ```javascript
@@ -207,10 +207,10 @@
 
 Если созданные ресурсы вам больше не нужны, удалите их:
 
-1. [Деактивируйте](../data-transfer/operations/transfer.md#deactivate) трансфер и дождитесь его перехода в статус {{ dt-status-stopped }}.
+1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) трансфер и дождитесь его перехода в статус {{ dt-status-stopped }}.
 
-    Подробнее о жизненном цикле трансфера читайте в [документации {{ data-transfer-full-name }}](../data-transfer/concepts/transfer-lifecycle.md).
+    Подробнее о жизненном цикле трансфера читайте в [документации {{ data-transfer-full-name }}](../../data-transfer/concepts/transfer-lifecycle.md).
 
-1. [Удалите](../data-transfer/operations/transfer.md#delete) остановленный трансфер.
-1. [Удалите эндпоинты для источника и приемника](../data-transfer/operations/endpoint/index.md#delete).
-1. [Удалите созданный кластер {{ mmg-name }}](../managed-mongodb/operations/cluster-delete.md).
+1. [Удалите](../../data-transfer/operations/transfer.md#delete) остановленный трансфер.
+1. [Удалите эндпоинты для источника и приемника](../../data-transfer/operations/endpoint/index.md#delete).
+1. [Удалите созданный кластер {{ mmg-name }}](../../managed-mongodb/operations/cluster-delete.md).

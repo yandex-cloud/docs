@@ -4,14 +4,14 @@
 
 {% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
 
-К кластеру можно подключиться как с использованием шифрования — через порты `9440` для [clickhouse-client]({{ ch.docs }}/interfaces/cli/) и `8443` для [HTTP-интерфейса]({{ ch.docs }}/interfaces/http/), так и без него — через порты `9000` и `8123` соответственно.
+К кластеру можно подключиться как с использованием шифрования — через порты `{{ port-mch-cli }}` для [clickhouse-client]({{ ch.docs }}/interfaces/cli/) и `{{ port-mch-http }}` для [HTTP-интерфейса]({{ ch.docs }}/interfaces/http/), так и без него — через порты `9000` и `8123` соответственно.
+
 
 ## Настройка групп безопасности {#configuring-security-groups}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
 Настройки правил будут различаться в зависимости от выбранного способа подключения:
-
 
 {% list tabs %}
 
@@ -59,7 +59,6 @@
 
 {% endlist %}
 
-
 {% note info %}
 
 Вы можете задать более детальные правила для групп безопасности, например, разрешающие трафик только в определенных подсетях.
@@ -69,6 +68,7 @@
 {% endnote %}
 
 Подробнее о группах безопасности см. в разделе [{#T}](../concepts/network.md#security-groups).
+
 
 ## Получение SSL-сертификата {#get-ssl-cert}
 

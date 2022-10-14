@@ -7,7 +7,7 @@ If you have devices that require a fast response to sensor readings and you may 
 The table below describes actions that devices and registries can perform using topics:
 
 | Topics | Device | Registry |
-| ---- | ---- | ---- |
+----|----|----
 | `$devices/<device ID>/events` <br/><br/>`$devices/<device ID>/state` | Sends telemetry data. | Receives telemetry data. <br/>The device is known. |
 | `$devices/<device ID>/commands` <br/><br/>`$devices/<device ID>/config` | Receives commands. | Sends commands to a specific device. |
 | `$registries/<registry ID>/events` <br/><br/>`$registries/<registry ID>/state` | Sends telemetry data. | Receives telemetry data from all devices in the registry.<br/>The device is unknown. |
@@ -16,7 +16,7 @@ The table below describes actions that devices and registries can perform using 
 
 ## Using topic aliases {#aliases}
 
-_An alias_ is an alternate name of a [device topic](./devices-topic) assigned by the user. Aliases can be assigned to standard topics that are already implemented in the service and topics with arbitrary subtopics.
+An _alias_ is an alternate name of a [device topic](devices-topic.md) assigned by the user. Aliases can be assigned to standard topics that are already implemented in the service and topics with arbitrary subtopics.
 
 {% include [monitoring-topic](../../../_includes/iot-core/monitoring-topic.md) %}
 
@@ -30,20 +30,20 @@ You can use aliases for sending messages and subscribing to messages along with 
 
 Aliases must uniquely identify devices, so the topic that the alias is assigned to must contain a unique device ID.
 
-> If you [create an alias](../../operations/device/alias/alias-create.md) `my/alias/=$devices/<device ID>/`, you can use the `my/alias/events` topic. This is the same as `$devices/<device ID>/events`. Similarly, you can use other topics starting with `$devices/<device ID>/`.
+> If you [create an alias](../../operations/device/alias/alias-create.md) `my/alias/=$devices/<device ID>/`, you can use the `my/alias/events` topic. This is the same as `$devices/< device ID>/events`. Similarly, you can use other topics starting with `$devices/<device ID>/`.
 
 Aliases can't match the prefixes of other aliases within the same registry.
 
 > If you created an alias like `my/alias/=...` in a registry, you can't create aliases like `my/=...`, `my/alias/2/=...`, or `my/ali=...` in this registry.
 
-> You can create such aliases as `my/alias1/=...`, `my/alias2/=...`, or `my/ali/=...`.
+> You can create such aliases as `my/alias1/=...`, `my/alias2/=...` or `my/ali/=...`.
 
 ## Using $me system aliases in $me topics {#mealias}
 
 To avoid entering the ID of the device on whose behalf an MQTT session is established each time, you can use $me topics based on `$me` aliases already created in the service.
 
 | $me topic | Equivalent topic |
-| ---- | ---- |
+----|----
 | `$me/device/events` | `$devices/<device ID>/events` |
 | `$me/device/commands` | `$devices/<device ID>/commands` |
 | `$me/device/state` | `$devices/<device ID>/state` |
@@ -90,7 +90,7 @@ For example, devices subscribed to `$registries/<registry ID>/commands/+` will g
 Examples of using **+**:
 
 * `$devices/<device ID>/+` — Subscribe to all topics with telemetry data and commands of a specific device.
-* `$devices/<device ID/events/+` — Subscribe to all topics with a specific device's telemetry data from all rooms. The example assumes that the `+` stands for the room.
+* `$devices/<device ID/events/+` — Subscribe to all topics with a specific device's telemetry data from all rooms. The example assumes that the `+` stands for the location.
 * `$devices/+/events/bedroom/temperature` — Subscribe to all topics with bedroom temperature telemetry data from all devices.
 * `$devices/+/events/bedroom/+` — Subscribe to all topics with bedroom telemetry data from all devices. The example assumes that the `+` stands for the unique device ID and sensor type.
 
@@ -110,15 +110,18 @@ Filtering also takes general rules for subscribing to topics into account, such 
 
    In this case, you'll also get all messages sent to `$devices/<DeviceID>/events`.
 
-* Subscribing to the `$registries/#` filter with the [device certificate](../../operations/certificates/device-certificates.md) is the same as subscribing to `$registries/<registry ID>/commands/#`.
+* Subscribing to the `$registries/#` filter with a [device certificate](../../operations/certificates/device-certificates.md) is the same as subscribing to `$registries/<registry ID>/commands/#`.
 
    In this case, you'll also get all messages sent to `$registries/<registry ID>/commands`.
 
 ## Triggers for topics {#trigger}
 
-_Triggers_ are conditions that automatically launch a specific function when met.
+_Triggers_ are conditions that automatically launch a specific function or container when met.
 
-{% include [iot-core](../../../_includes/functions/iot-core-trigger-description.md) %}
+The trigger for {{ iot-short-name }} is designed for managing messages exchanged between devices and registries. The trigger is created for topics: it picks up copies of messages from them and passes them to the [function](../../../functions/concepts/function.md) {{ sf-name }} or [container](../../../serverless-containers/concepts/container.md) {{ serverless-containers-name }} for processing.
 
-Read more about triggers in the [{{ sf-name }} documentation](../../../functions/concepts/trigger/index.md).
+{% include [trigger](../../../_includes/iot-core/trigger.md) %}
 
+A trigger for {{ iot-short-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to call the function or container.
+
+Read more about triggers in the [{{ sf-name }}](../../../functions/concepts/trigger/index.md) and [{{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/index.md) documentation.
