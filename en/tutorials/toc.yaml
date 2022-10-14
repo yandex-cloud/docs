@@ -218,6 +218,19 @@ items:
       - name: Migrating data from a third-party {{ ES }} cluster to {{ mes-full-name }} using the Reindex API
         href: dataplatform/migration-via-reindex-api.md
         when: product == "yandex-cloud"
+        # MG
+      - name: Migrating collections from {{ MG }} to {{ mmg-name }}
+        href: dataplatform/mongodb-migration-with-data-transfer.md
+        when: product == "yandex-cloud"
+      - name: Migrating data to {{ mmg-name }}
+        href: dataplatform/mongodb-data-migration.md
+        when: product == "yandex-cloud"
+      - name: Sharding collections {{ MG }}
+        href: dataplatform/mongodb-sharding.md
+        when: product == "yandex-cloud"
+      - name: Performance analysis and tuning of {{ MG }}
+        href: dataplatform/mongodb-profiling.md
+        when: product == "yandex-cloud"
         # MY
       - name: Migrating databases from a third-party {{ MY }} cluster to a {{ mmy-full-name }} cluster
         href: dataplatform/mysql-data-migration.md

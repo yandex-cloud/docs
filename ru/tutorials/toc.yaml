@@ -226,7 +226,16 @@ items:
         when: product == "yandex-cloud"
         # MG
       - name: Миграция коллекций из стороннего кластера {{ MG }} в {{ mmg-full-name }}
-        href: dataplatform/mongodb-migration.md
+        href: dataplatform/mongodb-migration-with-data-transfer.md
+        when: product == "yandex-cloud"
+      - name: Миграция данных в {{ mmg-full-name }}
+        href: dataplatform/mongodb-data-migration.md
+        when: product == "yandex-cloud"
+      - name: Шардирование коллекций {{ MG }}
+        href: dataplatform/mongodb-sharding.md
+        when: product == "yandex-cloud"
+      - name: Анализ производительности и оптимизация {{ MG }}
+        href: dataplatform/mongodb-profiling.md
         when: product == "yandex-cloud"
         # MY
       - name: Миграция базы данных из стороннего кластера {{ MY }} в кластер {{ mmy-full-name }}

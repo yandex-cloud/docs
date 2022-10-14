@@ -8,7 +8,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
 
 ## Transferring data using {{ data-transfer-full-name }} {#data-transfer}
 
-{% include notitle [MMG collections migration with Data Transfer](../tutorials/datatransfer/managed-mongodb.md) %}
+{% include notitle [MMG collections migration with Data Transfer](../datatransfer/managed-mongodb.md) %}
 
 ## Example of migrating a collection {#example}
 

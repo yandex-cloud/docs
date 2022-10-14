@@ -44,6 +44,15 @@
 * [{#T}](migration-via-reindex-api.md)
 {% endif %}
 
+{% if product == "yandex-cloud" %}
+## {{ MG }} {#mongodb}
+
+* [{#T}](mongodb-migration-with-data-transfer.md)
+* [{#T}](mongodb-data-migration.md)
+* [{#T}](mongodb-sharding.md)
+* [{#T}](mongodb-profiling.md)
+{% endif %}
+
 ## {{ MY }} {#mysql}
 
 * [{#T}](mysql-data-migration.md)
