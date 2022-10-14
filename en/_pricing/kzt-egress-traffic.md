@@ -1,4 +1,4 @@
-### Outgoing traffic {#prices-traffic}
+### Egress traffic {#prices-traffic}
 
 When using the service, you pay for traffic from {{ yandex-cloud }} to the internet. Traffic between {{ yandex-cloud }} services and incoming internet traffic are free.
 

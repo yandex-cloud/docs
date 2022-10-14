@@ -1,4 +1,3 @@
-| Feature | Rate for 1000 units per month, without VAT |
+| Service | Cost per 1000 units per month,<br> with VAT |
 | ----- | ----- |
-| [Text recognition](../../vision/concepts/ocr/index.md) | {{ sku|KZT|ai.vision.text_detection|string }} |
-
+| [Text recognition](../../vision/concepts/ocr/index.md) | {{ sku|KZT|ai.vision.text_detection|int|string }} |
