@@ -49,6 +49,8 @@ items:
             href: operations/origin-groups/delete-group.md
   - name: Практические руководства
     items:
+      - name: Все практические руководства
+        href: tutorials/index.md
       - name: Публикация обновлений для игр
         href: tutorials/prefetch.md
       - name: Интеграция L7-балансировщика с CDN и Object Storage

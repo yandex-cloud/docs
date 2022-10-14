@@ -30,6 +30,9 @@ items:
       - name: Создание балансировщика с защитой от DDoS
         href: web/alb-with-ddos-protection.md
         when: product == "yandex-cloud"
+      - name: Публикация обновлений для игр
+        href: web/prefetch.md
+        when: product == "yandex-cloud"
       - name: Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name }}
         href: web/cdn-storage-integration.md
         when: product == "yandex-cloud"
@@ -229,7 +232,7 @@ items:
       - name: Миграция базы данных из стороннего кластера {{ MY }} в кластер {{ mmy-full-name }}
         href: dataplatform/mysql-data-migration.md
       - name: Анализ производительности и оптимизация {{ mmy-name }}
-        href: dataplatform/profiling-mmy.md    
+        href: dataplatform/profiling-mmy.md
       - name: Синхронизация данных из стороннего кластера {{ MY }} в {{ mmy-full-name }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/sync-mysql.md
       - name: Миграция базы данных из {{ mmy-full-name }} в сторонний кластер {{ MY }}
@@ -247,7 +250,7 @@ items:
       - name: Миграция базы данных из стороннего кластера {{ RD }} в {{ mrd-full-name }}
         href: dataplatform/redis-data-migration.md
       - name: Использование кластера {{ mrd-name }} в качестве хранилища сессий PHP
-        href: dataplatform/redis-as-php-sessions-storage.md        
+        href: dataplatform/redis-as-php-sessions-storage.md
         when: product == "yandex-cloud"
         # MS
       - name: Миграция базы данных из стороннего кластера {{ MS }} в {{ mms-full-name }}

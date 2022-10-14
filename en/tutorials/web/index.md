@@ -13,6 +13,7 @@
 {% if product == "yandex-cloud" %}
 * [Creating a load balancer with DDoS protection](alb-with-ddos-protection.md)
 * [Integrating an L7 load balancer with the {{ cdn-short-name }} and {{ objstorage-short-name }}](cdn-storage-integration.md)
+* [Publishing game updates using {{ cdn-full-name }}](prefetch.md)
 * [Enabling blue-green and canary deployment of web service versions](blue-green-canary-deployment.md)
 {% endif %}
 * [Terminating TLS connections](tls-termination.md)

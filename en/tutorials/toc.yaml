@@ -25,6 +25,9 @@ items:
         href: web/wordpress-transfer.md
       - name: 1C-Bitrix website
         href: web/bitrix-website.md
+      - name: Publishing game updates
+        href: web/prefetch.md
+        when: product == "yandex-cloud"
       - name: Integrating an L7 load balancer with the {{ cdn-name }} and {{ objstorage-name }}
         href: web/cdn-storage-integration.md
         when: product == "yandex-cloud"
