@@ -16,6 +16,8 @@ items:
         href: operations/security-groups-target.md
       - name: Creating a test with data from a bucket
         href: operations/create-test-bucket.md
+      - name: Transferring test logs to {{ cloud-logging-name }}
+        href: operations/logging.md
   - name: Practical guidelines
     items:
       - name: Load testing of the gRPC service
