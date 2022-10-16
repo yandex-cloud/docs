@@ -228,9 +228,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
       resource "yandex_resourcemanager_folder_iam_binding" "editor" {
         folder_id = "${data.yandex_resourcemanager_folder_iam_member.project1.id}"
-
         role = "editor"
-
         members = [
           "userAccount:<login@yandex.ru>",
         ]
@@ -249,9 +247,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
       resource "yandex_resourcemanager_folder_iam_binding" "editor" {
         folder_id = "${data.yandex_resourcemanager_folder_iam_member.project1.id}"
-
         role = "editor"
-
         members = [
           "federatedUser:<user ID>",
         ]
@@ -479,18 +475,14 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
       resource "yandex_resourcemanager_folder_iam_binding" "editor" {
         folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
-
         role = "editor"
-
         members = [
           "userAccount:<login1@yandex.ru>"
         ]
       }
       resource "yandex_resourcemanager_folder_iam_binding" "operator" {
         folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
-
         role = "operator"
-
         members = [
           "userAccount:<login1@yandex.ru>"
         ]
@@ -509,18 +501,14 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
       resource "yandex_resourcemanager_folder_iam_binding" "editor" {
         folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
-
         role = "editor"
-
         members = [
           "federatedUser:<user ID>"
         ]
       }
       resource "yandex_resourcemanager_folder_iam_binding" "operator" {
         folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
-
         role = "operator"
-
         members = [
           "federatedUser:<user ID>"
        ]
@@ -622,9 +610,7 @@ You can only use the management console to assign a service account a role for a
 
       resource "yandex_resourcemanager_folder_iam_binding" "editor" {
         folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
-
         role = "editor"
-
         members = [
           "serviceAccount:<service account ID>"
         ]

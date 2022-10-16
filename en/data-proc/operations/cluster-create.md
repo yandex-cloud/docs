@@ -215,7 +215,7 @@ A cluster must include a subcluster with a master host and at least one subclust
          --service-account-name=<cluster service account name> \
          --version=<image version> \
          --services=<component list> \
-         --ssh-public-keys-file=<full path to the file with the SSH key's public part> \
+         --ssh-public-keys-file=<full path to the file with the public part of the SSH key> \
          --subcluster name=<name of subcluster with master host>,`
                      `role=masternode,`
                      `resource-preset=<host class>,`
@@ -402,15 +402,17 @@ A cluster must include a subcluster with a master host and at least one subclust
       }
 
       resource "yandex_resourcemanager_folder_iam_binding" "dataproc" {
-        role    = "mdb.dataproc.agent"
-        members = [
-          "serviceAccount:${yandex_iam_service_account.<name of serivce account in {{ TF }}>.id}"
+        folder_id = "<folder ID>"
+        role      = "mdb.dataproc.agent"
+        members   = [
+          "serviceAccount:${yandex_iam_service_account.<name of service account in {{ TF }}>.id}"
         ]
       }
 
       resource "yandex_resourcemanager_folder_iam_binding" "bucket-creator" {
-        role    = "editor"
-        members = [
+        folder_id = "<folder ID>"
+        role      = "editor"
+        members   = [
           "serviceAccount:${yandex_iam_service_account.<name of service account in {{ TF }}>.id}"
         ]
       }
@@ -500,7 +502,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       }
       ```
 
-      {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
 
