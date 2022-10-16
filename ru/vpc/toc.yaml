@@ -19,6 +19,8 @@ items:
             href: operations/network-delete.md
           - name: Изменить облачную сеть
             href: operations/network-update.md
+          - name: Перенести облачную сеть между каталогами
+            href: operations/network-move.md
       - name: Подсеть
         items:
           - name: Создать подсеть
@@ -27,6 +29,8 @@ items:
             href: operations/subnet-delete.md
           - name: Изменить подсеть
             href: operations/subnet-update.md
+          - name: Перенести подсеть между каталогами
+            href: operations/subnet-move.md
           - name: Посмотреть список используемых адресов
             href: operations/subnet-used-addresses.md
       - name: IP-адрес
@@ -37,6 +41,8 @@ items:
             href: operations/set-static-ip.md
           - name: Сделать статический публичный IP-адрес динамическим
             href: operations/set-dynamic-ip.md
+          - name: Перенести адрес между каталогами
+            href: operations/address-move.md
           - name: Удалить статический публичный IP-адрес
             href: operations/address-delete.md
       - name: Статическая маршрутизация
@@ -48,6 +54,10 @@ items:
             href: operations/enable-nat.md
           - name: Создать и настроить NAT-шлюз
             href: operations/create-nat-gateway.md
+          - name: Перенести таблицу маршрутизации между каталогами
+            href: operations/static-route-move.md
+          - name: Перенести NAT-шлюз между каталогами
+            href: operations/static-gateway-move.md
       - name: Группы безопасности
         items:
           - name: Создать группу безопасности
@@ -58,6 +68,8 @@ items:
             href: operations/security-group-add-rule.md
           - name: Удалить правило
             href: operations/security-group-delete-rule.md
+          - name: Перенести группу безопасности между каталогами
+            href: operations/security-group-move.md
           - name: Удалить группу безопасности
             href: operations/security-group-delete.md
       - name: Включить программно-ускоренную сеть
