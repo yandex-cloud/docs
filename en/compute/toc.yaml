@@ -104,7 +104,6 @@ items:
             href: operations/vm-connect/ssh.md
           - name: Connecting to a VM via RDP
             href: operations/vm-connect/rdp.md
-            when: product == "cloud-il"
           - name: Connecting to a VM via PowerShell
             href: operations/vm-connect/powershell.md
             when: product == "cloud-il"
@@ -242,6 +241,8 @@ items:
       - name: Dedicated hosts
         when: product == "yandex-cloud"
         items:
+          - name: Creating a group of dedicated hosts
+            href: operations/dedicated-host/create-host-group.md
           - name: Creating a VM in a group of dedicated hosts
             href: operations/dedicated-host/running-host-group-vms.md
           - name: Creating a VM on a dedicated host

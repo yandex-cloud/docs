@@ -21,7 +21,7 @@ For individuals:
 
 {% note info %}
 
-To provide additional user details in your billing account contact [technical support](../support/overview.md#response-time).
+To update the user data in your billing account, please contact [technical support](../support/overview.md#response-time).
 
 {% endnote %}
 

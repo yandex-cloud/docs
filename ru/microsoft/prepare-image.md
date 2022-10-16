@@ -7,7 +7,7 @@
 Чтобы создать образ, готовый к использованию в {{ yandex-cloud }}:
 
 1. [Установите QEMU](https://www.qemu.org/download/).
-1. [Установите Packer](https://cloud.yandex.ru/docs/tutorials/infrastructure-management/packer-quickstart#install-packer).
+1. [Установите Packer](../tutorials/infrastructure-management/packer-quickstart#install-packer).
 1. Загрузите архив с [конфигурациями для Packer](https://storage.yandexcloud.net/packer-recipies/windows-packer.zip) и распакуйте его в нужную папку, например `windows-packer`.
 1. Склонируйте [репозиторий](https://github.com/virtio-win/kvm-guest-drivers-windows) с драйверами. Переместите папки `NetKVM`, `vioserial` и `viostor` в папку `windows-packer/drivers`. Папки содержат драйверы для разных ОС — обязательно используйте драйверы для вашей.
 1. Выберите подходящую для вашего продукта Microsoft конфигурацию для Packer и внесите следующие изменения в ее конфигурационный файл:

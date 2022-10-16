@@ -168,6 +168,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 
 ## Dedicated hosts {#dedicated-host}
 
+* [{#T}](dedicated-host/create-host-group.md)
 * [{#T}](dedicated-host/running-host-group-vms.md)
 * [{#T}](dedicated-host/running-host-vms.md)
 

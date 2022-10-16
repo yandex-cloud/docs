@@ -36,6 +36,12 @@ items:
       - name: Upgrading Windows Server to Datacenter edition
         href: tutorials/edition-update-datacenter.md
         when: product == "cloud-il"
+      - name: Preparing your own images with Microsoft products
+        href: prepare-image.md
+        when: product == "yandex-cloud"
+      - name: Using personal licenses for Microsoft products
+        href: byol.md
+        when: product == "yandex-cloud"
   - name: Licensing
     items:
       - name: Microsoft licenses in {{ yandex-cloud }}

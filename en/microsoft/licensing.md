@@ -49,7 +49,7 @@ If you already have corporate Microsoft licenses under Microsoft Software Assura
 
 You can use your license in a shared infrastructure according to the [License Mobility](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility) through Software Assurance program rules and on dedicated hardware under the Microsoft Product Terms.
 
-{% if product == "yandex-cloud" %}
+{% if product == "cloud-il" %}
 
 ### Using existing licenses under the License Mobility through Software Assurance program {#mobility}
 
@@ -96,7 +96,7 @@ To use your licenses in {{ yandex-cloud }} under the License Mobility through So
 
 ### Using existing licenses on a dedicated {{ yandex-cloud }} host {#dedicated-hosts}
 
-A [dedicated host ](../compute/concepts/dedicated-host.md)is a physical server that is intended solely for hosting your VMs in {{ yandex-cloud }}.
+A [dedicated host](../compute/concepts/dedicated-host.md) is a physical server that is intended solely for hosting your VMs in {{ yandex-cloud }}.
 
 If you need separate dedicated hardware to support your products, you can use Microsoft software licenses on a dedicated {{ compute-name }} host. To use your licenses on dedicated hardware, you must have a valid agreement with Microsoft perpetual licenses.
 
