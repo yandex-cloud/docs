@@ -3,11 +3,11 @@
 
 ## Adding {% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %}{#add-user-account} users
 
-If your employees have {% if product == "yandex-cloud" %}Yandex (for example, `{{login-example}}`){% endif %}{% if product == "cloud-il" %} Google{% endif %} accounts, they can use them to access {{yandex-cloud}} services enabled in your organization.
+If your employees have {% if product == "yandex-cloud" %}Yandex (for example, `{{ login-example }}`){% endif %}{% if product == "cloud-il" %} Google{% endif %} accounts, they can use them to access {{ yandex-cloud }} services enabled in your organization.
 
 {% note info %}
 
-A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](roles.md#admin).
+A user can be added by an organization administrator (`organization-manager.admin` role) or owner (`organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](roles.md#admin).
 
 {% endnote %}
 

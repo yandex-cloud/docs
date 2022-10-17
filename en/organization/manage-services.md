@@ -8,11 +8,11 @@ Collaboration services and business intelligence tools are available to all orga
 
 To go to cloud and service management:
 
-1. [Log in]({{link-passport}}) to the organization's administrator account.
+1. [Log in]({{ link-passport }}) to the organization's administrator account.
 
-1. Go to [{{org-full-name}}]({{link-org-main}}).
+1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-1. In the left panel, select [Clouds and services]({{link-org-services}}) ![icon-services](../_assets/organization/icon-services.svg).
+1. In the left panel, select [Clouds and services]({{ link-org-services }}) ![icon-services](../_assets/organization/icon-services.svg).
 
    The page displays a list of clouds connected to the organization as well as services, such as {{ tracker-full-name }}, {{ wiki-full-name }}, {{ forms-full-name }}, and {{ datalens-full-name }}.
 
@@ -38,11 +38,11 @@ Use {{ org-full-name }} to expand the capabilities of your business. To use [{{ 
 
 To go to cloud management:
 
-1. [Log in]({{link-passport}}) to the organization's administrator account.
+1. [Log in]({{ link-passport }}) to the organization's administrator account.
 
-1. Go to [{{org-full-name}}]({{link-org-main}}).
+1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-1. In the left panel, select [Clouds and services]({{link-org-services}}) ![icon-services](../_assets/organization/icon-services.svg). The page displays a list of clouds connected to the organization.
+1. In the left panel, select [Clouds and services]({{ link-org-services }}) ![icon-services](../_assets/organization/icon-services.svg). The page displays a list of clouds connected to the organization.
 
 1. To open a cloud in the {{ yandex-cloud }} console, click the cloud name.
 
@@ -52,7 +52,7 @@ To go to cloud management:
 
 A cloud is your organization's workspace. All the clouds connected to your organization are displayed in the **Clouds and services** section.
 
-A corporate administrator can create new directories and resources in the cloud, connect {{ yandex-cloud }} services, and manage relevant access. Learn more about using {{ yandex-cloud }} resources in the [ {{ resmgr-full-name }} documentation](../resource-manager/concepts/resources-hierarchy.md).
+A corporate administrator can create new directories and resources in the cloud, connect {{ yandex-cloud }} services, and manage relevant access. Learn more about using {{ yandex-cloud }} resources in the [{{ resmgr-full-name }} documentation](../resource-manager/concepts/resources-hierarchy.md).
 
 An organization's first cloud will connect automatically when an administrator logs in to the [{{ yandex-cloud }} console]({{ link-console-main }}). {% if product == "yandex-cloud" %}To connect an additional cloud, you need to create a [billing account](../billing/quickstart/).{% endif %}
 

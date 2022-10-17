@@ -1,4 +1,4 @@
-# API {{org-full-name}}
+# API {{ org-full-name }}
 
 Yandex 360 has two REST API interfaces for accessing Connect services via HTTP requests: the Directory API and the Tracker API.
 

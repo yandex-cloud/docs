@@ -1,12 +1,12 @@
 # Authentication using Azure Active Directory
 
-With an [identity federation](../../add-federation.md), you can use [Azure Active Directory]({{link-azure-ad}}) (Azure AD) to authenticate users in an organization.
+With an [identity federation](../../add-federation.md), you can use [Azure Active Directory]({{ link-azure-ad }}) (Azure AD) to authenticate users in an organization.
 
 Setting up authentication includes the following steps:
 
 1. [Creating and setting up a SAML application in Azure AD](#azure-settings).
 
-1. [Creating and setting up a federation in {{org-full-name}}](#yc-settings).
+1. [Creating and setting up a federation in {{ org-full-name }}](#yc-settings).
 
 1. [Setting up Single Sign-On (SSO)](#sso-settings).
 
@@ -66,7 +66,7 @@ Add users to the IdP server:
 
 1. Click **Assign**.
 
-## Creating and setting up a federation in {{org-full-name}} {#yc-settings}
+## Creating and setting up a federation in {{ org-full-name }} {#yc-settings}
 
 ### Create a federation {#create-federation}
 
@@ -74,9 +74,9 @@ Add users to the IdP server:
 
 - Management console
 
-   1. Go to [{{org-full-name}}]({{link-org-main}}).
+   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click **Create federation**.
 
@@ -247,7 +247,7 @@ Add users to the IdP server:
          If the option is enabled, the IDs of federated users' names are case-insensitive.
       * `security_settings`: Federation security settings:
          * `encrypted_assertions`: Sign authentication requests.
-            If this option is enabled, all authentication requests from {{yandex-cloud}} will have a digital signature. You need to download and install a {{yandex-cloud}} certificate.
+            If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You need to download and install a {{ yandex-cloud }} certificate.
 
       Example configuration file structure:
 
@@ -256,7 +256,7 @@ Add users to the IdP server:
        name            = "my-federation"
        organization_id = "<organization ID>"
        auto_create_account_on_login = "true"
-       issuer          = "https://sts.windows.net/<SAML application ID>/"      
+       issuer          = "https://sts.windows.net/<SAML application ID>/"
        sso_url         = "https://login.microsoftonline.com/<SAML application ID>/saml2"
        sso_binding     = "POST"
        security_settings {
@@ -271,7 +271,7 @@ Add users to the IdP server:
       1. Run the check using the command:
 
          ```
-         $ terraform plan
+         terraform plan
          ```
 
       If the configuration is described correctly, the terminal displays the federation parameters. If there are errors in the configuration, {{ TF }} points them out.
@@ -281,24 +281,24 @@ Add users to the IdP server:
       1. If the configuration doesn't contain any errors, run the command:
 
          ```
-         $ terraform apply
+         terraform apply
          ```
 
       1. Confirm that you want to create the federation.
 
-      This creates the federation in the specified organization. You can check that the federation is there and its settings are correct in the organization's [Federations]({{link-org-federations}}) section.
+      This creates the federation in the specified organization. You can check that the federation is there and its settings are correct in the organization's [Federations]({{ link-org-federations }}) section.
 
 {% endlist %}
 
 ### Add certificates {#add-certificate}
 
-While authenticating, the {{org-name}} service should be able to verify the IdP server certificate. To enable this, add the [downloaded](#azure-settings) certificate to the federation:
+While authenticating, the {{ org-name }} service should be able to verify the IdP server certificate. To enable this, add the [downloaded](#azure-settings) certificate to the federation:
 
 {% list tabs %}
 
 - Management console
 
-   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click the name of the federation to add a certificate to.
 
@@ -352,8 +352,8 @@ While authenticating, the {{org-name}} service should be able to verify the IdP 
    1. Send the add certificate request:
 
       ```bash
-      $ export IAM_TOKEN=CggaATEVAgA...
-      $ curl -X POST \
+      export IAM_TOKEN=CggaATEVAgA...
+      curl -X POST \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d '@body.json' \
@@ -376,7 +376,7 @@ Get the link:
 
 1. Copy the Federation ID:
 
-   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Copy the ID of the federation you're configuring access for.
 
@@ -413,10 +413,10 @@ The types of personal data supported by {{ org-full-name }} for Azure AD are lis
 | User data | Comment | Application Attributes |
 ------------------- | ----------- | -------------------
 | Unique user ID (Name ID) | Required attribute.<br> By default, Azure AD uses User Principal Name (UPN) in `<login>_<domain>#EXT#@<supplier>.onmicrosoft.com` format as the attribute source. When manually adding users to a federation, this Name ID format is not supported. We recommend changing the attribute source in Azure AD, replacing UPN `user.userprincipalname` with an email address `user.mail`. | **Unique user ID (ID)** claim |
-| Last name | Displayed in {{yandex-cloud}} services. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
-| Name | Displayed in {{yandex-cloud}} services. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
-| Full name | Displayed in {{yandex-cloud}} services.<br>Example: `John Smith` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
-| Email | Used to send notifications from {{yandex-cloud}} services.<br>Example: `smith@example.com` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
+| Last name | Displayed in {{ yandex-cloud }} services. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
+| Name | Displayed in {{ yandex-cloud }} services. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
+| Full name | Displayed in {{ yandex-cloud }} services.<br>Example: `John Smith` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
+| Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example: `smith@example.com` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
 
 ### Add users to your organization {#add-users}
 
@@ -428,11 +428,11 @@ To do this, you will need user Name IDs. They are returned by the IdP server alo
 
 - Management console
 
-   1. [Log in]({{link-passport}}) to the organization's administrator account.
+   1. [Log in]({{ link-passport }}) to the organization's administrator account.
 
-   1. Go to [{{org-full-name}}]({{link-org-main}}).
+   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../../../_assets/organization/icon-users.svg).
+   1. In the left panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
    1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
 
@@ -485,7 +485,7 @@ To do this, you will need user Name IDs. They are returned by the IdP server alo
    1. Send the request by specifying the Federation ID in the parameters:
 
       ```bash
-      $ curl -X POST \
+      curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM token>" \
         -d '@body.json' \

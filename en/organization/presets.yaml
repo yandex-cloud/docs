@@ -13,14 +13,14 @@ default:
   link-org-federations: https://org.cloud.yandex.com/federations
   link-org-services: https://org.cloud.yandex.com/services
   link-org-groups: https://org.cloud.yandex.com/groups
-
   
-  #Ссылки на сервисы Яндекса  
+  #Ссылки на сервисы Яндекса
   link-passport: https://passport.yandex.com/
   
   #Другое
   login-example: login@yandex.com
   yandex-domain: yandex.com
+  link-keycloak-example: http://keycloak.example.com:8080/auth/realms/master
 
   #Внешние ссылки
   #link-saml: https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language  в общем presets
@@ -30,7 +30,7 @@ default:
   link-azure-ad: https://azure.microsoft.com/en-us/services/active-directory/
 
   #Ссылки на справку на yandex.ru/support
-  support-passport-create: https://yandex.com/support/id/authorization/registration.html
+  support-passport-create: https://yandex.com/support/passport/authorization/registration.html
 
 cloud-il:
   service-name: Cloud Organization
