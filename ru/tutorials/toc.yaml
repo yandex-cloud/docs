@@ -64,7 +64,7 @@ items:
         href: archive/object-storage-cloudberry.md
       - name: Резервное копирование в {{ objstorage-name }} через Duplicati
         href: archive/object-storage-duplicati.md
-      - name: Резервное копирование в {{ objstorage-name }} через Bacula
+      - name: Резервное копирование в {{ objstorage-name }} с помощью Bacula
         href: archive/backup-with-bacula.md
       - name: Резервное копирование в {{ objstorage-name }} с помощью Veritas Backup Exec
         href: archive/object-storage-veritas.md
