@@ -60,7 +60,7 @@ items:
         href: archive/backup-and-archive-to-sftp.md
       - name: Резервное копирование в {{ objstorage-name }} через Acronis
         href: archive/object-storage-acronis.md
-      - name: Резервное копирование в {{ objstorage-name }} через CloudBerry Desktop Backup
+      - name: Резервное копирование в {{ objstorage-name }} с помощью CloudBerry Desktop Backup
         href: archive/object-storage-cloudberry.md
       - name: Резервное копирование в {{ objstorage-name }} через Duplicati
         href: archive/object-storage-duplicati.md

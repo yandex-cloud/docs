@@ -1,3 +1,3 @@
 Чтобы перестать платить за созданные ресурсы:
-* [удалите](../../storage/operations/objects/delete.md) объекты в бакете;
-* [удалите](../../storage/operations/buckets/delete.md) бакет.  
+1. [Удалите](../../storage/operations/objects/delete-all.md) объекты в бакете.
+1. [Удалите](../../storage/operations/buckets/delete.md) бакет.  
