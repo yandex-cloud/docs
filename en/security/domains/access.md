@@ -6,10 +6,10 @@ The platform works with three categories of users:
 
 {% if product == "yandex-cloud" %}
 * [Yandex accounts](../../iam/concepts/#passport): Accounts in Yandex ID.
-{% endif %}
-{% if product == "cloud-il" %}
+   {% endif %}
+   {% if product == "cloud-il" %}
 * Google accounts: Accounts in the Google authentication system.
-{% endif %}
+   {% endif %}
 * [Federated accounts](../../iam/concepts/#saml-federation): Accounts in a corporate [SAML-compatible identity federation](../../organization/add-federation.md), such as Active Directory.
 * [Service accounts](../../iam/concepts/#sa): Accounts that can be used by a program to manage resources.
 
@@ -20,6 +20,7 @@ The platform works with three categories of users:
 This ensures interaction of different categories of resources, roles, and users in the {{ yandex-cloud }} infrastructure. Access to resources is managed by {{ iam-short-name }}. {{ iam-short-name }} controls each request and makes sure that all operations with resources are only run by users who have the appropriate permissions.
 
 This section provides recommendations on how to ensure [safe operations](../../iam/best-practices/using-iam-securely.md) with {{ yandex-cloud }} services:
+
 * [Centralized management and identity federations](#saml-federation).
 * [Minimum privileges and security policy](#min-privileges).
 * [Using service accounts](#sa).
@@ -37,6 +38,7 @@ To simplify and automate role-based access management, the {{ iam-short-name }} 
 [{{ org-full-name }}](../../organization/) is a single service for managing the organizational structure, setting up integration with the employee catalog, and differentiating user access to the organization's cloud resources.
 
 For the purpose of centralized account management, use [SAML-compatible identity federations](../../organization/add-federation.md). By using identity federations, a company can set up Single Sign-On, which is authentication in {{ yandex-cloud }} via their IdP server. With this approach, employees can use their corporate accounts that are subject to the company's security policies, such as:
+
 * Revoking and blocking accounts.
 * Password policies.
 * Limiting the number of unsuccessful login attempts.
@@ -74,6 +76,7 @@ A service account is used to make requests as an application. Do not use employe
 When using service accounts:
 * [Assign a service account](../../compute/operations/vm-connect/auth-inside-vm.md) to a VM instance and get a token using the metadata service.
 * Set up a local firewall on the VM instance so that only the necessary processes and system users have access to the metadata service (IP address: `169.254.169.254`).
+
    Example of blocking access for all users except the specified one (in this case, `root`):
 
    ```
@@ -146,8 +149,8 @@ To view the list of IDs of the current accounts with the `{{ roles-cloud-owner }
 
 ```
 yc resource-manager cloud list-access-bindings \
-    --id <cloud_id> \
-    --format json | jq -r '.[] | select(.role_id=="resource-manager.clouds.owner") | .subject.id'
+ --id <cloud_ID> \
+ --format json | jq -r '.[] | select(.role_id=="resource-manager.clouds.owner") | .subject.id'
 ```
 
 Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and billing accounts. Minimize the number of accounts with these roles and regularly review the expedience of these roles for the accounts they are assigned to.

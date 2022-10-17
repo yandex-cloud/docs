@@ -77,7 +77,7 @@ Please note that [{{interconnect-full-name}}](../../interconnect/) does not prov
 - Installing in the cloud VPN gateways with encryption enabled, such as VMs based on [Check Point](/marketplace?search=Check+Point) images from {{ marketplace-full-name }}. 
 - Using application-level encryption.
 - Using [GOST VPN](network.md#gost-vpn).
-   {% endif %}
+{% endif %}
 
 {% if product == "yandex-cloud" %}
 ### {{api-gw-full-name}} {#api-gw}
@@ -127,9 +127,9 @@ We recommend that you use [{{ kms-full-name }}](../../kms/) for encrypting data 
 
 ### Authentication and authorization in {{ kms-short-name }}
 
-To access the {{ kms-short-name }} service, you need an [IAM token](../../iam/concepts/authorization/iam-token.md).
+To access the {{ kms-short-name }} service, you need an [{{ iam-short-name }} token](../../iam/concepts/authorization/iam-token.md).
 
-To automate operations with {{ kms-short-name }}, we recommend that you create a [service account](../../iam/concepts/users/service-accounts.md) and run commands and scripts under it. If you use VMs, get an IAM token for your service account using the mechanism of [assigning a service account](../../compute/operations/vm-connect/auth-inside-vm.md) to your VM. For other ways to get an IAM token for your service account, see the IAM documentation, [{#T}](../../iam/operations/iam-token/create-for-sa.md).
+To automate operations with {{ kms-short-name }}, we recommend that you create a [service account](../../iam/concepts/users/service-accounts.md) and run commands and scripts under it. If you use VMs, get an {{ iam-short-name }} token for your service account using the mechanism of [assigning a service account](../../compute/operations/vm-connect/auth-inside-vm.md) to your VM. For other ways to get an {{ iam-short-name }} token for your service account, see the {{ iam-short-name }} documentation, [{#T}](../../iam/operations/iam-token/create-for-sa.md).
 
 We recommend that you grant your users and service accounts granular permissions for specific keys in the {{ kms-short-name }} service. For more information, see the {{ kms-short-name }} documentation, [{#T}](../../kms/security/index.md).
 
@@ -173,13 +173,13 @@ For instructions on how to use the service, see the Lockbox [documentation](../.
 To store secrets with Vault, you can use a VM based on an image from [{{ marketplace-full-name }}](/marketplace/products/yc/vault-yckms) with a pre-installed HashiCorp Vault build and Auto Unseal support. Instructions for setting up Auto Unseal are provided in the {{ kms-short-name }} documentation, [{#T}](../../kms/tutorials/vault-secret.md).
 {% endif %}
 
-### Secrets in Kubernetes {#k8s-secrets}
+### Secrets in {{ k8s }} {#k8s-secrets}
 
 To store secrets, such as passwords, OAuth tokens, and SSH keys, use one of the following methods:
 
-- [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/).
+- [{{ k8s }} Secrets](https://kubernetes.io/docs/concepts/configuration/secret/).
 
-   By default, secrets are stored unencrypted in etcd. However, {{managed-k8s-name}} lets you encrypt secrets using {{ kms-short-name }}. To enable secret encryption, specify the {{ kms-short-name }} key when creating a Kubernetes cluster. You can't add the key when you edit the cluster. For more information, see the {{ kms-short-name }} documentation, [{#T}](../../kms/tutorials/k8s.md).
+   By default, secrets are stored unencrypted in etcd. However, {{managed-k8s-name}} lets you encrypt secrets using {{ kms-short-name }}. To enable secret encryption, specify the {{ kms-short-name }} key when creating a {{ k8s }} cluster. You can't add the key when you edit the cluster. For more information, see the {{ kms-short-name }} documentation, [{#T}](../../kms/tutorials/k8s.md).
 
 - {{ lockbox-name }}.
 

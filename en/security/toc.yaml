@@ -17,6 +17,8 @@ items:
     href: user-side.md
   - name: Recommendations for securing your cloud infrastructure
     items:
+      - name: All recommendations
+        href: domains/index.md
       - name: Checklist
         href: domains/checklist.md
       - name: Network security
