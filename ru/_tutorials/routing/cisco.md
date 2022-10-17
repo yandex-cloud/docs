@@ -5,6 +5,7 @@
 Чтобы установить CSR 1000v и настроить к нему доступ по SSH:
 
 1. [Подготовьте облако к работе](#before-you-begin).
+1. [Создайте пару ключей SSH](#create-ssh-keys).
 1. [Создайте виртуальную машину с Cisco Cloud Services Router](#create-router).
 1. [Задайте роутеру имя хоста](#hostname).
 1. [Создайте пользователя с правами администратора](#create-user).
@@ -31,6 +32,16 @@
 * плата за диск и постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 
+
+## Создайте пару ключей SSH {#create-ssh-keys}
+
+{% include [vm-ssh-rsa-key](../../_includes/vm-ssh-rsa-key.md) %}
+
+{% note warning %}
+
+Надежно сохраните закрытый ключ: без него подключиться к виртуальной машине будет невозможно.
+
+{% endnote %}
 
 ## Создайте виртуальную машину с Cisco Cloud Services Router {#create-router}
 
@@ -60,9 +71,7 @@
   1. В поле **Публичный адрес** оставьте значение **Автоматически**, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
   1. Укажите данные для доступа на ВМ:
       * В поле **Логин** введите имя пользователя.
-      * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
-
-        Пару ключей для подключения по SSH необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+      * В поле **SSH-ключ** вставьте содержимое файла открытого ключа, [созданного ранее](#create-ssh-keys).
   1. Выберите опцию **Разрешить доступ к серийной консоли**.
   1. Нажмите кнопку **Создать ВМ**.
 
@@ -83,13 +92,13 @@
   1. Дождитесь полной загрузки операционной системы.
   1. Чтобы перейти в привилегированный режим, выполните в серийной консоли команду `enable`:
 
-      ```bash
+      ```text
       cisco-router.{{ region-id }}.internal>enable
       ```
 
   1. Перейдите в режим конфигурирования и задайте роутеру имя хоста:
 
-      ```bash
+      ```text
       cisco-router.{{ region-id }}.internal#configure terminal
       Enter configuration commands, one per line.  End with CNTL/Z.
       cisco-router.ru-cent(config)#hostname cisco-router
@@ -109,7 +118,7 @@
 
   В серийной консоли выполните команду:
 
-  ```bash
+  ```text
   cisco-router(config)#username test-user privilege 15
   ```
 
@@ -127,7 +136,7 @@
 
 1. В серийной консоли включите доступ на ВМ по SSH:
 
-   ```bash
+   ```text
    cisco-router(config)#aaa new-model
    cisco-router(config)#ip ssh server algorithm authentication publickey 
    cisco-router(config)#ip ssh pubkey-chain
@@ -135,18 +144,21 @@
 
 1. Создайте пользователя `test-user` и передайте в режиме `conf-ssh-pubkey-data` свой публичный SSH-ключ частями не длиннее 72 символов, начиная с `ssh-rsa` и заканчивая логином:
 
-   ```bash
+   ```text
    cisco-router(conf-ssh-pubkey)#username test-user
    cisco-router(conf-ssh-pubkey-user)#key-string
    cisco-router(conf-ssh-pubkey-data)#<строка_публичного_ключа>
    ...
    cisco-router(conf-ssh-pubkey-data)#<строка_публичного_ключа>
    cisco-router(conf-ssh-pubkey-data)#exit
+   cisco-router(conf-ssh-pubkey-user)#exit
+   cisco-router(conf-ssh-pubkey)#exit
+   cisco-router(config)#exit
    ```
 
 1. Убедитесь, что ключ добавлен:
 
-   ```bash
+   ```text
    cisco-router#show run | beg ip ssh
    ip ssh pubkey-chain
      username test-user
@@ -162,9 +174,9 @@
    ssh-keygen -E md5 -lf <путь_к_файлу_с_публичным_ключом>
    ```
 
-1. Задайте пароль для включения привилегированного режима:
+1. В серийной консоли задайте пароль для включения привилегированного режима:
 
-   ```bash
+   ```text
    cisco-router#configure terminal
    cisco-router(config)#enable secret <пароль>
    ```

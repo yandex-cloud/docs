@@ -1,6 +1,6 @@
 # Создать группу безопасности
 
-Функция находится на [стадии Preview](../../overview/concepts/launch-stages.md).
+{% include [Preview](../../_includes/vpc/preview.md) %}
 
 {% include [sg-rules](../../_includes/vpc/sg-rules.md) %}
 

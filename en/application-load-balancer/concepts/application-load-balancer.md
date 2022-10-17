@@ -50,9 +50,9 @@ Request routing to [backend groups](backend-group.md) depends on the _listener t
 
 If encrypted traffic is accepted, the _main listener_ and optional _SNI listeners_ are set up for the load balancer. In each SNI listener, the domain name specified when establishing a TLS connection as [Server Name Indication](https://{{ lang }}.wikipedia.org/wiki/Server_Name_Indication) (SNI) is mapped to a TLS certificate and HTTP router (if the listener type is **HTTP**) or a backend group (if the listener type is **Stream**). The main listener is responsible for TLS connections with domain names that don't match any SNI listener.
 
-{% note info %}
+{% note tip %}
 
-In an **HTTP** listener, you can only specify (through HTTP routers) backend groups of the **HTTP** and **gRPC** types, and in a **Stream** listener, backend groups of the **Stream** type.
+Some browsers reuse TLS connections with the same IP address if a connection certificate contains the necessary domain name. In this case, no new SNI match is selected and traffic may be routed to an inappropriate HTTP router. Use different certificates in different SNI listeners and the main listener. To distribute traffic across the domain names of a single certificate, set up HTTP router virtual hosts.
 
 {% endnote %}
 
@@ -92,4 +92,3 @@ Currently, you can get the ID of the load balancer's log group and [create a tri
 {% endnote %}
 
 For an example of log processing, see the [{#T}](../tutorials/logging.md) use case.
-

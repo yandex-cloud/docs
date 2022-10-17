@@ -20,8 +20,8 @@ The instructions provide actions for mitigating risks related a federation failu
 
       ```yc
       yc organization-manager organization add-access-binding \
-          --id= <organization ID> \
-          --subject= federatedUser:<federated user ID> \
+          --id= <organization_ID> \
+          --subject= federatedUser:<federated_user_ID> \
           --role=organization-manager.organizations.owner
       ```
 
@@ -38,8 +38,8 @@ The instructions provide actions for mitigating risks related a federation failu
    - CLI
 
       ```yc
-      yc iam api-key list --service-account-id=<service account ID>
-      yc iam access-key list --service-account-id=<service account ID>
+      yc iam api-key list --service-account-id=<service_account_ID>
+      yc iam access-key list --service-account-id=<service_account_ID>
       ```
 
    {% endlist %}
@@ -53,7 +53,7 @@ The instructions provide actions for mitigating risks related a federation failu
    - CLI
 
       ```yc
-      yc iam service-account list-access-bindings --id <service account ID>
+      yc iam service-account list-access-bindings --id <service_account_ID>
       ```
 
    {% endlist %}
@@ -70,8 +70,8 @@ The instructions provide actions for mitigating risks related a federation failu
 
       ```yc
       yc organization-manager organization add-access-binding \
-          --id= <organization ID> \
-          --service-account-id=<service account ID> \
+          --id= <organization_ID> \
+          --service-account-id=<service_account_ID> \
           --role=organization-manager.organizations.owner
       ```
 
@@ -87,8 +87,8 @@ The instructions provide actions for mitigating risks related a federation failu
 
       ```yc
       yc organization-manager organization remove-access-binding \
-          --id=<organization ID> \
-          --user-account-id=<passport account ID> \
+          --id=<organization_ID> \
+          --user-account-id=<passport_account_ID> \
           --role=organization-manager.organizations.owner
       ```
 
@@ -102,9 +102,9 @@ Configure {{ at-name }} to process the service and the federated accounts with t
 
 1. At least track the following events (in [Object Storage](../../audit-trails/tutorials/search-bucket.md), a [log group](../../audit-trails/tutorials/search-cloud-logging.md), [Managed ELK](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main), and [your SIEM](../../audit-trails/concepts/export-siem.md)):
 
-   * Creating service account keys (events: `yandex.cloud.audit.iam.CreateAccessKey`, `yandex.cloud.audit.iam.CreateKey`, `yandex.cloud.audit.iam.CreateApiKey`, and `authentication.subject_id = <service account ID>`).
-   * Assigning access rights to the service account (event: `UpdateServiceAccountAccessBindings` and `details.service_account_id = <service account ID>`).
-   * Any action using the `resource-manager.organization.owner` privilege (`.authentication.subject_id == <ID of user with this privilege>`).
+   * Creating service account keys (events: `yandex.cloud.audit.iam.CreateAccessKey`, `yandex.cloud.audit.iam.CreateKey`, `yandex.cloud.audit.iam.CreateApiKey`, and `authentication.subject_id = <service_account_ID>`).
+   * Assigning access rights to the service account (event: `UpdateServiceAccountAccessBindings` and `details.service_account_id = <service_account_ID>`).
+   * Any action using the `resource-manager.organization.owner` privilege (`.authentication.subject_id == <ID_of_user_with_this_privilege>`).
 
 
 You can use [Managed ELK](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main) to analyze and respond to events in {{ at-name }}.
