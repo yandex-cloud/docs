@@ -15,6 +15,7 @@ default:
   mrd-full-name: Yandex Managed Service for Redis
   mkf-full-name: Yandex Managed Service for Apache Kafka®
   mes-full-name: Yandex Managed Service for Elasticsearch
+  mos-full-name: Yandex Managed Service for Opensearch
   mms-full-name: Yandex Managed Service for SQL Server
   mgp-full-name: Yandex Managed Service for Greenplum®
   mgl-full-name: Yandex Managed Service for GitLab
@@ -82,6 +83,7 @@ default:
   mrd-name: Managed Service for Redis
   mkf-name: Managed Service for Apache Kafka®
   mes-name: Managed Service for Elasticsearch
+  mos-name: Managed Service for Opensearch
   mms-name: Managed Service for SQL Server
   mgp-name: Managed Service for Greenplum®
   mgl-name: Managed Service for GitLab
@@ -154,6 +156,7 @@ default:
   mkf-short-name: Managed Service for Apache Kafka®
   mms-short-name: Managed Service for SQL Server
   mes-short-name: Managed Service for Elasticsearch
+  mos-short-name: Managed Service for Opensearch
   mgp-short-name: Managed Service for Greenplum®
   monitoring-short-name: Monitoring
   mkf-msr: Managed Schema Registry
@@ -257,6 +260,11 @@ default:
       auditor: managed-elasticsearch.auditor
       editor: managed-elasticsearch.editor
       viewer: managed-elasticsearch.viewer
+    mos:
+      admin: managed-opensearch.admin
+      auditor: managed-opensearch.auditor
+      editor: managed-opensearch.editor
+      viewer: managed-opensearch.viewer
     mch:
       admin: managed-clickhouse.admin
       auditor: managed-clickhouse.auditor
@@ -327,6 +335,7 @@ default:
   MG: MongoDB
   MS: SQL Server
   MY: MySQL
+  OS: Opensearch
   PG: PostgreSQL
   RD: Redis
   RMQ: RabbitMQ
@@ -582,6 +591,8 @@ default:
     docs: https://docs.microsoft.com/ru-ru
   my: # MySQL
     docs: https://dev.mysql.com/doc
+  os: # Opensearch
+    docs: https://opensearch.org/docs/latest
   pg: # PostgreSQL
     docs:
       org: https://www.postgresql.org/docs
@@ -755,6 +766,7 @@ internal:
   RD: Redis
   KF: Apache Kafka®
   ES: Elasticsearch
+  OS: Opensearch
   ZK: ZooKeeper
   MS: Microsoft SQL Server
   RMQ: RabbitMQ
@@ -814,6 +826,7 @@ cloud-il:
   mrd-full-name: Managed Service for Redis
   mkf-full-name: Managed Service for Apache Kafka®
   mes-full-name: Managed Service for Elasticsearch
+  mos-full-name: Managed Service for Opensearch
   mms-full-name: Managed Service for SQL Server
   mgp-full-name: Managed Service for Greenplum®
   mgl-full-name: Managed Service for GitLab

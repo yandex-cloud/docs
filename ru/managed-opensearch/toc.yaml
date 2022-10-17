@@ -1,0 +1,98 @@
+title: Yandex Managed Service for Opensearch
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    when: stage != "preview"
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Информация об имеющихся кластерах
+        href: operations/cluster-list.md
+      - name: Создание кластера
+        href: operations/cluster-create.md
+      - name: Подключение к кластеру
+        href: operations/cluster-connect.md
+      - name: Остановка и запуск кластера
+        href: operations/cluster-stop.md
+      - name: Изменение настроек кластера
+        href: operations/cluster-update.md
+      - name: Изменение версии и редакции {{ OS }}
+        href: operations/cluster-version-update.md
+      - name: Настройка SAML-аутентификации
+        href: operations/saml-authentication.md
+      - name: Настройка доступа к {{ objstorage-name }}
+        href: operations/s3-access.md
+      - name: Управление хостами {{ OS }}
+        href: operations/cluster-hosts.md
+      - name: Управление плагинами {{ OS }}
+        href: operations/cluster-plugins.md
+      - name: Управление расширениями {{ OS }}
+        href: operations/cluster-extensions.md
+      - name: Управление пользователями {{ OS }}
+        href: operations/cluster-users.md
+      - name: Управление резервными копиями
+        href: operations/cluster-backups.md
+      - name: Просмотр логов кластера
+        href: operations/cluster-logs.md
+      - name: Удаление кластера
+        href: operations/cluster-delete.md
+      - name: Мониторинг состояния кластера и хостов
+        href: operations/monitoring.md
+  - name: Практические руководства
+    when: stage != "preview"
+    items:
+      - name: Все руководства
+        href: tutorials/index.md
+      - name: Миграция в {{ mos-name }} с помощью снапшотов
+        href: tutorials/migration-via-snapshots.md
+      - name: Миграция данных из стороннего кластера {{ OS }} с помощью Reindex API
+        href: tutorials/migration-via-reindex-api.md
+  - name: Концепции
+    when: stage != "preview"
+    items:
+      - name: Взаимосвязь ресурсов сервиса
+        href: concepts/index.md
+      - name: Роли хостов
+        href: concepts/hosts-roles.md
+      - name: Редакции {{ OS }}
+        href: concepts/es-editions.md
+      - name: Индексы
+        href: concepts/indexing.md
+      - name: Поиск с помощью {{ OS }}
+        href: concepts/searching.md
+      - name: Классы хостов
+        href: concepts/instance-types.md
+      - name: Сеть в {{ mos-name }}
+        href: concepts/network.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+      - name: Типы хранилища
+        href: concepts/storage.md
+      - name: Резервные копии
+        href: concepts/backup.md
+      - name: Шардирование и репликация
+        href: concepts/scalability-and-resilience.md
+      - name: Поддержка словарей
+        href: concepts/dictionaries.md
+      - name: Политика управления версиями {{ OS }}
+        href: concepts/update-policy.md
+      - name: Настройки {{ ES }}
+        href: concepts/settings-list.md
+      - name: Техническое обслуживание
+        href: concepts/maintenance.md
+  - name: Управление доступом
+    href: security/index.md
+    when: stage != "preview"
+  - name: Правила тарификации
+    href: pricing.md
+    when: stage != "preview"
+  - name: История изменений
+    href: release-notes.md
+    when: stage != "preview"
+  - name: Вопросы и ответы
+    when: stage != "preview"
+    items:
+      - name: Общие вопросы
+        href: qa/index.md
