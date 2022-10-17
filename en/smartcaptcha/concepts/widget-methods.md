@@ -145,7 +145,7 @@ The `getResponse` method returns the current value of the user token.
 (widgetId: WidgetId | undefined) => string;
 ```
 
-`widgetId` argument: Unique widget ID. If no argument is passed in, the output of the first rendered widget is returned.
+`widgetId` argument: Unique widget ID. If no argument is passed, the result of the first rendered widget is returned.
 
 ### reset method {#reset}
 
@@ -155,7 +155,7 @@ The `reset` method resets the widget to the initial state.
 (widgetId: WidgetId | undefined) => void;
 ```
 
-`widgetId` argument: Unique widget ID. If no argument has been passed in, the first rendered widget is reset.
+`widgetId` argument: Unique widget ID. If no argument has been passed, the first rendered widget is reset.
 
 ### destroy method {#destroy}
 
@@ -165,7 +165,7 @@ The `destroy` method deletes widgets and any listeners they create.
 (widgetId: WidgetId | undefined) => void;
 ```
 
-The `WidgetId` argument is a unique widget ID. If the argument is not passed in, the first rendered widget will be deleted.
+The `WidgetId` argument is a unique widget ID. If the argument is not passed, the first rendered widget will be deleted.
 
 ### subscribe method {#subscribe}
 
