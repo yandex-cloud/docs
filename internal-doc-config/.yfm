@@ -44,6 +44,7 @@ ignore:
   - "ru/logging/*"
   - "ru/managed-gitlab/*"
   - "ru/managed-kubernetes/*"
+  - "ru/managed-opensearch/*"
   - "ru/managed-sqlserver/*"
   - "ru/marketplace/*"
   - "ru/message-queue/*"
