@@ -38,7 +38,7 @@ items:
              href: operations/export-cloud-bucket.md
            - name: Folder
              href: operations/export-folder-bucket.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: Searching for {{ yandex-cloud }} events in {{ objstorage-name }}
         href: tutorials/search-bucket.md
@@ -49,6 +49,9 @@ items:
         href: tutorials/alerts-monitoring.md
       - name: Configuring a response in {{ sf-name }}
         href: tutorials/logging-functions.md
+        when: product == "yandex-cloud"
+      - name: Exporting audit logs to MaxPatrol SIEM
+        href: tutorials/maxpatrol.md
         when: product == "yandex-cloud"
       - name: Uploading audit logs to {{ mch-full-name }} and data visualiation in {{ datalens-full-name }}
         href: tutorials/logs-analysis.md
