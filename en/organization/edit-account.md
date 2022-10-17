@@ -1,6 +1,12 @@
 # Deleting a user account
 
-1. [Log in]({{link-passport}}) to the organization's administrator account.
+{% note info %}
+
+An account can be deleted by users with the `organization-manager.admin` or `organization-manager.organizations.owner` role. For information on assigning roles to users, see [Roles](roles.md#admin).
+
+{% endnote %}
+
+1. [Log in]({{link-passport-login}}) to the organization's administrator or owner account.
 
 1. Go to [{{org-full-name}}]({{link-org-main}}).
 
