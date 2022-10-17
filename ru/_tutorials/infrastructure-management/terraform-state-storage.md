@@ -180,6 +180,10 @@ provider "yandex" {
      folder_id = "<идентификатор каталога>"
      zone      = "{{ region-id }}-a"
    }
+   
+   resource "yandex_compute_image" "ubuntu_2004" {
+     source_family = "ubuntu-2004-lts"
+   }
 
    resource "yandex_compute_instance" "vm-1" {
      name = "terraform1"
@@ -191,7 +195,7 @@ provider "yandex" {
 
      boot_disk {
        initialize_params {
-         image_id = "fd87va5cc00gaq2f5qfb"
+         image_id = yandex_compute_image.ubuntu_2004.id
        }
      }
 
@@ -215,7 +219,7 @@ provider "yandex" {
 
      boot_disk {
        initialize_params {
-         image_id = "fd87va5cc00gaq2f5qfb"
+         image_id = yandex_compute_image.ubuntu_2004.id
        }
      }
 
