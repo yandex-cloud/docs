@@ -1,6 +1,4 @@
-# Create HTTP router
-
-Create a backend group in the same folder by following the [instructions](backend-group-create.md).
+# Creating an HTTP router for HTTP traffic
 
 To create an HTTP router and add a route to it:
 
@@ -20,7 +18,7 @@ To create an HTTP router and add a route to it:
    1. In the **Path** field, select `Matches` and specify the path `/`.
    1. In the **HTTP methods** list, select `GET`.
    1. In the **Action** field, leave the `Routing` value.
-   1. In the **Backend group** list, select `test-backend-group`.
+   1. In the **Backend group**, select the backend group name from the same folder where you create the router.
    1. Leave the other settings as they are and click **Create**.
 
 - CLI
@@ -62,7 +60,6 @@ To create an HTTP router and add a route to it:
         --authority your-domain.foo.com \
         --modify-request-header name=Accept-Language,append=ru-RU
       ```
-
       {% endif %}
 
       {% if product == "cloud-il" %}
@@ -164,7 +161,7 @@ To create an HTTP router and add a route to it:
           empty-label = ""
         }
       }
-      
+
       resource "yandex_alb_virtual_host" "my-virtual-host" {
         name           = "<virtual host name>"
         http_router_id = yandex_alb_http_router.tf-router.id
@@ -177,7 +174,7 @@ To create an HTTP router and add a route to it:
             }
           }
         }
-      }	 
+      }    
       ```
 
       Where:
@@ -207,7 +204,7 @@ To create an HTTP router and add a route to it:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

@@ -89,7 +89,7 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
         format_schema {
           name = "<schema name>"
           type = "<schema type: FORMAT_SCHEMA_TYPE_CAPNPROTO or FORMAT_SCHEMA_TYPE_PROTOBUF>"
-          uri  = "<link to data format schema file in {{ objstorage-full-name }}>"
+          uri = "<link to data format schema file in {{ objstorage-full-name }}>"
         }
       }
       ```
@@ -175,7 +175,7 @@ To update the contents of a schema that is already connected to the cluster:
         format_schema {
           name = "<schema name>"
           type = "<schema type>"
-          uri  = "<new link to the schema file in {{ objstorage-full-name }}>"
+          uri = "<new link to the schema file in {{ objstorage-full-name }}>"
         }
       }
       ```

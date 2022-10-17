@@ -262,7 +262,7 @@ To update the contents of a model that is already connected to the cluster:
         ml_model {
           name = "<model name>"
           type = "ML_MODEL_TYPE_CATBOOST"
-          uri  = "<new link to model file in {{ objstorage-full-name }}>"
+          uri = "<new link to model file in {{ objstorage-full-name }}>"
         }
       }
       ```
