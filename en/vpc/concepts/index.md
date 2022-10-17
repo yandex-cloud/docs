@@ -1,4 +1,4 @@
-# Concepts {{ vpc-short-name }}
+# {{ vpc-short-name }} concepts
 
 {% if product == "cloud-il" %}
 
@@ -16,11 +16,10 @@ Use {{ vpc-short-name }} to:
 - Enable the transfer of information between the cloud resources.
 - Connect the cloud resources to the internet.
 - Create static routes and manage traffic using security groups.
+- Route traffic to the internet via a NAT gateway.
 
 For more information about cloud networks, see:
-
 - [Cloud networks and subnets](network.md)
 - [Cloud resource addresses](address.md)
 - [Static routing](static-routes.md)
 - [Security groups](security-groups.md)
-
