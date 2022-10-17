@@ -4,7 +4,7 @@ On the **Product version** tab, click **Create version**. Fill out the form with
 
 {% note info %}
 
-All text fields support Markdown.
+All text fields support [Markdown](https://ydocs.tech/en/).
 
 {% endnote %}
 

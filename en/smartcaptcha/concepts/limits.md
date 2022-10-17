@@ -1,6 +1,7 @@
 ---
 editable: false
 ---
+
 # Quotas and limits
 
 {{ captcha-name }} has the following limits:

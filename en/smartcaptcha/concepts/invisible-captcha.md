@@ -29,8 +29,8 @@ Invisible CAPTCHA is only connected using the [advanced method](./widget-methods
        }
 
        window.smartCaptcha.render('captcha-container', {
-         sitekey: '<Key for the client part>',
-         invisbile: true, // Make captcha invisible
+         sitekey: '<Key_for_the_client_part>',
+         invisible: true, // Make captcha invisible
          callback: callback,
        });
      }

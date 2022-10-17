@@ -1,31 +1,28 @@
-# Резервное копирование в {{ objstorage-full-name }} через Bacula на Centos 7 
+# Резервное копирование в {{ objstorage-full-name }} с помощью Bacula
 
-С помощью этой инструкции вы научитесь выполнять резервное копирование в {{ objstorage-full-name }} и восстановление данных через [Bacula](https://www.bacula.org/) на CentOS 7 в инфраструктуре {{ yandex-cloud }}.
+{{ objstorage-full-name }} можно использовать для резервного копирования и восстановления данных виртуальной машины с помощью утилиты [Bacula](https://www.bacula.org/).
 
 Bacula состоит из нескольких компонентов:
-
 * **Bacula Director** — контролирует резервное копирование и восстановление.
 * **File Daemon** — обеспечивает доступ к файлам для резервного копирования. 
 * **Storage Daemon** — осуществляет чтение и запись файлов на жесткий диск.
-* **Catalog** — поддерживает каталог файлов для резервного копирования. Каталог хранится в базе данных SQL.
+* **Catalog** — поддерживает каталог файлов для резервного копирования. Каталог хранится в базе данных [MariaDB](https://mariadb.com/kb/en/documentation/).
 * **Bacula Console** — консоль управления для взаимодействия с Bacula Director. 
 
-Чтобы выполнить резервное копирование и восстановление через Bacula:
-
+Чтобы настроить резервное копирование и восстановление с помощью Bacula:
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте виртуальную машину](#create-vm).
+1. [Настройте AWS CLI](#configure-aws).
 1. [Установите Bacula и дополнительные компоненты](#install-bacula).
 1. [Настройте базу данных MariaDB](#configure-db).
-1. [Настройте хранилище для резервного копирования](#configure-storage).
+1. [Сконфигурируйте хранилище](#configure-storage).
 1. [Настройте компоненты Bacula](#configure-bacula).
 1. [Запустите резервное копирование](#run-backup).
-1. [Проверьте резервное копирование](#check-backup).
-1. [Запустите восстановление](#run-restore).
-1. [Проверьте восстановление](#check-restore).
+1. [Восстановите файлы](#run-restore).
 
-Если резервное копирование и восстановление данных вам больше не нужно, [удалите все используемые для этого ресурсы](#clear-out).
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-## Подготовьте облако к работе {#before-you-begin}
+## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -34,104 +31,91 @@ Bacula состоит из нескольких компонентов:
 
 В стоимость поддержки резервного копирования и восстановления входит:
 
-* плата за постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../../compute/pricing));
-* плата за хранение данных (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing));
-* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing)).
+* плата за вычислительные ресурсы и диски ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за хранение данных в бакете и операции с ними (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md));
+* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 
-## Создайте виртуальную машину {#create-vm}
-
-Чтобы создать виртуальную машину:
-
-1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-
-1. В поле **Имя** введите имя виртуальной машины: `bacula-vm`.
-
-1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
-
-1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и выберите публичный образ [CentOS 7](/marketplace/products/yc/centos-7).
-
-1. В блоке **Вычислительные ресурсы** выберите:
-    * **Платформа** — Intel Cascade Lake.
-    * **Гарантированная доля vCPU** — 20%.
-    * **vCPU** — 2.
-    * **RAM** — 2 ГБ.
-
-1. В блоке **Сетевые настройки** выберите сеть и подсеть, к которым нужно подключить виртуальную машину. Если нужной сети или подсети еще нет, вы можете создать их прямо на странице создания ВМ.
-
-1. В поле **Публичный адрес** оставьте значение **Автоматически**, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
-
-1. Укажите данные для доступа на виртуальную машину:
-    - В поле **Логин** введите имя пользователя.
-    - В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
-
-       Пару ключей для подключения по SSH необходимо создать самостоятельно, см. [раздел о подключении к виртуальным машинам по SSH](../../compute/operations/vm-connect/ssh.md).
-
-     {% note alert %}
-
-     IP-адрес и имя хоста (FQDN) для подключения к машине назначатся ей при создании. Если вы выбрали вариант **Без адреса** в поле **Публичный адрес**, вы не сможете обращаться к ВМ из интернета.
-
-     {% endnote %}
-
-1. Нажмите кнопку **Создать ВМ**.
-
-Создание виртуальной машины может занять несколько минут.
-
-При создании виртуальной машине назначается публичный IP-адрес и имя хоста (FQDN). Эти данные можно использовать для доступа по SSH.
-
-## Создайте бакет {#create-bucket}
+### Создайте бакет {#create-bucket}
 
 Чтобы создать бакет для резервного копирования в {{ objstorage-name }}:
 
-1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите каталог, в котором будете выполнять операции.
+{% list tabs %}
 
-1. На странице каталога нажмите кнопку **Создать ресурс** и выберите **Бакет**.
+- Консоль управления
 
-1. В поле **Имя** введите имя бакета: `bacula-bucket`.
+  1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите каталог, в котором будете выполнять операции.
+  1. На странице каталога нажмите кнопку **Создать ресурс** и выберите **Бакет**.
+  1. В поле **Имя** введите имя бакета: `bacula-bucket`.
+  1. В поле **Доступ к бакету** выберите **Ограниченный**.
+  1. В поле **Класс хранилища** выберите **Холодное**.
+  1. Нажмите кнопку **Создать бакет**.
 
-1. В поле **Доступ к бакету** выберите **Ограниченный**.
+{% endlist %}
 
-1. В поле **Класс хранилища** выберите **Холодное**.
+### Создайте сервисный аккаунт {#create-service-account}
 
-1. Нажмите кнопку **Создать бакет**.
+[Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему [роль](../../iam/concepts/access-control/roles.md) `editor`.
 
-## Создайте сервисный аккаунт {#create-service-account}
+### Создайте статические ключи доступа {#create-access-key}
 
-Создайте [сервисный аккаунт](../../iam/operations/sa/create.md) и [назначьте ему роль](../../iam/operations/sa/assign-role-for-sa) `editor`.
-
-## Создайте статические ключи доступа {#create-access-key}
-
-Создайте [статические ключи доступа](../../iam/operations/sa/create-access-key.md).
+[Создайте](../../iam/operations/sa/create-access-key.md) статические ключи доступа.
 
 Сразу сохраните идентификатор `key_id` и секретный ключ `secret`. Получить значение ключа снова будет невозможно.
 
+## Создайте виртуальную машину {#create-vm}
+
+Чтобы создать ВМ:
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) на странице каталога нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
+  1. В поле **Имя** введите имя ВМ: `bacula-vm`.
+  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+  1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и выберите публичный образ [CentOS 7](/marketplace/products/yc/centos-7).
+  1. В блоке **Вычислительные ресурсы** выберите параметры:
+      * **Платформа** — Intel Cascade Lake.
+      * **Гарантированная доля vCPU** — 20%.
+      * **vCPU** — 2.
+      * **RAM** — 2 ГБ.
+  1. В блоке **Сетевые настройки** выберите сеть и подсеть, к которым нужно подключить ВМ. Если сети нет, создайте ее:
+      1. Выберите пункт ![image](../../_assets/plus-sign.svg) **Создать сеть**.
+      1. В открывшемся окне укажите укажите имя сети и каталог, в котором она будет создана.
+      1. (опционально) Для автоматического создания подсетей выберите опцию **Создать подсети**.
+      1. Нажмите кнопку **Создать**.
+
+          У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав пункт ![image](../../_assets/plus-sign.svg) **Добавить подсеть**.
+  1. В поле **Публичный адрес** оставьте значение **Автоматически**, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+  1. Укажите данные для доступа на ВМ:
+      * В поле **Логин** введите имя пользователя.
+      * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
+
+        Пару ключей для подключения по SSH необходимо создать самостоятельно, см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+  1. Нажмите кнопку **Создать ВМ**.
+  1. Дождитесь перехода ВМ в статус `RUNNING`.
+
+{% endlist %}
 
 ## Настройте AWS CLI {#configure-aws}
 
-После того как виртуальная машина `bacula-vm` перейдет в статус `RUNNING`:
+Чтобы настроить утилиту AWS CLI на ВМ `bacula-vm`:
 
-1. В блоке **Сеть** на странице виртуальной машины в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес виртуальной машины.
+1. В [консоли управления]({{ link-console-main }}) перейдите на страницу ВМ и узнайте ее публичный IP-адрес.
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH.
 
-1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) для Windows.
-
-    Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей. Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на виртуальную машину.
-
-1. Установите yum-репозиторий:
+    Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей. Настройте использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на ВМ.
+1. Обновите установленные в системе пакеты, для этого в терминале выполните команду:
 
     ```bash
-    sudo yum install epel-release -y
-    ```
-
-1. Установите `pip`:
-
-    ```bash
-    sudo yum install python-pip -y
+    yum update -y
     ```
 
 1. Установите AWS CLI:
 
     ```bash
-    sudo pip install awscli --upgrade
+    yum install awscli -y
     ```
 
 1. Настройте AWS CLI:
@@ -140,20 +124,18 @@ Bacula состоит из нескольких компонентов:
     sudo aws configure
     ```
 
-    Команда запросит значения параметров:
-
-    * `AWS Access Key ID` — введите идентификатор `key_id`, который вы получили при [создании статического ключа](#create-access-key).
-    * `AWS Secret Access Key` — введите секретный ключ `secret`, который вы получили при [создании статического ключа](#create-access-key).
+    Укажите значения параметров:
+    * `AWS Access Key ID` — идентификатор `key_id`, который вы получили при [создании статического ключа](#create-access-key).
+    * `AWS Secret Access Key` — секретный ключ `secret`, который вы получили при [создании статического ключа](#create-access-key).
     * `Default region name` — `{{ region-id }}`.
     * `Default output format` — `json`.
-
-1. Проверьте, что файл `/root/.aws/credentials` содержит правильные значения `key_id` и `secret`:
+1. Проверьте, что файл `/root/.aws/credentials` содержит правильные значения параметров `key_id` и `secret`:
 
     ```bash
     sudo cat /root/.aws/credentials
     ```
 
-1. Проверьте, что файл `/root/.aws/config` содержит правильные значения `Default region name` и `Default output format`:
+1. Проверьте, что файл `/root/.aws/config` содержит правильные значения параметров `Default region name` и `Default output format`:
 
     ```bash
     sudo cat /root/.aws/config
@@ -167,15 +149,16 @@ Bacula состоит из нескольких компонентов:
     sudo yum install -y bacula-director bacula-storage bacula-console bacula-client
     ```
 
-1. Установите базу данных MariaDB:
+1. Установите базу данных [MariaDB](https://mariadb.com/kb/en/documentation/):
 
     ```bash
     sudo yum install -y mariadb-server
     ```
 
-1. Установите утилиту `s3fs` для монтирования бакета {{ objstorage-name }} на сервер:
+1. Установите утилиту `s3fs` для монтирования бакета {{ objstorage-name }} в файловую систему:
 
     ```bash
+    sudo yum install -y epel-release
     sudo yum install -y s3fs-fuse
     ```
 
@@ -205,7 +188,7 @@ Bacula состоит из нескольких компонентов:
     sudo systemctl enable mariadb
     ```
 
-1. Создайте таблицы БД и настройте права:
+1. Создайте таблицы БД и настройте права доступа:
 
     ```bash
     /usr/libexec/bacula/grant_mysql_privileges
@@ -213,19 +196,19 @@ Bacula состоит из нескольких компонентов:
     /usr/libexec/bacula/make_mysql_tables -u bacula    
     ```
 
-1. Настройте безопасность базы данных:
+1. Настройте безопасность БД:
 
     ```bash
     sudo mysql_secure_installation
     ```
 
     При следующих запросах:
-    * `Enter current password for root (enter for none)` — нажмите **Enter**, чтобы пропустить поле.
+    * `Enter current password for root (enter for none)` — чтобы пропустить поле, нажмите клавишу **Enter**.
     * `Set root password? [Y/n]` — введите `Y`, установите и подтвердите пароль для суперпользователя. Пароль понадобится на следующем шаге.
-    * `Remove anonymous users? [Y/n]` — нажмите **Enter**, чтобы принять значение по умолчанию.
-    * `Disallow root login remotely? [Y/n]` — нажмите **Enter**, чтобы принять значение по умолчанию.
-    * `Remove test database and access to it? [Y/n]` — нажмите **Enter**, чтобы принять значение по умолчанию.
-    * `Reload privilege tables now? [Y/n]` — нажмите **Enter**, чтобы принять значение по умолчанию.
+    * `Remove anonymous users? [Y/n]` — чтобы принять значение по умолчанию, нажмите клавишу **Enter**.
+    * `Disallow root login remotely? [Y/n]` — чтобы принять значение по умолчанию, нажмите клавишу **Enter**.
+    * `Remove test database and access to it? [Y/n]` — чтобы принять значение по умолчанию, нажмите клавишу **Enter**.
+    * `Reload privilege tables now? [Y/n]` — чтобы принять значение по умолчанию, нажмите клавишу **Enter**.
 
 1. Войдите в командную строку БД и введите пароль суперпользователя `root`, созданный на предыдущем шаге:
 
@@ -249,7 +232,7 @@ Bacula состоит из нескольких компонентов:
 
     Введите `1`, чтобы выбрать MySQL:
 
-    ```
+    ```bash
       Selection    Command
     -----------------------------------------------
        1           /usr/lib64/libbaccats-mysql.so
@@ -259,7 +242,7 @@ Bacula состоит из нескольких компонентов:
     Enter to keep the current selection[+], or type selection number: 1
     ```
 
-## Настройте хранилище для резервного копирования {#configure-storage}
+## Сконфигурируйте хранилище {#configure-storage}
 
 ### Подготовьте папку для резервного копирования {#prepare-folder}
 
@@ -269,7 +252,7 @@ Bacula состоит из нескольких компонентов:
     sudo mkdir /tmp/bacula
     ``` 
 
-1. Настройте права доступа к `/tmp/bacula`:
+1. Настройте права доступа к папке `/tmp/bacula`:
 
     ```bash
     sudo chown -R bacula:bacula /tmp/bacula
@@ -279,16 +262,18 @@ Bacula состоит из нескольких компонентов:
 
 ### Смонтируйте бакет в файловую систему {#mount-bucket}
 
-Смонтируйте бакет в файловую систему, чтобы загружать скопированные файлы в {{ objstorage-name }}:
-
-1. Смонтируйте бакет с помощью утилиты `s3fs`:
+1. Смонтируйте бакет с помощью утилиты `s3fs`, чтобы загружать резервные копии в {{ objstorage-name }}:
 
     ```bash
-    sudo s3fs bacula-bucket /tmp/bacula -o url=https://{{ s3-storage-host }} -o use_path_request_style -o allow_other -o nonempty -o uid=133,gid=133,mp_umask=077
+    sudo s3fs bacula-bucket /tmp/bacula \
+      -o url=https://{{ s3-storage-host }} \
+      -o use_path_request_style \
+      -o allow_other \
+      -o nonempty \
+      -o uid=133,gid=133,mp_umask=077
     ```
 
     Где:
-
     * `bacula-bucket` — название бакета в {{ objstorage-name }}.
     * `uid=133` — идентификатор пользователя `bacula` из файла `/etc/passwd`.
     * `gid=133` — идентификатор группы `bacula` из файла `/etc/passwd`.
@@ -301,13 +286,12 @@ Bacula состоит из нескольких компонентов:
 
     Результат:
 
-    ```
+    ```text
     drwx------.  2 bacula bacula        31 Sep 18 09:16 .
     drwxrwxrwt. 10 root   root         265 Sep 18 08:59 ..
     ```
 
 1. Проверьте, что пользователь `bacula` может создавать файлы в папке `/tmp/bacula`:
-
     1. Временно включите оболочку `bash` для пользователя `bacula`:
 
         ```bash
@@ -326,8 +310,7 @@ Bacula состоит из нескольких компонентов:
         sudo ls -la /tmp/bacula | grep test.test 
         ```
 
-    1. На странице каталога в [консоли управления]({{ link-console-main }}) выберите сервис **{{ objstorage-short-name }}**. Убедитесь, что файл `test.test` появился в бакете `bacula-bucket`.
-
+    1. В [консоли управления]({{ link-console-main }}) на странице каталога выберите сервис **{{ objstorage-short-name }}** и убедитесь, что файл `test.test` появился в бакете `bacula-bucket`.
     1. Удалите тестовый файл:
 
         ```bash
@@ -350,12 +333,16 @@ Bacula состоит из нескольких компонентов:
     sudo nano /etc/bacula/bacula-dir.conf
     ```
 
-1. В блоке конфигурации `Director` добавьте строку `DirAddress = 127.0.0.1`, чтобы настроить соединение с Bacula Director:
+1. Чтобы настроить соединение с Bacula Director, в блоке конфигурации `Director` добавьте строку `DirAddress = 127.0.0.1`:
 
-    ```
-    Director {                            # define myself
+    ```text
+    ...
+    Director {                              # define myself
       Name = bacula-dir
-      DIRport = 9101                # where we listen for UA connections
+      DIRport = 9101                        # Specify the port (a positive integer) on which the Director daemon will listen for Bacula Console connections.
+                                            # This same port number must be specified in the Director resource of the Console configuration file.
+                                            # The default is 9101, so normally this directive need not be specified.
+                                            # This directive should not be used if you specify the DirAddresses (plural) directive.
       QueryFile = "/etc/bacula/query.sql"
       WorkingDirectory = "/var/spool/bacula"
       PidDirectory = "/var/run"
@@ -364,20 +351,24 @@ Bacula состоит из нескольких компонентов:
       Messages = Daemon
       DirAddress = 127.0.0.1
     }    
+    ...
     ```
 
 1. Для удобства переименуйте задачу `BackupClient1` на `BackupFiles`:
 
-    ```
+    ```text
+    ...
     Job {
       Name = "BackupFiles"
       JobDefs = "DefaultJob"
     }
+    ...
     ```
 
-1. В конфигурации задачи `RestoreFiles` добавьте строку `Where = /tmp/bacula-restores`, чтобы назначить `/tmp/bacula-restores` папкой для восстановленных файлов:
+1. Чтобы назначить `/tmp/bacula-restores` папкой для восстановленных файлов, в конфигурации задачи `RestoreFiles` добавьте строку `Where = /tmp/bacula-restores`:
 
-    ```
+    ```text
+    ...
     Job {
       Name = "RestoreFiles"
       Type = Restore
@@ -388,14 +379,15 @@ Bacula состоит из нескольких компонентов:
       Messages = Standard
       Where = /tmp/bacula-restores
     }
+    ...
     ```
 
-1. В блоке конфигурации `FileSet` с именем `Full Set` в разделе `Include`:
-
+1. В блоке конфигурации `FileSet` с именем `Full Set`, в разделе `Include`:
     * Добавьте строку `compression = GZIP` в раздел `Options` для сжатия при резервировании.
     * Укажите `File = /` для резервирования всей файловой системы.
 
-    ```
+    ```text
+    ...
 	FileSet {
 	  Name = "Full Set"
 	  Include {
@@ -414,27 +406,30 @@ Bacula состоит из нескольких компонентов:
 		File = /.fsck
 	  }
 	}
+    ...
     ```
 
-1. В блоке **Сеть** на странице виртуальной машины в [консоли управления]({{ link-console-main }}) найдите внутренний IP-адрес виртуальной машины.
+1. В [консоли управления]({{ link-console-main }}) перейдите на страницу ВМ и узнайте ее внутренний IP-адрес.
+1. Чтобы настроить исходящее подключение к Storage Daemon, в блоке конфигурации `Storage` в поле `Address` укажите внутренний IP-адрес ВМ:
 
-1. В блоке конфигурации `Storage` укажите внутренний IP-адрес виртуальной машины в поле `Address`, чтобы настроить соединение с Storage Daemon:
-
-    ```
+    ```text
+    ...
     Storage {
       Name = File
     # Do not use "localhost" here
-      Address = <внутренний IP-адрес виртуальной машины>  # N.B. Use a fully qualified name here
+      Address = <внутренний_IP-адрес_ВМ>  # N.B. Use a fully qualified name here
       SDPort = 9103
       Password = "@@SD_PASSWORD@@"
       Device = FileStorage
       Media Type = File
     }
+    ...
     ```
 
-1. В блоке конфигурации `Catalog` укажите пароль для базы данных `dbpassword = "bacula_db_password"`, созданный при [настройке MariaDB](#configure-db), для подключения к БД:
+1. Для подключения к БД в блоке конфигурации `Catalog` укажите пароль для БД `dbpassword = "bacula_db_password"`, созданный при [настройке MariaDB](#configure-db):
 
-    ```
+    ```text
+    ...
     # Generic catalog service
     Catalog {
       Name = MyCatalog
@@ -442,11 +437,11 @@ Bacula состоит из нескольких компонентов:
     # dbdriver = "dbi:postgresql"; dbaddress = 127.0.0.1; dbport =
       dbname = "bacula"; dbuser = "bacula"; dbpassword = "bacula_db_password"
     }
+    ...
     ```
 
 1. Сохраните файл.
-
-1.  Проверьте, что в файле `bacula-dir.conf` нет синтаксических ошибок:
+1. Проверьте, что в файле `bacula-dir.conf` нет синтаксических ошибок:
 
     ```bash
     sudo bacula-dir -tc /etc/bacula/bacula-dir.conf
@@ -462,24 +457,28 @@ Bacula состоит из нескольких компонентов:
     sudo nano /etc/bacula/bacula-sd.conf
     ``` 
 
-1. В блоке **Сеть** на странице виртуальной машины в [консоли управления]({{ link-console-main }}) найдите внутренний IP-адрес виртуальной машины.
+1. Чтобы настроить входящее соединение со Storage Daemon, в блоке конфигурации `Storage`, в поле `SDAddress` укажите внутренний IP-адрес ВМ:
 
-1. В блоке конфигурации `Storage` укажите внутренний IP-адрес виртуальной машины в поле `SDAddress` для настройки соединения с Storage Daemon:
-
-    ```
-    Storage {                             # definition of myself
+    ```text
+    ...
+    Storage {                                      # definition of myself
       Name = BackupServer-sd
-      SDPort = 9103                  # Director's port
+      SDPort = 9103                                # Specifies port number on which the Storage daemon listens for Director connections. The default is 9103.
       WorkingDirectory = "/var/spool/bacula"
       Pid Directory = "/var/run/bacula"
       Maximum Concurrent Jobs = 20
-      SDAddress = <внутренний IP-адрес ВМ> 
+      SDAddress = <внутренний_IP-адрес_ВМ>         # This directive is optional, and if it is specified,
+                                                   # it will cause the Storage daemon server (for Director and File daemon connections) to bind to the specified IP-Address,
+                                                   # which is either a domain name or an IP address specified as a dotted quadruple.
+                                                   # If this directive is not specified, the Storage daemon will bind to any available address (the default).
     }
+    ...
     ``` 
 
 1. В блоке конфигурации `Device` укажите папку для резервного копирования `Archive Device = /tmp/bacula`:
 
-    ```
+    ```text
+    ...
     Device {
       Name = FileStorage
       Media Type = File
@@ -490,10 +489,10 @@ Bacula состоит из нескольких компонентов:
       RemovableMedia = no;
       AlwaysOpen = no;
     }
+    ...
     ``` 
 
 1. Сохраните файл.
-
 1. Проверьте, что в файле `bacula-sd.conf` нет синтаксических ошибок:
 
     ```bash
@@ -507,7 +506,6 @@ Bacula состоит из нескольких компонентов:
 Bacula Director, Storage Daemon и File Daemon используют пароли для межкомпонентной аутентификации.
 
 Чтобы установить пароли для компонентов Bacula:
-
 1. Сгенерируйте пароли для Bacula Director, Storage Daemon и File Daemon:
 
     ```bash
@@ -561,7 +559,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
     sudo bconsole
     ```  
 
-1. Создайте метку, чтобы настроить профиль резервного копирования:
+1. Чтобы настроить профиль резервного копирования, создайте метку:
 
     ```bash
     label
@@ -573,7 +571,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
     Enter new Volume name: MyVolume
     ```  
 
-1. Введите `2`, чтобы выбрать пул `File`:
+1. Чтобы выбрать пул `File`, введите `2`:
 
     ```bash
     Defined Pools:
@@ -589,7 +587,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
     run    
     ```
     
-    Выберите `1`, чтобы запустить задачу `BackupFiles`:
+    Чтобы запустить задачу `BackupFiles`, выберите `1`:
 
     ```bash
     A job name must be specified.
@@ -600,7 +598,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
     Select Job resource (1-3): 1    
     ```
 
-    Введите `yes`, чтобы подтвердить запуск:
+    Чтобы подтвердить запуск, введите `yes`:
 
     ```bash
     OK to run? (yes/mod/no): yes 
@@ -614,7 +612,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
 
     Результат, если резервное копирование выполняется:
 
-    ```
+    ```text
     Running Jobs:
     Console connected at 12-Sep-19 07:22
      JobId Level   Name                       Status
@@ -624,7 +622,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
     
     Результат, если резервное копирование завершено:
 
-    ```
+    ```text
     Running Jobs:
     Console connected at 12-Sep-19 07:25
     No Jobs running.
@@ -642,17 +640,23 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
     exit
     ```
 
-## Проверьте резервное копирование {#check-backup}
+### Проверьте резервную копию {#check-backup}
 
 Чтобы убедиться, что резервное копирование выполнено:
 
-1. На странице каталога в [консоли управления]({{ link-console-main }}) выберите сервис **{{ objstorage-short-name }}**.
-1. Откройте бакет `bacula-bucket`.
-1. Убедитесь что внутри находится объект `MyVolume`.
+{% list tabs %}
 
-## Запустите восстановление {#run-restore}
+- Консоль управления
 
-1. Предварительно удалите произвольный файл, например утилиту `ping`, чтобы проверить восстановление:
+  1. В [консоли управления]({{ link-console-main }}) на странице каталога выберите сервис **{{ objstorage-short-name }}**.
+  1. Откройте бакет `bacula-bucket`.
+  1. Убедитесь, что внутри находится объект `MyVolume`.
+
+{% endlist %}
+
+## Восстановите файлы {#run-restore}
+
+1. Чтобы проверить восстановление, предварительно удалите произвольный файл, например утилиту `ping`:
 
     ```bash
     sudo rm -f /bin/ping
@@ -666,7 +670,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
 
     Результат:
 
-    ```bash
+    ```text
     bash: ping: command not found
     ```
 
@@ -682,9 +686,9 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
     restore all
     ```
 
-    Выберите `5`, чтобы запустить восстановление из последней резервной копии:
+    Чтобы запустить восстановление из последней резервной копии, введите `5`:
 
-    ```
+    ```bash
     To select the JobIds, you have the following choices:
         1: List last 20 Jobs run
         2: List Jobs where a given File is saved
@@ -702,9 +706,9 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
     Select item:  (1-13): 5
     ```
 
-    Введите `done`, чтобы подтвердить полное восстановление:
+    Чтобы подтвердить полное восстановление, введите `done`:
 
-    ```
+    ```bash
     You are now entering file selection mode where you add (mark) and
     remove (unmark) files to be restored. No files are initially added, unless
     you used the "all" keyword on the command line.
@@ -714,21 +718,21 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
     done
     ```
 
-    Введите `yes`, чтобы подтвердить запуск восстановления:
+    Чтобы подтвердить запуск восстановления, введите `yes`:
 
-    ```
+    ```bash
     OK to run? (yes/mod/no): yes
     ```
     
 1. Проверьте статус восстановления:
 
-    ```
+    ```bash
     status director
     ```
 
-    Вывод команды, если восстановление выполняется:
+    Результат, если восстановление выполняется:
 
-    ```
+    ```text
     Running Jobs:
     Console connected at 12-Sep-19 07:25
      JobId Level   Name                       Status
@@ -736,9 +740,9 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
          3         RestoreFiles.2019-09-12_07.27.42_05 is running
     ```
 
-    Вывод команды, если восстановление завершено:
+    Результат, если восстановление завершено:
 
-    ```
+    ```text
     Terminated Jobs:
      JobId  Level    Files      Bytes   Status   Finished        Name 
     ====================================================================
@@ -752,7 +756,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
     exit
     ```
 
-## Проверьте восстановление {#check-restore}
+### Проверьте восстановленные файлы {#check-restore}
 
 1. Убедитесь, что в папке `/tmp/bacula-restores` появились восстановленные файлы:
 
@@ -762,7 +766,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
 
     Результат:
 
-    ```bash
+    ```text
     total 16
     dr-xr-xr-x. 15 root   root    201 Sep 12 07:09 .
     drwx------.  4 bacula bacula   35 Sep 12 07:09 ..
@@ -793,11 +797,11 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
 
     Результат:
 
-    ```bash
+    ```text
     -rwxr-xr-x 1 root root 66176 Aug  4  2017 /tmp/bacula-restores/bin/ping
     ```
 
-1. Скопируйте утилиту `ping` на основную файловую систему:
+1. Скопируйте утилиту `ping` в основную файловую систему:
 
     ```bash
     sudo cp /tmp/bacula-restores/bin/ping /bin/ping
@@ -811,7 +815,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
 
     Результат:
 
-    ```bash
+    ```text
     PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
     64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.016 ms
     
@@ -819,9 +823,8 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
     1 packets transmitted, 1 received, 0% packet loss, time 0ms
     rtt min/avg/max/mdev = 0.016/0.016/0.016/0.000 ms
     ```
-    
 
-1. Удалите копию восстановленных файлов, чтобы освободить место на диске:
+1. Чтобы освободить место на диске, удалите копию восстановленных файлов:
 
     ```bash
     sudo rm -rfd /tmp/bacula-restores/*
@@ -829,10 +832,9 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за хранение данных, достаточно удалить [виртуальную машину](../../compute/operations/vm-control/vm-delete.md) и [бакет {{ objstorage-name }}](../../storage/operations/buckets/delete).
+Чтобы перестать платить за созданные ресурсы:
 
-Если вы зарезервировали статический публичный IP-адрес специально для этой ВМ:
-
-1. Выберите сервис **{{ vpc-short-name }}** в вашем каталоге.
-2. Перейдите на вкладку **IP-адреса**.
-3. Найдите нужный адрес, нажмите на значок ![ellipsis](../../_assets/options.svg) и выберите пункт **Удалить**.
+1. [Удалите](../../compute/operations/vm-control/vm-delete.md) ВМ.
+1. [Удалите](../../storage/operations/objects/delete-all.md) все объекты из бакета {{ objstorage-name }}.
+1. [Удалите](../../storage/operations/buckets/delete.md) бакет {{ objstorage-name }}.
+1. [Удалите](../../vpc/operations/address-delete.md) статический публичный IP-адрес, если вы его зарезервировали.

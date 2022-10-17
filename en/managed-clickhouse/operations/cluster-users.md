@@ -572,7 +572,7 @@ For more detail on managing users via SQL, please see the [{{ CH }} documentatio
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. Delete the user block with a description of the required `user` from the {{ mch-name  }} cluster description.
+   1. Delete the user block with a description of the required `user` from the {{ mch-name }} cluster description.
 
    1. Make sure the settings are correct.
 

@@ -4,9 +4,7 @@ In {{ yandex-cloud }}, identification, authentication, and access control is per
 
 The platform works with three categories of users:
 
-
-* [Yandex accounts](../../iam/concepts/#passport): Accounts in Yandex ID.
-
+* [Yandex accounts](../../iam/concepts/#passport): Accounts in Yandex ID.
 * [Federated accounts](../../iam/concepts/#saml-federation): Accounts in a corporate [SAML-compatible identity federation](../../organization/add-federation.md), such as Active Directory.
 * [Service accounts](../../iam/concepts/#sa): Accounts that can be used by a program to manage resources.
 
@@ -17,6 +15,7 @@ Yandex accounts and federated accounts are authenticated in their own systems. {
 This ensures interaction of different categories of resources, roles, and users in the {{ yandex-cloud }} infrastructure. Access to resources is managed by {{ iam-short-name }}. {{ iam-short-name }} controls each request and makes sure that all operations with resources are only run by users who have the appropriate permissions.
 
 This section provides recommendations on how to ensure [safe operations](../../iam/best-practices/using-iam-securely.md) with {{ yandex-cloud }} services:
+
 * [Centralized management and identity federations](#saml-federation).
 * [Minimum privileges and security policy](#min-privileges).
 * [Using service accounts](#sa).
@@ -25,14 +24,14 @@ This section provides recommendations on how to ensure [safe operations](../../i
 * [Providing {{ yandex-cloud }} access to contractors](#contractors).
 * [Differentiating access to resources](#resourses).
 
-
-To simplify and automate role-based access management, the {{ iam-short-name }} module (based on {{ TF }}) was designed. It lets you create permission groups for cloud users and has a number of other convenient features. For more information about the {{ iam-short-name }} module and its use cases, see the [solution](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auth_and_access/iam#identity-and-access-management-iam-terraform-module-for-yandexcloud).
+To simplify and automate role-based access management, the {{ iam-short-name }} module (based on {{ TF }}) was designed. It lets you create permission groups for cloud users and has a number of other convenient features. For more information about the {{ iam-short-name }} module and its use cases, see the [solution](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auth_and_access/iam#identity-and-access-management-iam-terraform-module-for-yandexcloud).
 
 ## Centralized management and identity federations {#saml-federation}
 
 [{{ org-full-name }}](../../organization/) is a single service for managing the organizational structure, setting up integration with the employee catalog, and differentiating user access to the organization's cloud resources.
 
 For the purpose of centralized account management, use [SAML-compatible identity federations](../../organization/add-federation.md). By using identity federations, a company can set up Single Sign-On, which is authentication in {{ yandex-cloud }} via their IdP server. With this approach, employees can use their corporate accounts that are subject to the company's security policies, such as:
+
 * Revoking and blocking accounts.
 * Password policies.
 * Limiting the number of unsuccessful login attempts.
@@ -40,8 +39,7 @@ For the purpose of centralized account management, use [SAML-compatible identity
 * Two-factor authentication.
 
 [Instructions for setting up SAML-based identity federations](../../organization/add-federation#federation-usage).
-
-[Instructions for setting up SAML-based federations with KeyCloak](https://www.youtube.com/watch?v=m-oe7V9PvC4).
+[Instructions for setting up SAML-based federations with KeyCloak](https://www.youtube.com/watch?v=m-oe7V9PvC4).
 
 {% note tip %}
 
@@ -69,6 +67,7 @@ A service account is used to make requests as an application. Do not use employe
 When using service accounts:
 * [Assign a service account](../../compute/operations/vm-connect/auth-inside-vm.md) to a VM instance and get a token using the metadata service.
 * Set up a local firewall on the VM instance so that only the necessary processes and system users have access to the metadata service (IP address: `169.254.169.254`).
+
    Example of blocking access for all users except the specified one (in this case, `root`):
 
    ```
@@ -94,9 +93,7 @@ Security standards require two-factor authentication (2FA) for accessing the inf
 
 To enable two-factor authentication, contact an identity provider that supports 2FA and set up a [SAML-compliant identity federation](#saml-federation).
 
-
-To set up 2FA for a Yandex ID account, follow the [instructions](https://yandex.com/support/id/authorization/twofa.html).
-
+To set up 2FA for a Yandex ID account, follow the [instructions](https://yandex.com/support/id/authorization/twofa.html).
 
 ## Managing privileged users {#privileged-users}
 
@@ -138,8 +135,8 @@ To view the list of IDs of the current accounts with the `{{ roles-cloud-owner }
 
 ```
 yc resource-manager cloud list-access-bindings \
-    --id <cloud_id> \
-    --format json | jq -r '.[] | select(.role_id=="resource-manager.clouds.owner") | .subject.id'
+ --id <cloud_ID> \
+ --format json | jq -r '.[] | select(.role_id=="resource-manager.clouds.owner") | .subject.id'
 ```
 
 Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and billing accounts. Minimize the number of accounts with these roles and regularly review the expedience of these roles for the accounts they are assigned to.

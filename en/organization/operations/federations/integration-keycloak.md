@@ -4,11 +4,11 @@ With an [identity federation](../../add-federation.md), you can use [Keycloak](h
 
 Setting up authentication includes the following steps:
 
-1. [Creating and setting up a federation in {{org-full-name}}](#yc-settings).
+1. [Creating and setting up a federation in {{ org-full-name }}](#yc-settings).
 
 1. [Creating and setting up a SAML application in Keycloak](#keycloak-settings).
 
-1. [Adding users to {{org-full-name}}](#add-users).
+1. [Adding users to {{ org-full-name }}](#add-users).
 
 1. [Authentication](#test-auth).
 
@@ -45,7 +45,7 @@ To enable employees on a corporate network or the internet to use Keycloak for a
 
 {% endnote %}
 
-## Creating and setting up a federation in {{org-full-name}} {#yc-settings}
+## Creating and setting up a federation in {{ org-full-name }} {#yc-settings}
 
 ### Create a federation {#create-federation}
 
@@ -53,9 +53,9 @@ To enable employees on a corporate network or the internet to use Keycloak for a
 
 - Management console
 
-   1. Go to [{{org-full-name}}]({{link-org-main}}).
+   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click **Create federation**.
 
@@ -109,7 +109,7 @@ To enable employees on a corporate network or the internet to use Keycloak for a
            --cookie-max-age 12h \
            --issuer "http://<host>:8080/auth/realms/master" \
            --sso-binding POST \
-           --sso-url "http://<host>:8080/auth/realms/master/protocol/saml"       
+           --sso-url "http://<host>:8080/auth/realms/master/protocol/saml"
       ```
 
       Where:
@@ -165,7 +165,7 @@ To enable employees on a corporate network or the internet to use Keycloak for a
              "encryptedAssertions": true
              },
          "ssoBinding": "POST"
-       }       
+       } 
       ```
       Where:
 
@@ -241,7 +241,7 @@ To enable employees on a corporate network or the internet to use Keycloak for a
          If the option is enabled, the IDs of federated users' names are case-insensitive.
       * `security_settings`: Federation security settings:
          * `encrypted_assertions`: Sign authentication requests.
-            If this option is enabled, all authentication requests from {{yandex-cloud}} will have a digital signature. You need to download and install a {{yandex-cloud}} certificate.
+            If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You need to download and install a {{ yandex-cloud }} certificate.
 
       Example configuration file structure:
 
@@ -250,7 +250,7 @@ To enable employees on a corporate network or the internet to use Keycloak for a
        name            = "my-federation"
        organization_id = "<organization ID>"
        auto_create_account_on_login = "true"
-       issuer          = "http://<host>:8080/auth/realms/master"      
+       issuer          = "http://<host>:8080/auth/realms/master"
        sso_url         = "http://<host>:8080/auth/realms/master/protocol/saml"
        sso_binding     = "POST"
        security_settings {
@@ -265,7 +265,7 @@ To enable employees on a corporate network or the internet to use Keycloak for a
       1. Run the check using the command:
 
          ```
-         $ terraform plan
+         terraform plan
          ```
 
       If the configuration is described correctly, the terminal displays the federation parameters. If there are errors in the configuration, {{ TF }} points them out.
@@ -275,12 +275,12 @@ To enable employees on a corporate network or the internet to use Keycloak for a
       1. If the configuration doesn't contain any errors, run the command:
 
          ```
-         $ terraform apply
+         terraform apply
          ```
 
       1. Confirm that you want to create the federation.
 
-      This creates the federation in the specified organization. You can check that the federation is there and its settings are correct in the organization's [Federations]({{link-org-federations}}) section.
+      This creates the federation in the specified organization. You can check that the federation is there and its settings are correct in the organization's [Federations]({{ link-org-federations }}) section.
 
 {% endlist %}
 
@@ -292,7 +292,7 @@ While authenticating, the {{org-name}} service should be able to verify the IdP 
 
 - Management console
 
-   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click the name of the federation to add a certificate to.
 
@@ -345,8 +345,8 @@ While authenticating, the {{org-name}} service should be able to verify the IdP 
    1. Send the add certificate request:
 
       ```bash
-      $ export IAM_TOKEN=CggaATEVAgA...
-      $ curl -X POST \
+      export IAM_TOKEN=CggaATEVAgA...
+      curl -X POST \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d '@body.json' \
@@ -369,7 +369,7 @@ Get the link:
 
 1. Copy the Federation ID:
 
-   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Copy the ID of the federation you're configuring access for.
 
@@ -412,11 +412,11 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
    1. In the **SAML Signature Key Name** field, select **CERT_SUBJECT**.
 
-   1. Select the desired format from the list in the **Name ID Format** field. To make sure this format is passed regardless of the {{org-full-name}} settings, enable the **Force Name ID format** option.
+   1. Select the desired format from the list in the **Name ID Format** field. To make sure this format is passed regardless of the {{ org-full-name }} settings, enable the **Force Name ID format** option.
 
    1. Click **Save**.
 
-1. If, when [creating a federation](#create-federation) in {{org-full-name}}, you enabled the **Sign authentication requests** option, set up verifying a digital signature in the SAML application:
+1. If, when [creating a federation](#create-federation) in {{ org-full-name }}, you enabled the **Sign authentication requests** option, set up verifying a digital signature in the SAML application:
 
    1. In the SAML application settings, select **Encrypt Assertions** and **Client Signature Required** and save the application to update the available tabs.
 
@@ -424,7 +424,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
    1. In the **Archive Format** field, select **Certificate PEM**.
       {#signature}
-   1. Click **Select file** and select the certificate to be used for signing authentication requests. The certificate is available on the {{org-full-name}} federation information page in the **Sign authentication requests** field.
+   1. Click **Select file** and select the certificate to be used for signing authentication requests. The certificate is available on the {{ org-full-name }} federation information page in the **Sign authentication requests** field.
 
    1. Click **Import**.
 
@@ -438,7 +438,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
    1. In the **Credentials** tab, enter a password and click **Set Password**.
 
-## Adding users to {{org-full-name}} {#add-users}
+## Adding users to {{ org-full-name }} {#add-users}
 
 If you did not enable the **Automatically create users** option when [creating a federation](#yc-settings), federated users must be manually added to your organization.
 
@@ -448,11 +448,11 @@ To do this, you will need user Name IDs. They are returned by the IdP server alo
 
 - Management console
 
-   1. [Log in]({{link-passport}}) to the organization's administrator account.
+   1. [Log in]({{ link-passport }}) to the organization's administrator account.
 
-   1. Go to [{{org-full-name}}]({{link-org-main}}).
+   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../../../_assets/organization/icon-users.svg).
+   1. In the left panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
    1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
 
@@ -505,7 +505,7 @@ To do this, you will need user Name IDs. They are returned by the IdP server alo
    1. Send the request by specifying the Federation ID in the parameters:
 
       ```bash
-      $ curl -X POST \
+      curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM token>" \
         -d '@body.json' \
@@ -524,7 +524,7 @@ Following user authentication, the IdP server will send an SAML message to {{ ya
 
 You can set up a mapping between the SAML message attributes and the personal data stored on the IdP server. To do this:
 
-1. Enable the option for mapping the identity provider roles and {{org-full-name}}:
+1. Enable the option for mapping the identity provider roles and {{ org-full-name }}:
 
    1. In the left panel, select **Client Scopes** → **role_list**.
 
@@ -546,7 +546,7 @@ You can set up a mapping between the SAML message attributes and the personal da
 
    1. You can create additional user attributes such as a phone number. To do this, click **Create**, select **User Attribute** in the **Mapper Type** field, and set attribute parameters.
 
-   1. Sync Keycloak attributes and {{ org-full-name }}: open an attribute and edit the **SAML Attribute Name** value.  The **SAML Attribute Name** values supported in {{ org-full-name }} are given below.
+   1. Sync Keycloak attributes and {{ org-full-name }}: open an attribute and edit the **SAML Attribute Name** value. The **SAML Attribute Name** values supported in {{ org-full-name }} are given below.
 
 1. If you created additional attributes, add them to user parameters:
 
@@ -560,10 +560,10 @@ You can set up a mapping between the SAML message attributes and the personal da
 
 | User data | Comment | SAML Attribute Name |
 ------------------- | ----------- | -------------------
-| Email | Used to send notifications from {{yandex-cloud}} services.<br>Example: `smith@example.com` | `email` |
+| Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example: `smith@example.com` | `email` |
 | Last name | Displayed in {{ yandex-cloud }} services. | `lastName` |
 | Name | Displayed in {{ yandex-cloud }} services. | `firstName` |
-| Phone | Used to send notifications from {{yandex-cloud}} services.<br>Example: +71234567890 | `phone` |
+| Phone | Used to send notifications from {{ yandex-cloud }} services.<br>Example: +71234567890 | `phone` |
 
 > Attribute mapping example:
 >

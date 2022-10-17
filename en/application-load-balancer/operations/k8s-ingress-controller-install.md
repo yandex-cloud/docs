@@ -41,6 +41,12 @@ The [{{ alb-name }} Ingress controller for {{ managed-k8s-full-name }}](../tools
      oci://{{ registry }}/yc/yc-alb-ingress-controller-chart
    ```
 
+   {% note info %}
+
+   If the command returns an error saying `manifest does not contain a layer with mediatype application/tar+gzip`, make sure you [installed the Helm package manager](https://helm.sh/ru/docs/intro/install/) with version {{ alb-ingress-helm-version }} or higher. To find out the version of the installed manager, [run the command](https://helm.sh/docs/helm/helm_version/): `helm version`.
+
+   {% endnote %}
+
 1. Install the chart in the cluster:
 
    ```bash
@@ -56,7 +62,6 @@ The [{{ alb-name }} Ingress controller for {{ managed-k8s-full-name }}](../tools
 
    * `--namespace`: name of namespace created prior to installation.
    * `--set` and `--set-file` set [values for the chart](https://helm.sh/docs/topics/charts/#templates-and-values) either directly or from a file:
-
       * `folderId`: ID of {{ yandex-cloud }} folder where a {{ managed-k8s-name }} cluster is created. You can retrieve the ID by following [instructions](../../resource-manager/operations/folder/get-id.md) in the {{ resmgr-full-name }} documentation.
       * `clusterId`: Cluster ID. You can retrieve the ID by following [instructions](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
       * `saKeySecretKey`: Authorized service account key created prior to the installation.

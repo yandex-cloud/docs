@@ -1,0 +1,6 @@
+title: Yandex Managed Service for Opensearch
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+base: ru/managed-opensearch

@@ -650,7 +650,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
       ```hcl
       resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
         ...
-        security_group_ids  = ["<list of cluster security group IDs>"]
+        security_group_ids = ["<list of cluster security group IDs>"]
       }
       ```
 

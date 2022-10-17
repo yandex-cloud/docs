@@ -56,12 +56,12 @@ items:
       - name: Резервное копирование в {{ objstorage-name }} через Acronis
         href: archive/object-storage-acronis.md
       - name: >-
-          Резервное копирование в {{ objstorage-name }} через CloudBerry Desktop
-          Backup
+          Резервное копирование в {{ objstorage-name }} с помощью CloudBerry
+          Desktop Backup
         href: archive/object-storage-cloudberry.md
       - name: Резервное копирование в {{ objstorage-name }} через Duplicati
         href: archive/object-storage-duplicati.md
-      - name: Резервное копирование в {{ objstorage-name }} через Bacula
+      - name: Резервное копирование в {{ objstorage-name }} с помощью Bacula
         href: archive/backup-with-bacula.md
       - name: >-
           Резервное копирование в {{ objstorage-name }} с помощью Veritas Backup

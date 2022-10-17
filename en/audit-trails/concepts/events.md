@@ -18,6 +18,7 @@ Below are events for services:
 * [{{ kms-name }}](#kms)
 * [{{ lockbox-name }}](#lockbox)
 * [{{ mch-short-name }}](#managed-service-for-clickhouse)
+* [{{ mgl-full-name }}](#managed-service-for-gitlab)
 * [{{ mmg-short-name }}](#managed-service-for-mongodb)
 * [{{ mmy-short-name }}](#managed-service-for-mysql)
 * [{{ mpg-short-name }}](#managed-service-for-postgresql)
@@ -134,9 +135,10 @@ Service name: `iam`.
 | `DeleteKey` | Deleting a key pair for a service account |
 | `DetectLeakedCredential` | Deleting secrets that are available in the public domain |
 | `DeleteServiceAccount` | Deleting a service account |
+| `DetectLeakedCredential` | Detecting a secret in a public source |
 | `UpdateAccessKey` | Updating an access key |
 | `UpdateApiKey` | Updating an API key |
-| `UpdateCertificate` | Renew a certificate |
+| `UpdateCertificate` | Renewing a certificate |
 | `UpdateFederation` | Updating a federation |
 | `UpdateKey` | Updating a key pair |
 | `UpdateServiceAccount` | Updating a service account |
@@ -212,8 +214,8 @@ Service name: `mdb.clickhouse`.
 | `MoveCluster` | Moving a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `RevokeUserPermission` | Revoking a database user's privileges |
-| `StartCluster` | Start cluster |
-| `StopCluster` | Stop cluster |
+| `StartCluster` | Starting cluster |
+| `StopCluster` | Stopping cluster |
 | `UpdateCluster` | Updating clusters |
 | `UpdateClusterExternalDictionary` | Deleting an external dictionary |
 | `UpdateClusterShard` | Editing a cluster shard |
@@ -221,6 +223,24 @@ Service name: `mdb.clickhouse`.
 | `UpdateMlModel` | Editing a machine learning model |
 | `UpdateShardGroup` | Editing a shard group |
 | `UpdateUser` | Editing a database user |
+
+
+## {{ mgl-name }} {#managed-service-for-gitlab}
+
+Service name: `gitlab`.
+
+| Event name | Description |
+--- | ---
+| `BackupInstance` | Creating backups |
+| `CreateInstance` | Creating an instance |
+| `DeleteInstance` | Deleting an instance |
+| `RescheduleMaintenance` | Scheduled maintenance was rescheduled |
+| `ScheduleUpgrade` | GitLab version update was scheduled |
+| `StartInstance` | Launching an instance |
+| `StopInstance` | Stopping an instance |
+| `UpdateInstance` | Updating an instance |
+| `UpdateOmniauthInstance` | Updating OmniAuth settings |
+| `UpgradeInstance` | Updating the GitLab version |
 
 ## {{ mmg-short-name }} {#managed-service-for-mongodb}
 
@@ -244,8 +264,8 @@ Service name: `mdb.mongodb`.
 | `MoveCluster` | Moving a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `RevokeUserPermission` | Revoking a database user's privileges |
-| `StartCluster` | Start cluster |
-| `StopCluster` | Stop cluster |
+| `StartCluster` | Starting cluster |
+| `StopCluster` | Stopping cluster |
 | `UpdateCluster` | Updating clusters |
 | `UpdateUser` | Editing a database user |
 
@@ -269,9 +289,9 @@ Service name: `mdb.mysql`.
 | `RescheduleMaintenance` | Rescheduling scheduled maintenance |
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `RevokeUserPermission` | Revoking a database user's privileges |
-| `StartCluster` | Start cluster |
+| `StartCluster` | Starting cluster |
 | `StartClusterFailover` | Launching master switching for a cluster |
-| `StopCluster` | Stop cluster |
+| `StopCluster` | Stopping cluster |
 | `UpdateCluster` | Updating clusters |
 | `UpdateClusterHosts` | Editing hosts in a cluster |
 | `UpdateUser` | Editing a database user |
@@ -295,8 +315,8 @@ Service name: `mdb.postgresql`.
 | `MoveCluster` | Moving a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `RevokeUserPermission` | Revoking a database user's privileges |
-| `StartCluster` | Start cluster |
-| `StopCluster` | Stop cluster |
+| `StartCluster` | Starting cluster |
+| `StopCluster` | Stopping cluster |
 | `UpdateCluster` | Updating clusters |
 | `UpdateClusterHosts` | Editing hosts in a cluster |
 | `UpdateDatabase` | Updating a database |
@@ -318,9 +338,9 @@ Service name: `mdb.redis`.
 | `MoveCluster` | Moving a cluster |
 | `RebalanceCluster` | Rebalancing a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
-| `StartCluster` | Start cluster |
+| `StartCluster` | Starting cluster |
 | `StartClusterFailover` | Launching master switching for a cluster |
-| `StopCluster` | Stop cluster |
+| `StopCluster` | Stopping cluster |
 | `UpdateCluster` | Updating clusters |
 
 ## {{ network-load-balancer-name }} {#network-load-balancer}
@@ -437,6 +457,7 @@ Service name: `ydb`.
 | `CreateDatabase` | Creating a database |
 | `DeleteBackup` | Deleting a database backup |
 | `DeleteDatabase` | Deleting a database |
+| `MoveDatabase` | Moving a database |
 | `RestoreBackup` | Restoring a database from a backup |
 | `StartDatabase` | Starting a database |
 | `StopDatabase` | Stopping a database |

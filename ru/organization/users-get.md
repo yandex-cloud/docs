@@ -23,13 +23,13 @@
   1. Посмотрите описание команды получения информации о пользователях организации:
 
       ```
-      $ yc organization-manager user list --help
+      yc organization-manager user list --help
       ```
 
   1. Получите информацию о пользователях, указав идентификатор организации:
 
       ```
-      $ yc organization-manager user list --organization-id bof33mc4bik7bg
+      yc organization-manager user list --organization-id bof33mc4bik7bg
       +----------------------+----------+------------------+-----------------------+
       |          ID          | USERNAME |      EMAIL       |     FEDERATION ID     |
       +----------------------+----------+------------------+-----------------------+
@@ -41,7 +41,5 @@
 - API
 
   Получите параметры пользователя с помощью [запроса к API](../organization/api-ref/User/listMembers.md).
-  
-
 
 {% endlist %}

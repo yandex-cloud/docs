@@ -41,11 +41,11 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
 - {{ org-name }} interface
 
-   1. [Log in]({{link-passport}}) to the organization's administrator or owner account.
+   1. [Log in]({{ link-passport }}) to the organization's administrator or owner account.
 
-   1. Go to [{{org-full-name}}]({{link-org-main}}).
+   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
+   1. In the left panel, select [Users]({{ link-org-users }}) ![icon-users](../_assets/organization/icon-users.svg).
 
    1. Select a user from the list or use the search bar at the top of the page.
 
@@ -160,7 +160,7 @@ For detailed instructions on assigning a role to a resource, please see the {{ i
       2. Run the check using the command:
 
       ```
-      $ terraform plan
+      terraform plan
       ```
 
       If the configuration is described correctly, the terminal displays a list of the roles assigned. If the configuration contain errors, {{ TF }} will point them out.
@@ -170,7 +170,7 @@ For detailed instructions on assigning a role to a resource, please see the {{ i
       If the configuration doesn't contain any errors, run the command:
 
       ```
-      $ terraform apply
+      terraform apply
       ```
       This assigns the roles in the specified organization.
 
@@ -186,11 +186,11 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
 
 - {{ org-name }} interface
 
-   1. [Log in]({{link-passport}}) to the organization's administrator or owner account.
+   1. [Log in]({{ link-passport }}) to the organization's administrator or owner account.
 
-   1. Go to [{{org-full-name}}]({{link-org-main}}).
+   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
+   1. In the left panel, select [Users]({{ link-org-users }}) ![icon-users](../_assets/organization/icon-users.svg).
 
    1. Select a user from the list or use the search bar at the top of the page.
 

@@ -1,6 +1,6 @@
 # Удалить группу безопасности
 
-Функция находится на [стадии Preview](../../overview/concepts/launch-stages.md).
+{% include [Preview](../../_includes/vpc/preview.md) %}
 
 {% note warning %}
 
