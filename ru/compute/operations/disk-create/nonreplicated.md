@@ -140,3 +140,7 @@
       ```
 
 {% endlist %}
+
+#### См. также {#see-also}
+
+* [{#T}](../snapshot-control/create-schedule.md)
