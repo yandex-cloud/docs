@@ -16,7 +16,7 @@
       yc iam user-account get --help
       ```
 
-  2. Получите информацию о пользователе, указав его логин:
+  1. Получите информацию о пользователе, указав его логин:
       
       ```bash
       yc iam user-account get just.mad.hatter
