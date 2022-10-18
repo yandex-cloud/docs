@@ -799,9 +799,9 @@
 
 - **Maintenance work mem**{#setting-maintenance-work-mem} {{ tag-all }}
 
-   The maximum amount of memory (in bytes) to be used by {{ PG }} maintenance operations, such as `VACUUM`, `CREATE INDEX`, and `ALTER TABLE ADD FOREIGN KEY`.
+   The maximum amount of memory (in bytes) to be used by {{ PG }} maintenance operations, such as `VACUUM`, `CREATE INDEX`, and `ALTER TABLE ADD FOREIGN KEY`. The value must be a multiple of 1024.
 
-   The minimum value is `1024` and the maximum value is `2147483647` (2 GB). Defaults to `65536`.
+   The minimum value is `1048576` (1 MB) and the maximum value is `137438953472` (128 GB). Defaults to `67108864` (64 MB).
 
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM).
 
