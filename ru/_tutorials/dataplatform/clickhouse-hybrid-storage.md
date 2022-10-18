@@ -21,9 +21,9 @@
 
     1. [Создайте кластер](../../managed-clickhouse/operations/cluster-create.md) {{ mch-name }}:
         {% if audience != "internal" %}
-        * **Тип хранилища** — на стандартных (`network-hdd`), быстрых (`network-ssd`) или нереплицируемых (`network-ssd-nonreplicated`) сетевых дисках.
+        * **Тип диска** — стандартные (`network-hdd`), быстрые (`network-ssd`) или нереплицируемые (`network-ssd-nonreplicated`) сетевые диски.
         {% else %}
-        * **Тип хранилища** — на стандартных (`local-hdd`) или быстрых (`local-ssd`) локальных дисках.
+        * **Тип диска** — стандартные (`local-hdd`) или быстрые (`local-ssd`) локальные диски.
         {% endif %}
         * **Имя БД** — `tutorial`.
         * **Гибридное хранилище** — `Включено`.
