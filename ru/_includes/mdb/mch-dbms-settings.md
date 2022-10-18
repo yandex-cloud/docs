@@ -1,3 +1,35 @@
+{% if audience == "draft" %}
+
+* **Background common pool size**{#setting-background-common-pool-size} {{ tag-con }} {{ tag-api }}
+
+    Количество потоков для выполнения фоновых неспециализированных операций, например, очистки файловой системы, в таблицах семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/).
+
+    По умолчанию выбрано значение `8`.
+
+    Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_common_pool_size).
+
+{% endif %}
+
+* **Background fetches pool size**{#setting-background-fetches-pool-size} {{ tag-con }} {{ tag-api }}
+
+    Количество потоков для выполнения фоновых операций извлечения в таблицах семейства [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
+
+    По умолчанию выбрано значение `8`.
+
+    Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_fetches_pool_size).
+
+{% if audience == "draft" %}
+
+* **Background message broker schedule pool size**{#setting-background-message-broker-schedule-pool-size} {{ tag-con }} {{ tag-api }}
+
+    Количество потоков для выполнения фоновых операций трансляции сообщений. Эта настройка применяется на этапе запуска {{ CH }} и ее нельзя изменить в процессе работы.
+
+    По умолчанию выбрано значение `16`.
+
+    Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/settings/settings/#background_message_broker_schedule_pool_size).
+
+{% endif %}
+
 * **Background pool size**{#setting-background-pool-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
     Количество потоков для выполнения фоновых операций слияния и [мутаций]({{ ch.docs }}/sql-reference/statements/alter/#mutations) в таблицах семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/).
@@ -9,6 +41,10 @@
     Количество потоков для выполнения фоновых задач. Применяется для реплицируемых таблиц, стримов в {{ KF }} и обновления IP-адресов записей во внутреннем DNS-кеше.
 
     По умолчанию выбрано значение `128`.
+
+* **Default database**{#setting-default-database} {{ tag-con }} {{ tag-api }}
+
+    База данных по умолчанию. Инструкцию о получении списка баз данных в кластере см. в разделе [Управление базами данных](../../managed-clickhouse/operations/databases#list-db).
 
 * **Geobase uri**{#setting-geobase-uri} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
@@ -80,6 +116,18 @@
     Время (в миллисекундах) от внесения записи в таблицу `system.metric_log` до удаления этой записи. Значение должно быть кратно 1000.
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
+
+* **Min bytes for wide part**{#setting-min-bytes-for-wide-part} {{ tag-con }} {{ tag-api }}
+
+    Минимальное количество байт в куске данных, который может храниться в формате `Wide`. Можно задать одновременно с параметром **Min rows for wide part**.
+
+    Подробнее см. [в документации {{ CH }}](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage).
+
+* **Min rows for wide part**{#setting-min-rows-for-wide-part} {{ tag-con }} {{ tag-api }}
+
+    Минимальное количество строк в куске данных, который может храниться в формате `Wide`. Можно задать одновременно с параметром **Min bytes for wide part**.
+
+    Подробнее см. [в документации {{ CH }}](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage).
 
 * **Part log retention size**{#setting-part-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
@@ -157,8 +205,16 @@
 * **Timezone**{#setting-timezone} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
     Временная зона сервера. Указывается идентификатором IANA в виде часового пояса UTC или географического положения (например, Africa/Abidjan).
-    
+
     Подробнее см. в документации [{{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings/#server_configuration_parameters-timezone).
+
+* **Total memory profiler step**{#setting-total-memory-profiler-step} {{ tag-con }} {{ tag-api }}
+
+    Задает объем памяти (в байтах) для стектрейса (stack trace) на каждом шаге выделения памяти. Данные хранятся в системной таблице `system.trace_log`, при этом значение `query_id` является пустой строкой.
+
+    По умолчанию установлено значение `4194304`.
+
+    Подробнее см. в документации [{{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings/#total-memory-profiler-step).
 
 * **Trace log enabled**{#setting-trace-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
@@ -177,6 +233,19 @@
     Время (в миллисекундах) от внесения записи в таблицу `system.trace_log` до удаления этой записи. Значение должно быть кратно 1000.
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
+
+* **TTL only drop parts**{#setting-ttl-only-drop-parts} {{ tag-con }} {{ tag-api }}
+
+    Полное удаление кусков данных из таблиц семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/), когда время жизни всех строк в куске истекло.
+
+    Если настройка отключена, {{ CH }} удаляет строки согласно их TTL. Если включена — удаляет весь кусок данных, когда время жизни всех строк в нем истекло.
+
+    Возможные значения:
+
+    * `0` — настройка отключена (по умолчанию).
+    * `1` — настройка включена.
+
+    Подробнее см. в документации [{{ CH }}]({{ ch.docs }}/operations/settings/settings/#ttl_only_drop_parts).
 
 * **Uncompressed cache size**{#setting-uncompressed-cache-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
@@ -277,9 +346,10 @@
 
         Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/merge-tree-settings/#replicated-deduplication-window-seconds).
 
-* **Rabbitmq**{#setting-rabbitmq} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+* **Rabbitmq**{#setting-rabbitmq} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
     Глобальные настройки аутентификации для [интеграции с {{ RMQ }}]({{ ch.docs }}/engines/table-engines/integrations/rabbitmq/):
 
     * **Password** — пароль учетной записи {{ RMQ }}.
     * **Username** — имя учетной записи {{ RMQ }}.
+    * **Vhost** — адрес виртуального хоста для {{ RMQ }}.
