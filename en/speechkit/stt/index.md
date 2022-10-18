@@ -4,7 +4,15 @@ _Speech recognition (speech-to-text, STT)_ is the process of converting speech t
 
 {% include [api-concepts](../../_includes/speechkit/api-concepts.md) %}
 
+{% if product == "cloud-il" %}
+
+Service is available at `{{ api-host-sk }}` with `x-node-alias: speechkit.stt.stable` request header.
+
+{% endif %}
+
 ## Recognition methods {#stt-ways}
+
+{% if product == "yandex-cloud" %}
 
 {{ speechkit-name }} provides two ways of improving the quality of speech recognition:
 
@@ -12,6 +20,16 @@ _Speech recognition (speech-to-text, STT)_ is the process of converting speech t
 1. Audio file recognition. {{ speechkit-name }} Can recognize audio recordings in [synchronous](request.md) and [asynchronous](transcribation.md) mode.
    * Synchronous mode has strict limitations on the size and duration of a file and is suitable for recognizing single-channel audio fragments of up to {{ stt-short-audioLength }}.
    * Asynchronous mode can process multi-channel audio fragments. Maximum recording duration: {{ stt-long-audioLength }}.
+
+{% endif %}
+{% if product == "cloud-il" %}
+
+{{ speechkit-name }} enables you to recognize speech in real time: for example, during a phone call. To do this, {{ speechkit-name }} receives short audio fragments and sends the intermediate and final results over a single connection. This is called streaming recognition mode.
+
+{{ speechkit-name }} uses the gRPC API to transmit data streams. For more information about building a speech recognition application, see [{#T}](streaming.md).
+
+{% endif %}
+{% if product == "yandex-cloud" %}
 
 ### Which recognition to choose {#choose-stt}
 
@@ -25,17 +43,19 @@ _Speech recognition (speech-to-text, STT)_ is the process of converting speech t
 | **Maximum amount of transmitted data** | {{ stt-streaming-fileSize }} | {{ stt-short-fileSize }} | {{ stt-long-fileSize }} |
 | **Number of recognition channels** | 1 | 1 | 2 |
 
+{% endif %}
+
 ## Recognition process {#process}
 
-Regardless of the mode, audio is recognized in three stages:
+Audio is recognized in three stages:
 
-1. Identification of words. For each word, multiple hypotheses are put forward.
-1. Recognition of words. The language model checks hypotheses and determines how well a new word fits in with the words recognized earlier.
-1. Processing of text. In the recognized text, numbers are converted into digits and some punctuation, such as hyphens, is marked. After that, the result is sent in the response body.
+1. The acoustic model determines which set of low-level attributes corresponds to the audio signal.
+1. The language model uses the acoustic model output to generate the text by words.
+1. Text processing: punctuation, converting numerals into numbers, etc.
 
 ## Recognition accuracy {#speed_and_accuracy}
 
-Recognition accuracy depends on the recognition model. You can improve a model's recognition accuracy by providing data for model retraining. For more information about ways of model retraining, see [{#T}](additional-training.md).
+Recognition accuracy depends on the recognition model. You can improve a model's recognition accuracy by providing data for model retraining. For more information about model retraining, see [{#T}](additional-training.md).
 
 The accuracy of speech recognition is also affected by:
 
@@ -44,13 +64,19 @@ The accuracy of speech recognition is also affected by:
 * Speech intelligibility and rate.
 * Utterance complexity and length.
 
+{% if product == "yandex-cloud" %}
+
 {% include [accuracy](../../_includes/speechkit/accuracy.md)%}
+
+{% endif %}
 
 #### See also {#see-also}
 
 * [{#T}](../formats.md)
 * [{#T}](models.md)
+* [How to work with streaming speech recognition](streaming.md)
+   {% if product == "yandex-cloud" %}
 * [{#T}](request.md)
-* [{#T}](streaming.md)
 * [{#T}](transcribation.md)
 * [{#T}](additional-training.md)
+   {% endif %}

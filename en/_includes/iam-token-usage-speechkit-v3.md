@@ -1,5 +1,6 @@
 When accessing {{ speechkit-name }} via the API, pass the received parameters in each request:
 
+{% if product == "yandex-cloud" %}
 * For API v1 and API v2:
 
    Specify the IAM token in the `Authorization` header in the following format:
@@ -9,6 +10,7 @@ When accessing {{ speechkit-name }} via the API, pass the received parameters in
    ```
 
    Specify the folder ID in the request body in the `folderId` parameter.
+{% endif %}
 
 * For API v3:
 

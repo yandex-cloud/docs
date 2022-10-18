@@ -1,6 +1,6 @@
 ---
-title: Quotas and limits in Yandex SpeechKit
-description: 'Yandex SpeechKit has limits and quotas for short audio recognition, streaming mode for short audio recognition, long audio recognition, speech synthesis. You will learn more about the limitations of the service in this article. '
+title: Quotas and limits in {{ speechkit-full-name }}
+description: "{{ speechkit-full-name }} has limits and quotas for audio recognition, streaming recognition, and speech synthesis. For more information about the service restrictions, read this article."
 
 editable: false
 ---

@@ -6,7 +6,7 @@
 
 By default, {{ speechkit-name }} doesn't save data passed by users. However, the most effective way to improve a speech recognition model is to train it on real user data.
 
-To improve the quality of speech recognition, you can use the _auto-tuning_ model. With auto-tuning enabled, you can save data transmitted in requests and use it for further training. To do this, specify the `x-data-logging-enabled: true`HTTP header in API requests. For an example with logging enabled, see [{#T}](../concepts/support-headers.md).
+To improve the quality of speech recognition, you can use the _auto-tuning_ model. With auto-tuning enabled, you can save data transmitted in requests and use it for further training. To do this, specify the `x-data-logging-enabled: true` header in API requests. {% if product == "yandex-cloud" %}For an example with logging enabled, see [{#T}](../concepts/support-headers.md).{% endif %}
 
 Auto-tuning helps improve recognition quality while a model is running without any additional assistance.
 
@@ -48,15 +48,15 @@ If the pattern phrases suggest that the glossary terms may be in possessive case
 Then the `templates.tsv` file may contain entries like
 
 ```
-Hello, are you {first-name=first-names.tsv}{middle-name=middle-names.tsv} {last-name=last-names.tsv}?
+Hello, are you {first-name=first-names.tsv} {middle-name=middle-names.tsv} {last-name=last-names.tsv}?
 Hello, can I talk to {first-name=first-names-ablative.tsv} {middle-name=middle-names-ablative.tsv} representative?
 ```
 
-{% if audience == "draft" %}
-
 ### Importing retraining data {#import-data}
 
-For information on importing retraining data, see [{#T}](import-training-data.md).
+To transmit retraining data to the {{ speechkit-name }} command, {% if product == "yandex-cloud" %}contact your manager.{% endif %} {% if product == "cloud-il" %}contact [support](../../support/overview.md).{% endif %}
+
+{% if audience == "draft" %}
 
 ### Testing the quality of retraining {#testing}
 
@@ -65,12 +65,21 @@ A trained model is tested using the following data sets:
 1. A basket for evaluating everyday language.
 1. (Optional) Audio recordings that are at least 1 hour long to evaluate the quality of model retraining. The structure of the recorded utterances should repeat the provided patterns.
 
-The quality of speech recognition is evaluated based on the [WER](https://en.wikipedia.org/wiki/Word_error_rate) (Word Error Rate) metric. The lower the resulting metric value, the more accurately a speech fragment is recognized. Model retraining is considered successful if the quality of recognition of specific vocabulary has significantly improved, while the quality of recognition of everyday language has either improved or remained unchanged. You can judge the quality of speech recognition for yourself using [{{ ml-platform-full-name }}](../../datasphere-old/tutorials/speech-recognition.md).
+The quality of speech recognition is evaluated based on the [WER](https://en.wikipedia.org/wiki/Word_error_rate)(Word Error Rate) metric. The lower the resulting metric value, the more accurately a speech fragment is recognized. Model retraining is considered successful if the quality of recognition of specific vocabulary has significantly improved, while the quality of recognition of everyday language has either improved or remained unchanged. You can evaluate the quality of speech recognition on your own in [{{ ml-platform-full-name }}](../../datasphere-old/tutorials/estimate-quality.md).
 
-If a new version of the model meets the requirements of the quality evaluation metrics after retraining, it will be prepared for release in the `general:rc` status.
+If a new model version meets the quality evaluation metric requirements after retraining, it will be prepared for release as `general:rc`.
 
 {% endif %}
 
-### Model availability dates
+### Model availability dates {#commitments}
 
-Changes are made to the `general:rc` model within 4 weeks of the standard release preparation cycle.
+{% if product == "yandex-cloud" %}
+
+Changes to a `general:rc` model are usually made over a period of 4 weeks as in any standard release roll-out cycle.
+
+{% endif %}
+{% if product == "cloud-il" %}
+
+The model update timing will be discussed individually.
+
+{% endif %}

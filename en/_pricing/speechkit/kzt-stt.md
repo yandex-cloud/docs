@@ -1,5 +1,6 @@
-| Service | Rate for the billable unit, with VAT |
-| ----- | ----- |
-| [Short audio recognition](../../speechkit/pricing.md#rules-stt-short) | {{ sku|KZT|ai.speech.stt|string }} |
-| [Long audio recognition](../../speechkit/pricing.md#rules-stt-long) | {{ sku|KZT|ai.speech.stt_long_running|string }} |
-| [Long audio recognition](../../speechkit/pricing.md#rules-stt-long) by the [deferred-general](../../speechkit/stt/models.md#new-versions) model | {{ sku|KZT|ai.speech.stt_long_running_deferred.v1|string }} |
+| Service | Price per unit,<br/>incl. VAT |
+|---------------------------------------------------------------------------------------| --- |
+| [Data streaming recognition](../../speechkit/stt/streaming.md) | {{ sku|KZT|ai.speech.stt|string }} |
+| [Synchronous recognition](../../speechkit/stt/request.md) | {{ sku|KZT|ai.speech.stt|string }} |
+| [Asynchronous file recognition](../../speechkit/stt/transcribation.md) | {{ sku|KZT|ai.speech.stt_long_running|string }} |
+| Asynchronous file recognition, [deferred mode](../../speechkit/stt/models#tags) | {{ sku|KZT|ai.speech.stt_long_running_deferred.v1|string }} |

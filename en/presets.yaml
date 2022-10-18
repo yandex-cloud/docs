@@ -601,6 +601,7 @@ default:
   ya-client-app: https://oauth.yandex.com/client/new
   ya-oauth: https://oauth.yandex.com/verification_code
   ds-api-addr: datasphere.api.cloud.yandex.net:443
+  api-host-sk: api.cloud.yandex.net:443
   taas-name: Training as a Service
   taas: TaaS
   ml-project-size: 10 GB
@@ -848,6 +849,7 @@ cloud-il:
   api-host-mdb: mdb.api.cloudil.com
 
   ds-api-addr: datasphere.api.cloudil.com:443
+  api-host-sk: node-api.datasphere.cloudil.com:443
   s3-storage-host: storage.cloudil.com
   s3-web-host: website.cloudil.com
   s3-objstorage-host: s3.cloudil.com

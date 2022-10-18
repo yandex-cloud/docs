@@ -34,7 +34,6 @@ ignore:
   - "en/partner/*"
   - "en/serverless-containers/*"
   - "en/smartcaptcha/*"
-  - "en/speechkit/*"
   - "en/speechkit-pro/*"
   - "en/speechkit-hybrid/*"
   - "en/tracker/*"

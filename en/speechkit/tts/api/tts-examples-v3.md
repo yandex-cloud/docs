@@ -65,6 +65,8 @@ To implement an example:
 
       1. Create a file (for example, `test.py`) in the root of the `output` directory and add the following code to it:
 
+         {% if product == "yandex-cloud" %}
+
          ```python
          import io
          import grpc
@@ -93,7 +95,7 @@ To implement an example:
 
              # Send data for synthesis.
              it = stub.UtteranceSynthesis(request, metadata=(
-                 ('authorization', f'Bearer {iam_token}'),
+                 ('authorization', f'Bearer {iam_token}')
              ))
 
              # Create an audio file out of chunks.
@@ -120,11 +122,72 @@ To implement an example:
                  audio.export(fp, format='wav')
          ```
 
+         {% endif %} 
+         {% if product == "cloud-il" %}
+
+         ```python
+         import io
+         import grpc
+         import pydub
+         import argparse
+
+         import yandex.cloud.ai.tts.v3.tts_pb2 as tts_pb2
+         import yandex.cloud.ai.tts.v3.tts_service_pb2_grpc as tts_service_pb2_grpc
+
+         # Define request parameters.
+         def synthesize(iam_token, text) -> pydub.AudioSegment:
+             request = tts_pb2.UtteranceSynthesisRequest(
+                 text=text,
+                 output_audio_spec=tts_pb2.AudioFormatOptions(
+                     container_audio=tts_pb2.ContainerAudio(
+                         container_audio_type=tts_pb2.ContainerAudio.WAV
+                     )
+                 ),
+                 loudness_normalization_type=tts_pb2.UtteranceSynthesisRequest.LUFS
+             )
+
+             # Establish connection with server.
+             cred = grpc.ssl_channel_credentials()
+             channel = grpc.secure_channel('{{ api-host-sk }}', cred)
+             stub = tts_service_pb2_grpc.SynthesizerStub(channel)
+
+             # Send data for synthesis.
+             it = stub.UtteranceSynthesis(request, metadata=(
+                 ('authorization', f'Bearer {iam_token}'),
+                 ('x-node-alias', 'speechkit.tts.stable')
+             ))
+
+             # Create an audio file out of chunks.
+             try:
+                 audio = io.BytesIO()
+                 for response in it:
+                     audio.write(response.audio_chunk.data)
+                 audio.seek(0)
+                 return pydub.AudioSegment.from_wav(audio)
+             except grpc._channel._Rendezvous as err:
+                 print(f'Error code {err._state.code}, message: {err._state.details}')
+                 raise err
+
+
+         if __name__ == '__main__':
+             parser = argparse.ArgumentParser()
+             parser.add_argument('--token', required=True, help='IAM token')
+             parser.add_argument('--text', required=True, help='Text for synthesis')
+             parser.add_argument('--output', required=True, help='Output file')
+             args = parser.parse_args()
+
+             audio = synthesize(args.token, args.text)
+             with open(args.output, 'wb') as fp:
+                 audio.export(fp, format='wav')
+         ```
+         
+         {% endif %}
+
       1. Execute the file from the previous step:
 
          ```bash
          export IAM_TOKEN=<service_account_IAM token>
-         export TEXT='I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!'
+         export TEXT='I'm Speech+Kit. I can turn any text into speech. Now y+ou can, too!'
          python output/test.py \
            --token ${IAM_TOKEN} \
            --output speech.wav \
