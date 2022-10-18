@@ -24,7 +24,7 @@ In the internal installation, it's more convenient to use a robot instead of a s
      curl \
        -d "{\"yandexPassportOauthToken\":\"<OAuth-token>\"}" \
        -H "Content-Type: application/json" \
-       "https://iam.{{ api-host }}/v1/tokens"
+       "https://{{ api-host-mdb }}/iam/v1/tokens"
      ```
 
      {% endif %}
@@ -44,7 +44,7 @@ In the internal installation, it's more convenient to use a robot instead of a s
      ```powershell
      $yandexPassportOauthToken = "<OAuth-Token>"
      $Body = @{ yandexPassportOauthToken = "$yandexPassportOauthToken" } | ConvertTo-Json -Compress
-     Invoke-RestMethod -Method 'POST' -Uri 'https://iam.{{ api-host }}/v1/tokens' -Body $Body -ContentType 'application/json' | Select-Object -ExpandProperty iamToken
+     Invoke-RestMethod -Method 'POST' -Uri 'https://{{ api-host-mdb }}/iam/v1/tokens' -Body $Body -ContentType 'application/json' | Select-Object -ExpandProperty iamToken
      ```
   
      {% endif %}
