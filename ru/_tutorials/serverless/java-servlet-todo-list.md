@@ -1,37 +1,84 @@
-В этом сценарии вы узнаете, как с помощью serverless-технологий и Java Servlet API создать небольшое веб-приложение для управления списком задач.
+Узнайте, как с помощью serverless-технологий и Java Servlet API создать небольшое веб-приложение для управления списком задач.
+
+Чтобы создать веб-приложение:
+1. [Подготовьте облако к работе](#before-begin).
+1. [Подготовьте окружение](#preare).
+1. [Создайте бакет {{ objstorage-name }}](#create-bucket).
+1. [Создайте базу данных {{ ydb-short-name }}](#create-db).
+1. [Создайте функции {{ sf-name }}](#create-functions).
+1. [Создайте API-шлюз](#create-api-gw).
+1. [Протестируйте приложение](#test).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+## Перед началом работы {#before-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+{% if product == "yandex-cloud" %}
+
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость ресурсов поддержки веб-приложения входят:
+
+* плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md));
+* плата за операции с YDB и хранение данных (см. [тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md));
+* плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md))
+
+{% endif %}
 
 ## Подготовьте окружение {#prepare}
 
 1. [Скачайте](https://storage.yandexcloud.net/doc-files/servlet.zip) архив с файлами проекта.
 
-1. [Создайте](../../iam/operations/sa/create.md#create-sa) сервисный аккаунт и [назначьте](../../iam/operations/roles/grant#access-to-sa) ему роли `viewer` и `editor` на ваш каталог.
+1. [Создайте](../../iam/operations/sa/create.md#create-sa) сервисный аккаунт и [назначьте](../../iam/operations/roles/grant.md#access-to-sa) ему роли `viewer` и `editor` на ваш каталог.
 
-1. Создайте [бакет](../../storage/concepts/bucket.md) и загрузите в него файл `index.html`:
+## Создайте бакет {{ objstorage-name }} {#create-bucket}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-    1. Выберите сервис **{{ objstorage-name }}**.
-    1. Нажмите кнопку **Создать бакет**.
-    1. На странице создания бакета:
-        1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
-        1. При необходимости ограничьте максимальный размер бакета.
-        1. Выберите тип [доступа](../../storage/concepts/bucket.md#bucket-access).
-        1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию.
-        1. Нажмите кнопку **Создать бакет** для завершения операции.
-    1. Нажмите кнопку **Загрузить**.
-    1. В появившемся окне выберите в папке с проектом файл `index.html` (находится по пути `src/main/resources/`) и нажмите кнопку **Открыть**.
-    1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) для файла и нажмите кнопку **Загрузить**.
+Создайте [бакет](../../storage/concepts/bucket.md) и загрузите в него файл `index.html`:
 
-## Создайте базу данных {#create-db}
+{% list tabs %}
 
-1. Создайте базу данных в [режиме Serverless](../../ydb/concepts/serverless-and-dedicated#serverless):
+- Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать базу данных.
-    1. Выберите сервис **{{ ydb-name }}**.
-    1. Нажмите кнопку **Создать базу данных**.
-    1. Введите **Имя** базы.
-    1. В блоке **Тип базы данных** выберите **Serverless**.
-    1. Нажмите кнопку **Создать базу данных**.
-    1. Дождитесь запуска базы данных. В процессе создания база будет иметь статус `Provisioning`, а когда станет готова к использованию, статус изменится на `Running`.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
+  1. Выберите сервис **{{ objstorage-name }}**.
+  1. Нажмите кнопку **Создать бакет**.
+  1. На странице создания бакета:
+      1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
+      1. При необходимости ограничьте максимальный размер бакета.
+      1. Выберите тип [доступа](../../storage/concepts/bucket.md#bucket-access).
+      1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию.
+      1. Нажмите кнопку **Создать бакет** для завершения операции.
+  1. Выберите созданный бакет.
+  1. Нажмите кнопку **Загрузить**.
+  1. В появившемся окне выберите в папке с проектом файл `src/main/resources/index.html` и нажмите кнопку **Открыть**.
+  1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) для файла и нажмите кнопку **Загрузить**.
+
+{% endlist %}
+
+## Создайте базу данных {{ ydb-short-name }} {#create-db}
+
+1. Создайте базу данных в [режиме Serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless):
+
+    {% list tabs %}
+
+    - Консоль управления
+
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создали бакет.
+      1. Выберите сервис **{{ ydb-name }}**.
+      1. Нажмите кнопку **Создать базу данных**.
+      1. Введите **Имя** базы. Требования к имени:
+
+          {% include [name-format](../../_includes/name-format.md) %}
+
+      1. В блоке **Тип базы данных** выберите **Serverless**.
+      1. Нажмите кнопку **Создать базу данных**.
+      1. Дождитесь запуска базы данных. В процессе создания база будет иметь статус `Provisioning`, а когда станет готова к использованию, статус изменится на `Running`.
+      1. Выберите созданную БД.
+      1. В блоке **Соединение** найдите поля **Эндпоинт** и **Размещение базы данных** и сохраните их значения. Они понадобятся при создании функций.
+
+    {% endlist %}
 
 1. Создайте таблицу с именем `Tasks`:
 
@@ -77,7 +124,7 @@
 
     {% endlist %}
 
-## Создайте функции {#create-functions}
+## Создайте функции {{ sf-name }} {#create-functions}
 
 Создайте [функцию](../../functions/concepts/function.md) для каждого сервлета:
 
@@ -85,24 +132,22 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
-  1. Выберите сервис **{{ sf-name }}**
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали бакет и базу данных.
+  1. Выберите сервис **{{ sf-name }}**.
   1. Нажмите кнопку **Создать функцию**.
   1. Введите имя `add-task` и описание функции.
   1. Нажмите кнопку **Создать**.
-  1. Перейдите в раздел **Редактор** и создайте версию функции с параметрами:
-      * Среда выполнения: `java11`.
-      * Таймаут, с: 5.
-      * Память: 128 МБ.
-      * Сервисный аккаунт: укажите аккаунт, созданный на [этом](#prepare) шаге.
-  1. Добавьте переменные окружения:
-      * `DATABASE` — значение поля **База данных** из раздела **YDB эндпоинт**;
-      * `ENDPOINT` — значение поля **Эндпоинт** из раздела **YDB эндпоинт**.
+  1. В блоке **Редактор** выберите среду выполнения **Java 11** и нажмите кнопку **Продолжить**.
+  1. Подготовьте код функции. Для этого в поле **Способ** выберите **ZIP-архив**, укажите путь к скачанному архиву `servlet.zip` и нажмите кнопку **Открыть**.
   1. В поле **Точка входа** введите `yandex.cloud.examples.serverless.todo.AddTaskServlet`.
-  1. Подготовьте код функции. Для этого в поле **Способ** выберите **ZIP-архив** и укажите путь к файлу `servlet.zip`.
-  1. Нажмите **Создать версию**.
-  1. Повторите шаги 3-10 и создайте функцию с именем `list-tasks` и точкой входа `yandex.cloud.examples.serverless.todo.ListTasksServlet`.
-  1. Повторите шаги 3-10 и создайте функцию с именем `delete-task` и точкой входа `yandex.cloud.examples.serverless.todo.DeleteTaskServlet`.
+  1. В поле **Таймаут, с** установите значение `5`.
+  1. В поле **Сервисный аккаунт** укажите аккаунт, созданный при [подготовке окружения](#prepare).
+  1. Добавьте переменные окружения:
+     * `ENDPOINT` — введите значение поля **Эндпоинт**, сохраненное при [создании базы данных {{ ydb-short-name }}](#create-db).
+     * `DATABASE` — введите значение поля **Размещение базы данных**, также сохраненное при [создании базы данных {{ ydb-short-name }}](#create-db).
+  1. Нажмите кнопку **Создать версию**.
+  1. Повторите шаги 3-12 и создайте функцию с именем `list-tasks` и точкой входа `yandex.cloud.examples.serverless.todo.ListTasksServlet`.
+  1. Повторите шаги 3-12 и создайте функцию с именем `delete-task` и точкой входа `yandex.cloud.examples.serverless.todo.DeleteTaskServlet`.
 
 - CLI
 
@@ -128,16 +173,16 @@
 
       ```bash
       yc serverless function version create \
-      --function-name=add-task \
-      --runtime java11 \
-      --entrypoint yandex.cloud.examples.serverless.todo.AddTaskServlet \
-      --memory 128m \
-      --execution-timeout 5s \
-      --source-path ./servlet.zip \
-      --environment DATABASE=<база данных>,ENDPOINT=<YDB эндпоинт>
+        --function-name=add-task \
+        --runtime java11 \
+        --entrypoint yandex.cloud.examples.serverless.todo.AddTaskServlet \
+        --memory 128m \
+        --execution-timeout 5s \
+        --source-path ./servlet.zip \
+        --environment DATABASE=<база данных>,ENDPOINT=<YDB эндпоинт>
       ```
 
-      Параметры:
+      Где:
 
       * `function-name` — имя функции, версию которой вы хотите создать;
       * `runtime` — среда выполнения;
@@ -181,137 +226,147 @@
 
 ## Создайте API-шлюз {#create-api-gw}
 
-1. Для обеспечения взаимодействия между сервисами создайте API-шлюз:
+Для обеспечения взаимодействия между сервисами создайте API-шлюз:
 
-    {% list tabs %}
+  {% list tabs %}
 
-    - Консоль управления
+  - Консоль управления
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать API-шлюз.
-      1. Выберите сервис **{{ api-gw-name }}**.
-      1. Нажмите кнопку **Создать API-шлюз**.
-      1. Введите имя шлюза и описание.
-      1. В блок **Спецификация** добавьте спецификацию:
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создали бакет, базу данных и функции.
+    1. Выберите сервис **{{ api-gw-name }}**.
+    1. Нажмите кнопку **Создать API-шлюз**.
+    1. Введите имя шлюза и описание.
+    1. В поле **Спецификация** добавьте спецификацию:
 
-          ```
-          openapi: 3.0.0
-          info:
-            title: ToDo list
-            version: 1.0.0
-          paths:
-            /:
-              get:
-                x-yc-apigateway-integration:
-                  type: object-storage
-                  bucket: <бакет>
-                  object: index.html
-                  presigned_redirect: false
-                  service_account: <сервисный аккаунт>
-                operationId: static
-            /add:
-              post:
-                x-yc-apigateway-integration:
-                  type: cloud-functions
-                  function_id: <идентификатор add-task>
-                operationId: addTask
-            /list:
-              get:
-                x-yc-apigateway-integration:
-                  type: cloud-functions
-                  function_id: <идентификатор list-tasks>
-                operationId: listTasks
-            /delete:
-              delete:
-                x-yc-apigateway-integration:
-                  type: cloud-functions
-                  function_id: <идентификатор delete-task>
-                operationId: deleteTask
-          ```
+        ```
+        openapi: 3.0.0
+        info:
+          title: ToDo list
+          version: 1.0.0
+        paths:
+          /:
+            get:
+              x-yc-apigateway-integration:
+                type: object-storage
+                bucket: <бакет>
+                object: index.html
+                presigned_redirect: false
+                service_account: <сервисный аккаунт>
+              operationId: static
+          /add:
+            post:
+              x-yc-apigateway-integration:
+                type: cloud-functions
+                function_id: <идентификатор add-task>
+              operationId: addTask
+          /list:
+            get:
+              x-yc-apigateway-integration:
+                type: cloud-functions
+                function_id: <идентификатор list-tasks>
+              operationId: listTasks
+          /delete:
+            delete:
+              x-yc-apigateway-integration:
+                type: cloud-functions
+                function_id: <идентификатор delete-task>
+              operationId: deleteTask
+        ```
 
-          Параметры:
+        Где:
 
-          * `<бакет>` — имя бакета, в котором лежит файл `index.html`;
-          * `<сервисный аккаунт>` — идентификатор сервисного аккаунта, созданного на [этом](#prepare) шаге;
-          * `<идентификатор add-task>` — идентификатор функции `add-task`;
-          * `<идентификатор list-tasks>` — идентификатор функции `list-tasks`;
-          * `<идентификатор delete-task>` — идентификатор функции `delete-task`.
+        * `bucket` — имя бакета, в котором лежит файл `index.html`;
+        * `service_account` — идентификатор сервисного аккаунта, созданного при [подготовке окружения](#prepare);
+        * блок `/add`, параметр `function_id` — идентификатор функции `add-task`;
+        * блок `/list`, параметр `function_id` — идентификатор функции `list-tasks`;
+        * блок `/delete`, параметр `function_id` — идентификатор функции `delete-task`.
 
-      1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **Создать**.
 
-    - CLI
+  - CLI
 
-      1. Сохраните следующую спецификацию в файл `todo.yaml`:
-            
-          ```
-          openapi: 3.0.0
-          info:
-            title: ToDo list
-            version: 1.0.0
-          paths:
-            /:
-              get:
-                x-yc-apigateway-integration:
-                  type: object-storage
-                  bucket: <бакет>
-                  object: index.html
-                  presigned_redirect: false
-                  service_account: <сервисный аккаунт>
-                operationId: static
-            /add:
-              post:
-                x-yc-apigateway-integration:
-                  type: cloud-functions
-                  function_id: <идентификатор add-task>
-                operationId: addTask
-            /list:
-              get:
-                x-yc-apigateway-integration:
-                  type: cloud-functions
-                  function_id: <идентификатор list-tasks>
-                operationId: listTasks
-            /delete:
-              delete:
-                x-yc-apigateway-integration:
-                  type: cloud-functions
-                  function_id: <идентификатор delete-task>
-                operationId: deleteTask
-          ```
+    1. Сохраните следующую спецификацию в файл `todo.yaml`:
 
-          Параметры:
+        ```
+        openapi: 3.0.0
+        info:
+          title: ToDo list
+          version: 1.0.0
+        paths:
+          /:
+            get:
+              x-yc-apigateway-integration:
+                type: object-storage
+                bucket: <бакет>
+                object: index.html
+                presigned_redirect: false
+                service_account: <сервисный аккаунт>
+              operationId: static
+          /add:
+            post:
+              x-yc-apigateway-integration:
+                type: cloud-functions
+                function_id: <идентификатор add-task>
+              operationId: addTask
+          /list:
+            get:
+              x-yc-apigateway-integration:
+                type: cloud-functions
+                function_id: <идентификатор list-tasks>
+              operationId: listTasks
+          /delete:
+            delete:
+              x-yc-apigateway-integration:
+                type: cloud-functions
+                function_id: <идентификатор delete-task>
+              operationId: deleteTask
+        ```
 
-          * `<бакет>` — имя бакета, в котором лежит файл `index.html`;
-          * `<сервисный аккаунт>` — идентификатор сервисного аккаунта, созданного на [этом](#prepare) шаге;
-          * `<идентификатор add-task>` — идентификатор функции `add-task`;
-          * `<идентификатор list-tasks>` — идентификатор функции `list-tasks`;
-          * `<идентификатор delete-task>` — идентификатор функции `delete-task`.
+        Где:
 
-      1. Создайте API-шлюз:
-          
-          ```bash
-          yc serverless api-gateway create \
+        * `bucket` — имя бакета, в котором лежит файл `index.html`;
+        * `service_account` — идентификатор сервисного аккаунта, созданного при [подготовке окружения](#prepare);
+        * блок `/add`, параметр `function_id` — идентификатор функции `add-task`;
+        * блок `/list`, параметр `function_id` — идентификатор функции `list-tasks`;
+        * блок `/delete`, параметр `function_id` — идентификатор функции `delete-task`.
+
+    1. Создайте API-шлюз:
+
+        ```bash
+        yc serverless api-gateway create \
           --name todo-list \
           --spec=todo.yaml \
           --description "simple todo list"
-          ```
+        ```
 
-          Результат:
+        Результат:
 
-          ```bash
-          done (41s)
-          id: d5delqeel34qjjfcdj81
-          folder_id: b1g86q4m5vej8lkljme5
-          created_at: "2021-03-08T14:07:32.134Z"
-          name: todo-list
-          description: simple todo list
-          status: ACTIVE
-          domain: d5delqeel34qjjfcdj81.apigw.yandexcloud.net
-          log_group_id: ckg2hdmevnvcngprqvqb
-          ```
+        ```bash
+        done (41s)
+        id: d5delqeel34qjjfcdj81
+        folder_id: b1g86q4m5vej8lkljme5
+        created_at: "2021-03-08T14:07:32.134Z"
+        name: todo-list
+        description: simple todo list
+        status: ACTIVE
+        domain: d5delqeel34qjjfcdj81.apigw.yandexcloud.net
+        log_group_id: ckg2hdmevnvcngprqvqb
+        ```
 
-    - Yandex Cloud Toolkit
+  - Yandex Cloud Toolkit
 
-      Создать API-шлюз можно с помощью [плагина Yandex Cloud Toolkit]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} для семейства IDE на [платформе IntelliJ]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} от [JetBrains](https://www.jetbrains.com/).
+    Создать API-шлюз можно с помощью [плагина Yandex Cloud Toolkit]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} для семейства IDE на [платформе IntelliJ]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} от [JetBrains](https://www.jetbrains.com/).
 
-    {% endlist %}
+  {% endlist %}
 
-1. Чтобы открыть приложение, перейдите по ссылке, указанной в поле **Служебный домен** созданного API-шлюза.
+## Проверьте работу приложения {#test}
+
+Чтобы открыть приложение, перейдите по ссылке, указанной в поле **Служебный домен** созданного API-шлюза.
+
+## Как удалить созданные ресурсы {#clear-out}
+
+Чтобы перестать платить за созданные ресурсы:
+* [удалите бакет](../../storage/operations/buckets/delete.md);
+* [удалите базу данных](../../ydb/operations/manage-database.md#delete-db);
+* [удалите функции](../../functions/operations/function/function-delete.md);
+* [удалите API-шлюз](../../api-gateway/operations/api-gw-delete.md).
