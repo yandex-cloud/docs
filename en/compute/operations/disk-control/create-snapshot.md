@@ -15,7 +15,7 @@ To ensure the integrity of the snapshot data:
    - `sync` to write the OS cache to disk.
    - `fsfreeze -f` to freeze the file system. To unfreeze it, run the `fsfreeze --unfreeze` command.
 
-**For all other systems:**
+**For other systems:**
 
 1. Stop the virtual machine (see [{#T}](../vm-control/vm-stop-and-start.md#stop)).
 1. Wait until the VM status changes to `STOPPED`.
@@ -32,7 +32,7 @@ To create a disk snapshot:
    1. Select **{{ compute-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **Disks**.
    1. In the row with the desired disk, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Create snapshot**.
-   1. Enter a name for the snapshot.
+   1. Enter a name for the snapshot:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -41,11 +41,13 @@ To create a disk snapshot:
 
 - CLI
 
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
    1. View a description of the CLI create snapshot commands:
 
-      ```
+      ```bash
       yc compute snapshot create --help
       ```
 
@@ -55,14 +57,14 @@ To create a disk snapshot:
 
    1. Create a snapshot in the default folder:
 
-      ```
+      ```bash
       yc compute snapshot create \
-          --name first-snapshot \
-          --description "my first snapshot via CLI" \
-          --disk-id fhm4aq4hvq5g3nepvt9b
+        --name first-snapshot \
+        --description "my first snapshot via CLI" \
+        --disk-id fhm4aq4hvq5g3nepvt9b
       ```
 
-      This command creates a disk snapshot with the name `first-snapshot` and description `my first snapshot via CLI`.
+      As a result, a disk snapshot is created with the name `first-snapshot` and description `my first snapshot via CLI`.
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -74,39 +76,37 @@ To create a disk snapshot:
 
       Example configuration file structure:
 
-      ```
+      ```hcl
       resource "yandex_compute_snapshot" "snapshot-1" {
-
         name           = "disk-snapshot"
         source_disk_id = "<disk ID>"
       }
       ```
 
-      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   2. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
-      2. Run the check using the command:
+      1. Run the check using the command:
 
-         ```
+         ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
-   3. Deploy the cloud resources.
+   1. Deploy the cloud resources.
 
       1. If the configuration doesn't contain any errors, run the command:
 
-         ```
+         ```bash
          terraform apply
          ```
 
-      2. Confirm that you want to create the resources.
+      1. Confirm that you want to create the resources.
 
       Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
-
 
 {% endlist %}
 
@@ -121,3 +121,8 @@ Once the snapshot has been created, the snapshot status will change to `Ready`. 
 To avoid this, attach the disk to the VM and change all the duplicate UUIDs. Learn more in the [instructions for attaching disks](../vm-control/vm-attach-disk.md).
 
 {% endnote %}
+
+
+#### See also {#see-also}
+
+* [{#T}](../snapshot-control/create-schedule.md)

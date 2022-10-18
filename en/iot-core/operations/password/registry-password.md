@@ -61,6 +61,71 @@ You can add a password to an existing registry or set it when creating a registr
       created_at: "2019-12-16T15:32:46.655139Z"
       ```
 
+- {{ TF }}
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   To add a password to a registry created using {{ TF }}:
+
+   1. In the configuration file, describe the parameters of resources that you want to create:
+
+      * `yandex_iot_core_registry`: Registry parameters:
+         * `name`: Registry name.
+         * `description`: Registry description.
+         * `passwords`: List of registry passwords for authorization using a [username and password](../../concepts/authorization.md#log-pass).
+
+      Sample resource structure in the configuration file:
+
+      ```hcl
+      resource "yandex_iot_core_registry" "my_registry" {
+        name        = "test-registry"
+        description = "test registry for terraform provider documentation"
+      ...
+        passwords = [
+          "<password_1>",
+          "<password_2>"
+        ]
+      ...
+      }
+      ```
+
+      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_registry).
+   1. In the command line, change to the folder where you edited the configuration file.
+   1. Make sure the configuration file is correct using the command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```bash
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+   1. Apply the configuration changes:
+
+      ```bash
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` in the terminal and press **Enter**.
+
+      You can verify registry passwords in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+
+      ```bash
+      yc iot registry password list --registry-name <registry_name>
+      ```
+
 {% endlist %}
 
 ### Setting a password for a registry when creating it {#create}
@@ -93,6 +158,10 @@ You can add a password to an existing registry or set it when creating a registr
    status: ACTIVE
    log_group_id: ckghhil3b5o9t4pf1nvg
    ```
+
+- {{ TF }}
+
+   To lean about setting a password for a registry being created, please see [{#T}](../registry/registry-create.md).
 
 {% endlist %}
 
@@ -200,6 +269,66 @@ You can add a password to an existing registry or set it when creating a registr
       | ID | CREATED AT |
       +----+------------+
       +----+------------+
+      ```
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   To delete the password of a registry created using {{ TF }}:
+
+   1. Open the {{ TF }} configuration file and delete the value of the password in the `passwords` block, in the fragment with the registry description. To delete all passwords, delete the entire `passwords` block.
+
+      Example registry description in the {{ TF }} configuration:
+
+      ```hcl
+      resource "yandex_iot_core_registry" "my_registry" {
+        name        = "test-registry"
+        description = "test registry for terraform provider documentation"
+      ...
+        passwords = [
+          "<password_1>",
+          "<password_2>"
+        ]
+      ...
+      }
+      ```
+
+      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_registry).
+   1. In the command line, change to the folder where you edited the configuration file.
+   1. Make sure the configuration file is correct using the command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```bash
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+   1. Apply the configuration changes:
+
+      ```bash
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` in the terminal and press **Enter**.
+
+      You can verify registry passwords in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+
+      ```bash
+      yc iot registry password list --registry-name <registry_name>
       ```
 
 {% endlist %}

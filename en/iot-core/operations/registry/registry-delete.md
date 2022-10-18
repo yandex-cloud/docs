@@ -49,20 +49,54 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
    For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   Registries created using {{ TF }} can be deleted:
+   To delete a registry created using {{ TF }}:
 
-   1. In the command line, go to the directory with the {{ TF }} configuration file.
-   2. Delete resources using the command:
+   1. Open the {{ TF }} configuration file and delete the fragment with the registry description.
+
+      Example registry description in the {{ TF }} configuration:
+
+      ```hcl
+      resource "yandex_iot_core_registry" "my_registry" {
+        name        = "test-registry"
+        description = "test registry for terraform provider documentation"
+        }
+      ...
+      }
       ```
-      terraform destroy
+
+      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_registry).
+   1. In the command line, change to the folder where you edited the configuration file.
+   1. Make sure the configuration file is correct using the command:
+
+      ```bash
+      terraform validate
       ```
 
-      {% note alert %}
+      If the configuration is correct, the following message is returned:
 
-      {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+      ```bash
+      Success! The configuration is valid.
+      ```
 
-      {% endnote %}
+   1. Run the command:
 
-   3. Confirm the deletion of resources.
+      ```bash
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+   1. Apply the configuration changes:
+
+      ```bash
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` in the terminal and press **Enter**.
+
+      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../../cli/quickstart.md) command below:
+
+      ```bash
+      yc iot registry list
+      ```
 
 {% endlist %}

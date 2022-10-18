@@ -77,6 +77,8 @@ items:
         href: tutorials/storage-logs-analysis.md
       - name: Настройка {{ mch-name }} для Graphite
         href: tutorials/clickhouse-for-graphite.md
+      - name: Миграция базы данных из Google BigQuery в {{ mch-name }}
+        href: tutorials/bigquery-to-clickhouse.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

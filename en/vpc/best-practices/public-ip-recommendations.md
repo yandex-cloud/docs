@@ -1,6 +1,6 @@
 # Recommendations for using public IP addresses
 
-Public IPv4 addresses are a limited resource that continues to increase in price. However, the use of public IPv4 addresses is often not required and may even make your infrastructure vulnerable in some cases. {{ yandex-cloud }} provides a set of services and VM images that let you minimize the use of public IPv4 addresses and build a more cost-efficient and flexible infrastructure.
+Public IPv4 addresses are a limited resource that continues to increase in price. However, the use of public IPv4 addresses is often not required and may even make your infrastructure vulnerable in some cases. {{ yandex-cloud }} provides a set of services and virtual machine images that let you minimize the use of public IPv4 addresses and build a more cost-efficient and stable infrastructure.
 
 #### Enable egress NAT {#use-nat}
 
@@ -45,6 +45,8 @@ Read more:
 
 * [{#T}](../../interconnect/manual.md).
 * [Traffic routing with {{ interconnect-name }}](../../interconnect/concepts/routing.md).
+
+
 
 #### Connect to VMs using the serial console {#serial-console}
 
