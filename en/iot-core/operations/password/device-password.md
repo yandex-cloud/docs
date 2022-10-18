@@ -64,6 +64,72 @@ You can add a password to an already created device or set it when creating a de
       created_at: "2019-12-16T15:11:36.892167Z"
       ```
 
+- {{ TF }}
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   To add a password to a device created using {{ TF }}:
+
+   1. In the configuration file, describe the parameters of the resource to create:
+
+      * `yandex_iot_core_device`: Device parameters:
+         * `registry_id`: [ID of the registry](../registry/registry-list.md#registry-list) where the device was created.
+         * `name`: [Device name](../device/device-list.md#device-list).
+         * `description`: Device description.
+         * `passwords`: List of passwords for authorization using a [username and password](../../concepts/authorization.md#log-pass).
+
+      Sample resource structure in the configuration file:
+
+      ```hcl
+      resource "yandex_iot_core_device" "my_device" {
+        registry_id = "<registry_ID>"
+        name        = "<device_name>"
+        description = "test device for terraform provider documentation"
+      ...
+        passwords = [
+          "<password>",
+        ]
+      ...
+      }
+      ```
+
+      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_device).
+   1. In the command line, change to the folder where you edited the configuration file.
+   1. Make sure the configuration file is correct using the command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```bash
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+   1. Apply the configuration changes:
+
+      ```bash
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` in the terminal and press **Enter**.
+
+      You can verify device passwords in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+
+      ```bash
+      yc iot device password list --device-name <device_name>
+      ```
+
 {% endlist %}
 
 ### Setting a password for a device when creating it {#create}
@@ -108,6 +174,10 @@ You can add a password to an already created device or set it when creating a de
       created_at: "2019-12-16T15:18:39.358922Z"
       name: device-with-pass
       ```
+
+- {{ TF }}
+
+   For information on setting a password for a device being created, see [{#T}](../device/device-create.md).
 
 {% endlist %}
 
@@ -221,6 +291,66 @@ You can add a password to an already created device or set it when creating a de
       | ID | CREATED AT |
       +----+------------+
       +----+------------+
+      ```
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   To delete the password of a device created using {{ TF }}:
+
+   1. Open the {{ TF }} configuration file and delete the value of the password in the `passwords` block, in the fragment with the device description. To delete all passwords, delete the entire `passwords` block.
+
+      Example device description in the {{ TF }} configuration:
+
+      ```hcl
+      resource "yandex_iot_core_device" "my_device" {
+        registry_id = "<registry_ID>"
+        name        = "<device_name>"
+        description = "test device for terraform provider documentation"
+      ...
+        passwords = [
+          "<password>",
+        ]
+      ...  
+      }
+      ```
+
+      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_device).
+   1. In the command line, change to the folder where you edited the configuration file.
+   1. Make sure the configuration file is correct using the command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```bash
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+   1. Apply the configuration changes:
+
+      ```bash
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` in the terminal and press **Enter**.
+
+      You can verify device passwords in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+
+      ```bash
+      yc iot device password list --device-name <device_name>
       ```
 
 {% endlist %}
