@@ -344,6 +344,8 @@ items:
             href: concepts/disk.md
           - name: Снимки дисков
             href: concepts/snapshot.md
+          - name: Создание снимков по расписаниям
+            href: concepts/snapshot-schedule.md
           - name: Группы размещения нереплицируемых дисков
             href: concepts/disk-placement-group.md
           - name: Операции чтения и записи

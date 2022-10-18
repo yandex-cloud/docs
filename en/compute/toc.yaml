@@ -114,6 +114,7 @@ items:
           - name: Restoring access to a VM
             href: operations/vm-connect/recovery-access.md
       - name: Managing the password reset agent
+        when: product == "cloud-il"
         items:
           - name: Verifying agent operation
             href: operations/vm-guest-agent/check.md
@@ -121,8 +122,7 @@ items:
             href: operations/vm-guest-agent/install.md
           - name: Deleting the agent
             href: operations/vm-guest-agent/uninstall.md
-        when: product == "cloud-il"
-      - name: Creating new disks
+      - name: Creating a disk
         items:
           - name: Creating an empty disk
             href: operations/disk-create/empty.md
@@ -132,23 +132,35 @@ items:
             href: operations/disk-create/nonreplicated.md
       - name: Disk management
         items:
-          - name: Creating a disk snapshot
-            href: operations/disk-control/create-snapshot.md
           - name: Updating a disk
             href: operations/disk-control/update.md
+          - name: Configuring disk snapshot schedules
+            href: operations/disk-control/configure-schedule.md
           - name: Moving a disk to another folder
             href: operations/disk-control/disk-change-folder.md
           - name: Deleting a disk
             href: operations/disk-control/delete.md
-          - name: Deleting a disk snapshot
+      - name: Disk snapshots
+        items:
+          - name: Creating snapshots
+            href: operations/disk-control/create-snapshot.md
+          - name: Deleting snapshots
             href: operations/snapshot-control/delete.md
+          - name: Creating a snapshot schedule
+            href: operations/snapshot-control/create-schedule.md
+          - name: Changing a snapshot schedule
+            href: operations/snapshot-control/update-schedule.md
+          - name: Interrupting and starting a snapshot schedule
+            href: operations/snapshot-control/stop-and-start-schedule.md
+          - name: Deleting a snapshot schedule
+            href: operations/snapshot-control/delete-schedule.md
       - name: Disk placement groups
         items:
           - name: Creating a disk placement group
             href: operations/disk-placement-groups/create.md
           - name: Removing a disk from a placement group
             href: operations/disk-placement-groups/remove-disk.md
-      - name: Creating new images
+      - name: Creating an image
         items:
           - name: Preparing a disk image
             href: operations/image-create/custom-image.md
@@ -185,7 +197,7 @@ items:
             href: operations/serial-console/index.md
           - name: Connecting to a serial console via SSH
             href: operations/serial-console/connect-ssh.md
-          - name: Connecting to a serial console via CLI
+          - name: Connecting to a serial console via the CLI
             href: operations/serial-console/connect-cli.md
           - name: Starting your terminal in the Windows serial console (SAC)
             href: operations/serial-console/windows-sac.md
@@ -313,6 +325,8 @@ items:
             href: concepts/disk.md
           - name: Disk snapshots
             href: concepts/snapshot.md
+          - name: Creating scheduled snapshots
+            href: concepts/snapshot-schedule.md
           - name: Non-replicated disk placement groups
             href: concepts/disk-placement-group.md
           - name: File storage
@@ -326,6 +340,8 @@ items:
             href: concepts/disk.md
           - name: Disk snapshots
             href: concepts/snapshot.md
+          - name: Creating scheduled snapshots
+            href: concepts/snapshot-schedule.md
           - name: Non-replicated disk placement groups
             href: concepts/disk-placement-group.md
           - name: Read and write operations

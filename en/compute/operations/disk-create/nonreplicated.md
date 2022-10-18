@@ -20,16 +20,20 @@ The size of a non-replicated disk must be a multiple of 93 GB.
 
    1. If necessary, add a description of the disk.
    1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to place the disk in.
-      
+
       {% if product == "yandex-cloud" %}
-      
+
       {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
-      
+
       {% endif %}
-      
-   1. Select **Non-replicated SSD** as disk type.
+
+   1. Select **Non-replicated SSD**as disk type.
    1. Select the desired block size.
    1. Specify the desired disk size.
+   1. If necessary, select a [schedule](../../concepts/snapshot-schedule.md) to automatically create [snapshots](../../concepts/snapshot.md), or create a new one. For more information about setting up schedules, see the [instructions](../snapshot-control/create-schedule.md).
+
+      When creating a disk, you can select only one snapshot schedule. If necessary, after the disk is created, you can add a few more schedules, according to the [instructions](../disk-control/configure-schedule.md#add-schedule).
+
    1. Click **Create disk**.
 
 - CLI
@@ -46,9 +50,9 @@ The size of a non-replicated disk must be a multiple of 93 GB.
 
       ```bash
       yc compute disk create \
-      --name nr-disk \
-      --type network-ssd-nonreplicated \
-      --size 93
+        --name nr-disk \
+        --type network-ssd-nonreplicated \
+        --size 93 
       ```
 
       Result:
@@ -89,9 +93,13 @@ You can only create a disk in an existing disk placement group.
    1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to place the disk in.
 
       The availability zone for a disk must be the same as that of the placement group where you want to create the disk.
-   1. Select **Non-replicated SSD** as disk type.
+   1. Select **Non-replicated SSD**as disk type.
    1. Select a disk placement group.
    1. Specify the desired disk size.
+   1. If necessary, select a [schedule](../../concepts/snapshot-schedule.md) to automatically create [snapshots](../../concepts/snapshot.md), or create a new one. For more information about setting up schedules, see the [instructions](../snapshot-control/create-schedule.md).
+
+      If you want to set another schedule, you can [add](../disk-control/configure-schedule.md#add-schedule) it after the disk is created.
+
    1. Click **Create disk**.
 
 - CLI
@@ -108,10 +116,10 @@ You can only create a disk in an existing disk placement group.
 
       ```bash
       yc compute disk create \
-      --name nr-disk \
-      --type network-ssd-nonreplicated \
-      --size 93 \
-      --disk-placement-group-name my-group
+        --name nr-disk \
+        --type network-ssd-nonreplicated \
+        --size 93 \
+        --disk-placement-group-name my-group
       ```
 
       Result:

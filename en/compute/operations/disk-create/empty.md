@@ -19,6 +19,10 @@ You can create an empty disk of the specified size.
    1. Select the desired disk type: `HDD`, `SSD`, or `Non-replicated SSD`.
    1. Select the desired block size.
    1. Specify the necessary disk size.
+   1. If necessary, select a [schedule](../../concepts/snapshot-schedule.md) to automatically create [snapshots](../../concepts/snapshot.md), or create a new one. For more information about setting up schedules, see the [instructions](../snapshot-control/create-schedule.md).
+
+      When creating a disk, you can select only one snapshot schedule. If necessary, after the disk is created, you can add a few more schedules, according to the [instructions](../disk-control/configure-schedule.md#add-schedule).
+
    1. Click **Create disk**.
 
 - CLI
@@ -35,9 +39,9 @@ You can create an empty disk of the specified size.
 
       ```
       yc compute disk create \
-         --name first-disk \
-         --size 10 \
-         --description "my first disk via yc"
+        --name first-disk \
+        --size 10 \
+        --description "my first disk via yc"
       ```
 
       This command creates a 10 GB disk with the name `first-disk` and description `my first disk via yc`.
@@ -93,7 +97,7 @@ You can create an empty disk of the specified size.
 
       ```
       resource "yandex_compute_disk" "disk-1" {
-
+      
         name = "empty-disk"
         type = "network-hdd"
         zone = "<availability zone>"
@@ -101,7 +105,7 @@ You can create an empty disk of the specified size.
       }
       ```
 
-      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    2. Make sure that the configuration files are correct.
 
@@ -112,7 +116,7 @@ You can create an empty disk of the specified size.
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    3. Deploy the cloud resources.
 

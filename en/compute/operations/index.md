@@ -8,7 +8,9 @@ description: "Step-by-step instructions for working and managing virtual machine
 ## Creating VMs {#vm-create}
 
 * [{#T}](vm-create/create-linux-vm.md)
-{% if product == "cloud-il" %}* [{#T}](vm-create/create-windows-vm.md){% endif %}
+{% if product == "cloud-il" %}
+* [{#T}](vm-create/create-windows-vm.md)
+{% endif %}
 * [{#T}](vm-create/create-from-disks.md)
 * [{#T}](vm-create/create-from-snapshots.md)
 * [{#T}](vm-create/create-from-user-image.md)
@@ -82,15 +84,25 @@ description: "Step-by-step instructions for working and managing virtual machine
 
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
-{% if product == "yandex-cloud" %}* [{#T}](disk-create/nonreplicated.md){% endif %}
+{% if product == "yandex-cloud" %}
+* [{#T}](disk-create/nonreplicated.md)
+{% endif %}
 
 ## Disk management {#disk-control}
 
-* [{#T}](disk-control/create-snapshot.md)
 * [{#T}](disk-control/update.md)
+* [{#T}](disk-control/configure-schedule.md)
 * [{#T}](disk-control/disk-change-folder.md)
 * [{#T}](disk-control/delete.md)
+
+## Disk snapshots {#snapshots}
+
+* [{#T}](disk-control/create-snapshot.md)
 * [{#T}](snapshot-control/delete.md)
+* [{#T}](snapshot-control/create-schedule.md)
+* [{#T}](snapshot-control/update-schedule.md)
+* [{#T}](snapshot-control/stop-and-start-schedule.md)
+* [{#T}](snapshot-control/delete-schedule.md)
 
 {% if product == "yandex-cloud" %}
 
@@ -129,7 +141,9 @@ description: "Step-by-step instructions for working and managing virtual machine
 ## Managing the serial console {#serial-console}
 
 * [{#T}](serial-console/index.md)
+   {% if product == "yandex-cloud" %}
 * [{#T}](serial-console/connect-ssh.md)
+   {% endif %}
 * [{#T}](serial-console/connect-cli.md)
 * [{#T}](serial-console/windows-sac.md)
 * [{#T}](serial-console/disable.md)
@@ -168,7 +182,6 @@ description: "Step-by-step instructions for working and managing virtual machine
 
 ## Dedicated hosts {#dedicated-host}
 
-* [{#T}](dedicated-host/create-host-group.md)
 * [{#T}](dedicated-host/running-host-group-vms.md)
 * [{#T}](dedicated-host/running-host-vms.md)
 
