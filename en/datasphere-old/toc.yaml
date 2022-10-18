@@ -160,6 +160,8 @@ items:
         href: tutorials/data-from-metrica-yc-visualization.md
   - name: API reference
     items:
+        - name: Overview
+          href: api-ref/overview.md
         - name: Authentication in the API
           href: api-ref/authentication.md
         - name: gRPC
