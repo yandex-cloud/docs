@@ -89,7 +89,10 @@ items:
         href: tutorials/storage-logs-analysis.md
         when: product == "yandex-cloud"
       - name: Настройка {{ mch-name }} для Graphite
-        href: tutorials/clickhouse-for-graphite.md        
+        href: tutorials/clickhouse-for-graphite.md
+      - name: Миграция базы данных из Google BigQuery в {{ mch-name }}
+        href: tutorials/bigquery-to-clickhouse.md
+        when: product == "yandex-cloud"
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
