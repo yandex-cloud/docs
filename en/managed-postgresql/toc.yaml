@@ -39,6 +39,8 @@ items:
             href: operations/extensions/cluster-extensions.md
           - name: pg_cron
             href: operations/extensions/pg_cron.md
+          - name: pgcrypto
+            href: operations/extensions/pgcrypto.md
       - name: Managing database users
         href: operations/cluster-users.md
       - name: Assigning privileges and roles

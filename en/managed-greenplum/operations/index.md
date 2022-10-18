@@ -7,6 +7,7 @@
 * [{#T}](cluster-hosts.md)
 * [{#T}](update.md)
 * [{#T}](external-tables.md)
+* [{#T}](./extensions/cluster-extensions.md)
 * [{#T}](cluster-logs.md)
 * [{#T}](cluster-delete.md)
 * [{#T}](monitoring.md)
