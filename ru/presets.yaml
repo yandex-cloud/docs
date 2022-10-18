@@ -314,8 +314,8 @@ default:
   security-group: enp6saqnq4ie244g67sb
   host-net-example: zone-id=ru-central1-a,subnet-id=b0rcctk2rvtr8efcch64
   disk-type-example: network-ssd
-  mch-hs-version: 21.7
-  mch-ck-version: 22.3 # Минимальная версия ClickHouse для ClickHouse Keeper
+  mch-hs-version: 22.8
+  mch-ck-version: 22.8 # Минимальная версия ClickHouse для ClickHouse Keeper
   mch-hs-move-factor: 20%
   mmg-backup-retention: 7
   mpg-backup-retention: 7

@@ -20,6 +20,8 @@
 - Вручную
 
     1. [Создайте кластер](../../managed-clickhouse/operations/cluster-create.md) {{ mch-name }}:
+
+        * **Версия** — {{ mch-ck-version }} или выше.
         {% if audience != "internal" %}
         * **Тип диска** — стандартные (`network-hdd`), быстрые (`network-ssd`) или нереплицируемые (`network-ssd-nonreplicated`) сетевые диски.
         {% else %}
