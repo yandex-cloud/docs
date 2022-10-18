@@ -28,12 +28,12 @@ curl -X POST \
     -H "x-data-logging-enabled: true" \
     -H "authorization: Bearer ${IAM_TOKEN}" \
     --data-binary "@speech.ogg" \
-    "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?folderId=${FOLDER_ID}"
+    "https://stt.{{ api-host }}/speech/v2/stt:recognize?folderId=${FOLDER_ID}"
 ```
 
 Where:
 
-* `folderId`: The [ID of a folder](../../resource-manager/operations/folder/get-id.md) that your account has the `editor` role for or higher.
+* `FOLDER_ID`: The [ID of a folder](../../resource-manager/operations/folder/get-id.md) that your account has the `editor` role for or higher.
 * `IAM_TOKEN`: The [IAM token](../../iam/operations/iam-token/create.md) required for authentication.
 
 ## Response headers {#response-headers}

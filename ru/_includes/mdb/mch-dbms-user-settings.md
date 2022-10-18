@@ -14,6 +14,32 @@
 
   См. также: настройка [Readonly](#setting-readonly).
 
+* **Allow introspection functions**{#setting-allow-introspection-functions} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+
+  Включает [функции интроспекции]({{ ch.docs }}/sql-reference/functions/introspection/) для профилирования запросов.
+
+  Возможные значения:
+
+  * `0` — функции интроспекции отключены.
+  * `1` — функции интроспекции включены.
+
+  Значение по умолчанию — `0`.
+
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-allow_introspection_functions).
+
+* **Allow suspicious low cardinality types**{#setting-allow-suspicious-low-cardinality-types} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+
+  Разрешает использовать тип данных [LowCardinality]({{ ch.docs }}/sql-reference/data-types/lowcardinality/) с типами данных с фиксированным размером 8 байт или меньше.
+
+  Возможные значения:
+
+  * `0` — использование `LowCardinality` ограничено.
+  * `1` — использование `LowCardinality` не ограничено.
+
+  Значение по умолчанию — `0`.
+
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#allow_suspicious_low_cardinality_types).
+
 * **Any join distinct right table keys**{#setting-any-join-distinct-right-table-keys} {{ tag-con }} {{ tag-sql }}
 
   Включает устаревшее поведение сервера {{ CH }} при выполнении операций `ANY INNER|LEFT JOIN`.
@@ -21,6 +47,61 @@
   По умолчанию устаревшее поведение операции `JOIN` выключено.
 
   Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#any_join_distinct_right_table_keys).
+
+* **Async insert**{#setting-async-insert} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+
+  Включает или отключает асинхронные вставки. Работает только для вставок по протоколу HTTP. При таких вставках дедупликация не производится.
+
+  Если включено, данные собираются в пачки перед вставкой в таблицу. Это позволяет производить мелкие и частые вставки в {{ CH }} (до 15000 запросов в секунду) без промежуточных таблиц.
+
+  Возможные значения:
+
+  * `0` — вставки производятся синхронно, один запрос за другим.
+  * `1` — включены множественные асинхронные вставки.
+
+  Значение по умолчанию — `0`.
+
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#async-insert).
+
+* **Async insert busy timeout ms**{#setting-async-insert-busy-timeout-ms} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+
+  Максимальное время (в миллисекундах) ожидания вставки данных с момента первого запроса `INSERT`.
+
+  Значение по умолчанию — `200`. Если указан `0`, ожидание отключено.
+
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#async-insert-busy-timeout-ms).
+
+* **Async insert max data size**{#setting-async-insert-max-data-size} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+
+  Максимальный размер необработанных данных (в байтах), собранных за запрос, перед их вставкой.
+
+  Значение по умолчанию — `1000000`. Если указан `0`, асинхронные вставки будут отключены.
+
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#async-insert-max-data-size).
+
+* **Async insert stale timeout ms**{#setting-async-insert-stale-timeout-ms} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+
+  Максимальное время (в миллисекундах) ожидания вставки данных с момента последнего запроса `INSERT`. Если установлено ненулевое значение, [**Async insert busy timeout ms**](#setting-async-insert-busy-timeout-ms) будет продлеваться с каждым запросом `INSERT`, пока не будет превышено значение [**Async insert max data size**](#setting-async-insert-max-data-size).
+
+  Значение по умолчанию — `0`. Если указан `0`, ожидание отключено.
+
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#async-insert-stale-timeout-ms).
+
+* **Async insert threads**{#setting-async-insert-threads} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+
+  Максимальное число потоков для фоновой обработки и вставки данных.
+
+  Значение по умолчанию — `16`. Если указан `0`, асинхронные вставки будут отключены.
+
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#async-insert-threads).
+
+* **Cancel http readonly queries on client close**{#setting-cancel-http-readonly-queries-on-client-close} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+
+  Если настройка включена, сервис отменяет HTTP readonly запросы (например, SELECT) в момент, когда клиент обрывает соединение до получения ответа.
+
+  По умолчанию настройка выключена.
+
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#cancel-http-readonly-queries-on-client-close).
 
 * **Compile**{#setting-compile} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -45,6 +126,16 @@
   Время ожидания соединения (в миллисекундах).
 
   Минимальное значение — `1`, по умолчанию — `10000` (10 секунд).
+
+* **Connect timeout with failover ms**{#setting-connect-timeout-with-failover-ms} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+
+  Время ожидания соединения (в миллисекундах) с удаленным сервером для движка таблиц `Distributed`, если кластер использует шардирование и репликацию.
+  
+  Если установить соединение с сервером не удалось, будут предприняты попытки установить соединение с его репликами.
+
+  Значение по умолчанию — `50`.
+
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#connect-timeout-with-failover-ms).
 
 * **Count distinct implementation**{#setting-count-distinct-implementation} {{ tag-all }}
 
@@ -155,6 +246,19 @@
   Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries).
 
   См. также настройку [Max replica delay for distributed queries](#setting-max-replica-delay-for-distributed-queries).
+
+* **Flatten nested**{#setting-flatten-nested} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+
+  Задает формат данных [вложенных столбцов]({{ ch.docs }}/sql-reference/data-types/nested-data-structures/nested).
+
+  Возможные значения:
+
+  * `0` — вложенный столбец преобразуется к массиву кортежей.
+  * `1` — вложенный столбец преобразуется к отдельным массивам.
+
+  Значение по умолчанию: `1`.
+
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#flatten-nested).
 
 * **Force index by date**{#setting-force-index-by-date} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -275,6 +379,19 @@
   По умолчанию проверка включена.
 
   Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-input-format-with-names-use-header).
+
+* **Insert null as default**{#setting-insert-null-as-default} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+
+  Включает подстановку [значений по умолчанию]({{ ch.docs }}/sql-reference/statements/create/table/#create-default-values) вместо [NULL]({{ ch.docs }}/sql-reference/statements/create/table/#null-modifiers) в столбцы, которые не позволяют хранить `NULL`.
+
+  Возможные значения:
+
+  * `0` — вставка `NULL` в столбец, не позволяющий хранить `NULL`, приведет к возникновению исключения.
+  * `1` — вместо `NULL` вставляется значение столбца по умолчанию.
+
+  Значение по умолчанию — `1`.
+
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#insert_null_as_default).
 
 * **Insert quorum**{#setting-insert-quorum} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -450,11 +567,13 @@
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-* **Max concurrent queries for user**{#setting-max-concurrent-queries-for-user} {{ tag-con }} {{ tag-sql }}
+* **Max concurrent queries for user**{#setting-max-concurrent-queries-for-user} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
   Максимальное количество одновременно обрабатываемых пользовательских запросов к таблице семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/).
 
   Минимальное значение `0` (нет ограничения), по умолчанию — `450`.
+
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings/#max-concurrent-queries-for-user).
 
 * **Max execution time**{#setting-max-execution-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -471,6 +590,16 @@
   Для сложных запросов синтаксическое дерево может содержать слишком большое количество элементов. Настройка позволяет запретить выполнение излишне сложных или неоптимизированных запросов для больших таблиц.
 
   По умолчанию выбрано значение `500000`. Слишком маленькое значение может привести к невозможности выполнения большинства запросов.
+
+* **Max http get redirects**{#setting-max-http-get-redirects} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+
+  Задает максимальное количество переходов по редиректам в таблицах на [движке URL]({{ ch.docs }}/engines/table-engines/special/url/) при выполнении HTTP-запросов методом GET.
+
+  Если установлено значение `0`, переходы запрещены.
+
+  Значение по умолчанию — `0`.
+
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#setting-max_http_get_redirects).
 
 * **Max insert block size**{#setting-max-insert-block-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -606,6 +735,18 @@
   Минимальное значение и значение по умолчанию — `0` (вычислять значение автоматически как количество процессорных ядер без учета Hyper-Threading).
 
   Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-max_threads).
+
+* **Memory profiler step**{#setting-memory-profiler-step} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+
+  Шаг профилировщика памяти (в байтах). Если на следующем шаге выполнения запроса потребление памяти возрастает на число байт, большее указанного в данной настройке, то профилировщик сохраняет выделенный стектрейс. Значения менее нескольких мегабайт замедляют обработку запросов.
+
+  По умолчанию — `4194304` (4 МБ). Если задан `0` — профилировщик памяти отключен.
+
+* **Memory profiler sample probability**{#setting-memory-profiler-sample-probability} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+
+  Система будет с указанной вероятностью сохранять информацию о том или ином выделении и освобождении оперативной памяти в файл лога `system.trace_log` с типом трассировки `MemorySample`. Вероятность сохранения не зависит от размера выделенной/освобожденной памяти.
+
+  Возможные значения — от `0` до `1`. По умолчанию — `0`.
 
 * **Merge tree max bytes to use cache**{#setting-merge-tree-max-bytes-to-use-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -817,6 +958,14 @@
 
   По умолчанию значение не выбрано (эквивалентно `throw`).
 
+* **Timeout before checking execution speed**{#setting-timeout-before-checking-execution-speed} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+
+  Время ожидания (в секундах) между проверками скорости выполнения запроса. Проверяется, что скорость выполнения не ниже указанной в параметре [**Min execution speed**](#setting-min-execution-speed).
+
+  Значение по умолчанию — `10`.
+
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/query-complexity/#timeout-before-checking-execution-speed).
+
 * **Timeout overflow mode**{#setting-timeout-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Определяет поведение {{ CH }}, когда запрос выполняется дольше [max_execution_time](#setting-max-execution-time):
@@ -850,3 +999,24 @@
   Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#setting-use_uncompressed_cache).
 
   См. также настройки [Merge tree max bytes to use cache](#setting-merge-tree-max-bytes-to-use-cache) и [Merge tree max rows to use cache](#setting-merge-tree-max-rows-to-use-cache).
+
+* **Wait for async insert**{#setting-wait-for-async-insert} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+
+  Включает ожидание обработки [асинхронных вставок](#setting-async-insert).
+
+  Возможные значения:
+
+  * `0` — сервер возвращает `OK` даже если вставка данных еще не завершена.
+  * `1` — сервер возвращает `OK` только после завершения вставки данных.
+
+  Значение по умолчанию — `1`.
+
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#wait-for-async-insert).
+
+* **Wait for async insert timeout**{#setting-wait-for-async-insert-timeout} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+
+  Время (в секундах) ожидания обработки асинхронной вставки.
+
+  Значение по умолчанию — `120`. Если указан `0`, ожидание отключено.
+
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#wait-for-async-insert-timeout).

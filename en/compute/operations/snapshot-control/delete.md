@@ -12,7 +12,7 @@ To delete a snapshot:
 
 - Management console
 
-   1. In the management console, select the folder the snapshot belongs to.
+   1. In the management console, select the folder where the snapshot is located.
    1. Select **{{ compute-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **Disk snapshots**.
    1. In the row with the desired snapshot, click ![image](../../../_assets/dots.svg) and select the **Delete** command from the menu.
@@ -24,7 +24,7 @@ To delete a snapshot:
 
    1. See the description of the CLI's delete snapshot commands:
 
-      ```
+      ```bash
       yc compute snapshot delete --help
       ```
 
@@ -35,21 +35,21 @@ To delete a snapshot:
    1. Select the ID (`ID`) or the name (`NAME`) of the desired snapshot.
    1. Delete the snapshot:
 
-      ```
+      ```bash
       yc compute snapshot delete \
-          --name first-snapshot
+        --name first-snapshot
       ```
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    If you created a snapshot with {{ TF }}, you can delete it:
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
-   2. Delete resources using the command:
+   1. Delete resources using the command:
 
-      ```
+      ```bash
       terraform destroy
       ```
 
@@ -59,6 +59,6 @@ To delete a snapshot:
 
       {% endnote %}
 
-   3. Confirm the deletion of resources.
+   1. Confirm the deletion of resources.
 
 {% endlist %}

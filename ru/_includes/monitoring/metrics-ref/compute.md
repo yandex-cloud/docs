@@ -39,4 +39,24 @@
 `network_sent_bytes`<br>`DGAUGE`, байты/с | Количество байт в секунду, переданных через сетевой интерфейс ВМ.<br>Метки:<br>- *interface_number* — идентификатор сетевого интерфейса ВМ.<br>- *resource_id* — идентификатор ВМ.<br>- *resource_type* — тип ресурса. Единственное значение — `vm`.
 `network_sent_packets`<br>`DGAUGE`, пакеты/с | Количество пакетов в секунду, переданных через сетевой интерфейс ВМ.<br>Метки:<br>- *interface_number* — идентификатор сетевого интерфейса ВМ.<br>- *resource_id* — идентификатор ВМ.<br>- *resource_type* — тип ресурса. Единственное значение — `vm`.
 
+
+### Метрики групп виртуальных машин {#ig-metrics}
+
+| Имя метрики<br>Тип, единицы измерения | Описание<br>Метки
+--- | ---                                                                
+`instances_count`<br>`IGAUGE`, штуки | Количество ВМ в группе.<br>Метки:<br>- *resource_id* — идентификатор группы ВМ.<br>- *resource_type* — тип ресурса. Единственное значение — `instance_group`.
+`target_instances_count`<br>`IGAUGE`, штуки | Целевое количество ВМ в группе.<br>Метки:<br>- *resource_id* — идентификатор группы ВМ.<br>- *resource_type* — тип ресурса. Единственное значение — `instance_group`.
+`target_utilization`<br>`DGAUGE` | Целевое потребление ресурсов для одной ВМ.<br>Метки:<br>- *resource_id* — идентификатор группы ВМ.<br>- *resource_type* — тип ресурса. Единственное значение — `instance_group`.<br>- *source_metric* — имя метрики.
+`summary_capacity`<br>`DGAUGE` | Суммарное потребление ресурсов для всех ВМ, при котором увеличится размер группы.<br>Метки:<br>- *resource_id* — идентификатор группы ВМ.<br>- *resource_type* — тип ресурса. Единственное значение — `instance_group`.<br>- *source_metric* — имя метрики.
+`summary_utilization`<br>`DGAUGE` | Суммарное потребление ресурсов для всех ВМ.<br>Метки:<br>- *resource_id* — идентификатор группы ВМ.<br>- *resource_type* — тип ресурса. Единственное значение — `instance_group`.<br>- *source_metric* — имя метрики.
+`average_utilization`<br>`DGAUGE` | Среднее потребление ресурсов для всех ВМ.<br>Метки:<br>- *resource_id* — идентификатор группы ВМ.<br>- *resource_type* — тип ресурса. Единственное значение — `instance_group`.<br>- *source_metric* — имя метрики.
+`target_workload`<br>`DGAUGE` | Целевая нагрузка на одну ВМ в группе или зоне доступности.<br>Метки:<br>- *resource_id* — идентификатор группы ВМ.<br>- *resource_type* — тип ресурса. Единственное значение — `instance_group`.<br>- *source_metric* — имя метрики.
+`instances_count_in_zone`<br>`IGAUGE`, штуки | Количество ВМ в зоне доступности.<br>Метки:<br>- *resource_id* — идентификатор группы ВМ.<br>- *resource_type* — тип ресурса. Единственное значение — `instance_group`.<br>- *zone_id* — идентификатор зоны доступности.
+`target_instances_count_in_zone`<br>`IGAUGE`, штуки | Целевое количество ВМ в зоне доступности.<br>Метки:<br>- *resource_id* — идентификатор группы ВМ.<br>- *resource_type* — тип ресурса. Единственное значение — `instance_group`.<br>- *zone_id* — идентификатор зоны доступности.
+`average_utilization_in_zone`<br>`DGAUGE` | Среднее потребление ресурсов для всех ВМ в зоне доступности.<br>Метки:<br>- *resource_id* — идентификатор группы ВМ.<br>- *resource_type* — тип ресурса. Единственное значение — `instance_group`.<br>- *zone_id* — идентификатор зоны доступности.<br>- *source_metric* — имя метрики.
+`utilization_in_zone`<br>`DGAUGE` | Суммарное потребление ресурсов для всех ВМ в зоне доступности.<br>Метки:<br>- *resource_id* — идентификатор группы ВМ.<br>- *resource_type* — тип ресурса. Единственное значение — `instance_group`.<br>- *zone_id* — идентификатор зоны доступности.<br>- *source_metric* — имя метрики.
+`summary_capacity_in_zone`<br>`DGAUGE` | Суммарное потребление ресурсов для всех ВМ в зоне доступности, при котором увеличится размер группы.<br>Метки:<br>- *resource_id* — идентификатор группы ВМ.<br>- *resource_type* — тип ресурса. Единственное значение — `instance_group`.<br>- *zone_id* — идентификатор зоны доступности.<br>- *source_metric* — имя метрики.
+`zone_workload`<br>`DGAUGE` | Нагрузка на одну ВМ в зоне доступности.<br>Метки:<br>- *resource_id* — идентификатор группы ВМ.<br>- *resource_type* — тип ресурса. Единственное значение — `instance_group`.<br>- *zone_id* — идентификатор зоны доступности.<br>- *source_metric* — имя метрики.
+`region_workload`<br>`DGAUGE` | Нагрузка на одну ВМ в группе.<br>Метки:<br>- *resource_id* — идентификатор группы ВМ.<br>- *resource_type* — тип ресурса. Единственное значение — `instance_group`.<br>- *source_metric* — имя метрики.
+
 Подробнее о сервисе в документации [{{ compute-name }}](../../../compute/).

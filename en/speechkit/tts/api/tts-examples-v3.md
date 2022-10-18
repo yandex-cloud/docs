@@ -65,6 +65,7 @@ To implement an example:
 
       1. Create a file (for example, `test.py`) in the root of the `output` directory and add the following code to it:
 
+         
          ```python
          import io
          import grpc
@@ -93,7 +94,7 @@ To implement an example:
 
              # Send data for synthesis.
              it = stub.UtteranceSynthesis(request, metadata=(
-                 ('authorization', f'Bearer {iam_token}'),
+                 ('authorization', f'Bearer {iam_token}')
              ))
 
              # Create an audio file out of chunks.
@@ -119,12 +120,13 @@ To implement an example:
              with open(args.output, 'wb') as fp:
                  audio.export(fp, format='wav')
          ```
+ 
 
       1. Execute the file from the previous step:
 
          ```bash
          export IAM_TOKEN=<service_account_IAM token>
-         export TEXT='I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!'
+         export TEXT='I'm Speech+Kit. I can turn any text into speech. Now y+ou can, too!'
          python output/test.py \
            --token ${IAM_TOKEN} \
            --output speech.wav \

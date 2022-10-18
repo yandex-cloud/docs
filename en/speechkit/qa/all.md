@@ -1,6 +1,6 @@
 ---
-title: "{{ speechkit-full-name }}. FAQ"
-description: "How can I get the logs of my work in the Yandex SpeechKit service? Answers to this and other questions in this article."
+title: "{{ speechkit-full-name }}. Answers"
+description: "How do I get the logs of my activity in {{ speechkit-full-name }}? Find the answer to this question and others in this article."
 ---
 
 # Questions and answers about {{ speechkit-short-name }}

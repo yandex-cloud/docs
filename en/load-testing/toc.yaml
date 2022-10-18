@@ -38,7 +38,7 @@ items:
         href: concepts/load-generator.md
       - name: Load profile
         href: concepts/load-profile.md
-      - name: Test data and its types
+      - name: Payloads and types
         items:
           - name: Overview
             href: concepts/payload.md
@@ -54,6 +54,8 @@ items:
             href: concepts/payloads/http-json.md
       - name: Testing threads
         href: concepts/testing-stream.md
+      - name: Autostop
+        href: concepts/auto-stop.md
       - name: Reports
         href: concepts/reports.md
       - name: Load test results

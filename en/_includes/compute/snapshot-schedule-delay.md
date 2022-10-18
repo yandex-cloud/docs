@@ -1,0 +1,1 @@
+Snapshots can be created with a little delay from the schedule, depending on the current load on the service.

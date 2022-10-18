@@ -6,7 +6,7 @@
 
 By default, {{ speechkit-name }} doesn't save data passed by users. However, the most effective way to improve a speech recognition model is to train it on real user data.
 
-To improve the quality of speech recognition, you can use the _auto-tuning_ model. With auto-tuning enabled, you can save data transmitted in requests and use it for further training. To do this, specify the `x-data-logging-enabled: true`HTTP header in API requests. For an example with logging enabled, see [{#T}](../concepts/support-headers.md).
+To improve the quality of speech recognition, you can use the _auto-tuning_ model. With auto-tuning enabled, you can save data transmitted in requests and use it for further training. To do this, specify the `x-data-logging-enabled: true` header in API requests. For an example with logging enabled, see [{#T}](../concepts/support-headers.md).
 
 Auto-tuning helps improve recognition quality while a model is running without any additional assistance.
 
@@ -48,11 +48,19 @@ If the pattern phrases suggest that the glossary terms may be in possessive case
 Then the `templates.tsv` file may contain entries like
 
 ```
-Hello, are you {first-name=first-names.tsv}{middle-name=middle-names.tsv} {last-name=last-names.tsv}?
+Hello, are you {first-name=first-names.tsv} {middle-name=middle-names.tsv} {last-name=last-names.tsv}?
 Hello, can I talk to {first-name=first-names-ablative.tsv} {middle-name=middle-names-ablative.tsv} representative?
 ```
 
+### Importing retraining data {#import-data}
 
-### Model availability dates
+To transmit retraining data to the {{ speechkit-name }} command, contact your manager. 
 
-Changes are made to the `general:rc` model within 4 weeks of the standard release preparation cycle.
+
+
+### Model availability dates {#commitments}
+
+
+
+Changes to a `general:rc` model are usually made over a period of 4 weeks as in any standard release roll-out cycle.
+

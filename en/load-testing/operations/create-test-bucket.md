@@ -14,8 +14,22 @@ You can upload payloads from a [{{ objstorage-full-name }}](../../storage/) [buc
    1. On the ![image](../../_assets/load-testing/storage.svg) **Test data storage** tab, click **Link bucket**.
    1. Select the bucket.
 1. [Upload](../../storage/operations/objects/upload.md) a payload file to the bucket.
-1. [Grant](../../storage/operations/buckets/edit-acl) the service account linked to the [agent](../concepts/agent.md) read permission in the bucket.
+1. Grant the service account linked to the [agent](../concepts/agent.md) read permission in the bucket. To do this, edit the bucket's [ACL](../../storage/concepts/acl.md):
+   1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
+   1. In the list of services, select **{{ objstorage-name }}**.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the appropriate bucket and select **Bucket ACL**.
+   1. In the window that opens, enter the service account name, select the `READ` permissions to the bucket, and click **Add**.
+   1. Click **Save**.
 
+   This grants the service account permission to read data from this bucket only.
+
+   {% note info %}
+
+   As an alternative to editing the bucket's ACL, you can [assign](../../iam/operations/roles/grant.md#access-to-sa) the service account the `storage.editor` [role](../../storage/security/#storage-editor).
+
+   This method is less secure, since it allows the service account to perform any operations with all buckets in the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder): creating, deleting, and updating a bucket, or granting public access to them.
+
+   {% endnote %}
 
 ## Creating a test {#create-test}
 
