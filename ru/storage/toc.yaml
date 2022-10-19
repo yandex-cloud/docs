@@ -99,6 +99,9 @@ items:
           Использование скриптов инициализации для настройки GeeseFS в
           {{ dataproc-full-name }}
         href: tutorials/data-proc-init-actions-geesefs.md
+      - name: Подключение бакета как диска в Windows
+        href: tutorials/s3-disk-connect.md
+        when: product == "yandex-cloud"
   - name: Концепции
     items:
       - name: Обзор
