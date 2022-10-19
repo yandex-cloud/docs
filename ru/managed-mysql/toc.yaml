@@ -81,6 +81,8 @@ items:
         href: concepts/user-rights.md
       - name: Настройки MySQL
         href: concepts/settings-list.md
+      - name: Ограничения для команд SQL
+        href: concepts/sql-limits.md
   - name: Практические руководства
     items:
       - name: Все сценарии
