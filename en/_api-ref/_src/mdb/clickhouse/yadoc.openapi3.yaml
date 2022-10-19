@@ -2661,6 +2661,9 @@ components:
           format: int64
         textLogLevel:
           $ref: '#/components/schemas/ClickhouseConfigLogLevel_in_ClickhouseConfig_textLogLevel'
+        opentelemetrySpanLogEnabled:
+          type: boolean
+          format: boolean
         backgroundPoolSize:
           description: Value must be greater than 0.
           type: integer
@@ -2669,6 +2672,43 @@ components:
           description: Value must be greater than 0.
           type: integer
           format: int64
+        backgroundFetchesPoolSize:
+          description: |-
+            Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundMovePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundDistributedSchedulePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundBufferFlushSchedulePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        defaultDatabase:
+          description: |-
+            The default database.
+
+            To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db).
+          type: string
+        totalMemoryProfilerStep:
+          description: |-
+            Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step).
+          type: integer
+          format: int64
+        totalMemoryTrackerSampleProbability:
+          type: number
+          format: double
     ClickhouseConfigCompression:
       type: object
       properties:
@@ -3208,6 +3248,12 @@ components:
             throw 'Too many parts ...' exception.
           type: integer
           format: int64
+        inactivePartsToDelayInsert:
+          type: integer
+          format: int64
+        inactivePartsToThrowInsert:
+          type: integer
+          format: int64
         maxReplicatedMergesInQueue:
           description: How many tasks of merging and mutating parts are allowed simultaneously
             in ReplicatedMergeTree queue.
@@ -3228,12 +3274,44 @@ components:
         maxBytesToMergeAtMaxSpaceInPool:
           type: integer
           format: int64
+        minBytesForWidePart:
+          description: |-
+            Minimum number of bytes in a data part that can be stored in **Wide** format.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part).
+          type: integer
+          format: int64
+        minRowsForWidePart:
+          description: |-
+            Minimum number of rows in a data part that can be stored in **Wide** format.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part).
+          type: integer
+          format: int64
+        ttlOnlyDropParts:
+          description: |-
+            Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts).
+          type: boolean
+          format: boolean
+        allowRemoteFsZeroCopyReplication:
+          type: boolean
+          format: boolean
     ClickhouseConfigRabbitmq:
       type: object
       properties:
         username:
+          description: '[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/)
+            username'
           type: string
         password:
+          description: '[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/)
+            password'
+          type: string
+        vhost:
+          description: '[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/)
+            virtual host'
           type: string
     ClickhouseConfigSet:
       type: object
@@ -4958,27 +5036,29 @@ components:
             See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/permissions-for-queries/#settings_allow_ddl).
           type: boolean
           format: boolean
-        insertQuorum:
+        allowIntrospectionFunctions:
           description: |-
-            Enables or disables write quorum for ClickHouse cluster.
-            If the value is less than **2**, then write quorum is disabled, otherwise it is enabled.
+            Enables [introspections functions](https://clickhouse.com/docs/en/sql-reference/functions/introspection) for query profiling.
 
-            When used, write quorum guarantees that ClickHouse has written data to the quorum of **insert_quorum** replicas with no errors until the `insertQuorumTimeout` expires.
-            All replicas in the quorum are in the consistent state, meaning that they contain linearized data from the previous **INSERT** queries.
-            Employ write quorum, if you need the guarantees that the written data would not be lost in case of one or more replicas failure.
-
-            You can use `selectSequentialConsistency` setting to read the data written with write quorum.
-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum).
-
-            The minimum value is 0.
-          type: integer
-          format: int64
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-allow_introspection_functions).
+          type: boolean
+          format: boolean
         connectTimeout:
           description: |-
             Connection timeout in milliseconds.
 
             Value must be greater than **0** (default: **10000**, 10 seconds).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        connectTimeoutWithFailover:
+          description: |-
+            The timeout in milliseconds for connecting to a remote server for a Distributed table engine. Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
+
+            Default value: **50**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#connect-timeout-with-failover-ms).
 
             Value must be greater than 0.
           type: integer
@@ -5001,6 +5081,29 @@ components:
             Value must be greater than 0.
           type: integer
           format: int64
+        timeoutBeforeCheckingExecutionSpeed:
+          description: |-
+            Timeout (in seconds) between checks of execution speed. It is checked that execution speed is not less that specified in `minExecutionSpeed` parameter.
+
+            Default value: **10**.
+          type: integer
+          format: int64
+        insertQuorum:
+          description: |-
+            Enables or disables write quorum for ClickHouse cluster.
+            If the value is less than **2**, then write quorum is disabled, otherwise it is enabled.
+
+            When used, write quorum guarantees that ClickHouse has written data to the quorum of **insert_quorum** replicas with no errors until the `insertQuorumTimeout` expires.
+            All replicas in the quorum are in the consistent state, meaning that they contain linearized data from the previous **INSERT** queries.
+            Employ write quorum, if you need the guarantees that the written data would not be lost in case of one or more replicas failure.
+
+            You can use `selectSequentialConsistency` setting to read the data written with write quorum.
+
+            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
         insertQuorumTimeout:
           description: |-
             Quorum write timeout in milliseconds.
@@ -5013,6 +5116,19 @@ components:
             The minimum value is 1000.
           type: integer
           format: int64
+        insertQuorumParallel:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum_parallel).
+          type: boolean
+          format: boolean
+        insertNullAsDefault:
+          description: |-
+            Enables the insertion of default values instead of NULL into columns with not nullable data type.
+
+            Default value: **true**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#insert_null_as_default).
+          type: boolean
+          format: boolean
         selectSequentialConsistency:
           description: |-
             Determines the behavior of **SELECT** queries from the replicated table: if enabled, ClickHouse will terminate a query with error message in case the replica does not have a chunk written with the quorum and will not read the parts that have not yet been written with the quorum.
@@ -5020,6 +5136,23 @@ components:
             Default value: **false** (sequential consistency is disabled).
           type: boolean
           format: boolean
+        deduplicateBlocksInDependentMaterializedViews:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-deduplicate-blocks-in-dependent-materialized-views).
+          type: boolean
+          format: boolean
+        replicationAlterPartitionsSync:
+          description: |-
+            Wait mode for asynchronous actions in **ALTER** queries on replicated tables:
+
+            * **0**-do not wait for replicas.
+            * **1**-only wait for own execution (default).
+            * **2**-wait for all replicas.
+
+            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/alter/#synchronicity-of-alter-queries).
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
         maxReplicaDelayForDistributedQueries:
           description: |-
             Max replica delay in milliseconds. If a replica lags more than the set value, this replica is not used and becomes a stale one.
@@ -5042,19 +5175,6 @@ components:
             See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries).
           type: boolean
           format: boolean
-        replicationAlterPartitionsSync:
-          description: |-
-            Wait mode for asynchronous actions in **ALTER** queries on replicated tables:
-
-            * **0**-do not wait for replicas.
-            * **1**-only wait for own execution (default).
-            * **2**-wait for all replicas.
-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/alter/#synchronicity-of-alter-queries).
-
-            Acceptable values are 0 to 2, inclusive.
-          type: integer
-          format: int64
         distributedProductMode:
           $ref: '#/components/schemas/UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode'
         distributedAggregationMemoryEfficient:
@@ -5084,36 +5204,6 @@ components:
             See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-skip_unavailable_shards).
           type: boolean
           format: boolean
-        compile:
-          description: |-
-            Enables or disables query compilation.
-            If you execute a lot of structurally identical queries, then enable this setting.
-            As a result, such queries may be executed faster due to use of queries' compiled parts.
-
-            Use this setting in combination with `minCountToCompile` setting.
-
-            Default value: **false** (compilation is disabled).
-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#compile).
-          type: boolean
-          format: boolean
-        minCountToCompile:
-          description: |-
-            How many structurally identical queries ClickHouse has to encounter before they are compiled.
-
-            Minimum value: **0** (default: **3**).
-
-            For the **0** value compilation is synchronous: a query waits for compilation process to complete prior to continuing execution.
-            It is recommended to set this value only for testing purposes.
-
-            For all other values, compilation is asynchronous: the compilation process executes in a separate thread.
-            When a compiled part of query is ready, it will be used by ClickHouse for eligible queries, including the ones that are currently running.
-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#min-count-to-compile).
-
-            The minimum value is 0.
-          type: integer
-          format: int64
         compileExpressions:
           description: |-
             Enables or disables expression compilation.
@@ -5373,6 +5463,16 @@ components:
             Minimal value and default value: **0**, no limitation is set.
           type: integer
           format: int64
+        maxPartitionsPerInsertBlock:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/operations/settings/query-complexity/#max-partitions-per-insert-block).
+          type: integer
+          format: int64
+        maxConcurrentQueriesForUser:
+          description: |-
+            The maximum number of concurrent requests per user.
+            Default value: 0 (no limit).
+          type: integer
+          format: int64
         forceIndexByDate:
           description: |-
             If enabled, query is not executed if the ClickHouse can't use index by date.
@@ -5554,6 +5654,15 @@ components:
           format: int64
         joinOverflowMode:
           $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_joinOverflowMode'
+        joinAlgorithm:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-join_algorithm).
+          type: array
+          items:
+            $ref: '#/components/schemas/UserSettingsJoinAlgorithm'
+        anyJoinDistinctRightTableKeys:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#any_join_distinct_right_table_keys).
+          type: boolean
+          format: boolean
         maxColumnsToRead:
           description: |-
             Limits the maximum number of columns that can be read from a table in a single query.
@@ -5678,6 +5787,16 @@ components:
             Default value: **true** (replacing is enabled).
           type: boolean
           format: boolean
+        inputFormatNullAsDefault:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#input_format_null_as_default).
+          type: boolean
+          format: boolean
+        dateTimeInputFormat:
+          $ref: '#/components/schemas/UserSettingsDateTimeInputFormat_in_UserSettings_dateTimeInputFormat'
+        inputFormatWithNamesUseHeader:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#input_format_with_names_use_header).
+          type: boolean
+          format: boolean
         outputFormatJsonQuote_64BitIntegers:
           description: |-
             Enables quoting of 64-bit integers in JSON output format.
@@ -5695,6 +5814,8 @@ components:
             Default value: **false** (special values do not present in output).
           type: boolean
           format: boolean
+        dateTimeOutputFormat:
+          $ref: '#/components/schemas/UserSettingsDateTimeOutputFormat_in_UserSettings_dateTimeOutputFormat'
         lowCardinalityAllowInNativeFormat:
           description: |-
             Determines whether to use LowCardinality type in Native format.
@@ -5713,21 +5834,19 @@ components:
             Default value: **true** (LowCardinality columns are used in Native format).
           type: boolean
           format: boolean
+        allowSuspiciousLowCardinalityTypes:
+          description: |-
+            Allows specifying **LowCardinality** modifier for types of small fixed size (8 or less) in CREATE TABLE statements. Enabling this may increase merge times and memory consumption.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#allow_suspicious_low_cardinality_types).
+          type: boolean
+          format: boolean
         emptyResultForAggregationByEmptySet:
           description: |-
             Enables returning of empty result when aggregating without keys (with **GROUP BY** operation absent) on empty set (e.g., **SELECT count(*) FROM table WHERE 0**).
 
             * **true**-ClickHouse will return an empty result for such queries.
             * **false** (default)-ClickHouse will return a single-line result consisting of **NULL** values for aggregation functions, in accordance with SQL standard.
-          type: boolean
-          format: boolean
-        joinedSubqueryRequiresAlias:
-          type: boolean
-          format: boolean
-        joinUseNulls:
-          type: boolean
-          format: boolean
-        transformNullIn:
           type: boolean
           format: boolean
         httpConnectionTimeout:
@@ -5788,8 +5907,136 @@ components:
             Default value: **false** (header is not added).
           type: boolean
           format: boolean
+        cancelHttpReadonlyQueriesOnClientClose:
+          description: |-
+            Cancels HTTP read-only queries (e.g. SELECT) when a client closes the connection without waiting for the response.
+
+            Default value: **false**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#cancel-http-readonly-queries-on-client-close).
+          type: boolean
+          format: boolean
+        maxHttpGetRedirects:
+          description: |-
+            Limits the maximum number of HTTP GET redirect hops for [URL-engine](https://clickhouse.com/docs/en/engines/table-engines/special/url) tables.
+
+            If the parameter is set to **0** (default), no hops is allowed.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#setting-max_http_get_redirects).
+          type: integer
+          format: int64
+        joinedSubqueryRequiresAlias:
+          type: boolean
+          format: boolean
+        joinUseNulls:
+          type: boolean
+          format: boolean
+        transformNullIn:
+          type: boolean
+          format: boolean
         quotaMode:
           $ref: '#/components/schemas/UserSettingsQuotaMode_in_UserSettings_quotaMode'
+        flattenNested:
+          description: |-
+            Sets the data format of a [nested](https://clickhouse.com/docs/en/sql-reference/data-types/nested-data-structures/nested) columns.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#flatten-nested).
+          type: boolean
+          format: boolean
+        formatRegexp:
+          description: Regular expression (for Regexp format)
+          type: string
+        formatRegexpEscapingRule:
+          $ref: '#/components/schemas/UserSettingsFormatRegexpEscapingRule_in_UserSettings_formatRegexpEscapingRule'
+        formatRegexpSkipUnmatched:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#format_regexp_skip_unmatched).
+          type: boolean
+          format: boolean
+        asyncInsert:
+          description: |-
+            Enables asynchronous inserts.
+
+            Disabled by default.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert).
+          type: boolean
+          format: boolean
+        asyncInsertThreads:
+          description: |-
+            The maximum number of threads for background data parsing and insertion.
+
+            If the parameter is set to **0**, asynchronous insertions are disabled. Default value: **16**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-threads).
+          type: integer
+          format: int64
+        waitForAsyncInsert:
+          description: |-
+            Enables waiting for processing of asynchronous insertion. If enabled, server returns OK only after the data is inserted.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert).
+          type: boolean
+          format: boolean
+        waitForAsyncInsertTimeout:
+          description: |-
+            The timeout (in seconds) for waiting for processing of asynchronous insertion.
+
+            Default value: **120**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert-timeout).
+          type: integer
+          format: int64
+        asyncInsertMaxDataSize:
+          description: |-
+            The maximum size of the unparsed data in bytes collected per query before being inserted.
+
+            If the parameter is set to **0**, asynchronous insertions are disabled. Default value: **100000**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-max-data-size).
+          type: integer
+          format: int64
+        asyncInsertBusyTimeout:
+          description: |-
+            The maximum timeout in milliseconds since the first INSERT query before inserting collected data.
+
+            If the parameter is set to **0**, the timeout is disabled. Default value: **200**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-busy-timeout-ms).
+          type: integer
+          format: int64
+        asyncInsertStaleTimeout:
+          description: |-
+            The maximum timeout in milliseconds since the last INSERT query before dumping collected data. If enabled, the settings prolongs the `asyncInsertBusyTimeout` with every INSERT query as long as `asyncInsertMaxDataSize` is not exceeded.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-stale-timeout-ms).
+          type: integer
+          format: int64
+        memoryProfilerStep:
+          description: |-
+            Memory profiler step (in bytes).
+
+            If the next query step requires more memory than this parameter specifies, the memory profiler collects the allocating stack trace. Values lower than a few megabytes slow down query processing.
+
+            Default value: **4194304** (4 MB). Zero means disabled memory profiler.
+          type: integer
+          format: int64
+        memoryProfilerSampleProbability:
+          description: |-
+            Collect random allocations and deallocations and write them into system.trace_log with 'MemorySample' trace_type. The probability is for every alloc/free regardless to the size of the allocation.
+
+            Possible values: from **0** to **1**. Default: **0**.
+          type: number
+          format: double
+        compile:
+          description: The setting is deprecated and has no effect.
+          deprecated: true
+          type: boolean
+          format: boolean
+        minCountToCompile:
+          description: The setting is deprecated and has no effect.
+          deprecated: true
+          type: integer
+          format: int64
     UserSettingsCountDistinctImplementation:
       type: string
       enum:
@@ -5798,6 +6045,18 @@ components:
       - COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED_64
       - COUNT_DISTINCT_IMPLEMENTATION_UNIQ_HLL_12
       - COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT
+    UserSettingsDateTimeInputFormat:
+      type: string
+      enum:
+      - DATE_TIME_INPUT_FORMAT_BEST_EFFORT
+      - DATE_TIME_INPUT_FORMAT_BASIC
+      - DATE_TIME_INPUT_FORMAT_BEST_EFFORT_US
+    UserSettingsDateTimeOutputFormat:
+      type: string
+      enum:
+      - DATE_TIME_OUTPUT_FORMAT_SIMPLE
+      - DATE_TIME_OUTPUT_FORMAT_ISO
+      - DATE_TIME_OUTPUT_FORMAT_UNIX_TIMESTAMP
     UserSettingsDistributedProductMode:
       description: |2-
          - DISTRIBUTED_PRODUCT_MODE_DENY: Default value. Prohibits using these types of subqueries (returns the "Double-distributed in/JOIN subqueries is denied" exception).
@@ -5810,12 +6069,31 @@ components:
       - DISTRIBUTED_PRODUCT_MODE_LOCAL
       - DISTRIBUTED_PRODUCT_MODE_GLOBAL
       - DISTRIBUTED_PRODUCT_MODE_ALLOW
+    UserSettingsFormatRegexpEscapingRule:
+      type: string
+      enum:
+      - FORMAT_REGEXP_ESCAPING_RULE_ESCAPED
+      - FORMAT_REGEXP_ESCAPING_RULE_QUOTED
+      - FORMAT_REGEXP_ESCAPING_RULE_CSV
+      - FORMAT_REGEXP_ESCAPING_RULE_JSON
+      - FORMAT_REGEXP_ESCAPING_RULE_XML
+      - FORMAT_REGEXP_ESCAPING_RULE_RAW
     UserSettingsGroupByOverflowMode:
       type: string
       enum:
       - GROUP_BY_OVERFLOW_MODE_THROW
       - GROUP_BY_OVERFLOW_MODE_BREAK
       - GROUP_BY_OVERFLOW_MODE_ANY
+    UserSettingsJoinAlgorithm:
+      type: string
+      enum:
+      - JOIN_ALGORITHM_HASH
+      - JOIN_ALGORITHM_PARALLEL_HASH
+      - JOIN_ALGORITHM_PARTIAL_MERGE
+      - JOIN_ALGORITHM_DIRECT
+      - JOIN_ALGORITHM_AUTO
+      - JOIN_ALGORITHM_FULL_SORTING_MERGE
+      - JOIN_ALGORITHM_PREFER_PARTIAL_MERGE
     UserSettingsOverflowMode:
       type: string
       enum:
@@ -5978,6 +6256,12 @@ components:
             throw 'Too many parts ...' exception.
           type: integer
           format: int64
+        inactivePartsToDelayInsert:
+          type: integer
+          format: int64
+        inactivePartsToThrowInsert:
+          type: integer
+          format: int64
         maxReplicatedMergesInQueue:
           description: How many tasks of merging and mutating parts are allowed simultaneously
             in ReplicatedMergeTree queue.
@@ -5998,6 +6282,30 @@ components:
         maxBytesToMergeAtMaxSpaceInPool:
           type: integer
           format: int64
+        minBytesForWidePart:
+          description: |-
+            Minimum number of bytes in a data part that can be stored in **Wide** format.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part).
+          type: integer
+          format: int64
+        minRowsForWidePart:
+          description: |-
+            Minimum number of rows in a data part that can be stored in **Wide** format.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part).
+          type: integer
+          format: int64
+        ttlOnlyDropParts:
+          description: |-
+            Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts).
+          type: boolean
+          format: boolean
+        allowRemoteFsZeroCopyReplication:
+          type: boolean
+          format: boolean
     ClickhouseConfigKafka_in_ClickhouseConfig_kafka:
       type: object
       properties:
@@ -6013,8 +6321,16 @@ components:
       type: object
       properties:
         username:
+          description: '[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/)
+            username'
           type: string
         password:
+          description: '[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/)
+            password'
+          type: string
+        vhost:
+          description: '[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/)
+            virtual host'
           type: string
     ClickhouseConfigLogLevel_in_ClickhouseConfig_textLogLevel:
       description: 'Logging level for text_log system table. Possible values: TRACE,
@@ -6028,7 +6344,7 @@ components:
       - ERROR
     ClickhouseConfigCompressionMethod_in_ClickhouseConfigCompression_method:
       description: |-
-        Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`.
+        Compression method to use for the specified combination of `minPartSize` and `minPartSizeRatio`.
 
          - LZ4: [LZ4 compression algorithm](https://lz4.github.io/lz4/).
          - ZSTD: [Zstandard compression algorithm](https://facebook.github.io/zstd/).
@@ -6392,6 +6708,9 @@ components:
           format: int64
         textLogLevel:
           $ref: '#/components/schemas/ClickhouseConfigLogLevel_in_ClickhouseConfig_textLogLevel'
+        opentelemetrySpanLogEnabled:
+          type: boolean
+          format: boolean
         backgroundPoolSize:
           description: Value must be greater than 0.
           type: integer
@@ -6400,6 +6719,43 @@ components:
           description: Value must be greater than 0.
           type: integer
           format: int64
+        backgroundFetchesPoolSize:
+          description: |-
+            Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundMovePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundDistributedSchedulePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundBufferFlushSchedulePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        defaultDatabase:
+          description: |-
+            The default database.
+
+            To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db).
+          type: string
+        totalMemoryProfilerStep:
+          description: |-
+            Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step).
+          type: integer
+          format: int64
+        totalMemoryTrackerSampleProbability:
+          type: number
+          format: double
     ClickhouseConfig_in_ClickhouseConfigSet_userConfig:
       description: |-
         User-defined settings for a ClickHouse cluster.
@@ -6586,6 +6942,9 @@ components:
           format: int64
         textLogLevel:
           $ref: '#/components/schemas/ClickhouseConfigLogLevel_in_ClickhouseConfig_textLogLevel'
+        opentelemetrySpanLogEnabled:
+          type: boolean
+          format: boolean
         backgroundPoolSize:
           description: Value must be greater than 0.
           type: integer
@@ -6594,6 +6953,43 @@ components:
           description: Value must be greater than 0.
           type: integer
           format: int64
+        backgroundFetchesPoolSize:
+          description: |-
+            Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundMovePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundDistributedSchedulePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundBufferFlushSchedulePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        defaultDatabase:
+          description: |-
+            The default database.
+
+            To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db).
+          type: string
+        totalMemoryProfilerStep:
+          description: |-
+            Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step).
+          type: integer
+          format: int64
+        totalMemoryTrackerSampleProbability:
+          type: number
+          format: double
     ClickhouseConfig_in_ClickhouseConfigSet_defaultConfig:
       description: |-
         Default configuration for a ClickHouse cluster.
@@ -6780,6 +7176,9 @@ components:
           format: int64
         textLogLevel:
           $ref: '#/components/schemas/ClickhouseConfigLogLevel_in_ClickhouseConfig_textLogLevel'
+        opentelemetrySpanLogEnabled:
+          type: boolean
+          format: boolean
         backgroundPoolSize:
           description: Value must be greater than 0.
           type: integer
@@ -6788,6 +7187,43 @@ components:
           description: Value must be greater than 0.
           type: integer
           format: int64
+        backgroundFetchesPoolSize:
+          description: |-
+            Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundMovePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundDistributedSchedulePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundBufferFlushSchedulePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        defaultDatabase:
+          description: |-
+            The default database.
+
+            To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db).
+          type: string
+        totalMemoryProfilerStep:
+          description: |-
+            Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step).
+          type: integer
+          format: int64
+        totalMemoryTrackerSampleProbability:
+          type: number
+          format: double
     ClusterEnvironment_in_Cluster_environment:
       description: |-
         Deployment environment of the ClickHouse cluster.
@@ -7333,6 +7769,9 @@ components:
           format: int64
         textLogLevel:
           $ref: '#/components/schemas/ClickhouseConfigLogLevel_in_ClickhouseConfig_textLogLevel'
+        opentelemetrySpanLogEnabled:
+          type: boolean
+          format: boolean
         backgroundPoolSize:
           description: Value must be greater than 0.
           type: integer
@@ -7341,6 +7780,43 @@ components:
           description: Value must be greater than 0.
           type: integer
           format: int64
+        backgroundFetchesPoolSize:
+          description: |-
+            Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundMovePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundDistributedSchedulePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundBufferFlushSchedulePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        defaultDatabase:
+          description: |-
+            The default database.
+
+            To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db).
+          type: string
+        totalMemoryProfilerStep:
+          description: |-
+            Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step).
+          type: integer
+          format: int64
+        totalMemoryTrackerSampleProbability:
+          type: number
+          format: double
     Resources_in_ConfigSpecClickhouse_resources:
       description: Resources allocated to ClickHouse hosts.
       type: object
@@ -7960,6 +8436,9 @@ components:
           format: int64
         textLogLevel:
           $ref: '#/components/schemas/ClickhouseConfigLogLevel_in_ClickhouseConfig_textLogLevel'
+        opentelemetrySpanLogEnabled:
+          type: boolean
+          format: boolean
         backgroundPoolSize:
           description: Value must be greater than 0.
           type: integer
@@ -7968,6 +8447,43 @@ components:
           description: Value must be greater than 0.
           type: integer
           format: int64
+        backgroundFetchesPoolSize:
+          description: |-
+            Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundMovePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundDistributedSchedulePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        backgroundBufferFlushSchedulePoolSize:
+          description: Value must be greater than 0.
+          type: integer
+          format: int64
+        defaultDatabase:
+          description: |-
+            The default database.
+
+            To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db).
+          type: string
+        totalMemoryProfilerStep:
+          description: |-
+            Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step).
+          type: integer
+          format: int64
+        totalMemoryTrackerSampleProbability:
+          type: number
+          format: double
     Resources_in_ShardConfigSpecClickhouse_resources:
       description: Computational resources for the shard.
       type: object
@@ -8239,27 +8755,29 @@ components:
             See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/permissions-for-queries/#settings_allow_ddl).
           type: boolean
           format: boolean
-        insertQuorum:
+        allowIntrospectionFunctions:
           description: |-
-            Enables or disables write quorum for ClickHouse cluster.
-            If the value is less than **2**, then write quorum is disabled, otherwise it is enabled.
+            Enables [introspections functions](https://clickhouse.com/docs/en/sql-reference/functions/introspection) for query profiling.
 
-            When used, write quorum guarantees that ClickHouse has written data to the quorum of **insert_quorum** replicas with no errors until the `insertQuorumTimeout` expires.
-            All replicas in the quorum are in the consistent state, meaning that they contain linearized data from the previous **INSERT** queries.
-            Employ write quorum, if you need the guarantees that the written data would not be lost in case of one or more replicas failure.
-
-            You can use `selectSequentialConsistency` setting to read the data written with write quorum.
-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum).
-
-            The minimum value is 0.
-          type: integer
-          format: int64
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-allow_introspection_functions).
+          type: boolean
+          format: boolean
         connectTimeout:
           description: |-
             Connection timeout in milliseconds.
 
             Value must be greater than **0** (default: **10000**, 10 seconds).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        connectTimeoutWithFailover:
+          description: |-
+            The timeout in milliseconds for connecting to a remote server for a Distributed table engine. Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
+
+            Default value: **50**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#connect-timeout-with-failover-ms).
 
             Value must be greater than 0.
           type: integer
@@ -8282,6 +8800,29 @@ components:
             Value must be greater than 0.
           type: integer
           format: int64
+        timeoutBeforeCheckingExecutionSpeed:
+          description: |-
+            Timeout (in seconds) between checks of execution speed. It is checked that execution speed is not less that specified in `minExecutionSpeed` parameter.
+
+            Default value: **10**.
+          type: integer
+          format: int64
+        insertQuorum:
+          description: |-
+            Enables or disables write quorum for ClickHouse cluster.
+            If the value is less than **2**, then write quorum is disabled, otherwise it is enabled.
+
+            When used, write quorum guarantees that ClickHouse has written data to the quorum of **insert_quorum** replicas with no errors until the `insertQuorumTimeout` expires.
+            All replicas in the quorum are in the consistent state, meaning that they contain linearized data from the previous **INSERT** queries.
+            Employ write quorum, if you need the guarantees that the written data would not be lost in case of one or more replicas failure.
+
+            You can use `selectSequentialConsistency` setting to read the data written with write quorum.
+
+            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
         insertQuorumTimeout:
           description: |-
             Quorum write timeout in milliseconds.
@@ -8294,6 +8835,19 @@ components:
             The minimum value is 1000.
           type: integer
           format: int64
+        insertQuorumParallel:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum_parallel).
+          type: boolean
+          format: boolean
+        insertNullAsDefault:
+          description: |-
+            Enables the insertion of default values instead of NULL into columns with not nullable data type.
+
+            Default value: **true**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#insert_null_as_default).
+          type: boolean
+          format: boolean
         selectSequentialConsistency:
           description: |-
             Determines the behavior of **SELECT** queries from the replicated table: if enabled, ClickHouse will terminate a query with error message in case the replica does not have a chunk written with the quorum and will not read the parts that have not yet been written with the quorum.
@@ -8301,6 +8855,23 @@ components:
             Default value: **false** (sequential consistency is disabled).
           type: boolean
           format: boolean
+        deduplicateBlocksInDependentMaterializedViews:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-deduplicate-blocks-in-dependent-materialized-views).
+          type: boolean
+          format: boolean
+        replicationAlterPartitionsSync:
+          description: |-
+            Wait mode for asynchronous actions in **ALTER** queries on replicated tables:
+
+            * **0**-do not wait for replicas.
+            * **1**-only wait for own execution (default).
+            * **2**-wait for all replicas.
+
+            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/alter/#synchronicity-of-alter-queries).
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
         maxReplicaDelayForDistributedQueries:
           description: |-
             Max replica delay in milliseconds. If a replica lags more than the set value, this replica is not used and becomes a stale one.
@@ -8323,19 +8894,6 @@ components:
             See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries).
           type: boolean
           format: boolean
-        replicationAlterPartitionsSync:
-          description: |-
-            Wait mode for asynchronous actions in **ALTER** queries on replicated tables:
-
-            * **0**-do not wait for replicas.
-            * **1**-only wait for own execution (default).
-            * **2**-wait for all replicas.
-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/alter/#synchronicity-of-alter-queries).
-
-            Acceptable values are 0 to 2, inclusive.
-          type: integer
-          format: int64
         distributedProductMode:
           $ref: '#/components/schemas/UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode'
         distributedAggregationMemoryEfficient:
@@ -8365,36 +8923,6 @@ components:
             See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-skip_unavailable_shards).
           type: boolean
           format: boolean
-        compile:
-          description: |-
-            Enables or disables query compilation.
-            If you execute a lot of structurally identical queries, then enable this setting.
-            As a result, such queries may be executed faster due to use of queries' compiled parts.
-
-            Use this setting in combination with `minCountToCompile` setting.
-
-            Default value: **false** (compilation is disabled).
-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#compile).
-          type: boolean
-          format: boolean
-        minCountToCompile:
-          description: |-
-            How many structurally identical queries ClickHouse has to encounter before they are compiled.
-
-            Minimum value: **0** (default: **3**).
-
-            For the **0** value compilation is synchronous: a query waits for compilation process to complete prior to continuing execution.
-            It is recommended to set this value only for testing purposes.
-
-            For all other values, compilation is asynchronous: the compilation process executes in a separate thread.
-            When a compiled part of query is ready, it will be used by ClickHouse for eligible queries, including the ones that are currently running.
-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#min-count-to-compile).
-
-            The minimum value is 0.
-          type: integer
-          format: int64
         compileExpressions:
           description: |-
             Enables or disables expression compilation.
@@ -8654,6 +9182,16 @@ components:
             Minimal value and default value: **0**, no limitation is set.
           type: integer
           format: int64
+        maxPartitionsPerInsertBlock:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/operations/settings/query-complexity/#max-partitions-per-insert-block).
+          type: integer
+          format: int64
+        maxConcurrentQueriesForUser:
+          description: |-
+            The maximum number of concurrent requests per user.
+            Default value: 0 (no limit).
+          type: integer
+          format: int64
         forceIndexByDate:
           description: |-
             If enabled, query is not executed if the ClickHouse can't use index by date.
@@ -8835,6 +9373,15 @@ components:
           format: int64
         joinOverflowMode:
           $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_joinOverflowMode'
+        joinAlgorithm:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-join_algorithm).
+          type: array
+          items:
+            $ref: '#/components/schemas/UserSettingsJoinAlgorithm'
+        anyJoinDistinctRightTableKeys:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#any_join_distinct_right_table_keys).
+          type: boolean
+          format: boolean
         maxColumnsToRead:
           description: |-
             Limits the maximum number of columns that can be read from a table in a single query.
@@ -8959,6 +9506,16 @@ components:
             Default value: **true** (replacing is enabled).
           type: boolean
           format: boolean
+        inputFormatNullAsDefault:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#input_format_null_as_default).
+          type: boolean
+          format: boolean
+        dateTimeInputFormat:
+          $ref: '#/components/schemas/UserSettingsDateTimeInputFormat_in_UserSettings_dateTimeInputFormat'
+        inputFormatWithNamesUseHeader:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#input_format_with_names_use_header).
+          type: boolean
+          format: boolean
         outputFormatJsonQuote_64BitIntegers:
           description: |-
             Enables quoting of 64-bit integers in JSON output format.
@@ -8976,6 +9533,8 @@ components:
             Default value: **false** (special values do not present in output).
           type: boolean
           format: boolean
+        dateTimeOutputFormat:
+          $ref: '#/components/schemas/UserSettingsDateTimeOutputFormat_in_UserSettings_dateTimeOutputFormat'
         lowCardinalityAllowInNativeFormat:
           description: |-
             Determines whether to use LowCardinality type in Native format.
@@ -8994,21 +9553,19 @@ components:
             Default value: **true** (LowCardinality columns are used in Native format).
           type: boolean
           format: boolean
+        allowSuspiciousLowCardinalityTypes:
+          description: |-
+            Allows specifying **LowCardinality** modifier for types of small fixed size (8 or less) in CREATE TABLE statements. Enabling this may increase merge times and memory consumption.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#allow_suspicious_low_cardinality_types).
+          type: boolean
+          format: boolean
         emptyResultForAggregationByEmptySet:
           description: |-
             Enables returning of empty result when aggregating without keys (with **GROUP BY** operation absent) on empty set (e.g., **SELECT count(*) FROM table WHERE 0**).
 
             * **true**-ClickHouse will return an empty result for such queries.
             * **false** (default)-ClickHouse will return a single-line result consisting of **NULL** values for aggregation functions, in accordance with SQL standard.
-          type: boolean
-          format: boolean
-        joinedSubqueryRequiresAlias:
-          type: boolean
-          format: boolean
-        joinUseNulls:
-          type: boolean
-          format: boolean
-        transformNullIn:
           type: boolean
           format: boolean
         httpConnectionTimeout:
@@ -9069,8 +9626,136 @@ components:
             Default value: **false** (header is not added).
           type: boolean
           format: boolean
+        cancelHttpReadonlyQueriesOnClientClose:
+          description: |-
+            Cancels HTTP read-only queries (e.g. SELECT) when a client closes the connection without waiting for the response.
+
+            Default value: **false**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#cancel-http-readonly-queries-on-client-close).
+          type: boolean
+          format: boolean
+        maxHttpGetRedirects:
+          description: |-
+            Limits the maximum number of HTTP GET redirect hops for [URL-engine](https://clickhouse.com/docs/en/engines/table-engines/special/url) tables.
+
+            If the parameter is set to **0** (default), no hops is allowed.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#setting-max_http_get_redirects).
+          type: integer
+          format: int64
+        joinedSubqueryRequiresAlias:
+          type: boolean
+          format: boolean
+        joinUseNulls:
+          type: boolean
+          format: boolean
+        transformNullIn:
+          type: boolean
+          format: boolean
         quotaMode:
           $ref: '#/components/schemas/UserSettingsQuotaMode_in_UserSettings_quotaMode'
+        flattenNested:
+          description: |-
+            Sets the data format of a [nested](https://clickhouse.com/docs/en/sql-reference/data-types/nested-data-structures/nested) columns.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#flatten-nested).
+          type: boolean
+          format: boolean
+        formatRegexp:
+          description: Regular expression (for Regexp format)
+          type: string
+        formatRegexpEscapingRule:
+          $ref: '#/components/schemas/UserSettingsFormatRegexpEscapingRule_in_UserSettings_formatRegexpEscapingRule'
+        formatRegexpSkipUnmatched:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#format_regexp_skip_unmatched).
+          type: boolean
+          format: boolean
+        asyncInsert:
+          description: |-
+            Enables asynchronous inserts.
+
+            Disabled by default.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert).
+          type: boolean
+          format: boolean
+        asyncInsertThreads:
+          description: |-
+            The maximum number of threads for background data parsing and insertion.
+
+            If the parameter is set to **0**, asynchronous insertions are disabled. Default value: **16**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-threads).
+          type: integer
+          format: int64
+        waitForAsyncInsert:
+          description: |-
+            Enables waiting for processing of asynchronous insertion. If enabled, server returns OK only after the data is inserted.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert).
+          type: boolean
+          format: boolean
+        waitForAsyncInsertTimeout:
+          description: |-
+            The timeout (in seconds) for waiting for processing of asynchronous insertion.
+
+            Default value: **120**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert-timeout).
+          type: integer
+          format: int64
+        asyncInsertMaxDataSize:
+          description: |-
+            The maximum size of the unparsed data in bytes collected per query before being inserted.
+
+            If the parameter is set to **0**, asynchronous insertions are disabled. Default value: **100000**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-max-data-size).
+          type: integer
+          format: int64
+        asyncInsertBusyTimeout:
+          description: |-
+            The maximum timeout in milliseconds since the first INSERT query before inserting collected data.
+
+            If the parameter is set to **0**, the timeout is disabled. Default value: **200**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-busy-timeout-ms).
+          type: integer
+          format: int64
+        asyncInsertStaleTimeout:
+          description: |-
+            The maximum timeout in milliseconds since the last INSERT query before dumping collected data. If enabled, the settings prolongs the `asyncInsertBusyTimeout` with every INSERT query as long as `asyncInsertMaxDataSize` is not exceeded.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-stale-timeout-ms).
+          type: integer
+          format: int64
+        memoryProfilerStep:
+          description: |-
+            Memory profiler step (in bytes).
+
+            If the next query step requires more memory than this parameter specifies, the memory profiler collects the allocating stack trace. Values lower than a few megabytes slow down query processing.
+
+            Default value: **4194304** (4 MB). Zero means disabled memory profiler.
+          type: integer
+          format: int64
+        memoryProfilerSampleProbability:
+          description: |-
+            Collect random allocations and deallocations and write them into system.trace_log with 'MemorySample' trace_type. The probability is for every alloc/free regardless to the size of the allocation.
+
+            Possible values: from **0** to **1**. Default: **0**.
+          type: number
+          format: double
+        compile:
+          description: The setting is deprecated and has no effect.
+          deprecated: true
+          type: boolean
+          format: boolean
+        minCountToCompile:
+          description: The setting is deprecated and has no effect.
+          deprecated: true
+          type: integer
+          format: int64
     UserSettings_in_User_settings:
       description: |-
         ClickHouse user settings. Supported settings are a limited subset of all settings
@@ -9098,27 +9783,29 @@ components:
             See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/permissions-for-queries/#settings_allow_ddl).
           type: boolean
           format: boolean
-        insertQuorum:
+        allowIntrospectionFunctions:
           description: |-
-            Enables or disables write quorum for ClickHouse cluster.
-            If the value is less than **2**, then write quorum is disabled, otherwise it is enabled.
+            Enables [introspections functions](https://clickhouse.com/docs/en/sql-reference/functions/introspection) for query profiling.
 
-            When used, write quorum guarantees that ClickHouse has written data to the quorum of **insert_quorum** replicas with no errors until the `insertQuorumTimeout` expires.
-            All replicas in the quorum are in the consistent state, meaning that they contain linearized data from the previous **INSERT** queries.
-            Employ write quorum, if you need the guarantees that the written data would not be lost in case of one or more replicas failure.
-
-            You can use `selectSequentialConsistency` setting to read the data written with write quorum.
-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum).
-
-            The minimum value is 0.
-          type: integer
-          format: int64
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-allow_introspection_functions).
+          type: boolean
+          format: boolean
         connectTimeout:
           description: |-
             Connection timeout in milliseconds.
 
             Value must be greater than **0** (default: **10000**, 10 seconds).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        connectTimeoutWithFailover:
+          description: |-
+            The timeout in milliseconds for connecting to a remote server for a Distributed table engine. Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
+
+            Default value: **50**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#connect-timeout-with-failover-ms).
 
             Value must be greater than 0.
           type: integer
@@ -9141,6 +9828,29 @@ components:
             Value must be greater than 0.
           type: integer
           format: int64
+        timeoutBeforeCheckingExecutionSpeed:
+          description: |-
+            Timeout (in seconds) between checks of execution speed. It is checked that execution speed is not less that specified in `minExecutionSpeed` parameter.
+
+            Default value: **10**.
+          type: integer
+          format: int64
+        insertQuorum:
+          description: |-
+            Enables or disables write quorum for ClickHouse cluster.
+            If the value is less than **2**, then write quorum is disabled, otherwise it is enabled.
+
+            When used, write quorum guarantees that ClickHouse has written data to the quorum of **insert_quorum** replicas with no errors until the `insertQuorumTimeout` expires.
+            All replicas in the quorum are in the consistent state, meaning that they contain linearized data from the previous **INSERT** queries.
+            Employ write quorum, if you need the guarantees that the written data would not be lost in case of one or more replicas failure.
+
+            You can use `selectSequentialConsistency` setting to read the data written with write quorum.
+
+            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
         insertQuorumTimeout:
           description: |-
             Quorum write timeout in milliseconds.
@@ -9153,6 +9863,19 @@ components:
             The minimum value is 1000.
           type: integer
           format: int64
+        insertQuorumParallel:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum_parallel).
+          type: boolean
+          format: boolean
+        insertNullAsDefault:
+          description: |-
+            Enables the insertion of default values instead of NULL into columns with not nullable data type.
+
+            Default value: **true**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#insert_null_as_default).
+          type: boolean
+          format: boolean
         selectSequentialConsistency:
           description: |-
             Determines the behavior of **SELECT** queries from the replicated table: if enabled, ClickHouse will terminate a query with error message in case the replica does not have a chunk written with the quorum and will not read the parts that have not yet been written with the quorum.
@@ -9160,6 +9883,23 @@ components:
             Default value: **false** (sequential consistency is disabled).
           type: boolean
           format: boolean
+        deduplicateBlocksInDependentMaterializedViews:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-deduplicate-blocks-in-dependent-materialized-views).
+          type: boolean
+          format: boolean
+        replicationAlterPartitionsSync:
+          description: |-
+            Wait mode for asynchronous actions in **ALTER** queries on replicated tables:
+
+            * **0**-do not wait for replicas.
+            * **1**-only wait for own execution (default).
+            * **2**-wait for all replicas.
+
+            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/alter/#synchronicity-of-alter-queries).
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
         maxReplicaDelayForDistributedQueries:
           description: |-
             Max replica delay in milliseconds. If a replica lags more than the set value, this replica is not used and becomes a stale one.
@@ -9182,19 +9922,6 @@ components:
             See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries).
           type: boolean
           format: boolean
-        replicationAlterPartitionsSync:
-          description: |-
-            Wait mode for asynchronous actions in **ALTER** queries on replicated tables:
-
-            * **0**-do not wait for replicas.
-            * **1**-only wait for own execution (default).
-            * **2**-wait for all replicas.
-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/alter/#synchronicity-of-alter-queries).
-
-            Acceptable values are 0 to 2, inclusive.
-          type: integer
-          format: int64
         distributedProductMode:
           $ref: '#/components/schemas/UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode'
         distributedAggregationMemoryEfficient:
@@ -9224,36 +9951,6 @@ components:
             See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-skip_unavailable_shards).
           type: boolean
           format: boolean
-        compile:
-          description: |-
-            Enables or disables query compilation.
-            If you execute a lot of structurally identical queries, then enable this setting.
-            As a result, such queries may be executed faster due to use of queries' compiled parts.
-
-            Use this setting in combination with `minCountToCompile` setting.
-
-            Default value: **false** (compilation is disabled).
-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#compile).
-          type: boolean
-          format: boolean
-        minCountToCompile:
-          description: |-
-            How many structurally identical queries ClickHouse has to encounter before they are compiled.
-
-            Minimum value: **0** (default: **3**).
-
-            For the **0** value compilation is synchronous: a query waits for compilation process to complete prior to continuing execution.
-            It is recommended to set this value only for testing purposes.
-
-            For all other values, compilation is asynchronous: the compilation process executes in a separate thread.
-            When a compiled part of query is ready, it will be used by ClickHouse for eligible queries, including the ones that are currently running.
-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#min-count-to-compile).
-
-            The minimum value is 0.
-          type: integer
-          format: int64
         compileExpressions:
           description: |-
             Enables or disables expression compilation.
@@ -9513,6 +10210,16 @@ components:
             Minimal value and default value: **0**, no limitation is set.
           type: integer
           format: int64
+        maxPartitionsPerInsertBlock:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/operations/settings/query-complexity/#max-partitions-per-insert-block).
+          type: integer
+          format: int64
+        maxConcurrentQueriesForUser:
+          description: |-
+            The maximum number of concurrent requests per user.
+            Default value: 0 (no limit).
+          type: integer
+          format: int64
         forceIndexByDate:
           description: |-
             If enabled, query is not executed if the ClickHouse can't use index by date.
@@ -9694,6 +10401,15 @@ components:
           format: int64
         joinOverflowMode:
           $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_joinOverflowMode'
+        joinAlgorithm:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-join_algorithm).
+          type: array
+          items:
+            $ref: '#/components/schemas/UserSettingsJoinAlgorithm'
+        anyJoinDistinctRightTableKeys:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#any_join_distinct_right_table_keys).
+          type: boolean
+          format: boolean
         maxColumnsToRead:
           description: |-
             Limits the maximum number of columns that can be read from a table in a single query.
@@ -9818,6 +10534,16 @@ components:
             Default value: **true** (replacing is enabled).
           type: boolean
           format: boolean
+        inputFormatNullAsDefault:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#input_format_null_as_default).
+          type: boolean
+          format: boolean
+        dateTimeInputFormat:
+          $ref: '#/components/schemas/UserSettingsDateTimeInputFormat_in_UserSettings_dateTimeInputFormat'
+        inputFormatWithNamesUseHeader:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#input_format_with_names_use_header).
+          type: boolean
+          format: boolean
         outputFormatJsonQuote_64BitIntegers:
           description: |-
             Enables quoting of 64-bit integers in JSON output format.
@@ -9835,6 +10561,8 @@ components:
             Default value: **false** (special values do not present in output).
           type: boolean
           format: boolean
+        dateTimeOutputFormat:
+          $ref: '#/components/schemas/UserSettingsDateTimeOutputFormat_in_UserSettings_dateTimeOutputFormat'
         lowCardinalityAllowInNativeFormat:
           description: |-
             Determines whether to use LowCardinality type in Native format.
@@ -9853,21 +10581,19 @@ components:
             Default value: **true** (LowCardinality columns are used in Native format).
           type: boolean
           format: boolean
+        allowSuspiciousLowCardinalityTypes:
+          description: |-
+            Allows specifying **LowCardinality** modifier for types of small fixed size (8 or less) in CREATE TABLE statements. Enabling this may increase merge times and memory consumption.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#allow_suspicious_low_cardinality_types).
+          type: boolean
+          format: boolean
         emptyResultForAggregationByEmptySet:
           description: |-
             Enables returning of empty result when aggregating without keys (with **GROUP BY** operation absent) on empty set (e.g., **SELECT count(*) FROM table WHERE 0**).
 
             * **true**-ClickHouse will return an empty result for such queries.
             * **false** (default)-ClickHouse will return a single-line result consisting of **NULL** values for aggregation functions, in accordance with SQL standard.
-          type: boolean
-          format: boolean
-        joinedSubqueryRequiresAlias:
-          type: boolean
-          format: boolean
-        joinUseNulls:
-          type: boolean
-          format: boolean
-        transformNullIn:
           type: boolean
           format: boolean
         httpConnectionTimeout:
@@ -9928,8 +10654,136 @@ components:
             Default value: **false** (header is not added).
           type: boolean
           format: boolean
+        cancelHttpReadonlyQueriesOnClientClose:
+          description: |-
+            Cancels HTTP read-only queries (e.g. SELECT) when a client closes the connection without waiting for the response.
+
+            Default value: **false**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#cancel-http-readonly-queries-on-client-close).
+          type: boolean
+          format: boolean
+        maxHttpGetRedirects:
+          description: |-
+            Limits the maximum number of HTTP GET redirect hops for [URL-engine](https://clickhouse.com/docs/en/engines/table-engines/special/url) tables.
+
+            If the parameter is set to **0** (default), no hops is allowed.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#setting-max_http_get_redirects).
+          type: integer
+          format: int64
+        joinedSubqueryRequiresAlias:
+          type: boolean
+          format: boolean
+        joinUseNulls:
+          type: boolean
+          format: boolean
+        transformNullIn:
+          type: boolean
+          format: boolean
         quotaMode:
           $ref: '#/components/schemas/UserSettingsQuotaMode_in_UserSettings_quotaMode'
+        flattenNested:
+          description: |-
+            Sets the data format of a [nested](https://clickhouse.com/docs/en/sql-reference/data-types/nested-data-structures/nested) columns.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#flatten-nested).
+          type: boolean
+          format: boolean
+        formatRegexp:
+          description: Regular expression (for Regexp format)
+          type: string
+        formatRegexpEscapingRule:
+          $ref: '#/components/schemas/UserSettingsFormatRegexpEscapingRule_in_UserSettings_formatRegexpEscapingRule'
+        formatRegexpSkipUnmatched:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#format_regexp_skip_unmatched).
+          type: boolean
+          format: boolean
+        asyncInsert:
+          description: |-
+            Enables asynchronous inserts.
+
+            Disabled by default.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert).
+          type: boolean
+          format: boolean
+        asyncInsertThreads:
+          description: |-
+            The maximum number of threads for background data parsing and insertion.
+
+            If the parameter is set to **0**, asynchronous insertions are disabled. Default value: **16**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-threads).
+          type: integer
+          format: int64
+        waitForAsyncInsert:
+          description: |-
+            Enables waiting for processing of asynchronous insertion. If enabled, server returns OK only after the data is inserted.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert).
+          type: boolean
+          format: boolean
+        waitForAsyncInsertTimeout:
+          description: |-
+            The timeout (in seconds) for waiting for processing of asynchronous insertion.
+
+            Default value: **120**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert-timeout).
+          type: integer
+          format: int64
+        asyncInsertMaxDataSize:
+          description: |-
+            The maximum size of the unparsed data in bytes collected per query before being inserted.
+
+            If the parameter is set to **0**, asynchronous insertions are disabled. Default value: **100000**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-max-data-size).
+          type: integer
+          format: int64
+        asyncInsertBusyTimeout:
+          description: |-
+            The maximum timeout in milliseconds since the first INSERT query before inserting collected data.
+
+            If the parameter is set to **0**, the timeout is disabled. Default value: **200**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-busy-timeout-ms).
+          type: integer
+          format: int64
+        asyncInsertStaleTimeout:
+          description: |-
+            The maximum timeout in milliseconds since the last INSERT query before dumping collected data. If enabled, the settings prolongs the `asyncInsertBusyTimeout` with every INSERT query as long as `asyncInsertMaxDataSize` is not exceeded.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-stale-timeout-ms).
+          type: integer
+          format: int64
+        memoryProfilerStep:
+          description: |-
+            Memory profiler step (in bytes).
+
+            If the next query step requires more memory than this parameter specifies, the memory profiler collects the allocating stack trace. Values lower than a few megabytes slow down query processing.
+
+            Default value: **4194304** (4 MB). Zero means disabled memory profiler.
+          type: integer
+          format: int64
+        memoryProfilerSampleProbability:
+          description: |-
+            Collect random allocations and deallocations and write them into system.trace_log with 'MemorySample' trace_type. The probability is for every alloc/free regardless to the size of the allocation.
+
+            Possible values: from **0** to **1**. Default: **0**.
+          type: number
+          format: double
+        compile:
+          description: The setting is deprecated and has no effect.
+          deprecated: true
+          type: boolean
+          format: boolean
+        minCountToCompile:
+          description: The setting is deprecated and has no effect.
+          deprecated: true
+          type: integer
+          format: int64
     UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode:
       description: |-
         Determine the behavior of distributed subqueries.
@@ -10044,6 +10898,20 @@ components:
       - COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED_64
       - COUNT_DISTINCT_IMPLEMENTATION_UNIQ_HLL_12
       - COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT
+    UserSettingsDateTimeInputFormat_in_UserSettings_dateTimeInputFormat:
+      description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#date_time_input_format).
+      type: string
+      enum:
+      - DATE_TIME_INPUT_FORMAT_BEST_EFFORT
+      - DATE_TIME_INPUT_FORMAT_BASIC
+      - DATE_TIME_INPUT_FORMAT_BEST_EFFORT_US
+    UserSettingsDateTimeOutputFormat_in_UserSettings_dateTimeOutputFormat:
+      description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#date_time_output_format).
+      type: string
+      enum:
+      - DATE_TIME_OUTPUT_FORMAT_SIMPLE
+      - DATE_TIME_OUTPUT_FORMAT_ISO
+      - DATE_TIME_OUTPUT_FORMAT_UNIX_TIMESTAMP
     UserSettingsQuotaMode_in_UserSettings_quotaMode:
       description: 'Quota accounting mode. Possible values: QUOTA_MODE_DEFAULT, QUOTA_MODE_KEYED
         and QUOTA_MODE_KEYED_BY_IP.'
@@ -10052,6 +10920,16 @@ components:
       - QUOTA_MODE_DEFAULT
       - QUOTA_MODE_KEYED
       - QUOTA_MODE_KEYED_BY_IP
+    UserSettingsFormatRegexpEscapingRule_in_UserSettings_formatRegexpEscapingRule:
+      description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#format_regexp_escaping_rule).
+      type: string
+      enum:
+      - FORMAT_REGEXP_ESCAPING_RULE_ESCAPED
+      - FORMAT_REGEXP_ESCAPING_RULE_QUOTED
+      - FORMAT_REGEXP_ESCAPING_RULE_CSV
+      - FORMAT_REGEXP_ESCAPING_RULE_JSON
+      - FORMAT_REGEXP_ESCAPING_RULE_XML
+      - FORMAT_REGEXP_ESCAPING_RULE_RAW
     UserSettings_in_UserSpec_settings:
       description: |-
         ClickHouse user settings. Supported settings are a limited subset of all settings
@@ -10079,27 +10957,29 @@ components:
             See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/permissions-for-queries/#settings_allow_ddl).
           type: boolean
           format: boolean
-        insertQuorum:
+        allowIntrospectionFunctions:
           description: |-
-            Enables or disables write quorum for ClickHouse cluster.
-            If the value is less than **2**, then write quorum is disabled, otherwise it is enabled.
+            Enables [introspections functions](https://clickhouse.com/docs/en/sql-reference/functions/introspection) for query profiling.
 
-            When used, write quorum guarantees that ClickHouse has written data to the quorum of **insert_quorum** replicas with no errors until the `insertQuorumTimeout` expires.
-            All replicas in the quorum are in the consistent state, meaning that they contain linearized data from the previous **INSERT** queries.
-            Employ write quorum, if you need the guarantees that the written data would not be lost in case of one or more replicas failure.
-
-            You can use `selectSequentialConsistency` setting to read the data written with write quorum.
-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum).
-
-            The minimum value is 0.
-          type: integer
-          format: int64
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-allow_introspection_functions).
+          type: boolean
+          format: boolean
         connectTimeout:
           description: |-
             Connection timeout in milliseconds.
 
             Value must be greater than **0** (default: **10000**, 10 seconds).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        connectTimeoutWithFailover:
+          description: |-
+            The timeout in milliseconds for connecting to a remote server for a Distributed table engine. Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
+
+            Default value: **50**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#connect-timeout-with-failover-ms).
 
             Value must be greater than 0.
           type: integer
@@ -10122,6 +11002,29 @@ components:
             Value must be greater than 0.
           type: integer
           format: int64
+        timeoutBeforeCheckingExecutionSpeed:
+          description: |-
+            Timeout (in seconds) between checks of execution speed. It is checked that execution speed is not less that specified in `minExecutionSpeed` parameter.
+
+            Default value: **10**.
+          type: integer
+          format: int64
+        insertQuorum:
+          description: |-
+            Enables or disables write quorum for ClickHouse cluster.
+            If the value is less than **2**, then write quorum is disabled, otherwise it is enabled.
+
+            When used, write quorum guarantees that ClickHouse has written data to the quorum of **insert_quorum** replicas with no errors until the `insertQuorumTimeout` expires.
+            All replicas in the quorum are in the consistent state, meaning that they contain linearized data from the previous **INSERT** queries.
+            Employ write quorum, if you need the guarantees that the written data would not be lost in case of one or more replicas failure.
+
+            You can use `selectSequentialConsistency` setting to read the data written with write quorum.
+
+            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
         insertQuorumTimeout:
           description: |-
             Quorum write timeout in milliseconds.
@@ -10134,6 +11037,19 @@ components:
             The minimum value is 1000.
           type: integer
           format: int64
+        insertQuorumParallel:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum_parallel).
+          type: boolean
+          format: boolean
+        insertNullAsDefault:
+          description: |-
+            Enables the insertion of default values instead of NULL into columns with not nullable data type.
+
+            Default value: **true**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#insert_null_as_default).
+          type: boolean
+          format: boolean
         selectSequentialConsistency:
           description: |-
             Determines the behavior of **SELECT** queries from the replicated table: if enabled, ClickHouse will terminate a query with error message in case the replica does not have a chunk written with the quorum and will not read the parts that have not yet been written with the quorum.
@@ -10141,6 +11057,23 @@ components:
             Default value: **false** (sequential consistency is disabled).
           type: boolean
           format: boolean
+        deduplicateBlocksInDependentMaterializedViews:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-deduplicate-blocks-in-dependent-materialized-views).
+          type: boolean
+          format: boolean
+        replicationAlterPartitionsSync:
+          description: |-
+            Wait mode for asynchronous actions in **ALTER** queries on replicated tables:
+
+            * **0**-do not wait for replicas.
+            * **1**-only wait for own execution (default).
+            * **2**-wait for all replicas.
+
+            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/alter/#synchronicity-of-alter-queries).
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
         maxReplicaDelayForDistributedQueries:
           description: |-
             Max replica delay in milliseconds. If a replica lags more than the set value, this replica is not used and becomes a stale one.
@@ -10163,19 +11096,6 @@ components:
             See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries).
           type: boolean
           format: boolean
-        replicationAlterPartitionsSync:
-          description: |-
-            Wait mode for asynchronous actions in **ALTER** queries on replicated tables:
-
-            * **0**-do not wait for replicas.
-            * **1**-only wait for own execution (default).
-            * **2**-wait for all replicas.
-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/alter/#synchronicity-of-alter-queries).
-
-            Acceptable values are 0 to 2, inclusive.
-          type: integer
-          format: int64
         distributedProductMode:
           $ref: '#/components/schemas/UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode'
         distributedAggregationMemoryEfficient:
@@ -10205,36 +11125,6 @@ components:
             See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-skip_unavailable_shards).
           type: boolean
           format: boolean
-        compile:
-          description: |-
-            Enables or disables query compilation.
-            If you execute a lot of structurally identical queries, then enable this setting.
-            As a result, such queries may be executed faster due to use of queries' compiled parts.
-
-            Use this setting in combination with `minCountToCompile` setting.
-
-            Default value: **false** (compilation is disabled).
-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#compile).
-          type: boolean
-          format: boolean
-        minCountToCompile:
-          description: |-
-            How many structurally identical queries ClickHouse has to encounter before they are compiled.
-
-            Minimum value: **0** (default: **3**).
-
-            For the **0** value compilation is synchronous: a query waits for compilation process to complete prior to continuing execution.
-            It is recommended to set this value only for testing purposes.
-
-            For all other values, compilation is asynchronous: the compilation process executes in a separate thread.
-            When a compiled part of query is ready, it will be used by ClickHouse for eligible queries, including the ones that are currently running.
-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#min-count-to-compile).
-
-            The minimum value is 0.
-          type: integer
-          format: int64
         compileExpressions:
           description: |-
             Enables or disables expression compilation.
@@ -10494,6 +11384,16 @@ components:
             Minimal value and default value: **0**, no limitation is set.
           type: integer
           format: int64
+        maxPartitionsPerInsertBlock:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/operations/settings/query-complexity/#max-partitions-per-insert-block).
+          type: integer
+          format: int64
+        maxConcurrentQueriesForUser:
+          description: |-
+            The maximum number of concurrent requests per user.
+            Default value: 0 (no limit).
+          type: integer
+          format: int64
         forceIndexByDate:
           description: |-
             If enabled, query is not executed if the ClickHouse can't use index by date.
@@ -10675,6 +11575,15 @@ components:
           format: int64
         joinOverflowMode:
           $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_joinOverflowMode'
+        joinAlgorithm:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-join_algorithm).
+          type: array
+          items:
+            $ref: '#/components/schemas/UserSettingsJoinAlgorithm'
+        anyJoinDistinctRightTableKeys:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#any_join_distinct_right_table_keys).
+          type: boolean
+          format: boolean
         maxColumnsToRead:
           description: |-
             Limits the maximum number of columns that can be read from a table in a single query.
@@ -10799,6 +11708,16 @@ components:
             Default value: **true** (replacing is enabled).
           type: boolean
           format: boolean
+        inputFormatNullAsDefault:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#input_format_null_as_default).
+          type: boolean
+          format: boolean
+        dateTimeInputFormat:
+          $ref: '#/components/schemas/UserSettingsDateTimeInputFormat_in_UserSettings_dateTimeInputFormat'
+        inputFormatWithNamesUseHeader:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#input_format_with_names_use_header).
+          type: boolean
+          format: boolean
         outputFormatJsonQuote_64BitIntegers:
           description: |-
             Enables quoting of 64-bit integers in JSON output format.
@@ -10816,6 +11735,8 @@ components:
             Default value: **false** (special values do not present in output).
           type: boolean
           format: boolean
+        dateTimeOutputFormat:
+          $ref: '#/components/schemas/UserSettingsDateTimeOutputFormat_in_UserSettings_dateTimeOutputFormat'
         lowCardinalityAllowInNativeFormat:
           description: |-
             Determines whether to use LowCardinality type in Native format.
@@ -10834,21 +11755,19 @@ components:
             Default value: **true** (LowCardinality columns are used in Native format).
           type: boolean
           format: boolean
+        allowSuspiciousLowCardinalityTypes:
+          description: |-
+            Allows specifying **LowCardinality** modifier for types of small fixed size (8 or less) in CREATE TABLE statements. Enabling this may increase merge times and memory consumption.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#allow_suspicious_low_cardinality_types).
+          type: boolean
+          format: boolean
         emptyResultForAggregationByEmptySet:
           description: |-
             Enables returning of empty result when aggregating without keys (with **GROUP BY** operation absent) on empty set (e.g., **SELECT count(*) FROM table WHERE 0**).
 
             * **true**-ClickHouse will return an empty result for such queries.
             * **false** (default)-ClickHouse will return a single-line result consisting of **NULL** values for aggregation functions, in accordance with SQL standard.
-          type: boolean
-          format: boolean
-        joinedSubqueryRequiresAlias:
-          type: boolean
-          format: boolean
-        joinUseNulls:
-          type: boolean
-          format: boolean
-        transformNullIn:
           type: boolean
           format: boolean
         httpConnectionTimeout:
@@ -10909,8 +11828,136 @@ components:
             Default value: **false** (header is not added).
           type: boolean
           format: boolean
+        cancelHttpReadonlyQueriesOnClientClose:
+          description: |-
+            Cancels HTTP read-only queries (e.g. SELECT) when a client closes the connection without waiting for the response.
+
+            Default value: **false**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#cancel-http-readonly-queries-on-client-close).
+          type: boolean
+          format: boolean
+        maxHttpGetRedirects:
+          description: |-
+            Limits the maximum number of HTTP GET redirect hops for [URL-engine](https://clickhouse.com/docs/en/engines/table-engines/special/url) tables.
+
+            If the parameter is set to **0** (default), no hops is allowed.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#setting-max_http_get_redirects).
+          type: integer
+          format: int64
+        joinedSubqueryRequiresAlias:
+          type: boolean
+          format: boolean
+        joinUseNulls:
+          type: boolean
+          format: boolean
+        transformNullIn:
+          type: boolean
+          format: boolean
         quotaMode:
           $ref: '#/components/schemas/UserSettingsQuotaMode_in_UserSettings_quotaMode'
+        flattenNested:
+          description: |-
+            Sets the data format of a [nested](https://clickhouse.com/docs/en/sql-reference/data-types/nested-data-structures/nested) columns.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#flatten-nested).
+          type: boolean
+          format: boolean
+        formatRegexp:
+          description: Regular expression (for Regexp format)
+          type: string
+        formatRegexpEscapingRule:
+          $ref: '#/components/schemas/UserSettingsFormatRegexpEscapingRule_in_UserSettings_formatRegexpEscapingRule'
+        formatRegexpSkipUnmatched:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#format_regexp_skip_unmatched).
+          type: boolean
+          format: boolean
+        asyncInsert:
+          description: |-
+            Enables asynchronous inserts.
+
+            Disabled by default.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert).
+          type: boolean
+          format: boolean
+        asyncInsertThreads:
+          description: |-
+            The maximum number of threads for background data parsing and insertion.
+
+            If the parameter is set to **0**, asynchronous insertions are disabled. Default value: **16**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-threads).
+          type: integer
+          format: int64
+        waitForAsyncInsert:
+          description: |-
+            Enables waiting for processing of asynchronous insertion. If enabled, server returns OK only after the data is inserted.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert).
+          type: boolean
+          format: boolean
+        waitForAsyncInsertTimeout:
+          description: |-
+            The timeout (in seconds) for waiting for processing of asynchronous insertion.
+
+            Default value: **120**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert-timeout).
+          type: integer
+          format: int64
+        asyncInsertMaxDataSize:
+          description: |-
+            The maximum size of the unparsed data in bytes collected per query before being inserted.
+
+            If the parameter is set to **0**, asynchronous insertions are disabled. Default value: **100000**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-max-data-size).
+          type: integer
+          format: int64
+        asyncInsertBusyTimeout:
+          description: |-
+            The maximum timeout in milliseconds since the first INSERT query before inserting collected data.
+
+            If the parameter is set to **0**, the timeout is disabled. Default value: **200**.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-busy-timeout-ms).
+          type: integer
+          format: int64
+        asyncInsertStaleTimeout:
+          description: |-
+            The maximum timeout in milliseconds since the last INSERT query before dumping collected data. If enabled, the settings prolongs the `asyncInsertBusyTimeout` with every INSERT query as long as `asyncInsertMaxDataSize` is not exceeded.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-stale-timeout-ms).
+          type: integer
+          format: int64
+        memoryProfilerStep:
+          description: |-
+            Memory profiler step (in bytes).
+
+            If the next query step requires more memory than this parameter specifies, the memory profiler collects the allocating stack trace. Values lower than a few megabytes slow down query processing.
+
+            Default value: **4194304** (4 MB). Zero means disabled memory profiler.
+          type: integer
+          format: int64
+        memoryProfilerSampleProbability:
+          description: |-
+            Collect random allocations and deallocations and write them into system.trace_log with 'MemorySample' trace_type. The probability is for every alloc/free regardless to the size of the allocation.
+
+            Possible values: from **0** to **1**. Default: **0**.
+          type: number
+          format: double
+        compile:
+          description: The setting is deprecated and has no effect.
+          deprecated: true
+          type: boolean
+          format: boolean
+        minCountToCompile:
+          description: The setting is deprecated and has no effect.
+          deprecated: true
+          type: integer
+          format: int64
     WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day:
       description: Day of the week (in `DDD` format).
       type: string

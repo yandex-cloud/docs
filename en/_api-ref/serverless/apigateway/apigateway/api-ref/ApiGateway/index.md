@@ -59,7 +59,7 @@ Method | Description
 [addDomain](addDomain.md) | Attaches domain to the specified API gateway.
 [create](create.md) | Creates an API gateway in the specified folder.
 [delete](delete.md) | Deletes the specified API gateway.
-[get](get.md) | Returns the specified API gateway. Note that only API gateway basic attributes are returned. To get associated openapi specification, make a [getOpenapiSpec](/docs/functions/api-gateway/api-ref/ApiGateway/getOpenapiSpec) request.
+[get](get.md) | Returns the specified API gateway. Note that only API gateway basic attributes are returned. To get associated openapi specification, make a [GetOpenapiSpec](getOpenapiSpec) request.
 [getOpenapiSpec](getOpenapiSpec.md) | Returns the OpenAPI specification of specified API gateway.
 [list](list.md) | Retrieves the list of API gateways in the specified folder.
 [listAccessBindings](listAccessBindings.md) | Lists existing access bindings for the specified API gateway.

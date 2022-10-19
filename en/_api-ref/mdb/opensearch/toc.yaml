@@ -1,0 +1,73 @@
+items:
+  - name: Overview
+    href: api-ref/index.md
+  - name: Backup
+    items:
+      - name: Overview
+        href: api-ref/Backup/index.md
+      - name: get
+        href: api-ref/Backup/get.md
+      - name: list
+        href: api-ref/Backup/list.md
+  - name: Cluster
+    items:
+      - name: Overview
+        href: api-ref/Cluster/index.md
+      - name: addDashboardsNodeGroup
+        href: api-ref/Cluster/addDashboardsNodeGroup.md
+      - name: addOpenSearchNodeGroup
+        href: api-ref/Cluster/addOpenSearchNodeGroup.md
+      - name: backup
+        href: api-ref/Cluster/backup.md
+      - name: create
+        href: api-ref/Cluster/create.md
+      - name: delete
+        href: api-ref/Cluster/delete.md
+      - name: deleteDashboardsNodeGroup
+        href: api-ref/Cluster/deleteDashboardsNodeGroup.md
+      - name: deleteOpenSearchNodeGroup
+        href: api-ref/Cluster/deleteOpenSearchNodeGroup.md
+      - name: get
+        href: api-ref/Cluster/get.md
+      - name: list
+        href: api-ref/Cluster/list.md
+      - name: listBackups
+        href: api-ref/Cluster/listBackups.md
+      - name: listHosts
+        href: api-ref/Cluster/listHosts.md
+      - name: listLogs
+        href: api-ref/Cluster/listLogs.md
+      - name: listOperations
+        href: api-ref/Cluster/listOperations.md
+      - name: move
+        href: api-ref/Cluster/move.md
+      - name: rescheduleMaintenance
+        href: api-ref/Cluster/rescheduleMaintenance.md
+      - name: restore
+        href: api-ref/Cluster/restore.md
+      - name: start
+        href: api-ref/Cluster/start.md
+      - name: stop
+        href: api-ref/Cluster/stop.md
+      - name: streamLogs
+        href: api-ref/Cluster/streamLogs.md
+      - name: update
+        href: api-ref/Cluster/update.md
+      - name: updateDashboardsNodeGroup
+        href: api-ref/Cluster/updateDashboardsNodeGroup.md
+      - name: updateOpenSearchNodeGroup
+        href: api-ref/Cluster/updateOpenSearchNodeGroup.md
+  - name: ResourcePreset
+    items:
+      - name: Overview
+        href: api-ref/ResourcePreset/index.md
+      - name: get
+        href: api-ref/ResourcePreset/get.md
+      - name: list
+        href: api-ref/ResourcePreset/list.md
+  - name: Operation
+    items:
+      - name: Overview
+        href: api-ref/Operation/index.md
+      - name: get
+        href: api-ref/Operation/get.md

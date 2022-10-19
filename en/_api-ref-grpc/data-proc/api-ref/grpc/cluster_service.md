@@ -71,7 +71,7 @@ link | **string**<br>Link to the monitoring system.
 
 Field | Description
 --- | ---
-version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions). 
+version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/data-proc/concepts/environment). 
 hadoop | **[HadoopConfig](#HadoopConfig)**<br>Data Proc specific configuration options. 
 
 
@@ -155,7 +155,7 @@ link | **string**<br>Link to the monitoring system.
 
 Field | Description
 --- | ---
-version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions). 
+version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/data-proc/concepts/environment). 
 hadoop | **[HadoopConfig](#HadoopConfig1)**<br>Data Proc specific configuration options. 
 
 
@@ -211,7 +211,7 @@ log_group_id | **string**<br>ID of the cloud logging log group to write logs. If
 
 Field | Description
 --- | ---
-version_id | **string**<br>Version of the image for cluster provisioning. <br>All available versions are listed in the [documentation](/docs/data-proc/concepts/image-versions). 
+version_id | **string**<br>Version of the image for cluster provisioning. <br>All available versions are listed in the [documentation](/docs/data-proc/concepts/environment). 
 hadoop | **[HadoopConfig](#HadoopConfig2)**<br>Data Proc specific options. 
 subclusters_spec[] | **[CreateSubclusterConfigSpec](#CreateSubclusterConfigSpec)**<br>Specification for creating subclusters. 
 
@@ -330,7 +330,7 @@ link | **string**<br>Link to the monitoring system.
 
 Field | Description
 --- | ---
-version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions). 
+version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/data-proc/concepts/environment). 
 hadoop | **[HadoopConfig](#HadoopConfig3)**<br>Data Proc specific configuration options. 
 
 
@@ -483,7 +483,7 @@ link | **string**<br>Link to the monitoring system.
 
 Field | Description
 --- | ---
-version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions). 
+version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/data-proc/concepts/environment). 
 hadoop | **[HadoopConfig](#HadoopConfig4)**<br>Data Proc specific configuration options. 
 
 
@@ -605,7 +605,7 @@ link | **string**<br>Link to the monitoring system.
 
 Field | Description
 --- | ---
-version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions). 
+version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/data-proc/concepts/environment). 
 hadoop | **[HadoopConfig](#HadoopConfig4)**<br>Data Proc specific configuration options. 
 
 
@@ -706,7 +706,7 @@ link | **string**<br>Link to the monitoring system.
 
 Field | Description
 --- | ---
-version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions). 
+version_id | **string**<br>Image version for cluster provisioning. All available versions are listed in the [documentation](/docs/data-proc/concepts/environment). 
 hadoop | **[HadoopConfig](#HadoopConfig5)**<br>Data Proc specific configuration options. 
 
 

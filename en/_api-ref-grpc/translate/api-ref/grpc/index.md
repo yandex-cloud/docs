@@ -1,5 +1,5 @@
 # Translate API v2
-The service does not operate with resources. All service's methods are presented on the [Translation](Translation/) page.
+The service does not operate with resources.
 
 See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com/yandex-cloud/cloudapi).
 

@@ -140,7 +140,7 @@ jobId | <p>Required. ID of the job to return.</p> <p>To get a job ID make a <a h
 
 }
 ```
-A Data Proc job. For details about the concept, see [documentation](/docs/dataproc/concepts/jobs).
+A Data Proc job. For details about the concept, see [documentation](/docs/data-proc/concepts/jobs).
  
 Field | Description
 --- | ---

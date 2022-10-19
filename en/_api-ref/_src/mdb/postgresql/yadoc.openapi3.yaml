@@ -34,6 +34,31 @@ paths:
               schema:
                 $ref: '#/components/schemas/Backup'
       x-y-navtitle: get
+    delete:
+      tags:
+      - Backup
+      summary: Deletes the specified PostgreSQL cluster backup.
+      operationId: BackupDelete
+      parameters:
+      - name: backupId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the backup to delete.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteBackupMetadata'
+      x-y-operation-response: Empty
   /managed-postgresql/v1/backups:
     get:
       tags:
@@ -1519,13 +1544,17 @@ components:
           type: string
           format: date-time
         size:
-          description: Size of backup in bytes
+          description: Size of backup, in bytes
           type: string
           format: int64
         type:
           $ref: '#/components/schemas/BackupBackupCreationType_in_Backup_type'
         method:
           $ref: '#/components/schemas/BackupBackupMethod_in_Backup_method'
+        journalSize:
+          description: Size of the journal associated with backup, in bytes
+          type: string
+          format: int64
     BackupBackupCreationType:
       description: |2-
          - AUTOMATED: Backup created by automated daily schedule
@@ -2072,6 +2101,13 @@ components:
 
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+    DeleteBackupMetadata:
+      type: object
+      properties:
+        backupId:
+          description: Required. ID of the PostgreSQL backup that is currently being
+            deleted.
           type: string
     DeleteClusterHostsMetadata:
       type: object
@@ -3110,6 +3146,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
+      - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
     PostgresqlConfig10SynchronousCommit:
       type: string
       enum:
@@ -3603,6 +3640,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
+      - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
     PostgresqlConfig10_1CSynchronousCommit:
       type: string
       enum:
@@ -4116,6 +4154,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
+      - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
     PostgresqlConfig11SynchronousCommit:
       type: string
       enum:
@@ -4635,6 +4674,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
+      - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
     PostgresqlConfig11_1CSynchronousCommit:
       type: string
       enum:
@@ -5160,6 +5200,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
+      - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
     PostgresqlConfig12SynchronousCommit:
       type: string
       enum:
@@ -5691,6 +5732,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
+      - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
     PostgresqlConfig12_1CSynchronousCommit:
       type: string
       enum:
@@ -6263,6 +6305,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
+      - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
     PostgresqlConfig13SynchronousCommit:
       type: string
       enum:
@@ -6837,6 +6880,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
+      - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
     PostgresqlConfig13_1CSynchronousCommit:
       type: string
       enum:
@@ -7426,6 +7470,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
+      - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
     PostgresqlConfig14SynchronousCommit:
       type: string
       enum:
@@ -8017,6 +8062,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
+      - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
     PostgresqlConfig14_1CSynchronousCommit:
       type: string
       enum:
@@ -12355,7 +12401,6 @@ components:
           type: string
         time:
           description: |-
-            Required.
             Timestamp of the moment to which the PostgreSQL cluster should be restored.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.

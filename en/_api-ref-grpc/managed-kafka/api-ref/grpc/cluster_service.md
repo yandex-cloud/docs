@@ -192,6 +192,7 @@ message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com
 replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
 ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
 offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
 
 
 ### KafkaConfig3 {#KafkaConfig3}
@@ -217,6 +218,7 @@ message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com
 replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
 ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
 offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
@@ -427,6 +429,7 @@ message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com
 replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
 ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
 offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
 
 
 ### KafkaConfig3 {#KafkaConfig31}
@@ -452,6 +455,7 @@ message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com
 replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
 ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
 offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow1}
@@ -636,6 +640,7 @@ message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com
 replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
 ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
 offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
 
 
 ### KafkaConfig3 {#KafkaConfig32}
@@ -661,6 +666,7 @@ message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com
 replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
 ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
 offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
 
 
 ### TopicSpec {#TopicSpec}
@@ -1002,6 +1008,7 @@ message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com
 replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
 ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
 offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
 
 
 ### KafkaConfig3 {#KafkaConfig33}
@@ -1027,6 +1034,7 @@ message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com
 replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
 ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
 offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow3}
@@ -1351,6 +1359,7 @@ message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com
 replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
 ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
 offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
 
 
 ### KafkaConfig3 {#KafkaConfig34}
@@ -1376,6 +1385,7 @@ message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com
 replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
 ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
 offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow4}
@@ -1602,6 +1612,7 @@ message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com
 replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
 ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
 offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
 
 
 ### KafkaConfig3 {#KafkaConfig35}
@@ -1627,6 +1638,7 @@ message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com
 replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
 ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
 offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow5}
@@ -1853,6 +1865,7 @@ message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com
 replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
 ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
 offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
 
 
 ### KafkaConfig3 {#KafkaConfig36}
@@ -1878,6 +1891,7 @@ message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com
 replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
 ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
 offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow6}
@@ -2107,6 +2121,7 @@ message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com
 replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
 ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
 offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
 
 
 ### KafkaConfig3 {#KafkaConfig37}
@@ -2132,6 +2147,7 @@ message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com
 replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
 ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
 offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow7}

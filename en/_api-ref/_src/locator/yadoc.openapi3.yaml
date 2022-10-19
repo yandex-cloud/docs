@@ -1,8 +1,7 @@
 openapi: 3.0.0
 info:
   title: Locator API
-  description: The service does not operate with resources. All service's methods
-    are presented on the [Locator](Locator/) page.
+  description: The service does not operate with resources.
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://locator.api.cloud.yandex.net

@@ -1075,7 +1075,7 @@ components:
         versionId:
           description: |-
             Image version for cluster provisioning.
-            All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions).
+            All available versions are listed in the [documentation](/docs/data-proc/concepts/environment).
           type: string
         hadoop:
           $ref: '#/components/schemas/HadoopConfig_in_ClusterConfig_hadoop'
@@ -1105,7 +1105,7 @@ components:
           description: |-
             Version of the image for cluster provisioning.
 
-            All available versions are listed in the [documentation](/docs/data-proc/concepts/image-versions).
+            All available versions are listed in the [documentation](/docs/data-proc/concepts/environment).
           type: string
         hadoop:
           $ref: '#/components/schemas/HadoopConfig_in_CreateClusterConfigSpec_hadoop'
@@ -1492,7 +1492,7 @@ components:
           type: string
           format: int64
     Job:
-      description: A Data Proc job. For details about the concept, see [documentation](/docs/dataproc/concepts/jobs).
+      description: A Data Proc job. For details about the concept, see [documentation](/docs/data-proc/concepts/jobs).
       type: object
       allOf:
       - type: object
@@ -2245,7 +2245,7 @@ components:
         versionId:
           description: |-
             Image version for cluster provisioning.
-            All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions).
+            All available versions are listed in the [documentation](/docs/data-proc/concepts/environment).
           type: string
         hadoop:
           $ref: '#/components/schemas/HadoopConfig_in_ClusterConfig_hadoop'
@@ -2363,7 +2363,7 @@ components:
           description: |-
             Version of the image for cluster provisioning.
 
-            All available versions are listed in the [documentation](/docs/data-proc/concepts/image-versions).
+            All available versions are listed in the [documentation](/docs/data-proc/concepts/environment).
           type: string
         hadoop:
           $ref: '#/components/schemas/HadoopConfig_in_CreateClusterConfigSpec_hadoop'

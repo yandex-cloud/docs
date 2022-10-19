@@ -111,6 +111,33 @@ paths:
               schema:
                 $ref: '#/components/schemas/NodeExecutionResponse'
       x-y-navtitle: execute
+  /datasphere/v1/aliases/{aliasName}:execute:
+    post:
+      tags:
+      - Node
+      summary: Executes NodeAlias requests.
+      operationId: NodeExecuteAlias
+      parameters:
+      - name: aliasName
+        in: path
+        description: Name of the Alias to perform request on
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AliasExecutionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AliasExecutionResponse'
+      x-y-navtitle: executeAlias
   /datasphere/v1/projects:
     get:
       tags:
@@ -513,6 +540,21 @@ paths:
       x-y-navtitle: getNotebookMetadata
 components:
   schemas:
+    AliasExecutionRequest:
+      type: object
+      properties:
+        folderId:
+          description: ID of the folder that will be matched with Alias ACL
+          type: string
+        input:
+          description: Input data for the execution
+          type: object
+    AliasExecutionResponse:
+      type: object
+      properties:
+        output:
+          description: Result of the execution
+          type: object
     CellOutputsResponse:
       type: object
       properties:

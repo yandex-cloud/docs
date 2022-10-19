@@ -936,7 +936,7 @@ components:
     Group:
       description: |-
         A Group resource.
-        For more information, see [Groups](/docs/organization/groups).
+        For more information, see [Groups](/docs/organization/manage-groups).
       type: object
       properties:
         id:

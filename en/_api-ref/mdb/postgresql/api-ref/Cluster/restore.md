@@ -2558,7 +2558,7 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
 Field | Description
 --- | ---
 backupId | **string**<br><p>Required. ID of the backup to create a cluster from. To get the backup ID, use a <a href="/docs/managed-postgresql/api-ref/Cluster/listBackups">listBackups</a> request.</p> 
-time | **string** (date-time)<br><p>Required. Timestamp of the moment to which the PostgreSQL cluster should be restored.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+time | **string** (date-time)<br><p>Timestamp of the moment to which the PostgreSQL cluster should be restored.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 timeInclusive | **boolean** (boolean)<br><p>Flag that indicates whether a database should be restored to the first backup point available just after the timestamp specified in the <a href="/docs/managed-postgresql/api-ref/Cluster/restore#body_params">time</a> field instead of just before.</p> <p>Possible values:</p> <ul> <li>false (default) - the restore point refers to the first backup moment before <a href="/docs/managed-postgresql/api-ref/Cluster/restore#body_params">time</a>.</li> <li>true - the restore point refers to the first backup point after <a href="/docs/managed-postgresql/api-ref/Cluster/restore#body_params">time</a>.</li> </ul> 
 name | **string**<br><p>Required. Name of the new PostgreSQL cluster. The name must be unique within the folder.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 description | **string**<br><p>Description of the new PostgreSQL cluster.</p> <p>The maximum string length in characters is 256.</p> 

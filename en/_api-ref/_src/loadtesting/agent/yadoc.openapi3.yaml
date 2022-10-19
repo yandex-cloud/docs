@@ -163,7 +163,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/JobSignalResponse'
       x-y-navtitle: getSignal
-  /loadtesting/agent/v1/monitorings:
+  /loadtesting/agent/v1/monitorings/reportMetrics:
     post:
       tags:
       - Monitoring
@@ -319,23 +319,18 @@ components:
         instanceHost:
           description: Required.
           type: string
-        data:
-          description: |-
-            Required.
-            Must contain at least one element.
-          type: array
-          items:
-            $ref: '#/components/schemas/Metric'
         jobId:
           description: |-
             Required.
             The maximum string length in characters is 50.
           type: string
-        timestamp:
-          type: string
-          format: int64
-        comment:
-          type: string
+        chunks:
+          description: |-
+            Required.
+            Must contain at least one element.
+          type: array
+          items:
+            $ref: '#/components/schemas/MetricChunk'
     AddMetricResponse:
       type: object
       properties:
@@ -639,6 +634,21 @@ components:
         metricValue:
           type: number
           format: double
+    MetricChunk:
+      type: object
+      properties:
+        data:
+          description: |-
+            Required.
+            Must contain at least one element.
+          type: array
+          items:
+            $ref: '#/components/schemas/Metric'
+        timestamp:
+          type: string
+          format: int64
+        comment:
+          type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object

@@ -1,0 +1,2884 @@
+openapi: 3.0.0
+info:
+  title: Managed Service for OpenSearch API
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://mdb.api.cloud.yandex.net
+paths:
+  /managed-opensearch/v1/backups/{backupId}:
+    get:
+      tags:
+      - Backup
+      summary: Returns the specified backup of OpenSearch cluster.
+      operationId: BackupGet
+      parameters:
+      - name: backupId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the backup to return.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Backup'
+      x-y-navtitle: get
+  /managed-opensearch/v1/backups:
+    get:
+      tags:
+      - Backup
+      summary: Returns the list of available backups for the specified OpenSearch
+        cluster.
+      operationId: BackupList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          Required. ID of the folder to list backups in.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a `next_page_token` that can be used
+          to get the next page of results in subsequent ListBackups requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set `page_token` to the `next_page_token` returned by a previous ListBackups
+          request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBackupsResponse'
+      x-y-navtitle: list
+  /managed-opensearch/v1/clusters/{clusterId}:
+    get:
+      tags:
+      - Cluster
+      summary: Returns the specified OpenSearch Cluster resource.
+      operationId: ClusterGet
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the OpenSearch cluster to return.
+          To get the cluster ID use a [list](/docs/managed-opensearch/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cluster'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Cluster
+      summary: Deletes the specified OpenSearch cluster.
+      operationId: ClusterDelete
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the OpenSearch cluster to delete.
+          To get the OpenSearch cluster ID, use a [list](/docs/managed-opensearch/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteClusterMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Cluster
+      summary: Updates the specified OpenSearch cluster.
+      operationId: ClusterUpdate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the OpenSearch Cluster resource to update.
+          To get the OpenSearch cluster ID, use a [list](/docs/managed-opensearch/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-opensearch/api-ref/Cluster#representation)'
+  /managed-opensearch/v1/clusters:
+    get:
+      tags:
+      - Cluster
+      summary: Retrieves the list of OpenSearch clusters.
+      operationId: ClusterList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list OpenSearch clusters in.
+          To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-opensearch/api-ref/Cluster/list#query_params), the service returns a [nextPageToken](/docs/managed-opensearch/api-ref/Cluster/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/managed-opensearch/api-ref/Cluster/list#query_params) to the [nextPageToken](/docs/managed-opensearch/api-ref/Cluster/list#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-opensearch/api-ref/Cluster#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClustersResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Cluster
+      summary: Creates an OpenSearch cluster.
+      operationId: ClusterCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-opensearch/api-ref/Cluster#representation)'
+  /managed-opensearch/v1/clusters/{clusterId}:backup:
+    post:
+      tags:
+      - Cluster
+      summary: Create a backup for the specified OpenSearch cluster.
+      operationId: ClusterBackup
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the OpenSearch cluster to back up.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: backup
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/BackupClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-opensearch/api-ref/Cluster#representation)'
+  /managed-opensearch/v1/clusters:restore:
+    post:
+      tags:
+      - Cluster
+      summary: Creates a new OpenSearch cluster from the specified backup.
+      operationId: ClusterRestore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestoreClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: restore
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RestoreClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-opensearch/api-ref/Cluster#representation)'
+  /managed-opensearch/v1/clusters/{clusterId}:rescheduleMaintenance:
+    post:
+      tags:
+      - Cluster
+      summary: Reschedule planned maintenance operation.
+      operationId: ClusterRescheduleMaintenance
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the OpenSearch cluster to maintenance reschedule.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RescheduleMaintenanceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: rescheduleMaintenance
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RescheduleMaintenanceMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-opensearch/api-ref/Cluster#representation)'
+  /managed-opensearch/v1/clusters/{clusterId}/backups:
+    get:
+      tags:
+      - Cluster
+      summary: Returns the list of available backups for the specified OpenSearch
+        cluster.
+      operationId: ClusterListBackups
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the OpenSearch cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a `next_page_token` that can be used
+          to get the next page of results in subsequent ListClusterBackups requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set `page_token` to the `next_page_token` returned by a previous ListClusterBackups
+          request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClusterBackupsResponse'
+      x-y-navtitle: listBackups
+  /managed-opensearch/v1/clusters/{clusterId}:move:
+    post:
+      tags:
+      - Cluster
+      summary: Moves the specified OpenSearch cluster to the specified folder.
+      operationId: ClusterMove
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the OpenSearch cluster to move.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: move
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/MoveClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-opensearch/api-ref/Cluster#representation)'
+  /managed-opensearch/v1/clusters/{clusterId}:start:
+    post:
+      tags:
+      - Cluster
+      summary: Start the specified OpenSearch cluster.
+      operationId: ClusterStart
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the OpenSearch cluster to start.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: start
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StartClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-opensearch/api-ref/Cluster#representation)'
+  /managed-opensearch/v1/clusters/{clusterId}:stop:
+    post:
+      tags:
+      - Cluster
+      summary: Stop the specified OpenSearch cluster.
+      operationId: ClusterStop
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the OpenSearch cluster to stop.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: stop
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StopClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-opensearch/api-ref/Cluster#representation)'
+  /managed-opensearch/v1/clusters/{clusterId}:logs:
+    get:
+      tags:
+      - Cluster
+      summary: |-
+        Retrieves logs for the specified OpenSearch cluster.
+        See the [Logs](/yandex-mdb-guide/concepts/logs.html) section in the developers guide for detailed logs description.
+      operationId: ClusterListLogs
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the OpenSearch cluster to request logs for.
+          To get the OpenSearch cluster ID use a [list](/docs/managed-opensearch/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: columnFilter
+        in: query
+        description: |-
+          Columns from the logs table to request.
+          If no columns are specified, entire log records are returned.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: fromTime
+        in: query
+        description: |-
+          Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: toTime
+        in: query
+        description: |-
+          End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-opensearch/api-ref/Cluster/listLogs#query_params), the service returns a [nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listLogs#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/managed-opensearch/api-ref/Cluster/listLogs#query_params) to the
+          [nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listLogs#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: alwaysNextPageToken
+        in: query
+        description: Always return `next_page_token`, even if current page is empty.
+        schema:
+          type: boolean
+          format: boolean
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname] field.
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
+          Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'`
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      - name: serviceType
+        in: query
+        description: Type of the service to request logs about.
+        schema:
+          $ref: '#/components/schemas/ListClusterLogsRequestServiceType'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClusterLogsResponse'
+      x-y-navtitle: listLogs
+  /managed-opensearch/v1/clusters/{clusterId}:stream_logs:
+    get:
+      tags:
+      - Cluster
+      summary: Same as ListLogs but using server-side streaming. Also allows for 'tail
+        -f' semantics.
+      operationId: ClusterStreamLogs
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the OpenSearch cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: columnFilter
+        in: query
+        description: Columns from logs table to get in the response.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: fromTime
+        in: query
+        description: |-
+          Start timestamp for the logs request.
+
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: toTime
+        in: query
+        description: |-
+          End timestamp for the logs request.
+          If this field is not set, all existing logs will be sent and then the new ones as
+          they appear. In essence it has 'tail -f' semantics.
+
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: recordToken
+        in: query
+        description: |-
+          Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs
+          request to start streaming from next log record.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently filtering can be applied to the [LogRecord.logs.hostname] field.
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+          Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'`
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      - name: serviceType
+        in: query
+        description: Type of the service to request logs about.
+        schema:
+          $ref: '#/components/schemas/StreamClusterLogsRequestServiceType'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StreamLogRecord'
+      x-y-navtitle: streamLogs
+  /managed-opensearch/v1/clusters/{clusterId}/operations:
+    get:
+      tags:
+      - Cluster
+      summary: Retrieves the list of Operation resources for the specified cluster.
+      operationId: ClusterListOperations
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the OpenSearch cluster resource to list operations for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-opensearch/api-ref/Cluster/listOperations#query_params), the service returns a [nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.  To get the next page of results, set [pageToken](/docs/managed-opensearch/api-ref/Cluster/listOperations#query_params) to the [nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listOperations#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClusterOperationsResponse'
+      x-y-navtitle: listOperations
+  /managed-opensearch/v1/clusters/{clusterId}/hosts:
+    get:
+      tags:
+      - Cluster
+      summary: Retrieves a list of hosts for the specified cluster.
+      operationId: ClusterListHosts
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the OpenSearch cluster.
+          To get the OpenSearch cluster ID use a [list](/docs/managed-opensearch/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-opensearch/api-ref/Cluster/listHosts#query_params), the service returns a [nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listHosts#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/managed-opensearch/api-ref/Cluster/listHosts#query_params) to the [nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listHosts#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClusterHostsResponse'
+      x-y-navtitle: listHosts
+  /managed-opensearch/v1/clusters/{clusterId}/opensearch/node_groups:
+    post:
+      tags:
+      - Cluster
+      summary: Add an OpenSearch node group
+      operationId: ClusterAddOpenSearchNodeGroup
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddOpenSearchNodeGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: addOpenSearchNodeGroup
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AddNodeGroupMetadata'
+      x-y-operation-response: Empty
+  /managed-opensearch/v1/clusters/{clusterId}/opensearch/node_groups/{name}:
+    delete:
+      tags:
+      - Cluster
+      operationId: ClusterDeleteOpenSearchNodeGroup
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the OpenSearch cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: deleteOpenSearchNodeGroup
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteNodeGroupMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Cluster
+      operationId: ClusterUpdateOpenSearchNodeGroup
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the OpenSearch cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: path
+        description: |-
+          Required.
+          Required. Name of the group to be updated.
+
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateOpenSearchNodeGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateOpenSearchNodeGroup
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateNodeGroupMetadata'
+      x-y-operation-response: Empty
+  /managed-opensearch/v1/clusters/{clusterId}/dashboards/node_groups:
+    post:
+      tags:
+      - Cluster
+      operationId: ClusterAddDashboardsNodeGroup
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDashboardsNodeGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: addDashboardsNodeGroup
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AddNodeGroupMetadata'
+      x-y-operation-response: Empty
+  /managed-opensearch/v1/clusters/{clusterId}/dashboards/node_groups/{name}:
+    delete:
+      tags:
+      - Cluster
+      operationId: ClusterDeleteDashboardsNodeGroup
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the OpenSearch cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: deleteDashboardsNodeGroup
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteNodeGroupMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Cluster
+      operationId: ClusterUpdateDashboardsNodeGroup
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the OpenSearch cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: path
+        description: |-
+          Required.
+          Required. Name of the group to be updated.
+
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDashboardsNodeGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateDashboardsNodeGroup
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateNodeGroupMetadata'
+      x-y-operation-response: Empty
+  /managed-opensearch/v1/resourcePresets/{resourcePresetId}:
+    get:
+      tags:
+      - ResourcePreset
+      summary: Returns the specified ResourcePreset resource.
+      description: To get the list of available ResourcePreset resources, make a [list](/docs/managed-opensearch/api-ref/ResourcePreset/list)
+        request.
+      operationId: ResourcePresetGet
+      parameters:
+      - name: resourcePresetId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the resource preset to return.
+          To get the resource preset ID, use a [list](/docs/managed-opensearch/api-ref/ResourcePreset/list) request.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourcePreset'
+      x-y-navtitle: get
+  /managed-opensearch/v1/resourcePresets:
+    get:
+      tags:
+      - ResourcePreset
+      summary: Retrieves the list of available ResourcePreset resources.
+      operationId: ResourcePresetList
+      parameters:
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-opensearch/api-ref/ResourcePreset/list#query_params), the service returns a [nextPageToken](/docs/managed-opensearch/api-ref/ResourcePreset/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/managed-opensearch/api-ref/ResourcePreset/list#query_params) to the [nextPageToken](/docs/managed-opensearch/api-ref/ResourcePreset/list#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListResourcePresetsResponse'
+      x-y-navtitle: list
+components:
+  schemas:
+    Access:
+      type: object
+      properties:
+        dataTransfer:
+          description: |-
+            Allow access for DataTransfer.
+            NOTE: Do not propagate to public API until Data Transfer integration is required.
+          type: boolean
+          format: boolean
+        serverless:
+          description: |-
+            Allow access for Serverless.
+            NOTE: Do not propagate to public API until Serverless integration is required.
+          type: boolean
+          format: boolean
+    AddDashboardsNodeGroupRequest:
+      type: object
+      properties:
+        nodeGroupSpec:
+          $ref: '#/components/schemas/DashboardsCreateSpecNodeGroup_in_AddDashboardsNodeGroupRequest_nodeGroupSpec'
+    AddNodeGroupMetadata:
+      type: object
+      properties:
+        clusterId:
+          type: string
+        name:
+          type: string
+    AddOpenSearchNodeGroupRequest:
+      type: object
+      properties:
+        nodeGroupSpec:
+          $ref: '#/components/schemas/OpenSearchCreateSpecNodeGroup_in_AddOpenSearchNodeGroupRequest_nodeGroupSpec'
+    AnytimeMaintenanceWindow:
+      type: object
+      properties: {}
+    Backup:
+      type: object
+      properties:
+        id:
+          description: Required. ID of the backup.
+          type: string
+        folderId:
+          description: ID of the folder that the backup belongs to.
+          type: string
+        sourceClusterId:
+          description: ID of the associated OpenSearch cluster.
+          type: string
+        startedAt:
+          description: |-
+            The time when the backup operation was started.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        createdAt:
+          description: |-
+            The time when the backup was created (i.e. when the backup operation completed).
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        indices:
+          description: |-
+            Indices names. (max 100)
+
+            The maximum number of elements is 100.
+          type: array
+          items:
+            type: string
+        opensearchVersion:
+          description: OpenSearch version used to create the snapshot
+          type: string
+        sizeBytes:
+          description: Total size of all indices in backup. in bytes
+          type: string
+          format: int64
+        indicesTotal:
+          description: Total count of indices in backup
+          type: string
+          format: int64
+    BackupClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the OpenSearch cluster.
+          type: string
+    Cluster:
+      description: OpenSearch cluster resource
+      type: object
+      properties:
+        id:
+          description: |-
+            ID of the OpenSearch cluster.
+            This ID is assigned by MDB at creation time.
+          type: string
+        folderId:
+          description: ID of the folder that the OpenSearch cluster belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: |-
+            Name of the OpenSearch cluster.
+            The name is unique within the folder. 1-63 characters long.
+          type: string
+        description:
+          description: Description of the OpenSearch cluster. 0-256 characters long.
+          type: string
+        labels:
+          description: |-
+            Custom labels for the OpenSearch cluster as `` key:value `` pairs.
+            Maximum 64 per resource.
+          type: object
+          additionalProperties:
+            type: string
+        environment:
+          $ref: '#/components/schemas/ClusterEnvironment_in_Cluster_environment'
+        monitoring:
+          description: Description of monitoring systems relevant to the OpenSearch
+            cluster.
+          type: array
+          items:
+            $ref: '#/components/schemas/Monitoring'
+        config:
+          $ref: '#/components/schemas/ClusterConfig_in_Cluster_config'
+        networkId:
+          description: ID of the network that the cluster belongs to.
+          type: string
+        health:
+          $ref: '#/components/schemas/ClusterHealth_in_Cluster_health'
+        status:
+          $ref: '#/components/schemas/ClusterStatus_in_Cluster_status'
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
+        serviceAccountId:
+          description: ID of the service account used for access to Yandex Object
+            Storage.
+          type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_Cluster_maintenanceWindow'
+        plannedOperation:
+          $ref: '#/components/schemas/MaintenanceOperation_in_Cluster_plannedOperation'
+    ClusterConfig:
+      type: object
+      properties:
+        version:
+          description: OpenSearch version.
+          type: string
+        opensearch:
+          $ref: '#/components/schemas/OpenSearch_in_ClusterConfig_opensearch'
+        dashboards:
+          $ref: '#/components/schemas/Dashboards_in_ClusterConfig_dashboards'
+        access:
+          $ref: '#/components/schemas/Access_in_ClusterConfig_access'
+    ClusterEnvironment:
+      description: |2-
+         - PRODUCTION: Stable environment with a conservative update policy:
+        only hotfixes are applied during regular maintenance.
+         - PRESTABLE: Environment with more aggressive update policy: new versions
+        are rolled out irrespective of backward compatibility.
+      type: string
+      enum:
+      - PRODUCTION
+      - PRESTABLE
+    ClusterHealth:
+      description: |2-
+         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
+         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
+         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
+      type: string
+      enum:
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
+      default: HEALTH_UNKNOWN
+    ClusterStatus:
+      description: |2-
+         - STATUS_UNKNOWN: Cluster state is unknown.
+         - CREATING: Cluster is being created.
+         - RUNNING: Cluster is running normally.
+         - ERROR: Cluster encountered a problem and cannot operate.
+         - UPDATING: Cluster is being updated.
+         - STOPPING: Cluster is stopping.
+         - STOPPED: Cluster stopped.
+         - STARTING: Cluster is starting.
+      type: string
+      enum:
+      - STATUS_UNKNOWN
+      - CREATING
+      - RUNNING
+      - ERROR
+      - UPDATING
+      - STOPPING
+      - STOPPED
+      - STARTING
+      default: STATUS_UNKNOWN
+    ConfigCreateSpec:
+      type: object
+      properties:
+        version:
+          description: OpenSearch version.
+          type: string
+        adminPassword:
+          description: |-
+            Required.
+            OpenSearch admin password.
+          type: string
+        opensearchSpec:
+          $ref: '#/components/schemas/OpenSearchCreateSpec_in_ConfigCreateSpec_opensearchSpec'
+        dashboardsSpec:
+          $ref: '#/components/schemas/DashboardsCreateSpec_in_ConfigCreateSpec_dashboardsSpec'
+        access:
+          $ref: '#/components/schemas/Access_in_ConfigCreateSpec_access'
+    ConfigUpdateSpec:
+      type: object
+      properties:
+        version:
+          description: OpenSearch version.
+          type: string
+        adminPassword:
+          description: |-
+            Required.
+            OpenSearch admin password.
+          type: string
+        opensearchSpec:
+          $ref: '#/components/schemas/OpenSearchClusterUpdateSpec_in_ConfigUpdateSpec_opensearchSpec'
+        dashboardsSpec:
+          $ref: '#/components/schemas/DashboardsClusterUpdateSpec_in_ConfigUpdateSpec_dashboardsSpec'
+        access:
+          $ref: '#/components/schemas/Access_in_ConfigUpdateSpec_access'
+    CreateClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the OpenSearch cluster that is being created.
+          type: string
+    CreateClusterRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create the OpenSearch cluster in.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Required.
+            Name of the OpenSearch cluster. The name must be unique within the folder.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        description:
+          description: |-
+            Description of the OpenSearch cluster.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Custom labels for the OpenSearch cluster as `` key:value `` pairs. Maximum 64 per resource.
+            For example, "project": "mvp" or "source": "dictionary".
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        environment:
+          $ref: '#/components/schemas/ClusterEnvironment_in_CreateClusterRequest_environment'
+        configSpec:
+          $ref: '#/components/schemas/ConfigCreateSpec_in_CreateClusterRequest_configSpec'
+        networkId:
+          description: |-
+            Required.
+            ID of the network to create the cluster in.
+
+            The maximum string length in characters is 50.
+          type: string
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
+        serviceAccountId:
+          description: ID of the service account used for access to Yandex Object
+            Storage.
+          type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_CreateClusterRequest_maintenanceWindow'
+    Dashboards:
+      description: Dashboards configuration
+      type: object
+      properties:
+        nodeGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/DashboardsNodeGroup'
+    DashboardsClusterUpdateSpec:
+      description: Dashboards configuration
+      type: object
+      properties: {}
+    DashboardsCreateSpec:
+      description: Dashboards create-time configuration
+      type: object
+      properties:
+        nodeGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/DashboardsCreateSpecNodeGroup'
+    DashboardsCreateSpecNodeGroup:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Required. Name of the group to be created.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        resources:
+          $ref: '#/components/schemas/Resources_in_DashboardsCreateSpecNodeGroup_resources'
+        hostsCount:
+          description: |-
+            Number of nodes in the group
+
+            The minimum value is 1.
+          type: string
+          format: int64
+        zoneIds:
+          description: IDs of the availability zone for hosts
+          type: array
+          items:
+            type: string
+        subnetIds:
+          description: |-
+            IDs of the subnetworks in respective zones.
+
+            The maximum number of elements is 10.
+            The maximum string length in characters for each value is 50.
+          type: array
+          items:
+            type: string
+        assignPublicIp:
+          type: boolean
+          format: boolean
+    DashboardsNodeGroup:
+      type: object
+      properties:
+        name:
+          description: Name of the group.
+          type: string
+        resources:
+          $ref: '#/components/schemas/Resources_in_DashboardsNodeGroup_resources'
+        hostsCount:
+          description: Number of nodes in the group
+          type: string
+          format: int64
+        zoneIds:
+          description: IDs of the availability zone for hosts
+          type: array
+          items:
+            type: string
+        subnetIds:
+          description: IDs of the subnets for hosts
+          type: array
+          items:
+            type: string
+        assignPublicIp:
+          type: boolean
+          format: boolean
+    DashboardsNodeGroupUpdateSpec:
+      type: object
+      properties:
+        resources:
+          $ref: '#/components/schemas/Resources_in_DashboardsNodeGroupUpdateSpec_resources'
+        hostsCount:
+          description: Number of nodes in the group.
+          type: string
+          format: int64
+    DeleteClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the OpenSearch cluster that is being deleted.
+          type: string
+    DeleteNodeGroupMetadata:
+      type: object
+      properties:
+        clusterId:
+          type: string
+        name:
+          type: string
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Only the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    Host:
+      type: object
+      properties:
+        name:
+          description: Required. Name of the host.
+          type: string
+        clusterId:
+          description: Required. ID of the OpenSearch cluster.
+          type: string
+        zoneId:
+          description: ID of the availability zone.
+          type: string
+        resources:
+          $ref: '#/components/schemas/Resources_in_Host_resources'
+        type:
+          $ref: '#/components/schemas/HostType_in_Host_type'
+        health:
+          $ref: '#/components/schemas/HostHealth_in_Host_health'
+        subnetId:
+          type: string
+        assignPublicIp:
+          type: boolean
+          format: boolean
+        system:
+          $ref: '#/components/schemas/HostSystemMetrics_in_Host_system'
+        nodeGroup:
+          description: Which node group the host belongs to
+          type: string
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenSearchGroupRole'
+    HostCPUMetric:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: int64
+        used:
+          type: number
+          format: double
+    HostDiskMetric:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: int64
+        used:
+          type: string
+          format: int64
+        total:
+          type: string
+          format: int64
+    HostHealth:
+      type: string
+      enum:
+      - UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
+      default: UNKNOWN
+    HostMemoryMetric:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: int64
+        used:
+          type: string
+          format: int64
+        total:
+          type: string
+          format: int64
+    HostSystemMetrics:
+      type: object
+      properties:
+        cpu:
+          $ref: '#/components/schemas/HostCPUMetric_in_HostSystemMetrics_cpu'
+        memory:
+          $ref: '#/components/schemas/HostMemoryMetric_in_HostSystemMetrics_memory'
+        disk:
+          $ref: '#/components/schemas/HostDiskMetric_in_HostSystemMetrics_disk'
+    HostType:
+      type: string
+      enum:
+      - OPENSEARCH
+      - DASHBOARDS
+    ListBackupsResponse:
+      type: object
+      properties:
+        backups:
+          description: Requested list of backups.
+          type: array
+          items:
+            $ref: '#/components/schemas/Backup'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for ListBackups requests,
+            if the number of results is larger than `page_size` specified in the request.
+            To get the next page, specify the value of `next_page_token` as a value for
+            the `page_token` parameter in the next ListBackups request. Subsequent ListBackups
+            requests will have their own `next_page_token` to continue paging through the results.
+          type: string
+    ListClusterBackupsResponse:
+      type: object
+      properties:
+        backups:
+          description: Requested list of backups.
+          type: array
+          items:
+            $ref: '#/components/schemas/Backup'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for ListClusterBackups requests,
+            if the number of results is larger than `page_size` specified in the request.
+            To get the next page, specify the value of `next_page_token` as a value for
+            the `page_token` parameter in the next ListClusterBackups request. Subsequent ListClusterBackups
+            requests will have their own `next_page_token` to continue paging through the results.
+          type: string
+    ListClusterHostsResponse:
+      type: object
+      properties:
+        hosts:
+          description: List of Host resources.
+          type: array
+          items:
+            $ref: '#/components/schemas/Host'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-opensearch/api-ref/Cluster/listHosts#query_params), use the [nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listHosts#responses) as the value
+            for the [pageToken](/docs/managed-opensearch/api-ref/Cluster/listHosts#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listHosts#responses) to continue paging through the results.
+          type: string
+    ListClusterLogsRequestServiceType:
+      type: string
+      enum:
+      - OPENSEARCH
+      - DASHBOARDS
+    ListClusterLogsResponse:
+      type: object
+      properties:
+        logs:
+          description: Requested log records.
+          type: array
+          items:
+            $ref: '#/components/schemas/LogRecord'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-opensearch/api-ref/Cluster/listLogs#query_params), use the [nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listLogs#responses) as the value
+            for the [pageToken](/docs/managed-opensearch/api-ref/Cluster/listLogs#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listLogs#responses) to continue paging through the results.
+            This value is interchangeable with `next_record_token` from StreamLogs method.
+          type: string
+    ListClusterOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of Operation resources for the specified OpenSearch cluster.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-opensearch/api-ref/Cluster/listOperations#query_params), use the [nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listOperations#responses) as the value
+            for the [pageToken](/docs/managed-opensearch/api-ref/Cluster/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listOperations#responses) to continue paging through the results.
+          type: string
+    ListClustersResponse:
+      type: object
+      properties:
+        clusters:
+          description: List of OpenSearch clusters.
+          type: array
+          items:
+            $ref: '#/components/schemas/Cluster'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-opensearch/api-ref/Cluster/list#query_params), use the [nextPageToken](/docs/managed-opensearch/api-ref/Cluster/list#responses) as the value
+            for the [pageToken](/docs/managed-opensearch/api-ref/Cluster/list#query_params) parameter in the next list request. Each subsequent
+            list request will have its own [nextPageToken](/docs/managed-opensearch/api-ref/Cluster/list#responses) to continue paging through the results.
+          type: string
+    ListResourcePresetsResponse:
+      type: object
+      properties:
+        resourcePresets:
+          description: List of ResourcePreset resources.
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourcePreset'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-opensearch/api-ref/ResourcePreset/list#query_params), use the [nextPageToken](/docs/managed-opensearch/api-ref/ResourcePreset/list#responses) as the value
+            for the [pageToken](/docs/managed-opensearch/api-ref/ResourcePreset/list#query_params) parameter in the next list request. Each subsequent
+            list request will have its own [nextPageToken](/docs/managed-opensearch/api-ref/ResourcePreset/list#responses) to continue paging through the results.
+
+            The maximum string length in characters is 100.
+          type: string
+    LogRecord:
+      type: object
+      properties:
+        timestamp:
+          description: |-
+            Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        message:
+          description: Contents of the log record.
+          type: object
+          additionalProperties:
+            type: string
+    MaintenanceOperation:
+      type: object
+      properties:
+        info:
+          description: The maximum string length in characters is 256.
+          type: string
+        delayedUntil:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        latestMaintenanceTime:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        nextMaintenanceWindowTime:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+    MaintenanceWindow:
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+    Monitoring:
+      description: Monitoring system.
+      type: object
+      properties:
+        name:
+          description: Name of the monitoring system.
+          type: string
+        description:
+          description: Description of the monitoring system.
+          type: string
+        link:
+          description: Link to the monitoring system charts.
+          type: string
+    MoveClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the OpenSearch cluster being moved.
+          type: string
+        sourceFolderId:
+          description: ID of the source folder.
+          type: string
+        destinationFolderId:
+          description: ID of the destnation folder.
+          type: string
+    MoveClusterRequest:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            Required.
+            ID of the destination folder.
+
+            The maximum string length in characters is 50.
+          type: string
+    OpenSearch:
+      description: OpenSearch configuration
+      type: object
+      properties:
+        plugins:
+          description: Cluster plugins
+          type: array
+          items:
+            type: string
+        nodeGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenSearchNodeGroup'
+    OpenSearchClusterUpdateSpec:
+      type: object
+      properties:
+        plugins:
+          description: Cluster plugins
+          type: array
+          items:
+            type: string
+    OpenSearchCreateSpec:
+      description: OpenSearch create-time configuration
+      type: object
+      properties:
+        plugins:
+          description: Cluster plugins
+          type: array
+          items:
+            type: string
+        nodeGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenSearchCreateSpecNodeGroup'
+    OpenSearchCreateSpecNodeGroup:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Required. Name of the group to be created.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        resources:
+          $ref: '#/components/schemas/Resources_in_OpenSearchCreateSpecNodeGroup_resources'
+        hostsCount:
+          description: |-
+            Number of nodes in the group
+
+            The minimum value is 1.
+          type: string
+          format: int64
+        zoneIds:
+          description: |-
+            IDs of the availability zone for hosts
+
+            The maximum number of elements is 10.
+            The maximum string length in characters for each value is 50.
+          type: array
+          items:
+            type: string
+        subnetIds:
+          description: |-
+            IDs of the subnetworks in respective zones.
+
+            The maximum number of elements is 10.
+            The maximum string length in characters for each value is 50.
+          type: array
+          items:
+            type: string
+        assignPublicIp:
+          type: boolean
+          format: boolean
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenSearchGroupRole'
+    OpenSearchGroupRole:
+      type: string
+      enum:
+      - DATA
+      - MANAGER
+    OpenSearchNodeGroup:
+      type: object
+      properties:
+        name:
+          description: Name of the group.
+          type: string
+        resources:
+          $ref: '#/components/schemas/Resources_in_OpenSearchNodeGroup_resources'
+        hostsCount:
+          description: Number of nodes in the group
+          type: string
+          format: int64
+        zoneIds:
+          description: IDs of the availability zones for hosts
+          type: array
+          items:
+            type: string
+        subnetIds:
+          description: IDs of the subnets for hosts
+          type: array
+          items:
+            type: string
+        assignPublicIp:
+          type: boolean
+          format: boolean
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenSearchGroupRole'
+    OpenSearchNodeGroupUpdateSpec:
+      type: object
+      properties:
+        resources:
+          $ref: '#/components/schemas/Resources_in_OpenSearchNodeGroupUpdateSpec_resources'
+        hostsCount:
+          description: Number of nodes in the group.
+          type: string
+          format: int64
+        roles:
+          description: Opensearch roles applicable to the node group.
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenSearchGroupRole'
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    RescheduleMaintenanceMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Required. ID of the OpenSearch cluster.
+          type: string
+        delayedUntil:
+          description: |-
+            Required. New time of the planned maintenance. Can be in the past for rescheduled to "IMMEDIATE".
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    RescheduleMaintenanceRequest:
+      type: object
+      properties:
+        rescheduleType:
+          $ref: '#/components/schemas/RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType'
+        delayedUntil:
+          description: |-
+            The time for SPECIFIC_TIME reschedule. Limited by two weeks since first time scheduled.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    RescheduleMaintenanceRequestRescheduleType:
+      type: string
+      enum:
+      - IMMEDIATE
+      - NEXT_AVAILABLE_WINDOW
+      - SPECIFIC_TIME
+    ResourcePreset:
+      description: A ResourcePreset resource for describing hardware configuration
+        presets.
+      type: object
+      properties:
+        id:
+          description: ID of the ResourcePreset resource.
+          type: string
+        zoneIds:
+          description: IDs of availability zones where the resource preset is available.
+          type: array
+          items:
+            type: string
+        cores:
+          description: Number of CPU cores for a host created with the preset.
+          type: string
+          format: int64
+        memory:
+          description: RAM volume for a host created with the preset, in bytes.
+          type: string
+          format: int64
+    Resources:
+      type: object
+      properties:
+        resourcePresetId:
+          description: ID of the preset for computational resources available to a
+            host (CPU, memory etc.).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: Type of the storage environment for the host.
+          type: string
+    RestoreClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Required. ID of the new OpenSearch cluster.
+          type: string
+        backupId:
+          description: Required. ID of the backup used for recovery.
+          type: string
+    RestoreClusterRequest:
+      type: object
+      properties:
+        backupId:
+          description: |-
+            Required.
+            Required. ID of the backup to restore from.
+          type: string
+        name:
+          description: |-
+            Required.
+            Name of the OpenSearch cluster. The name must be unique within the folder.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        description:
+          description: |-
+            Description of the OpenSearch cluster.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Custom labels for the OpenSearch cluster as `` key:value `` pairs. Maximum 64 per resource.
+            For example, "project": "mvp" or "source": "dictionary".
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        environment:
+          $ref: '#/components/schemas/ClusterEnvironment_in_RestoreClusterRequest_environment'
+        configSpec:
+          $ref: '#/components/schemas/ConfigCreateSpec_in_RestoreClusterRequest_configSpec'
+        networkId:
+          description: |-
+            Required.
+            ID of the network to create the cluster in.
+
+            The maximum string length in characters is 50.
+          type: string
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
+        serviceAccountId:
+          description: ID of the service account used for access to Yandex Object
+            Storage.
+          type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create the OpenSearch cluster in.
+
+            The maximum string length in characters is 50.
+          type: string
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_RestoreClusterRequest_maintenanceWindow'
+    StartClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Required. ID of the OpenSearch cluster.
+          type: string
+    StopClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Required. ID of the OpenSearch cluster.
+          type: string
+    StreamClusterLogsRequestServiceType:
+      type: string
+      enum:
+      - OPENSEARCH
+      - DASHBOARDS
+    StreamLogRecord:
+      type: object
+      properties:
+        record:
+          $ref: '#/components/schemas/LogRecord_in_StreamLogRecord_record'
+        nextRecordToken:
+          description: |-
+            This token allows you to continue streaming logs starting from the exact
+            same record. To continue streaming, specify value of `next_record_token`
+            as value for `record_token` parameter in the next StreamLogs request.
+            This value is interchangeable with `next_page_token` from ListLogs method.
+          type: string
+    UpdateClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the OpenSearch cluster resource that is being updated.
+          type: string
+    UpdateClusterRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateClusterRequest_updateMask'
+        description:
+          description: |-
+            New description of the OpenSearch cluster.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Custom labels for the OpenSearch cluster as `` key:value `` pairs. Maximum 64 per resource.
+            For example, "project": "mvp" or "source": "dictionary".
+
+            The new set of labels will completely replace the old ones. To add a label, request the current
+            set with the [get](/docs/managed-opensearch/api-ref/Cluster/get) method, then send an [update](/docs/managed-opensearch/api-ref/Cluster/update) request with the new label added to the set.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        configSpec:
+          $ref: '#/components/schemas/ConfigUpdateSpec_in_UpdateClusterRequest_configSpec'
+        name:
+          description: |-
+            The new name of the Opensearch cluster. The name must be unique within the folder.
+            The name must be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
+        serviceAccountId:
+          description: ID of the service account used for access to Yandex Object
+            Storage.
+          type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow'
+    UpdateDashboardsNodeGroupRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateDashboardsNodeGroupRequest_updateMask'
+        nodeGroupSpec:
+          $ref: '#/components/schemas/DashboardsNodeGroupUpdateSpec_in_UpdateDashboardsNodeGroupRequest_nodeGroupSpec'
+    UpdateNodeGroupMetadata:
+      type: object
+      properties:
+        clusterId:
+          type: string
+        name:
+          type: string
+    UpdateOpenSearchNodeGroupRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateOpenSearchNodeGroupRequest_updateMask'
+        nodeGroupSpec:
+          $ref: '#/components/schemas/OpenSearchNodeGroupUpdateSpec_in_UpdateOpenSearchNodeGroupRequest_nodeGroupSpec'
+    WeeklyMaintenanceWindow:
+      type: object
+      properties:
+        day:
+          $ref: '#/components/schemas/WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day'
+        hour:
+          description: |-
+            Hour of the day in UTC
+
+            Acceptable values are 1 to 24, inclusive.
+          type: string
+          format: int64
+    WeeklyMaintenanceWindowWeekDay:
+      type: string
+      enum:
+      - MON
+      - TUE
+      - WED
+      - THU
+      - FRI
+      - SAT
+      - SUN
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    DashboardsCreateSpecNodeGroup_in_AddDashboardsNodeGroupRequest_nodeGroupSpec:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Required. Name of the group to be created.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        resources:
+          $ref: '#/components/schemas/Resources_in_DashboardsCreateSpecNodeGroup_resources'
+        hostsCount:
+          description: |-
+            Number of nodes in the group
+
+            The minimum value is 1.
+          type: string
+          format: int64
+        zoneIds:
+          description: IDs of the availability zone for hosts
+          type: array
+          items:
+            type: string
+        subnetIds:
+          description: |-
+            IDs of the subnetworks in respective zones.
+
+            The maximum number of elements is 10.
+            The maximum string length in characters for each value is 50.
+          type: array
+          items:
+            type: string
+        assignPublicIp:
+          type: boolean
+          format: boolean
+    OpenSearchCreateSpecNodeGroup_in_AddOpenSearchNodeGroupRequest_nodeGroupSpec:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Required. Name of the group to be created.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        resources:
+          $ref: '#/components/schemas/Resources_in_OpenSearchCreateSpecNodeGroup_resources'
+        hostsCount:
+          description: |-
+            Number of nodes in the group
+
+            The minimum value is 1.
+          type: string
+          format: int64
+        zoneIds:
+          description: |-
+            IDs of the availability zone for hosts
+
+            The maximum number of elements is 10.
+            The maximum string length in characters for each value is 50.
+          type: array
+          items:
+            type: string
+        subnetIds:
+          description: |-
+            IDs of the subnetworks in respective zones.
+
+            The maximum number of elements is 10.
+            The maximum string length in characters for each value is 50.
+          type: array
+          items:
+            type: string
+        assignPublicIp:
+          type: boolean
+          format: boolean
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenSearchGroupRole'
+    ClusterEnvironment_in_Cluster_environment:
+      description: |-
+        Deployment environment of the OpenSearch cluster.
+
+         - PRODUCTION: Stable environment with a conservative update policy:
+        only hotfixes are applied during regular maintenance.
+         - PRESTABLE: Environment with more aggressive update policy: new versions
+        are rolled out irrespective of backward compatibility.
+      type: string
+      enum:
+      - PRODUCTION
+      - PRESTABLE
+    ClusterConfig_in_Cluster_config:
+      description: Configuration of the OpenSearch cluster.
+      type: object
+      properties:
+        version:
+          description: OpenSearch version.
+          type: string
+        opensearch:
+          $ref: '#/components/schemas/OpenSearch_in_ClusterConfig_opensearch'
+        dashboards:
+          $ref: '#/components/schemas/Dashboards_in_ClusterConfig_dashboards'
+        access:
+          $ref: '#/components/schemas/Access_in_ClusterConfig_access'
+    ClusterHealth_in_Cluster_health:
+      description: |-
+        Aggregated cluster health.
+
+         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
+         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
+         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
+      type: string
+      enum:
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
+      default: HEALTH_UNKNOWN
+    ClusterStatus_in_Cluster_status:
+      description: |-
+        Current state of the cluster.
+
+         - STATUS_UNKNOWN: Cluster state is unknown.
+         - CREATING: Cluster is being created.
+         - RUNNING: Cluster is running normally.
+         - ERROR: Cluster encountered a problem and cannot operate.
+         - UPDATING: Cluster is being updated.
+         - STOPPING: Cluster is stopping.
+         - STOPPED: Cluster stopped.
+         - STARTING: Cluster is starting.
+      type: string
+      enum:
+      - STATUS_UNKNOWN
+      - CREATING
+      - RUNNING
+      - ERROR
+      - UPDATING
+      - STOPPING
+      - STOPPED
+      - STARTING
+      default: STATUS_UNKNOWN
+    MaintenanceWindow_in_Cluster_maintenanceWindow:
+      description: Window of maintenance operations
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+    MaintenanceOperation_in_Cluster_plannedOperation:
+      description: Maintenance operation planned at nearest maintenance_window
+      type: object
+      properties:
+        info:
+          description: The maximum string length in characters is 256.
+          type: string
+        delayedUntil:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        latestMaintenanceTime:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        nextMaintenanceWindowTime:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+    OpenSearch_in_ClusterConfig_opensearch:
+      description: |-
+        OpenSearch configuration.
+
+        OpenSearch configuration
+      type: object
+      properties:
+        plugins:
+          description: Cluster plugins
+          type: array
+          items:
+            type: string
+        nodeGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenSearchNodeGroup'
+    Dashboards_in_ClusterConfig_dashboards:
+      description: |-
+        Dashboards configuration.
+
+        Dashboards configuration
+      type: object
+      properties:
+        nodeGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/DashboardsNodeGroup'
+    Access_in_ClusterConfig_access:
+      description: Services access
+      type: object
+      properties:
+        dataTransfer:
+          description: |-
+            Allow access for DataTransfer.
+            NOTE: Do not propagate to public API until Data Transfer integration is required.
+          type: boolean
+          format: boolean
+        serverless:
+          description: |-
+            Allow access for Serverless.
+            NOTE: Do not propagate to public API until Serverless integration is required.
+          type: boolean
+          format: boolean
+    OpenSearchCreateSpec_in_ConfigCreateSpec_opensearchSpec:
+      description: |-
+        OpenSearch configuration
+
+        OpenSearch create-time configuration
+      type: object
+      properties:
+        plugins:
+          description: Cluster plugins
+          type: array
+          items:
+            type: string
+        nodeGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenSearchCreateSpecNodeGroup'
+    DashboardsCreateSpec_in_ConfigCreateSpec_dashboardsSpec:
+      description: |-
+        Dashboards configuration
+
+        Dashboards create-time configuration
+      type: object
+      properties:
+        nodeGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/DashboardsCreateSpecNodeGroup'
+    Access_in_ConfigCreateSpec_access:
+      description: Access for other services.
+      type: object
+      properties:
+        dataTransfer:
+          description: |-
+            Allow access for DataTransfer.
+            NOTE: Do not propagate to public API until Data Transfer integration is required.
+          type: boolean
+          format: boolean
+        serverless:
+          description: |-
+            Allow access for Serverless.
+            NOTE: Do not propagate to public API until Serverless integration is required.
+          type: boolean
+          format: boolean
+    OpenSearchClusterUpdateSpec_in_ConfigUpdateSpec_opensearchSpec:
+      description: OpenSearch configuration
+      type: object
+      properties:
+        plugins:
+          description: Cluster plugins
+          type: array
+          items:
+            type: string
+    DashboardsClusterUpdateSpec_in_ConfigUpdateSpec_dashboardsSpec:
+      description: |-
+        Dashboards configuration
+
+        Dashboards configuration
+      type: object
+      properties: {}
+    Access_in_ConfigUpdateSpec_access:
+      description: Access for other services.
+      type: object
+      properties:
+        dataTransfer:
+          description: |-
+            Allow access for DataTransfer.
+            NOTE: Do not propagate to public API until Data Transfer integration is required.
+          type: boolean
+          format: boolean
+        serverless:
+          description: |-
+            Allow access for Serverless.
+            NOTE: Do not propagate to public API until Serverless integration is required.
+          type: boolean
+          format: boolean
+    ClusterEnvironment_in_CreateClusterRequest_environment:
+      description: |-
+        Deployment environment of the OpenSearch cluster.
+
+         - PRODUCTION: Stable environment with a conservative update policy:
+        only hotfixes are applied during regular maintenance.
+         - PRESTABLE: Environment with more aggressive update policy: new versions
+        are rolled out irrespective of backward compatibility.
+      type: string
+      enum:
+      - PRODUCTION
+      - PRESTABLE
+    ConfigCreateSpec_in_CreateClusterRequest_configSpec:
+      description: |-
+        Required.
+        Cluster configuration and resources for hosts that should be created for the OpenSearch cluster.
+      type: object
+      properties:
+        version:
+          description: OpenSearch version.
+          type: string
+        adminPassword:
+          description: |-
+            Required.
+            OpenSearch admin password.
+          type: string
+        opensearchSpec:
+          $ref: '#/components/schemas/OpenSearchCreateSpec_in_ConfigCreateSpec_opensearchSpec'
+        dashboardsSpec:
+          $ref: '#/components/schemas/DashboardsCreateSpec_in_ConfigCreateSpec_dashboardsSpec'
+        access:
+          $ref: '#/components/schemas/Access_in_ConfigCreateSpec_access'
+    MaintenanceWindow_in_CreateClusterRequest_maintenanceWindow:
+      description: Window of maintenance operations
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+    Resources_in_DashboardsCreateSpecNodeGroup_resources:
+      description: Resources allocated to data node hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: ID of the preset for computational resources available to a
+            host (CPU, memory etc.).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: Type of the storage environment for the host.
+          type: string
+    Resources_in_DashboardsNodeGroup_resources:
+      description: Resources allocated to data node hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: ID of the preset for computational resources available to a
+            host (CPU, memory etc.).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: Type of the storage environment for the host.
+          type: string
+    Resources_in_DashboardsNodeGroupUpdateSpec_resources:
+      description: Resources allocated to data node hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: ID of the preset for computational resources available to a
+            host (CPU, memory etc.).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: Type of the storage environment for the host.
+          type: string
+    Resources_in_Host_resources:
+      description: Resources allocated to the host.
+      type: object
+      properties:
+        resourcePresetId:
+          description: ID of the preset for computational resources available to a
+            host (CPU, memory etc.).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: Type of the storage environment for the host.
+          type: string
+    HostType_in_Host_type:
+      description: Host type.
+      type: string
+      enum:
+      - OPENSEARCH
+      - DASHBOARDS
+    HostHealth_in_Host_health:
+      description: Aggregated host health
+      type: string
+      enum:
+      - UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
+      default: UNKNOWN
+    HostSystemMetrics_in_Host_system:
+      description: System metrics
+      type: object
+      properties:
+        cpu:
+          $ref: '#/components/schemas/HostCPUMetric_in_HostSystemMetrics_cpu'
+        memory:
+          $ref: '#/components/schemas/HostMemoryMetric_in_HostSystemMetrics_memory'
+        disk:
+          $ref: '#/components/schemas/HostDiskMetric_in_HostSystemMetrics_disk'
+    HostCPUMetric_in_HostSystemMetrics_cpu:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: int64
+        used:
+          type: number
+          format: double
+    HostMemoryMetric_in_HostSystemMetrics_memory:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: int64
+        used:
+          type: string
+          format: int64
+        total:
+          type: string
+          format: int64
+    HostDiskMetric_in_HostSystemMetrics_disk:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: int64
+        used:
+          type: string
+          format: int64
+        total:
+          type: string
+          format: int64
+    Resources_in_OpenSearchCreateSpecNodeGroup_resources:
+      description: Resources allocated to data node hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: ID of the preset for computational resources available to a
+            host (CPU, memory etc.).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: Type of the storage environment for the host.
+          type: string
+    Resources_in_OpenSearchNodeGroup_resources:
+      description: Resources allocated to data node hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: ID of the preset for computational resources available to a
+            host (CPU, memory etc.).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: Type of the storage environment for the host.
+          type: string
+    Resources_in_OpenSearchNodeGroupUpdateSpec_resources:
+      description: Resources allocated to data node hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: ID of the preset for computational resources available to a
+            host (CPU, memory etc.).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: Type of the storage environment for the host.
+          type: string
+    RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType:
+      description: |-
+        Required.
+        Required. The type of reschedule request.
+      type: string
+      enum:
+      - IMMEDIATE
+      - NEXT_AVAILABLE_WINDOW
+      - SPECIFIC_TIME
+    ClusterEnvironment_in_RestoreClusterRequest_environment:
+      description: |-
+        Deployment environment of the OpenSearch cluster.
+
+         - PRODUCTION: Stable environment with a conservative update policy:
+        only hotfixes are applied during regular maintenance.
+         - PRESTABLE: Environment with more aggressive update policy: new versions
+        are rolled out irrespective of backward compatibility.
+      type: string
+      enum:
+      - PRODUCTION
+      - PRESTABLE
+    ConfigCreateSpec_in_RestoreClusterRequest_configSpec:
+      description: |-
+        Required.
+        Cluster Configuration.
+      type: object
+      properties:
+        version:
+          description: OpenSearch version.
+          type: string
+        adminPassword:
+          description: |-
+            Required.
+            OpenSearch admin password.
+          type: string
+        opensearchSpec:
+          $ref: '#/components/schemas/OpenSearchCreateSpec_in_ConfigCreateSpec_opensearchSpec'
+        dashboardsSpec:
+          $ref: '#/components/schemas/DashboardsCreateSpec_in_ConfigCreateSpec_dashboardsSpec'
+        access:
+          $ref: '#/components/schemas/Access_in_ConfigCreateSpec_access'
+    MaintenanceWindow_in_RestoreClusterRequest_maintenanceWindow:
+      description: Window of maintenance operations
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+    LogRecord_in_StreamLogRecord_record:
+      description: One of the requested log records.
+      type: object
+      properties:
+        timestamp:
+          description: |-
+            Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        message:
+          description: Contents of the log record.
+          type: object
+          additionalProperties:
+            type: string
+    FieldMask_in_UpdateClusterRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the OpenSearch cluster should be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Only the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    ConfigUpdateSpec_in_UpdateClusterRequest_configSpec:
+      description: New cluster configuration
+      type: object
+      properties:
+        version:
+          description: OpenSearch version.
+          type: string
+        adminPassword:
+          description: |-
+            Required.
+            OpenSearch admin password.
+          type: string
+        opensearchSpec:
+          $ref: '#/components/schemas/OpenSearchClusterUpdateSpec_in_ConfigUpdateSpec_opensearchSpec'
+        dashboardsSpec:
+          $ref: '#/components/schemas/DashboardsClusterUpdateSpec_in_ConfigUpdateSpec_dashboardsSpec'
+        access:
+          $ref: '#/components/schemas/Access_in_ConfigUpdateSpec_access'
+    MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow:
+      description: Window of maintenance operations
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+    FieldMask_in_UpdateDashboardsNodeGroupRequest_updateMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Only the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    DashboardsNodeGroupUpdateSpec_in_UpdateDashboardsNodeGroupRequest_nodeGroupSpec:
+      type: object
+      properties:
+        resources:
+          $ref: '#/components/schemas/Resources_in_DashboardsNodeGroupUpdateSpec_resources'
+        hostsCount:
+          description: Number of nodes in the group.
+          type: string
+          format: int64
+    FieldMask_in_UpdateOpenSearchNodeGroupRequest_updateMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Only the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    OpenSearchNodeGroupUpdateSpec_in_UpdateOpenSearchNodeGroupRequest_nodeGroupSpec:
+      type: object
+      properties:
+        resources:
+          $ref: '#/components/schemas/Resources_in_OpenSearchNodeGroupUpdateSpec_resources'
+        hostsCount:
+          description: Number of nodes in the group.
+          type: string
+          format: int64
+        roles:
+          description: Opensearch roles applicable to the node group.
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenSearchGroupRole'
+    WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day:
+      type: string
+      enum:
+      - MON
+      - TUE
+      - WED
+      - THU
+      - FRI
+      - SAT
+      - SUN
+tags:
+- name: Backup
+- name: Cluster
+  description: A set of methods for managing OpenSearch clusters.
+- name: ResourcePreset
+  description: A set of methods for managing ResourcePreset resources.

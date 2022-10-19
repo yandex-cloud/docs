@@ -21,6 +21,8 @@ items:
         href: api-ref/Node/index.md
       - name: execute
         href: api-ref/Node/execute.md
+      - name: executeAlias
+        href: api-ref/Node/executeAlias.md
   - name: Project
     items:
       - name: Overview

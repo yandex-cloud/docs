@@ -2221,7 +2221,8 @@ components:
       - KAFKA
       - ZOOKEEPER
     KafkaConfig2_1:
-      description: Kafka version 2.1 broker configuration.
+      description: Deprecated. Version `2.1` of Kafka not supported in Yandex Cloud.
+      deprecated: true
       type: object
       properties:
         compressionType:
@@ -2333,7 +2334,8 @@ components:
           type: integer
           format: int64
     KafkaConfig2_6:
-      description: Kafka version 2.6 broker configuration.
+      description: Deprecated. Version `2.6` of Kafka not supported in Yandex Cloud.
+      deprecated: true
       type: object
       properties:
         compressionType:
@@ -2556,6 +2558,12 @@ components:
             Default: 10080.'
           type: integer
           format: int64
+        saslEnabledMechanisms:
+          description: 'The list of SASL mechanisms enabled in the Kafka server. Default:
+            [SCRAM_SHA_512].'
+          type: array
+          items:
+            $ref: '#/components/schemas/SaslMechanism'
     KafkaConfig3:
       description: Kafka version 3.x broker configuration.
       type: object
@@ -2668,6 +2676,12 @@ components:
             Default: 10080.'
           type: integer
           format: int64
+        saslEnabledMechanisms:
+          description: 'The list of SASL mechanisms enabled in the Kafka server. Default:
+            [SCRAM_SHA_512].'
+          type: array
+          items:
+            $ref: '#/components/schemas/SaslMechanism'
     ListClusterHostsResponse:
       type: object
       properties:
@@ -3102,6 +3116,11 @@ components:
         properties:
           externalS3:
             $ref: '#/components/schemas/ExternalS3StorageSpec'
+    SaslMechanism:
+      type: string
+      enum:
+      - SASL_MECHANISM_SCRAM_SHA_256
+      - SASL_MECHANISM_SCRAM_SHA_512
     StartClusterMetadata:
       type: object
       properties:
@@ -3171,7 +3190,8 @@ components:
           topicConfig_3:
             $ref: '#/components/schemas/TopicConfig3'
     TopicConfig2_1:
-      description: A topic settings for 2.1.
+      description: Deprecated. Version `2.1` of Kafka not supported in Yandex Cloud.
+      deprecated: true
       type: object
       properties:
         cleanupPolicy:
@@ -3257,7 +3277,8 @@ components:
       - CLEANUP_POLICY_COMPACT
       - CLEANUP_POLICY_COMPACT_AND_DELETE
     TopicConfig2_6:
-      description: A topic settings for 2.6
+      description: Deprecated. Version `2.6` of Kafka not supported in Yandex Cloud.
+      deprecated: true
       type: object
       properties:
         cleanupPolicy:

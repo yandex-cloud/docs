@@ -31,7 +31,7 @@ groupId | <p>Required. ID of the Group resource to return. To get the group ID, 
 }
 ```
 A Group resource.
-For more information, see [Groups](/docs/organization/groups).
+For more information, see [Groups](/docs/organization/manage-groups).
  
 Field | Description
 --- | ---
