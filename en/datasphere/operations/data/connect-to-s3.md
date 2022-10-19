@@ -10,13 +10,8 @@ Try not to use S3 storage in [FUSE]{% if lang == "ru" %}(https://ru.wikipedia.or
 
 ## Creating an S3 connector {#create}
 
-1. Get an access key from your S3 storage provider. Follow these steps in {{objstorage-full-name }}:
-   1. [Create a service account](../../../iam/operations/sa/create.md).
-   1. To the created account, [assign](../../../iam/operations/sa/assign-role-for-sa.md) a [role](../../../storage/security/) that allows either reads only or both reads and writes.
-   1. [Create an access key](../../../iam/operations/sa/create-access-key.md) for the service account.
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. (Optional) In the upper-right corner, click **Create resource**. In the window that appears, select **Secret** and [create a secret](secrets.md#create) with the created access key. Also you can create a secret during the creation of **S3 connector**.
-1. In the upper-right corner on the project page, click **Create resource**. In the window that appears, select **S3 connector**.
+1. In the upper-right corner, click **Create resource**. In the window that appears, select **S3 connector**.
 1. Complete the fields below:
    * **Name**: Name of the connection being created.
    * (Optional) **Description** of the new connection.

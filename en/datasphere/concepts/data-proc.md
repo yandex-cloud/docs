@@ -12,15 +12,15 @@ To be able to create {{ dataproc-name }} clusters from {{ ml-platform-name }} or
 * The service account for performing operations with {{ dataproc-name }} clusters.
 * The subnet to create a new cluster in or connect an existing {{ dataproc-name }} cluster from. {% if product == "yandex-cloud" %}The integration only supports subnets created in the `{{ region-id }}-a` availability zone.{% endif %}
 
-The above parameters should be [specified in additional project settings](../operations/data-proc-integration.md#settings).
+The above parameters should be specified in additional project settings.
 
 {% include [subnet-create](../../_includes/subnet-create.md) %}
 
 ### Roles required for {{ dataproc-name }} clusters to run correctly {#roles}
 
-* To create a {{ dataproc-name }} cluster, you need permission for the service account that {{ ml-platform-name }} will use to perform operations. This permission is included in the `iam.serviceAccounts.user` and `editor` roles and higher.
+* To create a {{ dataproc-name }} cluster, the project must be assigned a service account from which {{ ml-platform-name }} will run operations. This permission is included in the `iam.serviceAccounts.user` and `editor` roles and higher.
 * To manage {{ dataproc-name }} clusters, the service account needs the following roles:
-   * `datasphere.admin` to create resources in {{ ml-platform-name }}.
+   * `{{ roles-datasphere-project-developer }}` or higher: To create resources in {{ ml-platform-name }}.
    * `vpc.user` to access the network specified in the project settings.
    * `mdb.admin` to create and use {{ dataproc-name }} clusters.
    * `mdb.dataproc.agent` to create and use {{ dataproc-name }} clusters.
@@ -30,20 +30,16 @@ Read more about [access management](../security/index.md).
 ### Creating a cluster from a project in {{ ml-platform-name }} {#notebook}
 
 Specifics of a cluster created from a {{ ml-platform-name }} project:
-* The cluster is created in the project folder and the subnet specified in the project settings.
+* The cluster is created in the folder and subnet specified in the project settings.
 * {{ ml-platform-name }} monitors the lifetime of a cluster and automatically deletes it if it's idle for two hours.
 
    A {{ dataproc-name }} cluster is considered active if computations are being performed or if there is an active notebook in the cluster project. A notebook is considered active if the break in computing is less than 20 minutes.
-
-Learn more about [how to create a cluster from a project](../operations/data-proc-integration.md#notebook).
 
 ### Creating a cluster in {{ dataproc-name }} {#service}
 
 Specifics of a cluster created in {{ dataproc-name }}:
 * You control the life cycle of your cluster.
 * For a {{ dataproc-name }} cluster to run correctly, make sure its version is at least `1.3` and the following services are enabled: `LIVY`, `SPARK`, `YARN`, and `HDFS`.
-
-Learn more about [how to create a cluster in the service](../operations/data-proc-integration.md#console).
 
 ## Computing sessions {#session}
 

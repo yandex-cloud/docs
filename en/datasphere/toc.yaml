@@ -19,6 +19,8 @@ items:
             href: operations/community/add-user.md
           - name: Add a communication channel
             href: operations/community/link-channel.md
+          - name: Link a billing account
+            href: operations/community/link-ba.md
           - name: Delete a community
             href: operations/community/delete.md
       - name: Project management
