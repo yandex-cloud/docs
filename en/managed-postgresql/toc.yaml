@@ -33,6 +33,8 @@ items:
             href: operations/extensions/cluster-extensions.md
           - name: pg_cron
             href: operations/extensions/pg_cron.md
+          - name: pgcrypto
+            href: operations/extensions/pgcrypto.md
       - name: Managing database users
         href: operations/cluster-users.md
       - name: Assigning privileges and roles
@@ -151,6 +153,8 @@ items:
             items:
               - name: Overview
                 href: api-ref/Backup/index.md
+              - name: delete
+                href: api-ref/Backup/delete.md
               - name: get
                 href: api-ref/Backup/get.md
               - name: list

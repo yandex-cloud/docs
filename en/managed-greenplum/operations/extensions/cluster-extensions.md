@@ -1,8 +1,8 @@
 # Managing {{ GP }} extensions
 
-{{ mgp-short-name }} supports some {{ GP }} extensions. See [a full list of available extensions and their versions](#greenplum).
+{{ mgp-short-name }} supports some {{ GP }} extensions. See [the full list of available extensions and their versions](#greenplum).
 
-## Retrieving a list of installed extensions {#list-extensions}
+## Retrieving a list of extensions available to install {#available-extensions}
 
 Connect to the selected database and run:
 
@@ -10,12 +10,29 @@ Connect to the selected database and run:
 SELECT * FROM pg_available_extensions();
 ```
 
-A list of extensions installed in the DB is displayed:
+This will display a list of DB extensions available to install:
 
 ```text
 name                    | default_version | comment                            
 ------------------------+-----------------+------------------------------
  diskquota              | 1.0             | Disk Quota Main Program
+...
+```
+
+## Retrieving a list of installed extensions {#list-extensions}
+
+Connect to the selected database and run:
+
+```sql
+SELECT extname FROM pg_extension;
+```
+
+A list of extensions installed in the DB is displayed:
+
+```text
+      extname
+-------------------
+ plpgsql
 ...
 ```
 
@@ -38,7 +55,7 @@ Adds a data type to compare strings, case-insensitive.
 | 1.0 ||
 || [dblink](https://gpdb.docs.pivotal.io/latest/ref_guide/modules/dblink.html)
 Enables support for connections to other {{ GP }} databases within a session.
-| 1.1 ||
+| 1.1  ||
 || [diskquota](https://gpdb.docs.pivotal.io/latest/ref_guide/modules/diskquota.html)
 Allows limiting the size of disk space for schemas and roles in the database.
 | 1.0 ||
@@ -52,7 +69,7 @@ Contains different internal utilities for {{ GP }}.
 Adds a data type for storing <q>key-value</q> pairs in a single field.
 | 1.3 ||
 || [pgcrypto](https://gpdb.docs.pivotal.io/latest/ref_guide/modules/pgcrypto.html)
-Adds data encryption functions.
+Adds data encryption functions. For more information, see [{#T}](./pgcrypto.md).
 | 1.1 ||
 || [plperl](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/5/greenplum-database/GUID-ref_guide-extensions-pl_perl.html)
 Enables support for the PL/Perl procedural language.
@@ -68,4 +85,4 @@ Lets you work with heterogeneous data sources.
 | 2.0 ||
 |#
 
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+{% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

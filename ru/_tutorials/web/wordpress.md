@@ -10,6 +10,8 @@
 
 Если сайт вам больше не нужен, [удалите ВМ с ним](#clear-out).
 
+Также инфраструктуру для веб-сайта на базе CMS WordPress можно развернуть через {{ TF }} с помощью [готового файла конфигурации](#terraform).
+
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
@@ -29,6 +31,11 @@
 {% include [security-groups-note](../../compute/_includes_service/security-groups-note.md) %}
 
 Чтобы создать группу безопасности:
+
+{% list tabs %}
+
+- Консоль управления
+
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ vpc-name }}**.
   1. Откройте вкладку **Группы безопасности**.
   1. Нажмите кнопку **Создать группу**.
@@ -51,61 +58,79 @@
    
    1. Нажмите кнопку **Сохранить**.
 
+- {{ TF }}
+
+  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
+{% endlist %}
 
 ## Создайте виртуальную машину для WordPress {#create-vm}
 
 Чтобы создать ВМ:
-1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
 
-   ![create-vm](../../_assets/tutorials/wordpress/vm-create-1.png)
+{% list tabs %}
 
-1. В поле **Имя** введите имя ВМ: `wordpress`.
+- Консоль управления
 
-   {% include [name-format](../../_includes/name-format.md) %}
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
 
-1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и выберите публичный образ [WordPress](/marketplace/products/yc/wordpress).
+     ![create-vm](../../_assets/tutorials/wordpress/vm-create-1.png)
 
-   ![choose-image](../../_assets/tutorials/wordpress/vm-create-3.png)
+  1. В поле **Имя** введите имя ВМ: `wordpress`.
 
-1. В блоке **Вычислительные ресурсы**:
-   * Выберите [платформу](../../compute/concepts/vm-platforms.md).
-   * Укажите необходимое количество vCPU и объем RAM.
+     {% include [name-format](../../_includes/name-format.md) %}
 
-   Для тестирования хватит минимальной конфигурации:
-   * **Платформа** — Intel Ice Lake.
-   * **vCPU** — 2.
-   * **Гарантированная доля vCPU** — 20%.
-   * **RAM** — 1 ГБ.
+  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+  1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и выберите публичный образ [WordPress](/marketplace/products/yc/wordpress).
 
-1. В блоке **Сетевые настройки** выберите, к какой подсети необходимо подключить ВМ при создании.
-1. В пункте **Публичный адрес** выберите **Автоматически**.
+     ![choose-image](../../_assets/tutorials/wordpress/vm-create-3.png)
 
-   ![choose-network](../../_assets/tutorials/wordpress/vm-create-4.png)
+  1. В блоке **Вычислительные ресурсы**:
+     * Выберите [платформу](../../compute/concepts/vm-platforms.md).
+     * Укажите необходимое количество vCPU и объем RAM.
 
-1. В пункте **Группа безопасности** выберите группу `wordpress`.
-1. Укажите данные для доступа на ВМ:
-   * В поле **Логин** введите имя пользователя.
-   * В поле **SSH ключ** вставьте содержимое файла открытого ключа.
+     Для тестирования хватит минимальной конфигурации:
+     * **Платформа** — Intel Ice Lake.
+     * **vCPU** — 2.
+     * **Гарантированная доля vCPU** — 20%.
+     * **RAM** — 1 ГБ.
 
-     Пару ключей для подключения по SSH необходимо создать самостоятельно. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md).
+  1. В блоке **Сетевые настройки** выберите, к какой подсети необходимо подключить ВМ при создании.
+  1. В пункте **Публичный адрес** выберите **Автоматически**.
 
-1. Нажмите кнопку **Создать ВМ**.
+     ![choose-network](../../_assets/tutorials/wordpress/vm-create-4.png)
 
-Создание ВМ может занять несколько минут. Когда ВМ перейдет в статус `RUNNING`, вы можете начать настраивать сайт.
+  1. В пункте **Группа безопасности** выберите группу `wordpress`.
+  1. Укажите данные для доступа на ВМ:
+     * В поле **Логин** введите имя пользователя.
+     * В поле **SSH ключ** вставьте содержимое файла открытого ключа.
 
-При создании ВМ назначается публичный IP-адрес и имя хоста (FQDN). Эти данные можно использовать при настройке DNS и для доступа по SSH.
+       Пару ключей для подключения по SSH необходимо создать самостоятельно. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md).
+
+  1. Нажмите кнопку **Создать ВМ**.
+
+  Создание ВМ может занять несколько минут. Когда ВМ перейдет в статус `RUNNING`, вы можете начать настраивать сайт.
+
+  При создании ВМ назначается публичный IP-адрес и имя хоста (FQDN). Эти данные можно использовать при настройке DNS и для доступа по SSH.
+
+- {{ TF }}
+
+  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
+{% endlist %}
 
 ## Настройте DNS (если есть доменное имя) {#configure-dns}
 
 Если у вас есть зарегистрированное доменное имя, воспользуйтесь сервисом {{ dns-name }} для управления доменом.
+
+Также настроить DNS можно с помощью {{ TF }}, подробнее см. в разделе [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
 {% include [configure-a-record-and-cname](./configure-a-record-and-cname.md) %}
 
 ## Настройка WordPress {#wordpress-setup}
 
 После того как ВМ `wordpress` перейдет в статус `RUNNING`, выполните:
-1. В блоке **Сеть** на странице ВМ в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес ВМ и  внесите в ресурсную запись типа А, созданную ранее.
+1. В блоке **Сеть** на странице ВМ в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес ВМ и внесите в ресурсную запись типа А, созданную ранее.
 
    ![add-ssh](../../_assets/tutorials/wordpress/vm-create-5.png)
 
@@ -138,3 +163,52 @@
 1. Выберите сервис **{{ vpc-short-name }}** в вашем каталоге.
 1. Перейдите на вкладку **IP-адреса**.
 1. Найдите нужный адрес, нажмите значок ![ellipsis](../../_assets/options.svg) и выберите пункт **Удалить**.
+
+## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
+
+{% include [terraform-definition](../terraform-definition.md) %}
+
+Чтобы разместить веб-сайт на базе CMS WordPress с помощью {{ TF }}:
+
+1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+1. Подготовьте файлы с описанием инфраструктуры:
+   
+   В руководстве используются [группы безопасности](#create-security-groups). Если они вам недоступны, то запросите доступ в поддержке или уберите из файла конфигурации блок `yandex_vpc_security_group` и другие упоминания `security_group`.
+
+   {% list tabs %}
+   
+   - Готовый архив
+ 
+     1. Создайте папку для файлов.
+     1. Скачайте [архив](https://{{ s3-storage-host }}/www.example.com/doc-files/wordpress.zip) (1 КБ).
+     1. Разархивируйте архив в папку. В результате в ней должен появиться конфигурационный файл `wordpress.tf`.
+
+   - Создание вручную
+
+     1. Создайте папку для файлов.
+     1. Создайте в папке конфигурационный файл `wordpress.tf`:
+  
+          {% cut "wordpress.tf" %}
+     
+          {% include [wordpress-tf-config](../../_includes/web/wordpress-tf-config.md) %}
+     
+          {% endcut %}
+
+   {% endlist %}
+
+   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+
+   * [yandex_compute_instance]({{ tf-provider-link }}/compute_instance)
+   * [yandex_vpc_security_group]({{ tf-provider-link }}/yandex_vpc_security_group)
+   * [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)
+   * [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
+   * [yandex_dns_zone]({{ tf-provider-link }}/dns_zone)
+   * [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset)
+
+1. В блоке `metadata` укажите метаданные для создания виртуальной машины `<имя_пользователя>:<содержимое_SSH-ключа>`. Указанное имя пользователя не играет роли, ключ будет присвоен пользователю, который задан в конфигурации образа WordPress. В разных образах это разные пользователи. Подробнее см. в разделе [{#T}](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images).
+
+1. Создайте ресурсы:
+
+   {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+
+1. [Настройте WordPress](#wordpress-setup).

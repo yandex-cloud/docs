@@ -71,6 +71,8 @@ items:
         href: concepts/settings-list.md
       - name: Доступ к компонентам SQL Server
         href: concepts/components.md
+      - name: Ограничения для команд SQL
+        href: concepts/sql-limits.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

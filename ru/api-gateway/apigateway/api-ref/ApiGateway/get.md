@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/get.
 
 # Method get
 Returns the specified API gateway. Note that only API gateway basic attributes are returned.
-To get associated openapi specification, make a [getOpenapiSpec](/docs/functions/api-gateway/api-ref/ApiGateway/getOpenapiSpec) request.
+To get associated openapi specification, make a [GetOpenapiSpec](getOpenapiSpec) request.
  
 To get the list of all available API gateways, make a [list](/docs/functions/api-gateway/api-ref/ApiGateway/list) request.
  

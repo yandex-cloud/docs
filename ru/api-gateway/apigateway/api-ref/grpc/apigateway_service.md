@@ -26,7 +26,7 @@ A set of methods for managing API gateways.
 
 ## Get {#Get}
 
-Returns the specified API gateway. Note that only API gateway basic attributes are returned. To get associated openapi specification, make a [GetOpenapiSpec](#GetOpenapiSpec) request. <br>To get the list of all available API gateways, make a [List](#List) request.
+Returns the specified API gateway. Note that only API gateway basic attributes are returned. To get associated openapi specification, make a [GetOpenapiSpec](getOpenapiSpec) request. <br>To get the list of all available API gateways, make a [List](#List) request.
 
 **rpc Get ([GetApiGatewayRequest](#GetApiGatewayRequest)) returns ([ApiGateway](#ApiGateway))**
 
@@ -85,7 +85,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list API gateways in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListApiGatewayResponse.next_page_token](#ListApiGatewayResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. 
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListApiGatewayResponse.next_page_token](#ListApiGatewayResponse) returned by a previous list request. 
-filter | **string**<br>A filter expression that filters functions listed in the response. <br>The expression must specify: <ol><li>The field name. Currently filtering can only be applied to the [ApiGateway.name](#ApiGateway1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{0,61}[a-z0-9])?`. </li></ol>Example of a filter: `name=my-apigw`. 
+filter | **string**<br>A filter expression that filters functions listed in the response. <br>The expression must specify: <ol><li>The field name. Currently filtering can only be applied to the [ApiGateway.name](index) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{0,61}[a-z0-9])?`. </li></ol>Example of a filter: `name=my-apigw`. 
 
 
 ### ListApiGatewayResponse {#ListApiGatewayResponse}
@@ -230,7 +230,7 @@ api_gateway_id | **string**<br>Required. ID of the API gateway to update. <br>To
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the API gateway should be updated. 
 name | **string**<br>New name for the API gateway. The name must be unique within the folder. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>New description for the API gateway. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a [ApiGatewayService.Get](#Get) request. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a [yandex.cloud.serverless.apigateway.v1.ApiGatewayService.Get](/docs/functions/api-gateway/api-ref/grpc/apigateway_service#Get) request. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 spec | **oneof:** `openapi_spec`<br>New OpenAPI specification of API gateway.
 &nbsp;&nbsp;openapi_spec | **string**<br>The text of specification, JSON or YAML. 
 connectivity | **[Connectivity](#Connectivity3)**<br>Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s). 
@@ -349,7 +349,6 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 api_gateway_id | **string**<br>Required. ID of the API gateway that the domain is attached to. 
-domain_id | **string**<br>ID of the attaching domain. 
 domain_name | **string**<br>Name of the attaching domain. 
 certificate_id | **string**<br>ID of certificate for the attaching domain. 
 
@@ -375,8 +374,9 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 api_gateway_id | **string**<br>ID of the API gateway that the domain is attached to. 
-domain_id | **string**<br>ID of the attaching domain. 
+domain_id | **string**<br>ID of the attached domain. 
 domain_name | **string**<br>Name of the attaching domain. 
+certificate_id | **string**<br>ID of the certificate for provided domain. 
 
 
 ## RemoveDomain {#RemoveDomain}
