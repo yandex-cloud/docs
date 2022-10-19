@@ -111,6 +111,8 @@ items:
         href: concepts/supported-clients.md
       - name: Настройки PostgreSQL
         href: concepts/settings-list.md
+      - name: Ограничения для команд SQL
+        href: concepts/sql-limits.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -153,6 +155,8 @@ items:
             items:
               - name: Overview
                 href: api-ref/Backup/index.md
+              - name: delete
+                href: api-ref/Backup/delete.md
               - name: get
                 href: api-ref/Backup/get.md
               - name: list

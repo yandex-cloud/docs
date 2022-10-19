@@ -88,7 +88,7 @@ name | **string**<br><p>Name of the cluster. The name must be unique within the 
 description | **string**<br><p>Description of the cluster.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Cluster labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 configSpec | **object**<br><p>Required. Configuration and resources for hosts that should be created with the cluster.</p> 
-configSpec.<br>versionId | **string**<br><p>Version of the image for cluster provisioning.</p> <p>All available versions are listed in the <a href="/docs/data-proc/concepts/image-versions">documentation</a>.</p> 
+configSpec.<br>versionId | **string**<br><p>Version of the image for cluster provisioning.</p> <p>All available versions are listed in the <a href="/docs/data-proc/concepts/environment">documentation</a>.</p> 
 configSpec.<br>hadoop | **object**<br><p>Data Proc specific options.</p> <p>Hadoop configuration that describes services installed in a cluster, their properties and settings.</p> 
 configSpec.<br>hadoop.<br>services[] | **string**<br><p>Set of services used in the cluster (if empty, the default set is used).</p> 
 configSpec.<br>hadoop.<br>properties | **object**<br><p>Properties set for all hosts in ``*-site.xml`` configurations. The key should indicate the service and the property.</p> <p>For example, use the key 'hdfs:dfs.replication' to set the ``dfs.replication`` property in the file ``/etc/hadoop/conf/hdfs-site.xml``.</p> 

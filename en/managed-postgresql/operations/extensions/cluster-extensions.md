@@ -173,7 +173,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 || <p>[pg_stat_statements]({{ pg-docs }}/pgstatstatements.html)</p><p>Tracks planning and execution statistics of all SQL queries run in a cluster.</p><p>To use the extension, you need the [`mdb_monitor` role](../../concepts/roles.md#mdb_monitor).</p> | 1.6 | 1.7 | 1.8 | 1.9 ||
 || <p>[pg_tm_aux](https://github.com/x4m/pg_tm_aux)</p><p>Enables you to create a logical replication slot in the past.</p> | 1.0 | 1.0 | 1.0 | 1.0 ||
 || <p>[pg_trgm]({{ pg-docs }}/static/pgtrgm.html)</p><p>Provides tools for fast searching for similar strings based on trigram matching.</p> | 1.4 | 1.4 | 1.5 | 1.6 ||
-|| <p>[pgcrypto]({{ pg-docs }}/static/pgcrypto.html)</p><p>Provides cryptographic functions for PostgreSQL.</p> | 1.3 | 1.3 | 1.3 | 1.3 ||
+|| <p>[pgcrypto]({{ pg-docs }}/static/pgcrypto.html)</p><p>Provides cryptographic functions for PostgreSQL. For more information, see [{#T}](./pgcrypto.md).</p> | 1.3 | 1.3 | 1.3 | 1.3 ||
 || <p>[pgrouting](http://pgrouting.org/)</p><p>Extends the [PostGIS](https://www.postgis.net/) database to provide geospatial routing functionality.</p> | 2.6.2 | 2.6.2 | 3.0.2 | 3.3.0 ||
 || <p>[pgrowlocks]({{ pg-docs }}/static/pgrowlocks.html)</p><p> Provides the `pgrowlocks()` function to return row locking information for a specified table.</p> | 1.2 | 1.2 | 1.2 | 1.2 ||
 || <p>[pgstattuple]({{ pg-docs }}/pgstattuple.html)</p><p> Provides functions to obtain tuple-level statistics.</p><p>To use the extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin).</p> | 1.5 | 1.5 | 1.5 | 1.5 ||

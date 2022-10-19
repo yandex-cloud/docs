@@ -12,7 +12,7 @@
 
 1. Выберите базы данных для диагностики.
 1. [Активируйте сбор статистики](../../managed-mysql/operations/performance-diagnostics.md).
-1. Создайте [пользователя {{ MY }}](../../managed-mysql/operations/cluster-users.md#adduser) с привилегией [`PROCESS`](../../managed-mysql/operations/grant.md#db-privileges) для этих баз. Диагностические запросы необходимо выполнять от имени этого пользователя.
+1. Создайте [пользователя {{ MY }}](../../managed-mysql/operations/cluster-users.md#adduser) с привилегией [PROCESS](../../managed-mysql/operations/grant.md#db-privileges) для этих баз. Диагностические запросы необходимо выполнять от имени этого пользователя.
 
 ## Диагностика дефицита ресурсов {#cpu-io-deficit}
 

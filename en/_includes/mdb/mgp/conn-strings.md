@@ -362,7 +362,7 @@ Before connecting:
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL  = "jdbc:postgresql://c-<cluster ID>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres?targetServerType=master&ssl=false";
+          String DB_URL  = "jdbc:postgresql://c-<cluster ID>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres?targetServerType=master&ssl=false&sslmode=disable";
           String DB_USER = "<username>";
           String DB_PASS = "<user password>";
 

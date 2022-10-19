@@ -99,7 +99,10 @@ A set of methods for managing Apache Kafka® clusters.
         "sslCipherSuites": [
           "string"
         ],
-        "offsetsRetentionMinutes": "integer"
+        "offsetsRetentionMinutes": "integer",
+        "saslEnabledMechanisms": [
+          "string"
+        ]
       },
       "kafkaConfig_3": {
         "compressionType": "string",
@@ -122,7 +125,10 @@ A set of methods for managing Apache Kafka® clusters.
         "sslCipherSuites": [
           "string"
         ],
-        "offsetsRetentionMinutes": "integer"
+        "offsetsRetentionMinutes": "integer",
+        "saslEnabledMechanisms": [
+          "string"
+        ]
       },
       // end of the list of possible fields`config.kafka`
 
@@ -193,7 +199,7 @@ config.<br>kafka.<br>resources | **object**
 config.<br>kafka.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the <a href="/docs/managed-kafka/concepts/instance-types">documentation</a>.</p> 
 config.<br>kafka.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted.</p> 
 config.<br>kafka.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> 
-config.<br>kafka.<br>kafkaConfig_2_1 | **object** <br>`config.kafka` includes only one of the fields `kafkaConfig_2_1`, `kafkaConfig_2_6`, `kafkaConfig_2_8`, `kafkaConfig_3`<br><br><p>Kafka version 2.1 broker configuration.</p> 
+config.<br>kafka.<br>kafkaConfig_2_1 | **object** <br>`config.kafka` includes only one of the fields `kafkaConfig_2_1`, `kafkaConfig_2_6`, `kafkaConfig_2_8`, `kafkaConfig_3`<br><br><p>Deprecated. Version ``2.1`` of Kafka not supported in Yandex Cloud.</p> 
 config.<br>kafka.<br>kafkaConfig_2_1.<br>compressionType | **string**<br><p>Cluster topics compression type.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).</li> <li>COMPRESSION_TYPE_ZSTD: Zstandard codec.</li> <li>COMPRESSION_TYPE_LZ4: LZ4 codec.</li> <li>COMPRESSION_TYPE_SNAPPY: Snappy codec.</li> <li>COMPRESSION_TYPE_GZIP: GZip codec.</li> <li>COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of ``ZSTD``, ``LZ4``, ``GZIP`` or ``SNAPPY`` codecs).</li> </ul> 
 config.<br>kafka.<br>kafkaConfig_2_1.<br>logFlushIntervalMessages | **integer** (int64)<br><p>The number of messages accumulated on a log partition before messages are flushed to disk.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the ``flushMessages`` setting.</p> 
 config.<br>kafka.<br>kafkaConfig_2_1.<br>logFlushIntervalMs | **integer** (int64)<br><p>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of ``logFlushSchedulerIntervalMs`` is used.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the ``flushMs`` setting.</p> 
@@ -213,7 +219,7 @@ config.<br>kafka.<br>kafkaConfig_2_1.<br>messageMaxBytes | **integer** (int64)<b
 config.<br>kafka.<br>kafkaConfig_2_1.<br>replicaFetchMaxBytes | **integer** (int64)<br><p>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.</p> 
 config.<br>kafka.<br>kafkaConfig_2_1.<br>sslCipherSuites[] | **string**<br><p>A list of cipher suites.</p> 
 config.<br>kafka.<br>kafkaConfig_2_1.<br>offsetsRetentionMinutes | **integer** (int64)<br><p>Offset storage time after a consumer group loses all its consumers. Default: 10080.</p> 
-config.<br>kafka.<br>kafkaConfig_2_6 | **object** <br>`config.kafka` includes only one of the fields `kafkaConfig_2_1`, `kafkaConfig_2_6`, `kafkaConfig_2_8`, `kafkaConfig_3`<br><br><p>Kafka version 2.6 broker configuration.</p> 
+config.<br>kafka.<br>kafkaConfig_2_6 | **object** <br>`config.kafka` includes only one of the fields `kafkaConfig_2_1`, `kafkaConfig_2_6`, `kafkaConfig_2_8`, `kafkaConfig_3`<br><br><p>Deprecated. Version ``2.6`` of Kafka not supported in Yandex Cloud.</p> 
 config.<br>kafka.<br>kafkaConfig_2_6.<br>compressionType | **string**<br><p>Cluster topics compression type.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).</li> <li>COMPRESSION_TYPE_ZSTD: Zstandard codec.</li> <li>COMPRESSION_TYPE_LZ4: LZ4 codec.</li> <li>COMPRESSION_TYPE_SNAPPY: Snappy codec.</li> <li>COMPRESSION_TYPE_GZIP: GZip codec.</li> <li>COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of ``ZSTD``, ``LZ4``, ``GZIP`` or ``SNAPPY`` codecs).</li> </ul> 
 config.<br>kafka.<br>kafkaConfig_2_6.<br>logFlushIntervalMessages | **integer** (int64)<br><p>The number of messages accumulated on a log partition before messages are flushed to disk.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the ``flushMessages`` setting.</p> 
 config.<br>kafka.<br>kafkaConfig_2_6.<br>logFlushIntervalMs | **integer** (int64)<br><p>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of ``logFlushSchedulerIntervalMs`` is used.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the ``flushMs`` setting.</p> 
@@ -253,6 +259,7 @@ config.<br>kafka.<br>kafkaConfig_2_8.<br>messageMaxBytes | **integer** (int64)<b
 config.<br>kafka.<br>kafkaConfig_2_8.<br>replicaFetchMaxBytes | **integer** (int64)<br><p>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.</p> 
 config.<br>kafka.<br>kafkaConfig_2_8.<br>sslCipherSuites[] | **string**<br><p>A list of cipher suites.</p> 
 config.<br>kafka.<br>kafkaConfig_2_8.<br>offsetsRetentionMinutes | **integer** (int64)<br><p>Offset storage time after a consumer group loses all its consumers. Default: 10080.</p> 
+config.<br>kafka.<br>kafkaConfig_2_8.<br>saslEnabledMechanisms[] | **string**<br><p>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].</p> 
 config.<br>kafka.<br>kafkaConfig_3 | **object** <br>`config.kafka` includes only one of the fields `kafkaConfig_2_1`, `kafkaConfig_2_6`, `kafkaConfig_2_8`, `kafkaConfig_3`<br><br><p>Kafka version 3.x broker configuration.</p> 
 config.<br>kafka.<br>kafkaConfig_3.<br>compressionType | **string**<br><p>Cluster topics compression type.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).</li> <li>COMPRESSION_TYPE_ZSTD: Zstandard codec.</li> <li>COMPRESSION_TYPE_LZ4: LZ4 codec.</li> <li>COMPRESSION_TYPE_SNAPPY: Snappy codec.</li> <li>COMPRESSION_TYPE_GZIP: GZip codec.</li> <li>COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of ``ZSTD``, ``LZ4``, ``GZIP`` or ``SNAPPY`` codecs).</li> </ul> 
 config.<br>kafka.<br>kafkaConfig_3.<br>logFlushIntervalMessages | **integer** (int64)<br><p>The number of messages accumulated on a log partition before messages are flushed to disk.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the ``flushMessages`` setting.</p> 
@@ -273,6 +280,7 @@ config.<br>kafka.<br>kafkaConfig_3.<br>messageMaxBytes | **integer** (int64)<br>
 config.<br>kafka.<br>kafkaConfig_3.<br>replicaFetchMaxBytes | **integer** (int64)<br><p>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.</p> 
 config.<br>kafka.<br>kafkaConfig_3.<br>sslCipherSuites[] | **string**<br><p>A list of cipher suites.</p> 
 config.<br>kafka.<br>kafkaConfig_3.<br>offsetsRetentionMinutes | **integer** (int64)<br><p>Offset storage time after a consumer group loses all its consumers. Default: 10080.</p> 
+config.<br>kafka.<br>kafkaConfig_3.<br>saslEnabledMechanisms[] | **string**<br><p>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].</p> 
 config.<br>zookeeper | **object**<br><p>Configuration and resource allocation for ZooKeeper hosts.</p> 
 config.<br>zookeeper.<br>resources | **object**<br><p>Resources allocated to ZooKeeper hosts.</p> 
 config.<br>zookeeper.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the <a href="/docs/managed-kafka/concepts/instance-types">documentation</a>.</p> 

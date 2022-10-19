@@ -1,3 +1,7 @@
+---
+title: Step-by-step instructions for {{ ml-platform-name }}
+---
+
 # Step-by-step instructions for {{ ml-platform-name }}
 
 ## Community management {#community}
@@ -15,7 +19,6 @@
 * [{#T}](projects/update.md)
 * [{#T}](projects/python-version.md)
 * [{#T}](projects/delete.md)
-
 * [{#T}](data-proc-integration.md)
 
 ## Working in a notebook {#notebook}
@@ -53,6 +56,7 @@
 
 ## Shared access to resources, projects, and computation results {#share}
 
+* [Sharing secrets](data/secrets.md#share)
 * [{#T}](projects/publication.md)
 * [{#T}](projects/export.md)
 
@@ -60,4 +64,4 @@
 ## Additional features {{ ml-platform-name }}
 
 * [{#T}](taas-run.md)
-
+* [{#T}](migration.md)

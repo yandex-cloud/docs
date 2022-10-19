@@ -72,7 +72,7 @@ monitoring[].<br>name | **string**<br><p>Name of the monitoring system.</p>
 monitoring[].<br>description | **string**<br><p>Description of the monitoring system.</p> 
 monitoring[].<br>link | **string**<br><p>Link to the monitoring system.</p> 
 config | **object**<br><p>Configuration of the cluster.</p> 
-config.<br>versionId | **string**<br><p>Image version for cluster provisioning. All available versions are listed in the <a href="/docs/managed-hadoop/concepts/image-versions">documentation</a>.</p> 
+config.<br>versionId | **string**<br><p>Image version for cluster provisioning. All available versions are listed in the <a href="/docs/data-proc/concepts/environment">documentation</a>.</p> 
 config.<br>hadoop | **object**<br><p>Data Proc specific configuration options.</p> <p>Hadoop configuration that describes services installed in a cluster, their properties and settings.</p> 
 config.<br>hadoop.<br>services[] | **string**<br><p>Set of services used in the cluster (if empty, the default set is used).</p> 
 config.<br>hadoop.<br>properties | **object**<br><p>Properties set for all hosts in ``*-site.xml`` configurations. The key should indicate the service and the property.</p> <p>For example, use the key 'hdfs:dfs.replication' to set the ``dfs.replication`` property in the file ``/etc/hadoop/conf/hdfs-site.xml``.</p> 

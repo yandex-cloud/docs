@@ -8,8 +8,8 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `logging.writer`  на каталог.
-1. [Создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) из публичного образа Linux. В настройках ВМ укажите сервисный аккаунт, который создали на предыдущем шаге.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `logging.writer` на каталог.
+1. [Создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) из публичного образа [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts). В блоке **Доступ** укажите сервисный аккаунт, который создали на предыдущем шаге.
 1. [Подключитесь к ВМ](../../compute/operations/vm-connect/ssh.md#vm-connect) по SSH.
 1. Установите на ВМ:
     * [Go не ниже версии 1.17](https://go.dev/doc/install):

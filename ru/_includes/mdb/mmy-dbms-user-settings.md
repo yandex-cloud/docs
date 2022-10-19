@@ -24,7 +24,7 @@
     - [SHOW RELAYLOG EVENTS](https://dev.mysql.com/doc/refman/8.0/en/show-relaylog-events.html) — выводит события в логе ретрансляции реплики.
     - [SHOW BINLOG EVENTS](https://dev.mysql.com/doc/refman/8.0/en/show-binlog-events.html) — выводит события в бинарном логе.
 
-  - [PROCESS](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_process) — позволяет получать информацию о всех выполняемых на хосте кластера потоках и использовать оператор [SHOW ENGINE](https://dev.mysql.com/doc/refman/8.0/en/show-engine.html) для доступа к [таблицам InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-information-schema-system-tables.html).
+  - [PROCESS](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_process) — позволяет использовать оператор `SHOW PROCESSLIST` и просматривать статус систем хранения данных (например, `SHOW ENGINE INNODB STATUS`). Кроме того, в {{ mmy-name }} эта привилегия предоставляет право на чтение таблиц системных баз данных [mysql](https://dev.mysql.com/doc/refman/8.0/en/system-schema.html), [performance_schema](https://dev.mysql.com/doc/refman/8.0/en/performance-schema.html) и [sys](https://dev.mysql.com/doc/refman/8.0/en/sys-schema.html).
 
   Значение по умолчанию — не задано (у пользователя нет административных привилегий). Возможно предоставить несколько привилегий одновременно.
 

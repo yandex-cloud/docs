@@ -101,6 +101,8 @@ items:
         href: concepts/use-cases.md
       - name: Жизненный цикл трансфера
         href: concepts/transfer-lifecycle.md
+      - name: Операции над трансфером
+        href: concepts/operations.md
       - name: Захват изменения данных
         href: concepts/cdc.md
       - name: Шардированное копирование
