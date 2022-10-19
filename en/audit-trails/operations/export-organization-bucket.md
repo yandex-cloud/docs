@@ -105,6 +105,9 @@ To create the first trail in {{ at-name }} and start the audit log management pr
       * **Destination**: `{{ objstorage-name }}`.
       * **Bucket**: The name of the [bucket](../../storage/operations/buckets/create.md) where you want to upload audit logs.
       * **Object prefix**: An optional parameter used in the [full name](../concepts/format.md#log-file-name) of the audit log file.
+
+      {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
+
    1. Under **Service account**, select the service account that the trail will use to upload audit log files to the bucket.
    1. Click **Create**.
 
