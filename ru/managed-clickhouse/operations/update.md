@@ -813,3 +813,62 @@
 {% endnote %}
 
 {% endif %}
+
+## Изменить настройки гибридного хранилища {#change-hybrid-storage}
+
+{% list tabs %}
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы изменить [настройки гибридного хранилища](../concepts/storage.md#hybrid-storage-settings):
+
+  1. Посмотрите описание команды CLI для изменения кластера:
+
+      ```
+      {{ yc-mdb-ch }} cluster update --help
+      ```
+
+  1. Если гибридное хранилище в кластере выключено, включите его:
+
+      ```bash
+      {{ yc-mdb-ch }} cluster update <имя кластера> \
+          --cloud-storage=true
+      ```
+
+      {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
+
+  1. Передайте список настроек, которые хотите изменить:
+
+      ```bash
+      {{ yc-mdb-ch }} cluster update <имя кластера> \
+          --cloud-storage-data-cache=<true или false> \
+          --cloud-storage-data-cache-max-size=<объем памяти (в байтах)> \
+          --cloud-storage-move-factor=<доля свободного места>
+      ```
+
+      Вы можете изменить следующие настройки:
+
+      {% include [Hybrid Storage settings CLI](../../_includes/mdb/mch/hybrid-storage-settings-cli.md) %}
+
+- API
+
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+  * Значение `true` в параметре `configSpec.cloudStorage.enabled`, если гибридное хранилище еще не включено.
+
+    {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
+
+  * [Настройки гибридного хранилища](../concepts/storage.md#hybrid-storage-settings) в параметрах `configSpec.cloudStorage`:
+
+      {% include [Hybrid Storage settings API](../../_includes/mdb/mch/hybrid-storage-settings-api.md) %}
+
+  * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}

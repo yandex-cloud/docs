@@ -12,5 +12,4 @@
 
   Объем такого хранилища можно увеличивать:
   {% if product == "yandex-cloud" %}* для платформ **Intel Broadwell** и **Intel Cascade Lake** — только с шагом 100 ГБ;{% endif %}
-    * для платформы **Intel Ice Lake** — только с шагом {{ local-ssd-v3-step }}.
-  
+  * для платформы **Intel Ice Lake** — только с шагом {{ local-ssd-v3-step }}.
