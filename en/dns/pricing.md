@@ -38,9 +38,7 @@ You will be billed for:
 
    {% note tip %}
 
-   We recommend using [caching resolvers](tutorials/local-dns-cache.md), such as `systemd-resolved`,
-   `dnsmasq`, or `unbound`. They can help you reduce the number of queries for external domain names, reducing
-   costs.
+   We recommend using [caching resolvers](tutorials/local-dns-cache.md), such as `systemd-resolved`, `dnsmasq`, or `unbound`. They can help you reduce the number of queries for external domain names, reducing costs.
 
    {% endnote %}
 
@@ -57,42 +55,31 @@ You will not be billed for:
 
 The cost of public DNS queries is based on usage.
 
-{% if region == "ru" %}
+For example, the cost of 50 thousand authoritative queries to your public DNS zone per month will be:
 
-> For example, if the price of 1 million authoritative queries is ₽20 per month, and your public DNS zone
-> received 50000 queries in a given month, your cost for the month will be:
-> (50000 / 1000000) × ₽20 = 0.05 × ₽20 = ₽1
+{% if region == "ru" %}> (50000 / 1000000) × ₽32 = 0.05 × ₽32 = ₽1.60{% endif %}
+{% if region == "kz" %}> (50000 / 1000000) × ₸160 = 0.05 × ₸160 = ₸8{% endif %}
+{% if region == "int" %}> (50000 / 1000000) × $0.256410 = 0.05 × $0.256410 = $0.0128205{% endif %}
+>
+> Total: {% if region == "ru" %}₽1.60{% endif %}{% if region == "kz" %}₸8{% endif %}{% if region == "int" %}$0.0128205{% endif %}
 
-> For example, if the price of 1 million recursive queries is ₽20 per month, and between December 6 and December 31, 2021, your VMs
-> made 1.2 million queries for external DNS names, the cost for the month will be:
-> (1.2 − 1.0) × ₽20 = 0.2 × ₽20 = ₽4,
-> since the first million recursive queries are free as of December 6, 2021.
+Where:
 
-{% endif %}
+* (50000 / 1000000) is the number of millions of executed queries.
+* {% if region == "ru" %}₽32{% endif %}{% if region == "kz" %}₸160{% endif %}{% if region == "int" %}$0.256410{% endif %} is the cost per 1 million queries per month.
 
-{% if region == "kz" %}
+For example, the cost of 1.2 million recursive queries for external names executed from December 1 to December 31, 2021 from your VMs per month will be:
 
-> For example, if the price of 1 million authoritative queries is ₸120 per month, and your public DNS zone received 50000 queries in a given month, your cost for the month will be:
-> (50000 / 1000000) × ₸120 = 0.05 × ₸120 = ₸6
+{% if region == "ru" %}> (1.2 − 1.0) × ₽32 = 0.2 × ₽32 = ₽6.4000{% endif %}
+{% if region == "kz" %}> (1.2 − 1.0) × ₸160 = 0.2 × ₸160 = ₸32{% endif %}
+{% if region == "int" %}> (1.2 − 1.0) × $0.256410 = 0.2 × $0.256410 = $0.051282{% endif %}
+>
+> Total: {% if region == "ru" %}₽6.4000{% endif %}{% if region == "kz" %}₸32{% endif %}{% if region == "int" %}$0.051282{% endif %}
 
-> For example, if the price of 1 million recursive queries is ₸120 per month, and between December 6 and December 31, 2021, your VMs made 1.2 million queries for external DNS names, the cost for the month will be:
-> (1.2 − 1.0) × ₸120 = 0.2 × ₸120 = ₸24,
-> since the first million recursive queries are free as of December 6, 2021.
+Where:
 
-{% endif %}
-
-{% if region == "int" %}
-
-> For example, if the price of 1 million authoritative queries is $0.256410, and 50000 queries were made during this month,
-> the monthly cost will be:
-> (50000 / 1000000) × $0.256410 = 0.05 × $0.256410 = $0.0128205
-
-> E. g. if price of 1 million recursive requests is ₽20, and 1.2 million recursive queries were made from your VMs
-> between December 6, 2021 and December 31, 2021, the monthly cost will be:
-> (1,2 − 1,0) × ₽20 = 0,2 × ₽20 = ₽4
-> because first million recursive requests are provided free of charge, starting December 6, 2021.
-
-{% endif %}
+* (1.2 − 1.0) is the number of millions of executed queries. You are not billed for the first million of recursive queries starting December 6, 2021.
+* {% if region == "ru" %}₽32{% endif %}{% if region == "kz" %}₸160{% endif %}{% if region == "int" %}$0.256410{% endif %} is the cost per 1 million of recursive queries per month.
 
 ## DNS zones {#dns-zones}
 
@@ -102,8 +89,7 @@ You are charged for user-created [public](concepts/dns-zone.md#public-zones) or 
 
 Billing occurs per second. The cost is calculated in proportion to usage.
 
-> For example, the cost of owning 2 DNS zones for 360 hours will be the same as the cost of owning 1 DNS zone
-> for 720 hours.
+> For example, the cost of owning 2 DNS zones for 360 hours will be the same as the cost of owning 1 DNS zone for 720 hours.
 
 {% if region == "ru" %}
 
