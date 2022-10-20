@@ -8,7 +8,7 @@ File storage is at the [Preview](../../overview/concepts/launch-stages.md) stage
 
 _File storage_ is a virtual file system that can be attached to multiple {{ compute-name }} [VMs](vm.md) in the same availability zone. Users can share files in storage and use them from different VMs.
 
-Each file storage is located either in availability zone `{{ region-id }}-a` or in availability zone `{{ region-id }}-b` where it's replicated to safeguard the data. File storage is not replicated across availability zones.
+Each file storage is located either in availability zone `{{ region-id }}-a` or availability zone `{{ region-id }}-b` where it's replicated (with the exception of non-replicated storage) to safeguard the data. File storage is not replicated across availability zones.
 
 Storage is attached to a VM through the [Filesystem in Userspace](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) (FUSE) interface as a [virtiofs](https://www.kernel.org/doc/html/latest/filesystems/virtiofs.html) device that is not linked to the host file system directly.
 
@@ -16,7 +16,7 @@ By default, file storages have a [quota](limits.md#compute-quotas) of zero. To i
 
 ## File storage as a {{ yandex-cloud }} resource {#file-storage-as-resource}
 
-File storage is created in a folder and inherits access rights.
+File storage (stores) is created in a folder and inherits access rights.
 
 You're charged for the space used by storage depending on its size. For more information, see [{#T}](../pricing.md). The maximum storage size is 8192 GB.
 

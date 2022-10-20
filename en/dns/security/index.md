@@ -36,7 +36,7 @@ Active roles in the service:
 
 ## What roles do I need {#required-roles}
 
-The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, assign `editor` Instead of `viewer` or `dns.admin` Instead of `dns.editor`.
+The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, assign `editor` instead of `viewer` or `dns.admin` instead of `dns.editor`.
 
 | Action | Methods | Required roles |
 |:----------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

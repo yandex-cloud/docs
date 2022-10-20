@@ -8,3 +8,4 @@
 * [{#T}](./bigquery-to-clickhouse.md)
 * [{#T}](./exchange-data-with-dp.md)
 * [{#T}](./dns-peering.md)
+* [{#T}](mkf-to-mch-migration.md)
