@@ -20,9 +20,7 @@ You will be billed for:
 
    {% note tip %}
 
-   We recommend using [caching resolvers](tutorials/local-dns-cache.md), such as `systemd-resolved`,
-   `dnsmasq`, or `unbound`. They can help you reduce the number of queries for external domain names, reducing
-   costs.
+   We recommend using [caching resolvers](tutorials/local-dns-cache.md), such as `systemd-resolved`, `dnsmasq`, or `unbound`. They can help you reduce the number of queries for external domain names, reducing costs.
 
    {% endnote %}
 
@@ -39,18 +37,27 @@ You will not be billed for:
 
 The cost of public DNS queries is based on usage.
 
+For example, the cost of 50 thousand authoritative queries to your public DNS zone per month will be:
 
-
-
-> For example, if the price of 1 million authoritative queries is $0.256410, and 50000 queries were made during this month,
-> the monthly cost will be:
 > (50000 / 1000000) × $0.256410 = 0.05 × $0.256410 = $0.0128205
+>
+> Total: $0.0128205
 
-> E. g. if price of 1 million recursive requests is ₽20, and 1.2 million recursive queries were made from your VMs
-> between December 6, 2021 and December 31, 2021, the monthly cost will be:
-> (1,2 − 1,0) × ₽20 = 0,2 × ₽20 = ₽4
-> because first million recursive requests are provided free of charge, starting December 6, 2021.
+Where:
 
+* (50000 / 1000000) is the number of millions of executed queries.
+* $0.256410 is the cost per 1 million queries per month.
+
+For example, the cost of 1.2 million recursive queries for external names executed from December 1 to December 31, 2021 from your VMs per month will be:
+
+> (1.2 − 1.0) × $0.256410 = 0.2 × $0.256410 = $0.051282
+>
+> Total: $0.051282
+
+Where:
+
+* (1.2 − 1.0) is the number of millions of executed queries. You are not billed for the first million of recursive queries starting December 6, 2021.
+* $0.256410 is the cost per 1 million of recursive queries per month.
 
 ## DNS zones {#dns-zones}
 
@@ -60,8 +67,7 @@ You are charged for user-created [public](concepts/dns-zone.md#public-zones) or 
 
 Billing occurs per second. The cost is calculated in proportion to usage.
 
-> For example, the cost of owning 2 DNS zones for 360 hours will be the same as the cost of owning 1 DNS zone
-> for 720 hours.
+> For example, the cost of owning 2 DNS zones for 360 hours will be the same as the cost of owning 1 DNS zone for 720 hours.
 
 
 

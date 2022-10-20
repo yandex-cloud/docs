@@ -6,7 +6,7 @@ To create file [storage](../../concepts/filesystem.md):
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a file store.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a file storage.
    1. Select **{{ compute-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **File storage**.
    1. Click **Create file storage**.
@@ -15,7 +15,7 @@ To create file [storage](../../concepts/filesystem.md):
       {% include [name-format-2](../../../_includes/name-format-2.md) %}
 
    1. (optional) Add a description.
-   1. Select the storage [availability zone](../../../overview/concepts/geo-scope.md). You can only attach it to VMs from the same availability zone.
+   1. Select an [availability zone](../../../overview/concepts/geo-scope.md): either `{{ region-id }}-a` or `{{ region-id }}-b`. You can only attach storage to virtual machines from the same availability zone.
    1. Select the [storage type](../../concepts/filesystem.md#types).
 
       {% note warning %}
@@ -29,6 +29,6 @@ To create file [storage](../../concepts/filesystem.md):
 
 - API
 
-   Use the [FilesystemService/Create](../../api-ref/grpc/filesystem_service.md#Create) gRPC API method or the [Create](../../api-ref/Filesystem/create.md) method of the REST API Filesystem resource.
+   Use the [FilesystemService/Create](../../api-ref/grpc/filesystem_service.md#Create) gRPC API method or the [create](../../api-ref/Filesystem/create.md) method of the REST API Filesystem resource.
 
 {% endlist %}

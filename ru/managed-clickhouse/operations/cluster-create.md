@@ -214,6 +214,26 @@
          {{ yc-mdb-ch }} version list
          ```
 
+    1. Чтобы задать [настройки гибридного хранилища](../concepts/storage.md#hybrid-storage-settings):
+
+        * Включите гибридное хранилище, задав значение `true` для параметра `--cloud-storage`.
+
+            {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
+
+        * Передайте настройки гибридного хранилища в соответствующих параметрах:
+
+            {% include [Hybrid Storage settings CLI](../../_includes/mdb/mch/hybrid-storage-settings-cli.md) %}
+
+        ```bash
+        {{ yc-mdb-ch }} cluster create \
+            ...
+            --cloud-storage=true \
+            --cloud-storage-data-cache=<true или false> \
+            --cloud-storage-data-cache-max-size=<объем памяти (в байтах)> \
+            --cloud-storage-move-factor=<доля свободного места>
+            ...
+        ```
+
 - {{ TF }}
 
     {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -359,6 +379,13 @@
   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
   Чтобы разрешить доступ к кластеру из сервиса {{ yq-full-name }}, передайте значение `true` для параметра `configSpec.access.yandexQuery`.
+
+  Чтобы задать [настройки гибридного хранилища](../concepts/storage.md##hybrid-storage-settings):
+
+    * Включите гибридное хранилище, передав значение `true` в параметре `configSpec.cloudStorage.enabled`.
+    * Передайте настройки гибридного хранилища в параметрах `configSpec.cloudStorage`:
+
+        {% include [Hybrid Storage settings API](../../_includes/mdb/mch/hybrid-storage-settings-api.md) %}
 
   При создании кластера из нескольких хостов:
 

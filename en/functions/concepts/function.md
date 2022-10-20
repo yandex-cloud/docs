@@ -1,6 +1,6 @@
 # Function
 
-_The function_ lets you put your code in {{ yandex-cloud }} and run it on request or trigger.
+A _function_ lets you put your code in {{ yandex-cloud }} and run it on request or trigger.
 
 Once created, a function only contains its own metadata, including its name, description, and unique ID. To start using the function, you need to [create a function version](../operations/function/version-manage.md#version-create). You can execute functions using the HTTPS API or CLI.
 
@@ -8,14 +8,14 @@ Before writing your functions, review the [programming model](#programming-model
 
 ## Function versions {#version}
 
-_Versions_ contain the function code, run parameters, and all necessary dependencies. You can work with different versions of the same function during different stages of development (for example, a version under development or alpha and beta versions). When making changes, new versions are always created with a [tag](#tag) (by default, `$latest`). It doesn't matter if you uploaded a completely new code or made only minor changes.
+_Version_ contains the function code, run parameters, and all necessary dependencies. You can work with different versions of the same function during different stages of development (for example, a version under development or alpha and beta versions). When making changes, new versions are always created with a [tag](#tag) (by default, `$latest`). It doesn't matter if you uploaded a completely new code or made only minor changes.
 
 ### Code upload format {#upload}
 
 To create a version, you can use the [code editor](../operations/function/function-editor.md) or upload your code and its dependencies in one of the formats described in the table below. After you create a function, you no longer need the object with the code. You can delete it from storage.
 
 | Format | Management console | YC CLI |
-| ---- | ---- | ---- |
+|----|----|----|
 | ZIP archive from your PC | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | ZIP archive from S3, specifying the bucket and object | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Directory | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
@@ -45,11 +45,40 @@ To enable a function call, describe a _handler_ in it. It's defined when writing
 
 _Context_ lets your function code interact with {{ sf-name }}. For example, the function can use it to find how much time is left before {{ sf-name }} completes its execution.
 
-Incoming requests are processed by the function one at a time. If the function is called faster than one instance can process the request, the service scales the function by running additional function instances. This ensures _concurrent  request processing_. You can [limit](../operations/function/function-scale.md) the number of function instances and concurrent requests to it.
-
-To let your function process multiple requests simultaneously, use _asynchronous code execution_ provided by the [runtime environment](runtime/index.md).
+Incoming requests are processed by the function one at a time. To let your function process multiple requests simultaneously, use _asynchronous code execution_ provided by the [runtime environment](runtime/index.md).
 
 To report a function execution error to the service, handle errors using _exceptions_.
 
 The service _logs_ the execution of functions. However, if necessary, you can implement additional logging in your function code.
 
+### Scaling a function {#scaling}
+
+A function instance processes one function call at a single point in time. If the function is called faster than one instance can process the request, the service scales the function by running additional function instances. This ensures _concurrent request processing_. In {{ sf-name }}, you can specify:
+
+{% include [scaling](../../_includes/functions/scaling.md) %}
+
+{% note info %}
+
+Function calls are distributed across availability zones randomly. {{ sf-name }} does not guarantee their even distribution across zones. For example, all calls, regardless of their number, might end up in the same zone.
+
+{% endnote %}
+
+#### Limits {#limits}
+
+When the number of function instances reaches the `zone_instances_limit`, {{ sf-name }} stops scaling it. If there are more function calls than instances available, the call is queued and treated as a call-in-progress. When the number of calls-in-progress reaches the `zone_requests_limit`, the service stops queuing calls and returns the `429 TooManyRequests` error.
+
+#### Provisioned instances {#provisioned-instances}
+
+A _provisioned instance_ is a function instance that, when started, is guaranteed not to have a cold start. In the provisioned instance before the function is called:
+* The interpreter is started.
+* {{ sf-name }} runtime environment components are initialized.
+* The user code is loaded and initialized.
+
+{% include [provisioned-instances-price](../../_includes/functions/provisioned-instances-price.md) %}
+
+If the number of function calls exceeds the number of provisioned instances, {{ sf-name }} scales the function within the [quotas](limits.md#functions-quotas), but unprovisioned instances have a cold start when they are first started.
+
+#### See also
+
+* [Creating a function version.](../operations/function/version-manage.md#func-version-create)
+* [Adding scaling settings.](../operations/function/function-scale.md#add)

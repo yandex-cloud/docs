@@ -164,6 +164,10 @@ items:
           {{ data-transfer-full-name }}
         href: dataplatform/data-transfer-mpg.md
       - name: >-
+          Поставка данных из {{ mkf-full-name }} в {{ mch-full-name }} с помощью
+          {{ data-transfer-full-name }}
+        href: dataplatform/data-transfer-mkf-mch.md
+      - name: >-
           Поставка данных из {{ mmy-full-name }} в {{ mkf-full-name }} с помощью
           Debezium
         href: dataplatform/debezium-mmy.md
