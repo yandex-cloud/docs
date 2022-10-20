@@ -1,4 +1,4 @@
-| Service | Price per 1 GB×hour, with VAT |
+| Service | Price per 1 GB×hour, without VAT |
 | --- | --- |
-| Prepared instance downtime | $0.015385 |
-| Function execution time in the prepared instance | $0.029488 |
+| Downtime of a provisioned instance | $0.015385 |
+| Execution time of a function in a provisioned instance | $0.029488 |

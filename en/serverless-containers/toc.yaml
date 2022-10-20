@@ -25,6 +25,8 @@ items:
             href: operations/invoke.md
           - name: Updating a container
             href: operations/update.md
+          - name: Scaling a container
+            href: operations/scale.md
           - name: Monitoring
             href: operations/monitoring.md
           - name: Viewing the execution log

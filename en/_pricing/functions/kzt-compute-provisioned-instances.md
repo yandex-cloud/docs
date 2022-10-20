@@ -1,4 +1,4 @@
 | Service | Price per 1 GB×hour, with VAT |
 | --- | --- |
-| Prepared instance downtime | ₸6.00 |
-| Function execution time in the prepared instance | ₸11.50 |
+| Downtime of a provisioned instance | ₸6.00 |
+| Execution time of a function in a provisioned instance | ₸11.50 |
