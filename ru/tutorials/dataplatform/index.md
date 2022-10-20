@@ -5,6 +5,7 @@
 * [{#T}](kafka-connector.md)
 * [{#T}](data-transfer-mmy.md)
 * [{#T}](data-transfer-mpg.md)
+* [{#T}](data-transfer-mkf-mch.md)
 * [{#T}](debezium-mmy.md)
 * [{#T}](debezium-mpg.md)
 * [{#T}](kafka-connect.md)
@@ -22,6 +23,7 @@
 {% endif %}
 * [{#T}](clickhouse-for-graphite.md)
 * [{#T}](fetch-data-from-mkf.md)
+* [{#T}](data-transfer-mkf-mch.md)
 * [{#T}](fetch-data-from-rabbitmq.md)
 * [{#T}](clickhouse-hybrid-storage.md)
 * [{#T}](clickhouse-sharding.md)

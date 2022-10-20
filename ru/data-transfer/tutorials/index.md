@@ -12,6 +12,7 @@
 * [{#T}](cdc-mmy.md)
 * [{#T}](cdc-mpg.md)
 * [{#T}](rdbms-to-clickhouse.md)
+* [{#T}](mkf-to-mch.md)
 
 {% if product == "yandex-cloud" and audience != "internal" %}
 
