@@ -4,9 +4,19 @@
 
 Приложение создает драйвер подключения к базе {{ ydb-short-name }}, сессию, транзакцию и выполняет запрос, используя библиотеку `ydb`. Эта библиотека устанавливается как [зависимость](../functions/lang/python/dependencies.md) при создании версии функции. Параметры подключения к базе данных передаются в приложение через переменные окружения.
 
+Чтобы создать функцию и подключиться к базе данных:
+
+1. [Подготовьте облако к работе](#before-begin).
+1. [Создайте сервисный аккаунт](#create-sa).
+1. [Создайте базу данных {{ ydb-short-name }}](#create-database).
+1. [Создайте функцию](#create-function).
+1. [Протестируйте функцию](#test-function).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
 ## Подготовьте облако к работе {#before-begin}
 
-{% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](_tutorials_includes/before-you-begin.md) %}
 
 {% if product == "yandex-cloud" %}
 
@@ -140,3 +150,10 @@
       ```
 
 {% endlist %}
+
+## Как удалить созданные ресурсы {#clear-out}
+
+Чтобы перестать платить за созданные ресурсы:
+
+1. [удалите базу данных](../ydb/operations/manage-database.md#delete-db);
+1. [удалите функцию](../functions/operations/function/function-delete.md).
