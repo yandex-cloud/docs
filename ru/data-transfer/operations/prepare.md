@@ -134,7 +134,7 @@
 - {{ mmg-name }}
 
     1. Оцените общее количество баз данных для трансфера и общую нагрузку на {{ mmg-name }}. Если нагрузка на базы выше 10 000 транзакций на запись в секунду, создайте несколько эндпоинтов и трансферов. Подробнее см. в разделе [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
-    1. [Создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) с ролью `readWrite` на базу источник.
+    1. [Создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) с ролью `readWrite` на каждую базу в источнике, которая будет реплицироваться. Роль `readWrite` нужна для того, чтобы у трансфера было право записи в служебную коллекцию `__dt_cluster_time`.
 
 
 - {{ MG }}
@@ -189,7 +189,7 @@
             });
             ```
 
-    1. Создайте пользователя с ролью `readWrite` на базу-источник:
+    1. Создайте пользователя с ролью [`readWrite`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-readWrite) на все базы в источнике, которые будут реплицироваться:
 
         ```javascript
         use admin
@@ -199,23 +199,34 @@
             mechanisms: ["SCRAM-SHA-1"],
             roles: [
                 {
-                    db: "<имя базы-источника>",
+                    db: "<имя базы-источника 1>",
                     role: "readWrite"
-                }
+                },
+                {
+                    db: "<имя базы-источника 2>",
+                    role: "readWrite"
+                },
+                ...
             ]
         });
         ```
 
-        После старта трансфер подключится к источнику от имени этого пользователя.
+        После старта трансфер подключится к источнику от имени этого пользователя. Роль `readWrite` нужна для того, чтобы у трансфера было право записи в служебную коллекцию `__dt_cluster_time`.
 
-    1. При использовании {{ MG }} версий 3.4 и 3.6 для работы трансфера необходимо, чтобы пользователь обладал правами на чтение коллекции `local.oplog.rs`, а также на запись с чтением коллекции `__data_transfer.__dt_cluster_time`. Чтобы назначить пользователю роль `clusterAdmin`, предоставляющую такие права, подключитесь к {{ MG }} и выполните команды:
+        {% note info %}
+
+        Для {{ MG }} версий 3.6 и более старых достаточно выдать созданному пользователю роль [`read`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-read) на реплицируемые базы.
+
+        {% endnote %}
+
+    1. При использовании {{ MG }} версий 3.4 и 3.6 для работы трансфера необходимо, чтобы пользователь обладал правами на чтение коллекции `local.oplog.rs`, а также на запись с чтением коллекции `__data_transfer.__dt_cluster_time`. Чтобы назначить пользователю роль [`clusterAdmin`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-clusterAdmin), предоставляющую такие права, подключитесь к {{ MG }} и выполните команды:
 
         ```js
         use admin;
         db.grantRolesToUser("<имя пользователя>", ["clusterAdmin"]);
         ```
        
-        Для выдачи более гранулярных прав можно назначить роль "clusterMonitor", необходимую для чтения коллекции `local.oplog.rs`, а также дать доступ на чтение и запись системной коллекции `__data_transfer.__dt_cluster_time`.
+        Для выдачи более гранулярных прав можно назначить роль [`clusterMonitor`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-clusterMonitor), необходимую для чтения коллекции `local.oplog.rs`, а также дать доступ на чтение и запись системной коллекции `__data_transfer.__dt_cluster_time`.
 
 {% endlist %}
 
@@ -386,7 +397,7 @@
             * `SELECT` над всеми таблицами базы данных, которые переносит трансфер;
             * `SELECT` над всеми последовательностями базы данных, которые переносит трансфер;
             * `USAGE` на схемы этих таблиц и последовательностей.
-            * `ALL PRIVILEGES` (`CREATE` и `USAGE`) на задаваемую [параметром эндпоинта](./endpoint/source/postgresql.md#additional-settings) схему служебных таблиц, если эндпоинт будет использоваться для типов трансфера _{{ dt-type-repl }}_ или _{{ dt-type-copy-repl }}_.
+            * `ALL PRIVILEGES` (`CREATE` и `USAGE`) на задаваемую [параметром эндпоинта](./endpoint/source/postgresql.md#additional-settings) схему служебных таблиц `__consumer_keeper` и `__data_transfer_mole_finder`, если эндпоинт будет использоваться для типов трансфера _{{ dt-type-repl }}_ или _{{ dt-type-copy-repl }}_.
 
     1. Если источник репликации — кластер, [включите](../../managed-postgresql/operations/extensions/cluster-extensions.md) для него расширение `pg_tm_aux`. Это позволит продолжить репликацию в случае смены хоста-мастера. В некоторых случаях при смене мастера в кластере трансфер может завершиться ошибкой. Подробнее см. в разделе [Решение проблем](../troubleshooting/index.md#master-change).
 
@@ -433,6 +444,12 @@
         ```sql
         GRANT SELECT ON ALL TABLES IN SCHEMA <название схемы> TO <имя пользователя>;
         GRANT USAGE ON SCHEMA <название схемы> TO <имя пользователя>;
+        ```
+
+    1. Выдайте созданному пользователю привилегии на задаваемую [параметром эндпоинта](./endpoint/source/postgresql.md#additional-settings) схему служебных таблиц `__consumer_keeper` и `__data_transfer_mole_finder`, если эндпоинт будет использоваться для типов трансфера _{{ dt-type-repl }}_ или _{{ dt-type-copy-repl }}_:
+
+        ```sql
+        GRANT ALL PRIVILEGES ON SCHEMA <имя схемы> TO <имя пользователя>;
         ```
 
     1. Установите и включите расширение [wal2json](https://github.com/eulerto/wal2json).
@@ -969,6 +986,12 @@
 
         После старта трансфер подключится к приемнику от имени этого пользователя.
 
+    1. Если в приемнике включена опция [сохранение границ транзакций](endpoint/target/postgresql.md#additional-settings), выдайте созданному пользователю все привилегии на создание служебной таблицы `__data_transfer_lsn` в [текущей схеме](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (обычно `public`) на приёмнике:
+
+        ```sql
+        GRANT ALL PRIVILEGES ON SCHEMA <имя схемы> TO <имя пользователя>;
+        ```
+
     1. Убедитесь, что на приемнике выбрана политика очистки `DROP таблиц трансфера`.
 
 - {{ PG }}
@@ -1014,6 +1037,12 @@
         ```
 
         После старта трансфер подключится к приемнику от имени этого пользователя.
+
+    1. Если в приемнике включена опция [сохранение границ транзакций](endpoint/target/postgresql.md#additional-settings), выдайте созданному пользователю все привилегии на создание служебной таблицы `__data_transfer_lsn` в [текущей схеме](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (обычно `public`) на приёмнике:
+
+        ```sql
+        GRANT ALL PRIVILEGES ON SCHEMA <имя схемы> TO <имя пользователя>;
+        ```
 
 {% endlist %}
 
