@@ -18,6 +18,7 @@ API-шлюз задается декларативно при помощи сп�
 * [Интеграция с {{ yds-name }}](../concepts/extensions/datastreams.md).
 * [Интеграция с {{ serverless-containers-name }}](../concepts/extensions/containers.md).
 * [Интеграция с {{ message-queue-short-name }}](../concepts/extensions/ymq.md).
+* [Интеграция с {{ ydb-short-name }}](../concepts/extensions/ydb.md).
 * [Жадные параметры](../concepts/extensions/greedy-parameters.md).
 * [Обобщенный HTTP-метод](../concepts/extensions/any-method.md).
 

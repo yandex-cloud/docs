@@ -61,6 +61,8 @@ items:
             href: concepts/extensions/datastreams.md
           - name: Интеграция с Message Queue
             href: concepts/extensions/ymq.md
+          - name: Интеграция с YDB
+            href: concepts/extensions/ydb.md
           - name: Жадные параметры
             href: concepts/extensions/greedy-parameters.md
           - name: Обобщенный HTTP-метод
