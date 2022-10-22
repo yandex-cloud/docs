@@ -214,6 +214,9 @@
        cluster_id = "<идентификатор кластера>"
        name       = "<имя базы данных>"
        owner      = "<имя владельца базы данных>"
+       depends_on = [
+         yandex_mdb_postgresql_user.<имя пользователя>
+       ]
      }
 
      resource "yandex_mdb_postgresql_user" "<имя пользователя>" {
