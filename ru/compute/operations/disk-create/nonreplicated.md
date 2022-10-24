@@ -70,7 +70,66 @@
       status: READY
       disk_placement_policy: {}
       ```
-  
+
+- {{ TF }}
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Опишите в конфигурационном файле параметры нереплицируемого диска:
+
+     ```hcl
+     resource "yandex_compute_disk" "nr" {
+       name       = "<имя_нереплицируемого_диска>"
+       size       = <размер_нереплицируемого_диска>
+       block_size = <размер_блока>
+       type       = "network-ssd-nonreplicated"
+       zone       = "<зона_доступности>"
+     }
+     ```
+
+     Где:
+     * `name` — имя нереплицируемого диска. Формат имени:
+
+          {% include [name-format](../../../_includes/name-format.md) %}
+
+     * `size` — размер нереплицируемого диска, должен быть кратен 93 ГБ.
+     * `block_size` — размер блока в байтах (минимальный объем хранения информации на диске). Максимальный размер диска зависит от заданного размера блока. По умолчанию размер блоков всех создаваемых дисков равен 4 КБ, однако для дисков больше 8 ТБ этого недостаточно. Подробнее см. в разделе [{#T}](../../../compute/operations/disk-create/empty-disk-blocksize.md).
+     * `type` — тип создаваемого диска. Укажите `network-ssd-nonreplicated` для создания нереплицируемого диска.
+     * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md). 
+        
+        {% if product == "yandex-cloud" %} {% include [nrd-az](../../../_includes/compute/nrd-az.md) %} {% endif %} 
+
+     Более подробную информацию о параметрах ресурса `yandex_compute_disk` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/compute_disk#example-usage---non-replicated-disk).
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+     1. Выполните проверку с помощью команды:
+
+        ```bash
+        terraform plan
+        ```
+
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+
+  1. Разверните облачные ресурсы.
+
+     1. Если в конфигурации нет ошибок, выполните команду:
+
+        ```bash
+        terraform apply
+        ```
+
+     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+
+        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+        ```bash
+        yc compute disk list
+        ```
+
 {% endlist %}
 
 ## Создать нереплицируемый диск в группе размещения {#nr-disk-in-group}
@@ -138,6 +197,74 @@
       disk_placement_policy:
         placement_group_id: epdn946ilslhiug1vh7v
       ```
+
+- {{ TF }}
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Опишите в конфигурационном файле параметры нереплицируемого диска с указанием на группу размещения дисков в поле `disk_placement_group_id`:
+
+     ```hcl
+     resource "yandex_compute_disk" "nr" {
+       name       = "non-replicated-disk-name"
+       size       = 93
+       block_size = 4096
+       type       = "network-ssd-nonreplicated"
+       zone       = "{{ region-id }}-b"
+	   disk_placement_policy {
+         disk_placement_group_id = yandex_compute_disk_placement_group.this.id
+       }
+     }
+
+	 resource "yandex_compute_disk_placement_group" "this" {
+       zone = "{{ region-id }}-b"
+     }
+     ```
+
+     Где:
+     * `name` — имя нереплицируемого диска. Формат имени:
+
+          {% include [name-format](../../../_includes/name-format.md) %}
+
+     * `size` — размер нереплицируемого диска, должен быть кратен 93 ГБ.
+     * `block_size` — размер блока в байтах (минимальный объем хранения информации на диске). Максимальный размер диска зависит от заданного размера блока. По умолчанию размер блоков всех создаваемых дисков равен 4 КБ, однако для дисков больше 8 ТБ этого недостаточно. Подробнее см. в разделе [{#T}](../../../compute/operations/disk-create/empty-disk-blocksize.md).
+     * `type` — тип создаваемого диска. Укажите `network-ssd-nonreplicated` для создания нереплицируемого диска.
+     * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md). Зона доступности для диска должна соответствовать зоне группы размещения, в которой вы хотите создать диск.
+
+        {% if product == "yandex-cloud" %} {% include [nrd-az](../../../_includes/compute/nrd-az.md) %} {% endif %} 
+
+     * `disk_placement_group_id` — идентификатор группы размещения дисков.
+
+     Более подробную информацию о параметрах ресурса `yandex_compute_disk` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/compute_disk#example-usage---non-replicated-disk).
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+     1. Выполните проверку с помощью команды:
+
+        ```bash
+        terraform plan
+        ```
+
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+
+  1. Разверните облачные ресурсы.
+
+     1. Если в конфигурации нет ошибок, выполните команду:
+
+        ```bash
+        terraform apply
+        ```
+
+     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+
+        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+        ```bash
+        yc compute disk list
+        ```
 
 {% endlist %}
 
