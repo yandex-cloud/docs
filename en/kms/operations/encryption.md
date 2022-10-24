@@ -33,6 +33,14 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
 
    Use the [encrypt](../api-ref/SymmetricCrypto/encrypt) method for the `SymmetricCrypto` resource.
 
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   {% include [terraform-encryption](../../_includes/kms/terraform-encryption.md) %}
+
 {% if product == "yandex-cloud" %}
 - SDK {{ yandex-cloud }}
 
@@ -96,3 +104,4 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
 * [Command line interface (YC CLI)](../../cli).
 * [Encryption in Key Management Service](../concepts/encryption.md).
 * [Managing keys in KMS](./index.md).
+* [Encrypting secrets in Hashicorp Terraform](../../kms/tutorials/terraform-secret.md).
