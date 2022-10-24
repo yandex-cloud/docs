@@ -1,5 +1,11 @@
 # Gateway API для {{ managed-k8s-name }}
 
+{% note info %}
+
+Gateway API находится на стадии Preview.
+
+{% endnote %}
+
 {{ alb-name }} предоставляет инструмент для создания и управления балансировщиками нагрузки в [кластерах {{ managed-k8s-full-name }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) — Gateway API. Подробнее о проекте Gateway API см. на его [сайте](https://gateway-api.sigs.k8s.io/).
 
 После установки Gateway API вы сможете создать с его помощью ресурс `Gateway` и связанные с ним ресурсы `HTTPRoute`: 
@@ -9,7 +15,7 @@
 
 ## Пример конфигурации {#example}
 
-Ниже приведен сокращенный пример конфигурации ресурса `Ingress`. По ней будет создан балансировщик, принимающий HTTPS-трафик и распределяющий его по двум сервисам в зависимости от пути в URI запроса.
+Ниже приведен пример конфигурации ресурсов `Gateway` и `HTTPRoute`. По ней будет создан балансировщик, принимающий HTTPS-трафик и распределяющий его по двум сервисам в зависимости от пути в URI запроса.
 
 {% cut "Пример" %}
 
@@ -93,8 +99,8 @@ spec:
 
 Установить Gateway API можно:
 
-* Как продукт {{ marketplace-full-name }} через консоль управления.
-* Как чарт через менеджер пакетов [Helm]{% if lang == "ru" %}(https://helm.sh/ru/){% else %}(https://helm.sh/){% endif %} версии не ниже {{ alb-ingress-helm-version }} с [включенной поддержкой OCI](https://helm.sh/docs/topics/registries/). Чарт скачивается и устанавливается с помощью следующих команд:
+* Как [продукт {{ marketplace-full-name }}](/marketplace/products/yc/gateway-api) через консоль управления.
+* Как чарт через менеджер пакетов [Helm]{% if lang == "ru" %}(https://helm.sh/ru/){% else %}(https://helm.sh/){% endif %} версии не ниже {{ alb-ingress-helm-version }} с [включенной поддержкой OCI](https://helm.sh/docs/topics/registries/). Чтобы скачать и установить чарт, выполните следующие команды:
 
   ```bash
   export HELM_EXPERIMENTAL_OCI=1 && \

@@ -1,5 +1,11 @@
 # Поля ресурса HTTPRoute
 
+В ресурсе `HTTPRoute` определяются правила маршрутизации трафика по бэкендам — сервисам {{ k8s }} ([ресурсам `Service`](service.md)) или перенаправления трафика. `HTTPRoute` получает входящий трафик от тех [ресурсов `Gateway`](gateway.md), требованиям которых соответствует.
+
+`HTTPRoute` предназначен для разработчиков приложений. Оператор кластера должен использовать `Gateway`.
+
+`HTTPRoute` — ресурс {{ k8s }}, определенный [проектом {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/). В этом справочнике описаны поля и аннотации ресурса, с которыми работает Gateway API {{ alb-name }}. Полный справочник ресурса см. в [документации {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.HTTPRoute).
+
 ## HTTPRoute {#httproute}
 
 ```yaml
@@ -43,7 +49,6 @@ parentRefs:
     namespace: <string>
     name: <string>
     sectionName: <string>
-    port: <int32>
   - ...
 hostnames:
   - <string>
@@ -76,7 +81,7 @@ rules:
 
 * `parentRefs` (`[]ParentReference`, обязательное)
 
-  Список ресурсов `Gateway`, к которым должен быть привязан `HTTPRoute`.
+  Список ресурсов `Gateway` (или их обработчиков из поля `spec.listeners` — см. [справочник](gateway.md#spec)), к которым должен быть привязан `HTTPRoute`.
 
   Также маршрут должен удовлетворять правилам, описанным в [спецификации](gateway.md#spec) `Gateway` (поле `spec.listeners.allowedRoutes`).
   
@@ -91,7 +96,8 @@ rules:
     Имя ресурса `Gateway` (указано в его метаданных — в поле `metadata.name`).
 
   * `sectionName` (`string`)
-  * `port` (`int32`)
+  
+    Имя обработчика, указанного в ресурсе `Gateway` (указано в поле `spec.listeners.name`).
 
 * `hostnames` (`[]string`)
 
