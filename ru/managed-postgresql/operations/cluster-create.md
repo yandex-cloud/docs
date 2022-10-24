@@ -245,6 +245,7 @@
 
        host {
          zone      = "<зона доступности>"
+         name      = "<имя хоста>"
          subnet_id = "<идентификатор подсети>"
        }
      }
@@ -607,6 +608,7 @@
 
     host {
       zone      = "{{ region-id }}-a"
+      name      = "mypg-host-a"
       subnet_id = yandex_vpc_subnet.mysubnet.id
     }
   }
