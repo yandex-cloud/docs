@@ -1,4 +1,4 @@
-# Настройка групп безопасности Ingress-контроллера {{ alb-name }}
+# Настройка групп безопасности для инструментов {{ alb-name }} для {{ managed-k8s-name }} 
 
 {% include [security-groups-note](../../_includes_service/security-groups-note.md) %}
 

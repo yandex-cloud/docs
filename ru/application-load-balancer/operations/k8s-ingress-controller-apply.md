@@ -1,6 +1,6 @@
-# Создать или изменить ресурсы {{ alb-name }} по конфигурации для Ingress-контроллера в {{ managed-k8s-full-name }}
+# Создать или изменить ресурсы {{ alb-name }} по конфигурации для {{ managed-k8s-name }}
 
-Инструменты {{ alb-name }} для {{ managed-k8s-name }} — [Ingress-контроллер](../tools/k8s-ingress-controller/index.md) и [Gateway API](../tools/k8s-gateway-api/index.md) — управляют ресурсами {{ alb-name }} по вашей конфигурации — файлам в формате YAML с описаниями ресурсов {{ k8s }}: `Ingress`, `HttpBackendGroup`, `Gateway`, `HTTPRoute` и т. д. Подробнее о конфигурации см. в [справочнике инструментов для {{ managed-k8s-name }}](../k8s-ref/index.md).
+Чтобы управлять ресурсами {{ alb-name }} с помощью [Ingress-контроллера](../tools/k8s-ingress-controller/index.md) и [Gateway API](../tools/k8s-gateway-api/index.md) для {{ managed-k8s-full-name }}, нужно создать конфигурации — файлы в формате YAML с описаниями ресурсов {{ k8s }}: `Ingress`, `HttpBackendGroup`, `Gateway`, `HTTPRoute` и т. д. Подробнее о конфигурации см. в [справочнике инструментов для {{ managed-k8s-name }}](../k8s-ref/index.md).
 
 ## Перед началом работы {#prerequisites}
 

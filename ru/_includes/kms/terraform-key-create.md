@@ -11,7 +11,7 @@
      lifecycle {
        prevent_destroy = true
      }
-   
+   }
    ```
 
    Где:
