@@ -56,7 +56,7 @@ fqdn | FQDN хоста
 | `diskio.reads`<br/>`DGAUGE`, штуки | Количество операций чтения с диска. | 
 | `diskio.weighted_io_time`<br/>`DGAUGE`, миллисекунды | Длительность ожидания операций ввода/вывода. | 
 | `diskio.write_bytes`<br/>`DGAUGE`, байты | Объем записи на диск.  | 
-| `diskio.write_time`<br/>`DGAUGE`, миллисекунды | Длительнсть записи на диск. | 
+| `diskio.write_time`<br/>`DGAUGE`, миллисекунды | Длительность записи на диск. | 
 | `diskio.writes`<br/>`DGAUGE`, штуки | Количество операций записи на диск. | 
 
 ### Метрики RAM {#managed-greenplum-ram-metrics}

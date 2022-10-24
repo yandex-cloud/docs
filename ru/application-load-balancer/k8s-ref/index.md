@@ -11,8 +11,8 @@
 
 ## Ресурсы Gateway API {#gateway-api}
 
-* [Gateway](gateway.md)
-* [HTTPRoute](http-route.md)
+* [Gateway](gateway.md) — правила приема входящего трафика и выбора маршрутов (`HTTPRoute`) для этого трафика.
+* [HTTPRoute](http-route.md) — правила маршрутизации трафика по бэкендам или его перенаправления.
 
 
 ## Общие ресурсы {#common}

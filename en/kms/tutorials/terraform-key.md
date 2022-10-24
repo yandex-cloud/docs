@@ -14,9 +14,9 @@ For example, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `kms.ke
 
 ```hcl
 resource "yandex_resourcemanager_folder_iam_member" "admin" {
-  folder_id = "<folder_ID>"
+  folder_id = "<ID of the folder>"
   role      = "kms.keys.encrypterDecrypter"
-  member    = "serviceAccount:<service_account_ID>"
+  member    = "serviceAccount:<service account ID>"
 }
 ```
 
@@ -24,5 +24,5 @@ resource "yandex_resourcemanager_folder_iam_member" "admin" {
 
 * [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [{#T}](../security/index.md).
-* [{{ yandex-cloud }} provider documentation]({{ tf-provider-link }}/).
-* [Encrypting data using the {{ yandex-cloud }} CLI and API](../../kms/operations/key.md).
+* [The {{ yandex-cloud }} provider documentation]({{ tf-provider-link }}/).
+* [Encrypting data using the {{ yandex-cloud }} CLI and API](../../kms/operations/key.md)

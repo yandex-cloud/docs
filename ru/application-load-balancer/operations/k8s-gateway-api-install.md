@@ -1,30 +1,32 @@
 # Установить Gateway API {{ alb-name }} для {{ managed-k8s-name }}
 
+[Gateway API {{ alb-name }} для {{ managed-k8s-full-name }}](../tools/k8s-gateway-api/index.md) поставляется как продукт {{ marketplace-name }} или как чарт [Helm](https://helm.sh/ru/) — менеджера пакетов для {{ k8s }}.
+
 ## Перед началом работы {#before-you-begin}
 
 1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
 
 1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
-## Создание сервисного аккаунта {#create-sa-key}
+1. Создайте и настройте сервисный аккаунт для работы Gateway API:
 
-1. {% include [cli-install](../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md), необходимый для работы Gateway API.
-1. [Назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md):
- * `alb.editor` — для создания необходимых ресурсов.
- * `vpc.publicAdmin` — для управления [внешней связностью](../../vpc/security/index.md#roles-list).
- * `certificate-manager.certificates.admin` — для управления сертификатами, зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/).
- * `compute.viewer` — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) балансировщика.
-1. Создайте для сервисного аккаунта [авторизованный ключ](../../iam/operations/sa/create-access-key.md) и сохраните в файл `sa-key.json`:
-
-   ```bash
-   yc iam key create \
-     --service-account-name <имя_сервисного_аккаунта_для_Gateway_API> \
-     --output sa-key.json
-   ```
+   1. {% include [cli-install](../../_includes/cli-install.md) %}
+   
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   
+   1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md), необходимый для работы Gateway API.
+   1. [Назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md):
+      * `alb.editor` — для создания необходимых ресурсов.
+      * `vpc.publicAdmin` — для управления [внешней связностью](../../vpc/security/index.md#roles-list).
+      * `certificate-manager.certificates.admin` — для управления сертификатами, зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/).
+      * `compute.viewer` — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) балансировщика.
+   1. Создайте для сервисного аккаунта [авторизованный ключ](../../iam/operations/sa/create-access-key.md) и сохраните в файле `sa-key.json`:
+   
+      ```bash
+      yc iam key create \
+        --service-account-name <имя_сервисного_аккаунта_для_Gateway_API> \
+        --output sa-key.json
+      ```
 
 ## Установка с помощью {{ marketplace-full-name }} {#install-alb-marketplace}
 
@@ -77,5 +79,5 @@
 
 ## См. также {#see-also}
 
-* [Описание Ingress-контроллеров](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) в документации {{ k8s }}.
+* [Описание проекта Gateway API](https://gateway-api.sigs.k8s.io/).
 * [Справочник инструментов {{ alb-name }} для {{ managed-k8s-name }}](../k8s-ref/index.md).

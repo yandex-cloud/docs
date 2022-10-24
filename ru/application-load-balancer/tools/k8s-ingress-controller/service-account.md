@@ -1,4 +1,4 @@
-# Сервисный аккаунт для Ingress-контроллера {{ alb-name }}
+# Сервисный аккаунт для инструментов {{ alb-name }} для {{ managed-k8s-name }}
 
 Инструменты {{ alb-name }} для {{ managed-k8s-name }} — [Ingress-контроллер](index.md) и [Gateway API](../k8s-gateway-api/index.md) — разворачивают инфраструктуру от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Этому аккаунту требуются следующие разрешения:
 

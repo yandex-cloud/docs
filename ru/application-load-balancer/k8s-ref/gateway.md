@@ -1,5 +1,11 @@
 # Поля ресурса Gateway
 
+В ресурсе `Gateway` определяются правила приема входящего трафика и выбора маршрутов ([ресурсов `HTTPRoute`](http-route.md)) для этого трафика. По этим правилам [Gateway API {{ alb-name }}](../tools/k8s-gateway-api/index.md) создает [балансировщик](../concepts/application-load-balancer.md) с нужными обработчиками и [HTTP-роутерами](../concepts/http-router.md).
+
+`Gateway` предназначен для оператора кластера. Разработчики приложений должны использовать `HTTPRoute`.
+
+`Gateway` — ресурс {{ k8s }}, определенный [проектом {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/). В этом справочнике описаны поля и аннотации ресурса, с которыми работает Gateway API {{ alb-name }}. Полный справочник ресурса см. в [документации {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.Gateway).
+
 ## Gateway {#gateway}
 
 ```yaml
@@ -16,7 +22,7 @@ spec: <GatewaySpec>
 Где:
 
 * `apiVersion`: `gateway.networking.k8s.io/v1alpha2`
-* `kind`: `Ingress`
+* `kind`: `Gateway`
 * `metadata` (`ObjectMeta`, обязательное)
   
   Метаданные ресурса.
@@ -138,11 +144,20 @@ addresses:
 
     * `certificateRefs` (`[]SecretObjectReference`)
   
-        Список ресурсов {{ k8s }}, в которых хранятся TLS-сертификаты.
+      Список ресурсов {{ k8s }}, в которых хранятся TLS-сертификаты.
+
+      Используется, только если значение поля `protocol` — `HTTPS`. В этом случае в списке должен быть хотя бы один сертификат.
+
+      В балансировщике используется только первый сертификат из списка, остальные игнорируются.
   
-        Используется, только если значение поля `protocol` — HTTPS. В этом случае в списке должен быть хотя бы один сертификат.
+      Добавить сертификат в кластер можно в виде секрета (ресурса `Secret`) через консоль управления {{ managed-k8s-name }} или с помощью kubectl:
   
-        В балансировщике используется только первый сертификат из списка, остальные игнорируются.
+      ```
+      kubectl create secret tls <имя_секрета> \
+        -n <имя_пространства_имен> \
+        --cert <путь_к_файлу_с_сертификатом> \
+        --key <путь_к_файлу_с_закрытым_ключом_сертификата>
+      ```
   
       * `group` (`string`)
         
@@ -166,9 +181,9 @@ addresses:
 
   * `allowedRoutes` (`AllowedRoutes`)
 
-    Правила, по которым для обработчика отбираются маршруты (ресурсы `HTTPRoute`). По этим маршрутам создаются [HTTP-роутеры](../concepts/http-router.md) и [группы бэкендов](../concepts/backend-group.md), привязываемые к обработчику.
+    Правила, по которым для обработчика выбираются маршруты (ресурсы `HTTPRoute`). По этим маршрутам создаются [HTTP-роутеры](../concepts/http-router.md) и [группы бэкендов](../concepts/backend-group.md), привязываемые к обработчику.
   
-    Чтобы `HTTPRoute` был отобран, в его [спецификации](http-route.md#spec) (поле `spec.parentRefs`) должно быть указание на `Gateway`.
+    Чтобы `HTTPRoute` был выбран, в его [спецификации](http-route.md#spec) (поле `spec.parentRefs`) должно быть указание на `Gateway`.
   
     * `namespaces` (`RouteNamespaces`)
   

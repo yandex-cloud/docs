@@ -4,14 +4,14 @@ To create a key:
 
    ```hcl
    resource "yandex_kms_symmetric_key" "key-a" {
-     name              = "<key_name>"
-     description       = "<key_description>"
+     name              = "<key name>"
+     description       = "<key description>"
      default_algorithm = "AES_128"
      rotation_period   = "8760h"
      lifecycle {
        prevent_destroy = true
      }
-
+   }
    ```
 
    Where:
