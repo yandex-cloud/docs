@@ -55,6 +55,8 @@ items:
         href: operations/performance-diagnostics.md
       - name: Мониторинг состояния кластера и хостов
         href: operations/monitoring.md
+      - name: Управление слотами репликации
+        href: operations/replication-slots.md
   - name: Практические руководства
     items:
       - name: Все сценарии

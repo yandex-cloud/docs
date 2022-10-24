@@ -71,3 +71,17 @@
 Недостаток этого решения — операции записи в кластер будут занимать больше времени. Если мастер и кворумная реплика расположены в разных зонах доступности, то задержка подтверждения транзакции (latency) будет не меньше, чем время передачи данных туда и обратно (Round-Trip Time, RTT) между дата-центрами. Это снизит производительность кластера при записи в один поток и при включенном режиме `AUTOCOMMIT`.
 
 Для повышения производительности ведите запись в несколько потоков, где это возможно, а также [отключите `AUTOCOMMIT`](https://www.postgresql.org/docs/current/ecpg-sql-set-autocommit.html) и группируйте запросы в транзакции.
+
+## Логическое декодирование {#logical-decoding}
+
+Кластер {{ mpg-name }} поддерживает [логическое декодирование](https://www.postgresql.org/docs/current/logicaldecoding.html), которое позволяет передавать во внешние сервисы информацию об изменениях в базе данных. В частности, оно используется для [захвата изменения данных (CDC)](../../data-transfer/concepts/cdc.md).
+
+Информация об изменениях в базе данных в формате WAL передается в [слот репликации](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html), который преобразует ее в понятный внешнему сервису формат с помощью [выходного плагина](https://www.postgresql.org/docs/current/logicaldecoding-output-plugin.html).
+
+{{ mpg-name }} поддерживает следующие плагины WAL:
+
+* [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) — преобразует данные из WAL в текстовое представление.
+* [wal2json](https://github.com/eulerto/wal2json) — преобразует данные из WAL в JSON-представление.
+* [pgoutput](https://www.npgsql.org/doc/replication.html#logical-streaming-replication-protocol-pgoutput-plugin) — преобразует данные из WAL в [формат протокола логической репликации](https://www.postgresql.org/docs/current/protocol-logicalrep-message-formats.html).
+
+[Создавать](../operations/replication-slots.md#create) слоты репликации могут пользователи с [ролью `mdb_replication`](./roles.md#mdb-replication).
