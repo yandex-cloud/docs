@@ -855,7 +855,6 @@ Converts the `value` expression to date and time format. Unlike [GENERICDATETIME
 
 Returns the current date and time, depending on the data source and connection type.
 
-
 ## [GEOCODE](GEOCODE.md)
 
 **Syntax:**`GEOCODE( address )`
@@ -883,13 +882,11 @@ Possible values for `scale` parameter:
 The calculated field using this function must be created at the dataset level.
 To enable the function, go to the [Service Settings]({{ link-datalens-settings }}) page.
 
-
 ## [GEOPOINT](GEOPOINT.md)
 
 **Syntax:**`GEOPOINT( value_1 [ , value_2 ] )`
 
 Generates a Geopoint type value. For the input, it accepts a string, a "geopoint" type value, or coordinates — latitude `value_1` and longitude `value_2`. If a single string is input, it must contain a list of two numbers (latitude and longitude) in JSON syntax.
-
 
 
 ## [GEOPOLYGON](GEOPOLYGON.md)
@@ -1904,7 +1901,6 @@ Returns the current date, depending on the data source and connection type.
 
 Returns a string that contains top `amount` grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
-
 ## [TOPONYM_TO_GEOPOINT](TOPONYM_TO_GEOPOINT.md)
 
 **Syntax:**`TOPONYM_TO_GEOPOINT( name )`
@@ -1918,7 +1914,6 @@ See the full [list of toponyms]({{ geopoints-list-link }}).
 
 Converts the name of a geographical entity (country, region, city) `name` to the `Geopolygon` type.
 See the full [list of toponyms]({{ geopolygons-list-link }}).
-
 
 ## [TRIM](TRIM.md)
 

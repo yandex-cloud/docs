@@ -209,11 +209,11 @@ items:
             href: operations/marketplace/create-connector-for-partners.md
       - name: Работа с организациями
         items:
-          - name: Переключение между экземплярами DataLens
+          - name: Переключение между экземплярами {{ datalens-name }}
             href: operations/organizations/change-organization.md
   - name: Управление доступом
     items:
-      - name: Управление доступом к DataLens
+      - name: Управление доступом к {{ datalens-name }}
         href: security/index.md
       - name: Управление доступом на уровне строк данных
         href: security/row-level-security.md
@@ -700,7 +700,7 @@ items:
     items:
       - name: Вопросы и ответы
         href: qa/index.md
-      - name: Ошибки DataLens
+      - name: Ошибки {{ datalens-name }}
         href: troubleshooting/errors/all.md
       - name: Access denied
         hidden: true

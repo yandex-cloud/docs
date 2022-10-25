@@ -12,7 +12,7 @@ default:
   permission-write: Write
   permission-read: Read
   permission-execute: Execute
-  datalens-full-name: Yandex DataLens
+  datalens-full-name: DataLens
   datalens-name: DataLens
   datalens-short-name: DataLens
   datalens-public: DataLens Public
