@@ -2,8 +2,8 @@ title: Yandex Cloud Backup
 stage: tech-preview
 href: index.yaml
 items:
-#  - name: Начало работы
-#    href: quickstart.md
+  - name: Начало работы
+    href: quickstart.md
 #  - name: Пошаговые инструкции
 #    items:
 #      - name: Все инструкции

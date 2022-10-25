@@ -9,9 +9,9 @@ description:
 meta:
   title: Yandex Cloud Backup
 links:
-#  - title: Начало работы
-#    description: Создайте первую политику резервного копирования
-#    href: quickstart/
+  - title: Начало работы
+    description: Создайте ВМ и привяжите ее к политике резервного копирования
+    href: quickstart/
 #  - title: Пошаговые инструкции
 #    description: Инструкции по выполнению рутинных операций
 #    href: operations/
