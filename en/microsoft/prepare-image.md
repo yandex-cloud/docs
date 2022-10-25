@@ -41,6 +41,12 @@ Using the [{{ compute-name }} API](../compute/api-ref/Image/create.md), you can 
 
 {% list tabs %}
 
+- CLI
+  
+  ```
+  yc compute image create --name <image name> --description <image description> --os-type windows --source-uri <link to image in Object Storage>
+  ```
+
 - Bash
 
    ```bash

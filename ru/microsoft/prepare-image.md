@@ -41,6 +41,12 @@
 
 {% list tabs %}
 
+- CLI
+  
+  ```
+  yc compute image create --name <название образа> --description <описание образа> --os-type windows --source-uri <ссылка на образ в Object Storage>
+  ```
+
 - Bash
 
   ```bash
