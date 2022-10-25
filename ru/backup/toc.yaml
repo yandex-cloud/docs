@@ -4,18 +4,18 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
-#  - name: Пошаговые инструкции
-#    items:
-#      - name: Все инструкции
-#        href: operations/index.md
-#      - name: Политики резервного копирования
-#        items:
-#          - name: Создать политику
-#            href: operations/policy-vm/create.md
-#          - name: Изменить политику
-#            href: operations/policy-vm/update.md
-#          - name: Удалить политику
-#            href: operations/policy-vm/delete.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Политики резервного копирования
+        items:
+          - name: Создать политику
+            href: operations/policy-vm/create.md
+          - name: Изменить политику
+            href: operations/policy-vm/update.md
+          - name: Удалить политику
+            href: operations/policy-vm/delete.md
 #      - name: Резервные копии
 #        items:
 #          - name: Восстановить ВМ из копии
