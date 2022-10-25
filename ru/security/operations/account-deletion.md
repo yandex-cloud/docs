@@ -62,7 +62,7 @@
 
     {% endnote %}
 
-1. Назначение сервисному аккаунту роль `resource-manager.organization.owner`:  
+1. Назначение сервисному аккаунту роль `organization-manager.organizations.owner`:  
 
     {% list tabs %}
 
@@ -79,7 +79,7 @@
 
 1. [Создайте авторизованный ключ](../../iam/operations/iam-token/create-for-sa.md#via-cli) для сервисного аккаунта.
 1. Сохраните файл ключа в доверенном хранилище.
-1. Удалите роль `resource-manager.organization.owner` у паспортного аккаунта через консоль или интерфейс командной строки:
+1. Удалите роль `organization-manager.organizations.owner` у паспортного аккаунта через консоль или интерфейс командной строки:
 
     {% list tabs %}
 
@@ -96,7 +96,7 @@
 
 ## Дополнительные меры {#additional-measures}
 
-Настройте {{ at-name }} на действия с сервисным аккаунтом и федеративной учетной записью, которые обладают ролью `resource-manager.organization.owner`:
+Настройте {{ at-name }} на действия с сервисным аккаунтом и федеративной учетной записью, которые обладают ролью `organization-manager.organizations.owner`:
 
 1. [Настройте сбор аудитных логов с уровня организации](../../audit-trails/quickstart.md) в {{ at-full-name }}.
 
@@ -104,7 +104,7 @@
 
     * Создание ключей для сервисного аккаунта (события: {% if product == "yandex-cloud" %}`yandex.cloud.audit.iam.CreateAccessKey`, `yandex.cloud.audit.iam.CreateKey`, `yandex.cloud.audit.iam.CreateApiKey`{% endif %}{% if product == "cloud-il" %}`cloudil.audit.iam.CreateAccessKey`, `cloudil.audit.iam.CreateKey`, `cloudil.audit.iam.CreateApiKey`{% endif %} и `authentication.subject_id = <идентификатор_сервисного_аккаунта>`).
     * Назначение прав доступа на сервисный аккаунт (событие: `UpdateServiceAccountAccessBindings` и `details.service_account_id = <идентификатор_сервисного_аккаунта>`).
-    * Любое действие с правами `resource-manager.organization.owner` (`.authentication.subject_id == <идентификатор_пользователя_с_данными_правами>`).
+    * Любое действие с правами `organization-manager.organizations.owner` (`.authentication.subject_id == <идентификатор_пользователя_с_данными_правами>`).
 
 {% if product == "yandex-cloud" %}
 Для анализа и реагирования на события в {{ at-name }} можно использовать [Managed ELK](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main).
@@ -116,12 +116,12 @@
 1. [Аутентифицируйтесь](../../cli/operations/authentication/service-account.md#auth-as-sa) от имени сервисного аккаунта.
 1. Далее:
 
-    * Либо назначьте роль `resource-manager.organization.owner` паспортной учетной записи и с ее помощью восстановите федерацию.
+    * Либо назначьте роль `organization-manager.organizations.owner` паспортной учетной записи и с ее помощью восстановите федерацию.
     * Либо восстановите федерацию из интерфейса командной строки CLI.
 
 1. Проверьте доступ от лица федеративного пользователя.
 
 ## Действия после восстановления федерации {#after-federation-repairation}
 
-1. Если паспортной учетной записи была выдана роль `resource-manager.organization.owner` — [отзовите роль](../../iam/operations/roles/revoke.md).
+1. Если паспортной учетной записи была выдана роль `organization-manager.organizations.owner` — [отзовите роль](../../iam/operations/roles/revoke.md).
 1. Создайте новый авторизованный ключ для сервисного аккаунта и сохраните его в доверенном хранилище.
