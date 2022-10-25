@@ -13,7 +13,6 @@ ignore:
   - "en/cloud-desktop/*"
   - "en/cos/*"
   - "en/data-streams/*"
-  - "en/datalens/*"
   - "en/datasphere/*"
   - "en/datasphere-old/*"
   - "en/forms/*"

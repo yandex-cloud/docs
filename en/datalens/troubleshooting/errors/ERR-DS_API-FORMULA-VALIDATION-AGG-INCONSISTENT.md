@@ -6,7 +6,7 @@ This occurs when a single function (or a single operator) uses an aggregated and
 
 When computing an aggregate value, a large set of rows is converted into a single value. Special [aggregate functions](../../../datalens/function-ref/aggregation-functions.md) are used for this. The most common functions are `SUM`, `MIN`, `MAX`, `AVG`, and `COUNT`. Aggregate functions compute and return one resulting value for all query strings. If data grouping is used, values are computed and returned separately for each group, which the query result is divided into.
 
-In {{ datalens-short-name }}, you can't use aggregated and non-aggregated values in the same expression. You can't use [measures](../../concepts/dataset/data-model.md#field) (displayed in the dataset and wizard in blue) and [dimensions](../../concepts/dataset/data-model.md#field) (displayed in the dataset and wizard in green) in the same expression.
+In {{ datalens-short-name }}, you can't use aggregated and non-aggregated values in the same expression. You can't use {% if product == "yandex-cloud" %}[measures](../../concepts/dataset/data-model.md#field){% else %}measures{% endif %} (displayed in the dataset and wizard in blue) and {% if product == "yandex-cloud" %}[dimensions](../../concepts/dataset/data-model.md#field){% else %}dimensions{% endif %} (displayed in the dataset and wizard in green) in the same expression.
 
 Examples:
 

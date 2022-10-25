@@ -1,8 +1,13 @@
-title: Yandex DataLens
+title:
+  - text: Yandex DataLens
+    when: product == "yandex-cloud"
+  - text: DataLens
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
+    when: product == "yandex-cloud"
   - name: Practical guidelines
     items:
       - name: All tutorials
@@ -31,6 +36,7 @@ items:
         href: tutorials/data-from-monitoring-visualization.md
       - name: Building customer journey charts based on AppMetrica data
         href: tutorials/data-from-appmetrica-yc-visualization.md
+    when: product == "yandex-cloud"
   - name: Concepts
     items:
       - name: Service overview
@@ -83,6 +89,7 @@ items:
         href: concepts/caching.md
       - name: Quotas and limits
         href: concepts/limits.md
+    when: product == "yandex-cloud"
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -203,12 +210,14 @@ items:
         items:
           - name: Switching between DataLens instances
             href: operations/organizations/change-organization.md
+    when: product == "yandex-cloud"
   - name: Access management
     items:
       - name: Managing access to DataLens
         href: security/index.md
       - name: Managing access at the data row level
         href: security/row-level-security.md
+    when: product == "yandex-cloud"
   - name: Pricing policy
     href: pricing.md
   - name: Visualization reference
@@ -257,6 +266,7 @@ items:
             href: visualization-ref/choropleth-map-chart.md
           - name: Heat map
             href: visualization-ref/heat-map-chart.md
+    when: product == "yandex-cloud"
   - name: Function reference
     items: null
     include:
@@ -270,6 +280,7 @@ items:
         href: concepts/window-function-tutorial.md
       - name: LOD expressions and filtering in aggregate functions
         href: concepts/lod-aggregation.md
+    when: product == "yandex-cloud"
   - name: Public materials
     items:
       - name: Educational projects
@@ -280,11 +291,13 @@ items:
         href: public-talks/articles-and-publications.md
       - name: Public dashboards and charts
         href: public-talks/public-dashboards-and-charts.md
+    when: product == "yandex-cloud"
   - name: Troubleshooting
     expanded: true
     items:
       - name: Questions and answers
         href: qa/index.md
+        when: product == "yandex-cloud"
       - name: DataLens errors
         href: troubleshooting/errors/all.md
       - name: Access denied

@@ -8,6 +8,6 @@ This error occurs whenever a chart uses a field with an identifier that is not i
 
 To fix this error:
 
-1. [Update the dataset fields](../../operations/dataset/update-field.md).
-1. [Replace](../../operations/dataset/update-field.md#replace-field) or delete the fields highlighted in red.
+1. {% if product == "yandex-cloud" %}[Update the dataset fields](../../operations/dataset/update-field.md){% else %}Update the dataset fields{% endif %}.
+1. {% if product == "yandex-cloud" %}[Replace](../../operations/dataset/update-field.md#replace-field){% else %}Replace{% endif %} or delete the fields highlighted in red.
 1. Save the dataset.

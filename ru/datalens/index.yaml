@@ -1,37 +1,57 @@
-title: Yandex DataLens
+title:
+  - text: Yandex DataLens
+    when: product == "yandex-cloud"
+  - text: DataLens
+    when: product == "cloud-il"
 description:
-  - Yandex DataLens — это сервис для бизнес-аналитики. Сервис позволяет подключаться к различным источникам данных, строить визуализации, собирать дашборды и делиться полученными результатами.
-  - С помощью Yandex DataLens вы можете отслеживать продуктовые и бизнес-метрики напрямую из источников, чтобы принимать решения, основанные на данных.
-  - Yandex DataLens не тарифицируется.
+  - text:
+      - Yandex DataLens — это сервис для бизнес-аналитики. Сервис позволяет подключаться к различным источникам данных, строить визуализации, собирать дашборды и делиться полученными результатами.
+      - С помощью Yandex DataLens вы можете отслеживать продуктовые и бизнес-метрики напрямую из источников, чтобы принимать решения, основанные на данных.
+      - Yandex DataLens не тарифицируется.
+    when: product == "yandex-cloud"
+
+  - text:
+      - DataLens — это сервис для бизнес-аналитики. Сервис позволяет подключаться к различным источникам данных, строить визуализации, собирать дашборды и делиться полученными результатами.
+      - С помощью DataLens вы можете отслеживать продуктовые и бизнес-метрики напрямую из источников, чтобы принимать решения, основанные на данных.
+      - DataLens не тарифицируется.
+    when: product == "cloud-il"
 
 meta:
-  title: Yandex DataLens
+  title:
+    - text: Yandex DataLens
+      when: product == "yandex-cloud"
+    - text: DataLens
+      when: product == "cloud-il"
 links:
   - title: Начало работы
     description: Как начать работать с DataLens
-    when: audience == "external"
+    when: product == "yandex-cloud" and audience == "external"
     href: quickstart
   - title: Практические руководства
     description: Пройдите туториалы с примерами использования сервиса DataLens
     href: tutorials/
+    when: product == "yandex-cloud"
   - title: Концепции
     description: Узнайте про устройство и возможности сервиса
     href: concepts/
+    when: product == "yandex-cloud"
   - title: Пошаговые инструкции
     description: Инструкции по выполнению базовых операций
     href: operations/
+    when: product == "yandex-cloud"
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
-    when: audience == "external"
+    when: product == "yandex-cloud" and audience == "external"
     href: concepts/limits
   - title: Управление доступом
     description: Какие права доступа нужны для работы с сервисом
     href: security/
+    when: product == "yandex-cloud"
   - title: ChartEditor
     description: Создавайте виджеты на JavaScript для визуализации данных
-    when: audience == "internal"
+    when: product == "yandex-cloud" and audience == "internal"
     href: editor/
   - title: API
     description: Используйте API для работы с данными, чартами и дашбордами
-    when: audience == "internal"
+    when: product == "yandex-cloud" and audience == "internal"
     href: api/

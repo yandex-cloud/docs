@@ -25,4 +25,4 @@ The dimension to group by is specified inside the [aggregation function](../../.
 * `AVG(SUM([orders]) INCLUDE [date])`: In this record, grouping by `[date]` is added to top-level aggregation (the `INCLUDE` keyword applies to the `AVG` function).
 * `AVG(SUM([orders] INCLUDE [date]))`: In this record, grouping by `[date]` is added to the nested aggregation (the `INCLUDE` keyword applies to the `SUM` function).
 
-For more information about using LOD expressions, see [{#T}](../../concepts/lod-aggregation.md).
+{% if product == "yandex-cloud" %}For more information about using LOD expressions, see [{#T}](../../concepts/lod-aggregation.md).{% endif %}

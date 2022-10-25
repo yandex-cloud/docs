@@ -1,37 +1,56 @@
-title: Yandex DataLens
+title:
+  - text: Yandex DataLens
+    when: product == "yandex-cloud"
+  - text: DataLens
+    when: product == "cloud-il"
 description:
-  - Yandex DataLens is a business analytics service. It lets you connect to various data sources, visualize data, create dashboards, and share the results.
-  - With Yandex DataLens, you can track your product and business metrics directly from data sources to make data-based decisions.
-  - Yandex DataLens is not charged.
+  - text:
+    - Yandex DataLens is a business analytics service. It lets you connect to various data sources, visualize data, create dashboards, and share the results.
+    - With Yandex DataLens, you can track your product and business metrics directly from data sources to make data-based decisions.
+    - Yandex DataLens is not charged.
+    when: product == "yandex-cloud"
+  - text:
+    - DataLens is a business analytics service. It lets you connect to various data sources, visualize data, create dashboards, and share the results.
+    - With DataLens, you can track your product and business metrics directly from data sources to make data-based decisions.
+    - DataLens is not charged.
+    when: product == "cloud-il"
 
 meta:
-  title: Yandex DataLens
+  title:
+    - text: Yandex DataLens
+      when: product == "yandex-cloud"
+    - text: DataLens
+      when: product == "cloud-il"
 links:
   - title: Getting started
     description: Getting started with DataLens
-    when: audience == "external"
+    when: product == "yandex-cloud" and audience == "external"
     href: quickstart
   - title: Practical guidelines
     description: See usage examples and tutorials for using DataLens
     href: tutorials/
+    when: product == "yandex-cloud"
   - title: Concepts
     description: Learn about basic concepts and service functions
     href: concepts/
+    when: product == "yandex-cloud"
   - title: Step-by-step instructions
     description: Instructions on how to perform basic operations
     href: operations/
+    when: product == "yandex-cloud"
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
-    when: audience == "external"
+    when: product == "yandex-cloud" and audience == "external"
     href: concepts/limits
   - title: Access management
     description: Permissions required for using the service
     href: security/
+    when: product == "yandex-cloud"
   - title: ChartEditor
     description: Create widgets in JavaScript to visualize data
-    when: audience == "internal"
+    when: product == "yandex-cloud" and audience == "internal"
     href: editor/
   - title: API
     description: Use the API to work with data, charts, and dashboards
-    when: audience == "internal"
+    when: product == "yandex-cloud" and audience == "internal"
     href: api/

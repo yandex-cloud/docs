@@ -1,11 +1,16 @@
-title: Yandex DataLens
+title:
+  - text: Yandex DataLens
+    when: product == "yandex-cloud"
+  - text: DataLens
+    when: product == "cloud-il"
 href: index.yaml
 items:
-  - name: О сервисе Yandex.DataLens
+  - name: О сервисе {{ datalens-full-name }}
     when: audience == "internal"
     href: overview.md
   - name: Начало работы
     href: quickstart.md
+    when: product == "yandex-cloud"
   - name: Практические руководства
     items:
       - name: Все руководства
@@ -53,6 +58,7 @@ items:
         href: tutorials/data-from-appmetrica-yc-visualization.md
       - name: Создание подключения к Битрикс24
         href: tutorials/data-from-bitrix24-visualization.md
+    when: product == "yandex-cloud"
   - name: Концепции
     items:
       - name: Обзор сервиса
@@ -107,6 +113,7 @@ items:
         href: concepts/caching.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+    when: product == "yandex-cloud"
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -259,14 +266,16 @@ items:
       - name: Работа с организациями
         when: audience == "external"
         items:
-          - name: Переключение между экземплярами DataLens
+          - name: Переключение между экземплярами {{ datalens-name }}
             href: operations/organizations/change-organization.md
+    when: product == "yandex-cloud"
   - name: Управление доступом
     items:
-      - name: Управление доступом к DataLens
+      - name: Управление доступом к {{ datalens-name }}
         href: security/index.md
       - name: Управление доступом на уровне строк данных
         href: security/row-level-security.md
+    when: product == "yandex-cloud"
   - name: Правила тарификации
     when: audience == "external"
     href: pricing.md
@@ -318,6 +327,7 @@ items:
             href: visualization-ref/heat-map-chart.md
       - name: Комбинированная диаграмма
         href: visualization-ref/combined-chart.md
+    when: product == "yandex-cloud"
   - name: Справочник функций
     items: null
     include:
@@ -331,8 +341,9 @@ items:
         href: concepts/window-function-tutorial.md
       - name: LOD-выражения и управление фильтрацией в агрегатных функциях
         href: concepts/lod-aggregation.md
+    when: product == "yandex-cloud"
   - name: ChartEditor
-    when: audience == "internal"
+    when: product == "yandex-cloud" and audience == "internal"
     items:
       - name: Быстрый старт
         href: editor/index.md
@@ -415,7 +426,7 @@ items:
       - name: Секретница
         href: editor/yav.md
   - name: Миграции
-    when: audience == "internal"
+    when: product == "yandex-cloud" and audience == "internal"
     items:
       - name: Миграция на Node.js
         href: editor/node-migration.md
@@ -424,7 +435,7 @@ items:
       - name: Конвертация Wizard
         href: editor/wizard-conversion.md
   - name: API
-    when: audience == "internal"
+    when: product == "yandex-cloud" and audience == "internal"
     items:
       - name: Обзор
         href: api/index.md
@@ -479,7 +490,7 @@ items:
       - name: API скриншотов
         href: api/dashboards/scr.md
   - name: Charts PDF
-    when: audience == "internal"
+    when: product == "yandex-cloud" and audience == "internal"
     items:
       - name: Обзор
         href: charts-pdf/index.md
@@ -488,7 +499,7 @@ items:
       - name: API
         href: charts-pdf/api.md
   - name: ChartKit
-    when: audience == "internal"
+    when: product == "yandex-cloud" and audience == "internal"
     items:
       - name: Обзор
         href: chartkit/index.md
@@ -505,6 +516,7 @@ items:
           - name: v5v6
             href: chartkit/readme-v5v6.md
   - name: Публичные материалы
+    when: product == "yandex-cloud"
     items:
       - name: Образовательные проекты
         href: public-talks/educational-projects.md
@@ -518,12 +530,12 @@ items:
     expanded: true
     items:
       - name: Вопросы и ответы
-        when: audience == "external"
+        when: product == "yandex-cloud" and audience == "external"
         href: qa/index.md
       - name: FAQ
-        when: audience == "internal"
+        when: product == "yandex-cloud" and audience == "internal"
         href: faq.md
-      - name: Ошибки DataLens
+      - name: Ошибки {{ datalens-name }}
         href: troubleshooting/errors/all.md
       - name: Access denied
         hidden: true
@@ -678,7 +690,7 @@ items:
         href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
   - name: История изменений
     href: release-notes.md
-    when: audience == "draft"
+    when: product == "yandex-cloud" and audience == "draft"
   - name: Релизы документации
-    when: audience == "internal"
+    when: product == "yandex-cloud" and audience == "internal"
     href: docs-release-notes.md

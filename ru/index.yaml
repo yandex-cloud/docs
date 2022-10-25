@@ -74,7 +74,6 @@ links:
   - title: DataLens
     description: Визуализация и анализ данных
     href: datalens/
-    when: product == "yandex-cloud"
   - title: Data Transfer
     description: Инструмент для миграции баз данных
     href: data-transfer/

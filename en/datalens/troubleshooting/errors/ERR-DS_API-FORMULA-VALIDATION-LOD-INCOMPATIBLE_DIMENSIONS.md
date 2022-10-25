@@ -24,4 +24,4 @@ ARG_MAX(
 )
 ```
 
-For more information about using LOD expressions, see [{#T}](../../concepts/lod-aggregation.md).
+{% if product == "yandex-cloud" %}For more information about using LOD expressions, see [{#T}](../../concepts/lod-aggregation.md).{% endif %}

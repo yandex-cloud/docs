@@ -6,7 +6,7 @@ Nonexistent field used.
 
 Possible causes:
 
-* A new field was added to the data source but the dataset has not been updated. To update the dataset, click [Update fields](../../operations/dataset/update-field.md).
+* A new field was added to the data source but the dataset has not been updated. To update the dataset, click {% if product == "yandex-cloud" %}[Update fields](../../operations/dataset/update-field.md){% else %}Update fields{% endif %}.
 
 * When building a dataset from a {{ CH }} connection, a SQL subquery is used. If this is the case, set an alias for the selected fields.
 

@@ -70,7 +70,6 @@ links:
   - title: DataLens
     description: Data visualization and analytics
     href: datalens/
-    when: product == "yandex-cloud"
   - title: DataLens Partner API
     description: A service for creating partner connections to upload data
     href: datalens-api/
