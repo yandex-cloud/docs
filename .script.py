@@ -2,7 +2,7 @@ import os
 
 
 def append_operation_yaml_en():
-    docs_api = "/var/lib/teamcity/BuildAgents/dataui-qyp-iva-02/work/f53b9b1d9485b329/docs/en/_api-ref"
+    docs_api = "/var/lib/teamcity/BuildAgents/dataui-qyp-myt-05/work/f53b9b1d9485b329/docs/en/_api-ref"
     for service in ["compute", "vpc", "iam", "mdb", "loadbalancer"]:
         for folder, subfolders, files in os.walk(os.path.join(docs_api, service)):
             api_tocs = []
@@ -26,7 +26,7 @@ def append_operation_yaml_en():
 
 
 def remove_cancel_operation_en():
-    docs_api = "/var/lib/teamcity/BuildAgents/dataui-qyp-iva-02/work/f53b9b1d9485b329/docs/en/_api-ref"
+    docs_api = "/var/lib/teamcity/BuildAgents/dataui-qyp-myt-05/work/f53b9b1d9485b329/docs/en/_api-ref"
     for service in ["compute", "vpc", "iam", "mdb", "loadbalancer"]:
         for folder, subfolders, files in os.walk(os.path.join(docs_api, service)):
             indeces = []

@@ -3,9 +3,10 @@ editable: false
 ---
 
 # Method enable
-Enable schedule sets status Active.
+Enables the specified snapshot schedule.
  
-
+The [SnapshotSchedule.status](/docs/compute/api-ref/SnapshotSchedule#representation) is changed to `ACTIVE`: new disk snapshots will be created, old ones deleted
+(if [SnapshotSchedule.retention_policy] is specified).
  
 ## HTTP request {#https-request}
 ```
@@ -16,7 +17,7 @@ POST https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotSchedu
  
 Parameter | Description
 --- | ---
-snapshotScheduleId | <p>ID of the snapshot schedule to enable.</p> 
+snapshotScheduleId | <p>ID of the snapshot schedule to enable.</p> <p>To get a snapshot schedule ID, make a <a href="/docs/compute/api-ref/SnapshotSchedule/list">list</a> request.</p> 
  
 ## Body parameters {#body_params}
  

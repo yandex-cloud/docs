@@ -43,19 +43,19 @@ POST https://compute.{{ api-host }}/compute/v1/snapshotSchedules
  
 Field | Description
 --- | ---
-folderId | **string**<br><p>ID of the folder to create a snapshot schedule in.</p> 
-name | **string**
-description | **string**
-labels | **object**
-schedulePolicy | **object**<br>schedule properties
-schedulePolicy.<br>startAt | **string** (date-time)<br><p>start time for the first run.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-schedulePolicy.<br>expression | **string**<br><p>cron format (* * * * *)</p> 
-snapshotSpec | **object**<br>properties to create snapshot with.
+folderId | **string**<br><p>ID of the folder to create a snapshot schedule in.</p> <p>Snapshots are created in the same folder as the schedule, even if disks from other folders are attached to the schedule.</p> <p>To get a folder ID, make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> 
+name | **string**<br><p>Name of the snapshot schedule.</p> <p>The name must be unique within the folder.</p> 
+description | **string**<br><p>Description of the snapshot schedule.</p> 
+labels | **object**<br><p>Snapshot schedule labels as ``key:value`` pairs.</p> 
+schedulePolicy | **object**<br>Frequency settings of the snapshot schedule.
+schedulePolicy.<br>startAt | **string** (date-time)<br><p>Timestamp for creating the first snapshot.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+schedulePolicy.<br>expression | **string**<br><p>Cron expression for the snapshot schedule (UTC+0).</p> <p>The expression must consist of five fields (``Minutes Hours Day-of-month Month Day-of-week``) or be one of nonstandard predefined expressions (e.g. ``@hourly``). For details about the format, see <a href="/docs/compute/concepts/snapshot-schedule#cron">documentation</a></p> 
+snapshotSpec | **object**<br>Attributes of snapshots created by the snapshot schedule.
 snapshotSpec.<br>description | **string**<br><p>Description of the created snapshot.</p> 
-snapshotSpec.<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
-diskIds[] | **string**
-retentionPeriod | **string** <br> includes only one of the fields `retentionPeriod`, `snapshotCount`<br>
-snapshotCount | **string** (int64) <br> includes only one of the fields `retentionPeriod`, `snapshotCount`<br>
+snapshotSpec.<br>labels | **object**<br><p>Snapshot labels as ``key:value`` pairs.</p> 
+diskIds[] | **string**<br><p>List of IDs of the disks attached to the snapshot schedule.</p> <p>To get a disk ID, make a <a href="/docs/compute/api-ref/Disk/list">list</a> request.</p> 
+retentionPeriod | **string** <br> includes only one of the fields `retentionPeriod`, `snapshotCount`<br><br><p>Retention period of the snapshot schedule. Once a snapshot created by the schedule reaches this age, it is automatically deleted.</p> 
+snapshotCount | **string** (int64) <br> includes only one of the fields `retentionPeriod`, `snapshotCount`<br><br><p>Retention count of the snapshot schedule. Once the number of snapshots created by the schedule exceeds this number, the oldest ones are automatically deleted. E.g. if the number is 5, the first snapshot is deleted after the sixth one is created, the second is deleted after the seventh one is created, and so on.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

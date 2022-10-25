@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method publish
-Publishes message on behalf of specified registry
+Publishes message on behalf of specified broker
  
 
  

@@ -3,9 +3,9 @@ editable: false
 ---
 
 # Method updateDisks
-UpdateDisks of schedule
+Updates the list of disks attached to the specified schedule.
  
-
+The schedule is updated only after all snapshot creations and deletions triggered by the schedule are completed.
  
 ## HTTP request {#https-request}
 ```
@@ -16,7 +16,7 @@ PATCH https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotSched
  
 Parameter | Description
 --- | ---
-snapshotScheduleId | <p>ID of the snapshot schedule to update.</p> 
+snapshotScheduleId | <p>ID of the snapshot schedule to update.</p> <p>To get a snapshot schedule ID, make a <a href="/docs/compute/api-ref/SnapshotSchedule/list">list</a> request.</p> 
  
 ## Body parameters {#body_params}
  
@@ -34,8 +34,8 @@ snapshotScheduleId | <p>ID of the snapshot schedule to update.</p>
  
 Field | Description
 --- | ---
-remove[] | **string**<br><p>List of disk ids to remove from the specified schedule.</p> 
-add[] | **string**<br><p>List of disk ids to add to the specified schedule</p> 
+remove[] | **string**<br><p>List of IDs of the disks to detach from the specified schedule.</p> <p>To get an ID of a disk attached to the schedule, make a <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks">listDisks</a> request.</p> 
+add[] | **string**<br><p>List of IDs of the disks to attach to the specified schedule.</p> <p>To get a disk ID, make a <a href="/docs/compute/api-ref/Disk/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -72,7 +72,19 @@ clusterId | <p>Required. ID of the Kubernetes cluster to update. To get the Kube
     },
     "securityGroupIds": [
       "string"
-    ]
+    ],
+    "masterLogging": {
+      "enabled": true,
+      "clusterAutoscalerEnabled": true,
+      "kubeApiserverEnabled": true,
+      "eventsEnabled": true,
+
+      // `masterSpec.masterLogging` includes only one of the fields `logGroupId`, `folderId`
+      "logGroupId": "string",
+      "folderId": "string",
+      // end of the list of possible fields`masterSpec.masterLogging`
+
+    }
   },
   "serviceAccountId": "string",
   "nodeServiceAccountId": "string",
@@ -122,6 +134,13 @@ masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWind
 masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>duration | **string**<br><p>Window duration.</p> <p>Acceptable values are 3600 seconds to 86400 seconds, inclusive.</p> 
 masterSpec.<br>securityGroupIds[] | **string**<br><p>Master security groups.</p> 
+masterSpec.<br>masterLogging | **object**<br><p>Cloud Logging for master components.</p> 
+masterSpec.<br>masterLogging.<br>enabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for master components.</p> 
+masterSpec.<br>masterLogging.<br>clusterAutoscalerEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for cluster-autoscaler.</p> 
+masterSpec.<br>masterLogging.<br>kubeApiserverEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for kube-apiserver.</p> 
+masterSpec.<br>masterLogging.<br>eventsEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for events.</p> 
+masterSpec.<br>masterLogging.<br>logGroupId | **string** <br>`masterSpec.masterLogging` includes only one of the fields `logGroupId`, `folderId`<br><br><p>ID of the log group where logs of master components should be stored.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
+masterSpec.<br>masterLogging.<br>folderId | **string** <br>`masterSpec.masterLogging` includes only one of the fields `logGroupId`, `folderId`<br><br><p>ID of the folder where logs should be stored (in default group).</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
 serviceAccountId | **string**<br><p>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. Selected service account should have ``edit`` role on the folder where the Kubernetes cluster will be located and on the folder where selected network resides.</p> 
 nodeServiceAccountId | **string**<br><p>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics.</p> 
 networkPolicy | **object**

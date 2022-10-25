@@ -74,6 +74,7 @@ master_auth | **[MasterAuth](#MasterAuth)**<br>Master authentication parameters 
 version_info | **[VersionInfo](#VersionInfo)**<br>Detailed information about the Kubernetes version that is running on the master. 
 maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy)**<br>Maintenance policy of the master. 
 security_group_ids[] | **string**<br>Master security groups. 
+master_logging | **[MasterLogging](#MasterLogging)**<br>Cloud Logging for master components. 
 
 
 ### ZonalMaster {#ZonalMaster}
@@ -165,6 +166,19 @@ Field | Description
 days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
 start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
+
+
+### MasterLogging {#MasterLogging}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Identifies whether Cloud Logging is enabled for master components. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>The destination of master components' logs.
+&nbsp;&nbsp;log_group_id | **string**<br>ID of the log group where logs of master components should be stored. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>ID of the folder where logs should be stored (in default group). Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+cluster_autoscaler_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for cluster-autoscaler. 
+kube_apiserver_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for kube-apiserver. 
+events_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for events. 
 
 
 ### IPAllocationPolicy {#IPAllocationPolicy}
@@ -263,6 +277,7 @@ master_auth | **[MasterAuth](#MasterAuth1)**<br>Master authentication parameters
 version_info | **[VersionInfo](#VersionInfo1)**<br>Detailed information about the Kubernetes version that is running on the master. 
 maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy1)**<br>Maintenance policy of the master. 
 security_group_ids[] | **string**<br>Master security groups. 
+master_logging | **[MasterLogging](#MasterLogging1)**<br>Cloud Logging for master components. 
 
 
 ### ZonalMaster {#ZonalMaster1}
@@ -356,6 +371,19 @@ start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
+### MasterLogging {#MasterLogging1}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Identifies whether Cloud Logging is enabled for master components. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>The destination of master components' logs.
+&nbsp;&nbsp;log_group_id | **string**<br>ID of the log group where logs of master components should be stored. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>ID of the folder where logs should be stored (in default group). Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+cluster_autoscaler_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for cluster-autoscaler. 
+kube_apiserver_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for kube-apiserver. 
+events_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for events. 
+
+
 ### IPAllocationPolicy {#IPAllocationPolicy1}
 
 Field | Description
@@ -430,6 +458,7 @@ master_type | **oneof:** `zonal_master_spec` or `regional_master_spec`<br>
 version | **string**<br>Version of Kubernetes components that runs on the master. 
 maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy2)**<br>Maintenance policy of the master. 
 security_group_ids[] | **string**<br>Master security groups. 
+master_logging | **[MasterLogging](#MasterLogging2)**<br>Cloud Logging for master components. 
 
 
 ### ZonalMasterSpec {#ZonalMasterSpec}
@@ -517,6 +546,19 @@ Field | Description
 days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
 start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
+
+
+### MasterLogging {#MasterLogging2}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Identifies whether Cloud Logging is enabled for master components. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>The destination of master components' logs.
+&nbsp;&nbsp;log_group_id | **string**<br>ID of the log group where logs of master components should be stored. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>ID of the folder where logs should be stored (in default group). Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+cluster_autoscaler_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for cluster-autoscaler. 
+kube_apiserver_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for kube-apiserver. 
+events_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for events. 
 
 
 ### IPAllocationPolicy {#IPAllocationPolicy2}
@@ -614,6 +656,7 @@ master_auth | **[MasterAuth](#MasterAuth2)**<br>Master authentication parameters
 version_info | **[VersionInfo](#VersionInfo2)**<br>Detailed information about the Kubernetes version that is running on the master. 
 maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy3)**<br>Maintenance policy of the master. 
 security_group_ids[] | **string**<br>Master security groups. 
+master_logging | **[MasterLogging](#MasterLogging3)**<br>Cloud Logging for master components. 
 
 
 ### ZonalMaster {#ZonalMaster2}
@@ -696,6 +739,7 @@ Field | Description
 version | **[UpdateVersionSpec](#UpdateVersionSpec)**<br>Specification of the master update. 
 maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy3)**<br>Maintenance policy of the master. 
 security_group_ids[] | **string**<br>Master security groups. 
+master_logging | **[MasterLogging](#MasterLogging3)**<br>Cloud Logging for master components. 
 
 
 ### UpdateVersionSpec {#UpdateVersionSpec}
@@ -751,6 +795,19 @@ Field | Description
 days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
 start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
+
+
+### MasterLogging {#MasterLogging3}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Identifies whether Cloud Logging is enabled for master components. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>The destination of master components' logs.
+&nbsp;&nbsp;log_group_id | **string**<br>ID of the log group where logs of master components should be stored. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>ID of the folder where logs should be stored (in default group). Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+cluster_autoscaler_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for cluster-autoscaler. 
+kube_apiserver_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for kube-apiserver. 
+events_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for events. 
 
 
 ### NetworkPolicy {#NetworkPolicy3}
@@ -834,6 +891,7 @@ master_auth | **[MasterAuth](#MasterAuth3)**<br>Master authentication parameters
 version_info | **[VersionInfo](#VersionInfo3)**<br>Detailed information about the Kubernetes version that is running on the master. 
 maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy4)**<br>Maintenance policy of the master. 
 security_group_ids[] | **string**<br>Master security groups. 
+master_logging | **[MasterLogging](#MasterLogging4)**<br>Cloud Logging for master components. 
 
 
 ### ZonalMaster {#ZonalMaster3}
@@ -1015,6 +1073,7 @@ master_auth | **[MasterAuth](#MasterAuth4)**<br>Master authentication parameters
 version_info | **[VersionInfo](#VersionInfo4)**<br>Detailed information about the Kubernetes version that is running on the master. 
 maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy4)**<br>Maintenance policy of the master. 
 security_group_ids[] | **string**<br>Master security groups. 
+master_logging | **[MasterLogging](#MasterLogging4)**<br>Cloud Logging for master components. 
 
 
 ### ZonalMaster {#ZonalMaster4}
@@ -1106,6 +1165,19 @@ Field | Description
 days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
 start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
+
+
+### MasterLogging {#MasterLogging4}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Identifies whether Cloud Logging is enabled for master components. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>The destination of master components' logs.
+&nbsp;&nbsp;log_group_id | **string**<br>ID of the log group where logs of master components should be stored. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>ID of the folder where logs should be stored (in default group). Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+cluster_autoscaler_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for cluster-autoscaler. 
+kube_apiserver_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for kube-apiserver. 
+events_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for events. 
 
 
 ### IPAllocationPolicy {#IPAllocationPolicy4}
@@ -1220,6 +1292,7 @@ master_auth | **[MasterAuth](#MasterAuth5)**<br>Master authentication parameters
 version_info | **[VersionInfo](#VersionInfo5)**<br>Detailed information about the Kubernetes version that is running on the master. 
 maintenance_policy | **[MasterMaintenancePolicy](#MasterMaintenancePolicy5)**<br>Maintenance policy of the master. 
 security_group_ids[] | **string**<br>Master security groups. 
+master_logging | **[MasterLogging](#MasterLogging5)**<br>Cloud Logging for master components. 
 
 
 ### ZonalMaster {#ZonalMaster5}
@@ -1311,6 +1384,19 @@ Field | Description
 days[] | **google.type.DayOfWeek**<br>Days of the week when automatic updates are allowed. The number of elements must be in the range 1-7.
 start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required. Window start time, in the UTC timezone. 
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
+
+
+### MasterLogging {#MasterLogging5}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Identifies whether Cloud Logging is enabled for master components. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>The destination of master components' logs.
+&nbsp;&nbsp;log_group_id | **string**<br>ID of the log group where logs of master components should be stored. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>ID of the folder where logs should be stored (in default group). Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+cluster_autoscaler_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for cluster-autoscaler. 
+kube_apiserver_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for kube-apiserver. 
+events_enabled | **bool**<br>Identifies whether Cloud Logging is enabled for events. 
 
 
 ### IPAllocationPolicy {#IPAllocationPolicy5}

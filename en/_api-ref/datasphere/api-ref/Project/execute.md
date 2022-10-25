@@ -9,14 +9,14 @@ Executes code in the specified cell or notebook.
  
 ## HTTP request {#https-request}
 ```
-POST https://datasphere.{{ api-host }}/datasphere/v1/projects/{projectId}:execute
+POST https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}:execute
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-projectId | <p>Required. ID of the project to execute notebook/cell in.</p> <p>The maximum string length in characters is 200.</p> 
+projectId | <p>Required. ID of the project to execute notebook/cell in.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

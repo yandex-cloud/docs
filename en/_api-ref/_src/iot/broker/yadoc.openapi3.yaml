@@ -12,7 +12,7 @@ paths:
     post:
       tags:
       - BrokerData
-      summary: Publishes message on behalf of specified registry
+      summary: Publishes message on behalf of specified broker
       operationId: BrokerDataPublish
       parameters:
       - name: brokerId

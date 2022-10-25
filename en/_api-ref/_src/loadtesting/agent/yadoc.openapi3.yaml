@@ -316,9 +316,6 @@ components:
             Required.
             The maximum string length in characters is 50.
           type: string
-        instanceHost:
-          description: Required.
-          type: string
         jobId:
           description: |-
             Required.
@@ -648,6 +645,9 @@ components:
           type: string
           format: int64
         comment:
+          type: string
+        instanceHost:
+          description: Required.
           type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).

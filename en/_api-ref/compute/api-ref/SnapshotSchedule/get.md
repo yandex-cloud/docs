@@ -3,9 +3,9 @@ editable: false
 ---
 
 # Method get
-Returns the specified SnapshotSchedule resource.
+Returns the specified snapshot schedule.
  
-To get the list of available SnapshotSchedule resources, make a [list](/docs/compute/api-ref/SnapshotSchedule/list) request.
+To get the list of available snapshot schedules, make a [list](/docs/compute/api-ref/SnapshotSchedule/list) request.
  
 ## HTTP request {#https-request}
 ```
@@ -16,7 +16,7 @@ GET https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotSchedul
  
 Parameter | Description
 --- | ---
-snapshotScheduleId | <p>ID of the SnapshotSchedule resource to return.</p> 
+snapshotScheduleId | <p>ID of the snapshot schedule to return.</p> <p>To get a schedule ID, make a <a href="/docs/compute/api-ref/SnapshotSchedule/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -46,22 +46,22 @@ snapshotScheduleId | <p>ID of the SnapshotSchedule resource to return.</p>
 
 }
 ```
-
+A snapshot schedule. For details about the concept, see [documentation](/docs/compute/concepts/snapshot-schedule).
  
 Field | Description
 --- | ---
-id | **string**<br><p>ID of the snapshot schedule policy.</p> 
-folderId | **string**<br><p>ID of the folder that the scheduler policy belongs to.</p> 
-createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-name | **string**<br><p>Name of the schedule policy. The name is unique within the folder.</p> 
-description | **string**<br><p>Description of the schedule policy.</p> 
-labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
-status | **string**
-schedulePolicy | **object**<br>schedule properties
-schedulePolicy.<br>startAt | **string** (date-time)<br><p>start time for the first run.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-schedulePolicy.<br>expression | **string**<br><p>cron format (* * * * *)</p> 
-snapshotSpec | **object**<br>properties to create snapshot with.
+id | **string**<br><p>ID of the snapshot schedule.</p> 
+folderId | **string**<br><p>ID of the folder that the snapshot schedule belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the snapshot schedule.</p> <p>The name is unique within the folder.</p> 
+description | **string**<br><p>Description of the snapshot schedule.</p> 
+labels | **object**<br><p>Snapshot schedule labels as ``key:value`` pairs.</p> 
+status | **string**<br>Status of the snapshot schedule.<br><ul> <li>CREATING: The snapshot schedule is being created.</li> <li>ACTIVE: The snapshot schedule is on: new disk snapshots will be created, old ones deleted (if [SnapshotSchedule.retention_policy] is specified).</li> <li>INACTIVE: The schedule is interrupted, snapshots won't be created or deleted.</li> <li>DELETING: The schedule is being deleted.</li> <li>UPDATING: Changes are being made to snapshot schedule settings or a list of attached disks.</li> </ul> 
+schedulePolicy | **object**<br>Frequency settings of the snapshot schedule.
+schedulePolicy.<br>startAt | **string** (date-time)<br><p>Timestamp for creating the first snapshot.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+schedulePolicy.<br>expression | **string**<br><p>Cron expression for the snapshot schedule (UTC+0).</p> <p>The expression must consist of five fields (``Minutes Hours Day-of-month Month Day-of-week``) or be one of nonstandard predefined expressions (e.g. ``@hourly``). For details about the format, see <a href="/docs/compute/concepts/snapshot-schedule#cron">documentation</a></p> 
+snapshotSpec | **object**<br>Attributes of snapshots created by the snapshot schedule.
 snapshotSpec.<br>description | **string**<br><p>Description of the created snapshot.</p> 
-snapshotSpec.<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
-retentionPeriod | **string** <br> includes only one of the fields `retentionPeriod`, `snapshotCount`<br>
-snapshotCount | **string** (int64) <br> includes only one of the fields `retentionPeriod`, `snapshotCount`<br>
+snapshotSpec.<br>labels | **object**<br><p>Snapshot labels as ``key:value`` pairs.</p> 
+retentionPeriod | **string** <br> includes only one of the fields `retentionPeriod`, `snapshotCount`<br><br><p>Retention period of the snapshot schedule. Once a snapshot created by the schedule reaches this age, it is automatically deleted.</p> 
+snapshotCount | **string** (int64) <br> includes only one of the fields `retentionPeriod`, `snapshotCount`<br><br><p>Retention count of the snapshot schedule. Once the number of snapshots created by the schedule exceeds this number, the oldest ones are automatically deleted. E.g. if the number is 5, the first snapshot is deleted after the sixth one is created, the second is deleted after the seventh one is created, and so on.</p> 

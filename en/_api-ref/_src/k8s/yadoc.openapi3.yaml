@@ -1369,6 +1369,9 @@ components:
             type: array
             items:
               type: string
+          masterLogging:
+            $ref: '#/components/schemas/MasterLogging'
+            description: Cloud Logging for master components.
       - title: master_type
         type: object
         maxProperties: 1
@@ -1411,6 +1414,43 @@ components:
           type: string
         internalV4AddressSpec:
           $ref: '#/components/schemas/InternalAddressSpec_in_MasterLocation_internalV4AddressSpec'
+    MasterLogging:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          enabled:
+            description: Identifies whether Cloud Logging is enabled for master components.
+            type: boolean
+            format: boolean
+          clusterAutoscalerEnabled:
+            description: Identifies whether Cloud Logging is enabled for cluster-autoscaler.
+            type: boolean
+            format: boolean
+          kubeApiserverEnabled:
+            description: Identifies whether Cloud Logging is enabled for kube-apiserver.
+            type: boolean
+            format: boolean
+          eventsEnabled:
+            description: Identifies whether Cloud Logging is enabled for events.
+            type: boolean
+            format: boolean
+      - title: destination
+        type: object
+        maxProperties: 1
+        properties:
+          logGroupId:
+            description: |-
+              ID of the log group where logs of master components should be stored.
+
+              Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
+            type: string
+          folderId:
+            description: |-
+              ID of the folder where logs should be stored (in default group).
+
+              Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
+            type: string
     MasterMaintenancePolicy:
       type: object
       properties:
@@ -1438,6 +1478,9 @@ components:
             type: array
             items:
               type: string
+          masterLogging:
+            $ref: '#/components/schemas/MasterLogging'
+            description: Cloud Logging for master components.
       - title: master_type
         type: object
         maxProperties: 1
@@ -1460,6 +1503,8 @@ components:
           type: array
           items:
             type: string
+        masterLogging:
+          $ref: '#/components/schemas/MasterLogging_in_MasterUpdateSpec_masterLogging'
     NetworkInterfaceSpec:
       type: object
       properties:
@@ -2554,6 +2599,44 @@ components:
           format: boolean
         maintenanceWindow:
           $ref: '#/components/schemas/MaintenanceWindow_in_MasterMaintenancePolicy_maintenanceWindow'
+    MasterLogging_in_MasterUpdateSpec_masterLogging:
+      description: Cloud Logging for master components.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          enabled:
+            description: Identifies whether Cloud Logging is enabled for master components.
+            type: boolean
+            format: boolean
+          clusterAutoscalerEnabled:
+            description: Identifies whether Cloud Logging is enabled for cluster-autoscaler.
+            type: boolean
+            format: boolean
+          kubeApiserverEnabled:
+            description: Identifies whether Cloud Logging is enabled for kube-apiserver.
+            type: boolean
+            format: boolean
+          eventsEnabled:
+            description: Identifies whether Cloud Logging is enabled for events.
+            type: boolean
+            format: boolean
+      - title: destination
+        type: object
+        maxProperties: 1
+        properties:
+          logGroupId:
+            description: |-
+              ID of the log group where logs of master components should be stored.
+
+              Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
+            type: string
+          folderId:
+            description: |-
+              ID of the folder where logs should be stored (in default group).
+
+              Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
+            type: string
     NodeAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec:
       description: Primary IPv4 address that is assigned to the instance for this
         network interface.

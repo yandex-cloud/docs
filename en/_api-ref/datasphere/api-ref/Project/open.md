@@ -9,14 +9,32 @@ Opens the specified project.
  
 ## HTTP request {#https-request}
 ```
-POST https://datasphere.{{ api-host }}/datasphere/v1/projects/{projectId}:open
+POST https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}:open
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-projectId | <p>Required. ID of the Project resource to open. To get the project ID use a <a href="/docs/datasphere/api-ref/Project/list">list</a> request.</p> <p>The maximum string length in characters is 200.</p> 
+projectId | <p>Required. ID of the Project resource to open. To get the project ID use a <a href="/docs/datasphere/api-ref/Project/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+ 
+## Body parameters {#body_params}
+ 
+```json 
+{
+  "customVersions": {
+    "roomDockerImage": "string",
+    "servantDockerImage": "string"
+  }
+}
+```
+
+ 
+Field | Description
+--- | ---
+customVersions | **object**
+customVersions.<br>roomDockerImage | **string**<br><p>Custom docker image tag for room.</p> 
+customVersions.<br>servantDockerImage | **string**<br><p>Custom docker image tag for servant.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -4,155 +4,324 @@ info:
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
     about API architecture, see [API Concepts](/docs/api-design-guide/).
-  version: v1
+  version: v2
   x-y-docUri: api-ref
   x-y-baseUrl: https://datasphere.api.cloud.yandex.net
 paths:
-  /datasphere/v1/appTokens/{token}:validate:
-    post:
-      tags:
-      - AppToken
-      summary: Validates app token.
-      operationId: AppTokenValidate
-      parameters:
-      - name: token
-        in: path
-        description: App token to validate.
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Empty'
-      x-y-navtitle: validate
-  /datasphere/v1/folders/{folderId}:budget:
+  /datasphere/v2/communities:
     get:
       tags:
-      - FolderBudget
-      summary: Returns the specified folder budget.
-      operationId: FolderBudgetGet
+      - Community
+      summary: List communities in specified organization.
+      operationId: CommunityList
       parameters:
-      - name: folderId
-        in: path
+      - name: pageSize
+        in: query
         description: |-
-          Required.
-          ID of the folder to get a budget for.
-
-          The maximum string length in characters is 50.
-        required: true
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/datasphere/api-ref/Community/list#query_params),
+          the service returns a [nextPageToken](/docs/datasphere/api-ref/Community/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
         schema:
           type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetFolderBudgetResponse'
-      x-y-navtitle: get
-    post:
-      tags:
-      - FolderBudget
-      summary: Sets the unit balance and the limits of the specified folder budget.
-      operationId: FolderBudgetSet
-      parameters:
-      - name: folderId
-        in: path
+          format: int64
+      - name: pageToken
+        in: query
         description: |-
-          Required.
-          ID of the folder to set a budget for.
-
-          The maximum string length in characters is 50.
-        required: true
+          Page token. To get the next page of results, set [pageToken](/docs/datasphere/api-ref/Community/list#query_params) to the
+          [nextPageToken](/docs/datasphere/api-ref/Community/list#responses) returned by a previous list request.
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SetFolderBudgetRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Empty'
-      x-y-navtitle: set
-  /datasphere/v1/nodes/{nodeId}:execute:
-    post:
-      tags:
-      - Node
-      summary: Executes deployed Node.
-      operationId: NodeExecute
-      parameters:
-      - name: nodeId
-        in: path
-        description: ID of the Node to perform request on.
-        required: true
+      - name: nameOrDescriptionPattern
+        in: query
+        description: |-
+          Community name or description pattern.
+          Only communities with names or descriptions matching specified pattern will be returned.
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/NodeExecutionRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NodeExecutionResponse'
-      x-y-navtitle: execute
-  /datasphere/v1/aliases/{aliasName}:execute:
-    post:
-      tags:
-      - Node
-      summary: Executes NodeAlias requests.
-      operationId: NodeExecuteAlias
-      parameters:
-      - name: aliasName
-        in: path
-        description: Name of the Alias to perform request on
-        required: true
+      - name: ownedById
+        in: query
+        description: ID of the user. Only communities owned by specified user will
+          be returned.
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AliasExecutionRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AliasExecutionResponse'
-      x-y-navtitle: executeAlias
-  /datasphere/v1/projects:
-    get:
-      tags:
-      - Project
-      summary: Lists projects for the specified folder.
-      operationId: ProjectList
-      parameters:
-      - name: folderId
+      - name: listPublic
+        in: query
+        description: If set to true, only public communities will be returned.
+        schema:
+          type: boolean
+          format: boolean
+      - name: organizationId
         in: query
         description: |-
           Required.
-          ID of the folder to list projects in.
-          To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+          ID of the organization to list communities in.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCommunitiesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Community
+      summary: Creates community in specified organization.
+      operationId: CommunityCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCommunityRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-response: '[Community](/docs/datasphere/api-ref/Community#representation)'
+  /datasphere/v2/communities/{communityId}:
+    get:
+      tags:
+      - Community
+      summary: Returns community.
+      operationId: CommunityGet
+      parameters:
+      - name: communityId
+        in: path
+        description: |-
+          Required.
+          ID of the community.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Community'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Community
+      summary: Deletes specified community.
+      operationId: CommunityDelete
+      parameters:
+      - name: communityId
+        in: path
+        description: |-
+          Required.
+          ID of the community.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Community
+      summary: Updates specified community.
+      operationId: CommunityUpdate
+      parameters:
+      - name: communityId
+        in: path
+        description: |-
+          Required.
+          ID of the community.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCommunityRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-response: '[Community](/docs/datasphere/api-ref/Community#representation)'
+  /datasphere/v2/communities/{resourceId}:accessBindings:
+    get:
+      tags:
+      - Community
+      summary: Lists access bindings for specified community.
+      operationId: CommunityListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource to list access bindings for.
+
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
 
           The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than [page_size],
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set [page_token]
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /datasphere/v2/communities/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - Community
+      summary: Sets access bindings for specified community.
+      operationId: CommunitySetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-response: Empty
+  /datasphere/v2/communities/{resourceId}:updateAccessBindings:
+    patch:
+      tags:
+      - Community
+      summary: Updates access bindings for specified community.
+      operationId: CommunityUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-response: Empty
+  /datasphere/v2/communities/{communityId}:resources:
+    get:
+      tags:
+      - Community
+      summary: Lists resources of specified type in the specified community.
+      operationId: CommunityListResources
+      parameters:
+      - name: communityId
+        in: path
+        description: |-
+          Required.
+          ID of the community.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: resourceType
+        in: query
+        description: |-
+          Required.
+          Type of resources to be listed.
+        schema:
+          $ref: '#/components/schemas/ResourceType'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCommunityResourcesResponse'
+      x-y-navtitle: listResources
+  /datasphere/v2/projects:
+    get:
+      tags:
+      - Project
+      summary: Lists projects for the specified community.
+      operationId: ProjectList
+      parameters:
+      - name: communityId
+        in: query
+        description: |-
+          Required.
+          ID of the community to list projects in.
         schema:
           type: string
       - name: pageSize
@@ -174,6 +343,20 @@ paths:
           [nextPageToken](/docs/datasphere/api-ref/Project/list#responses) returned by a previous list request.
 
           The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: projectNamePattern
+        in: query
+        description: |-
+          Name pattern to filter projects that are returned.
+          Only projects with names matching the pattern will be returned.
+        schema:
+          type: string
+      - name: ownedById
+        in: query
+        description: |-
+          User ID to filter projects that are returned.
+          Only projects that are owned by specified user will be returned.
         schema:
           type: string
       responses:
@@ -203,10 +386,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/Operation'
       x-y-navtitle: create
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/CreateProjectMetadata'
       x-y-operation-response: '[Project](/docs/datasphere/api-ref/Project#representation)'
-  /datasphere/v1/projects/{projectId}:
+  /datasphere/v2/projects/{projectId}:
     get:
       tags:
       - Project
@@ -220,7 +401,7 @@ paths:
           ID of the Project resource to return.
           To get the project ID use a [list](/docs/datasphere/api-ref/Project/list) request.
 
-          The maximum string length in characters is 200.
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -245,7 +426,7 @@ paths:
           ID of the Project resource to delete.
           To get the project ID use a [list](/docs/datasphere/api-ref/Project/list) request.
 
-          The maximum string length in characters is 200.
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -257,8 +438,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Operation'
       x-y-navtitle: delete
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/DeleteProjectMetadata'
       x-y-operation-response: Empty
     patch:
       tags:
@@ -273,7 +452,7 @@ paths:
           ID of the Project resource to update.
           To get the project ID use a [list](/docs/datasphere/api-ref/Project/list) request.
 
-          The maximum string length in characters is 200.
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -291,10 +470,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/Operation'
       x-y-navtitle: update
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/UpdateProjectMetadata'
       x-y-operation-response: '[Project](/docs/datasphere/api-ref/Project#representation)'
-  /datasphere/v1/projects/{projectId}:open:
+  /datasphere/v2/projects/{projectId}:open:
     post:
       tags:
       - Project
@@ -308,10 +485,16 @@ paths:
           ID of the Project resource to open.
           To get the project ID use a [list](/docs/datasphere/api-ref/Project/list) request.
 
-          The maximum string length in characters is 200.
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenProjectRequest'
+        required: true
       responses:
         "200":
           description: OK
@@ -323,7 +506,42 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/OpenProjectMetadata'
       x-y-operation-response: '`OpenProjectResponse`'
-  /datasphere/v1/projects/{projectId}:unitBalance:
+  /datasphere/v2/projects/{projectId}:stop:
+    post:
+      tags:
+      - Project
+      summary: Stops the specified project.
+      operationId: ProjectStop
+      parameters:
+      - name: projectId
+        in: path
+        description: |-
+          Required.
+          ID of the Project resource to stop.
+          To get the project ID use a [list](/docs/datasphere/api-ref/Project/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StopProjectRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: stop
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StopProjectMetadata'
+      x-y-operation-response: Empty
+  /datasphere/v2/projects/{projectId}:unitBalance:
     get:
       tags:
       - Project
@@ -336,7 +554,7 @@ paths:
           Required.
           ID of the project to return the unit balance for.
 
-          The maximum string length in characters is 200.
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -360,7 +578,7 @@ paths:
           Required.
           ID of the project to set the unit balance for.
 
-          The maximum string length in characters is 200.
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -376,9 +594,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Empty'
+                $ref: '#/components/schemas/Operation'
       x-y-navtitle: setUnitBalance
-  /datasphere/v1/projects/{projectId}:execute:
+      x-y-operation-response: Empty
+  /datasphere/v2/projects/{projectId}:execute:
     post:
       tags:
       - Project
@@ -391,7 +610,7 @@ paths:
           Required.
           ID of the project to execute notebook/cell in.
 
-          The maximum string length in characters is 200.
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -412,7 +631,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/ProjectExecutionMetadata'
       x-y-operation-response: '`ProjectExecutionResponse`'
-  /datasphere/v1/projects/{projectId}:cellOutputs:
+  /datasphere/v2/projects/{projectId}:cellOutputs:
     get:
       tags:
       - Project
@@ -425,7 +644,7 @@ paths:
           Required.
           ID of the project to return cell outputs for.
 
-          The maximum string length in characters is 200.
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -460,7 +679,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CellOutputsResponse'
       x-y-navtitle: getCellOutputs
-  /datasphere/v1/projects/{projectId}:stateVariables:
+  /datasphere/v2/projects/{projectId}:stateVariables:
     get:
       tags:
       - Project
@@ -473,7 +692,7 @@ paths:
           Required.
           ID of the project, for which to return state variables.
 
-          The maximum string length in characters is 200.
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -506,28 +725,47 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetStateVariablesResponse'
       x-y-navtitle: getStateVariables
-  /datasphere/v1/projects/{projectId}:notebookMetadata:
+  /datasphere/v2/projects/{resourceId}:accessBindings:
     get:
       tags:
       - Project
-      summary: Returns metadata of the specified notebook.
-      operationId: ProjectGetNotebookMetadata
+      summary: Lists access bindings for the project.
+      operationId: ProjectListAccessBindings
       parameters:
-      - name: projectId
+      - name: resourceId
         in: path
         description: |-
           Required.
-          ID of the project, for which to return notebook metadata.
+          ID of the resource to list access bindings for.
 
-          The maximum string length in characters is 200.
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
-      - name: notebookPath
+      - name: pageSize
         in: query
         description: |-
-          Required.
-          Path of the notebook to get metadata.
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than [page_size],
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set [page_token]
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
         schema:
           type: string
       responses:
@@ -536,25 +774,289 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetNotebookMetadataResponse'
-      x-y-navtitle: getNotebookMetadata
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /datasphere/v2/projects/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - Project
+      summary: Sets access bindings for the project.
+      operationId: ProjectSetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-response: Empty
+  /datasphere/v2/projects/{resourceId}:updateAccessBindings:
+    patch:
+      tags:
+      - Project
+      summary: Updates access bindings for the project.
+      operationId: ProjectUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-response: Empty
+  /datasphere/v2/projects/{projectId}:resources:
+    get:
+      tags:
+      - Project
+      summary: Lists project resources.
+      operationId: ProjectListResources
+      parameters:
+      - name: projectId
+        in: path
+        description: |-
+          Required.
+          ID of the project to list resources in.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: resourceType
+        in: query
+        description: |-
+          Required.
+          Type of resources that should be listed.
+        schema:
+          $ref: '#/components/schemas/ResourceType'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListProjectResourcesResponse'
+      x-y-navtitle: listResources
+  /datasphere/v2/projects/{projectId}:sharedResources:
+    get:
+      tags:
+      - Project
+      summary: Lists shared resources of the project.
+      operationId: ProjectListSharedResources
+      parameters:
+      - name: projectId
+        in: path
+        description: |-
+          Required.
+          ID of the project to list shared resources in.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: resourceType
+        in: query
+        description: |-
+          Required.
+          Type of resources that should be listed.
+        schema:
+          $ref: '#/components/schemas/ResourceType'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListProjectSharedResourcesResponse'
+      x-y-navtitle: listSharedResources
 components:
   schemas:
-    AliasExecutionRequest:
+    ACL:
+      type: object
+      properties:
+        entries:
+          description: List of ACL entries.
+          type: array
+          items:
+            $ref: '#/components/schemas/ACLEntry'
+        permission:
+          description: Permission.
+          type: string
+        isPublic:
+          description: If true, allows everyone requests to alias
+          type: boolean
+          format: boolean
+    ACLEntry:
+      type: object
+      allOf:
+      - title: entry
+        type: object
+        maxProperties: 1
+        properties:
+          folderEntry:
+            $ref: '#/components/schemas/ACLFolderEntry'
+    ACLFolderEntry:
       type: object
       properties:
         folderId:
-          description: ID of the folder that will be matched with Alias ACL
+          description: |-
+            Required.
+            ID of the folder.
           type: string
-        input:
-          description: Input data for the execution
-          type: object
-    AliasExecutionResponse:
+    AccessBinding:
       type: object
       properties:
-        output:
-          description: Result of the execution
-          type: object
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    AliasList:
+      type: object
+      properties:
+        listedAliases:
+          description: List of node aliases.
+          type: array
+          items:
+            $ref: '#/components/schemas/AliasListListedAlias'
+    AliasListListedAlias:
+      type: object
+      properties:
+        alias:
+          $ref: '#/components/schemas/NodeAlias_in_AliasListListedAlias_alias'
+    AvailabilityPolicy:
+      type: object
+      properties:
+        zones:
+          description: |-
+            Required.
+            List of zone availability policies.
+
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/AvailabilityPolicyZoneAvailability'
+    AvailabilityPolicyZoneAvailability:
+      type: object
+      properties:
+        zoneId:
+          description: |-
+            Required.
+            ID of the zone.
+          type: string
+        minCount:
+          description: |-
+            Minimal number of running instances.
+
+            Value must be greater than 0.
+          type: string
+          format: int64
+        maxCount:
+          description: Maximum number of running instances.
+          type: string
+          format: int64
+        subnetId:
+          description: ID of the subnet.
+          type: string
+    Backend:
+      type: object
+      properties:
+        nodeId:
+          description: |-
+            Required.
+            ID of the node.
+          type: string
+        weight:
+          description: |-
+            Balancer weight of the node.
+
+            Value must be greater than 0.
+          type: number
+          format: double
+    Backends:
+      type: object
+      properties:
+        backend:
+          description: |-
+            Required.
+            List of backends.
+
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/Backend'
+    BillingSpec:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          billingId:
+            description: |-
+              Required.
+              Billing ID.
+            type: string
+      - title: billing_descriptor
+        type: object
+        maxProperties: 1
+        properties:
+          yandexCloudBillingDescriptor:
+            $ref: '#/components/schemas/YandexCloudBillingDescriptor'
     CellOutputsResponse:
       type: object
       properties:
@@ -563,46 +1065,451 @@ components:
           type: array
           items:
             type: string
-    CreateProjectMetadata:
+    CheckpointCellInfo:
+      type: object
+      properties:
+        notebookId:
+          description: ID of the notebook.
+          type: string
+        cellId:
+          description: ID of the cell.
+          type: string
+        cellVersion:
+          description: Version of the cell.
+          type: string
+        stateVersion:
+          description: Version of the state.
+          type: string
+        code:
+          description: Code of the cell.
+          type: string
+    CheckpointList:
+      type: object
+      properties:
+        listedCheckpoints:
+          description: List of checkpoints.
+          type: array
+          items:
+            $ref: '#/components/schemas/CheckpointListListedCheckpoint'
+    CheckpointListListedCheckpoint:
+      type: object
+      properties:
+        checkpoint:
+          $ref: '#/components/schemas/v2Checkpoint_in_CheckpointListListedCheckpoint_checkpoint'
+    CheckpointNbCheckpoint:
       type: object
       properties:
         projectId:
-          description: ID of the project that is being created.
+          description: ID of the project.
+          type: string
+        notebookId:
+          description: ID of the notebook.
+          type: string
+        nbCheckpointId:
+          description: ID of the notebook checkpoint.
+          type: string
+        notebookPath:
+          description: Path of the notebook.
+          type: string
+        stateVersion:
+          description: Version of the state.
+          type: string
+          format: int64
+        viewVersion:
+          description: Version of the view.
+          type: string
+          format: int64
+        executionCount:
+          description: Notebook executions count.
+          type: string
+          format: int64
+        createdAt:
+          description: |-
+            Time when notebook checkpoint was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    CheckpointType:
+      description: |2-
+         - CHECKPOINT_TYPE_INITIAL: Checkpoint created on project initialization.
+         - CHECKPOINT_TYPE_EXPORTED: Checkpoint created after importing checkpoint to project.
+         - CHECKPOINT_TYPE_CELL_RUN: Checkpoint created after cell execution.
+         - CHECKPOINT_TYPE_MERGE_BACKGROUND: Checkpoint created after merging background execution results.
+         - CHECKPOINT_TYPE_DATASET: Checkpoint created on dataset creation.
+         - CHECKPOINT_TYPE_ROLLBACK: Checkpoint created when rolling back to previous checkpoint.
+         - CHECKPOINT_TYPE_CLEAR_STATE: Checkpoint created on clearing project state.
+         - CHECKPOINT_TYPE_ADD_NOTEBOOK: Checkpoint created on adding a notebook.
+      type: string
+      enum:
+      - CHECKPOINT_TYPE_INITIAL
+      - CHECKPOINT_TYPE_EXPORTED
+      - CHECKPOINT_TYPE_CELL_RUN
+      - CHECKPOINT_TYPE_MERGE_BACKGROUND
+      - CHECKPOINT_TYPE_DATASET
+      - CHECKPOINT_TYPE_ROLLBACK
+      - CHECKPOINT_TYPE_CLEAR_STATE
+      - CHECKPOINT_TYPE_ADD_NOTEBOOK
+    CommunicationChannel:
+      type: object
+      properties:
+        link:
+          description: Link to communication channel.
+          type: string
+        type:
+          $ref: '#/components/schemas/CommunicationChannelType_in_CommunicationChannel_type'
+    CommunicationChannelType:
+      type: string
+      enum:
+      - TELEGRAM
+      - SLACK
+    Community:
+      type: object
+      properties:
+        id:
+          description: ID of the community.
+          type: string
+        createdAt:
+          description: |-
+            Time when community was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the community.
+          type: string
+        description:
+          description: Description of the comminuty.
+          type: string
+        labels:
+          description: Labels of the community.
+          type: object
+          additionalProperties:
+            type: string
+        createdById:
+          description: ID of the user who created the community.
+          type: string
+        accessType:
+          $ref: '#/components/schemas/CommunityAccessType_in_Community_accessType'
+        isPersonal:
+          type: boolean
+          format: boolean
+        channel:
+          $ref: '#/components/schemas/CommunicationChannel_in_Community_channel'
+        organizationId:
+          description: ID of the organization to which community belongs.
+          type: string
+        status:
+          $ref: '#/components/schemas/CommunityStatus_in_Community_status'
+    CommunityAccessType:
+      description: |-
+        Community access type.
+
+         - PUBLIC: Public community.
+         - PRIVATE: Private community.
+      type: string
+      enum:
+      - PUBLIC
+      - PRIVATE
+    CommunityStatus:
+      description: |2-
+         - ACTIVE: Active community.
+         - BLOCKED_BY_BILLING: Community blocked by billing.
+      type: string
+      enum:
+      - UNDEFINED
+      - ACTIVE
+      - BLOCKED_BY_BILLING
+    Container:
+      type: object
+      properties:
+        image:
+          description: |-
+            Required.
+            Docker image name.
+          type: string
+        username:
+          description: Docker repository username.
+          type: string
+        passwordSecret:
+          description: Docker repository password secret.
+          type: string
+        ports:
+          description: Docker port bindings.
+          type: array
+          items:
+            $ref: '#/components/schemas/ContainerPort'
+    ContainerPort:
+      type: object
+      properties:
+        containerPort:
+          description: Container port to bind.
+          type: string
+          format: int64
+        hostPort:
+          description: Host port to bind to.
+          type: string
+          format: int64
+        hostIp:
+          description: Host IP address.
+          type: string
+        protocol:
+          description: Port protocol.
+          type: string
+    CreateCommunityRequest:
+      type: object
+      properties:
+        name:
+          description: Name of the community.
+          type: string
+        description:
+          description: Description of the community.
+          type: string
+        organizationId:
+          description: |-
+            Required.
+            ID of the organization where community should be created.
+          type: string
+        billingAccountId:
+          description: ID of the billing account for the created community. Optional,
+            billing account could be bound to community later.
           type: string
     CreateProjectRequest:
       type: object
-      properties:
-        folderId:
-          description: |-
-            Required.
-            ID of the folder to create a project in.
-            To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+      allOf:
+      - type: object
+        properties:
+          communityId:
+            description: |-
+              Required.
+              ID of the community to create a project in.
 
-            The maximum string length in characters is 50.
-          type: string
-        name:
-          description: |-
-            Name of the project.
+              The maximum string length in characters is 50.
+            type: string
+          name:
+            description: |-
+              Name of the project. 0-63 characters long.
 
-            The maximum string length in characters is 63.
-            Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
-          type: string
-        description:
-          description: |-
-            Description of the project.
+              The maximum string length in characters is 63.
+              Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            type: string
+          description:
+            description: |-
+              Description of the project. 0-256 characters long.
 
-            The maximum string length in characters is 256.
-          type: string
-        settings:
-          $ref: '#/components/schemas/ProjectSettings_in_CreateProjectRequest_settings'
-        limits:
-          $ref: '#/components/schemas/ProjectLimits_in_CreateProjectRequest_limits'
-    DeleteProjectMetadata:
+              The maximum string length in characters is 256.
+            type: string
+          labels:
+            description: |-
+              Labels of the project.
+
+              No more than 64 per resource.
+              The string length in characters for each key must be 1-63.
+              Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+              The maximum string length in characters for each value is 63.
+              Each value must match the regular expression `` [-_0-9a-z]* ``.
+            type: object
+            additionalProperties:
+              type: string
+          settings:
+            $ref: '#/components/schemas/ProjectSettings'
+            description: Settings of the project.
+          limits:
+            $ref: '#/components/schemas/ProjectLimits'
+            description: Limits of the project.
+          zoneId:
+            description: Zone in which project should be created.
+            type: string
+      - title: created_from
+        type: object
+        maxProperties: 1
+        properties:
+          checkpointId:
+            type: string
+          checkpointToken:
+            type: string
+    Dataset:
       type: object
       properties:
-        projectId:
-          description: ID of the project that is being deleted.
+        id:
+          description: ID of the dataset.
           type: string
+        projectId:
+          description: ID of the project.
+          type: string
+        createdAt:
+          description: |-
+            Time the dataset was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the dataset.
+          type: string
+        description:
+          description: Description of the dataset.
+          type: string
+        labels:
+          description: Labels of the dataset.
+          type: object
+          additionalProperties:
+            type: string
+        createdById:
+          description: ID of the user who created the dataset.
+          type: string
+        code:
+          description: Code used to create dataset.
+          type: string
+        sizeGb:
+          description: Size of the dataset, Gb.
+          type: string
+          format: int64
+        zoneIds:
+          description: Zone IDs where dataset is available.
+          type: array
+          items:
+            type: string
+        mountPath:
+          description: Dataset mount path.
+          type: string
+        dataCapsuleId:
+          description: ID of the data capsule object, storing information about dataset
+            storage.
+          type: string
+    DatasetList:
+      type: object
+      properties:
+        listedDatasets:
+          description: List of datasets.
+          type: array
+          items:
+            $ref: '#/components/schemas/DatasetListListedDataset'
+    DatasetListListedDataset:
+      type: object
+      properties:
+        dataset:
+          $ref: '#/components/schemas/Dataset_in_DatasetListListedDataset_dataset'
+        datasetStatus:
+          $ref: '#/components/schemas/DatasetStatus_in_DatasetListListedDataset_datasetStatus'
+    DatasetStatus:
+      type: object
+      allOf:
+      - title: status
+        type: object
+        maxProperties: 1
+        properties:
+          statusActive:
+            $ref: '#/components/schemas/DatasetStatusStatusActive'
+            description: Dataset is activated.
+          statusInactive:
+            $ref: '#/components/schemas/DatasetStatusStatusInactive'
+            description: Dataset is inactive.
+          statusError:
+            $ref: '#/components/schemas/DatasetStatusStatusError'
+            description: Error while activating dataset.
+    DatasetStatusStatusActive:
+      type: object
+      properties: {}
+    DatasetStatusStatusError:
+      type: object
+      properties:
+        error:
+          description: Text of the error.
+          type: string
+    DatasetStatusStatusInactive:
+      type: object
+      properties: {}
+    DockerApp:
+      type: object
+      properties:
+        container:
+          $ref: '#/components/schemas/Container_in_DockerApp_container'
+        endpoint:
+          $ref: '#/components/schemas/nodedeployerEndpoint_in_DockerApp_endpoint'
+        telemetry:
+          $ref: '#/components/schemas/Telemetry_in_DockerApp_telemetry'
+        healthcheck:
+          $ref: '#/components/schemas/Healthcheck_in_DockerApp_healthcheck'
+    DockerImage:
+      type: object
+      properties:
+        id:
+          description: ID of the Docker image.
+          type: string
+        projectId:
+          description: ID of the project.
+          type: string
+        createdAt:
+          description: |-
+            Time the Docker image was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the Docker image.
+          type: string
+        description:
+          description: Description of the Docker image.
+          type: string
+        labels:
+          description: Labels of the Docker image.
+          type: object
+          additionalProperties:
+            type: string
+        createdById:
+          description: ID of the user who created the Docker image.
+          type: string
+        buildPath:
+          description: Build path used for the Docker image.
+          type: string
+        repository:
+          description: Repository where Docker image is stored.
+          type: string
+        tag:
+          description: Tag of the Docker image.
+          type: string
+        templateName:
+          description: Name of the template used for Docker image.
+          type: string
+        code:
+          description: Code that created Docker image.
+          type: string
+        buildStatus:
+          $ref: '#/components/schemas/DockerImageBuildStatus_in_DockerImage_buildStatus'
+    DockerImageBuildStatus:
+      description: |2-
+         - DRAFT: Draft.
+         - QUEUED: Build queued.
+         - BUILDING: Build is in progress.
+         - SUCCESS: Build finished successfully.
+         - ERROR: Build finished with error.
+      type: string
+      enum:
+      - DRAFT
+      - QUEUED
+      - BUILDING
+      - SUCCESS
+      - ERROR
+    DockerImageList:
+      type: object
+      properties:
+        listedDockerImages:
+          description: List of Docker images.
+          type: array
+          items:
+            $ref: '#/components/schemas/DockerImageListListedDockerImage'
+    DockerImageListListedDockerImage:
+      type: object
+      properties:
+        dockerImage:
+          $ref: '#/components/schemas/DockerImage_in_DockerImageListListedDockerImage_dockerImage'
+        activated:
+          description: Is Docker image active.
+          type: boolean
+          format: boolean
     DownloadFileResponse:
       type: object
       allOf:
@@ -621,6 +1528,29 @@ components:
       description: Empty JSON object `` {} ``.
       type: object
       maxProperties: 0
+    EndpointOptions:
+      type: object
+      allOf:
+      - title: endpoint_type
+        type: object
+        maxProperties: 1
+        properties:
+          http:
+            $ref: '#/components/schemas/HttpEndpoint'
+            description: HTTP endpoint.
+          grpc:
+            $ref: '#/components/schemas/GrpcEndpoint'
+            description: gRPC endpoint.
+    ExecutionStatus:
+      description: |2-
+         - OK: Execution finished successfully.
+         - ERROR: Execution ended with error.
+         - ABORTED: Execution was aborted.
+      type: string
+      enum:
+      - OK
+      - ERROR
+      - ABORTED
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
@@ -649,50 +1579,6 @@ components:
           description: File size in bytes.
           type: string
           format: int64
-    GetFolderBudgetResponse:
-      type: object
-      properties:
-        unitBalance:
-          description: The number of units available in the folder.
-          type: integer
-          format: int64
-        maxUnitsPerHour:
-          description: The number of units that can be spent per hour.
-          type: integer
-          format: int64
-        maxUnitsPerExecution:
-          description: The number of units that can be spent on one execution.
-          type: integer
-          format: int64
-    GetNotebookMetadataResponse:
-      type: object
-      properties:
-        notebookId:
-          description: ID of the specified notebook.
-          type: string
-        createdAt:
-          description: |-
-            The time the notebook was created.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-          type: string
-          format: date-time
-        modifiedAt:
-          description: |-
-            The time the notebook was modified last time.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-          type: string
-          format: date-time
-        contentLength:
-          description: Content length of the specified notebook.
-          type: string
-          format: int64
-        cellIds:
-          description: Cell ids of the specified notebook.
-          type: array
-          items:
-            type: string
     GetStateVariablesResponse:
       type: object
       properties:
@@ -706,6 +1592,255 @@ components:
           description: The number of units available to the project.
           type: integer
           format: int64
+    GrpcEndpoint:
+      type: object
+      properties: {}
+    GrpcHealthcheck:
+      type: object
+      properties:
+        service:
+          description: Service to check.
+          type: string
+    HardwareSpec:
+      type: object
+      properties:
+        memory:
+          description: RAM amount, Gb.
+          type: string
+          format: int64
+        cores:
+          description: Number of cores.
+          type: string
+          format: int64
+        gpus:
+          description: Number of GPUs.
+          type: string
+          format: int64
+        compatibilityRequirements:
+          description: List of additional hardware requirements.
+          type: array
+          items:
+            type: string
+        image:
+          description: Docker image.
+          type: string
+        name:
+          description: |-
+            Required.
+            Name of the hardware spec.
+          type: string
+    Header:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Name of th header.
+          type: string
+        value:
+          description: |-
+            Required.
+            Value of the header.
+          type: string
+    Healthcheck:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          timeout:
+            description: |-
+              Required.
+              Timeout for performing healthcheck.
+            type: string
+          interval:
+            description: |-
+              Required.
+              Interval for perform healthcheck.
+            type: string
+          failsThreshold:
+            description: |-
+              Number of subsequent healthcheck failures required to mark instance unhealthy.
+
+              Value must be greater than 0.
+            type: string
+            format: int64
+          passesThreshold:
+            description: |-
+              Number of subsequent healthcheck passes required to mark instance healthy.
+
+              Value must be greater than 0.
+            type: string
+            format: int64
+          healthcheckPort:
+            description: |-
+              Port to check health onto.
+
+              Acceptable values are 0 to 65535, inclusive.
+            type: string
+            format: int64
+      - title: healthcheck
+        type: object
+        maxProperties: 1
+        properties:
+          http:
+            $ref: '#/components/schemas/HttpHealthcheck'
+          grpc:
+            $ref: '#/components/schemas/GrpcHealthcheck'
+    HttpEndpoint:
+      type: object
+      properties:
+        useHttp2:
+          description: Use HTTP/2 protocol.
+          type: boolean
+          format: boolean
+    HttpHealthcheck:
+      type: object
+      properties:
+        path:
+          description: Path for healthcheck. Only HTTP response code will be checked.
+          type: string
+    Instance:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            Required.
+            ID of the instance.
+          type: string
+        status:
+          $ref: '#/components/schemas/InstanceStatus_in_Instance_status'
+        updatedAt:
+          description: |-
+            Time when instance was last updated.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        endpoint:
+          $ref: '#/components/schemas/InstanceEndpoint_in_Instance_endpoint'
+        zoneId:
+          description: Zone ID of the instance.
+          type: string
+        billedAt:
+          description: |-
+            Time when instance was last billed.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    InstanceEndpoint:
+      type: object
+      properties:
+        address:
+          description: Endpoint address.
+          type: string
+        port:
+          description: Endpoint port.
+          type: string
+          format: int64
+    InstanceSpec:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          hardwareSpec:
+            $ref: '#/components/schemas/HardwareSpec'
+            description: |-
+              Required.
+              Specifications of the hardware.
+      - title: app_spec
+        type: object
+        maxProperties: 1
+        properties:
+          servantApp:
+            $ref: '#/components/schemas/ServantApp'
+          dockerApp:
+            $ref: '#/components/schemas/DockerApp'
+    InstanceStatus:
+      description: |2-
+         - HEALTHY: Instance is healthy and ready for load balancer.
+         - UNHEALTHY: Instance has problems and excluded from load balancing.
+         - OUTDATED: Instance is outdated.
+         - PREPARING: Instance is preparing to service requests.
+         - UNDEFINED: Initial instance state; VM not created.
+         - CREATED: VM created for instance.
+         - STARTED: Connection with instance VM established.
+         - DELETING: Instance deletion is in progress.
+         - DELETED: Instance is deleted.
+      type: string
+      enum:
+      - HEALTHY
+      - UNHEALTHY
+      - OUTDATED
+      - PREPARING
+      - UNDEFINED
+      - CREATED
+      - STARTED
+      - DELETING
+      - DELETED
+    JupyterKernelSpec:
+      type: object
+      properties:
+        dockerImage:
+          description: |-
+            Required.
+            Docker image name.
+          type: string
+        username:
+          description: Docker repository username.
+          type: string
+        passwordSecret:
+          description: Docker repository password secret.
+          type: string
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: List of access bindings for the specified resource.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [ListAccessBindingsRequest.page_size], use
+            the nextPageToken as the value
+            for the [ListAccessBindingsRequest.page_token] query parameter
+            in the next list request. Each subsequent list request will have its own
+            nextPageToken to continue paging through the results.
+          type: string
+    ListCommunitiesResponse:
+      type: object
+      properties:
+        communities:
+          description: List of communities matching filters in list communities request.
+          type: array
+          items:
+            $ref: '#/components/schemas/Community'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/datasphere/api-ref/Community/list#query_params), use
+            the [nextPageToken](/docs/datasphere/api-ref/Community/list#responses) as the value
+            for the [pageToken](/docs/datasphere/api-ref/Community/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/datasphere/api-ref/Community/list#responses) to continue paging through the results.
+          type: string
+    ListCommunityResourcesResponse:
+      type: object
+      properties:
+        resourceList:
+          $ref: '#/components/schemas/ResourceList_in_ListCommunityResourcesResponse_resourceList'
+    ListProjectResourcesResponse:
+      type: object
+      properties:
+        resourceList:
+          $ref: '#/components/schemas/ResourceList_in_ListProjectResourcesResponse_resourceList'
+    ListProjectSharedResourcesResponse:
+      type: object
+      properties:
+        resourceList:
+          $ref: '#/components/schemas/ResourceList_in_ListProjectSharedResourcesResponse_resourceList'
     ListProjectsResponse:
       type: object
       properties:
@@ -723,26 +1858,191 @@ components:
             in the next list request. Each subsequent list request will have its own
             [nextPageToken](/docs/datasphere/api-ref/Project/list#responses) to continue paging through the results.
           type: string
-    NodeExecutionRequest:
+    Node:
       type: object
       properties:
-        folderId:
-          description: ID of the folder that will be matched with Node ACL.
+        id:
+          description: |-
+            Required.
+            ID of the node.
           type: string
-        input:
-          description: Input data for the execution.
-          type: object
-    NodeExecutionResponse:
+        projectId:
+          description: |-
+            Required.
+            ID of the project.
+          type: string
+        folderId:
+          description: |-
+            Required.
+            ID of the folder that the node belongs to.
+            During deployment Compute resources of this folder used for creation of new instances
+          type: string
+        createdAt:
+          description: |-
+            Required.
+            Time when node was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        createdById:
+          description: ID of the user who created the node.
+          type: string
+        nodeSpec:
+          $ref: '#/components/schemas/NodeSpec_in_Node_nodeSpec'
+        tags:
+          description: List of the node tags.
+          type: array
+          items:
+            type: string
+        updatedAt:
+          description: |-
+            Time when node was last updated.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    NodeAlias:
       type: object
       properties:
-        output:
-          description: Result of the execution.
-          type: object
+        name:
+          description: |-
+            Required.
+            Name of the node alias. 2-79 characters long.
+          type: string
+        projectId:
+          description: |-
+            Required.
+            ID of the project.
+          type: string
+        createdAt:
+          description: |-
+            Required.
+            Time the node alias was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        createdById:
+          description: |-
+            Required.
+            ID of the user who created the node alias.
+          type: string
+        executionAcl:
+          $ref: '#/components/schemas/ACL_in_NodeAlias_executionAcl'
+        proxyMetadata:
+          $ref: '#/components/schemas/ProxyMetadata_in_NodeAlias_proxyMetadata'
+        backends:
+          $ref: '#/components/schemas/Backends_in_NodeAlias_backends'
+        billingSpec:
+          $ref: '#/components/schemas/BillingSpec_in_NodeAlias_billingSpec'
+        updatedAt:
+          description: |-
+            Time when node alias was last updated.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        folderId:
+          description: |-
+            Required.
+            ID of the folder.
+          type: string
+    NodeList:
+      type: object
+      properties:
+        listedNodes:
+          description: List of nodes.
+          type: array
+          items:
+            $ref: '#/components/schemas/NodeListListedNode'
+    NodeListListedNode:
+      type: object
+      properties:
+        node:
+          $ref: '#/components/schemas/Node_in_NodeListListedNode_node'
+        nodeStatus:
+          $ref: '#/components/schemas/NodeStatus_in_NodeListListedNode_nodeStatus'
+        instances:
+          description: List of node instances.
+          type: array
+          items:
+            $ref: '#/components/schemas/Instance'
+        relatedAliases:
+          description: List of aliases related to the node.
+          type: array
+          items:
+            type: string
+    NodeSpec:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Name associated with current node specification. 2-63 characters long.
+
+            Value must match the regular expression `` [a-zA-ZЁёА-я][-\s\wЁёА-я]{0,61}[a-zA-Z0-9ЁёА-я] ``.
+          type: string
+        instanceSpec:
+          $ref: '#/components/schemas/InstanceSpec_in_NodeSpec_instanceSpec'
+        policies:
+          $ref: '#/components/schemas/Policies_in_NodeSpec_policies'
+        permissions:
+          $ref: '#/components/schemas/Permissions_in_NodeSpec_permissions'
+        description:
+          description: Description of the node specification.
+          type: string
+    NodeStatus:
+      description: |2-
+         - NODE_STATUS_SUSPENDED: Node is suspended.
+         - NODE_STATUS_DESTROYING: Node destruction is in progress.
+         - NODE_STATUS_HEALTHY: Node is running and has sufficient launched VMs.
+         - NODE_STATUS_UNHEALTHY: Node is running but has insufficient launched VMs.
+      type: string
+      enum:
+      - NODE_STATUS_SUSPENDED
+      - NODE_STATUS_DESTROYING
+      - NODE_STATUS_HEALTHY
+      - NODE_STATUS_UNHEALTHY
     OpenProjectMetadata:
       type: object
       properties:
         projectId:
           description: ID of the project that is being opened.
+          type: string
+        status:
+          $ref: '#/components/schemas/OpenProjectMetadataOpenProjectStatus_in_OpenProjectMetadata_status'
+    OpenProjectMetadataOpenProjectStatus:
+      description: |2-
+         - OPEN_PROJECT_STATUS_CLOSING_IDE: Closing previous IDE instance.
+         - OPEN_PROJECT_STATUS_UNZIPPING_PROJECT: Unzipping project.
+         - OPEN_PROJECT_STATUS_ALLOCATING_VM: Allocating VM for the project.
+         - OPEN_PROJECT_STATUS_ALLOCATING_RESOURCES: Allocating resources for the project.
+         - OPEN_PROJECT_STATUS_STARTING_IDE: Starting IDE.
+         - OPEN_PROJECT_STATUS_APPLYING_CHECKPOINT: Applying checkpoint to project.
+         - OPEN_PROJECT_STATUS_UNKNOWN: Unknown open project status.
+      type: string
+      enum:
+      - OPEN_PROJECT_STATUS_CLOSING_IDE
+      - OPEN_PROJECT_STATUS_UNZIPPING_PROJECT
+      - OPEN_PROJECT_STATUS_ALLOCATING_VM
+      - OPEN_PROJECT_STATUS_ALLOCATING_RESOURCES
+      - OPEN_PROJECT_STATUS_STARTING_IDE
+      - OPEN_PROJECT_STATUS_APPLYING_CHECKPOINT
+      - OPEN_PROJECT_STATUS_UNKNOWN
+    OpenProjectRequest:
+      type: object
+      properties:
+        customVersions:
+          $ref: '#/components/schemas/OpenProjectRequestCustomVersions_in_OpenProjectRequest_customVersions'
+    OpenProjectRequestCustomVersions:
+      type: object
+      properties:
+        roomDockerImage:
+          description: Custom docker image tag for room.
+          type: string
+        servantDockerImage:
+          description: Custom docker image tag for servant.
           type: string
     OpenProjectResponse:
       type: object
@@ -756,6 +2056,9 @@ components:
           type: string
         sessionToken:
           description: Session token of the project that is being opened.
+          type: string
+        sessionId:
+          description: Session ID of the project that is being opened.
           type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
@@ -803,7 +2106,7 @@ components:
         maxProperties: 1
         properties:
           error:
-            $ref: '#/components/schemas/Status'
+            $ref: '#/components/schemas/rpcStatus'
             description: The error result of the operation in case of failure or cancellation.
           response:
             description: |-
@@ -814,15 +2117,41 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    Parameter:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Name of the parameter.
+          type: string
+        type:
+          description: Type of the parameter.
+          type: string
+        description:
+          description: Description of the parameter.
+          type: string
+    Permissions:
+      type: object
+      properties:
+        folders:
+          description: List of folders.
+          type: array
+          items:
+            type: string
+    Policies:
+      type: object
+      properties:
+        availabilityPolicy:
+          $ref: '#/components/schemas/AvailabilityPolicy_in_Policies_availabilityPolicy'
+        scalePolicy:
+          $ref: '#/components/schemas/ScalePolicy_in_Policies_scalePolicy'
     Project:
       description: A Project resource.
       type: object
       properties:
         id:
           description: ID of the project.
-          type: string
-        folderId:
-          description: ID of the folder that the project belongs to.
           type: string
         createdAt:
           description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
@@ -835,10 +2164,22 @@ components:
         description:
           description: Description of the project. 0-256 characters long.
           type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        createdById:
+          type: string
         settings:
           $ref: '#/components/schemas/ProjectSettings_in_Project_settings'
         limits:
           $ref: '#/components/schemas/ProjectLimits_in_Project_limits'
+        zoneId:
+          description: ID of the zone that the project belongs to.
+          type: string
+        communityId:
+          description: ID of the community that the project belongs to.
+          type: string
     ProjectExecutionMetadata:
       type: object
       allOf:
@@ -901,6 +2242,8 @@ components:
         outputVariables:
           description: Values of output variables resulting from the execution.
           type: object
+        executionStatus:
+          $ref: '#/components/schemas/ExecutionStatus_in_ProjectExecutionResponse_executionStatus'
     ProjectLimits:
       type: object
       properties:
@@ -934,6 +2277,17 @@ components:
           type: array
           items:
             type: string
+        earlyAccess:
+          description: Is early access preview enabled for the project.
+          type: boolean
+          format: boolean
+        ide:
+          $ref: '#/components/schemas/ProjectSettingsIde_in_ProjectSettings_ide'
+        defaultFolderId:
+          description: Default project folder ID.
+          type: string
+        staleExecTimeoutMode:
+          $ref: '#/components/schemas/ProjectSettingsStaleExecutionTimeoutMode_in_ProjectSettings_staleExecTimeoutMode'
     ProjectSettingsCommitMode:
       description: |2-
          - STANDARD: Commit happens after the execution of a cell or group of cells or after completion with an error.
@@ -943,23 +2297,275 @@ components:
       enum:
       - STANDARD
       - AUTO
-    SetFolderBudgetRequest:
+    ProjectSettingsIde:
+      description: ' - JUPYTER_LAB: Project running on JupyterLab IDE.'
+      type: string
+      enum:
+      - JUPYTER_LAB
+    ProjectSettingsStaleExecutionTimeoutMode:
+      description: |2-
+         - ONE_HOUR: Setting to automatically stop stale execution after one hour with low consumption.
+         - THREE_HOURS: Setting to automatically stop stale execution after three hours with low consumption.
+         - NO_TIMEOUT: Setting to never automatically stop stale executions.
+      type: string
+      enum:
+      - ONE_HOUR
+      - THREE_HOURS
+      - NO_TIMEOUT
+    ProxyMetadata:
       type: object
       properties:
-        setMask:
-          $ref: '#/components/schemas/FieldMask_in_SetFolderBudgetRequest_setMask'
-        unitBalance:
-          description: The number of units available in the folder.
-          type: integer
+        headers:
+          description: List of headers.
+          type: array
+          items:
+            $ref: '#/components/schemas/Header'
+    ResourceList:
+      type: object
+      allOf:
+      - title: resources
+        type: object
+        maxProperties: 1
+        properties:
+          unpinnedCheckpoints:
+            $ref: '#/components/schemas/CheckpointList'
+            description: List of unpinned checkpoints.
+          secrets:
+            $ref: '#/components/schemas/SecretList'
+            description: List of secrets.
+          dockers:
+            $ref: '#/components/schemas/DockerImageList'
+            description: List of Docker images.
+          datasets:
+            $ref: '#/components/schemas/DatasetList'
+            description: List of datasets.
+          s3:
+            $ref: '#/components/schemas/S3List'
+            description: List of S3 objects.
+          pinnedCheckpoints:
+            $ref: '#/components/schemas/CheckpointList'
+            description: List of pinned checkpoints.
+          nodeList:
+            $ref: '#/components/schemas/NodeList'
+            description: List of nodes.
+          aliasList:
+            $ref: '#/components/schemas/AliasList'
+            description: List of node aliases.
+    ResourceType:
+      description: |2-
+         - RESOURCE_TYPE_UNPINNED_CHECKPOINT: Unpinned checkpoint.
+         - RESOURCE_TYPE_SECRET: Secret.
+         - RESOURCE_TYPE_DOCKER_IMAGE: Docker image.
+         - RESOURCE_TYPE_DATASET: Dataset.
+         - RESOURCE_TYPE_S3: S3 object storage.
+         - RESOURCE_TYPE_NODE: Node.
+         - RESOURCE_TYPE_PINNED_CHECKPOINT: Pinned checkpoint.
+         - RESOURCE_TYPE_ALIAS: Node alias.
+      type: string
+      enum:
+      - RESOURCE_TYPE_UNPINNED_CHECKPOINT
+      - RESOURCE_TYPE_SECRET
+      - RESOURCE_TYPE_DOCKER_IMAGE
+      - RESOURCE_TYPE_DATASET
+      - RESOURCE_TYPE_S3
+      - RESOURCE_TYPE_NODE
+      - RESOURCE_TYPE_PINNED_CHECKPOINT
+      - RESOURCE_TYPE_ALIAS
+    S3:
+      type: object
+      properties:
+        id:
+          description: ID of the S3 object.
+          type: string
+        projectId:
+          description: ID of the project.
+          type: string
+        createdAt:
+          description: |-
+            Time when S3 object was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the S3 object. 0-64 characters long.
+          type: string
+        description:
+          description: Description of the S3 object. 0-256 characters long.
+          type: string
+        labels:
+          description: Labels of the S3 object.
+          type: object
+          additionalProperties:
+            type: string
+        createdById:
+          description: ID of the user who created S3 object.
+          type: string
+        endpoint:
+          description: S3 service endpoint.
+          type: string
+        bucket:
+          description: S3 bucket containing the object.
+          type: string
+        mountPath:
+          description: Path for S3 object mounting.
+          type: string
+        accessKeyId:
+          description: Public access key.
+          type: string
+        secretAccessKeySecretId:
+          description: ID of the secret containing private access key.
+          type: string
+        s3MountMode:
+          $ref: '#/components/schemas/S3MountMode_in_S3_s3MountMode'
+        s3Backend:
+          $ref: '#/components/schemas/S3Backend_in_S3_s3Backend'
+    S3Backend:
+      description: |2-
+         - S3FS: S3FS.
+         - GEESEFS: GeeseFS
+      type: string
+      enum:
+      - DEFAULT
+      - S3FS
+      - GEESEFS
+    S3List:
+      type: object
+      properties:
+        listedS3:
+          description: List of S3 objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/S3ListListedS3'
+    S3ListListedS3:
+      type: object
+      properties:
+        s3:
+          $ref: '#/components/schemas/S3_in_S3ListListedS3_s3'
+        s3Status:
+          $ref: '#/components/schemas/S3Status_in_S3ListListedS3_s3Status'
+    S3MountMode:
+      description: |2-
+         - READ_ONLY: Read-only mount.
+         - READ_WRITE: Read-write mount.
+      type: string
+      enum:
+      - READ_ONLY
+      - READ_WRITE
+    S3Status:
+      type: object
+      allOf:
+      - title: status
+        type: object
+        maxProperties: 1
+        properties:
+          statusActive:
+            $ref: '#/components/schemas/S3StatusStatusActive'
+            description: S3 object is active.
+          statusInactive:
+            $ref: '#/components/schemas/S3StatusStatusInactive'
+            description: S3 object is inactive.
+          statusError:
+            $ref: '#/components/schemas/S3StatusStatusError'
+            description: S3 object in error status.
+    S3StatusStatusActive:
+      type: object
+      properties: {}
+    S3StatusStatusError:
+      type: object
+      properties:
+        error:
+          description: Error message.
+          type: string
+    S3StatusStatusInactive:
+      type: object
+      properties: {}
+    ScalePolicy:
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          sessionsPerInstance:
+            $ref: '#/components/schemas/SessionBasedScalePolicy'
+    Secret:
+      type: object
+      properties:
+        id:
+          description: ID of the secret.
+          type: string
+        projectId:
+          description: ID of the project.
+          type: string
+        createdAt:
+          description: |-
+            Time when secret was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the secret. 1-63 characters long.
+          type: string
+        description:
+          description: Description of the secret. 0-256 characters long.
+          type: string
+        labels:
+          description: Labels of the secret.
+          type: object
+          additionalProperties:
+            type: string
+        createdById:
+          description: ID of the user who created secret.
+          type: string
+        updatedAt:
+          description: |-
+            Time of last secret update.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    SecretList:
+      type: object
+      properties:
+        listedSecrets:
+          description: List of secrets.
+          type: array
+          items:
+            $ref: '#/components/schemas/SecretListListedSecret'
+    SecretListListedSecret:
+      type: object
+      properties:
+        secret:
+          $ref: '#/components/schemas/Secret_in_SecretListListedSecret_secret'
+    ServantApp:
+      type: object
+      properties:
+        checkpoint:
+          $ref: '#/components/schemas/nodedeployerCheckpoint_in_ServantApp_checkpoint'
+        signature:
+          $ref: '#/components/schemas/Signature_in_ServantApp_signature'
+        jupyterKernelSpec:
+          $ref: '#/components/schemas/JupyterKernelSpec_in_ServantApp_jupyterKernelSpec'
+    SessionBasedScalePolicy:
+      type: object
+      properties:
+        sessionsPerInstance:
+          description: Maximum number of concurrent sessions per instance.
+          type: string
           format: int64
-        maxUnitsPerHour:
-          description: The number of units that can be spent per hour.
-          type: integer
-          format: int64
-        maxUnitsPerExecution:
-          description: The number of units that can be spent on one execution.
-          type: integer
-          format: int64
+    SetAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindings:
+          description: |-
+            Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+
+            The maximum number of elements is 1000.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
     SetUnitBalanceRequest:
       type: object
       properties:
@@ -967,7 +2573,209 @@ components:
           description: The number of units available to the project.
           type: integer
           format: int64
-    Status:
+    Signature:
+      type: object
+      properties:
+        inputParameters:
+          description: List of the input parameters.
+          type: array
+          items:
+            $ref: '#/components/schemas/Parameter'
+        outputParameters:
+          description: List of the output parameters.
+          type: array
+          items:
+            $ref: '#/components/schemas/Parameter'
+    StopProjectMetadata:
+      type: object
+      properties:
+        projectId:
+          description: ID of the project that is being stopped.
+          type: string
+    StopProjectRequest:
+      type: object
+      properties: {}
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
+    Telemetry:
+      type: object
+      properties:
+        path:
+          description: |-
+            Required.
+            Relative path of the endpoint.
+          type: string
+        port:
+          description: |-
+            Port.
+
+            Acceptable values are 0 to 65535, inclusive.
+          type: string
+          format: int64
+        format:
+          $ref: '#/components/schemas/TelemetryFormat_in_Telemetry_format'
+    TelemetryFormat:
+      description: |2-
+         - SOLOMON_JSON: Solomon (JSON) metrics format.
+         - PROMETHEUS: Prometheus metrics format.
+      type: string
+      enum:
+      - SOLOMON_JSON
+      - PROMETHEUS
+    UpdateAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            Required.
+            Updates to access bindings.
+
+            The number of elements must be in the range 1-1000.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateCommunityRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateCommunityRequest_updateMask'
+        name:
+          description: Name of the community.
+          type: string
+        description:
+          description: Description of the community.
+          type: string
+    UpdateProjectRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateProjectRequest_updateMask'
+        name:
+          description: |-
+            Name of the project. 0-63 characters long.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Description of the project. 0-256 characters long.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Labels of the project.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        settings:
+          $ref: '#/components/schemas/ProjectSettings_in_UpdateProjectRequest_settings'
+        limits:
+          $ref: '#/components/schemas/ProjectLimits_in_UpdateProjectRequest_limits'
+    UploadFileResponse:
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/FileMetadata_in_UploadFileResponse_metadata'
+    YandexCloudBillingDescriptor:
+      type: object
+      properties:
+        schema:
+          description: |-
+            Required.
+            Billing schema.
+          type: string
+        units:
+          description: |-
+            Required.
+            Billing units.
+          type: string
+        defaultQuantity:
+          description: Default billing quantity.
+          type: string
+          format: int64
+    nodedeployerCheckpoint:
+      type: object
+      properties:
+        checkpointId:
+          description: |-
+            Required.
+            ID of the checkpoint.
+          type: string
+        cellId:
+          description: ID of the cell.
+          type: string
+        stateVersion:
+          description: Version of the state.
+          type: string
+          format: int64
+        cellVersion:
+          description: Version of the cell.
+          type: string
+          format: int64
+        notebookId:
+          description: |-
+            Required.
+            ID of the notebook.
+          type: string
+    nodedeployerEndpoint:
+      type: object
+      properties:
+        port:
+          description: |-
+            Port of the endpoint.
+
+            Acceptable values are 0 to 65535, inclusive.
+          type: string
+          format: int64
+        endpointOptions:
+          $ref: '#/components/schemas/EndpointOptions_in_nodedeployerEndpoint_endpointOptions'
+        timeout:
+          description: Endpoint response timeout.
+          type: string
+        idleTimeout:
+          description: Idle timeout for endpoint. Defines amount of time connection
+            could exist without activity.
+          type: string
+    rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object
       properties:
@@ -983,74 +2791,847 @@ components:
           type: array
           items:
             type: object
-    UpdateProjectMetadata:
+    v2Checkpoint:
       type: object
       properties:
+        id:
+          description: ID of the checkpoint.
+          type: string
         projectId:
-          description: ID of the project that is being updated.
+          description: ID of the project.
           type: string
-    UpdateProjectRequest:
-      type: object
-      properties:
-        updateMask:
-          $ref: '#/components/schemas/FieldMask_in_UpdateProjectRequest_updateMask'
+        createdAt:
+          description: |-
+            Time the checkpoint was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
         name:
-          description: |-
-            Name of the project.
-
-            The maximum string length in characters is 63.
-            Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          description: Name of the checkpoint. Only pinned checkpoints have name.
           type: string
-        description:
-          description: |-
-            Description of the project.
-
-            The maximum string length in characters is 256.
+        notebookPath:
+          description: Path of the notebook; optional.
           type: string
-        settings:
-          $ref: '#/components/schemas/ProjectSettings_in_UpdateProjectRequest_settings'
-        limits:
-          $ref: '#/components/schemas/ProjectLimits_in_UpdateProjectRequest_limits'
-    UploadFileResponse:
-      type: object
-      properties:
-        metadata:
-          $ref: '#/components/schemas/FileMetadata_in_UploadFileResponse_metadata'
-    ProjectSettings_in_CreateProjectRequest_settings:
-      description: Settings of the project.
-      type: object
-      properties:
-        serviceAccountId:
-          description: ID of the service account, on whose behalf all operations with
-            clusters will be performed.
+        createdById:
+          description: ID of the user who created checkpoint.
           type: string
-        subnetId:
-          description: |-
-            ID of the subnet where the DataProc cluster resides.
-            Currently only subnets created in the availability zone ru-central1-a are supported.
+        pinnedById:
+          description: ID of the user who pinned checkpoint. Empty if checkpoint is
+            not pinned.
           type: string
-        dataProcClusterId:
-          description: ID of the DataProc cluster.
-          type: string
-        commitMode:
-          $ref: '#/components/schemas/ProjectSettingsCommitMode_in_ProjectSettings_commitMode'
-        securityGroupIds:
-          description: Network interfaces security groups.
+        cellInfo:
+          $ref: '#/components/schemas/CheckpointCellInfo_in_v2Checkpoint_cellInfo'
+        type:
+          $ref: '#/components/schemas/CheckpointType_in_v2Checkpoint_type'
+        tags:
+          description: Tags of the checkpoint.
           type: array
           items:
             type: string
-    ProjectLimits_in_CreateProjectRequest_limits:
-      description: Limits of the project.
+        labels:
+          description: Labels of the checkpoint.
+          type: object
+          additionalProperties:
+            type: string
+        nbCheckpoints:
+          description: List of notebook checkpoints.
+          type: array
+          items:
+            $ref: '#/components/schemas/CheckpointNbCheckpoint'
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Required.
+        Identity for which access binding is being created.
+        It can represent an account with a unique ID or several accounts with a system identifier.
       type: object
       properties:
-        maxUnitsPerHour:
-          description: The number of units that can be spent per hour.
-          type: integer
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Required.
+        The action that is being performed on an access binding.
+
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Required.
+        Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    NodeAlias_in_AliasListListedAlias_alias:
+      description: Node alias.
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Name of the node alias. 2-79 characters long.
+          type: string
+        projectId:
+          description: |-
+            Required.
+            ID of the project.
+          type: string
+        createdAt:
+          description: |-
+            Required.
+            Time the node alias was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        createdById:
+          description: |-
+            Required.
+            ID of the user who created the node alias.
+          type: string
+        executionAcl:
+          $ref: '#/components/schemas/ACL_in_NodeAlias_executionAcl'
+        proxyMetadata:
+          $ref: '#/components/schemas/ProxyMetadata_in_NodeAlias_proxyMetadata'
+        backends:
+          $ref: '#/components/schemas/Backends_in_NodeAlias_backends'
+        billingSpec:
+          $ref: '#/components/schemas/BillingSpec_in_NodeAlias_billingSpec'
+        updatedAt:
+          description: |-
+            Time when node alias was last updated.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        folderId:
+          description: |-
+            Required.
+            ID of the folder.
+          type: string
+    v2Checkpoint_in_CheckpointListListedCheckpoint_checkpoint:
+      description: Checkpoint.
+      type: object
+      properties:
+        id:
+          description: ID of the checkpoint.
+          type: string
+        projectId:
+          description: ID of the project.
+          type: string
+        createdAt:
+          description: |-
+            Time the checkpoint was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the checkpoint. Only pinned checkpoints have name.
+          type: string
+        notebookPath:
+          description: Path of the notebook; optional.
+          type: string
+        createdById:
+          description: ID of the user who created checkpoint.
+          type: string
+        pinnedById:
+          description: ID of the user who pinned checkpoint. Empty if checkpoint is
+            not pinned.
+          type: string
+        cellInfo:
+          $ref: '#/components/schemas/CheckpointCellInfo_in_v2Checkpoint_cellInfo'
+        type:
+          $ref: '#/components/schemas/CheckpointType_in_v2Checkpoint_type'
+        tags:
+          description: Tags of the checkpoint.
+          type: array
+          items:
+            type: string
+        labels:
+          description: Labels of the checkpoint.
+          type: object
+          additionalProperties:
+            type: string
+        nbCheckpoints:
+          description: List of notebook checkpoints.
+          type: array
+          items:
+            $ref: '#/components/schemas/CheckpointNbCheckpoint'
+    CommunicationChannelType_in_CommunicationChannel_type:
+      description: Type of communication channel.
+      type: string
+      enum:
+      - TELEGRAM
+      - SLACK
+    CommunityAccessType_in_Community_accessType:
+      description: |-
+        Community access type.
+
+        Community access type.
+
+         - PUBLIC: Public community.
+         - PRIVATE: Private community.
+      type: string
+      enum:
+      - PUBLIC
+      - PRIVATE
+    CommunicationChannel_in_Community_channel:
+      description: Communication channel for the community.
+      type: object
+      properties:
+        link:
+          description: Link to communication channel.
+          type: string
+        type:
+          $ref: '#/components/schemas/CommunicationChannelType_in_CommunicationChannel_type'
+    CommunityStatus_in_Community_status:
+      description: |-
+        Community status.
+
+         - ACTIVE: Active community.
+         - BLOCKED_BY_BILLING: Community blocked by billing.
+      type: string
+      enum:
+      - UNDEFINED
+      - ACTIVE
+      - BLOCKED_BY_BILLING
+    Dataset_in_DatasetListListedDataset_dataset:
+      description: Dataset.
+      type: object
+      properties:
+        id:
+          description: ID of the dataset.
+          type: string
+        projectId:
+          description: ID of the project.
+          type: string
+        createdAt:
+          description: |-
+            Time the dataset was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the dataset.
+          type: string
+        description:
+          description: Description of the dataset.
+          type: string
+        labels:
+          description: Labels of the dataset.
+          type: object
+          additionalProperties:
+            type: string
+        createdById:
+          description: ID of the user who created the dataset.
+          type: string
+        code:
+          description: Code used to create dataset.
+          type: string
+        sizeGb:
+          description: Size of the dataset, Gb.
+          type: string
           format: int64
-        maxUnitsPerExecution:
-          description: The number of units that can be spent on the one execution.
-          type: integer
+        zoneIds:
+          description: Zone IDs where dataset is available.
+          type: array
+          items:
+            type: string
+        mountPath:
+          description: Dataset mount path.
+          type: string
+        dataCapsuleId:
+          description: ID of the data capsule object, storing information about dataset
+            storage.
+          type: string
+    DatasetStatus_in_DatasetListListedDataset_datasetStatus:
+      description: Status of the dataset.
+      type: object
+      allOf:
+      - title: status
+        type: object
+        maxProperties: 1
+        properties:
+          statusActive:
+            $ref: '#/components/schemas/DatasetStatusStatusActive'
+            description: Dataset is activated.
+          statusInactive:
+            $ref: '#/components/schemas/DatasetStatusStatusInactive'
+            description: Dataset is inactive.
+          statusError:
+            $ref: '#/components/schemas/DatasetStatusStatusError'
+            description: Error while activating dataset.
+    Container_in_DockerApp_container:
+      description: Required.
+      type: object
+      properties:
+        image:
+          description: |-
+            Required.
+            Docker image name.
+          type: string
+        username:
+          description: Docker repository username.
+          type: string
+        passwordSecret:
+          description: Docker repository password secret.
+          type: string
+        ports:
+          description: Docker port bindings.
+          type: array
+          items:
+            $ref: '#/components/schemas/ContainerPort'
+    nodedeployerEndpoint_in_DockerApp_endpoint:
+      description: Required.
+      type: object
+      properties:
+        port:
+          description: |-
+            Port of the endpoint.
+
+            Acceptable values are 0 to 65535, inclusive.
+          type: string
           format: int64
+        endpointOptions:
+          $ref: '#/components/schemas/EndpointOptions_in_nodedeployerEndpoint_endpointOptions'
+        timeout:
+          description: Endpoint response timeout.
+          type: string
+        idleTimeout:
+          description: Idle timeout for endpoint. Defines amount of time connection
+            could exist without activity.
+          type: string
+    Telemetry_in_DockerApp_telemetry:
+      type: object
+      properties:
+        path:
+          description: |-
+            Required.
+            Relative path of the endpoint.
+          type: string
+        port:
+          description: |-
+            Port.
+
+            Acceptable values are 0 to 65535, inclusive.
+          type: string
+          format: int64
+        format:
+          $ref: '#/components/schemas/TelemetryFormat_in_Telemetry_format'
+    Healthcheck_in_DockerApp_healthcheck:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          timeout:
+            description: |-
+              Required.
+              Timeout for performing healthcheck.
+            type: string
+          interval:
+            description: |-
+              Required.
+              Interval for perform healthcheck.
+            type: string
+          failsThreshold:
+            description: |-
+              Number of subsequent healthcheck failures required to mark instance unhealthy.
+
+              Value must be greater than 0.
+            type: string
+            format: int64
+          passesThreshold:
+            description: |-
+              Number of subsequent healthcheck passes required to mark instance healthy.
+
+              Value must be greater than 0.
+            type: string
+            format: int64
+          healthcheckPort:
+            description: |-
+              Port to check health onto.
+
+              Acceptable values are 0 to 65535, inclusive.
+            type: string
+            format: int64
+      - title: healthcheck
+        type: object
+        maxProperties: 1
+        properties:
+          http:
+            $ref: '#/components/schemas/HttpHealthcheck'
+          grpc:
+            $ref: '#/components/schemas/GrpcHealthcheck'
+    DockerImageBuildStatus_in_DockerImage_buildStatus:
+      description: |-
+        Docker image build status.
+
+         - DRAFT: Draft.
+         - QUEUED: Build queued.
+         - BUILDING: Build is in progress.
+         - SUCCESS: Build finished successfully.
+         - ERROR: Build finished with error.
+      type: string
+      enum:
+      - DRAFT
+      - QUEUED
+      - BUILDING
+      - SUCCESS
+      - ERROR
+    DockerImage_in_DockerImageListListedDockerImage_dockerImage:
+      description: Docker image.
+      type: object
+      properties:
+        id:
+          description: ID of the Docker image.
+          type: string
+        projectId:
+          description: ID of the project.
+          type: string
+        createdAt:
+          description: |-
+            Time the Docker image was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the Docker image.
+          type: string
+        description:
+          description: Description of the Docker image.
+          type: string
+        labels:
+          description: Labels of the Docker image.
+          type: object
+          additionalProperties:
+            type: string
+        createdById:
+          description: ID of the user who created the Docker image.
+          type: string
+        buildPath:
+          description: Build path used for the Docker image.
+          type: string
+        repository:
+          description: Repository where Docker image is stored.
+          type: string
+        tag:
+          description: Tag of the Docker image.
+          type: string
+        templateName:
+          description: Name of the template used for Docker image.
+          type: string
+        code:
+          description: Code that created Docker image.
+          type: string
+        buildStatus:
+          $ref: '#/components/schemas/DockerImageBuildStatus_in_DockerImage_buildStatus'
+    InstanceStatus_in_Instance_status:
+      description: |-
+        Required.
+        Status of the instance.
+
+         - HEALTHY: Instance is healthy and ready for load balancer.
+         - UNHEALTHY: Instance has problems and excluded from load balancing.
+         - OUTDATED: Instance is outdated.
+         - PREPARING: Instance is preparing to service requests.
+         - UNDEFINED: Initial instance state; VM not created.
+         - CREATED: VM created for instance.
+         - STARTED: Connection with instance VM established.
+         - DELETING: Instance deletion is in progress.
+         - DELETED: Instance is deleted.
+      type: string
+      enum:
+      - HEALTHY
+      - UNHEALTHY
+      - OUTDATED
+      - PREPARING
+      - UNDEFINED
+      - CREATED
+      - STARTED
+      - DELETING
+      - DELETED
+    InstanceEndpoint_in_Instance_endpoint:
+      description: Instance endpoint.
+      type: object
+      properties:
+        address:
+          description: Endpoint address.
+          type: string
+        port:
+          description: Endpoint port.
+          type: string
+          format: int64
+    ResourceList_in_ListCommunityResourcesResponse_resourceList:
+      description: List of resources.
+      type: object
+      allOf:
+      - title: resources
+        type: object
+        maxProperties: 1
+        properties:
+          unpinnedCheckpoints:
+            $ref: '#/components/schemas/CheckpointList'
+            description: List of unpinned checkpoints.
+          secrets:
+            $ref: '#/components/schemas/SecretList'
+            description: List of secrets.
+          dockers:
+            $ref: '#/components/schemas/DockerImageList'
+            description: List of Docker images.
+          datasets:
+            $ref: '#/components/schemas/DatasetList'
+            description: List of datasets.
+          s3:
+            $ref: '#/components/schemas/S3List'
+            description: List of S3 objects.
+          pinnedCheckpoints:
+            $ref: '#/components/schemas/CheckpointList'
+            description: List of pinned checkpoints.
+          nodeList:
+            $ref: '#/components/schemas/NodeList'
+            description: List of nodes.
+          aliasList:
+            $ref: '#/components/schemas/AliasList'
+            description: List of node aliases.
+    ResourceList_in_ListProjectResourcesResponse_resourceList:
+      description: List of project resources.
+      type: object
+      allOf:
+      - title: resources
+        type: object
+        maxProperties: 1
+        properties:
+          unpinnedCheckpoints:
+            $ref: '#/components/schemas/CheckpointList'
+            description: List of unpinned checkpoints.
+          secrets:
+            $ref: '#/components/schemas/SecretList'
+            description: List of secrets.
+          dockers:
+            $ref: '#/components/schemas/DockerImageList'
+            description: List of Docker images.
+          datasets:
+            $ref: '#/components/schemas/DatasetList'
+            description: List of datasets.
+          s3:
+            $ref: '#/components/schemas/S3List'
+            description: List of S3 objects.
+          pinnedCheckpoints:
+            $ref: '#/components/schemas/CheckpointList'
+            description: List of pinned checkpoints.
+          nodeList:
+            $ref: '#/components/schemas/NodeList'
+            description: List of nodes.
+          aliasList:
+            $ref: '#/components/schemas/AliasList'
+            description: List of node aliases.
+    ResourceList_in_ListProjectSharedResourcesResponse_resourceList:
+      description: List of shared project resources.
+      type: object
+      allOf:
+      - title: resources
+        type: object
+        maxProperties: 1
+        properties:
+          unpinnedCheckpoints:
+            $ref: '#/components/schemas/CheckpointList'
+            description: List of unpinned checkpoints.
+          secrets:
+            $ref: '#/components/schemas/SecretList'
+            description: List of secrets.
+          dockers:
+            $ref: '#/components/schemas/DockerImageList'
+            description: List of Docker images.
+          datasets:
+            $ref: '#/components/schemas/DatasetList'
+            description: List of datasets.
+          s3:
+            $ref: '#/components/schemas/S3List'
+            description: List of S3 objects.
+          pinnedCheckpoints:
+            $ref: '#/components/schemas/CheckpointList'
+            description: List of pinned checkpoints.
+          nodeList:
+            $ref: '#/components/schemas/NodeList'
+            description: List of nodes.
+          aliasList:
+            $ref: '#/components/schemas/AliasList'
+            description: List of node aliases.
+    NodeSpec_in_Node_nodeSpec:
+      description: |-
+        Required.
+        Specification of the node.
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Name associated with current node specification. 2-63 characters long.
+
+            Value must match the regular expression `` [a-zA-ZЁёА-я][-\s\wЁёА-я]{0,61}[a-zA-Z0-9ЁёА-я] ``.
+          type: string
+        instanceSpec:
+          $ref: '#/components/schemas/InstanceSpec_in_NodeSpec_instanceSpec'
+        policies:
+          $ref: '#/components/schemas/Policies_in_NodeSpec_policies'
+        permissions:
+          $ref: '#/components/schemas/Permissions_in_NodeSpec_permissions'
+        description:
+          description: Description of the node specification.
+          type: string
+    ACL_in_NodeAlias_executionAcl:
+      description: ACL for the node alias.
+      type: object
+      properties:
+        entries:
+          description: List of ACL entries.
+          type: array
+          items:
+            $ref: '#/components/schemas/ACLEntry'
+        permission:
+          description: Permission.
+          type: string
+        isPublic:
+          description: If true, allows everyone requests to alias
+          type: boolean
+          format: boolean
+    ProxyMetadata_in_NodeAlias_proxyMetadata:
+      description: Metadata that should be passed to backends.
+      type: object
+      properties:
+        headers:
+          description: List of headers.
+          type: array
+          items:
+            $ref: '#/components/schemas/Header'
+    Backends_in_NodeAlias_backends:
+      description: |-
+        Required.
+        Backends.
+      type: object
+      properties:
+        backend:
+          description: |-
+            Required.
+            List of backends.
+
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/Backend'
+    BillingSpec_in_NodeAlias_billingSpec:
+      description: Billing specifications.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          billingId:
+            description: |-
+              Required.
+              Billing ID.
+            type: string
+      - title: billing_descriptor
+        type: object
+        maxProperties: 1
+        properties:
+          yandexCloudBillingDescriptor:
+            $ref: '#/components/schemas/YandexCloudBillingDescriptor'
+    Node_in_NodeListListedNode_node:
+      description: Node.
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the node.
+          type: string
+        projectId:
+          description: |-
+            Required.
+            ID of the project.
+          type: string
+        folderId:
+          description: |-
+            Required.
+            ID of the folder that the node belongs to.
+            During deployment Compute resources of this folder used for creation of new instances
+          type: string
+        createdAt:
+          description: |-
+            Required.
+            Time when node was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        createdById:
+          description: ID of the user who created the node.
+          type: string
+        nodeSpec:
+          $ref: '#/components/schemas/NodeSpec_in_Node_nodeSpec'
+        tags:
+          description: List of the node tags.
+          type: array
+          items:
+            type: string
+        updatedAt:
+          description: |-
+            Time when node was last updated.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    NodeStatus_in_NodeListListedNode_nodeStatus:
+      description: |-
+        Status of the node.
+
+         - NODE_STATUS_SUSPENDED: Node is suspended.
+         - NODE_STATUS_DESTROYING: Node destruction is in progress.
+         - NODE_STATUS_HEALTHY: Node is running and has sufficient launched VMs.
+         - NODE_STATUS_UNHEALTHY: Node is running but has insufficient launched VMs.
+      type: string
+      enum:
+      - NODE_STATUS_SUSPENDED
+      - NODE_STATUS_DESTROYING
+      - NODE_STATUS_HEALTHY
+      - NODE_STATUS_UNHEALTHY
+    InstanceSpec_in_NodeSpec_instanceSpec:
+      description: |-
+        Required.
+        Instance deployment specifications.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          hardwareSpec:
+            $ref: '#/components/schemas/HardwareSpec'
+            description: |-
+              Required.
+              Specifications of the hardware.
+      - title: app_spec
+        type: object
+        maxProperties: 1
+        properties:
+          servantApp:
+            $ref: '#/components/schemas/ServantApp'
+          dockerApp:
+            $ref: '#/components/schemas/DockerApp'
+    Policies_in_NodeSpec_policies:
+      description: |-
+        Required.
+        Scaling and availability policies.
+      type: object
+      properties:
+        availabilityPolicy:
+          $ref: '#/components/schemas/AvailabilityPolicy_in_Policies_availabilityPolicy'
+        scalePolicy:
+          $ref: '#/components/schemas/ScalePolicy_in_Policies_scalePolicy'
+    Permissions_in_NodeSpec_permissions:
+      description: Permissions to perform actions with node and its instances.
+      type: object
+      properties:
+        folders:
+          description: List of folders.
+          type: array
+          items:
+            type: string
+    OpenProjectMetadataOpenProjectStatus_in_OpenProjectMetadata_status:
+      description: |-
+        Project opening status.
+
+         - OPEN_PROJECT_STATUS_CLOSING_IDE: Closing previous IDE instance.
+         - OPEN_PROJECT_STATUS_UNZIPPING_PROJECT: Unzipping project.
+         - OPEN_PROJECT_STATUS_ALLOCATING_VM: Allocating VM for the project.
+         - OPEN_PROJECT_STATUS_ALLOCATING_RESOURCES: Allocating resources for the project.
+         - OPEN_PROJECT_STATUS_STARTING_IDE: Starting IDE.
+         - OPEN_PROJECT_STATUS_APPLYING_CHECKPOINT: Applying checkpoint to project.
+         - OPEN_PROJECT_STATUS_UNKNOWN: Unknown open project status.
+      type: string
+      enum:
+      - OPEN_PROJECT_STATUS_CLOSING_IDE
+      - OPEN_PROJECT_STATUS_UNZIPPING_PROJECT
+      - OPEN_PROJECT_STATUS_ALLOCATING_VM
+      - OPEN_PROJECT_STATUS_ALLOCATING_RESOURCES
+      - OPEN_PROJECT_STATUS_STARTING_IDE
+      - OPEN_PROJECT_STATUS_APPLYING_CHECKPOINT
+      - OPEN_PROJECT_STATUS_UNKNOWN
+    OpenProjectRequestCustomVersions_in_OpenProjectRequest_customVersions:
+      type: object
+      properties:
+        roomDockerImage:
+          description: Custom docker image tag for room.
+          type: string
+        servantDockerImage:
+          description: Custom docker image tag for servant.
+          type: string
+    AvailabilityPolicy_in_Policies_availabilityPolicy:
+      description: |-
+        Required.
+        Availability policies.
+      type: object
+      properties:
+        zones:
+          description: |-
+            Required.
+            List of zone availability policies.
+
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/AvailabilityPolicyZoneAvailability'
+    ScalePolicy_in_Policies_scalePolicy:
+      description: Scaling policies.
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          sessionsPerInstance:
+            $ref: '#/components/schemas/SessionBasedScalePolicy'
     ProjectSettings_in_Project_settings:
       description: Settings of the project.
       type: object
@@ -1074,6 +3655,17 @@ components:
           type: array
           items:
             type: string
+        earlyAccess:
+          description: Is early access preview enabled for the project.
+          type: boolean
+          format: boolean
+        ide:
+          $ref: '#/components/schemas/ProjectSettingsIde_in_ProjectSettings_ide'
+        defaultFolderId:
+          description: Default project folder ID.
+          type: string
+        staleExecTimeoutMode:
+          $ref: '#/components/schemas/ProjectSettingsStaleExecutionTimeoutMode_in_ProjectSettings_staleExecTimeoutMode'
     ProjectLimits_in_Project_limits:
       description: Limits of the project.
       type: object
@@ -1086,6 +3678,18 @@ components:
           description: The number of units that can be spent on the one execution.
           type: integer
           format: int64
+    ExecutionStatus_in_ProjectExecutionResponse_executionStatus:
+      description: |-
+        Execution final status.
+
+         - OK: Execution finished successfully.
+         - ERROR: Execution ended with error.
+         - ABORTED: Execution was aborted.
+      type: string
+      enum:
+      - OK
+      - ERROR
+      - ABORTED
     ProjectSettingsCommitMode_in_ProjectSettings_commitMode:
       description: |-
         Commit mode that is assigned to the project.
@@ -1097,9 +3701,222 @@ components:
       enum:
       - STANDARD
       - AUTO
-    FieldMask_in_SetFolderBudgetRequest_setMask:
+    ProjectSettingsIde_in_ProjectSettings_ide:
       description: |-
-        Field mask that specifies which fields of the budget are going to be set.
+        Project IDE.
+
+         - JUPYTER_LAB: Project running on JupyterLab IDE.
+      type: string
+      enum:
+      - JUPYTER_LAB
+    ProjectSettingsStaleExecutionTimeoutMode_in_ProjectSettings_staleExecTimeoutMode:
+      description: |-
+        Timeout to automatically stop stale executions.
+
+         - ONE_HOUR: Setting to automatically stop stale execution after one hour with low consumption.
+         - THREE_HOURS: Setting to automatically stop stale execution after three hours with low consumption.
+         - NO_TIMEOUT: Setting to never automatically stop stale executions.
+      type: string
+      enum:
+      - ONE_HOUR
+      - THREE_HOURS
+      - NO_TIMEOUT
+    S3MountMode_in_S3_s3MountMode:
+      description: |-
+        S3 mount mode.
+
+         - READ_ONLY: Read-only mount.
+         - READ_WRITE: Read-write mount.
+      type: string
+      enum:
+      - READ_ONLY
+      - READ_WRITE
+    S3Backend_in_S3_s3Backend:
+      description: |-
+        S3 backend for mounting S3 buckets.
+
+         - S3FS: S3FS.
+         - GEESEFS: GeeseFS
+      type: string
+      enum:
+      - DEFAULT
+      - S3FS
+      - GEESEFS
+    S3_in_S3ListListedS3_s3:
+      description: S3 object.
+      type: object
+      properties:
+        id:
+          description: ID of the S3 object.
+          type: string
+        projectId:
+          description: ID of the project.
+          type: string
+        createdAt:
+          description: |-
+            Time when S3 object was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the S3 object. 0-64 characters long.
+          type: string
+        description:
+          description: Description of the S3 object. 0-256 characters long.
+          type: string
+        labels:
+          description: Labels of the S3 object.
+          type: object
+          additionalProperties:
+            type: string
+        createdById:
+          description: ID of the user who created S3 object.
+          type: string
+        endpoint:
+          description: S3 service endpoint.
+          type: string
+        bucket:
+          description: S3 bucket containing the object.
+          type: string
+        mountPath:
+          description: Path for S3 object mounting.
+          type: string
+        accessKeyId:
+          description: Public access key.
+          type: string
+        secretAccessKeySecretId:
+          description: ID of the secret containing private access key.
+          type: string
+        s3MountMode:
+          $ref: '#/components/schemas/S3MountMode_in_S3_s3MountMode'
+        s3Backend:
+          $ref: '#/components/schemas/S3Backend_in_S3_s3Backend'
+    S3Status_in_S3ListListedS3_s3Status:
+      description: Status of the S3 object.
+      type: object
+      allOf:
+      - title: status
+        type: object
+        maxProperties: 1
+        properties:
+          statusActive:
+            $ref: '#/components/schemas/S3StatusStatusActive'
+            description: S3 object is active.
+          statusInactive:
+            $ref: '#/components/schemas/S3StatusStatusInactive'
+            description: S3 object is inactive.
+          statusError:
+            $ref: '#/components/schemas/S3StatusStatusError'
+            description: S3 object in error status.
+    Secret_in_SecretListListedSecret_secret:
+      description: Secret.
+      type: object
+      properties:
+        id:
+          description: ID of the secret.
+          type: string
+        projectId:
+          description: ID of the project.
+          type: string
+        createdAt:
+          description: |-
+            Time when secret was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the secret. 1-63 characters long.
+          type: string
+        description:
+          description: Description of the secret. 0-256 characters long.
+          type: string
+        labels:
+          description: Labels of the secret.
+          type: object
+          additionalProperties:
+            type: string
+        createdById:
+          description: ID of the user who created secret.
+          type: string
+        updatedAt:
+          description: |-
+            Time of last secret update.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    nodedeployerCheckpoint_in_ServantApp_checkpoint:
+      description: |-
+        Required.
+        Checkpoint used for node creation.
+      type: object
+      properties:
+        checkpointId:
+          description: |-
+            Required.
+            ID of the checkpoint.
+          type: string
+        cellId:
+          description: ID of the cell.
+          type: string
+        stateVersion:
+          description: Version of the state.
+          type: string
+          format: int64
+        cellVersion:
+          description: Version of the cell.
+          type: string
+          format: int64
+        notebookId:
+          description: |-
+            Required.
+            ID of the notebook.
+          type: string
+    Signature_in_ServantApp_signature:
+      description: Description of the input and output.
+      type: object
+      properties:
+        inputParameters:
+          description: List of the input parameters.
+          type: array
+          items:
+            $ref: '#/components/schemas/Parameter'
+        outputParameters:
+          description: List of the output parameters.
+          type: array
+          items:
+            $ref: '#/components/schemas/Parameter'
+    JupyterKernelSpec_in_ServantApp_jupyterKernelSpec:
+      description: Jupyter kernel specification.
+      type: object
+      properties:
+        dockerImage:
+          description: |-
+            Required.
+            Docker image name.
+          type: string
+        username:
+          description: Docker repository username.
+          type: string
+        passwordSecret:
+          description: Docker repository password secret.
+          type: string
+    TelemetryFormat_in_Telemetry_format:
+      description: |-
+        Required.
+        Metrics format.
+
+         - SOLOMON_JSON: Solomon (JSON) metrics format.
+         - PROMETHEUS: Prometheus metrics format.
+      type: string
+      enum:
+      - SOLOMON_JSON
+      - PROMETHEUS
+    FieldMask_in_UpdateCommunityRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the Community resource are going to be updated.
 
         A comma-separated names off ALL fields to be updated.
         Only the specified fields will be changed. The others will be left untouched.
@@ -1146,6 +3963,17 @@ components:
           type: array
           items:
             type: string
+        earlyAccess:
+          description: Is early access preview enabled for the project.
+          type: boolean
+          format: boolean
+        ide:
+          $ref: '#/components/schemas/ProjectSettingsIde_in_ProjectSettings_ide'
+        defaultFolderId:
+          description: Default project folder ID.
+          type: string
+        staleExecTimeoutMode:
+          $ref: '#/components/schemas/ProjectSettingsStaleExecutionTimeoutMode_in_ProjectSettings_staleExecTimeoutMode'
     ProjectLimits_in_UpdateProjectRequest_limits:
       description: Limits of the project.
       type: object
@@ -1176,13 +4004,63 @@ components:
           description: File size in bytes.
           type: string
           format: int64
+    EndpointOptions_in_nodedeployerEndpoint_endpointOptions:
+      description: Endpoint options.
+      type: object
+      allOf:
+      - title: endpoint_type
+        type: object
+        maxProperties: 1
+        properties:
+          http:
+            $ref: '#/components/schemas/HttpEndpoint'
+            description: HTTP endpoint.
+          grpc:
+            $ref: '#/components/schemas/GrpcEndpoint'
+            description: gRPC endpoint.
+    CheckpointCellInfo_in_v2Checkpoint_cellInfo:
+      description: Cell info for checkpoint. Not all checkpoints have this info.
+      type: object
+      properties:
+        notebookId:
+          description: ID of the notebook.
+          type: string
+        cellId:
+          description: ID of the cell.
+          type: string
+        cellVersion:
+          description: Version of the cell.
+          type: string
+        stateVersion:
+          description: Version of the state.
+          type: string
+        code:
+          description: Code of the cell.
+          type: string
+    CheckpointType_in_v2Checkpoint_type:
+      description: |-
+        Checkpoint type.
+
+         - CHECKPOINT_TYPE_INITIAL: Checkpoint created on project initialization.
+         - CHECKPOINT_TYPE_EXPORTED: Checkpoint created after importing checkpoint to project.
+         - CHECKPOINT_TYPE_CELL_RUN: Checkpoint created after cell execution.
+         - CHECKPOINT_TYPE_MERGE_BACKGROUND: Checkpoint created after merging background execution results.
+         - CHECKPOINT_TYPE_DATASET: Checkpoint created on dataset creation.
+         - CHECKPOINT_TYPE_ROLLBACK: Checkpoint created when rolling back to previous checkpoint.
+         - CHECKPOINT_TYPE_CLEAR_STATE: Checkpoint created on clearing project state.
+         - CHECKPOINT_TYPE_ADD_NOTEBOOK: Checkpoint created on adding a notebook.
+      type: string
+      enum:
+      - CHECKPOINT_TYPE_INITIAL
+      - CHECKPOINT_TYPE_EXPORTED
+      - CHECKPOINT_TYPE_CELL_RUN
+      - CHECKPOINT_TYPE_MERGE_BACKGROUND
+      - CHECKPOINT_TYPE_DATASET
+      - CHECKPOINT_TYPE_ROLLBACK
+      - CHECKPOINT_TYPE_CLEAR_STATE
+      - CHECKPOINT_TYPE_ADD_NOTEBOOK
 tags:
-- name: AppToken
-  description: A set of methods for managing app tokens.
-- name: FolderBudget
-  description: A set of methods for managing Datasphere folder budgets.
-- name: Node
-  description: A set of methods for managing Node resources.
+- name: Community
 - name: ProjectData
   description: A set of methods for managing data of the Project resource.
 - name: Project

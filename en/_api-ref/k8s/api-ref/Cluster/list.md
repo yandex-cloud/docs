@@ -91,6 +91,18 @@ filter | <p>A filter expression that filters resources listed in the response. T
         "securityGroupIds": [
           "string"
         ],
+        "masterLogging": {
+          "enabled": true,
+          "clusterAutoscalerEnabled": true,
+          "kubeApiserverEnabled": true,
+          "eventsEnabled": true,
+
+          // `clusters[].master.masterLogging` includes only one of the fields `logGroupId`, `folderId`
+          "logGroupId": "string",
+          "folderId": "string",
+          // end of the list of possible fields`clusters[].master.masterLogging`
+
+        },
 
         // `clusters[].master` includes only one of the fields `zonalMaster`, `regionalMaster`
         "zonalMaster": {
@@ -181,6 +193,13 @@ clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMain
 clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>duration | **string**<br><p>Window duration.</p> <p>Acceptable values are 3600 seconds to 86400 seconds, inclusive.</p> 
 clusters[].<br>master.<br>securityGroupIds[] | **string**<br><p>Master security groups.</p> 
+clusters[].<br>master.<br>masterLogging | **object**<br>Cloud Logging for master components.
+clusters[].<br>master.<br>masterLogging.<br>enabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for master components.</p> 
+clusters[].<br>master.<br>masterLogging.<br>clusterAutoscalerEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for cluster-autoscaler.</p> 
+clusters[].<br>master.<br>masterLogging.<br>kubeApiserverEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for kube-apiserver.</p> 
+clusters[].<br>master.<br>masterLogging.<br>eventsEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for events.</p> 
+clusters[].<br>master.<br>masterLogging.<br>logGroupId | **string** <br>`clusters[].master.masterLogging` includes only one of the fields `logGroupId`, `folderId`<br><br><p>ID of the log group where logs of master components should be stored.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
+clusters[].<br>master.<br>masterLogging.<br>folderId | **string** <br>`clusters[].master.masterLogging` includes only one of the fields `logGroupId`, `folderId`<br><br><p>ID of the folder where logs should be stored (in default group).</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
 clusters[].<br>master.<br>zonalMaster | **object**<br>Parameters of the availability zone for the master. <br>`clusters[].master` includes only one of the fields `zonalMaster`, `regionalMaster`<br>
 clusters[].<br>master.<br>zonalMaster.<br>zoneId | **string**<br><p>ID of the availability zone where the master resides.</p> 
 clusters[].<br>master.<br>zonalMaster.<br>internalV4Address | **string**<br><p>IPv4 internal network address that is assigned to the master.</p> 

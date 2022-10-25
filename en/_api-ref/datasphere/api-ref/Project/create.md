@@ -9,16 +9,17 @@ Creates a project in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://datasphere.{{ api-host }}/datasphere/v1/projects
+POST https://datasphere.{{ api-host }}/datasphere/v2/projects
 ```
  
 ## Body parameters {#body_params}
  
 ```json 
 {
-  "folderId": "string",
+  "communityId": "string",
   "name": "string",
   "description": "string",
+  "labels": "object",
   "settings": {
     "serviceAccountId": "string",
     "subnetId": "string",
@@ -26,30 +27,49 @@ POST https://datasphere.{{ api-host }}/datasphere/v1/projects
     "commitMode": "string",
     "securityGroupIds": [
       "string"
-    ]
+    ],
+    "earlyAccess": true,
+    "ide": "string",
+    "defaultFolderId": "string",
+    "staleExecTimeoutMode": "string"
   },
   "limits": {
     "maxUnitsPerHour": "integer",
     "maxUnitsPerExecution": "integer"
-  }
+  },
+  "zoneId": "string",
+
+  //  includes only one of the fields `checkpointId`, `checkpointToken`
+  "checkpointId": "string",
+  "checkpointToken": "string",
+  // end of the list of possible fields
+
 }
 ```
 
  
 Field | Description
 --- | ---
-folderId | **string**<br><p>Required. ID of the folder to create a project in. To get the folder ID use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Name of the project.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 
-description | **string**<br><p>Description of the project.</p> <p>The maximum string length in characters is 256.</p> 
-settings | **object**<br><p>Settings of the project.</p> 
+communityId | **string**<br><p>Required. ID of the community to create a project in.</p> <p>The maximum string length in characters is 50.</p> 
+name | **string**<br><p>Name of the project. 0-63 characters long.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 
+description | **string**<br><p>Description of the project. 0-256 characters long.</p> <p>The maximum string length in characters is 256.</p> 
+labels | **object**<br><p>Labels of the project.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
+settings | **object**<br>Settings of the project.
 settings.<br>serviceAccountId | **string**<br><p>ID of the service account, on whose behalf all operations with clusters will be performed.</p> 
 settings.<br>subnetId | **string**<br><p>ID of the subnet where the DataProc cluster resides. Currently only subnets created in the availability zone ru-central1-a are supported.</p> 
 settings.<br>dataProcClusterId | **string**<br><p>ID of the DataProc cluster.</p> 
 settings.<br>commitMode | **string**<br><p>Commit mode that is assigned to the project.</p> <ul> <li>STANDARD: Commit happens after the execution of a cell or group of cells or after completion with an error.</li> <li>AUTO: Commit happens periodically. Also, automatic saving of state occurs when switching to another type of computing resource.</li> </ul> 
 settings.<br>securityGroupIds[] | **string**<br><p>Network interfaces security groups.</p> 
-limits | **object**<br><p>Limits of the project.</p> 
+settings.<br>earlyAccess | **boolean** (boolean)<br><p>Is early access preview enabled for the project.</p> 
+settings.<br>ide | **string**<br><p>Project IDE.</p> <ul> <li>JUPYTER_LAB: Project running on JupyterLab IDE.</li> </ul> 
+settings.<br>defaultFolderId | **string**<br><p>Default project folder ID.</p> 
+settings.<br>staleExecTimeoutMode | **string**<br><p>Timeout to automatically stop stale executions.</p> <ul> <li>ONE_HOUR: Setting to automatically stop stale execution after one hour with low consumption.</li> <li>THREE_HOURS: Setting to automatically stop stale execution after three hours with low consumption.</li> <li>NO_TIMEOUT: Setting to never automatically stop stale executions.</li> </ul> 
+limits | **object**<br>Limits of the project.
 limits.<br>maxUnitsPerHour | **integer** (int64)<br><p>The number of units that can be spent per hour.</p> 
 limits.<br>maxUnitsPerExecution | **integer** (int64)<br><p>The number of units that can be spent on the one execution.</p> 
+zoneId | **string**<br><p>Zone in which project should be created.</p> 
+checkpointId | **string** <br> includes only one of the fields `checkpointId`, `checkpointToken`<br>
+checkpointToken | **string** <br> includes only one of the fields `checkpointId`, `checkpointToken`<br>
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

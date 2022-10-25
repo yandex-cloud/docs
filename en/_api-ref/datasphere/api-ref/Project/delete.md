@@ -9,14 +9,14 @@ Deletes the specified project.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://datasphere.{{ api-host }}/datasphere/v1/projects/{projectId}
+DELETE https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-projectId | <p>Required. ID of the Project resource to delete. To get the project ID use a <a href="/docs/datasphere/api-ref/Project/list">list</a> request.</p> <p>The maximum string length in characters is 200.</p> 
+projectId | <p>Required. ID of the Project resource to delete. To get the project ID use a <a href="/docs/datasphere/api-ref/Project/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

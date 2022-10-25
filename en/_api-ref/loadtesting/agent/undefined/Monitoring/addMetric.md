@@ -17,7 +17,6 @@ POST undefined/loadtesting/agent/v1/monitorings/reportMetrics
 ```json 
 {
   "computeInstanceId": "string",
-  "instanceHost": "string",
   "jobId": "string",
   "chunks": [
     {
@@ -29,7 +28,8 @@ POST undefined/loadtesting/agent/v1/monitorings/reportMetrics
         }
       ],
       "timestamp": "string",
-      "comment": "string"
+      "comment": "string",
+      "instanceHost": "string"
     }
   ]
 }
@@ -39,7 +39,6 @@ POST undefined/loadtesting/agent/v1/monitorings/reportMetrics
 Field | Description
 --- | ---
 computeInstanceId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
-instanceHost | **string**<br><p>Required.</p> 
 jobId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
 chunks[] | **object**<br><p>Required. Must contain at least one element.</p> 
 chunks[].<br>data[] | **object**<br><p>Required. Must contain at least one element.</p> 
@@ -48,6 +47,7 @@ chunks[].<br>data[].<br>metricName | **string**<br><p>Required.</p>
 chunks[].<br>data[].<br>metricValue | **number** (double)
 chunks[].<br>timestamp | **string** (int64)
 chunks[].<br>comment | **string**
+chunks[].<br>instanceHost | **string**<br><p>Required.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
