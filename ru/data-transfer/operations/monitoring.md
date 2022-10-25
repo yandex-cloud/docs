@@ -72,7 +72,7 @@
 ### Sink response time (histogram by seconds) {sinker.pusher.time.batch_push_distribution_sec}
 `sinker.pusher.time.batch_push_distribution_sec`
 
-Время выполнения полного переноса данных с учетом предварительной обработки (в секундах).
+Полное время записи в приемник батча данных с учетом предварительной обработки (в секундах).
 
 ### Read rows (parsed/unparsed) {publisher.data.*parsed_rows}
 `publisher.data.*parsed_rows`
