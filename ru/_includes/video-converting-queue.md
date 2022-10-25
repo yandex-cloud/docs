@@ -60,9 +60,9 @@
 1. [Создайте базу данных](../ydb/quickstart.md#serverless) {{ ydb-short-name }} в режиме Serverless. Сохраните **Эндпойнт** из блока **Document API эндпоинт**.
 1. {% if audience == "external" %} [Создайте таблицу](../ydb/operations/schema.md#create-table) {% endif %} в базе данных:
 
-   * **Имя таблицы** — `tasks`.
-   * **Тип таблицы** — {% if audience == "external" %} [Документная таблица](../ydb/operations/schema.md#create-table). {% endif %}
-   * **Колонки** — одна колонка с именем `task_id` типа `String`. {% if audience == "external" %} Установите атрибут [Ключ партицирования](../ydb/operations/schema.md#create-table). {% endif %}
+    * **Имя таблицы** — `tasks`.
+    * **Тип таблицы** — {% if audience == "external" %} [Документная таблица](../ydb/operations/schema.md#create-table). {% endif %}
+    * **Колонки** — одна колонка с именем `task_id` типа `String`. {% if audience == "external" %} Установите атрибут [Ключ партицирования](../ydb/operations/schema.md#create-table). {% endif %}
 
 1. [Создайте бакет](../storage/operations/buckets/create) с именем `converter-bucket` в {{ objstorage-full-name }}.
 
