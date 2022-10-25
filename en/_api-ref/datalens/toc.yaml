@@ -139,6 +139,7 @@ items:
       - name: TOPONYM_TO_GEOPOLYGON
         href: function-ref/TOPONYM_TO_GEOPOLYGON.md
         when: audience == "external"
+    when: product == "yandex-cloud"
   - name: Logical functions
     items:
       - name: Overview
