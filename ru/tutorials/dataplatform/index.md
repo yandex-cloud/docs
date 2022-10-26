@@ -9,6 +9,7 @@
 * [{#T}](debezium-mmy.md)
 * [{#T}](debezium-mpg.md)
 * [{#T}](kafka-connect.md)
+* [{#T}](mkf-ydb-stream.md)
 * Использование реестра схем форматов данных с {{ mkf-name }}:
 
     * [Управление схемами данных](schema-registry-overview.md)
