@@ -80,7 +80,7 @@ You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more 
    1. To activate cluster deletion protection and access to {{ dataproc-name }} [component web interfaces](../concepts/interfaces.md), update the values in the appropriate fields of the {{ dataproc-name }} cluster description:
 
       ```hcl
-      resource "yandex_dataproc_cluster" "< cluster name>" {
+      resource "yandex_dataproc_cluster" "<cluster name>" {
         ...
         deletion_protection = true
         ui_proxy            = true

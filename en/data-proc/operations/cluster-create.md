@@ -215,7 +215,7 @@ A cluster must include a subcluster with a master host and at least one subclust
          --service-account-name=<cluster service account name> \
          --version=<image version> \
          --services=<component list> \
-         --ssh-public-keys-file=<full path to the file with the public part of the SSH key> \
+         --ssh-public-keys-file=<full path to the file with the public part of your SSH key> \
          --subcluster name=<name of subcluster with master host>,`
                      `role=masternode,`
                      `resource-preset=<host class>,`
@@ -502,7 +502,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       }
       ```
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
 
