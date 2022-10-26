@@ -2,7 +2,7 @@
 
 К хостам кластера {{ mch-short-name }} можно подключиться:
 
-{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
+{% include [cluster-connect-note](../../_includes/mdb/mch/cluster-connect-note.md) %}
 
 К кластеру можно подключиться как с использованием шифрования — через порты `{{ port-mch-cli }}` для [clickhouse-client]({{ ch.docs }}/interfaces/cli/) и `{{ port-mch-http }}` для [HTTP-интерфейса]({{ ch.docs }}/interfaces/http/), так и без него — через порты `9000` и `8123` соответственно.
 

@@ -36,7 +36,7 @@ FQDN можно использовать для доступа к хосту в 
 
 [Подключение к хостам кластера](../operations/connect.md) {{ mmy-short-name }} возможно:
 
-{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
+{% include [cluster-connect-note](../../_includes/mdb/mmy/cluster-connect-note.md) %}
 
 Максимальное количество подключений определяется настройкой [max_connections](./settings-list.md#setting-max-connections), которая [зависит от класса хостов](./settings-list.md#settings-instance-dependent).
 
