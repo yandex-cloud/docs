@@ -248,6 +248,8 @@ items:
         href: dataplatform/sync-mysql.md
       - name: Миграция базы данных из {{ mmy-full-name }} в сторонний кластер {{ MY }}
         href: dataplatform/mmy-to-mysql-migration.md
+      - name: Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}
+        href: dataplatform/mmy-objs-migration.md
         # PG
       - name: Создание кластера {{ PG }} для 1С
         href: dataplatform/1c-postgresql.md

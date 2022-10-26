@@ -63,6 +63,7 @@
 * [{#T}](profiling-mmy.md)
 * [{#T}](sync-mysql.md)
 * [{#T}](mmy-to-mysql-migration.md)
+* [{#T}](mmy-objs-migration.md)
 {% if product == "yandex-cloud" %}
 * [{#T}](sqoop-mmy.md)
 {% endif %}

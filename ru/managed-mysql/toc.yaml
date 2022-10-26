@@ -102,6 +102,8 @@ items:
         href: tutorials/cdc-data-transfer.md
       - name: Поставка данных в {{ mkf-full-name }} с помощью Debezium
         href: tutorials/cdc-debezium.md
+      - name: Миграция базы данных из {{ mmy-name }} в {{ objstorage-full-name }}
+        href: tutorials/mmy-objs-migration.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

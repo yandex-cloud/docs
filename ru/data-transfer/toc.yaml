@@ -108,6 +108,8 @@ items:
         href: tutorials/managed-mysql.md
       - name: Миграция базы данных из {{ mmy-full-name }} в {{ MY }}
         href: tutorials/managed-mysql-to-mysql.md
+      - name: Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name }}
+        href: tutorials/mmy-objs-migration.md
       - name: Миграция базы данных в {{ mpg-full-name }}
         href: tutorials/managed-postgresql.md
       - name: Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }}

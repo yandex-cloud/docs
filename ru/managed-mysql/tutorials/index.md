@@ -8,3 +8,4 @@
 {% endif %}
 * [{#T}](cdc-data-transfer.md)
 * [{#T}](cdc-debezium.md)
+* [{#T}](mmy-objs-migration.md)
