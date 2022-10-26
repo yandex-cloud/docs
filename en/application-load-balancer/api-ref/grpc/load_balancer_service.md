@@ -215,7 +215,7 @@ max_size | **int64**<br>Upper limit for the total number of resource units acros
 Field | Description
 --- | ---
 log_group_id | **string**<br>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located. 
-discard_rules[] | **[LogDiscardRule](#LogDiscardRule)**<br> 
+discard_rules[] | **[LogDiscardRule](#LogDiscardRule)**<br>ordered list of rules, first matching rule applies 
 disable | **bool**<br>Do not send logs to Cloud Logging log group. 
 
 
@@ -223,9 +223,10 @@ disable | **bool**<br>Do not send logs to Cloud Logging log group.
 
 Field | Description
 --- | ---
-codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
-intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
-percent | **int64**<br>Percent of logs to be discarded: 0 - keep all, 100 - keep none. Acceptable values are 0 to 100, inclusive.
+http_codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
+http_code_intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
+grpc_codes[] | **google.rpc.Code**<br>GRPC codes that should be discarded 
+discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all Acceptable values are 0 to 100, inclusive.
 
 
 ## List {#List}
@@ -427,7 +428,7 @@ max_size | **int64**<br>Upper limit for the total number of resource units acros
 Field | Description
 --- | ---
 log_group_id | **string**<br>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located. 
-discard_rules[] | **[LogDiscardRule](#LogDiscardRule1)**<br> 
+discard_rules[] | **[LogDiscardRule](#LogDiscardRule1)**<br>ordered list of rules, first matching rule applies 
 disable | **bool**<br>Do not send logs to Cloud Logging log group. 
 
 
@@ -435,9 +436,10 @@ disable | **bool**<br>Do not send logs to Cloud Logging log group.
 
 Field | Description
 --- | ---
-codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
-intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
-percent | **int64**<br>Percent of logs to be discarded: 0 - keep all, 100 - keep none. Acceptable values are 0 to 100, inclusive.
+http_codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
+http_code_intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
+grpc_codes[] | **google.rpc.Code**<br>GRPC codes that should be discarded 
+discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all Acceptable values are 0 to 100, inclusive.
 
 
 ## Create {#Create}
@@ -621,7 +623,7 @@ max_size | **int64**<br>Upper limit for the total number of resource units acros
 Field | Description
 --- | ---
 log_group_id | **string**<br>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located. 
-discard_rules[] | **[LogDiscardRule](#LogDiscardRule2)**<br> 
+discard_rules[] | **[LogDiscardRule](#LogDiscardRule2)**<br>ordered list of rules, first matching rule applies 
 disable | **bool**<br>Do not send logs to Cloud Logging log group. 
 
 
@@ -629,9 +631,10 @@ disable | **bool**<br>Do not send logs to Cloud Logging log group.
 
 Field | Description
 --- | ---
-codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
-intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
-percent | **int64**<br>Percent of logs to be discarded: 0 - keep all, 100 - keep none. Acceptable values are 0 to 100, inclusive.
+http_codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
+http_code_intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
+grpc_codes[] | **google.rpc.Code**<br>GRPC codes that should be discarded 
+discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all Acceptable values are 0 to 100, inclusive.
 
 
 ### Operation {#Operation}
@@ -910,7 +913,7 @@ max_size | **int64**<br>Upper limit for the total number of resource units acros
 Field | Description
 --- | ---
 log_group_id | **string**<br>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located. 
-discard_rules[] | **[LogDiscardRule](#LogDiscardRule3)**<br> 
+discard_rules[] | **[LogDiscardRule](#LogDiscardRule3)**<br>ordered list of rules, first matching rule applies 
 disable | **bool**<br>Do not send logs to Cloud Logging log group. 
 
 
@@ -918,9 +921,10 @@ disable | **bool**<br>Do not send logs to Cloud Logging log group.
 
 Field | Description
 --- | ---
-codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
-intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
-percent | **int64**<br>Percent of logs to be discarded: 0 - keep all, 100 - keep none. Acceptable values are 0 to 100, inclusive.
+http_codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
+http_code_intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
+grpc_codes[] | **google.rpc.Code**<br>GRPC codes that should be discarded 
+discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all Acceptable values are 0 to 100, inclusive.
 
 
 ### Operation {#Operation1}
@@ -1274,7 +1278,7 @@ max_size | **int64**<br>Upper limit for the total number of resource units acros
 Field | Description
 --- | ---
 log_group_id | **string**<br>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located. 
-discard_rules[] | **[LogDiscardRule](#LogDiscardRule4)**<br> 
+discard_rules[] | **[LogDiscardRule](#LogDiscardRule4)**<br>ordered list of rules, first matching rule applies 
 disable | **bool**<br>Do not send logs to Cloud Logging log group. 
 
 
@@ -1282,9 +1286,10 @@ disable | **bool**<br>Do not send logs to Cloud Logging log group.
 
 Field | Description
 --- | ---
-codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
-intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
-percent | **int64**<br>Percent of logs to be discarded: 0 - keep all, 100 - keep none. Acceptable values are 0 to 100, inclusive.
+http_codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
+http_code_intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
+grpc_codes[] | **google.rpc.Code**<br>GRPC codes that should be discarded 
+discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all Acceptable values are 0 to 100, inclusive.
 
 
 ## Stop {#Stop}
@@ -1502,7 +1507,7 @@ max_size | **int64**<br>Upper limit for the total number of resource units acros
 Field | Description
 --- | ---
 log_group_id | **string**<br>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located. 
-discard_rules[] | **[LogDiscardRule](#LogDiscardRule5)**<br> 
+discard_rules[] | **[LogDiscardRule](#LogDiscardRule5)**<br>ordered list of rules, first matching rule applies 
 disable | **bool**<br>Do not send logs to Cloud Logging log group. 
 
 
@@ -1510,9 +1515,10 @@ disable | **bool**<br>Do not send logs to Cloud Logging log group.
 
 Field | Description
 --- | ---
-codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
-intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
-percent | **int64**<br>Percent of logs to be discarded: 0 - keep all, 100 - keep none. Acceptable values are 0 to 100, inclusive.
+http_codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
+http_code_intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
+grpc_codes[] | **google.rpc.Code**<br>GRPC codes that should be discarded 
+discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all Acceptable values are 0 to 100, inclusive.
 
 
 ## AddListener {#AddListener}
@@ -1784,7 +1790,7 @@ max_size | **int64**<br>Upper limit for the total number of resource units acros
 Field | Description
 --- | ---
 log_group_id | **string**<br>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located. 
-discard_rules[] | **[LogDiscardRule](#LogDiscardRule6)**<br> 
+discard_rules[] | **[LogDiscardRule](#LogDiscardRule6)**<br>ordered list of rules, first matching rule applies 
 disable | **bool**<br>Do not send logs to Cloud Logging log group. 
 
 
@@ -1792,9 +1798,10 @@ disable | **bool**<br>Do not send logs to Cloud Logging log group.
 
 Field | Description
 --- | ---
-codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
-intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
-percent | **int64**<br>Percent of logs to be discarded: 0 - keep all, 100 - keep none. Acceptable values are 0 to 100, inclusive.
+http_codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
+http_code_intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
+grpc_codes[] | **google.rpc.Code**<br>GRPC codes that should be discarded 
+discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all Acceptable values are 0 to 100, inclusive.
 
 
 ## RemoveListener {#RemoveListener}
@@ -2014,7 +2021,7 @@ max_size | **int64**<br>Upper limit for the total number of resource units acros
 Field | Description
 --- | ---
 log_group_id | **string**<br>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located. 
-discard_rules[] | **[LogDiscardRule](#LogDiscardRule7)**<br> 
+discard_rules[] | **[LogDiscardRule](#LogDiscardRule7)**<br>ordered list of rules, first matching rule applies 
 disable | **bool**<br>Do not send logs to Cloud Logging log group. 
 
 
@@ -2022,9 +2029,10 @@ disable | **bool**<br>Do not send logs to Cloud Logging log group.
 
 Field | Description
 --- | ---
-codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
-intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
-percent | **int64**<br>Percent of logs to be discarded: 0 - keep all, 100 - keep none. Acceptable values are 0 to 100, inclusive.
+http_codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
+http_code_intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
+grpc_codes[] | **google.rpc.Code**<br>GRPC codes that should be discarded 
+discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all Acceptable values are 0 to 100, inclusive.
 
 
 ## UpdateListener {#UpdateListener}
@@ -2297,7 +2305,7 @@ max_size | **int64**<br>Upper limit for the total number of resource units acros
 Field | Description
 --- | ---
 log_group_id | **string**<br>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located. 
-discard_rules[] | **[LogDiscardRule](#LogDiscardRule8)**<br> 
+discard_rules[] | **[LogDiscardRule](#LogDiscardRule8)**<br>ordered list of rules, first matching rule applies 
 disable | **bool**<br>Do not send logs to Cloud Logging log group. 
 
 
@@ -2305,9 +2313,10 @@ disable | **bool**<br>Do not send logs to Cloud Logging log group.
 
 Field | Description
 --- | ---
-codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
-intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
-percent | **int64**<br>Percent of logs to be discarded: 0 - keep all, 100 - keep none. Acceptable values are 0 to 100, inclusive.
+http_codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
+http_code_intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
+grpc_codes[] | **google.rpc.Code**<br>GRPC codes that should be discarded 
+discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all Acceptable values are 0 to 100, inclusive.
 
 
 ## AddSniMatch {#AddSniMatch}

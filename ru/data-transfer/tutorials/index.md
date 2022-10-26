@@ -9,6 +9,8 @@
 * [{#T}](cdc-mpg.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](mkf-to-mch.md)
+* [{#T}](mmy-objs-migration.md)
+* [{#T}](mkf-to-ydb.md)
 
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

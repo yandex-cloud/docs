@@ -111,6 +111,8 @@ items:
         href: concepts/function.md
       - name: Invoking a function
         href: concepts/function-invoke.md
+      - name: Networking
+        href: concepts/networking.md
       - name: Runtime environment
         items:
           - name: Overview
@@ -147,7 +149,7 @@ items:
             href: concepts/trigger/data-streams-trigger.md
       - name: Dead Letter Queue
         href: concepts/dlq.md
-      - name: Log groups
+      - name: Log group
         href: concepts/log-group.md
       - name: Backups
         href: concepts/backup.md

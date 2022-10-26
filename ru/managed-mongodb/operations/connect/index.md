@@ -9,7 +9,7 @@
 
 К хостам кластера {{ mmg-short-name }} можно подключиться:
 
-{% include [cluster-connect-note](../../../_includes/mdb/cluster-connect-note.md) %}
+{% include [cluster-connect-note](../../../_includes/mdb/mmg/cluster-connect-note.md) %}
 
 Для подключения к хостам кластера используйте порт:
 

@@ -65,6 +65,10 @@ items:
         href: tutorials/mkf-to-mch-migration.md
       - name: Поставка данных в ksqlDB
         href: tutorials/use-ksqldb-with-mkf.md
+      - name: >-
+          Поставка данных в {{ ydb-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/mkf-ydb-stream.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

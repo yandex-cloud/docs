@@ -19,7 +19,7 @@ items:
             href: operations/list.md
           - name: Managing container revisions
             href: operations/manage-revision.md
-          - name: Managing container access rights
+          - name: Managing rights to access a container
             href: operations/access-rights.md
           - name: Invoking a container
             href: operations/invoke.md
@@ -67,6 +67,8 @@ items:
         href: concepts/container.md
       - name: Invoking a container
         href: concepts/invoke.md
+      - name: Networking
+        href: concepts/networking.md
       - name: Runtime environment
         href: concepts/runtime.md
       - name: Trigger
