@@ -8,7 +8,7 @@
    1. Select **{{ cloud-logging-name }}**.
    1. In the line with the log group, click ![image](../../_assets/horizontal-ellipsis.svg).
    1. In the menu that opens, click **Edit**.
-   1. Update the log group record retention period. The maximum record retention period is 3 days, and the minimum is 1 hour.
+   1. Update the log group record retention period.
    1. Click **Save**.
 
 - CLI
@@ -74,7 +74,7 @@
 
       * `name`: Name of the log group. Optional.
       * `folder_id`: ID of the folder. Optional. By default, the value specified in the provider settings is used.
-      * `retention_period`: Record retention period in the log group. Optional. The maximum record retention period is 3 days, the minimum is 1 hour. By default, the retention period is 3 days.
+      * `retention_period`: Record retention period in the log group. Optional. By default, the retention period is 3 days.
 
       For more detailed information about the parameters of the `yandex_logging_group` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/logging_group).
 

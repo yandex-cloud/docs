@@ -6,8 +6,10 @@ sourcePath: en/_api-ref/compute/api-ref/SnapshotSchedule/delete.md
 # Method delete
 Deletes the specified snapshot schedule.
  
-Deleting a snapshot schedule removes its data permanently and is irreversible. However, deleting a schedule does not delete
-any snapshots previously made by the schedule. You must delete snapshots separately.
+Deleting a snapshot schedule removes its data permanently and is irreversible. However, deleting a schedule
+does not delete any snapshots created by the schedule. You must delete snapshots separately.
+
+The schedule is deleted only after all snapshot creations and deletions triggered by the schedule are completed.
  
 ## HTTP request {#https-request}
 ```
@@ -18,7 +20,7 @@ DELETE https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotSche
  
 Parameter | Description
 --- | ---
-snapshotScheduleId | <p>ID of the snapshot schedule to delete.</p> 
+snapshotScheduleId | <p>ID of the snapshot schedule to delete.</p> <p>To get a snapshot schedule ID, make a <a href="/docs/compute/api-ref/SnapshotSchedule/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -4,6 +4,7 @@
 | ----- | ----- |
 | Number of custom log groups per cloud | 10 |
 | Maximum write speed | 1000 records per second |
+| Maximum record retention period | 3 days |
 
 #### Limits {#logging-limits}
 
@@ -18,5 +19,4 @@
 | Maximum number of requests per second | 5 |
 | **Other restrictions** |
 | Minimum record retention period | 1 hour |
-| Maximum record retention period | 3 days |
 | Maximum length of a [filter](../../logging/concepts/filter.md#how-to) | 1000 characters |

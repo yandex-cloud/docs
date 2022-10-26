@@ -62,11 +62,11 @@ After restoring the state, a new checkpoint with the `Rollback` operation type i
 
 Only a community admin can share a checkpoint in the community. A checkpoint available to the community appears in the list of community resources. 
 
-1. Open the project page with the secret to share.
+1. Open the project page with the checkpoint to share.
 1. Under **Resources**, click ![checkpoints-panel](../../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints**.
-1. Select the appropriate secret from the list.
+1. Select the appropriate checkpoint from the list.
 1. Go to the **Access** tab.
-1. Enable the visibility option next to the name of the community to share the secret in.
+1. Enable the visibility option next to the name of the community to share the checkpoint in.
 
 ## Sharing a link to a checkpoint {#share-link}
 

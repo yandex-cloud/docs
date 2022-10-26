@@ -99,11 +99,10 @@ A cluster must include a subcluster with a master host and at least one subclust
 
    1. Enable the **UI Proxy** option to access the [web interfaces of {{ dataproc-name }} components](../concepts/interfaces.md).
       
-
    1. Cluster logs are saved in [{{ cloud-logging-full-name }}](../../logging/). Select a log group from the list or [create a new one](../../logging/operations/create-group.md).
 
       To enable this functionality, [assign the cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
-
+
    1. Configure subclusters: no more than one subcluster with a master host (called **Master**) and subclusters for data storage or processing.
 
       Storage and processing subcluster roles are different: you can deploy data storage components on data storage subclusters and computing components on data processing subclusters. Storage on a data processing subcluster is only used to temporarily store processed files.
@@ -153,7 +152,6 @@ A cluster must include a subcluster with a master host and at least one subclust
    To create a cluster:
 
    
-
    1. Check whether the folder has any subnets for the cluster hosts:
 
       ```bash
@@ -161,7 +159,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       ```
 
       If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-full-name }}.
-
+
 
    1. View a description of the CLI's create cluster command:
 
@@ -172,7 +170,6 @@ A cluster must include a subcluster with a master host and at least one subclust
    1. Specify cluster parameters in the create command (the list of supported parameters in the example is not exhaustive):
 
       
-
       ```bash
       {{ yc-dp }} cluster create <cluster name> \
          --bucket=<bucket name> \
@@ -201,7 +198,6 @@ A cluster must include a subcluster with a master host and at least one subclust
          --security-group-ids=<list of security group IDs> \
          --log-group-id=<log group ID>
       ```
-
 
 
 
@@ -250,8 +246,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       * `--ui-proxy`: Access to [{{ dataproc-name }} component web interfaces](../concepts/interfaces.md).
       * `--security-group-ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
-         
-      * `--log-group-id`: [Log group ID](../concepts/logs.md).
+               * `--log-group-id`: [Log group ID](../concepts/logs.md).
 
       To create a cluster with multiple data storage or processing subclusters, pass the necessary number of `--subcluster` arguments in the cluster create command:
 
@@ -295,7 +290,6 @@ A cluster must include a subcluster with a master host and at least one subclust
          {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
 
    
-
    1. To create a cluster deployed on [groups of dedicated hosts](../../compute/concepts/dedicated-host.md), specify host group IDs as a comma-separated list in the `--host-group-ids` parameter:
 
       ```bash
@@ -305,7 +299,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       ```
 
       {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
-
+
 
    1. To configure cluster hosts using [initialization scripts](../concepts/init-action.md), specify them in one or more `--initialization-action` parameters:
 
@@ -325,15 +319,13 @@ A cluster must include a subcluster with a master host and at least one subclust
 
 - {{ TF }}
 
-   
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+      {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    To create a cluster:
 
    1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
    
-
    1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
@@ -354,7 +346,7 @@ A cluster must include a subcluster with a master host and at least one subclust
         v4_cidr_blocks = ["<subnet>"]
       }
       ```
-
+
 
    1. Create a configuration file with a description of the [service account](../../iam/concepts/users/service-accounts.md) to be granted access to the cluster as well as a description of the [static key](../../iam/concepts/authorization/access-key.md) and [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md) to store jobs and results.
 
@@ -465,7 +457,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       }
       ```
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
 
@@ -547,11 +539,10 @@ A cluster must include a subcluster with a master host and at least one subclust
    To assign a public IP address to all subcluster hosts, pass the `true` value in the `configSpec.subclustersSpec.assignPublicIp` parameter.
 
    
-
    To create a cluster deployed on [groups of dedicated hosts](../../compute/concepts/dedicated-host.md), pass a list of host group IDs in the `hostGroupIds` parameter.
 
    {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
-
+
 
    To use [initialization scripts](../concepts/init-action.md) for the initial configuration of cluster hosts, specify them in the `config_spec.hadoop.initialization_actions[]` parameter.
 

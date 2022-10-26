@@ -168,6 +168,10 @@ items:
           {{ data-transfer-full-name }}
         href: dataplatform/data-transfer-mkf-mch.md
       - name: >-
+          Поставка данных из {{ mkf-full-name }} в {{ ydb-full-name }} с помощью
+          {{ data-transfer-full-name }}
+        href: dataplatform/mkf-ydb-stream.md
+      - name: >-
           Поставка данных из {{ mmy-full-name }} в {{ mkf-full-name }} с помощью
           Debezium
         href: dataplatform/debezium-mmy.md
@@ -247,6 +251,10 @@ items:
           Миграция базы данных из {{ mmy-full-name }} в сторонний кластер {{ MY
           }}
         href: dataplatform/mmy-to-mysql-migration.md
+      - name: >-
+          Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name
+          }} с помощью {{ data-transfer-full-name }}
+        href: dataplatform/mmy-objs-migration.md
       - name: Создание кластера {{ PG }} для 1С
         href: dataplatform/1c-postgresql.md
       - name: Анализ производительности и оптимизация {{ mpg-name }}

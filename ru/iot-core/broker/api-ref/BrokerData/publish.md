@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/iot/broker/broker/api-ref/BrokerData/publish.md
 ---
 
 # Method publish
-Publishes message on behalf of specified registry
+Publishes message on behalf of specified broker
  
 
  

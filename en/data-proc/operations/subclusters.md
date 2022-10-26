@@ -77,7 +77,7 @@ To add a subcluster:
    1. In the {{ dataproc-name }} cluster description, add a `subcluster_spec` section containing the settings for the new subcluster:
 
       ```hcl
-      resource "yandex_dataproc_cluster" "< cluster name>" {
+      resource "yandex_dataproc_cluster" "<cluster name>" {
         ...
         cluster_config {
           ...

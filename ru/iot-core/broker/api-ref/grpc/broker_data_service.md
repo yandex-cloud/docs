@@ -9,13 +9,13 @@ A set of methods to work with IoT Core messages on behalf of broker
 
 | Call | Description |
 | --- | --- |
-| [Publish](#Publish) | Publishes message on behalf of specified registry |
+| [Publish](#Publish) | Publishes message on behalf of specified broker |
 
 ## Calls BrokerDataService {#calls}
 
 ## Publish {#Publish}
 
-Publishes message on behalf of specified registry
+Publishes message on behalf of specified broker
 
 **rpc Publish ([PublishBrokerDataRequest](#PublishBrokerDataRequest)) returns ([PublishBrokerDataResponse](#PublishBrokerDataResponse))**
 

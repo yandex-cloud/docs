@@ -19,7 +19,7 @@ items:
         href: operations/api-gw-monitoring.md
       - name: Viewing the execution log
         href: operations/api-gw-logs.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: All practical guidelines
         href: tutorials/index.md
@@ -35,6 +35,8 @@ items:
         href: tutorials/api-gw-integration.md
       - name: Developing CRUD APIs for movie services
         href: tutorials/movies-database.md
+      - name: Communicating with an API gateway using the WebSocket protocol
+        href: tutorials/api-gw-websocket.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -65,6 +67,8 @@ items:
             href: concepts/extensions/any-method.md
           - name: Authorization using a function
             href: concepts/extensions/function-authorizer.md
+          - name: WebSocket protocol support
+            href: concepts/extensions/websocket.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

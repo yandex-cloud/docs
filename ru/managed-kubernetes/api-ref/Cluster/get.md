@@ -87,6 +87,18 @@ clusterId | <p>Required. ID of the Kubernetes cluster to return.</p>
     "securityGroupIds": [
       "string"
     ],
+    "masterLogging": {
+      "enabled": true,
+      "clusterAutoscalerEnabled": true,
+      "kubeApiserverEnabled": true,
+      "eventsEnabled": true,
+
+      // `master.masterLogging` includes only one of the fields `logGroupId`, `folderId`
+      "logGroupId": "string",
+      "folderId": "string",
+      // end of the list of possible fields`master.masterLogging`
+
+    },
 
     // `master` includes only one of the fields `zonalMaster`, `regionalMaster`
     "zonalMaster": {
@@ -173,6 +185,13 @@ master.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<
 master.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 master.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>duration | **string**<br><p>Window duration.</p> <p>Acceptable values are 3600 seconds to 86400 seconds, inclusive.</p> 
 master.<br>securityGroupIds[] | **string**<br><p>Master security groups.</p> 
+master.<br>masterLogging | **object**<br>Cloud Logging for master components.
+master.<br>masterLogging.<br>enabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for master components.</p> 
+master.<br>masterLogging.<br>clusterAutoscalerEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for cluster-autoscaler.</p> 
+master.<br>masterLogging.<br>kubeApiserverEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for kube-apiserver.</p> 
+master.<br>masterLogging.<br>eventsEnabled | **boolean** (boolean)<br><p>Identifies whether Cloud Logging is enabled for events.</p> 
+master.<br>masterLogging.<br>logGroupId | **string** <br>`master.masterLogging` includes only one of the fields `logGroupId`, `folderId`<br><br><p>ID of the log group where logs of master components should be stored.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
+master.<br>masterLogging.<br>folderId | **string** <br>`master.masterLogging` includes only one of the fields `logGroupId`, `folderId`<br><br><p>ID of the folder where logs should be stored (in default group).</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
 master.<br>zonalMaster | **object**<br>Parameters of the availability zone for the master. <br>`master` includes only one of the fields `zonalMaster`, `regionalMaster`<br>
 master.<br>zonalMaster.<br>zoneId | **string**<br><p>ID of the availability zone where the master resides.</p> 
 master.<br>zonalMaster.<br>internalV4Address | **string**<br><p>IPv4 internal network address that is assigned to the master.</p> 

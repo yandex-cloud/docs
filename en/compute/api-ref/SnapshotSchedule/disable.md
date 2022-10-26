@@ -4,9 +4,12 @@ sourcePath: en/_api-ref/compute/api-ref/SnapshotSchedule/disable.md
 ---
 
 # Method disable
-Disable schedule sets status InActive.
+Disables the specified snapshot schedule.
  
-When schedule os disabled snapshots will not be created or deleted according to retention policy.
+The [SnapshotSchedule.status](/docs/compute/api-ref/SnapshotSchedule#representation) is changed to `INACTIVE`: the schedule is interrupted, snapshots won't be created
+or deleted.
+
+The schedule is disabled only after all snapshot creations and deletions triggered by the schedule are completed.
  
 ## HTTP request {#https-request}
 ```
@@ -17,7 +20,7 @@ POST https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotSchedu
  
 Parameter | Description
 --- | ---
-snapshotScheduleId | <p>ID of the snapshot schedule to disable.</p> 
+snapshotScheduleId | <p>ID of the snapshot schedule to disable.</p> <p>To get a snapshot schedule ID, make a <a href="/docs/compute/api-ref/SnapshotSchedule/list">list</a> request.</p> 
  
 ## Body parameters {#body_params}
  

@@ -2,7 +2,7 @@
 
 К хостам кластера {{ mmy-short-name }} можно подключиться:
 
-{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
+{% include [cluster-connect-note](../../_includes/mdb/mmy/cluster-connect-note.md) %}
 
 {% note warning %}
 
