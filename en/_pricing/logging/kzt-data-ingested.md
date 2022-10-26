@@ -1,4 +1,4 @@
-| Service | Price per 1 GB, with VAT |
+| Service | Cost per 1 GB, with VAT |
 | --- | --- |
-| Data recording, &le;5 GB per month | Free |
-| Data recording, >5 GB per month | ₸116.38 |
+| Data writes, first 5 GB per month | Free |
+| Data writes, over 5 GB per month | ₸116.38 |

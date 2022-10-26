@@ -17,7 +17,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-   1. Set the log group record retention period. The maximum record retention period is 3 days, and the minimum is 1 hour.
+   1. Set the log group record retention period.
    1. Click **Create group**.
 
 - CLI
@@ -44,7 +44,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
    Where:
 
    * `--name`: Name of the log group.
-   * `--retention-period`: Log group record retention period. Optional. The maximum record retention period is 3 days, the minimum is 1 hour. By default, the retention period is 3 days.
+   * `--retention-period`: Log group record retention period. Optional. By default, the retention period is 3 days.
    * `data-stream`: {{ yds-full-name }} [data stream](../../data-streams/concepts/glossary#stream-concepts.md) ID. Optional. Records added to the log group will be automatically redirected to the specified stream. A stream ID consists of an availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
 
       > For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` if:
@@ -85,7 +85,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
       * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). Optional. By default, the value specified in the provider settings is used.
 
-      * `retention_period`: Record retention period in the log group. Optional. The maximum record retention period is 3 days, the minimum is 1 hour. By default, the retention period is 3 days.
+      * `retention_period`: Record retention period in the log group. Optional. By default, the retention period is 3 days.
 
       Example configuration file structure:
 
