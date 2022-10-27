@@ -7,7 +7,7 @@ You can invoke a container:
 
 {% note info %}
 
-If you want any user to be able to invoke a container without passing the authorization header, [make it public](access-rights.md#public).
+If you want any user to be able to invoke a container without passing the authorization header, [make it public](./access-rights.md#public).
 
 {% endnote %}
 

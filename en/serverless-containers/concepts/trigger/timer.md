@@ -1,6 +1,6 @@
 # Timer
 
-_Timer_ is a [trigger](../trigger/) that calls a {{ serverless-containers-name }} [container](../container.md) on a schedule. The schedule is entered as a [cron expression](#cron-expression). The cron expression uses [Coordinated Universal Time](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) (UTC).
+_Timer_ is a [trigger](../trigger/) that calls a {{ serverless-containers-name }} [container](../container.md) on a schedule. The schedule is entered as a [cron expression](#cron-expression). The cron expression uses [Coordinated Universal Time]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %} (UTC).
 
 ## Cron expression format {#cron-expression}
 

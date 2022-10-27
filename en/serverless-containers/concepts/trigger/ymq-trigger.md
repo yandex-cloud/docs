@@ -81,4 +81,4 @@ After the trigger picks up a message from the queue, it passes it to the contain
 
 ## See also {#see-also_}
 
-* [Trigger for {{ message-queue-name }} that passes messages to the {{ sf-name }} function](../../../functions/concepts/trigger/ymq-trigger.md).
+* [Trigger for {{ message-queue-short-name }} that passes messages to the {{ sf-name }} function](../../../functions/concepts/trigger/ymq-trigger.md).
