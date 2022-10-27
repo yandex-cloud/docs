@@ -145,6 +145,8 @@ items:
             when: product == "yandex-cloud"
       - name: Ресурсы
         items:
+          - name: Обзор
+            href: concepts/resources.md
           - name: Секреты
             href: concepts/secrets.md
           - name: Контрольные точки
