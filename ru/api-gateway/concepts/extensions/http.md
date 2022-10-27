@@ -28,6 +28,38 @@ x-yc-apigateway-integration:
     connect: 0.5
     read: 5
 ```
-
 Особенности расширения:
 * По умолчанию заголовки, кроме `User-Agent`, и параметры исходного запроса не передаются. Их необходимо указать в спецификации. Заголовок `User-Agent` передается, если не переопределен в спецификации.
+* По умолчанию query-параметры исходного запроса не передаются. Их необходимо объявить в разделе `parameters` и явно указать в поле `url`.
+* Для перенаправления всех запросов можно использовать специальный метод `x-yc-apigateway-any-method`.
+
+Более сложный пример, перенаправляющий все запросы на домен `example.com`:
+```yaml
+paths:
+  /{path+}:
+    x-yc-apigateway-any-method:
+      x-yc-apigateway-integration:
+        type: http
+        url: https://example.com/{path}?param={param}
+        headers:
+          Content-Type: '{Content-Type}'
+        timeouts:
+          connect: 0.5
+          read: 5
+      parameters:
+      - name: Content-Type
+        in: header
+        required: false
+        schema:
+          type: string
+      - name: path
+        in: path
+        required: false
+        schema:
+          type: string
+      - name: param
+        in: query
+        required: false
+        schema:
+          type: string      
+```
