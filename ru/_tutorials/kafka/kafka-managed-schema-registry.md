@@ -71,6 +71,7 @@
             "sasl.password": "<пароль пользователя user>",
             "schema.registry.url": "https://<FQDN или IP-адрес сервера {{ mkf-msr }}>:443",
             "schema.registry.basic.auth.credentials.source": "SASL_INHERIT",
+            "schema.registry.ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}",
             "auto.offset.reset": "earliest"
         }
     )
@@ -167,7 +168,8 @@
             "sasl.password": '<пароль пользователя user>',
             "on_delivery": delivery_report,
             "schema.registry.basic.auth.credentials.source": 'SASL_INHERIT',
-            "schema.registry.url": 'https://<FQDN или IP-адрес сервера {{ mkf-msr }}>:443'
+            "schema.registry.url": 'https://<FQDN или IP-адрес сервера {{ mkf-msr }}>:443',
+            "schema.registry.ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}"
         },
         default_key_schema=key_schema,
         default_value_schema=value_schema
