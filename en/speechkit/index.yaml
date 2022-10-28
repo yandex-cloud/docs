@@ -43,13 +43,13 @@ links:
     href: stt/
   - title: Recognition API
     description: Description of the recognition API v3 methods
-    href: v3/api-ref/grpc/
+    href: stt-v3/api-ref/grpc/
   - title: Speech synthesis
     description: Find out how text-to-speech conversion works
     href: tts/
   - title: Synthesis API
     description: Description of the synthesis API v3 methods
-    href: new-v3/api-ref/grpc/
+    href: tts-v3/api-ref/grpc/
   - title: SpeechKit Brand Voice
     description: Speech synthesis technology with a unique voice
     href: tts/brand-voice/

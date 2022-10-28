@@ -32,7 +32,7 @@
 
 #### Что дальше {#what-is-next}
 
-* [API {{ brand-voice-name }} (англ.)](../../new-v3/api-ref/grpc/)
+* [API {{ brand-voice-name }} (англ.)](../../tts-v3/api-ref/grpc/)
 * [{#T}](income-data-format.md)
 
 {% endif %}

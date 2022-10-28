@@ -1,49 +1,25 @@
 items:
   - name: Overview
     href: api-ref/index.md
-  - name: AgentInstance
+  - name: ResourcePreset
     items:
       - name: Overview
-        href: api-ref/AgentInstance/index.md
-      - name: create
-        href: api-ref/AgentInstance/create.md
-      - name: delete
-        href: api-ref/AgentInstance/delete.md
+        href: api-ref/ResourcePreset/index.md
       - name: get
-        href: api-ref/AgentInstance/get.md
+        href: api-ref/ResourcePreset/get.md
       - name: list
-        href: api-ref/AgentInstance/list.md
-      - name: restart
-        href: api-ref/AgentInstance/restart.md
-      - name: start
-        href: api-ref/AgentInstance/start.md
-      - name: stop
-        href: api-ref/AgentInstance/stop.md
-      - name: upgradeImage
-        href: api-ref/AgentInstance/upgradeImage.md
-  - name: Test
+        href: api-ref/ResourcePreset/list.md
+  - name: Storage
     items:
       - name: Overview
-        href: api-ref/Test/index.md
+        href: api-ref/Storage/index.md
       - name: create
-        href: api-ref/Test/create.md
-      - name: createMulti
-        href: api-ref/Test/createMulti.md
+        href: api-ref/Storage/create.md
       - name: delete
-        href: api-ref/Test/delete.md
+        href: api-ref/Storage/delete.md
       - name: get
-        href: api-ref/Test/get.md
-      - name: getMonitoringHosts
-        href: api-ref/Test/getMonitoringHosts.md
-      - name: getMonitoringReport
-        href: api-ref/Test/getMonitoringReport.md
-      - name: getSummary
-        href: api-ref/Test/getSummary.md
+        href: api-ref/Storage/get.md
       - name: list
-        href: api-ref/Test/list.md
-      - name: stop
-        href: api-ref/Test/stop.md
-      - name: update
-        href: api-ref/Test/update.md
-      - name: validateConfig
-        href: api-ref/Test/validateConfig.md
+        href: api-ref/Storage/list.md
+      - name: uploadObject
+        href: api-ref/Storage/uploadObject.md

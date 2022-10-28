@@ -22,7 +22,7 @@ editable: false
 
 {% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 
-Стоимость использования [API v3](new-v3/api-ref/grpc/index.md) зависит от количества отправленных запросов на синтез. Запросы на синтез речи имеют ограничения — {{ tts-v3-count }} и {{ tts-v3-time }}. 
+Стоимость использования [API v3](tts-v3/api-ref/grpc/index.md) зависит от количества отправленных запросов на синтез. Запросы на синтез речи имеют ограничения — {{ tts-v3-count }} и {{ tts-v3-time }}. 
 
 ### Использование распознавания речи {#rules-stt}
 

@@ -1,6 +1,6 @@
 # Example use for the synthesis API v3
 
-The example shows how you can synthesize speech from text with [TTS markup](../tts-markup.md) to a [WAV]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/WAV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/WAV){% endif %} file using the {{ speechkit-short-name }} [API v3](../../new-v3/api-ref/grpc/).
+The example shows how you can synthesize speech from text with [TTS markup](../tts-markup.md) to a [WAV]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/WAV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/WAV){% endif %} file using the {{ speechkit-short-name }} [API v3](../../tts-v3/api-ref/grpc/).
 
 The example uses the following synthesis parameters:
 * Synthesized audio file [format](../../formats.md): LPCM with a sample rate of 22050 Hz, [WAV]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/WAV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/WAV){% endif %} container (default).
@@ -206,5 +206,5 @@ To implement an example:
 
 #### See also {#see-also}
 
-* [Learn more about the API v3](../../new-v3/api-ref/grpc/)
+* [Learn more about the API v3](../../tts-v3/api-ref/grpc/)
 * [{#T}](../../concepts/auth.md)

@@ -1,5 +1,0 @@
-items:
-  - name: Overview
-    href: v3/api-ref/grpc/index.md
-  - name: Recognizer
-    href: v3/api-ref/grpc/stt_service.md

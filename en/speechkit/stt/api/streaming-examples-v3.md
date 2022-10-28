@@ -1,6 +1,6 @@
 # Example use for the streaming recognition API v3
 
-The example shows how you can recognize speech in LPCM format in real time using the {{ speechkit-short-name }} [API v3](../../new-v3/api-ref/grpc/).
+The example shows how you can recognize speech in LPCM format in real time using the {{ speechkit-short-name }} [API v3](../../tts-v3/api-ref/grpc/).
 
 The example uses the following parameters:
 
@@ -264,5 +264,5 @@ To implement an example from this section:
 
 #### See also {#see-also}
 
-* [Learn more about the API v3](../../new-v3/api-ref/grpc/)
+* [Learn more about the API v3](../../tts-v3/api-ref/grpc/)
 * [{#T}](../../concepts/auth.md)

@@ -1,11 +1,12 @@
 openapi: 3.0.0
 info:
-  title: SpeechKit Speech To Text Service API
-  description: The service does not operate with resources. Actions are performed
-    by sending HTTP requests to resource URLs or making RPC calls. For more information
-    about API architecture, see [API Concepts](/docs/api-design-guide/).
+  title: SpeechKit Recognition API v3
+  description: The SpeechKit Speech To Text Service API v3 allows application developers
+    to use speech recognition technologies. <br>The service does not operate with
+    resources. Actions are performed by making RPC calls. For more information about
+    API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v3
-  x-y-docUri: v3/api-ref
+  x-y-docUri: stt-v3/api-ref
   x-y-baseUrl: https://stt.api.cloud.yandex.net
 paths: {}
 components:
@@ -31,11 +32,11 @@ components:
           type: string
           format: int64
         confidence:
-          description: Hypothesis confidence. Currently is not used.
+          description: The hypothesis confidence. Currently is not used.
           type: number
           format: double
         languages:
-          description: Distribution over possible languages
+          description: Distribution over possible languages.
           type: array
           items:
             $ref: '#/components/schemas/LanguageEstimation'
@@ -138,7 +139,7 @@ components:
         type:
           $ref: '#/components/schemas/DefaultEouClassifierEouSensitivity_in_DefaultEouClassifier_type'
         maxPauseBetweenWordsHintMs:
-          description: Hint for max pause between words. Our EoU detector could use
+          description: Hint for max pause between words. Our EOU detector could use
             this information to distinguish between end of utterance and slow speech
             (like one <long pause> two <long pause> three, etc).
           type: string
@@ -164,13 +165,13 @@ components:
             description: EOU classifier provided by SpeechKit. Default.
           externalClassifier:
             $ref: '#/components/schemas/ExternalEouClassifier'
-            description: EoU is enforced by external messages from user.
+            description: EOU is enforced by external messages from user.
     EouUpdate:
-      description: Update information from
+      description: Update information for external End of Utterance.
       type: object
       properties:
         timeMs:
-          description: End of utterance estimated time.
+          description: EOU estimated time.
           type: string
           format: int64
     ExternalEouClassifier:
@@ -195,15 +196,19 @@ components:
             $ref: '#/components/schemas/AlternativeUpdate'
             description: Normalized text instead of raw one.
     LanguageEstimation:
-      description: Estimation of language probability
+      description: Estimation of language and its probability.
       type: object
       properties:
         languageCode:
+          description: Language code in ISO 639-1 format.
           type: string
         probability:
+          description: Estimation of language probability.
           type: number
           format: double
     LanguageRestrictionOptions:
+      description: Type of restriction for the list of languages expected in the incoming
+        speech stream.
       type: object
       properties:
         restrictionType:
@@ -213,6 +218,9 @@ components:
           items:
             type: string
     LanguageRestrictionOptionsLanguageRestrictionType:
+      description: |2-
+         - WHITELIST: The allowing list. The incoming audio can contain only the listed languages.
+         - BLACKLIST: The forbidding list. The incoming audio cannot contain the listed languages.
       type: string
       enum:
       - WHITELIST
@@ -269,6 +277,7 @@ components:
           description: User session identifier.
           type: string
     SilenceChunk:
+      description: Data chunk with silence.
       type: object
       properties:
         durationMs:
@@ -341,13 +350,13 @@ components:
             $ref: '#/components/schemas/StatusCode'
             description: Status messages, send by server with fixed interval (keep-alive).
     TextNormalizationOptions:
-      description: options
+      description: Options
       type: object
       properties:
         textNormalization:
           $ref: '#/components/schemas/TextNormalizationOptionsTextNormalization_in_TextNormalizationOptions_textNormalization'
         profanityFilter:
-          description: 'Filter profanity (default: false).'
+          description: 'Profanity filter (default: false).'
           type: boolean
           format: boolean
         literatureText:
@@ -372,11 +381,11 @@ components:
           description: Word text.
           type: string
         startTimeMs:
-          description: Estimation of word start time in ms
+          description: Estimation of word start time in ms.
           type: string
           format: int64
         endTimeMs:
-          description: Estimation of word end time in ms
+          description: Estimation of word end time in ms.
           type: string
           format: int64
     ContainerAudioContainerAudioType_in_ContainerAudio_containerAudioType:
@@ -399,6 +408,9 @@ components:
       - DEFAULT
       - HIGH
     LanguageRestrictionOptionsLanguageRestrictionType_in_LanguageRestrictionOptions_restrictionType:
+      description: |2-
+         - WHITELIST: The allowing list. The incoming audio can contain only the listed languages.
+         - BLACKLIST: The forbidding list. The incoming audio cannot contain the listed languages.
       type: string
       enum:
       - WHITELIST
@@ -432,13 +444,13 @@ components:
       description: |-
         Text normalization options.
 
-        options
+        Options
       type: object
       properties:
         textNormalization:
           $ref: '#/components/schemas/TextNormalizationOptionsTextNormalization_in_TextNormalizationOptions_textNormalization'
         profanityFilter:
-          description: 'Filter profanity (default: false).'
+          description: 'Profanity filter (default: false).'
           type: boolean
           format: boolean
         literatureText:
@@ -446,7 +458,10 @@ components:
           type: boolean
           format: boolean
     LanguageRestrictionOptions_in_RecognitionModelOptions_languageRestriction:
-      description: Possible languages in audio.
+      description: |-
+        Possible languages in audio.
+
+        Type of restriction for the list of languages expected in the incoming speech stream.
       type: object
       properties:
         restrictionType:
@@ -497,7 +512,7 @@ components:
             description: EOU classifier provided by SpeechKit. Default.
           externalClassifier:
             $ref: '#/components/schemas/ExternalEouClassifier'
-            description: EoU is enforced by external messages from user.
+            description: EOU is enforced by external messages from user.
     TextNormalizationOptionsTextNormalization_in_TextNormalizationOptions_textNormalization:
       description: |-
         Normalization

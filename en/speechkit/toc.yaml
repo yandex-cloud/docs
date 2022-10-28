@@ -96,7 +96,7 @@ items:
             items: null
             include:
               repo: docs
-              path: en/_api-ref-grpc/ai/stt/v3/toc.yaml
+              path: en/_api-ref-grpc/ai/stt/stt-v3/toc.yaml
       - name: Example uses for the recognition API
         items:
           - name: Streaming recognition, API v3
@@ -117,7 +117,7 @@ items:
             items: null
             include:
               repo: docs
-              path: en/_api-ref-grpc/ai/tts/new-v3/toc.yaml
+              path: en/_api-ref-grpc/ai/tts/tts-v3/toc.yaml
       - name: Example uses for the synthesis API
         items:
           - name: Synthesis API v3
@@ -139,12 +139,12 @@ items:
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/ai/stt/v3/toc.yaml
+          path: en/_api-ref-grpc/ai/stt/stt-v3/toc.yaml
       - name: Synthesis gRPC API v3 reference guide
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/ai/tts/new-v3/toc.yaml
+          path: en/_api-ref-grpc/ai/tts/tts-v3/toc.yaml
       - name: Example use for the recognition API
         href: stt/api/streaming-examples-v3.md
       - name: Example use for the synthesis API

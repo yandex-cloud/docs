@@ -168,7 +168,7 @@ items:
           items: null
           include:
             repo: docs
-            path: en/_api-ref-grpc/datasphere/toc.yaml
+            path: en/_api-ref-grpc/datasphere/v1/toc.yaml
         - name: REST
           items: null
           include:

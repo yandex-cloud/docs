@@ -96,7 +96,7 @@ items:
             items: null
             include:
               repo: docs
-              path: en/_api-ref-grpc/ai/stt/v3/toc.yaml
+              path: en/_api-ref-grpc/ai/stt/stt-v3/toc.yaml
       - name: Примеры использования API распознавания
         items:
           - name: Потоковое распознавание API v3
@@ -117,7 +117,7 @@ items:
             items: null
             include:
               repo: docs
-              path: en/_api-ref-grpc/ai/tts/new-v3/toc.yaml
+              path: en/_api-ref-grpc/ai/tts/tts-v3/toc.yaml
       - name: Примеры использования API синтеза
         items:
           - name: Синтез API v3
@@ -139,12 +139,12 @@ items:
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/ai/stt/v3/toc.yaml
+          path: en/_api-ref-grpc/ai/stt/stt-v3/toc.yaml
       - name: Справочник синтеза API v3 gRPC
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/ai/tts/new-v3/toc.yaml
+          path: en/_api-ref-grpc/ai/tts/tts-v3/toc.yaml
       - name: Пример использования API распознавания
         href: stt/api/streaming-examples-v3.md
       - name: Пример использования API синтеза

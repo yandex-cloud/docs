@@ -22,7 +22,7 @@ The cost of using SpeechKit for speech synthesis depends on the version of the A
 
 {% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 
-The cost using [API v3](new-v3/api-ref/grpc/index.md) depends on the number of synthesis requests sent. Speech synthesis requests have limitations — {{ tts-v3-count }} and {{ tts-v3-time }}.
+The cost using [API v3](tts-v3/api-ref/grpc/index.md) depends on the number of synthesis requests sent. Speech synthesis requests have limitations — {{ tts-v3-count }} and {{ tts-v3-time }}.
 
 ### Using speech recognition {#rules-stt}
 

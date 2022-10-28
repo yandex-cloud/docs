@@ -1,0 +1,11 @@
+items:
+  - name: Overview
+    href: v2/api-ref/grpc/index.md
+  - name: CommunityService
+    href: v2/api-ref/grpc/community_service.md
+  - name: ProjectDataService
+    href: v2/api-ref/grpc/project_data_service.md
+  - name: ProjectService
+    href: v2/api-ref/grpc/project_service.md
+  - name: OperationService
+    href: v2/api-ref/grpc/operation_service.md

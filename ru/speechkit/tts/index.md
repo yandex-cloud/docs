@@ -10,7 +10,7 @@ _Синтез речи_ в {{ speechkit-full-name }} позволяет озву
 
 {% include [api-concepts](../../_includes/speechkit/api-concepts.md) %}
 
-Синтез {{ speechkit-name }} имеет два API — [API v1](request.md) (REST) и [API v3](../new-v3/api-ref/grpc/) (gRPC).
+Синтез {{ speechkit-name }} имеет два API — [API v1](request.md) (REST) и [API v3](../tts-v3/api-ref/grpc/) (gRPC).
 
 |                                                    | API v1 | API v3                                      |
 |----------------------------------------------------|---|---------------------------------------------|
@@ -67,7 +67,7 @@ _Синтез речи_ в {{ speechkit-full-name }} позволяет озву
 
 ### Нормализация громкости {#volume}
 
-В запросах [API v3](../new-v3/api-ref/grpc/) вы можете задать тип и уровень нормализации громкости. Это может потребоваться, если вы используете синтез {{ speechkit-name }} вместе с другими источниками звука. Например, чтобы громкость голосового ассистента не отличалась от уведомлений телефона. 
+В запросах [API v3](../tts-v3/api-ref/grpc/) вы можете задать тип и уровень нормализации громкости. Это может потребоваться, если вы используете синтез {{ speechkit-name }} вместе с другими источниками звука. Например, чтобы громкость голосового ассистента не отличалась от уведомлений телефона. 
 
 {{ speechkit-name }} поддерживает два типа нормализации:
 * [Пиковая нормализация]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Нормализация_звука#Пиковая_нормализация){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Audio_normalization#Peak_normalization){% endif %} `MAX_PEAK`, при которой уровень звукового сигнала поднимается до максимально возможного значения для цифрового звука без появления искажений. 
@@ -92,7 +92,7 @@ _Синтез речи_ в {{ speechkit-full-name }} позволяет озву
 {% if product == "yandex-cloud" %}
 
 * Попробуйте синтез речи с помощью демо на [странице сервиса]{% if lang == "ru" %}(https://cloud.yandex.ru/services/speechkit#demo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/speechkit#demo){% endif %}.
-* Ознакомьтесь с параметрами метода [API v1](request.md) и запросов [API v3](../new-v3/api-ref/grpc/).
+* Ознакомьтесь с параметрами метода [API v1](request.md) и запросов [API v3](../tts-v3/api-ref/grpc/).
 * Посмотрите примеры использования API {{ speechkit-name }}:
   * [{#T}](api/tts-ogg.md)
   * [{#T}](api/tts-wav.md)
@@ -102,7 +102,7 @@ _Синтез речи_ в {{ speechkit-full-name }} позволяет озву
 
 {% if product == "cloud-il" %}
 
-* [Параметры запросов API v3](../new-v3/api-ref/grpc/)
+* [Параметры запросов API v3](../tts-v3/api-ref/grpc/)
 * [{#T}](api/tts-examples-v3.md)
 
 {% endif %}

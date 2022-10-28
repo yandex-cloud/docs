@@ -1,6 +1,6 @@
 # Пример использования API v3 синтеза
 
-Пример показывает, как с помощью {{ speechkit-short-name }} [API v3](../../new-v3/api-ref/grpc/) синтезировать речь из текста в [TTS-разметке](../tts-markup.md) в файл формата [WAV]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/WAV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/WAV){% endif %}.
+Пример показывает, как с помощью {{ speechkit-short-name }} [API v3](../../tts-v3/api-ref/grpc/) синтезировать речь из текста в [TTS-разметке](../tts-markup.md) в файл формата [WAV]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/WAV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/WAV){% endif %}.
 
 В примере заданы следующие параметры синтеза:
 * [формат](../../formats.md) синтезированного аудиофайла — LPCM с частотой дискретизации 22 050 Гц, контейнер [WAV]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/WAV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/WAV){% endif %} (значение по умолчанию);
@@ -143,5 +143,5 @@
 
 #### См. также {#see-also}
 
-* [Подробнее про API v3](../../new-v3/api-ref/grpc/)
+* [Подробнее про API v3](../../tts-v3/api-ref/grpc/)
 * [{#T}](../../concepts/auth.md)
