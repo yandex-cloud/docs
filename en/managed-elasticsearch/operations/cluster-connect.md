@@ -2,14 +2,15 @@
 
 You can connect to the hosts in the {{ mes-name }} cluster with the [_Data node_ role](../concepts/hosts-roles.md#data-node):
 
-- Over the internet, if you configured public access for the appropriate host.
-   {% if audience != "internal" %}
+* Over the internet, if you configured public access for the appropriate host.
 
-- From {{ yandex-cloud }} VM instances hosted in the same [virtual network](../../vpc/concepts/network.md).
+{% if audience != "internal" %}
+
+* From {{ yandex-cloud }} VM instances hosted in the same [virtual network](../../vpc/concepts/network.md).
 
 {% else %}
 
-- From {{ yandex-cloud }} VM instances hosted in the same virtual network.
+* From {{ yandex-cloud }} VM instances hosted in the same virtual network.
 
 {% endif %}
 
@@ -35,10 +36,10 @@ Settings of rules depend on the connection method you select:
 
    {% endif %}
 
-   - Port range: `443`, `9200`.
-   - Protocol: `TCP`.
-   - Source: `CIDR`.
-   - CIDR blocks: `0.0.0.0/0`.
+   * Port range: `443`, `9200`.
+   * Protocol: `TCP`.
+   * Source: `CIDR`.
+   * CIDR blocks: `0.0.0.0/0`.
 
    A separate rule is created for each port.
 
@@ -54,10 +55,10 @@ Settings of rules depend on the connection method you select:
 
    {% endif %}
 
-         - Protocol: `TCP`.
-         - Port range: `443`, `9200`.
-         - Source: `Security group`.
-         - Security group: If your cluster and your VM are in the same security group, select `Self` as the value. Otherwise, specify the VM security group.
+         * Protocol: `TCP`.
+         * Port range: `443`, `9200`.
+         * Source: `Security group`.
+         * Security group: If your cluster and your VM are in the same security group, select `Self` as the value. Otherwise, specify the VM security group.
 
          A separate rule is created for each port.
 
@@ -73,21 +74,21 @@ Settings of rules depend on the connection method you select:
 
          Example VM rule:
 
-         - Incoming traffic:
+         * Incoming traffic:
 
-             - Port range: `22`, `443`, `9200`.
-             - Protocol: `TCP`.
-             - Source: `CIDR`.
-             - CIDR blocks: `0.0.0.0/0`.
+             * Port range: `22`, `443`, `9200`.
+             * Protocol: `TCP`.
+             * Source: `CIDR`.
+             * CIDR blocks: `0.0.0.0/0`.
 
              A separate rule is created for each port.
 
-         - Outgoing traffic:
+         * Outgoing traffic:
 
-             - Port range: `{{ port-any }}`.
-             - Protocol: `Any`.
-             - Source type: `CIDR`.
-             - CIDR blocks: `0.0.0.0/0`.
+             * Port range: `{{ port-any }}`.
+             * Protocol: `Any`.
+             * Source type: `CIDR`.
+             * CIDR blocks: `0.0.0.0/0`.
 
              This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
 
@@ -97,7 +98,7 @@ Settings of rules depend on the connection method you select:
 
 You can set more detailed rules for security groups, such as allowing traffic in only specific subnets.
 
-Security groups must be configured correctly for all subnets that will include cluster hosts. If the security group settings are incomplete or incorrect, you might lose access to the cluster.
+Security groups must be configured correctly for all subnets that will include cluster hosts. If the security group settings are incomplete or incorrect, you might lose access the cluster.
 
 {% endnote %}
 
@@ -142,11 +143,12 @@ To use an encrypted connection, get an SSL certificate:
 ## Automatic selecting the host to connect to {#automatic-host-selection}
 
 When connecting to an {{ ES }} cluster, you can:
-- In the connection strings, explicitly specify the names of the hosts with the _Data node_ role.
+
+* In the connection strings, explicitly specify the names of the hosts with the _Data node_ role.
 
    This approach is suitable for any connection method. For example, you can use it to connect over the internet if only a few hosts are assigned a public IP address.
 
-- Use a special FQDN in the format `c-<{{ ES }} cluster ID>.rw.{{ dns-zone }}` (such as, `https://c-e4ut2....rw.{{ dns-zone }}`).
+* Use a special FQDN in the format `c-<{{ ES }} cluster ID>.rw.{{ dns-zone }}` (such as, `https://c-e4ut2....rw.{{ dns-zone }}`).
 
    This approach is only suitable if all of the hosts with the _Data node_ role have a public IP address or connections are only made from {{ yandex-cloud }} virtual machines. This is because the host for the connection, which this FQDN is pointing to, is selected randomly from all the hosts with the _Data node_ role.
 
