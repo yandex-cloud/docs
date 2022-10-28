@@ -1,6 +1,6 @@
 # Authentication using Active Directory
 
-With an [identity federation](../../add-federation.md), you can use [Active Directory Federation Services]({{ link-adfs }}) (ADFS) to authenticate in the cloud.
+With an [identity federation](../../add-federation.md), you can use [Active Directory Federation Services]({{link-adfs}}) (ADFS) to authenticate in the cloud.
 
 To set up authentication:
 
@@ -16,7 +16,7 @@ To set up authentication:
 
 1. [Test the authentication process](#test-auth).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 To use the instructions in this section, you will need:​
 
@@ -46,9 +46,9 @@ To use the instructions in this section, you will need:​
 
    To create a federation:
 
-   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+   1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click **Create federation**.
 
@@ -181,7 +181,7 @@ To use the instructions in this section, you will need:​
          If the option is enabled, the IDs of federated users' names are case-insensitive.
       * `security_settings`: Federation security settings:
          * `encrypted_assertions`: Sign authentication requests.
-            If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You need to download and install a {{ yandex-cloud }} certificate.
+            If this option is enabled, all authentication requests from {{yandex-cloud}} will have a digital signature. You need to download and install a {{yandex-cloud}} certificate.
 
       Example configuration file structure:
 
@@ -220,13 +220,13 @@ To use the instructions in this section, you will need:​
 
       1. Confirm that you want to create the federation.
 
-      This creates the federation in the specified organization. You can check that the federation is there and its settings are correct in the organization's [Federations]({{ link-org-federations }}) section.
+      This creates the federation in the specified organization. You can check that the federation is there and its settings are correct in the organization's [Federations]({{link-org-federations}}) section.
 
 {% endlist %}
 
 ## Specify certificates for the federation {#add-certificate}
 
-When the identity provider (IdP) informs {{ org-full-name }} that a user has been authenticated, they sign the message with their certificate. To enable {{ org-name }} to verify this certificate, add it to the created federation.
+When the identity provider (IdP) informs {{org-full-name}} that a user has been authenticated, they sign the message with their certificate. To enable {{org-name}} to verify this certificate, add it to the created federation.
 
 To get an ADFS certificate:
 
@@ -256,9 +256,9 @@ To add a certificate to a federation:
 
 - Management console
 
-   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+   1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click the name of the federation to add a certificate to.
 
@@ -332,9 +332,9 @@ Obtain and save this link:
 
 1. Get the federation ID:
 
-   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+   1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-   1. In the left panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Copy the ID of the federation you're configuring access for.
 
@@ -399,12 +399,12 @@ When ADFS authenticates a user, it sends a SAML message to {{ yandex-cloud }} to
 | User data | Comment | Outgoing Claim Type |
 ------------------- | ----------- | -------------------
 | Unique user ID | Required attribute. We recommend using the **User-Principal-Name** or email address. | Name ID |
-| Last name | Displayed in {{ yandex-cloud }} services. We recommend using the **Surname** attribute. | Surname |
-| Name | Displayed in {{ yandex-cloud }} services. We recommend using the **Given-Name** attribute. | Given Name |
-| Full name | Displayed in {{ yandex-cloud }} services. Example: John Smith.<br>We recommend using the **Display-Name** attribute. | Name |
-| Email | Used to send notifications from {{ yandex-cloud }} services. Example: `smith@example.com`<br>We recommend using the **E-Mail-Address** attribute. | E-Mail Address |
-| Phone | Used to send notifications from {{ yandex-cloud }} services. Example: {% if product == "yandex-cloud" %}+71234567890{% endif %}{% if product == "cloud-il" %}+972571234567{% endif %}<br>We recommend using the `Telephone-Number` attribute. | Type `phone` in the **Outgoing Claim Type** field. |
-| Profile image | Displayed in {{ yandex-cloud }} services.<br>We recommend using the `thumbnailPhoto` attribute. [How to add a profile image](#add-avatar) | Type `thumbnailPhoto` in the **Outgoing Claim Type** field. |
+| Last name | Displayed in {{yandex-cloud}} services. We recommend using the **Surname** attribute. | Surname |
+| Name | Displayed in {{yandex-cloud}} services. We recommend using the **Given-Name** attribute. | Given Name |
+| Full name | Displayed in {{yandex-cloud}} services. Example: John Smith.<br>We recommend using the **Display-Name** attribute. | Name |
+| Email | Used to send notifications from {{yandex-cloud}} services. Example: `smith@example.com`<br>We recommend using the **E-Mail-Address** attribute. | E-Mail Address |
+| Phone | Used to send notifications from {{yandex-cloud}} services. Example: {% if product == "yandex-cloud" %}+71234567890{% endif %}{% if product == "cloud-il" %}+972571234567{% endif %}<br>We recommend using the `Telephone-Number` attribute. | Type `phone` in the **Outgoing Claim Type** field. |
+| Profile image | Displayed in {{yandex-cloud}} services.<br>We recommend using the `thumbnailPhoto` attribute. [How to add a profile image](#add-avatar) | Type `thumbnailPhoto` in the **Outgoing Claim Type** field. |
 
 {% note warning %}
 
@@ -432,7 +432,7 @@ To set up a mapping between the user data and Outgoing Claim Types:
 
       In the **Outgoing Claim Type** column, select **Name ID**.
 
-   1. For a user to be able to contact {{ yandex-cloud }} technical support from the [management console]({{ link-console-support }}), add the user's email address (the **E-Mail Address** claim type) or name (the **Name** claim type).
+   1. For a user to be able to contact {{ yandex-cloud }} technical support from the [management console]({{link-console-support}}), add the user's email address (the **E-Mail Address** claim type) or name (the **Name** claim type).
 
    1. To pass the user's first and last name separately, add the **Given Name** and **Surname** claim types.
 
@@ -491,7 +491,7 @@ If you did not enable the **Automatically create users** option when creating a 
 
 To do this, you need to know the Name IDs of the users that the Identity Provider Server (IdP) returns along with the successful authentication confirmation. This is usually the user's primary email address. If you don't know what the server returns as the Name ID, contact the administrator who configured authentication for your federation.
 
-A user can be added by an organization administrator (`organization-manager.admin` role) or owner (`organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../roles.md#admin).
+A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../roles.md#admin).
 
 To add federation users to an organization:
 
@@ -499,11 +499,11 @@ To add federation users to an organization:
 
 - Management console
 
-   1. [Log in]({{ link-passport }}) to the organization's administrator or owner account.
+   1. [Log in]({{link-passport}}) to the organization's administrator or owner account.
 
-   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+   1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-   1. In the left panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
+   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
    1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
 
