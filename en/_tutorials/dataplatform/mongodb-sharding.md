@@ -2,8 +2,8 @@
 
 When you shard a {{ mmg-name }} cluster, the following service hosts are automatically created{% if audience != "internal" %} and [billed](../../managed-mongodb/pricing.md) separately from the main DBMS hosts{% endif %}:
 
-- Either `MONGOS` and `MONGOCFG`
-- Or `MONGOINFRA`
+- Either `MONGOS` and `MONGOCFG`,
+- Or `MONGOINFRA`.
 
 {% include [irreversible-sharding-note.md](../../_includes/mdb/irreversible-sharding-note.md) %}
 

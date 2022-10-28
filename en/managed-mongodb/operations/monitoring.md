@@ -86,6 +86,8 @@ This page displays charts showing the load on an individual host in the cluster:
 * **Network Bytes**: The speed of data exchange over the network (bytes per second).
 * **Network Packets**: The number of packets exchanged over the network per second.
 
+{% if audience != "internal" %}
+
 ## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
 {% list tabs %}
@@ -103,7 +105,7 @@ This page displays charts showing the load on an individual host in the cluster:
 
    1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
 
-   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. {% if audience == "external" %}For more on the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). {% endif %}
+   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
 
    1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
 
@@ -123,7 +125,6 @@ Recommended threshold values:
 
 You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).
 
-{% if audience != "internal" %}
 For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-mongodb).
 {% endif %}
 
