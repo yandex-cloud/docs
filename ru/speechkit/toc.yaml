@@ -21,7 +21,7 @@ items:
             href: stt/request.md
           - name: Асинхронное распознавание
             href: stt/transcribation.md
-      - name: Модели распознавания
+      - name: Поддерживаемые языки
         href: stt/models.md
       - name: Расширение модели распознавания речи
         href: stt/additional-training.md
@@ -32,7 +32,7 @@ items:
         href: stt/index.md
       - name: Потоковое распознавание
         href: stt/streaming.md
-      - name: Модели распознавания
+      - name: Поддерживаемые языки
         href: stt/models.md
       - name: Расширение модели распознавания речи
         href: stt/additional-training.md
