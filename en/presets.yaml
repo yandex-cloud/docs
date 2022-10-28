@@ -164,6 +164,7 @@ default:
   dataproc-short-name: Data Proc
   vision-short-name: Vision
   datalens-short-name: DataLens
+  managed-k8s-short-name: Managed Service for Kubernetes
   iot-short-name: Yandex IoT Core
   sf-short-name: Functions
   ydb-short-name: YDB

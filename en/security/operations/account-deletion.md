@@ -62,7 +62,7 @@ The instructions provide actions for mitigating risks related a federation failu
 
    {% endnote %}
 
-2. Granting the `organization-manager.organizations.owner` role to a service account:
+1. Granting the `organization-manager.organizations.owner` role to a service account:
 
    {% list tabs %}
 
@@ -77,9 +77,9 @@ The instructions provide actions for mitigating risks related a federation failu
 
    {% endlist %}
 
-3. [Create an authorized key](../../iam/operations/iam-token/create-for-sa.md#via-cli) for a service account.
-4. Save the key file in trusted storage.
-5. Delete the `organization-manager.organizations.owner` role for the passport account using the console or the command-line interface:
+1. [Create an authorized key](../../iam/operations/iam-token/create-for-sa.md#via-cli) for a service account.
+1. Save the key file in trusted storage.
+1. Delete the `organization-manager.organizations.owner` role for the passport account using the console or the command-line interface:
 
    {% list tabs %}
 

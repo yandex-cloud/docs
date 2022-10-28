@@ -1,4 +1,4 @@
-title: 
+title:
   - text: Security in Yandex Cloud
     when: product == "yandex-cloud"
   - text: Security in CloudIL
@@ -6,18 +6,18 @@ title:
 description:
   - text:
       - >-
-        This section provides recommendations on how to build a secure infrastructure in Yandex Cloud, practical guidelines, and security bulletins.
+        This section is all about how to build secure infrastructure in Yandex Cloud, complete with practical guidelines and security bulletins.
     when: product == "yandex-cloud"
   - text:
       - >-
         This section provides recommendations on how to build a secure infrastructure in CloudIL, practical guidelines, and security bulletins.
     when: product == "cloud-il"
 meta:
-  title: 
-  - text: Security in Yandex Cloud
-    when: product == "yandex-cloud"
-  - text: Security in CloudIL
-    when: product == "cloud-il"
+  title:
+    - text: Security in Yandex Cloud
+      when: product == "yandex-cloud"
+    - text: Security in CloudIL
+      when: product == "cloud-il"
 links:
   - title: Shared responsibility
     description: ''

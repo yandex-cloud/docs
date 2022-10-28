@@ -42,12 +42,12 @@ When deploying virtual machines, we recommend:
 
 With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} automatically determines which part of your configuration is already deployed and what should be added or removed. For more information, see [Getting started with {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 
-We don't recommend using private information in {{ TF }} configuration files, such as: passwords, secrets, personal data, or payment system data. Instead, you should use services to store and use secrets in the configuration file, such as: {% if product == "yandex-cloud" %}[HashiCorp Vault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }}{% endif %}{% if product == "cloud-il" %}HashiCorp Vault{% endif %} or [{{ lockbox-name }}](../../lockbox/) (to transfer secrets to the target object without using {{ TF }}).
+We don't recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, or payment system data. Instead, you should use services for storing and using secrets in the configuration file, such as {% if product == "yandex-cloud" %}[HashiCorp Vault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }}{% endif %}{% if product == "cloud-il" %}HashiCorp Vault{% endif %} or [{{ lockbox-name }}](/services/lockbox) (to transfer secrets to the target object without using {{ TF }}).
 
 If you still need to enter private information in the configuration, you should take the following security measures:
 - Specify the [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output) parameter for private information to disable outputting it to the console when running `terraform plan`and `terraform apply`.
-- Use [terraform remote state](https://www.terraform.io/docs/language/state/remote.html). We recommend uploading a {{ TF }} state to {{ objstorage-full-name }} (see [Uploading {{ TF }} states to {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md)){% if product == "yandex-cloud" %} and setting up configuration locking using {{ ydb-full-name }} to prevent simultaneous editing by administrators (see a [setup example](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state)){% endif %}. 
-- Use the mechanism for [transferring secrets to {{ TF }} via env](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_var_name) instead of plain text or use built-in {{ kms-name }} features for [encrypting data in {{ TF }}](../../kms/tutorials/terraform-secret.md) (using a separate file with private data) ([learn more about this technique](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#3073)).
+- Use [terraform remote state](https://www.terraform.io/docs/language/state/remote.html). We recommend uploading a {{ TF }} state to {{ objstorage-full-name }} (see [Uploading {{ TF }} states to {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md)){% if product == "yandex-cloud" %} and setting up configuration locking using {{ ydb-full-name }} to prevent simultaneous editing by administrators (see a [setup example](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state)){% endif %}.
+- Use the [mechanism for transferring secrets to {{ TF }} via env](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_var_name) instead of plain text or use built-in {{ kms-name }} features for [encrypting data in {{ TF }}](../../kms/tutorials/terraform-secret.md) (using a separate file with private data) ([learn more about this technique](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#3073)).
 
    For more information about {{ objstorage-name }} security, see [{{ objstorage-full-name }}](#object-storage) below.
 
@@ -56,6 +56,15 @@ If you still need to enter private information in the configuration, you should 
 When a configuration is deployed, you can delete the configuration file with private data.
 
 {% endnote %}
+
+Scan your {{ TF }} manifests using [Checkov](https://github.com/bridgecrewio/checkov) with {{ yandex-cloud }} support.
+
+{% if product == "yandex-cloud" %}
+
+![](../../_assets/overview/solution-library-icon.svg)[Example: Scanning .tf files with Checkov](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/checkov-yc)
+![](../../_assets/overview/solution-library-icon.svg)[Example: Storing {{ TF }} states in {{ objstorage-full-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/remote-backend)
+
+{% endif %}
 
 ### Integrity control {#integrity-control}
 
@@ -142,7 +151,7 @@ The storage period of critical data in a bucket is determined by the client's in
 
 When using {{ objstorage-short-name }} to store critical data, be sure to enable logging of actions with buckets and configure the versioning mechanism and lifecycle for objects with logs. For more information, see the {{ objstorage-short-name }} documentation, [{#T}](../../storage/concepts/server-logs.md).
 
-You can also analyze {{ objstorage-short-name }} logs in {{ datalens-short-name }}.
+You can also analyze {{ objstorage-short-name }} logs in {{ datalens-short-name }}. Learn more in the article [Analyzing {{ objstorage-name }} logs using {{ datalens-short-name }}](https://cloud.yandex.ru/blog/posts/2021/04/storage-logs).
 
 {% endif %}
 
@@ -214,6 +223,6 @@ We recommend using the image vulnerability scanner integrated into {{ container-
 
 ## {{ certificate-manager-full-name }} {#cert-manager}
 
-{{ certificate-manager-full-name }} lets you manage TLS gateway certificates for{% if product == "yandex-cloud" %} {{ api-gw-name }} and {% endif %} websites and buckets in {{ objstorage-name }}. {{ alb-name }} is integrated with {{ certificate-manager-short-name }} for storing and installing certificates. We recommend that you use {{ certificate-manager-short-name }} to obtain your certificates and rotate them automatically.
+{{ certificate-manager-full-name }} lets you manage TLS certificates for{% if product == "yandex-cloud" %} {{ api-gw-name }} API gateways and{% endif %} websites and buckets in {{ objstorage-name }}. {{ alb-name }} is integrated with {{ certificate-manager-short-name }} for storing and installing certificates. We recommend that you use {{ certificate-manager-short-name }} to obtain your certificates and rotate them automatically.
 
 When using TLS in your application, we recommend that you limit the list of your trusted root certificate authorities (root CA). When using certificate pinning, keep in mind that Let's Encrypt certificates are [valid for 90 days](https://letsencrypt.org/docs/faq/#what-is-the-lifetime-for-let-s-encrypt-certificates-for-how-long-are-they-valid).

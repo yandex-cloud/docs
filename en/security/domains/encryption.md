@@ -1,6 +1,6 @@
 # Data encryption and key management
 
-{{ yandex-cloud }} provides built-in encryption features for a number of services. It's the customer's responsibility to enable encryption in these services and implement encryption in other components for processing critical data. Data encryption and encryption key management is done by [{{ kms-full-name }}](../../kms/) ({{ kms-short-name }}).
+{{ yandex-cloud }} provides built-in encryption features for a number of services. It's the customer's responsibility to enable encryption in these services and implement encryption in other components for processing critical data. Data encryption and encryption key management is done by [{{ kms-full-name }}](../../kms/index.yaml) ({{ kms-short-name }}).
 
 {{ yandex-cloud }} APIs support cipher suites in specific TLS versions that are compliant with PCI DSS and other standards.
 
@@ -18,7 +18,7 @@ If your corporate information security policy sets specific key size and rotatio
 
 ### {{objstorage-full-name}} {#storage-at-rest}
 
-When using [{{objstorage-full-name}}](../../storage/), make sure critical data is encrypted. You can do this using any of the following methods:
+When using [{{objstorage-full-name}}](../../storage/index.yaml), make sure critical data is encrypted. You can do this using any of the following methods:
 
 * Recommended approach: {{ objstorage-name }} bucket encryption using {{ kms-short-name }} keys (server-side encryption). This encryption method protects against the accidental or intentional publication of bucket contents on the internet. See the instructions in the {{ objstorage-name }} documentation, [{#T}](../../storage/operations/buckets/encrypt.md).
 
@@ -30,11 +30,11 @@ When using [{{objstorage-full-name}}](../../storage/), make sure critical data i
 
 * Integrating {{ objstorage-short-name }} with the {{ kms-short-name }} service for client-side encryption. For more information, see [{#T}](#libs) below.
 * Using third-party client-side encryption libraries prior to sending data to Object Storage. If you use third-party data encryption libraries and your own key management methods, be sure that your operation model, algorithms, and key sizes comply with regulatory requirements.
+{% endif %}
 
 ### {{managed-k8s-name}} {#kubernetes}
 
-[{{managed-k8s-name}}](../../managed-kubernetes/) has a built-in secret encryption mechanism. For more information, see [{#T}](#k8s-secrets) below.
-{% endif %}
+[{{managed-k8s-name}}](../../managed-kubernetes/index.yaml) has a built-in secret encryption mechanism. For more information, see [{#T}](#k8s-secrets) below.
 
 ## Encryption in transit
 
@@ -57,7 +57,7 @@ When working with (or connecting to) {{ yandex-cloud }} APIs, make sure to use T
 
 ### {{objstorage-full-name}} {#storage-in-transit}
 
-[{{objstorage-full-name}}](../../storage/) supports secure connections over HTTPS. You can upload your own security certificate if a connection to your Object Storage site requires HTTPS access. Integration with [{{certificate-manager-full-name}}](../../certificate-manager/). See the following instructions in the Object Storage documentation:
+[{{objstorage-full-name}}](../../storage/index.yaml) supports secure connections over HTTPS. You can upload your own security certificate if a connection to your Object Storage site requires HTTPS access. Integration with [{{certificate-manager-full-name}}](../../certificate-manager/index.yaml). See the following instructions in the Object Storage documentation:
 
 - [{#T}](../../storage/operations/hosting/certificate.md)
 - [{#T}](../../storage/concepts/bucket.md#bucket-https)
@@ -66,15 +66,15 @@ When using Object Storage, be sure that support for TLS protocols below version 
 
 ### {{alb-full-name}} {#load-balancer}
 
-[{{alb-full-name}}](../../application-load-balancer/) supports an HTTPS listener with a [certificate](../../certificate-manager/concepts/imported-certificate.md) uploaded from {{certificate-manager-name}}. See [how to set up the listener](../../application-load-balancer/concepts/application-load-balancer.md#listener-example) in the Application Load Balancer documentation.
+[{{alb-full-name}}](../../application-load-balancer/index.yaml) supports an HTTPS listener with a [certificate](../../certificate-manager/concepts/imported-certificate.md) uploaded from {{certificate-manager-name}}. See [how to set up the listener](../../application-load-balancer/concepts/application-load-balancer.md#listener-example) in the Application Load Balancer documentation.
 
 ### {{vpc-name}} (VPC) {#vpc}
 
 Possible options for using encrypted communication channels are described in [{#T}](network.md#remote-access).
 
 {% if product == "yandex-cloud" %}
-Please note that [{{interconnect-full-name}}](../../interconnect/) does not provide built-in encryption mechanisms. Be sure to enable encryption in transit on your own by:
-- Installing in the cloud VPN gateways with encryption enabled, such as VMs based on [Check Point](/marketplace?search=Check+Point) images from {{ marketplace-full-name }}. 
+Please note that [{{interconnect-full-name}}](../../interconnect/index.yaml) does not provide built-in encryption mechanisms. Be sure to enable encryption in transit on your own by:
+- Installing in the cloud VPN gateways with encryption enabled, such as VMs based on [Check Point](/marketplace?search=Check+Point) images from {{ marketplace-full-name }}.
 - Using application-level encryption.
 - Using [GOST VPN](network.md#gost-vpn).
 {% endif %}
@@ -82,11 +82,11 @@ Please note that [{{interconnect-full-name}}](../../interconnect/) does not prov
 {% if product == "yandex-cloud" %}
 ### {{api-gw-full-name}} {#api-gw}
 
-[{{api-gw-full-name}}](../../api-gateway/) supports secure connections over HTTPS. You can upload your own security certificate to access your [API gateway](../../api-gateway/concepts/) over HTTPS.
+[{{api-gw-full-name}}](../../api-gateway/index.yaml) supports secure connections over HTTPS. You can upload your own security certificate to access your [API gateway](../../api-gateway/concepts/) over HTTPS.
 
 ### {{cdn-full-name}} {#cdn}
 
-[{{cdn-full-name}}](../../cdn/) supports secure connections over HTTPS. You can upload your own security certificate to access your [CDN resource](../../cdn/concepts/resource.md) over HTTPS.
+[{{cdn-full-name}}](../../cdn/index.yaml) supports secure connections over HTTPS. You can upload your own security certificate to access your [CDN resource](../../cdn/concepts/resource.md) over HTTPS.
 
 {% endif %}
 ## Providing encryption on your own
@@ -107,7 +107,7 @@ If data encryption is mandatory under regulatory requirements, make sure to encr
 
 ### {{ message-queue-full-name }}
 
-If you use [{{message-queue-full-name}}](../../message-queue/) to transfer critical data or secrets (encryption keys, API keys, and so on), be sure to encrypt this data at the application level before you send it to {{ message-queue-short-name }}, for example, using {{ kms-short-name }}. For the {{ kms-short-name }} key, we recommend that you set up a rotation period greater than or equal to the maximum message processing time in {{ message-queue-short-name }}.
+If you use [{{message-queue-full-name}}](../../message-queue/index.yaml) to transfer critical data or secrets (encryption keys, API keys, and so on), be sure to encrypt this data at the application level before you send it to {{ message-queue-short-name }}, for example, using {{ kms-short-name }}. For the {{ kms-short-name }} key, we recommend that you set up a rotation period greater than or equal to the maximum message processing time in {{ message-queue-short-name }}.
 
 ### Recommended cryptographic libraries {#libs}
 
@@ -121,21 +121,21 @@ For a comparison of libraries, see the {{ kms-short-name }} documentation, [{#T}
 
 ## Managing keys {#key-management}
 
-We recommend that you use [{{ kms-full-name }}](../../kms/) for encrypting data and managing keys. {{ kms-short-name }} helps you protect data in the {{ yandex-cloud }} infrastructure. You can also use it to encrypt or decrypt any of your data.
+We recommend that you use [{{ kms-full-name }}](../../kms/index.yaml) for encrypting data and managing keys. {{ kms-short-name }} helps you protect data in the {{ yandex-cloud }} infrastructure. You can also use it to encrypt or decrypt any of your data.
 
 {{ kms-short-name }} uses AES-GCM encryption mode. You can select the key length (128, 192, or 256 bits) and set up the preferred key rotation period.{% if product == "yandex-cloud" %} You can also create a key whose every cryptographic operation will only be handled inside a hardware security module (HSM). For more information, see [{#T}](../../kms/concepts/hsm.md).{% endif %}
 
-### Authentication and authorization in {{ kms-short-name }}
+### Authentication and authorization in {{ kms-short-name }} {#kms-authorization}
 
-To access the {{ kms-short-name }} service, you need an [{{ iam-short-name }} token](../../iam/concepts/authorization/iam-token.md).
+To access the {{ kms-short-name }} service, you need an [IAM token](../../iam/concepts/authorization/iam-token.md).
 
-To automate operations with {{ kms-short-name }}, we recommend that you create a [service account](../../iam/concepts/users/service-accounts.md) and run commands and scripts under it. If you use VMs, get an {{ iam-short-name }} token for your service account using the mechanism of [assigning a service account](../../compute/operations/vm-connect/auth-inside-vm.md) to your VM. For other ways to get an {{ iam-short-name }} token for your service account, see the {{ iam-short-name }} documentation, [{#T}](../../iam/operations/iam-token/create-for-sa.md).
+To automate operations with {{ kms-short-name }}, we recommend that you create a [service account](../../iam/concepts/users/service-accounts.md) and run commands and scripts under it. If you use VMs, get an IAM token for your service account using the mechanism of [assigning a service account](../../compute/operations/vm-connect/auth-inside-vm.md) to your VM. For other ways to get an IAM token for your service account, please see the {{ iam-short-name }} documentation, [{#T}](../../iam/operations/iam-token/create-for-sa.md).
 
 We recommend that you grant your users and service accounts granular permissions for specific keys in the {{ kms-short-name }} service. For more information, see the {{ kms-short-name }} documentation, [{#T}](../../kms/security/index.md).
 
 For more information about security measures for access control, see [{#T}](access.md).
 
-### Key rotation
+### Key rotation {#key-rotation}
 
 To improve the security of your infrastructure, we recommend that you categorize your encryption keys into two groups:
 1. Keys for services that process critical data, but don't store it. For example, {{ message-queue-full-name }}{% if product == "yandex-cloud" %},{{ sf-full-name }}{% endif %}.
@@ -163,7 +163,7 @@ Don't use critical data and access secrets (such as authentication tokens, API k
 
 {{ lockbox-name }} securely stores secrets: they are only stored in encrypted form with encryption performed using {{ kms-short-name }}. For secret access control, use service roles.
 
-For instructions on how to use the service, see the Lockbox [documentation](../../lockbox/).
+For instructions on how to use the service, see the Lockbox [documentation](../../lockbox/index.yaml).
 
 ### HashiCorp Vault
 
@@ -177,17 +177,17 @@ To store secrets with Vault, you can use a VM based on an image from [{{ marketp
 
 To store secrets, such as passwords, OAuth tokens, and SSH keys, use one of the following methods:
 
-- [{{ k8s }} Secrets](https://kubernetes.io/docs/concepts/configuration/secret/).
+- How [{{ k8s }} secrets](https://kubernetes.io/docs/concepts/configuration/secret/) work.
 
-   By default, secrets are stored unencrypted in etcd. However, {{managed-k8s-name}} lets you encrypt secrets using {{ kms-short-name }}. To enable secret encryption, specify the {{ kms-short-name }} key when creating a {{ k8s }} cluster. You can't add the key when you edit the cluster. For more information, see the {{ kms-short-name }} documentation, [{#T}](../../kms/tutorials/k8s.md).
+   By default, secrets are stored unencrypted in etcd. However, {{managed-k8s-name}} lets you encrypt secrets using {{ kms-short-name }}. To enable the encryption of secrets, specify a {{ kms-short-name }} key when creating a {{ k8s }} cluster. You can't add the key when you edit the cluster. For more information, see the {{ kms-short-name }} documentation, [{#T}](../../kms/tutorials/k8s.md).
 
 - {{ lockbox-name }}.
 
    See the instructions in the {{ lockbox-name }} documentation, [{#T}](../../lockbox/tutorials/kubernetes-lockbox-secrets.md).
 
 {% if product == "yandex-cloud" %}
-- [HashiCorp Vault with {{ kms-short-name }} support](/marketplace/products/yc/vault-yckms) from {{ marketplace-full-name }}.
-   {% endif %}
+- [HashiCorp Vault with {{ kms-short-name }}](/marketplace/products/yc/vault-yckms) support from {{ marketplace-full-name }}.
+{% endif %}
 
 ### Transferring secrets to a VM using {{ TF }} and {{ kms-short-name }}
 

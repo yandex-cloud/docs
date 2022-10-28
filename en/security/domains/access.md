@@ -6,10 +6,10 @@ The platform works with three categories of users:
 
 {% if product == "yandex-cloud" %}
 * [Yandex accounts](../../iam/concepts/#passport): Accounts in Yandex ID.
-   {% endif %}
-   {% if product == "cloud-il" %}
+{% endif %}
+{% if product == "cloud-il" %}
 * Google accounts: Accounts in the Google authentication system.
-   {% endif %}
+{% endif %}
 * [Federated accounts](../../iam/concepts/#saml-federation): Accounts in a corporate [SAML-compatible identity federation](../../organization/add-federation.md), such as Active Directory.
 * [Service accounts](../../iam/concepts/#sa): Accounts that can be used by a program to manage resources.
 
@@ -133,8 +133,12 @@ We recommend disabling 2FA only for this account and if it is not assigned to a 
 To manage a billing account, assign the `{{ roles-admin }}` or `{{ roles-editor }}` role for the billing account to a dedicated employee with a federated account. To view billing data, assign the `{{ roles-viewer }}` role for the billing account to a dedicated employee with a federated account.
 
 The `{{ roles-cloud-owner }}` role is assigned automatically when you create a cloud. A user with this role can perform any operation with the cloud or its resources and grant cloud access to other users: assign roles and revoke them.
-
 Assign the `{{ roles-cloud-owner }}` role to one or more employees with a federated account. Set a strong password for the {% if product == "yandex-cloud" %}Yandex ID{% endif %}{% if product == "cloud-il" %} Google{% endif %} account that was used to create the cloud, and use it only when absolutely necessary (for example, if the federated access fails).
+
+
+The `{{ roles-cloud-owner }}` role is assigned automatically when you create a cloud. A user with this role can perform any operation with the cloud or its resources and grant cloud access to other users: assign roles and revoke them.
+Assign the `{{ roles-cloud-owner }}` role to one or more employees with a federated account. Set a strong password for the Google account that was used to create the cloud, and use it only when absolutely necessary (for example, if the federated access fails).
+
 
 Be sure to fully protect your federated account with the `{{ roles-cloud-owner }}` role:
 * Enable two-factor authentication.

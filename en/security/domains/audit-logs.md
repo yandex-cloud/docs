@@ -10,7 +10,7 @@ Events in audit logs occur on different levels:
 
 {% note info %}
 
-For more information about Kubernetes events, see [Collecting, monitoring, and analyzing audit logs in {{ managed-k8s-full-name }}](./kubernetes.md#collection-monitoring-analysis-audit-logs).
+For more information about {{ k8s }} events, see [Collecting, monitoring, and analyzing audit logs in {{ managed-k8s-full-name }}](./kubernetes.md#collection-monitoring-analysis-audit-logs).
 
 {% endnote %}
 
@@ -26,15 +26,15 @@ See the {{ objstorage-full-name }} security guidelines in [{#T}](secure-config.m
 
 {% endnote %}
 
-{% if audience != "internal" %} To collect metrics, analyze {{ yandex-cloud }}-level events, and set up notifications, we recommend using [{{ monitoring-full-name }}](../../monitoring/). {% endif %} It helps you track, for example, a sharp increase in the load on {{ compute-name }}, the number of {{ alb-name }} requests per second (RPS), or significant changes in event statistics in {{ iam-name }}.
+{% if audience != "internal" %} To collect metrics, analyze {{ yandex-cloud }}-level events, and set up notifications, we recommend using [{{ monitoring-full-name }}](../../monitoring/index.yaml). {% endif %} It helps you track, for example, a sharp increase in the load on {{ compute-name }}, the number of {{ alb-name }} requests per second (RPS), or significant changes in event statistics in {{ iam-name }}.
 
 You can also use {{ monitoring-name }} to monitor the health of the {{ at-name }} service itself and track security events.
 
 {% if product == "yandex-cloud" %}
-![](../../_assets/overview/solution-library-icon.svg)[Solution: Monitoring Audit Trails and security events using {{ monitoring-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trail_monitoring)
+![](../../_assets/overview/solution-library-icon.svg)[Solution: Monitoring {{ at-name }} and security events using {{ monitoring-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trail_monitoring)
 
 {% endif %}
-You can export audit logs to a {% if product == "yandex-cloud" %}log group in [{{ cloud-logging-name }}](../../logging/) and {% endif %}to [a customer's SIEM system](#export) to analyze information about events and incidents.
+You can export audit logs to a {% if product == "yandex-cloud" %}log group in [{{ cloud-logging-name }}](../../logging/index.yaml) and {% endif %}to [a customer's SIEM system](#export) to analyze information about events and incidents.
 
 {% if product == "yandex-cloud" %}
 List of important {{ yandex-cloud }}-level events for search in audit logs:
@@ -50,7 +50,7 @@ Solutions for exporting {{ yandex-cloud }} audit logs are available for the foll
 
 - {{ mes-full-name }} (ELK)
 
-   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Collecting, monitoring, and analyzing audit logs in Yandex Managed Service for Elasticsearch](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main)
+   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Collecting, monitoring, and analyzing audit logs in {{ mes-full-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main)
 
 - ArcSight
 
@@ -72,19 +72,19 @@ To set up export to any SIEM, use utilities such as [GeeseFS](../../storage/tool
 
 Using {{ sf-full-name }}, you can configure alerts about {{ at-name }} events, as well as automatic responses to malicious actions, including removing dangerous rules or revoking access rights.
 
-![](../../_assets/overview/solution-library-icon.svg)[Solution: Notifications and responses to Audit Trails information security events using Cloud Logging/Cloud Functions + Telegram](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trails-function-detector)
+![](../../_assets/overview/solution-library-icon.svg)[Solution: Notifications and responses to {{ at-name }} information security events using {{ iam-short-name }} / {{ sf-name }} + Telegram](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trails-function-detector)
 {% endif %}
 
 ## OS level {#os-level}
 
-When using IaaS cloud services and Kubernetes node groups, the customer is responsible for ensuring OS security and collecting OS-level events on their own. Free tools for collecting standard OS-generated events and exporting them to the customer's SIEM system include:
+When using IaaS cloud services and {{ k8s }} node groups, the customer is responsible for ensuring OS security and collecting OS-level events on their own. Free tools for collecting standard OS-generated events and exporting them to the customer's SIEM system include:
 - [Osquery](https://osquery.io/)
 {% if product == "yandex-cloud" %}- [Filebeat (ELK)](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-system.html){% endif %}
 - [Wazuh](https://documentation.wazuh.com/current/getting-started/use_cases/log_analysis.html)
 
 Additional event generation options can be implemented using Auditd for Linux or Sysmon for Windows.
 
-{% if audience != "internal" %} You can collect Linux system metrics (CPU, RAM, and disk space usage) with {{ monitoring-name }} [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/index.md). {% endif %}
+{% if audience != "internal" %} You can collect Linux system metrics (CPU, RAM, and disk space usage) with [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/index.md) {{ monitoring-name }}. {% endif %}
 
 {% if product == "yandex-cloud" %}
 You can also export OS events to {{ cloud-logging-name }} using a [Fluent Bit plugin](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
@@ -98,7 +98,7 @@ Customers may collect events that occur at the level of applications deployed on
 
 ## Network level {#network-level}
 
-Currently, {{ vpc-short-name }} network traffic event logs (Flow Logs) can only be collected by customers. You can use {{ marketplace-full-name }} solutions (such as {% if product == "yandex-cloud" %}[NGFW](/marketplace?tab=software&search=NGFW), [IDS/IPS](/marketplace?tab=software&search=IDS%2FIPS), or {% endif %}[network products](/marketplace?categories=network)) or free software for collecting and transmitting events.
+Currently, {{ vpc-short-name }} network traffic event logs (Flow Logs) can only be collected by customers. You can use {{ marketplace-full-name }} solutions (such as {% if product == "yandex-cloud" %}[NGFW](/marketplace?tab=software&search=NGFW), [IDS/IPS](/marketplace?tab=software&search=IDS%2FIPS), or {% endif %} [network products](/marketplace?categories=network)) or free software for collecting and transmitting events.
 
 ## Time synchronization {#time-synch}
 

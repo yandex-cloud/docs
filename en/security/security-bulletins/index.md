@@ -180,11 +180,11 @@ Learn more at: https://www.securitylab.ru/vulnerability/527362.php
 1. The Log4j library is included in almost all Apache Software Foundation enterprise solutions, such as Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Kafka, Apache Dubbo, and others.
 
 2. Open-source products such as ElasticSearch, Elastic Logstash, the NSA’s Ghidra, and so on are vulnerable.
-   {% if product == "yandex-cloud" %}
+{% if product == "yandex-cloud" %}
 
 3. Hystax products are vulnerable because they use a vulnerable version of Elasticsearch Logstash.
    Hystax is working on new product releases to fix the vulnerability.
-   {% endif %}
+{% endif %}
 
 #### Impact on {{ yandex-cloud }} services
 
@@ -260,7 +260,7 @@ If you're using a deprecated {{ GL }} image from {{ marketplace-full-name }} or 
 
 * [Action needed by self-managed customers in response to CVE-2021-22205](https://about.gitlab.com/blog/2021/11/04/action-needed-in-response-to-cve2021-22205/)
 * [GitLab CE CVE-2021-22205 in the wild](https://security.humanativaspa.it/gitlab-ce-cve-2021-22205-in-the-wild/)
-   {% endif %}
+{% endif %}
 
 ## 12.10.2021: CVE-2021-25741: Risk of accessing a host's filesystem {#CVE-2021-25741}
 
@@ -312,7 +312,7 @@ A number of [CVE-2021-3156](https://nvd.nist.gov/vuln/detail/CVE-2021-3156) vuln
 The following Linux OS images were updated:
 * All images from the {{ yandex-cloud }} publisher available in {{ marketplace-name }}.
 * A {{ coi }}.
-* An image that is used to create {{ managed-k8s-name }} nodes.
+* An image that is used to create {{ managed-k8s-short-name }} nodes.
 * Images that are used to create managed database clusters.
 * An image that is used to create {{ dataproc-short-name }} clusters.
 
@@ -409,6 +409,9 @@ List of domains included in Public Suffix List:
 Domains in the Public Suffix List get the properties of top-level domains, such as .ru or .com:
 * Browsers won't save the cookies set for the listed domains.
 * Browsers don't let you change the page's `Origin` request headers to root domains.
+
+For more information, see [our blog](https://cloud.yandex.ru/blog/posts/2019/08/storage-domains).
+
 
 ### Impact on {{ yandex-cloud }} services
 
