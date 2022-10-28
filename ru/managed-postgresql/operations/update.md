@@ -135,7 +135,7 @@
 
 {% endnote %}
 
-Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [Квоты]({{ link-console-quotas }}) для облака и убедитесь, что в секции **Managed Databases** в строке **Объем HDD-хранилищ** или **Объем SSD-хранилищ** есть запас места.
+{% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
 {% list tabs %}
 

@@ -1,6 +1,6 @@
 # Getting started with {{ ml-platform-name }}
 
-{{ ml-platform-full-name }} is an end-to-end ML development environment where you can use familiar IDEs, serverless computing technology, and seamlessly combine a broad range of {{ yandex-cloud }} computing resource configurations. {{ ml-platform-full-name }} is part of the data platform and offers powerful features to easily interact with {{ yandex-cloud }} services. As an IDE, {{ ml-platform-name }} provides [Jupyter® Notebook](https://jupyter.org/).
+{{ ml-platform-full-name }} is an end-to-end ML development environment where you can use familiar IDEs, serverless computing technology, and seamlessly combine a broad range of {{ yandex-cloud }} computing resource configurations. {{ ml-platform-full-name }} is part of the data platform and offers powerful features to easily interact with {{ yandex-cloud }} services. As an IDE, {{ ml-platform-name }} provides [{{ jlab }}® Notebook](https://jupyter.org/).
 
 In this section, you'll learn how to:
 1. [Create projects](#create-project).

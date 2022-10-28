@@ -198,7 +198,7 @@ Example of the token validation function:
            {
                "secret": SMARTCAPTCHA_SERVER_KEY,
                "token": token,
-               "ip": "<User IP>" # Method for retrieving the IP depends on your framework and proxy.                                   
+               "ip": "<user IP>" # Method for retrieving the IP depends on your framework and proxy.                                   
                                                 # For example, in Flask, this can be request.remote_addr
            },
            timeout=1

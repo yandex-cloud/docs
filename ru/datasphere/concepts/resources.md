@@ -10,7 +10,7 @@
 
 * [Контрольные точки](checkpoints.md)
 * [Секреты](secrets.md)
-* [Docker-образы](../operations/user-images.md)
+* [Docker-образы](docker.md)
 * [Датасеты](dataset.md)
 * [Подключения S3](../operations/data/connect-to-s3.md)
 * [Ноды и алиасы](deploy/index.md#python-nodes)

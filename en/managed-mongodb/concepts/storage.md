@@ -9,14 +9,14 @@
 
 Local SSD storage doesn't provide fault tolerance for stored data and affects the overall pricing for the cluster:
 
-* This storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mmg-name }} cluster using local storage, a 3-host fault-tolerant configuration is automatically set up.
+* This storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mmg-name }} cluster using this disk type, a 3-host fail-safe configuration is automatically set up.
 * You are charged for a cluster with this storage type even if it's stopped. Read more in the [pricing policy](../pricing.md).
 
 ## Specifics of non-replicated SSD storage {#network-nrd-storage-features}
 
 {% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
 
-## Choice of storage type during cluster creation {#storage-type-selection}
+## Choice of disk type during cluster creation {#storage-type-selection}
 
 The number of hosts that can be created with a {{ MG }} cluster depends on the storage type selected:
 

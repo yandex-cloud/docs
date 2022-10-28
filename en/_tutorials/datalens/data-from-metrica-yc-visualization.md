@@ -86,7 +86,7 @@ To visualize and explore data, [set up your cloud](#before-you-begin), then foll
 1. Specify a name for the project and click **Сreate**.
 1. Open the project. To do this, in the line with the project name, click ![image](../../_assets/datalens/horizontal-ellipsis.svg) → **Open**.
 
-Now we see the JupyterLab development environment, where we'll continue to work.
+Now we see the {{ jlab }}Lab development environment, where we'll continue to work.
 
 ![image](../../_assets/datalens/solution-11/03-cloud-jupyter-lab.png)
 

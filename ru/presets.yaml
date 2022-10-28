@@ -624,6 +624,7 @@ default:
   taas-name: Training as a Service
   taas: TaaS
   ml-project-size: 10 ГБ
+  jlab: Jupyter
   mp-test-product-id: f2e4tmlj4qqciunhr7e6
   mp-test-sku-id: dn272e8979uvek5cnuhk
   dt-status-copy: '**Копируется**'

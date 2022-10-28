@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/stt/v3/v3/api-ref/grpc/stt_service.md
+sourcePath: en/_api-ref-grpc/ai/stt/stt-v3/stt-v3/api-ref/grpc/stt_service.md
 ---
 
 # Recognizer
@@ -24,10 +24,10 @@ Expects audio in real-time
 Field | Description
 --- | ---
 Event | **oneof:** `session_options`, `chunk`, `silence_chunk` or `eou`<br>
-&nbsp;&nbsp;session_options | **[StreamingOptions](#StreamingOptions)**<br>Session options. should be first message from user 
+&nbsp;&nbsp;session_options | **[StreamingOptions](#StreamingOptions)**<br>Session options. Should be the first message from user. 
 &nbsp;&nbsp;chunk | **[AudioChunk](#AudioChunk)**<br>Chunk with audio data. 
 &nbsp;&nbsp;silence_chunk | **[SilenceChunk](#SilenceChunk)**<br>Chunk with silence. 
-&nbsp;&nbsp;eou | **[Eou](#Eou)**<br>Request to end current utterance. Works only with external EoU detector. 
+&nbsp;&nbsp;eou | **[Eou](#Eou)**<br>Request to end current utterance. Works only with external EOU detector. 
 
 
 ### StreamingOptions {#StreamingOptions}
@@ -79,7 +79,7 @@ container_audio_type | enum **ContainerAudioType**<br>Type of audio container. <
 Field | Description
 --- | ---
 text_normalization | enum **TextNormalization**<br>Normalization <ul><li>`TEXT_NORMALIZATION_ENABLED`: Enable normalization</li><li>`TEXT_NORMALIZATION_DISABLED`: Disable normalization</li></ul>
-profanity_filter | **bool**<br>Filter profanity (default: false). 
+profanity_filter | **bool**<br>Profanity filter (default: false). 
 literature_text | **bool**<br>Rewrite text in literature style (default: false). 
 
 
@@ -87,7 +87,7 @@ literature_text | **bool**<br>Rewrite text in literature style (default: false).
 
 Field | Description
 --- | ---
-restriction_type | enum **LanguageRestrictionType**<br> 
+restriction_type | enum **LanguageRestrictionType**<br> <ul><li>`WHITELIST`: The allowing list. The incoming audio can contain only the listed languages.</li><li>`BLACKLIST`: The forbidding list. The incoming audio cannot contain the listed languages.</li></ul>
 language_code[] | **string**<br> 
 
 
@@ -97,7 +97,7 @@ Field | Description
 --- | ---
 Classifier | **oneof:** `default_classifier` or `external_classifier`<br>Type of EOU classifier.
 &nbsp;&nbsp;default_classifier | **[DefaultEouClassifier](#DefaultEouClassifier)**<br>EOU classifier provided by SpeechKit. Default. 
-&nbsp;&nbsp;external_classifier | **[ExternalEouClassifier](#ExternalEouClassifier)**<br>EoU is enforced by external messages from user. 
+&nbsp;&nbsp;external_classifier | **[ExternalEouClassifier](#ExternalEouClassifier)**<br>EOU is enforced by external messages from user. 
 
 
 ### DefaultEouClassifier {#DefaultEouClassifier}
@@ -105,7 +105,7 @@ Classifier | **oneof:** `default_classifier` or `external_classifier`<br>Type of
 Field | Description
 --- | ---
 type | enum **EouSensitivity**<br>EOU sensitivity. Currently two levels, faster with more error and more conservative (our default). 
-max_pause_between_words_hint_ms | **int64**<br>Hint for max pause between words. Our EoU detector could use this information to distinguish between end of utterance and slow speech (like one <long pause> two <long pause> three, etc). 
+max_pause_between_words_hint_ms | **int64**<br>Hint for max pause between words. Our EOU detector could use this information to distinguish between end of utterance and slow speech (like one <long pause> two <long pause> three, etc). 
 
 
 ### ExternalEouClassifier {#ExternalEouClassifier}
@@ -181,8 +181,8 @@ words[] | **[Word](#Word)**<br>Words in time frame.
 text | **string**<br>Text in time frame. 
 start_time_ms | **int64**<br>Start of time frame. 
 end_time_ms | **int64**<br>End of time frame. 
-confidence | **double**<br>Hypothesis confidence. Currently is not used. 
-languages[] | **[LanguageEstimation](#LanguageEstimation)**<br>Distribution over possible languages 
+confidence | **double**<br>The hypothesis confidence. Currently is not used. 
+languages[] | **[LanguageEstimation](#LanguageEstimation)**<br>Distribution over possible languages. 
 
 
 ### Word {#Word}
@@ -190,23 +190,23 @@ languages[] | **[LanguageEstimation](#LanguageEstimation)**<br>Distribution over
 Field | Description
 --- | ---
 text | **string**<br>Word text. 
-start_time_ms | **int64**<br>Estimation of word start time in ms 
-end_time_ms | **int64**<br>Estimation of word end time in ms 
+start_time_ms | **int64**<br>Estimation of word start time in ms. 
+end_time_ms | **int64**<br>Estimation of word end time in ms. 
 
 
 ### LanguageEstimation {#LanguageEstimation}
 
 Field | Description
 --- | ---
-language_code | **string**<br> 
-probability | **double**<br> 
+language_code | **string**<br>Language code in ISO 639-1 format. 
+probability | **double**<br>Estimation of language probability. 
 
 
 ### EouUpdate {#EouUpdate}
 
 Field | Description
 --- | ---
-time_ms | **int64**<br>End of utterance estimated time. 
+time_ms | **int64**<br>EOU estimated time. 
 
 
 ### FinalRefinement {#FinalRefinement}

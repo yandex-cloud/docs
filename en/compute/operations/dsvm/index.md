@@ -12,7 +12,7 @@ Installed packages:
 
 - Package manager [conda](https://conda.io/docs/index.html) with Python 2.7 and Python 3.6.
    
-- Tools for interactive and reproducible computations [Jupyter Notebook](http://jupyter.org/index.html) and [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/).
+- Tools for interactive and reproducible computations [{{ jlab }} Notebook](http://jupyter.org/index.html) and [{{ jlab }}Lab](https://jupyterlab.readthedocs.io/en/stable/).
    
 - Machine Learning libraries:
    

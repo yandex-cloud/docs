@@ -12,7 +12,7 @@ For more information about access control in {{ yandex-cloud }}, see the {{ iam-
 
 * `organization-manager.admin`: The organization administrator role.
 
-   The role lets you edit organization settings, create identity federations, add and remove users, create other administrators.
+   The role lets you edit organization settings, create identity federations, add and remove users, create other administrators, and manage the resources of an organization's clouds.
 
 * `organization-manager.organizations.owner`: The organization owner role.
 
@@ -41,11 +41,11 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
 - {{ org-name }} interface
 
-   1. [Log in]({{ link-passport }}) to the organization's administrator or owner account.
+   1. [Log in]({{link-passport}}) to the organization's administrator or owner account.
 
-   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+   1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-   1. In the left panel, select [Users]({{ link-org-users }}) ![icon-users](../_assets/organization/icon-users.svg).
+   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
 
    1. Select a user from the list or use the search bar at the top of the page.
 
@@ -186,11 +186,11 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
 
 - {{ org-name }} interface
 
-   1. [Log in]({{ link-passport }}) to the organization's administrator or owner account.
+   1. [Log in]({{link-passport}}) to the organization's administrator or owner account.
 
-   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+   1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-   1. In the left panel, select [Users]({{ link-org-users }}) ![icon-users](../_assets/organization/icon-users.svg).
+   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
 
    1. Select a user from the list or use the search bar at the top of the page.
 

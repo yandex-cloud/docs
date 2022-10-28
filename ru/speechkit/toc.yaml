@@ -15,7 +15,7 @@ items:
             href: stt/request.md
           - name: Асинхронное распознавание
             href: stt/transcribation.md
-      - name: Модели распознавания
+      - name: Поддерживаемые языки
         href: stt/models.md
       - name: Расширение модели распознавания речи
         href: stt/additional-training.md
@@ -64,9 +64,9 @@ items:
           - name: API v3 gRPC (англ.)
             items:
               - name: Overview
-                href: v3/api-ref/grpc/index.md
+                href: stt-v3/api-ref/grpc/index.md
               - name: Recognizer
-                href: v3/api-ref/grpc/stt_service.md
+                href: stt-v3/api-ref/grpc/stt_service.md
       - name: Примеры использования API распознавания
         items:
           - name: Потоковое распознавание API v3
@@ -86,9 +86,9 @@ items:
           - name: API v3 gRPC (англ.)
             items:
               - name: Overview
-                href: new-v3/api-ref/grpc/index.md
+                href: tts-v3/api-ref/grpc/index.md
               - name: Synthesizer
-                href: new-v3/api-ref/grpc/tts_service.md
+                href: tts-v3/api-ref/grpc/tts_service.md
       - name: Примеры использования API синтеза
         items:
           - name: Синтез API v3

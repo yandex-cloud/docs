@@ -21,7 +21,7 @@ The developer selects the event when the service checks the user.
 
 After validating a request, {{ captcha-name }} assigns it an ID in the form of a token. You can use the token to retrieve the result of a user request validation from the service.
 
-After validation, the token is inserted into the `<input type="hidden" name="smart-token" value="<token>" ...>` element on the user page. For example:
+After the validation, the token is inserted into `<input type="hidden" name="smart-token" value="<token>" ...>` on the user page. For example:
 
 ```HTML
 <div id="captcha-container" class="smart-captcha" ...>
@@ -35,7 +35,7 @@ Where:
 * `<div id="captcha-container" class="smart-captcha" ...>`: `div` element with the widget.
 * `value`: Token value.
 
-To retrieve the validation result, send a GET request containing the token to `https://captcha-api.yandex.ru/validate`:
+To retrieve a validation result, send a GET request containing the token to `https://captcha-api.yandex.ru/validate`:
 
 ```TEXT
 https://captcha-api.yandex.ru/validate?secret=<server_key>&ip=<user_IP>&token=<token>
@@ -52,7 +52,7 @@ Where:
 
 In its response, the service will return a JSON object containing the `status` and the `message` fields. For example:
 
-1. It's a person:
+1. It is a person:
 
    ```json
    {
@@ -61,7 +61,7 @@ In its response, the service will return a JSON object containing the `status` a
    }
    ```
 
-1. It's a robot:
+1. It is a robot:
 
    ```json
    {
@@ -70,7 +70,7 @@ In its response, the service will return a JSON object containing the `status` a
    }
    ```
 
-1. Request with a fake or damaged token. It's a robot:
+1. Request with a counterfeit or damaged token. It is a robot:
 
    ```json
    {
@@ -113,7 +113,7 @@ If a request to `https://captcha-api.yandex.ru/validate` is improperly formatted
 
 {% note info %}
 
-To avoid delays when processing user requests, we recommend processing HTTP errors (response codes other than 200) as the `"status": "ok"` server response.
+To avoid delays, HTTP errors (response codes other than 200) when processing user requests, we recommend processing `"status": "ok"` as the server response.
 
 {% endnote %}
 
@@ -121,3 +121,4 @@ To avoid delays when processing user requests, we recommend processing HTTP erro
 ## What's next {#whats-next}
 
 * How to connect an [invisible CAPTCHA](./invisible-captcha.md).
+* CAPTCHA in [React](./react.md).

@@ -192,7 +192,7 @@ You can add and delete users as well as manage their individual settings and dat
       {{ yc-mdb-mg }} user grant-permission <username> \
         --cluster-name <cluster name> \
         --database <DB name> \
-        --permissions <comma-separated list of roles>
+        --role <comma-separated list of roles>
       ```
 
    To revoke user database access:
@@ -259,7 +259,7 @@ You can add and delete users as well as manage their individual settings and dat
    * Username, in the `userName` parameter. To find out the name, [get a list of users in the cluster](cluster-users.md#list-users).
    * The name of the database that you want to change the list of user roles for, in the `permissions.databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
    * Array of the new list of user roles, in the `permissions.roles` parameter.
-   * List of user configuration fields to be changed (in this case, `permissions`), in the `updateMask` parameter.
+   * The list of user settings to update in the `updateMask` parameter.
 
    {% include [api-update-object-settings](../../_includes/mdb/note-api-updatemask.md) %}
 

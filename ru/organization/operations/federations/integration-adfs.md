@@ -184,7 +184,7 @@
       name            = "my-federation"
       organization_id = "<ID организации>"
       auto_create_account_on_login = "true"
-      issuer          = "http://example.com/adfs/services/trust"      
+      issuer          = "http://example.com/adfs/services/trust"
       sso_url         = "https://example.com/adfs/ls/"
       sso_binding     = "POST"
       security_settings {
@@ -199,7 +199,7 @@
      1. Выполните проверку с помощью команды:
 
         ```
-        $ terraform plan
+        terraform plan
         ```
 
      Если конфигурация описана верно, в терминале отобразятся параметры федерации. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
@@ -209,7 +209,7 @@
      1. Если в конфигурации нет ошибок, выполните команду:
 
         ```
-        $ terraform apply
+        terraform apply
         ```
 
      1. Подтвердите создание федерации.
@@ -302,8 +302,8 @@
   1. Отправьте запрос на добавление сертификата:
 
       ```bash
-      $ export IAM_TOKEN=CggaATEVAgA...
-      $ curl -X POST \
+      export IAM_TOKEN=CggaATEVAgA...
+      curl -X POST \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d '@body.json' \
@@ -542,7 +542,7 @@ AD FS требует создавать _отношение доверия с п
   1.  Отправьте запрос, указав в параметрах идентификатор федерации:
 
       ```bash
-      $ curl -X POST \
+      curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM-токен>" \
         -d '@body.json' \

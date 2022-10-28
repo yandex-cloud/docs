@@ -62,7 +62,7 @@ The instructions provide actions for mitigating risks related a federation failu
 
    {% endnote %}
 
-2. Granting the `organization-manager.organizations.owner` role to a service account:
+1. Granting the `organization-manager.organizations.owner` role to a service account:
 
    {% list tabs %}
 
@@ -77,9 +77,9 @@ The instructions provide actions for mitigating risks related a federation failu
 
    {% endlist %}
 
-3. [Create an authorized key](../../iam/operations/iam-token/create-for-sa.md#via-cli) for a service account.
-4. Save the key file in trusted storage.
-5. Delete the `organization-manager.organizations.owner` role for the passport account using the console or the command-line interface:
+1. [Create an authorized key](../../iam/operations/iam-token/create-for-sa.md#via-cli) for a service account.
+1. Save the key file in trusted storage.
+1. Delete the `organization-manager.organizations.owner` role for the passport account using the console or the command-line interface:
 
    {% list tabs %}
 
@@ -106,9 +106,8 @@ Configure {{ at-name }} to process the service and the federated accounts with t
    * Assigning access rights to the service account (event: `UpdateServiceAccountAccessBindings` and `details.service_account_id = <service_account_ID>`).
    * Any action using the `organization-manager.organizations.owner` privilege (`.authentication.subject_id == <ID_of_user_with_this_privilege>`).
 
-
 You can use [Managed ELK](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main) to analyze and respond to events in {{ at-name }}.
-
+
 ## Response to federation failure {#federation-repair}
 
 1. Access the authorized key saved in trusted storage.

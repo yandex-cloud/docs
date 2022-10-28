@@ -7,9 +7,9 @@
 
 * [{#T}](#change-resource-preset).
 
-* [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
+* [{#T}](#change-disk-size).
 
-* [{#T}](#SQL-management)
+* [{#T}](#SQL-management).
 
 * [Настроить серверы](#change-clickhouse-config) {{ CH }} согласно [документации {{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings).
 

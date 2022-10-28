@@ -4,7 +4,7 @@
 
 - [Изменить класс хостов](#change-resource-preset).
 
-- [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
+- [{#T}](#change-disk-size).
 
 - [Настроить серверы](#change-mongod-config) {{ MG }} согласно [документации {{ MG }}](https://docs.mongodb.com/manual/reference/configuration-options/).
 

@@ -13,7 +13,7 @@ keywords:
 
 * [{#T}](#change-service-account).
 * [{#T}](#change-resource-preset).
-* [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
+* [{#T}](#change-disk-size).
 * [{#T}](#change-elasticsearch-config).
 * [{#T}](#change-admin-password).
 * [{#T}](#change-additional-settings).

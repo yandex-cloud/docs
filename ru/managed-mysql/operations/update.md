@@ -5,7 +5,7 @@
 
 * [Изменить класс хостов](#change-resource-preset).
 
-* [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
+* [{#T}](#change-disk-size).
 
 * [Изменить настройки {{ MY }}](#change-mysql-config).
 

@@ -13,7 +13,9 @@ A secret is a set of versions that store your data. A version contains sets of k
 
 Versions can't be changed. Whenever you need to change the number of key-value pairs or their content, you must create a new version.
 
-{% include [secret-create](operations/secret-create.md) %}
+## Creating secrets {#secrets}
+
+{% include [secret-create](../_includes/lockbox/secret-create.md) %}
 
 ## Get the content of the secret {#get}
 

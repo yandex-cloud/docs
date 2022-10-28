@@ -2,7 +2,7 @@
 
 In this scenario, you will analyze user behavior in a mobile app based on AppMetrica data:
 
-* Process the data using Python scripts in Jupyter Notebooks in {{ ml-platform-full-name }}.
+* Process the data using Python scripts in {{ jlab }} Notebooks in {{ ml-platform-full-name }}.
 * Build charts and dashboards in {{ datalens-full-name }}.
 * Compare products by breadth and frequency of coverage.
 

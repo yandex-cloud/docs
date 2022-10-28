@@ -24,7 +24,7 @@ If you want to see a preview of how the issue description or comment would look 
 ## Headers {#headers}
 
 ```
-# First-level heading 
+## Second-level heading 
 
 #### Fourth-level heading
 
@@ -33,11 +33,11 @@ If you want to see a preview of how the issue description or comment would look 
 
 {% cut "See the result" %}
 
-# First-level heading
+## Second-level heading {#second-header}
 
-#### Fourth-level heading
+#### Fourth-level heading {#fourth-header}
 
-##### Fifth-level heading
+##### Fifth-level heading {#fifth-header}
 
 {% endcut %}
 
