@@ -15,8 +15,8 @@
     {% include [create-folder](../_includes/create-folder.md) %}
 
 1. Подключаться к кластерам БД можно как изнутри, так и извне {{ yandex-cloud }}:
-   - Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md){% if product == "cloud-il" %} или [Windows](../compute/quickstart/quick-create-windows.md){% endif %} в той же сети, что и кластер БД.
-   - Чтобы подключиться к кластеру из интернета, запросите публичный доступ к хостам при создании или изменении кластера.
+   * Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md){% if product == "cloud-il" %} или [Windows](../compute/quickstart/quick-create-windows.md){% endif %} в той же сети, что и кластер БД.
+   * Чтобы подключиться к кластеру из интернета, запросите публичный доступ к хостам при создании или изменении кластера.
 
    {% note info %}
 
@@ -44,9 +44,9 @@
 
 ## Подключитесь к БД {#connect}
 
-1.  Для подключения к серверу БД получите SSL-сертификат:
+1. Для подключения к серверу БД получите SSL-сертификат:
 
-      {% include [install-certificate](../_includes/mdb/mms/install-certificate.md) %}
+   {% include [install-certificate](../_includes/mdb/mms/install-certificate.md) %}
 
 1. Используйте для подключения команду `mssql-cli`:
 
@@ -56,6 +56,6 @@
 
 ## Что дальше {#whats-next}
 
-- Изучите [концепции сервиса](concepts/index.md).
-- Узнайте подробнее о [создании кластера](operations/cluster-create.md) и [подключении к БД](operations/connect.md).
-- Ознакомьтесь с [вопросами и ответами](qa/general.md).
+* Изучите [концепции сервиса](concepts/index.md).
+* Узнайте подробнее о [создании кластера](operations/cluster-create.md) и [подключении к БД](operations/connect.md).
+* Ознакомьтесь с [вопросами и ответами](qa/general.md).

@@ -1,4 +1,4 @@
-# Database management
+# Managing databases
 
 * [Getting a list of cluster databases](#list-db).
 * [Creating a database](#add-db).
@@ -26,7 +26,7 @@
 
    ```bash
    {{ yc-mdb-ms }} database list \
-     --cluster-name <cluster name>
+      --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -54,7 +54,7 @@
    1. Click **Add**.
    1. Enter the database name and click **Create**.
 
-       {% include [database-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
+      {% include [database-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
 
    1. [Grant the `DB_OWNER` role](grant.md) to the user that should become the owner of the new database.
 
@@ -76,7 +76,7 @@
 
       ```bash
       {{ yc-mdb-ms }} database create <database name> \
-        --cluster-name <cluster name>
+         --cluster-name=<cluster name>
       ```
 
       {% include [db-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
@@ -84,7 +84,6 @@
       The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
       {{ mms-short-name }} runs the create database operation.
-
 
    To grant users access to the created database, [follow the instructions](cluster-users.md#update-settings).
 
@@ -139,7 +138,6 @@
 
    Use the [create](../api-ref/Database/create.md) API method and pass the following information in the request:
    * The ID of the cluster where you want to create a database, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-
    * Database name, in the `databaseSpec.name` parameter.
 
       {% include [database-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
@@ -179,7 +177,7 @@ For more information, see the [{{ MS }} documentation]({{ ms.docs }}/sql/relatio
 
    ```bash
    {{ yc-mdb-ms }} database delete <database name> \
-     --cluster-name <cluster name>
+      --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
