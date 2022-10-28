@@ -6,19 +6,19 @@ title:
 description:
   - text:
       - >-
-        Managed Service for Kubernetes provides an environment for managing containerized applications in the Yandex Cloud infrastructure. Deploy, scale, and manage applications in containers using Kubernetes.
+        The Managed Service for Kubernetes provides an environment for deploying, scaling, and managing containerized applications in the Yandex Cloud infrastructure.
       - >-
-        You can provide access to applications using various public and internal <a href="/docs/managed-kubernetes/concepts/service/">services</a>, as well as <a href="/docs/managed-kubernetes/operations/applications/marketplace">Cloud Marketplace applications</a>. All data is securely stored and replicated in the Yandex Cloud infrastructure, but you can create additional backups of Kubernetes data and store them in <a href="/docs/storage/">Object Storage</a> or another storage. To manage Kubernetes, use the <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl">kubectl</a> command shell.
+        You can provide access to applications using a variety of <a href="/docs/managed-kubernetes/concepts/service">services</a>: public, internal, and from the <a href="/docs/managed-kubernetes/operations/application/marketplace">Cloud Marketplace</a>. All data is securely stored and replicated in Yandex Cloud, but you can also create additional backups of Kubernetes data and store them in <a href="/docs/storage/">Object Storage</a> or another storage.
       - >-
-        The Yandex Cloud infrastructure <a href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">fully complies</a> with the Russian Federal Law on Personal Data (No. 152-FZ).
+        The <a href="https://kubernetes.io/ru/docs/tasks/tools/install-kubectl">kubectl</a> command shell is used to run Kubernetes. Yandex Cloud infrastructure is fully <a href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">secure</a> and in compliance with Russian Federal Law 152-FZ.
       - >-
-        The service is subject to the <a href="https://yandex.com/legal/cloud_sla/">Service Level Agreement</a>. The service level is defined in <a href="https://yandex.com/legal/cloud_sla_kb/">Yandex Managed Service for Kubernetes Service Level</a>.
+        The service is subject to the <a href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>, with the service level defined in the <a href="https://yandex.com/legal/cloud_sla_kb">Yandex Managed Service for Kubernetes Service Level Agreement</a>.
     when: product == "yandex-cloud"
   - text:
       - >-
-        Managed Service for Kubernetes provides an environment for managing containerized applications in the CloudIL infrastructure. Deploy, scale, and manage applications in containers using Kubernetes.
+        The Managed Service for Kubernetes provides an environment for deploying, scaling, and managing containerized applications in the CloudIL infrastructure.
       - >-
-        You can provide access to applications using various public and internal <a href="/docs/managed-kubernetes/concepts/service">services</a>. All data is securely stored and replicated in the CloudIL infrastructure, but you can create additional backups of Kubernetes data and store them in <a href="/docs/storage/">Object Storage</a> or another storage. To manage Kubernetes, use the <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl">kubectl</a> command shell.
+        You can provide access to applications using a variety of public and internal <a href="/docs/managed-kubernetes/concepts/service">services</a>. All data is securely stored and replicated in CloudIL, but you can also create additional backups of Kubernetes data and store them in <a href="/docs/storage/">Object Storage</a> or another storage. The <a href="https://kubernetes.io/ru/docs/tasks/tools/install-kubectl">kubectl</a> command shell is used to run Kubernetes.
     when: product == "cloud-il"
 meta:
   title:
