@@ -14,7 +14,7 @@
 1. In the **Content** field, enter a value to be stored in encrypted form.
 1. Click **Create**. This will display the created secret's info page.
 
-To make the secret available, restart the system kernel. To do this, select **Kernel** ⟶ **Restart kernel** in the menu of the project opened in JupyterLab.
+To make the secret available, restart the system kernel. To do this, select **Kernel** ⟶ **Restart kernel** in the menu of the project opened in {{ jlab }}Lab.
 
 ## Sharing secrets {#share}
 

@@ -159,6 +159,7 @@ default:
   dataproc-short-name: Data Proc
   vision-short-name: Vision
   datalens-short-name: DataLens
+  managed-k8s-short-name: Managed Service for Kubernetes
   iot-short-name: Yandex IoT Core
   sf-short-name: Functions
   ydb-short-name: YDB
@@ -594,6 +595,7 @@ default:
   taas-name: Training as a Service
   taas: TaaS
   ml-project-size: 10 GB
+  jlab: Jupyter
   mp-test-product-id: f2e4tmlj4qqciunhr7e6
   mp-test-sku-id: dn272e8979uvek5cnuhk
   dt-status-copy: '**Copying**'

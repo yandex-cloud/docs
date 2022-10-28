@@ -1,22 +1,31 @@
 # Getting started with {{ mes-name }}
 
 To get started with the service:
+
 1. [{#T}](#cluster-create).
+
+
 1. [{#T}](#configuring-security-groups).
+
+
 1. [{#T}](#connect).
+
 1. [{#T}](#connect-kibana).
 
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-1. Log in the [management console]({{ link-console-main }}) or sign up if you aren't registered yet.
+1. Log in to the [management console]({{ link-console-main }}) or register if you haven't yet.
+
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to an {{ ES }} cluster from both inside and outside {{ yandex-cloud }}:
+
    * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)-based virtual machine, which must be in the same network as the cluster.
-   * To connect to a cluster from the internet, [request public access](operations/cluster-create.md#change-data-node-settings) to hosts with the [_Data node_ role](concepts/hosts-roles.md#data-node) when creating a cluster.
+
+   * To connect to a cluster from the internet, when creating a cluster, [request public access](operations/cluster-create.md#change-data-node-settings) to hosts with the [_Data node_ role](concepts/hosts-roles.md#data-node).
 
 {% note info %}
 
@@ -28,12 +37,11 @@ These instructions assume that you're connecting to the cluster from the interne
 ## Create a cluster {#cluster-create}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-1. Select the service **{{ mes-name }}**.
+1. Select **{{ mes-name }}**.
 1. Click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
 1. Set the cluster parameters.
 
    To access the Kibana web interface, request public access:
-
    1. Under **Hosts**, change the settings of the host with the _Data node_ role by clicking ![image](../_assets/pencil.svg) for the host.
    1. Select **Public access**.
    1. Click **Save**.
@@ -42,12 +50,14 @@ These instructions assume that you're connecting to the cluster from the interne
 
    {% include [mes-tip-public-kibana](../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 
-1. Click **Create cluster**.
-1. Wait until the cluster is ready: its status on the {{ mes-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
+1. Click **Create**.
+1. Wait until the cluster is ready: its status on the {{ mes-name }} dashboard changes to **Creating** and then to **Alive**. This may take some time.
+
 
 ## Configure security groups {#configuring-security-groups}
 
 [Configure security groups](operations/cluster-connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
+
 
 ## Connect to the cluster {#connect}
 
@@ -95,4 +105,4 @@ Learn more about working with Kibana, in the [{{ ES }} documentation](https://ww
 ## What's next {#whats-next}
 
 * Read about [service concepts](concepts/index.md).
-* Learn more about [creating clusters](operations/cluster-create.md) and [connecting to clusters](operations/cluster-connect.md).
+* Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to a cluster](operations/cluster-connect.md).

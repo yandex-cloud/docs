@@ -26,13 +26,13 @@ links:
     href: stt/
   - title: API распознавания
     description: Описание методов API v3 для распознавания
-    href: v3/api-ref/grpc/
+    href: stt-v3/api-ref/grpc/
   - title: Синтез речи
     description: Узнайте, как преобразуется текст в речь
     href: tts/
   - title: API синтеза
     description: Описание методов API v3 для синтеза
-    href: new-v3/api-ref/grpc/
+    href: tts-v3/api-ref/grpc/
   - title: SpeechKit Brand Voice
     description: Технология синтеза речи с уникальным голосом
     href: tts/brand-voice/

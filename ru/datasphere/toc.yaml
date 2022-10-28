@@ -58,7 +58,7 @@ items:
             href: operations/data/secrets.md
           - name: Работа с контрольными точками
             href: operations/projects/checkpoints.md
-          - name: Конфигурация окружения с помощью Docker-образа
+          - name: Работа с Docker-образами
             href: operations/user-images.md
       - name: Подключение к источникам данных
         items:
@@ -140,6 +140,8 @@ items:
             href: concepts/resources.md
           - name: Секреты
             href: concepts/secrets.md
+          - name: Docker-образы
+            href: concepts/docker.md
           - name: Контрольные точки
             href: concepts/checkpoints.md
           - name: Датасеты
