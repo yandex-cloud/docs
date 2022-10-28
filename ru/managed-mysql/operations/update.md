@@ -10,7 +10,7 @@
 
 * [Изменить класс хостов](#change-resource-preset).
 
-* [{#T}](#change-disk-size){% if audience != "internal" %} (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках){% endif %}.
+* [{#T}](#change-disk-size).
 
 * [Изменить настройки {{ MY }}](#change-mysql-config).
 

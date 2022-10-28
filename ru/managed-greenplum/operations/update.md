@@ -6,6 +6,10 @@
 
 * [{#T}](#change-additional-settings).
 
+* [{#T}](#change-gp-settings).
+
+* [{#T}](#change-disk-size).
+
 * [{#T}](#increase-host-segment).
 
 * [Настроить серверы {{ GP }} согласно документации {{ GP }}](#change-gp-settings).
@@ -243,3 +247,32 @@
 {% endlist %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+## {% if audience != "internal" %}Увеличить{% else %}Изменить{% endif %} размер хранилища {#change-disk-size}
+
+{% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
+
+{% list tabs %}
+
+- Консоль управления
+
+  Чтобы {% if audience != "internal" %}увеличить{% else %}изменить{% endif %} размер хранилища для кластера:
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
+  1. Выберите сервис **{{ mgp-name }}**.
+  1. Выберите нужный кластер.
+  1. В верхней части страницы нажмите кнопку **Изменить кластер**.
+  1. Измените настройки в блоке **Хранилище**.
+  1. Нажмите кнопку **Сохранить изменения**.
+
+- API
+
+  Чтобы {% if audience != "internal" %}увеличить{% else %}изменить{% endif %} размер хранилища для кластера, воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
+  * Новый размер хранилища мастера и сегмента в параметрах `masterConfig.resources.diskSize` и `masterConfig.resources.diskSize`.
+  * Список изменяемых полей конфигурации кластера в параметре `updateMask`.
+
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
