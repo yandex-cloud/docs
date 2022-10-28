@@ -20,7 +20,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       yc resource-manager folder add-access-binding --help
       ```
 
-   1. Select a folder (for example, `my-folder`):
+   2. Select a folder (for example, `my-folder`):
 
       ```bash
       yc resource-manager folder list
@@ -36,7 +36,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       +----------------------+-----------+--------+--------+
       ```
 
-   1. Choose the [ role](../../../iam/concepts/access-control/roles.md).
+   3. Choose the [role](../../../iam/concepts/access-control/roles.md).
 
       ```bash
       yc iam role list
@@ -58,7 +58,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
 {% if product == "yandex-cloud" %}
 
-   1. Find out the user's ID from the login or email address. To assign a role to a service account or system group instead of a user, see the [examples](#examples) below.
+   4. Find out the user's ID from the login or email address. To assign a role to a service account or system group instead of a user, see the [examples](#examples) below.
 
       ```bash
       yc iam user-account get test-user
@@ -76,10 +76,10 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 {% endif %}
 {% if product == "cloud-il" %}
 
-   1. [Get the user ID](../../../iam/operations/users/get.md).
+   4. [Get the user ID](../../../iam/operations/users/get.md).
 
 {% endif %}
-   1. Assign the `editor` role for the `my-folder` folder to a user named `test-user`. In the subject, specify the {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} type and user ID:
+   5. Assign the `editor` role for the `my-folder` folder to a user named `test-user`. In the subject, specify the {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} type and user ID:
 {% if product == "yandex-cloud" %}
 
       ```bash
@@ -98,7 +98,6 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       ```
 
 {% endif %}
-
 - API
 
    Use the [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) method for the [Folder](../../api-ref/Folder/index.md) resource. You will need the folder ID and the ID of the user who is assigned the role for the folder.
@@ -125,7 +124,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       }
       ```
 {% if product == "yandex-cloud" %}
-   1. Find out the user ID from the login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) method:
+   2. Find out the user ID from the login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) method:
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
         https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
@@ -145,10 +144,10 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 {% endif %}
 {% if product == "cloud-il" %}
 
-   1. [Get the user ID](../../../iam/operations/users/get.md).
+   2. [Get the user ID](../../../iam/operations/users/get.md).
 
 {% endif %}
-   1. Assign the `editor` role for the `my-folder` folder to the user. Set the `action` property to `ADD` and specify the {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} type and user ID in the `subject` property:
+   3. Assign the `editor` role for the `my-folder` folder to the user. Set the `action` property to `ADD` and specify the {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} type and user ID in the `subject` property:
 {% if product == "yandex-cloud" %}
 
       ```bash
@@ -197,7 +196,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
    {% endnote %}
 
-   To assign a role for a folder created using {{ TF }}:
+   To assign a role to a folder created using {{ TF }}:
 
    1. Describe the parameters of the folder role in a configuration file:
 
@@ -217,7 +216,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
          * `serviceAccount:<service account ID>`: [Service account ID](../../../iam/operations/sa/get-id.md).
          * `federatedUser:<user account ID>`: [User account ID](../../../organization/users-get.md).
 
-      {% cut "Example of assigning roles for the folder using {{ TF }}" %}
+      {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 {% if product == "yandex-cloud" %}
 
       ```hcl
@@ -228,8 +227,8 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
       resource "yandex_resourcemanager_folder_iam_binding" "editor" {
         folder_id = "${data.yandex_resourcemanager_folder_iam_member.project1.id}"
-        role = "editor"
-        members = [
+        role      = "editor"
+        members   = [
           "userAccount:<login@yandex.ru>",
         ]
       }
@@ -247,8 +246,8 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
       resource "yandex_resourcemanager_folder_iam_binding" "editor" {
         folder_id = "${data.yandex_resourcemanager_folder_iam_member.project1.id}"
-        role = "editor"
-        members = [
+        role      = "editor"
+        members   = [
           "federatedUser:<user ID>",
         ]
       }
@@ -276,7 +275,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -318,7 +317,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       ```bash
       yc resource-manager folder list-access-bindings my-folder
       ```
-   1. For example, assign a role to multiple users:
+   2. For example, assign a role to multiple users:
 {% if product == "yandex-cloud" %}
       ```bash
       yc resource-manager folder set-access-bindings my-folder \
@@ -335,7 +334,6 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       ```
 
 {% endif %}
-
 - API
 
    Assign the `editor` role to one user and the `viewer` role to another user:
@@ -370,7 +368,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 {% if product == "cloud-il" %}
 
    ```bash
-   $ curl -X POST \
+   curl -X POST \
      -H 'Content-Type: application/json' \
      -H "Authorization: Bearer <IAM-TOKEN>" \
      -d '{
@@ -410,11 +408,11 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
      -H "Authorization: Bearer <IAM-TOKEN>" \
      -d '{
      "accessBindings": [{
-          "roleId": "editor",
-          "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "userAccount" }
+         "roleId": "editor",
+         "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "userAccount" }
      },{
-          "roleId": "viewer",
-          "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
+         "roleId": "viewer",
+         "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
      }]}' \
      https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
    ```
@@ -428,17 +426,16 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
        -H "Authorization: Bearer <IAM-TOKEN>" \
        -d '{
        "accessBindings": [{
-          "roleId": "editor",
-          "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "federatedUser" }
-     },{
-          "roleId": "viewer",
-          "subject": { "id": "helj89sfj80aj24nugsz", "type": "federatedUser" }
-     }]}' \
-     https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
+           "roleId": "editor",
+           "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "federatedUser" }
+       },{
+           "roleId": "viewer",
+           "subject": { "id": "helj89sfj80aj24nugsz", "type": "federatedUser" }
+       }]}' \
+       https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
    ```
 
 {% endif %}
-
 - {{ TF }}
 
    If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -475,15 +472,15 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
       resource "yandex_resourcemanager_folder_iam_binding" "editor" {
         folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
-        role = "editor"
-        members = [
+        role      = "editor"
+        members   = [
           "userAccount:<login1@yandex.ru>"
         ]
       }
       resource "yandex_resourcemanager_folder_iam_binding" "operator" {
         folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
-        role = "operator"
-        members = [
+        role      = "operator"
+        members   = [
           "userAccount:<login1@yandex.ru>"
         ]
       }
@@ -501,17 +498,17 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
       resource "yandex_resourcemanager_folder_iam_binding" "editor" {
         folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
-        role = "editor"
-        members = [
+        role      = "editor"
+        members   = [
           "federatedUser:<user ID>"
         ]
       }
       resource "yandex_resourcemanager_folder_iam_binding" "operator" {
         folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
-        role = "operator"
-        members = [
+        role      = "operator"
+        members   = [
           "federatedUser:<user ID>"
-       ]
+        ]
       }
       ...
       ```
@@ -554,6 +551,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       ```
 
 {% endlist %}
+
 
 ## Folder access for a service account {#access-to-sa}
 
@@ -600,18 +598,18 @@ You can only use the management console to assign a service account a role for a
 
       * `members`: List of users to assign the role to. To add a user to the list, create a record as follows: `serviceAccount:<service account ID>`, where `<service account ID>` is the [service account identifier](../../../iam/operations/sa/get-id.md). You can list several service accounts. Required parameter.
 
-      {% cut "Example of assigning roles for the folder using {{ TF }}" %}
+      {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
       ```hcl
       ...
       data "yandex_resourcemanager_folder" "project1" {
-        folder_id = "<folder D>"
+        folder_id = "<folder ID>"
       }
 
       resource "yandex_resourcemanager_folder_iam_binding" "editor" {
         folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
-        role = "editor"
-        members = [
+        role      = "editor"
+        members   = [
           "serviceAccount:<service account ID>"
         ]
       }
@@ -638,7 +636,7 @@ You can only use the management console to assign a service account a role for a
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
