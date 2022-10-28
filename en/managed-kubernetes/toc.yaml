@@ -29,6 +29,8 @@ items:
             href: operations/applications/marketplace.md
           - name: Installing Crossplane
             href: operations/applications/crossplane.md
+          - name: Installing External Secrets Operator
+            href: operations/applications/external-secrets-operator.md
           - name: Installing Fluent Bit
             href: operations/applications/fluentbit.md
           - name: Installing HashiCorp Vault with {{ kms-name }} support

@@ -11,7 +11,7 @@ You can also work with the {{ ydb-full-name }} database through:
 
 ## Before you begin {#before-you-begin}
 
-1. Go to the [management console ]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
@@ -115,7 +115,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
    1. Under **Network**, configure network settings:
       1. (optional) In the **Public IP addresses** field, select **Assign** if you plan to query the database from the {{ yandex-cloud }} network and the internet.
 
-         {% include  [traffic_metering](_includes/traffic_metering.md) %}
+         {% include [traffic_metering](_includes/traffic_metering.md) %}
 
       1. Select an existing network from the **Cloud network** list or create a new one:
          1. Click **Create new**.

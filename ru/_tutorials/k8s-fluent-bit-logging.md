@@ -73,13 +73,6 @@
        --namespace logging
      ```
 
-  1. Создайте каталог для ключа сервисного аккаунта и скопируйте туда ключ:
-
-     ```bash
-     sudo mkdir -p /etc/secret && \
-     sudo cp key.json /etc/secret
-     ```
-
   1. Скачайте конфигурационный файл `config.yaml`:
 
    ```bash

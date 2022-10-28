@@ -8,7 +8,7 @@
             "created_at":"2019-09-24T00:54:28.980441Z"
          },
          "details":{
-            "queue_id": "yrn:yc:ymq:ru-central1:21i6v06sqmsaoeon7nus:event-queue",
+            "queue_id": "yrn:yc:ymq:{{ region-id }}:21i6v06sqmsaoeon7nus:event-queue",
             "message":{
                "message_id":"cce76685-5828-4304-a83d-95643c0507a0",
                "md5_of_body":"d29343907090dff4cec4a9a0efb80d20",
@@ -33,7 +33,7 @@
             "created_at":"2019-09-24T00:54:28.980492Z"
          },
          "details":{
-            "queue_id": "yrn:yc:ymq:ru-central1:21i6v06sqmsaoeon7nus:event-queue",
+            "queue_id": "yrn:yc:ymq:{{ region-id }}:21i6v06sqmsaoeon7nus:event-queue",
             "message":{
                "message_id":"1f32fd25-11fc-4c08-88e7-d871d6ffb91d",
                "md5_of_body":"d29343907090dff4cec4a9a0efb80d20",
