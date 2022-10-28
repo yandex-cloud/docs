@@ -1,5 +1,3 @@
-# Continuous deployment of containerized applications using {{ GL }}
-
 [{{ GL }}](https://about.gitlab.com/) is a tool for [Continuous integration, CI]({{ links.wiki.ci }}).
 
 This tutorial describes:
