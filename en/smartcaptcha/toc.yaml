@@ -7,7 +7,7 @@ items:
     items:
       - name: All instructions
         href: operations/index.md
-      - name: Creating a CAPTCHA 
+      - name: Creating a CAPTCHA
         href: operations/create-captcha.md
       - name: Deleting a CAPTCHA
         href: operations/delete-captcha.md
