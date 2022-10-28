@@ -12,7 +12,7 @@
 
 * установку Python 3.7 или Python 3.8;
 * установку pip;
-* пользователя Jupyter.
+* пользователя {{ jlab }}.
 
 {% note info %}
 
@@ -24,7 +24,7 @@
 
 Чтобы создать Docker-образ:
 
-1. Перейдите во вкладку ![docker](../../_assets/datasphere/docker.svg) **Docker images**.
+1. Перейдите во вкладку ![docker](../../_assets/datasphere/docker.svg)**Docker images**.
 1. Нажмите кнопку ![plus-sign](../../_assets/plus-sign.svg).
 1. На открывшейся вкладке:
     1. Введите имя репозитория, например `cuda`.
@@ -75,6 +75,6 @@ tf.config.list_physical_devices('GPU')
 
 {% note info %}
 
-Чтобы вернуться к окружению по умолчанию, нажмите кнопку **Reset docker image in project** на вкладке ![docker](../../_assets/datasphere/docker.svg) **Docker images**.
+Чтобы вернуться к окружению по умолчанию, перейдите на вкладку ![docker](../../_assets/datasphere/docker.svg) **Docker images** и нажмите кнопку **Set image to project**.
 
 {% endnote %}

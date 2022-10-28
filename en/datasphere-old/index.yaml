@@ -8,7 +8,7 @@ description:
       - >-
         <strong> This documentation is for the version of {{ ml-platform-full-name }} available in the management console. </strong>
       - >-
-        Yandex DataSphere is a machine learning (ML) development environment that combines the familiar Jupyter® Notebook interface, serverless computing technology, and seamless use of different computing resource configurations.
+        Yandex DataSphere is a machine learning (ML) development environment that combines the familiar {{ jlab }}® Notebook interface, serverless computing technology, and seamless use of different computing resource configurations.
       - >-
         Yandex DataSphere helps significantly reduce the cost of machine learning compared to computing on your own hardware or other cloud platforms.
       - >-
@@ -18,7 +18,7 @@ description:
     when: product == "yandex-cloud"
   - text:
       - >-
-        DataSphere is an ML development environment, which combines the familiar Jupyter® Notebook interface, serverless computing technology, and the ability to seamlessly use different computing resource configurations.
+        DataSphere is an ML development environment, which combines the familiar {{ jlab }}® Notebook interface, serverless computing technology, and the ability to seamlessly use different computing resource configurations.
       - >-
         DataSphere helps you significantly reduce the cost of machine learning compared to computing on your own hardware or other cloud platforms.
     when: product == "cloud-il"

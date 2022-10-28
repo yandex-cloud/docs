@@ -2,9 +2,9 @@
 
 {% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
 
-{{ ml-platform-full-name }} is a machine learning (ML) development environment where you can use a familiar Jupyter® Notebook interface, serverless computing technology, and seamlessly combine a broad range of computing resource configurations. {{ ml-platform-full-name }} helps you significantly reduce the cost of machine learning compared to computing on your own hardware or other cloud platforms.
+{{ ml-platform-full-name }} is a machine learning (ML) development environment where you can use a familiar {{ jlab }}® Notebook interface, serverless computing technology, and seamlessly combine a broad range of computing resource configurations. {{ ml-platform-full-name }} helps you significantly reduce the cost of machine learning compared to computing on your own hardware or other cloud platforms.
 
-If you never used Jupyter Notebook, try it: notebooks are convenient as they help you execute code sequentially and immediately visualize the results. Notebooks are also convenient for drafting analytical reports and papers: you can add comments between code cells using the [Markdown](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html) language.
+If you never used {{ jlab }} Notebook, try it: notebooks are convenient as they help you execute code sequentially and immediately visualize the results. Notebooks are also convenient for drafting analytical reports and papers: you can add comments between code cells using the [Markdown](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html) language.
 
 ## Advantages of the service {#advantages}
 
@@ -12,7 +12,7 @@ If you never used Jupyter Notebook, try it: notebooks are convenient as they hel
 
 You don't need to spend time creating and maintaining VMs: when you create a new [project](project.md), computing resources are automatically allocated for implementing it.
 
-The VM comes ready with the JupyterLab development environment and pre-installed packages for data analysis and ML (such as TensorFlow, Keras, and NumPy), which you can start using immediately. Full list of [pre-installed packages](preinstalled-packages.md).
+The VM comes ready with the {{ jlab }}Lab development environment and pre-installed packages for data analysis and ML (such as TensorFlow, Keras, and NumPy), which you can start using immediately. Full list of [pre-installed packages](preinstalled-packages.md).
 
 If you're missing a package, you can [install it](../operations/projects/install-dependencies.md) right from the notebook.
 

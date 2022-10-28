@@ -11,7 +11,7 @@ Yandex Data Science Virtual Machine (DSVM) — это виртуальная м�
 Установленные пакеты:
 
 - Менеджер пакетов [conda](https://conda.io/docs/index.html) с Python 2.7 и Python 3.6.
-- Инструменты для интерактивных и воспроизводимых вычислений [Jupyter Notebook](http://jupyter.org/index.html) и [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/).
+- Инструменты для интерактивных и воспроизводимых вычислений [{{ jlab }} Notebook](http://jupyter.org/index.html) и [{{ jlab }}Lab](https://jupyterlab.readthedocs.io/en/stable/).
 - Библиотеки Machine Learning:
     - [CatBoost](https://catboost.yandex/);
     - [LightGBM](https://github.com/Microsoft/LightGBM);

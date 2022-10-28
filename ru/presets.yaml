@@ -636,6 +636,7 @@ default:
   taas-name: Training as a Service
   taas: TaaS
   ml-project-size: 10 ГБ
+  jlab: Jupyter
 
   # Marketplace
   mp-test-product-id: f2e4tmlj4qqciunhr7e6

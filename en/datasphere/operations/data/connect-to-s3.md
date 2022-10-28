@@ -26,7 +26,7 @@ Try not to use S3 storage in [FUSE]{% if lang == "ru" %}(https://ru.wikipedia.or
 
 ## Enabling S3 {#mount}
 
-Go to the S3 connection page and click **Attach**. Once connected, the bucket is available in the JupyterLab interface in the list on the **S3 Mounts** ![S3 Mounts](../../../_assets/datasphere/bucket.svg) tab and you can view it as a file system.
+Go to the S3 connection page and click **Attach**. Once connected, the bucket is available in the {{ jlab }}Lab interface in the list on the **S3 Mounts** ![S3 Mounts](../../../_assets/datasphere/bucket.svg) tab and you can view it as a file system.
 
 ## Using S3 in a project {#usage}
 

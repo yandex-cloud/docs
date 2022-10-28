@@ -16,7 +16,7 @@ To create a project:
       The cluster must be on the same network as your project.
 1. Click **Create**.
 
-To start working with JupyterLab, open the created project:
+To start working with {{ jlab }}Lab, open the created project:
 1. Click the row of the project you need.
 
 Or:

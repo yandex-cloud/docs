@@ -2,7 +2,7 @@
 
 {% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
 
-Проекты в {{ ml-platform-name }} — это среда разработки [JupyterLab](https://jupyter.org/), которая запускается на виртуальной машине {{ yandex-cloud }}.
+Проекты в {{ ml-platform-name }} — это среда разработки [{{ jlab }}Lab](https://jupyter.org/), которая запускается на виртуальной машине {{ yandex-cloud }}.
 
 Это инструкция о том, как создать пустой проект. Если у вас уже есть готовый файл `.ipynb`, вы можете создать проект из этого файла.
 

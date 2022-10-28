@@ -2,7 +2,7 @@
 
 {% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
 
-{{ ml-platform-full-name }} lets you build machine learning (ML) models using the Jupyter Notebook interface in {{ yandex-cloud }}.
+{{ ml-platform-full-name }} lets you build machine learning (ML) models using the {{ jlab }} Notebook interface in {{ yandex-cloud }}.
 
 This use case solves the problem of binary image classification. Such a problem may arise when you need to detect vehicle types on images from CCTV cameras. It is assumed that the CCTV system captures images from the camera when it detects motion. Then the images are transmitted to an S3 bucket.
 

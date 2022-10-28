@@ -9,7 +9,7 @@ You can configure the environment to run your code using [Docker images](../conc
 For a Docker image to run and operate correctly in {{ ml-platform-name }}, it must include:
 * A Python 3.7 or Python 3.8 installation.
 * A pip installation.
-* A Jupiter user.
+* A {{ jlab }} user.
 
 {% note info %}
 
@@ -69,7 +69,7 @@ To use an image for a project:
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. Under **Resources**, select **Docker**.
 1. Click ![Options](../../_assets/options.svg) next to the desired image and select ![Apply](../../_assets/datasphere/apply.svg) **Apply**.
-1. Open the project in JupyterLab and wait for it to load.
+1. Open the project in {{ jlab }}Lab and wait for it to load.
 1. Open the notebook tab and check that the custom image environment is available in your project. For example, for the image with CUDA<sup>®</sup> packages, create and run a cell with the following code:
 
    ```bash

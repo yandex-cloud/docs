@@ -2,11 +2,11 @@
 
 {% include [link-on-new-ui-datasphere-in-old-ui](../_includes/datasphere/datasphere-old-note.md) %}
 
-{{ ml-platform-name }} is a service that simplifies the use of the JupyterLab development environment on {{ yandex-cloud }} computing resources. This lets you perform complex calculations, such as training neural networks or analyzing big data, using the familiar Jupyter Notebook interface.
+{{ ml-platform-name }} is a service that simplifies the use of the {{ jlab }}Lab development environment on {{ yandex-cloud }} computing resources. This lets you perform complex calculations, such as training neural networks or analyzing big data, using the familiar {{ jlab }} Notebook interface.
 
 In this section, you'll learn how to:
 
-1. [Create projects](#create-project) for the JupyterLab environment.
+1. [Create projects](#create-project) for the {{ jlab }}Lab environment.
 1. [Install packages](#install-dependencies) you need.
 1. [Manage computing resources](#control-compute-resources) by changing their configurations.
 
