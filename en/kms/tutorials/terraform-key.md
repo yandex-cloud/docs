@@ -14,9 +14,9 @@ For example, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `kms.ke
 
 ```hcl
 resource "yandex_resourcemanager_folder_iam_member" "admin" {
-  folder_id = "<ID of the folder>"
+  folder_id = "<folder_ID>"
   role      = "kms.keys.encrypterDecrypter"
-  member    = "serviceAccount:<service account ID>"
+  member    = "serviceAccount:<service_account_ID>"
 }
 ```
 

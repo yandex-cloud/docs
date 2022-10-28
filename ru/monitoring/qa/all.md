@@ -2,20 +2,20 @@
 
 ## Общие вопросы {#general}
 
-{% include notitle [general](general.md) %}
+{% include notitle [general](../../_qa/monitoring/general.md) %}
 
 ## Навигация {#navigation}
 
-{% include notitle [navigation](navigation.md) %}
+{% include notitle [navigation](../../_qa/monitoring/navigation.md) %}
 
 ## Сбор и экспорт метрик {#metrics-export}
 
-{% include notitle [metrics-export](metrics-export.md) %}
+{% include notitle [metrics-export](../../_qa/monitoring/metrics-export.md) %}
 
 ## Метрики и единицы измерения {#metrics-measure}
 
-{% include notitle [metrics-measure](metrics-measure.md) %}
+{% include notitle [metrics-measure](../../_qa/monitoring/metrics-measure.md) %}
 
 ## Алерты/уведомления {#alerts}
 
-{% include notitle [alerts](alerts.md) %}
+{% include notitle [alerts](../../_qa/monitoring/alerts.md) %}
