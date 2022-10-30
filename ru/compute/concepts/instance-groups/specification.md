@@ -1,6 +1,6 @@
 # Спецификация группы виртуальных машин в формате YAML
 
-Группу ВМ можно создать или изменить по спецификации в формате [YAML](https://ru.wikipedia.org/wiki/YAML). В спецификации описываются:
+Группу ВМ можно создать или изменить по спецификации в формате [YAML](https://ru.wikipedia.org/wiki/YAML) и terraform. Создание группы виртуальных машин описано [здесь](https://cloud.yandex.ru/docs/compute/operations/instance-groups/create-fixed-group). Рассмотрим спецификацию YAML. В ней описываются:
 
 * базовые атрибуты и настройки группы — имя, описание, [метки](../../../overview/concepts/services.md#labels), [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и защита от удаления;
 * [шаблон ВМ](instance-template.md) и использующиеся в нем [переменные](variables-in-the-template.md);
