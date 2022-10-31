@@ -23,29 +23,29 @@
     
     Удалите триггер:
     
-    ```
+    ```bash
     yc serverless trigger delete <имя триггера>
     ```
 
     Результат:
     
-    ```
-    id: dd0gj5tsj2pq9at8ja8i
-    folder_id: aoek49ghmknnpj1ll45e
+    ```text
+    id: dd0gj5tsj2**********
+    folder_id: aoek49ghmk**********
     created_at: "2019-08-28T12:26:25.675Z"
     name: my-trigger
     description: My YMQ trigger.
     rule:
       message_queue:
-        queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:my-mq
-        service_account_id: bfbqqeo6jkpls2tse5o6
+        queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:my-mq
+        service_account_id: bfbqqeo6jk**********
         batch_settings:
           size: "10"
           cutoff: 10s
         invoke_function:
-          function_id: b09e5lu91ta21vdrrgma
+          function_id: b09e5lu91t**********
           function_tag: $latest
-          service_account_id: bfbqqeo6jkpls2tse5o6
+          service_account_id: bfbqqeo6jk**********
     status: PAUSED
     ```
 

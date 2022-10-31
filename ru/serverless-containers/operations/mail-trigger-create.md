@@ -46,7 +46,7 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы создать триггер, который запускает контейнер, выполните команду:
+    Чтобы создать триггер, который вызывает контейнер, выполните команду:
 
     ```
     yc serverless trigger create mail \
@@ -62,12 +62,8 @@
     Где:
 
     * `--name` — имя триггера.
-    * `--invoke-container-id` — идентификатор контейнера.
-    * `--invoke-container-service-account-id` — сервисный аккаунт с правами на вызов контейнера.
-    * `--retry-attempts` — время, через которое будет сделан повторный вызов контейнера, если текущий завершился неуспешно. Необязательный параметр. Допустимые значения — от 10 до 60 секунд, значение по умолчанию — 10 секунд.
-    * `--retry-interval` — количество повторных вызовов, которые будут сделаны, прежде чем триггер отправит сообщение в Dead Letter Queue. Необязательный параметр. Допустимые значения — от 1 до 5, значение по умолчанию — 1.
-    * `--dlq-queue-id` — идентификатор очереди Dead Letter Queue. Необязательный параметр.
-    * `--dlq-service-account-id` — сервисный аккаунт с правами на запись в очередь Dead Letter Queue. Необязательный параметр.
+
+    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
     Результат:
 
@@ -78,6 +74,7 @@
     name: mail-trigger
     rule:
       mail:
+        email: a1s8h8avgl**********-cho1****@serverless.yandexcloud.net
         invoke_container:
           container_id: d4eofc7n0m**********
           service_account_id: aje3932acd**********
@@ -92,7 +89,7 @@
 
 {% endlist %}
 
-{{ serverless-containers-name }} автоматически сгенерирует адрес электронной почты, при отправке писем на который будет срабатывать триггер. Чтобы посмотреть его, [получите подробную информацию о триггере](trigger-list.md#trigger-get).
+{{ serverless-containers-name }} автоматически сгенерирует адрес электронной почты, при отправке писем на который будет запускаться триггер. Чтобы посмотреть его, [получите подробную информацию о триггере](trigger-list.md#trigger-get).
 
 ## Проверить результат {#check-result}
 
@@ -100,4 +97,4 @@
 
 ## См. также {#see-also}
 
-* [Триггер для почты, который запускает функцию {{ sf-name }}](../../functions/operations/trigger/mail-trigger-create.md).
+* [Триггер для почты, который вызывает функцию {{ sf-name }}](../../functions/operations/trigger/mail-trigger-create.md).

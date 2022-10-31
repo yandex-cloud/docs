@@ -49,6 +49,62 @@
 
     1. Нажмите кнопку **Создать триггер**.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы создать триггер, который вызывает контейнер, выполните команду:
+
+    ```bash
+    yc serverless trigger create container-registry \
+      --name <имя_триггера> \
+      --registry-id <идентификатор_реестра> \
+      --events 'create-image','delete-image','create-image-tag','delete-image-tag' \
+      --invoke-container-id <идентификатор_контейнера> \
+      --invoke-container-service-account-id <идентификатор_сервисного_аккаунта> \
+      --retry-attempts 1 \
+      --retry-interval 10s \
+      --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
+      --dlq-service-account-id <идентификатор_сервисного_аккаунта>
+    ```
+
+    Где:
+
+    * `--name` — имя триггера.
+    * `--registry-id` — [идентификатор реестра](../../container-registry/operations/registry/registry-list.md).
+    * `--events` — [события](../concepts/trigger/cr-trigger.md#event), после наступления которых триггер запускается.
+
+    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
+
+    Результат:
+
+    ```text
+    id: a1s5msktij**********
+    folder_id: b1gmit33hg**********
+    created_at: "2022-10-24T15:19:15.353909857Z"
+    name: registry-trigger
+    rule:
+      container_registry:
+        event_type:
+        - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE
+        - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE
+        - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG
+        - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG
+        registry_id: crtlds4tdfg12kil77**********
+        invoke_container:
+          container_id: bba5jb38o8**********
+          service_account_id: aje3932acd**********
+          retry_settings:
+            retry_attempts: "1"
+            interval: 10s
+          dead_letter_queue:
+            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:dlq
+            service-account-id: aje3932acd**********
+    status: ACTIVE
+    ```
+
 {% endlist %}
 
 ## Проверить результат {#check-result}
@@ -57,4 +113,4 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ container-registry-name }}, который запускает функцию {{ sf-name }}](../../functions/operations/trigger/cr-trigger-create.md).
+* [Триггер для {{ container-registry-name }}, который вызывает функцию {{ sf-name }}](../../functions/operations/trigger/cr-trigger-create.md).

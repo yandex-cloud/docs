@@ -14,7 +14,7 @@
 
 Для создания триггера вам понадобятся:
 
-* Контейнер, который триггер будет запускать. Если у вас нет контейнера:
+* Контейнер, который триггер будет вызывать. Если у вас нет контейнера:
 
     * [Создайте контейнер](create.md).
     * [Создайте ревизию контейнера](manage-revision.md#create).
@@ -65,6 +65,63 @@
         {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
     1. Нажмите кнопку **Создать триггер**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы создать триггер, который вызывает контейнер, выполните команду:
+
+    ```bash
+    yc serverless trigger create message-queue \
+      --name <имя_триггера> \
+      --queue <идентификатор_очереди> \
+      --queue-service-account-id <идентификатор_сервисного_аккаунта> \
+      --invoke-container-id <идентификатор_контейнера> \
+      --invoke-container-service-account-id <идентификатор_сервисного_аккаунта> \
+      --batch-size 1 \
+      --batch-cutoff 10s
+    ```
+
+    Где:
+
+    * `--name` — имя триггера.
+    * `--queue` — идентификатор очереди.
+
+        Чтобы узнать идентификатор очереди:
+
+        1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится очередь.
+        1. Выберите сервис **{{ message-queue-name }}**.
+        1. Выберите очередь.
+        1. Идентификатор очереди будет в блоке **Общая информация**, в поле **ARN**.
+
+    * `--invoke-container-id` — идентификатор контейнера.
+    * `--queue-service-account-name` — сервисный аккаунт с правами на чтение из очереди сообщений.
+    * `--invoke-container-service-account-id` — сервисный аккаунт с правами на вызов контейнера.
+    * `--batch-size` — размер группы сообщений. Необязательный параметр. Допустимые значения от 1 до 10, значение по умолчанию — 1.
+    * `--batch-cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд. Триггер группирует сообщения не дольше `batch-cutoff` и отправляет их в контейнер. Число сообщений при этом не превышает `batch-size`.
+
+    Результат:
+
+    ```text
+    id: a1s5msktij**********
+    folder_id: b1gmit33hg**********
+    created_at: "2022-10-24T15:19:15.353909857Z"
+    name: ymq-trigger
+    rule:
+      message_queue:
+        queue_id: yrn:yc:ymq:{{ region-id }}:b1gmit33ng**********:my-mq
+        service_account_id: bfbqqeo6jk**********
+        batch_settings:
+          size: "1"
+          cutoff: 10s
+        invoke_container:
+          container_id: bba5jb38o8**********
+          service_account_id: bfbqqeo6jk**********
+    status: ACTIVE
+    ```
 
 {% endlist %}
 
