@@ -55,9 +55,9 @@
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    Чтобы создать триггер, который запускает функцию, выполните команду:
+    Чтобы создать триггер, который вызывает функцию, выполните команду:
 
-    ```
+    ```bash
     yc serverless trigger create object-storage \
       --name <имя триггера> \
       --bucket-id <идентификатор бакета> \
@@ -84,7 +84,7 @@
 
     Результат:
 
-    ```
+    ```text
     id: a1s92agr8mpgeo3kjt48
     folder_id: b1g88tflru0ek1omtsu0
     created_at: "2019-12-18T09:47:50.079103Z"
@@ -199,4 +199,4 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ objstorage-name }}, который запускает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/os-trigger-create.md).
+* [Триггер для {{ objstorage-name }}, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/os-trigger-create.md).

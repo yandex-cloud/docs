@@ -1,4 +1,4 @@
-# Все сценарии
+# Практические руководства {{ mmy-name }}
 
 * [{#T}](profiling-mmy.md)
 * [{#T}](data-migration.md)

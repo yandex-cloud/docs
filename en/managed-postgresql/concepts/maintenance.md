@@ -12,8 +12,8 @@ Changing a major DBMS version isn't part of maintenance. For more information ab
 
 You can set the preferred maintenance time when [creating a cluster](../operations/cluster-create.md) or updating [its settings](../operations/update.md):
 
-* **Unspecified time** (default): maintenance is possible at any time.
-* **By schedule**: set the preferred maintenance start time: desired day of the week and UTC hour. For example, you can choose a time when cluster load is lightest.
+* **Unspecified time** (default): Maintenance is possible at any time.
+* **By schedule**: Set the preferred maintenance start time: desired day of the week and UTC hour. For example, you can choose a time when cluster load is lightest.
 
 ## Maintenance procedure {#maintenance-order}
 

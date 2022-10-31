@@ -94,10 +94,10 @@ You can add and remove databases, as well as view information about them.
 
       ```bash
       {{ yc-mdb-pg }} database create <database name> \
-        --cluster-name=<cluster name> \
-        --owner=<DB owner username> \
-        --lc-collate=<collation locale> \
-        --lc-type=<character set locale>
+         --cluster-name=<cluster name> \
+         --owner=<DB owner username> \
+         --lc-collate=<collation locale> \
+         --lc-type=<character set locale>
       ```
 
       {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
@@ -165,7 +165,7 @@ You can add and remove databases, as well as view information about them.
 
    ```bash
    {{ yc-mdb-pg }} database delete <database name> \
-     --cluster-name <cluster name>
+      --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).

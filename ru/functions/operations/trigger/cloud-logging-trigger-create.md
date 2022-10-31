@@ -64,9 +64,9 @@
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    Чтобы создать триггер, который запускает функцию, выполните команду:
+    Чтобы создать триггер, который вызывает функцию, выполните команду:
 
-    ```
+    ```bash
     yc serverless trigger create logging \
       --name <имя триггера> \
       --log-group-name <имя лог-группы> \
@@ -91,9 +91,9 @@
 
     Результат:
 
-    ```
-    id: a1sfe084v4se4morbu2i
-    folder_id: b1g88tflru0ek1omtsu0
+    ```text
+    id: a1sfe084v4**********
+    folder_id: b1g88tflru**********
     created_at: "2019-12-04T08:45:31.131391Z"
     name: logging-trigger
     rule:
@@ -103,15 +103,15 @@
           size: "1"
           cutoff: 1s
         invoke_function:
-          function_id: d4eofc7n0m03********
+          function_id: d4eofc7n0m**********
           function_tag: $latest
-          service_account_id: aje3932acd0c********
+          service_account_id: aje3932acd**********
           retry_settings:
             retry_attempts: "1"
             interval: 10s
           dead_letter_queue:
-            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknn********:dlq
-            service-account-id: aje3932acd0c********
+            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:dlq
+            service-account-id: aje3932a**********
     status: ACTIVE
     ```
 
@@ -204,4 +204,4 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ cloud-logging-name }}, который запускает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/cloud-logging-trigger-create.md).
+* [Триггер для {{ cloud-logging-name }}, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/cloud-logging-trigger-create.md).

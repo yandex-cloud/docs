@@ -1,4 +1,4 @@
-# Все руководства
+# Практические руководства {{ data-transfer-name }}
 
 * [{#T}](managed-greenplum.md)
 * [{#T}](managed-mongodb.md)

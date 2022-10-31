@@ -7,7 +7,7 @@ keywords:
   - Elasticsearch
 ---
 
-# Управление резервными копиями
+# Управление резервными копиями в {{ mes-name }}
 
 {{ mes-short-name }} позволяет создавать резервные копии [индексов](../concepts/indexing.md) как средствами {{ yandex-cloud }}, так и с помощью механизма [снапшотов](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html) {{ ES }}.
 
