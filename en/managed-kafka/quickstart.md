@@ -12,7 +12,7 @@ For the internal MDB service, the [web interface]({{ console-link }}) is deploye
 
 ## Access to DB clusters {#access}
 
-The rules for accessing MDB clusters are already given{% if product == "yandex-cloud" %} in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3) and for [developers](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651){% endif %}.
+The rules for accessing MDB clusters are already given in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3) and for [developers](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
 
 If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To connect to {{ KF }}, specify port 9091 (SASL_TLS) in your request.
 
@@ -31,12 +31,15 @@ If you did everything correctly, the list clusters query should now work:
 ## Before you begin {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to an {{ KF }} cluster from both inside and outside {{ yandex-cloud }}:
+
    * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md){% if product == "cloud-il" %} or [Windows](../compute/quickstart/quick-create-windows.md){% endif %} based virtual machine, which must be in the same network as the cluster.
+
    * To connect to a cluster from the internet, enable public access to the cluster when [creating](operations/cluster-create.md) it.
 
    {% note info %}
@@ -46,6 +49,7 @@ If you did everything correctly, the list clusters query should now work:
    {% endnote %}
 
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+
 1. Install the `kafkacat` utility, an open source application that can function as a universal data producer or consumer:
 
    ```bash
@@ -99,7 +103,13 @@ Then connect to the cluster using this username.
 You can connect the producer and consumer to the cluster on behalf of one user. Both the producer and consumer will only be able to work with the topics that this user is allowed to access.
 
 To connect to a cluster:
+
+{% if audience != "internal" %}
+
 1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
+
+{% endif %}
+
 1. Install an SSL certificate on the VM:
 
    {% include [install-certificate](../_includes/mdb/mkf/install-certificate.md) %}

@@ -183,7 +183,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
    1. To manage topics via the {{ KF }} Admin API:
 
-      1.  When creating a cluster, set the `--unmanaged-topics` parameter to `true`:
+      1. When creating a cluster, set the `--unmanaged-topics` parameter to `true`:
 
          ```bash
          {{ yc-mdb-kf }} cluster create \
