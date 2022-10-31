@@ -34,8 +34,8 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* использование мастера и исходящий трафик {{ managed-k8s-short-name }} (см. [тарифы {{ managed-k8s-short-name }}](../managed-kubernetes/pricing.md));
-* использование узлов кластера {{ managed-k8s-short-name }} (см. [тарифы {{ compute-name }}](../compute/pricing.md));
+* использование мастера и исходящий трафик {{ managed-k8s-name }} (см. [тарифы {{ managed-k8s-name }}](../managed-kubernetes/pricing.md));
+* использование узлов кластера {{ managed-k8s-name }} (см. [тарифы {{ compute-name }}](../compute/pricing.md));
 * использование публичных IP-адресов (см. [тарифы {{ vpc-name }}](../vpc/pricing.md));
 * входящий трафик, обработанный балансировщиком, и использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-short-name }}](../network-load-balancer/pricing.md)).
 
