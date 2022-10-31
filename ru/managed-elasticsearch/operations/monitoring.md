@@ -1,4 +1,4 @@
-# Мониторинг состояния кластера и хостов
+# Мониторинг состояния {{ ES }}-кластера и хостов
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 

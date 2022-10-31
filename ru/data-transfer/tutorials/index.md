@@ -1,4 +1,4 @@
-# Все руководства
+# Практические руководства {{ data-transfer-name }}
 
 {% if product == "yandex-cloud" %}
 {% if audience != "internal" %}

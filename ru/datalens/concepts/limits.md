@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ datalens-name }}
 
 {% if audience != "internal" %}
 

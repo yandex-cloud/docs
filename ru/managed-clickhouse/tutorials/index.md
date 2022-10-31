@@ -1,4 +1,4 @@
-# Все руководства
+# Практические руководства {{ mch-name }}
 
 * [{#T}](../operations/insert.md)
 {% if content != "noshow" %}

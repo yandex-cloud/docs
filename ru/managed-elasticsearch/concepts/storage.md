@@ -7,7 +7,7 @@ keywords:
   - Elasticsearch
 ---
 
-# Типы дисков
+# Типы дисков {{ ES }}
 
 {% if audience != "internal" %}
 

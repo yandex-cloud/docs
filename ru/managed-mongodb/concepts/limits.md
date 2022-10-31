@@ -7,7 +7,7 @@ editable: false
 
 {% if audience != "internal" %}
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ mmg-name }}
 
 В сервисе {{ mmg-name }} действуют следующие ограничения:
 

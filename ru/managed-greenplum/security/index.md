@@ -10,7 +10,7 @@ keywords:
   - {{ GP }}
 ---
 
-# Управление доступом
+# Управление доступом в {{ mgp-name }}
 
 {% if audience != "internal"%}
 
