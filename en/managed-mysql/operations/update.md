@@ -363,11 +363,11 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   {% if product == "yandex-cloud" %}* `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).{% endif %}
+   {% if product == "yandex-cloud" %}*`--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).{% endif %}
 
    * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
 
-   * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
    {% if product == "yandex-cloud" %}*`--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.{% endif %}
 
@@ -543,7 +543,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster name>" {
         ...
-        security_group_ids  = ["<security group ID list>"]
+        security_group_ids = ["<security group ID list>"]
       }
       ```
 

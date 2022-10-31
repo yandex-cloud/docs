@@ -130,7 +130,7 @@
        --environment <окружение, prestable или production> \
        --network-id ' ' \
        --host zone-id=<зона доступности> \
-       --mysql-version <версия MySQL> \
+       --mysql-version <версия {{ MY }}> \
        --resource-preset <класс хоста> \
        --user name=<имя пользователя>,password=<пароль пользователя> \
        --database name=<имя базы данных> \
@@ -222,7 +222,7 @@
        name                = "<имя кластера>"
        environment         = "<окружение, PRESTABLE или PRODUCTION>"
        network_id          = "<идентификатор сети>"
-       version             = "<версия MySQL: {{ versions.tf.str }}>"
+       version             = "<версия {{ MY }}: {{ versions.tf.str }}>"
        security_group_ids  = [ "<список групп безопасности>" ]
        deletion_protection = <защита от удаления кластера: true или false>
 
@@ -285,7 +285,7 @@
        name                = "<имя кластера>"
        environment         = "<окружение, PRESTABLE или PRODUCTION>"
        network_id          = "<идентификатор сети>"
-       version             = "<версия MySQL: {{ versions.tf.str }}>"
+       version             = "<версия {{ MY }}: {{ versions.tf.str }}>"
        deletion_protection = <защита от удаления кластера: true или false>
 
        resources {
@@ -352,7 +352,7 @@
        name                = "<имя кластера>"
        environment         = "<окружение, PRESTABLE или PRODUCTION>"
        network_id          = "<идентификатор сети>"
-       version             = "<версия MySQL: {{ versions.tf.str }}>"
+       version             = "<версия {{ MY }}: {{ versions.tf.str }}>"
        security_group_ids  = [ "<список групп безопасности>" ]
        deletion_protection = <защита от удаления кластера: true или false>
 
@@ -624,7 +624,7 @@
     network_id = yandex_vpc_network.mynet.id
 
     ingress {
-      description    = "MySQL"
+      description    = "{{ MY }}"
       port           = {{ port-mmy }}
       protocol       = "TCP"
       v4_cidr_blocks = [ "0.0.0.0/0" ]
@@ -770,7 +770,7 @@
     network_id = yandex_vpc_network.mynet.id
 
     ingress {
-      description    = "MySQL"
+      description    = "{{ MY }}"
       port           = {{ port-mmy }}
       protocol       = "TCP"
       v4_cidr_blocks = [ "0.0.0.0/0" ]

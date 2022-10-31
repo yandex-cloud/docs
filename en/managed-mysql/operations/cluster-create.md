@@ -126,7 +126,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         --environment <environment, prestable or production> \
         --network-id ' ' \
         --host zone-id=<availability zone> \
-        --mysql-version <MySQL version> \
+        --mysql-version <{{ MY }} version> \
         --resource-preset <host class> \
         --user name=<username>,password=<user password> \
         --database name=<database name> \
@@ -149,7 +149,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         --environment <environment, prestable or production> \
         --network-id ' ' \
         --host zone-id=<availability zone> \
-        --mysql-version <MySQL version> \
+        --mysql-version <{{ MY }} version> \
         --resource-preset <host class> \
         --user name=<username>,password=<user password> \
         --database name=<database name> \
@@ -161,7 +161,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       {% endif %}
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
 
@@ -326,7 +326,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       {% endif %}
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
@@ -393,20 +393,20 @@ If you specified security group IDs when creating a cluster, you may also need t
    {% if audience != "internal" %}
 
    * Named `my-mysql`.
-   * Version `{{ versions.cli.latest }}`.
+   * Versions `{{ versions.cli.latest }}`.
    * In the `production` environment.
    * In the `default` network.
    * In the security group with the ID `{{ security-group }}`.
    * With a single `{{ host-class }}` class host in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone.
    * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
    * With one user, `user1`, with the password `user1user1`.
-   * With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`.
+   * With one `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`.
    * With protection against accidental cluster deletion.
 
    {% else %}
 
    * Named `my-mysql`.
-   * Version `{{ versions.cli.latest }}`.
+   * Versions `{{ versions.cli.latest }}`.
    * In the `production` environment.
    * With one `{{ host-class }}` host in the `man` availability zone.
    * With 20 GB of local SSD storage (`local-ssd`).
@@ -469,7 +469,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    Create a {{ mmy-name }} cluster and a network for it with test characteristics:
 
    * Named `my-mysql`.
-   * Version `{{ versions.tf.latest }}`.
+   * Versions `{{ versions.tf.latest }}`.
    * In the `PRESTABLE` environment.
    * In the cloud with the ID `{{ tf-cloud-id }}`.
    * In the folder with the ID `{{ tf-folder-id }}`.
@@ -546,7 +546,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      network_id = yandex_vpc_network.mynet.id
 
      ingress {
-       description    = "MySQL"
+       description    = "{{ MY }}"
        port           = {{ port-mmy }}
        protocol       = "TCP"
        v4_cidr_blocks = [ "0.0.0.0/0" ]
@@ -626,7 +626,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      network_id = yandex_vpc_network.mynet.id
 
      ingress {
-       description    = "MySQL"
+       description    = "{{ MY }}"
        port           = {{ port-mmy }}
        protocol       = "TCP"
        v4_cidr_blocks = [ "0.0.0.0/0" ]

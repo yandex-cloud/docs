@@ -156,7 +156,7 @@ By default, for a {{ mmy-name }} cluster, [AUTOCOMMIT](https://dev.mysql.com/doc
 * If you restore a dump from the VM in {{ yandex-cloud }}:
 
     ```bash
-    mysql --host <FQDN of MySQL host> \
+    mysql --host <FQDN of {{ MY }} host> \
           --user=<username> \
           --password \
           --port=3306 \
@@ -169,7 +169,7 @@ By default, for a {{ mmy-name }} cluster, [AUTOCOMMIT](https://dev.mysql.com/doc
 * If you restore a dump from your own server, [get an SSL certificate](connect.md#get-ssl-cert) and pass the `--ssl-ca` and `--ssl-mode` parameters in the recovery command:
 
    ```bash
-   mysql --host=<FQDN of MySQL host> \
+   mysql --host=<FQDN of {{ MY }} host> \
          --user=<username> \
          --password \
          --port={{ port-mmy }} \
