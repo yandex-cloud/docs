@@ -95,4 +95,8 @@
       yc iot device list --registry-id <идентификатор реестра>
       ```
 
+- API
+
+  Удалить устройство можно с помощью метода API [delete](../../api-ref/Device/delete.md).
+
 {% endlist %}

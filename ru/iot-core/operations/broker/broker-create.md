@@ -136,4 +136,8 @@
           yc iot broker list
           ```
 
+- API
+
+  Cоздать брокер можно с помощью метода API [create](../../broker/api-ref/Broker/create.md).
+
 {% endlist %}

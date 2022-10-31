@@ -63,6 +63,10 @@
         created_at: "2019-12-16T15:32:46.655139Z"
         ```
 
+- API
+
+  Добавить пароль брокеру можно с помощью метода API [addPassword](../../broker/api-ref/Broker/addPassword.md).
+
 {% endlist %}
 
 ### Задать пароль брокеру при создании {#create}
@@ -95,6 +99,10 @@
     status: ACTIVE
     log_group_id: ckghhil3b5**********
     ```
+
+- API
+
+  Задать пароль брокеру при создании можно с помощью метода API [create](../../broker/api-ref/Broker/create.md).
 
 {% endlist %}  
 
@@ -145,6 +153,10 @@
         | are0gffs95********** | 2019-12-16 15:34:25 |
         +----------------------+---------------------+
         ```
+
+- API
+
+  Получить список паролей брокера можно с помощью метода API [listPasswords](../../broker/api-ref/Broker/listPasswords.md).
 
 {% endlist %}     
    
@@ -199,5 +211,9 @@
         +----+------------+
         +----+------------+
         ```
+
+- API
+
+  Удалить пароль брокера можно с помощью метода API [deletePassword](../../broker/api-ref/Broker/deletePassword.md).
 
 {% endlist %}       
