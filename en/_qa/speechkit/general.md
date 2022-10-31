@@ -6,7 +6,7 @@
 
 You can view the statistics in the [management console]({{ link-console-main }}) under **AI API** → **{{ speechkit-short-name }}** → **Monitoring**.
 
-The balance is reduced automatically as you consume resources. See [{#T}](../../billing/payment/index.md) for billing at {{ yandex-cloud }}. 
+As you use resources, the balance automatically decreases. Learn more about [paying for resources](../../billing/payment/index.md) in {{ yandex-cloud }}.
 
 #### How to increase quotas / What should I do if the «429 Too Many Requests» error occurs {#quotas}
 
@@ -27,17 +27,17 @@ Please note that it is only possible to recognize long audio files under a servi
 #### How to generate an IAM token {#iam-token}
 
 To generate an [IAM token](../../iam/operations/iam-token/create.md), send a request with your OAuth token in the following format:
-`"yandexPassportOauthToken":"<OAuth-token>"`. If you're using cURL, run the command:
+`"yandexPassportOauthToken":"<OAuth-token>"` format. If you're using cURL, run the command:
 
 ```bash
 curl -d "{\"yandexPassportOauthToken\":\"<OAuth-token>\"}" "https://iam.api.cloud.yandex.net/iam/v1/tokens"
 ```
 
-Follow the recommendations and examples given in the **API** tab of the instructions: [Getting an IAM token](../../iam/operations/iam-token/create.md).
+Follow the recommendations and examples given in the **API** tab for [Getting an IAM token](../../iam/operations/iam-token/create.md).
 
 #### What should I do if the «401 Unauthorized» error occurs {#auth-err}
 
-Assign the service account [the role](../../speechkit/security/) `editor` or a higher role for the folder it was created in.
+Assign the service account the `editor` [role](../../speechkit/security/) or a higher role for the folder where it was created.
 
 When using service accounts, don't specify the folder ID in your requests: the service uses the folder where the service account was created.
 
@@ -49,16 +49,15 @@ Make sure you're using `HTTP 1.1` and not `HTTP 1.0`.
 
 #### What should I do in the event of a «TLS Handshake error» {#tls-err}
 
-Make sure the **TLS** version you're using is not lower than `1.2`. 
+Make sure the **TLS** version you're using is not lower than `1.2`.
 
 #### What should I do if the «OAuth token is invalid or expired» error occurs {#oauth-err}
 
 You need to issue a new [OAuth token](../../iam/concepts/authorization/oauth-token.md) because your token has expired.
-To do this, follow the [link]({{ link-cloud-oauth }}).
-A token is valid for 1 year.
+To do this, follow the [link]({{ link-cloud-oauth }}). The token is valid for 1 year.
 
 #### Under what conditions can I use {{ speechkit-short-name }} performance results {#result-restrictions}
 
 1. We do not impose any restrictions on the use of **{{ speechkit-short-name }}** performance results. You can use them at your discretion under the Russian law.
-1. You can freely use the [demo stand]{% if lang == "ru" %}(https://cloud.yandex.ru/services/speechkit#demo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/speechkit#demo){% endif %}. Note that it has a number of limitations.
-1. Currently, {{ speechkit-short-name }} is provided as a software API to be used in systems where speech generation or recognition is required. So far, there is no off-the-shelf software product in the form of a web interface or app that you can run.
+1. You can freely use the [demo stand]{% if lang == "ru" %}(https://cloud.yandex.ru/services/speechkit#demo){% endif %}{% if lang == "en" %}https://cloud.yandex.com/services/speechkit#demo){% endif %}. Please note that it has a number of limitations.
+1. {{ speechkit-short-name }} is provided as an API designed for speech generation and recognition systems. No web interface or executable application is currently available.

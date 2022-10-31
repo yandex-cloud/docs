@@ -64,7 +64,7 @@
 
 #### Неполное распознавание аудио {#incomplete}
 
-Если вы распознаете потоковое аудио, попробуйте использовать разные версии API: [API v1](../../speechkit/stt/api/streaming-api.md) или [API v3](../v3/api-ref/grpc/). 
+Если вы распознаете потоковое аудио, попробуйте использовать разные версии API: [API v1](../../speechkit/stt/api/streaming-api.md) или [API v3](../../speechkit/stt-v3/api-ref/grpc/). 
 
 Для распознавания аудиофайлом попробуйте разные [модели](../../speechkit/stt/models.md).
 

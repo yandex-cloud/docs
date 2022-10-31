@@ -58,7 +58,7 @@ The number of channels can be specified in a request using the [config.specifica
 
 #### Incomplete audio recognition {#incomplete}
 
-If you recognize streaming audio, try using different API versions: [API v1](../../speechkit/stt/api/streaming-api.md) or [API v3](../../speechkit/v3/api-ref/grpc/). 
+If you recognize streaming audio, try using different API versions: [API v1](../../speechkit/stt/api/streaming-api.md) or [API v3](../../speechkit/stt-v3/api-ref/grpc/).
 
 To recognize an audio file, try different [models](../../speechkit/stt/models.md).
 

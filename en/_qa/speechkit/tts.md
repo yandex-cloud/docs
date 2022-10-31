@@ -17,13 +17,13 @@ For more information about pricing for premium voices, see the [documentation](.
 
 #### Error: unsupported content-type: application/json {#content-type}
 
-The `unsupported content-type: application/json` error occurs if you set an unsupported type of transmitted text `application/json` in the standard `content-type` header.
+The `unsupported content-type: application/json` error occurs if you set the `application/json` type that is not supported for transmitted text in the standard `content-type` header.
 
 To perform speech synthesis, use one of the supported types:
-* `application/x-www-form-urlencoded` 
+* `application/x-www-form-urlencoded`
 * `multipart/form-data`
 
-For a description of the API method, see the [documentation](../../speechkit/tts/request.md). 
+For a description of the API method, see the [documentation](../../speechkit/tts/request.md).
 
 #### Voices change in the voiced text {#voices-change}
 
@@ -39,7 +39,7 @@ To set a pause in your text, add a sil tag. Specify the pause duration in millis
 
 #### A cURL request doesn't work in Windows PowerShell {#curl-powershell}
 
-In Windows PowerShell, `curl` is, by default, an alias for a [Invoke-WebRequest](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-webrequest) system call. To repeat the [example from the documentation](../../speechkit/tts/request.md#ssml), use the code:
+In Windows PowerShell, `curl` is, by default, an alias for an [Invoke-WebRequest](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-webrequest) system call. To repeat the [example from the documentation](../../speechkit/tts/request.md#ssml), use the code:
 
 `Invoke-WebRequest -Method 'Post' -H @{'Authorization' = 'Bearer your_token'} -Body "lang=ru-RU&folderId= your_folder_id&ssml=$([System.Net.WebUtility]::UrlEncode($(Get-Content -Path C:\curl\new.xml)))" -OutFile C:\curl\output.ogg "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize"`
 
