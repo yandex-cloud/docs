@@ -80,7 +80,7 @@ When using GeeseFS on a {{ compute-name }} VM that has a [linked service account
     geesefs <bucket name> <mount point>
     ```
 
-To mount a bucket automatically at system startup, add a line  to the `/etc/fstab` file in the following format:
+To mount a bucket automatically at system startup, add a line to the `/etc/fstab` file in the following format:
 
 ```
 <bucket name>    <mount point>    fuse.geesefs    _netdev,allow_other,--file-mode=0666,--dir-mode=0777    0   0
