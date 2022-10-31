@@ -24,30 +24,39 @@ A load balancer located in one availability zone, ran for an hour with the follo
 
 {% include [lcu-example](../_includes/application-load-balancer/lcu-example.md) %}
 
-Here's the calculation of the cost for this hour and for the month comprised of 720 hours with the same indicators:
+Calculating the number of resource units:
+> Maximum (6000 / 1000, 30000 / 4000, 500 / 200, 20 / 22, 2) = maximum (6, 8, 3, 1, 2) = 8
+>
+> Total: 8 resource units.
 
-> RPS: 6000 / 1000 = 6
-> Active connections: 30000 / 4000 = 7.5 ~ 8
-> New connections: 500 / 200 = 2.5 ~ 3
-> Traffic: 20 / 22 = 0.9090... ~ 1
-> Minimum number of resource units in the zone: 2
->
-> Number of resource units: 8
->
-> {% if region == "ru" %}8 × 2.22 = ₽17.76
->
-> Hourly total: ₽17.76
-> Monthly total: 17.76 × 720 = ₽12787.20{% endif %}
-> {% if region == "kz" %}8 × 11.10 = ₸88.80
->
-> Hourly total: ₸88.80
-> Monthly total: 88.80 × 720 = ₸63936.00{% endif %}
-> {% if region == "int" %}8 × 0.01776 = $0.14208
->
-> Hourly total: $0.14208
-> Monthly total: 0.14208 × 720 = $102.2976{% endif %}
+Where:
+* 6000 / 1000 = 6 is the number of resource units that contain 6000 RPS.
+* 30000 / 4000 = 7.5 ~ 8 is the number of resource units that contain 30000 active connections.
+* 500 / 200 = 2.5 ~ 3 is the number of resource units that contain 500 new connections.
+* 20 / 22 = 0.9090... ~ 1 is the number of resource units that contain 20 MB of traffic per second.
+* 2 is the minimum number of resource units in the zone.
 
-Where {% if region == "ru" %}₽2.22{% endif %}{% if region == "kz" %}₸11.10{% endif %}{% if region == "int" %}$0.01776{% endif %} is the cost per resource unit.
+Calculating the cost per hour:
+> {% if region == "ru" %}8 × ₽2.22 = ₽17.76{% endif %}
+> {% if region == "kz" %}8 × ₸11.10 = ₸88.80{% endif %}
+> {% if region == "int" %}8 × $0.017760 = $0.142080{% endif %}
+>
+> Total: {% if region == "ru" %}₽17.76{% endif %}{% if region == "kz" %}₸88.80{% endif %}{% if region == "int" %}$0.142080{% endif %} is the cost of using a load balancer per hour.
+
+Where:
+* 8 is the number of resource units.
+* {% if region == "ru" %}₽2.22{% endif %}{% if region == "kz" %}₸11.10{% endif %}{% if region == "int" %}$0.017760{% endif %} is the cost per resource unit.
+
+Calculating the cost per month (30 days) with the same hourly load:
+> {% if region == "ru" %}₽17.76 × 720 = ₽12787.20{% endif %}
+> {% if region == "kz" %}₸88.80 × 720 = ₸63936.00{% endif %}
+> {% if region == "int" %}$0.142080 × 720 = $102.297600{% endif %}
+>
+> Total: {% if region == "ru" %}₽12787.20{% endif %}{% if region == "kz" %}₸63936.00{% endif %}{% if region == "int" %}$102.297600{% endif %} is the cost of using the load balancer per month.
+
+Where:
+* {% if region == "ru" %}₽17.76{% endif %}{% if region == "kz" %}₸88.80{% endif %}{% if region == "int" %}$0.142080{% endif %} is the cost per resource unit.
+* 720 is the number of hours in a month.
 
 ## Pricing {#prices}
 
