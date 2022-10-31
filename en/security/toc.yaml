@@ -42,6 +42,8 @@ items:
       - name: Deleting a passport account from {{ org-full-name }}
         href: operations/account-deletion.md
         when: product == "yandex-cloud"
+      - name: If you are being attacked from {{ yandex-cloud }} addresses
+        href: operations/outgoing-ddos.md
     when: product == "yandex-cloud"
   - name: Rules for performing external security scans
     href: compliance/pentest.md
