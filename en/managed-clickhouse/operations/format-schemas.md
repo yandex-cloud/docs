@@ -201,7 +201,7 @@ To update the contents of a schema that is already connected to the cluster:
    * The new link to the file in {{ objstorage-full-name }} in the `uri` parameter.
    * List of cluster configuration fields to be changed in the `updateMask` parameter.
 
-      {% include [Сброс настроек изменяемого объекта](../../_includes/note-api-updatemask.md) %}
+      {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

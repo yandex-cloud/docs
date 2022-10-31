@@ -361,7 +361,7 @@ To learn more about how to work with data received from {{ KF }}, see the [{{ CH
 
    - Delete the clusters:
 
-      - [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-delete.md);
+      - [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-delete.md).
       - [{{ mkf-full-name }}](../../managed-kafka/operations/cluster-delete.md).
 
    {% if audience != "internal" %}
