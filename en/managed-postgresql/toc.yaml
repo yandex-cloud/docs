@@ -55,7 +55,7 @@ items:
         href: operations/performance-diagnostics.md
       - name: Monitoring the state of clusters and hosts
         href: operations/monitoring.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: All use cases
         href: tutorials/index.md
@@ -136,7 +136,7 @@ items:
         items:
           - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md
-          - name: From January, 1 to March 1, 2019
+          - name: From January 1 to March 1, 2019
             href: pricing-archive/pricing-01032019.md
           - name: From March 1, 2019 to February 1, 2020
             href: pricing-archive/pricing-01022020.md

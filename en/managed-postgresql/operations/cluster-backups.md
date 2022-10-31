@@ -448,6 +448,6 @@ When restoring to the current state, the new cluster will reflect the state of:
    * The new backup start time, in the `configSpec.backupWindowStart` parameter.
    * List of cluster configuration fields to be edited (in this case, `configSpec.backupWindowStart`) in the `updateMask` parameter.
 
-   {% include [Сброс настроек изменяемого объекта](../../_includes/note-api-updatemask.md) %}
+   {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}

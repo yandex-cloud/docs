@@ -10,7 +10,7 @@ For the internal MDB service, the [web interface]({{ console-link }}) is deploye
 
 ## Access to DB clusters {#access}
 
-The rules for accessing MDB clusters are already given{% if product == "yandex-cloud" %} in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3) and for [developers](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651){% endif %}.
+The rules for accessing MDB clusters are already given in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3) and for [developers](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
 
 If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To connect to {{ PG }} clusters, you need access to port 6432.
 
@@ -29,12 +29,15 @@ If you did everything correctly, the list clusters query should now work:
 ## Before you begin {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
-   * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md){% if product == "cloud-il" %} or[Windows](../compute/quickstart/quick-create-windows.md)){% endif %}.
+
+   * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md){% if product == "cloud-il" %} or [Windows](../compute/quickstart/quick-create-windows.md){% endif %}).
+
    * To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
 
    {% note info %}
@@ -44,6 +47,7 @@ If you did everything correctly, the list clusters query should now work:
    {% endnote %}
 
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+
 1. Install the necessary dependencies and the {{ PG }} client:
 
    ```bash
@@ -58,18 +62,23 @@ If you did everything correctly, the list clusters query should now work:
 1. Select **{{ mpg-name }}**.
 1. Click **Create cluster**.
 1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
-1. When the cluster is ready, its status on the {{ mpg-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
+1. Wait until the cluster is ready: its status on the {{ mpg-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
 
 ## Connect to the DB {#connect}
 
+{% if audience != "internal" %}
+
 1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
+
+{% endif %}
+
 1. To connect to the DB server, get an SSL certificate:
 
-    {% include [install-certificate](../_includes/mdb/mpg/install-certificate.md) %}
+   {% include [install-certificate](../_includes/mdb/mpg/install-certificate.md) %}
 
 1. Use the `psql` command to connect:
 
-    {% include [default-connstring](../_includes/mdb/mpg/default-connstring.md) %}
+   {% include [default-connstring](../_includes/mdb/mpg/default-connstring.md) %}
 
 ## What's next {#whats-next}
 

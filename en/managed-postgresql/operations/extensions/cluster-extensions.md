@@ -78,7 +78,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
    ```bash
    {{ yc-mdb-pg }} database update <database name> \
-      --cluster-name <cluster name> \
+      --cluster-name <cluster name>
       --extensions <extension name>=<version>,<extension name>=<version>...
    ```
 

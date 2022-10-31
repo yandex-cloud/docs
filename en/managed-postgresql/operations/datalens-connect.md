@@ -28,7 +28,7 @@ To enable {{ datalens-name }} to connect to your cluster and work with its data,
 
       {% cut "I don't have a "Create connection" button" %}
 
-      If instead of the **Create connection** button you see a "{{ datalens-name }} not activated" message, it means that you either didn't activate {{ datalens-name }} or connected it in a different folder.  To connect your cluster to a {{ datalens-name }} instance from another folder, follow the [instructions](../../datalens/operations/connection/create-postgresql.md) in the {{ datalens-name }} documentation.
+      If instead of the **Create connection** button you see a "{{ datalens-name }} not activated" message, it means that you either didn't activate {{ datalens-name }} or connected it in a different folder. To connect your cluster to a {{ datalens-name }} instance from another folder, follow the [instructions](../../datalens/operations/connection/create-postgresql.md) in the {{ datalens-name }} documentation.
 
       {% endcut %}
 
