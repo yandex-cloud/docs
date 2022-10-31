@@ -13,7 +13,9 @@ To get started with the service:
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
-   * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md).
+
+   * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md)).
+
    * To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
 
    {% note info %}
@@ -36,14 +38,17 @@ To get started with the service:
 1. Select **{{ mmy-name }}**.
 1. Click **Create cluster**.
 1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
-1. When the cluster is ready, its status on the {{ mmy-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
+1. Wait until the cluster is ready: its status on the {{ mmy-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
 
 ## Connect to the DB {#connect}
 
+
 1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
+
+
 1. To connect to the DB server, get an SSL certificate:
 
-    {% include [install-certificate](../_includes/mdb/mmy/install-certificate.md) %}
+   {% include [install-certificate](../_includes/mdb/mmy/install-certificate.md) %}
 
 1. Use the `mysql` command to connect:
 

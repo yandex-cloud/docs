@@ -18,24 +18,39 @@ A load balancer located in one availability zone, ran for an hour with the follo
 
 {% include [lcu-example](../_includes/application-load-balancer/lcu-example.md) %}
 
-Here's the calculation of the cost for this hour and for the month comprised of 720 hours with the same indicators:
+Calculating the number of resource units:
+> Maximum (6000 / 1000, 30000 / 4000, 500 / 200, 20 / 22, 2) = maximum (6, 8, 3, 1, 2) = 8
+>
+> Total: 8 resource units.
 
-> RPS: 6000 / 1000 = 6
-> Active connections: 30000 / 4000 = 7.5 ~ 8
-> New connections: 500 / 200 = 2.5 ~ 3
-> Traffic: 20 / 22 = 0.9090... ~ 1
-> Minimum number of resource units in the zone: 2
->
-> Number of resource units: 8
->
+Where:
+* 6000 / 1000 = 6 is the number of resource units that contain 6000 RPS.
+* 30000 / 4000 = 7.5 ~ 8 is the number of resource units that contain 30000 active connections.
+* 500 / 200 = 2.5 ~ 3 is the number of resource units that contain 500 new connections.
+* 20 / 22 = 0.9090... ~ 1 is the number of resource units that contain 20 MB of traffic per second.
+* 2 is the minimum number of resource units in the zone.
+
+Calculating the cost per hour:
 > 
 > 
-> 8 × 0.01776 = $0.14208
+> 8 × $0.017760 = $0.142080
 >
-> Hourly total: $0.14208
-> Monthly total: 0.14208 × 720 = $102.2976
+> Total: $0.142080 is the cost of using a load balancer per hour.
 
-Where $0.01776 is the cost per resource unit.
+Where:
+* 8 is the number of resource units.
+* $0.017760 is the cost per resource unit.
+
+Calculating the cost per month (30 days) with the same hourly load:
+> 
+> 
+> $0.142080 × 720 = $102.297600
+>
+> Total: $102.297600 is the cost of using the load balancer per month.
+
+Where:
+* $0.142080 is the cost per resource unit.
+* 720 is the number of hours in a month.
 
 ## Pricing {#prices}
 

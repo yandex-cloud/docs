@@ -99,4 +99,8 @@
       yc iot registry list
       ```
 
+- API
+
+  Удалить реестр можно с помощью метода API [delete](../../api-ref/Registry/delete.md).
+
 {% endlist %}

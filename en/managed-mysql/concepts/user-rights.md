@@ -1,6 +1,6 @@
 # User permissions
 
-The MySQL DBMS controls user permissions at three levels:
+The {{ MY }} DBMS controls user permissions at three levels:
 
 * A cluster host (administrative privileges).
 * An individual database (database privileges).

@@ -1,6 +1,6 @@
 Для создания триггера вам понадобятся:
 
-* Функция, которую триггер будет запускать. Если у вас нет функции:
+* Функция, которую триггер будет вызывать. Если у вас нет функции:
 
     * [Создайте функцию](../../functions/operations/function/function-create.md).
     * [Создайте версию функции](../../functions/operations/function/version-manage.md#func-version-create).

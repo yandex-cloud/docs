@@ -1,4 +1,4 @@
-# Подключение к {{ datalens-name }}
+# Подключение к {{ PG }}-кластеру из {{ datalens-name }}
 
 {% include [mdb-datalens-connector-intro](../../_includes/mdb/datalens-connector-intro.md) %}
 

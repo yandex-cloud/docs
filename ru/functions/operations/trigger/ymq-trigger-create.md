@@ -14,7 +14,7 @@
 
 Для создания триггера вам понадобятся: 
 
-* Функция, которую триггер будет запускать. Если у вас нет функции:
+* Функция, которую триггер будет вызывать. Если у вас нет функции:
 
     * [Создайте функцию](../function/function-create.md).
     * [Создайте версию функции](../function/version-manage.md#func-version-create).
@@ -72,9 +72,9 @@
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    Чтобы создать триггер, который запускает функцию, выполните команду:
+    Чтобы создать триггер, который вызывает функцию, выполните команду:
 
-    ```
+    ```bash
     yc serverless trigger create message-queue \
       --name <имя триггера> \
       --queue <идентификатор очереди> \
@@ -104,22 +104,22 @@
     * `--batch-cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд. Триггер группирует сообщения не дольше `batch-cutoff` и отправляет их в функцию. Число сообщений при этом не превышает `batch-size`.
 
     Результат:
-    ```
-    id: dd0cspdch6dslu9n3i5g
-    folder_id: aoek49ghmknnpj1ll45e
+    ```text
+    id: dd0cspdch6**********
+    folder_id: aoek49ghmk**********
     created_at: "2019-08-28T12:14:45.762915Z"
     name: ymq-trigger
     rule:
       message_queue:
-        queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:my-mq
-        service_account_id: bfbqqeo6jkpls2tse5o6
+        queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:my-mq
+        service_account_id: bfbqqeo6jk**********
         batch_settings:
           size: "1"
           cutoff: 10s
         invoke_function:
-          function_id: b09e5lu91ta21vdrrgma
+          function_id: b09e5lu91t**********
           function_tag: $latest
-          service_account_id: bfbqqeo6jkpls2tse5o6
+          service_account_id: bfbqqeo6j**********
     status: ACTIVE
     ```
 

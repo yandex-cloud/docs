@@ -1,11 +1,11 @@
 # Exporting audit logs to SIEM Splunk systems
 
-Create a trail to upload the audit logs of resources in a single folder to a {{ objstorage-full-name }} bucket with encryption enabled. Then configure continuous log delivery to SIEM Splunk.
+Create a trail to upload the audit logs of resources in a single folder to a {{ objstorage-full-name }} bucket with encryption enabled. Following that, configure continuous log delivery to SIEM Splunk.
 
 The solution described in the tutorial follows the procedure below:
 1. A [trail](../concepts/trail.md) uploads logs to a {{ objstorage-name }} bucket.
 1. The bucket is mounted as part of the [file system](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) of an intermediate VM.
-1. The intermediate VM runs a script that pulls logs from the bucket on a schedule and pushes them to Splunk.
+1. The intermediate VM is running a script that picks the logs up from the bucket on a schedule and forwards them to Splunk.
 
 To configure delivery of audit log files from a bucket to Splunk:
 
@@ -13,12 +13,12 @@ To configure delivery of audit log files from a bucket to Splunk:
 1. [Prepare the environment.](#prepare-environment)
 1. [Assign roles to the service account.](#add-roles)
 1. [Create a trail.](#create-trail)
-1. [Set up Splunk for import.](#prepare-splunk)
-1. [Enable egress NAT for the subnet the intermediate VM is connected to.](#enable-nat)
-1. [Create an intermediate VM.](#create-vm)
-1. [Visualize data in Splunk.](#splunk-visualization)
+1. [Set Splunk up for import.](#prepare-splunk)
+1. [Enable NAT for the Internet in the subnet the intermediate VM is connected to.](#enable-nat)
+1. [Create the intermediate VM.](#create-vm)
+1. [Visualize the data in Splunk.](#splunk-visualization)
 
-Some steps are completed in {{ TF }}.
+Some of the steps are completed in {{ TF }}.
 
 If you no longer need these resources, [delete them](#clear-out).
 
@@ -30,14 +30,14 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-To complete the tutorial, a Splunk instance must be available to the intermediate VM on port `8080`.
+To be able to go through the tutorial, you need an instance of Splunk available to the intermediate VM on port `8080`.
 
 
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost includes:
 
-* Virtual machine usage (see [{{ compute-short-name }} pricing](../../compute/pricing)).
+* Using virtual machines (see [{{ compute-short-name }} pricing](../../compute/pricing)).
 * A fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing#prices-storage)).
 * A fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing#prices-operations)).
 * A fee for using KMS keys (see [{{ kms-name }} pricing](../../kms/pricing#prices)).
@@ -79,10 +79,10 @@ The infrastructure support cost includes:
    1. Select **{{ kms-name }}**.
    1. Click **Create** and set the key attributes:
 
-      * Any name and optional description.
-      * Encryption algorithm, such as AES-256.
-      * [Rotation](../../kms/concepts/index.md#rotation) period (how often to change key versions).
-      * Click **Create**.
+     * Any name and optional description.
+     * Encryption algorithm, such as AES-256.
+     * [Rotation](../../kms/concepts/index.md#rotation) period (how often to change key versions).
+     * Click **Create**.
 
    The key is created along with its first version: click the key in the list to open the page with its attributes.
 
@@ -176,7 +176,7 @@ The infrastructure support cost includes:
 
 ## Create a trail {#create-trail}
 
-To create the trail, make sure you have the following roles:
+To be able to create the trail, please make sure you have the following roles:
 
 * `iam.serviceAccounts.user` for the service account.
 * `audit-trails.editor` for the folder to host the trail.
@@ -224,9 +224,9 @@ To create the trail, make sure you have the following roles:
 
 ## Set up Splunk for import {#prepare-splunk}
 
-Enable `HTTPEventCollector` and get an `Event Collector` token by following the [instructions](https://docs.splunk.com/Documentation/SplunkCloud/8.2.2105/Data/UsetheHTTPEventCollector#Configure_HTTP_Event_Collector_on_Splunk_Cloud_Platform).
+Enable `HTTPEventCollector` and retrieve an `Event Collector` token by following the [procedure](https://docs.splunk.com/Documentation/SplunkCloud/8.2.2105/Data/UsetheHTTPEventCollector#Configure_HTTP_Event_Collector_on_Splunk_Cloud_Platform).
 
-## Enable egress NAT for the subnet the intermediate VM is connected to {#enable-nat}
+## Enable NAT for the Internet in the subnet the intermediate VM is connected to {#enable-nat}
 
 An intermediate VM will be deployed on the subnet.
 
@@ -234,7 +234,7 @@ An intermediate VM will be deployed on the subnet.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing the subnet for the intermediate VM.
+   1. In the [management console]({{ link-console-main }}), select the folder containing the intermediate VM's subnet.
    1. In the list of services, select **{{ vpc-name }}**.
    1. Select the network with the appropriate subnet.
    1. Under **Subnets**, click ![options](../../_assets/options.svg) in the line of the subnet.
@@ -255,8 +255,8 @@ An intermediate VM will be deployed on the subnet.
       git clone https://github.com/yandex-cloud/yc-solution-library-for-security.git
       ```
 
-   1. Create a subfolder in `/auditlogs/export-auditlogs-to-Splunk/terraform/` and go there.
-   1. Create a configuration file that calls the `yc-splunk-trail` module:
+   1. Create a subfolder under `/auditlogs/export-auditlogs-to-Splunk/terraform/` and change to it.
+   1. Create a configuration file calling the `yc-splunk-trail` module:
 
       ```
       module "yc-splunk-trail" {
@@ -274,11 +274,11 @@ An intermediate VM will be deployed on the subnet.
 
       * `folder_id`: ID of the folder.
       * `splunk_token`: Event Collector token retrieved from Splunk.
-      * `splunk_server`: Address of your Splunk server as https://<host_name_or_address>.
-      * `bucket_name`: Bucket name.
-      * `bucket_folder`: Name of root folder in bucket.
-      * `sa_id`: Service account ID.
-      * `coi_subnet_id`: ID of subnet with egress NAT enabled.
+      * `splunk_server`: address of your Splunk server as https://<host_name_or_address>.
+      * `bucket_name`: bucket name.
+      * `bucket_folder`: name of root folder in bucket.
+      * `sa_id`: service account ID.
+      * `coi_subnet_id`: ID of subnet with NAT for the Internet enabled.
 
    1. Make sure that the configuration files are correct:
 
@@ -299,7 +299,7 @@ An intermediate VM will be deployed on the subnet.
 
 {% endlist %}
 
-## Visualize data in Splunk {#splunk-visualization}
+## Visualize the data in Splunk {#splunk-visualization}
 
 1. Go to Splunk and search for the events created by the service account:
 
@@ -307,7 +307,7 @@ An intermediate VM will be deployed on the subnet.
    index="main" authentication.subject_type="SERVICE_ACCOUNT" | stats count by event_type
    ```
 
-1. To visualize the results, select the **Visualization** tab and select a suitable format (`LineChart`, `PieChart`, and so on):
+1. To visualize the result, select the **Visualization** tab and select a suitable format (`LineChart`, `PieChart`, and so on):
 
    Data visualization example:
 
@@ -324,7 +324,7 @@ An intermediate VM will be deployed on the subnet.
 
       {% note warning %}
 
-      {{ TF }} will delete all the resources that you created in the current configuration, such as networks, subnets, virtual machines, and so on.
+      {{ TF }} will delete all the resources you created in the current configuration, such as networks, subnets, virtual machines, and so on.
 
       {% endnote %}
 

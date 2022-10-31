@@ -95,7 +95,7 @@ This page displays charts showing the load on an individual host in the cluster:
 
    For hosts with the **Replica** role, it's normal that **Received** is greater than **Sent** on the **Network Bytes** and **Network Packets** charts.
 
-The **MySQL overview** section shows detailed information about the DBMS state on the host:
+The **{{ MY }} overview** section shows detailed information about the DBMS state on the host:
 
 * **Disk usage**: Details of the disk space used (in bytes):
    * **data**: The volume used by data.

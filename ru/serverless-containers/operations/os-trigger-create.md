@@ -49,6 +49,67 @@
 
     1. Нажмите кнопку **Создать триггер**.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы создать триггер, который вызывает контейнер, выполните команду:
+
+    ```bash
+    yc serverless trigger create object-storage \
+      --name <имя_триггера> \
+      --bucket-id <идентификатор_бакета> \
+      --prefix '<префикс_ключа_объекта>' \
+      --suffix '<суффикс_ключа_объекта>' \
+      --events 'create-object','delete-object','update-object' \
+      --invoke-container-id <идентификатор_контейнера> \
+      --invoke-container-service-account-id <идентификатор_сервисного_аккаунта> \
+      --retry-attempts 1 \
+      --retry-interval 10s \
+      --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
+      --dlq-service-account-id <идентификатор_сервисного_аккаунта>
+    ```
+
+    Где:
+
+    * `--name` — имя триггера.
+    * `--bucket-id` — идентификатор бакета.
+    * `--prefix` — [префикс](../concepts/trigger/os-trigger.md#filter) ключа объекта в бакете. Необязательный параметр. Используется для фильтрации.
+    * `--suffix` — [суффикс](../concepts/trigger/os-trigger.md#filter) ключа объекта в бакете. Необязательный параметр. Используется для фильтрации.
+    * `--events` — [события](../concepts/trigger/os-trigger.md#event), после наступления которых триггер запускается.
+    
+    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
+
+    Результат:
+
+    ```text
+    id: a1s5msktij**********
+    folder_id: b1gmit33hg**********
+    created_at: "2022-10-24T15:19:15.353909857Z"
+    name: os-trigger
+    rule:
+      object_storage:
+        event_type:
+        - OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT
+        - OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT
+        - OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT
+        bucket_id: s3-for-trigger
+        prefix: dev
+        suffix: 12.jpg
+        invoke_container:
+          container_id: bba5jb38o8**********
+          service_account_id: aje3932acd**********
+          retry_settings:
+            retry_attempts: "1"
+            interval: 10s
+          dead_letter_queue:
+            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:dlq
+            service-account-id: aje3932acd**********
+    status: ACTIVE
+    ```
+
 {% endlist %}
 
 ## Проверить результат {#check-result}
@@ -57,4 +118,4 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ objstorage-name }}, который запускает функцию {{ sf-name }}](../../functions/operations/trigger/os-trigger-create.md).
+* [Триггер для {{ objstorage-name }}, который вызывает функцию {{ sf-name }}](../../functions/operations/trigger/os-trigger-create.md).

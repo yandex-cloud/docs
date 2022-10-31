@@ -74,8 +74,6 @@ Security groups must be configured correctly for all subnets that will include c
 
 For more information about security groups, see [{#T}](../concepts/network.md#security-groups).
 
-{% endlist %}
-
 ## Getting an SSL certificate {#get-ssl-cert}
 
 {{ MY }} hosts with public access only support encrypted connections. To use them, get an SSL certificate:
@@ -177,7 +175,7 @@ A FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` always points to the current clus
 
 When connecting to this FQDN, both read and write operations are allowed.
 
-Example of connecting to a master host for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
+An example of connecting to a master host for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
 
 ```bash
 mysql --host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \

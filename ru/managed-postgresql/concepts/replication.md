@@ -1,4 +1,4 @@
-# Репликация
+# Репликация в {{ mpg-name }}
 
 В кластерах {{ mpg-name }} используется _кворумная репликация_ (quorum-based synchronous replication):
 

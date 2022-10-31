@@ -46,7 +46,7 @@ Generic layout of an HTML page with an upload form:
 </html>
 ```
 
-The HTML form is defined by the `<form>`  tag and consists of a declaration and fields.
+The HTML form is defined by the `<form>` tag and consists of a declaration and fields.
 
 The form declaration contains the following attributes:
 

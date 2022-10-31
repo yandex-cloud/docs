@@ -22,8 +22,8 @@ You can add and remove databases, view information about them, and manage some d
    To get a list of databases in a cluster, run the command:
 
    ```bash
-   {{ yc-mdb-my }} database list \
-     --cluster-name=<cluster name>
+     {{ yc-mdb-my }} database list \
+        --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -66,13 +66,13 @@ You can add and remove databases, view information about them, and manage some d
    1. View a description of the CLI create database command:
 
       ```bash
-      {{ yc-mdb-my }} database create --help
+       {{ yc-mdb-my }} database create --help
       ```
 
    1. Run the create database command:
 
       ```bash
-      {{ yc-mdb-my }} database create <database name> --cluster-name <cluster name>
+      {{ yc-mdb-my }} database create <database name> --cluster-name=<cluster name>
       ```
 
       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
@@ -139,7 +139,7 @@ You can add and remove databases, view information about them, and manage some d
    To delete a database, run the command:
 
    ```bash
-   {{ yc-mdb-my }} database delete <database name> --cluster-name=<cluster name>
+    {{ yc-mdb-my }} database delete <database name> --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).

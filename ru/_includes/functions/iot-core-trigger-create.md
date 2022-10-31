@@ -57,9 +57,9 @@
     
     {% include [default-catalogue](../default-catalogue.md) %}
 
-    Чтобы создать триггер, который запускает функцию, выполните команду:
+    Чтобы создать триггер, который вызывает функцию, выполните команду:
 
-    ```
+    ```bash
     yc serverless trigger create internet-of-things \
       --name <имя триггера> \
       --registry-id <идентификатор реестра> \
@@ -84,7 +84,7 @@
 
     Результат:
     
-    ```
+    ```text
     id: a1sl0mkmimfj3uv52fr8
     folder_id: b1g88tflru0ek1omtsu0
     created_at: "2019-09-25T13:54:35.654935Z"

@@ -46,9 +46,9 @@
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    Чтобы создать триггер, который запускает функцию, выполните команду:
+    Чтобы создать триггер, который вызывает функцию, выполните команду:
 
-    ```
+    ```bash
     yc serverless trigger create mail \
       --name <имя триггера> \
       --invoke-function-id <идентификатор функции> \
@@ -67,13 +67,14 @@
 
     Результат:
 
-    ```
+    ```text
     id: a1sfe084v4**********
     folder_id: b1g88tflru**********
     created_at: "2022-12-04T08:45:31.131391Z"
     name: mail-trigger
     rule:
       mail:
+        email: a1s8h8avgl**********-cho1****@serverless.yandexcloud.net
         invoke_function:
           function_id: d4eofc7n0m**********
           function_tag: $latest
@@ -93,7 +94,7 @@
 
 {% endlist %}
 
-{{ sf-name }} автоматически сгенерирует адрес электронной почты, при отправке писем на который будет срабатывать триггер. Чтобы посмотреть его, [получите подробную информацию о триггере](trigger-list.md#trigger-get).
+{{ sf-name }} автоматически сгенерирует адрес электронной почты, при отправке писем на который будет запускаться триггер. Чтобы посмотреть его, [получите подробную информацию о триггере](trigger-list.md#trigger-get).
 
 ## Проверить результат {#check-result}
 
@@ -101,4 +102,4 @@
 
 ## См. также {#see-also}
 
-* [Триггер для почты, который запускает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/mail-trigger-create.md).
+* [Триггер для почты, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/mail-trigger-create.md).

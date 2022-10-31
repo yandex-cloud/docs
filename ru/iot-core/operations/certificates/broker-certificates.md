@@ -134,6 +134,10 @@
       yc iot broker certificate list --broker-name <имя_брокера>
       ```
 
+- API
+
+  Добавить сертификат брокеру можно с помощью метода API [addCertificate](../../broker/api-ref/Broker/addCertificate.md).
+
 {% endlist %}
 
 ## Удалить сертификат {#delete-cert}
@@ -235,5 +239,9 @@
       ```bash
       yc iot broker certificate list --broker-name <имя_брокера>
       ```
+
+- API
+
+  Удалить сертификат брокера можно с помощью метода API [deleteCertificate](../../broker/api-ref/Broker/deleteCertificate.md).
 
 {% endlist %}

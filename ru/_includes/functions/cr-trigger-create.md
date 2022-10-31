@@ -53,7 +53,7 @@
 
     {% include [default-catalogue](../default-catalogue.md) %}
 
-    Чтобы создать триггер, который запускает функцию, выполните команду:
+    Чтобы создать триггер, который вызывает функцию, выполните команду:
 
     ```bash
     yc serverless trigger create container-registry \
@@ -78,9 +78,9 @@
 
     Результат:
 
-    ```
-    id: a1s92agr8mpgeo3kjt48
-    folder_id: b1g88tflru0ek1omtsu0
+    ```text
+    id: a1s92agr8m**********
+    folder_id: b1g88tflru**********
     created_at: "2020-09-08T06:26:22.651656Z"
     name: registry-trigger
     rule:
@@ -90,17 +90,17 @@
         - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE
         - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG
         - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG
-        registry_id: crtlds4tdfg12kil77sdfg345ghj
+        registry_id: crtlds4tdfg12kil77**********
         invoke_function:
-          function_id: d4eofc7n0m03lmudsk7y
+          function_id: d4eofc7n0m**********
           function_tag: $latest
-          service_account_id: aje3932acd0c5ur7drte
+          service_account_id: aje3932acd**********
           retry_settings:
             retry_attempts: "1"
             interval: 10s
           dead_letter_queue:
-            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:dlq
-            service-account-id: aje3932acd0c5ur7dagp
+            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:dlq
+            service-account-id: aje3932acd**********
     status: ACTIVE
     ```
 - API
@@ -115,4 +115,4 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ container-registry-name }}, который запускает контейнер {{ serverless-containers-name }}](../../serverless-containers/operations/cr-trigger-create.md).
+* [Триггер для {{ container-registry-name }}, который вызывает контейнер {{ serverless-containers-name }}](../../serverless-containers/operations/cr-trigger-create.md).

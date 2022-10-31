@@ -25,8 +25,8 @@ To install s3fs, follow the [instructions](https://github.com/s3fs-fuse/s3fs-fus
 To configure s3fs, save the key ID and secret key to a `~/.passwd-s3fs` file in the format `<key ID>:<secret key>` and restrict access to the `~/.passwd-s3fs` file like this:
 
 ```
-echo  <key ID>:<secret key> >  ~/.passwd-s3fs
-chmod 600  ~/.passwd-s3fs
+echo <key ID>:<secret key> > ~/.passwd-s3fs
+chmod 600 ~/.passwd-s3fs
 ```
 
 ## Mounting a bucket {#mounting-bucket}

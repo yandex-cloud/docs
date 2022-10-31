@@ -50,9 +50,9 @@
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    Чтобы создать триггер, который запускает функцию, выполните команду:
+    Чтобы создать триггер, который вызывает функцию, выполните команду:
 
-    ```
+    ```bash
     yc serverless trigger create billing-budget \
       --name <имя триггера> \
       --billing-account-id <идентификатор платежного аккаунта> \
@@ -75,9 +75,9 @@
 
     Результат:
 
-    ```
-    id: a1sfe084v4se4morbu2i
-    folder_id: b1g88tflru0ek1omtsu0
+    ```text
+    id: a1sfe084v4**********
+    folder_id: b1g88tflru**********
     created_at: "2019-12-04T08:45:31.131391Z"
     name: budget-trigger
     rule:
@@ -109,4 +109,4 @@
 
 ## См. также {#see-also}
 
-* [Триггер для бюджетов, который запускает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/budget-trigger-create.md).
+* [Триггер для бюджетов, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/budget-trigger-create.md).

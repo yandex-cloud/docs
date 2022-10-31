@@ -1,6 +1,6 @@
 ---
 title: Bucket
-description: Bucket is a logical entity that helps store objects. A bucket's name is used as part of the data access URL and is visible to users.  Bucket names are unique, so you can't create two buckets with the same name (even in different folders in different clouds). Keep this in mind if you plan to create buckets automatically via the API.
+description: Bucket is a logical entity that helps store objects. A bucket's name is used as part of the data access URL and is visible to users. Bucket names are unique, so you can't create two buckets with the same name (even in different folders in different clouds). Keep this in mind if you plan to create buckets automatically via the API.
 keywords:
   - what is a bucket
   - bucket

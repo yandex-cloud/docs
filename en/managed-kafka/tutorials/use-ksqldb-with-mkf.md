@@ -157,7 +157,7 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
 1. Send the `sample.json` file to the `locations` topic of the {{ mkf-name }} cluster using `jq` and `kafkacat`:
 
    ```bash
-   jq -rc . sample.json | kafkacat -P  \
+   jq -rc . sample.json | kafkacat -P \
       -b <broker 1 FQDN:9091, ..., broker N FQDN:9091> \
       -t locations \
       -X security.protocol=SASL_SSL \
@@ -206,14 +206,14 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
 1. Check the messages in the `locations` topic of the {{ mkf-name }} cluster using `kafkacat` and the `ksql` user:
 
    ```bash
-   kafkacat -C  \
+   kafkacat -C \
     -b <broker 1 FQDN:9091, ..., broker N FQDN:9091> \
     -t locations \
     -X security.protocol=SASL_SSL \
     -X sasl.mechanisms=SCRAM-SHA-512 \
     -X sasl.username=ksql \
     -X sasl.password="<ksql user password>" \
-    -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:   
+    -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
    ```
 
 1. Make sure that the console displays the messages you [inserted into the table](#insert-data-to-ksqldb).

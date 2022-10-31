@@ -6,7 +6,7 @@
 
 Для создания триггера вам понадобятся:
 
-* Функция, которую триггер будет запускать. Если у вас нет функции:
+* Функция, которую триггер будет вызывать. Если у вас нет функции:
 
     * [Создайте функцию](../function/function-create.md).
     * [Создайте версию функции](../function/version-manage.md#func-version-create).
@@ -72,11 +72,12 @@
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    Чтобы создать триггер, который запускает функцию, выполните команду:
+    Чтобы создать триггер, который вызывает функцию, выполните команду:
 
-    ```
+    ```bash
     yc serverless trigger create yds \
       --name <имя триггера> \
+      --database <размещение_базы_данных> \
       --stream <имя потока данных> \
       --batch-size 1b \
       --batch-cutoff 1s \
@@ -92,7 +93,11 @@
     Где:
 
     * `--name` — имя триггера.
-    * `--stream` — имя потока данных.
+    * `--database` — размещение базы данных {{ ydb-short-name }}, к которой привязан поток {{ yds-name }}.
+
+      Чтобы узнать, где размещена база данных, выполните команду `yc ydb database list`. Размещение базы данных указано в столбце `ENDPOINT`, в параметре `database`, например `/{{ region-id }}/b1gia87mba**********/etn7hehf6g*******`.
+
+    * `--stream` — имя потока данных {{ yds-name }}.
     * `--batch-size` — размер группы сообщений. Необязательный параметр. Допустимые значения от 1 Б до 64 КБ, значение по умолчанию — 1 Б.
     * `--batch-cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда. Триггер группирует сообщения не дольше `batch-cutoff` и отправляет их в функцию. Суммарный объем данных, которые передаются в функцию, может превышать `batch-size`, если данные передаются в одном сообщении. Во всех остальных случаях объем данных не превышает `batch-size`.
     * `--stream-service-account-id` — идентификатор сервисного аккаунта, у которого есть права на чтение из потока данных и запись в него.
@@ -101,25 +106,29 @@
 
     Результат:
 
-    ```
-    id: a1sfe084v4se4morbu2i
-    folder_id: b1g88tflru0ek1omtsu0
-    created_at: "2019-12-04T08:45:31.131391Z"
+    ```text
+    id: a1smnfisr5**********
+    folder_id: b1gc1t4cb6**********
+    created_at: "2022-10-31T10:57:08.234586266Z"
     name: data-streams-trigger
     rule:
-      yds:
+      data_stream:
+        database: /ru-central1/b1gvlrnlei**********/etn3ege6nj**********
+        stream: yds-stream
+        service_account_id: aje07l4q4v**********
+        batch_settings:
+          size: "1"
+          cutoff: 1s
         invoke_function:
-          stream: my-beta-stream
-          stream-service-account-id: aje3932acd0c********
-          function_id: d4eofc7n0m03********
+          function_id: d4e155orh3**********
           function_tag: $latest
-          service_account_id: aje3932acd0c********
+          service_account_id: aje07l4q4v**********
           retry_settings:
             retry_attempts: "1"
             interval: 10s
           dead_letter_queue:
-            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknn********:dlq
-            service-account-id: aje3932acd0c********
+            queue_id: yrn:yc:ymq:ru-central1:b1gc1t4cb6**********:queue_dead
+            service_account_id: aje07l4q4v**********
     status: ACTIVE
     ```
 
@@ -135,4 +144,4 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ yds-name }}, который будет вызывать контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/data-streams-trigger-create.md).
+* [Триггер для {{ yds-name }}, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/data-streams-trigger-create.md).

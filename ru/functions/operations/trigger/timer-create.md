@@ -48,9 +48,9 @@
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    Чтобы создать триггер, который запускает функцию, выполните команду:
+    Чтобы создать триггер, который вызывает функцию, выполните команду:
 
-    ```
+    ```bash
     yc serverless trigger create timer \
       --name <имя таймера> \
       --cron-expression '<cron-выражение>' \
@@ -71,24 +71,24 @@
 
     Результат:
 
-    ```
-    id: a1sfe084v4se4morbu2i
-    folder_id: b1g88tflru0ek1omtsu0
+    ```text
+    id: a1sfe084v4**********
+    folder_id: b1g88tflru**********
     created_at: "2019-12-04T08:45:31.131391Z"
     name: timer
     rule:
       timer:
         cron_expression: 5 12 * * ? *
         invoke_function_with_retry:
-          function_id: d4eofc7n0m03lmudse8l
+          function_id: d4eofc7n0m**********
           function_tag: $latest
-          service_account_id: aje3932acd0c5ur7dagp
+          service_account_id: aje3932acd**********
           retry_settings:
             retry_attempts: "1"
             interval: 10s
           dead_letter_queue:
-            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:dlq
-            service-account-id: aje3932acd0c5ur7dagp
+            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:dlq
+            service-account-id: aje3932acd**********
     status: ACTIVE
     ```
 
@@ -168,4 +168,4 @@
 
 ## См. также {#see-also}
 
-* [Таймер для запуска контейнера {{ serverless-containers-name }}](../../../serverless-containers/operations/timer-create.md).
+* [Таймер, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/timer-create.md).

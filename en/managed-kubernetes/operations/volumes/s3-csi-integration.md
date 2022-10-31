@@ -44,7 +44,7 @@ See also:
    provisioner: ru.yandex.s3.csi
    parameters:
      mounter: geesefs
-     options: "--memory-limit 1000 --dir-mode 0777 --file-mode 0666"
+     options: "--memory-limit=1000 --dir-mode=0777 --file-mode=0666"
      bucket: <optional: existing bucket name>
      csi.storage.k8s.io/provisioner-secret-name: csi-s3-secret
      csi.storage.k8s.io/provisioner-secret-namespace: kube-system
@@ -271,7 +271,7 @@ To use {{ CSI }} with a static `PersistentVolumeClaim`:
           volumeAttributes:
             capacity: 10Gi
             mounter: geesefs
-            options: "--memory-limit 1000 --dir-mode 0777 --file-mode 0666 --uid 1001"
+            options: "--memory-limit=1000 --dir-mode=0777 --file-mode=0666 --uid=1001"
       ```
 
       In this example, GeeseFS settings for working with a bucket are changed as compared to `StorageClass`. The `--uid` option is added to them. It specifies the ID of the user being the owner of all files in storage: `1001`. For more information about setting up GeeseFS for a static `PersistentVolumeClaim`, see [above](#spvc-csi-usage).

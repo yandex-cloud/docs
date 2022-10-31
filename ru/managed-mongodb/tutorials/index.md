@@ -1,4 +1,4 @@
-# Все сценарии
+# Практические руководства {{ mmg-name }}
 
 * [{#T}](./sharding.md)
 * [{#T}](./data-migration.md)

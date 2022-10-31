@@ -7,7 +7,7 @@ keywords:
   - Elasticsearch
 ---
 
-# Подключение к кластеру
+# Подключение к {{ ES }}-кластеру
 
 К хостам кластера {{ mes-name }} с [ролью _Data node_](../concepts/hosts-roles.md#data-node) можно подключиться:
 

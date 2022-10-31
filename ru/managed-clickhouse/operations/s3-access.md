@@ -1,4 +1,4 @@
-# Настройка доступа к {{ objstorage-name }}
+# Настройка доступа к {{ objstorage-name }} из {{ CH }}-кластера
 
 {{ mch-name }} поддерживает работу с {{ objstorage-full-name }} для:
 * подключения [моделей машинного обучения](ml-models.md), [схем формата данных](format-schemas.md) и [собственной геобазы](geobase.md);

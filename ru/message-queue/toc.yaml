@@ -53,7 +53,7 @@ items:
         href: concepts/visibility-timeout.md
       - name: Long Polling
         href: concepts/long-polling.md
-      - name: Dead Letter Queue
+      - name: Что такое Dead Letter Queue (DLQ)
         href: concepts/dlq.md
       - name: Отложенная доставка сообщений в очереди
         href: concepts/delay-queues.md
