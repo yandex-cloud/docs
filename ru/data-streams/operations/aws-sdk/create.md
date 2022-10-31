@@ -7,7 +7,7 @@
   Для создания потока данных используется метод `create_stream`. При вызове этого метода необходимо указать следующие параметры:
   * Имя создаваемого потока данных, например `example-stream`.
   * [Идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором будет создан поток, например `aoeu1kuj2dhtaupdb5es`.
-  * Идентификатор существующей [бессерверной]{% if audience == "external" %}(../../../ydb/pricing/serverless.md){% else %}(https://cloud.yandex.ru/docs/ydb/pricing/serverless){% endif %} базы данных {{ ydb-full-name }}, например `cc8028jgtuabcqutgtbv`. Как создать новую базу данных, читайте в [документации {{ ydb-short-name }}]{% if audience == "external" %}[](../../../ydb/quickstart.md#create-db){% else %}(https://cloud.yandex.ru/docs/ydb/quickstart#create-db){% endif %}.
+  * Идентификатор существующей [бессерверной]{% if audience == "external" %}(../../../ydb/pricing/serverless.md){% else %}(https://cloud.yandex.ru/docs/ydb/pricing/serverless){% endif %} базы данных {{ ydb-full-name }}, например `cc8028jgtuabcqutgtbv`. Как создать новую базу данных, читайте в [документации {{ ydb-short-name }}]{% if audience == "external" %}(../../../ydb/quickstart.md#create-db){% else %}(https://cloud.yandex.ru/docs/ydb/quickstart#create-db){% endif %}.
   * Число сегментов, например `1`.
 
   Чтобы создать поток с параметрами, указанными выше:
