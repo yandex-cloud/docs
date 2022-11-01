@@ -48,17 +48,15 @@
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#topicconfigs_flush.ms).
 
-* **Max message bytes** {{ tag-all }} {#settings-topic-max-message-bytes}
+* **Message max bytes** {{ tag-con }} {{ tag-cli }} {{ tag-api }} {#settings-topic-message-max-bytes}
 
     В консоли управления этой настройке соответствует **Максимальный размер группы сообщений**.
 
-    См. описание настройки уровня кластера [Message max bytes](#settings-message-max-bytes).
+    Максимальный размер сообщения от производителя в байтах.
 
-    Для корректной репликации между брокерами значение этой настройки должно быть меньше значения [Replica fetch max bytes](#settings-message-max-bytes).
+    Минимальное значение — `0` (размер не ограничен), значение по умолчанию — `1048588`. Значение настройки не должно превышать значение [Replica fetch max bytes](../../../_includes/mdb/mkf/kafka-settings.md#settings-replica-fetch-max-bytes) более, чем на 12 байт.
 
-    Минимальное значение — `0`, значение по умолчанию — `1048588` (1 мегабайт).
-
-    Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#max.message.bytes).
+    Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#topicconfigs_max.message.bytes).
 
 * **Min compaction lag, ms** {{ tag-all }} {#settings-topic-max-compaction-lag-ms}
 

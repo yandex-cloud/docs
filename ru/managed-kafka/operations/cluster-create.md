@@ -131,9 +131,13 @@
       ```
 
 
-      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+      {% note tip %}
 
       При необходимости здесь же можно задать [настройки {{ KF }}](../concepts/settings-list.md#cluster-settings).
+
+      {% endnote %}
+
+      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
   1. Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window` при создании кластера:
 
