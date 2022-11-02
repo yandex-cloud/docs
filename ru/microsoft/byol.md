@@ -118,24 +118,7 @@
 
 ### Создайте ВМ из вашего образа на выделенном хосте {#create-vm}
 
-1. Подготовьте файл с метаданными `metadata.yaml` и задайте в нем пароль администратора:
-
-   ```powershell
-   #ps1
-   $MyAdministratorPlainTextPassword = '<пароль администратора>'
-
-   if (-not [string]::IsNullOrEmpty($MyAdministratorPlainTextPassword)) {
-       $MyAdministratorPassword = $MyAdministratorPlainTextPassword | ConvertTo-SecureString -AsPlainText -Force
-       # S-1-5-21domain-500 is a well-known SID for Administrator
-       # https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/security-identifiers-in-windows
-       $MyAdministrator = Get-LocalUser | Where-Object -Property "SID" -like "S-1-5-21-*-500"
-       $MyAdministrator | Set-LocalUser -Password $MyAdministratorPassword
-   }
-   ```
-
-   Обратите внимание, что пароль должен соответствовать [требованиям к сложности](https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements) паролей Windows. 
-
-1. Создайте на выделенном хосте ВМ с загрузочным диском из импортированного образа. Укажите идентификатор выделенного хоста в параметре `--host-id`. Создать ВМ можно только с помощью CLI, API или Terraform. Выполните команду:
+Создайте на выделенном хосте ВМ с загрузочным диском из импортированного образа. Укажите идентификатор выделенного хоста в параметре `--host-id`. Создать ВМ можно только с помощью CLI, API или Terraform. Выполните команду:
 
    {% list tabs %}
 
@@ -152,19 +135,28 @@
      --network-interface subnet-id=<идентификатор подсети>,nat-ip-version=ipv4 \
      --create-boot-disk image-id=<идентификатор импортированного образа> \
      --zone <зона доступности> \
-     --metadata-from-file user-data=metadata.yaml
      ```
 
    {% endlist %}
 
+## Сбросьте пароль администратора {#reset-password}
+
+Чтобы получить доступ к ВМ, нужно сбросить пароль администратора, установленный по умолчанию, и сгенерировать новый.
+
+1. Откройте [консоль управления]({{link-console-main}}).
+1. Выберите сервис **{{ compute-name }}**.
+1. Найдите в списке ВМ `win-test` и дождитесь, пока она перейдет в статус `RUNNING`. Выберите ВМ.
+1. Нажмите кнопку **Сбросить пароль**.
+1. В открывшемся окне нажмите кнопку **Сгенерировать пароль**.
+
+{% note warning %}
+
+Обязательно сохраните сгенерированный пароль. Он перестанет отображаться в консоли управления после того, как вы закроете окно.
+
+{% endnote %}
+
 ## Проверьте работу ВМ {#test-vm}
 
-Подождите 5-10 минут. Подключитесь к созданной ВМ [с помощью RDP](../compute/operations/vm-connect/rdp.md), используя пароль, который вы указали в `metadata.yaml`. Запустите PowerShell и выполните следующую команду:
-
-```powershell
-Unregister-ScheduledTask userdata -Confirm:$false
-```
-
-Если не выполнить эту команду и сменить пароль ВМ, при перезапуске ВМ новый пароль будет сброшен на указанный в `metadata.yaml`.
+Подключитесь к созданной ВМ [с помощью RDP](../compute/operations/vm-connect/rdp.md), используя пароль, который вы получили после сброса.
 
 После этого вы можете активировать свою лицензию.

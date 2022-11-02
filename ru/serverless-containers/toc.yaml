@@ -111,6 +111,52 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: containers/api-ref/grpc/index.md
+          - name: ContainerService
+            href: containers/api-ref/grpc/container_service.md
+          - name: OperationService
+            href: containers/api-ref/grpc/operation_service.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: containers/api-ref/index.md
+          - name: Container
+            items:
+              - name: Overview
+                href: containers/api-ref/Container/index.md
+              - name: create
+                href: containers/api-ref/Container/create.md
+              - name: delete
+                href: containers/api-ref/Container/delete.md
+              - name: deployRevision
+                href: containers/api-ref/Container/deployRevision.md
+              - name: get
+                href: containers/api-ref/Container/get.md
+              - name: getRevision
+                href: containers/api-ref/Container/getRevision.md
+              - name: list
+                href: containers/api-ref/Container/list.md
+              - name: listAccessBindings
+                href: containers/api-ref/Container/listAccessBindings.md
+              - name: listOperations
+                href: containers/api-ref/Container/listOperations.md
+              - name: listRevisions
+                href: containers/api-ref/Container/listRevisions.md
+              - name: rollback
+                href: containers/api-ref/Container/rollback.md
+              - name: setAccessBindings
+                href: containers/api-ref/Container/setAccessBindings.md
+              - name: update
+                href: containers/api-ref/Container/update.md
+              - name: updateAccessBindings
+                href: containers/api-ref/Container/updateAccessBindings.md
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/serverless-containers

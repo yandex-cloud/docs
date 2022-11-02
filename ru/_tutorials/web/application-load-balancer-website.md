@@ -369,7 +369,7 @@
    - Готовый архив
  
      1. Создайте папку для файлов.
-     1. Скачайте [архив](https://{{ s3-storage-host }}/www.example.com/doc-files/application-load-balancer.zip) (2 КБ).
+     1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/application-load-balancer.zip) (2 КБ).
      1. Разархивируйте архив в папку. В результате в ней должен появиться конфигурационный файл `application-load-balancer.tf`.
 
    - Создание вручную

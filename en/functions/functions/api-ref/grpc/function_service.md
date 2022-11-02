@@ -294,7 +294,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
-secrets[] | **[Secret](#Secret)**<br>Lockbox secrets to be used by the version 
+secrets[] | **[Secret](#Secret)**<br>Yandex Lockbox secrets to be used by the version. 
 
 
 ### Resources {#Resources}
@@ -316,11 +316,11 @@ subnet_id[] | **string**<br>Complete list of subnets (from the same network) the
 
 Field | Description
 --- | ---
-id | **string**<br>ID of lockbox secret 
-version_id | **string**<br>ID of secret version 
-key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+id | **string**<br>ID of Yandex Lockbox secret. 
+version_id | **string**<br>ID of Yandex Lockbox version. 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
-&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
 
 
 ## GetFunctionVersion {#GetFunctionVersion}
@@ -356,7 +356,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
-secrets[] | **[Secret](#Secret1)**<br>Lockbox secrets to be used by the version 
+secrets[] | **[Secret](#Secret1)**<br>Yandex Lockbox secrets to be used by the version. 
 
 
 ### Resources {#Resources1}
@@ -378,11 +378,11 @@ subnet_id[] | **string**<br>Complete list of subnets (from the same network) the
 
 Field | Description
 --- | ---
-id | **string**<br>ID of lockbox secret 
-version_id | **string**<br>ID of secret version 
-key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+id | **string**<br>ID of Yandex Lockbox secret. 
+version_id | **string**<br>ID of Yandex Lockbox version. 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
-&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
 
 
 ## GetVersionByTag {#GetVersionByTag}
@@ -419,7 +419,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity2)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
-secrets[] | **[Secret](#Secret2)**<br>Lockbox secrets to be used by the version 
+secrets[] | **[Secret](#Secret2)**<br>Yandex Lockbox secrets to be used by the version. 
 
 
 ### Resources {#Resources2}
@@ -441,11 +441,11 @@ subnet_id[] | **string**<br>Complete list of subnets (from the same network) the
 
 Field | Description
 --- | ---
-id | **string**<br>ID of lockbox secret 
-version_id | **string**<br>ID of secret version 
-key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+id | **string**<br>ID of Yandex Lockbox secret. 
+version_id | **string**<br>ID of Yandex Lockbox version. 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
-&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
 
 
 ## GetFunctionVersionByTag {#GetFunctionVersionByTag}
@@ -482,7 +482,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity3)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
-secrets[] | **[Secret](#Secret3)**<br>Lockbox secrets to be used by the version 
+secrets[] | **[Secret](#Secret3)**<br>Yandex Lockbox secrets to be used by the version. 
 
 
 ### Resources {#Resources3}
@@ -504,11 +504,11 @@ subnet_id[] | **string**<br>Complete list of subnets (from the same network) the
 
 Field | Description
 --- | ---
-id | **string**<br>ID of lockbox secret 
-version_id | **string**<br>ID of secret version 
-key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+id | **string**<br>ID of Yandex Lockbox secret. 
+version_id | **string**<br>ID of Yandex Lockbox version. 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
-&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
 
 
 ## ListVersions {#ListVersions}
@@ -557,7 +557,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity4)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
-secrets[] | **[Secret](#Secret4)**<br>Lockbox secrets to be used by the version 
+secrets[] | **[Secret](#Secret4)**<br>Yandex Lockbox secrets to be used by the version. 
 
 
 ### Resources {#Resources4}
@@ -579,11 +579,11 @@ subnet_id[] | **string**<br>Complete list of subnets (from the same network) the
 
 Field | Description
 --- | ---
-id | **string**<br>ID of lockbox secret 
-version_id | **string**<br>ID of secret version 
-key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+id | **string**<br>ID of Yandex Lockbox secret. 
+version_id | **string**<br>ID of Yandex Lockbox version. 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
-&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
 
 
 ## ListFunctionVersions {#ListFunctionVersions}
@@ -632,7 +632,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity5)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
-secrets[] | **[Secret](#Secret5)**<br>Lockbox secrets to be used by the version 
+secrets[] | **[Secret](#Secret5)**<br>Yandex Lockbox secrets to be used by the version. 
 
 
 ### Resources {#Resources5}
@@ -654,11 +654,11 @@ subnet_id[] | **string**<br>Complete list of subnets (from the same network) the
 
 Field | Description
 --- | ---
-id | **string**<br>ID of lockbox secret 
-version_id | **string**<br>ID of secret version 
-key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+id | **string**<br>ID of Yandex Lockbox secret. 
+version_id | **string**<br>ID of Yandex Lockbox version. 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
-&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
 
 
 ## SetTag {#SetTag}
@@ -722,7 +722,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity6)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
-secrets[] | **[Secret](#Secret6)**<br>Lockbox secrets to be used by the version 
+secrets[] | **[Secret](#Secret6)**<br>Yandex Lockbox secrets to be used by the version. 
 
 
 ### Resources {#Resources6}
@@ -744,11 +744,11 @@ subnet_id[] | **string**<br>Complete list of subnets (from the same network) the
 
 Field | Description
 --- | ---
-id | **string**<br>ID of lockbox secret 
-version_id | **string**<br>ID of secret version 
-key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+id | **string**<br>ID of Yandex Lockbox secret. 
+version_id | **string**<br>ID of Yandex Lockbox version. 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
-&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
 
 
 ## RemoveTag {#RemoveTag}
@@ -812,7 +812,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity7)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
-secrets[] | **[Secret](#Secret7)**<br>Lockbox secrets to be used by the version 
+secrets[] | **[Secret](#Secret7)**<br>Yandex Lockbox secrets to be used by the version. 
 
 
 ### Resources {#Resources7}
@@ -834,11 +834,11 @@ subnet_id[] | **string**<br>Complete list of subnets (from the same network) the
 
 Field | Description
 --- | ---
-id | **string**<br>ID of lockbox secret 
-version_id | **string**<br>ID of secret version 
-key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+id | **string**<br>ID of Yandex Lockbox secret. 
+version_id | **string**<br>ID of Yandex Lockbox version. 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
-&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
 
 
 ## ListTagHistory {#ListTagHistory}
@@ -942,7 +942,7 @@ environment | **map<string,string>**<br>Environment settings for the version. Th
 tag[] | **string**<br>Function version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). Each value must match the regular expression ` [a-z][-_0-9a-z]* `.
 connectivity | **[Connectivity](#Connectivity8)**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
-secrets[] | **[Secret](#Secret8)**<br>Lockbox secrets to be used by the version 
+secrets[] | **[Secret](#Secret8)**<br>Yandex Lockbox secrets to be used by the version. 
 
 
 ### Resources {#Resources8}
@@ -973,11 +973,11 @@ subnet_id[] | **string**<br>Complete list of subnets (from the same network) the
 
 Field | Description
 --- | ---
-id | **string**<br>ID of lockbox secret 
-version_id | **string**<br>ID of secret version 
-key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+id | **string**<br>ID of Yandex Lockbox secret. 
+version_id | **string**<br>ID of Yandex Lockbox version. 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
-&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
 
 
 ### Operation {#Operation5}
@@ -1023,7 +1023,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity9)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
-secrets[] | **[Secret](#Secret9)**<br>Lockbox secrets to be used by the version 
+secrets[] | **[Secret](#Secret9)**<br>Yandex Lockbox secrets to be used by the version. 
 
 
 ## CreateFunctionVersion {#CreateFunctionVersion}
@@ -1055,7 +1055,7 @@ environment | **map<string,string>**<br>Environment settings for the version. Th
 tag[] | **string**<br>Function version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). Each value must match the regular expression ` [a-z][-_0-9a-z]* `.
 connectivity | **[Connectivity](#Connectivity9)**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
-secrets[] | **[Secret](#Secret9)**<br>Lockbox secrets to be used by the version 
+secrets[] | **[Secret](#Secret9)**<br>Yandex Lockbox secrets to be used by the version. 
 
 
 ### Resources {#Resources9}
@@ -1086,11 +1086,11 @@ subnet_id[] | **string**<br>Complete list of subnets (from the same network) the
 
 Field | Description
 --- | ---
-id | **string**<br>ID of lockbox secret 
-version_id | **string**<br>ID of secret version 
-key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+id | **string**<br>ID of Yandex Lockbox secret. 
+version_id | **string**<br>ID of Yandex Lockbox version. 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
-&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
 
 
 ### Operation {#Operation6}
@@ -1136,7 +1136,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity10)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
-secrets[] | **[Secret](#Secret10)**<br>Lockbox secrets to be used by the version 
+secrets[] | **[Secret](#Secret10)**<br>Yandex Lockbox secrets to be used by the version. 
 
 
 ## ListRuntimes {#ListRuntimes}

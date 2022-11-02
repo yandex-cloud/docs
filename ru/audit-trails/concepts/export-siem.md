@@ -7,7 +7,7 @@
 [{{ yandex-cloud }} Security Solution Library](https://cloud.yandex.ru/solutions/security-solution-library) — это набор примеров и рекомендаций по построению безопасной инфраструктуры в {{ yandex-cloud }}, собранных в публичном репозитории на GitHub.
 
 В настоящее время подготовлены решения для следующих SIEM:
-* [{{ mes-full-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main)
+* [{{ mes-full-name }}](../tutorials/trails-logs-elasticsearch.md)
 * [ArcSight](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ArcSight)
 * [Splunk](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-Splunk)
 

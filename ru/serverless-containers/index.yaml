@@ -25,3 +25,6 @@ links:
   - title: Управление доступом
     description: Какие права доступа нужны для работы с сервисом
     href: security/
+  - title: Справочник API (англ.)
+    description: Описание методов HTTP API
+    href: containers/api-ref/
