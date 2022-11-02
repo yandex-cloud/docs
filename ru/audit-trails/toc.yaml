@@ -58,6 +58,9 @@ items:
         when: product == "yandex-cloud"
       - name: Экспорт аудитных логов в SIEM
         items:
+          - name: Загрузка аудитных логов в {{ mes-full-name }}
+            href: tutorials/trails-logs-elasticsearch.md
+            when: product == "yandex-cloud"
           - name: Загрузка аудитных логов в MaxPatrol SIEM
             href: tutorials/maxpatrol.md
             when: product == "yandex-cloud"
@@ -67,6 +70,7 @@ items:
           - name: Загрузка аудитных логов в SIEM ArcSight
             href: tutorials/export-logs-to-arcsight.md
             when: product == "yandex-cloud"
+        when: product == "yandex-cloud"
   - name: Концепции
     expanded: true
     items:
