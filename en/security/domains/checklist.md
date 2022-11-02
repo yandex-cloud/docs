@@ -55,7 +55,7 @@
 {% if product == "yandex-cloud" %}
    ![](../../_assets/overview/solution-library-icon.svg)[Example: Scanning .tf files with Checkov](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/checkov-yc)
 {% endif %}
-* **Integrity control on guest OS**: Use free host-based solutions, such as Wazuh or Osquery{% if product == "yandex-cloud" %}, or paid solutions from {{ marketplace-name }}.
+* **Integrity control on guest OS**: Use free host-based solutions, such as Wazuh or Osquery{% if product == "yandex-cloud" %}, or paid solutions from {{ marketplace-name }}{% endif %}.
 {% if product == "yandex-cloud" %}
 * **Secure configuration of {{ objstorage-name }}**: Use encryption, [bucket policies](../../storage/concepts/policy.md), and ACLs, or [versioning for deletion protection](../../storage/concepts/versioning.md), enable [built-in access auditing](../../storage/operations/buckets/enable-logging.md) and configure CORS (if necessary).
    ![](../../_assets/overview/solution-library-icon.svg)[Solution: Secure configuration of {{ objstorage-name }} in {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/configuration/hardering_bucket)
