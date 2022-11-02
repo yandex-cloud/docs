@@ -650,9 +650,9 @@ default:
   dt-status-repl: '**Реплицируется**'
   dt-status-stopped: '**Остановлен**'
   dt-status-stopping: '**Останавливается**'
-  dt-type-copy-repl: Копировать и реплицировать
-  dt-type-copy: Копировать
-  dt-type-repl: Реплицировать
+  dt-type-copy-repl: '**Копировать и реплицировать**'
+  dt-type-copy: '**Копировать**'
+  dt-type-repl: '**Реплицировать**'
   dt-white-ip-list-uri: https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
 
   # Актуальная документация по API Kubernetes
