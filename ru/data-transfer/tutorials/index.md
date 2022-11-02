@@ -12,6 +12,7 @@
 * [{#T}](cdc-mmy.md)
 * [{#T}](cdc-mpg.md)
 * [{#T}](rdbms-to-clickhouse.md)
+* [{#T}](managed-mysql-to-ydb.md)
 * [{#T}](mkf-to-mch.md)
 * [{#T}](mmy-objs-migration.md)
 * [{#T}](mkf-to-ydb.md)

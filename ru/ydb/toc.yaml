@@ -138,6 +138,8 @@ items:
         href: tutorials/video-converting-queue.md
       - name: Разработка навыка Алисы и сайта с авторизацией
         href: tutorials/alice-shareable-todolist.md
+      - name: Миграция базы данных из {{ mmy-full-name }} с помощью {{ data-transfer-full-name }}
+        href: tutorials/mmy-ydb-migration.md
   - name: Концепции
     items:
       - name: Обзор
