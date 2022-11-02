@@ -597,7 +597,7 @@ components:
           description: |-
             The maximum number of results per page to return.
 
-            Acceptable values are 1 to 1000, inclusive.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         maxResponseSize:

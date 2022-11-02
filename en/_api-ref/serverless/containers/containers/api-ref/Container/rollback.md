@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method rollback
-
+Rollback the specified container to an old revision.
  
 
  
@@ -16,7 +16,7 @@ POST https://serverless-containers.{{ api-host }}/containers/v1/containers/{cont
  
 Parameter | Description
 --- | ---
-containerId | <p>Required.</p> 
+containerId | <p>Required. ID of the container to rollback to an old revision.</p> <p>To get a container ID, make a <a href="/docs/serverless/containers/api-ref/Container/list">list</a> request.</p> 
  
 ## Body parameters {#body_params}
  
@@ -29,7 +29,7 @@ containerId | <p>Required.</p>
  
 Field | Description
 --- | ---
-revisionId | **string**<br><p>Required.</p> 
+revisionId | **string**<br><p>Required. ID of the revision to rollback to.</p> <p>To get a revision ID make a <a href="/docs/serverless/containers/api-ref/Container/listRevisions">listRevisions</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

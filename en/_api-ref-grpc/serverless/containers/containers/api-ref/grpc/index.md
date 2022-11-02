@@ -5,5 +5,5 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 
 Service | Description
 --- | ---
-[ContainerService](./container_service.md) | 
+[ContainerService](./container_service.md) | A set of methods for managing serverless containers.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

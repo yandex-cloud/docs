@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method setAccessBindings
-
+Sets access bindings for the container.
  
 
  

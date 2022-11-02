@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method delete
-
+Deletes the specified container.
  
 
  
@@ -16,7 +16,7 @@ DELETE https://serverless-containers.{{ api-host }}/containers/v1/containers/{co
  
 Parameter | Description
 --- | ---
-containerId | <p>Required.</p> 
+containerId | <p>Required. ID of the container to delete. To get a container ID make a <a href="/docs/serverless/containers/api-ref/Container/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

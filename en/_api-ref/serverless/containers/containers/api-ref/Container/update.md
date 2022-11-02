@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method update
-
+Updates the specified container.
  
 
  
@@ -16,7 +16,7 @@ PATCH https://serverless-containers.{{ api-host }}/containers/v1/containers/{con
  
 Parameter | Description
 --- | ---
-containerId | <p>Required.</p> 
+containerId | <p>Required. ID of the container to update.</p> <p>To get a container ID make a <a href="/docs/serverless/containers/api-ref/Container/list">list</a> request.</p> 
  
 ## Body parameters {#body_params}
  
@@ -32,10 +32,10 @@ containerId | <p>Required.</p>
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-name | **string**<br><p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
-description | **string**<br><p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
+updateMask | **string**<br><p>Field mask that specifies which attributes of the container should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+name | **string**<br><p>New name for the container. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
+description | **string**<br><p>New description for the container.</p> <p>The maximum string length in characters is 256.</p> 
+labels | **object**<br><p>Container labels as ``key:value`` pairs.</p> <p>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a <a href="/docs/serverless/containers/api-ref/Container/get">get</a> request.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

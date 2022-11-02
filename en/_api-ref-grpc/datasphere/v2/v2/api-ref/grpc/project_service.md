@@ -34,6 +34,8 @@ Creates a project in the specified folder.
 
 **rpc Create ([CreateProjectRequest](#CreateProjectRequest)) returns ([operation.Operation](#Operation))**
 
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateProjectMetadata](#CreateProjectMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Project](#Project)<br>
 
 ### CreateProjectRequest {#CreateProjectRequest}
@@ -62,10 +64,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateProjectMetadata](#CreateProjectMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Project](#Project)>**<br>if operation finished successfully. 
+
+
+### CreateProjectMetadata {#CreateProjectMetadata}
+
+Field | Description
+--- | ---
+project_id | **string**<br>ID of the project that is being created. 
 
 
 ### Project {#Project}
@@ -113,6 +122,8 @@ Updates the specified project.
 
 **rpc Update ([UpdateProjectRequest](#UpdateProjectRequest)) returns ([operation.Operation](#Operation1))**
 
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateProjectMetadata](#UpdateProjectMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Project](#Project1)<br>
 
 ### UpdateProjectRequest {#UpdateProjectRequest}
@@ -138,10 +149,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateProjectMetadata](#UpdateProjectMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Project](#Project1)>**<br>if operation finished successfully. 
+
+
+### UpdateProjectMetadata {#UpdateProjectMetadata}
+
+Field | Description
+--- | ---
+project_id | **string**<br>ID of the project that is being updated. 
 
 
 ### Project {#Project1}
@@ -189,6 +207,8 @@ Deletes the specified project.
 
 **rpc Delete ([DeleteProjectRequest](#DeleteProjectRequest)) returns ([operation.Operation](#Operation2))**
 
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteProjectMetadata](#DeleteProjectMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteProjectRequest {#DeleteProjectRequest}
@@ -208,10 +228,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteProjectMetadata](#DeleteProjectMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### DeleteProjectMetadata {#DeleteProjectMetadata}
+
+Field | Description
+--- | ---
+project_id | **string**<br>ID of the project that is being deleted. 
 
 
 ## Open {#Open}
@@ -455,6 +482,8 @@ Sets the unit balance of the specified project.
 
 **rpc SetUnitBalance ([SetUnitBalanceRequest](#SetUnitBalanceRequest)) returns ([operation.Operation](#Operation5))**
 
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetUnitBalanceMetadata](#SetUnitBalanceMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### SetUnitBalanceRequest {#SetUnitBalanceRequest}
@@ -475,10 +504,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SetUnitBalanceMetadata](#SetUnitBalanceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### SetUnitBalanceMetadata {#SetUnitBalanceMetadata}
+
+Field | Description
+--- | ---
+project_id | **string**<br>ID of the project which unit balance is set. 
 
 
 ## Execute {#Execute}
@@ -629,6 +665,8 @@ Sets access bindings for the project.
 
 **rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation7))**
 
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetProjectAccessBindingsMetadata](#SetProjectAccessBindingsMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### SetAccessBindingsRequest {#SetAccessBindingsRequest}
@@ -665,10 +703,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SetProjectAccessBindingsMetadata](#SetProjectAccessBindingsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### SetProjectAccessBindingsMetadata {#SetProjectAccessBindingsMetadata}
+
+Field | Description
+--- | ---
+project_id | **string**<br>ID of the project which access bindings are set. 
 
 
 ## UpdateAccessBindings {#UpdateAccessBindings}
@@ -677,6 +722,8 @@ Updates access bindings for the project.
 
 **rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation8))**
 
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateProjectAccessBindingsMetadata](#UpdateProjectAccessBindingsMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### UpdateAccessBindingsRequest {#UpdateAccessBindingsRequest}
@@ -721,10 +768,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateProjectAccessBindingsMetadata](#UpdateProjectAccessBindingsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### UpdateProjectAccessBindingsMetadata {#UpdateProjectAccessBindingsMetadata}
+
+Field | Description
+--- | ---
+project_id | **string**<br>ID of the project which access bindings are updated. 
 
 
 ## ListResources {#ListResources}

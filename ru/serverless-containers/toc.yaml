@@ -112,5 +112,19 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/serverless/containers/toc.yaml
+      - name: REST (англ.)
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref/serverless/containers/toc.yaml
   - name: Вопросы и ответы
     href: qa/index.md

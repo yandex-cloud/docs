@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method create
-
+Creates a container in the specified folder.
  
 
  
@@ -26,10 +26,10 @@ POST https://serverless-containers.{{ api-host }}/containers/v1/containers
  
 Field | Description
 --- | ---
-folderId | **string**<br><p>Required.</p> 
-name | **string**<br><p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
-description | **string**<br><p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
+folderId | **string**<br><p>Required. ID of the folder to create a container in.</p> <p>To get a folder ID make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> 
+name | **string**<br><p>Name of the container. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
+description | **string**<br><p>Description of the container.</p> <p>The maximum string length in characters is 256.</p> 
+labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

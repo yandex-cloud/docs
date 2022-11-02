@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method list
-
+Retrieves the list of containers in the specified folder.
  
 
  
@@ -16,10 +16,10 @@ GET https://serverless-containers.{{ api-host }}/containers/v1/containers
  
 Parameter | Description
 --- | ---
-folderId | <p>Required.</p> 
-pageSize | 
-pageToken | 
-filter | 
+folderId | <p>Required. ID of the folder to list containers in.</p> <p>To get a folder ID make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than ``pageSize``, the service returns a <a href="/docs/serverless/containers/api-ref/Container/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>Default value: 100.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``pageToken`` to the <a href="/docs/serverless/containers/api-ref/Container/list#responses">nextPageToken</a> returned by a previous list request.</p> 
+filter | <p>A filter expression that filters containers listed in the response.</p> <p>The expression must specify:</p> <ol> <li>The field name. Currently filtering can only be applied to the <a href="/docs/serverless/containers/api-ref/Container#representation">Container.name</a> field.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``). Must be 3-63 characters long and match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``. Example of a filter: ``name="my-container"``.</li> </ol> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -45,13 +45,13 @@ filter |
  
 Field | Description
 --- | ---
-containers[] | **object**
-containers[].<br>id | **string**
-containers[].<br>folderId | **string**
-containers[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-containers[].<br>name | **string**
-containers[].<br>description | **string**
-containers[].<br>labels | **object**
-containers[].<br>url | **string**
-containers[].<br>status | **string**
-nextPageToken | **string**
+containers[] | **object**<br><p>List of containers in the specified folder.</p> 
+containers[].<br>id | **string**<br><p>ID of the container. Generated at creation time.</p> 
+containers[].<br>folderId | **string**<br><p>ID of the folder that the container belongs to.</p> 
+containers[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp for the container.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+containers[].<br>name | **string**<br><p>Name of the container. The name is unique within the folder.</p> 
+containers[].<br>description | **string**<br><p>Description of the container.</p> 
+containers[].<br>labels | **object**<br><p>Container labels as ``key:value`` pairs.</p> 
+containers[].<br>url | **string**<br><p>URL that needs to be requested to call the container.</p> 
+containers[].<br>status | **string**<br><p>Status of the container.</p> <ul> <li>CREATING: Container is being created.</li> <li>ACTIVE: Container is ready for use.</li> <li>DELETING: Container is being deleted.</li> <li>ERROR: Container failed. The only allowed action is delete.</li> </ul> 
+nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/serverless/containers/api-ref/Container/list#query_params">pageSize</a>, use ``nextPageToken`` as the value for the <a href="/docs/serverless/containers/api-ref/Container/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``nextPageToken`` to continue paging through the results.</p> 

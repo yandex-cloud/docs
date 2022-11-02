@@ -929,7 +929,7 @@ components:
             additionalProperties:
               type: string
           secrets:
-            description: Lockbox secrets to be used by the version
+            description: Yandex Lockbox secrets to be used by the version.
             type: array
             items:
               $ref: '#/components/schemas/Secret'
@@ -1323,27 +1323,27 @@ components:
           type: string
           format: int64
     Secret:
-      description: Secret for serverless function
+      description: Secret for serverless function.
       type: object
       allOf:
       - type: object
         properties:
           id:
-            description: ID of lockbox secret
+            description: ID of Yandex Lockbox secret.
             type: string
           versionId:
-            description: ID of secret version
+            description: ID of Yandex Lockbox version.
             type: string
           key:
             description: Key in secret's payload, which value to be delivered into
-              function environment
+              function environment.
             type: string
       - title: reference
         type: object
         maxProperties: 1
         properties:
           environmentVariable:
-            description: environment variable in which secret's value to be delivered
+            description: environment variable in which secret's value to be delivered.
             type: string
     SetAccessBindingsMetadata:
       type: object
@@ -1583,7 +1583,7 @@ components:
           additionalProperties:
             type: string
         secrets:
-          description: Lockbox secrets to be used by the version
+          description: Yandex Lockbox secrets to be used by the version.
           type: array
           items:
             $ref: '#/components/schemas/Secret'

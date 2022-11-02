@@ -23,3 +23,6 @@ links:
   - title: Access management
     description: Permissions required for using the service
     href: security/index
+  - title: API reference
+    description: HTTP API method descriptions
+    href: containers/api-ref/

@@ -26,6 +26,8 @@ Creates community in specified organization.
 
 **rpc Create ([CreateCommunityRequest](#CreateCommunityRequest)) returns ([operation.Operation](#Operation))**
 
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateCommunityMetadata](#CreateCommunityMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Community](#Community)<br>
 
 ### CreateCommunityRequest {#CreateCommunityRequest}
@@ -48,10 +50,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateCommunityMetadata](#CreateCommunityMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Community](#Community)>**<br>if operation finished successfully. 
+
+
+### CreateCommunityMetadata {#CreateCommunityMetadata}
+
+Field | Description
+--- | ---
+community_id | **string**<br>ID of the community that is being created. 
 
 
 ### Community {#Community}
@@ -123,6 +132,8 @@ Updates specified community.
 
 **rpc Update ([UpdateCommunityRequest](#UpdateCommunityRequest)) returns ([operation.Operation](#Operation1))**
 
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateCommunityMetadata](#UpdateCommunityMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Community](#Community2)<br>
 
 ### UpdateCommunityRequest {#UpdateCommunityRequest}
@@ -145,10 +156,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateCommunityMetadata](#UpdateCommunityMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Community](#Community2)>**<br>if operation finished successfully. 
+
+
+### UpdateCommunityMetadata {#UpdateCommunityMetadata}
+
+Field | Description
+--- | ---
+community_id | **string**<br>ID of the community that is being updated. 
 
 
 ### Community {#Community2}
@@ -182,6 +200,8 @@ Deletes specified community.
 
 **rpc Delete ([DeleteCommunityRequest](#DeleteCommunityRequest)) returns ([operation.Operation](#Operation2))**
 
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteCommunityMetadata](#DeleteCommunityMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteCommunityRequest {#DeleteCommunityRequest}
@@ -201,10 +221,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteCommunityMetadata](#DeleteCommunityMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### DeleteCommunityMetadata {#DeleteCommunityMetadata}
+
+Field | Description
+--- | ---
+community_id | **string**<br>ID of the community that is being deleted. 
 
 
 ## List {#List}
@@ -303,6 +330,8 @@ Sets access bindings for specified community.
 
 **rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation3))**
 
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetCommunityAccessBindingsMetadata](#SetCommunityAccessBindingsMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### SetAccessBindingsRequest {#SetAccessBindingsRequest}
@@ -339,10 +368,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SetCommunityAccessBindingsMetadata](#SetCommunityAccessBindingsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### SetCommunityAccessBindingsMetadata {#SetCommunityAccessBindingsMetadata}
+
+Field | Description
+--- | ---
+community_id | **string**<br>ID of the community which access bindings are set. 
 
 
 ## UpdateAccessBindings {#UpdateAccessBindings}
@@ -351,6 +387,8 @@ Updates access bindings for specified community.
 
 **rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation4))**
 
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateCommunityAccessBindingsMetadata](#UpdateCommunityAccessBindingsMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### UpdateAccessBindingsRequest {#UpdateAccessBindingsRequest}
@@ -395,10 +433,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateCommunityAccessBindingsMetadata](#UpdateCommunityAccessBindingsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### UpdateCommunityAccessBindingsMetadata {#UpdateCommunityAccessBindingsMetadata}
+
+Field | Description
+--- | ---
+community_id | **string**<br>ID of the community which access bindings are updated. 
 
 
 ## ListResources {#ListResources}

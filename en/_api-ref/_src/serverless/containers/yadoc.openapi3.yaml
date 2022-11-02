@@ -12,11 +12,18 @@ paths:
     get:
       tags:
       - Container
+      summary: Returns the specified container.
+      description: To get the list of all available containers, make a [list](/docs/serverless/containers/api-ref/Container/list)
+        request.
       operationId: ContainerGet
       parameters:
       - name: containerId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the container to return.
+
+          To get a container ID make a [list](/docs/serverless/containers/api-ref/Container/list) request.
         required: true
         schema:
           type: string
@@ -31,11 +38,15 @@ paths:
     delete:
       tags:
       - Container
+      summary: Deletes the specified container.
       operationId: ContainerDelete
       parameters:
       - name: containerId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the container to delete.
+          To get a container ID make a [list](/docs/serverless/containers/api-ref/Container/list) request.
         required: true
         schema:
           type: string
@@ -53,11 +64,16 @@ paths:
     patch:
       tags:
       - Container
+      summary: Updates the specified container.
       operationId: ContainerUpdate
       parameters:
       - name: containerId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the container to update.
+
+          To get a container ID make a [list](/docs/serverless/containers/api-ref/Container/list) request.
         required: true
         schema:
           type: string
@@ -82,24 +98,46 @@ paths:
     get:
       tags:
       - Container
+      summary: Retrieves the list of containers in the specified folder.
       operationId: ContainerList
       parameters:
       - name: folderId
         in: query
-        description: Required.
+        description: |-
+          Required.
+          ID of the folder to list containers in.
+
+          To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
         schema:
           type: string
       - name: pageSize
         in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `pageSize`, the service returns a [nextPageToken](/docs/serverless/containers/api-ref/Container/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Default value: 100.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
+        description: |-
+          Page token. To get the next page of results, set `pageToken` to the
+          [nextPageToken](/docs/serverless/containers/api-ref/Container/list#responses) returned by a previous list request.
         schema:
           type: string
       - name: filter
         in: query
+        description: |-
+          A filter expression that filters containers listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently filtering can only be applied to the [Container.name](/docs/serverless/containers/api-ref/Container#representation) field.
+          2. An `=` operator.
+          3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+          Example of a filter: `name="my-container"`.
         schema:
           type: string
       responses:
@@ -113,6 +151,7 @@ paths:
     post:
       tags:
       - Container
+      summary: Creates a container in the specified folder.
       operationId: ContainerCreate
       requestBody:
         content:
@@ -135,6 +174,7 @@ paths:
     post:
       tags:
       - Container
+      summary: Deploys a revision for the specified container.
       operationId: ContainerDeployRevision
       requestBody:
         content:
@@ -157,11 +197,16 @@ paths:
     post:
       tags:
       - Container
+      summary: Rollback the specified container to an old revision.
       operationId: ContainerRollback
       parameters:
       - name: containerId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the container to rollback to an old revision.
+
+          To get a container ID, make a [list](/docs/serverless/containers/api-ref/Container/list) request.
         required: true
         schema:
           type: string
@@ -186,11 +231,18 @@ paths:
     get:
       tags:
       - Container
+      summary: Returns the specified revision of a container.
+      description: To get the list of available revision, make a [listRevisions](/docs/serverless/containers/api-ref/Container/listRevisions)
+        request.
       operationId: ContainerGetRevision
       parameters:
       - name: containerRevisionId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the revision to return.
+
+          To get a revision ID make a [listRevisions](/docs/serverless/containers/api-ref/Container/listRevisions) request.
         required: true
         schema:
           type: string
@@ -206,30 +258,59 @@ paths:
     get:
       tags:
       - Container
+      summary: |-
+        Retrieves the list of revisions for the specified container, or of all container revisions
+        in the specified folder.
       operationId: ContainerListRevisions
       parameters:
       - name: folderId
         in: query
+        description: |-
+          ID of the folder to list container revisions for.
+          To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
         schema:
           type: string
       - name: containerId
         in: query
+        description: |-
+          ID of the container to list revisions for.
+          To get a container ID use a [list](/docs/serverless/containers/api-ref/Container/list) request.
         schema:
           type: string
       - name: pageSize
         in: query
-        description: Acceptable values are 0 to 1000, inclusive.
+        description: |-
+          The maximum number of results per page to return. If the number of available results
+          is larger than `pageSize`, the service returns a [nextPageToken](/docs/serverless/containers/api-ref/Container/listRevisions#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
-        description: The maximum string length in characters is 100.
+        description: |-
+          Page token. To get the next page of results, set `pageToken` to the
+          [nextPageToken](/docs/serverless/containers/api-ref/Container/listRevisions#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
         schema:
           type: string
       - name: filter
         in: query
-        description: The maximum string length in characters is 1000.
+        description: |-
+          A filter expression that filters resources listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently filtering can only be applied to the `status` and [Revision.runtime] fields.
+          2. An `=` operator.
+          3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+          Example of a filter: `status="ACTIVE"`.
+
+          The maximum string length in characters is 1000.
         schema:
           type: string
       responses:
@@ -244,28 +325,51 @@ paths:
     get:
       tags:
       - Container
+      summary: Lists operations for the specified container.
       operationId: ContainerListOperations
       parameters:
       - name: containerId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the container to list operations for.
         required: true
         schema:
           type: string
       - name: pageSize
         in: query
-        description: Acceptable values are 0 to 1000, inclusive.
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `pageSize`, the service returns a [nextPageToken](/docs/serverless/containers/api-ref/Container/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
-        description: The maximum string length in characters is 100.
+        description: |-
+          Page token. To get the next page of results, set `pageToken` to the
+          [nextPageToken](/docs/serverless/containers/api-ref/Container/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
         schema:
           type: string
       - name: filter
         in: query
-        description: The maximum string length in characters is 1000.
+        description: |-
+          A filter expression that filters resources listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently filtering can be applied to the [Operation.done](/docs/operation/api-ref/Operation#representation), [Operation.createdBy](/docs/operation/api-ref/Operation#representation) field.
+          2. An `=` operator.
+          3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+          Examples of a filter: `done=false`, `created_by='John.Doe'`.
+
+          The maximum string length in characters is 1000.
         schema:
           type: string
       responses:
@@ -280,6 +384,7 @@ paths:
     get:
       tags:
       - Container
+      summary: Lists existing access bindings for the specified container.
       operationId: ContainerListAccessBindings
       parameters:
       - name: resourceId
@@ -330,6 +435,7 @@ paths:
     post:
       tags:
       - Container
+      summary: Sets access bindings for the container.
       operationId: ContainerSetAccessBindings
       parameters:
       - name: resourceId
@@ -365,6 +471,7 @@ paths:
     post:
       tags:
       - Container
+      summary: Updates access bindings for the specified container.
       operationId: ContainerUpdateAccessBindings
       parameters:
       - name: resourceId
@@ -427,6 +534,12 @@ components:
       type: object
       properties:
         args:
+          description: |-
+            Arguments that will override CMD of an image.
+
+            Arguments will be passed as is. The runtime will not substitute environment
+            variables or execute shell commands. If one wants to do that, they should
+            invoke shell interpreter with an appropriate shell script.
           type: array
           items:
             type: string
@@ -434,15 +547,27 @@ components:
       type: object
       properties:
         command:
+          description: |-
+            Command that will override ENTRYPOINT of an image.
+
+            Commands will be executed as is. The runtime will not substitute environment
+            variables or execute shell commands. If one wants to do that, they should
+            invoke shell interpreter with an appropriate shell script.
           type: array
           items:
             type: string
     Connectivity:
+      description: Revision connectivity specification.
       type: object
       properties:
         networkId:
+          description: Network the revision will have access to.
           type: string
         subnetIds:
+          description: |-
+            The list of subnets (from the same network) the revision can be attached to.
+
+            Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
           type: array
           items:
             type: string
@@ -450,27 +575,40 @@ components:
       type: object
       properties:
         id:
+          description: ID of the container. Generated at creation time.
           type: string
         folderId:
+          description: ID of the folder that the container belongs to.
           type: string
         createdAt:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Creation timestamp for the container.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         name:
+          description: Name of the container. The name is unique within the folder.
           type: string
         description:
+          description: Description of the container.
           type: string
         labels:
+          description: Container labels as `key:value` pairs.
           type: object
           additionalProperties:
             type: string
         url:
+          description: URL that needs to be requested to call the container.
           type: string
         status:
           $ref: '#/components/schemas/ContainerStatus_in_Container_status'
     ContainerStatus:
+      description: |2-
+         - CREATING: Container is being created.
+         - ACTIVE: Container is ready for use.
+         - DELETING: Container is being deleted.
+         - ERROR: Container failed. The only allowed action is delete.
       type: string
       enum:
       - CREATING
@@ -481,22 +619,35 @@ components:
       type: object
       properties:
         containerId:
+          description: ID of the container that is being created.
           type: string
     CreateContainerRequest:
       type: object
       properties:
         folderId:
-          description: Required.
+          description: |-
+            Required.
+            ID of the folder to create a container in.
+
+            To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
           type: string
         name:
-          description: Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
-            ``.
+          description: |-
+            Name of the container.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
-          description: The maximum string length in characters is 256.
+          description: |-
+            Description of the container.
+
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
+            Resource labels as `key:value` pairs.
+
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
@@ -509,33 +660,51 @@ components:
       type: object
       properties:
         containerId:
+          description: ID of the container that is being deleted.
           type: string
     DeployContainerRevisionMetadata:
       type: object
       properties:
         containerRevisionId:
+          description: ID of the revision that is being created.
           type: string
     DeployContainerRevisionRequest:
       type: object
       properties:
         containerId:
-          description: Required.
+          description: |-
+            Required.
+            ID of the container to create a revision for.
+
+            To get a container ID, make a [list](/docs/serverless/containers/api-ref/Container/list) request.
           type: string
         description:
+          description: Description of the revision.
           type: string
         resources:
           $ref: '#/components/schemas/Resources_in_DeployContainerRevisionRequest_resources'
         executionTimeout:
-          description: The maximum value is 600 seconds.
+          description: |-
+            Timeout for the execution of the revision.
+
+            If the timeout is exceeded, Serverless Containers responds with a 504 HTTP code.
+
+            The maximum value is 600 seconds.
           type: string
         serviceAccountId:
+          description: ID of the service account to associate with the revision.
           type: string
         imageSpec:
           $ref: '#/components/schemas/ImageSpec_in_DeployContainerRevisionRequest_imageSpec'
         concurrency:
+          description: |-
+            The number of concurrent requests allowed per container instance.
+
+            The default value is 1.
           type: string
           format: int64
         secrets:
+          description: Yandex Lockbox secrets to be used by the revision.
           type: array
           items:
             $ref: '#/components/schemas/Secret'
@@ -559,11 +728,14 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     Image:
+      description: Revision image specification.
       type: object
       properties:
         imageUrl:
+          description: Image URL, that is used by the revision.
           type: string
         imageDigest:
+          description: Digest of the image. Calculated at creation time.
           type: string
         command:
           $ref: '#/components/schemas/Command_in_Image_command'
@@ -571,18 +743,24 @@ components:
           $ref: '#/components/schemas/Args_in_Image_args'
         environment:
           description: |-
+            Additional environment for the container.
+
             Each key must match the regular expression `` [a-zA-Z][a-zA-Z0-9_]* ``.
             The maximum string length in characters for each value is 4096.
           type: object
           additionalProperties:
             type: string
         workingDir:
+          description: Override for the image's WORKDIR.
           type: string
     ImageSpec:
+      description: Revision image specification.
       type: object
       properties:
         imageUrl:
-          description: Required.
+          description: |-
+            Required.
+            Image URL, that is used by the revision.
           type: string
         command:
           $ref: '#/components/schemas/Command_in_ImageSpec_command'
@@ -590,12 +768,15 @@ components:
           $ref: '#/components/schemas/Args_in_ImageSpec_args'
         environment:
           description: |-
+            Additional environment for the container.
+
             Each key must match the regular expression `` [a-zA-Z][a-zA-Z0-9_]* ``.
             The maximum string length in characters for each value is 4096.
           type: object
           additionalProperties:
             type: string
         workingDir:
+          description: Override for the image's WORKDIR.
           type: string
     ListAccessBindingsResponse:
       type: object
@@ -618,28 +799,49 @@ components:
       type: object
       properties:
         operations:
+          description: List of operations for the specified container.
           type: array
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/serverless/containers/api-ref/Container/listOperations#query_params), use `nextPageToken` as the value
+            for the [pageToken](/docs/serverless/containers/api-ref/Container/listOperations#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `nextPageToken` to continue paging through the results.
           type: string
     ListContainersResponse:
       type: object
       properties:
         containers:
+          description: List of containers in the specified folder.
           type: array
           items:
             $ref: '#/components/schemas/Container'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/serverless/containers/api-ref/Container/list#query_params), use `nextPageToken` as the value
+            for the [pageToken](/docs/serverless/containers/api-ref/Container/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `nextPageToken` to continue paging through the results.
           type: string
     ListContainersRevisionsResponse:
       type: object
       properties:
         revisions:
+          description: List of revisions for the specified folder or container.
           type: array
           items:
             $ref: '#/components/schemas/Revision'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/serverless/containers/api-ref/Container/listRevisions#query_params), use `nextPageToken` as the value
+            for the [pageToken](/docs/serverless/containers/api-ref/Container/listRevisions#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `nextPageToken` to continue paging through the results.
           type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
@@ -702,35 +904,53 @@ components:
       type: object
       properties:
         minInstances:
+          description: |-
+            Minimum number of guaranteed provisioned container instances for all zones
+            in total.
           type: string
           format: int64
     Resources:
+      description: Resources allocated to a revision.
       type: object
       properties:
         memory:
-          description: Acceptable values are 134217728 to 8589934592, inclusive.
+          description: |-
+            Amount of memory available to the revision, specified in bytes.
+
+            Acceptable values are 134217728 to 8589934592, inclusive.
           type: string
           format: int64
         cores:
-          description: Acceptable values are 0 to 1, inclusive.
+          description: |-
+            Number of cores available to the revision.
+
+            Acceptable values are 0 to 1, inclusive.
           type: string
           format: int64
         coreFraction:
-          description: Acceptable values are 0 to 100, inclusive.
+          description: |-
+            Specifies baseline performance for a core in percent.
+
+            Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
     Revision:
       type: object
       properties:
         id:
+          description: ID of the revision.
           type: string
         containerId:
+          description: ID of the container that the revision belongs to.
           type: string
         description:
+          description: Description of the revision.
           type: string
         createdAt:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Creation timestamp for the revision.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         image:
@@ -738,15 +958,22 @@ components:
         resources:
           $ref: '#/components/schemas/Resources_in_Revision_resources'
         executionTimeout:
+          description: |-
+            Timeout for the execution of the revision.
+
+            If the timeout is exceeded, Serverless Containers responds with a 504 HTTP code.
           type: string
         concurrency:
+          description: The number of concurrent requests allowed per container instance.
           type: string
           format: int64
         serviceAccountId:
+          description: ID of the service account associated with the revision.
           type: string
         status:
           $ref: '#/components/schemas/RevisionStatus_in_Revision_status'
         secrets:
+          description: Yandex Lockbox secrets to be used by the revision.
           type: array
           items:
             $ref: '#/components/schemas/Secret'
@@ -755,6 +982,10 @@ components:
         provisionPolicy:
           $ref: '#/components/schemas/ProvisionPolicy_in_Revision_provisionPolicy'
     RevisionStatus:
+      description: |2-
+         - CREATING: Revision is being created.
+         - ACTIVE: Revision is currently used by the container.
+         - OBSOLETE: Revision is not used by the container. May be deleted later.
       type: string
       enum:
       - CREATING
@@ -764,31 +995,44 @@ components:
       type: object
       properties:
         containerId:
+          description: ID of the container that is being rolled back.
           type: string
         revisionId:
+          description: ID of the revision that the container is being rolled back
+            to.
           type: string
     RollbackContainerRequest:
       type: object
       properties:
         revisionId:
-          description: Required.
+          description: |-
+            Required.
+            ID of the revision to rollback to.
+
+            To get a revision ID make a [listRevisions](/docs/serverless/containers/api-ref/Container/listRevisions) request.
           type: string
     Secret:
+      description: Secret that is available to the container at run time.
       type: object
       allOf:
       - type: object
         properties:
           id:
+            description: ID of Yandex Lockbox secret.
             type: string
           versionId:
+            description: ID of Yandex Lockbox secret.
             type: string
           key:
+            description: Key in secret's payload, which value to be delivered into
+              container environment.
             type: string
       - title: reference
         type: object
         maxProperties: 1
         properties:
           environmentVariable:
+            description: Environment variable in which secret's value is delivered.
             type: string
     SetAccessBindingsMetadata:
       type: object
@@ -862,6 +1106,7 @@ components:
       type: object
       properties:
         containerId:
+          description: ID of the container that is being updated.
           type: string
     UpdateContainerRequest:
       type: object
@@ -869,14 +1114,25 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateContainerRequest_updateMask'
         name:
-          description: Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
-            ``.
+          description: |-
+            New name for the container.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
-          description: The maximum string length in characters is 256.
+          description: |-
+            New description for the container.
+
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
+            Container labels as `key:value` pairs.
+
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label, request the current set of labels with a [get](/docs/serverless/containers/api-ref/Container/get) request.
+
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
@@ -965,6 +1221,13 @@ components:
         subject:
           $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
     ContainerStatus_in_Container_status:
+      description: |-
+        Status of the container.
+
+         - CREATING: Container is being created.
+         - ACTIVE: Container is ready for use.
+         - DELETING: Container is being deleted.
+         - ERROR: Container failed. The only allowed action is delete.
       type: string
       enum:
       - CREATING
@@ -972,27 +1235,46 @@ components:
       - DELETING
       - ERROR
     Resources_in_DeployContainerRevisionRequest_resources:
-      description: Required.
+      description: |-
+        Required.
+        Resources allocated to the revision.
+
+        Resources allocated to a revision.
       type: object
       properties:
         memory:
-          description: Acceptable values are 134217728 to 8589934592, inclusive.
+          description: |-
+            Amount of memory available to the revision, specified in bytes.
+
+            Acceptable values are 134217728 to 8589934592, inclusive.
           type: string
           format: int64
         cores:
-          description: Acceptable values are 0 to 1, inclusive.
+          description: |-
+            Number of cores available to the revision.
+
+            Acceptable values are 0 to 1, inclusive.
           type: string
           format: int64
         coreFraction:
-          description: Acceptable values are 0 to 100, inclusive.
+          description: |-
+            Specifies baseline performance for a core in percent.
+
+            Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
     ImageSpec_in_DeployContainerRevisionRequest_imageSpec:
-      description: Required.
+      description: |-
+        Required.
+        Image configuration for the revision.
+
+        Revision image specification.
       type: object
       properties:
         imageUrl:
-          description: Required.
+          description: |-
+            Required.
+            Image URL, that is used by the revision.
           type: string
         command:
           $ref: '#/components/schemas/Command_in_ImageSpec_command'
@@ -1000,62 +1282,115 @@ components:
           $ref: '#/components/schemas/Args_in_ImageSpec_args'
         environment:
           description: |-
+            Additional environment for the container.
+
             Each key must match the regular expression `` [a-zA-Z][a-zA-Z0-9_]* ``.
             The maximum string length in characters for each value is 4096.
           type: object
           additionalProperties:
             type: string
         workingDir:
+          description: Override for the image's WORKDIR.
           type: string
     Connectivity_in_DeployContainerRevisionRequest_connectivity:
+      description: |-
+        Network access. If specified the revision will be attached to specified network/subnet(s).
+
+        Revision connectivity specification.
       type: object
       properties:
         networkId:
+          description: Network the revision will have access to.
           type: string
         subnetIds:
+          description: |-
+            The list of subnets (from the same network) the revision can be attached to.
+
+            Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
           type: array
           items:
             type: string
     ProvisionPolicy_in_DeployContainerRevisionRequest_provisionPolicy:
+      description: |-
+        Policy for provisioning instances of the revision.
+
+        The policy is only applied when the revision is ACTIVE.
       type: object
       properties:
         minInstances:
+          description: |-
+            Minimum number of guaranteed provisioned container instances for all zones
+            in total.
           type: string
           format: int64
     Command_in_Image_command:
+      description: Override for the image's ENTRYPOINT.
       type: object
       properties:
         command:
+          description: |-
+            Command that will override ENTRYPOINT of an image.
+
+            Commands will be executed as is. The runtime will not substitute environment
+            variables or execute shell commands. If one wants to do that, they should
+            invoke shell interpreter with an appropriate shell script.
           type: array
           items:
             type: string
     Args_in_Image_args:
+      description: Override for the image's CMD.
       type: object
       properties:
         args:
+          description: |-
+            Arguments that will override CMD of an image.
+
+            Arguments will be passed as is. The runtime will not substitute environment
+            variables or execute shell commands. If one wants to do that, they should
+            invoke shell interpreter with an appropriate shell script.
           type: array
           items:
             type: string
     Command_in_ImageSpec_command:
+      description: Override for the image's ENTRYPOINT.
       type: object
       properties:
         command:
+          description: |-
+            Command that will override ENTRYPOINT of an image.
+
+            Commands will be executed as is. The runtime will not substitute environment
+            variables or execute shell commands. If one wants to do that, they should
+            invoke shell interpreter with an appropriate shell script.
           type: array
           items:
             type: string
     Args_in_ImageSpec_args:
+      description: Override for the image's CMD.
       type: object
       properties:
         args:
+          description: |-
+            Arguments that will override CMD of an image.
+
+            Arguments will be passed as is. The runtime will not substitute environment
+            variables or execute shell commands. If one wants to do that, they should
+            invoke shell interpreter with an appropriate shell script.
           type: array
           items:
             type: string
     Image_in_Revision_image:
+      description: |-
+        Image configuration for the revision.
+
+        Revision image specification.
       type: object
       properties:
         imageUrl:
+          description: Image URL, that is used by the revision.
           type: string
         imageDigest:
+          description: Digest of the image. Calculated at creation time.
           type: string
         command:
           $ref: '#/components/schemas/Command_in_Image_command'
@@ -1063,51 +1398,91 @@ components:
           $ref: '#/components/schemas/Args_in_Image_args'
         environment:
           description: |-
+            Additional environment for the container.
+
             Each key must match the regular expression `` [a-zA-Z][a-zA-Z0-9_]* ``.
             The maximum string length in characters for each value is 4096.
           type: object
           additionalProperties:
             type: string
         workingDir:
+          description: Override for the image's WORKDIR.
           type: string
     Resources_in_Revision_resources:
+      description: |-
+        Resources allocated to the revision.
+
+        Resources allocated to a revision.
       type: object
       properties:
         memory:
-          description: Acceptable values are 134217728 to 8589934592, inclusive.
+          description: |-
+            Amount of memory available to the revision, specified in bytes.
+
+            Acceptable values are 134217728 to 8589934592, inclusive.
           type: string
           format: int64
         cores:
-          description: Acceptable values are 0 to 1, inclusive.
+          description: |-
+            Number of cores available to the revision.
+
+            Acceptable values are 0 to 1, inclusive.
           type: string
           format: int64
         coreFraction:
-          description: Acceptable values are 0 to 100, inclusive.
+          description: |-
+            Specifies baseline performance for a core in percent.
+
+            Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
     RevisionStatus_in_Revision_status:
+      description: |-
+        Status of the revision.
+
+         - CREATING: Revision is being created.
+         - ACTIVE: Revision is currently used by the container.
+         - OBSOLETE: Revision is not used by the container. May be deleted later.
       type: string
       enum:
       - CREATING
       - ACTIVE
       - OBSOLETE
     Connectivity_in_Revision_connectivity:
+      description: |-
+        Network access. If specified the revision will be attached to specified network/subnet(s).
+
+        Revision connectivity specification.
       type: object
       properties:
         networkId:
+          description: Network the revision will have access to.
           type: string
         subnetIds:
+          description: |-
+            The list of subnets (from the same network) the revision can be attached to.
+
+            Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
           type: array
           items:
             type: string
     ProvisionPolicy_in_Revision_provisionPolicy:
+      description: |-
+        Policy for provisioning instances of the revision.
+
+        The policy is only applied when the revision is ACTIVE.
       type: object
       properties:
         minInstances:
+          description: |-
+            Minimum number of guaranteed provisioned container instances for all zones
+            in total.
           type: string
           format: int64
     FieldMask_in_UpdateContainerRequest_updateMask:
       description: |-
+        Field mask that specifies which attributes of the container should be updated.
+
         A comma-separated names off ALL fields to be updated.
         Only the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
@@ -1119,3 +1494,4 @@ components:
       type: string
 tags:
 - name: Container
+  description: A set of methods for managing serverless containers.
