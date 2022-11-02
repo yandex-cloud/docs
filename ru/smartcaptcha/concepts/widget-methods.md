@@ -162,7 +162,7 @@
 Метод `destroy` удаляет виджет и созданные им обработчики.
 
 ```ts
-(widgetId: widgetId | undefined) => void;
+(widgetId: WidgetId | undefined) => void;
 ```
 
 Аргумент – `widgetId`, уникальный идентификатор виджета. Если аргумент не передан, будет удален первый отрисованный виджет.
@@ -202,7 +202,7 @@
 * `callback` – функция-обработчик:
 
     ```ts
-    UnsubscribeFunction = () => viod;
+    UnsubscribeFunction = () => void;
     ```
 
 Пример использования:
