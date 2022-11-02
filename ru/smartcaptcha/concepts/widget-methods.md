@@ -48,6 +48,7 @@
 ```html
 <html>
   <head>
+    <meta charset="UTF-8">
     <title>Форма аутентификации</title>
     <script>
       function callback(token) {
