@@ -50,6 +50,8 @@ items:
         href: tutorials/logs-analysis.md
       - name: Экспорт аудитных логов в SIEM
         items:
+          - name: Загрузка аудитных логов в {{ mes-full-name }}
+            href: tutorials/trails-logs-elasticsearch.md
           - name: Загрузка аудитных логов в MaxPatrol SIEM
             href: tutorials/maxpatrol.md
           - name: Загрузка аудитных логов в SIEM Splunk

@@ -187,9 +187,7 @@ items:
         href: dataplatform/managed-schema-registry.md
       - name: Использование Confluent Schema Registry с {{ mkf-full-name }}
         href: dataplatform/confluent-schema-registry.md
-      - name: >-
-          Миграция базы данных из {{ PG }} в {{ CH }} с помощью {{
-          data-transfer-full-name }}
+      - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
         href: dataplatform/rdbms-to-clickhouse.md
       - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
         href: dataplatform/dp-mch-data-exchange.md
@@ -251,6 +249,10 @@ items:
           Миграция базы данных из {{ mmy-full-name }} в сторонний кластер {{ MY
           }}
         href: dataplatform/mmy-to-mysql-migration.md
+      - name: >-
+          Миграция базы данных из {{ mmy-full-name }} в {{ ydb-full-name }} с
+          помощью {{ data-transfer-full-name }}
+        href: dataplatform/mmy-ydb-migration.md
       - name: >-
           Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name
           }} с помощью {{ data-transfer-full-name }}

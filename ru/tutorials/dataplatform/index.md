@@ -60,6 +60,7 @@
 * [{#T}](sqoop-mmy.md)
 * [{#T}](./data-transfer-mmy.md)
 * [{#T}](./debezium-mmy.md)
+* [{#T}](./mmy-ydb-migration.md)
 
 ## {{ PG }} {#postgresql}
 
