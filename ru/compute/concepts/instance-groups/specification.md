@@ -7,6 +7,12 @@
 * политики [распределения](policies/allocation-policy.md), [развертывания](policies/deploy-policy.md) и [масштабирования](policies/scale-policy.md);
 * настройки балансировки трафика между ВМ с помощью [{{ network-load-balancer-full-name }}](../../../network-load-balancer/) или [{{ alb-full-name }}](../../../application-load-balancer/).
 
+{% note info %}
+
+Также группу ВМ можно создать с помощью [Terraform](https://terraform.io) по описанию, схожему со спецификацией в формате YAML. Подробнее см. в [руководстве по началу работы с Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md), [инструкции по созданию группы ВМ](../../operations/instance-groups/create-fixed-group.md) и [справочнике ресурса `yandex_compute_instance_group`]({{ tf-provider-link }}/compute_instance_group).
+
+{% endnote %}
+
 ## Пример {#example}
 
 По следующей спецификации можно создать автоматически масштабируемую группу ВМ, как в [сценарии обработки сообщений из очереди {{ message-queue-full-name }}](../../tutorials/autoscale-monitoring.md):
