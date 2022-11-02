@@ -15,7 +15,7 @@ provider "yandex" {
 }
 
 variable "folder_id" {
-  description = "Yandex.Cloud Folder ID where resources will be created"
+  description = "ID of the folder where resources will be created"
   default     = "<идентификатор_каталога>"
 }
 
@@ -284,7 +284,7 @@ provider "yandex" {
 }
 
 variable "folder_id" {
-  description = "Yandex.Cloud Folder ID where resources will be created"
+  description = "ID of the folder where resources will be created"
   default     = "<идентификатор_каталога>"
 }
 
@@ -371,7 +371,7 @@ resource "yandex_compute_instance_group" "alb-vm-group" {
   folder_id          = var.folder_id
   service_account_id = yandex_iam_service_account.ig-sa.id
   instance_template {
-    platform_id        = "standard-v2"
+    platform_id        = "standard-v3"
     service_account_id = yandex_iam_service_account.ig-sa.id
     resources {
       core_fraction = 5
