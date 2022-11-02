@@ -574,7 +574,7 @@
 
 {% note info %}
 
-Об особенностях переноса данных из {{ PG }} в {{ CH }} трансферами типа _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ см. в разделе [Перенос данных из {{ PG }} в {{ CH }}](../tutorials/rdbms-to-clickhouse.md).
+Об особенностях переноса данных из {{ PG }} в {{ CH }} трансферами типа _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ см. в разделе [Асинхронная репликация данных из {{ PG }} в {{ CH }}](../tutorials/rdbms-to-clickhouse.md).
 
 {% endnote %}
 
