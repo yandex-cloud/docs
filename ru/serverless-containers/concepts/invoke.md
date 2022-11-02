@@ -2,7 +2,7 @@
 
 Вызвать контейнер можно:
 * через [HTTPS](#https);
-* с помощью [триггера {{ sf-full-name }}](#trigger);
+* с помощью [триггера](#trigger);
 * с помощью [расширения {{ api-gw-full-name }}](#extension).
 
 {% include [port-variable-note.md](../../_includes/serverless-containers/port-variable-note.md) %}
@@ -63,9 +63,9 @@
 
 IP-адрес клиента, который вызвал контейнер, передается в заголовке `X-Forwarded-For`.
 
-## Триггер {{ sf-full-name }} {#trigger}
+## Триггер {#trigger}
 
-При вызове контейнера c помощью триггера {{ sf-full-name }} JSON-описание события триггера передается в теле HTTP-запроса к контейнеру. Подробнее о триггерах в [документации {{ sf-full-name }}](../../functions/concepts/trigger/index.md).
+При вызове контейнера c помощью триггера JSON-описание события триггера передается в теле HTTP-запроса к контейнеру. Подробнее о [триггерах](trigger/index.md).
 
 ## Расширение {{ api-gw-full-name }} {#extension}
 

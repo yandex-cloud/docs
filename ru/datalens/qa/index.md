@@ -3,7 +3,7 @@ title: "{{ datalens-full-name }}. Ответы на вопросы"
 description: "Как получить логи моей работы в сервисе {{ datalens-full-name }}? Ответы на этот и другие вопросы в данной статье."
 ---
 
-# Общие вопросы
+# Ответы на вопросы в {{ datalens-name }}
 
 В данном разделе собраны ответы на вопросы пользователей, возникающие при работе с {{ datalens-short-name }}.
 
@@ -139,6 +139,8 @@ description: "Как получить логи моей работы в серв
 {% include [rename-column](../../_includes/datalens/qa/rename-column.md) %}
 
 {% include [null-setting-in-charts](../../_includes/datalens/qa/null-setting-in-charts.md) %}
+
+{% include [new-datetime](../../_includes/datalens/qa/new-datetime.md) %}
 
 ## Вычисляемые поля {#calculation-fields}
 

@@ -16,10 +16,16 @@ items:
         href: operations/security-groups-target.md
       - name: Создать тест с данными из бакета
         href: operations/create-test-bucket.md
+      - name: Передать логи теста в {{ cloud-logging-name }}
+        href: operations/logging.md
   - name: Практические руководства
     items:
       - name: Нагрузочное тестирование gRPC-сервиса
         href: tutorials/loadtesting-grpc.md
+      - name: >-
+          Развертывание и нагрузочное тестирование gRPC-сервиса с
+          масштабированием
+        href: tutorials/loadtesting-grpc-autoscaling.md
       - name: HTTPS-тест с постоянной нагрузкой с помощью Phantom
         href: tutorials/loadtesting-https-phantom.md
       - name: HTTPS-тест со ступенчатой нагрузкой с помощью Pandora
@@ -54,6 +60,8 @@ items:
         href: concepts/auto-stop.md
       - name: Отчеты
         href: concepts/reports.md
+      - name: Результаты нагрузочного теста
+        href: concepts/load-test-results.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

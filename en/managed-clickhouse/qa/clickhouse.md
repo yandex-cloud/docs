@@ -48,4 +48,14 @@ Access to {{ ZK }} and its setup are not available to {{ yandex-cloud }} users.
 
 When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} automatically creates a cluster with 3 {{ ZK }} hosts to manage replication and fault tolerance, if {{ CK }} support is not enabled. These hosts are taken into account when calculating the consumed cloud [resource quota]({{ link-console-quotas }}) and cluster cost. By default, {{ ZK }} hosts are created with a minimal [host class](../concepts/instance-types.md).
 
-For more information about using {{ ZK }}, see the [ClickHouse documentation]({{ ch.docs }}/operations/table_engines/replication/).
+For more information about using {{ ZK }}, see the [ClickHouse documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
+
+#### Deleting data in {{ CH }} based on TTL {#how-ttl-data-processing-works}
+
+Data is deleted based on [TTL]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-table-ttl) either in entire [data chunks]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes) or in merge transactions rather than row by row.
+
+Deleting entire data chunks is more efficient and uses less server resources but requires the value of the TTL expression and the [partitioning key]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) to be the same or at least of the same order of magnitude for all TTL data chunk rows.
+
+Deletions during merge transactions use more resources and are carried out with regular background merge transactions or during unscheduled merges. Merge frequency depends on the value in the `merge_with_ttl_timeout` parameter. This parameter is set at table [creation]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-creating-a-table) and is equal to the minimum time in seconds before a repeat merge to process data with an expired TTL. The default is 14,400 seconds (4 hours).
+
+We recommend managing TTL data processing always to delete obsolete data in entire chunks. To do this, set [ttl_only_drop_parts]({{ ch.docs }}/operations/settings/settings/#ttl_only_drop_parts) to `true` when creating tables.

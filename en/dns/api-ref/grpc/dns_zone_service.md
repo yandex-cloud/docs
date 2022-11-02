@@ -57,7 +57,7 @@ public_visibility | **[PublicVisibility](#PublicVisibility)**<br>Publicly visibl
 
 Field | Description
 --- | ---
-network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
+network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-100. The string length in characters for each value must be equal to 20.
 
 
 ### PublicVisibility {#PublicVisibility}
@@ -107,7 +107,7 @@ public_visibility | **[PublicVisibility](#PublicVisibility1)**<br>Publicly visib
 
 Field | Description
 --- | ---
-network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
+network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-100. The string length in characters for each value must be equal to 20.
 
 
 ### PublicVisibility {#PublicVisibility1}
@@ -141,7 +141,7 @@ public_visibility | **[PublicVisibility](#PublicVisibility2)**<br>Publicly visib
 
 Field | Description
 --- | ---
-network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
+network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-100. The string length in characters for each value must be equal to 20.
 
 
 ### PublicVisibility {#PublicVisibility2}
@@ -186,17 +186,6 @@ private_visibility | **[PrivateVisibility](#PrivateVisibility3)**<br>Privately v
 public_visibility | **[PublicVisibility](#PublicVisibility3)**<br>Publicly visible zone settings. Indicates whether records within the zone are publicly visible. 
 
 
-### PrivateVisibility {#PrivateVisibility3}
-
-Field | Description
---- | ---
-network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
-
-
-### PublicVisibility {#PublicVisibility3}
-
-
-
 ## Update {#Update}
 
 Updates the specified DNS zone.
@@ -216,18 +205,18 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 name | **string**<br>New name for the DNS zone. The name must be unique within the folder. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>New description of the DNS zone. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>DNS zone labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: <ol><li>Get the current set of labels with a [DnsZoneService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-private_visibility | **[PrivateVisibility](#PrivateVisibility4)**<br>Change network IDs for private visibility. 
-public_visibility | **[PublicVisibility](#PublicVisibility4)**<br>Public visibility configuration. 
+private_visibility | **[PrivateVisibility](#PrivateVisibility3)**<br>Change network IDs for private visibility. 
+public_visibility | **[PublicVisibility](#PublicVisibility3)**<br>Public visibility configuration. 
 
 
-### PrivateVisibility {#PrivateVisibility4}
+### PrivateVisibility {#PrivateVisibility3}
 
 Field | Description
 --- | ---
-network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
+network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-100. The string length in characters for each value must be equal to 20.
 
 
-### PublicVisibility {#PublicVisibility4}
+### PublicVisibility {#PublicVisibility3}
 
 
 
@@ -265,19 +254,8 @@ name | **string**<br>Name of the DNS zone. The name is unique within the folder.
 description | **string**<br>Description of the DNS zone. 
 labels | **map<string,string>**<br>DNS zone labels as `key:value` pairs. 
 zone | **string**<br>DNS zone suffix. 
-private_visibility | **[PrivateVisibility](#PrivateVisibility5)**<br>Privately visible zone settings. Specifies whether records within the zone are visible from a VPC networks only. 
-public_visibility | **[PublicVisibility](#PublicVisibility5)**<br>Publicly visible zone settings. Indicates whether records within the zone are publicly visible. 
-
-
-### PrivateVisibility {#PrivateVisibility5}
-
-Field | Description
---- | ---
-network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
-
-
-### PublicVisibility {#PublicVisibility5}
-
+private_visibility | **[PrivateVisibility](#PrivateVisibility4)**<br>Privately visible zone settings. Specifies whether records within the zone are visible from a VPC networks only. 
+public_visibility | **[PublicVisibility](#PublicVisibility4)**<br>Publicly visible zone settings. Indicates whether records within the zone are publicly visible. 
 
 
 ## Delete {#Delete}
@@ -436,16 +414,6 @@ additions[] | **[RecordSet](#RecordSet3)**<br>List of record sets that were adde
 deletions[] | **[RecordSet](#RecordSet3)**<br>List of record sets that were deleted 
 
 
-### RecordSet {#RecordSet3}
-
-Field | Description
---- | ---
-name | **string**<br>Domain name. The string length in characters must be 1-254.
-type | **string**<br>Record type. The string length in characters must be 1-20.
-ttl | **int64**<br>Time to live in seconds. Acceptable values are 0 to 2147483647, inclusive.
-data[] | **string**<br>Data of the record set. The number of elements must be in the range 1-100. The string length in characters for each value must be 1-255.
-
-
 ## UpsertRecordSets {#UpsertRecordSets}
 
 Method without strict control for changing zone state. Nothing happens if deleted record doesn't exist. Deletes records that match all specified fields which allows to delete only specified records from a record set.
@@ -461,12 +429,12 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 dns_zone_id | **string**<br>ID of the DNS zone to upsert record sets to. <br>To get a DNS zone ID, make a [DnsZoneService.List](#List) request. The string length in characters must be equal to 20.
-deletions[] | **[RecordSet](#RecordSet4)**<br>Delete only specified records from corresponding record sets. The maximum number of elements is 1000.
-replacements[] | **[RecordSet](#RecordSet4)**<br>Entirely replace specified record sets. The maximum number of elements is 1000.
-merges[] | **[RecordSet](#RecordSet4)**<br>Replace specified records or add new ones if no such record sets exists. The maximum number of elements is 1000.
+deletions[] | **[RecordSet](#RecordSet3)**<br>Delete only specified records from corresponding record sets. The maximum number of elements is 1000.
+replacements[] | **[RecordSet](#RecordSet3)**<br>Entirely replace specified record sets. The maximum number of elements is 1000.
+merges[] | **[RecordSet](#RecordSet3)**<br>Replace specified records or add new ones if no such record sets exists. The maximum number of elements is 1000.
 
 
-### RecordSet {#RecordSet4}
+### RecordSet {#RecordSet3}
 
 Field | Description
 --- | ---
@@ -500,18 +468,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-additions[] | **[RecordSet](#RecordSet5)**<br>List of record sets that were added 
-deletions[] | **[RecordSet](#RecordSet5)**<br>List of record sets that were deleted 
-
-
-### RecordSet {#RecordSet5}
-
-Field | Description
---- | ---
-name | **string**<br>Domain name. The string length in characters must be 1-254.
-type | **string**<br>Record type. The string length in characters must be 1-20.
-ttl | **int64**<br>Time to live in seconds. Acceptable values are 0 to 2147483647, inclusive.
-data[] | **string**<br>Data of the record set. The number of elements must be in the range 1-100. The string length in characters for each value must be 1-255.
+additions[] | **[RecordSet](#RecordSet4)**<br>List of record sets that were added 
+deletions[] | **[RecordSet](#RecordSet4)**<br>List of record sets that were deleted 
 
 
 ## ListOperations {#ListOperations}

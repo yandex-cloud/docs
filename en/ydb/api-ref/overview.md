@@ -1,6 +1,6 @@
 # {{ yandex-cloud }} API for {{ ydb-name }} overview
 
-You can manage {{ ydb-name }} resources using the [{{ yandex-cloud }} API](../../api-design-guide/index.yaml).
+You can manage {{ ydb-name }} resources using the [{{ yandex-cloud }} API](../../api-design-guide/).
 
 The {{ yandex-cloud }} API lets you:
 

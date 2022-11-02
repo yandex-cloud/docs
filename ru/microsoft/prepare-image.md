@@ -7,9 +7,9 @@
 Чтобы создать образ, готовый к использованию в {{ yandex-cloud }}:
 
 1. [Установите QEMU](https://www.qemu.org/download/).
-1. [Установите Packer](https://cloud.yandex.ru/docs/tutorials/infrastructure-management/packer-quickstart#install-packer).
+1. [Установите Packer](../tutorials/infrastructure-management/packer-quickstart#install-packer).
 1. Загрузите архив с [конфигурациями для Packer](https://storage.yandexcloud.net/packer-recipies/windows-packer.zip) и распакуйте его в нужную папку, например `windows-packer`.
-1. Склонируйте [репозиторий](https://github.com/virtio-win/kvm-guest-drivers-windows) с драйверами. Переместите папки `NetKVM`, `vioserial` и `viostor` в папку `windows-packer/drivers`. Папки содержат драйверы для разных ОС — обязательно используйте драйверы для вашей.
+1. Загрузите [образ с драйверами](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso) и откройте его. Переместите папки `NetKVM`, `vioserial` и `viostor` в папку `windows-packer/drivers`. Папки содержат драйверы для разных ОС — обязательно используйте драйверы для вашей.
 1. Выберите подходящую для вашего продукта Microsoft конфигурацию для Packer и внесите следующие изменения в ее конфигурационный файл:
    1. Укажите в параметре `iso_url` путь к вашему дистрибутиву. 
    1. В блоке `cd_files` укажите пути к распакованным драйверам для вашей версии ОС, например:
@@ -40,6 +40,12 @@
 С помощью [API {{ compute-name }}](../compute/api-ref/Image/create.md) вы можете импортировать образ в сервис:
 
 {% list tabs %}
+
+- CLI
+  
+  ```
+  yc compute image create --name <название образа> --description <описание образа> --os-type windows --source-uri <ссылка на образ в Object Storage>
+  ```
 
 - Bash
 

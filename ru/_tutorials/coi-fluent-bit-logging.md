@@ -213,7 +213,7 @@ if __name__ == '__main__':
         shell: /bin/bash
         sudo: [ 'ALL=(ALL) NOPASSWD:ALL' ]
         ssh-authorized-keys:
-          - ssh-rsa AAAA
+          - ssh-ed25519 AAAA
     ```
 
     В секции `SERVICE` указаны настройки приложения Fluent Bit. [Подробнее о настройках](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit).

@@ -855,43 +855,38 @@ Converts the `value` expression to date and time format. Unlike [GENERICDATETIME
 
 Returns the current date and time, depending on the data source and connection type.
 
-
-
 ## [GEOCODE](GEOCODE.md)
 
 **Syntax:**`GEOCODE( address )`
 
- Converts `address` to its geographical coordinates. 
- {{ datalens-short-name }} caches the function result. When the function is 
- invoked again, {{ datalens-short-name }} doesn't perform geocoding. 
- The cache lifetime is 30 days. After 30 days, {{ datalens-short-name }} 
- automatically invokes `GEOCODE` to convert addresses in the dataset. 
- The calculated field using this function must be created at the dataset level. 
- To enable the function, go to the [Service Settings]({{ link-datalens-settings }}) page. 
+Converts `address` to its geographical coordinates.
 
+{{ datalens-short-name }} caches the function result. When the function is invoked again, {{ datalens-short-name }} doesn't perform geocoding.
+The cache lifetime is 30 days. After 30 days, {{ datalens-short-name }} automatically invokes `GEOCODE` to convert addresses in the dataset.
 
+The calculated field using this function must be created at the dataset level.
+To enable the function, go to the [Service Settings]({{ link-datalens-settings }}) page.
 
 ## [GEOINFO](GEOINFO.md)
 
 **Syntax:**`GEOINFO( address, scale )`
 
- Converts `address` to geographical name corresponding to the specified `scale`. 
- Possible values for `scale` parameter: 
- - `"country"`; 
- - `"country_code"`; 
- - `"region"`; 
- - `"locality"`. 
- The calculated field using this function must be created at the dataset level. 
- To enable the function, go to the [Service Settings]({{ link-datalens-settings }}) page. 
+Converts `address` to geographical name corresponding to the specified `scale`.
 
+Possible values for `scale` parameter:
+- `"country"`;
+- `"country_code"`;
+- `"region"`;
+- `"locality"`.
 
+The calculated field using this function must be created at the dataset level.
+To enable the function, go to the [Service Settings]({{ link-datalens-settings }}) page.
 
 ## [GEOPOINT](GEOPOINT.md)
 
 **Syntax:**`GEOPOINT( value_1 [ , value_2 ] )`
 
 Generates a Geopoint type value. For the input, it accepts a string, a "geopoint" type value, or coordinates — latitude `value_1` and longitude `value_2`. If a single string is input, it must contain a list of two numbers (latitude and longitude) in JSON syntax.
-
 
 
 ## [GEOPOLYGON](GEOPOLYGON.md)
@@ -1388,33 +1383,6 @@ Inverts a Boolean value.
 **Syntax:**`NOW()`
 
 Returns the current date and time, depending on the data source and connection type.
-
-
-
-## [OLDDATETIME](OLDDATETIME.md)
-
-**Syntax:**`OLDDATETIME( expression [ , timezone ] )`
-
-Converts the `expression` expression to deprecated date and time format. When converting `Date` to `DateTime`, the time is set to '00:00:00'.
-The date must be in the format `YYYY-MM-DDThh:mm:ss` or `YYYY-MM-DD hh:mm:ss`.
-
-If `expression` is a number, then the date and time can be converted to the specified time zone when the `timezone` option is available.
-
-
-
-## [OLDDATETIME_PARSE](OLDDATETIME_PARSE.md)
-
-**Syntax:**`OLDDATETIME_PARSE( value )`
-
-Converts the `value` expression to deprecated date and time format. Unlike [OLDDATETIME](OLDDATETIME.md), it supports multiple formats.
-
-
-
-## [OLDNOW](OLDNOW.md)
-
-**Syntax:**`OLDNOW()`
-
-Returns the current date and time (in deprecated format), depending on the data source and connection type.
 
 
 
@@ -1933,25 +1901,19 @@ Returns the current date, depending on the data source and connection type.
 
 Returns a string that contains top `amount` grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
-
-
 ## [TOPONYM_TO_GEOPOINT](TOPONYM_TO_GEOPOINT.md)
 
 **Syntax:**`TOPONYM_TO_GEOPOINT( name )`
 
- Converts the name of a geographical entity (country, region, city) `name` to the `Geopoint` type. 
- See the full [list of toponyms]({{ geopoints-list-link }}). 
-
-
+Converts the name of a geographical entity (country, region, city) `name` to the `Geopoint` type.
+See the full [list of toponyms]({{ geopoints-list-link }}).
 
 ## [TOPONYM_TO_GEOPOLYGON](TOPONYM_TO_GEOPOLYGON.md)
 
 **Syntax:**`TOPONYM_TO_GEOPOLYGON( name )`
 
- Converts the name of a geographical entity (country, region, city)`name` to the `Geopolygon` type. 
- See the full [list of toponyms]({{ geopolygons-list-link }}). 
-
-
+Converts the name of a geographical entity (country, region, city) `name` to the `Geopolygon` type.
+See the full [list of toponyms]({{ geopolygons-list-link }}).
 
 ## [TRIM](TRIM.md)
 

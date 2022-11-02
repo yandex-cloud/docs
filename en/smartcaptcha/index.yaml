@@ -1,9 +1,6 @@
 title: Yandex SmartCaptcha
 description:
   - >-
-    <em>Yandex SmartCaptcha is at the <a
-    href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
-  - >-
     Yandex SmartCaptcha lets you determine who the system user is: an individual
     or a computer.
 meta:
@@ -12,12 +9,18 @@ links:
   - title: Getting started
     description: Set up the first widget and check the user
     href: quickstart
+  - title: Step-by-step instructions
+    description: Instructions on how to perform routine operations
+    href: operations
   - title: Widget installation methods
     description: Learn about the methods to add SmartCaptcha to your site
     href: concepts/widget-methods
   - title: Invisible CAPTCHA
     description: Show the CAPTCHA only for queries that the service considers suspicious
     href: concepts/invisible-captcha
+  - title: CAPTCHA in React
+    description: React package to work with SmartCaptcha
+    href: concepts/react
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits

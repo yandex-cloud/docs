@@ -13,6 +13,8 @@ items:
     href: user-side.md
   - name: Рекомендации по защите облачной инфраструктуры
     items:
+      - name: Все рекомендации
+        href: domains/index.md
       - name: Чеклист
         href: domains/checklist.md
       - name: Сетевая безопасность
@@ -31,6 +33,10 @@ items:
         href: domains/physical-security.md
       - name: Безопасность Kubernetes
         href: domains/kubernetes.md
+  - name: Практические руководства
+    items:
+      - name: ViPNet Coordinator в {{ yandex-cloud }}
+        href: tutorials/vipnet-to-yc.md
   - name: Инструкции
     items:
       - name: Удаление паспортного аккаунта из {{ org-full-name }}

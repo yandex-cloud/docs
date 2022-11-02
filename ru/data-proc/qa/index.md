@@ -16,4 +16,4 @@ sudo -u hdfs hdfs balancer
 Вы можете изменять параметры балансировщика. Например, чтобы изменить максимальный объем данных для переноса, добавьте аргумент `-D dfs.balancer.max-size-to-move=<размер-данных-в-байтах>`.
 
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

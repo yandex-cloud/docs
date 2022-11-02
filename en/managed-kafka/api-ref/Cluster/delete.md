@@ -10,7 +10,7 @@ Deletes the specified Apache Kafka® cluster.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}
+DELETE https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

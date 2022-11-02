@@ -1,0 +1,1 @@
+{% include [rds.md](../../_tutorials/windows/active-directory.md) %}

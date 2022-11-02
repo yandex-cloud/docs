@@ -10,7 +10,7 @@ Deletes a database from a cluster.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}/databases/{databaseName}
+DELETE https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/databases/{databaseName}
 ```
  
 ## Path parameters {#path_params}

@@ -15,7 +15,9 @@
 
 1. В той же сети, что и кластер {{ mkf-name }}, [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) c Ubuntu 20.04 и публичным IP-адресом.
 
+
 1. Чтобы разрешить прохождение трафика между кластером {{ mkf-name }} и виртуальной машиной, [настройте группы безопасности](../../managed-kafka/operations/connect.md#configuring-security-groups).
+
 
 ## Создайте скрипты производителя и потребителя {#create-scripts}
 
@@ -67,6 +69,7 @@
             "sasl.password": "<пароль пользователя user>",
             "schema.registry.url": "https://<FQDN или IP-адрес сервера {{ mkf-msr }}>:443",
             "schema.registry.basic.auth.credentials.source": "SASL_INHERIT",
+            "schema.registry.ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}",
             "auto.offset.reset": "earliest"
         }
     )
@@ -163,7 +166,8 @@
             "sasl.password": '<пароль пользователя user>',
             "on_delivery": delivery_report,
             "schema.registry.basic.auth.credentials.source": 'SASL_INHERIT',
-            "schema.registry.url": 'https://<FQDN или IP-адрес сервера {{ mkf-msr }}>:443'
+            "schema.registry.url": 'https://<FQDN или IP-адрес сервера {{ mkf-msr }}>:443',
+            "schema.registry.ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}"
         },
         default_key_schema=key_schema,
         default_value_schema=value_schema

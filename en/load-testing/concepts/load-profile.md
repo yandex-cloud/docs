@@ -17,7 +17,7 @@ Most tools have their own formats for defining load profiles. When configuring a
     Example:
 
     ```
-    {duration: 180s, type: line,  from: 1, to: 10000} # the load increases from 1 to 10000 requests per second over 180 seconds
+    {duration: 180s, type: line, from: 1, to: 10000} # the load increases from 1 to 10000 requests per second over 180 seconds
     ```
 
     #### const {#const}
@@ -27,7 +27,7 @@ Most tools have their own formats for defining load profiles. When configuring a
     Example:
 
     ```
-    {duration: 300s, type: const,  ops: 10000} # generates 10000 requests per second for 300 seconds
+    {duration: 300s, type: const, ops: 10000} # generates 10000 requests per second for 300 seconds
     ```
 
     #### step {#step}

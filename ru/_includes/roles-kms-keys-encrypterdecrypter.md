@@ -7,7 +7,7 @@
 
 {% include [roles-editor-includes-permissions](iam/roles-editor-includes-permissions.md) %}
 
-Сейчас эту роль можно назначить на [организацию](../organization/index.yaml), [облако](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../resource-manager/concepts/resources-hierarchy.md#folder) или [ключ](../kms/concepts/key).
+Сейчас эту роль можно назначить на [организацию](../organization/), [облако](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../resource-manager/concepts/resources-hierarchy.md#folder) или [ключ](../kms/concepts/key).
 
 Выдать роль может администратор {{ kms-short-name }} (роль `kms.admin`).
 

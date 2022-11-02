@@ -195,7 +195,7 @@
           --zone {{ region-id }}-a \
           --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
           --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
-          --ssh-key ~/.ssh/id_rsa.pub
+          --ssh-key ~/.ssh/id_ed25519.pub
           --service-account-name service-acc
         ```
 
@@ -274,7 +274,7 @@
             "cores": "2"
           },
           "metadata": {
-            "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-rsa AAAAB3N... user@example.com"
+            "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
           },
           "bootDiskSpec": {
             "diskSpec": {

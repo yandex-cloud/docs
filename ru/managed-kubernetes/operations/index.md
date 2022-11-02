@@ -16,13 +16,22 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](connect/create-static-conf.md)
 
 
-## Установка приложений {#marketplace}
+## Установка приложений из {{ marketplace-full-name }} {#marketplace}
 
 * [{#T}](applications/marketplace.md)
+* [{#T}](applications/argo-cd.md)
+* [{#T}](applications/csi-s3.md)
 * [{#T}](applications/crossplane.md)
+* [{#T}](applications/external-secrets-operator.md)
+* [{#T}](applications/filebeat.md)
 * [{#T}](applications/fluentbit.md)
+* [{#T}](applications/gateway-api.md)
+* [{#T}](applications/gitlab-agent.md)
+* [{#T}](applications/gitlab-runner.md)
+* [{#T}](applications/hashicorp-vault.md)
 * [{#T}](applications/alb-ingress-controller.md)
 * [{#T}](applications/jaeger.md)
+* [{#T}](applications/kyverno.md)
 * [{#T}](applications/metrics-provider.md)
 * [{#T}](applications/node-local-dns.md)
 

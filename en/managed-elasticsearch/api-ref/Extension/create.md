@@ -10,7 +10,7 @@ Creates new extension version.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/extensions
+POST https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/extensions
 ```
  
 ## Path parameters {#path_params}

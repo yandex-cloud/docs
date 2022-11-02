@@ -36,16 +36,16 @@ Active roles in the service:
 
 ## What roles do I need {#required-roles}
 
-The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, assign `editor` Instead of `viewer` or `dns.admin` Instead of `dns.editor`.
+The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, assign `editor` instead of `viewer` or `dns.admin` instead of `dns.editor`.
 
 | Action | Methods | Required roles |
 |:----------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **View data** |                                                                   |                                                                                                                                                                            |
 | View information about any resource | `get`, `list` | `viewer` or `dns.viewer` for the resource in question |
 | **Manage DNS zones** |                                                                   |                                                                                                                                                                            |
-| Create a zone | `create` | `editor` or `dns.editor` for the folder as well as `vpc.user` for the folder and the VPC network if it is an internal zone |
-| Edit and delete zones | `update`, `delete` | `editor` or `dns.editor` for the folder as well as `vpc.user` for the folder and the VPC network if it is an internal zone |
-| Creating subzones | `create` | `editor` or `dns.editor` for the folder housing the zone that will include the subzones being created as well as `vpc.user` for this folder or VPC network if it is an internal zone |
+| Create a zone | `create` | `editor` or `dns.editor` for the folder as well as `vpc.user` for the folder and the {{ vpc-short-name }} network if it is an internal zone |
+| Edit and delete zones | `update`, `delete` | `editor` or `dns.editor` for the folder as well as `vpc.user` for the folder and the {{ vpc-short-name }} network if it is an internal zone |
+| Creating subzones | `create` | `editor` or `dns.editor` for the folder housing the zone that will include the subzones being created as well as `vpc.user` for this folder or {{ vpc-short-name }} network if it is an internal zone |
 | **Manage resource records** |                                                                   |                                                                                                                                                                            |
 | Create resource records in a DNS zone | `create` | `editor` or `dns.editor` for the folder or zone |
 | Edit and delete resource records | `update`, `delete` | `editor` or `dns.editor` |

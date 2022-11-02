@@ -53,7 +53,7 @@ description: "Следуя данной инструкции вы сможете
         --zone {{ region-id }}-a \
         --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
         --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
-        --ssh-key ~/.ssh/id_rsa.pub
+        --ssh-key ~/.ssh/id_ed25519.pub
       ```
 
       Где:
@@ -130,7 +130,7 @@ description: "Следуя данной инструкции вы сможете
           "cores": "2",
         },
         "metadata": {
-          "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-rsa AAAAB3N... user@example.com"
+          "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
         },
         "bootDiskSpec": {
           "diskSpec": {
@@ -200,8 +200,8 @@ description: "Следуя данной инструкции вы сможете
        zone        = "<зона доступности>"
 
        resources {
-         cores  = <количество ядер vCPU>
-         memory = <объем RAM в ГБ>
+         cores  = "<количество ядер vCPU>"
+         memory = "<объем RAM в ГБ>"
        }
 
        boot_disk {
@@ -225,9 +225,10 @@ description: "Следуя данной инструкции вы сможете
      }
 
      resource "yandex_vpc_subnet" "subnet-1" {
-       name       = "subnet1"
-       zone       = "<зона доступности>"
-       network_id = "${yandex_vpc_network.network-1.id}"
+       name           = "subnet1"
+       zone           = "<зона доступности>"
+       v4_cidr_blocks = ["192.168.10.0/24"]
+       network_id     = "${yandex_vpc_network.network-1.id}"
      }
      ```
 

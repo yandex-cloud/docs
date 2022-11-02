@@ -10,7 +10,7 @@ Creates a new ClickHouse cluster using the specified backup.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters:restore
+POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters:restore
 ```
  
 ## Body parameters {#body_params}
@@ -35,10 +35,16 @@ POST https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters:restore
           "replicatedDeduplicationWindowSeconds": "integer",
           "partsToDelayInsert": "integer",
           "partsToThrowInsert": "integer",
+          "inactivePartsToDelayInsert": "integer",
+          "inactivePartsToThrowInsert": "integer",
           "maxReplicatedMergesInQueue": "integer",
           "numberOfFreeEntriesInPoolToLowerMaxSizeOfMerge": "integer",
           "maxBytesToMergeAtMinSpaceInPool": "integer",
-          "maxBytesToMergeAtMaxSpaceInPool": "integer"
+          "maxBytesToMergeAtMaxSpaceInPool": "integer",
+          "minBytesForWidePart": "integer",
+          "minRowsForWidePart": "integer",
+          "ttlOnlyDropParts": true,
+          "allowRemoteFsZeroCopyReplication": true
         },
         "compression": [
           {
@@ -195,7 +201,8 @@ POST https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters:restore
         ],
         "rabbitmq": {
           "username": "string",
-          "password": "string"
+          "password": "string",
+          "vhost": "string"
         },
         "maxConnections": "integer",
         "maxConcurrentQueries": "integer",
@@ -224,8 +231,16 @@ POST https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters:restore
         "textLogRetentionSize": "integer",
         "textLogRetentionTime": "integer",
         "textLogLevel": "string",
+        "opentelemetrySpanLogEnabled": true,
         "backgroundPoolSize": "integer",
-        "backgroundSchedulePoolSize": "integer"
+        "backgroundSchedulePoolSize": "integer",
+        "backgroundFetchesPoolSize": "integer",
+        "backgroundMovePoolSize": "integer",
+        "backgroundDistributedSchedulePoolSize": "integer",
+        "backgroundBufferFlushSchedulePoolSize": "integer",
+        "defaultDatabase": "string",
+        "totalMemoryProfilerStep": "integer",
+        "totalMemoryTrackerSampleProbability": "number"
       },
       "resources": {
         "resourcePresetId": "string",
@@ -302,12 +317,18 @@ configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>replicatedDeduplicationWi
 configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>replicatedDeduplicationWindowSeconds | **integer** (int64)<br><p>Period of time to keep blocks of hashes for.</p> 
 configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>partsToDelayInsert | **integer** (int64)<br><p>If table contains at least that many active parts in single partition, artificially slow down insert into table.</p> 
 configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>partsToThrowInsert | **integer** (int64)<br><p>If more than this number active parts in single partition, throw 'Too many parts ...' exception.</p> 
+configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>inactivePartsToDelayInsert | **integer** (int64)
+configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>inactivePartsToThrowInsert | **integer** (int64)
 configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>maxReplicatedMergesInQueue | **integer** (int64)<br><p>How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue.</p> 
 configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>numberOfFreeEntriesInPoolToLowerMaxSizeOfMerge | **integer** (int64)<br><p>If there is less than specified number of free entries in background pool (or replicated queue), start to lower maximum size of merge to process.</p> 
 configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>maxBytesToMergeAtMinSpaceInPool | **integer** (int64)<br><p>Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries in replication queue).</p> 
 configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>maxBytesToMergeAtMaxSpaceInPool | **integer** (int64)
+configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>minBytesForWidePart | **integer** (int64)<br><p>Minimum number of bytes in a data part that can be stored in <strong>Wide</strong> format.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part">ClickHouse documentation</a>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>minRowsForWidePart | **integer** (int64)<br><p>Minimum number of rows in a data part that can be stored in <strong>Wide</strong> format.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part">ClickHouse documentation</a>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>ttlOnlyDropParts | **boolean** (boolean)<br><p>Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts">ClickHouse documentation</a>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>allowRemoteFsZeroCopyReplication | **boolean** (boolean)
 configSpec.<br>clickhouse.<br>config.<br>compression[] | **object**<br><p>Compression settings for the ClickHouse cluster. See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server_settings/settings/#compression">ClickHouse documentation</a>.</p> 
-configSpec.<br>clickhouse.<br>config.<br>compression[].<br>method | **string**<br><p>Compression method to use for the specified combination of ``min_part_size`` and ``min_part_size_ratio``.</p> <ul> <li>LZ4: <a href="https://lz4.github.io/lz4/">LZ4 compression algorithm</a>.</li> <li>ZSTD: <a href="https://facebook.github.io/zstd/">Zstandard compression algorithm</a>.</li> </ul> 
+configSpec.<br>clickhouse.<br>config.<br>compression[].<br>method | **string**<br><p>Compression method to use for the specified combination of ``minPartSize`` and ``minPartSizeRatio``.</p> <ul> <li>LZ4: <a href="https://lz4.github.io/lz4/">LZ4 compression algorithm</a>.</li> <li>ZSTD: <a href="https://facebook.github.io/zstd/">Zstandard compression algorithm</a>.</li> </ul> 
 configSpec.<br>clickhouse.<br>config.<br>compression[].<br>minPartSize | **string** (int64)<br><p>Minimum size of a part of a table.</p> <p>The minimum value is 1.</p> 
 configSpec.<br>clickhouse.<br>config.<br>compression[].<br>minPartSizeRatio | **number** (double)<br><p>Minimum ratio of a part relative to the size of all the data in the table.</p> 
 configSpec.<br>clickhouse.<br>config.<br>dictionaries[] | **object**<br><p>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in <a href="https://clickhouse.com/docs/en/query_language/dicts/external_dicts/">ClickHouse documentation</a>.</p> 
@@ -413,8 +434,9 @@ configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings.<br>saslMech
 configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings.<br>saslUsername | **string**
 configSpec.<br>clickhouse.<br>config.<br>kafkaTopics[].<br>settings.<br>saslPassword | **string**
 configSpec.<br>clickhouse.<br>config.<br>rabbitmq | **object**
-configSpec.<br>clickhouse.<br>config.<br>rabbitmq.<br>username | **string**
-configSpec.<br>clickhouse.<br>config.<br>rabbitmq.<br>password | **string**
+configSpec.<br>clickhouse.<br>config.<br>rabbitmq.<br>username | **string**<br><p><a href="https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/">RabbitMQ</a> username</p> 
+configSpec.<br>clickhouse.<br>config.<br>rabbitmq.<br>password | **string**<br><p><a href="https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/">RabbitMQ</a> password</p> 
+configSpec.<br>clickhouse.<br>config.<br>rabbitmq.<br>vhost | **string**<br><p><a href="https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/">RabbitMQ</a> virtual host</p> 
 configSpec.<br>clickhouse.<br>config.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections.</p> <p>The minimum value is 10.</p> 
 configSpec.<br>clickhouse.<br>config.<br>maxConcurrentQueries | **integer** (int64)<br><p>Maximum number of simultaneously processed requests.</p> <p>The minimum value is 10.</p> 
 configSpec.<br>clickhouse.<br>config.<br>keepAliveTimeout | **integer** (int64)<br><p>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection.</p> 
@@ -442,8 +464,16 @@ configSpec.<br>clickhouse.<br>config.<br>textLogEnabled | **boolean** (boolean)<
 configSpec.<br>clickhouse.<br>config.<br>textLogRetentionSize | **integer** (int64)<br><p>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled.</p> 
 configSpec.<br>clickhouse.<br>config.<br>textLogRetentionTime | **integer** (int64)<br><p>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled.</p> 
 configSpec.<br>clickhouse.<br>config.<br>textLogLevel | **string**<br><p>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR.</p> 
+configSpec.<br>clickhouse.<br>config.<br>opentelemetrySpanLogEnabled | **boolean** (boolean)
 configSpec.<br>clickhouse.<br>config.<br>backgroundPoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 configSpec.<br>clickhouse.<br>config.<br>backgroundSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>backgroundFetchesPoolSize | **integer** (int64)<br><p>Sets the number of threads performing background fetches for tables with <strong>ReplicatedMergeTree</strong> engines. Default value: 8.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size">ClickHouse documentation</a>.</p> <p>Value must be greater than 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>backgroundMovePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>backgroundDistributedSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>backgroundBufferFlushSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>defaultDatabase | **string**<br><p>The default database.</p> <p>To get a list of cluster databases, see <a href="https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db">Yandex Managed ClickHouse documentation</a>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>totalMemoryProfilerStep | **integer** (int64)<br><p>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: <strong>4194304</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step">ClickHouse documentation</a>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>totalMemoryTrackerSampleProbability | **number** (double)
 configSpec.<br>clickhouse.<br>resources | **object**<br><p>Resources allocated to ClickHouse hosts.</p> 
 configSpec.<br>clickhouse.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-clickhouse/concepts/instance-types">documentation</a></p> 
 configSpec.<br>clickhouse.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 

@@ -4,7 +4,7 @@
 
 Types of actions:
 
-- Change the [storage class](storage-class.md) of objects.
+- Change [storage class](storage-class.md) for objects from `STANDARD` to `COLD`.
 - Delete objects.
 - Deleting incomplete multipart uploads.
 

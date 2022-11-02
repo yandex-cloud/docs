@@ -11,12 +11,13 @@ You can create tables in several ways:
 - [In the Wiki page editing window](#add-table-in-page), by clicking the button in the top panel.
 
 
+
 {% note info %}
 
 The maximum number of pages per organization is 10,000.
 
 {% endnote %}
-
+
 
 ## Set the table address manually {#create-page}
 
@@ -70,15 +71,19 @@ To create a new table:
 
 You can create a table in a specific cluster:
 
-1. In the menu ![](../_assets/wiki/svg/structure-icon.svg) **Cluster structure**, go to the desired cluster.
+1. Navigate to the cluster where you want to create a table.
 
-1. To the right of the page name, click ![](../_assets/wiki/svg/button-add-subpage.svg) **Create subpage**.
+1. There are two ways to create a table in a cluster:
+
+    * In the menu ![](../_assets/wiki/svg/structure-icon.svg) **Cluster structure**: To the right of the page name, click ![](../_assets/wiki/svg/button-add-subpage.svg) **Create subpage**.
+
+    * In the upper-right corner of the cluster page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Create subpage**.
 
 1. Select the **Table** type.
 
 1. Enter your page title.
 
-    The **Address** field is filled in automatically. To edit it, click **Change page address** and enter a new address.
+1. The **Address** field is filled in automatically. If necessary, you can change the page address manually.
 
 1. Click **Create**.
 
@@ -86,11 +91,15 @@ You can create a table in a specific cluster:
 
 To create a table and place it in the text of a Wiki page:
 
-1. In the panel at the top of the Wiki page, click ![](../_assets/wiki/add-dynamic-grid.png). The [table code](actions/grid-reference.md) appears in the text:
-`{{grid page="{{ wiki-pagename }}/grid-2021-01-24t163048" width="100%"}}`.
-The created table becomes a subsection of the current page.
+1. Navigate to the page where you want to add a new table and click **Edit**.
 
-1. Click **Save**.
+1. In the top panel, click ![](../_assets/wiki/add-dynamic-grid.png). The [table code](actions/grid-reference.md) appears in the text:
+
+    `{{grid page="{{ wiki-pagename }}/grid-2021-01-24t163048" width="100%"}}`.
+
+    The created table becomes a subsection of the current page.
+
+1. Save the page.
 
 1. [Fill in the table](edit-grid.md).
 

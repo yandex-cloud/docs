@@ -1,4 +1,4 @@
-# Clearing the interpreter state
+# Reset the interpreter state
 
 {% note alert %}
 

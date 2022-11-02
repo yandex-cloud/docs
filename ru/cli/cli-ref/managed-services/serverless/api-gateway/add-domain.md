@@ -9,7 +9,7 @@ Attach domain to the specified API Gateway
 
 Syntax: 
 
-`yc serverless api-gateway add-domain <API-GATEWAY-NAME>|<API-GATEWAY-ID> --domain-id <DOMAIN-ID> [Flags...] [Global Flags...]`
+`yc serverless api-gateway add-domain <API-GATEWAY-NAME>|<API-GATEWAY-ID> --domain <DOMAIN> --certificate-id <CERTIFICATE-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -18,7 +18,8 @@ Syntax:
 |`--id`|<b>`string`</b><br/>Api-gateway id.|
 |`--name`|<b>`string`</b><br/>Api-gateway name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--domain-id`|<b>`string`</b><br/>Id of attaching domain.|
+|`-d`,`--domain`|<b>`string`</b><br/>FQDN of attaching domain.|
+|`-c`,`--certificate-id`|<b>`string`</b><br/>Id of domain certificate.|
 
 #### Global Flags
 

@@ -5,4 +5,4 @@ description: "How can I get the logs of my work in the Yandex Serverless Contain
 
 # General questions about {{ serverless-containers-name }}
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

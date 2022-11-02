@@ -171,14 +171,6 @@ extensions[] | **[Extension](#Extension3)**<br>PostgreSQL extensions enabled for
 template_db | **string**<br>Name of the database template. 
 
 
-### Extension {#Extension3}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the extension, e.g. `pg_trgm` or `pg_btree`. Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/cluster-extensions). 
-version | **string**<br>Version of the extension. 
-
-
 ## Update {#Update}
 
 Updates the specified PostgreSQL database.
@@ -195,11 +187,12 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the PostgreSQL cluster to update a database in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 database_name | **string**<br>Required. Name of the database to update. To get the name of the database use a [DatabaseService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+new_database_name | **string**<br>Optional. New name of the database. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Database resource should be updated. 
-extensions[] | **[Extension](#Extension4)**<br>PostgreSQL extensions that should be enabled for the database. <br>If the field is sent, the list of enabled extensions is rewritten entirely. Therefore, to disable an active extension you should simply send the list omitting this extension. 
+extensions[] | **[Extension](#Extension3)**<br>PostgreSQL extensions that should be enabled for the database. <br>If the field is sent, the list of enabled extensions is rewritten entirely. Therefore, to disable an active extension you should simply send the list omitting this extension. 
 
 
-### Extension {#Extension4}
+### Extension {#Extension3}
 
 Field | Description
 --- | ---
@@ -240,16 +233,8 @@ cluster_id | **string**<br>ID of the PostgreSQL cluster that the database belong
 owner | **string**<br>Name of the user assigned as the owner of the database. 
 lc_collate | **string**<br>POSIX locale for string sorting order. Can only be set at creation time. 
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. 
-extensions[] | **[Extension](#Extension5)**<br>PostgreSQL extensions enabled for the database. 
+extensions[] | **[Extension](#Extension4)**<br>PostgreSQL extensions enabled for the database. 
 template_db | **string**<br>Name of the database template. 
-
-
-### Extension {#Extension5}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the extension, e.g. `pg_trgm` or `pg_btree`. Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/cluster-extensions). 
-version | **string**<br>Version of the extension. 
 
 
 ## Delete {#Delete}

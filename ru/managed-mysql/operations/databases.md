@@ -1,4 +1,4 @@
-# Управление базами данных
+# Управление базами данных в {{ mmy-name }}
 
 Вы можете добавлять и удалять базы данных, просматривать информацию о них, а также управлять некоторыми настройками баз данных с помощью интерфейсов {{ mmy-name }}.
 
@@ -21,15 +21,16 @@
 
   Чтобы получить список баз данных в кластере, выполните команду:
 
-  ```
-  {{ yc-mdb-my }} database list --cluster-name=<имя кластера>
+  ```bash
+    {{ yc-mdb-my }} database list \
+       --cluster-name=<имя кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
 - API
 
-  Воспользуйтесь методом API [list](../api-ref/Database/list.md) и передайте идентификатор кластера в параметре `clusterId` запроса.
+  Воспользуйтесь методом API [list](../api-ref/Database/list.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
   {% include [Получение идентификатора кластера](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
@@ -37,13 +38,7 @@
 
 ## Создать базу данных {#add-db}
 
-Количество баз данных в кластере неограниченно.
-
-{% note info %}
-
-Созданные базы данных по умолчанию недоступны пользователям кластера. Чтобы подключиться к новой базе, [выдайте привилегии нужным пользователям](grant.md#grant-privilege).
-
-{% endnote %}
+{% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
 
 {% list tabs %}
 
@@ -56,7 +51,9 @@
   1. Нажмите кнопку **Добавить**.
   1. Введите имя для базы данных и нажмите кнопку **Добавить**.
 
-  {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+      {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
+  1. [Выдайте привилегии](grant.md#grant-privilege) на доступ к созданной базе данных нужным пользователям кластера.
 
 - CLI
 
@@ -68,21 +65,21 @@
 
   1. Посмотрите описание команды CLI для создания БД:
 
-     ```
-     {{ yc-mdb-my }} database create --help
+     ```bash
+      {{ yc-mdb-my }} database create --help
      ```
 
   1. Выполните команду создания БД:
 
-     ```
-     {{ yc-mdb-my }} database create <имя базы данных> --cluster-name=<имя кластера>
-     ```
+      ```bash
+      {{ yc-mdb-my }} database create <имя базы данных> --cluster-name=<имя кластера>
+      ```
 
-     {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+      {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-     {{ mmy-short-name }} запустит операцию создания базы данных.
+      Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
-  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
+      {{ mmy-short-name }} запустит операцию создания базы данных.
 
 - {{ TF }}
 
@@ -116,6 +113,7 @@
   Воспользуйтесь методом API [create](../api-ref/Database/create.md) и передайте в запросе:
 
   * Идентификатор кластера, в котором вы хотите создать базу данных, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+
   * Имя базы данных в параметре `databaseSpec.name`.
 
       {% include [database-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
@@ -140,8 +138,8 @@
 
   Чтобы удалить базу данных, выполните команду:
 
-  ```
-  {{ yc-mdb-my }} database delete <имя базы данных> --cluster-name=<имя кластера>
+  ```bash
+   {{ yc-mdb-my }} database delete <имя базы данных> --cluster-name=<имя кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).

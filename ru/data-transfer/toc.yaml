@@ -1,6 +1,8 @@
 title: Yandex Data Transfer
 href: index.yaml
 items:
+  - name: Доступные трансферы
+    href: transfer-matrix.md
   - name: Начало работы
     href: quickstart.md
   - name: Пошаговые инструкции
@@ -73,44 +75,50 @@ items:
         href: tutorials/managed-greenplum.md
       - name: Миграция базы данных в {{ mmg-full-name }}
         href: tutorials/managed-mongodb.md
+      - name: Поставка данных из {{ mmy-full-name }} в {{ mkf-full-name }}
+        href: tutorials/cdc-mmy.md
       - name: Миграция базы данных в {{ mmy-full-name }}
         href: tutorials/managed-mysql.md
       - name: Миграция базы данных из {{ mmy-full-name }} в {{ MY }}
         href: tutorials/managed-mysql-to-mysql.md
+      - name: >-
+          Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name
+          }}
+        href: tutorials/mmy-objs-migration.md
       - name: Миграция базы данных в {{ mpg-full-name }}
         href: tutorials/managed-postgresql.md
       - name: Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }}
         href: tutorials/cdc-mpg.md
       - name: Миграция базы данных из {{ PG }} в {{ CH }}
         href: tutorials/rdbms-to-clickhouse.md
+      - name: Поставка данных из {{ mkf-full-name }} в {{ ydb-full-name }}
+        href: tutorials/mkf-to-ydb.md
+      - name: Миграция базы данных из {{ GP }} в {{ CH }}
+        href: tutorials/greenplum-to-clickhouse.md
+      - name: Поставка данных из {{ mkf-full-name }} в {{ mch-full-name }}
+        href: tutorials/mkf-to-mch.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
       - name: Сеть в {{ data-transfer-full-name }}
         href: concepts/network.md
+      - name: Скорость копирования данных в {{ data-transfer-full-name }}
+        href: concepts/copy-speed.md
       - name: Какие задачи решает сервис
         href: concepts/use-cases.md
       - name: Жизненный цикл трансфера
         href: concepts/transfer-lifecycle.md
+      - name: Операции над трансфером
+        href: concepts/operations.md
       - name: Захват изменения данных
         href: concepts/cdc.md
+      - name: Шардированное копирование
+        href: concepts/sharded.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Решение проблем
-    items:
-      - name: Обзор
-        href: troubleshooting/index.md
-      - name: '{{ MG }}'
-        href: troubleshooting/mongodb.md
-      - name: '{{ MY }}'
-        href: troubleshooting/mysql.md
-      - name: '{{ PG }}'
-        href: troubleshooting/postgresql.md
-      - name: '{{ ydb-full-name }} и {{ yds-full-name }}'
-        href: troubleshooting/ydb.md
-      - name: Сеть
-        href: troubleshooting/network.md
+    href: troubleshooting/index.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

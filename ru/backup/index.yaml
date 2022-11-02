@@ -1,0 +1,27 @@
+title: Yandex Cloud Backup
+description:
+  - >-
+    <i>Сервис Yandex Cloud Backup находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a>.</i>
+  - >-
+    Сервис Yandex Cloud Backup позволяет настроить автоматическое резервное
+    копирования виртуальных машин сервиса <a href="/docs/compute">Yandex Compute
+    Cloud</a>.
+meta:
+  title: Yandex Cloud Backup
+links:
+  - title: Начало работы
+    description: Создайте ВМ и привяжите ее к политике резервного копирования
+    href: quickstart/
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Концепции
+    description: Узнайте про резервные копии, политики копирования и агента для ВМ
+    href: concepts/
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

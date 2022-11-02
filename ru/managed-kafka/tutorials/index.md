@@ -1,4 +1,4 @@
-# Все руководства
+# Практические руководства {{ mkf-name }}
 
 * [Настройка {{ KFC }} для работы с кластером {{ mkf-name }}](./kafka-connect.md)
 * Использование реестра схем формата данных с {{ mkf-name }}:
@@ -11,3 +11,5 @@
 * [{#T}](./cdc/data-transfer-mpg.md)
 * [{#T}](./send-data-to-mch.md)
 * [{#T}](./use-ksqldb-with-mkf.md)
+* [{#T}](./mkf-to-mch-migration.md)
+* [{#T}](./mkf-ydb-stream.md)

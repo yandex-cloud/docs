@@ -57,6 +57,8 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy)**<br>Locality settin
 log_group_id | **string**<br>ID of the log group that stores access logs of the application load balancer. <br>The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy)**<br>Autoscale settings of the application load balancer. 
+log_options | **[LogOptions](#LogOptions)**<br>Cloud logging settings of the application load balancer. 
 
 
 ### Listener {#Listener}
@@ -161,23 +163,6 @@ handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
-### HttpHandler {#HttpHandler1}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options1)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options1}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
 ### StreamHandler {#StreamHandler}
 
 Field | Description
@@ -194,52 +179,11 @@ server_names[] | **string**<br>Server names that are matched by the SNI handler.
 handler | **[TlsHandler](#TlsHandler1)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
 
 
-### TlsHandler {#TlsHandler1}
-
-Field | Description
---- | ---
-handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler2)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler1)**<br>Stream (TCP) handler. 
-certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
-
-
-### HttpHandler {#HttpHandler2}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options2)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options2}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler1}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
 ### StreamListener {#StreamListener}
 
 Field | Description
 --- | ---
-handler | **[StreamHandler](#StreamHandler2)**<br>Required. Settings for handling stream (TCP) requests. 
-
-
-### StreamHandler {#StreamHandler2}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
+handler | **[StreamHandler](#StreamHandler1)**<br>Required. Settings for handling stream (TCP) requests. 
 
 
 ### AllocationPolicy {#AllocationPolicy}
@@ -256,6 +200,33 @@ Field | Description
 zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
 subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
+
+
+### AutoScalePolicy {#AutoScalePolicy}
+
+Field | Description
+--- | ---
+min_zone_size | **int64**<br>Lower limit for the number of resource units in each zone. Acceptable values are 0 to 1000, inclusive.
+max_size | **int64**<br>Upper limit for the total number of resource units across all zones. Acceptable values are 0 to 1000, inclusive.
+
+
+### LogOptions {#LogOptions}
+
+Field | Description
+--- | ---
+log_group_id | **string**<br>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located. 
+discard_rules[] | **[LogDiscardRule](#LogDiscardRule)**<br>ordered list of rules, first matching rule applies 
+disable | **bool**<br>Do not send logs to Cloud Logging log group. 
+
+
+### LogDiscardRule {#LogDiscardRule}
+
+Field | Description
+--- | ---
+http_codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
+http_code_intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
+grpc_codes[] | **google.rpc.Code**<br>GRPC codes that should be discarded 
+discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all Acceptable values are 0 to 100, inclusive.
 
 
 ## List {#List}
@@ -299,6 +270,8 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy1)**<br>Locality setti
 log_group_id | **string**<br>ID of the log group that stores access logs of the application load balancer. <br>The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy1)**<br>Autoscale settings of the application load balancer. 
+log_options | **[LogOptions](#LogOptions1)**<br>Cloud logging settings of the application load balancer. 
 
 
 ### Listener {#Listener1}
@@ -309,7 +282,7 @@ name | **string**<br>Required. Name of the listener. The name is unique within t
 endpoints[] | **[Endpoint](#Endpoint1)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
 listener | **oneof:** `http`, `tls` or `stream`<br>Listener type and settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener1)**<br>Unencrypted HTTP listener settings. 
-&nbsp;&nbsp;tls | **[TlsListener](#TlsListener1)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener1) and [TlsListener.sni_handlers](#TlsListener1)) must be of one type, [HttpHandler](#HttpHandler3) or [StreamHandler](#StreamHandler3). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener1)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener1) and [TlsListener.sni_handlers](#TlsListener1)) must be of one type, [HttpHandler](#HttpHandler1) or [StreamHandler](#StreamHandler1). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
 &nbsp;&nbsp;stream | **[StreamListener](#StreamListener1)**<br>Unencrypted stream (TCP) listener settings. 
 
 
@@ -357,21 +330,21 @@ address | **string**<br>IPv6 address.
 
 Field | Description
 --- | ---
-handler | **[HttpHandler](#HttpHandler3)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
+handler | **[HttpHandler](#HttpHandler1)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
 redirects | **[Redirects](#Redirects1)**<br>Redirects settings. <br>Only one of `redirects` and `handler` can be specified. 
 
 
-### HttpHandler {#HttpHandler3}
+### HttpHandler {#HttpHandler1}
 
 Field | Description
 --- | ---
 http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options3)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options1)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
 
 
-### Http2Options {#Http2Options3}
+### Http2Options {#Http2Options1}
 
 Field | Description
 --- | ---
@@ -389,38 +362,21 @@ http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same 
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler2)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+default_handler | **[TlsHandler](#TlsHandler1)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
 sni_handlers[] | **[SniMatch](#SniMatch1)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch1) values. 
 
 
-### TlsHandler {#TlsHandler2}
+### TlsHandler {#TlsHandler1}
 
 Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler4)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler3)**<br>Stream (TCP) handler. 
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler2)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler1)**<br>Stream (TCP) handler. 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
-### HttpHandler {#HttpHandler4}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options4)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options4}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler3}
+### StreamHandler {#StreamHandler1}
 
 Field | Description
 --- | ---
@@ -433,55 +389,14 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the SNI handler. 
 server_names[] | **string**<br>Server names that are matched by the SNI handler. The number of elements must be greater than 0.
-handler | **[TlsHandler](#TlsHandler3)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
-
-
-### TlsHandler {#TlsHandler3}
-
-Field | Description
---- | ---
-handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler5)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler4)**<br>Stream (TCP) handler. 
-certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
-
-
-### HttpHandler {#HttpHandler5}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options5)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options5}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler4}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
+handler | **[TlsHandler](#TlsHandler2)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
 
 
 ### StreamListener {#StreamListener1}
 
 Field | Description
 --- | ---
-handler | **[StreamHandler](#StreamHandler5)**<br>Required. Settings for handling stream (TCP) requests. 
-
-
-### StreamHandler {#StreamHandler5}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
+handler | **[StreamHandler](#StreamHandler2)**<br>Required. Settings for handling stream (TCP) requests. 
 
 
 ### AllocationPolicy {#AllocationPolicy1}
@@ -498,6 +413,33 @@ Field | Description
 zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
 subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
+
+
+### AutoScalePolicy {#AutoScalePolicy1}
+
+Field | Description
+--- | ---
+min_zone_size | **int64**<br>Lower limit for the number of resource units in each zone. Acceptable values are 0 to 1000, inclusive.
+max_size | **int64**<br>Upper limit for the total number of resource units across all zones. Acceptable values are 0 to 1000, inclusive.
+
+
+### LogOptions {#LogOptions1}
+
+Field | Description
+--- | ---
+log_group_id | **string**<br>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located. 
+discard_rules[] | **[LogDiscardRule](#LogDiscardRule1)**<br>ordered list of rules, first matching rule applies 
+disable | **bool**<br>Do not send logs to Cloud Logging log group. 
+
+
+### LogDiscardRule {#LogDiscardRule1}
+
+Field | Description
+--- | ---
+http_codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
+http_code_intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
+grpc_codes[] | **google.rpc.Code**<br>GRPC codes that should be discarded 
+discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all Acceptable values are 0 to 100, inclusive.
 
 
 ## Create {#Create}
@@ -523,6 +465,8 @@ network_id | **string**<br>Required. ID of the network that the application load
 listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br>Listeners that belong to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy2)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy2)**<br>Autoscale settings of the application load balancer. 
+log_options | **[LogOptions](#LogOptions2)**<br>Cloud logging settings of the application load balancer. 
 
 
 ### ListenerSpec {#ListenerSpec}
@@ -533,7 +477,7 @@ name | **string**<br>Required. Name of the listener. The name is unique within t
 endpoint_specs[] | **[EndpointSpec](#EndpointSpec)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. The number of elements must be greater than 0.
 listener | **oneof:** `http`, `tls` or `stream`<br>Listener type and settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener2)**<br>Unencrypted HTTP listener settings. 
-&nbsp;&nbsp;tls | **[TlsListener](#TlsListener2)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener2) and [TlsListener.sni_handlers](#TlsListener2)) must be of one type, [HttpHandler](#HttpHandler6) or [StreamHandler](#StreamHandler6). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener2)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener2) and [TlsListener.sni_handlers](#TlsListener2)) must be of one type, [HttpHandler](#HttpHandler2) or [StreamHandler](#StreamHandler2). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
 &nbsp;&nbsp;stream | **[StreamListener](#StreamListener2)**<br>Unencrypted stream (TCP) listener settings. 
 
 
@@ -581,21 +525,21 @@ address | **string**<br>IPv6 address.
 
 Field | Description
 --- | ---
-handler | **[HttpHandler](#HttpHandler6)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
+handler | **[HttpHandler](#HttpHandler2)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
 redirects | **[Redirects](#Redirects2)**<br>Redirects settings. <br>Only one of `redirects` and `handler` can be specified. 
 
 
-### HttpHandler {#HttpHandler6}
+### HttpHandler {#HttpHandler2}
 
 Field | Description
 --- | ---
 http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options6)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options2)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
 
 
-### Http2Options {#Http2Options6}
+### Http2Options {#Http2Options2}
 
 Field | Description
 --- | ---
@@ -613,38 +557,21 @@ http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same 
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler4)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+default_handler | **[TlsHandler](#TlsHandler2)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
 sni_handlers[] | **[SniMatch](#SniMatch2)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch2) values. 
 
 
-### TlsHandler {#TlsHandler4}
+### TlsHandler {#TlsHandler2}
 
 Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler7)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler6)**<br>Stream (TCP) handler. 
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler3)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler2)**<br>Stream (TCP) handler. 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
-### HttpHandler {#HttpHandler7}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options7)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options7}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler6}
+### StreamHandler {#StreamHandler2}
 
 Field | Description
 --- | ---
@@ -657,55 +584,14 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the SNI handler. 
 server_names[] | **string**<br>Server names that are matched by the SNI handler. The number of elements must be greater than 0.
-handler | **[TlsHandler](#TlsHandler5)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
-
-
-### TlsHandler {#TlsHandler5}
-
-Field | Description
---- | ---
-handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler8)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler7)**<br>Stream (TCP) handler. 
-certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
-
-
-### HttpHandler {#HttpHandler8}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options8)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options8}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler7}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
+handler | **[TlsHandler](#TlsHandler3)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
 
 
 ### StreamListener {#StreamListener2}
 
 Field | Description
 --- | ---
-handler | **[StreamHandler](#StreamHandler8)**<br>Required. Settings for handling stream (TCP) requests. 
-
-
-### StreamHandler {#StreamHandler8}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
+handler | **[StreamHandler](#StreamHandler3)**<br>Required. Settings for handling stream (TCP) requests. 
 
 
 ### AllocationPolicy {#AllocationPolicy2}
@@ -722,6 +608,33 @@ Field | Description
 zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
 subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
+
+
+### AutoScalePolicy {#AutoScalePolicy2}
+
+Field | Description
+--- | ---
+min_zone_size | **int64**<br>Lower limit for the number of resource units in each zone. Acceptable values are 0 to 1000, inclusive.
+max_size | **int64**<br>Upper limit for the total number of resource units across all zones. Acceptable values are 0 to 1000, inclusive.
+
+
+### LogOptions {#LogOptions2}
+
+Field | Description
+--- | ---
+log_group_id | **string**<br>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located. 
+discard_rules[] | **[LogDiscardRule](#LogDiscardRule2)**<br>ordered list of rules, first matching rule applies 
+disable | **bool**<br>Do not send logs to Cloud Logging log group. 
+
+
+### LogDiscardRule {#LogDiscardRule2}
+
+Field | Description
+--- | ---
+http_codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
+http_code_intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
+grpc_codes[] | **google.rpc.Code**<br>GRPC codes that should be discarded 
+discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all Acceptable values are 0 to 100, inclusive.
 
 
 ### Operation {#Operation}
@@ -764,6 +677,8 @@ allocation_policy | **[AllocationPolicy](#AllocationPolicy3)**<br>Locality setti
 log_group_id | **string**<br>ID of the log group that stores access logs of the application load balancer. <br>The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy3)**<br>Autoscale settings of the application load balancer. 
+log_options | **[LogOptions](#LogOptions3)**<br>Cloud logging settings of the application load balancer. 
 
 
 ### Listener {#Listener2}
@@ -774,7 +689,7 @@ name | **string**<br>Required. Name of the listener. The name is unique within t
 endpoints[] | **[Endpoint](#Endpoint2)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
 listener | **oneof:** `http`, `tls` or `stream`<br>Listener type and settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener3)**<br>Unencrypted HTTP listener settings. 
-&nbsp;&nbsp;tls | **[TlsListener](#TlsListener3)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener3) and [TlsListener.sni_handlers](#TlsListener3)) must be of one type, [HttpHandler](#HttpHandler9) or [StreamHandler](#StreamHandler9). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener3)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener3) and [TlsListener.sni_handlers](#TlsListener3)) must be of one type, [HttpHandler](#HttpHandler3) or [StreamHandler](#StreamHandler3). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
 &nbsp;&nbsp;stream | **[StreamListener](#StreamListener3)**<br>Unencrypted stream (TCP) listener settings. 
 
 
@@ -818,153 +733,6 @@ Field | Description
 address | **string**<br>IPv6 address. 
 
 
-### HttpListener {#HttpListener3}
-
-Field | Description
---- | ---
-handler | **[HttpHandler](#HttpHandler9)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
-redirects | **[Redirects](#Redirects3)**<br>Redirects settings. <br>Only one of `redirects` and `handler` can be specified. 
-
-
-### HttpHandler {#HttpHandler9}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options9)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options9}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### Redirects {#Redirects3}
-
-Field | Description
---- | ---
-http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same URI with scheme changed to `https`. <br>The setting has the same effect as a single, catch-all [HttpRoute](#HttpRoute) with [RedirectAction.replace_scheme](#RedirectAction) set to `https`. 
-
-
-### TlsListener {#TlsListener3}
-
-Field | Description
---- | ---
-default_handler | **[TlsHandler](#TlsHandler6)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch3)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch3) values. 
-
-
-### TlsHandler {#TlsHandler6}
-
-Field | Description
---- | ---
-handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler10)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler9)**<br>Stream (TCP) handler. 
-certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
-
-
-### HttpHandler {#HttpHandler10}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options10)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options10}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler9}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### SniMatch {#SniMatch3}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Name of the SNI handler. 
-server_names[] | **string**<br>Server names that are matched by the SNI handler. The number of elements must be greater than 0.
-handler | **[TlsHandler](#TlsHandler7)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
-
-
-### TlsHandler {#TlsHandler7}
-
-Field | Description
---- | ---
-handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler11)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler10)**<br>Stream (TCP) handler. 
-certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
-
-
-### HttpHandler {#HttpHandler11}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options11)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options11}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler10}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### StreamListener {#StreamListener3}
-
-Field | Description
---- | ---
-handler | **[StreamHandler](#StreamHandler11)**<br>Required. Settings for handling stream (TCP) requests. 
-
-
-### StreamHandler {#StreamHandler11}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### AllocationPolicy {#AllocationPolicy3}
-
-Field | Description
---- | ---
-locations[] | **[Location](#Location3)**<br>Availability zones and subnets that the application load balancer resides. The minimum number of elements is 1.
-
-
-### Location {#Location3}
-
-Field | Description
---- | ---
-zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
-subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
-disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
-
-
 ## Update {#Update}
 
 Updates the specified application load balancer.
@@ -985,8 +753,10 @@ name | **string**<br>New name for the application load balancer. The name must b
 description | **string**<br>New description of the application load balancer. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>New application load balancer labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: <ol><li>Get the current set of labels with a [LoadBalancerService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br>New listeners for the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). <br>Existing list of listeners is completely replaced by the specified list, so if you just want to add, update, or remove a listener, make a [LoadBalancerService.AddListener](#AddListener) request, a [LoadBalancerService.UpdateListener](#UpdateListener) request, or a [LoadBalancerService.RemoveListener](#RemoveListener) request. 
-allocation_policy | **[AllocationPolicy](#AllocationPolicy4)**<br>New locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). <br>Existing locality settings are completely replaced by the specified settings, so if you just want to add or remove an allocation policy: <ol><li>Get the current settings with a [LoadBalancerService.Get](#Get) request. </li><li>Add or remove a policy in this set. </li><li>Send the new set in this field.</li></ol> 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy3)**<br>New locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). <br>Existing locality settings are completely replaced by the specified settings, so if you just want to add or remove an allocation policy: <ol><li>Get the current settings with a [LoadBalancerService.Get](#Get) request. </li><li>Add or remove a policy in this set. </li><li>Send the new set in this field.</li></ol> 
 security_group_ids[] | **string**<br>ID's of new security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). <br>Existing list of security groups is completely replaced by the specified list, so if you just want to add or remove an allocation policy: <ol><li>Get the current set of security groups with a [LoadBalancerService.Get](#Get) request. </li><li>Add or remove a group in this set. </li><li>Send the new set in this field.</li></ol> 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy3)**<br>Autoscale settings of the application load balancer. 
+log_options | **[LogOptions](#LogOptions3)**<br>Cloud logging settings of the application load balancer. 
 
 
 ### ListenerSpec {#ListenerSpec1}
@@ -996,9 +766,9 @@ Field | Description
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 endpoint_specs[] | **[EndpointSpec](#EndpointSpec)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. The number of elements must be greater than 0.
 listener | **oneof:** `http`, `tls` or `stream`<br>Listener type and settings.
-&nbsp;&nbsp;http | **[HttpListener](#HttpListener4)**<br>Unencrypted HTTP listener settings. 
-&nbsp;&nbsp;tls | **[TlsListener](#TlsListener4)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener4) and [TlsListener.sni_handlers](#TlsListener4)) must be of one type, [HttpHandler](#HttpHandler12) or [StreamHandler](#StreamHandler12). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
-&nbsp;&nbsp;stream | **[StreamListener](#StreamListener4)**<br>Unencrypted stream (TCP) listener settings. 
+&nbsp;&nbsp;http | **[HttpListener](#HttpListener3)**<br>Unencrypted HTTP listener settings. 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener3)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener3) and [TlsListener.sni_handlers](#TlsListener3)) must be of one type, [HttpHandler](#HttpHandler3) or [StreamHandler](#StreamHandler3). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener3)**<br>Unencrypted stream (TCP) listener settings. 
 
 
 ### EndpointSpec {#EndpointSpec1}
@@ -1041,151 +811,120 @@ Field | Description
 address | **string**<br>IPv6 address. 
 
 
-### HttpListener {#HttpListener4}
+### HttpListener {#HttpListener3}
 
 Field | Description
 --- | ---
-handler | **[HttpHandler](#HttpHandler12)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
-redirects | **[Redirects](#Redirects4)**<br>Redirects settings. <br>Only one of `redirects` and `handler` can be specified. 
+handler | **[HttpHandler](#HttpHandler3)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
+redirects | **[Redirects](#Redirects3)**<br>Redirects settings. <br>Only one of `redirects` and `handler` can be specified. 
 
 
-### HttpHandler {#HttpHandler12}
+### HttpHandler {#HttpHandler3}
 
 Field | Description
 --- | ---
 http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options12)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options3)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
 
 
-### Http2Options {#Http2Options12}
+### Http2Options {#Http2Options3}
 
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### Redirects {#Redirects4}
+### Redirects {#Redirects3}
 
 Field | Description
 --- | ---
 http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same URI with scheme changed to `https`. <br>The setting has the same effect as a single, catch-all [HttpRoute](#HttpRoute) with [RedirectAction.replace_scheme](#RedirectAction) set to `https`. 
 
 
-### TlsListener {#TlsListener4}
+### TlsListener {#TlsListener3}
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler8)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch4)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch4) values. 
+default_handler | **[TlsHandler](#TlsHandler3)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+sni_handlers[] | **[SniMatch](#SniMatch3)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch3) values. 
 
 
-### TlsHandler {#TlsHandler8}
+### TlsHandler {#TlsHandler3}
 
 Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler13)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler12)**<br>Stream (TCP) handler. 
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler4)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler3)**<br>Stream (TCP) handler. 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
-### HttpHandler {#HttpHandler13}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options13)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options13}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler12}
+### StreamHandler {#StreamHandler3}
 
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
 
 
-### SniMatch {#SniMatch4}
+### SniMatch {#SniMatch3}
 
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the SNI handler. 
 server_names[] | **string**<br>Server names that are matched by the SNI handler. The number of elements must be greater than 0.
-handler | **[TlsHandler](#TlsHandler9)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
+handler | **[TlsHandler](#TlsHandler4)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
 
 
-### TlsHandler {#TlsHandler9}
-
-Field | Description
---- | ---
-handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler14)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler13)**<br>Stream (TCP) handler. 
-certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
-
-
-### HttpHandler {#HttpHandler14}
+### StreamListener {#StreamListener3}
 
 Field | Description
 --- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options14)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
+handler | **[StreamHandler](#StreamHandler4)**<br>Required. Settings for handling stream (TCP) requests. 
 
 
-### Http2Options {#Http2Options14}
+### AllocationPolicy {#AllocationPolicy3}
 
 Field | Description
 --- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
+locations[] | **[Location](#Location3)**<br>Availability zones and subnets that the application load balancer resides. The minimum number of elements is 1.
 
 
-### StreamHandler {#StreamHandler13}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### StreamListener {#StreamListener4}
-
-Field | Description
---- | ---
-handler | **[StreamHandler](#StreamHandler14)**<br>Required. Settings for handling stream (TCP) requests. 
-
-
-### StreamHandler {#StreamHandler14}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### AllocationPolicy {#AllocationPolicy4}
-
-Field | Description
---- | ---
-locations[] | **[Location](#Location4)**<br>Availability zones and subnets that the application load balancer resides. The minimum number of elements is 1.
-
-
-### Location {#Location4}
+### Location {#Location3}
 
 Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
 subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
+
+
+### AutoScalePolicy {#AutoScalePolicy3}
+
+Field | Description
+--- | ---
+min_zone_size | **int64**<br>Lower limit for the number of resource units in each zone. Acceptable values are 0 to 1000, inclusive.
+max_size | **int64**<br>Upper limit for the total number of resource units across all zones. Acceptable values are 0 to 1000, inclusive.
+
+
+### LogOptions {#LogOptions3}
+
+Field | Description
+--- | ---
+log_group_id | **string**<br>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located. 
+discard_rules[] | **[LogDiscardRule](#LogDiscardRule3)**<br>ordered list of rules, first matching rule applies 
+disable | **bool**<br>Do not send logs to Cloud Logging log group. 
+
+
+### LogDiscardRule {#LogDiscardRule3}
+
+Field | Description
+--- | ---
+http_codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
+http_code_intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
+grpc_codes[] | **google.rpc.Code**<br>GRPC codes that should be discarded 
+discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all Acceptable values are 0 to 100, inclusive.
 
 
 ### Operation {#Operation1}
@@ -1224,10 +963,12 @@ status | enum **Status**<br>Status of the application load balancer. <ul><li>`CR
 region_id | **string**<br>ID of the region that the application load balancer is located at. 
 network_id | **string**<br>ID of the network that the application load balancer belongs to. 
 listeners[] | **[Listener](#Listener3)**<br>Listeners that belong to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). 
-allocation_policy | **[AllocationPolicy](#AllocationPolicy5)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy4)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
 log_group_id | **string**<br>ID of the log group that stores access logs of the application load balancer. <br>The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy4)**<br>Autoscale settings of the application load balancer. 
+log_options | **[LogOptions](#LogOptions4)**<br>Cloud logging settings of the application load balancer. 
 
 
 ### Listener {#Listener3}
@@ -1237,9 +978,9 @@ Field | Description
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint3)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
 listener | **oneof:** `http`, `tls` or `stream`<br>Listener type and settings.
-&nbsp;&nbsp;http | **[HttpListener](#HttpListener5)**<br>Unencrypted HTTP listener settings. 
-&nbsp;&nbsp;tls | **[TlsListener](#TlsListener5)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener5) and [TlsListener.sni_handlers](#TlsListener5)) must be of one type, [HttpHandler](#HttpHandler15) or [StreamHandler](#StreamHandler15). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
-&nbsp;&nbsp;stream | **[StreamListener](#StreamListener5)**<br>Unencrypted stream (TCP) listener settings. 
+&nbsp;&nbsp;http | **[HttpListener](#HttpListener4)**<br>Unencrypted HTTP listener settings. 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener4)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener4) and [TlsListener.sni_handlers](#TlsListener4)) must be of one type, [HttpHandler](#HttpHandler4) or [StreamHandler](#StreamHandler4). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener4)**<br>Unencrypted stream (TCP) listener settings. 
 
 
 ### Endpoint {#Endpoint3}
@@ -1280,153 +1021,6 @@ subnet_id | **string**<br>ID of the subnet that the address belongs to.
 Field | Description
 --- | ---
 address | **string**<br>IPv6 address. 
-
-
-### HttpListener {#HttpListener5}
-
-Field | Description
---- | ---
-handler | **[HttpHandler](#HttpHandler15)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
-redirects | **[Redirects](#Redirects5)**<br>Redirects settings. <br>Only one of `redirects` and `handler` can be specified. 
-
-
-### HttpHandler {#HttpHandler15}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options15)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options15}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### Redirects {#Redirects5}
-
-Field | Description
---- | ---
-http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same URI with scheme changed to `https`. <br>The setting has the same effect as a single, catch-all [HttpRoute](#HttpRoute) with [RedirectAction.replace_scheme](#RedirectAction) set to `https`. 
-
-
-### TlsListener {#TlsListener5}
-
-Field | Description
---- | ---
-default_handler | **[TlsHandler](#TlsHandler10)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch5)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch5) values. 
-
-
-### TlsHandler {#TlsHandler10}
-
-Field | Description
---- | ---
-handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler16)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler15)**<br>Stream (TCP) handler. 
-certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
-
-
-### HttpHandler {#HttpHandler16}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options16)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options16}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler15}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### SniMatch {#SniMatch5}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Name of the SNI handler. 
-server_names[] | **string**<br>Server names that are matched by the SNI handler. The number of elements must be greater than 0.
-handler | **[TlsHandler](#TlsHandler11)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
-
-
-### TlsHandler {#TlsHandler11}
-
-Field | Description
---- | ---
-handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler17)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler16)**<br>Stream (TCP) handler. 
-certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
-
-
-### HttpHandler {#HttpHandler17}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options17)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options17}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler16}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### StreamListener {#StreamListener5}
-
-Field | Description
---- | ---
-handler | **[StreamHandler](#StreamHandler17)**<br>Required. Settings for handling stream (TCP) requests. 
-
-
-### StreamHandler {#StreamHandler17}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### AllocationPolicy {#AllocationPolicy5}
-
-Field | Description
---- | ---
-locations[] | **[Location](#Location5)**<br>Availability zones and subnets that the application load balancer resides. The minimum number of elements is 1.
-
-
-### Location {#Location5}
-
-Field | Description
---- | ---
-zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
-subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
-disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
 
 
 ## Delete {#Delete}
@@ -1522,10 +1116,12 @@ status | enum **Status**<br>Status of the application load balancer. <ul><li>`CR
 region_id | **string**<br>ID of the region that the application load balancer is located at. 
 network_id | **string**<br>ID of the network that the application load balancer belongs to. 
 listeners[] | **[Listener](#Listener4)**<br>Listeners that belong to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). 
-allocation_policy | **[AllocationPolicy](#AllocationPolicy6)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy4)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
 log_group_id | **string**<br>ID of the log group that stores access logs of the application load balancer. <br>The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy4)**<br>Autoscale settings of the application load balancer. 
+log_options | **[LogOptions](#LogOptions4)**<br>Cloud logging settings of the application load balancer. 
 
 
 ### Listener {#Listener4}
@@ -1535,9 +1131,9 @@ Field | Description
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint4)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
 listener | **oneof:** `http`, `tls` or `stream`<br>Listener type and settings.
-&nbsp;&nbsp;http | **[HttpListener](#HttpListener6)**<br>Unencrypted HTTP listener settings. 
-&nbsp;&nbsp;tls | **[TlsListener](#TlsListener6)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener6) and [TlsListener.sni_handlers](#TlsListener6)) must be of one type, [HttpHandler](#HttpHandler18) or [StreamHandler](#StreamHandler18). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
-&nbsp;&nbsp;stream | **[StreamListener](#StreamListener6)**<br>Unencrypted stream (TCP) listener settings. 
+&nbsp;&nbsp;http | **[HttpListener](#HttpListener4)**<br>Unencrypted HTTP listener settings. 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener4)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener4) and [TlsListener.sni_handlers](#TlsListener4)) must be of one type, [HttpHandler](#HttpHandler4) or [StreamHandler](#StreamHandler4). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener4)**<br>Unencrypted stream (TCP) listener settings. 
 
 
 ### Endpoint {#Endpoint4}
@@ -1580,151 +1176,120 @@ Field | Description
 address | **string**<br>IPv6 address. 
 
 
-### HttpListener {#HttpListener6}
+### HttpListener {#HttpListener4}
 
 Field | Description
 --- | ---
-handler | **[HttpHandler](#HttpHandler18)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
-redirects | **[Redirects](#Redirects6)**<br>Redirects settings. <br>Only one of `redirects` and `handler` can be specified. 
+handler | **[HttpHandler](#HttpHandler4)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
+redirects | **[Redirects](#Redirects4)**<br>Redirects settings. <br>Only one of `redirects` and `handler` can be specified. 
 
 
-### HttpHandler {#HttpHandler18}
+### HttpHandler {#HttpHandler4}
 
 Field | Description
 --- | ---
 http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options18)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options4)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
 
 
-### Http2Options {#Http2Options18}
+### Http2Options {#Http2Options4}
 
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### Redirects {#Redirects6}
+### Redirects {#Redirects4}
 
 Field | Description
 --- | ---
 http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same URI with scheme changed to `https`. <br>The setting has the same effect as a single, catch-all [HttpRoute](#HttpRoute) with [RedirectAction.replace_scheme](#RedirectAction) set to `https`. 
 
 
-### TlsListener {#TlsListener6}
+### TlsListener {#TlsListener4}
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler12)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch6)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch6) values. 
+default_handler | **[TlsHandler](#TlsHandler4)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+sni_handlers[] | **[SniMatch](#SniMatch4)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch4) values. 
 
 
-### TlsHandler {#TlsHandler12}
+### TlsHandler {#TlsHandler4}
 
 Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler19)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler18)**<br>Stream (TCP) handler. 
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler5)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler4)**<br>Stream (TCP) handler. 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
-### HttpHandler {#HttpHandler19}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options19)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options19}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler18}
+### StreamHandler {#StreamHandler4}
 
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
 
 
-### SniMatch {#SniMatch6}
+### SniMatch {#SniMatch4}
 
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the SNI handler. 
 server_names[] | **string**<br>Server names that are matched by the SNI handler. The number of elements must be greater than 0.
-handler | **[TlsHandler](#TlsHandler13)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
+handler | **[TlsHandler](#TlsHandler5)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
 
 
-### TlsHandler {#TlsHandler13}
-
-Field | Description
---- | ---
-handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler20)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler19)**<br>Stream (TCP) handler. 
-certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
-
-
-### HttpHandler {#HttpHandler20}
+### StreamListener {#StreamListener4}
 
 Field | Description
 --- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options20)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
+handler | **[StreamHandler](#StreamHandler5)**<br>Required. Settings for handling stream (TCP) requests. 
 
 
-### Http2Options {#Http2Options20}
+### AllocationPolicy {#AllocationPolicy4}
 
 Field | Description
 --- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
+locations[] | **[Location](#Location4)**<br>Availability zones and subnets that the application load balancer resides. The minimum number of elements is 1.
 
 
-### StreamHandler {#StreamHandler19}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### StreamListener {#StreamListener6}
-
-Field | Description
---- | ---
-handler | **[StreamHandler](#StreamHandler20)**<br>Required. Settings for handling stream (TCP) requests. 
-
-
-### StreamHandler {#StreamHandler20}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### AllocationPolicy {#AllocationPolicy6}
-
-Field | Description
---- | ---
-locations[] | **[Location](#Location6)**<br>Availability zones and subnets that the application load balancer resides. The minimum number of elements is 1.
-
-
-### Location {#Location6}
+### Location {#Location4}
 
 Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
 subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
+
+
+### AutoScalePolicy {#AutoScalePolicy4}
+
+Field | Description
+--- | ---
+min_zone_size | **int64**<br>Lower limit for the number of resource units in each zone. Acceptable values are 0 to 1000, inclusive.
+max_size | **int64**<br>Upper limit for the total number of resource units across all zones. Acceptable values are 0 to 1000, inclusive.
+
+
+### LogOptions {#LogOptions4}
+
+Field | Description
+--- | ---
+log_group_id | **string**<br>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located. 
+discard_rules[] | **[LogDiscardRule](#LogDiscardRule4)**<br>ordered list of rules, first matching rule applies 
+disable | **bool**<br>Do not send logs to Cloud Logging log group. 
+
+
+### LogDiscardRule {#LogDiscardRule4}
+
+Field | Description
+--- | ---
+http_codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
+http_code_intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
+grpc_codes[] | **google.rpc.Code**<br>GRPC codes that should be discarded 
+discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all Acceptable values are 0 to 100, inclusive.
 
 
 ## Stop {#Stop}
@@ -1780,10 +1345,12 @@ status | enum **Status**<br>Status of the application load balancer. <ul><li>`CR
 region_id | **string**<br>ID of the region that the application load balancer is located at. 
 network_id | **string**<br>ID of the network that the application load balancer belongs to. 
 listeners[] | **[Listener](#Listener5)**<br>Listeners that belong to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). 
-allocation_policy | **[AllocationPolicy](#AllocationPolicy7)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy5)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
 log_group_id | **string**<br>ID of the log group that stores access logs of the application load balancer. <br>The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy5)**<br>Autoscale settings of the application load balancer. 
+log_options | **[LogOptions](#LogOptions5)**<br>Cloud logging settings of the application load balancer. 
 
 
 ### Listener {#Listener5}
@@ -1793,9 +1360,9 @@ Field | Description
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint5)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
 listener | **oneof:** `http`, `tls` or `stream`<br>Listener type and settings.
-&nbsp;&nbsp;http | **[HttpListener](#HttpListener7)**<br>Unencrypted HTTP listener settings. 
-&nbsp;&nbsp;tls | **[TlsListener](#TlsListener7)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener7) and [TlsListener.sni_handlers](#TlsListener7)) must be of one type, [HttpHandler](#HttpHandler21) or [StreamHandler](#StreamHandler21). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
-&nbsp;&nbsp;stream | **[StreamListener](#StreamListener7)**<br>Unencrypted stream (TCP) listener settings. 
+&nbsp;&nbsp;http | **[HttpListener](#HttpListener5)**<br>Unencrypted HTTP listener settings. 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener5)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener5) and [TlsListener.sni_handlers](#TlsListener5)) must be of one type, [HttpHandler](#HttpHandler5) or [StreamHandler](#StreamHandler5). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener5)**<br>Unencrypted stream (TCP) listener settings. 
 
 
 ### Endpoint {#Endpoint5}
@@ -1838,151 +1405,120 @@ Field | Description
 address | **string**<br>IPv6 address. 
 
 
-### HttpListener {#HttpListener7}
+### HttpListener {#HttpListener5}
 
 Field | Description
 --- | ---
-handler | **[HttpHandler](#HttpHandler21)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
-redirects | **[Redirects](#Redirects7)**<br>Redirects settings. <br>Only one of `redirects` and `handler` can be specified. 
+handler | **[HttpHandler](#HttpHandler5)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
+redirects | **[Redirects](#Redirects5)**<br>Redirects settings. <br>Only one of `redirects` and `handler` can be specified. 
 
 
-### HttpHandler {#HttpHandler21}
+### HttpHandler {#HttpHandler5}
 
 Field | Description
 --- | ---
 http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options21)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options5)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
 
 
-### Http2Options {#Http2Options21}
+### Http2Options {#Http2Options5}
 
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### Redirects {#Redirects7}
+### Redirects {#Redirects5}
 
 Field | Description
 --- | ---
 http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same URI with scheme changed to `https`. <br>The setting has the same effect as a single, catch-all [HttpRoute](#HttpRoute) with [RedirectAction.replace_scheme](#RedirectAction) set to `https`. 
 
 
-### TlsListener {#TlsListener7}
+### TlsListener {#TlsListener5}
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler14)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch7)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch7) values. 
+default_handler | **[TlsHandler](#TlsHandler5)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+sni_handlers[] | **[SniMatch](#SniMatch5)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch5) values. 
 
 
-### TlsHandler {#TlsHandler14}
+### TlsHandler {#TlsHandler5}
 
 Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler22)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler21)**<br>Stream (TCP) handler. 
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler6)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler5)**<br>Stream (TCP) handler. 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
-### HttpHandler {#HttpHandler22}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options22)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options22}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler21}
+### StreamHandler {#StreamHandler5}
 
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
 
 
-### SniMatch {#SniMatch7}
+### SniMatch {#SniMatch5}
 
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the SNI handler. 
 server_names[] | **string**<br>Server names that are matched by the SNI handler. The number of elements must be greater than 0.
-handler | **[TlsHandler](#TlsHandler15)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
+handler | **[TlsHandler](#TlsHandler6)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
 
 
-### TlsHandler {#TlsHandler15}
-
-Field | Description
---- | ---
-handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler23)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler22)**<br>Stream (TCP) handler. 
-certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
-
-
-### HttpHandler {#HttpHandler23}
+### StreamListener {#StreamListener5}
 
 Field | Description
 --- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options23)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
+handler | **[StreamHandler](#StreamHandler6)**<br>Required. Settings for handling stream (TCP) requests. 
 
 
-### Http2Options {#Http2Options23}
+### AllocationPolicy {#AllocationPolicy5}
 
 Field | Description
 --- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
+locations[] | **[Location](#Location5)**<br>Availability zones and subnets that the application load balancer resides. The minimum number of elements is 1.
 
 
-### StreamHandler {#StreamHandler22}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### StreamListener {#StreamListener7}
-
-Field | Description
---- | ---
-handler | **[StreamHandler](#StreamHandler23)**<br>Required. Settings for handling stream (TCP) requests. 
-
-
-### StreamHandler {#StreamHandler23}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### AllocationPolicy {#AllocationPolicy7}
-
-Field | Description
---- | ---
-locations[] | **[Location](#Location7)**<br>Availability zones and subnets that the application load balancer resides. The minimum number of elements is 1.
-
-
-### Location {#Location7}
+### Location {#Location5}
 
 Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
 subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
+
+
+### AutoScalePolicy {#AutoScalePolicy5}
+
+Field | Description
+--- | ---
+min_zone_size | **int64**<br>Lower limit for the number of resource units in each zone. Acceptable values are 0 to 1000, inclusive.
+max_size | **int64**<br>Upper limit for the total number of resource units across all zones. Acceptable values are 0 to 1000, inclusive.
+
+
+### LogOptions {#LogOptions5}
+
+Field | Description
+--- | ---
+log_group_id | **string**<br>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located. 
+discard_rules[] | **[LogDiscardRule](#LogDiscardRule5)**<br>ordered list of rules, first matching rule applies 
+disable | **bool**<br>Do not send logs to Cloud Logging log group. 
+
+
+### LogDiscardRule {#LogDiscardRule5}
+
+Field | Description
+--- | ---
+http_codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
+http_code_intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
+grpc_codes[] | **google.rpc.Code**<br>GRPC codes that should be discarded 
+discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all Acceptable values are 0 to 100, inclusive.
 
 
 ## AddListener {#AddListener}
@@ -2010,9 +1546,9 @@ Field | Description
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 endpoint_specs[] | **[EndpointSpec](#EndpointSpec)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. The number of elements must be greater than 0.
 listener | **oneof:** `http`, `tls` or `stream`<br>Listener type and settings.
-&nbsp;&nbsp;http | **[HttpListener](#HttpListener8)**<br>Unencrypted HTTP listener settings. 
-&nbsp;&nbsp;tls | **[TlsListener](#TlsListener8)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener8) and [TlsListener.sni_handlers](#TlsListener8)) must be of one type, [HttpHandler](#HttpHandler24) or [StreamHandler](#StreamHandler24). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
-&nbsp;&nbsp;stream | **[StreamListener](#StreamListener8)**<br>Unencrypted stream (TCP) listener settings. 
+&nbsp;&nbsp;http | **[HttpListener](#HttpListener6)**<br>Unencrypted HTTP listener settings. 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener6)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener6) and [TlsListener.sni_handlers](#TlsListener6)) must be of one type, [HttpHandler](#HttpHandler6) or [StreamHandler](#StreamHandler6). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener6)**<br>Unencrypted stream (TCP) listener settings. 
 
 
 ### EndpointSpec {#EndpointSpec2}
@@ -2055,135 +1591,77 @@ Field | Description
 address | **string**<br>IPv6 address. 
 
 
-### HttpListener {#HttpListener8}
+### HttpListener {#HttpListener6}
 
 Field | Description
 --- | ---
-handler | **[HttpHandler](#HttpHandler24)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
-redirects | **[Redirects](#Redirects8)**<br>Redirects settings. <br>Only one of `redirects` and `handler` can be specified. 
+handler | **[HttpHandler](#HttpHandler6)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
+redirects | **[Redirects](#Redirects6)**<br>Redirects settings. <br>Only one of `redirects` and `handler` can be specified. 
 
 
-### HttpHandler {#HttpHandler24}
+### HttpHandler {#HttpHandler6}
 
 Field | Description
 --- | ---
 http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options24)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options6)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
 
 
-### Http2Options {#Http2Options24}
+### Http2Options {#Http2Options6}
 
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### Redirects {#Redirects8}
+### Redirects {#Redirects6}
 
 Field | Description
 --- | ---
 http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same URI with scheme changed to `https`. <br>The setting has the same effect as a single, catch-all [HttpRoute](#HttpRoute) with [RedirectAction.replace_scheme](#RedirectAction) set to `https`. 
 
 
-### TlsListener {#TlsListener8}
+### TlsListener {#TlsListener6}
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler16)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch8)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch8) values. 
+default_handler | **[TlsHandler](#TlsHandler6)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+sni_handlers[] | **[SniMatch](#SniMatch6)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch6) values. 
 
 
-### TlsHandler {#TlsHandler16}
+### TlsHandler {#TlsHandler6}
 
 Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler25)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler24)**<br>Stream (TCP) handler. 
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler7)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler6)**<br>Stream (TCP) handler. 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
-### HttpHandler {#HttpHandler25}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options25)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options25}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler24}
+### StreamHandler {#StreamHandler6}
 
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
 
 
-### SniMatch {#SniMatch8}
+### SniMatch {#SniMatch6}
 
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the SNI handler. 
 server_names[] | **string**<br>Server names that are matched by the SNI handler. The number of elements must be greater than 0.
-handler | **[TlsHandler](#TlsHandler17)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
+handler | **[TlsHandler](#TlsHandler7)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
 
 
-### TlsHandler {#TlsHandler17}
-
-Field | Description
---- | ---
-handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler26)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler25)**<br>Stream (TCP) handler. 
-certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
-
-
-### HttpHandler {#HttpHandler26}
+### StreamListener {#StreamListener6}
 
 Field | Description
 --- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options26)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options26}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler25}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### StreamListener {#StreamListener8}
-
-Field | Description
---- | ---
-handler | **[StreamHandler](#StreamHandler26)**<br>Required. Settings for handling stream (TCP) requests. 
-
-
-### StreamHandler {#StreamHandler26}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
+handler | **[StreamHandler](#StreamHandler7)**<br>Required. Settings for handling stream (TCP) requests. 
 
 
 ### Operation {#Operation5}
@@ -2223,10 +1701,12 @@ status | enum **Status**<br>Status of the application load balancer. <ul><li>`CR
 region_id | **string**<br>ID of the region that the application load balancer is located at. 
 network_id | **string**<br>ID of the network that the application load balancer belongs to. 
 listeners[] | **[Listener](#Listener6)**<br>Listeners that belong to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). 
-allocation_policy | **[AllocationPolicy](#AllocationPolicy8)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy6)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
 log_group_id | **string**<br>ID of the log group that stores access logs of the application load balancer. <br>The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy6)**<br>Autoscale settings of the application load balancer. 
+log_options | **[LogOptions](#LogOptions6)**<br>Cloud logging settings of the application load balancer. 
 
 
 ### Listener {#Listener6}
@@ -2236,9 +1716,9 @@ Field | Description
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint6)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
 listener | **oneof:** `http`, `tls` or `stream`<br>Listener type and settings.
-&nbsp;&nbsp;http | **[HttpListener](#HttpListener9)**<br>Unencrypted HTTP listener settings. 
-&nbsp;&nbsp;tls | **[TlsListener](#TlsListener9)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener9) and [TlsListener.sni_handlers](#TlsListener9)) must be of one type, [HttpHandler](#HttpHandler27) or [StreamHandler](#StreamHandler27). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
-&nbsp;&nbsp;stream | **[StreamListener](#StreamListener9)**<br>Unencrypted stream (TCP) listener settings. 
+&nbsp;&nbsp;http | **[HttpListener](#HttpListener7)**<br>Unencrypted HTTP listener settings. 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener7)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener7) and [TlsListener.sni_handlers](#TlsListener7)) must be of one type, [HttpHandler](#HttpHandler7) or [StreamHandler](#StreamHandler7). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener7)**<br>Unencrypted stream (TCP) listener settings. 
 
 
 ### Endpoint {#Endpoint6}
@@ -2281,151 +1761,47 @@ Field | Description
 address | **string**<br>IPv6 address. 
 
 
-### HttpListener {#HttpListener9}
+### AllocationPolicy {#AllocationPolicy6}
 
 Field | Description
 --- | ---
-handler | **[HttpHandler](#HttpHandler27)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
-redirects | **[Redirects](#Redirects9)**<br>Redirects settings. <br>Only one of `redirects` and `handler` can be specified. 
+locations[] | **[Location](#Location6)**<br>Availability zones and subnets that the application load balancer resides. The minimum number of elements is 1.
 
 
-### HttpHandler {#HttpHandler27}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options27)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options27}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### Redirects {#Redirects9}
-
-Field | Description
---- | ---
-http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same URI with scheme changed to `https`. <br>The setting has the same effect as a single, catch-all [HttpRoute](#HttpRoute) with [RedirectAction.replace_scheme](#RedirectAction) set to `https`. 
-
-
-### TlsListener {#TlsListener9}
-
-Field | Description
---- | ---
-default_handler | **[TlsHandler](#TlsHandler18)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch9)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch9) values. 
-
-
-### TlsHandler {#TlsHandler18}
-
-Field | Description
---- | ---
-handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler28)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler27)**<br>Stream (TCP) handler. 
-certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
-
-
-### HttpHandler {#HttpHandler28}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options28)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options28}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler27}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### SniMatch {#SniMatch9}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Name of the SNI handler. 
-server_names[] | **string**<br>Server names that are matched by the SNI handler. The number of elements must be greater than 0.
-handler | **[TlsHandler](#TlsHandler19)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
-
-
-### TlsHandler {#TlsHandler19}
-
-Field | Description
---- | ---
-handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler29)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler28)**<br>Stream (TCP) handler. 
-certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
-
-
-### HttpHandler {#HttpHandler29}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options29)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options29}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler28}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### StreamListener {#StreamListener9}
-
-Field | Description
---- | ---
-handler | **[StreamHandler](#StreamHandler29)**<br>Required. Settings for handling stream (TCP) requests. 
-
-
-### StreamHandler {#StreamHandler29}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### AllocationPolicy {#AllocationPolicy8}
-
-Field | Description
---- | ---
-locations[] | **[Location](#Location8)**<br>Availability zones and subnets that the application load balancer resides. The minimum number of elements is 1.
-
-
-### Location {#Location8}
+### Location {#Location6}
 
 Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
 subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
+
+
+### AutoScalePolicy {#AutoScalePolicy6}
+
+Field | Description
+--- | ---
+min_zone_size | **int64**<br>Lower limit for the number of resource units in each zone. Acceptable values are 0 to 1000, inclusive.
+max_size | **int64**<br>Upper limit for the total number of resource units across all zones. Acceptable values are 0 to 1000, inclusive.
+
+
+### LogOptions {#LogOptions6}
+
+Field | Description
+--- | ---
+log_group_id | **string**<br>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located. 
+discard_rules[] | **[LogDiscardRule](#LogDiscardRule6)**<br>ordered list of rules, first matching rule applies 
+disable | **bool**<br>Do not send logs to Cloud Logging log group. 
+
+
+### LogDiscardRule {#LogDiscardRule6}
+
+Field | Description
+--- | ---
+http_codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
+http_code_intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
+grpc_codes[] | **google.rpc.Code**<br>GRPC codes that should be discarded 
+discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all Acceptable values are 0 to 100, inclusive.
 
 
 ## RemoveListener {#RemoveListener}
@@ -2483,10 +1859,12 @@ status | enum **Status**<br>Status of the application load balancer. <ul><li>`CR
 region_id | **string**<br>ID of the region that the application load balancer is located at. 
 network_id | **string**<br>ID of the network that the application load balancer belongs to. 
 listeners[] | **[Listener](#Listener7)**<br>Listeners that belong to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). 
-allocation_policy | **[AllocationPolicy](#AllocationPolicy9)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy7)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
 log_group_id | **string**<br>ID of the log group that stores access logs of the application load balancer. <br>The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy7)**<br>Autoscale settings of the application load balancer. 
+log_options | **[LogOptions](#LogOptions7)**<br>Cloud logging settings of the application load balancer. 
 
 
 ### Listener {#Listener7}
@@ -2496,9 +1874,9 @@ Field | Description
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint7)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
 listener | **oneof:** `http`, `tls` or `stream`<br>Listener type and settings.
-&nbsp;&nbsp;http | **[HttpListener](#HttpListener10)**<br>Unencrypted HTTP listener settings. 
-&nbsp;&nbsp;tls | **[TlsListener](#TlsListener10)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener10) and [TlsListener.sni_handlers](#TlsListener10)) must be of one type, [HttpHandler](#HttpHandler30) or [StreamHandler](#StreamHandler30). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
-&nbsp;&nbsp;stream | **[StreamListener](#StreamListener10)**<br>Unencrypted stream (TCP) listener settings. 
+&nbsp;&nbsp;http | **[HttpListener](#HttpListener7)**<br>Unencrypted HTTP listener settings. 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener7)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener7) and [TlsListener.sni_handlers](#TlsListener7)) must be of one type, [HttpHandler](#HttpHandler7) or [StreamHandler](#StreamHandler7). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener7)**<br>Unencrypted stream (TCP) listener settings. 
 
 
 ### Endpoint {#Endpoint7}
@@ -2541,151 +1919,120 @@ Field | Description
 address | **string**<br>IPv6 address. 
 
 
-### HttpListener {#HttpListener10}
+### HttpListener {#HttpListener7}
 
 Field | Description
 --- | ---
-handler | **[HttpHandler](#HttpHandler30)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
-redirects | **[Redirects](#Redirects10)**<br>Redirects settings. <br>Only one of `redirects` and `handler` can be specified. 
+handler | **[HttpHandler](#HttpHandler7)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
+redirects | **[Redirects](#Redirects7)**<br>Redirects settings. <br>Only one of `redirects` and `handler` can be specified. 
 
 
-### HttpHandler {#HttpHandler30}
+### HttpHandler {#HttpHandler7}
 
 Field | Description
 --- | ---
 http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options30)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options7)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
 
 
-### Http2Options {#Http2Options30}
+### Http2Options {#Http2Options7}
 
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### Redirects {#Redirects10}
+### Redirects {#Redirects7}
 
 Field | Description
 --- | ---
 http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same URI with scheme changed to `https`. <br>The setting has the same effect as a single, catch-all [HttpRoute](#HttpRoute) with [RedirectAction.replace_scheme](#RedirectAction) set to `https`. 
 
 
-### TlsListener {#TlsListener10}
+### TlsListener {#TlsListener7}
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler20)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch10)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch10) values. 
+default_handler | **[TlsHandler](#TlsHandler7)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+sni_handlers[] | **[SniMatch](#SniMatch7)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch7) values. 
 
 
-### TlsHandler {#TlsHandler20}
+### TlsHandler {#TlsHandler7}
 
 Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler31)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler30)**<br>Stream (TCP) handler. 
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler8)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler7)**<br>Stream (TCP) handler. 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
-### HttpHandler {#HttpHandler31}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options31)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options31}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler30}
+### StreamHandler {#StreamHandler7}
 
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
 
 
-### SniMatch {#SniMatch10}
+### SniMatch {#SniMatch7}
 
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the SNI handler. 
 server_names[] | **string**<br>Server names that are matched by the SNI handler. The number of elements must be greater than 0.
-handler | **[TlsHandler](#TlsHandler21)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
+handler | **[TlsHandler](#TlsHandler8)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
 
 
-### TlsHandler {#TlsHandler21}
-
-Field | Description
---- | ---
-handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler32)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler31)**<br>Stream (TCP) handler. 
-certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
-
-
-### HttpHandler {#HttpHandler32}
+### StreamListener {#StreamListener7}
 
 Field | Description
 --- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options32)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
+handler | **[StreamHandler](#StreamHandler8)**<br>Required. Settings for handling stream (TCP) requests. 
 
 
-### Http2Options {#Http2Options32}
+### AllocationPolicy {#AllocationPolicy7}
 
 Field | Description
 --- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
+locations[] | **[Location](#Location7)**<br>Availability zones and subnets that the application load balancer resides. The minimum number of elements is 1.
 
 
-### StreamHandler {#StreamHandler31}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### StreamListener {#StreamListener10}
-
-Field | Description
---- | ---
-handler | **[StreamHandler](#StreamHandler32)**<br>Required. Settings for handling stream (TCP) requests. 
-
-
-### StreamHandler {#StreamHandler32}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### AllocationPolicy {#AllocationPolicy9}
-
-Field | Description
---- | ---
-locations[] | **[Location](#Location9)**<br>Availability zones and subnets that the application load balancer resides. The minimum number of elements is 1.
-
-
-### Location {#Location9}
+### Location {#Location7}
 
 Field | Description
 --- | ---
 zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
 subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
+
+
+### AutoScalePolicy {#AutoScalePolicy7}
+
+Field | Description
+--- | ---
+min_zone_size | **int64**<br>Lower limit for the number of resource units in each zone. Acceptable values are 0 to 1000, inclusive.
+max_size | **int64**<br>Upper limit for the total number of resource units across all zones. Acceptable values are 0 to 1000, inclusive.
+
+
+### LogOptions {#LogOptions7}
+
+Field | Description
+--- | ---
+log_group_id | **string**<br>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located. 
+discard_rules[] | **[LogDiscardRule](#LogDiscardRule7)**<br>ordered list of rules, first matching rule applies 
+disable | **bool**<br>Do not send logs to Cloud Logging log group. 
+
+
+### LogDiscardRule {#LogDiscardRule7}
+
+Field | Description
+--- | ---
+http_codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
+http_code_intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
+grpc_codes[] | **google.rpc.Code**<br>GRPC codes that should be discarded 
+discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all Acceptable values are 0 to 100, inclusive.
 
 
 ## UpdateListener {#UpdateListener}
@@ -2714,9 +2061,9 @@ Field | Description
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 endpoint_specs[] | **[EndpointSpec](#EndpointSpec)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. The number of elements must be greater than 0.
 listener | **oneof:** `http`, `tls` or `stream`<br>Listener type and settings.
-&nbsp;&nbsp;http | **[HttpListener](#HttpListener11)**<br>Unencrypted HTTP listener settings. 
-&nbsp;&nbsp;tls | **[TlsListener](#TlsListener11)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener11) and [TlsListener.sni_handlers](#TlsListener11)) must be of one type, [HttpHandler](#HttpHandler33) or [StreamHandler](#StreamHandler33). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
-&nbsp;&nbsp;stream | **[StreamListener](#StreamListener11)**<br>Unencrypted stream (TCP) listener settings. 
+&nbsp;&nbsp;http | **[HttpListener](#HttpListener8)**<br>Unencrypted HTTP listener settings. 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener8)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener8) and [TlsListener.sni_handlers](#TlsListener8)) must be of one type, [HttpHandler](#HttpHandler8) or [StreamHandler](#StreamHandler8). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener8)**<br>Unencrypted stream (TCP) listener settings. 
 
 
 ### EndpointSpec {#EndpointSpec3}
@@ -2759,135 +2106,77 @@ Field | Description
 address | **string**<br>IPv6 address. 
 
 
-### HttpListener {#HttpListener11}
+### HttpListener {#HttpListener8}
 
 Field | Description
 --- | ---
-handler | **[HttpHandler](#HttpHandler33)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
-redirects | **[Redirects](#Redirects11)**<br>Redirects settings. <br>Only one of `redirects` and `handler` can be specified. 
+handler | **[HttpHandler](#HttpHandler8)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
+redirects | **[Redirects](#Redirects8)**<br>Redirects settings. <br>Only one of `redirects` and `handler` can be specified. 
 
 
-### HttpHandler {#HttpHandler33}
+### HttpHandler {#HttpHandler8}
 
 Field | Description
 --- | ---
 http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options33)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options8)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
 
 
-### Http2Options {#Http2Options33}
+### Http2Options {#Http2Options8}
 
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### Redirects {#Redirects11}
+### Redirects {#Redirects8}
 
 Field | Description
 --- | ---
 http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same URI with scheme changed to `https`. <br>The setting has the same effect as a single, catch-all [HttpRoute](#HttpRoute) with [RedirectAction.replace_scheme](#RedirectAction) set to `https`. 
 
 
-### TlsListener {#TlsListener11}
+### TlsListener {#TlsListener8}
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler22)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch11)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch11) values. 
+default_handler | **[TlsHandler](#TlsHandler8)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+sni_handlers[] | **[SniMatch](#SniMatch8)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch8) values. 
 
 
-### TlsHandler {#TlsHandler22}
+### TlsHandler {#TlsHandler8}
 
 Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler34)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler33)**<br>Stream (TCP) handler. 
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler9)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler8)**<br>Stream (TCP) handler. 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
-### HttpHandler {#HttpHandler34}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options34)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options34}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler33}
+### StreamHandler {#StreamHandler8}
 
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
 
 
-### SniMatch {#SniMatch11}
+### SniMatch {#SniMatch8}
 
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the SNI handler. 
 server_names[] | **string**<br>Server names that are matched by the SNI handler. The number of elements must be greater than 0.
-handler | **[TlsHandler](#TlsHandler23)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
+handler | **[TlsHandler](#TlsHandler9)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
 
 
-### TlsHandler {#TlsHandler23}
-
-Field | Description
---- | ---
-handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler35)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler34)**<br>Stream (TCP) handler. 
-certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
-
-
-### HttpHandler {#HttpHandler35}
+### StreamListener {#StreamListener8}
 
 Field | Description
 --- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options35)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options35}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler34}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### StreamListener {#StreamListener11}
-
-Field | Description
---- | ---
-handler | **[StreamHandler](#StreamHandler35)**<br>Required. Settings for handling stream (TCP) requests. 
-
-
-### StreamHandler {#StreamHandler35}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
+handler | **[StreamHandler](#StreamHandler9)**<br>Required. Settings for handling stream (TCP) requests. 
 
 
 ### Operation {#Operation7}
@@ -2927,10 +2216,12 @@ status | enum **Status**<br>Status of the application load balancer. <ul><li>`CR
 region_id | **string**<br>ID of the region that the application load balancer is located at. 
 network_id | **string**<br>ID of the network that the application load balancer belongs to. 
 listeners[] | **[Listener](#Listener8)**<br>Listeners that belong to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). 
-allocation_policy | **[AllocationPolicy](#AllocationPolicy10)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
+allocation_policy | **[AllocationPolicy](#AllocationPolicy8)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
 log_group_id | **string**<br>ID of the log group that stores access logs of the application load balancer. <br>The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). 
 security_group_ids[] | **string**<br>ID's of the security groups attributed to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+auto_scale_policy | **[AutoScalePolicy](#AutoScalePolicy8)**<br>Autoscale settings of the application load balancer. 
+log_options | **[LogOptions](#LogOptions8)**<br>Cloud logging settings of the application load balancer. 
 
 
 ### Listener {#Listener8}
@@ -2940,9 +2231,9 @@ Field | Description
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint8)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
 listener | **oneof:** `http`, `tls` or `stream`<br>Listener type and settings.
-&nbsp;&nbsp;http | **[HttpListener](#HttpListener12)**<br>Unencrypted HTTP listener settings. 
-&nbsp;&nbsp;tls | **[TlsListener](#TlsListener12)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener12) and [TlsListener.sni_handlers](#TlsListener12)) must be of one type, [HttpHandler](#HttpHandler36) or [StreamHandler](#StreamHandler36). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
-&nbsp;&nbsp;stream | **[StreamListener](#StreamListener12)**<br>Unencrypted stream (TCP) listener settings. 
+&nbsp;&nbsp;http | **[HttpListener](#HttpListener9)**<br>Unencrypted HTTP listener settings. 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener9)**<br>TLS-encrypted HTTP or TCP stream listener settings. <br>All handlers within a listener ([TlsListener.default_handler](#TlsListener9) and [TlsListener.sni_handlers](#TlsListener9)) must be of one type, [HttpHandler](#HttpHandler9) or [StreamHandler](#StreamHandler9). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener9)**<br>Unencrypted stream (TCP) listener settings. 
 
 
 ### Endpoint {#Endpoint8}
@@ -2985,145 +2276,14 @@ Field | Description
 address | **string**<br>IPv6 address. 
 
 
-### HttpListener {#HttpListener12}
+### AllocationPolicy {#AllocationPolicy8}
 
 Field | Description
 --- | ---
-handler | **[HttpHandler](#HttpHandler36)**<br>Settings for handling HTTP requests. <br>Only one of `handler` and `redirects` can be specified. 
-redirects | **[Redirects](#Redirects12)**<br>Redirects settings. <br>Only one of `redirects` and `handler` can be specified. 
+locations[] | **[Location](#Location8)**<br>Availability zones and subnets that the application load balancer resides. The minimum number of elements is 1.
 
 
-### HttpHandler {#HttpHandler36}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options36)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options36}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### Redirects {#Redirects12}
-
-Field | Description
---- | ---
-http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same URI with scheme changed to `https`. <br>The setting has the same effect as a single, catch-all [HttpRoute](#HttpRoute) with [RedirectAction.replace_scheme](#RedirectAction) set to `https`. 
-
-
-### TlsListener {#TlsListener12}
-
-Field | Description
---- | ---
-default_handler | **[TlsHandler](#TlsHandler24)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch12)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch12) values. 
-
-
-### TlsHandler {#TlsHandler24}
-
-Field | Description
---- | ---
-handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler37)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler36)**<br>Stream (TCP) handler. 
-certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
-
-
-### HttpHandler {#HttpHandler37}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options37)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options37}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler36}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### SniMatch {#SniMatch12}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Name of the SNI handler. 
-server_names[] | **string**<br>Server names that are matched by the SNI handler. The number of elements must be greater than 0.
-handler | **[TlsHandler](#TlsHandler25)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
-
-
-### TlsHandler {#TlsHandler25}
-
-Field | Description
---- | ---
-handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler38)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler37)**<br>Stream (TCP) handler. 
-certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
-
-
-### HttpHandler {#HttpHandler38}
-
-Field | Description
---- | ---
-http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
-protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options38)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
-&nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-
-
-### Http2Options {#Http2Options38}
-
-Field | Description
---- | ---
-max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
-
-
-### StreamHandler {#StreamHandler37}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### StreamListener {#StreamListener12}
-
-Field | Description
---- | ---
-handler | **[StreamHandler](#StreamHandler38)**<br>Required. Settings for handling stream (TCP) requests. 
-
-
-### StreamHandler {#StreamHandler38}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group). <br>The backend group type, specified via [BackendGroup.backend](#BackendGroup), must be `stream`. <br>To get the list of all available backend groups, make a [BackendGroupService.List](./backend_group_service#List) request. 
-
-
-### AllocationPolicy {#AllocationPolicy10}
-
-Field | Description
---- | ---
-locations[] | **[Location](#Location10)**<br>Availability zones and subnets that the application load balancer resides. The minimum number of elements is 1.
-
-
-### Location {#Location10}
+### Location {#Location8}
 
 Field | Description
 --- | ---
@@ -3132,9 +2292,36 @@ subnet_id | **string**<br>ID of the subnet that the application load balancer be
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
 
 
+### AutoScalePolicy {#AutoScalePolicy8}
+
+Field | Description
+--- | ---
+min_zone_size | **int64**<br>Lower limit for the number of resource units in each zone. Acceptable values are 0 to 1000, inclusive.
+max_size | **int64**<br>Upper limit for the total number of resource units across all zones. Acceptable values are 0 to 1000, inclusive.
+
+
+### LogOptions {#LogOptions8}
+
+Field | Description
+--- | ---
+log_group_id | **string**<br>Cloud Logging log group ID to store access logs. If not set then logs will be stored in default log group for the folder where load balancer located. 
+discard_rules[] | **[LogDiscardRule](#LogDiscardRule8)**<br>ordered list of rules, first matching rule applies 
+disable | **bool**<br>Do not send logs to Cloud Logging log group. 
+
+
+### LogDiscardRule {#LogDiscardRule8}
+
+Field | Description
+--- | ---
+http_codes[] | **int64**<br>HTTP codes that should be discarded. Acceptable values are 100 to 599, inclusive.
+http_code_intervals[] | enum **HttpCodeInterval**<br>Groups of HTTP codes like 4xx that should be discarded. 
+grpc_codes[] | **google.rpc.Code**<br>GRPC codes that should be discarded 
+discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all Acceptable values are 0 to 100, inclusive.
+
+
 ## AddSniMatch {#AddSniMatch}
 
-Adds a SNI handler to the specified listener. <br>This request does not allow to add [TlsListener.default_handler](#TlsListener13). Make an [UpdateListener](#UpdateListener) request instead.
+Adds a SNI handler to the specified listener. <br>This request does not allow to add [TlsListener.default_handler](#TlsListener9). Make an [UpdateListener](#UpdateListener) request instead.
 
 **rpc AddSniMatch ([AddSniMatchRequest](#AddSniMatchRequest)) returns ([operation.Operation](#Operation8))**
 
@@ -3150,37 +2337,37 @@ load_balancer_id | **string**<br>Required. ID of the application load balancer t
 listener_name | **string**<br>Required. Name of the listener to add a SNI handler to. 
 name | **string**<br>Required. Name of the SNI handler to add. 
 server_names[] | **string**<br>Server names that are matched by the SNI handler. The number of elements must be greater than 0.
-handler | **[TlsHandler](#TlsHandler26)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
+handler | **[TlsHandler](#TlsHandler9)**<br>Required. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
 
 
-### TlsHandler {#TlsHandler26}
+### TlsHandler {#TlsHandler9}
 
 Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler39)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler39)**<br>Stream (TCP) handler. 
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler9)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler9)**<br>Stream (TCP) handler. 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
-### HttpHandler {#HttpHandler39}
+### HttpHandler {#HttpHandler9}
 
 Field | Description
 --- | ---
 http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options39)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options9)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
 
 
-### Http2Options {#Http2Options39}
+### Http2Options {#Http2Options9}
 
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler39}
+### StreamHandler {#StreamHandler9}
 
 Field | Description
 --- | ---
@@ -3214,7 +2401,7 @@ sni_match_name | **string**<br>Name of the SNI handler that is being added to th
 
 ## UpdateSniMatch {#UpdateSniMatch}
 
-Updates the specified SNI handler of the specified listener. <br>This request does not allow to update [TlsListener.default_handler](#TlsListener13). Make an [UpdateListener](#UpdateListener) request instead.
+Updates the specified SNI handler of the specified listener. <br>This request does not allow to update [TlsListener.default_handler](#TlsListener9). Make an [UpdateListener](#UpdateListener) request instead.
 
 **rpc UpdateSniMatch ([UpdateSniMatchRequest](#UpdateSniMatchRequest)) returns ([operation.Operation](#Operation9))**
 
@@ -3231,37 +2418,37 @@ listener_name | **string**<br>Required. Name of the listener to update the SNI h
 name | **string**<br>Required. Name of the SNI handler to update. 
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the SNI handler should be updated. 
 server_names[] | **string**<br>New server names that are matched by the SNI handler. <br>Existing set of server names is completely replaced by the provided set, so if you just want to add or remove a server name: <ol><li>Get the current set of server names with a [LoadBalancerService.Get](#Get) request. </li><li>Add or remove a server name in this set. </li><li>Send the new set in this field.</li></ol> The number of elements must be greater than 0.
-handler | **[TlsHandler](#TlsHandler27)**<br>Required. New settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
+handler | **[TlsHandler](#TlsHandler10)**<br>Required. New settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. 
 
 
-### TlsHandler {#TlsHandler27}
+### TlsHandler {#TlsHandler10}
 
 Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
-&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler40)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler40)**<br>Stream (TCP) handler. 
+&nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler10)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler10)**<br>Stream (TCP) handler. 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
-### HttpHandler {#HttpHandler40}
+### HttpHandler {#HttpHandler10}
 
 Field | Description
 --- | ---
 http_router_id | **string**<br>ID of the HTTP router processing requests. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router). <br>To get the list of all available HTTP routers, make a [HttpRouterService.List](./http_router_service#List) request. 
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options40)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
+&nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options10)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
 
 
-### Http2Options {#Http2Options40}
+### Http2Options {#Http2Options10}
 
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler40}
+### StreamHandler {#StreamHandler10}
 
 Field | Description
 --- | ---
@@ -3295,7 +2482,7 @@ sni_match_name | **string**<br>Name of the SNI handler that is being updated.
 
 ## RemoveSniMatch {#RemoveSniMatch}
 
-Deletes the specified SNI handler. <br>This request does not allow to delete [TlsListener.default_handler](#TlsListener13).
+Deletes the specified SNI handler. <br>This request does not allow to delete [TlsListener.default_handler](#TlsListener9).
 
 **rpc RemoveSniMatch ([RemoveSniMatchRequest](#RemoveSniMatchRequest)) returns ([operation.Operation](#Operation10))**
 

@@ -132,14 +132,6 @@ Returns the current date and time, depending on the data source and connection t
 
 
 
-## [OLDNOW](OLDNOW.md)
-
-**Syntax:**`OLDNOW()`
-
-Returns the current date and time (in deprecated format), depending on the data source and connection type.
-
-
-
 ## [QUARTER](QUARTER.md)
 
 **Syntax:**`QUARTER( datetime )`

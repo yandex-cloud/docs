@@ -15,14 +15,16 @@ GEOINFO( address, scale )
 ```
 
 #### Description {#description}
- Converts `address` to geographical name corresponding to the specified `scale`. 
- Possible values for `scale` parameter: 
- - `"country"`; 
- - `"country_code"`; 
- - `"region"`; 
- - `"locality"`. 
- The calculated field using this function must be created at the dataset level. 
- To enable the function, go to the [Service Settings]({{ link-datalens-settings }}) page. 
+Converts `address` to geographical name corresponding to the specified `scale`.
+
+Possible values for `scale` parameter:
+- `"country"`;
+- `"country_code"`;
+- `"region"`;
+- `"locality"`.
+
+The calculated field using this function must be created at the dataset level.
+To enable the function, go to the [Service Settings]({{ link-datalens-settings }}) page.
 
 **Argument types:**
 - `address` — `String`

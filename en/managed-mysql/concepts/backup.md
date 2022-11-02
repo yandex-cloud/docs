@@ -15,6 +15,8 @@ keywords:
 
 For example, if the backup operation ended August 10, 2020, 12:00:00 UTC, the current date is August 15, 2020, 19:00:00 UTC, and the latest binary log was saved August 15, 2020, 18:50:00 UTC, the cluster can be restored to any state between August 10, 2020, 12:00:01 UTC and August 15, 2020, 18:50:00 UTC inclusive.
 
+PITR is enabled by default.
+
 When creating backups and restoring data from them to a given point in time, keep in mind the following:
 
 * A binary log consists of files with a size of 100 MB, which are archived in a running cluster as soon as the desired size is reached and then uploaded to object storage. Transactions are only logged to the binary log entirely, so sometimes the file size exceeds the specified one and it takes more time to archive them.
@@ -55,7 +57,7 @@ For more information about creating a backup manually, see [{#T}](../operations/
 
 Storing backups in {{ mmy-name }}:
 
-* Backups are kept in the internal storage as binaries and encrypted using [GPG](https://en.wikipedia.org/wiki/GNU_Privacy_Guard). Each cluster has its own encryption keys.
+* Backups are kept in {{ yandex-cloud }} internal storage as binaries and encrypted using [GPG](https://en.wikipedia.org/wiki/GNU_Privacy_Guard). Each cluster has its own encryption keys.
 
 * Automatically created backups of an existing cluster are kept for 7 days whereas those created manually are stored indefinitely. Once you delete a cluster, all its backups persist for 7 days. You cannot change the backup retention time.
 
@@ -63,7 +65,7 @@ Storing backups in {{ mmy-name }}:
 
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-    For more information, see the [Pricing policy for {{ mmy-name }}](../pricing.md#rules-storage).
+   For more information, see the [Pricing policy for {{ mmy-name }}](../pricing.md#rules-storage).
 
 ## Checking backups {#verify}
 

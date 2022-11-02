@@ -111,6 +111,117 @@ Field | Description
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
+### Resources {#Resources}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted. 
+disk_type_id | **string**<br>Type of the storage environment for the host. 
+
+
+### KafkaConfig2_1 {#KafkaConfig2_1}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.flush_messages](#TopicConfig2_1) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.flush_ms](#TopicConfig2_1) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_1.cleanup_policy](#TopicConfig2_1) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.retention_bytes](#TopicConfig2_1) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.retention_ms](#TopicConfig2_1) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.segment_bytes](#TopicConfig2_1) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.preallocate](#TopicConfig2_1) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+
+
+### KafkaConfig2_6 {#KafkaConfig2_6}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.flush_messages](#TopicConfig2_6) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.flush_ms](#TopicConfig2_6) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_6.cleanup_policy](#TopicConfig2_6) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.retention_bytes](#TopicConfig2_6) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.retention_ms](#TopicConfig2_6) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.segment_bytes](#TopicConfig2_6) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.preallocate](#TopicConfig2_6) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+
+
+### KafkaConfig2_8 {#KafkaConfig2_8}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_messages](#TopicConfig2_8) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_ms](#TopicConfig2_8) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_8.cleanup_policy](#TopicConfig2_8) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_bytes](#TopicConfig2_8) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_ms](#TopicConfig2_8) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.segment_bytes](#TopicConfig2_8) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](#TopicConfig2_8) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
+
+
+### KafkaConfig3 {#KafkaConfig3}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_messages](#TopicConfig3) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_ms](#TopicConfig3) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig3.cleanup_policy](#TopicConfig3) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_bytes](#TopicConfig3) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_ms](#TopicConfig3) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.segment_bytes](#TopicConfig3) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](#TopicConfig3) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
+
+
 ### MaintenanceWindow {#MaintenanceWindow}
 
 Field | Description
@@ -215,19 +326,19 @@ access | **[Access](#Access1)**<br>Access policy for external services.
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Kafka brokers. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to Kafka brokers. 
 kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6`, `kafka_config_2_8` or `kafka_config_3`<br>Kafka broker configuration.
-&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_1)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_2_6 | **[KafkaConfig2_6](#KafkaConfig2_6)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_2_8 | **[KafkaConfig2_8](#KafkaConfig2_8)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_3 | **[KafkaConfig3](#KafkaConfig3)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_11)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_6 | **[KafkaConfig2_6](#KafkaConfig2_61)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_8 | **[KafkaConfig2_8](#KafkaConfig2_81)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_3 | **[KafkaConfig3](#KafkaConfig31)**<br>Kafka broker configuration. 
 
 
 ### Zookeeper {#Zookeeper1}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hosts. 
 
 
 ### Access {#Access1}
@@ -235,6 +346,117 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 Field | Description
 --- | ---
 data_transfer | **bool**<br>Allow access for DataTransfer. 
+
+
+### Resources {#Resources1}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted. 
+disk_type_id | **string**<br>Type of the storage environment for the host. 
+
+
+### KafkaConfig2_1 {#KafkaConfig2_11}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.flush_messages](#TopicConfig2_1) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.flush_ms](#TopicConfig2_1) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_1.cleanup_policy](#TopicConfig2_1) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.retention_bytes](#TopicConfig2_1) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.retention_ms](#TopicConfig2_1) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.segment_bytes](#TopicConfig2_1) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.preallocate](#TopicConfig2_1) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+
+
+### KafkaConfig2_6 {#KafkaConfig2_61}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.flush_messages](#TopicConfig2_6) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.flush_ms](#TopicConfig2_6) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_6.cleanup_policy](#TopicConfig2_6) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.retention_bytes](#TopicConfig2_6) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.retention_ms](#TopicConfig2_6) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.segment_bytes](#TopicConfig2_6) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.preallocate](#TopicConfig2_6) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+
+
+### KafkaConfig2_8 {#KafkaConfig2_81}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_messages](#TopicConfig2_8) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_ms](#TopicConfig2_8) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_8.cleanup_policy](#TopicConfig2_8) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_bytes](#TopicConfig2_8) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_ms](#TopicConfig2_8) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.segment_bytes](#TopicConfig2_8) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](#TopicConfig2_8) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
+
+
+### KafkaConfig3 {#KafkaConfig31}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_messages](#TopicConfig3) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_ms](#TopicConfig3) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig3.cleanup_policy](#TopicConfig3) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_bytes](#TopicConfig3) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_ms](#TopicConfig3) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.segment_bytes](#TopicConfig3) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](#TopicConfig3) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow1}
@@ -315,19 +537,19 @@ access | **[Access](#Access2)**<br>Access policy for external services.
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Kafka brokers. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to Kafka brokers. 
 kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6`, `kafka_config_2_8` or `kafka_config_3`<br>Kafka broker configuration.
-&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_1)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_2_6 | **[KafkaConfig2_6](#KafkaConfig2_6)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_2_8 | **[KafkaConfig2_8](#KafkaConfig2_8)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_3 | **[KafkaConfig3](#KafkaConfig3)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_12)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_6 | **[KafkaConfig2_6](#KafkaConfig2_62)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_8 | **[KafkaConfig2_8](#KafkaConfig2_82)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_3 | **[KafkaConfig3](#KafkaConfig32)**<br>Kafka broker configuration. 
 
 
 ### Zookeeper {#Zookeeper2}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to ZooKeeper hosts. 
 
 
 ### Access {#Access2}
@@ -335,6 +557,117 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 Field | Description
 --- | ---
 data_transfer | **bool**<br>Allow access for DataTransfer. 
+
+
+### Resources {#Resources2}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted. 
+disk_type_id | **string**<br>Type of the storage environment for the host. 
+
+
+### KafkaConfig2_1 {#KafkaConfig2_12}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.flush_messages](#TopicConfig2_1) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.flush_ms](#TopicConfig2_1) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_1.cleanup_policy](#TopicConfig2_1) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.retention_bytes](#TopicConfig2_1) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.retention_ms](#TopicConfig2_1) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.segment_bytes](#TopicConfig2_1) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.preallocate](#TopicConfig2_1) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+
+
+### KafkaConfig2_6 {#KafkaConfig2_62}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.flush_messages](#TopicConfig2_6) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.flush_ms](#TopicConfig2_6) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_6.cleanup_policy](#TopicConfig2_6) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.retention_bytes](#TopicConfig2_6) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.retention_ms](#TopicConfig2_6) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.segment_bytes](#TopicConfig2_6) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.preallocate](#TopicConfig2_6) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+
+
+### KafkaConfig2_8 {#KafkaConfig2_82}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_messages](#TopicConfig2_8) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_ms](#TopicConfig2_8) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_8.cleanup_policy](#TopicConfig2_8) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_bytes](#TopicConfig2_8) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_ms](#TopicConfig2_8) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.segment_bytes](#TopicConfig2_8) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](#TopicConfig2_8) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
+
+
+### KafkaConfig3 {#KafkaConfig32}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_messages](#TopicConfig3) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_ms](#TopicConfig3) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig3.cleanup_policy](#TopicConfig3) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_bytes](#TopicConfig3) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_ms](#TopicConfig3) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.segment_bytes](#TopicConfig3) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](#TopicConfig3) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
 
 
 ### TopicSpec {#TopicSpec}
@@ -355,76 +688,76 @@ topic_config | **oneof:** `topic_config_2_1`, `topic_config_2_6`, `topic_config_
 
 Field | Description
 --- | ---
-cleanup_policy | enum **CleanupPolicy**<br>Retention policy to use on old log messages. <ul><li>`CLEANUP_POLICY_DELETE`: this policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig2_1.log_retention_ms](#KafkaConfig2_1) and other similar parameters.</li><li>`CLEANUP_POLICY_COMPACT`: this policy compacts messages in log.</li><li>`CLEANUP_POLICY_COMPACT_AND_DELETE`: this policy use both compaction and deletion for messages and log segments.</li></ul>
+cleanup_policy | enum **CleanupPolicy**<br>Retention policy to use on old log messages. <ul><li>`CLEANUP_POLICY_DELETE`: this policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig2_1.log_retention_ms](#KafkaConfig2_13) and other similar parameters.</li><li>`CLEANUP_POLICY_COMPACT`: this policy compacts messages in log.</li><li>`CLEANUP_POLICY_COMPACT_AND_DELETE`: this policy use both compaction and deletion for messages and log segments.</li></ul>
 compression_type | enum **CompressionType**<br>The compression type for a given topic. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
 delete_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The amount of time in milliseconds to retain delete tombstone markers for log compacted topics. 
 file_delete_delay_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The time to wait before deleting a file from the filesystem. 
-flush_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This setting overrides the cluster-level [KafkaConfig2_1.log_flush_interval_messages](#KafkaConfig2_1) setting on the topic level. 
-flush_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk. <br>This setting overrides the cluster-level [KafkaConfig2_1.log_flush_interval_ms](#KafkaConfig2_1) setting on the topic level. 
+flush_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This setting overrides the cluster-level [KafkaConfig2_1.log_flush_interval_messages](#KafkaConfig2_13) setting on the topic level. 
+flush_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk. <br>This setting overrides the cluster-level [KafkaConfig2_1.log_flush_interval_ms](#KafkaConfig2_13) setting on the topic level. 
 min_compaction_lag_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The minimum time in milliseconds a message will remain uncompacted in the log. 
-retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanup_policy` is in effect. It is helpful if you need to control the size of log due to limited disk space. <br>This setting overrides the cluster-level [KafkaConfig2_1.log_retention_bytes](#KafkaConfig2_1) setting on the topic level. 
-retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment's file before deleting it. <br>This setting overrides the cluster-level [KafkaConfig2_1.log_retention_ms](#KafkaConfig2_1) setting on the topic level. 
+retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanup_policy` is in effect. It is helpful if you need to control the size of log due to limited disk space. <br>This setting overrides the cluster-level [KafkaConfig2_1.log_retention_bytes](#KafkaConfig2_13) setting on the topic level. 
+retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment's file before deleting it. <br>This setting overrides the cluster-level [KafkaConfig2_1.log_retention_ms](#KafkaConfig2_13) setting on the topic level. 
 max_message_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed in topic. 
 min_insync_replicas | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>This configuration specifies the minimum number of replicas that must acknowledge a write to topic for the write to be considered successful (when a producer sets acks to "all"). 
-segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>This configuration controls the segment file size for the log. Retention and cleaning is always done a file at a time so a larger segment size means fewer files but less granular control over retention. <br>This setting overrides the cluster-level [KafkaConfig2_1.log_segment_bytes](#KafkaConfig2_1) setting on the topic level. 
-preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>True if we should preallocate the file on disk when creating a new log segment. <br>This setting overrides the cluster-level [KafkaConfig2_1.log_preallocate](#KafkaConfig2_1) setting on the topic level. 
+segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>This configuration controls the segment file size for the log. Retention and cleaning is always done a file at a time so a larger segment size means fewer files but less granular control over retention. <br>This setting overrides the cluster-level [KafkaConfig2_1.log_segment_bytes](#KafkaConfig2_13) setting on the topic level. 
+preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>True if we should preallocate the file on disk when creating a new log segment. <br>This setting overrides the cluster-level [KafkaConfig2_1.log_preallocate](#KafkaConfig2_13) setting on the topic level. 
 
 
 ### TopicConfig2_6 {#TopicConfig2_6}
 
 Field | Description
 --- | ---
-cleanup_policy | enum **CleanupPolicy**<br>Retention policy to use on old log messages. <ul><li>`CLEANUP_POLICY_DELETE`: this policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig2_1.log_retention_ms](#KafkaConfig2_1) and other similar parameters.</li><li>`CLEANUP_POLICY_COMPACT`: this policy compacts messages in log.</li><li>`CLEANUP_POLICY_COMPACT_AND_DELETE`: this policy use both compaction and deletion for messages and log segments.</li></ul>
+cleanup_policy | enum **CleanupPolicy**<br>Retention policy to use on old log messages. <ul><li>`CLEANUP_POLICY_DELETE`: this policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig2_1.log_retention_ms](#KafkaConfig2_13) and other similar parameters.</li><li>`CLEANUP_POLICY_COMPACT`: this policy compacts messages in log.</li><li>`CLEANUP_POLICY_COMPACT_AND_DELETE`: this policy use both compaction and deletion for messages and log segments.</li></ul>
 compression_type | enum **CompressionType**<br>The compression type for a given topic. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
 delete_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The amount of time in milliseconds to retain delete tombstone markers for log compacted topics. 
 file_delete_delay_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The time to wait before deleting a file from the filesystem. 
-flush_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This setting overrides the cluster-level [KafkaConfig2_6.log_flush_interval_messages](#KafkaConfig2_6) setting on the topic level. 
-flush_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk. <br>This setting overrides the cluster-level [KafkaConfig2_6.log_flush_interval_ms](#KafkaConfig2_6) setting on the topic level. 
+flush_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This setting overrides the cluster-level [KafkaConfig2_6.log_flush_interval_messages](#KafkaConfig2_63) setting on the topic level. 
+flush_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk. <br>This setting overrides the cluster-level [KafkaConfig2_6.log_flush_interval_ms](#KafkaConfig2_63) setting on the topic level. 
 min_compaction_lag_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The minimum time in milliseconds a message will remain uncompacted in the log. 
-retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanup_policy` is in effect. It is helpful if you need to control the size of log due to limited disk space. <br>This setting overrides the cluster-level [KafkaConfig2_6.log_retention_bytes](#KafkaConfig2_6) setting on the topic level. 
-retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment's file before deleting it. <br>This setting overrides the cluster-level [KafkaConfig2_6.log_retention_ms](#KafkaConfig2_6) setting on the topic level. 
+retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanup_policy` is in effect. It is helpful if you need to control the size of log due to limited disk space. <br>This setting overrides the cluster-level [KafkaConfig2_6.log_retention_bytes](#KafkaConfig2_63) setting on the topic level. 
+retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment's file before deleting it. <br>This setting overrides the cluster-level [KafkaConfig2_6.log_retention_ms](#KafkaConfig2_63) setting on the topic level. 
 max_message_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed in topic. 
 min_insync_replicas | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>This configuration specifies the minimum number of replicas that must acknowledge a write to topic for the write to be considered successful (when a producer sets acks to "all"). 
-segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>This configuration controls the segment file size for the log. Retention and cleaning is always done a file at a time so a larger segment size means fewer files but less granular control over retention. <br>This setting overrides the cluster-level [KafkaConfig2_6.log_segment_bytes](#KafkaConfig2_6) setting on the topic level. 
-preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>True if we should preallocate the file on disk when creating a new log segment. <br>This setting overrides the cluster-level [KafkaConfig2_6.log_preallocate](#KafkaConfig2_6) setting on the topic level. 
+segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>This configuration controls the segment file size for the log. Retention and cleaning is always done a file at a time so a larger segment size means fewer files but less granular control over retention. <br>This setting overrides the cluster-level [KafkaConfig2_6.log_segment_bytes](#KafkaConfig2_63) setting on the topic level. 
+preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>True if we should preallocate the file on disk when creating a new log segment. <br>This setting overrides the cluster-level [KafkaConfig2_6.log_preallocate](#KafkaConfig2_63) setting on the topic level. 
 
 
 ### TopicConfig2_8 {#TopicConfig2_8}
 
 Field | Description
 --- | ---
-cleanup_policy | enum **CleanupPolicy**<br>Retention policy to use on old log messages. <ul><li>`CLEANUP_POLICY_DELETE`: this policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig2_1.log_retention_ms](#KafkaConfig2_1) and other similar parameters.</li><li>`CLEANUP_POLICY_COMPACT`: this policy compacts messages in log.</li><li>`CLEANUP_POLICY_COMPACT_AND_DELETE`: this policy use both compaction and deletion for messages and log segments.</li></ul>
+cleanup_policy | enum **CleanupPolicy**<br>Retention policy to use on old log messages. <ul><li>`CLEANUP_POLICY_DELETE`: this policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig2_1.log_retention_ms](#KafkaConfig2_13) and other similar parameters.</li><li>`CLEANUP_POLICY_COMPACT`: this policy compacts messages in log.</li><li>`CLEANUP_POLICY_COMPACT_AND_DELETE`: this policy use both compaction and deletion for messages and log segments.</li></ul>
 compression_type | enum **CompressionType**<br>The compression type for a given topic. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
 delete_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The amount of time in milliseconds to retain delete tombstone markers for log compacted topics. 
 file_delete_delay_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The time to wait before deleting a file from the filesystem. 
-flush_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This setting overrides the cluster-level [KafkaConfig2_8.log_flush_interval_messages](#KafkaConfig2_8) setting on the topic level. 
-flush_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk. <br>This setting overrides the cluster-level [KafkaConfig2_8.log_flush_interval_ms](#KafkaConfig2_8) setting on the topic level. 
+flush_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This setting overrides the cluster-level [KafkaConfig2_8.log_flush_interval_messages](#KafkaConfig2_83) setting on the topic level. 
+flush_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk. <br>This setting overrides the cluster-level [KafkaConfig2_8.log_flush_interval_ms](#KafkaConfig2_83) setting on the topic level. 
 min_compaction_lag_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The minimum time in milliseconds a message will remain uncompacted in the log. 
-retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanup_policy` is in effect. It is helpful if you need to control the size of log due to limited disk space. <br>This setting overrides the cluster-level [KafkaConfig2_8.log_retention_bytes](#KafkaConfig2_8) setting on the topic level. 
-retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment's file before deleting it. <br>This setting overrides the cluster-level [KafkaConfig2_8.log_retention_ms](#KafkaConfig2_8) setting on the topic level. 
+retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanup_policy` is in effect. It is helpful if you need to control the size of log due to limited disk space. <br>This setting overrides the cluster-level [KafkaConfig2_8.log_retention_bytes](#KafkaConfig2_83) setting on the topic level. 
+retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment's file before deleting it. <br>This setting overrides the cluster-level [KafkaConfig2_8.log_retention_ms](#KafkaConfig2_83) setting on the topic level. 
 max_message_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed in topic. 
 min_insync_replicas | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>This configuration specifies the minimum number of replicas that must acknowledge a write to topic for the write to be considered successful (when a producer sets acks to "all"). 
-segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>This configuration controls the segment file size for the log. Retention and cleaning is always done a file at a time so a larger segment size means fewer files but less granular control over retention. <br>This setting overrides the cluster-level [KafkaConfig2_8.log_segment_bytes](#KafkaConfig2_8) setting on the topic level. 
-preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>True if we should preallocate the file on disk when creating a new log segment. <br>This setting overrides the cluster-level [KafkaConfig2_8.log_preallocate](#KafkaConfig2_8) setting on the topic level. 
+segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>This configuration controls the segment file size for the log. Retention and cleaning is always done a file at a time so a larger segment size means fewer files but less granular control over retention. <br>This setting overrides the cluster-level [KafkaConfig2_8.log_segment_bytes](#KafkaConfig2_83) setting on the topic level. 
+preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>True if we should preallocate the file on disk when creating a new log segment. <br>This setting overrides the cluster-level [KafkaConfig2_8.log_preallocate](#KafkaConfig2_83) setting on the topic level. 
 
 
 ### TopicConfig3 {#TopicConfig3}
 
 Field | Description
 --- | ---
-cleanup_policy | enum **CleanupPolicy**<br>Retention policy to use on old log messages. <ul><li>`CLEANUP_POLICY_DELETE`: this policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig3.log_retention_ms](#KafkaConfig3) and other similar parameters.</li><li>`CLEANUP_POLICY_COMPACT`: this policy compacts messages in log.</li><li>`CLEANUP_POLICY_COMPACT_AND_DELETE`: this policy use both compaction and deletion for messages and log segments.</li></ul>
+cleanup_policy | enum **CleanupPolicy**<br>Retention policy to use on old log messages. <ul><li>`CLEANUP_POLICY_DELETE`: this policy discards log segments when either their retention time or log size limit is reached. See also: [KafkaConfig3.log_retention_ms](#KafkaConfig33) and other similar parameters.</li><li>`CLEANUP_POLICY_COMPACT`: this policy compacts messages in log.</li><li>`CLEANUP_POLICY_COMPACT_AND_DELETE`: this policy use both compaction and deletion for messages and log segments.</li></ul>
 compression_type | enum **CompressionType**<br>The compression type for a given topic. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
 delete_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The amount of time in milliseconds to retain delete tombstone markers for log compacted topics. 
 file_delete_delay_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The time to wait before deleting a file from the filesystem. 
-flush_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This setting overrides the cluster-level [KafkaConfig3.log_flush_interval_messages](#KafkaConfig3) setting on the topic level. 
-flush_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk. <br>This setting overrides the cluster-level [KafkaConfig3.log_flush_interval_ms](#KafkaConfig3) setting on the topic level. 
+flush_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This setting overrides the cluster-level [KafkaConfig3.log_flush_interval_messages](#KafkaConfig33) setting on the topic level. 
+flush_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time in milliseconds that a message in the topic is kept in memory before flushed to disk. <br>This setting overrides the cluster-level [KafkaConfig3.log_flush_interval_ms](#KafkaConfig33) setting on the topic level. 
 min_compaction_lag_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The minimum time in milliseconds a message will remain uncompacted in the log. 
-retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanup_policy` is in effect. It is helpful if you need to control the size of log due to limited disk space. <br>This setting overrides the cluster-level [KafkaConfig3.log_retention_bytes](#KafkaConfig3) setting on the topic level. 
-retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment's file before deleting it. <br>This setting overrides the cluster-level [KafkaConfig3.log_retention_ms](#KafkaConfig3) setting on the topic level. 
+retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` `cleanup_policy` is in effect. It is helpful if you need to control the size of log due to limited disk space. <br>This setting overrides the cluster-level [KafkaConfig3.log_retention_bytes](#KafkaConfig33) setting on the topic level. 
+retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment's file before deleting it. <br>This setting overrides the cluster-level [KafkaConfig3.log_retention_ms](#KafkaConfig33) setting on the topic level. 
 max_message_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed in topic. 
 min_insync_replicas | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>This configuration specifies the minimum number of replicas that must acknowledge a write to topic for the write to be considered successful (when a producer sets acks to "all"). 
-segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>This configuration controls the segment file size for the log. Retention and cleaning is always done a file at a time so a larger segment size means fewer files but less granular control over retention. <br>This setting overrides the cluster-level [KafkaConfig3.log_segment_bytes](#KafkaConfig3) setting on the topic level. 
-preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>True if we should preallocate the file on disk when creating a new log segment. <br>This setting overrides the cluster-level [KafkaConfig3.log_preallocate](#KafkaConfig3) setting on the topic level. 
+segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>This configuration controls the segment file size for the log. Retention and cleaning is always done a file at a time so a larger segment size means fewer files but less granular control over retention. <br>This setting overrides the cluster-level [KafkaConfig3.log_segment_bytes](#KafkaConfig33) setting on the topic level. 
+preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>True if we should preallocate the file on disk when creating a new log segment. <br>This setting overrides the cluster-level [KafkaConfig3.log_preallocate](#KafkaConfig33) setting on the topic level. 
 
 
 ### UserSpec {#UserSpec}
@@ -520,68 +853,6 @@ description | **string**<br>Description of the monitoring system.
 link | **string**<br>Link to the monitoring system charts for the Apache Kafka® cluster. 
 
 
-### ConfigSpec {#ConfigSpec3}
-
-Field | Description
---- | ---
-version | **string**<br>Version of Apache Kafka® used in the cluster. Possible values: `2.1`, `2.6`. 
-kafka | **[Kafka](#Kafka3)**<br>Configuration and resource allocation for Kafka brokers. 
-zookeeper | **[Zookeeper](#Zookeeper3)**<br>Configuration and resource allocation for ZooKeeper hosts. 
-zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside. 
-brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Kafka brokers deployed in each availability zone. 
-assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
-unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
-schema_registry | **bool**<br>Enables managed schema registry on cluster 
-access | **[Access](#Access3)**<br>Access policy for external services. 
-
-
-### Kafka {#Kafka3}
-
-Field | Description
---- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Kafka brokers. 
-kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6`, `kafka_config_2_8` or `kafka_config_3`<br>Kafka broker configuration.
-&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_1)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_2_6 | **[KafkaConfig2_6](#KafkaConfig2_6)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_2_8 | **[KafkaConfig2_8](#KafkaConfig2_8)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_3 | **[KafkaConfig3](#KafkaConfig3)**<br>Kafka broker configuration. 
-
-
-### Zookeeper {#Zookeeper3}
-
-Field | Description
---- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
-
-
-### Access {#Access3}
-
-Field | Description
---- | ---
-data_transfer | **bool**<br>Allow access for DataTransfer. 
-
-
-### MaintenanceWindow {#MaintenanceWindow3}
-
-Field | Description
---- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow3)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow3)**<br> 
-
-
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
-
-
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow3}
-
-Field | Description
---- | ---
-day | enum **WeekDay**<br> 
-hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
-
-
 ### MaintenanceOperation {#MaintenanceOperation2}
 
 Field | Description
@@ -608,68 +879,179 @@ cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to update.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 description | **string**<br>New description of the Apache Kafka® cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the Apache Kafka® cluster as `key:value` pairs. <br>For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-config_spec | **[ConfigSpec](#ConfigSpec4)**<br>New configuration and resources for hosts in the Apache Kafka® cluster. <br>Use `update_mask` to prevent reverting all cluster settings that are not listed in `config_spec` to their default values. 
+config_spec | **[ConfigSpec](#ConfigSpec3)**<br>New configuration and resources for hosts in the Apache Kafka® cluster. <br>Use `update_mask` to prevent reverting all cluster settings that are not listed in `config_spec` to their default values. 
 name | **string**<br>New name for the Apache Kafka® cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>New maintenance window settings for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>New maintenance window settings for the cluster. 
 
 
-### ConfigSpec {#ConfigSpec4}
+### ConfigSpec {#ConfigSpec3}
 
 Field | Description
 --- | ---
 version | **string**<br>Version of Apache Kafka® used in the cluster. Possible values: `2.1`, `2.6`. 
-kafka | **[Kafka](#Kafka4)**<br>Configuration and resource allocation for Kafka brokers. 
-zookeeper | **[Zookeeper](#Zookeeper4)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+kafka | **[Kafka](#Kafka3)**<br>Configuration and resource allocation for Kafka brokers. 
+zookeeper | **[Zookeeper](#Zookeeper3)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside. 
 brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Kafka brokers deployed in each availability zone. 
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
-access | **[Access](#Access4)**<br>Access policy for external services. 
+access | **[Access](#Access3)**<br>Access policy for external services. 
 
 
-### Kafka {#Kafka4}
+### Kafka {#Kafka3}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Kafka brokers. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to Kafka brokers. 
 kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6`, `kafka_config_2_8` or `kafka_config_3`<br>Kafka broker configuration.
-&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_1)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_2_6 | **[KafkaConfig2_6](#KafkaConfig2_6)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_2_8 | **[KafkaConfig2_8](#KafkaConfig2_8)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_3 | **[KafkaConfig3](#KafkaConfig3)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_13)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_6 | **[KafkaConfig2_6](#KafkaConfig2_63)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_8 | **[KafkaConfig2_8](#KafkaConfig2_83)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_3 | **[KafkaConfig3](#KafkaConfig33)**<br>Kafka broker configuration. 
 
 
-### Zookeeper {#Zookeeper4}
+### Zookeeper {#Zookeeper3}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to ZooKeeper hosts. 
 
 
-### Access {#Access4}
+### Access {#Access3}
 
 Field | Description
 --- | ---
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### MaintenanceWindow {#MaintenanceWindow4}
+### Resources {#Resources3}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted. 
+disk_type_id | **string**<br>Type of the storage environment for the host. 
+
+
+### KafkaConfig2_1 {#KafkaConfig2_13}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.flush_messages](#TopicConfig2_11) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.flush_ms](#TopicConfig2_11) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_1.cleanup_policy](#TopicConfig2_11) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.retention_bytes](#TopicConfig2_11) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.retention_ms](#TopicConfig2_11) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.segment_bytes](#TopicConfig2_11) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.preallocate](#TopicConfig2_11) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+
+
+### KafkaConfig2_6 {#KafkaConfig2_63}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.flush_messages](#TopicConfig2_61) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.flush_ms](#TopicConfig2_61) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_6.cleanup_policy](#TopicConfig2_61) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.retention_bytes](#TopicConfig2_61) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.retention_ms](#TopicConfig2_61) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.segment_bytes](#TopicConfig2_61) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.preallocate](#TopicConfig2_61) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+
+
+### KafkaConfig2_8 {#KafkaConfig2_83}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_messages](#TopicConfig2_81) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_ms](#TopicConfig2_81) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_8.cleanup_policy](#TopicConfig2_81) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_bytes](#TopicConfig2_81) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_ms](#TopicConfig2_81) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.segment_bytes](#TopicConfig2_81) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](#TopicConfig2_81) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
+
+
+### KafkaConfig3 {#KafkaConfig33}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_messages](#TopicConfig31) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_ms](#TopicConfig31) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig3.cleanup_policy](#TopicConfig31) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_bytes](#TopicConfig31) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_ms](#TopicConfig31) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.segment_bytes](#TopicConfig31) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](#TopicConfig31) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
+
+
+### MaintenanceWindow {#MaintenanceWindow3}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br> 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow3)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow3)**<br> 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow3}
 
 Field | Description
 --- | ---
@@ -712,14 +1094,14 @@ description | **string**<br>Description of the Apache Kafka® cluster. 0-256 cha
 labels | **map<string,string>**<br>Custom labels for the Apache Kafka® cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
 environment | enum **Environment**<br>Deployment environment of the Apache Kafka® cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring3)**<br>Description of monitoring systems relevant to the Apache Kafka® cluster. 
-config | **[ConfigSpec](#ConfigSpec5)**<br>Configuration of the Apache Kafka® cluster. 
+config | **[ConfigSpec](#ConfigSpec4)**<br>Configuration of the Apache Kafka® cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li></ul>
 security_group_ids[] | **string**<br>User security groups 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Window of maintenance operations. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Scheduled maintenance operation. 
 
 
@@ -730,68 +1112,6 @@ Field | Description
 name | **string**<br>Name of the monitoring system. 
 description | **string**<br>Description of the monitoring system. 
 link | **string**<br>Link to the monitoring system charts for the Apache Kafka® cluster. 
-
-
-### ConfigSpec {#ConfigSpec5}
-
-Field | Description
---- | ---
-version | **string**<br>Version of Apache Kafka® used in the cluster. Possible values: `2.1`, `2.6`. 
-kafka | **[Kafka](#Kafka5)**<br>Configuration and resource allocation for Kafka brokers. 
-zookeeper | **[Zookeeper](#Zookeeper5)**<br>Configuration and resource allocation for ZooKeeper hosts. 
-zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside. 
-brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Kafka brokers deployed in each availability zone. 
-assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
-unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
-schema_registry | **bool**<br>Enables managed schema registry on cluster 
-access | **[Access](#Access5)**<br>Access policy for external services. 
-
-
-### Kafka {#Kafka5}
-
-Field | Description
---- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Kafka brokers. 
-kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6`, `kafka_config_2_8` or `kafka_config_3`<br>Kafka broker configuration.
-&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_1)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_2_6 | **[KafkaConfig2_6](#KafkaConfig2_6)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_2_8 | **[KafkaConfig2_8](#KafkaConfig2_8)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_3 | **[KafkaConfig3](#KafkaConfig3)**<br>Kafka broker configuration. 
-
-
-### Zookeeper {#Zookeeper5}
-
-Field | Description
---- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
-
-
-### Access {#Access5}
-
-Field | Description
---- | ---
-data_transfer | **bool**<br>Allow access for DataTransfer. 
-
-
-### MaintenanceWindow {#MaintenanceWindow5}
-
-Field | Description
---- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br> 
-
-
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
-
-
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
-
-Field | Description
---- | ---
-day | enum **WeekDay**<br> 
-hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
 
 
 ### MaintenanceOperation {#MaintenanceOperation3}
@@ -897,14 +1217,14 @@ description | **string**<br>Description of the Apache Kafka® cluster. 0-256 cha
 labels | **map<string,string>**<br>Custom labels for the Apache Kafka® cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
 environment | enum **Environment**<br>Deployment environment of the Apache Kafka® cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring4)**<br>Description of monitoring systems relevant to the Apache Kafka® cluster. 
-config | **[ConfigSpec](#ConfigSpec6)**<br>Configuration of the Apache Kafka® cluster. 
+config | **[ConfigSpec](#ConfigSpec4)**<br>Configuration of the Apache Kafka® cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li></ul>
 security_group_ids[] | **string**<br>User security groups 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Window of maintenance operations. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Scheduled maintenance operation. 
 
 
@@ -917,61 +1237,172 @@ description | **string**<br>Description of the monitoring system.
 link | **string**<br>Link to the monitoring system charts for the Apache Kafka® cluster. 
 
 
-### ConfigSpec {#ConfigSpec6}
+### ConfigSpec {#ConfigSpec4}
 
 Field | Description
 --- | ---
 version | **string**<br>Version of Apache Kafka® used in the cluster. Possible values: `2.1`, `2.6`. 
-kafka | **[Kafka](#Kafka6)**<br>Configuration and resource allocation for Kafka brokers. 
-zookeeper | **[Zookeeper](#Zookeeper6)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+kafka | **[Kafka](#Kafka4)**<br>Configuration and resource allocation for Kafka brokers. 
+zookeeper | **[Zookeeper](#Zookeeper4)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside. 
 brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Kafka brokers deployed in each availability zone. 
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
-access | **[Access](#Access6)**<br>Access policy for external services. 
+access | **[Access](#Access4)**<br>Access policy for external services. 
 
 
-### Kafka {#Kafka6}
+### Kafka {#Kafka4}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Kafka brokers. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to Kafka brokers. 
 kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6`, `kafka_config_2_8` or `kafka_config_3`<br>Kafka broker configuration.
-&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_1)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_2_6 | **[KafkaConfig2_6](#KafkaConfig2_6)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_2_8 | **[KafkaConfig2_8](#KafkaConfig2_8)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_3 | **[KafkaConfig3](#KafkaConfig3)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_14)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_6 | **[KafkaConfig2_6](#KafkaConfig2_64)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_8 | **[KafkaConfig2_8](#KafkaConfig2_84)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_3 | **[KafkaConfig3](#KafkaConfig34)**<br>Kafka broker configuration. 
 
 
-### Zookeeper {#Zookeeper6}
+### Zookeeper {#Zookeeper4}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to ZooKeeper hosts. 
 
 
-### Access {#Access6}
+### Access {#Access4}
 
 Field | Description
 --- | ---
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### MaintenanceWindow {#MaintenanceWindow6}
+### Resources {#Resources4}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted. 
+disk_type_id | **string**<br>Type of the storage environment for the host. 
+
+
+### KafkaConfig2_1 {#KafkaConfig2_14}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.flush_messages](#TopicConfig2_11) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.flush_ms](#TopicConfig2_11) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_1.cleanup_policy](#TopicConfig2_11) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.retention_bytes](#TopicConfig2_11) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.retention_ms](#TopicConfig2_11) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.segment_bytes](#TopicConfig2_11) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.preallocate](#TopicConfig2_11) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+
+
+### KafkaConfig2_6 {#KafkaConfig2_64}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.flush_messages](#TopicConfig2_61) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.flush_ms](#TopicConfig2_61) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_6.cleanup_policy](#TopicConfig2_61) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.retention_bytes](#TopicConfig2_61) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.retention_ms](#TopicConfig2_61) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.segment_bytes](#TopicConfig2_61) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.preallocate](#TopicConfig2_61) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+
+
+### KafkaConfig2_8 {#KafkaConfig2_84}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_messages](#TopicConfig2_81) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_ms](#TopicConfig2_81) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_8.cleanup_policy](#TopicConfig2_81) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_bytes](#TopicConfig2_81) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_ms](#TopicConfig2_81) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.segment_bytes](#TopicConfig2_81) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](#TopicConfig2_81) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
+
+
+### KafkaConfig3 {#KafkaConfig34}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_messages](#TopicConfig31) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_ms](#TopicConfig31) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig3.cleanup_policy](#TopicConfig31) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_bytes](#TopicConfig31) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_ms](#TopicConfig31) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.segment_bytes](#TopicConfig31) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](#TopicConfig31) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
+
+
+### MaintenanceWindow {#MaintenanceWindow4}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br> 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br> 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
 
 Field | Description
 --- | ---
@@ -1039,14 +1470,14 @@ description | **string**<br>Description of the Apache Kafka® cluster. 0-256 cha
 labels | **map<string,string>**<br>Custom labels for the Apache Kafka® cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
 environment | enum **Environment**<br>Deployment environment of the Apache Kafka® cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring5)**<br>Description of monitoring systems relevant to the Apache Kafka® cluster. 
-config | **[ConfigSpec](#ConfigSpec7)**<br>Configuration of the Apache Kafka® cluster. 
+config | **[ConfigSpec](#ConfigSpec5)**<br>Configuration of the Apache Kafka® cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li></ul>
 security_group_ids[] | **string**<br>User security groups 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Window of maintenance operations. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Scheduled maintenance operation. 
 
 
@@ -1059,61 +1490,172 @@ description | **string**<br>Description of the monitoring system.
 link | **string**<br>Link to the monitoring system charts for the Apache Kafka® cluster. 
 
 
-### ConfigSpec {#ConfigSpec7}
+### ConfigSpec {#ConfigSpec5}
 
 Field | Description
 --- | ---
 version | **string**<br>Version of Apache Kafka® used in the cluster. Possible values: `2.1`, `2.6`. 
-kafka | **[Kafka](#Kafka7)**<br>Configuration and resource allocation for Kafka brokers. 
-zookeeper | **[Zookeeper](#Zookeeper7)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+kafka | **[Kafka](#Kafka5)**<br>Configuration and resource allocation for Kafka brokers. 
+zookeeper | **[Zookeeper](#Zookeeper5)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside. 
 brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Kafka brokers deployed in each availability zone. 
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
-access | **[Access](#Access7)**<br>Access policy for external services. 
+access | **[Access](#Access5)**<br>Access policy for external services. 
 
 
-### Kafka {#Kafka7}
+### Kafka {#Kafka5}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Kafka brokers. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to Kafka brokers. 
 kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6`, `kafka_config_2_8` or `kafka_config_3`<br>Kafka broker configuration.
-&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_1)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_2_6 | **[KafkaConfig2_6](#KafkaConfig2_6)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_2_8 | **[KafkaConfig2_8](#KafkaConfig2_8)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_3 | **[KafkaConfig3](#KafkaConfig3)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_15)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_6 | **[KafkaConfig2_6](#KafkaConfig2_65)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_8 | **[KafkaConfig2_8](#KafkaConfig2_85)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_3 | **[KafkaConfig3](#KafkaConfig35)**<br>Kafka broker configuration. 
 
 
-### Zookeeper {#Zookeeper7}
+### Zookeeper {#Zookeeper5}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources5)**<br>Resources allocated to ZooKeeper hosts. 
 
 
-### Access {#Access7}
+### Access {#Access5}
 
 Field | Description
 --- | ---
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### MaintenanceWindow {#MaintenanceWindow7}
+### Resources {#Resources5}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted. 
+disk_type_id | **string**<br>Type of the storage environment for the host. 
+
+
+### KafkaConfig2_1 {#KafkaConfig2_15}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.flush_messages](#TopicConfig2_11) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.flush_ms](#TopicConfig2_11) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_1.cleanup_policy](#TopicConfig2_11) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.retention_bytes](#TopicConfig2_11) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.retention_ms](#TopicConfig2_11) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.segment_bytes](#TopicConfig2_11) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.preallocate](#TopicConfig2_11) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+
+
+### KafkaConfig2_6 {#KafkaConfig2_65}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.flush_messages](#TopicConfig2_61) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.flush_ms](#TopicConfig2_61) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_6.cleanup_policy](#TopicConfig2_61) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.retention_bytes](#TopicConfig2_61) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.retention_ms](#TopicConfig2_61) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.segment_bytes](#TopicConfig2_61) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.preallocate](#TopicConfig2_61) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+
+
+### KafkaConfig2_8 {#KafkaConfig2_85}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_messages](#TopicConfig2_81) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_ms](#TopicConfig2_81) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_8.cleanup_policy](#TopicConfig2_81) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_bytes](#TopicConfig2_81) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_ms](#TopicConfig2_81) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.segment_bytes](#TopicConfig2_81) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](#TopicConfig2_81) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
+
+
+### KafkaConfig3 {#KafkaConfig35}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_messages](#TopicConfig31) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_ms](#TopicConfig31) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig3.cleanup_policy](#TopicConfig31) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_bytes](#TopicConfig31) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_ms](#TopicConfig31) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.segment_bytes](#TopicConfig31) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](#TopicConfig31) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
+
+
+### MaintenanceWindow {#MaintenanceWindow5}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br> 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br> 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
 
 Field | Description
 --- | ---
@@ -1181,14 +1723,14 @@ description | **string**<br>Description of the Apache Kafka® cluster. 0-256 cha
 labels | **map<string,string>**<br>Custom labels for the Apache Kafka® cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
 environment | enum **Environment**<br>Deployment environment of the Apache Kafka® cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring6)**<br>Description of monitoring systems relevant to the Apache Kafka® cluster. 
-config | **[ConfigSpec](#ConfigSpec8)**<br>Configuration of the Apache Kafka® cluster. 
+config | **[ConfigSpec](#ConfigSpec6)**<br>Configuration of the Apache Kafka® cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li></ul>
 security_group_ids[] | **string**<br>User security groups 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Window of maintenance operations. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Scheduled maintenance operation. 
 
 
@@ -1201,61 +1743,172 @@ description | **string**<br>Description of the monitoring system.
 link | **string**<br>Link to the monitoring system charts for the Apache Kafka® cluster. 
 
 
-### ConfigSpec {#ConfigSpec8}
+### ConfigSpec {#ConfigSpec6}
 
 Field | Description
 --- | ---
 version | **string**<br>Version of Apache Kafka® used in the cluster. Possible values: `2.1`, `2.6`. 
-kafka | **[Kafka](#Kafka8)**<br>Configuration and resource allocation for Kafka brokers. 
-zookeeper | **[Zookeeper](#Zookeeper8)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+kafka | **[Kafka](#Kafka6)**<br>Configuration and resource allocation for Kafka brokers. 
+zookeeper | **[Zookeeper](#Zookeeper6)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside. 
 brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Kafka brokers deployed in each availability zone. 
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
-access | **[Access](#Access8)**<br>Access policy for external services. 
+access | **[Access](#Access6)**<br>Access policy for external services. 
 
 
-### Kafka {#Kafka8}
+### Kafka {#Kafka6}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Kafka brokers. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to Kafka brokers. 
 kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6`, `kafka_config_2_8` or `kafka_config_3`<br>Kafka broker configuration.
-&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_1)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_2_6 | **[KafkaConfig2_6](#KafkaConfig2_6)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_2_8 | **[KafkaConfig2_8](#KafkaConfig2_8)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_3 | **[KafkaConfig3](#KafkaConfig3)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_16)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_6 | **[KafkaConfig2_6](#KafkaConfig2_66)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_8 | **[KafkaConfig2_8](#KafkaConfig2_86)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_3 | **[KafkaConfig3](#KafkaConfig36)**<br>Kafka broker configuration. 
 
 
-### Zookeeper {#Zookeeper8}
+### Zookeeper {#Zookeeper6}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources6)**<br>Resources allocated to ZooKeeper hosts. 
 
 
-### Access {#Access8}
+### Access {#Access6}
 
 Field | Description
 --- | ---
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### MaintenanceWindow {#MaintenanceWindow8}
+### Resources {#Resources6}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted. 
+disk_type_id | **string**<br>Type of the storage environment for the host. 
+
+
+### KafkaConfig2_1 {#KafkaConfig2_16}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.flush_messages](#TopicConfig2_11) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.flush_ms](#TopicConfig2_11) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_1.cleanup_policy](#TopicConfig2_11) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.retention_bytes](#TopicConfig2_11) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.retention_ms](#TopicConfig2_11) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.segment_bytes](#TopicConfig2_11) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.preallocate](#TopicConfig2_11) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+
+
+### KafkaConfig2_6 {#KafkaConfig2_66}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.flush_messages](#TopicConfig2_61) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.flush_ms](#TopicConfig2_61) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_6.cleanup_policy](#TopicConfig2_61) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.retention_bytes](#TopicConfig2_61) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.retention_ms](#TopicConfig2_61) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.segment_bytes](#TopicConfig2_61) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.preallocate](#TopicConfig2_61) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+
+
+### KafkaConfig2_8 {#KafkaConfig2_86}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_messages](#TopicConfig2_81) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_ms](#TopicConfig2_81) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_8.cleanup_policy](#TopicConfig2_81) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_bytes](#TopicConfig2_81) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_ms](#TopicConfig2_81) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.segment_bytes](#TopicConfig2_81) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](#TopicConfig2_81) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
+
+
+### KafkaConfig3 {#KafkaConfig36}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_messages](#TopicConfig31) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_ms](#TopicConfig31) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig3.cleanup_policy](#TopicConfig31) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_bytes](#TopicConfig31) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_ms](#TopicConfig31) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.segment_bytes](#TopicConfig31) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](#TopicConfig31) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
+
+
+### MaintenanceWindow {#MaintenanceWindow6}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br> 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br> 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
 
 Field | Description
 --- | ---
@@ -1326,14 +1979,14 @@ description | **string**<br>Description of the Apache Kafka® cluster. 0-256 cha
 labels | **map<string,string>**<br>Custom labels for the Apache Kafka® cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
 environment | enum **Environment**<br>Deployment environment of the Apache Kafka® cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring7)**<br>Description of monitoring systems relevant to the Apache Kafka® cluster. 
-config | **[ConfigSpec](#ConfigSpec9)**<br>Configuration of the Apache Kafka® cluster. 
+config | **[ConfigSpec](#ConfigSpec7)**<br>Configuration of the Apache Kafka® cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li></ul>
 security_group_ids[] | **string**<br>User security groups 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Window of maintenance operations. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Scheduled maintenance operation. 
 
 
@@ -1346,61 +1999,172 @@ description | **string**<br>Description of the monitoring system.
 link | **string**<br>Link to the monitoring system charts for the Apache Kafka® cluster. 
 
 
-### ConfigSpec {#ConfigSpec9}
+### ConfigSpec {#ConfigSpec7}
 
 Field | Description
 --- | ---
 version | **string**<br>Version of Apache Kafka® used in the cluster. Possible values: `2.1`, `2.6`. 
-kafka | **[Kafka](#Kafka9)**<br>Configuration and resource allocation for Kafka brokers. 
-zookeeper | **[Zookeeper](#Zookeeper9)**<br>Configuration and resource allocation for ZooKeeper hosts. 
+kafka | **[Kafka](#Kafka7)**<br>Configuration and resource allocation for Kafka brokers. 
+zookeeper | **[Zookeeper](#Zookeeper7)**<br>Configuration and resource allocation for ZooKeeper hosts. 
 zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside. 
 brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Kafka brokers deployed in each availability zone. 
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
-access | **[Access](#Access9)**<br>Access policy for external services. 
+access | **[Access](#Access7)**<br>Access policy for external services. 
 
 
-### Kafka {#Kafka9}
+### Kafka {#Kafka7}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to Kafka brokers. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to Kafka brokers. 
 kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6`, `kafka_config_2_8` or `kafka_config_3`<br>Kafka broker configuration.
-&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_1)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_2_6 | **[KafkaConfig2_6](#KafkaConfig2_6)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_2_8 | **[KafkaConfig2_8](#KafkaConfig2_8)**<br>Kafka broker configuration. 
-&nbsp;&nbsp;kafka_config_3 | **[KafkaConfig3](#KafkaConfig3)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_1 | **[KafkaConfig2_1](#KafkaConfig2_17)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_6 | **[KafkaConfig2_6](#KafkaConfig2_67)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_2_8 | **[KafkaConfig2_8](#KafkaConfig2_87)**<br>Kafka broker configuration. 
+&nbsp;&nbsp;kafka_config_3 | **[KafkaConfig3](#KafkaConfig37)**<br>Kafka broker configuration. 
 
 
-### Zookeeper {#Zookeeper9}
+### Zookeeper {#Zookeeper7}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to ZooKeeper hosts. 
 
 
-### Access {#Access9}
+### Access {#Access7}
 
 Field | Description
 --- | ---
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
-### MaintenanceWindow {#MaintenanceWindow9}
+### Resources {#Resources7}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted. 
+disk_type_id | **string**<br>Type of the storage environment for the host. 
+
+
+### KafkaConfig2_1 {#KafkaConfig2_17}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.flush_messages](#TopicConfig2_11) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.flush_ms](#TopicConfig2_11) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_1.cleanup_policy](#TopicConfig2_11) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.retention_bytes](#TopicConfig2_11) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.retention_ms](#TopicConfig2_11) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.segment_bytes](#TopicConfig2_11) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_1.preallocate](#TopicConfig2_11) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+
+
+### KafkaConfig2_6 {#KafkaConfig2_67}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.flush_messages](#TopicConfig2_61) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.flush_ms](#TopicConfig2_61) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_6.cleanup_policy](#TopicConfig2_61) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.retention_bytes](#TopicConfig2_61) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.retention_ms](#TopicConfig2_61) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.segment_bytes](#TopicConfig2_61) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_6.preallocate](#TopicConfig2_61) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+
+
+### KafkaConfig2_8 {#KafkaConfig2_87}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_messages](#TopicConfig2_81) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_ms](#TopicConfig2_81) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_8.cleanup_policy](#TopicConfig2_81) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_bytes](#TopicConfig2_81) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_ms](#TopicConfig2_81) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.segment_bytes](#TopicConfig2_81) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](#TopicConfig2_81) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
+
+
+### KafkaConfig3 {#KafkaConfig37}
+
+Field | Description
+--- | ---
+compression_type | enum **CompressionType**<br>Cluster topics compression type. <ul><li>`COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).</li><li>`COMPRESSION_TYPE_ZSTD`: Zstandard codec.</li><li>`COMPRESSION_TYPE_LZ4`: LZ4 codec.</li><li>`COMPRESSION_TYPE_SNAPPY`: Snappy codec.</li><li>`COMPRESSION_TYPE_GZIP`: GZip codec.</li><li>`COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).</li></ul>
+log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of messages accumulated on a log partition before messages are flushed to disk. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_messages](#TopicConfig31) setting. 
+log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk. If not set, the value of `log_flush_scheduler_interval_ms` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_ms](#TopicConfig31) setting. 
+log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The frequency of checks (in milliseconds) for any logs that need to be flushed to disk. This check is done by the log flusher. 
+log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig3.cleanup_policy](#TopicConfig31) is in effect. This setting is helpful if you need to control the size of a log due to limited disk space. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_bytes](#TopicConfig31) setting. 
+log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of hours to keep a log segment file before deleting it. 
+log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of minutes to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_hours` is used. 
+log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of milliseconds to keep a log segment file before deleting it. <br>If not set, the value of `log_retention_minutes` is used. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_ms](#TopicConfig31) setting. 
+log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of a single log file. <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.segment_bytes](#TopicConfig31) setting. 
+log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Should pre allocate file when create new segment? <br>This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](#TopicConfig31) setting. 
+socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. 
+auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Enable auto creation of topic on the server 
+num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default number of partitions per topic on the whole cluster 
+default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Default replication factor of the topic on the whole cluster 
+message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The largest record batch size allowed by Kafka. Default value: 1048588. 
+replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. 
+ssl_cipher_suites[] | **string**<br>A list of cipher suites. 
+offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Offset storage time after a consumer group loses all its consumers. Default: 10080. 
+sasl_enabled_mechanisms[] | enum **SaslMechanism**<br>The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]. 
+
+
+### MaintenanceWindow {#MaintenanceWindow7}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br> 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br> 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br> 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
 
 Field | Description
 --- | ---
@@ -1556,13 +2320,13 @@ name | **string**<br>Name of the host.
 cluster_id | **string**<br>ID of the Apache Kafka® cluster. 
 zone_id | **string**<br>ID of the availability zone where the host resides. 
 role | enum **Role**<br>Host role. <ul><li>`KAFKA`: the host is a Kafka broker.</li><li>`ZOOKEEPER`: the host is a ZooKeeper server.</li></ul>
-resources | **[Resources](#Resources)**<br>Computational resources allocated to the host. 
+resources | **[Resources](#Resources8)**<br>Computational resources allocated to the host. 
 health | enum **Health**<br>Aggregated host health data. <ul><li>`UNKNOWN`: health of the host is unknown.</li><li>`ALIVE`: the host is performing all its functions normally.</li><li>`DEAD`: the host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: the host is degraded and can perform only some of its essential functions.</li></ul>
 subnet_id | **string**<br>ID of the subnet the host resides in. 
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the node. <br>If the value is `true`, then this node is available on the Internet via it's public IP address. 
 
 
-### Resources {#Resources}
+### Resources {#Resources8}
 
 Field | Description
 --- | ---

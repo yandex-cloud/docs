@@ -26,7 +26,7 @@ Public IP addresses are assigned to cloud resources automatically. You can assig
 
 #### How do I make a public IP address static? {#make-ip-static}
 
-You can [make a public IP address static](../operations/set-static-ip.md) using the **IP addresses** tab of the VPC service in the [management console]({{ link-console-main }}).
+You can [make a public IP address static](../operations/set-static-ip.md) using the **IP addresses** tab of the {{ vpc-short-name }} service in the [management console]({{ link-console-main }}).
 
 ### What if my email traffic is being blocked? {#if-traffic-blocked}
 
@@ -64,4 +64,4 @@ Subnets can only use private addresses from IPv4 ranges defined by [RFC 1918](ht
 {% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
 
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

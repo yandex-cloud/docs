@@ -73,8 +73,8 @@ items:
     items:
       - name: All use cases
         href: tutorials/index.md
-      - name: Performance analysis and tuning
-        href: tutorials/profiling.md
+      - name: Performance analysis and tuning of {{ mmy-name }}
+        href: tutorials/profiling-mmy.md
       - name: Exporting databases to {{ dataproc-full-name }}
         href: tutorials/sqoop.md
       - name: Migrating databases to Managed Service for MySQL

@@ -21,14 +21,20 @@ items:
         href: operations/update.md
       - name: Using external tables
         href: operations/external-tables.md
+      - name: '{{ GP }} extensions'
+        items:
+          - name: Managing extensions
+            href: operations/extensions/cluster-extensions.md
+          - name: pgcrypto
+            href: operations/extensions/pgcrypto.md
       - name: Viewing cluster logs
         href: operations/cluster-logs.md
-      - name: Managing {{ GP }} extensions
-        href: operations/cluster-extensions.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
       - name: Monitoring the state of a cluster and hosts
         href: operations/monitoring.md
+      - name: Managing resource groups
+        href: operations/resource-groups.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -39,6 +45,8 @@ items:
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Resource groups
+        href: concepts/resource-groups.md
       - name: Storage types
         href: concepts/storage.md
       - name: Sharding

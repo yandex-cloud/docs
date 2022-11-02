@@ -2,7 +2,7 @@
 
 You can use logical replication to migrate a database from an Amazon RDS for {{ PG }} _source cluster_ to a {{ mpg-name }} _target cluster_.
 
-[Logical replication](https://www.postgresql.org/docs/current/logical-replication.html) uses the [subscription](https://www.postgresql.org/docs/current/sql-createsubscription.html) mechanism. This lets you migrate data to the target cluster with minimal downtime. Logical replication is available in Amazon RDS for {{ PG }} version 10.4 and higher.
+[Logical replication]({{ pg-docs }}/logical-replication.html) uses the [subscription]({{ pg-docs }}/sql-createsubscription.html) mechanism. This lets you migrate data to the target cluster with minimal downtime. Logical replication is available in Amazon RDS for {{ PG }} version 10.4 and higher.
 
 Use logical replication if [data migration using {{ data-transfer-full-name }}](../tutorials/data-migration.md#data-transfer) is not possible for any reason.
 
@@ -17,7 +17,7 @@ To migrate a database from an Amazon RDS source cluster for {{ PG }} to a {{ mpg
 
 * Changes to the database schema and DDL are not replicated.
 
-   First apply the new schema changes on the [subscription](https://www.postgresql.org/docs/current/logical-replication-subscription.html) side and then on the [publication](https://www.postgresql.org/docs/current/logical-replication-publication.html) side.
+   First apply the new schema changes on the [subscription]({{ pg-docs }}/logical-replication-subscription.html) side and then on the [publication]({{ pg-docs }}/logical-replication-publication.html) side.
 
 * Sequences (`SEQUENCES`) are not replicated.
 
@@ -36,8 +36,8 @@ To migrate a database from an Amazon RDS source cluster for {{ PG }} to a {{ mpg
 * If a table does not have a primary key, errors will occur during replication:
 
    ```text
-   ERROR:  55000: cannot update table "<table name>" because it does not have a replica identity and publishes updates
-   HINT:  To enable updating the table, set REPLICA IDENTITY using ALTER TABLE.
+   ERROR: 55000: cannot update table "<table name>" because it does not have a replica identity and publishes updates
+   HINT: To enable updating the table, set REPLICA IDENTITY using ALTER TABLE.
    ```
 
    To run `UPDATE` and `DELETE` replications on tables without the primary key, change the `REPLICA IDENTITY`:
@@ -76,8 +76,8 @@ Create the necessary resources:
 
       This file describes:
 
-      * [network](../../vpc/concepts/network.md#network).
-      * [subnet](../../vpc/concepts/network.md#subnet).
+      * [Network](../../vpc/concepts/network.md#network).
+      * [Subnet](../../vpc/concepts/network.md#subnet).
       * [Security group](../../vpc/concepts/security-groups.md) and rule enabling cluster connections.
       * {{ mpg-name }} cluster with public internet access.
 
@@ -148,7 +148,7 @@ The DB instance must have public access: `Public accessibility = yes`.
 
    {% endnote %}
 
-1. Add a rule for incoming traffic in [VPC security groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html). For example:
+1. Add a rule for incoming traffic in [{{ vpc-short-name }} security groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html). For example:
 
    ```text
    protocol: tcp, port: 5432, source: 84.201.175.90/32
@@ -168,7 +168,7 @@ In {{ mpg-name }} clusters, subscriptions can be used by the database owner (a u
    CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<source cluster address> port=<port> user=<username> sslmode=prefer dbname=<database name>' PUBLICATION pub;
    ```
 
-   To learn more about creating subscriptions, see the [{{ PG }} documentation](https://www.postgresql.org/docs/10/sql-createsubscription.html).
+   To learn more about creating subscriptions, see the [{{ PG }} documentation]({{ pg-docs }}/sql-createsubscription.html).
 
 1. To get the replication status, check the `pg_subscription_rel` directories.
 
@@ -196,7 +196,7 @@ To complete synchronization of the source cluster and the target cluster:
 
    Take note of the `*.*_seq` pattern used. If the database you're migrating has sequences that don't match this pattern, enter a different pattern to export them.
 
-   For more information about patterns, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-PATTERNS).
+   For more information about patterns, see the [{{ PG }} documentation]({{ pg-docs }}/app-psql.html#APP-PSQL-PATTERNS).
 
 1. Restore the dump with sequences in the target cluster:
 

@@ -1,16 +1,193 @@
 # Релизы YC CLI
 
-## Версия 0.94.0 (16.08.22) {#latest-release}
+## Текущая версия {#latest-release}
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+### Версия 0.97.0 (10.10.22) {#version0.97.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 
-#### {{ cloud-logging-name }} {#cloud-logging}
+##### {{ api-gw-name }} {#api-gw}
+
+* Параметр `domainId` команды `add-domain` больше не поддерживается.
+
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+
+**{{ mgp-name }}**
+
+* Добавлена команда `yc managed-greenplum cluster expand`, которая позволяет расширить существующий кластер {{ mgp-name }}. Параметры команды:
+
+  * `--segment-host-count` — количество добавляемых в кластер хостов;
+  * `--add-segments-per-host-count` — количество сегментов, добавляемых на каждый хост кластера;
+  * `--duration-seconds` — максимальная длительность сеанса распределения данных в секундах.
+
+
+**{{ mkf-name }}**
+
+* Прекращена поддержка {{ KF }} версий 2.1 и 2.6.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.96.0 (19.09.22) {#version0.96.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+
+##### {{ alb-name }} {#alb}
+
+* Добавлена команда `yc application-load-balancer load-balancer autoscale` для управления количеством ресурсных единиц балансировщика.
+  В команду есть параметры:
+  * `--min-zone-size` — минимальное число ресурсных единиц в одной зоне;
+  * `--max-size` — максимальное числа ресурсных единиц во всех зонах суммарно.
+
+* В команду `yc alb load-balancer create` добавлены флаги:
+  * `--log-group-id`, `--log-group-name` — для задания лог-группы из {{ cloud-logging-name }};
+  * `--disable-logging` — для создания балансировщика без записи логов в лог-группу из {{ cloud-logging-name }}.
+
+* В команду `yc alb load-balancer update` добавлены флаги:
+  * `--log-group-id`, `--log-group-name` — для задания лог-группы из {{ cloud-logging-name }};
+  * `--enable-logging` и `--disable-logging` — для включения и выключения записи логов балансировщика в лог-группу из {{ cloud-logging-name }}.
+
+
+
+##### {{ compute-name }} {#compute}
+
+* Добавлена группа команд `yc compute snapshot-schedule` для управления снимками диска по расписанию.
+* В команду `yc compute instance create` добавлен флаг `--metadata-options` для управления доступом к метаданным ВМ.
+
+
+
+###### {{ dns-name }} {#dns}
+
+* Команда `yc dns zone list-records` теперь имеет фильтрацию по имени и типу записи с помощью параметров `--record-name` и `--record-type`.
+
+
+##### Изменения в сервисах управляемых баз данных {#managed-db}
+
+**{{ mpg-name }}**
+
+* Команды `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update` и `yc managed-postgresql cluster restore`: для флага `--postgresql-version string` добавлено значение `11-1c`, `12-1c`, `13-1c`, `14-1c`  для создания кластера {{ PG }} версий 11-1c, 12-1c, 13-1c, 14-1c.
+
+
+##### {{ iot-name }} {#iot}
+
+* Добавлена группа команд `yc iot broker` для управления MQTT-брокером.
+
+
+
+##### {{ sf-name }} {#serverless-functions}
+
+Добавлены команды:
+
+* `yc serverless trigger create iot-broker` — для создания триггеров для MQTT-брокеров.
+* `yc serverless trigger create mail` — для создания триггеров для почты.
+
+В команду `yc serverless function version create` добавлен параметр `--secret` для добавления [секретов](../lockbox/) к версии.
+
+
+
+##### {{ serverless-containers-name }} {#serverless-containers}
+
+В команду `yc serverless container revision deploy` добавлены флаги:
+* `--secret` — для добавления секретов к ревизии;
+* `--min-instances` — чтобы указать минимальное количество подготовленных экземпляров контейнера.
+
+
+### Версия 0.95.0 (02.09.22) {#version0.95.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+
+##### {{ api-gw-name }} {#api-gw}
+
+* В команду `yc serverless api-gateway add-domain` добавлены параметры:
+  
+  * `--domain` — для указания FQDN подключаемого [домена](../certificate-manager/concepts/domains/index.md) из {{ certificate-manager-name }};
+  * `--certificate-id` — для указания идентификатора сертификата из {{ certificate-manager-name }}.
+
+  Параметр `--domain-id` считается устаревшим, вместо него рекомендуется использовать параметру `--domain` и `--certificate-id`.
+  
+* Добавлена группа команд `yc serverless api-gateway websocket` для работы с соединениями по протоколу WebSocket:
+
+  * `yc serverless api-gateway websocket get` — получение информации о соединении;
+  * `yc serverless api-gateway websocket send` — отправка данных в соединении;
+  * `yc serverless api-gateway websocket disconnect` — разрыв соединения.
+  
+
+
+
+##### {{ certificate-manager-name }} {#certificate-manager}
+
+* В команду `yc certificate-manager certificate content` добавлен параметр `--key-format` для выбора формата приватного ключа: `PKCS1` или `PKCS8`.
+
+
+
+
+##### {{ compute-name }} {#compute}
+
+* В команду `yc compute image create` добавлен параметр `--os-type` для указания типа операционной системы создаваемого образа: `linux` или `windows`.
+
+
+
+
+##### {{ dns-name }} {#dns}
+
+* Команды `yc dns zone add-records`, `yc dns zone update-records`, `yc dns zone delete-records` и `yc dns zone replace-records` теперь возвращают список выполненных изменений.
+
+
+
+
+##### {{ iam-name }} {#iam}
+
+* В группе команд `yc iam federation` исправлена ошибка, возникавшая при указании имени SAML-совместимой федерации как позиционного аргумента.
+
+
+
+
+##### {{ iot-name }} {#iot}
+
+* Команды `yc iot registry logs` и `yc iot device logs` теперь возвращают логи из {{ cloud-logging-name }}. В команды добавлены параметры:
+
+  * `--levels` — для поиска записей с указанными уровнями логирования;
+  * `--filter` — для фильтрации записей.
+
+  Подробнее о возможных значениях новых параметров см. в разделе [{#T}](../logging/concepts/filter.md). 
+
+
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mkf-name }}**
+
+* Добавлена поддержка {{ KF }} версий 3.0, 3.1 и 3.2.
+
+
+**{{ mrd-name }}**
+
+* Прекращена поддержка {{ RD }} версий 5.0 и 6.0.
+
+
+
+
+##### {{ org-name }} {#organization}
+
+* В команды из группы `yc organization-manager federation saml` добавлен параметр `--organization-id` для указания идентификатора организации. Исправлена ошибка, возникавшая в этих командах при указании имени SAML-совместимой федерации как позиционного аргумента.
+* Добавлена группа команд `yc organization-manager group` для управления [группами пользователей](../organization/manage-groups.md).
+
+
+### Версия 0.94.0 (16.08.22) {#version0.94.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+
+##### {{ cloud-logging-name }} {#cloud-logging}
 
 * В команды `yc logging read` и `yc logging write` добавлен параметр `--stream-name`.
 
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 
 **{{ mgp-name }}**
@@ -51,18 +228,16 @@
   - `offsets-retention-minutes`
   - `ssl-cipher-suites`
 
-#### {{ vpc-name }} {#vpc}
+##### {{ vpc-name }} {#vpc}
 
 * Добавлена группа команд `yc vpc gateway` для управления шлюзами маршрутизации.
 * В команды группы `yc vpc route-table` добавлена возможность указать шлюз в качестве назначения маршрута.
 
-## Предыдущие релизы {#previous-releases}
+### Версия 0.93.0 (19.07.22) {#version0.93.0}
 
-## Версия 0.93.0 (19.07.22) {#version0.93.0}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
-
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mch-name }}**
 
@@ -89,7 +264,7 @@
 * При создании нового кластера по умолчанию выбирается версия MongoDB 5.0.
 
 
-#### {{ managed-k8s-name }} {#k8s}
+##### {{ managed-k8s-name }} {#k8s}
 
 * Команды `yc managed-kubernetes node-group create` и `yc managed-kubernetes node-group update`:
 
@@ -98,12 +273,10 @@
   * Добавлены флаги `--template-labels` и `--template-labels-from-files`, позволяющие указать [ресурсные метки {{ yandex-cloud }}](../overview/concepts/services.md#labels) для ВМ — узлов группы (не путать с [метками узлов {{ k8s }}](../managed-kubernetes/concepts/index.md#node-labels)).
 
 
-#### {{ serverless-containers-name }} {#serverless-containers}
+##### {{ serverless-containers-name }} {#serverless-containers}
 
 * В команду `yc serverless container revision deploy` добавлены флаги `--network-id` и `--network-name`, чтобы указывать сеть, которую будет использовать ревизия контейнера. Также в команду добавлен флаг `--subnets`, позволяющий получить детальный список подсетей.
 
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.92.0 (05.07.22) {#version0.92.0}
 

@@ -168,14 +168,6 @@ region_id | **string**<br>ID of the region where the target group resides.
 targets[] | **[Target](#Target3)**<br>A list of targets in the target group. 
 
 
-### Target {#Target3}
-
-Field | Description
---- | ---
-subnet_id | **string**<br>ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone. The maximum string length in characters is 50.
-address | **string**<br>IP address of the target. 
-
-
 ## Update {#Update}
 
 Updates the specified target group.
@@ -195,10 +187,10 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 name | **string**<br>Name of the target group. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. <br>The existing set of `` labels `` is completely replaced with the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-targets[] | **[Target](#Target4)**<br>A new list of targets for this target group. 
+targets[] | **[Target](#Target3)**<br>A new list of targets for this target group. 
 
 
-### Target {#Target4}
+### Target {#Target3}
 
 Field | Description
 --- | ---
@@ -240,15 +232,7 @@ name | **string**<br>Name of the target group. The name is unique within the fol
 description | **string**<br>Description of the target group. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region where the target group resides. 
-targets[] | **[Target](#Target5)**<br>A list of targets in the target group. 
-
-
-### Target {#Target5}
-
-Field | Description
---- | ---
-subnet_id | **string**<br>ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone. The maximum string length in characters is 50.
-address | **string**<br>IP address of the target. 
+targets[] | **[Target](#Target4)**<br>A list of targets in the target group. 
 
 
 ## Delete {#Delete}
@@ -306,10 +290,10 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 target_group_id | **string**<br>Required. ID of the TargetGroup resource to add targets to. To get the target group ID, use a [TargetGroupService.List](#List) request. The maximum string length in characters is 50.
-targets[] | **[Target](#Target6)**<br>List of targets to add to the target group. The minimum number of elements is 1.
+targets[] | **[Target](#Target4)**<br>List of targets to add to the target group. The minimum number of elements is 1.
 
 
-### Target {#Target6}
+### Target {#Target4}
 
 Field | Description
 --- | ---
@@ -351,15 +335,7 @@ name | **string**<br>Name of the target group. The name is unique within the fol
 description | **string**<br>Description of the target group. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region where the target group resides. 
-targets[] | **[Target](#Target7)**<br>A list of targets in the target group. 
-
-
-### Target {#Target7}
-
-Field | Description
---- | ---
-subnet_id | **string**<br>ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone. The maximum string length in characters is 50.
-address | **string**<br>IP address of the target. 
+targets[] | **[Target](#Target5)**<br>A list of targets in the target group. 
 
 
 ## RemoveTargets {#RemoveTargets}
@@ -377,10 +353,10 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 target_group_id | **string**<br>Required. ID of the target group to remove targets from. To get the target group ID, use a [TargetGroupService.List](#List) request. The maximum string length in characters is 50.
-targets[] | **[Target](#Target8)**<br>List of targets to remove from the target group. The minimum number of elements is 1.
+targets[] | **[Target](#Target5)**<br>List of targets to remove from the target group. The minimum number of elements is 1.
 
 
-### Target {#Target8}
+### Target {#Target5}
 
 Field | Description
 --- | ---
@@ -422,15 +398,7 @@ name | **string**<br>Name of the target group. The name is unique within the fol
 description | **string**<br>Description of the target group. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region where the target group resides. 
-targets[] | **[Target](#Target9)**<br>A list of targets in the target group. 
-
-
-### Target {#Target9}
-
-Field | Description
---- | ---
-subnet_id | **string**<br>ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone. The maximum string length in characters is 50.
-address | **string**<br>IP address of the target. 
+targets[] | **[Target](#Target6)**<br>A list of targets in the target group. 
 
 
 ## ListOperations {#ListOperations}

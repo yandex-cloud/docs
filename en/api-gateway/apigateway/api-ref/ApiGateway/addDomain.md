@@ -23,7 +23,6 @@ apiGatewayId | <p>Required. ID of the API gateway that the domain is attached to
  
 ```json 
 {
-  "domainId": "string",
   "domainName": "string",
   "certificateId": "string"
 }
@@ -32,7 +31,6 @@ apiGatewayId | <p>Required. ID of the API gateway that the domain is attached to
  
 Field | Description
 --- | ---
-domainId | **string**<br><p>ID of the attaching domain.</p> 
 domainName | **string**<br><p>Name of the attaching domain.</p> 
 certificateId | **string**<br><p>ID of certificate for the attaching domain.</p> 
  

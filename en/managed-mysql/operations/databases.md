@@ -22,8 +22,8 @@ You can add and remove databases, view information about them, and manage some d
    To get a list of databases in a cluster, run the command:
 
    ```bash
-   {{ yc-mdb-my }} database list \
-     --cluster-name=<cluster name>
+     {{ yc-mdb-my }} database list \
+        --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -38,13 +38,7 @@ You can add and remove databases, view information about them, and manage some d
 
 ## Creating a database {#add-db}
 
-There are no limits to the number of databases in a cluster.
-
-{% note info %}
-
-Created databases are not available to cluster users by default. To connect to a new database, [grant privileges to the appropriate users](grant.md#grant-privilege).
-
-{% endnote %}
+{% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
 
 {% list tabs %}
 
@@ -57,7 +51,9 @@ Created databases are not available to cluster users by default. To connect to a
    1. Click **Add**.
    1. Enter the database name and click **Add**.
 
-   {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+      {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
+   1. [Grant privileges](grant.md#grant-privilege) for access to the database created to the appropriate cluster users.
 
 - CLI
 
@@ -70,21 +66,20 @@ Created databases are not available to cluster users by default. To connect to a
    1. View a description of the CLI create database command:
 
       ```bash
-      {{ yc-mdb-my }} database create --help
+       {{ yc-mdb-my }} database create --help
       ```
 
    1. Run the create database command:
 
       ```bash
-      {{ yc-mdb-my }} database create <database name> \
-        --cluster-name=<cluster name>
+      {{ yc-mdb-my }} database create <database name> --cluster-name=<cluster name>
       ```
 
       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-      {{ mmy-short-name }} runs the create database operation.
+      The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+      {{ mmy-short-name }} runs the create database operation.
 
 - {{ TF }}
 
@@ -118,6 +113,7 @@ Created databases are not available to cluster users by default. To connect to a
    Use the [create](../api-ref/Database/create.md) API method and pass the following information in the request:
 
    * The ID of the cluster where you want to create a database, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+
    * Database name, in the `databaseSpec.name` parameter.
 
       {% include [database-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
@@ -143,8 +139,7 @@ Created databases are not available to cluster users by default. To connect to a
    To delete a database, run the command:
 
    ```bash
-   {{ yc-mdb-my }} database delete <database name> \
-     --cluster-name=<cluster name>
+    {{ yc-mdb-my }} database delete <database name> --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -257,7 +252,7 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
    * List of settings to update in the `updateMask` parameter.
 
-   {% include [Note API updateMask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

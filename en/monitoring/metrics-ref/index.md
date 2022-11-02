@@ -31,7 +31,6 @@ The name of the metric is written in the `name` label.
 
 {% include [managed-postgresql.md](../../_includes/monitoring/metrics-ref/managed-postgresql.md) %}
 
-
 {% include [managed-redis.md](../../_includes/monitoring/metrics-ref/managed-redis.md) %}
 
 {% include [ydb.md](../../_includes/monitoring/metrics-ref/ydb.md) %}

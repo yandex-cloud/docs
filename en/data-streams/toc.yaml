@@ -71,7 +71,7 @@ items:
     href: pricing.md
   - name: Amazon Kinesis Data Streams compatible HTTP API
     items:
-      - name: Overview
+      - name: All methods
         href: kinesisapi/api-ref.md
       - name: Methods
         items:

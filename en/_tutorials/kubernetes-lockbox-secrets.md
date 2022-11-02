@@ -1,6 +1,6 @@
-[External Secrets Operator](https://external-secrets.io/latest/provider-yandex-lockbox/) lets you set up the synchronization of [{{ lockbox-name }}](../lockbox/) secrets with {{ managed-k8s-name }} cluster secrets.
+[External Secrets Operator](https://external-secrets.io/latest/provider/yandex-lockbox/) lets you set up the synchronization of [{{ lockbox-name }}](../lockbox/) secrets with {{ managed-k8s-name }} cluster secrets.
 
-There are [multiple integration schemes](https://external-secrets.io/latest/guides-multi-tenancy/) for {{ lockbox-name }} and {{ managed-k8s-name }}. The example below describes [ESO as a Service](https://external-secrets.io/latest/guides-multi-tenancy/#eso-as-a-service):
+There are [multiple integration schemes](https://external-secrets.io/latest/guides/multi-tenancy/) for {{ lockbox-name }} and {{ managed-k8s-name }}. The example below describes [ESO as a Service](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service):
 
 ![image](../_assets/managed-kubernetes/mks-lockbox-eso.svg)
 
@@ -124,7 +124,7 @@ To set up secret syncing:
      --from-file=authorized-key=authorized-key.json
    ```
 
-1. Create a [SecretStore](https://external-secrets.io/latest/api-secretstore/) that contains the `yc-auth` secret:
+1. Create a [SecretStore](https://external-secrets.io/latest/api/secretstore/) that contains the `yc-auth` secret:
 
    ```bash
    kubectl --namespace ns apply -f - <<< '
@@ -143,7 +143,7 @@ To set up secret syncing:
 
 ## Create an External Secret {#create-es}
 
-1. Create an object named [ExternalSecret](https://external-secrets.io/latest/api-externalsecret/) pointing to `lockbox-secret` in `secret-store`:
+1. Create an object named [ExternalSecret](https://external-secrets.io/latest/api/externalsecret/) pointing to `lockbox-secret` in `secret-store`:
 
    ```bash
    kubectl --namespace ns apply -f - <<< '

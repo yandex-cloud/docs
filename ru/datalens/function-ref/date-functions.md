@@ -134,14 +134,6 @@ sourcePath: ru/_api-ref/datalens/function-ref/date-functions.md
 
 
 
-## [OLDNOW](OLDNOW.md)
-
-**Синтаксис:**`OLDNOW()`
-
-Возвращает текущую дату и время (в устаревшем формате) в зависимости от источника данных и типа соединения.
-
-
-
 ## [QUARTER](QUARTER.md)
 
 **Синтаксис:**`QUARTER( datetime )`

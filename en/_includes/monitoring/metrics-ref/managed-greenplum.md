@@ -136,4 +136,4 @@ Additional labels: device: `dev`: Disk ID in the system.
 | `gp.spill_files_num_per_seghost`<br/>`DGAUGE`, pcs | Number of temporary files per host. |
 | `gp.spill_files_size_per_seghost`<br/>`DGAUGE`, bytes | Size of temporary files per host. |
 
-Read more about the service in the [{{ mgp-full-name }}](../../managed-greenplum/) documentation.
+Read more about the service in the [{{ mgp-full-name }}](../../../managed-greenplum/) documentation.

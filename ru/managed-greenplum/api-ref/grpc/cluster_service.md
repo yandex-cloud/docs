@@ -123,15 +123,6 @@ Field | Description
 resources | **[Resources](#Resources1)**<br>Computational resources allocated to Greenplum® segment subcluster hosts. 
 
 
-### Resources {#Resources1}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. <br>Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
-disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
-
-
 ### MaintenanceWindow {#MaintenanceWindow}
 
 Field | Description
@@ -323,10 +314,10 @@ link | **string**<br>Link to the monitoring system charts for the Greenplum® cl
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources2)**<br>Computational resources allocated to Greenplum® master subcluster hosts. 
+resources | **[Resources](#Resources1)**<br>Computational resources allocated to Greenplum® master subcluster hosts. 
 
 
-### Resources {#Resources2}
+### Resources {#Resources1}
 
 Field | Description
 --- | ---
@@ -339,16 +330,7 @@ disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources3)**<br>Computational resources allocated to Greenplum® segment subcluster hosts. 
-
-
-### Resources {#Resources3}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. <br>Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
-disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
+resources | **[Resources](#Resources2)**<br>Computational resources allocated to Greenplum® segment subcluster hosts. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow1}
@@ -514,10 +496,10 @@ data_transfer | **bool**<br>Allows access for DataTransfer.
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources4)**<br>Resources allocated to Greenplum® master subcluster hosts. 
+resources | **[Resources](#Resources2)**<br>Resources allocated to Greenplum® master subcluster hosts. 
 
 
-### Resources {#Resources4}
+### Resources {#Resources2}
 
 Field | Description
 --- | ---
@@ -530,16 +512,7 @@ disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources5)**<br>Resources allocated to Greenplum® segment subcluster hosts. 
-
-
-### Resources {#Resources5}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. <br>Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
-disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to Greenplum® segment subcluster hosts. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow2}
@@ -663,27 +636,6 @@ host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster.
 cluster_config | **[ClusterConfigSet](#ClusterConfigSet2)**<br>Greenplum® and Odyssey® configuration. 
 
 
-### GreenplumConfig {#GreenplumConfig3}
-
-Field | Description
---- | ---
-version | **string**<br>Version of the Greenplum® server software. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access3)**<br>Access policy for external services. 
-zone_id | **string**<br>ID of the availability zone the cluster belongs to. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
-subnet_id | **string**<br>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#Cluster3)). The maximum string length in characters is 50.
-assign_public_ip | **bool**<br>Determines whether the cluster has a public IP address. <br>After the cluster has been created, this setting cannot be changed. 
-
-
-### Access {#Access3}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allows data export from the cluster to DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the management console. 
-data_transfer | **bool**<br>Allows access for DataTransfer. 
-
-
 ### Monitoring {#Monitoring2}
 
 Field | Description
@@ -697,53 +649,14 @@ link | **string**<br>Link to the monitoring system charts for the Greenplum® cl
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources6)**<br>Computational resources allocated to Greenplum® master subcluster hosts. 
-
-
-### Resources {#Resources6}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. <br>Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
-disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
+resources | **[Resources](#Resources3)**<br>Computational resources allocated to Greenplum® master subcluster hosts. 
 
 
 ### SegmentSubclusterConfig {#SegmentSubclusterConfig2}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources7)**<br>Computational resources allocated to Greenplum® segment subcluster hosts. 
-
-
-### Resources {#Resources7}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. <br>Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
-disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
-
-
-### MaintenanceWindow {#MaintenanceWindow3}
-
-Field | Description
---- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow3)**<br>An any-time maintenance window. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow3)**<br>A weekly maintenance window. 
-
-
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
-
-
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow3}
-
-Field | Description
---- | ---
-day | enum **WeekDay**<br>Day of the week. <ul><li>`MON`: Monday</li><li>`TUE`: Tuesday</li><li>`WED`: Wednesday</li><li>`THU`: Thursday</li><li>`FRI`: Friday</li><li>`SAT`: Saturday</li><li>`SUN`: Sunday</li></ul>
-hour | **int64**<br>Hour of the day in the UTC timezone. Acceptable values are 1 to 24, inclusive.
+resources | **[Resources](#Resources3)**<br>Computational resources allocated to Greenplum® segment subcluster hosts. 
 
 
 ### MaintenanceOperation {#MaintenanceOperation2}
@@ -773,19 +686,6 @@ user_config | **[GreenplumConfig6_17](#GreenplumConfig6_173)**<br>User-defined s
 default_config | **[GreenplumConfig6_17](#GreenplumConfig6_173)**<br>Default configuration for a Greenplum® cluster. 
 
 
-### GreenplumConfig6_17 {#GreenplumConfig6_173}
-
-Field | Description
---- | ---
-max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment. 
-max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time. <br>More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html). 
-gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. <br>The default value is 0 (no limit). <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment). 
-gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment. <br>The default value is 0 (no limit). <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query). 
-gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of temporary spill files allowed per query at each segment. <br>Spill files, also known as workfiles, are created when a query requires more memory than there is allocated. <br>The current query is terminated if the limit is exceeded. <br>Set to zero to disable the limit. <br>Master session reloads if the parameter changes. <br>Default value is 10000. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query). 
-max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of transactions that can be in the `prepared` state simultaneously. <br>More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html). 
-gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether the spill files are compressed or not. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression). 
-
-
 ### GreenplumConfigSet6_19 {#GreenplumConfigSet6_192}
 
 Field | Description
@@ -795,21 +695,6 @@ user_config | **[GreenplumConfig6_19](#GreenplumConfig6_193)**<br>User-defined s
 default_config | **[GreenplumConfig6_19](#GreenplumConfig6_193)**<br>Default configuration for a Greenplum® cluster. 
 
 
-### GreenplumConfig6_19 {#GreenplumConfig6_193}
-
-Field | Description
---- | ---
-max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment. 
-max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time. <br>More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html). 
-gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. <br>The default value is 0 (no limit). <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment). 
-gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment. <br>The default value is 0 (no limit). <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query). 
-gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of temporary spill files allowed per query at each segment. <br>Spill files, also known as workfiles, are created when a query requires more memory than there is allocated. <br>The current query is terminated if the limit is exceeded. <br>Set to zero to disable the limit. <br>Master session reloads if the parameter changes. <br>Default value is 10000. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query). 
-max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of transactions that can be in the `prepared` state simultaneously. <br>More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html). 
-gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether the spill files are compressed or not. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression). 
-max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum memory limit for a query, in bytes. <br>Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high. <br>Taking into account the configuration of a single segment host, calculate `max_statement_mem` as follows: `seghost_physical_memory` / `average_number_concurrent_queries`. <br>When changing both `max_statement_mem` and `statement_mem`, `max_statement_mem` must be changed first, or listed first in the `postgresql.conf` file. <br>Default value is 2097152000 (2000 MB). <br>More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem). 
-log_statement | enum **LogStatement**<br>Logged SQL statements. <br>`PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command belongs to an appropriate type. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement). <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
-
-
 ### ConnectionPoolerConfigSet {#ConnectionPoolerConfigSet2}
 
 Field | Description
@@ -817,15 +702,6 @@ Field | Description
 effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig3)**<br>Required. Effective settings for an Odyssey® pooler (a combination of settings defined in [ConnectionPoolerConfigSet.user_config](#ConnectionPoolerConfigSet2) and [ConnectionPoolerConfigSet.default_config](#ConnectionPoolerConfigSet2)). 
 user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig3)**<br>User-defined settings for an Odyssey® pooler. 
 default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig3)**<br>Default configuration for an Odyssey® pooler. 
-
-
-### ConnectionPoolerConfig {#ConnectionPoolerConfig3}
-
-Field | Description
---- | ---
-mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li></ul>
-size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. <br>Set to zero to disable the limit. 
-client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. <br>A server connection closes after being idle for the specified time. <br>Set to zero to disable the limit. 
 
 
 ## Update {#Update}
@@ -847,29 +723,29 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 description | **string**<br>New description of the Greenplum® cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the Greenplum® cluster as `key:value` pairs. For example, `"project":"mvp"` or `"source":"dictionary"`. <br>The new set of labels completely replaces the old one. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 name | **string**<br>New name for the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-config | **[GreenplumConfig](#GreenplumConfig4)**<br>The Greenplum® cluster configuration. 
+config | **[GreenplumConfig](#GreenplumConfig3)**<br>The Greenplum® cluster configuration. 
 master_config | **[MasterSubclusterConfigSpec](#MasterSubclusterConfigSpec)**<br>Configuration of the Greenplum® master subcluster. 
 segment_config | **[SegmentSubclusterConfigSpec](#SegmentSubclusterConfigSpec)**<br>Configuration of the Greenplum® segment subcluster. 
 user_password | **string**<br>Required. Owner user password. The string length in characters must be 8-128.
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>The Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>The Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
 security_group_ids[] | **string**<br>User security groups. 
 deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>Settings of the Greenplum® cluster. 
 
 
-### GreenplumConfig {#GreenplumConfig4}
+### GreenplumConfig {#GreenplumConfig3}
 
 Field | Description
 --- | ---
 version | **string**<br>Version of the Greenplum® server software. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access4)**<br>Access policy for external services. 
+access | **[Access](#Access3)**<br>Access policy for external services. 
 zone_id | **string**<br>ID of the availability zone the cluster belongs to. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#Cluster3)). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br>Determines whether the cluster has a public IP address. <br>After the cluster has been created, this setting cannot be changed. 
 
 
-### Access {#Access4}
+### Access {#Access3}
 
 Field | Description
 --- | ---
@@ -882,10 +758,10 @@ data_transfer | **bool**<br>Allows access for DataTransfer.
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources8)**<br>Resources allocated to Greenplum® master subcluster hosts. 
+resources | **[Resources](#Resources3)**<br>Resources allocated to Greenplum® master subcluster hosts. 
 
 
-### Resources {#Resources8}
+### Resources {#Resources3}
 
 Field | Description
 --- | ---
@@ -898,32 +774,23 @@ disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources9)**<br>Resources allocated to Greenplum® segment subcluster hosts. 
+resources | **[Resources](#Resources4)**<br>Resources allocated to Greenplum® segment subcluster hosts. 
 
 
-### Resources {#Resources9}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. <br>Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
-disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
-
-
-### MaintenanceWindow {#MaintenanceWindow4}
+### MaintenanceWindow {#MaintenanceWindow3}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br>An any-time maintenance window. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br>A weekly maintenance window. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow3)**<br>An any-time maintenance window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow3)**<br>A weekly maintenance window. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow3}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow3}
 
 Field | Description
 --- | ---
@@ -936,12 +803,12 @@ hour | **int64**<br>Hour of the day in the UTC timezone. Acceptable values are 1
 Field | Description
 --- | ---
 greenplum_config | **oneof:** `greenplum_config_6_17` or `greenplum_config_6_19`<br>
-&nbsp;&nbsp;greenplum_config_6_17 | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br> 
-&nbsp;&nbsp;greenplum_config_6_19 | **[GreenplumConfig6_19](#GreenplumConfig6_194)**<br> 
-pool | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Odyssey® pool settings. 
+&nbsp;&nbsp;greenplum_config_6_17 | **[GreenplumConfig6_17](#GreenplumConfig6_173)**<br> 
+&nbsp;&nbsp;greenplum_config_6_19 | **[GreenplumConfig6_19](#GreenplumConfig6_193)**<br> 
+pool | **[ConnectionPoolerConfig](#ConnectionPoolerConfig3)**<br>Odyssey® pool settings. 
 
 
-### GreenplumConfig6_17 {#GreenplumConfig6_174}
+### GreenplumConfig6_17 {#GreenplumConfig6_173}
 
 Field | Description
 --- | ---
@@ -954,7 +821,7 @@ max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.go
 gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether the spill files are compressed or not. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression). 
 
 
-### GreenplumConfig6_19 {#GreenplumConfig6_194}
+### GreenplumConfig6_19 {#GreenplumConfig6_193}
 
 Field | Description
 --- | ---
@@ -969,7 +836,7 @@ max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com
 log_statement | enum **LogStatement**<br>Logged SQL statements. <br>`PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command belongs to an appropriate type. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement). <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig4}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig3}
 
 Field | Description
 --- | ---
@@ -1009,7 +876,7 @@ id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by the pla
 folder_id | **string**<br>ID of the folder that the Greenplum® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the cluster was created. 
 name | **string**<br>Required. Name of the Greenplum® cluster. The name is unique within the folder. The maximum string length in characters is 63.
-config | **[GreenplumConfig](#GreenplumConfig5)**<br>Greenplum® cluster configuration. 
+config | **[GreenplumConfig](#GreenplumConfig4)**<br>Greenplum® cluster configuration. 
 description | **string**<br>Description of the Greenplum® cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 labels per resource. 
 environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
@@ -1022,34 +889,13 @@ segment_in_host | **int64**<br>Number of segments per host.
 network_id | **string**<br>ID of the cloud network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>A Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>A Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Maintenance operation planned at nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups. 
 user_name | **string**<br>Owner user name. 
 deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 cluster_config | **[ClusterConfigSet](#ClusterConfigSet3)**<br>Greenplum® and Odyssey® configuration. 
-
-
-### GreenplumConfig {#GreenplumConfig5}
-
-Field | Description
---- | ---
-version | **string**<br>Version of the Greenplum® server software. 
-backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access5)**<br>Access policy for external services. 
-zone_id | **string**<br>ID of the availability zone the cluster belongs to. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
-subnet_id | **string**<br>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#Cluster4)). The maximum string length in characters is 50.
-assign_public_ip | **bool**<br>Determines whether the cluster has a public IP address. <br>After the cluster has been created, this setting cannot be changed. 
-
-
-### Access {#Access5}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allows data export from the cluster to DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the management console. 
-data_transfer | **bool**<br>Allows access for DataTransfer. 
 
 
 ### Monitoring {#Monitoring3}
@@ -1065,53 +911,14 @@ link | **string**<br>Link to the monitoring system charts for the Greenplum® cl
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources10)**<br>Computational resources allocated to Greenplum® master subcluster hosts. 
-
-
-### Resources {#Resources10}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. <br>Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
-disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
+resources | **[Resources](#Resources4)**<br>Computational resources allocated to Greenplum® master subcluster hosts. 
 
 
 ### SegmentSubclusterConfig {#SegmentSubclusterConfig3}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources11)**<br>Computational resources allocated to Greenplum® segment subcluster hosts. 
-
-
-### Resources {#Resources11}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. <br>Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
-disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
-
-
-### MaintenanceWindow {#MaintenanceWindow5}
-
-Field | Description
---- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br>An any-time maintenance window. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br>A weekly maintenance window. 
-
-
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
-
-
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
-
-Field | Description
---- | ---
-day | enum **WeekDay**<br>Day of the week. <ul><li>`MON`: Monday</li><li>`TUE`: Tuesday</li><li>`WED`: Wednesday</li><li>`THU`: Thursday</li><li>`FRI`: Friday</li><li>`SAT`: Saturday</li><li>`SUN`: Sunday</li></ul>
-hour | **int64**<br>Hour of the day in the UTC timezone. Acceptable values are 1 to 24, inclusive.
+resources | **[Resources](#Resources4)**<br>Computational resources allocated to Greenplum® segment subcluster hosts. 
 
 
 ### MaintenanceOperation {#MaintenanceOperation3}
@@ -1136,64 +943,27 @@ pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet3)**<br>Odyssey®
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_175)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_17.user_config](#GreenplumConfigSet6_173) and [GreenplumConfigSet6_17.default_config](#GreenplumConfigSet6_173)). 
-user_config | **[GreenplumConfig6_17](#GreenplumConfig6_175)**<br>User-defined settings for a Greenplum® cluster. 
-default_config | **[GreenplumConfig6_17](#GreenplumConfig6_175)**<br>Default configuration for a Greenplum® cluster. 
-
-
-### GreenplumConfig6_17 {#GreenplumConfig6_175}
-
-Field | Description
---- | ---
-max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment. 
-max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time. <br>More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html). 
-gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. <br>The default value is 0 (no limit). <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment). 
-gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment. <br>The default value is 0 (no limit). <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query). 
-gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of temporary spill files allowed per query at each segment. <br>Spill files, also known as workfiles, are created when a query requires more memory than there is allocated. <br>The current query is terminated if the limit is exceeded. <br>Set to zero to disable the limit. <br>Master session reloads if the parameter changes. <br>Default value is 10000. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query). 
-max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of transactions that can be in the `prepared` state simultaneously. <br>More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html). 
-gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether the spill files are compressed or not. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression). 
+effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_17.user_config](#GreenplumConfigSet6_173) and [GreenplumConfigSet6_17.default_config](#GreenplumConfigSet6_173)). 
+user_config | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br>Default configuration for a Greenplum® cluster. 
 
 
 ### GreenplumConfigSet6_19 {#GreenplumConfigSet6_193}
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_195)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_19.user_config](#GreenplumConfigSet6_193) and [GreenplumConfigSet6_19.default_config](#GreenplumConfigSet6_193)). 
-user_config | **[GreenplumConfig6_19](#GreenplumConfig6_195)**<br>User-defined settings for a Greenplum® cluster. 
-default_config | **[GreenplumConfig6_19](#GreenplumConfig6_195)**<br>Default configuration for a Greenplum® cluster. 
-
-
-### GreenplumConfig6_19 {#GreenplumConfig6_195}
-
-Field | Description
---- | ---
-max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment. 
-max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time. <br>More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html). 
-gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. <br>The default value is 0 (no limit). <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment). 
-gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment. <br>The default value is 0 (no limit). <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query). 
-gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of temporary spill files allowed per query at each segment. <br>Spill files, also known as workfiles, are created when a query requires more memory than there is allocated. <br>The current query is terminated if the limit is exceeded. <br>Set to zero to disable the limit. <br>Master session reloads if the parameter changes. <br>Default value is 10000. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query). 
-max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum number of transactions that can be in the `prepared` state simultaneously. <br>More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html). 
-gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether the spill files are compressed or not. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression). 
-max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum memory limit for a query, in bytes. <br>Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high. <br>Taking into account the configuration of a single segment host, calculate `max_statement_mem` as follows: `seghost_physical_memory` / `average_number_concurrent_queries`. <br>When changing both `max_statement_mem` and `statement_mem`, `max_statement_mem` must be changed first, or listed first in the `postgresql.conf` file. <br>Default value is 2097152000 (2000 MB). <br>More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem). 
-log_statement | enum **LogStatement**<br>Logged SQL statements. <br>`PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command belongs to an appropriate type. <br>More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement). <ul><li>`NONE`: None statements are logged.</li><li>`DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.</li><li>`MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.</li><li>`ALL`: Logs all statements.</li></ul>
+effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_194)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_19.user_config](#GreenplumConfigSet6_193) and [GreenplumConfigSet6_19.default_config](#GreenplumConfigSet6_193)). 
+user_config | **[GreenplumConfig6_19](#GreenplumConfig6_194)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_19](#GreenplumConfig6_194)**<br>Default configuration for a Greenplum® cluster. 
 
 
 ### ConnectionPoolerConfigSet {#ConnectionPoolerConfigSet3}
 
 Field | Description
 --- | ---
-effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig5)**<br>Required. Effective settings for an Odyssey® pooler (a combination of settings defined in [ConnectionPoolerConfigSet.user_config](#ConnectionPoolerConfigSet3) and [ConnectionPoolerConfigSet.default_config](#ConnectionPoolerConfigSet3)). 
-user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig5)**<br>User-defined settings for an Odyssey® pooler. 
-default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig5)**<br>Default configuration for an Odyssey® pooler. 
-
-
-### ConnectionPoolerConfig {#ConnectionPoolerConfig5}
-
-Field | Description
---- | ---
-mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li></ul>
-size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. <br>Set to zero to disable the limit. 
-client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. <br>A server connection closes after being idle for the specified time. <br>Set to zero to disable the limit. 
+effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Required. Effective settings for an Odyssey® pooler (a combination of settings defined in [ConnectionPoolerConfigSet.user_config](#ConnectionPoolerConfigSet3) and [ConnectionPoolerConfigSet.default_config](#ConnectionPoolerConfigSet3)). 
+user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>User-defined settings for an Odyssey® pooler. 
+default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Default configuration for an Odyssey® pooler. 
 
 
 ## Expand {#Expand}
@@ -1247,7 +1017,7 @@ id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by the pla
 folder_id | **string**<br>ID of the folder that the Greenplum® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the cluster was created. 
 name | **string**<br>Required. Name of the Greenplum® cluster. The name is unique within the folder. The maximum string length in characters is 63.
-config | **[GreenplumConfig](#GreenplumConfig6)**<br>Greenplum® cluster configuration. 
+config | **[GreenplumConfig](#GreenplumConfig4)**<br>Greenplum® cluster configuration. 
 description | **string**<br>Description of the Greenplum® cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 labels per resource. 
 environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
@@ -1260,7 +1030,7 @@ segment_in_host | **int64**<br>Number of segments per host.
 network_id | **string**<br>ID of the cloud network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>A Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>A Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Maintenance operation planned at nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups. 
 user_name | **string**<br>Owner user name. 
@@ -1269,19 +1039,19 @@ host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster.
 cluster_config | **[ClusterConfigSet](#ClusterConfigSet4)**<br>Greenplum® and Odyssey® configuration. 
 
 
-### GreenplumConfig {#GreenplumConfig6}
+### GreenplumConfig {#GreenplumConfig4}
 
 Field | Description
 --- | ---
 version | **string**<br>Version of the Greenplum® server software. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access6)**<br>Access policy for external services. 
+access | **[Access](#Access4)**<br>Access policy for external services. 
 zone_id | **string**<br>ID of the availability zone the cluster belongs to. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#Cluster5)). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br>Determines whether the cluster has a public IP address. <br>After the cluster has been created, this setting cannot be changed. 
 
 
-### Access {#Access6}
+### Access {#Access4}
 
 Field | Description
 --- | ---
@@ -1303,10 +1073,10 @@ link | **string**<br>Link to the monitoring system charts for the Greenplum® cl
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources12)**<br>Computational resources allocated to Greenplum® master subcluster hosts. 
+resources | **[Resources](#Resources4)**<br>Computational resources allocated to Greenplum® master subcluster hosts. 
 
 
-### Resources {#Resources12}
+### Resources {#Resources4}
 
 Field | Description
 --- | ---
@@ -1319,32 +1089,23 @@ disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources13)**<br>Computational resources allocated to Greenplum® segment subcluster hosts. 
+resources | **[Resources](#Resources5)**<br>Computational resources allocated to Greenplum® segment subcluster hosts. 
 
 
-### Resources {#Resources13}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. <br>Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
-disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
-
-
-### MaintenanceWindow {#MaintenanceWindow6}
+### MaintenanceWindow {#MaintenanceWindow4}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br>An any-time maintenance window. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br>A weekly maintenance window. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow4)**<br>An any-time maintenance window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow4)**<br>A weekly maintenance window. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow4}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow4}
 
 Field | Description
 --- | ---
@@ -1374,12 +1135,12 @@ pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet4)**<br>Odyssey®
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_176)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_17.user_config](#GreenplumConfigSet6_174) and [GreenplumConfigSet6_17.default_config](#GreenplumConfigSet6_174)). 
-user_config | **[GreenplumConfig6_17](#GreenplumConfig6_176)**<br>User-defined settings for a Greenplum® cluster. 
-default_config | **[GreenplumConfig6_17](#GreenplumConfig6_176)**<br>Default configuration for a Greenplum® cluster. 
+effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_17.user_config](#GreenplumConfigSet6_174) and [GreenplumConfigSet6_17.default_config](#GreenplumConfigSet6_174)). 
+user_config | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br>Default configuration for a Greenplum® cluster. 
 
 
-### GreenplumConfig6_17 {#GreenplumConfig6_176}
+### GreenplumConfig6_17 {#GreenplumConfig6_174}
 
 Field | Description
 --- | ---
@@ -1396,12 +1157,12 @@ gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.googl
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_196)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_19.user_config](#GreenplumConfigSet6_194) and [GreenplumConfigSet6_19.default_config](#GreenplumConfigSet6_194)). 
-user_config | **[GreenplumConfig6_19](#GreenplumConfig6_196)**<br>User-defined settings for a Greenplum® cluster. 
-default_config | **[GreenplumConfig6_19](#GreenplumConfig6_196)**<br>Default configuration for a Greenplum® cluster. 
+effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_194)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_19.user_config](#GreenplumConfigSet6_194) and [GreenplumConfigSet6_19.default_config](#GreenplumConfigSet6_194)). 
+user_config | **[GreenplumConfig6_19](#GreenplumConfig6_194)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_19](#GreenplumConfig6_194)**<br>Default configuration for a Greenplum® cluster. 
 
 
-### GreenplumConfig6_19 {#GreenplumConfig6_196}
+### GreenplumConfig6_19 {#GreenplumConfig6_194}
 
 Field | Description
 --- | ---
@@ -1420,12 +1181,12 @@ log_statement | enum **LogStatement**<br>Logged SQL statements. <br>`PREPARE` an
 
 Field | Description
 --- | ---
-effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig6)**<br>Required. Effective settings for an Odyssey® pooler (a combination of settings defined in [ConnectionPoolerConfigSet.user_config](#ConnectionPoolerConfigSet4) and [ConnectionPoolerConfigSet.default_config](#ConnectionPoolerConfigSet4)). 
-user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig6)**<br>User-defined settings for an Odyssey® pooler. 
-default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig6)**<br>Default configuration for an Odyssey® pooler. 
+effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Required. Effective settings for an Odyssey® pooler (a combination of settings defined in [ConnectionPoolerConfigSet.user_config](#ConnectionPoolerConfigSet4) and [ConnectionPoolerConfigSet.default_config](#ConnectionPoolerConfigSet4)). 
+user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>User-defined settings for an Odyssey® pooler. 
+default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Default configuration for an Odyssey® pooler. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig6}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig4}
 
 Field | Description
 --- | ---
@@ -1522,7 +1283,7 @@ id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by the pla
 folder_id | **string**<br>ID of the folder that the Greenplum® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the cluster was created. 
 name | **string**<br>Required. Name of the Greenplum® cluster. The name is unique within the folder. The maximum string length in characters is 63.
-config | **[GreenplumConfig](#GreenplumConfig7)**<br>Greenplum® cluster configuration. 
+config | **[GreenplumConfig](#GreenplumConfig5)**<br>Greenplum® cluster configuration. 
 description | **string**<br>Description of the Greenplum® cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 labels per resource. 
 environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
@@ -1535,7 +1296,7 @@ segment_in_host | **int64**<br>Number of segments per host.
 network_id | **string**<br>ID of the cloud network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>A Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>A Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Maintenance operation planned at nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups. 
 user_name | **string**<br>Owner user name. 
@@ -1544,19 +1305,19 @@ host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster.
 cluster_config | **[ClusterConfigSet](#ClusterConfigSet5)**<br>Greenplum® and Odyssey® configuration. 
 
 
-### GreenplumConfig {#GreenplumConfig7}
+### GreenplumConfig {#GreenplumConfig5}
 
 Field | Description
 --- | ---
 version | **string**<br>Version of the Greenplum® server software. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access7)**<br>Access policy for external services. 
+access | **[Access](#Access5)**<br>Access policy for external services. 
 zone_id | **string**<br>ID of the availability zone the cluster belongs to. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#Cluster6)). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br>Determines whether the cluster has a public IP address. <br>After the cluster has been created, this setting cannot be changed. 
 
 
-### Access {#Access7}
+### Access {#Access5}
 
 Field | Description
 --- | ---
@@ -1578,10 +1339,10 @@ link | **string**<br>Link to the monitoring system charts for the Greenplum® cl
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources14)**<br>Computational resources allocated to Greenplum® master subcluster hosts. 
+resources | **[Resources](#Resources5)**<br>Computational resources allocated to Greenplum® master subcluster hosts. 
 
 
-### Resources {#Resources14}
+### Resources {#Resources5}
 
 Field | Description
 --- | ---
@@ -1594,32 +1355,23 @@ disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources15)**<br>Computational resources allocated to Greenplum® segment subcluster hosts. 
+resources | **[Resources](#Resources6)**<br>Computational resources allocated to Greenplum® segment subcluster hosts. 
 
 
-### Resources {#Resources15}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. <br>Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
-disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
-
-
-### MaintenanceWindow {#MaintenanceWindow7}
+### MaintenanceWindow {#MaintenanceWindow5}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br>An any-time maintenance window. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br>A weekly maintenance window. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br>An any-time maintenance window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br>A weekly maintenance window. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
 
 Field | Description
 --- | ---
@@ -1649,12 +1401,12 @@ pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet5)**<br>Odyssey®
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_177)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_17.user_config](#GreenplumConfigSet6_175) and [GreenplumConfigSet6_17.default_config](#GreenplumConfigSet6_175)). 
-user_config | **[GreenplumConfig6_17](#GreenplumConfig6_177)**<br>User-defined settings for a Greenplum® cluster. 
-default_config | **[GreenplumConfig6_17](#GreenplumConfig6_177)**<br>Default configuration for a Greenplum® cluster. 
+effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_175)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_17.user_config](#GreenplumConfigSet6_175) and [GreenplumConfigSet6_17.default_config](#GreenplumConfigSet6_175)). 
+user_config | **[GreenplumConfig6_17](#GreenplumConfig6_175)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_17](#GreenplumConfig6_175)**<br>Default configuration for a Greenplum® cluster. 
 
 
-### GreenplumConfig6_17 {#GreenplumConfig6_177}
+### GreenplumConfig6_17 {#GreenplumConfig6_175}
 
 Field | Description
 --- | ---
@@ -1671,12 +1423,12 @@ gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.googl
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_197)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_19.user_config](#GreenplumConfigSet6_195) and [GreenplumConfigSet6_19.default_config](#GreenplumConfigSet6_195)). 
-user_config | **[GreenplumConfig6_19](#GreenplumConfig6_197)**<br>User-defined settings for a Greenplum® cluster. 
-default_config | **[GreenplumConfig6_19](#GreenplumConfig6_197)**<br>Default configuration for a Greenplum® cluster. 
+effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_195)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_19.user_config](#GreenplumConfigSet6_195) and [GreenplumConfigSet6_19.default_config](#GreenplumConfigSet6_195)). 
+user_config | **[GreenplumConfig6_19](#GreenplumConfig6_195)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_19](#GreenplumConfig6_195)**<br>Default configuration for a Greenplum® cluster. 
 
 
-### GreenplumConfig6_19 {#GreenplumConfig6_197}
+### GreenplumConfig6_19 {#GreenplumConfig6_195}
 
 Field | Description
 --- | ---
@@ -1695,12 +1447,12 @@ log_statement | enum **LogStatement**<br>Logged SQL statements. <br>`PREPARE` an
 
 Field | Description
 --- | ---
-effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig7)**<br>Required. Effective settings for an Odyssey® pooler (a combination of settings defined in [ConnectionPoolerConfigSet.user_config](#ConnectionPoolerConfigSet5) and [ConnectionPoolerConfigSet.default_config](#ConnectionPoolerConfigSet5)). 
-user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig7)**<br>User-defined settings for an Odyssey® pooler. 
-default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig7)**<br>Default configuration for an Odyssey® pooler. 
+effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig5)**<br>Required. Effective settings for an Odyssey® pooler (a combination of settings defined in [ConnectionPoolerConfigSet.user_config](#ConnectionPoolerConfigSet5) and [ConnectionPoolerConfigSet.default_config](#ConnectionPoolerConfigSet5)). 
+user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig5)**<br>User-defined settings for an Odyssey® pooler. 
+default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig5)**<br>Default configuration for an Odyssey® pooler. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig7}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig5}
 
 Field | Description
 --- | ---
@@ -1757,7 +1509,7 @@ id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by the pla
 folder_id | **string**<br>ID of the folder that the Greenplum® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the cluster was created. 
 name | **string**<br>Required. Name of the Greenplum® cluster. The name is unique within the folder. The maximum string length in characters is 63.
-config | **[GreenplumConfig](#GreenplumConfig8)**<br>Greenplum® cluster configuration. 
+config | **[GreenplumConfig](#GreenplumConfig6)**<br>Greenplum® cluster configuration. 
 description | **string**<br>Description of the Greenplum® cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 labels per resource. 
 environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
@@ -1770,7 +1522,7 @@ segment_in_host | **int64**<br>Number of segments per host.
 network_id | **string**<br>ID of the cloud network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>A Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>A Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Maintenance operation planned at nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups. 
 user_name | **string**<br>Owner user name. 
@@ -1779,19 +1531,19 @@ host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster.
 cluster_config | **[ClusterConfigSet](#ClusterConfigSet6)**<br>Greenplum® and Odyssey® configuration. 
 
 
-### GreenplumConfig {#GreenplumConfig8}
+### GreenplumConfig {#GreenplumConfig6}
 
 Field | Description
 --- | ---
 version | **string**<br>Version of the Greenplum® server software. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access8)**<br>Access policy for external services. 
+access | **[Access](#Access6)**<br>Access policy for external services. 
 zone_id | **string**<br>ID of the availability zone the cluster belongs to. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#Cluster7)). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br>Determines whether the cluster has a public IP address. <br>After the cluster has been created, this setting cannot be changed. 
 
 
-### Access {#Access8}
+### Access {#Access6}
 
 Field | Description
 --- | ---
@@ -1813,10 +1565,10 @@ link | **string**<br>Link to the monitoring system charts for the Greenplum® cl
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources16)**<br>Computational resources allocated to Greenplum® master subcluster hosts. 
+resources | **[Resources](#Resources6)**<br>Computational resources allocated to Greenplum® master subcluster hosts. 
 
 
-### Resources {#Resources16}
+### Resources {#Resources6}
 
 Field | Description
 --- | ---
@@ -1829,32 +1581,23 @@ disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources17)**<br>Computational resources allocated to Greenplum® segment subcluster hosts. 
+resources | **[Resources](#Resources7)**<br>Computational resources allocated to Greenplum® segment subcluster hosts. 
 
 
-### Resources {#Resources17}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. <br>Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
-disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
-
-
-### MaintenanceWindow {#MaintenanceWindow8}
+### MaintenanceWindow {#MaintenanceWindow6}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow8)**<br>An any-time maintenance window. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow8)**<br>A weekly maintenance window. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow6)**<br>An any-time maintenance window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow6)**<br>A weekly maintenance window. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow8}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow6}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow8}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow6}
 
 Field | Description
 --- | ---
@@ -1884,12 +1627,12 @@ pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet6)**<br>Odyssey®
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_178)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_17.user_config](#GreenplumConfigSet6_176) and [GreenplumConfigSet6_17.default_config](#GreenplumConfigSet6_176)). 
-user_config | **[GreenplumConfig6_17](#GreenplumConfig6_178)**<br>User-defined settings for a Greenplum® cluster. 
-default_config | **[GreenplumConfig6_17](#GreenplumConfig6_178)**<br>Default configuration for a Greenplum® cluster. 
+effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_176)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_17.user_config](#GreenplumConfigSet6_176) and [GreenplumConfigSet6_17.default_config](#GreenplumConfigSet6_176)). 
+user_config | **[GreenplumConfig6_17](#GreenplumConfig6_176)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_17](#GreenplumConfig6_176)**<br>Default configuration for a Greenplum® cluster. 
 
 
-### GreenplumConfig6_17 {#GreenplumConfig6_178}
+### GreenplumConfig6_17 {#GreenplumConfig6_176}
 
 Field | Description
 --- | ---
@@ -1906,12 +1649,12 @@ gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.googl
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_198)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_19.user_config](#GreenplumConfigSet6_196) and [GreenplumConfigSet6_19.default_config](#GreenplumConfigSet6_196)). 
-user_config | **[GreenplumConfig6_19](#GreenplumConfig6_198)**<br>User-defined settings for a Greenplum® cluster. 
-default_config | **[GreenplumConfig6_19](#GreenplumConfig6_198)**<br>Default configuration for a Greenplum® cluster. 
+effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_196)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_19.user_config](#GreenplumConfigSet6_196) and [GreenplumConfigSet6_19.default_config](#GreenplumConfigSet6_196)). 
+user_config | **[GreenplumConfig6_19](#GreenplumConfig6_196)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_19](#GreenplumConfig6_196)**<br>Default configuration for a Greenplum® cluster. 
 
 
-### GreenplumConfig6_19 {#GreenplumConfig6_198}
+### GreenplumConfig6_19 {#GreenplumConfig6_196}
 
 Field | Description
 --- | ---
@@ -1930,12 +1673,12 @@ log_statement | enum **LogStatement**<br>Logged SQL statements. <br>`PREPARE` an
 
 Field | Description
 --- | ---
-effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig8)**<br>Required. Effective settings for an Odyssey® pooler (a combination of settings defined in [ConnectionPoolerConfigSet.user_config](#ConnectionPoolerConfigSet6) and [ConnectionPoolerConfigSet.default_config](#ConnectionPoolerConfigSet6)). 
-user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig8)**<br>User-defined settings for an Odyssey® pooler. 
-default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig8)**<br>Default configuration for an Odyssey® pooler. 
+effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig6)**<br>Required. Effective settings for an Odyssey® pooler (a combination of settings defined in [ConnectionPoolerConfigSet.user_config](#ConnectionPoolerConfigSet6) and [ConnectionPoolerConfigSet.default_config](#ConnectionPoolerConfigSet6)). 
+user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig6)**<br>User-defined settings for an Odyssey® pooler. 
+default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig6)**<br>Default configuration for an Odyssey® pooler. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig8}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig6}
 
 Field | Description
 --- | ---
@@ -2014,13 +1757,13 @@ name | **string**<br>Required. Name of the Greenplum® host. <br>The host name i
 cluster_id | **string**<br>ID of the Greenplum® cluster. The ID is assigned by the platform at creation time. 
 zone_id | **string**<br>ID of the availability zone the Greenplum® host belongs to. 
 type | enum **Type**<br>Type of the host. <ul><li>`TYPE_UNSPECIFIED`: The type is not specified.</li><li>`MASTER`: A Greenplum® master host.</li><li>`REPLICA`: A Greenplum® master replica host.</li><li>`SEGMENT`: A Greenplum® segment host.</li></ul>
-resources | **[Resources](#Resources18)**<br>Resources allocated to the Greenplum® host. 
+resources | **[Resources](#Resources7)**<br>Resources allocated to the Greenplum® host. 
 health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is working below capacity or not fully functional.</li><li>`UNBALANCED`: One or more segments are not in the preferred role.</li></ul>
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the host. 
 
 
-### Resources {#Resources18}
+### Resources {#Resources7}
 
 Field | Description
 --- | ---
@@ -2060,13 +1803,13 @@ name | **string**<br>Required. Name of the Greenplum® host. <br>The host name i
 cluster_id | **string**<br>ID of the Greenplum® cluster. The ID is assigned by the platform at creation time. 
 zone_id | **string**<br>ID of the availability zone the Greenplum® host belongs to. 
 type | enum **Type**<br>Type of the host. <ul><li>`TYPE_UNSPECIFIED`: The type is not specified.</li><li>`MASTER`: A Greenplum® master host.</li><li>`REPLICA`: A Greenplum® master replica host.</li><li>`SEGMENT`: A Greenplum® segment host.</li></ul>
-resources | **[Resources](#Resources19)**<br>Resources allocated to the Greenplum® host. 
+resources | **[Resources](#Resources8)**<br>Resources allocated to the Greenplum® host. 
 health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is working below capacity or not fully functional.</li><li>`UNBALANCED`: One or more segments are not in the preferred role.</li></ul>
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 assign_public_ip | **bool**<br>Determines whether a public IP is assigned to the host. 
 
 
-### Resources {#Resources19}
+### Resources {#Resources8}
 
 Field | Description
 --- | ---
@@ -2203,14 +1946,14 @@ description | **string**<br>Description of the Greenplum® cluster. The maximum 
 labels | **map<string,string>**<br>Custom labels for the Greenplum® cluster as `key:value` pairs. For example, "project":"mvp" or "source":"dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 environment | **[Cluster.Environment](#Cluster7)**<br>Required. Deployment environment of the Greenplum® cluster. 
 config | **[GreenplumRestoreConfig](#GreenplumRestoreConfig)**<br>Greenplum® cluster config. 
-master_resources | **[Resources](#Resources20)**<br>Resources of the Greenplum® master subcluster. 
-segment_resources | **[Resources](#Resources20)**<br>Resources of the Greenplum® segment subcluster. 
+master_resources | **[Resources](#Resources9)**<br>Resources of the Greenplum® master subcluster. 
+segment_resources | **[Resources](#Resources9)**<br>Resources of the Greenplum® segment subcluster. 
 network_id | **string**<br>Required. ID of the network to create the cluster in. The maximum string length in characters is 50.
 security_group_ids[] | **string**<br>User security groups. 
 deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
 host_group_ids[] | **string**<br>Host groups to place VMs of cluster on. 
 placement_group_id | **string**<br>ID of the placement group. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>A Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>A Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
 
 
 ### GreenplumRestoreConfig {#GreenplumRestoreConfig}
@@ -2218,13 +1961,13 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>A Greenplum
 Field | Description
 --- | ---
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access9)**<br>Access policy for external services. 
+access | **[Access](#Access7)**<br>Access policy for external services. 
 zone_id | **string**<br>ID of the availability zone where the host resides. <br>To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster7). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br>Determines whether the host should get a public IP address on creation. <br>After a host has been created, this setting cannot be changed. <br>To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with `assign_public_ip` set as needed. <br>Possible values: <ul><li>`false` - do not assign a public IP to the master host. </li><li>`true` - assign a public IP to the master host.</li></ul> 
 
 
-### Access {#Access9}
+### Access {#Access7}
 
 Field | Description
 --- | ---
@@ -2233,7 +1976,7 @@ web_sql | **bool**<br>Allows SQL queries to the cluster databases from the manag
 data_transfer | **bool**<br>Allows access for DataTransfer. 
 
 
-### Resources {#Resources20}
+### Resources {#Resources9}
 
 Field | Description
 --- | ---
@@ -2242,20 +1985,20 @@ disk_size | **int64**<br>Volume of the storage used by the host, in bytes.
 disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
 
 
-### MaintenanceWindow {#MaintenanceWindow9}
+### MaintenanceWindow {#MaintenanceWindow7}
 
 Field | Description
 --- | ---
 policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow9)**<br>An any-time maintenance window. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow9)**<br>A weekly maintenance window. 
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow7)**<br>An any-time maintenance window. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow7)**<br>A weekly maintenance window. 
 
 
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow9}
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow7}
 
 
 
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow9}
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow7}
 
 Field | Description
 --- | ---
@@ -2295,7 +2038,7 @@ id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by the pla
 folder_id | **string**<br>ID of the folder that the Greenplum® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the cluster was created. 
 name | **string**<br>Required. Name of the Greenplum® cluster. The name is unique within the folder. The maximum string length in characters is 63.
-config | **[GreenplumConfig](#GreenplumConfig9)**<br>Greenplum® cluster configuration. 
+config | **[GreenplumConfig](#GreenplumConfig7)**<br>Greenplum® cluster configuration. 
 description | **string**<br>Description of the Greenplum® cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 labels per resource. 
 environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
@@ -2308,7 +2051,7 @@ segment_in_host | **int64**<br>Number of segments per host.
 network_id | **string**<br>ID of the cloud network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host2) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host2) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host2) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host2) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host2) for at least one host in the cluster is UNBALANCED).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>A Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>A Greenplum® cluster maintenance window. Should be defined by either one of the two options. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Maintenance operation planned at nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups. 
 user_name | **string**<br>Owner user name. 
@@ -2317,25 +2060,16 @@ host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster.
 cluster_config | **[ClusterConfigSet](#ClusterConfigSet7)**<br>Greenplum® and Odyssey® configuration. 
 
 
-### GreenplumConfig {#GreenplumConfig9}
+### GreenplumConfig {#GreenplumConfig7}
 
 Field | Description
 --- | ---
 version | **string**<br>Version of the Greenplum® server software. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access10)**<br>Access policy for external services. 
+access | **[Access](#Access8)**<br>Access policy for external services. 
 zone_id | **string**<br>ID of the availability zone the cluster belongs to. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#Cluster8)). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br>Determines whether the cluster has a public IP address. <br>After the cluster has been created, this setting cannot be changed. 
-
-
-### Access {#Access10}
-
-Field | Description
---- | ---
-data_lens | **bool**<br>Allows data export from the cluster to DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the management console. 
-data_transfer | **bool**<br>Allows access for DataTransfer. 
 
 
 ### Monitoring {#Monitoring7}
@@ -2351,53 +2085,14 @@ link | **string**<br>Link to the monitoring system charts for the Greenplum® cl
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources21)**<br>Computational resources allocated to Greenplum® master subcluster hosts. 
-
-
-### Resources {#Resources21}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. <br>Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
-disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
+resources | **[Resources](#Resources10)**<br>Computational resources allocated to Greenplum® master subcluster hosts. 
 
 
 ### SegmentSubclusterConfig {#SegmentSubclusterConfig7}
 
 Field | Description
 --- | ---
-resources | **[Resources](#Resources22)**<br>Computational resources allocated to Greenplum® segment subcluster hosts. 
-
-
-### Resources {#Resources22}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources allocated to a host. <br>Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage used by the host, in bytes. 
-disk_type_id | **string**<br>Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. 
-
-
-### MaintenanceWindow {#MaintenanceWindow10}
-
-Field | Description
---- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow10)**<br>An any-time maintenance window. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow10)**<br>A weekly maintenance window. 
-
-
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow10}
-
-
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow10}
-
-Field | Description
---- | ---
-day | enum **WeekDay**<br>Day of the week. <ul><li>`MON`: Monday</li><li>`TUE`: Tuesday</li><li>`WED`: Wednesday</li><li>`THU`: Thursday</li><li>`FRI`: Friday</li><li>`SAT`: Saturday</li><li>`SUN`: Sunday</li></ul>
-hour | **int64**<br>Hour of the day in the UTC timezone. Acceptable values are 1 to 24, inclusive.
+resources | **[Resources](#Resources10)**<br>Computational resources allocated to Greenplum® segment subcluster hosts. 
 
 
 ### MaintenanceOperation {#MaintenanceOperation7}
@@ -2422,12 +2117,12 @@ pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet7)**<br>Odyssey®
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_179)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_17.user_config](#GreenplumConfigSet6_177) and [GreenplumConfigSet6_17.default_config](#GreenplumConfigSet6_177)). 
-user_config | **[GreenplumConfig6_17](#GreenplumConfig6_179)**<br>User-defined settings for a Greenplum® cluster. 
-default_config | **[GreenplumConfig6_17](#GreenplumConfig6_179)**<br>Default configuration for a Greenplum® cluster. 
+effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_177)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_17.user_config](#GreenplumConfigSet6_177) and [GreenplumConfigSet6_17.default_config](#GreenplumConfigSet6_177)). 
+user_config | **[GreenplumConfig6_17](#GreenplumConfig6_177)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_17](#GreenplumConfig6_177)**<br>Default configuration for a Greenplum® cluster. 
 
 
-### GreenplumConfig6_17 {#GreenplumConfig6_179}
+### GreenplumConfig6_17 {#GreenplumConfig6_177}
 
 Field | Description
 --- | ---
@@ -2444,12 +2139,12 @@ gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.googl
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_199)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_19.user_config](#GreenplumConfigSet6_197) and [GreenplumConfigSet6_19.default_config](#GreenplumConfigSet6_197)). 
-user_config | **[GreenplumConfig6_19](#GreenplumConfig6_199)**<br>User-defined settings for a Greenplum® cluster. 
-default_config | **[GreenplumConfig6_19](#GreenplumConfig6_199)**<br>Default configuration for a Greenplum® cluster. 
+effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_197)**<br>Required. Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_19.user_config](#GreenplumConfigSet6_197) and [GreenplumConfigSet6_19.default_config](#GreenplumConfigSet6_197)). 
+user_config | **[GreenplumConfig6_19](#GreenplumConfig6_197)**<br>User-defined settings for a Greenplum® cluster. 
+default_config | **[GreenplumConfig6_19](#GreenplumConfig6_197)**<br>Default configuration for a Greenplum® cluster. 
 
 
-### GreenplumConfig6_19 {#GreenplumConfig6_199}
+### GreenplumConfig6_19 {#GreenplumConfig6_197}
 
 Field | Description
 --- | ---
@@ -2468,12 +2163,12 @@ log_statement | enum **LogStatement**<br>Logged SQL statements. <br>`PREPARE` an
 
 Field | Description
 --- | ---
-effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig9)**<br>Required. Effective settings for an Odyssey® pooler (a combination of settings defined in [ConnectionPoolerConfigSet.user_config](#ConnectionPoolerConfigSet7) and [ConnectionPoolerConfigSet.default_config](#ConnectionPoolerConfigSet7)). 
-user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig9)**<br>User-defined settings for an Odyssey® pooler. 
-default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig9)**<br>Default configuration for an Odyssey® pooler. 
+effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig7)**<br>Required. Effective settings for an Odyssey® pooler (a combination of settings defined in [ConnectionPoolerConfigSet.user_config](#ConnectionPoolerConfigSet7) and [ConnectionPoolerConfigSet.default_config](#ConnectionPoolerConfigSet7)). 
+user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig7)**<br>User-defined settings for an Odyssey® pooler. 
+default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig7)**<br>Default configuration for an Odyssey® pooler. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig9}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig7}
 
 Field | Description
 --- | ---

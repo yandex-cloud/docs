@@ -1,13 +1,12 @@
 title: Yandex Wiki
 description:
+  - Yandex Wiki is a user-generated hub for all your company information.
   - >-
-    Yandex Wiki is a user-generated knowledge base where you can store your
-    organization's information.
-  - >-
-    Yandex Wiki is made up of editable pages. The pages use Markdown formatting.
-    Any user can create, edit, and comment on Wiki pages. All edits made by
-    users are saved in the edit history, so you won't lose any important
-    information.
+    Yandex Wiki consists of Wiki pages that can be edited by users. To format
+    pages, use the Markdown markup language or a visual editor. Any Wiki user
+    can create pages, provide comments, and edit them. All corrections made by
+    users are saved in the edit history, so there's no risk of losing something
+    important.
 meta:
   title: Yandex Wiki
   keywords:
@@ -15,22 +14,26 @@ meta:
     - keyword: yandex knowledge base
 links:
   - title: Concepts
-    description: Find out how to work in Wiki.
+    description: Learn how the work is organized in Wiki.
     href: overview
   - title: Quick start
-    description: Set up your personal Wiki cluster.
+    description: Set up your personal section in the Wiki.
     href: quick-guide
-  - title: Create pages
-    description: Use Wiki to create simple pages and tables.
-    href: create-page
+  - title: Use a visual editor
+    description: >-
+      In Yandex Wiki, you can format pages without using markup, similarly to
+      popular text editors.
+    href: wysiwyg-edit
   - title: Configure access
     description: By default, all users who have access to a page can edit it.
     href: page-management/access-setup
-  - title: Edit pages
-    description: You can edit any page you have access to.
-    href: edit-page
-  - title: Markup guide
+  - title: Use Markdown markup
     description: >-
-      Wiki supports the Markdown markup with additional formatting elements that
-      are not present in the standard Markdown syntax.
+      You can format the text of your Wiki pages using Markdown, as well as add
+      dynamic blocks and tables to them.
+    href: edit-page
+  - title: Markup reference
+    description: >-
+      Wiki supports additional formatting elements that are not present in the
+      standard Markdown syntax.
     href: static-markup

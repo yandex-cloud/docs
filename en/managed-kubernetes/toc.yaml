@@ -23,14 +23,26 @@ items:
             href: operations/connect/security-groups.md
           - name: Creating a static configuration file
             href: operations/connect/create-static-conf.md
-      - name: Installing applications
+      - name: Installing applications from {{ marketplace-name }}
         items:
           - name: Basics of working with {{ marketplace-name }}
             href: operations/applications/marketplace.md
+          - name: Installing Crossplane
+            href: operations/applications/crossplane.md
+          - name: Installing External Secrets Operator
+            href: operations/applications/external-secrets-operator.md
+          - name: Installing Fluent Bit
+            href: operations/applications/fluentbit.md
+          - name: Installing HashiCorp Vault with {{ kms-name }} support
+            href: operations/applications/hashicorp-vault.md
+          - name: Installing the {{ alb-name }} Ingress controller
+            href: operations/applications/alb-ingress-controller.md
           - name: Installing Jaeger
             href: operations/applications/jaeger.md
           - name: Installing Metrics Provider
             href: operations/applications/metrics-provider.md
+          - name: Installing NodeLocal DNS
+            href: operations/applications/node-local-dns.md
       - name: Network scenarios
         items:
           - name: Granting access to an app running in a {{ k8s }} cluster
@@ -92,6 +104,8 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: Creating a new {{ k8s }} project in {{ yandex-cloud }}
+        href: tutorials/new-kubernetes-project.md
       - name: Integration with {{ container-registry-name }}
         href: tutorials/container-registry.md
       - name: Running workloads with GPUs
@@ -106,6 +120,8 @@ items:
         href: tutorials/autoscaling.md
       - name: Vertical application scaling in a cluster
         href: tutorials/vpa-autoscaling.md
+      - name: Deploying and load testing a gRPC service with scaling
+        href: tutorials/load-testing-grpc-autoscaling.md
       - name: Working with snapshots
         href: tutorials/pvc-snapshot-restore.md
       - name: Integrating into a corporate DNS zone
@@ -120,6 +136,8 @@ items:
         href: tutorials/kubernetes-lockbox-secrets.md
       - name: Using {{ marketplace-name }} products
         items:
+          - name: Integration with Crossplane
+            href: tutorials/marketplace/crossplane.md
           - name: Using Jaeger to trace requests in {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
   - name: Concepts

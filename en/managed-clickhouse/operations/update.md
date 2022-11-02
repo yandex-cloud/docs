@@ -501,7 +501,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
    -*`--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
 
-   * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
+   * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
    * `--metrika-access` enables [data import from AppMetrica into a cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). Default value: `false`.
 
@@ -650,7 +650,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
       ```hcl
       resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
         ...
-        security_group_ids  = ["<list of cluster security group IDs>"]
+        security_group_ids = ["<list of cluster security group IDs>"]
       }
       ```
 

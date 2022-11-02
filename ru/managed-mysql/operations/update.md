@@ -1,11 +1,11 @@
-# Изменение настроек кластера
+# Изменение настроек {{ MY }}-кластера
 
 
 После создания кластера вы можете:
 
 * [Изменить класс хостов](#change-resource-preset).
 
-* [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
+* [{#T}](#change-disk-size).
 
 * [Изменить настройки {{ MY }}](#change-mysql-config).
 
@@ -19,7 +19,9 @@
 
 * [Переместить кластер](#move-cluster) в другой каталог.
 
+
 * [{#T}](#change-sg-set).
+
 
 ## Изменить класс хостов {#change-resource-preset}
 
@@ -321,7 +323,7 @@
                               `day=<день недели для типа weekly>,`
                               `hour=<час дня для типа weekly> \
           --websql-access=<true или false> \
-          --deletion-protection=<защита от удаления кластера: true или fasle>
+          --deletion-protection=<защита от удаления кластера: true или false>
         ```
         
         
@@ -364,19 +366,7 @@
       ```
 
   
-  1. Чтобы активировать доступ к [SQL-запросам из консоли управления](web-sql-query.md) и доступ из [DataLens](datalens-connect.md), добавьте к описанию кластера {{ mmy-name }} блок `access`:
- 
-      ```hcl
-      resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
-        ...
-        access {
-          web_sql   = <true или false>
-          data_lens = <true или false>
-          ...
-        }
-        ...
-      }
-      ```
+  1. {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
 
 
   1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
@@ -421,6 +411,12 @@
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
     {% include [DataTransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+
+    
+    {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
+
+
+    Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -467,6 +463,7 @@
     * Идентификатор каталога назначения в параметре `destinationFolderId`.
 
 {% endlist %}
+
 
 ## Изменить группы безопасности {#change-sg-set}
 
@@ -543,3 +540,4 @@
 Может потребоваться дополнительная [настройка групп безопасности](connect.md#configure-security-groups) для подключения к кластеру.
 
 {% endnote %}
+

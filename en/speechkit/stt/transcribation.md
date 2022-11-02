@@ -16,7 +16,7 @@ To recognize long audio fragments, you need to execute 2 requests:
 1. Send a file for recognition.
 1. Get recognition results.
 
-See examples of requests in [{#T}](api/streaming-examples.md).
+See examples of requests in [{#T}](api/transcribation-api.md).
 
 ### Using gRPC {#grpc}
 

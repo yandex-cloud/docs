@@ -16,9 +16,9 @@ In the {{ wiki-name }} panel on the left, there are buttons to navigate through 
 
 1. You can filter the list of favorite pages:
 
-* **By name**: Enter the page title in the search bar.
+    * **By name**: Enter the page title in the search bar.
 
-* **By tag**: Select one or more keywords in the **Tags** field and click **Apply**.
+    * **By tag**: Select one or more keywords in the **Tags** field and click **Apply**.
 
 ### Adding pages to favorites{#add-fav}
 
@@ -42,9 +42,9 @@ To tag a Wiki page:
 
 1. Select a tag:
 
-* To tag a page with a new tag, enter the new tag's name in the **Search** field and click **Add to list**.
+    * To tag a page with a new tag, enter the new tag's name in the **Search** field and click **Add to list**.
 
-* To tag a page with a previously created tag, select the tag from the list and click **Apply**.
+    * To tag a page with a previously created tag, select the tag from the list and click **Apply**.
 
 ## Created and edited {#added-edited}
 
@@ -52,9 +52,9 @@ To tag a Wiki page:
 
 1. You can filter the list of pages that you created or made edits to:
 
-* **By name**: Enter the page title in the search bar.
+    * **By name**: Enter the page title in the search bar.
 
-* **By action**: To the right of the search bar, select **Created by me**, **Edited by me**, or **Show all**.
+    * **By action**: To the right of the search bar, select **Created by me**, **Edited by me**, or **Show all**.
 
 1. To go to the [personal cluster](structure.md#personal_cluster), at the top, click ![](../_assets/wiki/svg/go-to-my-page-icon.svg) **Go to personal page**.
 
@@ -80,9 +80,9 @@ Subscribe to receive notifications about all changes to a page or cluster. To su
 
 1. Next, select an action:
 
-* **Subscribe users**: Subscribe individual users to follow a page or cluster.
+    * **Subscribe users**: Subscribe other users to follow a page or cluster.
 
-* **Subscribe to a page**: Follow the current page.
+    * **Subscribe to this page**: Follow the current page.
 
-* **Subscribe to a cluster**: Follow all subpages in the cluster.
+    * **Subscribe to this cluster**: Follow all subpages in the cluster.
 

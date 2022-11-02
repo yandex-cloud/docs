@@ -23,7 +23,7 @@ description: "Step-by-step instructions for managing access rights to {{ yandex-
 
 ## Identity federations {#federations}
 
-Instructions for managing identity federations are now included in the {{ org-full-name }} [documentation](../../organization/index.yaml).
+Instructions for managing identity federations are now included in the {{ org-full-name }} [documentation](../../organization/).
 
 ## Roles {#roles}
 

@@ -41,7 +41,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 1. Examine the dashboard and its description at the bottom of the screen:
    * Demand is the number of search queries made by users of Yandex geoservices to the selected category of companies or services. The category is determined from the query. Local queries from mobile devices within a search radius of 3 km are included.
-   * Supply is the number of existing companies in the selected category. This is based on company data in the [Yandex Business Directory](https://business.yandex.ru/sprav/).
+   * Supply is the number of existing companies in the selected category. This is based on company data in the [Yandex Business Directory](https://business.yandex.ru/sprav/index).
 
 1. Select the **Pizzeria** category and check the map for **Demand**, **Supply**, and **Demand for supply per city** measures.
 

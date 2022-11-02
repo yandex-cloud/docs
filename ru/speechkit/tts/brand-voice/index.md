@@ -11,6 +11,7 @@
 
 Создание полноценной модели с уникальным голосом на основе голоса вашего диктора требует большого количества записанных аудио. Подробная информация о технологии {{ brand-voice-name }} Full и стоимость создания модели предоставляется по запросу.
 
+
 ## {{ brand-voice-name }} Adaptive {#adaptive}
 
 {{ brand-voice-name }} Adaptive разработан для создания диалоговых роботов различного применения:
@@ -30,6 +31,5 @@
 
 #### Что дальше {#what-is-next}
 
-* [API {{ brand-voice-name }} (англ.)](../../new-v3/api-ref/grpc/).
-* [{#T}](income-data-format.md).
-* [{#T}](import-data.md).
+* [API {{ brand-voice-name }} (англ.)](../../tts-v3/api-ref/grpc/)
+* [{#T}](income-data-format.md)

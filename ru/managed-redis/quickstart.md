@@ -1,9 +1,9 @@
 # Как начать работать с {{ mrd-name }}
 
-
 Чтобы начать работу с сервисом:
 1. [Создайте кластер](#cluster-create).
 1. [Подключитесь к кластеру](#connect).
+
 
 ## Перед началом работы {#before-you-begin}
 
@@ -35,7 +35,10 @@
 
     {% include [install-certificate](../_includes/mdb/mrd/install-certificate.md) %}
 
+
 1. [Настройте группы безопасности](operations/connect/index.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
+
+
 1. Подключитесь к кластеру, используя `redis-cli`.
 
    {% note info %}

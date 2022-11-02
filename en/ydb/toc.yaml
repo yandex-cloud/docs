@@ -11,6 +11,8 @@ items:
         href: operations/manage-database.md
       - name: Database management using the YC CLI
         href: operations/yc-cli.md
+      - name: Connecting to a database using the YDB CLI
+        href: operations/connection.md
       - name: Managing tables and directories
         href: operations/schema.md
       - name: Reading and writing data
@@ -39,8 +41,6 @@ items:
         href: concepts/index.md
       - name: Terms and definitions
         href: concepts/resources.md
-      - name: Connecting to and authenticating with a database using IAM
-        href: concepts/connect.md
       - name: Serverless and Dedicated operation modes
         href: concepts/serverless-and-dedicated.md
       - name: DynamoDB tables
@@ -63,6 +63,8 @@ items:
             href: pricing/ru-docapi.md
           - name: Request cost for special APIs
             href: pricing/ru-special.md
+          - name: Cost of topic operations
+            href: pricing/ru-topics.md
       - name: Dedicated mode
         href: pricing/dedicated.md
   - name: Amazon DynamoDB-compatible Document API

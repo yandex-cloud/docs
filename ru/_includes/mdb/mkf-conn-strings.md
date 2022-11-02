@@ -465,7 +465,7 @@ sudo apt update && sudo apt install -y kafkacat
         }
 
         func publish(message string, producer sarama.SyncProducer) {
-          // publish sync
+          // Publish sync
           msg := &sarama.ProducerMessage {
               Topic: "<имя топика>",
               Value: sarama.StringEncoder(message),
@@ -534,10 +534,10 @@ sudo apt update && sudo apt install -y kafkacat
               signals := make(chan os.Signal, 1)
               signal.Notify(signals, os.Interrupt)
 
-              // Count how many message processed
+              // Count the number of processed messages
               msgCount := 0
 
-              // Get signal for finish
+              // Get signal to finish
               doneCh := make(chan struct{})
               go func() {
                       for {
@@ -616,7 +616,7 @@ sudo apt update && sudo apt install -y kafkacat
               pemData, err := ioutil.ReadFile(pemPath)
               if err != nil {
                       fmt.Println("Couldn't load cert: ", err.Error())
-                  // handle the error
+                  // Handle the error
               }
               certs.AppendCertsFromPEM(pemData)
 
@@ -691,7 +691,7 @@ sudo apt update && sudo apt install -y kafkacat
               pemData, err := ioutil.ReadFile(pemPath)
               if err != nil {
                   fmt.Println("Couldn't load cert: ", err.Error())
-                      // handle the error
+                      // Handle the error
               }
               certs.AppendCertsFromPEM(pemData)
 
@@ -723,10 +723,10 @@ sudo apt update && sudo apt install -y kafkacat
               signals := make(chan os.Signal, 1)
               signal.Notify(signals, os.Interrupt)
 
-              // Count how many message processed
+              // Count the number of processed messages
               msgCount := 0
 
-              // Get signal for finish
+              // Get signal to finish
               doneCh := make(chan struct{})
               go func() {
                       for {
@@ -776,13 +776,15 @@ sudo apt update && sudo apt install -y kafkacat
 1. Установите зависимости:
 
    ```bash
-   sudo apt update && sudo apt install -y default-jdk maven
+   sudo apt update && sudo apt install --yes default-jdk maven
    ```
 
 1. Создайте директорию для проекта Maven:
 
    ```bash
-   cd ~/ && mkdir project && cd project && mkdir -p consumer/src/java/com/example producer/src/java/com/example && cd ~/project
+   cd ~/ && \
+   mkdir --parents project/consumer/src/java/com/example project/producer/src/java/com/example && \
+   cd ~/project
    ```
 
 1. Создайте конфигурационный файл для Maven:    
@@ -866,9 +868,9 @@ sudo apt update && sudo apt install -y kafkacat
    ```
    {% endcut %}
 
-   Актуальные версии зависимостей для Maven можно посмотреть по ссылкам:
-   - [kafka-clients](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients),
-   - [jackson-databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind),
+   Актуальные версии зависимостей уточняйте на страницах соответствующих проектов в репозитории Maven:
+   - [kafka-clients](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients);
+   - [jackson-databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind);
    - [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple).
 
  1. Скопируйте `pom.xml` в директории приложения-производителя и приложения-потребителя:
@@ -1476,8 +1478,8 @@ pip3 install kafka-python lz4 python-snappy crc32c
          bootstrap_servers='<FQDN хоста-брокера>:9092',
          security_protocol="SASL_PLAINTEXT",
          sasl_mechanism="SCRAM-SHA-512",
-         sasl_plain_password='<пароль производителя>',
-         sasl_plain_username='<имя производителя>')
+         sasl_plain_username='<имя производителя>',
+         sasl_plain_password='<пароль производителя>')
 
      producer.send('<имя топика>', b'test message', b'key')
      producer.flush()
@@ -1496,8 +1498,8 @@ pip3 install kafka-python lz4 python-snappy crc32c
          bootstrap_servers='<FQDN брокера>:9092',
          security_protocol="SASL_PLAINTEXT",
          sasl_mechanism="SCRAM-SHA-512",
-         sasl_plain_password='<пароль потребителя>',
-         sasl_plain_username='<имя потребителя>')
+         sasl_plain_username='<имя потребителя>',
+         sasl_plain_password='<пароль потребителя>')
 
      print("ready")
 
@@ -1528,8 +1530,8 @@ pip3 install kafka-python lz4 python-snappy crc32c
           bootstrap_servers='<FQDN хоста-брокера>:9091',
           security_protocol="SASL_SSL",
           sasl_mechanism="SCRAM-SHA-512",
-          sasl_plain_password='<пароль производителя>',
           sasl_plain_username='<имя производителя>',
+          sasl_plain_password='<пароль производителя>',
           ssl_cafile="{{ crt-local-dir }}{{ crt-local-file }}")
 
       producer.send('<имя топика>', b'test message', b'key')
@@ -1549,8 +1551,8 @@ pip3 install kafka-python lz4 python-snappy crc32c
           bootstrap_servers='<FQDN брокера>:9091',
           security_protocol="SASL_SSL",
           sasl_mechanism="SCRAM-SHA-512",
-          sasl_plain_password='<пароль потребителя>',
           sasl_plain_username='<имя потребителя>',
+          sasl_plain_password='<пароль потребителя>',
           ssl_cafile="{{ crt-local-dir }}{{ crt-local-file }}")
 
       print("ready")

@@ -1,6 +1,8 @@
 title: Yandex Data Transfer
 href: index.yaml
 items:
+  - name: Available transfers
+    href: transfer-matrix.md
   - name: Getting started
     href: quickstart.md
   - name: Step-by-step instructions
@@ -19,6 +21,8 @@ items:
                 href: operations/endpoint/source/kafka.md
               - name: ClickHouse
                 href: operations/endpoint/source/clickhouse.md
+              - name: Eventhub
+                href: operations/endpoint/source/eventhub.md
               - name: Greenplum®
                 href: operations/endpoint/source/greenplum.md
               - name: MongoDB
@@ -31,6 +35,8 @@ items:
                 href: operations/endpoint/source/postgresql.md
               - name: '{{ yds-full-name }}'
                 href: operations/endpoint/source/data-streams.md
+              - name: '{{ ydb-full-name }}'
+                href: operations/endpoint/source/ydb.md
           - name: Configuring target endpoints
             items:
               - name: Apache Kafka®
@@ -77,6 +83,8 @@ items:
         href: concepts/index.md
       - name: Network in {{ data-transfer-full-name }}
         href: concepts/network.md
+      - name: Speed for copying data in {{ data-transfer-full-name }}
+        href: concepts/copy-speed.md
       - name: What tasks is the service used for?
         href: concepts/use-cases.md
       - name: Transfer lifecycle
@@ -86,19 +94,7 @@ items:
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Troubleshooting
-    items:
-      - name: Overview
-        href: troubleshooting/index.md
-      - name: '{{ MG }}'
-        href: troubleshooting/mongodb.md
-      - name: '{{ MY }}'
-        href: troubleshooting/mysql.md
-      - name: '{{ PG }}'
-        href: troubleshooting/postgresql.md
-      - name: '{{ ydb-full-name }} and {{ yds-full-name }}'
-        href: troubleshooting/ydb.md
-      - name: Network
-        href: troubleshooting/network.md
+    href: troubleshooting/index.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

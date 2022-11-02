@@ -1,8 +1,3 @@
----
-title: Access management in {{ kms-full-name }}
-description: "Access management in the service for creating and managing encryption keys — {{ kms-full-name }}. The section describes which resources you can assign a role to, which roles act in the service, which roles are required for this or that action."
----
-
 # Access management in {{ kms-name }}
 
 In this section, you'll learn:
@@ -14,11 +9,11 @@ In this section, you'll learn:
 
 ## What resources you can assign roles to {#resources}
 
-Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or [key](../concepts/key). These roles also apply to nested resources.
+Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or [key](../concepts/key). These roles also apply to nested resources. For example, the editor role includes all viewer role permissions. A description of each role is given under the diagram.
 
 ## What roles exist in the service {#roles-list}
 
-You can manage access to {{ kms-short-name }} keys using both service and primitive roles. The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. A description of each role is given under the diagram.
+You can manage access to {{ kms-short-name }} keys using both service and primitive roles.  
 
 ![image](../../_assets/kms/service-roles-hierarchy.svg)
 
@@ -29,9 +24,10 @@ Service roles provide more granular control over {{ kms-short-name }} keys, taki
 Users without the `resource-manager.clouds.owner` or `admin` role can't assign roles via the management console.
 
 List of service roles:
-* `kms.keys.encrypterDecrypter`: Lets you perform data encryption and decryption operations and view information about keys.
-* `kms.admin`: Lets you manage keys (view, create, update, destroy, rotate keys, as well as encrypt and decrypt data). It also lets you assign the `kms.keys.encrypterDecrypter` role for keys using the CLI and API.
-
+* `kms.keys.encrypterDecrypter`: Enables you to [encrypt](../operations/encryption.md#encryption) and [decrypt](../operations/encryption.md#decryption) data and view information about keys.
+* `kms.admin`: Enables you to assign random roles for keys using the CLI and API, delete keys and key versions, update the primary version. Includes all access rights of the `kms.editor` role.
+* `kms.editor`: Enables you to manage keys (view, create, update, rotate keys as well as encrypt and decrypt data). Includes all access rights of the `kms.viewer` and `kms.keys.encrypterDecrypter` roles.
+* `kms.viewer`: Enables you to read information about keys.
 
 ### Primitive roles {#primitive}
 
@@ -48,20 +44,22 @@ List of primitive roles:
 
 We recommend working with roles as follows:
 1. The cloud owner (the `resource-manager.clouds.owner` role) or administrator (the `admin` role) assigns the `kms.admin` role to the {{ kms-short-name }} administrator.
-1. The {{ kms-short-name }} administrator creates the required number of keys and assigns (through the CLI or API) roles to use them: subjects from different teams are granted the `kms.keys.encrypterDecrypter` role for the keys they need.
+1. The {{ kms-short-name }} administrator creates the required number of keys and assigns (through the CLI or API) roles to use them: subjects from different teams are granted the `kms.keys.encrypterDecrypter` and `kms.editor` roles for keys and folders.
 
 It's good practice to store {{ kms-short-name }} keys in a dedicated folder apart from other {{ yandex-cloud }} resources.
 
 | Action | Methods | Required roles |
 ----- | ----- | -----
 | **{{ kms-short-name }}** | |
-| Get information about keys and versions | `get`, `listVersions` | `kms.keys.encrypterDecrypter` for a key |
+| Get information about keys and versions | `get`, `listVersions` | `kms.viewer` for a key and folder |
 | [Encryption and decryption](../api-ref/SymmetricCrypto/) operations | `encrypt`, `decrypt`, `reEncrypt`, `generateDataKey` | `kms.keys.encrypterDecrypter` for a key |
-| Get a list of keys in a folder | `list` | `kms.admin` for a key |
-| [Create](../operations/key.md#create) and [update](../operations/key.md#update) a key | `create`, `update` | `kms.admin` for a key |
-| [Rotate a key](../operations/key.md#rotate) and [change the primary version](../operations/version.md#make-primary) | `rotate`, `setPrimaryVersion` | `kms.admin` for a key |
+| Get a list of keys in a folder | `list` | `kms.viewer` for a folder |
+| [Create](../operations/key.md#create) and [update](../operations/key.md#update) a key | `create`, `update` | `kms.editor` for a folder |
+| [Rotating keys](../operations/key.md#rotate) | `rotate` | `kms.editor` for a key |
+| [Change the primary version](../operations/version.md#make-primary) | `setPrimaryVersion` | `kms.admin` for a key |
 | [Destroy a key](../operations/key.md#delete) and [version](../operations/version.md#delete) | `delete`, `scheduleVersionDestruction`, `cancelVersionDestruction` | `kms.admin` for a key |
-| [Grant a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view roles granted for the key | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `kms.admin` for a key |
+| [Grant a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md) | `setAccessBindings`, `updateAccessBindings` | `kms.admin` for a key |
+| View roles granted for a key | `listAccessBindings` | `kms.viewer` for a key |
 
 #### What's next {#what-is-next}
 

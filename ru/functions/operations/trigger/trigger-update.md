@@ -13,8 +13,9 @@
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится триггер.
     1. Выберите сервис **{{ sf-name }}**.
     1. На панели слева выберите ![image](../../../_assets/functions/triggers.svg) **Триггеры**.
-    1. Выберите триггер, который хотите изменить.
+    1. Выберите триггер, имя которого хотите изменить.
     1. В правом верхнем углу страницы нажмите **Редактировать**.
+    1. Измените имя и нажмите кнопку **Сохранить**.
 
 - CLI
 
@@ -24,28 +25,28 @@
 
     Чтобы изменить имя триггера, выполните команду:
 
-    ```
+    ```bash
     yc serverless trigger update <имя триггера> --new-name <новое имя триггера>
     ```
 
     Результат:
 
-    ```
-    id: dd0gj5tsj2pq9at8ja8i
-    folder_id: aoek49ghmknnpj1ll45e
+    ```text
+    id: dd0gj5tsj2**********
+    folder_id: aoek49ghmk**********
     created_at: "2019-08-28T12:26:25.675Z"
     name: my-trigger
     rule:
       message_queue:
-        queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:my-mq
-        service_account_id: bfbqqeo6jkpls2tse5o6
+        queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:my-mq
+        service_account_id: bfbqqeo6jk**********
         batch_settings:
           size: "10"
           cutoff: 10s
         invoke_function:
-          function_id: b09e5lu91ta21vdrrgma
+          function_id: b09e5lu91t**********
           function_tag: $latest
-          service_account_id: bfbqqeo6jkpls2tse5o6
+          service_account_id: bfbqqeo6jk**********
     status: ACTIVE
     ```
 
@@ -125,8 +126,9 @@
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится триггер.
     1. Выберите сервис **{{ sf-name }}**.
     1. На панели слева выберите ![image](../../../_assets/functions/triggers.svg) **Триггеры**.
-    1. Выберите триггер, который хотите изменить.
+    1. Выберите триггер, описание которого хотите изменить.
     1. В правом верхнем углу страницы нажмите **Редактировать**.
+    1. Измените описание и нажмите кнопку **Сохранить**.
 
 - CLI
 
@@ -136,29 +138,29 @@
 
     Чтобы изменить описание триггера, выполните команду:
 
-    ```
+    ```bash
     yc serverless trigger update <имя триггера> --description "<описание триггера>"
     ```
 
     Результат:
 
-    ```
-    id: dd0gj5tsj2pq9at8ja8i
-    folder_id: aoek49ghmknnpj1ll45e
+    ```text
+    id: dd0gj5tsj2**********
+    folder_id: aoek49ghmk**********
     created_at: "2019-08-28T12:26:25.675Z"
     name: my-trigger
     description: My YMQ trigger.
     rule:
       message_queue:
-        queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:my-mq
-        service_account_id: bfbqqeo6jkpls2tse5o6
+        queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:my-mq
+        service_account_id: bfbqqeo6jk**********
         batch_settings:
           size: "10"
           cutoff: 10s
         invoke_function:
-          function_id: b09e5lu91ta21vdrrgma
+          function_id: b09e5lu91t**********
           function_tag: $latest
-          service_account_id: bfbqqeo6jkpls2tse5o6
+          service_account_id: bfbqqeo6jk**********
     status: ACTIVE
     ```
 
@@ -250,15 +252,15 @@
 
     Чтобы добавить метку триггеру, выполните команду:
 
-    ```
+    ```bash
     yc serverless trigger add-labels <имя триггера> --labels <ключ>=<значение>
     ```
 
     Результат:
 
-    ```
-    id: dd0gj5tsj2pq9at8ja8i
-    folder_id: aoek49ghmknnpj1ll45e
+    ```text
+    id: dd0gj5tsj2**********
+    folder_id: aoek49ghmk**********
     created_at: "2019-08-28T12:26:25.675Z"
     name: my-trigger
     description: My YMQ trigger.
@@ -266,15 +268,15 @@
       version: beta
     rule:
       message_queue:
-        queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:my-mq
-        service_account_id: bfbqqeo6jkpls2tse5o6
+        queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:my-mq
+        service_account_id: bfbqqeo6jk**********
         batch_settings:
           size: "10"
           cutoff: 10s
         invoke_function:
-          function_id: b09e5lu91ta21vdrrgma
+          function_id: b09e5lu91t**********
           function_tag: $latest
-          service_account_id: bfbqqeo6jkpls2tse5o6
+          service_account_id: bfbqqeo6jk**********
     status: ACTIVE
     ```
 
@@ -367,15 +369,15 @@
 
     {% endnote %}
 
-    ```
+    ```bash
     yc serverless trigger update <имя триггера> --labels <ключ>=<значение>
     ```
 
     Результат:
 
-    ```
-    id: dd0gj5tsj2pq9at8ja8i
-    folder_id: aoek49ghmknnpj1ll45e
+    ```text
+    id: dd0gj5tsj2**********
+    folder_id: aoek49ghmk**********
     created_at: "2019-08-28T12:26:25.675Z"
     name: my-trigger
     description: My YMQ trigger.
@@ -383,15 +385,15 @@
       new_labels: my-beta-trigger
     rule:
       message_queue:
-        queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:my-mq
-        service_account_id: bfbqqeo6jkpls2tse5o6
+        queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:my-mq
+        service_account_id: bfbqqeo6jk**********
         batch_settings:
           size: "10"
           cutoff: 10s
         invoke_function:
-          function_id: b09e5lu91ta21vdrrgma
+          function_id: b09e5lu91t**********
           function_tag: $latest
-          service_account_id: bfbqqeo6jkpls2tse5o6
+          service_account_id: bfbqqeo6jk**********
     status: ACTIVE
     ```
 
@@ -478,29 +480,29 @@
 
     Чтобы удалить метку триггера, выполните команду:
 
-    ```
+    ```bash
     yc serverless trigger remove-labels <имя триггера> --labels <ключ>
     ```
 
     Результат:
 
-    ```
-    id: dd0gj5tsj2pq9at8ja8i
-    folder_id: aoek49ghmknnpj1ll45e
+    ```text
+    id: dd0gj5tsj2**********
+    folder_id: aoek49ghmk**********
     created_at: "2019-08-28T12:26:25.675Z"
     name: my-trigger
     description: My YMQ trigger.
     rule:
       message_queue:
-        queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:my-mq
-        service_account_id: bfbqqeo6jkpls2tse5o6
+        queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:my-mq
+        service_account_id: bfbqqeo6jk**********
         batch_settings:
           size: "10"
           cutoff: 10s
         invoke_function:
-          function_id: b09e5lu91ta21vdrrgma
+          function_id: b09e5lu91t**********
           function_tag: $latest
-          service_account_id: bfbqqeo6jkpls2tse5o6
+          service_account_id: bfbqqeo6jk**********
     status: ACTIVE
     ```
 

@@ -10,7 +10,7 @@ To get the list of available MongoDB backups, make a [list](/docs/managed-mongod
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mongodb/v1/backups/{backupId}
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/backups/{backupId}
 ```
  
 ## Path parameters {#path_params}

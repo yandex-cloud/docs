@@ -1,6 +1,6 @@
 # Authentication using Active Directory
 
-With an [identity federation](../../add-federation.md), you can use [Active Directory Federation Services]({{link-adfs}}) (AD FS) to authenticate in the cloud.
+With an [identity federation](../../add-federation.md), you can use [Active Directory Federation Services]({{link-adfs}}) (ADFS) to authenticate in the cloud.
 
 To set up authentication:
 
@@ -16,12 +16,11 @@ To set up authentication:
 
 1. [Test the authentication process](#test-auth).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 To use the instructions in this section, you will need:​
 
-1. A working ADFS farm. If you didn't configure ADFS on your server, [install and configure it now](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm). To deploy ADFS, you also need to install and configure Active Directory Domain Services (AD DS).
-
+1. A working AD FS farm. If you didn't configure AD FS on your server, [install and configure it now](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm). To deploy ADFS, you also need to install and configure Active Directory Domain Services (AD DS).
 
 
    {% note tip %}
@@ -94,7 +93,7 @@ To use the instructions in this section, you will need:​
 
          This option makes it easier to create users, but users created this way won't be able to do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who aren't added to the organization can't log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+         If this option is disabled, users who aren't added to the organization can't log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
 
       * `cookie-max-age`: Time that must elapse before the browser asks the user to re-authenticate.
       * `issuer`: IdP server ID to be used for authentication.
@@ -134,7 +133,7 @@ To use the instructions in this section, you will need:​
       * `autoCreateAccountOnLogin`: A flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
          This option makes it easier to create users, but users created this way won't be able to do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who aren't added to the organization can't log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+         If this option is disabled, users who aren't added to the organization can't log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
 
       * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
       * `issuer`: IdP server ID to be used for authentication.
@@ -186,7 +185,7 @@ To use the instructions in this section, you will need:​
        name            = "my-federation"
        organization_id = "<organization ID>"
        auto_create_account_on_login = "true"
-       issuer          = "http://example.com/adfs/services/trust"      
+       issuer          = "http://example.com/adfs/services/trust"
        sso_url         = "https://example.com/adfs/ls/"
        sso_binding     = "POST"
        security_settings {
@@ -201,17 +200,17 @@ To use the instructions in this section, you will need:​
       1. Run the check using the command:
 
          ```
-         $ terraform plan
+         terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays the federation parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Create a federation.
 
       1. If the configuration doesn't contain any errors, run the command:
 
          ```
-         $ terraform apply
+         terraform apply
          ```
 
       1. Confirm that you want to create the federation.
@@ -304,8 +303,8 @@ To add a certificate to a federation:
    1. Send the add certificate request:
 
       ```bash
-      $ export IAM_TOKEN=CggaATEVAgA...
-      $ curl -X POST \
+      export IAM_TOKEN=CggaATEVAgA...
+      curl -X POST \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d '@body.json' \
@@ -372,8 +371,7 @@ Create a relying party trust for the federation you created in the cloud:
 
 1. In the Configure URL step, select **Enable support for the SAML 2.0 WebSSO protocol** and specify the [console login link](#get-link) you obtained earlier. Then click **Next**.
 
-
-   ![image](../../../_assets/iam/federations/specify-console-sso-link.png)
+![image](../../../_assets/iam/federations/specify-console-sso-link.png)
 
 1. On the next page, enter the same [console login link](#get-link) as an identifier and click **Add**. Then click **Next**.
 
@@ -486,13 +484,15 @@ If you did not enable the **Automatically create users** option when creating a 
 
 To do this, you need to know the Name IDs of the users that the Identity Provider Server (IdP) returns along with the successful authentication confirmation. This is usually the user's primary email address. If you don't know what the server returns as the Name ID, contact the administrator who configured authentication for your federation.
 
+A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../roles.md#admin).
+
 To add federation users to an organization:
 
 {% list tabs %}
 
 - Management console
 
-   1. [Log in]({{link-passport}}) to the organization's administrator account.
+   1. [Log in]({{link-passport}}) to the organization's administrator or owner account.
 
    1. Go to [{{org-full-name}}]({{link-org-main}}).
 
@@ -543,7 +543,7 @@ To add federation users to an organization:
    1. Send the request by specifying the Federation ID in the parameters:
 
       ```bash
-      $ curl -X POST \
+      curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM token>" \
         -d '@body.json' \

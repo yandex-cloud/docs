@@ -1,12 +1,14 @@
-# Uploading organization audit logs to a bucket
+# Uploading organization audit logs to {{ objstorage-name }}
 
 Follow these instructions to create a new trail that will upload audit logs of all of an organization's resources to an {{ objstorage-name }} bucket with encryption enabled.
+
 
 {% note tip %}
 
 The setup is similar for buckets where encryption is disabled. The only difference is that you don't have to assign {{ kms-full-name }} roles.
 
 {% endnote %}
+
 
 
 ## Prepare the environment {#before-you-begin}
@@ -98,6 +100,9 @@ To create the first trail in {{ at-name }} and start the audit log management pr
       * **Destination**: `{{ objstorage-name }}`.
       * **Bucket**: The name of the [bucket](../../storage/operations/buckets/create.md) where you want to upload audit logs.
       * **Object prefix**: An optional parameter used in the [full name](../concepts/format.md#log-file-name) of the audit log file.
+
+      {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
+
    1. Under **Service account**, select the service account that the trail will use to upload audit log files to the bucket.
    1. Click **Create**.
 

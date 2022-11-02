@@ -21,7 +21,9 @@ items:
         href: operations/api-gw-logs.md
   - name: Практические руководства
     items:
-      - name: Развертывание веб-приложения
+      - name: Все практические руководства
+        href: tutorials/index.md
+      - name: Развертывание веб-приложения с использованием Java Servlet API
         href: tutorials/java-servlet-todo-list.md
       - name: Разработка навыка Алисы и сайта с авторизацией
         href: tutorials/alice-shareable-todolist.md
@@ -29,6 +31,12 @@ items:
         href: tutorials/slack-bot-serverless.md
       - name: Разработка Telegram-бота
         href: tutorials/telegram-bot-serverless.md
+      - name: Разработка пользовательской интеграции
+        href: tutorials/api-gw-integration.md
+      - name: Разработка CRUD API для сервиса фильмов
+        href: tutorials/movies-database.md
+      - name: Работа с API-шлюзом по протоколу WebSocket
+        href: tutorials/api-gw-websocket.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -53,12 +61,16 @@ items:
             href: concepts/extensions/datastreams.md
           - name: Интеграция с Message Queue
             href: concepts/extensions/ymq.md
+          - name: Интеграция с YDB
+            href: concepts/extensions/ydb.md
           - name: Жадные параметры
             href: concepts/extensions/greedy-parameters.md
           - name: Обобщенный HTTP-метод
             href: concepts/extensions/any-method.md
           - name: Авторизация с помощью функции
             href: concepts/extensions/function-authorizer.md
+          - name: Поддержка протокола WebSocket
+            href: concepts/extensions/websocket.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
@@ -68,7 +80,7 @@ items:
   - name: Справочник API
     items:
       - name: Аутентификация в API
-        href: api-ref/authentication.md
+        href: api-ref/apigateway/authentication.md
       - name: gRPC (англ.)
         items:
           - name: Overview
@@ -109,6 +121,30 @@ items:
                 href: apigateway/api-ref/ApiGateway/update.md
               - name: updateAccessBindings
                 href: apigateway/api-ref/ApiGateway/updateAccessBindings.md
+  - name: Справочник API Websocket
+    items:
+      - name: Аутентификация в API
+        href: api-ref/websocket/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: apigateway/websocket/api-ref/grpc/index.md
+          - name: ConnectionService
+            href: apigateway/websocket/api-ref/grpc/connection_service.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: apigateway/websocket/api-ref/index.md
+          - name: Connection
+            items:
+              - name: Overview
+                href: apigateway/websocket/api-ref/Connection/index.md
+              - name: disconnect
+                href: apigateway/websocket/api-ref/Connection/disconnect.md
+              - name: get
+                href: apigateway/websocket/api-ref/Connection/get.md
+              - name: send
+                href: apigateway/websocket/api-ref/Connection/send.md
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/api-gateway

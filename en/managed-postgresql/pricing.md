@@ -47,6 +47,17 @@ The following is charged:
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
+## Discount for committed volumes of services (CVoS) {#cvos}
+
+{% include [cvos](../_includes/mdb/cvos.md) %}
+
+{{mpg-name}} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+
+{% note info %}
+
+You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). You currently can't order storage or web traffic this way.
+
+{% endnote %}
 
 ## Pricing {#prices}
 
@@ -76,6 +87,5 @@ All prices are shown without VAT.
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-
 
 

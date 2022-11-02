@@ -10,7 +10,7 @@ Returns the specified backup of Greenplum® cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-greenplum/v1/backups/{backupId}
+GET https://{{ api-host-mdb }}/managed-greenplum/v1/backups/{backupId}
 ```
  
 ## Path parameters {#path_params}

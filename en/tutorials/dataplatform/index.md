@@ -17,10 +17,15 @@
 * [{#T}](rdbms-to-clickhouse.md)
    * [{#T}](dp-mch-data-exchange.md)
 * [{#T}](clickhouse-for-graphite.md)
+* [{#T}](fetch-data-from-mkf.md)
+* [{#T}](fetch-data-from-rabbitmq.md)
+* [{#T}](clickhouse-hybrid-storage.md)
+* [{#T}](clickhouse-sharding.md)
 
 ## {{ dns-name }} {#dns}
 
 * [{#T}](mdb-dns-peering.md)
+* [{#T}](clickhouse-dns-peering.md)
 
 ## {{ dataproc-name }} {#dataproc}
 
@@ -33,9 +38,17 @@
 
 * [{#T}](migration-via-reindex-api.md)
 
+## {{ MG }} {#mongodb}
+
+* [{#T}](mongodb-migration-with-data-transfer.md)
+* [{#T}](mongodb-data-migration.md)
+* [{#T}](mongodb-sharding.md)
+* [{#T}](mongodb-profiling.md)
+
 ## {{ MY }} {#mysql}
 
 * [{#T}](mysql-data-migration.md)
+* [{#T}](profiling-mmy.md)
 * [{#T}](sync-mysql.md)
 * [{#T}](mmy-to-mysql-migration.md)
 * [{#T}](sqoop-mmy.md)
@@ -43,6 +56,10 @@
 
 ## {{ PG }} {#postgresql}
 
+* [Creating a {{ PG }} cluster for <q>1C:Enterprise</q>](1c-postgresql.md)
+* [{#T}](mpg-profiling.md)
+* [{#T}](outbound-replication.md)
+* [{#T}](postgresql-data-migration.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](./data-transfer-mpg.md)
 * [{#T}](./debezium-mpg.md)
@@ -52,7 +69,7 @@
 
 ## {{ RD }} {#redis}
 * [{#T}](redis-data-migration.md)
-
+* [{#T}](redis-as-php-sessions-storage.md)
 
 
 ## {{ MS }} {#sqlserver}

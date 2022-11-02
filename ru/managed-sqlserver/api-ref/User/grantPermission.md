@@ -10,7 +10,7 @@ Grants a permission to the specified SQL Server user.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}/users/{userName}:grantPermission
+POST https://{{ api-host-mdb }}/mdb/sqlserver/v1/clusters/{clusterId}/users/{userName}:grantPermission
 ```
  
 ## Path parameters {#path_params}

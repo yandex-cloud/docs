@@ -1,1 +1,1 @@
-{% include [cdn-storage-integration](../../_includes/cdn-storage-integration.md) %}
+{% include [cdn-storage-integration](../../_tutorials/web/cdn-storage-integration.md) %}

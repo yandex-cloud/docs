@@ -57,7 +57,9 @@
 
            {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
 
+  
   1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
+
 
   1. В блоке **Хосты** выберите параметры хостов баз данных, создаваемых вместе с кластером. Открыв блок **Расширенные настройки**, вы можете выбрать конкретные подсети для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.
 
@@ -103,7 +105,7 @@
 
   1. Укажите параметры кластера в команде создания (в примере приведены не все доступные параметры):
 
-  
+      
       ```bash
       {{ yc-mdb-pg }} cluster create \
          --name <имя кластера> \
@@ -142,6 +144,7 @@
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
   
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -162,6 +165,7 @@
 
      Пример структуры конфигурационного файла:
 
+     
      
      ```hcl
      terraform {
@@ -187,7 +191,7 @@
        deletion_protection = <защита от удаления кластера: true или false>
 
        config {
-         version = "<версия {{ PG }}: {{ versions.tf.str }}>"
+         version = "<версия {{ PG }}: {{ pg.versions.tf.str }}>"
          resources {
            resource_preset_id = "<класс хоста>"
            disk_type_id       = "<тип диска>"
@@ -202,6 +206,7 @@
 
        host {
          zone      = "<зона доступности>"
+         name      = "<имя хоста>"
          subnet_id = "<идентификатор подсети>"
        }
      }
@@ -210,6 +215,9 @@
        cluster_id = "<идентификатор кластера>"
        name       = "<имя базы данных>"
        owner      = "<имя владельца базы данных>"
+       depends_on = [
+         yandex_mdb_postgresql_user.<имя пользователя>
+       ]
      }
 
      resource "yandex_mdb_postgresql_user" "<имя пользователя>" {
@@ -230,6 +238,7 @@
 
 
 
+
      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
@@ -238,11 +247,11 @@
 
      Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
-  1. Проверьте корректность настроек.
+  2. Проверьте корректность настроек.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Создайте кластер.
+  3. Создайте кластер.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -258,7 +267,7 @@
     * Идентификатор сети в параметре `networkId`.
     * Конфигурацию кластера в параметре `configSpec`.
     * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
-    * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
+        * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
     * Конфигурацию баз данных в одном или нескольких параметрах `databaseSpecs`.
     * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
 
@@ -274,11 +283,13 @@
 
 {% endlist %}
 
+
 {% note warning %}
 
 Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups).
 
-{% endnote %}  
+{% endnote %}
+
 
 ## Примеры {#examples}
 
@@ -328,12 +339,12 @@
   Создайте кластер {{ mpg-name }} и сеть для него с тестовыми характеристиками:
 
   * С именем `mypg`.
-  * Версии `{{ versions.tf.latest }}`.
+  * Версии `{{ pg.versions.tf.latest }}`.
   * В окружении `PRESTABLE`.
   * В облаке с идентификатором `{{ tf-cloud-id }}`.
   * В каталоге с идентификатором `{{ tf-folder-id }}`.
   * В новой сети `mynet`.
-  * В новой группе безопасности `pgsql-sg`, разрешающей подключение к кластеру из интернета через порт `6432`.
+    * В новой группе безопасности `pgsql-sg`, разрешающей подключение к кластеру из интернета через порт `6432`.
   * С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
   * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
   * С одним пользователем (`user1`), с паролем `user1user1`.
@@ -342,6 +353,7 @@
 
   Конфигурационный файл для такого кластера выглядит так:
 
+  
   
   ```hcl
   terraform {
@@ -367,7 +379,7 @@
     deletion_protection = true
 
     config {
-      version = {{ versions.tf.latest }}
+      version = {{ pg.versions.tf.latest }}
       resources {
         resource_preset_id = "{{ host-class }}"
         disk_type_id       = "{{ disk-type-example }}"
@@ -377,6 +389,7 @@
 
     host {
       zone      = "{{ region-id }}-a"
+      name      = "mypg-host-a"
       subnet_id = yandex_vpc_subnet.mysubnet.id
     }
   }
@@ -416,6 +429,7 @@
     }
   }
   ```
+
 
 
 

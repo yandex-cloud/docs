@@ -3,7 +3,7 @@
 ## Создание подключения {#creating-connection}
 
 - [{#T}](connection/create-clickhouse.md)
- - [{#T}](connection/create-csv.md) 
+- [{#T}](connection/create-file.md)
 - [{#T}](connection/create-google-sheets.md)
 - [{#T}](connection/create-mysql.md)
 - [{#T}](connection/create-postgresql.md)
@@ -20,7 +20,6 @@
 
 - [{#T}](dataset/create.md)
 - [{#T}](dataset/join-data.md)
- - [{#T}](dataset/join-data-csv.md) 
 - [{#T}](dataset/create-field.md)
 - [{#T}](dataset/create-calculated-field.md)
 - [{#T}](dataset/create-filter.md)

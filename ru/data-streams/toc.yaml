@@ -69,13 +69,15 @@ items:
         href: tutorials/log-ingestion.md
       - name: Передача данных в микросервисных архитектурах
         href: tutorials/message-broker.md
+      - name: Репликация логов в Object Storage с помощью Fluent Bit
+        href: tutorials/replicate-logs-to-storage.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
   - name: HTTP API, совместимый с Amazon Kinesis Data Streams
     items:
-      - name: Обзор
+      - name: Все методы
         href: kinesisapi/api-ref.md
       - name: Методы
         items:

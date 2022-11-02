@@ -2,7 +2,7 @@
 
 {% note info %}
 
-The feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
+The feature is obsolete. If you disable NAT to the internet in a subnet, you can't enable it again and have to use a [NAT gateway](../concepts/gateways.md#nat-gateway) instead.
 
 {% endnote %}
 

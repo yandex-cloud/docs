@@ -133,13 +133,25 @@
 
 * **Log segment bytes** {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {#settings-log-segment-bytes}
 
-    Максимальный размер (в байтах) пачки сообщений, который {{ KF }} разрешает записать в топик производителю или прочитать из топика потребителю (после сжатия, если оно включено).
+    Размер сегмента для файлов лога (в байтах).
+
+    Сохранение и очистка файлов сегмента выполняются пофайлово. Чем меньше заданный размер сегмента, тем больше файлов будет в логе, зато контроль над хранением будет более гибким. 
 
     Минимальное значение — `14`, максимальное значение — `2147483647`, значение по умолчанию — `1073741824` (1 гигабайт).
 
     Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на [уровне топика](#settings-topic-segment-bytes).
 
     Подробнее см. в разделе [{#T}](../../../managed-kafka/concepts/storage.md#maximum-log-segment-size) и в [документации {{ KF }}](https://kafka.apache.org/documentation/#brokerconfigs_log.segment.bytes).
+
+* **Message max bytes** {{ tag-con }} {{ tag-cli }} {{ tag-api }} {#settings-message-max-bytes}
+
+    Максимальный размер сообщения от производителя (в байтах).
+
+    Минимальное значение — `0` (размер не ограничен), значение по умолчанию — `1048588`. Значение настройки не должно превышать значение [Replica fetch max bytes](#settings-replica-fetch-max-bytes) более, чем на 12 байт.
+
+    Это глобальная настройка, которая задается на уровне кластера.
+
+    Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#max.message.bytes).
 
 * **Num partitions** {{ tag-all }} {#settings-num-partitions}
 
@@ -152,6 +164,26 @@
     См. также описание настройки уровня топика [Num partitions](#settings-topic-num-partitions).
 
     Подробнее см. в [документации {{ KF }}](http://kafka.apache.org/documentation/#brokerconfigs_num.partitions).
+
+* **Offsets retention minutes** {{ tag-con }} {{ tag-cli }} {{ tag-api }} {#settings-offsets-retention-minutes}
+
+    Компенсация времени хранения после потери группой всех потребителей (в минутах).
+
+    Минимальное значение — `1`, значение по умолчанию — `10080`.
+
+    Это глобальная настройка, которая задается на уровне кластера.
+
+    Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#brokerconfigs_offsets.retention.minutes).
+
+* **Replica fetch max bytes** {{ tag-con }} {{ tag-cli }} {{ tag-api }} {#settings-replica-fetch-max-bytes}
+
+    Размер буфера межброкерных сообщений (в байтах).
+
+    Минимальное значение — `0` (размер не ограничен), значение по умолчанию — `1048576`. Значение настройки должно быть как минимум на 12 байт больше значения настройки **Message max bytes**, задаваемой на уровне [кластера](#settings-topic-message-max-bytes) или [топика](../../../_includes/mdb//mkf/topic-settings.md#settings-message-max-bytes).
+
+    Это глобальная настройка, которая задается на уровне кластера.
+
+    Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#brokerconfigs_replica.fetch.max.bytes).
 
 * **Socket receive buffer bytes** {{ tag-con }} {#settings-socket-receive-buffer-bytes}
 
@@ -168,3 +200,13 @@
     Минимальное значение и значение по умолчанию — `-1` (используются настройки операционной системы), максимальное значение — `2147483647`.
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#brokerconfigs_socket.send.buffer.bytes).
+
+* **Ssl cipher suites** {{ tag-con }} {{ tag-cli }} {{ tag-api }} {#settings-ssl-cipher-suites}
+
+    Список алгоритмов шифрования кластера.
+
+    Значение по умолчанию отсутствует (поддерживаются все наборы алгоритмов шифрования).
+
+    Это глобальная настройка, которая задается на уровне кластера.
+
+    Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#brokerconfigs_ssl.cipher.suites).

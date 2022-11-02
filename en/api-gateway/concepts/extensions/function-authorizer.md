@@ -93,7 +93,7 @@ An example function that uses a response structure with an [authorization contex
           "isAuthorized": false
       };
   
-      if (event.headers.authorization === "secretToken") {
+      if (event.headers.Authorization === "secretToken") {
           response = {
               "isAuthorized": true,
               "context": {

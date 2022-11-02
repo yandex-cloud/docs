@@ -39,7 +39,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
 
-   1. Click on the name of the cluster you need and select the tab ![image](../../_assets/mdb/backup.svg) **Backup copies**.
+   1. Click on the name of the cluster you need and select ![image](../../_assets/mdb/backup.svg) **Backup copies**.
 
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup and then click **Restore cluster**.
 
@@ -94,11 +94,12 @@ When restoring to the current state, the new cluster will reflect the state of:
       +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
       ```
 
-      The time when the backup was completed is shown in the `CREATED AT` column with a list of available backups, in `yyyy-mm-dd hh:mm:ss` format (`2020-08-10 12:00:00` in the example above). You can restore a cluster to any state from the specified point in time to the current time.
+      The time when the backup was completed is shown in the `CREATED AT` column with a list of available backups, in `yyyy-mm-dd hh:mm:ss` format (`2020-08-10 12:00:00` in the example above). You can restore a cluster to any point in time starting with creation of its backup.
 
    1. Run the command to create a new cluster from a backup (the example shows only some parameters):
 
       
+
       ```bash
        {{ yc-mdb-mg }} cluster restore \
           --backup-id <backup ID> \
@@ -113,9 +114,9 @@ When restoring to the current state, the new cluster will reflect the state of:
           --mongod-disk-size <storage size in GB> \
           --mongod-disk-type <storage type: network-hdd, network-ssd, local-ssd, or network-ssd-nonreplicated>
       ```
+
 
-
-      In the `--recovery-target-timestamp` parameter, specify the point in time to which you want to restore the {{ MG }} cluster, in [UNIX time](https://en.wikipedia.org/wiki/Unix_time). If you don't specify the parameter, the cluster is restored to when the backup was completed.
+      In the `--recovery-target-timestamp` parameter, specify the point in time to which you want to restore the {{ MG }} cluster in [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you don't specify the parameter, the cluster is restored to when the backup was completed.
 
 - API
 
@@ -124,7 +125,7 @@ When restoring to the current state, the new cluster will reflect the state of:
    * ID of the desired backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
    * The name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. The cluster name must be unique within the folder.
 
-   In the `recoveryTargetSpec.timestamp` parameter, specify the point in time to which you want to restore the {{ MG }} cluster, in [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you don't specify the parameter, the cluster is restored to when the backup was completed.
+   In the `recoveryTargetSpec.timestamp` parameter, specify the point in time to which you want to restore the {{ MG }} cluster in [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you don't specify the parameter, the cluster is restored to when the backup was completed.
 
 {% endlist %}
 
@@ -135,7 +136,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click on the name of the cluster you need and select the tab ![image](../../_assets/mdb/backup.svg) **Backup copies**.
+   1. Click on the name of the cluster you need and select ![image](../../_assets/mdb/backup.svg) **Backup copies**.
    1. Click **Create backup**.
 
 - CLI
@@ -177,7 +178,7 @@ When restoring to the current state, the new cluster will reflect the state of:
    To get a list of cluster backups:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click on the name of the cluster you need and select the tab ![image](../../_assets/mdb/backup.svg) **Backup copies**.
+   1. Click on the name of the cluster you need and select ![image](../../_assets/mdb/backup.svg) **Backup copies**.
 
    To get a list of all backups in a folder:
 
@@ -240,7 +241,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
    To get information about the backup of an existing cluster:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click on the name of the cluster you need and select the tab ![image](../../_assets/mdb/backup.svg) **Backup copies**.
+   1. Click on the name of the cluster you need and select ![image](../../_assets/mdb/backup.svg) **Backup copies**.
 
    To get information about the backup of a previously deleted cluster:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
@@ -270,7 +271,8 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 ## Examples {#examples}
 
-Let's say we need to create a new {{ MG }} cluster from a backup with the following characteristics:
+Create a new {{ mmg-name }} cluster from a backup with test characteristics:
+
 
 
 * Backup for recovery: `c9qlk4v13uq79r9cgcku:...`.
@@ -282,15 +284,16 @@ Let's say we need to create a new {{ MG }} cluster from a backup with the follow
 * One `{{ host-class }}` host in the `{{ region-id }}-a` availability zone and `b0rcctk2rvtr8efcch64` subnet.
 * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
 * With databases and users that existed in the cluster at the time of recovery.
-
+
 
 {% list tabs %}
 
 - CLI
 
-   To recover from a backup, run the following command:
+   Run the following command:
 
    
+
    ```bash
    {{ yc-mdb-mg }} cluster restore \
       --backup-id c9qlk4v13uq79r9cgcku:... \
@@ -304,6 +307,6 @@ Let's say we need to create a new {{ MG }} cluster from a backup with the follow
       --mongod-disk-size 20 \
       --mongod-disk-type {{ disk-type-example }}
    ```
-
+
 
 {% endlist %}

@@ -1,5 +1,7 @@
 # Создание кластера {{ dataproc-name }}
 
+Минимально необходимая роль для создания кластера {{ dataproc-name }} — `editor`. Подробнее см. в [описании роли](../../iam/concepts/access-control/roles#editor).
+
 ## Настройте сеть {#setup-network}
 
 В подсети, к которой будет подключен подкластер с управляющим хостом, [включите NAT в интернет](../../vpc/operations/enable-nat.md). Это необходимо, чтобы подкластер мог взаимодействовать c сервисами {{ yandex-cloud }} или хостами в других сетях.
@@ -355,15 +357,17 @@
        }
 
        resource "yandex_resourcemanager_folder_iam_binding" "dataproc" {
-         role    = "mdb.dataproc.agent"
-         members = [
+         folder_id = "<идентификатор каталога>"
+         role      = "mdb.dataproc.agent"
+         members   = [
            "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта в {{ TF }}>.id}"
          ]
        }
 
        resource "yandex_resourcemanager_folder_iam_binding" "bucket-creator" {
-         role    = "editor"
-         members = [
+         folder_id = "<идентификатор каталога>"
+         role      = "editor"
+         members   = [
            "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта в {{ TF }}>.id}"
          ]
        }

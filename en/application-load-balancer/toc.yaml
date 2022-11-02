@@ -55,6 +55,8 @@ items:
             href: operations/k8s-ingress-controller-apply.md
   - name: Practical guidelines
     items:
+      - name: All practical guidelines
+        href: tutorials/index.md
       - name: Setting up a virtual hosting
         href: tutorials/virtual-hosting.md
       - name: Creating a load balancer with DDoS protection
@@ -67,6 +69,8 @@ items:
         href: tutorials/tls-termination.md
       - name: Writing load balancer logs to {{ PG }}
         href: tutorials/logging.md
+      - name: Deploying and load testing a gRPC service with scaling
+        href: tutorials/load-testing-grpc-autoscaling.md
   - name: Concepts
     items:
       - name: Overview

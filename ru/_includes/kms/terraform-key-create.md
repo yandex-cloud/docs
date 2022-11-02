@@ -4,8 +4,8 @@
 
    ```hcl
    resource "yandex_kms_symmetric_key" "key-a" {
-     name              = "<имя ключа>"
-     description       = "<описание ключа>"
+     name              = "<имя_ключа>"
+     description       = "<описание_ключа>"
      default_algorithm = "AES_128"
      rotation_period   = "8760h"
      lifecycle {
@@ -34,19 +34,19 @@
 
 1. Проверьте конфигурацию командой:
 
-   ```
+   ```bash
    terraform validate
    ```
   
    Если конфигурация является корректной, появится сообщение:
   
-   ```
+   ```text
    Success! The configuration is valid.
    ```
 
 1. Выполните команду:
 
-   ```
+   ```bash
    terraform plan
    ```
 
@@ -54,7 +54,7 @@
 
 1. Примените изменения конфигурации:
 
-   ```
+   ```bash
    terraform apply
    ```
   
@@ -62,6 +62,6 @@
 
    После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../cli/quickstart.md):
 
-   ```
+   ```bash
    yc kms symmetric-key list
    ```

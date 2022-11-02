@@ -1,1 +1,1 @@
-На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/svg/settings.svg) → **Персональные настройки** или перейдите по ссылке [{{ link-settings }}]({{ link-settings }}).
+На панели слева нажмите ![](../../_assets/tracker/svg/settings.svg) **Настройки**.

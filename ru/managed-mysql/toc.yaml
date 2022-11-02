@@ -69,20 +69,28 @@ items:
         href: concepts/user-rights.md
       - name: Настройки MySQL
         href: concepts/settings-list.md
+      - name: Ограничения для команд SQL
+        href: concepts/sql-limits.md
   - name: Практические руководства
     items:
       - name: Все сценарии
         href: tutorials/index.md
-      - name: Анализ производительности и оптимизация
-        href: tutorials/profiling.md
+      - name: Анализ производительности и оптимизация {{ mmy-name }}
+        href: tutorials/profiling-mmy.md
       - name: Выгрузка базы данных в {{ dataproc-full-name }}
         href: tutorials/sqoop.md
       - name: Миграция базы данных из стороннего кластера {{ MY }}
         href: tutorials/data-migration.md
       - name: Миграция базы данных из {{ mmy-name }} в {{ MY }}
         href: tutorials/mmy-to-mysql-migration.md
+      - name: >-
+          Поставка данных в {{ mkf-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/cdc-data-transfer.md
       - name: Поставка данных в {{ mkf-full-name }} с помощью Debezium
         href: tutorials/cdc-debezium.md
+      - name: Миграция базы данных из {{ mmy-name }} в {{ objstorage-full-name }}
+        href: tutorials/mmy-objs-migration.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

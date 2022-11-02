@@ -1,20 +1,22 @@
 # Adding a user to the cloud
 
+Add a user to your [organization](../../../organization/) to [grant](../../../iam/operations/roles/grant.md) him or her access to {{ yandex-cloud }} resources.
 
-You can add [users with a Yandex](#passport-user) account and [federated users](#federated-user).
+You can add [users with a Yandexaccount](#passport-user) as well as [federated users](#federated-user). To do this, you need to be the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role).
 
-## Adding a user via {{ org-full-name }} {#organization-user}
+The user will become an organization member, and you will be able to grant them access to your cloud resources by [assigning](../roles/grant.md) them a [role](../../concepts/access-control/roles.md). A new organization member will not have access to cloud resources until you assign them a role.
 
-Via {{ org-full-name }}, you can only add users with a Yandex account.
 
-1. [Log in]({{ link-passport-login }}) to the organization's administrator account.
-1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-1. In the left panel, select [Users]({{ link-org-main }}/users) ![icon-users](../../../_assets/organization/icon-users.svg).
-1. In the upper-right corner, click **Add user**.
-1. Enter the Yandex user's email address.
-1. Click **Add**. The user will be added to the organization and get access to its services.
+## Add a user with a Yandex account {#add-useraccount}
 
-When a new user is added to an organization, they are automatically assigned the [cloud member role](../../concepts/access-control/roles.md#member): `{{ roles-cloud-member }}`. This role is necessary for the user to access resources in the cloud. However, this role doesn't give you the right to perform any operations and is only used in combination with other roles, such as `admin`, `editor`, or `viewer`.
+You can add a user to an organization via the management console or {{ org-full-name }}. These methods are carry the same weight.
+
+
+
+### Add a user via the {{ org-full-name }} interface {#organization-user}
+
+
+{% include [add-useraccount](../../../_includes/organization/add-useraccount.md) %}
 
 {% note info %}
 
@@ -22,20 +24,26 @@ When a new user is added to an organization, they are automatically assigned the
 
 {% endnote %}
 
-## Adding a user via the management console {#console-user}
 
-Via the management console, you can only add users with a Yandex account.
 
-1. [Log in]({{ link-passport-login }}) to the cloud administrator account.
-1. Log in to the [management console]({{ link-console-main }}).
-1. [Select](../../../resource-manager/operations/cloud/switch-cloud.md) a cloud.
-1. Go to **Access rights**.
-1. Click ![image](../../../_assets/options.svg) in the upper-right corner of the page.
-1. Click **Add user**.
-1. Enter the user's Yandex  email address.
-1. Click **Add**.
+### Add a user via the management console {#console-user}
 
-After that, the user gets the [cloud member role](../../concepts/access-control/roles.md#member): `{{ roles-cloud-member }}`. This role is necessary for the user to access resources in the cloud. However, this role doesn't give you the right to perform any operations and is only used in combination with other roles, such as `admin`, `editor`, or `viewer`.
+{% list tabs %}
+
+- Cloud Organization
+
+   1. [Log in]({{ link-passport-login }}) to the cloud administrator account.
+   1. Log in to the [management console]({{ link-console-main }}).
+   1. [Select](../../../resource-manager/operations/cloud/switch-cloud.md) a cloud.
+   1. Go to **Access rights**.
+   1. Click ![image](../../../_assets/options.svg) in the upper-right corner of the page.
+   1. Click **Add user**.
+   1. Enter the user's Yandex  email address.
+   1. Click **Add**.
+
+{% endlist %}
+
+
 
 ## Add federated users {#federated-user}
 
@@ -43,64 +51,8 @@ To add federated users, you need to know the Name IDs of the users that the Iden
 
 To add federation users to an organization:
 
-{% list tabs %}
+{% include [add-federateduser](../../../_includes/organization/add-federateduser.md) %}
 
-- Management console
-
-  1. [Log in to the account]({{ link-passport-login }}) your organization's administrator.
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-  1. In the left panel, select [Users]({{ link-org-main }}/users) ![icon-users](../../../_assets/organization/icon-users.svg).
-  1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
-  1. Select the identity federation to add users from.
-  1. List the Name IDs of users, separating them with line breaks.
-  1. Click **Add**. This will give the users access to the organization.
-
-- CLI
-
-   {% include [cli-install](../../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-   1. View a description of the add user command:
-
-      ```bash
-      yc organization-manager federation saml add-user-accounts --help
-      ```
-
-   1. Add users by listing their Name IDs separated by a comma:
-
-      ```bash
-      yc organization-manager federation saml add-user-accounts \
-        --name my-federation \
-        --name-ids=alice@example.com,bob@example.com,charlie@example.com
-      ```
-
-- API
-
-   To add identity federation users to the cloud:
-
-   1. Create a file with the request body (for example, `body.json`). In the request body, specify the array of Name IDs of users you want to add:
-
-      ```json
-      {
-        "nameIds": [
-          "alice@example.com",
-          "bob@example.com",
-          "charlie@example.com"
-        ]
-      }
-      ```
-   1. Send the request by specifying the Federation ID in the parameters:
-
-      ```bash
-      curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer <IAM token>" \
-        -d '@body.json' \
-        https://iam.{{ api-host }}/iam/v1/saml/federations/<federation ID>:addUserAccounts
-      ```
-
-{% endlist %}
 
 #### What's next {#what-is-next}
 

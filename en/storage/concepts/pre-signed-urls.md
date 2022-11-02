@@ -33,7 +33,7 @@ Pre-signed URL parameters:
 | Parameter | Description |
 | --------- | --------- |
 | `X-Amz-Algorithm` | Identifies the signature version and algorithm of its calculation. Value: `AWS4-HMAC-SHA256`. |
-| `X-Amz-Expires` | Link validity time in seconds. The starting point is the time specified in `X-Amz-Date`. The maximum value is 604800 seconds (7 days). |
+| `X-Amz-Expires` | Link validity time in seconds. The starting point is the time specified in `X-Amz-Date`. The maximum value is 2592000 seconds (30 days). |
 | `X-Amz-SignedHeaders` | Headers of the request you want to sign.<br/><br/>Make sure to sign the `Host` header and all the `X-Amz-*` headers used in the request. You don't have to sign other headers, but the more headers you sign, the safer your request is. |
 | `X-Amz-Signature` | Request signature. |
 | `X-Amz-Date` | Time in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format, for example: `20180719T000000Z`. The date specified must match the date in the `X-Amz-Credential` parameter (by the value rather than format). |

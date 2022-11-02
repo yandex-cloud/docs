@@ -57,7 +57,36 @@ virtualHostName | <p>Required. Name of the virtual host.</p> <p>Used only to ref
             // end of the list of possible fields`routes[].routeOptions.modifyResponseHeaders[]`
 
           }
-        ]
+        ],
+        "rbac": {
+          "action": "string",
+          "principals": [
+            {
+              "andPrincipals": [
+                {
+
+                  // `routes[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`
+                  "header": {
+                    "name": "string",
+                    "value": {
+
+                      // `routes[].routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
+                      "exactMatch": "string",
+                      "prefixMatch": "string",
+                      "regexMatch": "string",
+                      // end of the list of possible fields`routes[].routeOptions.rbac.principals[].andPrincipals[].header.value`
+
+                    }
+                  },
+                  "remoteIp": "string",
+                  "any": true,
+                  // end of the list of possible fields`routes[].routeOptions.rbac.principals[].andPrincipals[]`
+
+                }
+              ]
+            }
+          ]
+        }
       },
 
       // `routes[]` includes only one of the fields `http`, `grpc`
@@ -175,7 +204,64 @@ virtualHostName | <p>Required. Name of the virtual host.</p> <p>Used only to ref
       // end of the list of possible fields`modifyResponseHeaders[]`
 
     }
-  ]
+  ],
+  "routeOptions": {
+    "modifyRequestHeaders": [
+      {
+        "name": "string",
+
+        // `routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`
+        "append": "string",
+        "replace": "string",
+        "remove": true,
+        "rename": "string",
+        // end of the list of possible fields`routeOptions.modifyRequestHeaders[]`
+
+      }
+    ],
+    "modifyResponseHeaders": [
+      {
+        "name": "string",
+
+        // `routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`
+        "append": "string",
+        "replace": "string",
+        "remove": true,
+        "rename": "string",
+        // end of the list of possible fields`routeOptions.modifyResponseHeaders[]`
+
+      }
+    ],
+    "rbac": {
+      "action": "string",
+      "principals": [
+        {
+          "andPrincipals": [
+            {
+
+              // `routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`
+              "header": {
+                "name": "string",
+                "value": {
+
+                  // `routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
+                  "exactMatch": "string",
+                  "prefixMatch": "string",
+                  "regexMatch": "string",
+                  // end of the list of possible fields`routeOptions.rbac.principals[].andPrincipals[].header.value`
+
+                }
+              },
+              "remoteIp": "string",
+              "any": true,
+              // end of the list of possible fields`routeOptions.rbac.principals[].andPrincipals[]`
+
+            }
+          ]
+        }
+      ]
+    }
+  }
 }
 ```
 
@@ -199,6 +285,18 @@ routes[].<br>routeOptions.<br>modifyResponseHeaders[].<br>append | **string** <b
 routes[].<br>routeOptions.<br>modifyResponseHeaders[].<br>replace | **string** <br>`routes[].routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the value of the header with the specified string.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
 routes[].<br>routeOptions.<br>modifyResponseHeaders[].<br>remove | **boolean** (boolean) <br>`routes[].routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Removes the header.</p> 
 routes[].<br>routeOptions.<br>modifyResponseHeaders[].<br>rename | **string** <br>`routes[].routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.</p> 
+routes[].<br>routeOptions.<br>rbac | **object**<br><p>Role Based Access Control (RBAC) provides router, virtual host, and route access control for the ALB service. Requests are allowed or denied based on the ``action`` and whether a matching principal is found. For instance, if the action is ALLOW and a matching principal is found the request should be allowed.</p> 
+routes[].<br>routeOptions.<br>rbac.<br>action | **string**<br><p>Required. The action to take if a principal matches. Every action either allows or denies a request.</p> <ul> <li>ALLOW: Allows the request if and only if there is a principal that matches the request.</li> <li>DENY: Allows the request if and only if there are no principal that match the request.</li> </ul> 
+routes[].<br>routeOptions.<br>rbac.<br>principals[] | **object**<br><p>Required. Required. A match occurs when at least one matches the request.</p> <p>The minimum number of elements is 1.</p> 
+routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[] | **object**<br><p>Required. Required. A match occurs when all principals match the request.</p> <p>The minimum number of elements is 1.</p> 
+routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header | **object**<br>A header (or pseudo-header such as :path or :method) of the incoming HTTP request. <br>`routes[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br>
+routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>name | **string**<br><p>Required. Specifies the name of the header in the request.</p> 
+routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value | **object**<br><p>Specifies how the header match will be performed to route the request. In the absence of value a request that has specified header name will match, regardless of the header's value.</p> <p>A string matcher resource.</p> 
+routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>exactMatch | **string** <br>`routes[].routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Exact match string.</p> 
+routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>prefixMatch | **string** <br>`routes[].routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Prefix match string.</p> 
+routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>regexMatch | **string** <br>`routes[].routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Regular expression match string.</p> 
+routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>remoteIp | **string** <br>`routes[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` .</p> 
+routes[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>any | **boolean** (boolean) <br>`routes[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>When any is set, it matches any request.</p> 
 routes[].<br>http | **object**<br>HTTP route configuration. <br>`routes[]` includes only one of the fields `http`, `grpc`<br>
 routes[].<br>http.<br>match | **object**<br>Condition (predicate) used to select the route.
 routes[].<br>http.<br>match.<br>httpMethod[] | **string**<br><p>HTTP method specified in the request.</p> 
@@ -252,6 +350,31 @@ modifyResponseHeaders[].<br>append | **string** <br>`modifyResponseHeaders[]` in
 modifyResponseHeaders[].<br>replace | **string** <br>`modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the value of the header with the specified string.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
 modifyResponseHeaders[].<br>remove | **boolean** (boolean) <br>`modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Removes the header.</p> 
 modifyResponseHeaders[].<br>rename | **string** <br>`modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.</p> 
+routeOptions | **object**<br><p>New route options for the virtual host.</p> 
+routeOptions.<br>modifyRequestHeaders[] | **object**<br><p>Apply the following modifications to the request headers.</p> 
+routeOptions.<br>modifyRequestHeaders[].<br>name | **string**<br><p>Name of the header.</p> 
+routeOptions.<br>modifyRequestHeaders[].<br>append | **string** <br>`routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Appends the specified string to the header value.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
+routeOptions.<br>modifyRequestHeaders[].<br>replace | **string** <br>`routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the value of the header with the specified string.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
+routeOptions.<br>modifyRequestHeaders[].<br>remove | **boolean** (boolean) <br>`routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Removes the header.</p> 
+routeOptions.<br>modifyRequestHeaders[].<br>rename | **string** <br>`routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.</p> 
+routeOptions.<br>modifyResponseHeaders[] | **object**<br><p>Apply the following modifications to the response headers.</p> 
+routeOptions.<br>modifyResponseHeaders[].<br>name | **string**<br><p>Name of the header.</p> 
+routeOptions.<br>modifyResponseHeaders[].<br>append | **string** <br>`routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Appends the specified string to the header value.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
+routeOptions.<br>modifyResponseHeaders[].<br>replace | **string** <br>`routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the value of the header with the specified string.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
+routeOptions.<br>modifyResponseHeaders[].<br>remove | **boolean** (boolean) <br>`routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Removes the header.</p> 
+routeOptions.<br>modifyResponseHeaders[].<br>rename | **string** <br>`routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.</p> 
+routeOptions.<br>rbac | **object**<br><p>Role Based Access Control (RBAC) provides router, virtual host, and route access control for the ALB service. Requests are allowed or denied based on the ``action`` and whether a matching principal is found. For instance, if the action is ALLOW and a matching principal is found the request should be allowed.</p> 
+routeOptions.<br>rbac.<br>action | **string**<br><p>Required. The action to take if a principal matches. Every action either allows or denies a request.</p> <ul> <li>ALLOW: Allows the request if and only if there is a principal that matches the request.</li> <li>DENY: Allows the request if and only if there are no principal that match the request.</li> </ul> 
+routeOptions.<br>rbac.<br>principals[] | **object**<br><p>Required. Required. A match occurs when at least one matches the request.</p> <p>The minimum number of elements is 1.</p> 
+routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[] | **object**<br><p>Required. Required. A match occurs when all principals match the request.</p> <p>The minimum number of elements is 1.</p> 
+routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header | **object**<br>A header (or pseudo-header such as :path or :method) of the incoming HTTP request. <br>`routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br>
+routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>name | **string**<br><p>Required. Specifies the name of the header in the request.</p> 
+routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value | **object**<br><p>Specifies how the header match will be performed to route the request. In the absence of value a request that has specified header name will match, regardless of the header's value.</p> <p>A string matcher resource.</p> 
+routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>exactMatch | **string** <br>`routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Exact match string.</p> 
+routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>prefixMatch | **string** <br>`routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Prefix match string.</p> 
+routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>regexMatch | **string** <br>`routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Regular expression match string.</p> 
+routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>remoteIp | **string** <br>`routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` .</p> 
+routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>any | **boolean** (boolean) <br>`routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>When any is set, it matches any request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

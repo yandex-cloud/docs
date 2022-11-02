@@ -1,45 +1,46 @@
 # Embedding images
 
-Images can be embedded on a Wiki page from the clipboard via a link to an external resource or from files uploaded to {{ wiki-name }}. You can set additional parameters for embedding images in [{#T}](static-markup/files.md).
+You can add images to Wiki pages by pasting them from the clipboard, by specifying links to external resource, or by uploading files to {{ wiki-name }}. To learn more about additional parameters for inserting images, see the [{#T}](static-markup/files.md) section.
 
 
-## Pasting images from the clipboard {#clipboard}
+
+## Inserting an image from the clipboard {#clipboard}
 
 1. Copy an image to the clipboard:
 
-    - Copy an image from an image editor or take a screenshot.
+    - Copy a picture from the image editor or take a screenshot.
 
-    - Copy an image from a web-page.
+    - Copy a picture from a web page.
 
-    - Copy the image file from the file manager on your computer.
+    - Copy an image file from the file manager on your computer.
 
     {% note alert %}
 
-    Copy images one by one. {{ wiki-name }} does not support pasting multiple images at the same time.
+    Copy images one at a time. {{ wiki-name }} does not support inserting multiple images at the same time.
 
     {% endnote %}
 
-1. Open the Wiki page and click **Edit**.
+1. Open the wiki page and click **Edit**.
 
-1. Paste an image from the clipboard to the Wiki page's text body.
+1. Paste the image into the Wiki page text.
 
-The image will be automatically uploaded to {{ wiki-name }}, and the image link will appear in the page's text body. It will also appear in the list of attached files on the left-hand panel ![](../_assets/wiki/attach-btn.png).
+The image is automatically uploaded to {{ wiki-name }} and a link to the image appears in the Wiki page text. It also appears in the list of attached files on the left panel ![](../_assets/wiki/attach-btn.png).
 
-## Embedding an image via a link {#link}
+## Inserting an image using a link {#link}
 
-If your image is hosted on another resource:
+If the image is from a web resource:
 
-1. Open the Wiki page and click **Edit**.
+1. Open the wiki page and click **Edit**.
 
 1. Copy the link to the image.
 
-1. Embed the link on a Wiki page using the following markup:
+1. Add the link to the Wiki page using markup:
 
     ```
     ![Alternative text](image address)
     ```
 
-Example:
+For example:
 
 | Markup | Result |
 | --- | --- |
@@ -47,37 +48,32 @@ Example:
 
 {% note info %}
 
-If you insert an image link into the page text without markup elements, the image will be displayed on the page with no alternative text.
+If you paste an image link with no markup, the image will be added to the Wiki page without alternative text.
 
 {% endnote %}
 
-## Embedding an image uploaded to {{ wiki-name }} {#attach}
+## Inserting an image that has already been uploaded to {{ wiki-name }} {#attach}
 
-1. Upload the image to the Wiki page.
+Open the page. In the upper-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions**, then select ![](../_assets/wiki/svg/attachments.svg) **Files**.
 
-    1. Click the icon on the left-hand panel ![](../_assets/wiki/attach-btn.png).
+1. To upload an image to your Wiki page, click **Select file**, then open the desired file or files.
 
-    1. Click **Select file**.
+1. To copy an image link, hover over the file and click ![](../_assets/wiki/svg/copy-link.svg) **Copy the embed code**.
 
-    1. Upload the desired file(s).
+1. In the upper-right corner of the page, click **Edit**.
 
-    1. A list of all uploaded files will be available on the left-hand panel on the ![](../_assets/wiki/attach-btn.png) tab.
+   {% note tip %}
 
-1. Open the Wiki page and click **Edit**.
+   In editing mode, you can see a list of all uploaded files in the left panel of the ![](../_assets/wiki/attach-btn.png) tab.
 
-1. Copy the link to the image:
+   {% endnote %}
 
-    1. On the left-hand panel, open the list of uploaded files (![](../_assets/wiki/attach-btn.png)).
-
-    1. Hover over the file and click ![](../_assets/wiki/get-link-btn.png).
-
-    1. A message saying **File link copied** will pop up. Now, you can now insert the link into the Wiki page text.
-
-1. Embed a link to a Wiki page. Example:
+1. Paste the link to the Wiki page. For example:
 
     ```
     200x0:/users/login/.files/image.png
     ```
+
 
 
 #### See also

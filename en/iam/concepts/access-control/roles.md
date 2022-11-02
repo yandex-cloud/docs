@@ -85,6 +85,8 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 {% include [mdb.dataproc.agent](../../../_includes/roles-dataproc-agent.md) %}
 
+{% include [data-proc-roles](../../../_includes/data-proc/data-proc-roles.md) %}
+
 
 ## {{ data-transfer-name }} {#data-transfer-roles}
 
@@ -102,11 +104,13 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 {% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md) %}
 
 
+
 ## {{ ml-platform-name }} {#datasphere-roles}
 
 {% include [datasphere-user](../../../_includes/roles-datasphere-user.md) %}
 
 {% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md) %}
+
 
 
 ## {{ sf-short-name }} {#functions-roles}
@@ -122,11 +126,13 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
 
+
 ## {{ iot-name }} {#iot-roles}
 
 {% include [iot-devices-writer](../../../_includes/roles-iot-devices-writer.md) %}
 
 {% include [iot-registries-writer](../../../_includes/roles-iot-registries-writer.md) %}
+
 
 
 ## {{ cloud-logging-name }} {#logging}
@@ -147,6 +153,10 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 {% include [kms-admin](../../../_includes/roles-kms-admin.md) %}
 
 {% include [kms-keys-encrypterdecrypter](../../../_includes/roles-kms-keys-encrypterdecrypter.md) %}
+
+{% include [kms-editor](../../../_includes/roles-kms-editor.md) %}
+
+{% include [kms-viewer](../../../_includes/roles-kms-viewer.md) %}
 
 ## {{ monitoring-name }} {#monitoring-roles}
 
@@ -192,6 +202,14 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 {% include [serverless-containers-roles-editor](../../../_includes/roles-serverless-containers-editor.md) %}
 
 {% include [serverless-containers-roles-admin](../../../_includes/roles-serverless-containers-admin.md) %}
+
+## {{ captcha-name }} {#smartcaptcha}
+
+{% include [smartcaptcha-viewer](../../../_includes/roles-smartcaptcha-viewer.md) %}
+
+{% include [smartcaptcha-editor](../../../_includes/roles-smartcaptcha-editor.md) %}
+
+{% include [smartcaptcha-admin](../../../_includes/roles-smartcaptcha-admin.md) %}
 
 
 ## {{ vpc-name }} {#vpc-roles}

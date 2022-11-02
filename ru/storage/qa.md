@@ -103,4 +103,4 @@
 
 
 
-{% include [qa-logs.md](../_includes/qa-logs.md) %}
+{% include [logs.md](../_qa/logs.md) %}

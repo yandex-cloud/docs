@@ -12,27 +12,58 @@
 
 {% endnote %}
 
-## Перед началом {#before-you-begin}
+## Перед началом работы {#before-you-begin}
 
-Узнайте уникальный идентификатор [диска](../../../compute/concepts/disk.md), который будет использован для создания объекта `PersistentVolume`, или создайте новый диск:
-1. Если у вас еще нет диска, [создайте его](../../../compute/operations/disk-create/empty.md).
-1. Посмотрите уникальный идентификатор диска:
+1. [Установите kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) и [настройте](../connect/create-static-conf.md) его на работу с вашим [кластером {{ k8s }}](../../concepts/index.md#kubernetes-cluster).
+1. Узнайте уникальный идентификатор [диска](../../../compute/concepts/disk.md), который будет использован для создания объекта `PersistentVolume`:
+   1. Если у вас еще нет диска, [создайте его](../../../compute/operations/disk-create/empty.md).
+
+      {% note warning %}
+
+      Диск должен быть размещен в той же [зоне доступности](../../../overview/concepts/geo-scope.md), что и [узлы группы](../../concepts/index.md#node-group), на которой будут работать поды.
+
+      {% endnote %}
+
+   1. Получите идентификатор диска (колонка `ID`):
+
+      ```bash
+      yc compute disk list
+      ```
+
+      Результат выполнения команды:
+
+      ```text
+      +----------------------+------+------------+-------------------+--------+--------------+-------------+
+      |          ID          | NAME |    SIZE    |       ZONE        | STATUS | INSTANCE IDS | DESCRIPTION |
+      +----------------------+------+------------+-------------------+--------+--------------+-------------+
+      | ef3ouo4sgl86740ridn6 | k8s  | 4294967296 | {{ region-id }}-a | READY  |              |             |
+      +----------------------+------+------------+-------------------+--------+--------------+-------------+
+      ```
+
+1. Посмотрите доступные [классы хранилищ](manage-storage-class.md) и выберите подходящий:
 
    ```bash
-   yc compute disk list
+   kubectl get storageclass
    ```
 
-   Результат:
+   Результат выполнения команды:
 
+   
+   ```text
+   NAME                          PROVISIONER                    RECLAIMPOLICY  VOLUMEBINDINGMODE     ALLOWVOLUMEEXPANSION  AGE
+   yc-network-hdd (default)      disk-csi-driver.mks.ycloud.io  Delete         WaitForFirstConsumer  true                  12d
+   yc-network-nvme               disk-csi-driver.mks.ycloud.io  Delete         WaitForFirstConsumer  true                  12d
+   yc-network-ssd                disk-csi-driver.mks.ycloud.io  Delete         WaitForFirstConsumer  true                  12d
+   yc-network-ssd-nonreplicated  disk-csi-driver.mks.ycloud.io  Delete         WaitForFirstConsumer  true                  12d
    ```
-   +----------------------+------+--------------+-------------------+--------+----------------------+-------------+
-   |          ID          | NAME |     SIZE     |       ZONE        | STATUS |     INSTANCE IDS     | DESCRIPTION |
-   +----------------------+------+--------------+-------------------+--------+----------------------+-------------+
-   | ef3ouo4sgl86740ridn6 | k8s  |   4294967296 | {{ region-id }}-a | READY  |                      |             |
-   | ef3qh55ckuu7md2kqhbt |      | 103079215104 | {{ region-id }}-a | READY  | ef3sin41eksav1kn4gct |             |
-   | epd9vda1h0knttpcuhfu |      |  10737418240 | {{ region-id }}-a | READY  | epdegdecs9o14r13gbad |             |
-   +----------------------+------+--------------+-------------------+--------+----------------------+-------------+
-   ```
+
+
+
+   {% note info %}
+
+   Не путайте [классы хранилищ {{ k8s }}](manage-storage-class.md) и [типы дисков {{ compute-full-name }}](../../../compute/concepts/disk.md#disks_types).
+
+   {% endnote %}
 
 ## Создайте объект PersistentVolume {#create-pv}
 
@@ -40,25 +71,25 @@
 
    Подробнее о спецификации читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/).
 
-   При указании параметра `capacity: storage` убедитесь, что задан точный объем диска. {{ CSI }} не обеспечивает проверку объема диска для статически подготовленных томов.
+   При указании параметра `spec.capacity.storage` убедитесь, что задан точный объем диска. {{ CSI }} не обеспечивает проверку объема диска для статически подготовленных томов.
 
    Для создания объекта `PersistentVolume` на основе существующего облачного диска в параметре `volumeHandle` укажите уникальный идентификатор необходимого диска.
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: PersistentVolume
    metadata:
-     name: test-pv
+     name: <имя PersistentVolume>
    spec:
      capacity:
-       storage: 4Gi
+       storage: <размер PersistentVolume>
      accessModes:
        - ReadWriteOnce
-     storageClassName: "" 
      csi:
        driver: disk-csi-driver.mks.ycloud.io
        fsType: ext4
-       volumeHandle: ef3ouo4sgl86740ridn6
+       volumeHandle: <идентификатор диска>
+     storageClassName: <имя класса хранилища>
    ```
 
 1. Выполните команду:
@@ -67,32 +98,29 @@
    kubectl create -f test-pv.yaml
    ```
 
-   Результат:
+   Результат выполнения команды:
 
-   ```
-   persistentvolume/test-pv created
+   ```text
+   persistentvolume/<имя PersistentVolume> created
    ```
 
 1. Посмотрите информацию о созданном объекте `PersistentVolume`:
 
    ```bash
-   kubectl describe persistentvolume test-pv
+   kubectl describe persistentvolume <имя PersistentVolume>
    ```
 
    Результаты выполнения команды:
 
-   
-   ```
-   Name:            test-pv
+   ```text
+   Name:            <имя PersistentVolume>
    Labels:          <none>
    Annotations:     <none>
    Finalizers:      [kubernetes.io/pv-protection]
-   StorageClass:    yc-network-hdd
+   StorageClass:    <имя класса хранилища>
    Status:          Available
    ...
    ```
-
-
 
 ## Создайте объект PersistentVolumeClaim {#create-claim}
 
@@ -100,19 +128,26 @@
 
    Подробнее о спецификации читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: PersistentVolumeClaim
    metadata:
-     name: test-claim
+     name: <имя PersistentVolumeClaim>
    spec:
      accessModes:
        - ReadWriteOnce
      resources:
        requests:
-         storage: 4Gi
-     volumeName: test-pv
+         storage: <размер PersistentVolumeClaim>
+     storageClassName: <имя класса хранилища>
+     volumeName: <имя PersistentVolume>
    ```
+
+   {% note info %}
+
+   Размер `PersistentVolumeClaim` должен быть меньше или равен размеру `PersistentVolume`.
+
+   {% endnote %}
 
    1. Выполните команду:
 
@@ -120,37 +155,34 @@
       kubectl create -f test-claim.yaml
       ```
 
-      Результат:
+      Результат выполнения команды:
 
-      ```
-      persistentvolumeclaim/test-claim created
+      ```text
+      persistentvolumeclaim/<имя PersistentVolumeClaim> created
       ```
 
    1. Посмотрите информацию о созданном `PersistentVolumeClaim`:
 
       ```bash
-      kubectl describe persistentvolumeclaim test-claim
+      kubectl describe persistentvolumeclaim <имя PersistentVolumeClaim>
       ```
 
-      Результат:
+      Результат выполнения команды:
 
-      
-      ```
-      Name:          test-claim
+      ```text
+      Name:          <имя PersistentVolumeClaim>
       Namespace:     default
-      StorageClass:  yc-network-hdd
+      StorageClass:  <имя класса хранилища>
       Status:        Bound
-      Volume:        test-pv
+      Volume:        <имя PersistentVolume>
       ...
       ```
 
-
-
 ## Создайте под со статически подготовленным томом {#create-pod}
 
-1. Сохраните следующий пример в YAML-файл с названием `test-pod.yaml`:
+1. Создайте файл `test-pod.yaml` с манифестом пода, использующего `PersistentVolumeClaim`:
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: Pod
    metadata:
@@ -167,7 +199,7 @@
      volumes:
      - name: persistent-storage
        persistentVolumeClaim:
-         claimName: test-claim
+         claimName: <имя PersistentVolumeClaim>
    ```
 
    Подробнее о спецификации читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
@@ -178,9 +210,9 @@
    kubectl create -f test-pod.yaml
    ```
 
-   Результат:
+   Результат выполнения команды:
 
-   ```
+   ```text
    pod/test-pod created
    ```
 
@@ -190,22 +222,16 @@
    kubectl describe pod test-pod
    ```
 
-   Результат:
+   Результат выполнения команды:
 
-   ```
+   ```text
    Name:         test-pod
    Namespace:    default
    Priority:     0
-   Node:         cl1gqrct5oier258n08t-ypap/10.0.0.9
-   Start Time:   Tue, 23 Jul 2019 18:34:57 +0300
-   Labels:       <none>
-   Annotations:  <none>
-   Status:       Pending
    ...
-   Events:
-     Type    Reason     Age   From               Message
-     ----    ------     ----  ----               -------
-     Normal  Scheduled  3s    default-scheduler  Successfully assigned default/test-pod to cl1gqrct5oier258n08t-ypap
+     ----    ------                  ----  ----                     -------
+     Normal  Scheduled               20m   default-scheduler        Successfully assigned default/test-pod to cl1jtehftl7q1umj18ll-icut
+     Normal  SuccessfulAttachVolume  20m   attachdetach-controller  AttachVolume.Attach succeeded for volume "<имя PersistentVolume>"
    ```
 
-После этого рядом с используемым диском в консоли управления в **{{ compute-full-name }}** в разделе **Диски** появится надпись **Подключен**.
+После этого рядом с используемым диском в консоли управления в **{{ compute-name }}** в разделе **Диски** появится надпись **Подключен**.

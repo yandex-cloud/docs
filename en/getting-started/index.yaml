@@ -1,20 +1,17 @@
 title: Getting started
 description:
   - >-
-    When creating their first billing account, new Yandex Cloud customers
-    receive the <a href="/docs/getting-started/usage-grant\">initial grant</a>,
-    which expires in 60 days. The grant terms of use differ for individual and
-    business accounts.
+    When you create a billing account in Yandex Cloud, you are given an <a
+    href="/docs/getting-started/usage-grant\">initial grant</a> which you can
+    spend in the following 60 days.*
   - >-
-    In addition, a trial period is available to new customers. The trial period
-    lets you get hands-on experience with Yandex Cloud by using the initial
-    grant to pay for the resources you consume. You can upgrade to the paid
-    version at any time during the free trial or 30 days after it expires with
-    no data loss.
+    By starting a trial period, you can use your grant to cover the costs of the
+    resources you consume as you try out the platform, without committing to use
+    the paid version later. You then have up until thirty days after the end of
+    the trial period to decide whether to switch to the paid version.
   - >-
-    Residents and non-residents of the Russian Federation can sign up for Yandex
-    Cloud. Non-residents of Russia and Kazakhstan can only register business
-    accounts.
+    *Terms differ for individual accounts and business accounts. Clients outside
+    Russia and Kazakhstan can only register business accounts.
 meta:
   title: Getting started
 links:

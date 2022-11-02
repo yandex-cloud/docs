@@ -41,7 +41,7 @@
 
 ## Создать базу данных {#add-db}
 
-В каждом кластере {{ mms-name }} вы можете создать неограниченное количество баз данных.
+{% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
 
 {% list tabs %}
 
@@ -84,7 +84,6 @@
         Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
         {{ mms-short-name }} запустит операцию создания базы данных.
-
 
     Чтобы предоставить пользователям доступ к созданной базе данных, [следуйте инструкции](cluster-users.md#update-settings).
 
@@ -141,7 +140,7 @@
   * Идентификатор кластера, в котором вы хотите создать базу данных в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя базы данных в параметре `databaseSpec.name`.
 
-      {% include [database-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
+    {% include [database-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
 
 {% endlist %}
 

@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/datatransfer/api-ref/Endpoint/list.md
  
 ## HTTP request {#https-request}
 ```
-GET https://datatransfer.{{ api-host }}/v1/endpoints/list/{folderId}
+GET https://{{ api-host-data-transfer }}/v1/endpoints/list/{folderId}
 ```
  
 ## Path parameters {#path_params}

@@ -1,6 +1,6 @@
 # All use cases
 
-* [{#T}](./1c-postgresql.md)
+* [Creating a {{ PG }} cluster for <q>1C:Enterprise</q>](./1c-postgresql.md)
 * [{#T}](./sqoop.md)
 * [{#T}](./profiling.md)
 * [{#T}](./cdc-data-transfer.md)

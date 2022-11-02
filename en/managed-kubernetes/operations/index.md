@@ -5,16 +5,28 @@ description: "In this article you will learn how to work with managed {{ k8s }} 
 
 # All instructions
 
-* [{#T}](connect/security-groups.md)
 * [{#T}](node-connect-ssh.md)
 * [{#T}](update-kubernetes.md)
+* [{#T}](autoscale.md)
+
+## Connecting to a cluster {#cluster-connect}
+
+* [{#T}](connect/index.md)
+* [{#T}](connect/security-groups.md)
+* [{#T}](connect/create-static-conf.md)
 
 
-## Installing applications {#marketplace}
+## Installing applications from {{ marketplace-full-name }} {#marketplace}
 
 * [{#T}](applications/marketplace.md)
+* [{#T}](applications/crossplane.md)
+* [{#T}](applications/external-secrets-operator.md)
+* [{#T}](applications/fluentbit.md)
+* [{#T}](applications/hashicorp-vault.md)
+* [{#T}](applications/alb-ingress-controller.md)
 * [{#T}](applications/jaeger.md)
 * [{#T}](applications/metrics-provider.md)
+* [{#T}](applications/node-local-dns.md)
 
 
 ## Network scenarios {#network-scenarios}
@@ -24,10 +36,6 @@ description: "In this article you will learn how to work with managed {{ k8s }} 
 * [{#T}](cilium.md)
 * [{#T}](cilium-node-local-dns.md)
 
-## Encryption {#encrypting}
-
-* [{#T}](autoscale.md)
-
 ## Working with persistent volumes {#persistent-volumes}
 
 * [{#T}](volumes/dynamic-create-pv.md)
@@ -36,6 +44,7 @@ description: "In this article you will learn how to work with managed {{ k8s }} 
 * [{#T}](volumes/volume-expansion.md)
 * [{#T}](volumes/statefulset-pvc-expansion.md)
 * [{#T}](volumes/mode-block.md)
+* [{#T}](volumes/s3-csi-integration.md)
 
 ## Managing a {{ k8s }} cluster {#kubernetes-cluster}
 
@@ -49,6 +58,8 @@ description: "In this article you will learn how to work with managed {{ k8s }} 
 
 * [{#T}](node-group/node-group-list.md)
 * [{#T}](node-group/node-group-create.md)
+* [{#T}](node-connect-ssh.md)
+* [{#T}](autoscale.md)
 * [{#T}](node-group/node-group-update.md)
 * [{#T}](node-group/node-label-management.md)
 * [{#T}](node-group/node-group-delete.md)

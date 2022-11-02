@@ -19,9 +19,11 @@ items:
         href: operations/api-gw-monitoring.md
       - name: Viewing the execution log
         href: operations/api-gw-logs.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
-      - name: Deploying a web application
+      - name: All practical guidelines
+        href: tutorials/index.md
+      - name: Deploying a web application using the Java Servlet API
         href: tutorials/java-servlet-todo-list.md
       - name: Developing a skill for Alice and a website with authorization
         href: tutorials/alice-shareable-todolist.md
@@ -29,9 +31,15 @@ items:
         href: tutorials/slack-bot-serverless.md
       - name: Developing a Telegram bot
         href: tutorials/telegram-bot-serverless.md
+      - name: Developing user integration
+        href: tutorials/api-gw-integration.md
+      - name: Developing CRUD APIs for movie services
+        href: tutorials/movies-database.md
+      - name: Communicating with an API gateway using the WebSocket protocol
+        href: tutorials/api-gw-websocket.md
   - name: Concepts
     items:
-      - name: Relationship between service resources
+      - name: Relationships between service resources
         href: concepts/index.md
       - name: Specification extensions
         items:
@@ -47,11 +55,11 @@ items:
             href: concepts/extensions/http.md
           - name: Integration with Object Storage
             href: concepts/extensions/object-storage.md
-          - name: DataSphere integration
+          - name: Integration with DataSphere
             href: concepts/extensions/datasphere.md
-          - name: Data Streams integration
+          - name: Integration with Data Streams
             href: concepts/extensions/datastreams.md
-          - name: Message Queue integration
+          - name: Integration with Message Queue
             href: concepts/extensions/ymq.md
           - name: Greedy parameters
             href: concepts/extensions/greedy-parameters.md
@@ -59,6 +67,8 @@ items:
             href: concepts/extensions/any-method.md
           - name: Authorization using a function
             href: concepts/extensions/function-authorizer.md
+          - name: WebSocket protocol support
+            href: concepts/extensions/websocket.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

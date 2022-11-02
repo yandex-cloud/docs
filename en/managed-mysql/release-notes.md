@@ -1,6 +1,18 @@
-# {{ mmy-full-name }} revision history
+# {{ mmy-full-name }} releases
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
+
+## 01.09.2022 {#01.09.2022}
+
+* Added `Free space` charts on the [cluster monitoring](operations/monitoring.md#monitoring-cluster) tab and `Inode usage` on the [host monitoring](operations/monitoring.md#monitoring-hosts) page. {{ tag-con }}
+
+## 01.08.2022 {#01.08.2022}
+
+* Added the `binlog_transaction_dependency_tracking` setting.
+
+## 01.07.2022 {#01.07.2022}
+
+* In the {{ TF }} configuration files, the `database` and the `user` sections have been deprecated, and the `yandex_mdb_mysql_database` and the `yandex_mdb_mysql_user` resources have been added. {{ tag-tf }}
 
 ## 01.06.2022 {#01.06.2022}
 
@@ -14,6 +26,7 @@
 ## 20.04.2022 {#20.04.2022}
 
 * You can now change the `max_sp_recursion_depth` setting that defines the maximum number of recursive invocations of a stored procedure. Defaults to `0`, meaning that recursive invocations are completely disabled. The maximum value is `255`. {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
+* Added a section on {{ MY }} cluster performance in {{ TF }}. {{ tag-tf }}
 
 ## 13.04.2022 {#13.04.2022}
 

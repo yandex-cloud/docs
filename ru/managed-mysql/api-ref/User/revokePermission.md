@@ -10,7 +10,7 @@ Revokes permission to access a database from a user in a cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}/users/{userName}:revokePermission
+POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/users/{userName}:revokePermission
 ```
  
 ## Path parameters {#path_params}

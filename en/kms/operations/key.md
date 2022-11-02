@@ -41,6 +41,14 @@ To create a key:
 
    Use the [create](../api-ref/SymmetricKey/create) method for the `SymmetricKey` resource.
 
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   {% include [terraform-key-create](../../_includes/kms/terraform-key-create.md) %}
+
 {% endlist %}
 
 ## Edit a key {#update}
@@ -78,6 +86,61 @@ To edit a key:
 - API
 
    Use the [update](../api-ref/SymmetricKey/update) method for the `SymmetricKey` resource.
+
+- {{ TF }}
+
+   To edit a key:
+
+   1. Open the {{ TF }} configuration file and change the required parameters of the `yandex_kms_symmetric_key` resource.
+
+      Example configuration file structure:
+
+      ```hcl
+      ...
+      resource "yandex_kms_symmetric_key" "key-a" {
+        name              = "example-symetric-key"
+        description       = "description for key"
+        default_algorithm = "AES_128"
+        rotation_period   = "8760h"
+      }
+      ...
+      ```
+
+      For more information about the `yandex_kms_symmetric_key` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/kms_symmetric_key).
+
+   1. Check the configuration using the command:
+
+      ```
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can verify the change to the key using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+
+      ```
+      yc kms symmetric-key get <key name>
+      ```
 
 {% endlist %}
 
@@ -143,4 +206,63 @@ To destroy a key:
 
    Use the [delete](../api-ref/SymmetricKey/delete) method for the `SymmetricKey` resource.
 
+- {{ TF }}
+
+   To delete an key created with {{ TF }}:
+
+   1. Open the {{ TF }} configuration file and delete the fragment with the key description.
+
+      Example key description in the {{ TF }} configuration:
+
+      ```hcl
+      ...
+      resource "yandex_kms_symmetric_key" "key-a" {
+        name              = "example-symetric-key"
+        description       = "description for key"
+        default_algorithm = "AES_128"
+        rotation_period   = "8760h"
+      }
+      ...
+      ```
+
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
+
+   1. Check the configuration using the command:
+
+      ```
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+
+      ```
+      yc kms symmetric-key list
+      ```
+
 {% endlist %}
+
+## See also {#see-also}
+
+* [Managing {{ kms-short-name }} keys with Hashicorp Terraform](../../kms/tutorials/terraform-key.md).

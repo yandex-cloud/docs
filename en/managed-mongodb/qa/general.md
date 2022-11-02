@@ -48,7 +48,7 @@ A _database cluster_ is one or more database hosts between which replication can
 To create a database cluster in {{ mmg-short-name }}, you must define its characteristics:
 
 - [Host class](../concepts/instance-types.md) (performance characteristics such as CPUs, memory, and so on).
-- [Storage type](../concepts/storage.md) and size (reserved in full when creating a cluster).
+- [Disk type](../concepts/storage.md) and size (reserved in full when creating a cluster).
 - The network your cluster will be connected to.
 - The number of hosts for the cluster and the availability zone for each host.
 
@@ -59,7 +59,7 @@ For detailed instructions, see [{#T}](../quickstart.md).
 
 The minimum number of hosts per cluster depends on the following:
 * Selected [platform and host class](../concepts/instance-types.md).
-* Selected [storage type](../concepts/storage.md).
+* Selected [disk type](../concepts/storage.md).
 
 The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
 
@@ -154,4 +154,4 @@ Monitoring can be performed with a minimum granularity of 5 seconds.
 
 
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

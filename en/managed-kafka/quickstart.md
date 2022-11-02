@@ -10,12 +10,15 @@ To get started with the service:
 ## Before you begin {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to an {{ KF }} cluster from both inside and outside {{ yandex-cloud }}:
+
    * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md) based virtual machine, which must be in the same network as the cluster.
+
    * To connect to a cluster from the internet, enable public access to the cluster when [creating](operations/cluster-create.md) it.
 
    {% note info %}
@@ -25,6 +28,7 @@ To get started with the service:
    {% endnote %}
 
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+
 1. Install the `kafkacat` utility, an open source application that can function as a universal data producer or consumer:
 
    ```bash
@@ -77,7 +81,11 @@ Then connect to the cluster using this username.
 You can connect the producer and consumer to the cluster on behalf of one user. Both the producer and consumer will only be able to work with the topics that this user is allowed to access.
 
 To connect to a cluster:
+
+
 1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
+
+
 1. Install an SSL certificate on the VM:
 
    {% include [install-certificate](../_includes/mdb/mkf/install-certificate.md) %}
