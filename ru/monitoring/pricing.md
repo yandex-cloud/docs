@@ -6,11 +6,13 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ monitoring-name }} не тарифицируется.
+{% note info %}
+
+Цены, указанные ниже, начнут действовать 14 ноября 2022 года, когда сервис {{ monitoring-short-name }} [станет общедоступным](../overview/concepts/launch-stages.md). До этого использование сервиса не тарифицируется.
+
+{% endnote %}
 
 {% endif %}
-
-{% if product == "yandex-cloud" %}
 
 ## Из чего складывается стоимость использования {{ monitoring-short-name }} {#rules}
 
@@ -21,6 +23,8 @@ editable: false
 * Запись метрик ресурсов {{ yandex-cloud }}, собираемых автоматически, не тарифицируется.
 * Чтение метрик при помощи интерфейса {{ monitoring-short-name }} и при помощи консоли {{ yandex-cloud }} не тарифицируется.
 * Входящий и исходящий трафик в {{ monitoring-short-name }} не тарифицируются.
+
+{% if product == "yandex-cloud" %}
 
 ### Пример расчета стоимости {#example}
 
@@ -73,7 +77,11 @@ editable: false
 * (60 * 24 * 30) — количество минут в 30 днях.
 * {% if region == "ru" %}7,00 ₽{% endif %}{% if region == "kz" %}35,00 ₸{% endif %}{% if region == "int" %}0,0560 ${% endif %} — стоимость чтения 1 млн значений (до 50 млн значений).
 
-## Цены {#prices}
+{% endif %}
+
+## Цены {% if product == "cloud-il" %}c 14 ноября 2022 года{% endif %} {#prices}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -104,5 +112,13 @@ editable: false
 {% include [usd.md](../_pricing/monitoring/usd.md) %}
 
 {% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+Минимальная единица тарификации — 1 значение метрики. Стоимость округляется до агоры.
+
+{% include [ils.md](../_pricing/monitoring/ils.md) %}
 
 {% endif %}

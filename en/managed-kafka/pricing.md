@@ -6,13 +6,19 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ mkf-name }} can be used free of charge.
+{% note info %}
+
+The prices listed below will take effect on November 14, 2022, when {{ mkf-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+
+{% endnote %}
 
 {% endif %}
 
 {% if product == "yandex-cloud" %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% endif %}
 
 ## Cluster status {#running-stopped}
 
@@ -41,13 +47,14 @@ The cost is calculated for each hour of operation of the host in accordance with
 
 You can choose the host class for {{ KF }} broker hosts and {{ ZK }} hosts (as appropriate for the expected replication load).
 
+{% if product == "yandex-cloud" and audience != "internal" %}
+
 There are different ways to calculate the cost depending on the [host type](./concepts/index.md):
 
 * Standard hosts
 
    The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources.
 
-{% if product == "yandex-cloud" and audience != "internal" %}
 * Dedicated hosts
 
    {% include [Dedicated hosts prices](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
@@ -66,12 +73,18 @@ The minimum billing unit is a minute (for example, 1.5 minutes of host usage cos
 
 You pay for the storage allocated for DB clusters.
 
+{% if product == "yandex-cloud" %}
+
 * You can only order local SSD storage (`local-ssd`) for clusters with three or more broker hosts:
-   {% if product == "yandex-cloud" %}* For Intel Cascade Lake: In 100 GB increments.{% endif %}
+   * For Intel Cascade Lake: In 100 GB increments.
    * For Intel Ice Lake: In {{ local-ssd-v3-step }} increments.
 * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
 
+{% endif %}
+
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+
+{% if product == "yandex-cloud" %}
 
 ### Example of cluster cost calculation {#example}
 
@@ -93,6 +106,10 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 {% endlist %}
 
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -105,7 +122,9 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% endnote %}
 
-## Pricing {#prices}
+{% endif %}
+
+## Pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices}
 
 {% if region != "int" %}
 
@@ -117,11 +136,17 @@ All prices are shown without VAT.
 
 {% endif %}
 
+{% if product == "yandex-cloud" %}
+
 Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
 
 The cost of fast local storage also depends on the type of hosts.
 
+{% endif %}
+
 ### {{ KF }} broker host computing resources {#prices-kafka-brokers}
+
+{% if product == "yandex-cloud" %}
 
 {% list tabs %}
 
@@ -131,7 +156,7 @@ The cost of fast local storage also depends on the type of hosts.
    {% if region == "kz" %} {% include notitle [KZT: standard broker hosts](../_pricing/managed-kafka/kzt-hosts-standard.md) %}{% endif %}
    {% if region == "int" %}{% include notitle [USD: standard broker hosts](../_pricing/managed-kafka/usd-hosts-standard.md) %}{% endif %}
 
-{% if product == "yandex-cloud" and audience != "internal" %}
+{% if audience != "internal" %}
 
 * Dedicated hosts
 
@@ -145,7 +170,17 @@ The cost of fast local storage also depends on the type of hosts.
 
 {% endlist %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ILS: standard broker hosts](../_pricing/managed-kafka/ils-hosts-standard.md) %}
+
+{% endif %}
+
 ### {{ ZK }} host computing resources {#prices-zookeeper}
+
+{% if product == "yandex-cloud" %}
 
 {% note info %}
 
@@ -161,7 +196,7 @@ You can't order {{ ZK }} host resources using a CVoS.
    {% if region == "kz" %} {% include notitle [KZT: standard ZooKeeper hosts](../_pricing/managed-kafka/kzt-hosts-zk-standard.md) %}{% endif %}
    {% if region == "int" %}{% include notitle [USD: standard ZooKeeper hosts](../_pricing/managed-kafka/usd-hosts-zk-standard.md) %}{% endif %}
 
-{% if product == "yandex-cloud" and audience != "internal" %}
+{% if audience != "internal" %}
 
 * Dedicated hosts
 
@@ -179,13 +214,33 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 {% endlist %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ILS: standard ZooKeeper hosts](../_pricing/managed-kafka/ils-hosts-zk-standard.md) %}
+
+{% endif %}
+
 ### Storage {#prices-storage}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %} {% include notitle [RUB: Storage prices](../_pricing/managed-kafka/rub-storage.md) %}{% endif %}
 {% if region == "kz" %} {% include notitle [KZT: Storage prices](../_pricing/managed-kafka/kzt-storage.md) %}{% endif %}
 {% if region == "int" %}{% include notitle [USD: Storage prices](../_pricing/managed-kafka/usd-storage.md) %}{% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ILS: Storage prices](../_pricing/managed-kafka/ils-storage.md) %}
+
+{% endif %}
+
 ### Outgoing traffic {#prices-traffic}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -204,5 +259,11 @@ You can't order {{ ZK }} host resources using a CVoS.
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-egress-traffic.md](../_pricing/ils-egress-traffic.md) %}
 
 {% endif %}

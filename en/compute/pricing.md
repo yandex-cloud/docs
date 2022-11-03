@@ -6,15 +6,21 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ compute-name }} can be used free of charge.
+{% note info %}
+
+The prices listed below will take effect on November 14, 2022, when {{ compute-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+
+{% endnote %}
 
 {% endif %}
 
-{% if product == "yandex-cloud" %}
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+{% if product == "yandex-cloud" %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% endif %}
 
 ## What goes into the cost of using {{ compute-short-name }} {#rules}
 
@@ -23,7 +29,9 @@ The cost of {{ compute-name }} usage is based on:
    * Type and number of cores (vCPUs).
    * Number of graphics accelerators (GPUs).
    * Amount of memory (RAM).
+{% if product == "yandex-cloud" %}
 * Operating systems.
+{% endif %}
 * Type and size of storage:
    * Disks.
    * Images.
@@ -56,17 +64,24 @@ The basic level of core performance depends on the [platform](concepts/vm-platfo
 
 {{ price-per-hour-count-per-second }}
 
+
+{% if product == "yandex-cloud" %}
+
 #### Operating systems {#instance-os}
 
 OS usage on a VM is also charged. The cost depends on the OS license and the amount of computing resources. The core usage type selected for the VM also matters.
 
 {{ price-per-hour-count-per-second }}
 
+
 #### Using a Microsoft license {#license-microsoft}
 
 The rules for using Microsoft licenses are described in [{#T}](../microsoft/licensing.md).
 
-{% if region == "ru" %}
+{% endif %}
+
+
+{% if product == "yandex-cloud" and region == "ru" %}
 
 #### Example of cost calculation {#example-of-cost-calculation}
 
@@ -120,6 +135,9 @@ The {{ ig-name }} component can be used free of charge. You can create instance 
 
 All other services {{ yandex-cloud }}, such as VMs and external IP addresses, are charged as usual. Outgoing traffic [is charged](#prices-traffic) the same as in other services.
 
+
+{% if product == "yandex-cloud" %}
+
 ### Dedicated host usage {#dedicated-hosts}
 
 The cost of a dedicated host depends on its type (processor model, number of cores, and RAM) and doesn't depend on the number of VMs running on it.
@@ -132,7 +150,10 @@ Use of additional resources, such as images from {{ marketplace-name }} or netwo
 
 Usage prices are shown on an hourly basis (monthly for local drives). Billing occurs per second.
 
-## Pricing {#prices}
+{% endif %}
+
+
+## Pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices}
 
 {% if region != "int" %}
 
@@ -145,6 +166,8 @@ All prices are shown without VAT.
 {% endif %}
 
 ### VM computing resources {#prices-instance-resources}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -163,6 +186,17 @@ All prices are shown without VAT.
 {% include [usd-instance-resources.md](../_pricing/compute/usd-instance-resources.md) %}
 
 {% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-instance-resources.md](../_pricing/compute/ils-instance-resources.md) %}
+
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
 
 ### Operating systems {#prices-os}
 
@@ -212,7 +246,12 @@ For the following products, funds are debited once for the calendar month in adv
 
 \* The product is provided for a group of 2 vCPUs. The minimum available number of vCPUs for a VM is 4 (2 groups).
 
+{% endif %}
+
+
 ### Disks, snapshots, and images {#prices-storage}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -231,6 +270,17 @@ For the following products, funds are debited once for the calendar month in adv
 {% include [usd-storage.md](../_pricing/compute/usd-storage.md) %}
 
 {% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-storage.md](../_pricing/compute/ils-storage.md) %}
+
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
 
 ### Computing resources of dedicated hosts {#prices-dedicated-host}
 
@@ -276,7 +326,12 @@ For the following products, funds are debited once for the calendar month in adv
 
 {% endif %}
 
+{% endif %}
+
+
 ### Software-accelerated network {#software-accelerated-network}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -296,7 +351,17 @@ For the following products, funds are debited once for the calendar month in adv
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-network.md](../_pricing/compute/ils-network.md) %}
+
+{% endif %}
+
 ### Outgoing traffic {#prices-traffic}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -315,5 +380,11 @@ For the following products, funds are debited once for the calendar month in adv
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-egress-traffic.md](../_pricing/ils-egress-traffic.md) %}
 
 {% endif %}

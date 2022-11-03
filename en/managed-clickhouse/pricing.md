@@ -6,7 +6,11 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ mch-name }} can be used free of charge.
+{% note info %}
+
+The prices listed below will take effect on November 14, 2022, when {{ mch-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+
+{% endnote %}
 
 {% endif %}
 
@@ -14,9 +18,13 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, {{ mch-name }} ca
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% endif %}
+
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
+{% if product != "cloud-il" %}
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
+{% endif %}
 
 ## What goes into the cost of using {{ mch-short-name }} {#rules}
 
@@ -55,7 +63,7 @@ The following is charged:
    {% if product == "yandex-cloud" %}* Storage on local SSDs (`local-ssd`) can only be ordered for clusters running Intel Broadwell and Intel Cascade Lake with three or more hosts, in increments of 100 GB.{% endif %}
    * Storage on non-replicated SSDs (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts in increments of 93 GB.
 
-* The storage size used by data backups of [local](concepts/storage.md#local-storage-features) and [network](concepts/storage.md) storage:
+* The storage size used by data backups of {% if product == "yandex-cloud" %}[local](concepts/storage.md#local-storage-features) and {% endif %}[network](concepts/storage.md) storage:
 
    * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage volume selected.
 
@@ -77,6 +85,8 @@ The following is charged:
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
+{% if product == "yandex-cloud" %}
+
 ### Example of cluster cost calculation {#example}
 
 For example, you created a cluster:
@@ -97,6 +107,11 @@ Cost per hour for all hosts: {% if region == "ru" %}`3 × (2 × ₽2.28 + 8 × �
 
 Total cost of the cluster per month (hosts and storage): {% if region == "ru" %}`720 × ₽34.68 + 100 × ₽3.20 = ₽25289.6`{% endif %}{% if region == "int" %}`720 × $0.277440 + 100 × $0.025600 = $202.316800`{% endif %}{% if region == "kz" %}`720 × ₸173.4000 + 100 × ₸16.0000 = ₸126448.0000`{% endif %}
 
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
+
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -109,7 +124,8 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% endnote %}
 
-## Pricing {#prices}
+{% endif %}
+## Pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices}
 
 {% if region != "int" %}
 
@@ -122,6 +138,8 @@ All prices are shown without VAT.
 {% endif %}
 
 ### {{ CH }} host computing resources {#prices-clickhouse}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -141,7 +159,18 @@ All prices are shown without VAT.
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-host-ch.md](../_pricing/managed-clickhouse/ils-host-ch.md) %}
+
+{% endif %}
+
 ### {{ ZK }} host computing resources {#prices-zookeeper}
+
+
+{% if product == "yandex-cloud" %}
 
 {% note info %}
 
@@ -167,7 +196,17 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-host-zoo.md](../_pricing/managed-clickhouse/ils-host-zoo.md) %}
+
+{% endif %}
+
 ### Storage and backups {#prices-storage}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -181,13 +220,23 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-storage.md](../_pricing/managed-clickhouse/usd-storage.md) %}
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-storage.md](../_pricing/managed-clickhouse/ils-storage.md) %}
+
+{% endif %}
+
 ### Outgoing traffic {#prices-traffic}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -206,5 +255,11 @@ You can't order {{ ZK }} host resources using a CVoS.
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-egress-traffic.md](../_pricing/ils-egress-traffic.md) %}
 
 {% endif %}

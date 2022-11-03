@@ -5,13 +5,19 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ vpc-name }} can be used free of charge.
+{% note info %}
+
+The prices listed below will take effect on November 14, 2022, when {{ vpc-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+
+{% endnote %}
 
 {% endif %}
 
 {% if product == "yandex-cloud" %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% endif %}
 
 ## What goes into the cost of using {{ vpc-short-name }} {#rules}
 
@@ -21,7 +27,7 @@ In {{ vpc-short-name }}, you pay for the hourly use of public IP addresses.
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-## {{ vpc-short-name }} pricing {#prices}
+## {{ vpc-short-name }} pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices}
 
 ### Public IP addresses {#prices-public-ip}
 
@@ -33,9 +39,13 @@ A public IP address can be in one of the following two states:
 
 {% if region == "int"%}
 
+{% if product == "yandex-cloud" %}
+
    For example, if the cost of an hour of using a public IP address is $0.001953, and the cost of an hour of reserving an inactive public static IP address is $0.002538, the price of an inactive public static address will be:
    
    > $0.001953 + $0.002538 = $0.004491 per hour, without VAT
+
+{% endif %}
 
 {% endif %}
 
@@ -48,6 +58,8 @@ All prices are shown with VAT.
 All prices are shown without VAT.
 
 {% endif %}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru"%}
 
@@ -67,6 +79,14 @@ All prices are shown without VAT.
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-ip.md](../_pricing/vpc/ils-ip.md) %}
+
+{% endif %}
+
 ### Using security groups {#prices-security-groups}
 
 The [security group](concepts/security-groups.md) functionality is at the [Preview](../overview/concepts/launch-stages.md) stage and can be used free of charge.
@@ -82,6 +102,8 @@ All prices are shown with VAT.
 All prices are shown without VAT.
 
 {% endif %}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -101,7 +123,17 @@ All prices are shown without VAT.
 
 {% endif %}
 
-## {{ ddos-protection-full-name }} pricing {#prices-ddos-protection}
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-egress-traffic.md](../_pricing/ils-egress-traffic.md) %}
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+## {{ ddos-protection-full-name }} pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices-ddos-protection}
 
 {% if region != "int" %}
 
@@ -112,6 +144,8 @@ All prices are shown with VAT.
 All prices are shown without VAT.
 
 {% endif %}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru"%}
 
@@ -131,15 +165,25 @@ All prices are shown without VAT.
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-ddos.md](../_pricing/vpc/ils-ddos.md) %}
+
+{% endif %}
+
 Filtered traffic is incoming traffic that the DDoS Protection filtering system passes to the user's cloud resources. Only filtered traffic is charged.
 
 For example, a user's VM was subject to a typical 10 Gbit/s DDoS attack generating 75 GB of incoming traffic. During the attack, the user downloaded 2 GB of filtered files from the internet to the VM. When the attack ended, the user downloaded another 2 GB of filtered files.
 
 In this case, only 4 GB of filtered traffic are billed: 2 GB that DDoS Protection passed to cloud resources during the attack, and 2 GB downloaded after the attack. Malicious traffic is filtered out and not billed.
 
-{% if region == "ru"%}
+{% endif %}
 
-## {{ adv-ddos-protection }} pricing {#prices-ddos-advanced}
+{% if region == "ru" %}
+
+## {{ adv-ddos-protection }} pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices-ddos-advanced}
 
 {% note warning "Important" %}
 
@@ -151,22 +195,40 @@ Billing of the services on top of the monthly user charge happens in the next mo
 
 All prices are shown with VAT.
 
+{% if product == "yandex-cloud" %}
+
 {% include [rub-advanced-ddos.md](../_pricing/vpc/rub-advanced-ddos.md) %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-advanced-ddos.md](../_pricing/vpc/ils-advanced-ddos.md) %}
+
+{% endif %}
 
 The {{ adv-ddos-protection }} plan includes the following services:
 
 {% include [rub-advanced-ddos-services.md](../_pricing/vpc/rub-advanced-ddos-services.md) %}
 
-## Managed Web Application Firewall pricing {#prices-waf}
+## Managed Web Application Firewall pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices-waf}
 
 All prices are shown with VAT.
 
+{% if product == "yandex-cloud" %}
+
 {% include [rub-waf.md](../_pricing/vpc/rub-waf.md) %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-waf.md](../_pricing/vpc/ils-waf.md) %}
+
+{% endif %}
 
 The Managed Web Application Firewall plan includes the following services:
 
 {% include [waf-services.md](../_pricing/vpc/waf-services.md) %}
-
-{% endif %}
 
 {% endif %}

@@ -48,7 +48,6 @@ links:
   - title: Pricing policy
     description: Pricing and cost calculation for services
     href: pricing
-    when: product == "yandex-cloud"
   - title: Questions and answers
     description: Answers to frequently asked questions about the service
     href: qa/all

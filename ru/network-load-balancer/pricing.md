@@ -5,7 +5,11 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ network-load-balancer-name }} не тарифицируется.
+{% note info %}
+
+Цены, указанные ниже, начнут действовать 14 ноября 2022 года, когда сервис {{ network-load-balancer-name }} [станет общедоступным](../overview/concepts/launch-stages.md). До этого использование сервиса не тарифицируется.
+
+{% endnote %}
 
 {% endif %}
 
@@ -13,15 +17,19 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% endif %}
+
 В рамках {{ network-load-balancer-full-name }} оплачиваются объем входящего трафика, обработанного балансировщиком, и количество сетевых балансировщиков.
 
 Исходящий трафик тарифицируется аналогично другим сервисам {{ yandex-cloud }}, например, [Compute Cloud](../compute/pricing.md#prices-traffic). В состав исходящего трафика также включается трафик ответов целевых ресурсов на проверки состояния.
 
-## Цены {#prices}
+## Цены {% if product == "cloud-il" %}c 14 ноября 2022 года{% endif %} {#prices}
 
 ### Входящий и исходящий трафик {#prices-traffic}
 
 Тарифицируется трафик, поступающий на пару из IP-адреса и порта, указанную в качестве обработчика сетевого балансировщика. Остальной трафик, поступающий на балансировщик, не принимается и не тарифицируется.
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru"%}
 
@@ -41,11 +49,21 @@ editable: false
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils.md](../_pricing/network-load-balancer/ils-traffic.md) %}
+
+{% endif %}
+
 ### Сетевые балансировщики {#network-load-balancers}
 
 Сетевые балансировщики нагрузки тарифицируются, если у них есть обработчик и подключенная непустая целевая группа.
 
 Если у сетевого балансировщика нет подключенных целевых групп, но есть обработчик, то публичный IP-адрес обработчика тарифицируется как [неактивный публичный IP-адрес](../vpc/pricing.md#prices-public-ip).
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru"%}
 
@@ -67,4 +85,8 @@ editable: false
 
 {% endif %}
 
+{% if product == "cloud-il" %}
 
+{% include [ils.md](../_pricing/network-load-balancer/ils-balancer.md) %}
+
+{% endif %}

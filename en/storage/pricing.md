@@ -6,15 +6,21 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ objstorage-name }} can be used free of charge.
+{% note info %}
+
+The prices listed below will take effect on November 14, 2022, when {{ objstorage-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+
+{% endnote %}
 
 {% endif %}
 
-{% if product == "yandex-cloud" %}
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+{% if product == "yandex-cloud" %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% endif %}
 
 ## What goes into the cost of using {{ objstorage-short-name }} {#rules}
 
@@ -35,11 +41,7 @@ The cost of {{ objstorage-name }} usage is based on:
 
 Storage usage is measured in GB per month. The volume of data stored during a month is the average value over the month based on granulated per-second data. The minimum billable unit is 1 hour of storing 1 MB of data.
 
-{% if product == "yandex-cloud" %}
-
 {% include [ice-minimum-duration](../_includes/storage/ice-minimum-duration.md) %}
-
-{% endif %}
 
 ### Performing operations with data {#rules-operations}
 
@@ -49,11 +51,13 @@ Data operations are charged according to the following policy:
 * The minimum billable unit for GET and HEAD operations is 100.
 * You aren't charged for deleting data (the DELETE operation).
 
-## Pricing {#prices}
+## Pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices}
 
 ### Data storage {#prices-storage}
 
 The cost of 1 GB per month is fixed and doesn't depend on the number of days in the month.
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -73,6 +77,14 @@ The cost of 1 GB per month is fixed and doesn't depend on the number of days in 
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils.md](../_pricing/storage/ils-used_space.md) %}
+
+{% endif %}
+
 The daily cost of data storage service is calculated as `Cost_of_1_GB_per_month / number_of_days_in_the_month`. For shorter months, the storage cost per day is higher. For longer months, it's lower.
 
 Example of proportional calculation: let's say the user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using the formula:
@@ -82,6 +94,8 @@ Storage_cost = Cost_per_GB_per_month * 15 * 12 / 24 / 30
 ```
 
 The first 1 GB of data stored in standard storage per month is free of charge.
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -104,7 +118,11 @@ The first 1 GB of data stored in standard storage per month is free of charge.
 
 {% endif %}
 
+{% endif %}
+
 {% include [ice-minimum-duration](../_includes/storage/ice-minimum-duration.md) %}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -160,8 +178,11 @@ The first 1 GB of data stored in standard storage per month is free of charge.
 
 {% endif %}
 
+{% endif %}
 
 ### Data operations {#prices-operations}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -181,6 +202,14 @@ The first 1 GB of data stored in standard storage per month is free of charge.
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils.md](../_pricing/storage/ils-operations.md) %}
+
+{% endif %}
+
 {% note info %}
 
 Data operations that result in an error are charged only in the following cases:
@@ -192,6 +221,8 @@ Prices for standard storage are applied when calculating costs.
 {% endnote %}
 
 Each month, the first 10000 PUT and POST operations and the first 100000 GET and HEAD operations in standard storage are free of charge.
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -214,11 +245,15 @@ Each month, the first 10000 PUT and POST operations and the first 100000 GET and
 
 {% endif %}
 
+{% endif %}
+
 ### Egress traffic {#prices-traffic}
 
 When using the service, you pay for traffic from {{ yandex-cloud }} to the internet. Traffic between {{ yandex-cloud }} services and incoming internet traffic are free.
 
 The minimum billable unit is 1 MB. The billing period is a calendar month.
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -238,7 +273,17 @@ The minimum billable unit is 1 MB. The billing period is a calendar month.
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils.md](../_pricing/storage/ils-egress.md) %}
+
+{% endif %}
+
 The first 10 GB of outgoing traffic per month for {{ objstorage-name }} is free of charge.
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 

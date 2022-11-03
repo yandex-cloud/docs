@@ -4,19 +4,12 @@
 * If 24 hours have passed since the instance was started.
 * If there are insufficient resources to launch a regular instance in the same availability zone. The probability of termination is low, but varies depending on the day.
 
-{% if product == "yandex-cloud" %}
-
 Preemptible instances are available at a [lower price](../pricing.md#prices-instance-resources) than regular instances. However, they don't provide fault-tolerance.
-
-{% endif %}
 
 You can [create](../operations/vm-create/create-preemptible-vm.md#create-preemptible) a preemptible instance or [change the type](../operations/vm-create/create-preemptible-vm.md#preemptible-to-regular) of an existing one.
 
-{% if product == "yandex-cloud" %}
-
 This will change pricing for the VM instance. For more information, see the [pricing policy](../pricing.md).
 
-{% endif %}
 
 ## Limitations {#restrictions}
 

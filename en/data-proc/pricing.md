@@ -6,7 +6,9 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ dataproc-name }} can be used free of charge.
+At the moment, {{ dataproc-name }} resource consumption is not charged.
+
+For the consumption of other {{ yandex-cloud }} resources, you will be charged according to their pricing policy.
 
 {% endif %}
 
@@ -37,14 +39,9 @@ Charges are made as part of the {{ compute-name }} service per hour of host virt
 The amount of storage requested for each cluster host is charged under {{ compute-name }} based on [disk space pricing](../compute/pricing.md#prices-storage).
 
 {% if product == "yandex-cloud" %}
-
 ### Using {{ cloud-logging-full-name }} {#rules-logs}
 
 Receiving and storing logs is paid based on the {{ cloud-logging-full-name }} [pricing rules](../logging/pricing.md).
-
-{% endif %}
-
-{% if product == "yandex-cloud" %}
 
 ### Example of cost calculation {#price-example}
 
@@ -117,6 +114,8 @@ Receiving and storing logs is paid based on the {{ cloud-logging-full-name }} [p
 
 ### Host computing resources {#prices-hosts}
 
+{% if product == "yandex-cloud" %}
+
 {% if region == "ru" %}
 
 {% include [rub.md](../_pricing/data-proc/rub.md) %}
@@ -135,6 +134,8 @@ Receiving and storing logs is paid based on the {{ cloud-logging-full-name }} [p
 
 {% endif %}
 
+{% endif %}
+
 {% note info %}
 
 To access GPUs on {{ dataproc-name }} hosts, please submit a request to [technical support]({{ link-console-support }}).
@@ -142,6 +143,8 @@ To access GPUs on {{ dataproc-name }} hosts, please submit a request to [technic
 {% endnote %}
 
 ### Egress traffic {#prices-traffic}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -158,6 +161,8 @@ To access GPUs on {{ dataproc-name }} hosts, please submit a request to [technic
 {% if region == "int" %}
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}
 
 {% endif %}
 

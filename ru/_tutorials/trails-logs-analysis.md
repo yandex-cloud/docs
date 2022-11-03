@@ -16,16 +16,12 @@
 
 {% include [before-you-begin](_tutorials_includes/before-you-begin.md) %}
 
-{% if product == "yandex-cloud" %}
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
 
 * плата за использование потока данных (см. [тарифы {{ yds-name }}](../data-streams/pricing.md));
 * плата за постоянно запущенный кластер {{ mch-name }} (см. [тарифы {{ mch-name }}](../managed-clickhouse/pricing.md)).
-
-{% endif %}
 
 ## Подготовьте окружение {#environment-preparing}
 

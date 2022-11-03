@@ -6,13 +6,19 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ mpg-name }} can be used free of charge.
+{% note info %}
+
+The prices listed below will take effect on November 14, 2022, when {{ mpg-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+
+{% endnote %}
 
 {% endif %}
 
 {% if product == "yandex-cloud" %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% endif %}
 
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
@@ -35,13 +41,18 @@ The minimum billing unit is a minute (for example, 1.5 minutes of host usage cos
 ### Disk space usage {#rules-storage}
 
 The following is charged:
+
 * Storage allocated for DB clusters.
 
+   {% if product == "yandex-cloud" %}
+
    * You can only oder local SSD storage (`local-ssd`) for clusters with three or more hosts:
-      {% if product == "yandex-cloud" %}* for Intel Broadwell and Intel Cascade Lake in 100 GB increments.{% endif %}
+      * for Intel Broadwell and Intel Cascade Lake in 100 GB increments.
       * For Intel Ice Lake: In {{ local-ssd-v3-step }} increments.
 
    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
+
+   {% endif %}
 
 * Space used by DB backups in excess of the storage amount specified for the cluster.
 
@@ -52,6 +63,8 @@ The following is charged:
    * The number of hosts in the cluster does not affect the size of the storage or free backups.
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+
+{% if product == "yandex-cloud" %}
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
@@ -65,7 +78,9 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% endnote %}
 
-## Pricing {#prices}
+{% endif %}
+
+## Pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices}
 
 {% if region != "int" %}
 
@@ -78,6 +93,8 @@ All prices are shown without VAT.
 {% endif %}
 
 ### Host computing resources {#prices-hosts}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -97,7 +114,17 @@ All prices are shown without VAT.
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-host-resources.md](../_pricing/managed-postgresql/ils-host-resources.md) %}
+
+{% endif %}
+
 ### Storage and backups {#prices-storage}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -117,7 +144,17 @@ All prices are shown without VAT.
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-storage.md](../_pricing/managed-postgresql/ils-storage.md) %}
+
+{% endif %}
+
 ### Outgoing traffic {#prices-traffic}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -136,5 +173,11 @@ All prices are shown without VAT.
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-egress-traffic.md](../_pricing/ils-egress-traffic.md) %}
 
 {% endif %}

@@ -6,15 +6,21 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ compute-name }} не тарифицируется.
+{% note info %}
+
+Цены, указанные ниже, начнут действовать 14 ноября 2022 года, когда сервис {{ compute-name }} [станет общедоступным](../overview/concepts/launch-stages.md). До этого использование сервиса не тарифицируется.
+
+{% endnote %}
 
 {% endif %}
 
-{% if product == "yandex-cloud" %}
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+{% if product == "yandex-cloud" %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% endif %}
 
 ## Из чего складывается стоимость использования {{ compute-short-name }} {#rules}
 
@@ -23,7 +29,9 @@ editable: false
   * тип и количество ядер (vCPU);
   * количество графических ускорителей (GPU);
   * объем памяти (RAM).
+{% if product == "yandex-cloud" %}
 * Операционные системы.
+{% endif %}
 * Тип и объем хранилища:
   * диски;
   * образы;
@@ -55,15 +63,24 @@ editable: false
 
 {{ price-per-hour-count-per-second }}
 
+
+{% if product == "yandex-cloud" %}
+
 #### Операционные системы {#instance-os}
 
 Использование операционной системы на ВМ также тарифицируется. Стоимость зависит от лицензии на операционную систему и количества вычислительных ресурсов. В том числе влияет то, какой тип использования ядра выбран для ВМ.
 
 {{ price-per-hour-count-per-second }}
 
+
 #### Использование лицензий Microsoft {#license-microsoft}
 
 Правила использования лицензий Microsoft описаны в разделе [{#T}](../microsoft/licensing.md).
+
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
 
 ### Пример расчета стоимости {#example-of-cost-calculation}
 
@@ -107,6 +124,8 @@ editable: false
 
 Таким образом, стоимость ВМ с 5% vCPU в два раза ниже стоимости ВМ со 100% vCPU.
 
+{% endif %}
+
 ### Использование хранилища (диски, снимки и образы) {#disk}
 
 При создании диска указывается его размер — объем блочного хранилища, которое занимает диск. На стоимость услуги влияет время между созданием и удалением диска, объем диска и тип диска, который выбирается при создании.
@@ -131,6 +150,9 @@ editable: false
 
 Все остальные услуги {{ yandex-cloud }}, например, создание ВМ или выделение внешних IP-адресов, тарифицируются обычным образом. Исходящий трафик [тарифицируется](#prices-traffic) аналогично другим сервисам.
 
+
+{% if product == "yandex-cloud" %}
+
 ### Использование выделенных хостов {#dedicated-hosts}
 
 Стоимость выделенного хоста зависит от его типа (модель процессора, количество ядер и оперативной памяти) и не зависит от количества ВМ, запущенных на нем.
@@ -143,7 +165,10 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 Цена указывается за 1 час использования (для локальных дисков — за месяц). Тарификация посекундная.
 
-## Цены {#prices}
+{% endif %}
+
+
+## Цены {% if product == "cloud-il" %}c 14 ноября 2022 года{% endif %} {#prices}
 
 {% if region != "int" %}
 
@@ -156,6 +181,8 @@ vCPU и память ВМ, запущенных на выделенном хос
 {% endif %}
 
 ### Вычислительные ресурсы ВМ {#prices-instance-resources}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -175,6 +202,17 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-instance-resources.md](../_pricing/compute/ils-instance-resources.md) %}
+
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
+
 ### Операционные системы {#prices-os}
 
 {% if region == "ru" %}
@@ -192,6 +230,8 @@ vCPU и память ВМ, запущенных на выделенном хос
 {% if region == "int" %}
 
 {% include [usd-os.md](../_pricing/compute/usd-os.md) %}
+
+{% endif %}
 
 {% endif %}
 
@@ -223,7 +263,12 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 \* Продукт предоставляется на группу из 2 vCPU, минимальное доступное количество vCPU для ВМ — 4 (2 группы).
 
+{% endif %}
+
+
 ### Диски, снимки и образы {#prices-storage}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -242,6 +287,17 @@ vCPU и память ВМ, запущенных на выделенном хос
 {% include [usd-storage.md](../_pricing/compute/usd-storage.md) %}
 
 {% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-storage.md](../_pricing/compute/ils-storage.md) %}
+
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
 
 ### Вычислительные ресурсы выделенных хостов {#prices-dedicated-host}
 
@@ -287,7 +343,12 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
+{% endif %}
+
+
 ### Программно-ускоренная сеть {#software-accelerated-network}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -307,7 +368,17 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-network.md](../_pricing/compute/ils-network.md) %}
+
+{% endif %}
+
 ### Исходящий трафик {#prices-traffic}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -328,3 +399,10 @@ vCPU и память ВМ, запущенных на выделенном хос
 {% endif %}
 
 {% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-egress-traffic.md](../_pricing/ils-egress-traffic.md) %}
+
+{% endif %}
+

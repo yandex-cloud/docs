@@ -6,7 +6,11 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ mch-name }} не тарифицируется.
+{% note info %}
+
+Цены, указанные ниже, начнут действовать 14 ноября 2022 года, когда сервис {{ mch-name }} [станет общедоступным](../overview/concepts/launch-stages.md). До этого использование сервиса не тарифицируется.
+
+{% endnote %}
 
 {% endif %}
 
@@ -14,9 +18,13 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% endif %}
+
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
+{% if product == "yandex-cloud" %}
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
+{% endif %}
 
 ## Из чего складывается стоимость использования {{ mch-short-name }} {#rules}
 
@@ -55,7 +63,7 @@ editable: false
   {% if product == "yandex-cloud" %}* Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров на платформах Intel Broadwell и Intel Cascade Lake с тремя или более хостами, с шагом 100 ГБ.{% endif %}
     * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с тремя или более хостами, с шагом 93 ГБ.
 
-* Объем, занимаемый резервными копиями данных хранилища на [локальных](concepts/storage.md#local-storage-features) и [сетевых](concepts/storage.md) дисках:
+* Объем, занимаемый резервными копиями данных хранилища на {% if product == "yandex-cloud" %}[локальных](concepts/storage.md#local-storage-features) и {% endif %}[сетевых](concepts/storage.md) дисках:
     
     * Хранение резервных копий не тарифицируется, пока сумма размера БД и всех резервных копий остается меньше выбранного объема хранилища.
     
@@ -76,6 +84,8 @@ editable: false
    * При автоматическом резервном копировании {{ mch-short-name }} не создает новую копию, а сохраняет изменения БД по сравнению с предыдущей копией. Поэтому потребление хранилища автоматическими резервными копиями растет только пропорционально объему изменений.
 
 Цена указывается за 1 месяц использования. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
+
+{% if product == "yandex-cloud" %}
 
 ### Пример расчета стоимости кластера {#example}
 
@@ -144,6 +154,9 @@ editable: false
 * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах).
 * {% if region == "ru" %}3,2000&nbsp;₽{% endif %}{% if region == "int" %}0,025600&nbsp;${% endif %}{% if region == "kz" %}16,0000&nbsp;₸{% endif %} — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
 
+{% endif %}
+
+{% if product == "yandex-cloud" %}
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -156,7 +169,8 @@ editable: false
 
 {% endnote %}
 
-## Цены {#prices}
+{% endif %}
+## Цены {% if product == "cloud-il" %}c 14 ноября 2022 года{% endif %}{#prices}
 
 {% if region != "int" %}
 
@@ -169,6 +183,8 @@ editable: false
 {% endif %}
 
 ### Вычислительные ресурсы хостов {{ CH }} {#prices-clickhouse}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -188,7 +204,18 @@ editable: false
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-host-ch.md](../_pricing/managed-clickhouse/ils-host-ch.md) %}
+
+{% endif %}
+
 ### Вычислительные ресурсы хостов {{ ZK }} {#prices-zookeeper}
+
+
+{% if product == "yandex-cloud" %}
 
 {% note info %}
 
@@ -214,7 +241,18 @@ editable: false
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-host-zoo.md](../_pricing/managed-clickhouse/ils-host-zoo.md) %}
+
+{% endif %}
+
+
 ### Хранилище и резервные копии {#prices-storage}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -234,7 +272,18 @@ editable: false
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-storage.md](../_pricing/managed-clickhouse/ils-storage.md) %}
+
+{% endif %}
+
+
 ### Исходящий трафик {#prices-traffic}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -253,5 +302,11 @@ editable: false
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-egress-traffic.md](../_pricing/ils-egress-traffic.md) %}
 
 {% endif %}

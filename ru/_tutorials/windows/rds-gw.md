@@ -33,7 +33,6 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 
 {% include [ms-additional-data-note](../includes/ms-additional-data-note.md) %}
 
-{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -43,7 +42,6 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 * плата за использование динамических или статических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 
-{% endif %}
 
 ## Создайте облачную сеть и подсети {#create-network}
 

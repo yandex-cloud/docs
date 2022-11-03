@@ -43,6 +43,5 @@ links:
     description: Configuring access rights for using the service
     href: security/
   - title: Pricing policy
-    when: product == "yandex-cloud"
     description: Service pricing and cost calculations
     href: pricing

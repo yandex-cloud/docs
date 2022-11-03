@@ -101,6 +101,6 @@ links:
     description: Configure access rights to work with the service
     href: security/
   - title: Pricing policy
-    when: audience != "internal" and product == "yandex-cloud"
+    when: audience != "internal"
     description: Service pricing and cost calculations
     href: pricing

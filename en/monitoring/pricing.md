@@ -6,11 +6,13 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ monitoring-name }} can be used free of charge.
+{% note info %}
+
+The prices listed below will take effect on November 14, 2022, when {{ monitoring-short-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+
+{% endnote %}
 
 {% endif %}
-
-{% if product == "yandex-cloud" %}
 
 ## What goes into the cost of using {{ monitoring-short-name }} {#rules}
 
@@ -21,6 +23,8 @@ Pricing features:
 * There is no charge for writing {{ yandex-cloud }} resource metrics collected automatically.
 * Reading metrics via the {{ monitoring-short-name }} interface and {{ yandex-cloud }} console is not charged.
 * Incoming and outgoing traffic in {{ monitoring-short-name }} is not charged.
+
+{% if product == "yandex-cloud" %}
 
 ### Example of cost calculation {#example}
 
@@ -73,7 +77,11 @@ Where:
 * (60 * 24 * 30) is the number of minutes in 30 days.
 * {% if region == "ru" %}₽7.00{% endif %}{% if region == "kz" %}₸35.00{% endif %}{% if region == "int" %}$0.0560{% endif %} is the cost of reading 1 million values (up to 50 million values).
 
-## Pricing {#prices}
+{% endif %}
+
+## Pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -104,5 +112,13 @@ For example, the cost of writing the first 100000 values is `(100000 values / 1 
 {% include [usd.md](../_pricing/monitoring/usd.md) %}
 
 {% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+The minimum billable unit is 1 metric value. The cost is rounded to the nearest agora.
+
+{% include [ils.md](../_pricing/monitoring/ils.md) %}
 
 {% endif %}

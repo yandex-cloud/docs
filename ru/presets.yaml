@@ -900,6 +900,7 @@ cloud-il:
   link-console-access-management: https://console.cloudil.co.il/iam
   link-console-iam-users: https://console.cloudil.co.il/iam?section=users
   link-console-support: https://console.cloudil.co.il/support
+  link-cloud-calculator: https://cloudil.co.il/prices#calculator
   link-cloud-services: https://cloudil.co.il/services
   link-cloud-services-infrastructure: https://cloudil.co.il/services#infrastructure-network
   link-cloud-notifications: https://console.cloudil.co.il/cloud?section=incident-notifications

@@ -16,4 +16,3 @@
 #### См. также {#see-also}
 
 [{{ api-gw-full-name }}](../../../api-gateway/)
-

@@ -32,8 +32,6 @@
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-{% if product == "yandex-cloud" %}
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
@@ -42,8 +40,6 @@
 * плата за хранение данных в бакете (см. [тарифы {{ objstorage-name }}](../../storage/pricing#prices-storage));
 * плата за операции с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing#prices-operations));
 * плата за использование ключей {{ kms-short-name }} (см. [тарифы {{ kms-name }}](../../kms/pricing#prices)).
-
-{% endif %}
 
 ## Подготовьте окружение {#prepare-environment}
 

@@ -1,4 +1,4 @@
-| Service | Price per unit,<br/>incl. VAT |
+| Service | Price per unit,<br/>with VAT |
 |---------------------------------------------------------------------------------------| --- |
 | [Data streaming recognition](../../speechkit/stt/streaming.md) | {{ sku|KZT|ai.speech.stt|string }} |
 | [Synchronous recognition](../../speechkit/stt/request.md) | {{ sku|KZT|ai.speech.stt|string }} |

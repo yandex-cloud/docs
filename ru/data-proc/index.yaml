@@ -73,6 +73,5 @@ links:
     description: Настройка прав доступа для работы с сервисом
     href: security/
   - title: Правила тарификации
-    when: product == "yandex-cloud"
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing

@@ -16,8 +16,6 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% if product == "yandex-cloud" %}
-
 
 ### Required paid resources {#paid-resources}
 
@@ -25,7 +23,6 @@ The infrastructure support cost includes:
 * Using a data stream (see [{{ yds-name }} pricing](../../data-streams/pricing.md)).
 * Using {{ ydb-full-name }} in serverless mode (see [{{ ydb-name }} pricing](../../ydb/pricing/serverless.md)).
 
-{% endif %}
 
 ## Prepare the environment {#environment-preparing}
 

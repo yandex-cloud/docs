@@ -1,0 +1,3 @@
+| Service | Price per GB<br>of useful traffic |
+| --- | --- |
+| Filtering incoming traffic to a public IP address with DDoS protection | {{ sku|ILS|network.ingress.inet.antiddos.qrator|string }} |

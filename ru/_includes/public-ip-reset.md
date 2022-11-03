@@ -2,8 +2,4 @@
 
 Публичный IP-адрес можно сделать статическим. Подробнее читайте в разделе [{#T}](../compute/operations/vm-control/vm-set-static-ip.md).
 
-{% if product == "yandex-cloud" %}
-
 Подробнее о правилах тарификации IP-адресов читайте в разделе [{#T}](../vpc/pricing.md#prices-public-ip) документации сервиса {{ vpc-name }}.
-
-{% endif %}

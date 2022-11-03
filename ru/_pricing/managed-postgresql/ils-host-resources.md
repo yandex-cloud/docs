@@ -1,0 +1,5 @@
+| Ресурс        | Цена за 1 час                                   |
+|---------------|-------------------------------------------------|
+| **Intel Ice Lake**                                              |
+| 100% vCPU     | {{ sku|ILS|mdb.cluster.pg.v3.cpu.c100|string }} |
+| RAM (за 1 ГБ) | {{ sku|ILS|mdb.cluster.pg.v3.ram|string }}      |

@@ -6,13 +6,19 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ vpc-name }} не тарифицируется.
+{% note info %}
+
+Цены, указанные ниже, начнут действовать 14 ноября 2022 года, когда сервис {{ vpc-name }} [станет общедоступным](../overview/concepts/launch-stages.md). До этого использование сервиса не тарифицируется.
+
+{% endnote %}
 
 {% endif %}
 
 {% if product == "yandex-cloud" %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% endif %}
 
 ## Из чего складывается стоимость использования {{ vpc-short-name }} {#rules}
 
@@ -22,7 +28,7 @@ editable: false
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-## Цены {{ vpc-short-name }} {#prices}
+## Цены {{ vpc-short-name }} {% if product == "cloud-il" %}c 14 ноября 2022 года{% endif %} {#prices}
 
 ### Публичные IP-адреса {#prices-public-ip}
 
@@ -40,6 +46,8 @@ editable: false
 Все цены указаны без НДС.
 
 {% endif %}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -59,7 +67,17 @@ editable: false
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-ip.md](../_pricing/vpc/ils-ip.md) %}
+
+{% endif %}
+
 Стоимость неактивного публичного статического адреса складывается из стоимости публичного IP-адреса и стоимости резервирования неактивного публичного статического IP-адреса.
+
+{% if product == "yandex-cloud" %}
 
 Например, стоимость неактивного публичного статического адреса составит:
 
@@ -73,6 +91,8 @@ editable: false
 
 * {% if region == "ru" %}0,2400 ₽{% endif %}{% if region == "kz" %}1,2000 ₸{% endif %}{% if region == "int" %}0,001920 ${% endif %} — стоимость часа использования публичного IP-адреса.
 * {% if region == "ru" %}0,3100 ₽{% endif %}{% if region == "kz" %}1,5500 ₸{% endif %}{% if region == "int" %}0,002480 ${% endif %} — стоимость часа резервирования неактивного публичного статического IP-адреса.
+
+{% endif %}
 
 ### Использование групп безопасности {#prices-security-groups}
 
@@ -89,6 +109,8 @@ editable: false
 Все цены указаны без НДС.
 
 {% endif %}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -108,7 +130,17 @@ editable: false
 
 {% endif %}
 
-## Цены {{ ddos-protection-full-name }} {#prices-ddos-protection}
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-egress-traffic.md](../_pricing/ils-egress-traffic.md) %}
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+## Цены {{ ddos-protection-full-name }} {% if product == "cloud-il" %}c 14 ноября 2022 года{% endif %} {#prices-ddos-protection}
 
 {% if region != "int" %}
 
@@ -119,6 +151,8 @@ editable: false
 Все цены указаны без НДС.
 
 {% endif %}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -138,15 +172,25 @@ editable: false
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-ddos.md](../_pricing/vpc/ils-ddos.md) %}
+
+{% endif %}
+
 Полезный трафик — это входящий трафик, который система фильтрации DDoS Protection допускает к облачным ресурсам пользователя. Тарифицируется только полезный трафик.
 
 Например, на виртуальную машину пользователя была проведена типовая DDoS-атака в 10 Гбит/с, которая сгенерировала 75 ГБ входящего трафика. Во время атаки пользователь загрузил из интернета на виртуальную машину 2 ГБ полезных файлов. Когда атака закончилась, пользователь загрузил еще 2 ГБ полезных файлов. 
 
 В этом случае тарифицируются только 4 ГБ полезного трафика: 2 ГБ, который система DDoS Protection допустила к облачным ресурсам во время атаки, и 2 ГБ, которые были загружены, когда атака не велась. Вредоносный трафик отфильтровывается и не тарифицируется.
 
+{% endif %}
+
 {% if region == "ru" %}
 
-## Цены {{ adv-ddos-protection }} {#prices-ddos-advanced}
+## Цены {{ adv-ddos-protection }} {% if product == "cloud-il" %}c 14 ноября 2022 года{% endif %} {#prices-ddos-advanced}
 
 Услуга {{ adv-ddos-protection }} подключается по запросу через [форму](https://forms.yandex.ru/surveys/13203262.d03e905cf02195bec1093aa2b032802fe13caac0/).
 
@@ -160,22 +204,40 @@ editable: false
 
 Все цены указаны с учетом НДС.
 
+{% if product == "yandex-cloud" %}
+
 {% include [rub-advanced-ddos.md](../_pricing/vpc/rub-advanced-ddos.md) %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-advanced-ddos.md](../_pricing/vpc/ils-advanced-ddos.md) %}
+
+{% endif %}
 
 В тариф {{ adv-ddos-protection }} включены следующие услуги:
 
 {% include [rub-advanced-ddos-services.md](../_pricing/vpc/rub-advanced-ddos-services.md) %}
 
-## Цены Managed Web Application Firewall {#prices-waf}
+## Цены Managed Web Application Firewall {% if product == "cloud-il" %}c 14 ноября 2022 года{% endif %} {#prices-waf}
 
 Все цены указаны с учетом НДС.
 
+{% if product == "yandex-cloud" %}
+
 {% include [rub-waf.md](../_pricing/vpc/rub-waf.md) %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-waf.md](../_pricing/vpc/ils-waf.md) %}
+
+{% endif %}
 
 В тариф Managed Web Application Firewall включены следующие услуги:
 
 {% include [waf-services.md](../_pricing/vpc/waf-services.md) %}
-
-{% endif %}
 
 {% endif %}

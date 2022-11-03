@@ -32,8 +32,6 @@ If you no longer need these resources, [delete them](#clear-out).
 
 To be able to go through the tutorial, you need an instance of Splunk available to the intermediate VM on port `8080`.
 
-{% if product == "yandex-cloud" %}
-
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost includes:
@@ -42,8 +40,6 @@ The infrastructure support cost includes:
 * A fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing#prices-storage)).
 * A fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing#prices-operations)).
 * A fee for using KMS keys (see [{{ kms-name }} pricing](../../kms/pricing#prices)).
-
-{% endif %}
 
 ## Prepare the environment {#prepare-environment}
 

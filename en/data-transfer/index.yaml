@@ -65,4 +65,3 @@ links:
   - title: Pricing policy
     description: Prices and rules for calculating the service cost
     href: pricing
-    when: product == "yandex-cloud"

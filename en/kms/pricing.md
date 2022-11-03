@@ -6,11 +6,13 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ kms-name }} can be used free of charge.
+{% note info %}
+
+The prices listed below will take effect on November 14, 2022, when {{ kms-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+
+{% endnote %}
 
 {% endif %}
-
-{% if product == "yandex-cloud" %}
 
 The cost of {{ kms-name }} usage is based on:
 * The number of active key versions used: versions with the `Active` and `Scheduled For Destruction` statuses.
@@ -23,7 +25,9 @@ The cost of {{ kms-name }} usage is based on:
 
 * The number of cryptographic operations performed ([encrypt](api-ref/SymmetricCrypto/encrypt), [decrypt](api-ref/SymmetricCrypto/decrypt), [reEncrypt](api-ref/SymmetricCrypto/reEncrypt), [generateDataKey](api-ref/SymmetricCrypto/generateDataKey)).
 
-## Pricing {#prices}
+## Pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru"%}
 
@@ -42,5 +46,11 @@ The cost of {{ kms-name }} usage is based on:
 {% include [usd.md](../_pricing/kms/usd.md) %}
 
 {% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils.md](../_pricing/kms/ils.md) %}
 
 {% endif %}

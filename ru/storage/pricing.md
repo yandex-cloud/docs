@@ -6,15 +6,21 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ objstorage-name }} не тарифицируется.
+{% note info %}
+
+Цены, указанные ниже, начнут действовать 14 ноября 2022 года, когда сервис {{ objstorage-name }} [станет общедоступным](../overview/concepts/launch-stages.md). До этого использование сервиса не тарифицируется.
+
+{% endnote %}
 
 {% endif %}
 
-{% if product == "yandex-cloud" %}
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+{% if product == "yandex-cloud" %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% endif %}
 
 ## Из чего складывается стоимость использования {{ objstorage-short-name }} {#rules}
 
@@ -35,11 +41,7 @@ editable: false
 
 Использование хранилища измеряется в ГБ в месяц. Объемом хранимых в течение месяца данных считается среднее значение за месяц, согласно данным, гранулированным посекундно. Минимальная единица тарификации — час хранения 1 МБ данных.
 
-{% if product == "yandex-cloud" %}
-
 {% include [ice-minimum-duration](../_includes/storage/ice-minimum-duration.md) %}
-
-{% endif %}
 
 ### Выполнение операций с данными {#rules-operations}
 
@@ -48,11 +50,13 @@ editable: false
 * Минимальная единица тарификации для операций GET, HEAD — 100.
 * Удаление данных (операция DELETE) не тарифицируется.
 
-## Цены {#prices}
+## Цены {% if product == "cloud-il" %}c 14 ноября 2022 года{% endif %} {#prices}
 
 ### Хранение данных {#prices-storage}
 
 Цены за ГБ в месяц фиксированы и не зависят от количества дней в месяце.
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -72,6 +76,14 @@ editable: false
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils.md](../_pricing/storage/ils-used_space.md) %}
+
+{% endif %}
+
 Стоимость услуги хранения в день рассчитывается как `Цена_за_ГБ_в_месяц / кол-во_дней_в_месяце`. Для более коротких месяцев цена за день будет выше, для более длинных — ниже.
 
 Пример пропорционального расчета: пусть пользователь хранит 15 ГБ в течение 11 часов и 30 минут в месяце длиной 30 календарных дней. Общую цену хранения можно рассчитать по формуле:
@@ -81,6 +93,8 @@ editable: false
 ```
 
 Каждый месяц первый 1 ГБ хранения данных в стандартном хранилище не тарифицируется.
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -103,7 +117,11 @@ editable: false
 
 {% endif %}
 
+{% endif %}
+
 {% include [ice-minimum-duration](../_includes/storage/ice-minimum-duration.md) %}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -159,8 +177,12 @@ editable: false
 
 {% endif %}
 
+{% endif %}
+
 
 ### Операции с данными {#prices-operations}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -180,6 +202,14 @@ editable: false
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils.md](../_pricing/storage/ils-operations.md) %}
+
+{% endif %}
+
 {% note info %}
 
 Операции с данными, в ходе выполнения которых произошла ошибка, тарифицируются только в случаях:
@@ -191,6 +221,8 @@ editable: false
 {% endnote %}
 
 Каждый месяц первые 10 000 операций PUT и POST, а также первые 100 000 операций GET и HEAD в стандартном хранилище не тарифицируются.
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -213,11 +245,15 @@ editable: false
 
 {% endif %}
 
+{% endif %}
+
 ### Исходящий трафик {#prices-traffic}
 
 При использовании сервиса оплачивается исходящий трафик из {{ yandex-cloud }} в интернет. Передача трафика между сервисами {{ yandex-cloud }}, как и входящий трафик из интернета, не тарифицируется.
 
 Минимальная единица тарификации — 1 МБ. Период тарификации — календарный месяц.
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -237,7 +273,17 @@ editable: false
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils.md](../_pricing/storage/ils-egress.md) %}
+
+{% endif %}
+
 Каждый месяц первые 10 ГБ исходящего трафика для {{ objstorage-name }} не тарифицируются.
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 

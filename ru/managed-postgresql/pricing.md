@@ -6,13 +6,19 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ mpg-name }} не тарифицируется.
+{% note info %}
+
+Цены, указанные ниже, начнут действовать 14 ноября 2022 года, когда сервис {{ mpg-name }} [станет общедоступным](../overview/concepts/launch-stages.md). До этого использование сервиса не тарифицируется.
+
+{% endnote %}
 
 {% endif %}
 
 {% if product == "yandex-cloud" %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% endif %}
 
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
@@ -35,13 +41,18 @@ editable: false
 ### Использование дискового пространства {#rules-storage}
 
 Оплачивается:
+
 * Объем хранилища, выделенный для кластеров БД.
 
+    {% if product == "yandex-cloud" %}
+
     * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами и более:
-        {% if product == "yandex-cloud" %}* для платформ Intel Broadwell и Intel Cascade Lake — с шагом 100 ГБ;{% endif %}
+        * для платформ Intel Broadwell и Intel Cascade Lake — с шагом 100 ГБ;
         * для платформы Intel Ice Lake — с шагом {{ local-ssd-v3-step }}.
 
     * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с тремя хостами и более, с шагом 93 ГБ.
+
+    {% endif %}
 
 * Объем, занимаемый резервными копиями баз данных сверх заданного хранилища для кластера.
 
@@ -52,6 +63,8 @@ editable: false
     * Количество хостов кластера не влияет на объем хранилища и, соответственно, на бесплатный объем резервных копий.
 
 Цена указывается за 1 месяц использования. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
+
+{% if product == "yandex-cloud" %}
 
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
@@ -65,7 +78,9 @@ editable: false
 
 {% endnote %}
 
-## Цены {#prices}
+{% endif %}
+
+## Цены {% if product == "cloud-il" %}c 14 ноября 2022 года{% endif %} {#prices}
 
 {% if region != "int" %}
 
@@ -78,6 +93,8 @@ editable: false
 {% endif %}
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -97,7 +114,17 @@ editable: false
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-host-resources.md](../_pricing/managed-postgresql/ils-host-resources.md) %}
+
+{% endif %}
+
 ### Хранилище и резервные копии {#prices-storage}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -117,7 +144,17 @@ editable: false
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-storage.md](../_pricing/managed-postgresql/ils-storage.md) %}
+
+{% endif %}
+
 ### Исходящий трафик {#prices-traffic}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -139,3 +176,8 @@ editable: false
 
 {% endif %}
 
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-egress-traffic.md](../_pricing/ils-egress-traffic.md) %}
+
+{% endif %}

@@ -31,7 +31,6 @@ If you have an active billing account, you can create or select a folder to run 
 
 [Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
-{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -41,7 +40,6 @@ The cost of installing RDGW includes:
 * A fee for using dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
-{% endif %}
 
 ## Create a cloud network and subnets {#create-network}
 

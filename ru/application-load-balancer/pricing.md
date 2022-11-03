@@ -6,17 +6,21 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ alb-name }} не тарифицируется.
+{% note info %}
+
+Цены, указанные ниже, начнут действовать 14 ноября 2022 года, когда сервис {{ alb-name }} [станет общедоступным](../overview/concepts/launch-stages.md). До этого использование сервиса не тарифицируется.
+
+{% endnote %}
 
 {% endif %}
-
-{% if product == "yandex-cloud" %}
 
 ## Из чего складывается стоимость использования {{ alb-name }} {#rules}
 
 При работе с сервисом {{ alb-name }} вы платите за фактическое использование вычислительных ресурсов каждого активного балансировщика. Использование сервиса тарифицируется почасно.
 
 {% include [lcu-calculation](../_includes/application-load-balancer/lcu-calculation.md) %}
+
+{% if product == "yandex-cloud" %}
 
 ### Пример расчета стоимости {#example}
 
@@ -58,7 +62,11 @@ editable: false
 * {% if region == "ru" %}17,76 ₽{% endif %}{% if region == "kz" %}88,80 ₸{% endif %}{% if region == "int" %}0,142080 ${% endif %} — цена ресурсной единицы.
 * 720 — количество часов в месяц.
 
-## Цены {#prices}
+{% endif %}
+
+## Цены {% if product == "cloud-il" %}c 14 ноября 2022 года{% endif %} {#prices}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -77,5 +85,11 @@ editable: false
 {% include [usd-lcu.md](../_pricing/application-load-balancer/usd-lcu.md) %}
 
 {% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-lcu.md](../_pricing/application-load-balancer/ils-lcu.md) %}
 
 {% endif %}

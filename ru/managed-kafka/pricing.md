@@ -6,13 +6,19 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ mkf-name }} не тарифицируется.
+{% note info %}
+
+Цены, указанные ниже, начнут действовать 14 ноября 2022 года, когда сервис {{ mkf-name }} [станет общедоступным](../overview/concepts/launch-stages.md). До этого использование сервиса не тарифицируется.
+
+{% endnote %}
 
 {% endif %}
 
 {% if product == "yandex-cloud" %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% endif %}
 
 ## Статус кластера {#running-stopped}
 
@@ -41,13 +47,13 @@ editable: false
 
 Вы можете выбрать класс хостов как для хостов-брокеров {{ KF }}, так и для хостов {{ ZK }} (в соответствии с ожидаемой нагрузкой реплицирования).
 
+{% if product == "yandex-cloud" and audience != "internal" %}
+
 В зависимости от [типа хоста](./concepts/index.md) стоимость вычисляется по-разному:
 
 * Стандартные хосты
 
     Стоимость начисляется за каждый час работы хоста в соответствии с выделенными для него вычислительными ресурсами.
-
-{% if product == "yandex-cloud" and audience != "internal" %}
 
 * Выделенные хосты
 
@@ -67,12 +73,18 @@ editable: false
 
 Оплачивается объем хранилища, выделенный для кластеров.
 
+{% if product == "yandex-cloud" %}
+
   * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами-брокерами и более:
-      {% if product == "yandex-cloud" %}* для платформы Intel Cascade Lake — с шагом 100 ГБ;{% endif %}
+      * для платформы Intel Cascade Lake — с шагом 100 ГБ;
       * для платформы Intel Ice Lake — с шагом {{ local-ssd-v3-step }}.
   * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с тремя хостами-брокерами и более, с шагом 93 ГБ.
 
+{% endif %}
+
 Цена указывается за 1 месяц использования. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
+
+{% if product == "yandex-cloud" %}
 
 ### Пример расчета стоимости кластера {#example}
 
@@ -158,6 +170,10 @@ editable: false
 
 {% endlist %}
 
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -170,7 +186,9 @@ editable: false
 
 {% endnote %}
 
-## Цены {#prices}
+{% endif %}
+
+## Цены {% if product == "cloud-il" %}c 14 ноября 2022 года{% endif %} {#prices}
 
 {% if region != "int" %}
 
@@ -182,11 +200,17 @@ editable: false
 
 {% endif %}
 
+{% if product == "yandex-cloud" %}
+
 Цены на хосты [вычисляются по-разному](#rules-hosts-uptime) в зависимости от выбранного типа хостов.
 
 От типа хостов также зависит цена на быстрое локальное хранилище.
 
+{% endif %}
+
 ### Вычислительные ресурсы хостов-брокеров {{ KF }} {#prices-kafka-brokers}
+
+{% if product == "yandex-cloud" %}
 
 {% list tabs %}
 
@@ -196,7 +220,7 @@ editable: false
     {% if region == "kz" %} {% include notitle [KZT: standard broker hosts](../_pricing/managed-kafka/kzt-hosts-standard.md) %}{% endif %}
     {% if region == "int" %}{% include notitle [USD: standard broker hosts](../_pricing/managed-kafka/usd-hosts-standard.md) %}{% endif %}
 
-{% if product == "yandex-cloud" and audience != "internal" %}
+{% if audience != "internal" %}
 
 * Выделенные хосты
 
@@ -204,13 +228,23 @@ editable: false
 
     {% if region == "ru" %} {% include notitle [RUB: dedicated broker hosts](../_pricing/managed-kafka/rub-hosts-dedicated.md) %}{% endif %}
     {% if region == "kz" %} {% include notitle [KZT: dedicated broker hosts](../_pricing/managed-kafka/kzt-hosts-dedicated.md) %}{% endif %}
-    {% if region == "int" %}{% include notitle [USD: dedicated broker hosts](../_pricing/managed-kafka/usd-hosts-dedicated.md) %}{% endif %}
-    
+    {% if region == "int" %}{% include notitle [USD: dedicated broker hosts](../_pricing/managed-kafka/usd-hosts-dedicated.md) %}{% endif %}  
+
 {% endif %}
 
 {% endlist %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+    
+{% include notitle [ILS: standard broker hosts](../_pricing/managed-kafka/ils-hosts-standard.md) %}
+    
+{% endif %}
+
 ### Вычислительные ресурсы хостов {{ ZK }} {#prices-zookeeper}
+
+{% if product == "yandex-cloud" %}
 
 {% note info %}
 
@@ -226,7 +260,7 @@ editable: false
     {% if region == "kz" %} {% include notitle [KZT: standard ZooKeeper hosts](../_pricing/managed-kafka/kzt-hosts-zk-standard.md) %}{% endif %}
     {% if region == "int" %}{% include notitle [USD: standard ZooKeeper hosts](../_pricing/managed-kafka/usd-hosts-zk-standard.md) %}{% endif %}
 
-{% if product == "yandex-cloud" and audience != "internal" %}
+{% if audience != "internal" %}
 
 * Выделенные хосты
 
@@ -244,13 +278,33 @@ editable: false
 
 {% endlist %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ILS: standard ZooKeeper hosts](../_pricing/managed-kafka/ils-hosts-zk-standard.md) %}
+
+{% endif %}
+
 ### Хранилище {#prices-storage}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %} {% include notitle [RUB: Storage prices](../_pricing/managed-kafka/rub-storage.md) %}{% endif %}
 {% if region == "kz" %} {% include notitle [KZT: Storage prices](../_pricing/managed-kafka/kzt-storage.md) %}{% endif %}
 {% if region == "int" %}{% include notitle [USD: Storage prices](../_pricing/managed-kafka/usd-storage.md) %}{% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ILS: Storage prices](../_pricing/managed-kafka/ils-storage.md) %}
+
+{% endif %}
+
 ### Исходящий трафик {#prices-traffic}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -269,5 +323,11 @@ editable: false
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-egress-traffic.md](../_pricing/ils-egress-traffic.md) %}
 
 {% endif %}

@@ -6,19 +6,23 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ managed-k8s-name }} не тарифицируется.
+{% note info %}
+
+Цены, указанные ниже, начнут действовать 14 ноября 2022 года, когда сервис {{ managed-k8s-name }} [станет общедоступным](../overview/concepts/launch-stages.md). До этого использование сервиса не тарифицируется.
+
+{% endnote %}
 
 {% endif %}
-
-{% if product == "yandex-cloud" %}
 
 В рамках сервиса {{ managed-k8s-name }} тарифицируется использование [мастера](concepts/index.md#master) и исходящий трафик.
 
 Узлы тарифицируются по [правилам тарификации {{ compute-full-name }}](../compute/pricing.md).
 
-## Цены {#prices}
+## Цены{% if product == "cloud-il" %} c 14 ноября 2022 года{% endif %} {#prices}
 
 ### Мастер {#master}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -38,7 +42,17 @@ editable: false
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils.md](../_pricing/managed-kubernetes/ils.md) %}
+
+{% endif %}
+
 ### Исходящий трафик {#prices-traffic}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -57,5 +71,11 @@ editable: false
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-egress-traffic.md](../_pricing/ils-egress-traffic.md) %}
 
 {% endif %}

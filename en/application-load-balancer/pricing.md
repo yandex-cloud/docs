@@ -6,17 +6,21 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ alb-name }} can be used free of charge.
+{% note info %}
+
+The prices listed below will take effect on November 14, 2022, when {{ alb-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+
+{% endnote %}
 
 {% endif %}
-
-{% if product == "yandex-cloud" %}
 
 ## What goes into the cost of using {{ alb-name }} {#rules}
 
 When using the {{ alb-name }} service, you pay for the actual use of computing resources of every active load balancer. The service is charged on an hourly basis.
 
 {% include [lcu-calculation](../_includes/application-load-balancer/lcu-calculation.md) %}
+
+{% if product == "yandex-cloud" %}
 
 ### Example of cost calculation {#example}
 
@@ -58,7 +62,11 @@ Where:
 * {% if region == "ru" %}₽17.76{% endif %}{% if region == "kz" %}₸88.80{% endif %}{% if region == "int" %}$0.142080{% endif %} is the cost per resource unit.
 * 720 is the number of hours in a month.
 
-## Pricing {#prices}
+{% endif %}
+
+## Pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -77,5 +85,11 @@ Where:
 {% include [usd-lcu.md](../_pricing/application-load-balancer/usd-lcu.md) %}
 
 {% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-lcu.md](../_pricing/application-load-balancer/ils-lcu.md) %}
 
 {% endif %}

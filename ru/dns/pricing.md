@@ -6,13 +6,17 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ dns-name }} не тарифицируется.
+{% note info %}
+
+Цены, указанные ниже, начнут действовать 14 ноября 2022 года, когда сервис {{ dns-name }} [станет общедоступным](../overview/concepts/launch-stages.md). До этого использование сервиса не тарифицируется.
+
+{% endnote %}
 
 {% endif %}
 
-{% if product == "yandex-cloud" %}
+## Публичные DNS-запросы {% if product == "cloud-il" %}c 14 ноября 2022 года{% endif %} {#public-dns-requests}
 
-## Публичные DNS-запросы {#public-dns-requests}
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -32,6 +36,14 @@ editable: false
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-public-dns-requests.md](../_pricing/dns/ils-public-dns-requests.md) %}
+
+{% endif %}
+
 Тарифицируются:
 * Авторитетные запросы — любые запросы DNS-записей в [публичных зонах](concepts/dns-zone.md#public-zones) пользователя из интернета или из {{ yandex-cloud }}.
 * Рекурсивные запросы — запросы внешних доменных имен в интернете из виртуальных машин {{ yandex-cloud }}.
@@ -45,15 +57,17 @@ editable: false
 Не тарифицируются:
 * Запросы из ВМ во [внутренние](concepts/dns-zone.md#private-zones) и [сервисные](concepts/dns-zone.md#service-zones) зоны.
 
-**С 6 декабря 2021 года не тарифицируются**:
+{% if product == "yandex-cloud" %}**С 6 декабря 2021 года не тарифицируются**:{% endif %}
 * Каждый месяц — первый миллион (1 000 000) рекурсивных запросов из ВМ.
 
   После того как вы израсходуете этот нетарифицируемый объем, начнет взиматься плата в соответствии с тарифом.
 
   Если вы не израсходовали нетарифицируемый объем услуг до конца календарного месяца, остаток обнуляется.
-* Запросы доменных имен сервисов {{ yandex-cloud }} (например, `{{ api-host }}`) и Яндекса (например, `mail.yandex.ru`) — как из ВМ, так и из интернета.
+* Запросы доменных имен сервисов {{ yandex-cloud }} (например, `{{ api-host }}`){% if product == "yandex-cloud" %}и Яндекса (например, `mail.yandex.ru`){% endif %} — как из ВМ, так и из интернета.
 
 Стоимость публичных DNS-запросов рассчитывается пропорционально потреблению.
+
+{% if product == "yandex-cloud" %}
 
 Например, стоимость 50 тыс. авторитетных запросов к вашей публичной DNS-зоне за месяц составит:
 
@@ -81,7 +95,9 @@ editable: false
 * (1,2 − 1,0) — количество миллионов выполненных запросов. Первый миллион рекурсивных запросов не тарифицируется начиная с 6 декабря 2021.
 * {% if region == "ru" %}32 ₽{% endif %}{% if region == "kz" %}160 ₸{% endif %}{% if region == "int" %}0,256410 ${% endif %} — цена за 1 млн рекурсивных запросов в месяц.
 
-## DNS-зоны {#dns-zones}
+{% endif %}
+
+## DNS-зоны {% if product == "cloud-il" %}c 14 ноября 2022 года{% endif %} {#dns-zones}
 
 Тарифицируются [публичные](concepts/dns-zone.md#public-zones) или [внутренние](concepts/dns-zone.md#private-zones) DNS-зоны, созданные пользователем.
 
@@ -89,7 +105,13 @@ editable: false
 
 Тарификация посекундная. Стоимость рассчитывается пропорционально потреблению.
 
+{% if product == "yandex-cloud" %}
+
 > Например, стоимость владения 2 DNS-зонами в течение 360 часов будет такой же, как стоимость владения 1 DNS-зоной в течение 720 часов.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -108,5 +130,11 @@ editable: false
 {% include [usd-public-dns-zones.md](../_pricing/dns/usd-dns-zones.md) %}
 
 {% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-public-dns-zones.md](../_pricing/dns/ils-dns-zones.md) %}
 
 {% endif %}

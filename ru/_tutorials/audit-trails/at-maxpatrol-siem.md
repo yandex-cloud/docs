@@ -16,8 +16,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% if product == "yandex-cloud" %}
-
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -25,7 +23,6 @@
 * использование потока данных (см. [тарифы {{ yds-name }}](../../data-streams/pricing.md)).
 * использование {{ ydb-full-name }} в бессерверном режиме (см. [тарифы {{ ydb-name }}](../../ydb/pricing/serverless.md)).
 
-{% endif %}
 
 ## Подготовьте окружение {#environment-preparing}
 

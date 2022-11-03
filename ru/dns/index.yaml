@@ -49,7 +49,6 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
-    when: product == "yandex-cloud"
   - title: Вопросы и ответы
     description: Ответы на часто задаваемые вопросы
     href: qa/

@@ -29,7 +29,6 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -38,7 +37,6 @@ The cost of virtual hosting includes:
 * A fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a public static IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
-{% endif %}
 
 ## Create a cloud network {#create-network}
 

@@ -28,8 +28,6 @@
 
 1. {% include [Install and configure kubectl](../_includes/managed-kubernetes/kubectl-install.md) %}
 
-{% if product == "yandex-cloud" %}
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
@@ -38,8 +36,6 @@
 * использование узлов кластера {{ managed-k8s-name }} (см. [тарифы {{ compute-name }}](../compute/pricing.md));
 * использование публичных IP-адресов (см. [тарифы {{ vpc-name }}](../vpc/pricing.md));
 * входящий трафик, обработанный балансировщиком, и использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-short-name }}](../network-load-balancer/pricing.md)).
-
-{% endif %}
 
 ## Создайте сертификат в {{ certificate-manager-name }}
 

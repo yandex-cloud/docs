@@ -29,7 +29,6 @@ description: "Из данной инструкции вы узнаете, как
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -38,7 +37,6 @@ description: "Из данной инструкции вы узнаете, как
 * плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование публичного статического IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
-{% endif %}
 
 ## Создайте облачную сеть {#create-network}
 

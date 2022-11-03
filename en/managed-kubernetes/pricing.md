@@ -6,7 +6,11 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, the use of the {{ managed-k8s-name }} service is not charged.
+{% note info %}
+
+The prices listed below will take effect on November 14, 2022, when {{ managed-k8s-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+
+{% endnote %}
 
 {% endif %}
 
@@ -14,13 +18,17 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, the use of the {{
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% endif %}
+
 In {{ managed-k8s-name }}, you're charged for using [masters](concepts/index.md#master) and outgoing traffic.
 
 Nodes are charged according to [pricing for {{ compute-full-name }}](../compute/pricing.md).
 
-## Pricing {#prices}
+## Pricing{% if product == "cloud-il" %} starting November 14, 2022{% endif %} {#prices}
 
 ### Master {#master}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -40,7 +48,17 @@ Nodes are charged according to [pricing for {{ compute-full-name }}](../compute/
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils.md](../_pricing/managed-kubernetes/ils.md) %}
+
+{% endif %}
+
 ### Outgoing traffic {#prices-traffic}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -59,5 +77,11 @@ Nodes are charged according to [pricing for {{ compute-full-name }}](../compute/
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-egress-traffic.md](../_pricing/ils-egress-traffic.md) %}
 
 {% endif %}

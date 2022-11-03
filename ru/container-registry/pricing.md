@@ -6,13 +6,19 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ container-registry-name }} не тарифицируется.
+{% note info %}
+
+Цены, указанные ниже, начнут действовать 14 ноября 2022 года, когда сервис {{ container-registry-name }} [станет общедоступным](../overview/concepts/launch-stages.md). До этого использование сервиса не тарифицируется.
+
+{% endnote %}
 
 {% endif %}
 
 {% if product == "yandex-cloud" %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% endif %}
 
 ## Из чего складывается стоимость использования {{ container-registry-name }} {#rules}
 
@@ -32,11 +38,13 @@ editable: false
 
 {% endnote %}
 
-## Цены {#prices}
+## Цены{% if product == "cloud-il" %} c 14 ноября 2022 года{% endif %} {#prices}
 
 ### Хранение данных {#prices-storage}
 
 Цены за ГБ в месяц фиксированны и не зависят от количества дней в месяце. Стоимость услуги хранения в день для более коротких месяцев будет выше, для более длинных — ниже.
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -56,11 +64,21 @@ editable: false
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils.md](../_pricing/cr/ils.md) %}
+
+{% endif %}
+
 Пример пропорционального расчета: пусть пользователь хранит 15 ГБ в течение 11 часов и 30 минут в месяце длиной 30 календарных дней. Общую цену хранения можно рассчитать по формуле:
 
 ```
 Цена_хранения = Цена_за_ГБ_в_месяц * 15 * 12 / 24 / 30
 ```
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -79,5 +97,11 @@ editable: false
 {% include [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-egress-traffic.md](../_pricing/ils-egress-traffic.md) %}
 
 {% endif %}

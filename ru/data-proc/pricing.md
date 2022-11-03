@@ -6,7 +6,9 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ dataproc-name }} не тарифицируется.
+В настоящий момент потребление ресурсов {{ dataproc-name }} не тарифицируется.
+
+За потребление других ресурсов {{ yandex-cloud }} будет взиматься плата в соответствии с их тарифами.
 
 {% endif %}
 
@@ -113,9 +115,11 @@ editable: false
 
 {% endif %}
 
-## Цены {#prices}
+## Цены {#prices} 
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -135,6 +139,8 @@ editable: false
 
 {% endif %}
 
+{% endif %}
+
 {% note info %}
 
 Возможность использовать GPU на хостах {{ dataproc-name }} предоставляется по запросу в [службу технической поддержки]({{ link-console-support }}).
@@ -142,6 +148,8 @@ editable: false
 {% endnote %}
 
 ### Исходящий трафик {#prices-traffic}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -158,6 +166,8 @@ editable: false
 {% if region == "int" %}
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}
 
 {% endif %}
 

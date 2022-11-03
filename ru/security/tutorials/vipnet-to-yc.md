@@ -78,16 +78,12 @@ VPN-туннель работает между двумя решениями ViP
 Чтобы создать ВМ с несколькими сетевыми интерфейсами, [запросите в технической поддержке]({{ link-console-support }}/create-ticket) включение флага `MULTI_INTERFACE_INSTANCES_ALPHA` на облако.
 
 
-{% if product == "yandex-cloud" %}
-
 ## Необходимые платные ресурсы {#paid-resources}
 
 В стоимость инфраструктуры входит:
 * Плата за вычислительные ресурсы, диски и образы ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 * Плата за хранение данных в бакете и операции с ними (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
 * Плата за публичный IP-адрес и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-
-{% endif %}
 
 
 ## Подготовьте окружение {#environment-preparing}
