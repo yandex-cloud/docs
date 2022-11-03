@@ -8,14 +8,13 @@
 
 When using {{ ydb-name }} in dedicated mode, you pay for the following:
 
-* The type and size of [storage groups](../concepts/index.md#storage-groups) allocated for the DB.
-* Allocated computing resources.
+* The type and size of [storage groups](../concepts/resources.md#storage-groups) allocated for the DB.
+* [Allocated computing resources](../concepts/resources.md#resource-presets).
 
 Other consumed resources to be additionally paid for:
 
 * The space used in Object Storage to store on-demand backups.
 * Outgoing traffic from {{ yandex-cloud }} to the Internet.
-
 
 {% include [pricing-gb-size](../_includes/pricing/pricing-gb-size.md) %}
 

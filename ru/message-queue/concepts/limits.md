@@ -1,6 +1,6 @@
 ---
 title: Квоты и лимиты в {{ message-queue-full-name }}
-description: 'В {{ message-queue-full-name }} действуют лимиты и квоты на количество вызовов SendMessage и SendMessageBatch на одну очередь, количество вызовов ReceiveMessage на одну очередь. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.'
+description: "В {{ message-queue-full-name }} действуют лимиты и квоты на количество вызовов SendMessage и SendMessageBatch на одну очередь, количество вызовов ReceiveMessage на одну очередь. Более подробно об ограничениях в сервисе вы узнаете из данной статьи."
 
 editable: false
 ---
