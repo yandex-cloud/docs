@@ -1,11 +1,5 @@
 # Настроить NAT-шлюз
 
-{% note info %}
-
-Функция находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 Чтобы создать и настроить NAT-шлюз:
 
 {% list tabs %}
