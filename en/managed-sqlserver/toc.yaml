@@ -92,3 +92,7 @@ items:
     items:
       - name: General questions
         href: qa/general.md
+      - name: Questions about {{ MS }}
+        href: qa/sqlserver.md
+      - name: All questions on one page
+        href: qa/all.md

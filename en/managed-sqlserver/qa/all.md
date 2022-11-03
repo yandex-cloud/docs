@@ -2,9 +2,9 @@
 
 ## General questions {#general}
 
-{% include notitle [general](general.md) %}
+{% include notitle [general](../../_qa/managed-sqlserver/general.md) %}
 
 ## Questions about {{ MS }} {#sqlserver}
 
-{% include notitle [sqlserver](sqlserver.md) %}
+{% include notitle [sqlserver](../../_qa/managed-sqlserver/sqlserver.md) %}
 
