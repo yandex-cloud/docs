@@ -95,6 +95,15 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
               - 10.10.0.0/24
            ...
       ```
+
+      {% note info %}
+
+      You can use `predefined=self_security_group` to apply a rule on the current security group.
+
+      For more information about the rule `Self` see the documentation on [types of rules](../concepts/security-groups.md#rules-types).
+
+      {% endnote %}
+
       To get help about the `--add-rule` parameter, run `yc vpc security-group update-rules --help`.
 
 - {{ TF }}

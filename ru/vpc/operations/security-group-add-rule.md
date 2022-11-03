@@ -95,6 +95,15 @@
              - 10.10.0.0/24
           ...
      ```
+
+     {% note info %}
+
+     Вы можете использовать `predefined=self_security_group` что бы задействовать правило на машины внутри изменяемой группы безопасности.
+
+     Подробнее о правиле `Self` читайте в [видах правил групп безопасности](../concepts/security-groups.md#rules-types).
+
+     {% endnote %}
+
      Чтобы получить справку о параметре `--add-rule`, выполните команду `yc vpc security-group update-rules --help`.
 
 - Terraform
