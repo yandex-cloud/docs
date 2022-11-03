@@ -95,7 +95,7 @@
   
   ```
   data "yandex_vpc_network" "net" {
-    folder_id = "<идентификатор каталога>""
+    folder_id = "<идентификатор каталога>"
     name      = "<имя облачной сети>"
   }
 
@@ -104,8 +104,8 @@
     name           = "<имя подсети>"
     v4_cidr_blocks = "10.20.30.0/24"
     zone           = ru-central1-a
-    network_id     = "${data.yandex_vpc_network.net.id}"
-    route_table_id = "${yandex_vpc_route_table.rt.id}"
+    network_id     = data.yandex_vpc_network.net.id
+    route_table_id = yandex_vpc_route_table.rt.id
   }
 
   resource "yandex_vpc_gateway" "nat_gateway" {
@@ -119,7 +119,7 @@
 
     static_route {
       destination_prefix = "0.0.0.0/0"
-      gateway_id         = "${yandex_vpc_gateway.nat_gateway.id}"
+      gateway_id         = yandex_vpc_gateway.nat_gateway.id
     }
   }
   ```
