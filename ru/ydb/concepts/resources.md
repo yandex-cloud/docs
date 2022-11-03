@@ -19,6 +19,8 @@
 **Intel Cascade Lake** | medium | 8 | 100%| 32
 **Intel Cascade Lake** | medium-m64 | 8 | 100%| 64
 **Intel Cascade Lake** | medium-m96 | 8 | 100%| 96
+**Intel Cascade Lake** | large | 12 | 100% | 48
+**Intel Cascade Lake** | xlarge | 16 | 100% | 64
 
 Оплата за БД на выделенных вычислительных ресурсах производится на почасовой основе. Дополнительно оплачивается объем хранилища данных под БД (см. [Группы хранения](#storage-groups) ниже).
 

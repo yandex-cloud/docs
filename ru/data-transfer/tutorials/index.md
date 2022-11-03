@@ -1,5 +1,6 @@
 # Практические руководства {{ data-transfer-name }}
 
+* [{#T}](managed-clickhouse.md)
 * [{#T}](managed-greenplum.md)
 * [{#T}](managed-mongodb.md)
 * [{#T}](managed-mysql.md)

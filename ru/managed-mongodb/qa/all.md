@@ -2,8 +2,8 @@
 
 ## Общие вопросы {#general}
 
-{% include notitle [general](general.md) %}
+{% include notitle [general](../../_qa/managed-mongodb/general.md) %}
 
 ## Вопросы о {{ MG }} {#mongodb}
 
-{% include notitle [mongodb](mongodb.md) %}
+{% include notitle [mongodb](../../_qa/managed-mongodb/mongodb.md) %}

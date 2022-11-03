@@ -1,6 +1,6 @@
 ---
 title: Просмотр логов кластера Elasticsearch
-description: 'Управляемый сервис Elasticsearch позволяет получить логи кластера для просмотра и изучения.'
+description: "Управляемый сервис Elasticsearch позволяет получить логи кластера для просмотра и изучения."
 keywords:
   - логи Elasticsearch
   - логи кластера Elasticsearch
