@@ -7,7 +7,7 @@ keywords:
   - Elasticsearch
 ---
 
-# Удаление кластера
+# Удаление {{ ES }}-кластера
 
 Вы можете удалить кластер {{ ES }}, если он вам больше не нужен. Все данные в кластере будут удалены.
 
@@ -42,6 +42,12 @@ keywords:
     ```
 
     Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- {{ TF }}
+
+  {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
+
+  {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
 - API
 

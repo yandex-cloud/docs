@@ -44,17 +44,17 @@
 
       ```bash
       yc dataproc job create-pyspark \
-        --cluster-name <cluster name> \
-        --name <job name> \
-        --main-python-file-uri <path to main application py file> \
-        --python-file-uris <paths to additional py files> \
-        --jar-file-uris <paths to jar files> \
-        --archive-uris <paths to archives> \
-        --properties <key-value> \
-        --args <arguments passed to job> \
-        --packages <Maven coordinates of jar files as groupId:artifactId:version> \
-        --repositories <additional repositories to search for packages> \
-        --exclude-packages <packages to exclude as groupId:artifactId>
+        --cluster-name=<cluster name> \
+        --name=<job name> \
+        --main-python-file-uri=<path to main application py file> \
+        --python-file-uris=<paths to additional py files> \
+        --jar-file-uris=<paths to jar files> \
+        --archive-uris=<paths to archives> \
+        --properties=<key-value> \
+        --args=<arguments passed to job> \
+        --packages=<Maven coordinates of jar files as groupId:artifactId:version> \
+        --repositories=<additional repositories to search for packages> \
+        --exclude-packages=<packages to exclude as groupId:artifactId>
       ```
 
       Pass in the paths to the files required for the job in the following format:

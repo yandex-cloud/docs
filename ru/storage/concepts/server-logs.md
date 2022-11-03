@@ -13,7 +13,10 @@
 ## Требования {#requirements}
 
 Исходный и целевой бакеты должны находиться в одном [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+
+
 На целевом бакете не должно быть включено [шифрование](../operations/buckets/encrypt.md).
+
 
 ## Формат ключа объекта с логами {#key-format}
 

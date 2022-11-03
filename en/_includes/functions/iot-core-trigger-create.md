@@ -1,4 +1,6 @@
-Create a trigger for a device [topic](../../iot-core/concepts/topic/index.md) or the {{ iot-name }} service registry and process copies of messages using a {{ sf-name }} [function](../../functions/concepts/function.md) or a {{ serverless-containers-name}} [container](../../serverless-containers/concepts/container.md).
+Create a trigger for a device [topic](../../iot-core/concepts/topic/index.md) or the {{ iot-name }} service registry and process copies of messages using a {{ sf-name }} [function](../../functions/concepts/function.md).
+
+For more information about creating a trigger for {{ iot-name }} that calls a container, see the [{{ serverless-containers-full-name }} documentation](../../serverless-containers/operations/iot-core-trigger-create.md).
 
 {% note warning %}
 
@@ -6,30 +8,14 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
 {% endnote %}
 
-## Before you start {#before-begin}
+## Before you begin {#before-you-begin}
 
-To create a trigger, you need:
-
-* A [function](../../functions/concepts/function.md) or a [container](../../serverless-containers/concepts/container.md) the trigger will launch.
-
-   * If you don't have a function:
-
-      * [Create a function](../../functions/operations/function/function-create.md).
-      * [Create a function version](../../functions/operations/function/version-manage.md#func-version-create).
-
-   * If you don't have a container:
-
-      * [Create a container](../../serverless-containers/operations/create.md).
-      * [Create a container revision](../../serverless-containers/operations/manage-revision.md#create).
+{% include [trigger-before-you-begin](trigger-before-you-begin.md) %}
 
 * The [registry](../../iot-core/concepts/index.md#registry) or [device](../../iot-core/concepts/index.md#device) from whose topics a trigger will receive copies of messages. If you don't have either:
 
    * [Create a registry](../../iot-core/operations/registry/registry-create.md).
    * [Create a device](../../iot-core/operations/device/device-create.md).
-
-* (optional) A [Dead Letter Queue](../../functions/concepts/dlq.md) where messages that could not be processed by a function or a container will be redirected. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
-
-* [Service accounts](../../iam/concepts/users/service-accounts.md) with rights to invoke a function or a container and (optionally) write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). You can use the same service account or different ones. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -51,25 +37,18 @@ To create a trigger, you need:
 
       * Enter a name and description for the trigger.
       * In the **Type** field, select **Yandex IoT Core**.
-      * Choose what the trigger will launch — a function or a container.
+      * In the **Launched resource** field, select **Function**.
 
    1. Under **Yandex IoT Core message settings**, specify the registry, device, and MQTT topic to create a trigger for. If you are creating a trigger for a registry topic, you don't need to specify a device or an MQTT topic.
 
-   1. If the trigger launches:
+   1. Under **Function settings**, select a function and specify:
 
-      * A function, select one under **Function settings** and specify:
-
-         * [Tag of the function version](../../functions/concepts/function.md#tag);
-         * A [service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the function.
-
-      * A container, select one under **Container settings** and specify:
-
-         * [A container revision](../../serverless-containers/concepts/container.md#revision);
-         * [A service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the container.
+      * [Tag of the function version](../../functions/concepts/function.md#tag);
+      * A [service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the function.
 
    1. (optional) Under **Repeat request settings**:
 
-      * In the **Interval** field, specify the time after which the function or the container will be invoked again if the current attempt fails. Values can be from 10 to 60 seconds. The default is 10 seconds.
+      * In the **Interval** field, specify the time after which the function will be invoked again if the current attempt fails. Values can be from 10 to 60 seconds. The default is 10 seconds.
       * In the **Number of attempts** field, specify the number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). Values can be from 1 to 5. The default is 1.
 
    1. (optional) Under **Dead Letter Queue settings**, select the [Dead Letter Queue](../../functions/concepts/dlq.md) and the service account with write privileges for this queue.
@@ -136,6 +115,78 @@ To create a trigger, you need:
 - API
 
    You can create a trigger for {{ iot-name }} using the [create](../../functions/triggers/api-ref/Trigger/create.md).
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   To create a trigger for {{ iot-name }}:
+
+   1. In the configuration file, describe the trigger parameters.
+
+      Example configuration file structure:
+
+      ```hcl
+      resource "yandex_function_trigger" "my_trigger" {
+        name        = "<trigger name>"
+        description = "<trigger description>"
+        iot {
+          registry_id = "<registry ID>"
+          device_id   = "<device ID>"
+          topic       = "<topic ID>"
+        }
+        function {
+          id                 = "<function ID>"
+          service_account_id = "<service account ID>"
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Trigger name. Name format:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      * `description`: Trigger description.
+      * `iot`: [Topic](../../iot-core/concepts/topic/) parameters:
+         * `registry-id`: [Registry ID](../../iot-core/operations/registry/registry-list.md).
+         * `device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you're creating a trigger for a registry topic, you can omit this parameter.
+         * `topic`: ID of the [topic](../../iot-core/concepts/topic/) you want to create a trigger for.
+      * `function`: Settings for the function, which will be activated by the trigger:
+         * `id`: Function ID.
+         * `service_account_id`: ID of the service account with rights to invoke a function.
+
+      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/function_trigger).
+
+   1. Make sure that the configuration files are correct.
+
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run the check using the command:
+
+         ```
+         terraform plan
+         ```
+
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+
+   1. Deploy the cloud resources.
+
+      1. If the configuration doesn't contain any errors, run the command:
+
+         ```
+         terraform apply
+         ```
+
+      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+
+         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+
+         ```
+         yc serverless trigger get <trigger ID>
+         ```
 
 {% endlist %}
 

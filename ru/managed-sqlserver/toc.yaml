@@ -45,6 +45,10 @@ items:
         href: tutorials/data-migration.md
       - name: Миграция базы данных в сторонний кластер {{ MS }}
         href: tutorials/outbound-migration.md
+      - name: >-
+          Миграция базы данных между {{ mms-name }} с помощью {{
+          objstorage-full-name }}
+        href: tutorials/migration-with-bucket.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -55,7 +59,7 @@ items:
         href: concepts/network.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Типы хранилища
+      - name: Типы диска
         href: concepts/storage.md
       - name: Резервные копии
         href: concepts/backup.md
@@ -67,6 +71,8 @@ items:
         href: concepts/settings-list.md
       - name: Доступ к компонентам SQL Server
         href: concepts/components.md
+      - name: Ограничения для команд SQL
+        href: concepts/sql-limits.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

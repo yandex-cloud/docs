@@ -45,7 +45,7 @@
        --gpus=1 \
        --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts-gpu \
-       --ssh-key ~/.ssh/id_rsa.pub
+       --ssh-key ~/.ssh/id_ed25519.pub
      ```
 
      Где:
@@ -101,6 +101,7 @@
 
        name        = "vm-with-gpu"
        platform_id = "gpu-standard-v3"
+       zone        = "<зона доступности>"
 
        resources {
          cores  = <количество ядер vCPU>
@@ -143,6 +144,7 @@
          * `gpu-standard-v1` для платформы Intel Broadwell with NVIDIA® Tesla® V100.
          * `gpu-standard-v2` для платформы Intel Cascade Lake with NVIDIA® Tesla® V100.
          * `gpu-standard-v3` для платформы AMD Epyc 7662 with NVIDIA® Ampere® A100.
+       * `zone` — идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
        * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
        * `boot_disk` — настройки загрузочного диска. Укажите идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
 

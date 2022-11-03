@@ -2,21 +2,11 @@
 
 In the {{ yandex-cloud }} infrastructure, [{{ PG }}](https://www.postgresql.org/) server clusters are deployed and supported using {{ mpg-short-name }}.
 
-To utilize a {{ mpg-short-name }} cluster host as a data source for {{ ml-platform-name }}:
+## Before you start {#before-begin}
 
 1. [Create](../../../managed-postgresql/operations/cluster-create.md) a new {{ mpg-short-name }} cluster and enable public access to it from the host. You can also use an existing cluster with publicly available hosts.
 1. [Configure](../../../managed-postgresql/operations/connect.md#configuring-security-groups) cluster security groups.
-
-## Before you start {#before-begin}
-
-If a project is already open, open the tab with a notebook.
-
-If not, open the project:
-
-1. {% include [include](../../../_includes/datasphere/first-step.md) %}
-1. Go to the **Projects** tab.
-1. Select the project you want to open and click ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
-1. Choose **Open** and wait for the project to open.
+1. {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 
 ## Connecting to a {#connect-to-host} host
 

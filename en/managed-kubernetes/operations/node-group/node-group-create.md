@@ -47,9 +47,8 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
      ```
 
      Where:
-
      * `--allowed-unsafe-sysctls`: Permission for group nodes to use [unsafe kernel parameters](../../concepts/index.md#node-group), comma-separated.
-     * `--cluster-name`: Name of the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) where the node group is created.
+     * `--cluster-name`: Name of the[ {{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) where the node group is created.
      * `--cores`: The number of vCPUs for the nodes.
      * `--core-fraction`: [reserved vCPU fraction](../../../compute/concepts/performance-levels.md) for nodes.
      * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.
@@ -66,15 +65,15 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
 
        {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
-     * `--platform-id` [platform](../../../compute/concepts/vm-platforms.md) for nodes.
+     * `--platform-id`: [Platform](../../../compute/concepts/vm-platforms.md) for nodes.
      * `--preemptible`: Flag specified if the VM instances should be [preemptible](../../../compute/concepts/preemptible-vm.md).
      * `--public-ip`: Flag specified if the node group needs a [public IP address](../../../vpc/concepts/address.md#public-addresses).
-     * `--version`: version {{ k8s }} on group nodes.
+     * `--version`: version{{ k8s }} on group nodes.
      * `--node-taints`: [taint policy](../../concepts/index.md#taints-tolerations) labels {{ k8s }}. You can specify multiple labels.
 
      {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
 
-     Result:
+     Command result:
 
      ```bash
      done (1m17s)
@@ -101,8 +100,6 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
   To create a [node group](../../concepts/index.md#node-group):
   1. In a configuration file, provide a description of the node group to create:
 
-     Example configuration file structure:
-
      ```hcl
      resource "yandex_kubernetes_node_group" "<node group name>" {
        cluster_id = yandex_kubernetes_cluster.<cluster name>.id
@@ -119,11 +116,10 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
      ```
 
      Where:
-
-     * `node group name`: Node group name.
-     * `cluster_id`: [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) ID as `cluster_id`.
-     * `platform_id`: Node [platform](../../../compute/concepts/vm-platforms.md).
-     * `scale_policy`: Scaling settings under `scale_policy`.
+     * `node group name`: Name of the node group.
+     * `cluster_id`: ID of the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
+     * `platform_id`: [Platform](../../../compute/concepts/vm-platforms.md) for nodes.
+     * `scale_policy`: Scaling settings.
 
      {% note warning %}
 
@@ -160,7 +156,6 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
        ```
 
      For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
-
   1. Make sure that the configuration files are correct.
 
      {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
@@ -172,23 +167,29 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
 - API
 
   Use the [create](../../api-ref/NodeGroup/create.md) API method and pass the following information in the request:
-  * [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) ID in the `clusterId` parameter. You can retrieve it with a [list of folder clusters](../kubernetes-cluster/kubernetes-cluster-list.md#list).
+  * [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](../kubernetes-cluster/kubernetes-cluster-list.md#list).
   * [Node group configuration](../../concepts/index.md#config) as `nodeTemplate`.
   * [Scaling settings](../../concepts/autoscale.md#ca) as `scalePolicy`.
   * Node group [placement settings](../../../overview/concepts/geo-scope.md) as `allocationPolicy`.
   * [Update](../../concepts/release-channels-and-updates.md#updates) window settings in the `maintenancePolicy` parameters.
   * List of settings to be changed in the `updateMask` parameter.
 
-    {% include [updateMask warning](../../../_includes/mdb/warning-default-settings.md) %}
+  {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
   For nodes to use [non-replicated disks](../../../compute/concepts/disk.md#disks_types), pass the `network-ssd-nonreplicated` value for the `nodeTemplate.bootDiskSpec.diskTypeId` parameter.
 
   You can only change the size of non-replicated disks in 93 GB increments. The maximum size of this type of disk is 4 TB.
 
-  {% include [nrd-no-backup-note](../../../_includes/managed-kubernetes/nrd-no-backup-note.md) %}
+  {% include [Non-replicated disks have no redundancy](../../../_includes/managed-kubernetes/nrd-no-backup-note.md) %}
 
   To enable the nodes in a group to use [unsafe kernel parameters](../../concepts/index.md#node-group), pass their names in as `allowedUnsafeSysctls`.
 
   To set [taint policy labels](../../concepts/index.md#taints-tolerations), pass their values in as `nodeTaints`.
 
 {% endlist %}
+
+{% note alert %}
+
+After you create a node group, {{ compute-full-name }} will display one or more VMs with autogenerated names. Do not update the names of the VMs that belong to a {{ managed-k8s-name }} cluster. This will disrupt the operation of the node group and the entire cluster.
+
+{% endnote %}

@@ -54,7 +54,7 @@ Non-replicated disks have a number of limitations:
 
 * The information they store may be temporarily unavailable or lost in the event of failure since non-replicated disks don't provide redundancy.
 * You can't create [snapshots](snapshot.md) or [images](image.md) from a non-replicated disk.
-* {% include [nrd-az](../../_includes/compute/nrd-az.md) %}
+   * {% include [nrd-az](../../_includes/compute/nrd-az.md) %}
 
 {% note alert %}
 
@@ -82,17 +82,18 @@ If a VM had previously created disks attached, they will be detached when you de
 
 If you would like to delete a disk with a VM, specify this option when creating the VM, reconfiguring it, or attaching the disk. Such disks will be deleted along with the VM.
 
-**See also**
-
-* Learn about [{#T}](../operations/vm-control/vm-attach-disk.md).
-* Learn about [{#T}](../operations/vm-control/vm-detach-disk.md).
-
 ## Backups {#backup}
 
 Each disk is accessible and replicated within a specific availability zone.
 
-You can back up disks as [snapshots](snapshot.md). Snapshots are replicated across every availability zone, which lets you transfer disks between zones.
+You can create disk backups as [snapshots](snapshot.md) manually or automatically, according to the [schedule](snapshot-schedule.md). Snapshots are replicated across every availability zone, which lets you transfer disks between zones.
 
 Restoring a disk to a specific state can become a routine operation: for instance, if you wish to attach the same boot drive to every new VM. You can upload an [image](image.md) of the disk to {{ compute-name }}. Disk are created faster from images than from snapshots. Images are also automatically replicated to multiple availability zones.
 
 For general recommendations on backing up and restoring VMs, see [{#T}](backups.md).
+
+#### See also {#see-also}
+
+* [Instructions for creating disks](../operations/#disk-create)
+* [Instructions for managing disks](../operations/#disk-control)
+* [Instructions for disk snapshots and schedules](../operations/#snapshots)

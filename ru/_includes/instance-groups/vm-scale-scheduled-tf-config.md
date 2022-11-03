@@ -27,43 +27,43 @@ resource "yandex_iam_service_account" "vm-scale-scheduled-sa" {
 }
 
 resource "yandex_resourcemanager_folder_iam_binding" "vm-scale-scheduled-sa-role-compute" {
-  role = "compute.admin"
-
-  members = [
+  folder_id = "<идентификатор_каталога>"
+  role      = "compute.admin"
+  members   = [
     "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
   ]
 }
 
 resource "yandex_resourcemanager_folder_iam_binding" "vm-scale-scheduled-sa-role-iam" {
-  role = "iam.serviceAccounts.user"
-
-  members = [
+  folder_id = "<идентификатор_каталога>"
+  role      = "iam.serviceAccounts.user"
+  members   = [
     "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
   ]
 }
 
 resource "yandex_resourcemanager_folder_iam_binding" "vm-scale-scheduled-sa-role-functions" {
-  role = "serverless.functions.invoker"
-
-  members = [
+  folder_id = "<идентификатор_каталога>"
+  role      = "serverless.functions.invoker"
+  members   = [
     "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
   ]
 }
 
 resource "yandex_vpc_network" "vm-scale-scheduled-network" {
-  name      = "vm-scale-scheduled-network"
+  name = "vm-scale-scheduled-network"
 }
 
 resource "yandex_vpc_subnet" "vm-scale-scheduled-subnet-a" {
   name           = "vm-scale-scheduled-subnet-a"
-  zone           = "ru-central1-a"
+  zone           = "{{ region-id }}-a"
   v4_cidr_blocks = ["192.168.1.0/24"]
   network_id     = yandex_vpc_network.vm-scale-scheduled-network.id
 }
 
 resource "yandex_vpc_subnet" "vm-scale-scheduled-subnet-b" {
   name           = "vm-scale-scheduled-subnet-b"
-  zone           = "ru-central1-b"
+  zone           = "{{ region-id }}-b"
   v4_cidr_blocks = ["192.168.2.0/24"]
   network_id     = yandex_vpc_network.vm-scale-scheduled-network.id
 }
@@ -78,8 +78,8 @@ resource "yandex_compute_instance_group" "vm-scale-scheduled-ig" {
 
   allocation_policy {
     zones = [
-      "ru-central1-a",
-      "ru-central1-b"
+      "{{ region-id }}-a",
+      "{{ region-id }}-b"
     ]
   }
 

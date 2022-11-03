@@ -16,3 +16,11 @@ Types of payloads:
 * [PHANTOM](payloads/phantom.md)
 * [RAW](payloads/raw.md)
 * [HTTP_JSON](payloads/http-json.md)
+
+To store payloads, you can use [{{ objstorage-full-name }}](../../storage/). In this case, a data file is uploaded to a [bucket](../../storage/concepts/bucket.md) and remains in the user's cloud.
+
+{% note info %}
+
+To handle large amounts of data and ensure maximum security, we recommend using this particular method of storing payloads.
+
+{% endnote %}

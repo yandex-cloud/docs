@@ -31,12 +31,12 @@ Connection with the {{ KF }} cluster with explicitly specified network addresses
 
 ## Additional parameters {#additional-settings}
 
-{% include [Note processing order](../../../../_includes/data-transfer/notes/kafka-yds-processing-order.md) %}
+{% include [Note processing order](../../../../_includes/data-transfer/notes/kafka-yds-evhub-processing-order.md) %}
 
 {% list tabs %}
 
 - Management console
 
-   {% include [Kafka/YDS additional Settings](../../../../_includes/data-transfer/kf-yds-additional-settings.md) %}
+   {% include [Kafka/YDS additional Settings](../../../../_includes/data-transfer/kf-yds-evhub-additional-settings.md) %}
 
 {% endlist %}

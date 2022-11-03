@@ -63,19 +63,44 @@ Before updating the {{ ES }} version, make sure this doesn't affect your apps:
       {{ yc-mdb-es }} cluster update <cluster name of ID> --version <{{ ES }} version>
       ```
 
+- {{ TF }}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+      For a complete list of available {{ mes-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
+
+   1. To the {{ mes-name }} cluster description, add the `config.version` field or change its value if it already exists:
+
+      ```hcl
+      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+        ...
+        config {
+          version = "<{{ ES }} version"
+        }
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The new {{ ES }} version in the `configSpec.version` parameter.
-   * List of cluster configuration fields to be changed (in this case, `configSpec.version`), in the `updateMask` parameter.
+   * List of cluster configuration fields to update in the `updateMask` parameter (`configSpec.version` in this case).
 
-   {% note warning %}
-
-   This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, list the settings you want to change in the `updateMask` parameter (in a single line, separated by commas).
-
-   {% endnote %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -83,7 +108,7 @@ Before updating the {{ ES }} version, make sure this doesn't affect your apps:
 
 {% note info %}
 
-As of June 13, 2022, the `Gold` [edition](../concepts/es-editions.md) in {{ mes-name }} clusters is no longer supported. You cannot switch to it from the `Basic` or `Platinum` editions. On July 6, 2022, the `Gold` edition of all clusters will be automatically upgraded to `Platinum`.
+As of June 13, 2022, the `Gold` [edition](../concepts/es-editions.md) in {{ mes-name }} clusters is no longer supported. You cannot switch to it from the `Basic` or `Platinum` editions. On July 6, 2022, all `Gold` edition clusters were automatically upgraded to `Platinum`.
 
 {% endnote %}
 
@@ -160,12 +185,8 @@ You can update the [{{ ES }} edition](../concepts/es-editions.md) run in the clu
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The new {{ ES }} edition, in the `configSpec.edition` parameter.
-   * The list of cluster configuration fields to be edited (in this case, `configSpec.edition`) in the `updateMask` parameter.
+   * List of cluster configuration fields to update in the `updateMask` parameter (`configSpec.edition` in this case).
 
-   {% note warning %}
-
-   This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, list the settings you want to change in the `updateMask` parameter (in a single line, separated by commas).
-
-   {% endnote %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}

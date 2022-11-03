@@ -1,7 +1,10 @@
-# Все сценарии
+# Практические руководства {{ mmy-name }}
 
-* [{#T}](profiling.md)
+* [{#T}](profiling-mmy.md)
 * [{#T}](data-migration.md)
 * [{#T}](mmy-to-mysql-migration.md)
 * [{#T}](sqoop.md)
-* [{#T}](cdc-debezium.mmy)
+* [{#T}](cdc-data-transfer.md)
+* [{#T}](cdc-debezium.md)
+* [{#T}](mmy-ydb-migration.md)
+* [{#T}](mmy-objs-migration.md)

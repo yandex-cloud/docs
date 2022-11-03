@@ -1,6 +1,6 @@
 ---
-title: "Yandex DataLens. FAQ"
-description: "How to get the logs of my work in the Yandex DataLens service? Answers to this and other questions in this article."
+title: "{{ datalens-full-name }}. FAQ"
+description: "How to get the logs of my work in the {{ datalens-full-name }} service? Answers to this and other questions in this article."
 ---
 
 # General questions
@@ -60,7 +60,7 @@ To allow another user with a Yandex account to open your dashboard, configure ac
 
 The user is granted access to your {{ datalens-short-name }} and objects with **All** permissions. You can assign this user individual permissions to objects.
 
-You can send the link to the dashboard from the browser. For more information about permissions for {{ datalens-short-name }} objects, see the [documentation](https://cloud.yandex.com/en-ru/docs/datalens/security/#permissions).
+You can send the link to the dashboard from the browser. For more information about permissions for {{ datalens-short-name }} objects, see the [documentation](../security/index.md#permissions).
 
 You can also make your dashboard public using [{#T}](../concepts/datalens-public.md).
 
@@ -138,6 +138,7 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 
 {% include [rename-column](../../_includes/datalens/qa/rename-column.md) %}
 
+{% include [null-setting-in-charts](../../_includes/datalens/qa/null-setting-in-charts.md) %}
 
 ## Calculated fields {#calculation-fields}
 
@@ -148,6 +149,8 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 ## Dashboards {#dashboards}
 
 {% include [configure-link-between-selectors](../../_includes/datalens/qa/configure-link-between-selectors.md) %}
+
+{% include [unavailable-selector-values](../../_includes/datalens/qa/unavailable-selector-values.md) %}
 
 {% include [apply-filter-to-two-datasets](../../_includes/datalens/qa/apply-filter-to-two-datasets.md) %}
 
@@ -192,6 +195,8 @@ When a cloud is suspended, your {{ datalens-short-name }} instance will be unava
 Learn more in [Automatic cloud suspension](../../overview/concepts/data-deletion.md#block).
 
 {% include [object-id](../../_includes/datalens/qa/object-id.md) %}
+
+{% include [network-error](../../_includes/datalens/qa/network-error.md) %}
 
 ## How to report a problem {#how-to-resolve-problem}
 

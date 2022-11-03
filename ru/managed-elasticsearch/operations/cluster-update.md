@@ -7,13 +7,13 @@ keywords:
   - Elasticsearch
 ---
 
-# Изменение настроек кластера
+# Изменение настроек {{ ES }}-кластера
 
 После создания кластера вы можете:
 
 * [{#T}](#change-service-account).
 * [{#T}](#change-resource-preset).
-* [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
+* [{#T}](#change-disk-size).
 * [{#T}](#change-elasticsearch-config).
 * [{#T}](#change-admin-password).
 * [{#T}](#change-additional-settings).
@@ -78,6 +78,47 @@ keywords:
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+- {{ TF }}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+      Полный список доступных для изменения полей конфигурации кластера {{ mes-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
+
+  1. Измените в описании кластера {{ mes-name }} значение атрибута `resource_preset_id` в блоке `config.data_node.resources` или `config.master_node.resources`:
+
+      ```hcl
+      resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
+        ...
+        config {
+          data_node {
+            resources {
+              resource_preset_id = "<класс хоста>"
+              ...
+            }
+          }
+
+          master_node {
+            resources {
+              resource_preset_id = "<класс хоста>"
+              ...
+            }
+          }
+        }
+      }
+      ```
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
@@ -138,6 +179,49 @@ keywords:
         ```
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- {{ TF }}
+
+  Чтобы увеличить размер хранилища для кластера:
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+      Полный список доступных для изменения полей конфигурации кластера {{ mes-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
+
+  1. Измените в описании кластера {{ mes-name }} значение атрибута `disk_size` в блоке `config.data_node.resources` или `config.master_node.resources`:
+
+      ```hcl
+      resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
+        ...
+        config {
+          data_node {
+            resources {
+              disk_size = <объем хранилища, ГБ>
+              ...
+            }
+          }
+
+          master_node {
+            resources {
+              disk_size = <объем хранилища, ГБ>
+              ...
+            }
+          }
+        }
+      }
+      ```
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
 
 - API
@@ -266,6 +350,36 @@ keywords:
 
     {{ mes-short-name }} запустит операцию изменения пароля `admin` для кластера.
 
+- {{ TF }}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+      Полный список доступных для изменения полей конфигурации кластера {{ mes-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
+
+  1. Измените в описании кластера {{ mes-name }} значение атрибута `admin_password` в блоке `config`:
+
+      ```hcl
+      resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
+        ...
+        config {
+          admin_password = "<новый пароль пользователя-администратора>"
+          ...
+        }
+      }
+      ```
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
@@ -333,6 +447,59 @@ keywords:
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     Идентификатор и имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- {{ TF }}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+      Полный список доступных для изменения полей конфигурации кластера {{ mes-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
+
+  1. Чтобы изменить сервисный аккаунт, используемый для работы с кластером, укажите в поле `service_account_id` описания кластера идентификатор другого сервисного аккаунта:
+
+      ```hcl
+      resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
+        ...
+        service_account_id = <идентификатор другого сервисного аккаунта>
+      }
+      ```
+
+  1. {% include [Maintenance window](../../_includes/mdb/mes/terraform/maintenance-window.md) %}
+
+  1. Чтобы изменить список [плагинов {{ ES }}](cluster-plugins.md#elasticsearch), измените значение параметра `plugins` в блоке `config` описания кластера:
+
+      ```hcl
+      resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
+        ...
+        config {
+          plugins = [ "<список имен плагинов>" ]
+        }
+      }
+      ```
+
+      Плагины, не упомянутые в списке, будут выключены.
+
+  1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
+
+      ```hcl
+      resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
+        ...
+        deletion_protection = <защита от удаления кластера: true или false>
+      }
+      ```
+
+      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
 - API
 

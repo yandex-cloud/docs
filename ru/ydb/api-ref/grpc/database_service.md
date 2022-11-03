@@ -126,37 +126,6 @@ subnet_ids[] | **string**<br>
 assign_public_ips | **bool**<br> 
 
 
-### StorageConfig {#StorageConfig1}
-
-Field | Description
---- | ---
-storage_options[] | **[StorageOption](#StorageOption1)**<br> The minimum number of elements is 1.
-storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
-
-
-### StorageOption {#StorageOption1}
-
-Field | Description
---- | ---
-storage_type_id | **string**<br> 
-group_count | **int64**<br> 
-
-
-### ScalePolicy {#ScalePolicy1}
-
-Field | Description
---- | ---
-scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale1)**<br> 
-
-
-### FixedScale {#FixedScale1}
-
-Field | Description
---- | ---
-size | **int64**<br> The minimum value is 1.
-
-
 ### ServerlessDatabase {#ServerlessDatabase}
 
 Field | Description
@@ -165,6 +134,7 @@ throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's de
 storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
 enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
 provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
+topic_write_quota | **int64**<br>write quota for topic service, defined in bytes per second. 
 
 
 ### BackupConfig {#BackupConfig}
@@ -345,8 +315,8 @@ description | **string**<br>
 status | enum **Status**<br> 
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig2)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy2)**<br> 
+storage_config | **[StorageConfig](#StorageConfig1)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy1)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
 database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
@@ -364,15 +334,15 @@ monitoring_config | **[MonitoringConfig](#MonitoringConfig1)**<br>
 deletion_protection | **bool**<br> 
 
 
-### StorageConfig {#StorageConfig2}
+### StorageConfig {#StorageConfig1}
 
 Field | Description
 --- | ---
-storage_options[] | **[StorageOption](#StorageOption2)**<br> The minimum number of elements is 1.
+storage_options[] | **[StorageOption](#StorageOption1)**<br> The minimum number of elements is 1.
 storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
-### StorageOption {#StorageOption2}
+### StorageOption {#StorageOption1}
 
 Field | Description
 --- | ---
@@ -380,15 +350,15 @@ storage_type_id | **string**<br>
 group_count | **int64**<br> 
 
 
-### ScalePolicy {#ScalePolicy2}
+### ScalePolicy {#ScalePolicy1}
 
 Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale2)**<br> 
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale1)**<br> 
 
 
-### FixedScale {#FixedScale2}
+### FixedScale {#FixedScale1}
 
 Field | Description
 --- | ---
@@ -414,42 +384,11 @@ region_id | **string**<br>Required.
 Field | Description
 --- | ---
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig3)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy3)**<br> 
+storage_config | **[StorageConfig](#StorageConfig2)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy2)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
 assign_public_ips | **bool**<br> 
-
-
-### StorageConfig {#StorageConfig3}
-
-Field | Description
---- | ---
-storage_options[] | **[StorageOption](#StorageOption3)**<br> The minimum number of elements is 1.
-storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
-
-
-### StorageOption {#StorageOption3}
-
-Field | Description
---- | ---
-storage_type_id | **string**<br> 
-group_count | **int64**<br> 
-
-
-### ScalePolicy {#ScalePolicy3}
-
-Field | Description
---- | ---
-scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale3)**<br> 
-
-
-### FixedScale {#FixedScale3}
-
-Field | Description
---- | ---
-size | **int64**<br> The minimum value is 1.
 
 
 ### ServerlessDatabase {#ServerlessDatabase1}
@@ -460,6 +399,7 @@ throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's de
 storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
 enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
 provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
+topic_write_quota | **int64**<br>write quota for topic service, defined in bytes per second. 
 
 
 ### BackupConfig {#BackupConfig1}
@@ -623,8 +563,8 @@ folder_id | **string**<br>
 name | **string**<br> 
 description | **string**<br> 
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig4)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy4)**<br> 
+storage_config | **[StorageConfig](#StorageConfig2)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy2)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
 database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
@@ -640,15 +580,15 @@ monitoring_config | **[MonitoringConfig](#MonitoringConfig2)**<br>
 deletion_protection | **bool**<br> 
 
 
-### StorageConfig {#StorageConfig4}
+### StorageConfig {#StorageConfig2}
 
 Field | Description
 --- | ---
-storage_options[] | **[StorageOption](#StorageOption4)**<br> The minimum number of elements is 1.
+storage_options[] | **[StorageOption](#StorageOption2)**<br> The minimum number of elements is 1.
 storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
-### StorageOption {#StorageOption4}
+### StorageOption {#StorageOption2}
 
 Field | Description
 --- | ---
@@ -656,15 +596,15 @@ storage_type_id | **string**<br>
 group_count | **int64**<br> 
 
 
-### ScalePolicy {#ScalePolicy4}
+### ScalePolicy {#ScalePolicy2}
 
 Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale4)**<br> 
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale2)**<br> 
 
 
-### FixedScale {#FixedScale4}
+### FixedScale {#FixedScale2}
 
 Field | Description
 --- | ---
@@ -690,42 +630,11 @@ region_id | **string**<br>Required.
 Field | Description
 --- | ---
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig5)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy5)**<br> 
+storage_config | **[StorageConfig](#StorageConfig3)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy3)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
 assign_public_ips | **bool**<br> 
-
-
-### StorageConfig {#StorageConfig5}
-
-Field | Description
---- | ---
-storage_options[] | **[StorageOption](#StorageOption5)**<br> The minimum number of elements is 1.
-storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
-
-
-### StorageOption {#StorageOption5}
-
-Field | Description
---- | ---
-storage_type_id | **string**<br> 
-group_count | **int64**<br> 
-
-
-### ScalePolicy {#ScalePolicy5}
-
-Field | Description
---- | ---
-scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale5)**<br> 
-
-
-### FixedScale {#FixedScale5}
-
-Field | Description
---- | ---
-size | **int64**<br> The minimum value is 1.
 
 
 ### ServerlessDatabase {#ServerlessDatabase2}
@@ -736,6 +645,7 @@ throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's de
 storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
 enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
 provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
+topic_write_quota | **int64**<br>write quota for topic service, defined in bytes per second. 
 
 
 ### BackupConfig {#BackupConfig2}
@@ -917,8 +827,8 @@ description | **string**<br>
 status | enum **Status**<br> 
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig6)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy6)**<br> 
+storage_config | **[StorageConfig](#StorageConfig3)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy3)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
 database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
@@ -936,15 +846,52 @@ monitoring_config | **[MonitoringConfig](#MonitoringConfig3)**<br>
 deletion_protection | **bool**<br> 
 
 
-### StorageConfig {#StorageConfig6}
+## Update {#Update}
+
+Modifies the specified database.
+
+**rpc Update ([UpdateDatabaseRequest](#UpdateDatabaseRequest)) returns ([operation.Operation](#Operation1))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateDatabaseMetadata](#UpdateDatabaseMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database3)<br>
+
+### UpdateDatabaseRequest {#UpdateDatabaseRequest}
 
 Field | Description
 --- | ---
-storage_options[] | **[StorageOption](#StorageOption6)**<br> The minimum number of elements is 1.
+folder_id | **string**<br> 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
+database_id | **string**<br> 
+name | **string**<br> 
+description | **string**<br> 
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](#StorageConfig3)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy3)**<br> 
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase3)**<br> 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase3)**<br> 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](#DedicatedDatabase3)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](#ServerlessDatabase3)**<br> 
+assign_public_ips | **bool**<br> 
+location_id | **string**<br> 
+labels | **map<string,string>**<br> 
+backup_config | **[BackupConfig](#BackupConfig3)**<br> 
+monitoring_config | **[MonitoringConfig](#MonitoringConfig3)**<br> 
+deletion_protection | **bool**<br> 
+
+
+### StorageConfig {#StorageConfig3}
+
+Field | Description
+--- | ---
+storage_options[] | **[StorageOption](#StorageOption3)**<br> The minimum number of elements is 1.
 storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
-### StorageOption {#StorageOption6}
+### StorageOption {#StorageOption3}
 
 Field | Description
 --- | ---
@@ -952,15 +899,15 @@ storage_type_id | **string**<br>
 group_count | **int64**<br> 
 
 
-### ScalePolicy {#ScalePolicy6}
+### ScalePolicy {#ScalePolicy3}
 
 Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale6)**<br> 
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale3)**<br> 
 
 
-### FixedScale {#FixedScale6}
+### FixedScale {#FixedScale3}
 
 Field | Description
 --- | ---
@@ -986,42 +933,11 @@ region_id | **string**<br>Required.
 Field | Description
 --- | ---
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig7)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy7)**<br> 
+storage_config | **[StorageConfig](#StorageConfig4)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy4)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
 assign_public_ips | **bool**<br> 
-
-
-### StorageConfig {#StorageConfig7}
-
-Field | Description
---- | ---
-storage_options[] | **[StorageOption](#StorageOption7)**<br> The minimum number of elements is 1.
-storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
-
-
-### StorageOption {#StorageOption7}
-
-Field | Description
---- | ---
-storage_type_id | **string**<br> 
-group_count | **int64**<br> 
-
-
-### ScalePolicy {#ScalePolicy7}
-
-Field | Description
---- | ---
-scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale7)**<br> 
-
-
-### FixedScale {#FixedScale7}
-
-Field | Description
---- | ---
-size | **int64**<br> The minimum value is 1.
 
 
 ### ServerlessDatabase {#ServerlessDatabase3}
@@ -1032,6 +948,7 @@ throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's de
 storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
 enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
 provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
+topic_write_quota | **int64**<br>write quota for topic service, defined in bytes per second. 
 
 
 ### BackupConfig {#BackupConfig3}
@@ -1177,52 +1094,142 @@ name | **string**<br>Required. Parameter name
 values[] | **string**<br>Required. Parameter value 
 
 
-## Update {#Update}
-
-Modifies the specified database.
-
-**rpc Update ([UpdateDatabaseRequest](#UpdateDatabaseRequest)) returns ([operation.Operation](#Operation1))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateDatabaseMetadata](#UpdateDatabaseMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database3)<br>
-
-### UpdateDatabaseRequest {#UpdateDatabaseRequest}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
-folder_id | **string**<br> 
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateDatabaseMetadata](#UpdateDatabaseMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](#Database3)>**<br>if operation finished successfully. 
+
+
+### UpdateDatabaseMetadata {#UpdateDatabaseMetadata}
+
+Field | Description
+--- | ---
 database_id | **string**<br> 
+database_name | **string**<br> 
+
+
+### Database {#Database3}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+folder_id | **string**<br> 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 name | **string**<br> 
 description | **string**<br> 
+status | enum **Status**<br> 
+endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig8)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy8)**<br> 
+storage_config | **[StorageConfig](#StorageConfig4)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy4)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
 database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
-&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase4)**<br> 
-&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase4)**<br> 
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase4)**<br>deprecated field 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase4)**<br>deprecated field 
 &nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](#DedicatedDatabase4)**<br> 
 &nbsp;&nbsp;serverless_database | **[ServerlessDatabase](#ServerlessDatabase4)**<br> 
 assign_public_ips | **bool**<br> 
 location_id | **string**<br> 
 labels | **map<string,string>**<br> 
 backup_config | **[BackupConfig](#BackupConfig4)**<br> 
+document_api_endpoint | **string**<br> 
+kinesis_api_endpoint | **string**<br> 
 monitoring_config | **[MonitoringConfig](#MonitoringConfig4)**<br> 
 deletion_protection | **bool**<br> 
 
 
-### StorageConfig {#StorageConfig8}
+## Start {#Start}
+
+Starts the specified database.
+
+**rpc Start ([StartDatabaseRequest](#StartDatabaseRequest)) returns ([operation.Operation](#Operation2))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartDatabaseMetadata](#StartDatabaseMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database4)<br>
+
+### StartDatabaseRequest {#StartDatabaseRequest}
 
 Field | Description
 --- | ---
-storage_options[] | **[StorageOption](#StorageOption8)**<br> The minimum number of elements is 1.
+database_id | **string**<br>Required.  The maximum string length in characters is 50.
+
+
+### Operation {#Operation2}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartDatabaseMetadata](#StartDatabaseMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](#Database4)>**<br>if operation finished successfully. 
+
+
+### StartDatabaseMetadata {#StartDatabaseMetadata}
+
+Field | Description
+--- | ---
+database_id | **string**<br> 
+database_name | **string**<br> 
+
+
+### Database {#Database4}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+folder_id | **string**<br> 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+name | **string**<br> 
+description | **string**<br> 
+status | enum **Status**<br> 
+endpoint | **string**<br> 
+resource_preset_id | **string**<br> 
+storage_config | **[StorageConfig](#StorageConfig4)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy4)**<br> 
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase4)**<br>deprecated field 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase4)**<br>deprecated field 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](#DedicatedDatabase4)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](#ServerlessDatabase4)**<br> 
+assign_public_ips | **bool**<br> 
+location_id | **string**<br> 
+labels | **map<string,string>**<br> 
+backup_config | **[BackupConfig](#BackupConfig4)**<br> 
+document_api_endpoint | **string**<br> 
+kinesis_api_endpoint | **string**<br> 
+monitoring_config | **[MonitoringConfig](#MonitoringConfig4)**<br> 
+deletion_protection | **bool**<br> 
+
+
+### StorageConfig {#StorageConfig4}
+
+Field | Description
+--- | ---
+storage_options[] | **[StorageOption](#StorageOption4)**<br> The minimum number of elements is 1.
 storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
-### StorageOption {#StorageOption8}
+### StorageOption {#StorageOption4}
 
 Field | Description
 --- | ---
@@ -1230,15 +1237,15 @@ storage_type_id | **string**<br>
 group_count | **int64**<br> 
 
 
-### ScalePolicy {#ScalePolicy8}
+### ScalePolicy {#ScalePolicy4}
 
 Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale8)**<br> 
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale4)**<br> 
 
 
-### FixedScale {#FixedScale8}
+### FixedScale {#FixedScale4}
 
 Field | Description
 --- | ---
@@ -1264,42 +1271,11 @@ region_id | **string**<br>Required.
 Field | Description
 --- | ---
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig9)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy9)**<br> 
+storage_config | **[StorageConfig](#StorageConfig5)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy5)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
 assign_public_ips | **bool**<br> 
-
-
-### StorageConfig {#StorageConfig9}
-
-Field | Description
---- | ---
-storage_options[] | **[StorageOption](#StorageOption9)**<br> The minimum number of elements is 1.
-storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
-
-
-### StorageOption {#StorageOption9}
-
-Field | Description
---- | ---
-storage_type_id | **string**<br> 
-group_count | **int64**<br> 
-
-
-### ScalePolicy {#ScalePolicy9}
-
-Field | Description
---- | ---
-scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale9)**<br> 
-
-
-### FixedScale {#FixedScale9}
-
-Field | Description
---- | ---
-size | **int64**<br> The minimum value is 1.
 
 
 ### ServerlessDatabase {#ServerlessDatabase4}
@@ -1310,6 +1286,7 @@ throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's de
 storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
 enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
 provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
+topic_write_quota | **int64**<br>write quota for topic service, defined in bytes per second. 
 
 
 ### BackupConfig {#BackupConfig4}
@@ -1455,7 +1432,24 @@ name | **string**<br>Required. Parameter name
 values[] | **string**<br>Required. Parameter value 
 
 
-### Operation {#Operation1}
+## Stop {#Stop}
+
+Stops the specified database.
+
+**rpc Stop ([StopDatabaseRequest](#StopDatabaseRequest)) returns ([operation.Operation](#Operation3))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StopDatabaseMetadata](#StopDatabaseMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database5)<br>
+
+### StopDatabaseRequest {#StopDatabaseRequest}
+
+Field | Description
+--- | ---
+database_id | **string**<br>Required.  The maximum string length in characters is 50.
+
+
+### Operation {#Operation3}
 
 Field | Description
 --- | ---
@@ -1465,13 +1459,13 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateDatabaseMetadata](#UpdateDatabaseMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopDatabaseMetadata](#StopDatabaseMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](#Database3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](#Database5)>**<br>if operation finished successfully. 
 
 
-### UpdateDatabaseMetadata {#UpdateDatabaseMetadata}
+### StopDatabaseMetadata {#StopDatabaseMetadata}
 
 Field | Description
 --- | ---
@@ -1479,7 +1473,7 @@ database_id | **string**<br>
 database_name | **string**<br> 
 
 
-### Database {#Database3}
+### Database {#Database5}
 
 Field | Description
 --- | ---
@@ -1491,8 +1485,8 @@ description | **string**<br>
 status | enum **Status**<br> 
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig10)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy10)**<br> 
+storage_config | **[StorageConfig](#StorageConfig5)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy5)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
 database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
@@ -1510,15 +1504,15 @@ monitoring_config | **[MonitoringConfig](#MonitoringConfig5)**<br>
 deletion_protection | **bool**<br> 
 
 
-### StorageConfig {#StorageConfig10}
+### StorageConfig {#StorageConfig5}
 
 Field | Description
 --- | ---
-storage_options[] | **[StorageOption](#StorageOption10)**<br> The minimum number of elements is 1.
+storage_options[] | **[StorageOption](#StorageOption5)**<br> The minimum number of elements is 1.
 storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
-### StorageOption {#StorageOption10}
+### StorageOption {#StorageOption5}
 
 Field | Description
 --- | ---
@@ -1526,15 +1520,15 @@ storage_type_id | **string**<br>
 group_count | **int64**<br> 
 
 
-### ScalePolicy {#ScalePolicy10}
+### ScalePolicy {#ScalePolicy5}
 
 Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale10)**<br> 
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale5)**<br> 
 
 
-### FixedScale {#FixedScale10}
+### FixedScale {#FixedScale5}
 
 Field | Description
 --- | ---
@@ -1560,42 +1554,11 @@ region_id | **string**<br>Required.
 Field | Description
 --- | ---
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig11)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy11)**<br> 
+storage_config | **[StorageConfig](#StorageConfig6)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy6)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
 assign_public_ips | **bool**<br> 
-
-
-### StorageConfig {#StorageConfig11}
-
-Field | Description
---- | ---
-storage_options[] | **[StorageOption](#StorageOption11)**<br> The minimum number of elements is 1.
-storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
-
-
-### StorageOption {#StorageOption11}
-
-Field | Description
---- | ---
-storage_type_id | **string**<br> 
-group_count | **int64**<br> 
-
-
-### ScalePolicy {#ScalePolicy11}
-
-Field | Description
---- | ---
-scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale11)**<br> 
-
-
-### FixedScale {#FixedScale11}
-
-Field | Description
---- | ---
-size | **int64**<br> The minimum value is 1.
 
 
 ### ServerlessDatabase {#ServerlessDatabase5}
@@ -1606,6 +1569,7 @@ throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's de
 storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
 enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
 provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
+topic_write_quota | **int64**<br>write quota for topic service, defined in bytes per second. 
 
 
 ### BackupConfig {#BackupConfig5}
@@ -1751,24 +1715,25 @@ name | **string**<br>Required. Parameter name
 values[] | **string**<br>Required. Parameter value 
 
 
-## Start {#Start}
+## Move {#Move}
 
-Starts the specified database.
 
-**rpc Start ([StartDatabaseRequest](#StartDatabaseRequest)) returns ([operation.Operation](#Operation2))**
+
+**rpc Move ([MoveDatabaseRequest](#MoveDatabaseRequest)) returns ([operation.Operation](#Operation4))**
 
 Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartDatabaseMetadata](#StartDatabaseMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveDatabaseMetadata](#MoveDatabaseMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database6)<br>
 
-### StartDatabaseRequest {#StartDatabaseRequest}
+### MoveDatabaseRequest {#MoveDatabaseRequest}
 
 Field | Description
 --- | ---
-database_id | **string**<br>Required.  The maximum string length in characters is 50.
+database_id | **string**<br>Required. ID of the YDB instance to move. The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the destination folder. The maximum string length in characters is 50.
 
 
-### Operation {#Operation2}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -1778,13 +1743,13 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartDatabaseMetadata](#StartDatabaseMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveDatabaseMetadata](#MoveDatabaseMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](#Database4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](#Database6)>**<br>if operation finished successfully. 
 
 
-### StartDatabaseMetadata {#StartDatabaseMetadata}
+### MoveDatabaseMetadata {#MoveDatabaseMetadata}
 
 Field | Description
 --- | ---
@@ -1792,7 +1757,7 @@ database_id | **string**<br>
 database_name | **string**<br> 
 
 
-### Database {#Database4}
+### Database {#Database6}
 
 Field | Description
 --- | ---
@@ -1804,8 +1769,8 @@ description | **string**<br>
 status | enum **Status**<br> 
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig12)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy12)**<br> 
+storage_config | **[StorageConfig](#StorageConfig6)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy6)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
 database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
@@ -1823,15 +1788,15 @@ monitoring_config | **[MonitoringConfig](#MonitoringConfig6)**<br>
 deletion_protection | **bool**<br> 
 
 
-### StorageConfig {#StorageConfig12}
+### StorageConfig {#StorageConfig6}
 
 Field | Description
 --- | ---
-storage_options[] | **[StorageOption](#StorageOption12)**<br> The minimum number of elements is 1.
+storage_options[] | **[StorageOption](#StorageOption6)**<br> The minimum number of elements is 1.
 storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
-### StorageOption {#StorageOption12}
+### StorageOption {#StorageOption6}
 
 Field | Description
 --- | ---
@@ -1839,15 +1804,15 @@ storage_type_id | **string**<br>
 group_count | **int64**<br> 
 
 
-### ScalePolicy {#ScalePolicy12}
+### ScalePolicy {#ScalePolicy6}
 
 Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale12)**<br> 
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale6)**<br> 
 
 
-### FixedScale {#FixedScale12}
+### FixedScale {#FixedScale6}
 
 Field | Description
 --- | ---
@@ -1873,42 +1838,11 @@ region_id | **string**<br>Required.
 Field | Description
 --- | ---
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig13)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy13)**<br> 
+storage_config | **[StorageConfig](#StorageConfig7)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy7)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
 assign_public_ips | **bool**<br> 
-
-
-### StorageConfig {#StorageConfig13}
-
-Field | Description
---- | ---
-storage_options[] | **[StorageOption](#StorageOption13)**<br> The minimum number of elements is 1.
-storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
-
-
-### StorageOption {#StorageOption13}
-
-Field | Description
---- | ---
-storage_type_id | **string**<br> 
-group_count | **int64**<br> 
-
-
-### ScalePolicy {#ScalePolicy13}
-
-Field | Description
---- | ---
-scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale13)**<br> 
-
-
-### FixedScale {#FixedScale13}
-
-Field | Description
---- | ---
-size | **int64**<br> The minimum value is 1.
 
 
 ### ServerlessDatabase {#ServerlessDatabase6}
@@ -1919,6 +1853,7 @@ throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's de
 storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
 enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
 provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
+topic_write_quota | **int64**<br>write quota for topic service, defined in bytes per second. 
 
 
 ### BackupConfig {#BackupConfig6}
@@ -2057,633 +1992,6 @@ values[] | **string**<br>Required. Parameter value
 
 
 ### LabelListParameterValue {#LabelListParameterValue6}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Parameter name 
-values[] | **string**<br>Required. Parameter value 
-
-
-## Stop {#Stop}
-
-Stops the specified database.
-
-**rpc Stop ([StopDatabaseRequest](#StopDatabaseRequest)) returns ([operation.Operation](#Operation3))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StopDatabaseMetadata](#StopDatabaseMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database5)<br>
-
-### StopDatabaseRequest {#StopDatabaseRequest}
-
-Field | Description
---- | ---
-database_id | **string**<br>Required.  The maximum string length in characters is 50.
-
-
-### Operation {#Operation3}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the operation. 
-description | **string**<br>Description of the operation. 0-256 characters long. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-created_by | **string**<br>ID of the user or service account who initiated the operation. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
-done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopDatabaseMetadata](#StopDatabaseMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
-result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](#Database5)>**<br>if operation finished successfully. 
-
-
-### StopDatabaseMetadata {#StopDatabaseMetadata}
-
-Field | Description
---- | ---
-database_id | **string**<br> 
-database_name | **string**<br> 
-
-
-### Database {#Database5}
-
-Field | Description
---- | ---
-id | **string**<br> 
-folder_id | **string**<br> 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br> 
-description | **string**<br> 
-status | enum **Status**<br> 
-endpoint | **string**<br> 
-resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig14)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy14)**<br> 
-network_id | **string**<br> 
-subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
-&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase7)**<br>deprecated field 
-&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase7)**<br>deprecated field 
-&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](#DedicatedDatabase7)**<br> 
-&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](#ServerlessDatabase7)**<br> 
-assign_public_ips | **bool**<br> 
-location_id | **string**<br> 
-labels | **map<string,string>**<br> 
-backup_config | **[BackupConfig](#BackupConfig7)**<br> 
-document_api_endpoint | **string**<br> 
-kinesis_api_endpoint | **string**<br> 
-monitoring_config | **[MonitoringConfig](#MonitoringConfig7)**<br> 
-deletion_protection | **bool**<br> 
-
-
-### StorageConfig {#StorageConfig14}
-
-Field | Description
---- | ---
-storage_options[] | **[StorageOption](#StorageOption14)**<br> The minimum number of elements is 1.
-storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
-
-
-### StorageOption {#StorageOption14}
-
-Field | Description
---- | ---
-storage_type_id | **string**<br> 
-group_count | **int64**<br> 
-
-
-### ScalePolicy {#ScalePolicy14}
-
-Field | Description
---- | ---
-scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale14)**<br> 
-
-
-### FixedScale {#FixedScale14}
-
-Field | Description
---- | ---
-size | **int64**<br> The minimum value is 1.
-
-
-### ZonalDatabase {#ZonalDatabase7}
-
-Field | Description
---- | ---
-zone_id | **string**<br>Required.  
-
-
-### RegionalDatabase {#RegionalDatabase7}
-
-Field | Description
---- | ---
-region_id | **string**<br>Required.  
-
-
-### DedicatedDatabase {#DedicatedDatabase7}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig15)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy15)**<br> 
-network_id | **string**<br> 
-subnet_ids[] | **string**<br> 
-assign_public_ips | **bool**<br> 
-
-
-### StorageConfig {#StorageConfig15}
-
-Field | Description
---- | ---
-storage_options[] | **[StorageOption](#StorageOption15)**<br> The minimum number of elements is 1.
-storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
-
-
-### StorageOption {#StorageOption15}
-
-Field | Description
---- | ---
-storage_type_id | **string**<br> 
-group_count | **int64**<br> 
-
-
-### ScalePolicy {#ScalePolicy15}
-
-Field | Description
---- | ---
-scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale15)**<br> 
-
-
-### FixedScale {#FixedScale15}
-
-Field | Description
---- | ---
-size | **int64**<br> The minimum value is 1.
-
-
-### ServerlessDatabase {#ServerlessDatabase7}
-
-Field | Description
---- | ---
-throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second. If `enable_throttling_rcu_limit` flag is true, the database will be throttled using `throttling_rcu_limit` value. Otherwise, the database is throttled using the cloud quotas. If zero, all requests will be blocked until non zero value is set. 
-storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
-enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
-provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
-
-
-### BackupConfig {#BackupConfig7}
-
-Field | Description
---- | ---
-backup_settings[] | **[BackupSettings](#BackupSettings7)**<br> 
-
-
-### BackupSettings {#BackupSettings7}
-
-Field | Description
---- | ---
-name | **string**<br>name of backup settings The maximum string length in characters is 256.
-description | **string**<br>human readable description. The maximum string length in characters is 256.
-backup_schedule | **[BackupSchedule](#BackupSchedule7)**<br>provide schedule. if empty, backup will be disabled. 
-backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
-source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
-source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
-type | enum **[Type](./storage_type#undefined)**<br> 
-storage_class | enum **StorageClass**<br> 
-
-
-### BackupSchedule {#BackupSchedule7}
-
-Field | Description
---- | ---
-policy | **oneof:** `daily_backup_schedule`, `weekly_backup_schedule` or `recurring_backup_schedule`<br>
-&nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule7)**<br> 
-&nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule7)**<br> 
-&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule7)**<br> 
-next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
-
-
-### DailyBackupSchedule {#DailyBackupSchedule7}
-
-Field | Description
---- | ---
-execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-
-
-### WeeklyBackupSchedule {#WeeklyBackupSchedule7}
-
-Field | Description
---- | ---
-days_of_week[] | **[DaysOfWeekBackupSchedule](#DaysOfWeekBackupSchedule7)**<br> The number of elements must be in the range 1-7.
-
-
-### DaysOfWeekBackupSchedule {#DaysOfWeekBackupSchedule7}
-
-Field | Description
---- | ---
-days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
-execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-
-
-### RecurringBackupSchedule {#RecurringBackupSchedule7}
-
-Field | Description
---- | ---
-start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the first recurrence. 
-recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
-
-
-### MonitoringConfig {#MonitoringConfig7}
-
-Field | Description
---- | ---
-alerts[] | **[Alert](#Alert7)**<br> 
-
-
-### Alert {#Alert7}
-
-Field | Description
---- | ---
-alert_id | **string**<br>output only field. 
-alert_template_id | **string**<br>template of the alert. 
-name | **string**<br>name of the alert. 
-description | **string**<br>human readable description of the alert. 
-notification_channels[] | **[NotificationChannel](#NotificationChannel7)**<br>the notification channels of the alert. 
-alert_parameters[] | **[AlertParameter](#AlertParameter7)**<br>alert parameters to override. 
-alert_thresholds[] | **[AlertParameter](#AlertParameter7)**<br>alert paratemers to override. 
-
-
-### NotificationChannel {#NotificationChannel7}
-
-Field | Description
---- | ---
-notification_channel_id | **string**<br> 
-notify_about_statuses[] | enum **AlertEvaluationStatus**<br> 
-repeate_notify_delay_ms | **int64**<br> 
-
-
-### AlertParameter {#AlertParameter7}
-
-Field | Description
---- | ---
-parameter | **oneof:** `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value` or `label_list_parameter_value`<br>
-&nbsp;&nbsp;double_parameter_value | **[DoubleParameterValue](#DoubleParameterValue7)**<br> 
-&nbsp;&nbsp;integer_parameter_value | **[IntegerParameterValue](#IntegerParameterValue7)**<br> 
-&nbsp;&nbsp;text_parameter_value | **[TextParameterValue](#TextParameterValue7)**<br> 
-&nbsp;&nbsp;text_list_parameter_value | **[TextListParameterValue](#TextListParameterValue7)**<br> 
-&nbsp;&nbsp;label_list_parameter_value | **[LabelListParameterValue](#LabelListParameterValue7)**<br> 
-
-
-### DoubleParameterValue {#DoubleParameterValue7}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Parameter name 
-value | **double**<br>Required. Parameter value 
-
-
-### IntegerParameterValue {#IntegerParameterValue7}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Parameter name 
-value | **int64**<br>Required. Parameter value 
-
-
-### TextParameterValue {#TextParameterValue7}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Parameter name 
-value | **string**<br>Required. Parameter value 
-
-
-### TextListParameterValue {#TextListParameterValue7}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Parameter name 
-values[] | **string**<br>Required. Parameter value 
-
-
-### LabelListParameterValue {#LabelListParameterValue7}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Parameter name 
-values[] | **string**<br>Required. Parameter value 
-
-
-## Move {#Move}
-
-
-
-**rpc Move ([MoveDatabaseRequest](#MoveDatabaseRequest)) returns ([operation.Operation](#Operation4))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveDatabaseMetadata](#MoveDatabaseMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database6)<br>
-
-### MoveDatabaseRequest {#MoveDatabaseRequest}
-
-Field | Description
---- | ---
-database_id | **string**<br>Required. ID of the YDB instance to move. The maximum string length in characters is 50.
-destination_folder_id | **string**<br>Required. ID of the destination folder. The maximum string length in characters is 50.
-
-
-### Operation {#Operation4}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the operation. 
-description | **string**<br>Description of the operation. 0-256 characters long. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-created_by | **string**<br>ID of the user or service account who initiated the operation. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
-done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveDatabaseMetadata](#MoveDatabaseMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
-result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](#Database6)>**<br>if operation finished successfully. 
-
-
-### MoveDatabaseMetadata {#MoveDatabaseMetadata}
-
-Field | Description
---- | ---
-database_id | **string**<br> 
-database_name | **string**<br> 
-
-
-### Database {#Database6}
-
-Field | Description
---- | ---
-id | **string**<br> 
-folder_id | **string**<br> 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br> 
-description | **string**<br> 
-status | enum **Status**<br> 
-endpoint | **string**<br> 
-resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig16)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy16)**<br> 
-network_id | **string**<br> 
-subnet_ids[] | **string**<br> 
-database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
-&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase8)**<br>deprecated field 
-&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase8)**<br>deprecated field 
-&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](#DedicatedDatabase8)**<br> 
-&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](#ServerlessDatabase8)**<br> 
-assign_public_ips | **bool**<br> 
-location_id | **string**<br> 
-labels | **map<string,string>**<br> 
-backup_config | **[BackupConfig](#BackupConfig8)**<br> 
-document_api_endpoint | **string**<br> 
-kinesis_api_endpoint | **string**<br> 
-monitoring_config | **[MonitoringConfig](#MonitoringConfig8)**<br> 
-deletion_protection | **bool**<br> 
-
-
-### StorageConfig {#StorageConfig16}
-
-Field | Description
---- | ---
-storage_options[] | **[StorageOption](#StorageOption16)**<br> The minimum number of elements is 1.
-storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
-
-
-### StorageOption {#StorageOption16}
-
-Field | Description
---- | ---
-storage_type_id | **string**<br> 
-group_count | **int64**<br> 
-
-
-### ScalePolicy {#ScalePolicy16}
-
-Field | Description
---- | ---
-scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale16)**<br> 
-
-
-### FixedScale {#FixedScale16}
-
-Field | Description
---- | ---
-size | **int64**<br> The minimum value is 1.
-
-
-### ZonalDatabase {#ZonalDatabase8}
-
-Field | Description
---- | ---
-zone_id | **string**<br>Required.  
-
-
-### RegionalDatabase {#RegionalDatabase8}
-
-Field | Description
---- | ---
-region_id | **string**<br>Required.  
-
-
-### DedicatedDatabase {#DedicatedDatabase8}
-
-Field | Description
---- | ---
-resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig17)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy17)**<br> 
-network_id | **string**<br> 
-subnet_ids[] | **string**<br> 
-assign_public_ips | **bool**<br> 
-
-
-### StorageConfig {#StorageConfig17}
-
-Field | Description
---- | ---
-storage_options[] | **[StorageOption](#StorageOption17)**<br> The minimum number of elements is 1.
-storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
-
-
-### StorageOption {#StorageOption17}
-
-Field | Description
---- | ---
-storage_type_id | **string**<br> 
-group_count | **int64**<br> 
-
-
-### ScalePolicy {#ScalePolicy17}
-
-Field | Description
---- | ---
-scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale17)**<br> 
-
-
-### FixedScale {#FixedScale17}
-
-Field | Description
---- | ---
-size | **int64**<br> The minimum value is 1.
-
-
-### ServerlessDatabase {#ServerlessDatabase8}
-
-Field | Description
---- | ---
-throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second. If `enable_throttling_rcu_limit` flag is true, the database will be throttled using `throttling_rcu_limit` value. Otherwise, the database is throttled using the cloud quotas. If zero, all requests will be blocked until non zero value is set. 
-storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
-enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
-provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
-
-
-### BackupConfig {#BackupConfig8}
-
-Field | Description
---- | ---
-backup_settings[] | **[BackupSettings](#BackupSettings8)**<br> 
-
-
-### BackupSettings {#BackupSettings8}
-
-Field | Description
---- | ---
-name | **string**<br>name of backup settings The maximum string length in characters is 256.
-description | **string**<br>human readable description. The maximum string length in characters is 256.
-backup_schedule | **[BackupSchedule](#BackupSchedule8)**<br>provide schedule. if empty, backup will be disabled. 
-backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
-source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
-source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
-type | enum **[Type](./storage_type#undefined)**<br> 
-storage_class | enum **StorageClass**<br> 
-
-
-### BackupSchedule {#BackupSchedule8}
-
-Field | Description
---- | ---
-policy | **oneof:** `daily_backup_schedule`, `weekly_backup_schedule` or `recurring_backup_schedule`<br>
-&nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule8)**<br> 
-&nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule8)**<br> 
-&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule8)**<br> 
-next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
-
-
-### DailyBackupSchedule {#DailyBackupSchedule8}
-
-Field | Description
---- | ---
-execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-
-
-### WeeklyBackupSchedule {#WeeklyBackupSchedule8}
-
-Field | Description
---- | ---
-days_of_week[] | **[DaysOfWeekBackupSchedule](#DaysOfWeekBackupSchedule8)**<br> The number of elements must be in the range 1-7.
-
-
-### DaysOfWeekBackupSchedule {#DaysOfWeekBackupSchedule8}
-
-Field | Description
---- | ---
-days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
-execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-
-
-### RecurringBackupSchedule {#RecurringBackupSchedule8}
-
-Field | Description
---- | ---
-start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the first recurrence. 
-recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
-
-
-### MonitoringConfig {#MonitoringConfig8}
-
-Field | Description
---- | ---
-alerts[] | **[Alert](#Alert8)**<br> 
-
-
-### Alert {#Alert8}
-
-Field | Description
---- | ---
-alert_id | **string**<br>output only field. 
-alert_template_id | **string**<br>template of the alert. 
-name | **string**<br>name of the alert. 
-description | **string**<br>human readable description of the alert. 
-notification_channels[] | **[NotificationChannel](#NotificationChannel8)**<br>the notification channels of the alert. 
-alert_parameters[] | **[AlertParameter](#AlertParameter8)**<br>alert parameters to override. 
-alert_thresholds[] | **[AlertParameter](#AlertParameter8)**<br>alert paratemers to override. 
-
-
-### NotificationChannel {#NotificationChannel8}
-
-Field | Description
---- | ---
-notification_channel_id | **string**<br> 
-notify_about_statuses[] | enum **AlertEvaluationStatus**<br> 
-repeate_notify_delay_ms | **int64**<br> 
-
-
-### AlertParameter {#AlertParameter8}
-
-Field | Description
---- | ---
-parameter | **oneof:** `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value` or `label_list_parameter_value`<br>
-&nbsp;&nbsp;double_parameter_value | **[DoubleParameterValue](#DoubleParameterValue8)**<br> 
-&nbsp;&nbsp;integer_parameter_value | **[IntegerParameterValue](#IntegerParameterValue8)**<br> 
-&nbsp;&nbsp;text_parameter_value | **[TextParameterValue](#TextParameterValue8)**<br> 
-&nbsp;&nbsp;text_list_parameter_value | **[TextListParameterValue](#TextListParameterValue8)**<br> 
-&nbsp;&nbsp;label_list_parameter_value | **[LabelListParameterValue](#LabelListParameterValue8)**<br> 
-
-
-### DoubleParameterValue {#DoubleParameterValue8}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Parameter name 
-value | **double**<br>Required. Parameter value 
-
-
-### IntegerParameterValue {#IntegerParameterValue8}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Parameter name 
-value | **int64**<br>Required. Parameter value 
-
-
-### TextParameterValue {#TextParameterValue8}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Parameter name 
-value | **string**<br>Required. Parameter value 
-
-
-### TextListParameterValue {#TextListParameterValue8}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Parameter name 
-values[] | **string**<br>Required. Parameter value 
-
-
-### LabelListParameterValue {#LabelListParameterValue8}
 
 Field | Description
 --- | ---
@@ -2949,34 +2257,34 @@ description | **string**<br>
 status | enum **Status**<br> 
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig18)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy18)**<br> 
+storage_config | **[StorageConfig](#StorageConfig7)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy7)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
 database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
-&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase9)**<br>deprecated field 
-&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase9)**<br>deprecated field 
-&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](#DedicatedDatabase9)**<br> 
-&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](#ServerlessDatabase9)**<br> 
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase7)**<br>deprecated field 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase7)**<br>deprecated field 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](#DedicatedDatabase7)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](#ServerlessDatabase7)**<br> 
 assign_public_ips | **bool**<br> 
 location_id | **string**<br> 
 labels | **map<string,string>**<br> 
-backup_config | **[BackupConfig](#BackupConfig9)**<br> 
+backup_config | **[BackupConfig](#BackupConfig7)**<br> 
 document_api_endpoint | **string**<br> 
 kinesis_api_endpoint | **string**<br> 
-monitoring_config | **[MonitoringConfig](#MonitoringConfig9)**<br> 
+monitoring_config | **[MonitoringConfig](#MonitoringConfig7)**<br> 
 deletion_protection | **bool**<br> 
 
 
-### StorageConfig {#StorageConfig18}
+### StorageConfig {#StorageConfig7}
 
 Field | Description
 --- | ---
-storage_options[] | **[StorageOption](#StorageOption18)**<br> The minimum number of elements is 1.
+storage_options[] | **[StorageOption](#StorageOption7)**<br> The minimum number of elements is 1.
 storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
-### StorageOption {#StorageOption18}
+### StorageOption {#StorageOption7}
 
 Field | Description
 --- | ---
@@ -2984,79 +2292,48 @@ storage_type_id | **string**<br>
 group_count | **int64**<br> 
 
 
-### ScalePolicy {#ScalePolicy18}
+### ScalePolicy {#ScalePolicy7}
 
 Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale18)**<br> 
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale7)**<br> 
 
 
-### FixedScale {#FixedScale18}
+### FixedScale {#FixedScale7}
 
 Field | Description
 --- | ---
 size | **int64**<br> The minimum value is 1.
 
 
-### ZonalDatabase {#ZonalDatabase9}
+### ZonalDatabase {#ZonalDatabase7}
 
 Field | Description
 --- | ---
 zone_id | **string**<br>Required.  
 
 
-### RegionalDatabase {#RegionalDatabase9}
+### RegionalDatabase {#RegionalDatabase7}
 
 Field | Description
 --- | ---
 region_id | **string**<br>Required.  
 
 
-### DedicatedDatabase {#DedicatedDatabase9}
+### DedicatedDatabase {#DedicatedDatabase7}
 
 Field | Description
 --- | ---
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig19)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy19)**<br> 
+storage_config | **[StorageConfig](#StorageConfig8)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy8)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
 assign_public_ips | **bool**<br> 
 
 
-### StorageConfig {#StorageConfig19}
-
-Field | Description
---- | ---
-storage_options[] | **[StorageOption](#StorageOption19)**<br> The minimum number of elements is 1.
-storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
-
-
-### StorageOption {#StorageOption19}
-
-Field | Description
---- | ---
-storage_type_id | **string**<br> 
-group_count | **int64**<br> 
-
-
-### ScalePolicy {#ScalePolicy19}
-
-Field | Description
---- | ---
-scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale19)**<br> 
-
-
-### FixedScale {#FixedScale19}
-
-Field | Description
---- | ---
-size | **int64**<br> The minimum value is 1.
-
-
-### ServerlessDatabase {#ServerlessDatabase9}
+### ServerlessDatabase {#ServerlessDatabase7}
 
 Field | Description
 --- | ---
@@ -3064,22 +2341,23 @@ throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's de
 storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
 enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
 provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
+topic_write_quota | **int64**<br>write quota for topic service, defined in bytes per second. 
 
 
-### BackupConfig {#BackupConfig9}
+### BackupConfig {#BackupConfig7}
 
 Field | Description
 --- | ---
-backup_settings[] | **[BackupSettings](#BackupSettings9)**<br> 
+backup_settings[] | **[BackupSettings](#BackupSettings7)**<br> 
 
 
-### BackupSettings {#BackupSettings9}
+### BackupSettings {#BackupSettings7}
 
 Field | Description
 --- | ---
 name | **string**<br>name of backup settings The maximum string length in characters is 256.
 description | **string**<br>human readable description. The maximum string length in characters is 256.
-backup_schedule | **[BackupSchedule](#BackupSchedule9)**<br>provide schedule. if empty, backup will be disabled. 
+backup_schedule | **[BackupSchedule](#BackupSchedule7)**<br>provide schedule. if empty, backup will be disabled. 
 backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
@@ -3087,32 +2365,32 @@ type | enum **[Type](./storage_type#undefined)**<br>
 storage_class | enum **StorageClass**<br> 
 
 
-### BackupSchedule {#BackupSchedule9}
+### BackupSchedule {#BackupSchedule7}
 
 Field | Description
 --- | ---
 policy | **oneof:** `daily_backup_schedule`, `weekly_backup_schedule` or `recurring_backup_schedule`<br>
-&nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule9)**<br> 
-&nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule9)**<br> 
-&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule9)**<br> 
+&nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule7)**<br> 
+&nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule7)**<br> 
+&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule7)**<br> 
 next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
 
 
-### DailyBackupSchedule {#DailyBackupSchedule9}
+### DailyBackupSchedule {#DailyBackupSchedule7}
 
 Field | Description
 --- | ---
 execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
 
 
-### WeeklyBackupSchedule {#WeeklyBackupSchedule9}
+### WeeklyBackupSchedule {#WeeklyBackupSchedule7}
 
 Field | Description
 --- | ---
-days_of_week[] | **[DaysOfWeekBackupSchedule](#DaysOfWeekBackupSchedule9)**<br> The number of elements must be in the range 1-7.
+days_of_week[] | **[DaysOfWeekBackupSchedule](#DaysOfWeekBackupSchedule7)**<br> The number of elements must be in the range 1-7.
 
 
-### DaysOfWeekBackupSchedule {#DaysOfWeekBackupSchedule9}
+### DaysOfWeekBackupSchedule {#DaysOfWeekBackupSchedule7}
 
 Field | Description
 --- | ---
@@ -3120,7 +2398,7 @@ days[] | **google.type.DayOfWeek**<br> The number of elements must be in the ran
 execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
 
 
-### RecurringBackupSchedule {#RecurringBackupSchedule9}
+### RecurringBackupSchedule {#RecurringBackupSchedule7}
 
 Field | Description
 --- | ---
@@ -3128,14 +2406,14 @@ start_time | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
-### MonitoringConfig {#MonitoringConfig9}
+### MonitoringConfig {#MonitoringConfig7}
 
 Field | Description
 --- | ---
-alerts[] | **[Alert](#Alert9)**<br> 
+alerts[] | **[Alert](#Alert7)**<br> 
 
 
-### Alert {#Alert9}
+### Alert {#Alert7}
 
 Field | Description
 --- | ---
@@ -3143,12 +2421,12 @@ alert_id | **string**<br>output only field.
 alert_template_id | **string**<br>template of the alert. 
 name | **string**<br>name of the alert. 
 description | **string**<br>human readable description of the alert. 
-notification_channels[] | **[NotificationChannel](#NotificationChannel9)**<br>the notification channels of the alert. 
-alert_parameters[] | **[AlertParameter](#AlertParameter9)**<br>alert parameters to override. 
-alert_thresholds[] | **[AlertParameter](#AlertParameter9)**<br>alert paratemers to override. 
+notification_channels[] | **[NotificationChannel](#NotificationChannel7)**<br>the notification channels of the alert. 
+alert_parameters[] | **[AlertParameter](#AlertParameter7)**<br>alert parameters to override. 
+alert_thresholds[] | **[AlertParameter](#AlertParameter7)**<br>alert paratemers to override. 
 
 
-### NotificationChannel {#NotificationChannel9}
+### NotificationChannel {#NotificationChannel7}
 
 Field | Description
 --- | ---
@@ -3157,19 +2435,19 @@ notify_about_statuses[] | enum **AlertEvaluationStatus**<br>
 repeate_notify_delay_ms | **int64**<br> 
 
 
-### AlertParameter {#AlertParameter9}
+### AlertParameter {#AlertParameter7}
 
 Field | Description
 --- | ---
 parameter | **oneof:** `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value` or `label_list_parameter_value`<br>
-&nbsp;&nbsp;double_parameter_value | **[DoubleParameterValue](#DoubleParameterValue9)**<br> 
-&nbsp;&nbsp;integer_parameter_value | **[IntegerParameterValue](#IntegerParameterValue9)**<br> 
-&nbsp;&nbsp;text_parameter_value | **[TextParameterValue](#TextParameterValue9)**<br> 
-&nbsp;&nbsp;text_list_parameter_value | **[TextListParameterValue](#TextListParameterValue9)**<br> 
-&nbsp;&nbsp;label_list_parameter_value | **[LabelListParameterValue](#LabelListParameterValue9)**<br> 
+&nbsp;&nbsp;double_parameter_value | **[DoubleParameterValue](#DoubleParameterValue7)**<br> 
+&nbsp;&nbsp;integer_parameter_value | **[IntegerParameterValue](#IntegerParameterValue7)**<br> 
+&nbsp;&nbsp;text_parameter_value | **[TextParameterValue](#TextParameterValue7)**<br> 
+&nbsp;&nbsp;text_list_parameter_value | **[TextListParameterValue](#TextListParameterValue7)**<br> 
+&nbsp;&nbsp;label_list_parameter_value | **[LabelListParameterValue](#LabelListParameterValue7)**<br> 
 
 
-### DoubleParameterValue {#DoubleParameterValue9}
+### DoubleParameterValue {#DoubleParameterValue7}
 
 Field | Description
 --- | ---
@@ -3177,7 +2455,7 @@ name | **string**<br>Required. Parameter name
 value | **double**<br>Required. Parameter value 
 
 
-### IntegerParameterValue {#IntegerParameterValue9}
+### IntegerParameterValue {#IntegerParameterValue7}
 
 Field | Description
 --- | ---
@@ -3185,7 +2463,7 @@ name | **string**<br>Required. Parameter name
 value | **int64**<br>Required. Parameter value 
 
 
-### TextParameterValue {#TextParameterValue9}
+### TextParameterValue {#TextParameterValue7}
 
 Field | Description
 --- | ---
@@ -3193,7 +2471,7 @@ name | **string**<br>Required. Parameter name
 value | **string**<br>Required. Parameter value 
 
 
-### TextListParameterValue {#TextListParameterValue9}
+### TextListParameterValue {#TextListParameterValue7}
 
 Field | Description
 --- | ---
@@ -3201,7 +2479,7 @@ name | **string**<br>Required. Parameter name
 values[] | **string**<br>Required. Parameter value 
 
 
-### LabelListParameterValue {#LabelListParameterValue9}
+### LabelListParameterValue {#LabelListParameterValue7}
 
 Field | Description
 --- | ---
@@ -3224,16 +2502,16 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 database_id | **string**<br> 
-backup_settings | **[BackupSettings](#BackupSettings10)**<br>custom backup options, if required. 
+backup_settings | **[BackupSettings](#BackupSettings8)**<br>custom backup options, if required. 
 
 
-### BackupSettings {#BackupSettings10}
+### BackupSettings {#BackupSettings8}
 
 Field | Description
 --- | ---
 name | **string**<br>name of backup settings The maximum string length in characters is 256.
 description | **string**<br>human readable description. The maximum string length in characters is 256.
-backup_schedule | **[BackupSchedule](#BackupSchedule10)**<br>provide schedule. if empty, backup will be disabled. 
+backup_schedule | **[BackupSchedule](#BackupSchedule8)**<br>provide schedule. if empty, backup will be disabled. 
 backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
@@ -3241,32 +2519,32 @@ type | enum **[Type](./storage_type#undefined)**<br>
 storage_class | enum **StorageClass**<br> 
 
 
-### BackupSchedule {#BackupSchedule10}
+### BackupSchedule {#BackupSchedule8}
 
 Field | Description
 --- | ---
 policy | **oneof:** `daily_backup_schedule`, `weekly_backup_schedule` or `recurring_backup_schedule`<br>
-&nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule10)**<br> 
-&nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule10)**<br> 
-&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule10)**<br> 
+&nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule8)**<br> 
+&nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule8)**<br> 
+&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule8)**<br> 
 next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
 
 
-### DailyBackupSchedule {#DailyBackupSchedule10}
+### DailyBackupSchedule {#DailyBackupSchedule8}
 
 Field | Description
 --- | ---
 execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
 
 
-### WeeklyBackupSchedule {#WeeklyBackupSchedule10}
+### WeeklyBackupSchedule {#WeeklyBackupSchedule8}
 
 Field | Description
 --- | ---
-days_of_week[] | **[DaysOfWeekBackupSchedule](#DaysOfWeekBackupSchedule10)**<br> The number of elements must be in the range 1-7.
+days_of_week[] | **[DaysOfWeekBackupSchedule](#DaysOfWeekBackupSchedule8)**<br> The number of elements must be in the range 1-7.
 
 
-### DaysOfWeekBackupSchedule {#DaysOfWeekBackupSchedule10}
+### DaysOfWeekBackupSchedule {#DaysOfWeekBackupSchedule8}
 
 Field | Description
 --- | ---
@@ -3274,7 +2552,7 @@ days[] | **google.type.DayOfWeek**<br> The number of elements must be in the ran
 execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
 
 
-### RecurringBackupSchedule {#RecurringBackupSchedule10}
+### RecurringBackupSchedule {#RecurringBackupSchedule8}
 
 Field | Description
 --- | ---
@@ -3318,34 +2596,34 @@ description | **string**<br>
 status | enum **Status**<br> 
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig20)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy20)**<br> 
+storage_config | **[StorageConfig](#StorageConfig8)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy8)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
 database_type | **oneof:** `zonal_database`, `regional_database`, `dedicated_database` or `serverless_database`<br>
-&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase10)**<br>deprecated field 
-&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase10)**<br>deprecated field 
-&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](#DedicatedDatabase10)**<br> 
-&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](#ServerlessDatabase10)**<br> 
+&nbsp;&nbsp;zonal_database | **[ZonalDatabase](#ZonalDatabase8)**<br>deprecated field 
+&nbsp;&nbsp;regional_database | **[RegionalDatabase](#RegionalDatabase8)**<br>deprecated field 
+&nbsp;&nbsp;dedicated_database | **[DedicatedDatabase](#DedicatedDatabase8)**<br> 
+&nbsp;&nbsp;serverless_database | **[ServerlessDatabase](#ServerlessDatabase8)**<br> 
 assign_public_ips | **bool**<br> 
 location_id | **string**<br> 
 labels | **map<string,string>**<br> 
-backup_config | **[BackupConfig](#BackupConfig10)**<br> 
+backup_config | **[BackupConfig](#BackupConfig8)**<br> 
 document_api_endpoint | **string**<br> 
 kinesis_api_endpoint | **string**<br> 
-monitoring_config | **[MonitoringConfig](#MonitoringConfig10)**<br> 
+monitoring_config | **[MonitoringConfig](#MonitoringConfig8)**<br> 
 deletion_protection | **bool**<br> 
 
 
-### StorageConfig {#StorageConfig20}
+### StorageConfig {#StorageConfig8}
 
 Field | Description
 --- | ---
-storage_options[] | **[StorageOption](#StorageOption20)**<br> The minimum number of elements is 1.
+storage_options[] | **[StorageOption](#StorageOption8)**<br> The minimum number of elements is 1.
 storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
-### StorageOption {#StorageOption20}
+### StorageOption {#StorageOption8}
 
 Field | Description
 --- | ---
@@ -3353,79 +2631,48 @@ storage_type_id | **string**<br>
 group_count | **int64**<br> 
 
 
-### ScalePolicy {#ScalePolicy20}
+### ScalePolicy {#ScalePolicy8}
 
 Field | Description
 --- | ---
 scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale20)**<br> 
+&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale8)**<br> 
 
 
-### FixedScale {#FixedScale20}
+### FixedScale {#FixedScale8}
 
 Field | Description
 --- | ---
 size | **int64**<br> The minimum value is 1.
 
 
-### ZonalDatabase {#ZonalDatabase10}
+### ZonalDatabase {#ZonalDatabase8}
 
 Field | Description
 --- | ---
 zone_id | **string**<br>Required.  
 
 
-### RegionalDatabase {#RegionalDatabase10}
+### RegionalDatabase {#RegionalDatabase8}
 
 Field | Description
 --- | ---
 region_id | **string**<br>Required.  
 
 
-### DedicatedDatabase {#DedicatedDatabase10}
+### DedicatedDatabase {#DedicatedDatabase8}
 
 Field | Description
 --- | ---
 resource_preset_id | **string**<br> 
-storage_config | **[StorageConfig](#StorageConfig21)**<br> 
-scale_policy | **[ScalePolicy](#ScalePolicy21)**<br> 
+storage_config | **[StorageConfig](#StorageConfig9)**<br> 
+scale_policy | **[ScalePolicy](#ScalePolicy9)**<br> 
 network_id | **string**<br> 
 subnet_ids[] | **string**<br> 
 assign_public_ips | **bool**<br> 
 
 
-### StorageConfig {#StorageConfig21}
-
-Field | Description
---- | ---
-storage_options[] | **[StorageOption](#StorageOption21)**<br> The minimum number of elements is 1.
-storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
-
-
-### StorageOption {#StorageOption21}
-
-Field | Description
---- | ---
-storage_type_id | **string**<br> 
-group_count | **int64**<br> 
-
-
-### ScalePolicy {#ScalePolicy21}
-
-Field | Description
---- | ---
-scale_type | **oneof:** `fixed_scale`<br>
-&nbsp;&nbsp;fixed_scale | **[FixedScale](#FixedScale21)**<br> 
-
-
-### FixedScale {#FixedScale21}
-
-Field | Description
---- | ---
-size | **int64**<br> The minimum value is 1.
-
-
-### ServerlessDatabase {#ServerlessDatabase10}
+### ServerlessDatabase {#ServerlessDatabase8}
 
 Field | Description
 --- | ---
@@ -3433,78 +2680,24 @@ throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's de
 storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
 enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
 provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
+topic_write_quota | **int64**<br>write quota for topic service, defined in bytes per second. 
 
 
-### BackupConfig {#BackupConfig10}
-
-Field | Description
---- | ---
-backup_settings[] | **[BackupSettings](#BackupSettings11)**<br> 
-
-
-### BackupSettings {#BackupSettings11}
+### BackupConfig {#BackupConfig8}
 
 Field | Description
 --- | ---
-name | **string**<br>name of backup settings The maximum string length in characters is 256.
-description | **string**<br>human readable description. The maximum string length in characters is 256.
-backup_schedule | **[BackupSchedule](#BackupSchedule11)**<br>provide schedule. if empty, backup will be disabled. 
-backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
-source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
-source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
-type | enum **[Type](./storage_type#undefined)**<br> 
-storage_class | enum **StorageClass**<br> 
+backup_settings[] | **[BackupSettings](#BackupSettings9)**<br> 
 
 
-### BackupSchedule {#BackupSchedule11}
+### MonitoringConfig {#MonitoringConfig8}
 
 Field | Description
 --- | ---
-policy | **oneof:** `daily_backup_schedule`, `weekly_backup_schedule` or `recurring_backup_schedule`<br>
-&nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule11)**<br> 
-&nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule11)**<br> 
-&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule11)**<br> 
-next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
+alerts[] | **[Alert](#Alert8)**<br> 
 
 
-### DailyBackupSchedule {#DailyBackupSchedule11}
-
-Field | Description
---- | ---
-execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-
-
-### WeeklyBackupSchedule {#WeeklyBackupSchedule11}
-
-Field | Description
---- | ---
-days_of_week[] | **[DaysOfWeekBackupSchedule](#DaysOfWeekBackupSchedule11)**<br> The number of elements must be in the range 1-7.
-
-
-### DaysOfWeekBackupSchedule {#DaysOfWeekBackupSchedule11}
-
-Field | Description
---- | ---
-days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
-execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
-
-
-### RecurringBackupSchedule {#RecurringBackupSchedule11}
-
-Field | Description
---- | ---
-start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the first recurrence. 
-recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
-
-
-### MonitoringConfig {#MonitoringConfig10}
-
-Field | Description
---- | ---
-alerts[] | **[Alert](#Alert10)**<br> 
-
-
-### Alert {#Alert10}
+### Alert {#Alert8}
 
 Field | Description
 --- | ---
@@ -3512,12 +2705,12 @@ alert_id | **string**<br>output only field.
 alert_template_id | **string**<br>template of the alert. 
 name | **string**<br>name of the alert. 
 description | **string**<br>human readable description of the alert. 
-notification_channels[] | **[NotificationChannel](#NotificationChannel10)**<br>the notification channels of the alert. 
-alert_parameters[] | **[AlertParameter](#AlertParameter10)**<br>alert parameters to override. 
-alert_thresholds[] | **[AlertParameter](#AlertParameter10)**<br>alert paratemers to override. 
+notification_channels[] | **[NotificationChannel](#NotificationChannel8)**<br>the notification channels of the alert. 
+alert_parameters[] | **[AlertParameter](#AlertParameter8)**<br>alert parameters to override. 
+alert_thresholds[] | **[AlertParameter](#AlertParameter8)**<br>alert paratemers to override. 
 
 
-### NotificationChannel {#NotificationChannel10}
+### NotificationChannel {#NotificationChannel8}
 
 Field | Description
 --- | ---
@@ -3526,19 +2719,19 @@ notify_about_statuses[] | enum **AlertEvaluationStatus**<br>
 repeate_notify_delay_ms | **int64**<br> 
 
 
-### AlertParameter {#AlertParameter10}
+### AlertParameter {#AlertParameter8}
 
 Field | Description
 --- | ---
 parameter | **oneof:** `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value` or `label_list_parameter_value`<br>
-&nbsp;&nbsp;double_parameter_value | **[DoubleParameterValue](#DoubleParameterValue10)**<br> 
-&nbsp;&nbsp;integer_parameter_value | **[IntegerParameterValue](#IntegerParameterValue10)**<br> 
-&nbsp;&nbsp;text_parameter_value | **[TextParameterValue](#TextParameterValue10)**<br> 
-&nbsp;&nbsp;text_list_parameter_value | **[TextListParameterValue](#TextListParameterValue10)**<br> 
-&nbsp;&nbsp;label_list_parameter_value | **[LabelListParameterValue](#LabelListParameterValue10)**<br> 
+&nbsp;&nbsp;double_parameter_value | **[DoubleParameterValue](#DoubleParameterValue8)**<br> 
+&nbsp;&nbsp;integer_parameter_value | **[IntegerParameterValue](#IntegerParameterValue8)**<br> 
+&nbsp;&nbsp;text_parameter_value | **[TextParameterValue](#TextParameterValue8)**<br> 
+&nbsp;&nbsp;text_list_parameter_value | **[TextListParameterValue](#TextListParameterValue8)**<br> 
+&nbsp;&nbsp;label_list_parameter_value | **[LabelListParameterValue](#LabelListParameterValue8)**<br> 
 
 
-### DoubleParameterValue {#DoubleParameterValue10}
+### DoubleParameterValue {#DoubleParameterValue8}
 
 Field | Description
 --- | ---
@@ -3546,7 +2739,7 @@ name | **string**<br>Required. Parameter name
 value | **double**<br>Required. Parameter value 
 
 
-### IntegerParameterValue {#IntegerParameterValue10}
+### IntegerParameterValue {#IntegerParameterValue8}
 
 Field | Description
 --- | ---
@@ -3554,7 +2747,7 @@ name | **string**<br>Required. Parameter name
 value | **int64**<br>Required. Parameter value 
 
 
-### TextParameterValue {#TextParameterValue10}
+### TextParameterValue {#TextParameterValue8}
 
 Field | Description
 --- | ---
@@ -3562,7 +2755,7 @@ name | **string**<br>Required. Parameter name
 value | **string**<br>Required. Parameter value 
 
 
-### TextListParameterValue {#TextListParameterValue10}
+### TextListParameterValue {#TextListParameterValue8}
 
 Field | Description
 --- | ---
@@ -3570,7 +2763,7 @@ name | **string**<br>Required. Parameter name
 values[] | **string**<br>Required. Parameter value 
 
 
-### LabelListParameterValue {#LabelListParameterValue10}
+### LabelListParameterValue {#LabelListParameterValue8}
 
 Field | Description
 --- | ---

@@ -42,9 +42,69 @@
 
 1. Выполните запрос вида:
 
-   ```
-   curl -H "Authorization: Bearer `yc iam create-token`" -H  "accept: application/json" -X POST https://compute.api.cloud.yandex.net/compute/v1/images -d '{"folderId": "<id вашего каталога>", "name": "<название образа>", "description": "<описание образа>", "os": {"type": "WINDOWS"}, "pooled": false, "uri": "<ссылка на образ в Object Storage>"}'
-   ```
+   {% list tabs %}
+
+   - Bash
+
+     ```bash
+     curl -H "Authorization: Bearer `yc iam create-token`" -H  "accept: application/json" -X POST https://compute.api.cloud.yandex.net/compute/v1/images -d '{"folderId": "<ID вашего каталога>", "name": "<название образа>", "description": "<описание образа>", "os": {"type": "WINDOWS"}, "pooled": false, "uri": "<ссылка на образ в Object Storage>"}'
+     ```
+
+   - PowerShell
+
+     ```powershell
+     function Create-YCImage {
+       param(
+         [ValidateNotNullOrEmpty()]
+         [string]$folderId = "",
+
+         [ValidateNotNullOrEmpty()]
+         [string]$name = "",
+
+         [string]$description = "",
+
+         [ValidateNotNullOrEmpty()]
+         [string]$os_type = "WINDOWS",
+
+         [int64]$minDiskSizeGb = 50GB,
+
+         [ValidateNotNullOrEmpty()]
+         [string]$uri = ""
+       )
+
+       $body = @"
+     {
+       "folderId": "$folderId",
+       "name": "$name",
+       "description": "$description",
+       "os.type": "$os_type",
+       "minDiskSize": "$minDiskSizeGb",
+       "os": {
+         "type": "$os_type"
+       },
+       "uri": "$uri"
+     }
+     "@
+
+       Invoke-WebRequest `
+         -Method POST `
+         -URI https://compute.api.cloud.yandex.net/compute/v1/images `
+         -header @{ "Authorization" = "Bearer $(& yc iam create-token)" } `
+         -ContentType 'Application/json' `
+         -body $body
+     }
+
+
+     $folderId = "<ID вашего каталога>"
+
+     Create-YCImage `
+       -folderId $folderId `
+       -name "<название образа>" `
+       -uri "<ссылка на образ в Object Storage>"
+
+     ```
+
+   {% endlist %}
 
 1. Откройте [консоль управления]({{ link-console-cloud }}), выберите каталог, ID которого вы указали в параметре `folderId` на первом шаге.
 1. Перейдите в раздел {{ compute-name }} и выберите вкладку **Образы**.
@@ -52,37 +112,51 @@
 
 ### Создайте группу выделенных хостов {#create-host-group}
 
-Свяжитесь с вашим аккаунт-менеджером и получите квоту на группу выделенных хостов. Обратите внимание, что минимальное количество ядер vCPU на выделенных хостах — 128, все они оплачиваются.
+Использовать собственные лицензии можно только на ВМ, созданных на выделенных хостах. Свяжитесь с вашим аккаунт-менеджером и получите квоту на группу выделенных хостов. Обратите внимание, что минимальное количество ядер vCPU на выделенных хостах — 128, все они оплачиваются.
 
 Создайте группу выделенных хостов [по инструкции](../compute/operations/dedicated-host/create-host-group.md).
 
 ### Создайте ВМ из вашего образа на выделенном хосте {#create-vm}
 
-1. Подготовьте файл с метаданными `metadata.yaml` и задайте в нем пароль администратора:
+Создайте на выделенном хосте ВМ с загрузочным диском из импортированного образа. Укажите идентификатор выделенного хоста в параметре `--host-id`. Создать ВМ можно только с помощью CLI, API или Terraform. Выполните команду:
 
-   ```
-   #ps1
-   net user Administrator "<пароль администратора>"
-   ```
+   {% list tabs %}
 
-   Обратите внимание, что пароль должен соответствовать [требованиям к сложности](https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements) паролей Windows. 
+   - CLI
 
-1. Чтобы создать ВМ с загрузочным диском из импортированного образа, выполните команду:
+     ```bash
+     yc compute instance create \
+     --host-id <идентификатор выделенного хоста> \
+     --name 'win-test' \
+     --folder-id <идентификатор каталога> \
+     --cores <количество vCPU> \
+     --core-fraction 100 \
+     --memory <объем памяти в ГБ> \
+     --network-interface subnet-id=<идентификатор подсети>,nat-ip-version=ipv4 \
+     --create-boot-disk image-id=<идентификатор импортированного образа> \
+     --zone <зона доступности> \
+     ```
 
-   ```
-   yc compute instance create \
-   --host-id <идентификатор выделенного хоста> \
-   --name 'win-test' \
-   --folder-id <идентификатор каталога> \
-   --cores <количество vCPU> \
-   --core-fraction 100 \
-   --memory <объем памяти в ГБ> \
-   --network-interface subnet-id=<идентификатор подсети>,nat-ip-version=ipv4 \
-   --create-boot-disk image-id=<идентификатор импортированного образа> \
-   --zone <зона доступности> \
-   --metadata-from-file user-data=metadata.yaml
-   ```
+   {% endlist %}
+
+## Сбросьте пароль администратора {#reset-password}
+
+Чтобы получить доступ к ВМ, нужно сбросить пароль администратора, установленный по умолчанию, и сгенерировать новый.
+
+1. Откройте [консоль управления]({{link-console-main}}).
+1. Выберите сервис **{{ compute-name }}**.
+1. Найдите в списке ВМ `win-test` и дождитесь, пока она перейдет в статус `RUNNING`. Выберите ВМ.
+1. Нажмите кнопку **Сбросить пароль**.
+1. В открывшемся окне нажмите кнопку **Сгенерировать пароль**.
+
+{% note warning %}
+
+Обязательно сохраните сгенерированный пароль. Он перестанет отображаться в консоли управления после того, как вы закроете окно.
+
+{% endnote %}
 
 ## Проверьте работу ВМ {#test-vm}
 
-Подождите 5-10 минут. Подключитесь к созданной ВМ [с помощью RDP](../compute/operations/vm-connect/rdp.md). После этого вы можете активировать свою лицензию.
+Подключитесь к созданной ВМ [с помощью RDP](../compute/operations/vm-connect/rdp.md), используя пароль, который вы получили после сброса.
+
+После этого вы можете активировать свою лицензию.

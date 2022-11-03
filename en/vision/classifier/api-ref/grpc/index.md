@@ -2,7 +2,7 @@
 sourcePath: en/_api-ref-grpc/vision/classifier/classifier/api-ref/grpc/index.md
 ---
 # Vision API
-The service does not operate with resources. All service's methods are presented on the [Vision](Vision/) page.
+The service does not operate with resources.
 
 See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com/yandex-cloud/cloudapi).
 

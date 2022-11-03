@@ -178,10 +178,8 @@
 
      resource "yandex_resourcemanager_folder_iam_binding" "editor" {
        folder_id = "${data.yandex_resourcemanager_folder_iam_member.project1.id}"
-
-       role = "editor"
-
-       members = [
+       role      = "editor"
+       members   = [
          "userAccount:<login@yandex.ru>",
        ]
      }
@@ -344,19 +342,15 @@
 
      resource "yandex_resourcemanager_folder_iam_binding" "editor" {
        folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
-
-       role = "editor"
-
-       members = [
+       role      = "editor"
+       members   = [
          "userAccount:<login1@yandex.ru>"
        ]
      }
      resource "yandex_resourcemanager_folder_iam_binding" "operator" {
        folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
-
-       role = "operator"
-
-       members = [
+       role      = "operator"
+       members   = [
          "userAccount:<login1@yandex.ru>"
        ]
      }
@@ -457,10 +451,8 @@
 
      resource "yandex_resourcemanager_folder_iam_binding" "editor" {
        folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
-
-       role = "editor"
-
-       members = [
+       role      = "editor"
+       members   = [
          "serviceAccount:<идентификатор сервисного аккаунта>"
        ]
      }

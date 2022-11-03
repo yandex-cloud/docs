@@ -10,7 +10,7 @@ Retrieves the list of SQL Server databases in the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}/databases
+GET https://{{ api-host-mdb }}/mdb/sqlserver/v1/clusters/{clusterId}/databases
 ```
  
 ## Path parameters {#path_params}

@@ -29,11 +29,13 @@
 
     Пример структуры конфигурационного файла:
 
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
       name = "<имя эндпоинта>"
       settings {
         postgres_target {
+          security_groups = [ "список идентификаторов групп безопасности" ]
           connection {
             mdb_cluster_id = "<идентификатор кластера {{ mpg-name }}>"
           }
@@ -46,6 +48,7 @@
       }
     }
     ```
+
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
@@ -79,11 +82,13 @@
 
     Пример структуры конфигурационного файла:
 
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
       name = "<имя эндпоинта>"
       settings {
         postgres_target {
+          security_groups = [ "список идентификаторов групп безопасности" ]
           connection {
             on_premise {
               hosts = ["<список хостов>"]
@@ -99,6 +104,7 @@
       }
     }
     ```
+
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 

@@ -25,7 +25,6 @@ In a cluster with DB management via SQL enabled:
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Databases** tab.
 
-
 - CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
@@ -34,13 +33,12 @@ In a cluster with DB management via SQL enabled:
 
    To get a list of databases in a cluster, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} database list \
-      --cluster-name <cluster name>
+     --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
-
 
 - API
 
@@ -59,7 +57,7 @@ In a cluster with DB management via SQL enabled:
 
 ## Creating a database {#add-db}
 
-There are no limits to the number of databases in a cluster.
+{% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
 
 {% list tabs %}
 
@@ -71,7 +69,7 @@ There are no limits to the number of databases in a cluster.
    1. Click **Add**.
    1. Enter the database name and click **Add**.
 
-   {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
 - CLI
 
@@ -81,16 +79,16 @@ There are no limits to the number of databases in a cluster.
 
    Run the create database command and set the name of the new database:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} database create <database name> \
      --cluster-name <cluster name>
    ```
 
-   {{ mch-short-name }} runs the create database operation.
-
    {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+   {{ mch-short-name }} runs the create database operation.
 
 - {{ TF }}
 
@@ -120,6 +118,8 @@ There are no limits to the number of databases in a cluster.
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -158,9 +158,9 @@ There are no limits to the number of databases in a cluster.
 
    To delete a database, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-ch }} database delete <database name> \
-      --cluster-name <cluster name>
+     --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -183,6 +183,8 @@ There are no limits to the number of databases in a cluster.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
    You can delete a database using the [delete](../api-ref/Database/delete.md) method.
@@ -196,7 +198,7 @@ There are no limits to the number of databases in a cluster.
       DROP DATABASE <database name>;
       ```
 
-   To learn more about deleting objects, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/drop/).
+   For more detail on deleting objects, please see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/drop/).
 
 {% endlist %}
 

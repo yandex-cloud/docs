@@ -98,7 +98,7 @@
         --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
         --preemptible \
         --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
-        --ssh-key ~/.ssh/id_rsa.pub
+        --ssh-key ~/.ssh/id_ed25519.pub
       ```
 
 
@@ -133,6 +133,7 @@
 
        name        = "preemptible-vm"
        platform_id = "standard-v3"
+       zone        = "<зона доступности>"
 
        resources {
          cores  = <количество ядер vCPU>
@@ -175,6 +176,7 @@
      * `yandex_compute_instance` — описание [виртуальной машины](../../concepts/vm.md):
        * `name` — имя виртуальной машины.
        * `platform_id` — [платформа](../../concepts/vm-platforms.md).
+       * `zone` — идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
        * `resources` — количество ядер vCPU и объем RAM, доступные виртуальной машине. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
        * `boot_disk` — настройки загрузочного диска. Укажите идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
        * `network_interface` — настройка сети. Укажите идентификатор выбранной подсети. Чтобы автоматически назначить виртуальной машине публичный IP-адрес, укажите `nat = true`.

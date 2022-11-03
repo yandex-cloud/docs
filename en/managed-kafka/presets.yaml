@@ -1,10 +1,9 @@
 default:
   api: show
-  ui: noshow
   versions:
     tf:
-      latest: '3.1'
-      str: 2.8, 3.0, or 3.1
+      latest: '2.8'
+      str: '2.8'
     cli:
       latest: '3.1'
       str: 2.8, 3.0, or 3.1

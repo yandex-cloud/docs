@@ -11,6 +11,8 @@ items:
         href: operations/secret-create.md
       - name: Изменить секрет
         href: operations/secret-update.md
+      - name: Настроить права доступа к секрету
+        href: operations/secret-access.md
       - name: Удалить секрет
         href: operations/secret-delete.md
   - name: Практические руководства

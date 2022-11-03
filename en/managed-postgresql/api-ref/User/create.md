@@ -10,7 +10,7 @@ Creates a PostgreSQL user in the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}/users
+POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/users
 ```
  
 ## Path parameters {#path_params}
@@ -65,7 +65,7 @@ userSpec.<br>settings.<br>synchronousCommit | **string**<br><p>This setting defi
 userSpec.<br>settings.<br>tempFileLimit | **integer** (int64)<br><p>The maximum storage space size (in kilobytes) that a single process can use to create temporary files. If a transaction exceeds this limit during execution, it will be aborted.</p> <p>A huge query may not fit into a server's RAM, therefore PostgreSQL will use some storage to store and execute such a query. Too big queries can make excessive use of the storage system, effectively making other quieries to run slow. This setting prevents execution of a big queries that can influence other queries by limiting size of temporary files.</p> 
 userSpec.<br>settings.<br>logStatement | **string**<br><p>This setting specifies which SQL statements should be logged (on the user level).</p> <p>See in-depth description in <a href="https://www.postgresql.org/docs/current/runtime-config-logging.html">PostgreSQL documentation</a>.</p> <ul> <li>LOG_STATEMENT_NONE: (default) logs none of SQL statements.</li> <li>LOG_STATEMENT_DDL: logs all data definition statements (such as ``CREATE``, ``ALTER``, ``DROP`` and others).</li> <li>LOG_STATEMENT_MOD: logs all statements that fall in the ``LOG_STATEMENT_DDL`` category plus data-modifying statements (such as ``INSERT``, ``UPDATE`` and others).</li> <li>LOG_STATEMENT_ALL: logs all SQL statements.</li> </ul> 
 userSpec.<br>login | **boolean** (boolean)<br><p>This flag defines whether the user can login to a PostgreSQL database.</p> <p>Default value: ``true`` (login is allowed).</p> 
-userSpec.<br>grants[] | **string**<br><p>Roles and privileges that are granted to the user (``GRANT &lt;role&gt; TO &lt;user&gt;``).</p> <p>For more information, see <a href="/docs/managed-postgresql/operations/grant">the documentation</a>.</p> <p>The maximum string length in characters for each value is 63. Each value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
+userSpec.<br>grants[] | **string**<br><p>A set of roles and privileges that are granted to the user.</p> <p>For more information, see <a href="/docs/managed-postgresql/operations/grant">the documentation</a>.</p> <p>The maximum string length in characters for each value is 63. Each value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

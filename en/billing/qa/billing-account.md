@@ -1,5 +1,11 @@
 # Questions about the billing account
 
+#### Getting a billing account ID. {#account-id}
+
+To get a billing account's ID:
+
+{% include [billing-account-id](../../_includes/billing/billing-account-id.md) %}
+
 #### How many billing accounts can I create? {#account-amount}
 
 {% include [billing-account-amounts](../_includes/billing-account-amounts.md) %}
@@ -25,7 +31,7 @@ To unblock your new billing account, [activate the paid version](../operations/a
 
 You can't change a billing account type once it's created, but you can [create a new one](../operations/create-new-account.md).
 
-#### How do I enable the billing threshold?  {#credit}
+#### How do I enable the billing threshold? {#credit}
 
 [The billing threshold](../concepts/credit-limit.md) is enabled automatically after the [paid version is activated](../operations/activate-commercial.md) and the first reporting period ends.
 
@@ -33,29 +39,29 @@ You can't change a billing account type once it's created, but you can [create a
 {% include [change-payment-method](../_includes/change-payment-method.md) %}
 
 
-#### How can I change my payment details or the delivery address?  {#change-email}
+#### How can I change my payment details or the delivery address? {#change-email}
 
 {% include [change-address](../_includes/change-address.md) %}
 
 
-#### I didn't receive an email with instructions on what to do after creating a billing account with the Bank transfer payment method. Why?  {#account-notification}
+#### I didn't receive an email with instructions on what to do after creating a billing account with the Bank transfer payment method. Why? {#account-notification}
 
 It may take up to three business days to activate your billing account.
 If you didn't receive an email within that period, send a request to: [cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru).
 
 {% include [change-payment-docs](../_includes/change-payment-docs.md) %}
 
-#### I unlinked a bank card from my Yandex account and now my billing account is blocked. What should I do?  {#account-card}
+#### I unlinked a bank card from my Yandex account and now my billing account is blocked. What should I do? {#account-card}
 
 
 
-#### I can't link a bank card when creating a billing account. What should I do?  {#cant-create}
+#### I can't link a bank card when creating a billing account. What should I do? {#cant-create}
 
 The service most likely doesn't support the payment system of your bank card.
 
 To resolve the issue, try linking a different bank card or, if you are a business owner, create a billing account with the **Business account** type and **Bank transfer** payment method.
 
-#### Why do I get the error "The country is not available to the payer" when creating a billing account?  {#account-error}
+#### Why do I get the error "The country is not available to the payer" when creating a billing account? {#account-error}
 
 Most likely you have logged in under a Yandex account already linked to a payer with a different residence status.
 

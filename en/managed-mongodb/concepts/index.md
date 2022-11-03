@@ -20,6 +20,8 @@ When creating a cluster, specify:
    * `PRODUCTION`: For stable versions of your apps.
    * `PRESTABLE`: For testing, including the {{ mmg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
+* _Edition of {{ MG }}_. For a list of available editions and supported features, see [{#T}](./editions.md).
+
 A database cluster created in a folder can be accessed by all VMs connected to the same cloud network. [Learn more about networking](../../vpc/).
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}

@@ -8,7 +8,7 @@ This build differs from its [official](https://hub.docker.com/_/vault) version b
 
 To download the most recent Docker image, use the command below:
 
-```
+```bash
 docker pull cr.yandex/yc/vault
 ```
 
@@ -34,12 +34,12 @@ docker pull cr.yandex/yc/vault
 
    - Yandex account
 
-      Authentication is done using anr [OAuth token](../../iam/concepts/authorization/oauth-token.md).
+      Authentication is done using an [OAuth token](../../iam/concepts/authorization/oauth-token.md).
 
    {% endlist %}
 
 1. [Create](../operations/key.md#create) a separate KMS key for Vault (recommended).
-1. [Grant access](../../iam/operations/roles/grant.md) to the key only to the user or service account that will be used to authenticate Vault requests to {{ kms-short-name }}. When interacting with {{ kms-short-name }}, Vault only performs encryption and decryption operations, so the `kms.keys.encrypterDecrypter` role is sufficient.
+1. [Grant access](../../iam/operations/roles/grant.md) to the key only to the user or service account that will be used to authenticate Vault requests to {{ kms-short-name }}. When interacting with {{ kms-short-name }} , Vault only performs encryption and decryption operations, so the `kms.keys.encrypterDecrypter` role is sufficient.
 
 ## Setting up Auto Unseal {#setup}
 
@@ -59,7 +59,7 @@ To set up the Auto Unseal feature, make the following changes to the Vault confi
 
       In the `service_account_key_file` parameter, specify the path to the file with the service account's authorized key.
 
-   - Yandex account
+   - Yandex or federated account
 
       In the `oauth_token` parameter, specify the Yandex ID OAuth token.
 
@@ -72,9 +72,9 @@ If Vault has already been initialized, you have to do a [migration procedure](ht
 {% endnote %}
 
 You can use environment variables instead of the configuration file to set parameter values:
-* The `YANDEXCLOUD_KMS_KEY_ID` variable corresponds to the `kms_key_id` configuration file parameter.
-* The `YANDEXCLOUD_SERVICE_ACCOUNT_KEY_FILE` variable to the `service_account_key_file` parameter.
-* The `YANDEXCLOUD_OAUTH_TOKEN` variable to the `oauth_token` parameter.
+* The `YANDEXCLOUD_KMS_KEY_ID` variable corresponds to the `kms_key_id` Vault configuration file parameter.
+* `YANDEXCLOUD_SERVICE_ACCOUNT_KEY_FILE`: `service_account_key_file` parameter.
+* `YANDEXCLOUD_OAUTH_TOKEN`: `oauth_token` parameter.
 
 The environment variable values take precedence over the values from the configuration file.
 
@@ -87,7 +87,7 @@ The environment variable values take precedence over the values from the configu
    ```json
    ...
    seal "yandexcloudkms" {
-     kms_key_id = "<key ID>"
+     kms_key_id = "<ID of the KMS key>"
    }
    ...
    ```
@@ -97,7 +97,7 @@ The environment variable values take precedence over the values from the configu
    ```json
    ...
    seal "yandexcloudkms" {
-     kms_key_id = "<key ID>"
+     kms_key_id = "<ID of the KMS key>"
      service_account_key_file = "<path to JSON file with authorized key>"
    }
    ...
@@ -108,8 +108,8 @@ The environment variable values take precedence over the values from the configu
    ```json
    ...
    seal "yandexcloudkms" {
-     kms_key_id = "<key ID>"
-     oauth_token = "<user OAuth token>"  
+     kms_key_id = "<ID of the KMS key>"
+     oauth_token = "<user's OAuth token>"  
    }
    ...
    ```

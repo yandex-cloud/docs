@@ -8,7 +8,6 @@ description: "Пошаговые инструкции по работе и уп�
 ## Создание виртуальной машины {#vm-create}
 
 * [{#T}](vm-create/create-linux-vm.md)
-* [{#T}](vm-create/create-windows-vm.md)
 * [{#T}](vm-create/create-from-disks.md)
 * [{#T}](vm-create/create-from-snapshots.md)
 * [{#T}](vm-create/create-from-user-image.md)
@@ -43,7 +42,6 @@ description: "Пошаговые инструкции по работе и уп�
 ## Управление виртуальной машиной {#vm-control}
 
 * [{#T}](vm-control/vm-stop-and-start.md)
-* [{#T}](vm-control/vm-reset-password.md)
 * [{#T}](vm-control/vm-attach-disk.md)
 * [{#T}](vm-control/vm-detach-disk.md)
 * [{#T}](vm-control/vm-change-zone.md)
@@ -58,20 +56,9 @@ description: "Пошаговые инструкции по работе и уп�
 ## Работа на виртуальной машине {#vm-use}
 
 * [{#T}](vm-connect/ssh.md)
-* [{#T}](vm-connect/rdp.md)
-* [{#T}](vm-connect/powershell.md)
 * [{#T}](vm-connect/auth-inside-vm.md)
 * [{#T}](vm-operate/install-nvidia-drivers.md)
 * [{#T}](vm-connect/recovery-access.md)
-
-
-
-## Управление агентом для сброса паролей {#guest-agent}
-
-* [{#T}](vm-guest-agent/check.md)
-* [{#T}](vm-guest-agent/install.md)
-* [{#T}](vm-guest-agent/uninstall.md)
-
 
 
 ## Создание диска {#disk-create}
@@ -83,11 +70,19 @@ description: "Пошаговые инструкции по работе и уп�
 
 ## Управление диском {#disk-control}
 
-* [{#T}](disk-control/create-snapshot.md)
 * [{#T}](disk-control/update.md)
+* [{#T}](disk-control/configure-schedule.md)
 * [{#T}](disk-control/disk-change-folder.md)
 * [{#T}](disk-control/delete.md)
+
+## Снимки дисков {#snapshots}
+
+* [{#T}](disk-control/create-snapshot.md)
 * [{#T}](snapshot-control/delete.md)
+* [{#T}](snapshot-control/create-schedule.md)
+* [{#T}](snapshot-control/update-schedule.md)
+* [{#T}](snapshot-control/stop-and-start-schedule.md)
+* [{#T}](snapshot-control/delete-schedule.md)
 
 
 ## Группы размещения дисков {#placement-groups}

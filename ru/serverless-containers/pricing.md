@@ -6,7 +6,7 @@ editable: false
 
 ## Из чего складывается стоимость использования {{ serverless-containers-name }} {#rules}
 
-В рамках сервиса {{ serverless-containers-name }} тарифицируется количество вызовов контейнеров, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик.
+В рамках сервиса {{ serverless-containers-name }} тарифицируется количество вызовов контейнеров, вычислительные ресурсы, выделенные для выполнения приложения, время простоя [подготовленных экземпляров](concepts/container.md#provisioned-instances) и исходящий трафик.
 
 При тарификации вычислительных ресурсов учитывается количество ядер (vCPU), объем памяти, выделенный для приложения, и время выполнения приложения:
 * Количество ядер, указанное при создании ревизии, измеряется в vCPU и является положительным вещественным числом.
@@ -41,6 +41,30 @@ editable: false
 
 
 {% include notitle [rub-cpu.md](../_pricing/serverless-containers/rub-cpu.md) %}
+
+
+
+
+### Подготовленные экземпляры {#provisioned-instances}
+
+{% note info %}
+
+Цены действуют с 17 октября 2022 года.
+
+{% endnote %}
+
+#### Время использования RAM {#prices-ram-provisioned-instances}
+
+
+{% include notitle [rub-ram-provisioned-instances.md](../_pricing/serverless-containers/rub-ram-provisioned-instances.md) %}
+
+
+
+
+#### Время использования CPU {#prices-cpu-provisioned-instances}
+
+
+{% include notitle [rub-cpu-provisioned-instances.md](../_pricing/serverless-containers/rub-cpu-provisioned-instances.md) %}
 
 
 

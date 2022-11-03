@@ -111,6 +111,8 @@ items:
         href: concepts/function.md
       - name: Invoking a function
         href: concepts/function-invoke.md
+      - name: Networking
+        href: concepts/networking.md
       - name: Runtime environment
         items:
           - name: Overview
@@ -147,7 +149,7 @@ items:
             href: concepts/trigger/data-streams-trigger.md
       - name: Dead Letter Queue
         href: concepts/dlq.md
-      - name: Log groups
+      - name: Log group
         href: concepts/log-group.md
       - name: Backups
         href: concepts/backup.md
@@ -317,6 +319,8 @@ items:
         href: tutorials/video-converting-queue.md
       - name: Creating a Node.js function using TypeScript
         href: tutorials/nodejs-typescript.md
+      - name: Developing user integration
+        href: tutorials/api-gw-integration.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management

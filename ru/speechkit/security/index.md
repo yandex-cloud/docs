@@ -19,9 +19,16 @@ description: "Управление доступом в сервисе речев
 
 ### Сервисные роли {#service-roles}
 
-{% include [service-roles](../../_includes/roles-service-roles-speechkit.md) %}
+#### {{ roles-speechkit-stt }} {#ai-speechkit-stt-user}
+
+{% include notitle [roles-speechkit-stt-user](../../_includes/roles-speechkit-stt-user.md) %}
+
+#### {{ roles-speechkit-tts }} {#ai-speechkit-tts-user}
+
+{% include notitle [roles-speechkit-tts-user](../../_includes/roles-speechkit-tts-user.md) %}
 
 Более подробную информацию о сервисных ролях читайте на странице [{#T}](../../iam/concepts/access-control/roles.md) в документации сервиса {{ iam-full-name }}.
+
 
 ### Роли других сервисов {#integration-roles}
 
@@ -29,13 +36,14 @@ description: "Управление доступом в сервисе речев
 
 {% include [roles-integration](../../_includes/roles-integration-roles-speechkit.md) %}
 
+
 ### Примитивные роли {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 #### Что дальше {#what-is-next}
 
-* [Как назначить роль](../../iam/operations/roles/grant.md).
-* [Как отозвать роль](../../iam/operations/roles/revoke.md).
-* [Подробнее об управлении доступом в {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Как назначить роль](../../iam/operations/roles/grant.md)
+* [Как отозвать роль](../../iam/operations/roles/revoke.md)
+* [Подробнее об управлении доступом в {{ yandex-cloud }}](../../iam/concepts/access-control/index.md)
+* [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance)

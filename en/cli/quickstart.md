@@ -19,7 +19,9 @@ If you aren't connected to the management console yet, log in to the [console]({
 
    
    To authenticate as a user:
-   1. Get an OAuth token from Yandex.OAuth. To do this, follow the [link]({{ link-cloud-oauth }}) and click **Allow**.
+   1. Get an OAuth token from Yandex.OAuth.
+      1. Click the [link]({{ link-cloud-oauth }}). If the application requests access to data, grant it. This is required to get a token.
+      1. Copy the token to the clipboard or save it.
    1. To configure your CLI profile, run the command `yc init`.
    1. Enter your OAuth token when prompted by the command.
       ```
@@ -74,27 +76,23 @@ The following steps describe how to create a cloud network, subnet, and virtual 
 1. Create a cloud network in the folder specified in your CLI profile:
    ```
    yc vpc network create \
-       --name my-yc-network \
-       --labels my-label=my-value \
-       --description "my first network via yc"
+     --name my-yc-network \
+     --labels my-label=my-value \
+     --description "my first network via yc"
    ```
 1. Create a subnet in the cloud network `my-yc-network`:
    ```
    yc vpc subnet create \
-       --name my-yc-subnet-a \
-       --zone {{ region-id }}-a \
-       --range 10.1.2.0/24 \
-       --network-name my-yc-network \
-       --description "my first subnet via yc"
+     --name my-yc-subnet-a \
+     --zone {{ region-id }}-a \
+     --range 10.1.2.0/24 \
+     --network-name my-yc-network \
+     --description "my first subnet via yc"
    ```
 1. Get a list of all cloud networks in the directory specified in your CLI profile:
    ```
    yc vpc network list
-   ```
 
-   Result:
-
-   ```
    +----------------------+------------------+-------------------------+
    |          ID          |       NAME       |       DESCRIPTION       |
    +----------------------+------------------+-------------------------+
@@ -105,11 +103,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
    Get the same list with more details in YAML format:
    ```
    yc vpc network list --format yaml
-   ```
 
-   Result:
-
-   ```
    - id: skesdqhkc6449hbqqar1
      folder_id: ijkl9012
      created_at: "2018-09-05T09:51:16Z"
@@ -129,12 +123,12 @@ The following steps describe how to create a cloud network, subnet, and virtual 
    1. Create a Linux VM instance:
       ```
       yc compute instance create \
-          --name my-yc-instance \
-          --network-interface subnet-name=my-yc-subnet-a,nat-ip-version=ipv4 \
-          --zone {{ region-id }}-a \
-          --ssh-key ~/.ssh/id_rsa.pub
+        --name my-yc-instance \
+        --network-interface subnet-name=my-yc-subnet-a,nat-ip-version=ipv4 \
+        --zone {{ region-id }}-a \
+        --ssh-key ~/.ssh/id_rsa.pub
       ```
-      Where `ssh-key` is the path to the public key for SSH access. A user named `yc-user` will be automatically created in the VM's OS with the specified public key.
+      Where `ssh-key` is the path to a public key for SSH access. A user named `yc-user` will be automatically created in the VM's OS with the specified public key.
 1. Connect to the virtual machine over SSH:
    1. Find out the public IP address of the virtual machine. To do this, view detailed information about your virtual machine:
       ```

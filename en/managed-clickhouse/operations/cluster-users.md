@@ -16,7 +16,7 @@ In a cluster with user management via SQL enabled:
 * The existing users as well as user settings made with the standard {{ yandex-cloud }} interfaces will be saved.
 * Users are managed under the `admin` account. You set its password when you select the **User management via SQL** option.
 
-For more information about managing users using SQL, see the [{{ CH }} documentation]({{ ch.docs }}/operations/access-rights).
+For more detail on managing users via SQL, please see the [{{ CH }} documentation]({{ ch.docs }}/operations/access-rights).
 
 ## Getting a list of users {#list-users}
 
@@ -50,6 +50,12 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
       ```sql
       SHOW USERS;
       ```
+
+- API
+
+   Use the [list](../api-ref/User/list.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+   You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
 
 {% endlist %}
 
@@ -146,7 +152,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - SQL
 
@@ -154,12 +160,23 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
    1. Create a user:
 
       ```sql
-      CREATE USER <username> IDENTIFIED WITH sha256_password BY '<user's password>';
+      CREATE USER <username> IDENTIFIED WITH sha256_password BY '<user password>';
       ```
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
-   To learn more about creating users, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/create/user/).
+   For more detail on creating users, please see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/create/user/).
+
+- API
+
+   Use the [create](../api-ref/User/create.md) API method and pass the following information in the request:
+
+   * The cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * New username, in the `userSpec.name` parameter.
+   * New user password, in the `userSpec.password` parameter.
+   * (Optional) A list of databases to grant the user access to, in the `userSpec.permissions[]` parameter.
+   * (Optional) A list of {{ CH }} user settings, in the `userSpec.settings` parameter.
+   * (Optional) A list of quota user settings, in the `userSpec.quotas[]` parameter.
 
 {% endlist %}
 
@@ -171,7 +188,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Users** tab.
-   1. Click the ![image](../../_assets/options.svg) icon and select **Change password**.
+   1. Click ![image](../../_assets/options.svg) and select **Change password**.
    1. Set a new password and click **Edit**.
 
    {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
@@ -227,7 +244,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - SQL
 
@@ -240,7 +257,17 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
       {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-   To learn more about changing users, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/user/).
+   For more detail on changing users, please see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/user/).
+
+- API
+
+   Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * New password, in the `password` parameter.
+   * List of user configuration fields to update (`password` in this case) in the `updateMask` parameter.
+
+   {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -298,7 +325,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - SQL
 
@@ -311,7 +338,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
       {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/user/).
+   For more detail, please see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/user/).
 
 - API
 
@@ -319,9 +346,9 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The new password in the `configSpec.adminPassword` parameter.
-   * The list of cluster configuration fields to be edited (`ConfigSpec.adminPassword` in this case) in the `updateMask` parameter.
+   * List of user configuration fields to update (`configSpec.adminPassword` in this case) in the `updateMask` parameter.
 
-   {% include [note-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -388,7 +415,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
       To delete one or more user quotas, exclude their settings from the list and pass the updated list of `--quota` parameters to the command.
 
-      When setting an interval, you can use an entry with units: hours (`h`), minutes (`m`), seconds (`s`), and milliseconds (`ms`). Sample entry: `3h20m10s7000ms` (the resulting value is still represented in milliseconds: `12017000`). The interval value must be a multiple of 1000 milliseconds (a value like `1s500ms` is incorrect).
+      When setting an interval, you can use an entry with units: hours (`h`), minutes (`m`), seconds (`s`), and milliseconds (`ms`). Sample entry: `3h20m10s7000ms` (the resulting value is still represented in milliseconds: `12017000`). The interval value must be a multiple of 1000 milliseconds (a value like `1s500ms` is illegal).
 
    1. To edit a user's [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), run the command below listing the changed setting using the `--settings` option:
 
@@ -476,28 +503,41 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - SQL
 
    1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
-   1. To change a set of user privileges and roles, use the [GRANT]({{ ch.docs }}/sql-reference/statements/grant/) and [REVOKE]({{ ch.docs }}/sql-reference/statements/revoke/) statements. For example, grant the user read rights to all objects in a specific database:
+   1. To alter the set of user roles and privileges, use the [GRANT]({{ ch.docs }}/sql-reference/statements/grant/) and the [REVOKE]({{ ch.docs }}/sql-reference/statements/revoke/) statements. For example, grant the user read rights to all objects in a specific database:
 
       ```sql
       GRANT SELECT ON <database name>.* TO <username>;
       ```
 
-   1. To change [quota settings](../concepts/settings-list.md#quota-settings) for the user, use the [CREATE QUOTA]({{ ch.docs }}/sql-reference/statements/create/quota/#create-quota-statement), [ALTER QUOTA]({{ ch.docs }}/sql-reference/statements/alter/quota/#alter-quota-statement), and [DROP QUOTA]({{ ch.docs }}/sql-reference/statements/drop/#drop-quota-statement) statements. For example, limit the total number of user requests for a 15-month period:
+   1. To update user [quota settings](../concepts/settings-list.md#quota-settings), use the [CREATE QUOTA]({{ ch.docs }}/sql-reference/statements/create/quota/#create-quota-statement), the [ALTER QUOTA]({{ ch.docs }}/sql-reference/statements/alter/quota/#alter-quota-statement), and the [DROP QUOTA]({{ ch.docs }}/sql-reference/statements/drop/#drop-quota-statement) statements. For example, limit the total number of user requests for a 15-month period:
 
       ```sql
       CREATE QUOTA <quota name> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <username>;
       ```
 
-   1. To change the user account, use the [ALTER USER]({{ ch.docs }}/sql-reference/statements/alter/user/) statement. To edit the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), for instance, run the command below listing the settings to modify:
+   1. To change a user account, use the [ALTER USER](https://{{ ch.docs }}/docs/ru/sql-reference/statements/alter/user/) statement. To edit the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), for instance, run the command below listing the settings to modify:
 
       ```sql
       ALTER USER <username> SETTINGS <list of {{ CH }} settings>;
       ```
+
+- API
+
+   Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Username with the settings to be changed, in the `userName` parameter. To find out the name, [get a list of users](#list-users).
+   * (Optional) A list of databases to grant the user access to, in the `userSpec.permissions[]` parameter.
+   * (Optional) A list of {{ CH }} user settings, in the `userSpec.settings` parameter.
+   * (Optional) A list of quota user settings, in the `userSpec.quotas[]` parameter.
+   * List of user configuration fields to modify in the `updateMask` parameter.
+
+   {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -544,7 +584,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - SQL
 
@@ -555,7 +595,14 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
       DROP USER <username>;
       ```
 
-   To learn more about deleting objects, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/drop/).
+   For more detail on deleting objects, please see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/drop/).
+
+- API
+
+   Use the [delete](../api-ref/User/delete.md) API method and pass the following in the request:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Username with the settings to be changed, in the `userName` parameter. To find out the name, [get a list of users](#list-users).
 
 {% endlist %}
 
@@ -563,7 +610,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
 ### Creating a read-only user {#example-create-readonly-user}
 
-Let's say you need to add to the existing `mych` cluster a new user named `ro-user` with the password `Passw0rd`, provided that:
+Suppose you need to add a new user named `ro-user` with password `Passw0rd` to an existing cluster named `mych` and:
 * The user has access to the `db1` database of the cluster.
 * The access is read-only, so the user isn't allowed to change any settings.
 

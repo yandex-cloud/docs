@@ -29,10 +29,14 @@ items:
         href: tutorials/data-from-podcasts.md
       - name: Визуализация данных с помощью QL-чарта
         href: tutorials/data-from-ch-to-sql-chart.md
+      - name: Визуализация данных с использованием параметров
+        href: tutorials/data-from-ch-with-parameters.md
       - name: Визуализация данных Yandex Monitoring
         href: tutorials/data-from-monitoring-visualization.md
       - name: Построение чартов customer journeys на данных AppMetrica
         href: tutorials/data-from-appmetrica-yc-visualization.md
+      - name: Создание подключения к Битрикс24
+        href: tutorials/data-from-bitrix24-visualization.md
   - name: Концепции
     items:
       - name: Обзор сервиса
@@ -91,8 +95,8 @@ items:
         items:
           - name: Создание подключения к ClickHouse
             href: operations/connection/create-clickhouse.md
-          - name: Создание подключения к файлу CSV
-            href: operations/connection/create-csv.md
+          - name: Создание подключения к файлу
+            href: operations/connection/create-file.md
           - name: Создание подключения к Google Sheets
             href: operations/connection/create-google-sheets.md
           - name: Создание подключения к MySQL
@@ -125,8 +129,6 @@ items:
             href: operations/dataset/create.md
           - name: Объединение данных из нескольких таблиц
             href: operations/dataset/join-data.md
-          - name: Объединение данных из нескольких CSV-подключений
-            href: operations/dataset/join-data-csv.md
           - name: Создание поля данных
             href: operations/dataset/create-field.md
           - name: Создание вычисляемого поля данных
@@ -187,6 +189,8 @@ items:
             href: operations/dashboard/add-parameters.md
           - name: Автообновление дашборда
             href: operations/dashboard/auto-update.md
+          - name: Порядок отображения виджетов на мобильном устройстве
+            href: operations/dashboard/display-modes.md
       - name: Работа с правами доступа
         items:
           - name: Назначение прав доступа
@@ -205,11 +209,11 @@ items:
             href: operations/marketplace/create-connector-for-partners.md
       - name: Работа с организациями
         items:
-          - name: Переключение между экземплярами DataLens
+          - name: Переключение между экземплярами {{ datalens-name }}
             href: operations/organizations/change-organization.md
   - name: Управление доступом
     items:
-      - name: Управление доступом к DataLens
+      - name: Управление доступом к {{ datalens-name }}
         href: security/index.md
       - name: Управление доступом на уровне строк данных
         href: security/row-level-security.md
@@ -253,12 +257,16 @@ items:
             href: visualization-ref/map-chart.md
           - name: Точечная карта
             href: visualization-ref/point-map-chart.md
+          - name: Точечная карта с кластеризацией
+            href: visualization-ref/cluster-point-map-chart.md
           - name: Полилинейная карта
             href: visualization-ref/polyline-map-chart.md
           - name: Фоновая карта
             href: visualization-ref/choropleth-map-chart.md
           - name: Тепловая карта
             href: visualization-ref/heat-map-chart.md
+      - name: Комбинированная диаграмма
+        href: visualization-ref/combined-chart.md
   - name: Справочник функций
     items:
       - name: Все функции
@@ -559,6 +567,8 @@ items:
             href: function-ref/DAY.md
           - name: DAYOFWEEK
             href: function-ref/DAYOFWEEK.md
+          - name: GENERICNOW
+            href: function-ref/GENERICNOW.md
           - name: HOUR
             href: function-ref/HOUR.md
           - name: MINUTE
@@ -641,6 +651,10 @@ items:
             href: function-ref/DB_CAST.md
           - name: FLOAT
             href: function-ref/FLOAT.md
+          - name: GENERICDATETIME
+            href: function-ref/GENERICDATETIME.md
+          - name: GENERICDATETIME_PARSE
+            href: function-ref/GENERICDATETIME_PARSE.md
           - name: GEOPOINT
             href: function-ref/GEOPOINT.md
           - name: GEOPOLYGON
@@ -686,7 +700,7 @@ items:
     items:
       - name: Вопросы и ответы
         href: qa/index.md
-      - name: Ошибки DataLens
+      - name: Ошибки {{ datalens-name }}
         href: troubleshooting/errors/all.md
       - name: Access denied
         hidden: true

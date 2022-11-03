@@ -7,6 +7,11 @@
 * [{#T}](backup.md)
 * [{#T}](autoscaling.md)
 * [{#T}](vpa-autoscaling.md)
+
+
+* [{#T}](load-testing-grpc-autoscaling.md)
+
+
 * [{#T}](pvc-snapshot-restore.md)
 * [{#T}](custom-dns.md)
 * [{#T}](dns-autoscaler.md)
@@ -21,4 +26,5 @@
 
 ## Using {{ marketplace-full-name }} products {#marketplace-tutorials}
 
+* [{#T}](marketplace/crossplane.md)
 * [{#T}](marketplace/jaeger-over-ydb.md)

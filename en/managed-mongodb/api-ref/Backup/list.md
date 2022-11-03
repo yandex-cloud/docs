@@ -10,7 +10,7 @@ Retrieves the list of backups available for the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mongodb/v1/backups
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/backups
 ```
  
 ## Query parameters {#query_params}
@@ -48,7 +48,7 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/m
 Field | Description
 --- | ---
 backups[] | **object**<br><p>List of Backup resources.</p> 
-backups[].<br>id | **string**<br><p>ID of the backup.</p> 
+backups[].<br>id | **string**<br><p>ID of the backup. Required.</p> 
 backups[].<br>folderId | **string**<br><p>ID of the folder that the backup belongs to.</p> 
 backups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format (i.e. when the backup operation was completed).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 backups[].<br>sourceClusterId | **string**<br><p>ID of the MongoDB cluster that the backup was created for.</p> 

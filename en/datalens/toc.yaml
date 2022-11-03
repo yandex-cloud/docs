@@ -31,12 +31,16 @@ items:
         href: tutorials/data-from-podcasts.md
       - name: Visualizing data with a QL chart
         href: tutorials/data-from-ch-to-sql-chart.md
+      - name: Data visualization {{ monitoring-name }}
+        href: tutorials/data-from-monitoring-visualization.md
       - name: Building customer journey charts based on AppMetrica data
         href: tutorials/data-from-appmetrica-yc-visualization.md
   - name: Concepts
     items:
       - name: Service overview
         href: concepts/index.md
+      - name: Organizations in DataLens
+        href: concepts/organizations.md
       - name: Connection
         href: concepts/connection.md
       - name: Data types
@@ -53,10 +57,10 @@ items:
         items:
           - name: Overview
             href: concepts/chart/index.md
-          - name: Chart types
-            href: concepts/chart/types.md
           - name: Chart settings
             href: concepts/chart/settings.md
+          - name: Measure Values and Measure Names
+            href: concepts/chart/measure-values.md
       - name: Dashboards
         href: concepts/dashboard.md
       - name: Combining data
@@ -83,8 +87,6 @@ items:
         href: concepts/caching.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Organizations in DataLens
-        href: concepts/organizations.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -107,6 +109,8 @@ items:
             href: operations/connection/create-oracle.md
           - name: Creating a YDB connection
             href: operations/connection/create-ydb.md
+          - name: Creating a Yandex Monitoring connection
+            href: operations/connection/create-monitoring.md
           - name: Creating a Yandex Metrica API connection
             href: operations/connection/create-metrica-api.md
           - name: Creating an AppMetrica connection
@@ -145,30 +149,8 @@ items:
             href: operations/dataset/add-parameter-dataset.md
       - name: Working with charts
         items:
-          - name: Creating a line chart
-            href: operations/chart/create-line-chart.md
-          - name: Creating an area chart
-            href: operations/chart/create-area-chart.md
-          - name: Creating a pie chart
-            href: operations/chart/create-pie-chart.md
-          - name: Creating a donut chart
-            href: operations/chart/create-ring-chart.md
-          - name: Creating a column chart
-            href: operations/chart/create-column-chart.md
-          - name: Creating a bar chart
-            href: operations/chart/create-bar-chart.md
-          - name: Creating a scatter chart
-            href: operations/chart/create-scatter-chart.md
-          - name: Creating a map
-            href: operations/chart/create-map-chart.md
-          - name: Creating a table
-            href: operations/chart/create-table.md
-          - name: Creating a pivot table
-            href: operations/chart/create-pivot-table.md
-          - name: Creating an indicator
-            href: operations/chart/create-indicator-chart.md
-          - name: Creating a tree chart
-            href: operations/chart/create-tree-chart.md
+          - name: Creating a chart
+            href: operations/chart/create-chart.md
           - name: Creating a QL chart
             href: operations/chart/create-sql-chart.md
           - name: Creating a multi-dataset chart
@@ -185,6 +167,8 @@ items:
             href: operations/chart/add-guid.md
           - name: Adding parameters to a chart
             href: operations/chart/add-parameter-chart.md
+          - name: Configuring the display of null values
+            href: operations/chart/chart-null-settings.md
       - name: Working with dashboards
         items:
           - name: Creating dashboards
@@ -231,6 +215,52 @@ items:
         href: security/row-level-security.md
   - name: Pricing policy
     href: pricing.md
+  - name: Visualization reference
+    items:
+      - name: All visualizations
+        href: visualization-ref/index.md
+      - name: Line chart
+        href: visualization-ref/line-chart.md
+      - name: Stacked area chart
+        href: visualization-ref/area-chart.md
+      - name: Normalized stacked area chart
+        href: visualization-ref/normalized-area-chart.md
+      - name: Column chart
+        href: visualization-ref/column-chart.md
+      - name: Normalized column chart
+        href: visualization-ref/normalized-column-chart.md
+      - name: Bar chart
+        href: visualization-ref/bar-chart.md
+      - name: Normalized bar chart
+        href: visualization-ref/normalized-bar-chart.md
+      - name: Scatter chart
+        href: visualization-ref/scatter-chart.md
+      - name: Pie chart
+        href: visualization-ref/pie-chart.md
+      - name: Indicator
+        href: visualization-ref/indicator-chart.md
+      - name: Tree chart
+        href: visualization-ref/tree-chart.md
+      - name: Donut chart
+        href: visualization-ref/ring-chart.md
+      - name: Table
+        href: visualization-ref/table-chart.md
+      - name: Pivot table
+        href: visualization-ref/pivot-table-chart.md
+      - name: Map
+        items:
+          - name: Overview
+            href: visualization-ref/map-chart.md
+          - name: Point map
+            href: visualization-ref/point-map-chart.md
+          - name: Point map with clusters
+            href: visualization-ref/cluster-point-map-chart.md
+          - name: Polyline map
+            href: visualization-ref/polyline-map-chart.md
+          - name: Choropleth map
+            href: visualization-ref/choropleth-map-chart.md
+          - name: Heat map
+            href: visualization-ref/heat-map-chart.md
   - name: Function reference
     items:
       - name: All Functions
@@ -337,6 +367,8 @@ items:
             href: function-ref/DAY.md
           - name: DAYOFWEEK
             href: function-ref/DAYOFWEEK.md
+          - name: GENERICNOW
+            href: function-ref/GENERICNOW.md
           - name: HOUR
             href: function-ref/HOUR.md
           - name: MINUTE
@@ -571,6 +603,10 @@ items:
             href: function-ref/DB_CAST.md
           - name: FLOAT
             href: function-ref/FLOAT.md
+          - name: GENERICDATETIME
+            href: function-ref/GENERICDATETIME.md
+          - name: GENERICDATETIME_PARSE
+            href: function-ref/GENERICDATETIME_PARSE.md
           - name: GEOPOINT
             href: function-ref/GEOPOINT.md
           - name: GEOPOLYGON
@@ -678,6 +714,9 @@ items:
       - name: Columns in JOIN have different types
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md
+      - name: Could not create \<object type>
+        hidden: true
+        href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
       - name: Data is not available because materialization is not yet complete
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
@@ -701,6 +740,9 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
+      - name: Invalid grouping configuration
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-INVALID_GROUP_BY_CONFIGURATION.md
       - name: Invalid top-level LOD dimension found in expression
         hidden: true
         href: >-
@@ -709,6 +751,9 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-SOURCE_ACCESS_DENIED-INVALID_TOKEN.md
+      - name: Measure filter is unsupported for this type of query
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md
       - name: Memory limit has been exceeded during query execution
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md
@@ -738,6 +783,10 @@ items:
       - name: Unknown field
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FIELD-NOT_FOUND.md
+      - name: Window function has unselected dimension
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-BFB_UNSELECTED_DIMENSION.md
       - name: Window function has no aggregated expressions among its arguments
         hidden: true
         href: >-

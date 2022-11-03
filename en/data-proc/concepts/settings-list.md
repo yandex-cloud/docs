@@ -14,7 +14,7 @@ The key can either be a simple string or contain a prefix indicating that it bel
 
 For example:
 
-```
+```text
 hdfs:dfs.replication : 2
 hdfs:dfs.blocksize : 1073741824
 spark:spark.driver.cores : 1
@@ -45,19 +45,19 @@ Settings for running the jobs are specified in special properties:
 * `dataproc:version`: The version of the dataproc-agent that runs jobs, passes the property of a cluster state, and proxies the UI. Used for debugging. Default value: `latest`.
 * `dataproc:max-concurrent-jobs`: The number of concurrent jobs. Default value: `auto` (calculated based on the `min-free-memory-to-enqueue-new-job` and `job-memory-footprint` properties).
 * `dataproc:min-free-memory-to-enqueue-new-job`: The minimum size of free memory to run the job (in bytes). Default value: `1073741824` (1 GB).
-* `dataproc:job-memory-footprint`: The memory size to run the job on the `MASTER` cluster node, used to estimate the maximum number of jobs in the cluster. Default value: `536870912` (512 MB).
+* `dataproc:job-memory-footprint`: The memory size to run the job on the cluster's master host, used to estimate the maximum number of jobs in the cluster. Default value: `536870912` (512 MB).
 
-## Setting up Spark for Object Storage {#spark-settings}
+## Spark settings for integration with {{ objstorage-full-name }} {#spark-settings}
 
 The following settings are available for Apache Spark:
 
-| Configuration                          | Default value                                    |  Description                                                                            |
-| :---------------------------------- | :-------------------------------------------------------- | :----------------------------------------------------------------------------------- |
-| `fs.s3a.access.key`                | —                                                        | [Static key](../../iam/concepts/authorization/access-key.md) ID  |
-| `fs.s3a.secret.key`                | —                                                        | Secret key                                                                      |
-| `fs.s3a.endpoint`                  | `{{ s3-storage-host }}`                                | Endpoint to connect to {{ objstorage-name }}                                    |
-| `fs.s3a.signing-algorithm` | Empty value                                          | Signature algorithm                                                                    |
-| `fs.s3a.aws.credentials.provider` | `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider` | Credentials provider                                                            |
+| Configuration | Default value | Description |
+|:----------------------------------|:--------------------------------------------------------|:-----------------------------------------------------------------------------------|
+| `fs.s3a.access.key` | — | [Static key](../../iam/concepts/authorization/access-key.md) ID |
+| `fs.s3a.secret.key` | — | Private key |
+| `fs.s3a.endpoint` | `{{ s3-storage-host }}` | Endpoint to connect to {{ objstorage-name }} |
+| `fs.s3a.signing-algorithm` | Empty value | Signature algorithm |
+| `fs.s3a.aws.credentials.provider` | `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider` | Identity provider |
 
 For more information, see the [Apache Hadoop documentation](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml).
 
@@ -69,3 +69,13 @@ To install additional Python packages, you can use the conda or pip package mana
 |:------------------|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|
 | conda | `conda:<package name>` | Number of the package version according to the [conda specification](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/pkg-specs.html#package-match-specifications) | `conda:koalas : 1.5.0` |
 | pip | `pip:<package name>` | Number of the package version according to the [pip specification](https://www.python.org/dev/peps/pep-0440/#version-specifiers) | `pip:psycopg2 : 2.7.0` |
+
+## Using Apache Spark Thrift Server {#spark-thrift-server}
+
+You can use [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sql-distributed-sql-engine.html) as a distributed SQL query engine on top of Apache Spark.
+
+To enable it, set `dataproc:hive.thrift.impl : spark`, and the server will be available on TCP port `10000`. The default value is `dataproc:hive.thrift.impl : hive`. It causes Apache HiveServer2 to launch on TCP port `10000` if the Hive service is being used.
+
+
+The functionality is available starting with [image version 2.0.48](../release-notes/images.md#2.0.48).
+

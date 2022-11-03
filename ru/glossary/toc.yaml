@@ -1,0 +1,16 @@
+title: Облачная терминология
+href: index.yaml
+items:
+  - name: Протокол SSH
+    href: ssh-keygen.md
+  - name: Виртуализация
+    href: virtualization.md
+  - name: Виртуальная частная сеть (VPN)
+    href: vpn.md
+  - name: Аналитика данных
+    href: data-analytics.md
+  - name: Сквозная аналитика
+    href: end-to-end-analytics.md
+  - name: Бизнес-аналитика
+    href: business-analytics.md
+base: ru/glossary

@@ -1,9 +1,6 @@
 title: Yandex SmartCaptcha
 description:
   - >-
-    <em>Сервис Yandex SmartCaptcha находится на стадии <a
-    href="/docs/overview/concepts/launch-stages">Preview</a></em>.
-  - >-
     Yandex SmartCaptcha позволяет определить, кем является пользователь системы:
     человеком или компьютером.
 meta:
@@ -12,6 +9,9 @@ links:
   - title: Начало работы
     description: Настройте первый виджет и проверьте пользователя
     href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations
   - title: Методы установки виджета
     description: Узнайте о способах подключения SmartCaptcha к вашему сайту
     href: concepts/widget-methods
@@ -20,6 +20,9 @@ links:
       Показывайте капчу только для запросов, которые сервис посчитает
       подозрительными
     href: concepts/invisible-captcha
+  - title: Капча в React
+    description: React-пакет для работы со SmartCaptcha
+    href: concepts/react
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits

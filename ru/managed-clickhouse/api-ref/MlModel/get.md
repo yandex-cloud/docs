@@ -10,7 +10,7 @@ To get the list of all available models, make a [list](/docs/managed-clickhouse/
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/mlModels/{mlModelName}
+GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/mlModels/{mlModelName}
 ```
  
 ## Path parameters {#path_params}

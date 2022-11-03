@@ -23,11 +23,14 @@ description: "From the article you will learn how to work with Yandex Cloud Func
 
 - [{#T}](trigger/trigger-list.md)
 - [{#T}](trigger/timer-create.md)
-- [{#T}](trigger/os-trigger-create.md)
 - [{#T}](trigger/ymq-trigger-create.md)
-- [{#T}](trigger/iot-core-trigger-create.md)
+- [{#T}](trigger/os-trigger-create.md)
 - [{#T}](trigger/cr-trigger-create.md)
-- [{#T}](trigger/cloudlogs-trigger-create.md)
+- [{#T}](trigger/cloud-logging-trigger-create.md)
+- [{#T}](trigger/iot-core-trigger-create.md)
+- [{#T}](trigger/budget-trigger-create.md)
+- [{#T}](trigger/data-streams-trigger-create.md)
 - [{#T}](trigger/trigger-update.md)
+- [{#T}](trigger/trigger-monitoring.md)
 - [{#T}](trigger/trigger-delete.md)
 

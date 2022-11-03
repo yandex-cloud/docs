@@ -10,3 +10,6 @@ The private key of a service account is the confidential information which allow
 
 {% endnote %}
 
+#### See also {#see-also}
+
+* [{#T}](../../operations/authorized-key/create.md)

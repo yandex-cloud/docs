@@ -50,19 +50,19 @@ You need to arrange the rows in the `Selling` table based on the the average sal
 
 **Example 4**
 
-Let's review the most complicated window function example. Let's a build a dataset from a [connection to the](../tutorials/data-from-ch-to-sql-chart.md#create-connection) demo DB (`SampleLite` table) to use as our data source. Let's build a chart of the sales statistics by product subcategory. Let's only include in the chart those subcategories that made it into the daily top 3 sellers at least once a day.
+Let's review the most complicated window function example. Let's a build a dataset from a [connection](../tutorials/data-from-ch-to-sql-chart.md#create-connection) to the demo DB (`SampleLite` table) to use as our data source. Let's build a chart of the sales statistics by product subcategory. Let's only include in the chart those subcategories that made it into the daily top 3 sellers at least once a day.
 
 {% cut "Read more" %}
 
 1. Let's order our product subcategories in descending order by sales amount within each date. To accomplish this, we'll use the [RANK](../function-ref/RANK.md) window function to create a metric:
 
-   * Sales Rank — `RANK([Sales] WITHIN [Date])`
+   * Sales Rank — `RANK(SUM([Sales]) WITHIN [Date])`
 
-   As a result, for each date, the subcategory with the highest total sales will be numbered `1`, the subcategory with the next highest total `2`, etc. For convenience, let us place the data in a **Table** chart:
+   As a result, for each date, the subcategory with the highest total sales will be numbered `1`, the subcategory with the next highest total `2`, and so on. For convenience, let's place the data in a **Table** chart:
 
    ![image](../../_assets/datalens/concepts/tutorial/window-func-12.png)
 
-1. Let's highlight the categories in the top 3 most sold for the same date. To do this, create the following metric:
+1. Let's highlight the subcategories in the top 3 most sold for the same date. To do this, create the following metric:
 
    * Top-3 — `IF([Sales Rank] <= 3, 1, 0)`
 
@@ -85,8 +85,8 @@ Let's review the most complicated window function example. Let's a build a datas
    * Drag the `Date` dimension under **X**.
    * Drag the `Sales` metric under **Y**.
    * Drag the `Sub-Category` dimension under **Colors**.
-   * Under **Chart filters**, we'll keep the filter for `Show Category` equal to `1`.
-   * In the **Y** axis settings, select that **Null values** are to **Displayed as 0**.
+   * Under **filters**, we'll keep the filter for `Show Category` equal to `1`.
+   * In the **Y** axis settings, select that **Null values** are to be **Displayed as 0**.
 
       ![image](../../_assets/datalens/concepts/tutorial/window-func-15.png)
 
@@ -114,7 +114,7 @@ You need to calculate the average sales amount (`AvgSales`) and deviations from 
 
 ![image](../../_assets/datalens/concepts/tutorial/window-func-3.png)
 
-### Grouping for several windows {#some-window-grouping}
+### Grouping for multiple windows {#some-window-grouping}
 
 Sometimes the window function needs to be calculated separately by group, and not across all records. In this case, the `WITHIN` and `AMONG` groupings are used.
 
@@ -190,6 +190,59 @@ You need to calculate the change in the total sales amount (`IncTotal`) for the 
 To calculate a function for all the data, but only display the result for a certain period, you need to add the `Date` dimension to the `BEFORE FILTER BY` section: `RSUM(SUM([Sales]) TOTAL ORDER BY [Date] BEFORE FILTER BY [Date])`.
 
 ![image](../../_assets/datalens/concepts/tutorial/window-func-7.png)
+
+## Creating measures for a window function {#create-measure}
+
+You can't use a [dimension](dataset/data-model.md#field) directly as the first argument (`value` in the syntax description) of a window function. You should first apply an [aggregation function](../function-ref/aggregation-functions.md) to it so that a dimension becomes a [measure](dataset/data-model.md#field) that can be used in window functions.
+
+For example, you want to rank sales records by profit over the entire period in a chart with data grouped by the `Year` and `Category` dimensions. To do this, you can't use the `RANK([Profit])` formula, where `Profit` is a dimension. You need to apply an aggregation function first to convert the `Profit` dimension into a measure. The most suitable aggregate function here is [SUM](../function-ref/SUM.md) that returns the amount of profit: `SUM([Profit])`. Next, apply the [RANK](../function-ref/RANK.md) window function to the resulting measure. The correct resulting formula is `RANK(SUM([Profit]))`.
+
+You can add measures both at the dataset and the chart level. For details, see [{#T}](aggregation-tutorial.md#create-measure).
+
+To understand what aggregate function to select for converting dimensions into measures, specify what resulting measure you want to get using a window function. For example, in a chart with data grouped by product `Category`, you need to order records by `Sales`. To order records by sales amount, choose the [SUM](../function-ref/SUM.md) aggregate function: `SUM([Sales])`. To order them by sales count, choose [COUNT](../function-ref/COUNT.md): `COUNT([Sales])`.
+
+If you need to get a string measure with a value determined by grouping and sorting data in a window function, use the [ANY](../function-ref/ANY.md) aggregate function.
+
+Let's take a look at examples of creating measures for a window function. We'll build a dataset from a [connection](../tutorials/data-from-ch-to-sql-chart.md#create-connection) to the demo DB (the `MS_SalesMiniTable` table) and use it as our data source.
+
+**Example 1**
+
+The output should be the sales count per day for each product category and the total number of sales per day.
+
+1. Select the **Table** chart type. Place the `OrderDate` and `ProductCategory` dimensions in the **Columns** section.
+1. To order records by sales date, add the `OrderDate` dimension to the **Sorting** section.
+1. To count sales per day for each product category, add the `cnt_order_date_category` measure to your chart. Use the [COUNT](../function-ref/COUNT.md) aggregate function. It will group data by dimensions from the **Columns** section. The resulting formula is `COUNT([OrderID])`.
+1. Place the `cnt_order_date_category` measure in the **Columns** section.
+1. To count the total number of sales per day, add the `cnt_order_date` measure to your chart. Use the [SUM](../function-ref/SUM_WINDOW.md) window function with grouping by the `OrderDate` dimension. To convert the `OrderID` dimension into a measure, use the [COUNT](../function-ref/COUNT.md) aggregate function: `COUNT([OrderID])`. The resulting formula is `SUM(COUNT([OrderID]) WITHIN [OrderDate])`.
+1. Place the `cnt_order_date_category` measure in the **Columns** section.
+
+   ![image](../../_assets/datalens/concepts/tutorial/window-func-measure-cnt.png)
+
+**Example 2**
+
+The output should be the average value of sales by shop and its product categories:
+
+1. Select the **Table** chart type. Place the `ShopName` and `ProductCategory` dimensions in the **Columns** section.
+1. To calculate the average sales value by the shop's product categories, add the `avg_category_sale` measure to your chart. Use the [AVG](../function-ref/AVG.md) aggregate function. It will group data by dimensions from the **Columns** section. The resulting formula is `AVG([Sales])`.
+1. Place the `avg_category_sale` measure in the **Columns** section.
+1. To calculate the average sales value by shop, add the `avg_shop_sale` measure to your chart. Use the [AVG](../function-ref/AVG_WINDOW.md) window function with grouping by the `ShopName` dimension. To convert the `Sales` dimension into a measure, use the [AVG](../function-ref/AVG.md) aggregate function: `AVG([Sales])`. The resulting formula is `AVG(AVG([Sales]) WITHIN [ShopName])`.
+1. Place the `avg_shop_sale` measure in the **Columns** section.
+
+   ![image](../../_assets/datalens/concepts/tutorial/window-func-measure-avg.png)
+
+**Example 3**
+
+In this example, we'll build a dataset from a [connection](../tutorials/data-from-ch-to-sql-chart.md#create-connection) to the demo DB (the `samples.MS_SalesFullTable` table) and use it as our data source.
+
+As a result, we should get a pivot table with the IDs of the last sales for the day by shop:
+
+1. To group data by sales date (without time), add the `Date` field with the `DATE_PARSE(STR([OrderDatetime]))` formula to your chart.
+1. To sort data by sales time, add the `Time` field with the `RIGHT(STR([OrderDatetime]),8)` formula to your chart.
+1. Select the **Pivot table** chart type. Place the `ShopName`, `OrderDatetime`, and `OrderID` dimensions in the **Rows** section.
+1. Add the `last_shop_order` measure to your chart. Use the [LAST](../function-ref/LAST.md) window function with grouping by `ShopName` and sorting by `Time`. To convert a string dimension into a measure, use the [ANY](../function-ref/ANY.md) aggregate function with the `INCLUDE` grouping (to output unique values): `ANY([OrderID] INCLUDE [OrderID])`. The resulting formula is `LAST(ANY([OrderID] INCLUDE [OrderID]) WITHIN [ShopName], [Date] ORDER BY [Time])`.
+1. Place the `last_shop_order` measure in the **Measures** section.
+
+   ![image](../../_assets/datalens/concepts/tutorial/window-func-measure-last.png)
 
 ## Questions and answers {#qa}
 

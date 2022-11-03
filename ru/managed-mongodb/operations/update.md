@@ -1,10 +1,10 @@
-# Изменение настроек кластера
+# Изменение настроек {{ MG }}-кластера 
 
 После создания кластера вы можете:
 
 - [Изменить класс хостов](#change-resource-preset).
 
-- [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
+- [{#T}](#change-disk-size).
 
 - [Настроить серверы](#change-mongod-config) {{ MG }} согласно [документации {{ MG }}](https://docs.mongodb.com/manual/reference/configuration-options/).
 
@@ -12,7 +12,9 @@
 
 - [Переместить кластер](#move-cluster) в другой каталог.
 
+
 - [{#T}](#change-sg-set).
+
 
 ## Изменить класс хостов {#change-resource-preset}
 
@@ -433,6 +435,7 @@
 
 {% endlist %}
 
+
 ## Изменить группы безопасности {#change-sg-set}
 
 {% list tabs %}
@@ -510,3 +513,4 @@
 Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для подключения к кластеру.
 
 {% endnote %}
+

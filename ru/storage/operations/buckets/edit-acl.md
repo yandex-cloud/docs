@@ -1,6 +1,6 @@
 # Редактирование ACL бакета
 
-Помимо [{{ iam-short-name }}](../../../iam/index.yaml), {{ objstorage-name }} поддерживает управление доступом с помощью [ACL](../../concepts/acl.md).
+Помимо [{{ iam-short-name }}](../../../iam/), {{ objstorage-name }} поддерживает управление доступом с помощью [ACL](../../concepts/acl.md).
 
 {% list tabs %}
 

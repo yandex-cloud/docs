@@ -16,6 +16,12 @@
 
     {% include [Managed MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/managed-mongodb.md) %}
 
+- CLI
+
+    * Тип эндпоинта — `mongo-source`.
+
+    {% include [Managed MongoDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mongodb.md) %}
+
 - Terraform
 
     * Тип эндпоинта — `mongo_source`.
@@ -24,6 +30,7 @@
 
     Пример структуры конфигурационного файла:
 
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
       name = "<имя эндпоинта>"
@@ -47,7 +54,12 @@
     }
     ```
 
+
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+
+- API
+
+    {% include [Managed MongoDB API](../../../../_includes/data-transfer/necessary-settings/api/managed-mongodb.md) %}
 
 {% endlist %}
 
@@ -62,6 +74,12 @@
 
     {% include [On premise MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mongodb.md) %}
 
+- CLI
+
+    * Тип эндпоинта — `mongo-source`.
+
+    {% include [On premise MongoDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mongodb.md) %}
+
 - Terraform
 
     * Тип эндпоинта — `mongo_source`.
@@ -70,11 +88,14 @@
 
     Пример структуры конфигурационного файла:
 
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
       name = "<имя эндпоинта>"
       settings {
         mongo_source {
+          security_groups = [ "список идентификаторов групп безопасности" ]
+          subnet_id       = "<идентификатор подсети>"
           connection {
             connection_options {
               on_premise {
@@ -100,7 +121,12 @@
     }
     ```
 
+
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+
+- API
+
+    {% include [On premise MongoDB API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-mongodb.md) %}
 
 {% endlist %}
 

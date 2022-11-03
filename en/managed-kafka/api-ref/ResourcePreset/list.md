@@ -10,7 +10,7 @@ Retrieves the list of available resource presets.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-kafka/v1/resourcePresets
+GET https://{{ api-host-mdb }}/managed-kafka/v1/resourcePresets
 ```
  
 ## Query parameters {#query_params}

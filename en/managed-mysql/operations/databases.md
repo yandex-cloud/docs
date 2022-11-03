@@ -21,8 +21,8 @@ You can add and remove databases, view information about them, and manage some d
 
    To get a list of databases in a cluster, run the command:
 
-   ```
-   {{ yc-mdb-my }} database list \
+   ```bash
+     {{ yc-mdb-my }} database list \
         --cluster-name=<cluster name>
    ```
 
@@ -38,13 +38,7 @@ You can add and remove databases, view information about them, and manage some d
 
 ## Creating a database {#add-db}
 
-There are no limits to the number of databases in a cluster.
-
-{% note info %}
-
-Created databases are not available to cluster users by default. To connect to a new database, [grant privileges to the appropriate users](grant.md#grant-privilege).
-
-{% endnote %}
+{% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
 
 {% list tabs %}
 
@@ -57,7 +51,9 @@ Created databases are not available to cluster users by default. To connect to a
    1. Click **Add**.
    1. Enter the database name and click **Add**.
 
-   {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+      {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
+   1. [Grant privileges](grant.md#grant-privilege) for access to the database created to the appropriate cluster users.
 
 - CLI
 
@@ -69,21 +65,21 @@ Created databases are not available to cluster users by default. To connect to a
 
    1. View a description of the CLI create database command:
 
-      ```
-      {{ yc-mdb-my }} database create --help
+      ```bash
+       {{ yc-mdb-my }} database create --help
       ```
 
    1. Run the create database command:
 
-      ```
+      ```bash
       {{ yc-mdb-my }} database create <database name> --cluster-name=<cluster name>
       ```
 
       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-      {{ mmy-short-name }} runs the create database operation.
+      The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+      {{ mmy-short-name }} runs the create database operation.
 
 - {{ TF }}
 
@@ -91,14 +87,12 @@ Created databases are not available to cluster users by default. To connect to a
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. Add a `database` description block to the {{ mmy-name }} cluster description:
+   1. Add the `yandex_mdb_mysql_database` resource:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
-        ...
-        database {
-          name = "<database name>"
-        }
+      resource "yandex_mdb_mysql_database" "<database name>" {
+        cluster_id = "<cluster ID>"
+        name       = "<database name>"
       }
       ```
 
@@ -112,15 +106,14 @@ Created databases are not available to cluster users by default. To connect to a
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mysql_database).
 
 - API
 
    Use the [create](../api-ref/Database/create.md) API method and pass the following information in the request:
 
    * The ID of the cluster where you want to create a database, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+
    * Database name, in the `databaseSpec.name` parameter.
 
       {% include [database-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
@@ -145,8 +138,8 @@ Created databases are not available to cluster users by default. To connect to a
 
    To delete a database, run the command:
 
-   ```
-   {{ yc-mdb-my }} database delete <database name> --cluster-name=<cluster name>
+   ```bash
+    {{ yc-mdb-my }} database delete <database name> --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -157,9 +150,7 @@ Created databases are not available to cluster users by default. To connect to a
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. Delete the `database` description block from the {{ mmy-name }} cluster description.
-
-   1. Delete from the user description the `permission` blocks containing the `database_name` field pointing to the database to delete.
+   1. Delete the `yandex_mdb_mysql_database` resource with the name of the database to delete.
 
    1. Make sure the settings are correct.
 
@@ -169,9 +160,7 @@ Created databases are not available to cluster users by default. To connect to a
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mysql_database).
 
 - API
 
@@ -197,9 +186,9 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel. 
+   1. Select the cluster and click **Edit cluster** in the top panel.
    1. Under **DBMS settings**, click **Settings**.
-   1. In the list of the settings, locate the **Sql_mode** parameter.
+   1. In the list of the settings, locate the **sql_mode** parameter.
    1. Configure a set of SQL modes in the drop-down list. To restore default settings, click **Reset**.
    1. Click **Save** in the DBMS settings dialog box.
    1. Click **Save changes**.
@@ -214,8 +203,8 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
    ```bash
    {{ yc-mdb-my }} cluster update-config \
-        --name <cluster name> \
-        --set '"sql_mode=NO_KEY_OPTIONS,NO_TABLE_OPTIONS"'
+     --name <cluster name> \
+     --set '"sql_mode=NO_KEY_OPTIONS,NO_TABLE_OPTIONS"'
    ```
 
    Pay close attention to quotation marks: the entire string must constitute the parameter value, including `sql_mode=`.
@@ -261,7 +250,9 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
       * `configSpec.mysqlConfig_5_7.sqlMode` for {{ MY }} 5.7.
       * `configSpec.mysqlConfig_8_0.sqlMode` for {{ MY }} 8.0.
 
-   {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+   * List of settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -273,11 +264,11 @@ To set the `CHARACTER SET` and `COLLATE` settings for the database:
 1. Run the [ALTER DATABASE](https://dev.mysql.com/doc/refman/5.7/en/charset-database.html) query:
 
    ```sql
-   ALTER DATABASE <DB name> CHARACTER SET = 'utf8mb4' COLLATE = 'utf8mb4_unicode_ci'.
+   ALTER DATABASE <DB name> CHARACTER SET = 'utf8mb4' COLLATE = 'utf8mb4_unicode_ci';
    ```
 
 1. To apply settings to the database tables along with the database, convert the tables with the same settings:
 
    ```sql
-   ALTER TABLE <DB name>.<table name> CONVERT TO CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'.
+   ALTER TABLE <DB name>.<table name> CONVERT TO CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_unicode_ci';
    ```

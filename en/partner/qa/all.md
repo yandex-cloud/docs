@@ -2,21 +2,21 @@
 
 ## General questions {#general}
 
-{% include notitle [general](general.md) %}
+{% include notitle [general](../../_qa/partner/general.md) %}
 
 ## Agreements and accounts {#contracts}
 
-{% include notitle [contracts](contracts.md) %}
+{% include notitle [contracts](../../_qa/partner/contracts.md) %}
 
 ## Partner bonus program {#bonuses}
 
-{% include notitle [bonuses](bonuses.md) %}
+{% include notitle [bonuses](../../_qa/partner/bonuses.md) %}
 
 ## Initial grant {#start-grant}
 
-{% include notitle [start-grant](start-grant.md) %}
+{% include notitle [start-grant](../../_qa/partner/start-grant.md) %}
 
 ## Additional grants in the partner program {#additional-grants}
 
-{% include notitle [additional-grants](additional-grants.md) %}
+{% include notitle [additional-grants](../../_qa/partner/additional-grants.md) %}
 

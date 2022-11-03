@@ -29,25 +29,27 @@ The list below shows all roles that are considered when verifying access rights 
 
 {% include [mdb.dataproc.agent](../../_includes/roles-dataproc-agent.md) %}
 
+{% include [data-proc-roles](../../_includes/data-proc/data-proc-roles.md) %}
+
 ### {{ roles-viewer }} {#viewer}
 
-A user with the role `{{ roles-viewer }}` can connect to hosts in a {{ dataproc-name }}
-cluster if their SSH keys are linked to this cluster.
+A user with the role `{{ roles-viewer }}` can connect to hosts in a
+{{ dataproc-name }} cluster if their SSH keys are linked to this cluster.
 
 ### {{ roles-mdb-admin }} {#mdb-admin}
 
 A user with the role `{{ roles-mdb-admin }}` can manage {{ dataproc-name }} clusters, for example, create a cluster or create or delete a subcluster in a cluster.
 
-The `{{ roles-mdb-admin }}` role also includes all `{{ roles-viewer }}` role permissions.
+The `{{ roles-mdb-admin }}` role also includes all permissions of the `{{ roles-viewer }}` role.
 
 ### {{ roles-editor }} {#editor}
 
 Users with the `{{ roles-editor }}` role can manage any resource, including creating clusters and creating and deleting their subclusters.
 
-The `{{ roles-editor }}` role also includes all `{{ roles-viewer }}` role permissions.
+The `{{ roles-editor }}` role also includes all permissions of the `{{ roles-viewer }}` role.
 
 ### {{ roles-admin }} {#admin}
 
 Users with the `{{ roles-admin }}` role can manage resource access rights, including allowing other users to create {{ dataproc-name }} clusters and to view information about user rights.
 
-The `{{ roles-admin }}` role also includes all `{{ roles-editor }}` role permissions.
+The `{{ roles-admin }}` role also includes all permissions of the `{{ roles-editor }}` role.

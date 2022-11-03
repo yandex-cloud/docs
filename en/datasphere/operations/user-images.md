@@ -1,16 +1,15 @@
-# Creating a custom Docker image for a project
+# Configuring the environment using a Docker image
 
-You can configure the environment to run your code using Docker images.
+You can configure the environment to run your code using [Docker images](../concepts/resource-model.md#resources).
 
 {{ ml-platform-full-name }} lets you create repositories of Docker images in a project and select an image for the project. The selected image will be used when running code in all project notebooks.
 
 ## Docker image requirements {#requirements}
 
 For a Docker image to run and operate correctly in {{ ml-platform-name }}, it must include:
-
 * A Python 3.7 or Python 3.8 installation.
 * A pip installation.
-* A Jupyter user.
+* A {{ jlab }} user.
 
 {% note info %}
 
@@ -21,14 +20,16 @@ The Docker image templates presented in {{ ml-platform-name }} already meet thes
 ## Creating a Docker image {#create}
 
 To create a Docker image:
+1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
+1. In the upper-right corner, click **Create resource**. In the window that appears, select **Docker**.
+1. Complete the fields below:
+   * **Build path**: Path inside a project where the created Docker image will be stored. `.` is the root directory.
+   * **Image name**: Name of the image, such as `cuda`.
+   * **Tag**: Image tag, such as `1.0.0`.
+   * **Docker template**: Template of the script used to install Python (`python_3_7` or `python_3_8`).
+   * **Docker file**: A set of instructions for creating a Docker image.
 
-1. Go to the ![docker](../../_assets/datasphere/docker.svg) **Docker images** tab.
-1. Click the ![plus-sign](../../_assets/plus-sign.svg) icon.
-1. On the tab that opens:
-   1. Enter a name for the repository, such as `cuda`.
-   1. Set a tag for the image, such as `1.0.0`.
-   1. Select a Python installation script template: `python_3_7` or `python_3_8`.
-   1. Edit the **Dockerfile** section. For example, to install CUDA<sup>®</sup> packages, you need a template of the python 3.8 image and the following code:
+      Edit the contents of the field. For example, to install CUDA<sup>®</sup> packages, you need a template of the `python_3_8` image and the following code:
 
       ```bash
       FROM ubuntu:18.04
@@ -42,37 +43,21 @@ To create a Docker image:
       RUN apt-get update &&\
        apt-get install -y -q xserver-xorg-core wget &&\
        wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin -O /etc/apt/preferences.d/cuda-repository-pin-600 &&\
-       apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub &&\
+       apt-key adv --fetch-keys <public GPG key> &&\
        add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /" &&\
        apt-get update &&\
        apt-get -y install cuda libcudnn8 nvidia-cuda-toolkit &&\
        exit
-      RUN pip install tensorflow-gpu==2.6
+      RUN pip install tensorflow-gpu==2.4.1
       ```
 
-   1. Click **Build**.
+      Replace the `<public GPG key>` with a link to a valid GPG key for working with CUDA<sup>®</sup>, such as `https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub`. See details in the [Nvidia blog](https://developer.nvidia.com/blog/updating-the-cuda-linux-gpg-repository-key/).
 
-      This creates a Docker image with CUDA<sup>®</sup> packages to use the GPU in computations.
+1. Click **Build**.
 
-   1. To use the image in your project, click **Set image to project** and then click **Ok**.
+   This creates a Docker image with CUDA<sup>®</sup> packages to use the GPU in computations.
 
-Make sure that the custom image environment is available in your project. For example, for the image with CUDA<sup>®</sup> packages, create and run a cell with the following code:
+To view all created Docker images:
+1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
+1. Under **Resources**, select **Docker**.
 
-```bash
-#!g1.1
-import tensorflow as tf
-tf.config.list_physical_devices('GPU')
-```
-
-Result:
-
-```text
-...
-[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
-```
-
-{% note info %}
-
-To return to the default environment, click **Reset docker image in project** on the ![docker](../../_assets/datasphere/docker.svg) **Docker images** tab.
-
-{% endnote %}

@@ -1,12 +1,12 @@
 # Formatting text
 
-To format the text of a page, special symbols called markup elements are used. Using markup, you can highlight text in bold or italics, add titles and lists to the page, insert links, images, tables, and so on.
+To format text on a [Wiki page](pages-types.md#page) or [dynamic table](pages-types.md#grid), you can use markup elements. Using markup, you can highlight text in bold or italics, add titles and lists to the page, insert links, images, tables, and so on.
 
 You can add markup elements to a page using [formatting panels](#buttons) or enter [markup symbols](#markup) from the keyboard. The result can be seen on the right side of the view panel.
 
 ## Formatting panel {#buttons}
 
-To add frequently used formatting elements to the text, use the panel at the top of the page.
+When you edit a Wiki page, use the format panel to add the most common markup elements to your text.
 
 ![](../_assets/wiki/format_pane.png)
 

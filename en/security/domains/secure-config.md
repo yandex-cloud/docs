@@ -42,12 +42,12 @@ When deploying virtual machines, we recommend:
 
 With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} automatically determines which part of your configuration is already deployed and what should be added or removed. For more information, see [Getting started with {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 
-We don't recommend using private information in {{ TF }} configuration files, such as: passwords, secrets, personal data, or payment system data. Instead, you should use services to store and use secrets in the configuration file, such as: [HashiCorp Vault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }} or [{{ lockbox-name }}](../../lockbox/index.yaml) (to transfer secrets to the target object without using {{ TF }}).
+We don't recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, or payment system data. Instead, you should use services for storing and using secrets in the configuration file, such as [HashiCorp Vault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }} or [{{ lockbox-name }}](/services/lockbox) (to transfer secrets to the target object without using {{ TF }}).
 
 If you still need to enter private information in the configuration, you should take the following security measures:
 - Specify the [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output) parameter for private information to disable outputting it to the console when running `terraform plan`and `terraform apply`.
-- Use [terraform remote state](https://www.terraform.io/docs/language/state/remote.html). We recommend uploading a {{ TF }} state to {{ objstorage-full-name }} (see [Uploading {{ TF }} states to {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md)) and setting up configuration locking using {{ ydb-full-name }} to prevent simultaneous editing by administrators (see a [setup example](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state)). 
-- Use the mechanism for [transferring secrets to {{ TF }} via env](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_var_name) instead of plain text or use built-in {{ kms-name }} features for [encrypting data in {{ TF }}](../../kms/tutorials/terraform-secret.md) (using a separate file with private data) ([learn more about this technique](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#3073)).
+- Use [terraform remote state](https://www.terraform.io/docs/language/state/remote.html). We recommend uploading a {{ TF }} state to {{ objstorage-full-name }} (see [Uploading {{ TF }} states to {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md)) and setting up configuration locking using {{ ydb-full-name }} to prevent simultaneous editing by administrators (see a [setup example](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state)).
+- Use the [mechanism for transferring secrets to {{ TF }} via env](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_var_name) instead of plain text or use built-in {{ kms-name }} features for [encrypting data in {{ TF }}](../../kms/tutorials/terraform-secret.md) (using a separate file with private data) ([learn more about this technique](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#3073)).
 
    For more information about {{ objstorage-name }} security, see [{{ objstorage-full-name }}](#object-storage) below.
 
@@ -57,15 +57,21 @@ When a configuration is deployed, you can delete the configuration file with pri
 
 {% endnote %}
 
+Scan your {{ TF }} manifests using [Checkov](https://github.com/bridgecrewio/checkov) with {{ yandex-cloud }} support.
+
+
+![](../../_assets/overview/solution-library-icon.svg)[Example: Scanning .tf files with Checkov](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/checkov-yc)
+![](../../_assets/overview/solution-library-icon.svg)[Example: Storing {{ TF }} states in {{ objstorage-full-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/remote-backend)
+
+
 ### Integrity control {#integrity-control}
 
 Numerous information security standards require integrity control of critical files. To do this, you can use free host-based solutions:
 - [Wazuh](https://documentation.wazuh.com/current/learning-wazuh/detect-fs-changes.html)
 - [Osquery](https://osquery.readthedocs.io/en/stable/deployment/file-integrity-monitoring/)
 
-
 In {{ marketplace-full-name }}, paid solutions are also available, such as [Kaspersky Security](/marketplace/products/kaspersky/kaspersky-hybrid-cloud-security-payg).
-
+
 ### Side-channel attacks {#side-channel}
 
 To ensure the best protection against CPU side-channel attacks (for example, Spectre or Meltdown):
@@ -75,11 +81,10 @@ To ensure the best protection against CPU side-channel attacks (for example, Spe
 - Install updates for your operating system and kernel that ensure side-channel attack protection (for example, [Kernel page-table isolation for Linux](https://en.wikipedia.org/wiki/Kernel_page-table_isolation), applications built using [Retpoline](https://en.wikipedia.org/wiki/Spectre_%28security_vulnerability%29)).
 
 
-
 We recommend that you use [dedicated hosts](../../compute/concepts/dedicated-host) for the most security-critical resources.
 
 [Learn more](https://www.youtube.com/watch?v=VSP_cp6vDQQ&list=PL1x4ET76A10a9Jr6six11s0kRxeQ3fgom&index=17) about side-channel attack protection in cloud environments.
-
+
 ## {{ objstorage-full-name }} {#object-storage}
 
 ### Data encryption {#encryption}
@@ -111,9 +116,8 @@ Bucket policies are used for additional data protection, for example, to restric
 
 With ACLs, you can grant access to an object bypassing {{ iam-short-name }} verification and bucket policies. We recommend setting strict ACLs for buckets.
 
-
 ![](../../_assets/overview/solution-library-icon.svg) [Example of a secure {{ objstorage-name }} configuration: {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/configuration/hardering_bucket)
-
+
 ### Deletion protection and version backups {#versioning}
 
 When processing critical data in buckets, you must ensure that data is protected from deletion and that versions are backed up. This can be achieved by versioning and lifecycle management mechanisms.
@@ -134,13 +138,12 @@ The storage period of critical data in a bucket is determined by the client's in
 
 
 
-
 ### Audits {#audit}
 
 When using {{ objstorage-short-name }} to store critical data, be sure to enable logging of actions with buckets and configure the versioning mechanism and lifecycle for objects with logs. For more information, see the {{ objstorage-short-name }} documentation, [{#T}](../../storage/concepts/server-logs.md).
 
 You can also analyze {{ objstorage-short-name }} logs in {{ datalens-short-name }}. Learn more in the article [Analyzing {{ objstorage-name }} logs using {{ datalens-short-name }}](https://cloud.yandex.ru/blog/posts/2021/04/storage-logs).
-
+
 
 
 ### Cross-Origin Resource Sharing (CORS) {#cors}
@@ -152,7 +155,6 @@ If you need cross-domain requests to objects in buckets, the client should confi
 We recommend prohibiting internet access to databases that contain critical data, in particular PCI DSS data or private data. Configure security groups to only allow connections to the DBMS from specific IP addresses. See the instructions in [{#T}](../../vpc/operations/security-group-create.md). You can specify a security group in the cluster settings or when creating the cluster in the network settings section.
 
 You shouldn't enable access to databases containing critical data from the management console, {{ datalens-name }}, or other services unless you have to. You may need access to the database from the management console to send SQL queries to the database and visualize the data structure, or access from {{ datalens-name }} to visualize and analyze data. For such access, use the {{ yandex-cloud }} service network with authentication and TLS encryption. You can enable and disable access from the management console, {{ datalens-name }}, or other services in the cluster settings or when creating it in the advanced settings section.
-
 
 ## {{ sf-name }} and {{ api-gw-full-name }} {#cloud-functions-api-gateway}
 
@@ -176,7 +178,6 @@ The {{ sf-name }} service does not guarantee time synchronization prior to or du
 
 If the function is called to process an HTTP request, the returned result should be a JSON document containing the HTTP response code, response headers, and response content. {{ sf-name }} will automatically process this JSON and the user will receive data as a standard HTTP response.
 The client needs to manage the response headers on their own in accordance with regulator requirements and the threat model. For more information on how to process an HTTP request, see the {{ sf-name }} documentation, [Invoking a function using HTTP](../../functions/concepts/function-invoke.md#http).
-
 
 ## {{ ydb-name }} {#ydb}
 
@@ -190,7 +191,7 @@ When working with the database, use [parameterized prepared statements](https://
 
 ### Network access {#ydb-network}
 
-When accessing the database in Dedicated mode, we recommend that you use it inside VPC, disabling public access to it from the internet. In Serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your PCI DSS infrastructure.  For more information about operating modes, see the YDB documentation, [Serverless and Dedicated modes](../../ydb/concepts/serverless-and-dedicated.md). 
+When accessing the database in Dedicated mode, we recommend that you use it inside {{ vpc-short-name }}, disabling public access to it from the internet. In Serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your PCI DSS infrastructure.  For more information about operating modes, see the YDB documentation, [Serverless and Dedicated modes](../../ydb/concepts/serverless-and-dedicated.md). 
 
 When setting up database permissions, use the principle of least privilege.
 
@@ -198,7 +199,7 @@ When setting up database permissions, use the principle of least privilege.
 
 When creating [on-demand backups](../../ydb/pricing/serverless.md#rules-auto-backup-storage), make sure that the backup data is properly protected.
 
-When creating backups on demand in {{ objstorage-short-name }}, follow the recommendations in the [{{ objstorage-short-name }}](#object-storage) subsection above (for example, use the built-in bucket encryption feature).
+When creating backups on demand in {{ objstorage-short-name }}, follow the recommendations in the [{{ objstorage-short-name }}](#object-storage) subsection above (for example, use the built-in bucket encryption feature).
 
 ## {{ container-registry-full-name }} and {{ cos-full-name }} {#container-registry-solution}
 
@@ -208,6 +209,6 @@ We recommend using the image vulnerability scanner integrated into {{ container-
 
 ## {{ certificate-manager-full-name }} {#cert-manager}
 
-{{ certificate-manager-full-name }} lets you manage TLS gateway certificates for {{ api-gw-name }} and  websites and buckets in {{ objstorage-name }}. {{ alb-name }} is integrated with {{ certificate-manager-short-name }} for storing and installing certificates. We recommend that you use {{ certificate-manager-short-name }} to obtain your certificates and rotate them automatically.
+{{ certificate-manager-full-name }} lets you manage TLS certificates for {{ api-gw-name }} API gateways and websites and buckets in {{ objstorage-name }}. {{ alb-name }} is integrated with {{ certificate-manager-short-name }} for storing and installing certificates. We recommend that you use {{ certificate-manager-short-name }} to obtain your certificates and rotate them automatically.
 
 When using TLS in your application, we recommend that you limit the list of your trusted root certificate authorities (root CA). When using certificate pinning, keep in mind that Let's Encrypt certificates are [valid for 90 days](https://letsencrypt.org/docs/faq/#what-is-the-lifetime-for-let-s-encrypt-certificates-for-how-long-are-they-valid).

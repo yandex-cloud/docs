@@ -1,4 +1,4 @@
-# Database management
+# Managing databases
 
 * [Getting a list of cluster databases](#list-db).
 * [Creating a database](#add-db).
@@ -25,8 +25,8 @@
    To get a list of databases in a cluster, run the command:
 
    ```bash
-   {{ yc-mdb-ms }} database list\
-      --cluster-name <cluster name>
+   {{ yc-mdb-ms }} database list \
+      --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -41,7 +41,7 @@
 
 ## Creating a database {#add-db}
 
-You can create an unlimited number of databases in each {{ mms-name }} cluster.
+{% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
 
 {% list tabs %}
 
@@ -76,7 +76,7 @@ You can create an unlimited number of databases in each {{ mms-name }} cluster.
 
       ```bash
       {{ yc-mdb-ms }} database create <database name> \
-        --cluster-name <cluster name>
+         --cluster-name=<cluster name>
       ```
 
       {% include [db-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
@@ -84,7 +84,6 @@ You can create an unlimited number of databases in each {{ mms-name }} cluster.
       The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
       {{ mms-short-name }} runs the create database operation.
-
 
    To grant users access to the created database, [follow the instructions](cluster-users.md#update-settings).
 
@@ -177,8 +176,8 @@ For more information, see the [{{ MS }} documentation]({{ ms.docs }}/sql/relatio
    To delete a database, run the command:
 
    ```bash
-   {{ yc-mdb-ms }} database delete <database name>\
-      --cluster-name <cluster name>
+   {{ yc-mdb-ms }} database delete <database name> \
+      --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

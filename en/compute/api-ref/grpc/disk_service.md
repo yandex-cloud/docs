@@ -16,7 +16,7 @@ A set of methods for managing Disk resources.
 | [Delete](#Delete) | Deletes the specified disk. |
 | [ListOperations](#ListOperations) | Lists operations for the specified disk. |
 | [Move](#Move) | Moves the specified disk to another folder of the same cloud. |
-| [ListSnapshotSchedules](#ListSnapshotSchedules) | List snapshot schedules containing the disk |
+| [ListSnapshotSchedules](#ListSnapshotSchedules) | Retrieves the list of snapshot schedules the specified disk is attached to. |
 
 ## Calls DiskService {#calls}
 
@@ -143,7 +143,7 @@ source | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot to restore the disk from. The maximum string length in characters is 50.
 block_size | **int64**<br>Block size used for disk, specified in bytes. The default is 4096. 
 disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy2)**<br>Placement policy configuration. 
-snapshot_schedule_ids[] | **string**<br>Snapshot schedules 
+snapshot_schedule_ids[] | **string**<br>List of IDs of the snapshot schedules to attach the disk to. 
 
 
 ### DiskPlacementPolicy {#DiskPlacementPolicy2}
@@ -199,13 +199,6 @@ instance_ids[] | **string**<br>Array of instances to which the disk is attached.
 disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy3)**<br>Placement policy configuration. 
 
 
-### DiskPlacementPolicy {#DiskPlacementPolicy3}
-
-Field | Description
---- | ---
-placement_group_id | **string**<br>Placement group ID. 
-
-
 ## Update {#Update}
 
 Updates the specified disk.
@@ -226,10 +219,10 @@ name | **string**<br>Name of the disk. Value must match the regular expression `
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
-disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy4)**<br>Placement policy configuration. 
+disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy3)**<br>Placement policy configuration. 
 
 
-### DiskPlacementPolicy {#DiskPlacementPolicy4}
+### DiskPlacementPolicy {#DiskPlacementPolicy3}
 
 Field | Description
 --- | ---
@@ -279,14 +272,7 @@ source | **oneof:** `source_image_id` or `source_snapshot_id`<br>
 &nbsp;&nbsp;source_image_id | **string**<br>ID of the image that was used for disk creation. 
 &nbsp;&nbsp;source_snapshot_id | **string**<br>ID of the snapshot that was used for disk creation. 
 instance_ids[] | **string**<br>Array of instances to which the disk is attached. 
-disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy5)**<br>Placement policy configuration. 
-
-
-### DiskPlacementPolicy {#DiskPlacementPolicy5}
-
-Field | Description
---- | ---
-placement_group_id | **string**<br>Placement group ID. 
+disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy4)**<br>Placement policy configuration. 
 
 
 ## Delete {#Delete}
@@ -431,10 +417,10 @@ source | **oneof:** `source_image_id` or `source_snapshot_id`<br>
 &nbsp;&nbsp;source_image_id | **string**<br>ID of the image that was used for disk creation. 
 &nbsp;&nbsp;source_snapshot_id | **string**<br>ID of the snapshot that was used for disk creation. 
 instance_ids[] | **string**<br>Array of instances to which the disk is attached. 
-disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy6)**<br>Placement policy configuration. 
+disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy4)**<br>Placement policy configuration. 
 
 
-### DiskPlacementPolicy {#DiskPlacementPolicy6}
+### DiskPlacementPolicy {#DiskPlacementPolicy4}
 
 Field | Description
 --- | ---
@@ -443,7 +429,7 @@ placement_group_id | **string**<br>Placement group ID.
 
 ## ListSnapshotSchedules {#ListSnapshotSchedules}
 
-List snapshot schedules containing the disk
+Retrieves the list of snapshot schedules the specified disk is attached to.
 
 **rpc ListSnapshotSchedules ([ListDiskSnapshotSchedulesRequest](#ListDiskSnapshotSchedulesRequest)) returns ([ListDiskSnapshotSchedulesResponse](#ListDiskSnapshotSchedulesResponse))**
 
@@ -451,8 +437,8 @@ List snapshot schedules containing the disk
 
 Field | Description
 --- | ---
-disk_id | **string**<br>ID of the Disk resource to list snapshot schedules for. 
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDiskOperationsResponse.next_page_token](#ListDiskOperationsResponse) that can be used to get the next page of results in subsequent list requests. 
+disk_id | **string**<br>ID of the disk to list snapshot schedules for. 
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDiskSnapshotSchedulesResponse.next_page_token](#ListDiskSnapshotSchedulesResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. 
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDiskSnapshotSchedulesResponse.next_page_token](#ListDiskSnapshotSchedulesResponse) returned by a previous list request. 
 
 
@@ -460,34 +446,34 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-snapshot_schedules[] | **[SnapshotSchedule](#SnapshotSchedule)**<br>List of snapshot schedules for the specified disk. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDiskSnapshotSchedulesRequest.page_size](#ListDiskSnapshotSchedulesRequest), use the `next_page_token` as the value for the [ListDiskSnapshotSchedulesRequest.page_token](#ListDiskSnapshotSchedulesRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+snapshot_schedules[] | **[SnapshotSchedule](#SnapshotSchedule)**<br>List of snapshot schedules the specified disk is attached to. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListDiskSnapshotSchedulesRequest.page_size](#ListDiskSnapshotSchedulesRequest), use `next_page_token` as the value for the [ListDiskSnapshotSchedulesRequest.page_token](#ListDiskSnapshotSchedulesRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### SnapshotSchedule {#SnapshotSchedule}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the snapshot schedule policy. 
-folder_id | **string**<br>ID of the folder that the scheduler policy belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the schedule policy. The name is unique within the folder. 
-description | **string**<br>Description of the schedule policy. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
-status | enum **Status**<br> 
-schedule_policy | **[SchedulePolicy](#SchedulePolicy)**<br>schedule properties 
-retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>
-&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
-&nbsp;&nbsp;snapshot_count | **int64**<br> 
-snapshot_spec | **[SnapshotSpec](#SnapshotSpec)**<br>properties to create snapshot with. 
+id | **string**<br>ID of the snapshot schedule. 
+folder_id | **string**<br>ID of the folder that the snapshot schedule belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the snapshot schedule. <br>The name is unique within the folder. 
+description | **string**<br>Description of the snapshot schedule. 
+labels | **map<string,string>**<br>Snapshot schedule labels as `key:value` pairs. 
+status | enum **Status**<br>Status of the snapshot schedule. <ul><li>`CREATING`: The snapshot schedule is being created.</li><li>`ACTIVE`: The snapshot schedule is on: new disk snapshots will be created, old ones deleted (if [SnapshotSchedule.retention_policy](#SnapshotSchedule) is specified).</li><li>`INACTIVE`: The schedule is interrupted, snapshots won't be created or deleted.</li><li>`DELETING`: The schedule is being deleted.</li><li>`UPDATING`: Changes are being made to snapshot schedule settings or a list of attached disks.</li></ul>
+schedule_policy | **[SchedulePolicy](#SchedulePolicy)**<br>Frequency settings of the snapshot schedule. 
+retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>Retention policy of the snapshot schedule.
+&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Retention period of the snapshot schedule. Once a snapshot created by the schedule reaches this age, it is automatically deleted. 
+&nbsp;&nbsp;snapshot_count | **int64**<br>Retention count of the snapshot schedule. Once the number of snapshots created by the schedule exceeds this number, the oldest ones are automatically deleted. E.g. if the number is 5, the first snapshot is deleted after the sixth one is created, the second is deleted after the seventh one is created, and so on. 
+snapshot_spec | **[SnapshotSpec](#SnapshotSpec)**<br>Attributes of snapshots created by the snapshot schedule. 
 
 
 ### SchedulePolicy {#SchedulePolicy}
 
 Field | Description
 --- | ---
-start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>start time for the first run. 
-expression | **string**<br>cron format (* * * * *) 
+start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for creating the first snapshot. 
+expression | **string**<br>Cron expression for the snapshot schedule (UTC+0). <br>The expression must consist of five fields (`Minutes Hours Day-of-month Month Day-of-week`) or be one of nonstandard predefined expressions (e.g. `@hourly`). For details about the format, see [documentation](/docs/compute/concepts/snapshot-schedule#cron) 
 
 
 ### SnapshotSpec {#SnapshotSpec}
@@ -495,6 +481,6 @@ expression | **string**<br>cron format (* * * * *)
 Field | Description
 --- | ---
 description | **string**<br>Description of the created snapshot. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+labels | **map<string,string>**<br>Snapshot labels as `key:value` pairs. 
 
 

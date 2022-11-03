@@ -5,7 +5,7 @@ description: "Как получить логи моей работы в серв
 
 # Общие вопросы про {{ sf-name }}
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}
 
 #### Как загрузить ZIP-архив с исходным кодом для обновления функции Serverless через CLI? {#version-create}
 

@@ -7,7 +7,7 @@ items:
     items:
       - name: About the technology
         href: stt/index.md
-      - name: Data streaming recognition
+      - name: Streaming recognition
         href: stt/streaming.md
       - name: Audio file recognition
         items:
@@ -19,8 +19,6 @@ items:
         href: stt/models.md
       - name: Extending a speech recognition model
         href: stt/additional-training.md
-      - name: Uploading model retraining data
-        href: stt/import-training-data.md
   - name: Speech synthesis
     items:
       - name: About the technology
@@ -35,14 +33,12 @@ items:
             href: tts/ssml.md
           - name: List of supported SSML phonemes
             href: tts/supported-phonemes.md
-      - name: SpeechKit Brand Voice
+      - name: '{{ brand-voice-name }}'
         items:
-          - name: About SpeechKit Brand Voice
+          - name: About "{{ brand-voice-name }}" technology
             href: tts/brand-voice/index.md
           - name: Input data format for Brand Voice Adaptive
             href: tts/brand-voice/income-data-format.md
-          - name: Uploading data for Brand Voice
-            href: tts/brand-voice/import-data.md
   - name: Audio formats
     href: formats.md
   - name: IVR integration
@@ -68,9 +64,9 @@ items:
           - name: gRPC API v3 (eng)
             items:
               - name: Overview
-                href: v3/api-ref/grpc/index.md
+                href: stt-v3/api-ref/grpc/index.md
               - name: Recognizer
-                href: v3/api-ref/grpc/stt_service.md
+                href: stt-v3/api-ref/grpc/stt_service.md
       - name: Example uses for the recognition API
         items:
           - name: Streaming recognition, API v3
@@ -90,9 +86,9 @@ items:
           - name: gRPC API v3 (eng)
             items:
               - name: Overview
-                href: new-v3/api-ref/grpc/index.md
+                href: tts-v3/api-ref/grpc/index.md
               - name: Synthesizer
-                href: new-v3/api-ref/grpc/tts_service.md
+                href: tts-v3/api-ref/grpc/tts_service.md
       - name: Example uses for the synthesis API
         items:
           - name: Synthesis API v3
@@ -126,5 +122,13 @@ items:
   - name: Public materials
     href: public-talks.md
   - name: Questions and answers
-    href: qa/index.md
+    items:
+      - name: General questions
+        href: qa/general.md
+      - name: Speech recognition
+        href: qa/stt.md
+      - name: Speech synthesis
+        href: qa/tts.md
+      - name: All questions on one page
+        href: qa/all.md
 base: en/speechkit

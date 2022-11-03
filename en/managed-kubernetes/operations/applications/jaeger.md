@@ -1,4 +1,4 @@
-# Installing Jaeger
+# Installing Jaeger over YDB Backend
 
 [Jaeger](https://www.jaegertracing.io/) is an open-source distributed tracing platform. Jaeger enables you to monitor request status and debug distributed microservice application systems after faults.
 
@@ -6,9 +6,9 @@ Jaeger is able to use the following types of data storage:
 * [{{ ydb-full-name }}](../../../ydb/) when installed from [{{ marketplace-full-name }}](/marketplace).
 * [Other data storage systems](https://github.com/jaegertracing/helm-charts/tree/main/charts/jaeger#storage) when installed via a Helm chart.
 
-## Installation using {{ marketplace-full-name }} {#marketplace-install}
+## Installation using {{ marketplace-name }} {#marketplace-install}
 
-### Before you start {#before-you-begin}
+### Before you begin {#before-you-begin}
 
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -52,7 +52,7 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
      -o key.json
    ```
 
-   Result:
+   Command result:
 
    ```text
    {
@@ -80,12 +80,12 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 
 1. Go to the folder page and select **{{ managed-k8s-name }}**.
 1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
-1. Under **Applications available for installation**, select **Jaeger over {{ ydb-short-name }} Backend** and click **Use**.
+1. Under **Applications available for installation**, select [Jaeger over {{ ydb-name }} Backend](/marketplace/products/yc/jaeger-ydb-store) and click **Use**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
    * **Application name**: Enter an application name.
    * **{{ ydb-name }} endpoint**: Specify a name for the {{ ydb-name }} endpoint, for example, `lb.etnk1hv0jol3cu5pojp7.ydb.mdb.yandexcloud.net:2135`.
-   * **Database**: Specify a database name, for example, `/ru-central1/b1gkgm9daf4605njnmn8/etnk2hv0jol5cu5pojp7`.
+   * **Database**: Specify a database name, for example, `/{{ region-id }}/b1gkgm9daf4605njnmn8/etnk2hv0jol5cu5pojp7`.
    * **Database directory**: `jaeger`.
    * **Use metadata to authenticate from inside a VM**: Select this option if authentication in the virtual machine is required.
    * **Service account key ID**: Specify the service account key ID.
@@ -98,7 +98,7 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. {% include [install-kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. Install the {{ k8s }} [Helm 3](https://helm.sh/docs/intro/install) package manager.
 1. Add the `jaegertracing` repository:

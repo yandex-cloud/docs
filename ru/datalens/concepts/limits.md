@@ -2,10 +2,10 @@
 editable: false
 ---
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ datalens-name }}
 
-В сервисе {{ datalens-full-name }} действуют следующие ограничения:
 
+В {{ yandex-cloud }} для сервисов действуют следующие виды ограничений:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

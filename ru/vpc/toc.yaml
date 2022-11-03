@@ -15,6 +15,8 @@ items:
             href: operations/network-delete.md
           - name: Изменить облачную сеть
             href: operations/network-update.md
+          - name: Перенести облачную сеть между каталогами
+            href: operations/network-move.md
       - name: Подсеть
         items:
           - name: Создать подсеть
@@ -23,6 +25,8 @@ items:
             href: operations/subnet-delete.md
           - name: Изменить подсеть
             href: operations/subnet-update.md
+          - name: Перенести подсеть между каталогами
+            href: operations/subnet-move.md
           - name: Посмотреть список используемых адресов
             href: operations/subnet-used-addresses.md
       - name: IP-адрес
@@ -33,6 +37,8 @@ items:
             href: operations/set-static-ip.md
           - name: Сделать статический публичный IP-адрес динамическим
             href: operations/set-dynamic-ip.md
+          - name: Перенести адрес между каталогами
+            href: operations/address-move.md
           - name: Удалить статический публичный IP-адрес
             href: operations/address-delete.md
       - name: Статическая маршрутизация
@@ -42,6 +48,12 @@ items:
             href: operations/static-route-create.md
           - name: Включить NAT в интернет
             href: operations/enable-nat.md
+          - name: Создать и настроить NAT-шлюз
+            href: operations/create-nat-gateway.md
+          - name: Перенести таблицу маршрутизации между каталогами
+            href: operations/static-route-move.md
+          - name: Перенести NAT-шлюз между каталогами
+            href: operations/static-gateway-move.md
       - name: Группы безопасности
         items:
           - name: Создать группу безопасности
@@ -52,6 +64,8 @@ items:
             href: operations/security-group-add-rule.md
           - name: Удалить правило
             href: operations/security-group-delete-rule.md
+          - name: Перенести группу безопасности между каталогами
+            href: operations/security-group-move.md
           - name: Удалить группу безопасности
             href: operations/security-group-delete.md
       - name: Включить программно-ускоренную сеть
@@ -64,12 +78,24 @@ items:
         href: operations/connections-view.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Архитектура и защита базового интернет-сервиса
         href: tutorials/web-service.md
-      - name: Настройки DHCP для работы с корпоративным DNS-сервером
-        href: tutorials/dhcp-options.md
+      - name: Маршрутизация с помощью NAT-инстанса
+        href: tutorials/nat-instance.md
+      - name: Создание туннеля IPSec VPN
+        href: tutorials/ipsec-vpn.md
+      - name: Установка виртуального роутера Cisco CSR 1000v
+        href: tutorials/cisco.md
+      - name: Установка виртуального роутера Mikrotik CHR
+        href: tutorials/mikrotik.md
       - name: Соединение с облачной сетью при помощи OpenVPN
         href: tutorials/openvpn.md
+      - name: Создание и настройка шлюза UserGate в режиме прокси-сервера
+        href: tutorials/usergate-proxy.md
+      - name: Настройка сети для {{ dataproc-full-name }}
+        href: tutorials/dataproc-nat-instance.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -82,6 +108,8 @@ items:
         href: concepts/static-routes.md
       - name: Группы безопасности
         href: concepts/security-groups.md
+      - name: Шлюзы
+        href: concepts/gateways.md
       - name: Мониторинг сетевых соединений
         href: concepts/monitoring-connections.md
       - name: Диапазоны публичных IP-адресов

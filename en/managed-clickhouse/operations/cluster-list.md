@@ -1,8 +1,3 @@
----
-title: "Information about clusters in {{ mch-short-name }}"
-description: "You can request detailed information about each {{ mch-short-name }} cluster you create. To get a list of database clusters in a directory, go to the directory page and select the {{ mch-name }} service."
----
-
 # Information about existing clusters
 
 You can request detailed information about each {{ mch-short-name }} cluster you created.
@@ -35,6 +30,10 @@ You can request detailed information about each {{ mch-short-name }} cluster you
    +----------------------+---------------+-----------------------------+--------+---------+
    ```
 
+- API
+
+   Use the [list](../api-ref/Cluster/list.md) API method and pass the folder ID in the `folderId` request parameter.
+
 {% endlist %}
 
 
@@ -60,6 +59,12 @@ You can request detailed information about each {{ mch-short-name }} cluster you
    ```
 
    You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
+
+- API
+
+   Use the [get](../api-ref/Cluster/get.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+   You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
 
 {% endlist %}
 

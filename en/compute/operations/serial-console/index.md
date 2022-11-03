@@ -68,37 +68,6 @@ To enable access to the serial console when creating a VM, set the `serial-port-
 
       A user named `yc-user` will be automatically created in the VM's OS with the specified public key.
 
-- Windows
-
-   1. View a description of the CLI create VM command:
-
-      ```bash
-      yc compute instance create --help
-      ```
-
-   1. Select a public Windows-based [image](../images-with-pre-installed-software/get-list.md).
-
-      {% include [standard-images](../../../_includes/standard-images.md) %}
-
-   1. Create a VM in the default folder:
-
-      ```bash
-      yc compute instance create \
-        --name win-instance \
-        --metadata-from-file user-data=metadata.yaml \
-        --zone {{ region-id }}-a \
-        --network-interface subnet-name=default-c,nat-ip-version=ipv4 \
-        --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
-        --metadata serial-port-enable=1
-      ```
-
-      This command will create a VM:
-      * With Windows.
-      * Named `win-instance`.
-      * In the `{{ region-id }}-a` zone.
-      * With the serial console active.
-
-      The `Administrator` user with the password specified in the `metadata.yaml` file will be automatically created in the VM's OS.
 
 {% endlist %}
 
@@ -133,7 +102,6 @@ To configure access via the serial console, a virtual machine must have a public
 
 For the serial console to be available from the OS, the OS must be configured properly:
 * [Linux](#linux-configuration)
-* [Windows](#windows-configuration)
 
 ### Linux {#linux-configuration}
 
@@ -202,32 +170,3 @@ To create a local password, use the CLI.
 
 1. Terminate the SSH session with the `exit` command.
 
-
-
-### Windows {#windows-configuration}
-
-An equivalent of the serial console in Windows is the Speicial Administration Console (SAC).
-
-{% note info %}
-
-If you created your VM after February 22, 2019, you don't need to configure anything else: the SAC is enabled by default.
-
-{% endnote %}
-
-If you created the VM before February 22, 2019, you need to update the Windows registry to connect to the SAC:
-
-1. [Connect to the VM via RDP](../vm-connect/rdp.md).
-
-1. To do this, run a command prompt or PowerShell and execute:
-
-   ```
-   bcdedit /ems "{current}" on
-   The operation completed successfully.
-   
-   bcdedit /emssettings EMSPORT:2 EMSBAUDRATE:115200
-   The operation completed successfully.
-   ```
-
-1. Restart the VM.
-
-Learn more about the [terminal in the Windows serial console (SAC)](windows-sac.md).

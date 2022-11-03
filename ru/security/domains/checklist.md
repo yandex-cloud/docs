@@ -2,7 +2,7 @@
 
 ## Сетевая безопасность {#network-security}
 
-* **Сегментация**: разделите ресурсы по группам и поместите их в разные каталоги, а если требуется наиболее строгая изоляция — в разные VPC. Трафик внутри VPC по умолчанию разрешен, между VPC — нет (только через виртуальную машину с двумя сетевыми интерфейсами в разных сетях, VPN или {{ interconnect-full-name }}). Посмотрите вебинар [Как работает сеть в {{ yandex-cloud }}](https://www.youtube.com/watch?v=g3cZ0o50qH0).
+* **Сегментация**: разделите ресурсы по группам и поместите их в разные каталоги, а если требуется наиболее строгая изоляция — в разные {{ vpc-short-name }}. Трафик внутри {{ vpc-short-name }} по умолчанию разрешен, между {{ vpc-short-name }} — нет (только через виртуальную машину с двумя сетевыми интерфейсами в разных сетях, VPN или {{ interconnect-full-name }}). Посмотрите вебинар [Как работает сеть в {{ yandex-cloud }}](https://www.youtube.com/watch?v=g3cZ0o50qH0).
 * **Ограничение сетевого доступа, группы безопасности**: ограничьте сетевой доступ между ресурсами с помощью [групп безопасности](../../vpc/operations/security-group-create.md).
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: настройка групп безопасности (dev/stage/prod) с помощью {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
 * **NGFW из {{ marketplace-short-name }}**: если требуется продвинутая сетевая защита, используйте [NGFW](/marketplace?tab=software&search=NGFW) из {{ marketplace-full-name }}.
@@ -46,7 +46,7 @@
 * **Отключение серийной консоли**: не используйте серийную консоль, а если это необходимо, то [оценивайте риски](../../compute/operations/serial-console/index.md) и отключайте по окончании работы.
 * **Безопасное использование {{ TF }}**: используйте `terraform remote state` на базе {{ objstorage-name }} с функцией блокировки в {{ ydb-full-name }}, см. [пример настройки](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state). Используйте параметр [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output), если требуется. Не передавайте приватные данные в конфигурацию, а если это необходимо, используйте сервисы [управления секретами](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#:~:text=this%20blog%20post%3A-,Do%20not%20store%20secrets%20in%20plain%20text.,secrets%20into%20your%20Terraform%20code) или переменные среды. [Подробнее](./secure-config.md#terraform).
   ![](../../_assets/overview/solution-library-icon.svg)[Пример: сканирование tf-файлов с помощью Checkov](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/checkov-yc)
-* **Контроль целостности на гостевых ОС**: применяйте бесплатные host-based решения, такие как Wazuh, Osquery, или платные решения из {{ marketplace-name }}, например [Kaspersky Security](/marketplace?search=Kaspersky+Security).
+* **Контроль целостности на гостевых ОС**: применяйте бесплатные host-based решения, такие как Wazuh, Osquery, или платные решения из {{ marketplace-name }}.
 * **Безопасная конфигурация {{ objstorage-name }}**: используйте шифрование, [политики доступа (bucket policy)](../../storage/concepts/policy.md) и ACL, [версионирование для защиты от удаления](../../storage/concepts/versioning.md), включите [встроенный аудит доступа](../../storage/operations/buckets/enable-logging.md) и настройте CORS (при необходимости).
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: безопасная конфигурация {{ objstorage-name }} в {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/configuration/hardering_bucket)
 * **Безопасная конфигурация {{ sf-full-name }}**: предоставляйте токен сервисного аккаунта через [нативный механизм](../../functions/operations/function-sa.md) с помощью назначенного сервисного аккаунта и метаданных. По возможности используйте [приватные функции](../../functions/operations/function-public.md).
@@ -56,7 +56,6 @@
 ## Защита от вредоносного кода {#malicious-code-protection}
 
 * **Защита на уровне ОС**: устанавливайте на ВМ антивирусные решения из [{{ marketplace-name }}](/marketplace?categories=security).
-  ![](../../_assets/overview/solution-library-icon.svg)[Решение: развертывание Kaspersky Antivirus в {{ yandex-cloud }} ({{ compute-full-name }}, {{ coi }})](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/malware-defense/kaspersy-install-in-yc)
 * **Защита на уровне сети**: используйте NGFW/IDS/IPS, представленные в [{{ marketplace-name }}](/marketplace?categories=security) (некоторые из них имеют встроенные песочницы).
 * **Защита на уровне образов контейнеров**: используйте сканер уязвимостей в образах, встроенный в сервис {{ container-registry-name }}.<!-- tbd: вставить ссылку на инструкцию, когда она появится -->
 

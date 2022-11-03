@@ -24,7 +24,7 @@ To access a device, use its unique ID or name. For information on retrieving the
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   Change the device name:
+   Update a device description:
 
    ```
    yc iot device update my-device --new-name test-device
@@ -37,6 +37,62 @@ To access a device, use its unique ID or name. For information on retrieving the
    created_at: "2019-05-28T16:08:30.938Z"
    name: test-device
    ```
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   To update the name of a device created using {{ TF }}:
+
+   1. Open the {{ TF }} configuration file and edit the value of the `name` parameter in the fragment with the device description:
+
+      Example device description in the {{ TF }} configuration:
+
+      ```hcl
+      resource "yandex_iot_core_device" "my_device" {
+        registry_id = "<registry ID>"
+        name        = "test-device"
+        description = "test device for terraform provider documentation"
+      ...  
+      }
+      ```
+
+      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_device).
+   1. In the command line, change to the folder where you edited the configuration file.
+   1. Make sure the configuration file is correct using the command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```bash
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+   1. Apply the configuration changes:
+
+      ```bash
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` in the terminal and press **Enter**.
+
+      You can verify the updated device name in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+
+      ```bash
+      yc iot device list --registry-id <registry ID>
+      ```
 
 {% endlist %}
 
@@ -60,7 +116,7 @@ To access a device, use its unique ID or name. For information on retrieving the
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   Change the device description:
+   Update a device description:
 
    ```
    yc iot device update my-device --description "My first device."
@@ -75,5 +131,61 @@ To access a device, use its unique ID or name. For information on retrieving the
    name: my-device
    description: My first device.
    ```
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   To update the description of a device created using {{ TF }}:
+
+   1. Open the {{ TF }} configuration file and edit the value of the `description` parameter in the fragment with the device description.
+
+      Example device description in the {{ TF }} configuration:
+
+      ```hcl
+      resource "yandex_iot_core_device" "my_device" {
+        registry_id = "<registry ID>"
+        name        = "test-device"
+        description = "test device for terraform provider documentation"
+      ...  
+      }
+      ```
+
+      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_device).
+   1. In the command line, change to the folder where you edited the configuration file.
+   1. Make sure the configuration file is correct using the command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```bash
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+   1. Apply the configuration changes:
+
+      ```bash
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` in the terminal and press **Enter**.
+
+      You can verify the updated device description in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+
+      ```bash
+      yc iot device get <device name>
+      ```
 
 {% endlist %}

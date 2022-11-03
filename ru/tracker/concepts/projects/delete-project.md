@@ -3,7 +3,7 @@ sourcePath: ru/tracker/api-ref/concepts/projects/delete-project.md
 ---
 # Удалить проект
 
-Запрос позволяет удалить [проект](../../manager/projects.md).
+Запрос позволяет удалить [проект](../../manager/project-new.md).
 
 ## Формат запроса {#query}
 

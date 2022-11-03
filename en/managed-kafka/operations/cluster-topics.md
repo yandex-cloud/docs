@@ -67,35 +67,19 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. In the {{ mkf-name }} cluster description, add a `topic` section:
+   1. Add the `yandex_mdb_kafka_topic` resource and [configure the topic](../concepts/settings-list.md#topic-settings) under `topic_config`, as required:
 
       ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
-         topic {
-           name               = "<topic name>"
-           partitions         = <number of partitions>
-           replication_factor = <replication factor>
-         }
-         ...
-      }
-      ```
-
-   1. If required, specify [topic settings](../concepts/settings-list.md#topic-settings) in the `topic_config` section:
-
-      ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
-         topic {
-           name               = "<topic name>"
-           partitions         = <number of partitions>
-           replication_factor = <replication factor>
-
-           topic_config {
-             compression_type = "<compression type>"
-             flush_messages   = <maximum number of messages in memory>
-             ...
-           }
-         }
-         ...
+      resource "yandex_mdb_kafka_topic" "<topic name>" {
+        cluster_id         = "<cluster ID>"
+        name               = "<topic name>"
+        partitions         = <number of partitions>
+        replication_factor = <replication factor>
+        topic_config {
+          compression_type = "<compression type>"
+          flush_messages   = <maximum number of messages in memory>
+          ...
+        }
       }
       ```
 
@@ -107,9 +91,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_topic).
 
 
 - API
@@ -178,22 +160,19 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. In the {{ mkf-name }} cluster description, edit the parameters in the `topic` or `topic_config` sections:
+   1. Edit the parameter values in the `yandex_mdb_kafka_topic` resource description:
 
       ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
-        topic {
-          name               = "<topic name>"
-          partitions         = <number of partitions>
-          replication_factor = <replication factor>
-
-          topic_config {
-            compression_type = "<compression type>"
-            flush_messages   = <maximum number of messages in memory>
-            ...
-          }
+      resource "yandex_mdb_kafka_topic" "<topic name>" {
+        cluster_id         = "<cluster ID>"
+        name               = "<topic name>"
+        partitions         = <number of partitions>
+        replication_factor = <replication factor>
+        topic_config {
+          compression_type = "<compression type>"
+          flush_messages   = <maximum number of messages in memory>
+          ...
         }
-        ...
       }
       ```
 
@@ -205,18 +184,19 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_topic).
 
 
 - API
 
    Use the [update](../api-ref/Topic/update.md) API method and pass the following in the request:
+
    * In the `clusterId` parameter, the ID of the cluster where the topic is located. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](#list-topics).
-   * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any topic settings that aren't explicitly specified in the request to their default values.
    * New values of [topic settings](../concepts/settings-list.md#topic-settings) in the `topicSpec` parameter.
+   * List of settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 
 {% endlist %}
@@ -261,7 +241,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. In the {{ mkf-name }} cluster description, delete the `topic` section that describes the topic.
+   1. Delete the `yandex_mdb_kafka_topic` resource with the relevant topic description.
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -270,9 +250,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_topic).
 
 
 - API

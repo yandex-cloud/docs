@@ -162,10 +162,6 @@ placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strateg
 &nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy3)**<br>Distribute instances over distinct failure domains. 
 
 
-### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy3}
-
-
-
 ## Update {#Update}
 
 Updates the specified placement group.
@@ -223,10 +219,10 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs.
 zone_id | **string**<br>ID of the availability zone where the placement group resides. 
 status | enum **Status**<br>Current status of the placement group 
 placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy.
-&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy4)**<br>Distribute instances over distinct failure domains. 
+&nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy3)**<br>Distribute instances over distinct failure domains. 
 
 
-### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy4}
+### DiskSpreadPlacementStrategy {#DiskSpreadPlacementStrategy3}
 
 
 

@@ -6,8 +6,8 @@
 
 {% note info %}
 
-* Количество хостов, которые можно создать вместе с {{ MY }}-кластером, зависит от выбранного [типа хранилища](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
-* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+* Количество хостов, которые можно создать вместе с {{ MY }}-кластером, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
 
@@ -28,7 +28,7 @@
   1. Выберите класс хостов — он определяет технические характеристики виртуальных машин, на которых будут развернуты хосты БД. Все доступные варианты перечислены в разделе [{#T}](../concepts/instance-types.md). При изменении класса хостов для кластера меняются характеристики всех уже созданных хостов.
   1. В блоке **Размер хранилища**:
 
-      * Выберите [тип хранилища](../concepts/storage.md).
+      * Выберите [тип диска](../concepts/storage.md).
 
           {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
@@ -46,7 +46,9 @@
       * Имя пользователя — владельца БД. Имя пользователя должно содержать только латинские буквы, цифры и подчеркивания.
       * Пароль пользователя, от 8 до 128 символов.
 
+  
   1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configure-security-groups) для того, чтобы можно было подключаться к кластеру.
+
 
   1. В блоке **Хосты** выберите параметры хостов БД, создаваемых вместе с кластером. Открыв блок **Расширенные настройки**, вы можете выбрать конкретные подсети для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.
 
@@ -75,6 +77,7 @@
      ```
      yc vpc subnet list
      ```
+
      
      Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
 
@@ -82,12 +85,13 @@
 
   1. Посмотрите описание команды CLI для создания кластера:
 
-      ```
-      {{ yc-mdb-my }} cluster create --help
-      ```
+     ```
+     {{ yc-mdb-my }} cluster create --help
+     ```
 
   1. Укажите параметры кластера в команде создания:
-
+  
+     
      
      ```bash
      {{ yc-mdb-my }} cluster create \
@@ -102,15 +106,18 @@
        --disk-size <размер хранилища в гигабайтах> \
        --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
        --security-group-ids <список идентификаторов групп безопасности> \
-       --deletion-protection=<защита от удаления кластера: true или fasle>
+       --deletion-protection=<защита от удаления кластера: true или false> \
+       --datalens-access=<доступ к кластеру из {{ datalens-name }}: true или false>
      ```
 
-      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
+     Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
+  
+  
 
 
-      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+     {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
+     При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
 
 - {{ TF }}
 
@@ -137,6 +144,7 @@
      Пример структуры конфигурационного файла:
 
      
+     
      ```hcl
      terraform {
        required_providers {
@@ -157,13 +165,13 @@
        name                = "<имя кластера>"
        environment         = "<окружение, PRESTABLE или PRODUCTION>"
        network_id          = "<идентификатор сети>"
-       version             = "<версия MySQL: {{ versions.tf.str }}>"
+       version             = "<версия {{ MY }}: {{ versions.tf.str }}>"
        security_group_ids  = [ "<список групп безопасности>" ]
        deletion_protection = <защита от удаления кластера: true или false>
 
        resources {
          resource_preset_id = "<класс хоста>"
-         disk_type_id       = "<тип хранилища>"
+         disk_type_id       = "<тип диска>"
          disk_size          = "<размер хранилища в гигабайтах>"
        }
 
@@ -200,9 +208,14 @@
 
 
 
+
      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
+
+     
+     1. {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
+
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mmy }}).
 
@@ -228,17 +241,23 @@
     * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
     * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
     * Идентификатор сети в параметре `networkId`.
-    * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
+        * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
 
     {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
+    
+    {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
+
+
 {% endlist %}
+
 
 {% note warning %}
 
 Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect.md#configure-security-groups).
 
 {% endnote %}
+
 
 ## Примеры {#examples}
 
@@ -305,7 +324,7 @@
     * В каталоге с идентификатором `{{ tf-folder-id }}`.
     * В новой сети `mynet`.
     * С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
-    * В новой группе безопасности `mysql-sg`, разрешающей подключение к кластеру из интернета через порт `{{ port-mmy }}`.
+        * В новой группе безопасности `mysql-sg`, разрешающей подключение к кластеру из интернета через порт `{{ port-mmy }}`.
     * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
     * С одним пользователем (`user1`), с паролем `user1user1`.
     * С одной базой данных `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
@@ -313,6 +332,7 @@
 
   Конфигурационный файл для такого кластера выглядит так:
 
+  
   
   ```hcl
   terraform {
@@ -350,7 +370,6 @@
     }
   }
 
-
   resource "yandex_mdb_mysql_database" "db1" {
     cluster_id = yandex_mdb_mysql_cluster.my-mysql.id
     name       = "db1"
@@ -375,7 +394,7 @@
     network_id = yandex_vpc_network.mynet.id
 
     ingress {
-      description    = "MySQL"
+      description    = "{{ MY }}"
       port           = {{ port-mmy }}
       protocol       = "TCP"
       v4_cidr_blocks = [ "0.0.0.0/0" ]
@@ -389,6 +408,7 @@
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```
+
 
 
 

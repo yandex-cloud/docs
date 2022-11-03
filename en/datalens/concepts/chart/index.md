@@ -15,7 +15,7 @@ You can create an unlimited number of charts based on a single dataset.
 The workspace in the wizard interface is divided into three main panels:
 
 1. A dataset panel where available fields are displayed: **Dimensions** and **Measures**. You can add a [calculated field](../calculations/index.md) to the list.
-1. A visualization setup panel that you can use to select a [chart type](types.md). Each type has its own set of sections (such as X-axis, Y-axis, and filters) where you can drag and drop fields. Learn more in [{#T}](settings.md).
+1. A visualization setup panel that you can use to select a [chart type](../../visualization-ref/index.md). Each type has its own set of sections (such as X-axis, Y-axis, and filters) where you can drag and drop fields. Learn more in [{#T}](settings.md).
 1. A preview panel where the visualization is displayed.
 
 Charts let you quickly analyze and test hypotheses. You can also save charts and add them to dashboards as widgets.
@@ -76,7 +76,7 @@ QL chart features:
 * They are only suitable for `SELECTs`.
 * They enable the use of the `JOIN`, `GROUP BY`, and `SORT BY` operators as well as aggregate functions in a SQL query.
 * They enable the parameterization of any part of a SQL query.
-* They support a limited set of [visualizations types](types.md).
+* They support a limited set of [visualizations types](../../visualization-ref/index.md).
 * They have [public access](#public-access) restrictions.
 * They do not support data [materialization](../dataset/settings.md#materializaton).
 * They do not use [RLS](../../security/row-level-security.md) or [calculated fields](../calculations/index.md).
@@ -84,6 +84,10 @@ QL chart features:
 {% include [datalens-sql-ch-example](../../../_includes/datalens/datalens-sql-ch-example.md) %}
 
 To create a QL chart, see the [instructions](../../operations/chart/create-sql-chart.md).
+
+## Chart types {#chart-types}
+
+All types of {{ datalens-full-name }} charts are presented in the [Visualization Reference](../../visualization-ref/index.md).
 
 ## Publishing a chart {#public-access}
 
@@ -107,14 +111,13 @@ For more information about types of permissions, see [{#T}](../../security/index
 
 #### See also {#see-also}
 
-- [{#T}](../../operations/chart/create-line-chart.md)
-- [{#T}](../../operations/chart/create-pivot-table.md)
-- [{#T}](../../operations/chart/create-table.md)
-- [{#T}](../../operations/chart/create-area-chart.md)
-- [{#T}](../../operations/chart/create-column-chart.md)
-- [{#T}](../../operations/chart/create-bar-chart.md)
-- [{#T}](../../operations/chart/create-pie-chart.md)
-- [{#T}](../../operations/chart/create-map-chart.md)
-- [{#T}](../../operations/chart/create-sql-chart.md)
-- [{#T}](../../operations/chart/publish.md)
-
+* [{#T}](../../visualization-ref/line-chart.md#create-diagram)
+* [{#T}](../../visualization-ref/pivot-table-chart.md#create-diagram)
+* [{#T}](../../visualization-ref/table-chart.md#create-diagram)
+* [{#T}](../../visualization-ref/area-chart.md#create-diagram)
+* [{#T}](../../visualization-ref/column-chart.md#create-diagram)
+* [{#T}](../../visualization-ref/bar-chart.md#create-diagram)
+* [{#T}](../../visualization-ref/pie-chart.md#create-diagram)
+* [{#T}](../../visualization-ref/map-chart.md)
+* [{#T}](../../operations/chart/create-sql-chart.md)
+* [{#T}](../../operations/chart/publish.md)

@@ -1,4 +1,4 @@
-1. Click **Create folder** on the [cloud page]({{ link-console-cloud }}).
+1. In the [management console]({{ link-console-main }}), select a cloud and click ![Create icon](../_assets/create.png) **Create folder**.
 1. Enter the folder name. Naming requirements:
 
    {% include [name-format](name-format.md) %}

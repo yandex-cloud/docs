@@ -6,7 +6,7 @@ This scenario describes the steps required to get a report containing informatio
 
 Install and configure the [AWS CLI](../tools/aws-cli.md).
 
-## Getting itemized spending details  {#get-billing-detail}
+## Getting itemized spending details {#get-billing-detail}
 
 {% list tabs %}
 

@@ -18,6 +18,7 @@
 ### Bucket service {#bucket-service}
 
 
+
 | Method | Description |
 | ----- | ----- |
 | [create](bucket/create.md) | Creates a bucket. |
@@ -33,6 +34,7 @@
 | [putBucketLogging](bucket/putBucketLogging.md) | Enables and disables logging of actions with the bucket. |
 | [getBucketLogging](bucket/getBucketLogging.md) | Returns settings for logging actions with the bucket. |
 | [listObjectVersions](bucket/listObjectVersions.md) | Returns metadata for all versions of objects in the bucket. |
+
 
 
 

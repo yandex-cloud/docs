@@ -1,16 +1,23 @@
 # Pricing for {{ yds-full-name }}
 
-## What goes into the cost of using {{ yds-name }} {#rules}
+{{ yds-name }} supports two pricing modes:
+
+* [Based on allocated resources](#rules): You pay a fixed hourly rate for the established throughput limit and message retention period and additionally for the number of units of actually written data.
+* [On-demand](#on-demand): You pay for data writes and reads performed, the amount of data read/written, and the size of storage actually used for messages with a valid retention period.
+
+Pricing mode is set for each data stream individually. By default, streams in {{ yds-name }} are created with pricing based on allocated resources.
+
+## Pricing based on allocated resources {#rules} 
 
 While using {{ yds-name }}, the number of units of written data and resources allocated for streaming data are billed.
 
-Pricing for allocated resources is based on the limit of the shard throughput and data retention period.
+Pricing for the allocated resources includes the established segment throughput limit as well as storage time and size.
 
 {% include [not-charged-streams.md](../_includes/pricing/price-formula/not-charged-streams.md) %}
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-### Example of cost calculation {#price-example}
+### Examples of cost calculation {#price-example}
 
 A single-shard stream receives two 50 KB messages per second. The message retention period is 12 hours.
 
@@ -44,11 +51,11 @@ Where:
 {% include [usd.md](../_pricing/data-streams/usd-example.md) %}
 
 
-## Pricing {#prices}
+### Pricing {#prices}
 
-### Cost of a unit of written data {#event}
+#### Cost of a unit of written data {#event}
 
-The first 2000000 units per month are free of charge.
+The first 2000000 units of written data per month are free of charge.
 
 
 
@@ -56,7 +63,9 @@ The first 2000000 units per month are free of charge.
 {% include [usd.md](../_pricing/data-streams/usd-event.md) %}
 
 
-### Cost of allocated resources {#resources}
+#### Cost of allocated resources {#resources}
+
+#### Pricing based on storage time {#time-limit}
 
 Cost of using allocated resources per hour:
 
@@ -65,3 +74,17 @@ Cost of using allocated resources per hour:
 
 {% include [usd.md](../_pricing/data-streams/usd-resources.md) %}
 
+
+#### Pricing based on storage size {#storage-limit}
+
+Data is stored for up to 7 days.
+
+
+
+
+{% include [usd.md](../_pricing/data-streams/usd-resources-storage-limit.md) %}
+
+
+## On-demand pricing {#on-demand}
+
+With on-demand pricing, data streams are billed at the level of {{ ydb-short-name }} Serverless database topics where their data is stored. Go to the [Pricing policy for {{ ydb-short-name }} Serverless mode](../ydb/pricing/serverless.md) page to learn more about pricing and cost calculation.

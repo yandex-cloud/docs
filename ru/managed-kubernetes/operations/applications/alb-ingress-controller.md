@@ -8,11 +8,11 @@
 
 1. {% include [k8s-ingress-controller-create-node-group](../../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
-## Создание сервисного аккаунта {#create-sa-key}
-
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+### Создание сервисного аккаунта {#create-sa-key}
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md), необходимый для работы Ingress-контроллера.
 1. [Назначьте ему роли](../../../iam/operations/sa/assign-role-for-sa.md):
@@ -43,15 +43,19 @@
 
 ## Установка с помощью Helm-чарта {#install-alb-helm}
 
+### Перед началом работы {#before-helm}
+
 1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. {% include [Настройка kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Для потоковой обработки JSON-файлов установите [утилиту](https://stedolan.github.io/jq/) `jq`:
+1. Установите [утилиту `jq`](https://stedolan.github.io/jq/) для потоковой обработки JSON-файлов:
 
    ```bash
    sudo apt update && sudo apt install jq
    ```
+
+### Установка с помощью Helm-чарта {#install}
 
 1. Создайте [пространство имен](../../concepts/index.md#namespace):
 
@@ -63,8 +67,8 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   cat sa-key.json | helm registry login cr.yandex --username 'json_key' --password-stdin && \
-   helm pull oci://cr.yandex/yc/yc-alb-ingress-controller-chart \
+   cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
+   helm pull oci://{{ registry }}/yc/yc-alb-ingress-controller-chart \
      --version=v{{ alb-ingress-version }} \
      --untar && \
    helm install \

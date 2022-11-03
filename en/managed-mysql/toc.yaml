@@ -73,12 +73,16 @@ items:
     items:
       - name: All use cases
         href: tutorials/index.md
-      - name: Performance analysis and tuning
-        href: tutorials/profiling.md
+      - name: Performance analysis and tuning of {{ mmy-name }}
+        href: tutorials/profiling-mmy.md
+      - name: Exporting databases to {{ dataproc-full-name }}
+        href: tutorials/sqoop.md
       - name: Migrating databases to Managed Service for MySQL
         href: tutorials/data-migration.md
       - name: Migrating databases from {{ mmy-name }} to {{ MY }}
         href: tutorials/mmy-to-mysql-migration.md
+      - name: Delivering data to {{ mkf-full-name }} using Debezium
+        href: tutorials/cdc-debezium.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

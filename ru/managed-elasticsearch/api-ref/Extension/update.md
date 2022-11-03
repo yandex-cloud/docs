@@ -10,7 +10,7 @@ Updates the specified extension.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/extensions/{extensionId}
+PATCH https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/extensions/{extensionId}
 ```
  
 ## Path parameters {#path_params}

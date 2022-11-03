@@ -152,4 +152,4 @@ The load on processor cores.
 | `pooler-used_servers`<br/>`DGAUGE`, pcs | Number of server connections used in the connection pooler. |
 | `pooler-xact_count`<br/>`DGAUGE`, pcs | Number of transactions executed on each DB host. |
 
-Read more about the service in the [{{ mpg-full-name }}](../../managed-postgresql/) documentation.
+Read more about the service in the [{{ mpg-full-name }}](../../../managed-postgresql/) documentation.

@@ -1,7 +1,7 @@
 title: Yandex Serverless Containers
 href: index.yaml
 items:
-  - name: Сопоставление с другими сервисами Yandex Cloud
+  - name: Сопоставление с другими сервисами {{ yandex-cloud }}
     href: service-comparison.md
   - name: Начало работы
     href: quickstart.md
@@ -25,12 +25,42 @@ items:
             href: operations/invoke.md
           - name: Изменение контейнера
             href: operations/update.md
+          - name: Масштабирование контейнера
+            href: operations/scale.md
           - name: Мониторинг
             href: operations/monitoring.md
           - name: Просмотр журнала выполнения
             href: operations/logs.md
           - name: Удаление контейнера
             href: operations/delete.md
+      - name: Управление триггером
+        items:
+          - name: Получение информации о триггере
+            href: operations/trigger-list.md
+          - name: Создание таймера
+            href: operations/timer-create.md
+          - name: Создание триггера для Message Queue
+            href: operations/ymq-trigger-create.md
+          - name: Создание триггера для Object Storage
+            href: operations/os-trigger-create.md
+          - name: Создание триггера для Container Registry
+            href: operations/cr-trigger-create.md
+          - name: Создание триггера для Cloud Logging
+            href: operations/cloud-logging-trigger-create.md
+          - name: Создание триггера для Yandex IoT Core
+            href: operations/iot-core-trigger-create.md
+          - name: Создание триггера для бюджетов
+            href: operations/budget-trigger-create.md
+          - name: Создание триггера для Data Streams
+            href: operations/data-streams-trigger-create.md
+          - name: Создание триггера для почты
+            href: operations/mail-trigger-create.md
+          - name: Изменение триггера
+            href: operations/trigger-update.md
+          - name: Мониторинг триггера
+            href: operations/trigger-monitoring.md
+          - name: Удаление триггера
+            href: operations/trigger-delete.md
   - name: Концепции
     items:
       - name: Обзор
@@ -39,18 +69,94 @@ items:
         href: concepts/container.md
       - name: Вызов контейнера
         href: concepts/invoke.md
+      - name: Сетевое взаимодействие
+        href: concepts/networking.md
       - name: Среда выполнения
         href: concepts/runtime.md
+      - name: Триггер
+        items:
+          - name: Обзор
+            href: concepts/trigger/index.md
+          - name: Таймер
+            href: concepts/trigger/timer.md
+          - name: Триггер для Message Queue
+            href: concepts/trigger/ymq-trigger.md
+          - name: Триггер для Object Storage
+            href: concepts/trigger/os-trigger.md
+          - name: Триггер для Container Registry
+            href: concepts/trigger/cr-trigger.md
+          - name: Триггер для Cloud Logging
+            href: concepts/trigger/cloud-logging-trigger.md
+          - name: Триггер для Yandex IoT Core
+            href: concepts/trigger/iot-core-trigger.md
+          - name: Триггер для бюджетов
+            href: concepts/trigger/budget-trigger.md
+          - name: Триггер для Data Streams
+            href: concepts/trigger/data-streams-trigger.md
+          - name: Триггер для почты
+            href: concepts/trigger/mail-trigger.md
+      - name: Dead Letter Queue
+        href: concepts/dlq.md
       - name: Логи контейнера
         href: concepts/logs.md
       - name: Резервное копирование
         href: concepts/backup.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Практические руководства
+    items:
+      - name: Разработка CRUD API для сервиса фильмов
+        href: tutorials/movies-database.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: containers/api-ref/grpc/index.md
+          - name: ContainerService
+            href: containers/api-ref/grpc/container_service.md
+          - name: OperationService
+            href: containers/api-ref/grpc/operation_service.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: containers/api-ref/index.md
+          - name: Container
+            items:
+              - name: Overview
+                href: containers/api-ref/Container/index.md
+              - name: create
+                href: containers/api-ref/Container/create.md
+              - name: delete
+                href: containers/api-ref/Container/delete.md
+              - name: deployRevision
+                href: containers/api-ref/Container/deployRevision.md
+              - name: get
+                href: containers/api-ref/Container/get.md
+              - name: getRevision
+                href: containers/api-ref/Container/getRevision.md
+              - name: list
+                href: containers/api-ref/Container/list.md
+              - name: listAccessBindings
+                href: containers/api-ref/Container/listAccessBindings.md
+              - name: listOperations
+                href: containers/api-ref/Container/listOperations.md
+              - name: listRevisions
+                href: containers/api-ref/Container/listRevisions.md
+              - name: rollback
+                href: containers/api-ref/Container/rollback.md
+              - name: setAccessBindings
+                href: containers/api-ref/Container/setAccessBindings.md
+              - name: update
+                href: containers/api-ref/Container/update.md
+              - name: updateAccessBindings
+                href: containers/api-ref/Container/updateAccessBindings.md
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/serverless-containers

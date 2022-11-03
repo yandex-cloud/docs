@@ -15,6 +15,12 @@
 
     {% include [Managed ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-clickhouse.md) %}
 
+- CLI
+
+    * Тип эндпоинта — `clickhouse-target`.
+
+    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-clickhouse.md) %}
+
 - Terraform
 
     * Тип эндпоинта — `clickhouse_target`.
@@ -23,6 +29,7 @@
 
     Пример структуры конфигурационного файла:
 
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
       name = "<имя эндпоинта>"
@@ -46,7 +53,12 @@
     }
     ```
 
+
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+
+- API
+
+    {% include [Managed ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/managed-clickhouse.md) %}
 
 {% endlist %}
 
@@ -60,6 +72,12 @@
 
     {% include [On premise ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-clickhouse.md) %}
 
+- CLI
+
+    * Тип эндпоинта — `clickhouse-target`.
+
+    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-clickhouse.md) %}
+
 - Terraform
 
     * Тип эндпоинта — `clickhouse_target`.
@@ -68,12 +86,13 @@
 
     Пример структуры конфигурационного файла:
 
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
       name = "<имя эндпоинта>"
       settings {
         clickhouse_target {
-          security_groups = [ "список групп безопасности" ]
+          security_groups = [ "список идентификаторов групп безопасности" ]
           subnet_id       = "<идентификатор подсети>"
           connection {
             connection_options {
@@ -103,7 +122,12 @@
     }
     ```
 
+
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+
+- API
+
+    {% include [On premise ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-clickhouse.md) %}
 
 {% endlist %}
 

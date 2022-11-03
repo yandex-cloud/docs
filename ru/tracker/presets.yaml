@@ -33,7 +33,6 @@ default:
   link-ya-360: https://admin.yandex.ru
   link-ya-360-domains: https://admin.yandex.ru/domains/
   link-ya-tariffs: https://360.yandex.ru/business/tariff/
-  link-org-add-federation: https://cloud.yandex.ru/docs/organization/add-federation
   support-connect-account: https://yandex.ru/support/connect/add-account.html#org-structure__manage-user
   support-connect-domain: https://yandex.ru/support/connect/add-domain.html
   support-connect-domains: https://yandex.ru/support/connect/domains.html#proof
@@ -45,6 +44,7 @@ default:
   support-business-admin: https://yandex.ru/support/business/admin.html
   support-business-import: https://yandex.ru/support/business/import-mailboxes.html
   support-business-link: https://yandex.ru/support/business/
+  support-calendar: https://yandex.ru/support/calendar/
   link-wiki-scrum: https://ru.wikipedia.org/wiki/SCRUM
   link-wiki-kanban: >-
     https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BD%D0%B1%D0%B0%D0%BD_(%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0)
@@ -52,6 +52,7 @@ default:
   link-wiki-poker: https://ru.wikipedia.org/wiki/Покер_планирования
   mobile-google-link: https://play.google.com/store/apps/details?id=ru.yandex.cloud.tracker
   mobile-apple-link: https://apps.apple.com/ru/app/yandex-cloud/id1351761680
+  yfm-link: https://ydocs.tech/ru/
   link-iso-8601: http://dotat.at/tmp/ISO_8601-2004_E.pdf
   link-rfc7578: https://tools.ietf.org/html/rfc7578
   link-get-token: https://oauth.yandex.ru/

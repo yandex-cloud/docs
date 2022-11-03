@@ -6,8 +6,8 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 {% note info %}
 
-* The number of hosts you can create together with a {{ MY }} cluster depends on the selected [storage type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
-* Available storage types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
+* The number of hosts you can create together with a {{ MY }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
 
@@ -18,6 +18,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
+
    1. Select **{{ mmy-name }}**.
    1. Click **Create cluster**.
    1. Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
@@ -28,7 +29,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
    1. Under **Storage size**:
 
-      * Select the [storage type](../concepts/storage.md).
+      * Select the [disk type](../concepts/storage.md).
 
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
@@ -86,9 +87,10 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       {{ yc-mdb-my }} cluster create --help
       ```
 
-      
    1. Specify the cluster parameters in the create command:
 
+      
+      
       ```bash
       {{ yc-mdb-my }} cluster create \
         --name=<cluster name> \
@@ -99,16 +101,19 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         --resource-preset <host class> \
         --user name=<username>,password=<user password> \
         --database name=<database name> \
-        --disk-size <storage size in GB> \
+        --disk-size <storage size, GB> \
         --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
-        --security-group-ids <list of IDs of security groups> \
-        --deletion-protection=<protection from cluster deletion: true or false>
+        --security-group-ids <list of security group IDs> \
+        --deletion-protection=<cluster deletion protection: true or false> \
+        --datalens-access=<cluster access from {{ datalens-name }}: true or false>
       ```
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+
+      {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
 
@@ -125,6 +130,10 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    1. In the configuration file, describe the parameters of resources that you want to create:
 
       * Database cluster: Description of the cluster and its hosts.
+
+      * Database: Description of the cluster's database.
+
+      * User: Description of the cluster user.
 
       * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
@@ -143,47 +152,49 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       }
 
       provider "yandex" {
-        token     = "<An OAuth or static key of the service account>"
+        token     = "<service account OAuth or static key>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
         zone      = "<availability zone>"
       }
-      
+
       resource "yandex_mdb_mysql_cluster" "<cluster name>" {
         name                = "<cluster name>"
         environment         = "<environment, PRESTABLE or PRODUCTION>"
         network_id          = "<network ID>"
         version             = "<{{ MY }} version: {{ versions.tf.str }}>"
         security_group_ids  = [ "<list of security groups>" ]
-        deletion_protection = <protection from deletion of the cluster: true or false>
-      
+        deletion_protection = <cluster deletion protection: true or false>
+
         resources {
-          resource_preset_id = "<host type>"
-          disk_type_id       = "<storage type>"
-          disk_size          = "<storage size in DB>"
+          resource_preset_id = "<host class>"
+          disk_type_id       = "<disk type>"
+          disk_size          = "<storage size in GB>"
         }
-      
-        database {
-          name = "<database name>"
-        }
-      
-        user {
-          name     = "<username>"
-          password = "<user password>"
-          permission {
-            database_name = "<database name>"
-            roles         = ["ALL"]
-          }
-        }
-      
+
         host {
           zone      = "<availability zone>"
           subnet_id = "<subnet ID>"
         }
       }
-      
+
+      resource "yandex_mdb_mysql_database" "<database name>" {
+        cluster_id = "<cluster ID>"
+        name       = "<database name>"
+      }
+
+      resource "yandex_mdb_mysql_user" "<username>" {
+        cluster_id = "<cluster ID>"
+        name       = "<username>"
+        password   = "<user password>"
+        permission {
+          database_name = "<database name>"
+          roles         = ["ALL"]
+        }
+      }
+
       resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
-      
+
       resource "yandex_vpc_subnet" "<subnet name>" {
         name           = "<subnet name>"
         zone           = "<availability zone>"
@@ -194,11 +205,15 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
+      1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
-      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-mmy }}).
+      
+      1. {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
+
+
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmy }}).
 
    1. Make sure that the configuration files are correct.
 
@@ -219,10 +234,16 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    * The environment of the cluster, in the `environment` parameter.
    * Cluster configuration, in the `configSpec` parameter.
    * Database configuration, in one or more `databaseSpecs` parameters.
-   * User settings, in one or more `userSpecs` parameters. 
+   * User settings, in one or more `userSpecs` parameters.
    * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
    * Network ID, in the `networkId` parameter.
    * Security [group identifiers](../concepts/network.md#security-groups), in the `securityGroupIds` parameter.
+
+   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+
+   
+   {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
+
 
 {% endlist %}
 
@@ -242,18 +263,18 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    To create a cluster with a single host, pass a single `--host` parameter.
 
-   Let's say we need to create a {{ MY }} cluster with the following characteristics:
+   Create a {{ mmy-name }} cluster with test characteristics:
 
    
    * Named `my-mysql`.
-   * Version `{{ versions.cli.latest }}`.
+   * Versions `{{ versions.cli.latest }}`.
    * In the `production` environment.
    * In the `default` network.
    * In the security group with the ID `{{ security-group }}`.
-   * With one `{{ host-class }}` host in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone.
+   * With a single `{{ host-class }}` class host in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone.
    * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
    * With one user, `user1`, with the password `user1user1`.
-   * With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`.
+   * With one `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`.
    * With protection against accidental cluster deletion.
 
 
@@ -288,15 +309,15 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - {{ TF }}
 
-   Let's say we need to create a {{ MY }} cluster and a network for it with the following characteristics:
+   Create a {{ mmy-name }} cluster and a network for it with test characteristics:
 
    * Named `my-mysql`.
-   * Version `{{ versions.tf.latest }}`.
+   * Versions `{{ versions.tf.latest }}`.
    * In the `PRESTABLE` environment.
    * In the cloud with the ID `{{ tf-cloud-id }}`.
    * In the folder with the ID `{{ tf-folder-id }}`.
    * In the new `mynet` network.
-   * With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   * With one `{{ host-class }}` host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
    * In the new security group `mysql-sg` allowing connections to the cluster from the internet via port `{{ port-mmy }}`.
    * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
    * With one user, `user1`, with the password `user1user1`.
@@ -314,14 +335,14 @@ If you specified security group IDs when creating a cluster, you may also need t
        }
      }
    }
-   
+
    provider "yandex" {
-     token     = "<An OAuth or static key for the service account>"
+     token     = "<An OAuth or static key of the service account>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
      zone      = "{{ region-id }}-a"
    }
-   
+
    resource "yandex_mdb_mysql_cluster" "my-mysql" {
      name                = "my-mysql"
      environment         = "PRESTABLE"
@@ -329,48 +350,51 @@ If you specified security group IDs when creating a cluster, you may also need t
      version             = "{{ versions.tf.latest }}"
      security_group_ids  = [ yandex_vpc_security_group.mysql-sg.id ]
      deletion_protection = true
-   
+
      resources {
        resource_preset_id = "{{ host-class }}"
        disk_type_id       = "{{ disk-type-example }}"
        disk_size          = 20
      }
-   
-     database {
-       name = "db1"
-     }
-   
-     user {
-       name     = "user1"
-       password = "user1user1"
-       permission {
-         database_name = "db1"
-         roles         = ["ALL"]
-       }
-     }
-   
+
      host {
        zone      = "{{ region-id }}-a"
        subnet_id = yandex_vpc_subnet.mysubnet.id
      }
    }
-   
+
+
+   resource "yandex_mdb_mysql_database" "db1" {
+     cluster_id = yandex_mdb_mysql_cluster.my-mysql.id
+     name       = "db1"
+   }
+
+   resource "yandex_mdb_mysql_user" "<username>" {
+     cluster_id = yandex_mdb_mysql_cluster.my-mysql.id
+     name       = "user1"
+     password   = "user1user1"
+     permission {
+       database_name = yandex_mdb_mysql_database.db1.name
+       roles         = ["ALL"]
+     }
+   }
+
    resource "yandex_vpc_network" "mynet" {
      name = "mynet"
    }
-   
+
    resource "yandex_vpc_security_group" "mysql-sg" {
      name       = "mysql-sg"
      network_id = yandex_vpc_network.mynet.id
-   
+
      ingress {
-       description    = "MySQL"
+       description    = "{{ MY }}"
        port           = {{ port-mmy }}
        protocol       = "TCP"
        v4_cidr_blocks = [ "0.0.0.0/0" ]
      }
    }
-   
+
    resource "yandex_vpc_subnet" "mysubnet" {
      name           = "mysubnet"
      zone           = "{{ region-id }}-a"

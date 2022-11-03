@@ -26,7 +26,7 @@
 
 #### Как сделать публичный IP-адрес статическим? {#make-ip-static}
 
-Публичный IP-адрес можно [сделать статическим](../operations/set-static-ip.md) во вкладке **IP-адреса** сервиса VPC в [консоли управления]({{ link-console-main }}).
+Публичный IP-адрес можно [сделать статическим](../operations/set-static-ip.md) во вкладке **IP-адреса** сервиса {{ vpc-short-name }} в [консоли управления]({{ link-console-main }}).
 
 #### Какие ограничения существуют при создании подсетей? {#create-subnet-limits}
 
@@ -75,4 +75,4 @@
 
 
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

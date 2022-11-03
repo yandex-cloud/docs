@@ -9,10 +9,10 @@ The service supports three {{ k8s }} release channels. Master and node group ver
 When creating a {{ k8s }} cluster, specify one of three release channels. You can't change the channel once the {{ k8s }} cluster is created, you can only recreate the {{ k8s }} cluster and specify a new release channel. The table below describes release channels and contains up-to-date information about supported {{ k8s }} versions.
 
 Channel | {{ k8s }} versions | Automatic updates | Channel description
---- |------| --- | ---
-`rapid` |  1.19, 1.20, 1.21, and 1.22 | Can't disable automatic updates. Can specify a time period for automatic updates. | Contains the latest versions of {{ k8s }}. Minor updates with new functions and improvements are often added.
-`regular` |  1.19, 1.20, and 1.21  | Can disable automatic updates. | Contains different versions of {{ k8s }}. New functions and improvements are added in chunks shortly after they appear on `rapid`.
-`stable` |  1.19, 1.20, and 1.21  | Can disable automatic updates. | Contains the stable version of {{ k8s }}. Only updates related to bug fixes or security improvements are added to the channel.
+--- | --- | --- | ---
+`rapid` | 1.20, 1.21, and 1.22 | Can't disable automatic updates. Can specify a time period for automatic updates. | Contains the latest versions of {{ k8s }}. Minor updates with new functions and improvements are often added.
+`regular` | 1.20, 1.21, and 1.22 | Can disable automatic updates. | Contains different versions of {{ k8s }}. New functions and improvements are added in chunks shortly after they appear on `rapid`.
+`stable` | 1.20, 1.21 | Can disable automatic updates. | Contains the stable version of {{ k8s }}. Only updates related to bug fixes or security improvements are added to the channel.
 
 ## Updates {#updates}
 
@@ -48,10 +48,9 @@ The update process is different for [masters](#master) and [node groups](#node-g
 #### Master {#master}
 
 
-Depending on the type of master, it may or may not be available during an update:
-* Zonal masters are unavailable during updates.
-* Regional masters remain available during updates.
-
+The amount of time a master is unavailable during an update depends on the kind of master:
+* Zonal masters are unavailable during the update.
+* Regional masters keep running during the update.
 
 
 For more information, see [Updating a cluster](../operations/update-kubernetes.md#cluster-upgrade).
@@ -78,13 +77,7 @@ You can specify the maximum number of instances by which you can expand or reduc
 #### Certificates {#certificates}
 
 In accordance with the safety recommendations, [cluster and node group certificates](https://kubernetes.io/docs/setup/best-practices/certificates/) are issued for a year. When a certificate expires, a cluster or node group is disabled. To avoid this, {{ managed-k8s-name }} automatically updates their certificates.
-* Each time a cluster or node group is updated.
-* For node groups with automatic updates disabled:
-  * If you use {{ k8s }} 1.16 or higher, certificates are forcibly updated one week before the expiry.
-
-    Updates do not disrupt the operation of pods running on nodes.
-
-    This applies to nodes created or updated at least once since May 2021.
-  * If the {{ k8s }} version is lower than 1.16, certificates are updated at any cluster or node group update.
+* If automatic updates are enabled, certificates are updated automatically at every cluster or node group update.
+* If automatic updates are disabled, a certificate update will be forced a week before they expire.
 
 For more information about updating certificates, see the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/tls/certificate-rotation/).

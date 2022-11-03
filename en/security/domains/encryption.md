@@ -4,7 +4,6 @@
 
 {{ yandex-cloud }} APIs support cipher suites in specific TLS versions that are compliant with PCI DSS and other standards.
 
-
 ## Encryption at rest {#encryption-at-rest}
 
 By default, all user data at rest is encrypted at the {{ yandex-cloud }} level. Encryption at the {{ yandex-cloud }} level implements one of the best practices for protecting user data and is performed using {{ yandex-cloud }} keys.
@@ -33,7 +32,7 @@ When using [{{objstorage-full-name}}](../../storage/index.yaml), make sure criti
 
 ### {{managed-k8s-name}} {#kubernetes}
 
-[{{managed-k8s-name}}](../../managed-kubernetes/index.yaml) has a built-in secret encryption mechanism. For more information, see [{#T}](#k8s-secrets) below.
+[{{managed-k8s-name}}](../../managed-kubernetes/index.yaml) has a built-in secret encryption mechanism. For more information, see [{#T}](#k8s-secrets) below.
 
 ## Encryption in transit
 
@@ -49,9 +48,8 @@ When working with (or connecting to) {{ yandex-cloud }} APIs, make sure to use T
 - [{{objstorage-full-name}}](#storage-in-transit)
 - [{{alb-full-name}}](#load-balancer)
 - [{{vpc-name}} (VPC)](#vpc)
-
 - [{{api-gw-full-name}}](#api-gw)
-- [{{cdn-full-name}}](#cdn)
+- [{{cdn-full-name}}](#cdn)
 
 ### {{objstorage-full-name}} {#storage-in-transit}
 
@@ -70,12 +68,10 @@ When using Object Storage, be sure that support for TLS protocols below version 
 
 Possible options for using encrypted communication channels are described in [{#T}](network.md#remote-access).
 
-
 Please note that [{{interconnect-full-name}}](../../interconnect/index.yaml) does not provide built-in encryption mechanisms. Be sure to enable encryption in transit on your own by:
-- Installing in the cloud VPN gateways with encryption enabled, such as VMs based on [Check Point](/marketplace?search=Check+Point) images from {{ marketplace-full-name }}. 
+- Installing in the cloud VPN gateways with encryption enabled, such as VMs based on [Check Point](/marketplace?search=Check+Point) images from {{ marketplace-full-name }}.
 - Using application-level encryption.
-- Using [GOST VPN](network.md#gost-vpn).
-
+- Using [GOST VPN](network.md#gost-vpn).
 
 ### {{api-gw-full-name}} {#api-gw}
 
@@ -84,18 +80,17 @@ Please note that [{{interconnect-full-name}}](../../interconnect/index.yaml) doe
 ### {{cdn-full-name}} {#cdn}
 
 [{{cdn-full-name}}](../../cdn/index.yaml) supports secure connections over HTTPS. You can upload your own security certificate to access your [CDN resource](../../cdn/concepts/resource.md) over HTTPS.
-
+
 ## Providing encryption on your own
 
 When using services with no built-in encryption, it's the customer's responsibility to ensure that critical data is encrypted.
-
 
 ### {{ compute-full-name }}
 
 If disk encryption is mandatory under regulatory requirements, place your application files on a VM's secondary disk (not the boot disk) and configure full disk encryption for it.
 
 ![](../../_assets/overview/solution-library-icon.svg)[Solution: VM disk encryption using {{ kms-short-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM)
-
+
 ### Managed Services for Databases
 
 If data encryption is mandatory under regulatory requirements, make sure to encrypt data at the application level prior to writing it to a database, for example, using {{ kms-short-name }}.
@@ -120,17 +115,17 @@ We recommend that you use [{{ kms-full-name }}](../../kms/index.yaml) for encryp
 
 {{ kms-short-name }} uses AES-GCM encryption mode. You can select the key length (128, 192, or 256 bits) and set up the preferred key rotation period. You can also create a key whose every cryptographic operation will only be handled inside a hardware security module (HSM). For more information, see [{#T}](../../kms/concepts/hsm.md).
 
-### Authentication and authorization in {{ kms-short-name }}
+### Authentication and authorization in {{ kms-short-name }} {#kms-authorization}
 
 To access the {{ kms-short-name }} service, you need an [IAM token](../../iam/concepts/authorization/iam-token.md).
 
-To automate operations with {{ kms-short-name }}, we recommend that you create a [service account](../../iam/concepts/users/service-accounts.md) and run commands and scripts under it. If you use VMs, get an IAM token for your service account using the mechanism of [assigning a service account](../../compute/operations/vm-connect/auth-inside-vm.md) to your VM. For other ways to get an IAM token for your service account, see the IAM documentation, [{#T}](../../iam/operations/iam-token/create-for-sa.md).
+To automate operations with {{ kms-short-name }}, we recommend that you create a [service account](../../iam/concepts/users/service-accounts.md) and run commands and scripts under it. If you use VMs, get an IAM token for your service account using the mechanism of [assigning a service account](../../compute/operations/vm-connect/auth-inside-vm.md) to your VM. For other ways to get an IAM token for your service account, please see the {{ iam-short-name }} documentation, [{#T}](../../iam/operations/iam-token/create-for-sa.md).
 
 We recommend that you grant your users and service accounts granular permissions for specific keys in the {{ kms-short-name }} service. For more information, see the {{ kms-short-name }} documentation, [{#T}](../../kms/security/index.md).
 
 For more information about security measures for access control, see [{#T}](access.md).
 
-### Key rotation
+### Key rotation {#key-rotation}
 
 To improve the security of your infrastructure, we recommend that you categorize your encryption keys into two groups:
 1. Keys for services that process critical data, but don't store it. For example, {{ message-queue-full-name }},{{ sf-full-name }}.
@@ -164,29 +159,26 @@ For instructions on how to use the service, see the Lockbox [documentation](../.
 
 [Vault](https://www.vaultproject.io/) lets you use {{ kms-short-name }} as a trusted service for encrypting secrets. This is implemented through the [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal) mechanism.
 
+To store secrets with Vault, you can use a VM based on an image from [{{ marketplace-full-name }}](/marketplace/products/yc/vault-yckms) with a pre-installed HashiCorp Vault build and Auto Unseal support. Instructions for setting up Auto Unseal are provided in the {{ kms-short-name }} documentation, [{#T}](../../kms/tutorials/vault-secret.md).
 
-To store secrets with Vault, you can use a VM based on an image from [{{ marketplace-full-name }}](/marketplace/products/yc/vault-yckms) with a pre-installed HashiCorp Vault build and Auto Unseal support. Instructions for setting up Auto Unseal are provided in the {{ kms-short-name }} documentation, [{#T}](../../kms/tutorials/vault-secret.md).
-
-### Secrets in Kubernetes {#k8s-secrets}
+### Secrets in {{ k8s }} {#k8s-secrets}
 
 To store secrets, such as passwords, OAuth tokens, and SSH keys, use one of the following methods:
 
-- [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/).
+- How [{{ k8s }} secrets](https://kubernetes.io/docs/concepts/configuration/secret/) work.
 
-   By default, secrets are stored unencrypted in etcd. However, {{managed-k8s-name}} lets you encrypt secrets using {{ kms-short-name }}. To enable secret encryption, specify the {{ kms-short-name }} key when creating a Kubernetes cluster. You can't add the key when you edit the cluster. For more information, see the {{ kms-short-name }} documentation, [{#T}](../../kms/tutorials/k8s.md).
+   By default, secrets are stored unencrypted in etcd. However, {{managed-k8s-name}} lets you encrypt secrets using {{ kms-short-name }}. To enable the encryption of secrets, specify a {{ kms-short-name }} key when creating a {{ k8s }} cluster. You can't add the key when you edit the cluster. For more information, see the {{ kms-short-name }} documentation, [{#T}](../../kms/tutorials/k8s.md).
 
 - {{ lockbox-name }}.
 
    See the instructions in the {{ lockbox-name }} documentation, [{#T}](../../lockbox/tutorials/kubernetes-lockbox-secrets.md).
 
-
-- [HashiCorp Vault with {{ kms-short-name }} support](/marketplace/products/yc/vault-yckms) from {{ marketplace-full-name }}.
+- [HashiCorp Vault with {{ kms-short-name }}](/marketplace/products/yc/vault-yckms) support from {{ marketplace-full-name }}.
 
 ### Transferring secrets to a VM using {{ TF }} and {{ kms-short-name }}
 
 {{ kms-short-name }} supports the encryption of secrets used in a {{ TF }} configuration, such as to transfer secrets to a VM in encrypted form. See the instructions in the {{ kms-short-name }} documentation, [{#T}](../../kms/tutorials/terraform-secret.md). It's not safe to explicitly pass secrets through environment variables, because they are displayed in the VM properties.
 
-
 ![](../../_assets/overview/solution-library-icon.svg)[Solution: Encrypting secrets in {{ TF }} to transfer them to a VM from a Container Optimized Image](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/terraform%2BKMS%2BCOI)
-
+
 For other recommendations on how to use {{ TF }} safely, see [Secure configuration: {{ TF }}](secure-config.md#terraform).

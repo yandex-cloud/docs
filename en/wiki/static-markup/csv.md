@@ -18,9 +18,9 @@ cell 21;cell 22;cell 23
 
 Markup parameters:
 
-* `delimiter` — a field separator used in CSV tables.
+* `delimiter`: A field separator used in CSV tables.
 
-* `head` — if set to 1, the first row of the table becomes a title.
+* `head`: If set to 1, the first row of the table becomes a title.
 
 {% note info %}
 

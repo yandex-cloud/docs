@@ -45,20 +45,54 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
    For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   Devices created using {{ TF }} can be deleted:
+   To delete a device created using {{ TF }}:
 
-   1. In the command line, go to the directory with the {{ TF }} configuration file.
-   2. Delete resources using the command:
+   1. Open the {{ TF }} configuration file and delete the fragment with the device description.
+
+      Example device description in the {{ TF }} configuration:
+
+      ```hcl
+      resource "yandex_iot_core_device" "my_device" {
+        registry_id = "<registry ID>"
+        name        = "test-device"
+        description = "test device for terraform provider documentation"
+      ...  
+      }
       ```
-      terraform destroy
+
+      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iot_core_device).
+   1. In the command line, change to the folder where you edited the configuration file.
+   1. Make sure the configuration file is correct using the command:
+
+      ```bash
+      terraform validate
       ```
 
-      {% note alert %}
+      If the configuration is correct, the following message is returned:
 
-      {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+      ```bash
+      Success! The configuration is valid.
+      ```
 
-      {% endnote %}
+   1. Run the command:
 
-   3. Confirm the deletion of resources.
+      ```bash
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+   1. Apply the configuration changes:
+
+      ```bash
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` in the terminal and press **Enter**.
+
+      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../../cli/quickstart.md) command below:
+
+      ```bash
+      yc iot device list --registry-id <registry ID>
+      ```
 
 {% endlist %}

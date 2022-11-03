@@ -15,12 +15,10 @@ items:
             href: stt/request.md
           - name: Асинхронное распознавание
             href: stt/transcribation.md
-      - name: Модели распознавания
+      - name: Поддерживаемые языки
         href: stt/models.md
       - name: Расширение модели распознавания речи
         href: stt/additional-training.md
-      - name: Загрузка данных для дообучения модели
-        href: stt/import-training-data.md
   - name: Синтез речи
     items:
       - name: О технологии
@@ -35,14 +33,12 @@ items:
             href: tts/ssml.md
           - name: Список поддерживаемых фонем в SSML
             href: tts/supported-phonemes.md
-      - name: SpeechKit Brand Voice
+      - name: '{{ brand-voice-name }}'
         items:
-          - name: О технологии SpeechKit Brand Voice
+          - name: О технологии "{{ brand-voice-name }}"
             href: tts/brand-voice/index.md
           - name: Формат входных данных Brand Voice Adaptive
             href: tts/brand-voice/income-data-format.md
-          - name: Загрузка данных для Brand Voice
-            href: tts/brand-voice/import-data.md
   - name: Форматы аудио
     href: formats.md
   - name: Интеграция телефонии
@@ -68,9 +64,9 @@ items:
           - name: API v3 gRPC (англ.)
             items:
               - name: Overview
-                href: v3/api-ref/grpc/index.md
+                href: stt-v3/api-ref/grpc/index.md
               - name: Recognizer
-                href: v3/api-ref/grpc/stt_service.md
+                href: stt-v3/api-ref/grpc/stt_service.md
       - name: Примеры использования API распознавания
         items:
           - name: Потоковое распознавание API v3
@@ -90,9 +86,9 @@ items:
           - name: API v3 gRPC (англ.)
             items:
               - name: Overview
-                href: new-v3/api-ref/grpc/index.md
+                href: tts-v3/api-ref/grpc/index.md
               - name: Synthesizer
-                href: new-v3/api-ref/grpc/tts_service.md
+                href: tts-v3/api-ref/grpc/tts_service.md
       - name: Примеры использования API синтеза
         items:
           - name: Синтез API v3
@@ -126,5 +122,13 @@ items:
   - name: Публичные материалы
     href: public-talks.md
   - name: Вопросы и ответы
-    href: qa/index.md
+    items:
+      - name: Общие вопросы
+        href: qa/general.md
+      - name: Распознавание речи
+        href: qa/stt.md
+      - name: Синтез речи
+        href: qa/tts.md
+      - name: Все вопросы на одной странице
+        href: qa/all.md
 base: ru/speechkit

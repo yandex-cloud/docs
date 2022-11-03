@@ -2,7 +2,7 @@
 
 Users of organizations registered on the {{ yandex-cloud }} platform can use {{ wiki-full-name }} to create a corporate knowledge base. Learn more about the features of {{ wiki-full-name }} in [{#T}](overview.md).
 
-You can connect {{ wiki-full-name }} to an existing organization or create a new one. Read more about organizations in the [{{ org-full-name }} documentation](../organization/index.yaml).
+You can connect {{ wiki-full-name }} to an existing organization or create a new one. Read more about organizations in the [{{ org-full-name }} documentation](../organization/).
 
 ## Activate {{ wiki-name }} in an existing organization {#current-org}
 
@@ -33,4 +33,3 @@ An organization can only be created for users who have a Yandex account.
    A new organization will be automatically created for you and {{ wiki-full-name }} will be activated.
 
 1. In {{ org-full-name}}, add users to your organization or set up an identity federation for employees to use their work accounts to access the {{ yandex-cloud }} services. Learn more in the [{{ org-full-name}} documentation](../organization/manage-users.md).
-

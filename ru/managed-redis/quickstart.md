@@ -1,9 +1,9 @@
 # Как начать работать с {{ mrd-name }}
 
-
 Чтобы начать работу с сервисом:
 1. [Создайте кластер](#cluster-create).
 1. [Подключитесь к кластеру](#connect).
+
 
 ## Перед началом работы {#before-you-begin}
 
@@ -12,7 +12,7 @@
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. Подключиться к кластеру можно только изнутри {{ yandex-cloud }}. Для подключения создайте виртуальную машину в той же облачной сети, что и кластер {{ RD }} (на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md)).
+1. Подключиться к кластеру можно только изнутри {{ yandex-cloud }}. Для подключения создайте виртуальную машину в той же облачной сети, что и кластер {{ RD }} (на основе [Linux](../compute/quickstart/quick-create-linux.md)).
 1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к ВМ по SSH.
 1. Установите на ВМ утилиту [{redis}-cli](https://redis.io/topics/rediscli), например, так (для Ubuntu 20.04 LTS):
 
@@ -35,7 +35,10 @@
 
     {% include [install-certificate](../_includes/mdb/mrd/install-certificate.md) %}
 
+
 1. [Настройте группы безопасности](operations/connect/index.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
+
+
 1. Подключитесь к кластеру, используя `redis-cli`.
 
    {% note info %}

@@ -1,10 +1,14 @@
-# Примеры использования API v3 синтеза
+# Пример использования API v3 синтеза
 
-В этом примере используется {{ speechkit-short-name }} [API v3](../../new-v3/api-ref/grpc/) для синтеза и записи в аудиофайл следующего текста:
+Пример показывает, как с помощью {{ speechkit-short-name }} [API v3](../../tts-v3/api-ref/grpc/) синтезировать речь из текста в [TTS-разметке](../tts-markup.md) в файл формата [WAV](https://ru.wikipedia.org/wiki/WAV).
 
->Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!
+В примере заданы следующие параметры синтеза:
+* [формат](../../formats.md) синтезированного аудиофайла — LPCM с частотой дискретизации 22 050 Гц, контейнер [WAV](https://ru.wikipedia.org/wiki/WAV) (значение по умолчанию);
+* [нормализация громкости](../index.md#volume) — LUFS (значение по умолчанию).
 
-В примере используются настройки по умолчанию: данные в аудиофайле сохраняются в формате [LPCM](https://ru.wikipedia.org/wiki/Импульсно-кодовая_модуляция) с частотой дискретизации 22 050 Гц и разрядностью 16 бит. Затем данные упаковываются в контейнер [WAV](https://ru.wikipedia.org/wiki/WAV).
+Преобразование и запись результата выполняются с помощью пакетов `grpcio-tools` и `pydub` и утилиты [FFmpeg](https://ffmpeg.org/).
+
+Аутентификация происходит от имени сервисного аккаунта с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Подробнее об аутентификации в API {{speechkit-name}} см. [{#T}](../../concepts/auth.md).
 
 Чтобы реализовать пример:
 
@@ -70,7 +74,7 @@
           import yandex.cloud.ai.tts.v3.tts_pb2 as tts_pb2
           import yandex.cloud.ai.tts.v3.tts_service_pb2_grpc as tts_service_pb2_grpc
 
-
+          # Определить параметры запроса. 
           def synthesize(iam_token, text) -> pydub.AudioSegment:
               request = tts_pb2.UtteranceSynthesisRequest(
                   text=text,
@@ -116,14 +120,28 @@
                   audio.export(fp, format='wav')
           ```
    
-      1. Задайте IAM-токен сервисного аккаунта, текст для синтеза, имя аудиофайла и выполните созданный файл:
+      1. Выполните созданный в предыдущем пункте файл:
 
           ```bash
           export IAM_TOKEN=<IAM-токен_сервисного_аккаунта>
           export TEXT='Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!'
-          python output/test.py --token ${IAM_TOKEN} --output speech.wav --text ${TEXT}
+          python output/test.py \
+            --token ${IAM_TOKEN} \
+            --output speech.wav \
+            --text ${TEXT}
           ```
 
+          Где:
+
+          * `IAM_TOKEN` — [IAM-токен сервисного аккаунта](../../../iam/concepts/authorization/iam-token.md).
+          * `TEXT` — текст в [TTS-разметке](../tts-markup.md), который нужно cинтезировать.
+          * `--output` — имя файла для записи аудио.
+
           В результате в директории `cloudapi` будет создан файл `speech.wav` с синтезированной речью.
-   
+
     {% endlist %}
+
+#### См. также {#see-also}
+
+* [Подробнее про API v3](../../tts-v3/api-ref/grpc/)
+* [{#T}](../../concepts/auth.md)

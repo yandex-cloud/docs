@@ -78,11 +78,11 @@ bool FindTheBucket(const Aws::S3::S3Client& s3Client, const Aws::String& bucketN
                 std::cout << "Found the bucket." << std::endl << std::endl;
 
                 auto outcome_obj = s3Client.ListObjects(request);
-                std::cout << "Objects in bucket '" << bucketName << "':"  << std::endl;
+                std::cout << "Objects in bucket '" << bucketName << "':" << std::endl;
 
                 Aws::Vector<Aws::S3::Model::Object> objects = outcome_obj.GetResult().GetContents();
                 for (Aws::S3::Model::Object& object : objects) {
-                    std::cout <<  object.GetKey() << std::endl;
+                    std::cout << object.GetKey() << std::endl;
                 }
                 return true;
             }

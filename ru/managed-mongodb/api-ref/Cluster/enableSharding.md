@@ -4,14 +4,15 @@ sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/enableSharding.md
 ---
 
 # Method enableSharding
-Enables sharding for the cluster: creates 3 mongoinfra (or 3 mongocfg and 2 mongos) hosts
+Enables sharding for the cluster:
+creates 3 mongoinfra (or 3 mongocfg and 2 mongos) hosts
 that would support adding and using shards in the cluster.
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}:enableSharding
+POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}:enableSharding
 ```
  
 ## Path parameters {#path_params}

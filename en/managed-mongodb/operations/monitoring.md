@@ -58,8 +58,7 @@ The following charts open on the page:
 * **Scanned / returned**: Shows the following ratios:
    * `scanned_docs / returned_docs`: Documents scanned to documents returned.
    * `scanned_keys / returned_docs`: Index keys scanned to documents returned.
-* **TTL indexes activity**: The use of indexes for processing documents with expired Time to Life (TTL).
-* **TTL indexes total**: The total number of [TTL indexes](https://docs.mongodb.com/manual/core/index-ttl/).
+* **TTL indexes activity**: The total number of [TTL indexes](https://docs.mongodb.com/manual/core/index-ttl/).
 * **Total operations count on cluster**: The total number of operations performed in the cluster.
 * **Total operations time on cluster**: The total operation execution time in the cluster (in milliseconds).
 * **WiredTiger cache pages evicted on primary**: The average number of memory pages evicted on the primary replica.
@@ -87,6 +86,7 @@ This page displays charts showing the load on an individual host in the cluster:
 * **Network Bytes**: The speed of data exchange over the network (bytes per second).
 * **Network Packets**: The number of packets exchanged over the network per second.
 
+
 ## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
 {% list tabs %}
@@ -104,7 +104,7 @@ This page displays charts showing the load on an individual host in the cluster:
 
    1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
 
-   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more on the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). 
+   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
 
    1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
 

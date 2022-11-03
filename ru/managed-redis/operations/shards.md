@@ -46,7 +46,7 @@
 
 - API
 
-    Воспользуйтесь методом API [listShards](../api-ref/Cluster/listShards.md) и передайте идентификатор кластера в параметре `clusterId` запроса.
+    Воспользуйтесь методом API [listShards](../api-ref/Cluster/listShards.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
     Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
@@ -103,12 +103,23 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы добавить шард c двумя хостами в кластер:
+  Посмотрите описание команды CLI для добавления шардов:
 
   ```bash
-  {{ yc-mdb-rd }} shards add --name <имя нового шарда> --cluster-name <имя кластера> \
-     --host zone-id=<зона доступности>,subnet-name=<имя подсети> \
-     --host zone-id=<зона доступности>,subnet-name=<имя подсети>
+  {{ yc-mdb-rd }} shards add --help
+  ```
+
+  Чтобы добавить шард c двумя хостами в кластер, один с публичным доступом, а другой с [приоритетом хоста](../concepts/replication.md#master-failover) `50`:
+
+  ```bash
+  {{ yc-mdb-rd }} shards add --name=<имя нового шарда> \
+     --cluster-name=<имя кластера> \
+     --host zone-id=<зона доступности>,`
+           `subnet-name=<имя подсети>,`
+           `assign-public-ip=true \
+     --host zone-id=<зона доступности>,`
+           `subnet-name=<имя подсети>,`
+           `replica-priority=50
   ```
 
 - {{ TF }}
@@ -123,9 +134,11 @@
         resource "yandex_mdb_redis_cluster" "<имя кластера>" {
           ...
           host {
-            zone       = "<зона доступности>"
-            subnet_id  = <идентификатор подсети>
-            shard_name = "<имя шарда>"
+            zone             = "<зона доступности>"
+            subnet_id        = <идентификатор подсети>
+            assign_public_ip = <публичный доступ к хосту: true или false>
+            replica_priority = <приоритет хоста>
+            shard_name       = "<имя шарда>"
           }
         }
         ```

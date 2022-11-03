@@ -1,0 +1,111 @@
+title: Yandex Query
+stage: preview
+href: index.yaml
+items:
+  - name: Начало работы
+    items:
+      - name: Пример анализа данных из {{objstorage-full-name}}
+        href: quickstart/yellow-taxi.md
+      - name: Пример анализа потоковых данных
+        href: quickstart/streaming-example.md
+      - name: Пример единого анализа потоковых и аналитических данных
+        href: quickstart/unified-example.md
+  - name: Концепции
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Термины и определения
+        href: concepts/glossary.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+      - name: Обработка запроса
+        href: concepts/request-processing.md
+      - name: Аналитическая обработка данных
+        items:
+          - name: Описание
+            href: concepts/batch-processing.md
+          - name: Партиционирование данных
+            href: concepts/partitioning.md
+          - name: Расширенное партиционирование
+            href: concepts/partition-projection.md
+      - name: Потоковая обработка данных
+        items:
+          - name: Описание
+            href: concepts/stream-processing.md
+          - name: Окна потоковой обработки
+            href: concepts/stream-processing-windows.md
+      - name: Единый анализ потоковых и аналитических данных
+        href: concepts/unified-processing.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Работа с соединениями
+        href: operations/connection.md
+      - name: Работа с привязками к данным
+        href: operations/binding.md
+      - name: Работа с запросами
+        href: operations/query.md
+  - name: Источники и приемники данных
+    items:
+      - name: Форматы данных и алгоритмы сжатия
+        href: sources-and-sinks/formats.md
+      - name: Работа с {{objstorage-full-name}}
+        items:
+          - name: Чтение данных c помощью подключений
+            href: sources-and-sinks/object-storage.md
+          - name: Чтение данных c помощью привязок к данным
+            href: sources-and-sinks/object-storage-binding.md
+          - name: Запись данных
+            href: sources-and-sinks/object-storage-write.md
+      - name: Работа с Data Streams
+        items:
+          - name: Чтение данных с помощью подключений
+            href: sources-and-sinks/data-streams.md
+          - name: Чтение данных с помощью привязок к данным
+            href: sources-and-sinks/data-streams-binding.md
+          - name: Запись данных
+            href: sources-and-sinks/data-streams-write.md
+      - name: Запись метрик в {{monitoring-full-name}}
+        href: sources-and-sinks/monitoring.md
+  - name: Сценарии использования
+    items:
+      - name: Анализ логов Cloud Logging
+        href: tutorials/cloud-logging.md
+      - name: Анализ потока изменений Debezium
+        href: tutorials/debezium.md
+      - name: >-
+          Просмотр отчетов {{datalens-full-name}} на данных из
+          {{objstorage-full-name}}
+        href: tutorials/datalens.md
+      - name: Анализ аудитных логов {{at-full-name}}
+        href: tutorials/audit-trails.md
+      - name: Анализ файлов детализации Биллинга
+        href: tutorials/billing.md
+  - name: Работа с YQL
+    items:
+      - name: Обзор
+        href: yql-tutorials/index.md
+      - name: Выборка данных из всех колонок
+        href: yql-tutorials/select-all-columns.md
+      - name: Выборка данных из определенных колонок
+        href: yql-tutorials/select-specific-columns.md
+      - name: Сортировка и фильтрация
+        href: yql-tutorials/sort-filter.md
+      - name: Агрегирование данных
+        href: yql-tutorials/basic-aggregation.md
+      - name: Работа с потоковыми данными
+        href: yql-tutorials/streaming-query.md
+      - name: Дополнительные условия выборки
+        href: yql-tutorials/conditional-values.md
+      - name: Работа с JSON
+        href: yql-tutorials/json.md
+      - name: Выполнение запроса к потоковым данным
+        href: yql-tutorials/streaming-query.md
+  - name: HTTP API
+    items:
+      - name: Обзор
+        href: api/overview.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+base: ru/query

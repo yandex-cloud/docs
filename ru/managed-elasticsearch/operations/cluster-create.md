@@ -7,14 +7,14 @@ keywords:
   - Elasticsearch
 ---
 
-# Создание кластера
+# Создание {{ ES }}-кластера
 
 Кластер {{ mes-name }} — это группа из нескольких связанных друг с другом хостов {{ ES }}. Кластер обеспечивает высокую производительность поиска путем распределения задач поиска и индексации по всем хостам кластера с ролью _Data node_. Подробнее о ролях в кластере см. в разделе [{#T}](../concepts/hosts-roles.md).
 
 {% note info %}
 
-* Количество хостов с ролью _Data node_, которые можно создать вместе с {{ ES }}-кластером, зависит от выбранного [типа хранилища](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
-* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+* Количество хостов с ролью _Data node_, которые можно создать вместе с {{ ES }}-кластером, зависит от выбранного [типа дисков](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы дисков [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
 
 {% endnote %}
 
@@ -48,7 +48,7 @@ keywords:
      1. Выберите из списка версию {{ ES }}.
      1. Выберите из списка [редакцию {{ ES }}](../concepts/es-editions.md).
 
-  1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](cluster-connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
+    1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](cluster-connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
   1. В блоке **Пользователь** укажите пароль для пользователя `admin`.
 
      {% include [mes-superuser](../../_includes/mdb/mes-superuser.md) %}
@@ -60,9 +60,9 @@ keywords:
 
      1. В блоке **Хранилище**:
 
-        * Выберите [тип хранилища](../concepts/storage.md).
+        * Выберите [тип диска](../concepts/storage.md).
 
-            {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+            {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
         * Выберите объем хранилища, который будет использоваться для данных.
 
@@ -136,6 +136,7 @@ keywords:
 
     1. Укажите параметры кластера в команде создания (в примере приведены не все параметры):
 
+        
         ```bash
         {{ yc-mdb-es }} cluster create \
           --name <имя кластера> \
@@ -144,10 +145,10 @@ keywords:
           --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети>,assign-public-ip=<публичный доступ>,type=<тип хоста: datanode или masternode> \
           --datanode-resource-preset <класс хостов c ролью Data node> \
           --datanode-disk-size <размер хранилища в гигабайтах для хостов с ролью Data node> \
-          --datanode-disk-type <тип хранилища для хостов с ролью Data node> \
+          --datanode-disk-type <тип диска для хостов с ролью Data node> \
           --masternode-resource-preset <класс хостов с ролью Master node> \
           --masternode-disk-size <размер хранилища в гигабайтах для хостов с ролью Master node> \
-          --masternode-disk-type <тип хранилища для хостов с ролью Master node> \
+          --masternode-disk-type <тип диска для хостов с ролью Master node> \
           --security-group-ids <список идентификаторов групп безопасности> \
           --version <версия {{ ES }}: {{ versions.cli.str }}> \
           --edition <редакция {{ ES }}: basic или platinum> \
@@ -155,6 +156,7 @@ keywords:
           --plugins=<имя плагина 1>,...,<имя плагина N> \
           --deletion-protection=<защита от удаления кластера: true или false>
         ```
+
 
         Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности больше одной подсети.
 
@@ -180,6 +182,7 @@ keywords:
 
         Пример структуры конфигурационного файла:
 
+        
         
         ```hcl
         terraform {
@@ -211,7 +214,7 @@ keywords:
             data_node {
               resources {
                 resource_preset_id = "<класс хоста>"
-                disk_type_id       = "<тип хранилища>"
+                disk_type_id       = "<тип диска>"
                 disk_size          = <объем хранилища, ГБ>
               }
             }
@@ -219,7 +222,7 @@ keywords:
             master_node {
               resources {
                 resource_preset_id = "<класс хоста>"
-                disk_type_id       = "<тип хранилища>"
+                disk_type_id       = "<тип диска>"
                 disk_size          = <объем хранилища, ГБ>
               }
             }
@@ -251,6 +254,7 @@ keywords:
 
 
 
+
         1. {% include [Maintenance window](../../_includes/mdb/mes/terraform/maintenance-window.md) %}
 
         Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
@@ -278,17 +282,19 @@ keywords:
         * Класс хостов с ролью _Data node_ в параметре `configSpec.elasticsearchSpec.dataNode.resources`.
     * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
     * Идентификатор сети в параметре `networkId`.
-    * Идентификаторы групп безопасности в параметре `securityGroupIds`.
+        * Идентификаторы групп безопасности в параметре `securityGroupIds`.
     * Список плагинов в параметре `configSpec.elasticsearchSpec.plugins`.
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
 
 {% endlist %}
+
 
 {% note warning %}
 
 Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](cluster-connect.md#configuring-security-groups).
 
 {% endnote %}
+
 
 ## Примеры {#examples}
 
@@ -307,7 +313,7 @@ keywords:
     * Редакция `Platinum`.
     * Окружение `PRODUCTION`.
     * Сеть `default`.
-    * Группа безопасности с идентификатором `enpp2s8l3irhk5eromd7`.
+        * Группа безопасности с идентификатором `enpp2s8l3irhk5eromd7`.
     * Один публично доступный хост с ролью _Data node_ класса `{{ host-class }}` в подсети `{{ subnet-id }}`, в зоне доступности `{{ region-id }}-a`.
     * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
     * Пароль `esadminpwd` для пользователя `admin`.
@@ -315,6 +321,7 @@ keywords:
 
     Выполните следующую команду:
 
+    
     ```bash
     {{ yc-mdb-es }} cluster create \
       --name my-es-clstr \
@@ -331,6 +338,7 @@ keywords:
       --deletion-protection=true
     ```
 
+
 - {{ TF }}
 
     Создайте кластер {{ mes-name }} с тестовыми характеристиками:
@@ -342,13 +350,14 @@ keywords:
     * Облако с идентификатором `{{ tf-cloud-id }}`.
     * Каталог с идентификатором `{{ tf-folder-id }}`.
     * Новая сеть `mynet`.
-    * Новая группа безопасности `es-sg`, разрешающая подключение к кластеру из интернета через порты 443 (Kibana) и 9200 ({{ ES }}).
+        * Новая группа безопасности `es-sg`, разрешающая подключение к кластеру из интернета через порты 443 (Kibana) и 9200 ({{ ES }}).
     * Один публично доступный хост с ролью _Data node_ класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
     * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
     * Пароль `esadminpwd` для пользователя `admin`.
 
     Конфигурационный файл для такого кластера выглядит так:
 
+    
     
     ```hcl
     terraform {
@@ -429,6 +438,7 @@ keywords:
       }
     }
     ```
+
 
 
 

@@ -25,13 +25,14 @@
     - [Карта](map-chart.md)
 
         - [Точечная карта](point-map-chart.md)
+        - [Точечная карта c кластеризацией](cluster-point-map-chart.md)
         - [Полилинейная карта](polyline-map-chart.md)
         - [Фоновая карта](choropleth-map-chart.md)
         - [Тепловая карта](heat-map-chart.md)
 
 * **Другое**:
 
-    - [Индикатор](#indicator)
+    - [Индикатор](indicator-chart.md)
 
     
 {% note info %}

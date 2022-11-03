@@ -23,28 +23,6 @@ items:
             href: quickstart/create-function/bash-function-quickstart.md
           - name: Java
             href: quickstart/create-function/java-function-quickstart.md
-      - name: Создание триггера
-        items:
-          - name: Обзор
-            href: quickstart/create-trigger/index.md
-          - name: Таймер
-            href: quickstart/create-trigger/timer-quickstart.md
-          - name: Триггер для Message Queue
-            href: quickstart/create-trigger/ymq-trigger-quickstart.md
-          - name: Триггер для Object Storage
-            href: quickstart/create-trigger/os-trigger-quickstart.md
-          - name: Триггер для Container Registry
-            href: quickstart/create-trigger/cr-trigger-quickstart.md
-          - name: Триггер для Cloud Logs
-            href: quickstart/create-trigger/cloudlogs-trigger-quickstart.md
-          - name: Триггер для Cloud Logging
-            href: quickstart/create-trigger/cloud-logging-trigger-quickstart.md
-          - name: Триггер для Yandex IoT Core
-            href: quickstart/create-trigger/iot-core-trigger-quickstart.md
-          - name: Триггер для бюджетов
-            href: quickstart/create-trigger/budget-trigger-quickstart.md
-          - name: Триггер для Data Streams
-            href: quickstart/create-trigger/data-streams-trigger-quickstart.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -97,6 +75,8 @@ items:
             href: operations/trigger/budget-trigger-create.md
           - name: Создание триггера для Data Streams
             href: operations/trigger/data-streams-trigger-create.md
+          - name: Создание триггера для почты
+            href: operations/trigger/mail-trigger-create.md
           - name: Изменение триггера
             href: operations/trigger/trigger-update.md
           - name: Мониторинг триггера
@@ -111,6 +91,8 @@ items:
         href: concepts/function.md
       - name: Вызов функции
         href: concepts/function-invoke.md
+      - name: Сетевое взаимодействие
+        href: concepts/networking.md
       - name: Среда выполнения
         items:
           - name: Обзор
@@ -145,6 +127,8 @@ items:
             href: concepts/trigger/budget-trigger.md
           - name: Триггер для Data Streams
             href: concepts/trigger/data-streams-trigger.md
+          - name: Триггер для почты
+            href: concepts/trigger/mail-trigger.md
       - name: Dead Letter Queue
         href: concepts/dlq.md
       - name: Лог-группа
@@ -317,6 +301,8 @@ items:
         href: tutorials/video-converting-queue.md
       - name: Создание функции Node.js с помощью TypeScript
         href: tutorials/nodejs-typescript.md
+      - name: Разработка пользовательской интеграции
+        href: tutorials/api-gw-integration.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом

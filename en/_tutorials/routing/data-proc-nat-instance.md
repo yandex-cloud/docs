@@ -1,6 +1,6 @@
 # Configuring networks for {{ dataproc-name }}
 
-To grant {{ dataproc-name }} cluster access to resources outside their {{ vpc-short-name }} virtual network, set up public [IP addresses](../../vpc/concepts/network.md) for them. If you don't want to use public IP addresses, you can set up egress NAT (Network Address Translation) for the subnet.
+To grant {{ dataproc-name }} cluster access to resources outside their {{vpc-short-name}} virtual network, set up public [IP addresses](../../vpc/concepts/network.md) for them. If you don't want to use public IP addresses, you can set up egress NAT (Network Address Translation) for the subnet.
 
 In this tutorial, you'll learn how to create a {{ dataproc-name }} cluster and set up subnets and a VM (a NAT instance).
 
@@ -31,7 +31,7 @@ You have to create:
 1. In `network-data-proc`, [create a subnet](../../vpc/operations/subnet-create.md) with the following parameters:
 
    * **Name**: `subnet-cluster`.
-   * **Zone**: `ru-central1-a`.
+   * **Zone**: `{{ region-id }}-a`.
    * **CIDR**: `192.168.1.0/24`.
    * **Advanced settings**: Enable **Egress NAT**.
 
@@ -52,8 +52,8 @@ You have to create:
    1. In `network-data-proc`, [create a subnet](../../vpc/operations/subnet-create.md) with the following parameters:
 
       * **Name**: `subnet-nat`.
-      * **Zone**: `ru-central1-b`.
-      * **CIDR**: `192.168.100.0/24`.
+      * **Zone**: `{{ region-id }}-b`.
+      * **CIDR** — `192.168.100.0/24`.
 
       You don't need to enable **Egress NAT** for this subnet.
 
@@ -61,7 +61,7 @@ You have to create:
 
    1. [Create a security group](../../vpc/operations/security-group-create.md) for the NAT instance.
 
-   1. In the security group for the NAT instance, [create the following rules](../../vpc/operations/security-group-update.md#add-rule):
+   1. In the security group for the NAT instance, [create the following rules](../../vpc/operations/security-group-add-rule.md):
 
       **For incoming traffic:**
 
@@ -104,7 +104,7 @@ You have to create:
       * **Network**: `network-data-proc`.
       * **Security groups**: Select the previously created security groups.
 
-   1. In the `network-dataproc` network, [create a VM](../../compute/operations/vm-create/create-linux-vm.md) from the [NAT instance](/marketplace/products/yc/nat-instance-ubuntu-18-04-lts) image with a public IP address. Specify the security groups that you configured previously.
+   1. In the `network-dataproc` network, [create a VM](../../compute/operations/vm-create/create-linux-vm.md) based on the [NAT instance](/marketplace/products/yc/nat-instance-ubuntu-18-04-lts) image from **{{ marketplace-name }}** with a public IP address. Specify the security groups that you configured previously.
 
    1. Go to the NAT properties and copy the VM's IP address.
 
@@ -133,13 +133,13 @@ You have to create:
 
    1. Run the `terraform init` command in the working directory hosting the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
 
-   1. Validate the Terraform configuration files using the following command:
+   1. Make sure the {{ TF }} configuration files are correct using the command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, Terraform points them out.
+      If there are errors in the configuration files, {{ TF }} will point to them.
 
    1. Import the network and subnet that you created previously.
 
@@ -211,7 +211,7 @@ You have to create:
 
    ```bash
    #!/bin/sh
-
+   
    iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
    ```
 
@@ -251,13 +251,13 @@ If you no longer need these resources, delete them:
 
    1. Delete the `data-proc-nat.tf` configuration file.
 
-   1. Validate the Terraform configuration files using the following command:
+   1. Make sure the {{ TF }} configuration files are correct using the command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, Terraform points them out.
+      If there are errors in the configuration files, {{ TF }} will point them out.
 
    1. Confirm the update of resources.
 

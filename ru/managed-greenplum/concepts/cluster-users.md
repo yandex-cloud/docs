@@ -1,26 +1,104 @@
-# Управление пользователями
+# Пользователи и роли в {{ mgp-name }}
 
-Вы можете управлять пользователями кластера с помощью SQL-команд, выполняемых от имени пользователя-администратора. Его имя и пароль задаются при [создании](../operations/cluster-create.md#create-cluster) кластера. Подробнее см. в [документации {{ GP }}](https://greenplum.docs.pivotal.io/6latest/admin_guide/roles_privs.html).
+{{ GP }} управляет правами доступа к базе данных с помощью ролей. Роли могут владеть объектами базы данных (например, таблицами) и иметь [атрибуты](#attributes) и [привилегии](#privileges). От имени одной роли можно назначать привилегии другим ролям.
 
-Не рекомендуется использовать учетную запись пользователя-администратора для выполнения повседневных задач, т. к. ошибочная команда, отправленная от его имени, может привести к неработоспособности кластера. Для таких задач создайте отдельных пользователей с минимально необходимым [набором привилегий](https://greenplum.docs.pivotal.io/6latest/admin_guide/roles_privs.html#topic4).
+Пользователь в {{ GP }} — это роль, которая может авторизоваться в базе данных. Для этого ей предоставляется [атрибут](#attributes) `LOGIN`.
 
-Пользователю-администратору недоступна роль `SUPERUSER`, вместо нее ему назначена роль `MDB_ADMIN`. Чтобы предоставить пользователю-администратору доступ к системным представлениям, воспользуйтесь командами SQL:
+Вы можете управлять пользователями кластера с помощью SQL-команд, выполняемых от имени пользователя-администратора с ролью `mdb_admin`. Имя пользователя-администратора и его пароль задаются при [создании](../operations/cluster-create.md#create-cluster) кластера. Подробнее см. в разделе [{#T}](../operations/roles-and-users.md).
+
+Чтобы предоставить другому пользователю привилегии пользователя-администратора, также назначьте ему роль `mdb_admin`:
 
 ```sql
-{% set admin_role = 'mdb_admin' %}
-{% set schema = 'mdb_toolkit' %}
-
-CREATE OR REPLACE FUNCTION not_var{{ schema }}.pg_stat_activity() RETURNS SETOF pg_stat_activity AS
-$$ SELECT * FROM pg_catalog.pg_stat_activity; $$
-LANGUAGE sql CONTAINS SQL SECURITY DEFINER;
-
-CREATE OR REPLACE FUNCTION not_var{{ schema }}.pg_locks() RETURNS SETOF pg_locks AS
-$$ SELECT * FROM pg_catalog.pg_locks; $$
-LANGUAGE sql CONTAINS SQL SECURITY DEFINER;
-
-CREATE OR REPLACE FUNCTION not_var{{ schema }}.session_level_memory_consumption() RETURNS SETOF session_state.session_level_memory_consumption AS
-$$ SELECT * FROM session_state.session_level_memory_consumption; $$
-LANGUAGE sql CONTAINS SQL SECURITY DEFINER;
+GRANT mdb_admin TO <имя пользователя>;
 ```
+
+## Атрибуты {#attributes}
+
+У роли есть атрибуты, определяющие, какие задачи она может выполнять в базе данных.
+
+| Атрибуты                                | Описание                                                                                                                                                                                                                                                                                                                |
+| :-------------------------------------- | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `SUPERUSER` или `NOSUPERUSER`           | Является ли роль суперпользователем. В {{ mgp-name }} атрибут `SUPERUSER` назначен служебным ролям `gpadmin` и `monitor` и недоступен пользователям сервиса.                                                                                                                                                            |
+| `CREATEDB` или `NOCREATEDB`             | Разрешение или запрет на создание базы данных. По умолчанию — `NOCREATEDB`.                                                                                                                                                                                                                                             |
+| `CREATEROLE` или `NOCREATEROLE`         | Разрешение или запрет на создание других ролей и управление ими. По умолчанию — `NOCREATEROLE`.                                                                                                                                                                                                                         |
+| `INHERIT` или `NOINHERIT`               | Наследует ли роль привилегии ролей, в [составе которых](#group-roles) она находится. По умолчанию — `INHERIT`.                                                                                                                                                                                                                   |
+| `LOGIN` или `NOLOGIN`                   | Может ли роль авторизоваться в системе, т. е. является ли роль пользователем. По умолчанию — `NOLOGIN`.                                                                                                                                                                                                                 |
+| `CONNECTION LIMIT <значение>`           | Количество одновременных подключений для роли с атрибутом `LOGIN`. Значение по умолчанию — `-1` (количество не ограничено).                                                                                                                                                                                               |
+| `CREATEEXTTABLE` или `NOCREATEEXTTABLE` | Разрешение или запрет на создание внешних таблиц. По умолчанию — `NOCREATEEXTTABLE`.                                                                                                                                                                                                                                    |
+| `PASSWORD '<пароль>'`                   | Задание пароля для роли. Если аутентификация для роли не требуется, этот атрибут можно не указывать.                                                                                                                                                                                                                    |
+| `ENCRYPTED` или `UNENCRYPTED`           | Сохранение пароля в виде хеш-строки или в открытом текстовом виде. По умолчанию — `ENCRYPTED`. Подробнее о защите паролей для входа см. в [документации {{ GP }}](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-roles_privs.html#protecting-passwords-in-greenplum-database). |
+
+## Групповые роли {#group-roles}
+
+Одни роли могут входить в состав других ролей и наследовать их привилегии. При изменении привилегий родительской роли меняются и привилегии всех ролей, входящих в ее состав. Подробнее о групповых ролях см. в [документации {{ GP }}](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-roles_privs.html#role-membership).
+
+## Привилегии {#privileges}
+
+Привилегии определяют доступные для роли действия с объектами базы данных.
+
+Не используйте роль `mdb_admin` для выполнения повседневных задач, т. к. ошибочная команда, отправленная от ее имени, может привести к неработоспособности кластера. Для таких задач создайте отдельные роли с минимально необходимым набором привилегий:
+
+#|
+||**Тип объекта**
+|**Привилегии**||
+||Таблицы, внешние таблицы, представления
+|`SELECT`
+`INSERT`
+`UPDATE`
+`DELETE`
+`REFERENCES`
+`TRIGGER`
+`TRUNCATE`
+`ALL`||
+||Столбцы
+|`SELECT`
+`INSERT`
+`UPDATE`
+`REFERENCES`
+`ALL`||
+||Последовательности
+|`USAGE`
+`SELECT`
+`UPDATE`
+`ALL`||
+||Базы данных
+|`CREATE`
+`CONNECT`
+`TEMPORARY`
+`TEMP`
+`ALL`||
+||Домены
+|`USAGE`
+`ALL`||
+||Внешние оболочки данных
+|`USAGE`
+`ALL`||
+||Внешние серверы
+|`USAGE`
+`ALL`||
+||Функции
+|`EXECUTE`
+`ALL`||
+||Процедурные языки
+|`USAGE`
+`ALL`||
+||Схемы
+|`CREATE`
+`USAGE`
+`ALL`||
+||Табличные пространства
+|`CREATE`
+`ALL`||
+||Типы
+|
+`USAGE`
+`ALL`||
+||Протоколы
+|`SELECT`
+`INSERT`
+`ALL`||
+|#
+
+Подробнее о привилегиях и управлении ими см. в [документации {{ GP }}](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-roles_privs.html#managing-object-privileges).
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

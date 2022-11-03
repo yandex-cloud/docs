@@ -1,11 +1,12 @@
 # Monitoring the transfer status
 
-Transfer status details are available in the management console. You can view them on the **Monitoring** tab of the  transfer management page or in [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
+Transfer status details are available in the management console. You can view them on the **Monitoring** tab of the transfer management page or in [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
 
 Diagnostic information about the transfer status is presented as charts.
 
 
 You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }} to receive notifications about transfer failures. In {{ monitoring-full-name }}, there are two alert thresholds: `Warning` and `Alarm`. If the specified threshold is exceeded, you'll receive alerts via the configured [notification channels](../../monitoring/concepts/alerting.md#notification-channel).
+
 
 
 ## Monitoring the transfer status {#monitoring}
@@ -16,7 +17,7 @@ You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **Transfers**.
-   1. Click on the name of the transfer and open the ![image](../../_assets/monitoring.svg) **Monitoring** tab.
+         1. Click the name of the desired transfer and open the ![image](../../_assets/monitoring.svg) **Monitoring** tab.
    1. To get started with {{ monitoring-full-name }} metrics, dashboards, or alerts, click **Open in Monitoring** in the top panel.
 
 {% endlist %}
@@ -26,7 +27,7 @@ The following charts open on the page:
 ### Data upload lag (histogram by seconds) {sinker.pusher.time.row_lag_sec}
 `sinker.pusher.time.row_lag_sec`
 
-The time difference between when the records appear on the target and when they appear on the source (in seconds). The histogram is broken down into `bins`. Let us assume, the histogram is showing two `bins` for 45 and 60 at a given point in time, with each containing a value equal to 50%. This means that half the records being transferred at the time had a delay of between 30 and 45 seconds, and the other half of between 45 and 60 seconds.
+The time difference between when the records appear on the target and when they appear on the source (in seconds). The histogram is divided into `bins`. Let us assume, the histogram is showing two `bins` for 45 and 60 at a given point in time, with each containing a value equal to 50%. This means that half the records being transferred at the time had a delay of between 30 and 45 seconds, and the other half of between 45 and 60 seconds.
 
 ### Successfully pushed rows {sinker.pusher.data.row_events_pushed}
 `sinker.pusher.data.row_events_pushed`
@@ -48,7 +49,7 @@ Maximum data lag (in seconds).
 
 The size, in bytes, of the buffer or write ahead log (when supported) in the source.
 
-### Read bytes from source (top-50 workers) {`publisher.data.bytes`}
+### Read bytes from source (top-50 workers) {publisher.data.bytes}
 `publisher.data.bytes`
 
 The amount of data read from the source (in bytes).
@@ -211,4 +212,4 @@ Alert parameters:
 
 * Alerts do not cover all transfer failures. Alert triggering does not always indicate a failure. If problems with the alerts recur, contact [technical support]({{ link-console-support }}) and specify the load, charts, metrics used, and the expected alert behavior.
 
-* Alerts can be triggered not only by transfer infrastructure problems, but also by {{ data-transfer-name }} problems. For example, due to an insufficiency of virtual machine resources for data replication. If this occurs, contact [technical support]({{ link-console-support }}).
+* Alerts can be triggered not only by transfer infrastructure problems, but also by {{ data-transfer-name }} problems. For example, due to an insufficiency of virtual machine resources for data replication. If this happens, contact [technical support]({{ link-console-support }}).

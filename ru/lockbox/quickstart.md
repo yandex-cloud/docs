@@ -13,7 +13,9 @@ description: "В этой инструкции вы научитесь созд�
 
 Версия не изменяется. Для любого изменения количества пар ключей-значений или их содержимого необходимо создать новую версию. 
 
-{% include [secret-create](operations/secret-create.md) %}
+## Создать секрет {#secret}
+
+{% include [secret-create](../_includes/lockbox/secret-create.md) %}
 
 ## Получите содержимое секрета {#get}
 
@@ -35,13 +37,13 @@ description: "В этой инструкции вы научитесь созд�
     1. [Получите IAM-токен](../iam/operations/iam-token/create.md), необходимый для аутентификации и сохраните его в переменную:
     
         ```
-        export IAM_TOKEN=`yc iam create-token`
+        export IAM_TOKEN=$(yc iam create-token)
         ```
         
         Также вы можете получить IAM-токен сервисного аккаунта изнутри ВМ, к которой он привязан. Для этого выполните запрос в [сервис метаданных](../compute/operations/vm-info/get-info.md#request-examples). Пример c использованием утилиты [jq](https://stedolan.github.io/jq/):
         
         ```                
-        export IAM_TOKEN=`curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | jq -r .access_token`
+        export IAM_TOKEN=$(curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | jq -r .access_token)
         ```
        
     1. Выполните запрос: 

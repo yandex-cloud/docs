@@ -13,7 +13,7 @@ Note that some parameters cannot be used simultaneously. The value of one of the
 |----|----|----|
 | `--debug` | — | Output the debug log when executing the command. |
 | `--debug-grpc` | — | Output the gRPC debug log when executing the command. This is a very detailed log that is useful for debugging connection issues. |
-| `--cloud-id` | `cloud-id` | ID of the cloud to use when executing the command. |
+| `--cloud-id` | `cloud-id` | [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) to use when executing the command. |
 | `--folder-id` | `folder-id` | ID of the folder to use when executing the command. When this profile parameter is set, the `folder-name` parameter is reset to zero. |
 | `--folder-name` | `folder-name` | Name of the folder to use when executing the command. When this profile parameter is set, the `folder-id` parameter is reset to zero. |
 | `--format` | `format` | Format for the output: `text` (by default), `yaml`, `json`, `json-rest`. |

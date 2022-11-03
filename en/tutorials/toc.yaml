@@ -5,7 +5,7 @@ items:
     items:
       - name: All tutorials
         href: web/index.md
-      - name: Static website in {{ objstorage-name }}
+      - name: Static site in {{ objstorage-name }}
         href: web/static.md
       - name: Website on LAMP or LEMP stack
         href: web/lamp-lemp.md
@@ -15,9 +15,7 @@ items:
         href: web/load-balancer-website.md
       - name: Fault-tolerant website with load balancing by {{ alb-name }}
         href: web/application-load-balancer-website.md
-      - name: Fault-tolerant website using DNS load balancing
-        href: web/dns-load-balancer.md
-      - name: Joomla website with {{ PG }}
+      - name: Joomla-based website with {{ PG }}
         href: web/joomla-postgresql.md
       - name: WordPress website
         href: web/wordpress.md
@@ -29,12 +27,24 @@ items:
         href: web/wordpress-transfer.md
       - name: 1C-Bitrix website
         href: web/bitrix-website.md
+      - name: Publishing game updates
+        href: web/prefetch.md
       - name: >-
           Integrating an L7 load balancer with the {{ cdn-name }} and {{
           objstorage-name }}
         href: web/cdn-storage-integration.md
+      - name: Setting up a virtual hosting
+        href: web/virtual-hosting.md
+      - name: Creating a load balancer with DDoS protection
+        href: web/alb-with-ddos-protection.md
+      - name: >-
+          Integrating an L7 load balancer with the {{ cdn-short-name }} and {{
+          objstorage-short-name }}
+        href: web/cdn-storage-integration.md
       - name: Blue-green and canary deployment of service versions
         href: web/blue-green-canary-deployment.md
+      - name: Terminating TLS connections
+        href: web/tls-termination.md
   - name: Online stores
     items:
       - name: All tutorials
@@ -51,7 +61,7 @@ items:
         href: archive/single-node-file-server.md
       - name: Configuring an SFTP server on Centos 7
         href: archive/backup-and-archive-to-sftp.md
-      - name: Backup to {{ objstorage-name }} via Acronis Backup
+      - name: Backup to {{ objstorage-name }} via Acronis
         href: archive/object-storage-acronis.md
       - name: Backup to {{ objstorage-name }} via CloudBerry Desktop Backup
         href: archive/object-storage-cloudberry.md
@@ -75,8 +85,10 @@ items:
         href: testing/hpc-on-preemptible.md
       - name: Emulating multiple IoT devices
         href: testing/iot-emulation.md
-      - name: gRPC service load testing
+      - name: Load testing of the gRPC service
         href: testing/loadtesting-grpc.md
+      - name: Deploying and load testing a gRPC service with scaling
+        href: testing/loadtesting-grpc-autoscaling.md
       - name: Using Phantom to run a fixed-load HTTPS test
         href: testing/loadtesting-https-phantom.md
       - name: Using Pandora to run a step-load HTTPS test
@@ -99,76 +111,88 @@ items:
           Creating a cluster of 1C:Enterprise Linux servers with a {{ mpg-name
           }} cluster
         href: infrastructure-management/1c-postgresql-linux.md
-      - name: Creating a cluster of 1C:Enterprise Windows servers with {{ MS }}
-        href: infrastructure-management/1c-mssql-windows.md
       - name: Migrating to {{ yandex-cloud }} using Hystax Acura
         href: infrastructure-management/hystax-migration.md
       - name: Fault protection with Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
+      - name: Configuring NTP time synchronization
+        href: infrastructure-management/ntp.md
+      - name: Running instance groups with auto scaling
+        href: infrastructure-management/vm-autoscale.md
+      - name: >-
+          Automatically scaling an instance group for handling messages from a
+          queue
+        href: infrastructure-management/autoscale-monitoring.md
+      - name: Updating an instance group under load
+        href: infrastructure-management/updating-under-load.md
+      - name: Transferring logs from a VM instance to Yandex Cloud Logging
+        href: infrastructure-management/vm-fluent-bit-logging.md
       - name: Creating a VM backup with Hystax Acura Backup
         href: infrastructure-management/hystax-backup.md
       - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
         href: infrastructure-management/fault-tolerance.md
       - name: Creating an SAP program in {{ yandex-cloud }}
         href: infrastructure-management/sap.md
+      - name: Configuring a local caching DNS resolver
+        href: infrastructure-management/local-dns-cache.md
+      - name: Migrating DNS zones from Yandex 360
+        href: infrastructure-management/connect-migration.md
+      - name: Integrating with a corporate DNS service
+        href: infrastructure-management/dns-integration.md
+      - name: Creating an ACME resolver webhook for responses to DNS01 checks
+        href: infrastructure-management/cert-manager-webhook.md
+      - name: Writing load balancer logs to {{ PG }}
+        href: infrastructure-management/logging.md
   - name: Building a data platform
     items:
       - name: All tutorials
         href: dataplatform/index.md
-      - name: Syncing {{ MY }} data using {{ data-transfer-full-name }}
-        href: dataplatform/sync-mysql.md
-      - name: Migrating databases from {{ mmy-full-name }} to {{ MY }}
-        href: dataplatform/mmy-to-mysql-migration.md
-      - name: Configuring a managed databased in a {{ CH }} cluster for Graphite
-        href: dataplatform/clickhouse-for-graphite.md
       - name: >-
-          Exchanging data between {{ mch-full-name }} and {{ dataproc-full-name
-          }}
-        href: dataplatform/dp-mch-data-exchange.md
+          Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using
+          {{ data-transfer-full-name }}
+        href: dataplatform/data-transfer-mpg.md
+      - name: >-
+          Delivering data from {{ mmy-full-name }} to {{ mkf-full-name }} using
+          Debezium
+        href: dataplatform/debezium-mmy.md
+      - name: >-
+          Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using
+          Debezium
+        href: dataplatform/debezium-mpg.md
+      - name: Configuring Kafka Connect for {{ mkf-full-name }} clusters
+        href: dataplatform/kafka-connect.md
       - name: Managing data schemas in {{ mkf-full-name }}
         href: dataplatform/schema-registry-overview.md
       - name: Using {{ mkf-msr }} with {{ mkf-full-name }}
         href: dataplatform/managed-schema-registry.md
       - name: Using Confluent Schema Registry with {{ mkf-full-name }}
         href: dataplatform/confluent-schema-registry.md
-      - name: Migrating databases from {{ mmy-full-name }} to MySQL
-        href: dataplatform/mmy-to-mysql-migration.md
       - name: >-
-          Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using
-          Debezium
-        href: dataplatform/kafka-cdc.md
-      - name: >-
-          Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using
-          {{ data-transfer-full-name }}
-        href: dataplatform/kafka-cdc-data-transfer.md
-      - name: Migrating databases to {{ mms-full-name }}
-        href: dataplatform/mssql-data-migration.md
-      - name: >-
-          Migrating databases from {{ mms-full-name }} to a third-party {{ MS }}
-          cluster
-        href: dataplatform/mssql-outbound-migration.md
-      - name: >-
-          Transferring data from {{ PG }} to {{ CH }} using {{
+          Migrating databases from {{ PG }} to {{ CH }} using {{
           data-transfer-full-name }}
         href: dataplatform/rdbms-to-clickhouse.md
+      - name: >-
+          Exchanging data between {{ mch-full-name }} and {{ dataproc-full-name
+          }}
+        href: dataplatform/dp-mch-data-exchange.md
+      - name: Configuring {{ mch-full-name }} for Graphite
+        href: dataplatform/clickhouse-for-graphite.md
+      - name: Getting data from {{ mkf-name }} to {{ mch-full-name }}
+        href: dataplatform/fetch-data-from-mkf.md
+      - name: Getting data from {{ RMQ }} to {{ mch-full-name }}
+        href: dataplatform/fetch-data-from-rabbitmq.md
+      - name: Using hybrid storage in {{ mch-full-name }}
+        href: dataplatform/clickhouse-hybrid-storage.md
+      - name: Sharding tables {{ mch-full-name }}
+        href: dataplatform/clickhouse-sharding.md
       - name: >-
           Configuring {{ dns-full-name }} for accessing managed database
           clusters from other cloud networks
         href: dataplatform/mdb-dns-peering.md
-      - name: Transferring a database to {{ mrd-full-name }}
-        href: dataplatform/redis-data-migration.md
-      - name: Migrating to {{ mes-full-name }} using the Reindex API
-        href: dataplatform/migration-via-reindex-api.md
-      - name: Configuring Kafka Connect for {{ mkf-full-name }} clusters
-        href: dataplatform/kafka-connect.md
       - name: >-
-          Using initialization actions to configure GeeseFS in {{
-          dataproc-full-name }}
-        href: dataplatform/data-proc-init-actions-geesefs.md
-      - name: >-
-          Migrating databases from a third-party {{ MY }} cluster to a {{
-          mmy-full-name }} cluster
-        href: dataplatform/mysql-data-migration.md
+          Configuring {{ dns-full-name }} for {{ mch-full-name }} cluster access
+          from other cloud networks
+        href: dataplatform/clickhouse-dns-peering.md
       - name: >-
           Importing data from {{ mmy-full-name }} to {{ dataproc-full-name }}
           using Sqoop
@@ -177,24 +201,60 @@ items:
           Importing data from {{ mpg-full-name }} to {{ dataproc-full-name }}
           using Sqoop
         href: dataplatform/sqoop-mpg.md
-  - name: Windows in {{ yandex-cloud }}
-    items:
-      - name: All tutorials
-        href: windows/index.md
-      - name: Deploying Active Directory
-        href: windows/active-directory.md
-      - name: Deploying Microsoft Exchange
-        href: windows/exchange.md
-      - name: Deploying Remote Desktop Services
-        href: windows/rds.md
-      - name: Deploying an Always On availability group
-        href: windows/mssql-alwayson.md
       - name: >-
-          Deploying an Always On availability group with an internal network
-          load balancer
-        href: windows/mssql-alwayson-lb.md
-      - name: Deploying Remote Desktop Gateway
-        href: windows/rds-gw.md
+          Using initialization scripts to configure GeeseFS in {{
+          dataproc-full-name }}
+        href: dataplatform/data-proc-init-actions-geesefs.md
+      - name: >-
+          Migrating data from a third-party {{ ES }} cluster to {{ mes-full-name
+          }} using the Reindex API
+        href: dataplatform/migration-via-reindex-api.md
+      - name: Migrating collections from {{ MG }} to {{ mmg-name }}
+        href: dataplatform/mongodb-migration-with-data-transfer.md
+      - name: Migrating data to {{ mmg-name }}
+        href: dataplatform/mongodb-data-migration.md
+      - name: Sharding collections {{ MG }}
+        href: dataplatform/mongodb-sharding.md
+      - name: Performance analysis and tuning of {{ MG }}
+        href: dataplatform/mongodb-profiling.md
+      - name: >-
+          Migrating databases from a third-party {{ MY }} cluster to a {{
+          mmy-full-name }} cluster
+        href: dataplatform/mysql-data-migration.md
+      - name: Performance analysis and tuning of {{ mmy-name }}
+        href: dataplatform/profiling-mmy.md
+      - name: >-
+          Syncing data from a third-party {{ MY }} cluster to {{ mmy-full-name
+          }} using {{ data-transfer-full-name }}
+        href: dataplatform/sync-mysql.md
+      - name: >-
+          Migrating databases from {{ mmy-full-name }} to a third-party {{ MY }}
+          cluster
+        href: dataplatform/mmy-to-mysql-migration.md
+      - name: Creating a {{ PG }} cluster for 1C
+        href: dataplatform/1c-postgresql.md
+      - name: Performance analysis and tuning in {{ mpg-name }}
+        href: dataplatform/mpg-profiling.md
+      - name: >-
+          Migrating databases from third-party {{ PG }} cluster to {{
+          mpg-full-name }} cluster
+        href: dataplatform/postgresql-data-migration.md
+      - name: Migrating databases from {{ mpg-name }}
+        href: dataplatform/outbound-replication.md
+      - name: >-
+          Migrating databases from a third-party {{ RD }} cluster to {{
+          mrd-full-name }}
+        href: dataplatform/redis-data-migration.md
+      - name: Using {{ mrd-name }} clusters as PHP session storage
+        href: dataplatform/redis-as-php-sessions-storage.md
+      - name: >-
+          Migrating databases from a third-party {{ MS }} cluster to {{
+          mms-full-name }}
+        href: dataplatform/mssql-data-migration.md
+      - name: >-
+          Migrating databases from {{ mms-name }} to a third-party {{ MS }}
+          cluster
+        href: dataplatform/mssql-outbound-migration.md
   - name: Network routing
     items:
       - name: All tutorials
@@ -259,4 +319,16 @@ items:
         href: serverless/data-ingestion.md
       - name: Storing application runtime logs
         href: serverless/log-ingestion.md
+      - name: Deploying a web application using the Java Servlet API
+        href: serverless/java-servlet-todo-list.md
+      - name: Developing a Slack bot
+        href: serverless/slack-bot-serverless.md
+      - name: Developing a Telegram bot
+        href: serverless/telegram-bot-serverless.md
+      - name: Developing user integration in {{ api-gw-name }}
+        href: serverless/api-gw-integration.md
+      - name: Developing CRUD APIs for movie services
+        href: serverless/movies-database.md
+      - name: Developing a skill for Alice and a website with authorization
+        href: serverless/alice-shareable-todolist.md
 base: en/tutorials

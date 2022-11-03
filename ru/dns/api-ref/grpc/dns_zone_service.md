@@ -57,7 +57,7 @@ public_visibility | **[PublicVisibility](#PublicVisibility)**<br>Publicly visibl
 
 Field | Description
 --- | ---
-network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
+network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-100. The string length in characters for each value must be equal to 20.
 
 
 ### PublicVisibility {#PublicVisibility}
@@ -107,7 +107,7 @@ public_visibility | **[PublicVisibility](#PublicVisibility1)**<br>Publicly visib
 
 Field | Description
 --- | ---
-network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
+network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-100. The string length in characters for each value must be equal to 20.
 
 
 ### PublicVisibility {#PublicVisibility1}
@@ -141,7 +141,7 @@ public_visibility | **[PublicVisibility](#PublicVisibility2)**<br>Publicly visib
 
 Field | Description
 --- | ---
-network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
+network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-100. The string length in characters for each value must be equal to 20.
 
 
 ### PublicVisibility {#PublicVisibility2}
@@ -186,17 +186,6 @@ private_visibility | **[PrivateVisibility](#PrivateVisibility3)**<br>Privately v
 public_visibility | **[PublicVisibility](#PublicVisibility3)**<br>Publicly visible zone settings. Indicates whether records within the zone are publicly visible. 
 
 
-### PrivateVisibility {#PrivateVisibility3}
-
-Field | Description
---- | ---
-network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
-
-
-### PublicVisibility {#PublicVisibility3}
-
-
-
 ## Update {#Update}
 
 Updates the specified DNS zone.
@@ -216,18 +205,18 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 name | **string**<br>New name for the DNS zone. The name must be unique within the folder. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>New description of the DNS zone. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>DNS zone labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: <ol><li>Get the current set of labels with a [DnsZoneService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-private_visibility | **[PrivateVisibility](#PrivateVisibility4)**<br>Change network IDs for private visibility. 
-public_visibility | **[PublicVisibility](#PublicVisibility4)**<br>Public visibility configuration. 
+private_visibility | **[PrivateVisibility](#PrivateVisibility3)**<br>Change network IDs for private visibility. 
+public_visibility | **[PublicVisibility](#PublicVisibility3)**<br>Public visibility configuration. 
 
 
-### PrivateVisibility {#PrivateVisibility4}
+### PrivateVisibility {#PrivateVisibility3}
 
 Field | Description
 --- | ---
-network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
+network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-100. The string length in characters for each value must be equal to 20.
 
 
-### PublicVisibility {#PublicVisibility4}
+### PublicVisibility {#PublicVisibility3}
 
 
 
@@ -265,19 +254,8 @@ name | **string**<br>Name of the DNS zone. The name is unique within the folder.
 description | **string**<br>Description of the DNS zone. 
 labels | **map<string,string>**<br>DNS zone labels as `key:value` pairs. 
 zone | **string**<br>DNS zone suffix. 
-private_visibility | **[PrivateVisibility](#PrivateVisibility5)**<br>Privately visible zone settings. Specifies whether records within the zone are visible from a VPC networks only. 
-public_visibility | **[PublicVisibility](#PublicVisibility5)**<br>Publicly visible zone settings. Indicates whether records within the zone are publicly visible. 
-
-
-### PrivateVisibility {#PrivateVisibility5}
-
-Field | Description
---- | ---
-network_ids[] | **string**<br>Network IDs. The number of elements must be in the range 0-10. The string length in characters for each value must be equal to 20.
-
-
-### PublicVisibility {#PublicVisibility5}
-
+private_visibility | **[PrivateVisibility](#PrivateVisibility4)**<br>Privately visible zone settings. Specifies whether records within the zone are visible from a VPC networks only. 
+public_visibility | **[PublicVisibility](#PublicVisibility4)**<br>Publicly visible zone settings. Indicates whether records within the zone are publicly visible. 
 
 
 ## Delete {#Delete}
@@ -387,7 +365,7 @@ Method with strict control for changing zone state. Returns error when: <ol><li>
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateRecordSetsMetadata](#UpdateRecordSetsMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[RecordSetDiff](#RecordSetDiff)<br>
 
 ### UpdateRecordSetsRequest {#UpdateRecordSetsRequest}
 
@@ -421,11 +399,19 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateRecordSetsMetadata](#UpdateRecordSetsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RecordSetDiff](#RecordSetDiff)>**<br>if operation finished successfully. 
 
 
 ### UpdateRecordSetsMetadata {#UpdateRecordSetsMetadata}
 
+
+
+### RecordSetDiff {#RecordSetDiff}
+
+Field | Description
+--- | ---
+additions[] | **[RecordSet](#RecordSet3)**<br>List of record sets that were added 
+deletions[] | **[RecordSet](#RecordSet3)**<br>List of record sets that were deleted 
 
 
 ## UpsertRecordSets {#UpsertRecordSets}
@@ -436,7 +422,7 @@ Method without strict control for changing zone state. Nothing happens if delete
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpsertRecordSetsMetadata](#UpsertRecordSetsMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[RecordSetDiff](#RecordSetDiff)<br>
 
 ### UpsertRecordSetsRequest {#UpsertRecordSetsRequest}
 
@@ -471,11 +457,19 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpsertRecordSetsMetadata](#UpsertRecordSetsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RecordSetDiff](#RecordSetDiff)>**<br>if operation finished successfully. 
 
 
 ### UpsertRecordSetsMetadata {#UpsertRecordSetsMetadata}
 
+
+
+### RecordSetDiff {#RecordSetDiff1}
+
+Field | Description
+--- | ---
+additions[] | **[RecordSet](#RecordSet4)**<br>List of record sets that were added 
+deletions[] | **[RecordSet](#RecordSet4)**<br>List of record sets that were deleted 
 
 
 ## ListOperations {#ListOperations}

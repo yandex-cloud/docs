@@ -21,9 +21,9 @@ To place a table in the text, use the markup:
 
 ## Inserting dynamic tables {#grid}
 
-_Dynamic tables_ are tables where users can specify data types to display, sort by values, and set required cells. You can use a table directly or [embed it in a Wiki page](#section-integrate-table).
+[Dynamic tables](pages-types.md#grid) are tables where users can specify data types in columns, sort values, and make cells mandatory. You can use a table directly or [embed it in a Wiki page](#section-integrate-table).
 
-Dynamic tables can be edited right on the Wiki page as long as you don't choose the **Read only** option during embedding. All changes are automatically applied to the main table and all its occurrences on other pages.
+
 
 ### Creating and placing a table on a Wiki page {#section-add-table-button}
 
@@ -45,7 +45,7 @@ To create a table and place it in the text of a Wiki page:
 
 To embed a dynamic table in a Wiki page:
 
-1. Open the table.
+1. Open a table and click **Edit**.
 
 1. Click **</>** in the sidebar.
 

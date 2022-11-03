@@ -13,8 +13,9 @@ You can edit a trigger [name](#update-name) or [description](#update-description
    1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
    1. Select **{{ sf-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **Triggers**.
-   1. Select the trigger you want to update.
+   1. Select the trigger whose name you want to update.
    1. In the upper-right corner of the page, click **Edit**.
+   1. Edit the name and click **Save**.
 
 - CLI
 
@@ -37,7 +38,7 @@ You can edit a trigger [name](#update-name) or [description](#update-description
    name: my-trigger
    rule:
      message_queue:
-       queue_id: yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq
+       queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:my-mq
        service_account_id: bfbqqeo6jkpls2tse5o6
        batch_settings:
          size: "10"
@@ -53,8 +54,68 @@ You can edit a trigger [name](#update-name) or [description](#update-description
 
    You can change the trigger name using the [update](../../triggers/api-ref/Trigger/update.md) API method.
 
-{% endlist %}
+- {{ TF }}
 
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   To change the name of a function:
+
+   1. Open the {{ TF }} configuration file and edit the `name` field in the trigger description:
+
+      ```hcl
+      ...
+      resource "yandex_function_trigger" "my_trigger" {
+        name        = "some_name"
+        description = "any description"
+        timer {
+          cron_expression = "* * * * ? *"
+        }
+        function {
+          id = "tf-test"
+        }
+      }
+      ...
+      ```
+
+      For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/function_trigger).
+
+   1. Check the configuration using the command:
+
+      ```
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can verify the change to the trigger in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+
+      ```
+      yc serverless trigger get <trigger ID>
+      ```
+
+{% endlist %}
 
 ## Updating the description of a trigger {#update-description}
 
@@ -65,8 +126,9 @@ You can edit a trigger [name](#update-name) or [description](#update-description
    1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
    1. Select **{{ sf-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **Triggers**.
-   1. Select the trigger you want to update.
+   1. Select the trigger whose description you want to update.
    1. In the upper-right corner of the page, click **Edit**.
+   1. Edit the description and click **Save**.
 
 - CLI
 
@@ -90,7 +152,7 @@ You can edit a trigger [name](#update-name) or [description](#update-description
    description: My YMQ trigger.
    rule:
      message_queue:
-       queue_id: yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq
+       queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:my-mq
        service_account_id: bfbqqeo6jkpls2tse5o6
        batch_settings:
          size: "10"
@@ -105,6 +167,67 @@ You can edit a trigger [name](#update-name) or [description](#update-description
 - API
 
    You can update the trigger description using the [update](../../triggers/api-ref/Trigger/update.md) API method.
+
+- {{ TF }}
+
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   To update the trigger description:
+
+   1. Open the {{ TF }} configuration file and edit the `description` field in the trigger description:
+
+      ```hcl
+      ...
+      resource "yandex_function_trigger" "my_trigger" {
+        name        = "some_name"
+        description = "any description"
+        timer {
+          cron_expression = "* * * * ? *"
+        }
+        function {
+          id = "tf-test"
+        }
+      }
+      ...
+      ```
+
+      For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/function_trigger).
+
+   1. Check the configuration using the command:
+
+      ```
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can verify the change to the trigger in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+
+      ```
+      yc serverless trigger get <trigger ID>
+      ```
 
 {% endlist %}
 
@@ -145,7 +268,7 @@ You can perform the following actions with trigger labels:
      version: beta
    rule:
      message_queue:
-       queue_id: yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq
+       queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:my-mq
        service_account_id: bfbqqeo6jkpls2tse5o6
        batch_settings:
          size: "10"
@@ -160,6 +283,71 @@ You can perform the following actions with trigger labels:
 - API
 
    You can add a trigger label using the [update](../../triggers/api-ref/Trigger/update.md) API method.
+
+- {{ TF }}
+
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   To add a trigger label:
+
+   1. Open the {{ TF }} configuration file and add the `labels` section in the trigger description:
+
+      ```hcl
+      ...
+      resource "yandex_function_trigger" "my_trigger" {
+        name   = "some_name"
+        labels = {
+          tf-label    = "tf-label-value"
+          empty-label = ""
+        }
+        description = "any description"
+        timer {
+          cron_expression = "* * * * ? *"
+        }
+        function {
+          id = "tf-test"
+        }
+      }
+      ...
+      ```
+
+      For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/function_trigger).
+
+   1. Check the configuration using the command:
+
+      ```
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can verify the change to the trigger using this [CLI](../../../cli/quickstart.md) command:
+
+      ```
+      yc serverless trigger get <trigger ID>
+      ```
 
 {% endlist %}
 
@@ -197,7 +385,7 @@ You can perform the following actions with trigger labels:
      new_labels: my-beta-trigger
    rule:
      message_queue:
-       queue_id: yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq
+       queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:my-mq
        service_account_id: bfbqqeo6jkpls2tse5o6
        batch_settings:
          size: "10"
@@ -212,6 +400,71 @@ You can perform the following actions with trigger labels:
 - API
 
    You can update a trigger label using the [update](../../triggers/api-ref/Trigger/update.md) API method.
+
+- {{ TF }}
+
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   To change a trigger label:
+
+   1. Open the {{ TF }} configuration file and change the `labels` section in the trigger description:
+
+      ```hcl
+      ...
+      resource "yandex_function_trigger" "my_trigger" {
+        name   = "some_name"
+        labels = {
+          tf-label    = "tf-label-value"
+          empty-label = ""
+        }
+        description = "any description"
+        timer {
+          cron_expression = "* * * * ? *"
+        }
+        function {
+          id = "tf-test"
+        }
+      }
+      ...
+      ```
+
+      For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/function_trigger).
+
+   1. Check the configuration using the command:
+
+      ```
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can verify the change to the trigger using this [CLI](../../../cli/quickstart.md) command:
+
+      ```
+      yc serverless trigger get <trigger ID>
+      ```
 
 {% endlist %}
 
@@ -241,7 +494,7 @@ You can perform the following actions with trigger labels:
    description: My YMQ trigger.
    rule:
      message_queue:
-       queue_id: yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq
+       queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:my-mq
        service_account_id: bfbqqeo6jkpls2tse5o6
        batch_settings:
          size: "10"
@@ -256,5 +509,70 @@ You can perform the following actions with trigger labels:
 - API
 
    You can delete a trigger label using the [update](../../triggers/api-ref/Trigger/update.md) API method.
+
+- {{ TF }}
+
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   To delete a trigger label:
+
+   1. Open the {{ TF }} configuration file and delete the unnecessary label in the `labels` section.
+
+      ```hcl
+      ...
+      resource "yandex_function_trigger" "my_trigger" {
+        name   = "some_name"
+        labels = {
+          tf-label    = "tf-label-value"
+          empty-label = ""
+        }
+        description = "any description"
+        timer {
+          cron_expression = "* * * * ? *"
+        }
+        function {
+          id = "tf-test"
+        }
+      }
+      ...
+      ```
+
+      For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/function_trigger).
+
+   1. Check the configuration using the command:
+
+      ```
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can verify the change to the trigger using this [CLI](../../../cli/quickstart.md) command:
+
+      ```
+      yc serverless trigger get <trigger ID>
+      ```
 
 {% endlist %}

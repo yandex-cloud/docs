@@ -24,6 +24,20 @@ Syntax:
 - [yc organization-manager user](user/index.md) — Manage users in organizations
 	- [yc organization-manager user list](user/list.md) — List user accounts of the specified organization
 	- [yc organization-manager user remove](user/remove.md) — Remove user accounts from the specified organization
+- [yc organization-manager group](group/index.md) — Manage groups in organizations
+	- [yc organization-manager group get](group/get.md) — Show information about the specified group
+	- [yc organization-manager group list](group/list.md) — List groups
+	- [yc organization-manager group create](group/create.md) — Create a group
+	- [yc organization-manager group update](group/update.md) — Update the specified group
+	- [yc organization-manager group delete](group/delete.md) — Delete the specified group
+	- [yc organization-manager group list-operations](group/list-operations.md) — List operations for the specified group
+	- [yc organization-manager group list-access-bindings](group/list-access-bindings.md) — List access bindings for the specified group
+	- [yc organization-manager group set-access-bindings](group/set-access-bindings.md) — Set access bindings for the specified group and delete all existing access bindings if there were any
+	- [yc organization-manager group add-access-binding](group/add-access-binding.md) — Add access binding for the specified group
+	- [yc organization-manager group remove-access-binding](group/remove-access-binding.md) — Remove access binding for the specified group
+	- [yc organization-manager group list-members](group/list-members.md) — List members of the specified group
+	- [yc organization-manager group add-members](group/add-members.md) — Add members to the specified group
+	- [yc organization-manager group remove-members](group/remove-members.md) — Remove members from the specified group
 
 #### Global Flags
 

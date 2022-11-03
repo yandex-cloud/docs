@@ -35,6 +35,10 @@ items:
         href: tutorials/video-converting-queue.md
       - name: Разработка навыка Алисы и сайта с авторизацией
         href: tutorials/alice-shareable-todolist.md
+      - name: >-
+          Миграция базы данных из {{ mmy-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/mmy-ydb-migration.md
   - name: Концепции
     items:
       - name: Обзор
@@ -63,6 +67,8 @@ items:
             href: pricing/ru-docapi.md
           - name: Стоимость запроса для специальных API
             href: pricing/ru-special.md
+          - name: Стоимость операций с топиками
+            href: pricing/ru-topics.md
       - name: Режим с выделенными инстансами
         href: pricing/dedicated.md
   - name: Document API, совместимый с Amazon DynamoDB

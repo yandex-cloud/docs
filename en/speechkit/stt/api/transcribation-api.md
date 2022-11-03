@@ -1,8 +1,8 @@
 # Asynchronous Recognition API
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-1. A recognition request should be sent on behalf of a [service account](../../../iam/concepts/users/service-accounts.md) with the [`editor`](../../../iam/concepts/access-control/roles.md#editor) role for the folder where it was created.
+1. A recognition request should be sent on behalf of a [service account](../../../iam/concepts/users/service-accounts.md) with the [`{{ roles-speechkit-stt }}`](../../../iam/concepts/access-control/roles.md#speechkit-roles) role for the folder where it was created.
 
    If necessary, follow the instructions:
    * [{#T}](../../../iam/operations/sa/create.md). In the management console, you can assign roles when creating a service account.

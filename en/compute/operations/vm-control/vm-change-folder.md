@@ -10,8 +10,7 @@ In {{ yandex-cloud }}, you can move a VM to another folder within one cloud.
 
 Limitations when moving a VM: 
 
-* Prior to moving, you must [stop](./vm-stop-and-start.md) the VM.
-* In [{{ monitoring-full-name }}](../../../monitoring/index.yaml), metrics are not movable. The metrics in the previous folder stay there and new metrics will already be created in the new folder.
+* In [{{ monitoring-full-name }}](../../../monitoring/), metrics are not movable. The metrics in the previous folder stay there and new metrics will already be created in the new folder.
 * You can move VMs only within a single cloud.
 
 ## Moving a VM {#change-folder}

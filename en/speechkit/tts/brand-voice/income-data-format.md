@@ -118,5 +118,4 @@ one thousand one hundred rubles}. |
 
 #### What's next {#what-is-next}
 
-* [{{ brand-voice-name }} API (Eng.)](../../new-v3/api-ref/grpc/).
-* [{#T}](import-data.md).
+* [{{ brand-voice-name }} API (Eng.)](../../tts-v3/api-ref/grpc/)

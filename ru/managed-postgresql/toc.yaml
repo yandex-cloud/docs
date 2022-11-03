@@ -33,6 +33,8 @@ items:
             href: operations/extensions/cluster-extensions.md
           - name: pg_cron
             href: operations/extensions/pg_cron.md
+          - name: pgcrypto
+            href: operations/extensions/pgcrypto.md
       - name: Управление пользователями БД
         href: operations/cluster-users.md
       - name: Назначение привилегий и ролей
@@ -47,6 +49,8 @@ items:
         href: operations/performance-diagnostics.md
       - name: Мониторинг состояния кластера и хостов
         href: operations/monitoring.md
+      - name: Управление слотами репликации
+        href: operations/replication-slots.md
   - name: Практические руководства
     items:
       - name: Все сценарии
@@ -109,6 +113,8 @@ items:
         href: concepts/supported-clients.md
       - name: Настройки PostgreSQL
         href: concepts/settings-list.md
+      - name: Ограничения для команд SQL
+        href: concepts/sql-limits.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -151,6 +157,8 @@ items:
             items:
               - name: Overview
                 href: api-ref/Backup/index.md
+              - name: delete
+                href: api-ref/Backup/delete.md
               - name: get
                 href: api-ref/Backup/get.md
               - name: list

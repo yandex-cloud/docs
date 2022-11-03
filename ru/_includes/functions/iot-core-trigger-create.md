@@ -1,4 +1,4 @@
-Создайте триггер для [топика](../../iot-core/concepts/topic/index.md) устройства или реестра сервиса {{ iot-name }} и обрабатывайте копии сообщений с помощью [функции](../../functions/concepts/function.md) {{ sf-name }} или [контейнера](../../serverless-containers/concepts/container.md) {{ serverless-containers-name}}.
+Создайте [триггер](../../functions/concepts/trigger/iot-core-trigger.md) для топика устройства или реестра сервиса {{ iot-name }} и обрабатывайте копии сообщений с помощью [функции](../../functions/concepts/function.md) {{ sf-name }}.
 
 {% note warning %}
 
@@ -6,30 +6,14 @@
 
 {% endnote %}
 
-## Перед началом работы {#before-begin}
+## Перед началом работы {#before-you-begin}
 
-Для создания триггера вам понадобятся: 
-
-* [Функция](../../functions/concepts/function.md) или [контейнер](../../serverless-containers/concepts/container.md), которые триггер будет запускать.
-
-    * Если у вас нет функции:
-
-        * [Создайте функцию](../../functions/operations/function/function-create.md).
-        * [Создайте версию функции](../../functions/operations/function/version-manage.md#func-version-create).
-
-    * Если у вас нет контейнера:
-
-        * [Создайте контейнер](../../serverless-containers/operations/create.md).
-        * [Создайте ревизию контейнера](../../serverless-containers/operations/manage-revision.md#create).
+{% include [trigger-before-you-begin](trigger-before-you-begin.md) %}
 
 * [Реестр](../../iot-core/concepts/index.md#registry) или [устройство](../../iot-core/concepts/index.md#device), из топиков которых триггер будет принимать копии сообщений. Если у вас их нет:
 
     * [Создайте реестр](../../iot-core/operations/registry/registry-create.md).
     * [Создайте устройство](../../iot-core/operations/device/device-create.md).
-
-* (опционально) Очередь [Dead Letter Queue](../../functions/concepts/dlq.md), куда будут перенаправляться сообщения, которые не смогли обработать функция или контейнер. Если у вас нет очереди, [создайте ее](../../message-queue/operations/message-queue-new-queue.md).
-
-* [Сервисные аккаунты](../../iam/concepts/users/service-accounts.md) с правами на вызов функции или контейнера и (опционально) запись в очередь [Dead Letter Queue](../../functions/concepts/dlq.md). Вы можете использовать один и тот же сервисный аккаунт или разные. Если у вас нет сервисного аккаунта, [создайте его](../../iam/operations/sa/create.md).
 
 ## Создать триггер {#trigger-create}
 
@@ -50,29 +34,20 @@
     1. В блоке **Базовые параметры**:
 
         * Введите имя и описание триггера.
-        * В поле **Тип** выберите **Yandex IoT Core**.
-        * Выберите, что будет запускать триггер — функцию или контейнер.
+        * В поле **Тип** выберите **{{ iot-name }}**.
+        * В поле **Запускаемый ресурс** выберите **Функция**.
 
-    1. В блоке **Настройки сообщений Yandex IoT Core** укажите реестр, устройство и MQTT-топик, для которого хотите создать триггер. Если вы создаете триггер для топика реестра, устройство и MQTT-топик можно не указывать.
+    1. В блоке **Настройки сообщений {{ iot-name }}** укажите реестр, устройство и MQTT-топик, для которого хотите создать триггер. Если вы создаете триггер для топика реестра, устройство и MQTT-топик можно не указывать.
 
-    1. Если триггер будет запускать:
+    1. В блоке **Настройки функции** выберите функцию и укажите:
 
-        * функцию, в блоке **Настройки функции** выберите ее и укажите:
-
-            * [тег версии функции](../../functions/concepts/function.md#tag);
-            * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого будет вызываться функция.
-
-        * контейнер, в блоке **Настройки контейнера** выберите его и укажите:
-
-            * [ревизию контейнера](../../serverless-containers/concepts/container.md#revision);
-            * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого будет вызываться контейнер.
-
+        {% include [function-settings](function-settings.md) %}
+        
     1. (опционально) В блоке **Настройки повторных запросов**:
 
-        * В поле **Интервал** укажите время, через которое будет сделан повторный вызов функции или контейнера, если текущий завершился неуспешно. Допустимые значения — от 10 до 60 секунд, значение по умолчанию — 10 секунд.
-        * В поле **Количество попыток** укажите количество повторных вызовов функции или контейнера, которые будут сделаны, прежде чем триггер отправит сообщение в [Dead Letter Queue](../../functions/concepts/dlq.md). Допустимые значения — от 1 до 5, значение по умолчанию — 1.
+        {% include [repeat-request.md](repeat-request.md) %}
 
-    1. (опционально) В блоке **Настройки Dead Letter Queue** выберите очередь [Dead Letter Queue](../../functions/concepts/dlq.md) и сервисный аккаунт с правами на запись в нее.
+    1. (опционально) В блоке **Настройки Dead Letter Queue** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
 
     1. Нажмите кнопку **Создать триггер**.
 
@@ -82,9 +57,9 @@
     
     {% include [default-catalogue](../default-catalogue.md) %}
 
-    Чтобы создать триггер, который запускает функцию, выполните команду:
+    Чтобы создать триггер, который вызывает функцию, выполните команду:
 
-    ```
+    ```bash
     yc serverless trigger create internet-of-things \
       --name <имя триггера> \
       --registry-id <идентификатор реестра> \
@@ -104,16 +79,12 @@
     * `--registry-id` — [идентификатор реестра](../../iot-core/operations/registry/registry-list.md).
     * `--device-id` — [идентификатор устройства](../../iot-core/operations/device/device-list.md). Если вы создаете триггер для топика реестра, этот параметр можно не указывать.
     * `--mqtt-topic` — топик, для которого вы хотите создать триггер.
-    * `--invoke-function-id` — идентификатор функции.
-    * `--invoke-function-service-account-id` — сервисный аккаунт с правами на вызов функции.
-    * `--retry-attempts` — время, через которое будет сделан повторный вызов функции, если текущий завершился неуспешно. Необязательный параметр. Допустимые значения — от 10 до 60 секунд, значение по умолчанию — 10 секунд.
-    * `--retry-interval` — количество повторных вызовов, которые будут сделаны, прежде чем триггер отправит сообщение в [Dead Letter Queue](../../functions/concepts/dlq.md). Необязательный параметр. Допустимые значения — от 1 до 5, значение по умолчанию — 1.
-    * `--dlq-queue-id` — идентификатор очереди [Dead Letter Queue](../../functions/concepts/dlq.md). Необязательный параметр.
-    * `--dlq-service-account-id` — сервисный аккаунт с правами на запись в очередь [Dead Letter Queue](../../functions/concepts/dlq.md). Необязательный параметр.
+    
+    {% include [trigger-cli-param](trigger-cli-param.md) %}
 
     Результат:
     
-    ```
+    ```text
     id: a1sl0mkmimfj3uv52fr8
     folder_id: b1g88tflru0ek1omtsu0
     created_at: "2019-09-25T13:54:35.654935Z"
@@ -214,3 +185,7 @@
 ## Проверить результат {#check-result}
 
 {% include [check-result](check-result.md) %}
+
+## См. также {#see-also}
+
+* [Триггер для {{ iot-name }}, который передает сообщения в контейнер {{ serverless-containers-name }}](../../serverless-containers/operations/iot-core-trigger-create.md).

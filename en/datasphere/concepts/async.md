@@ -8,9 +8,15 @@ Specifics of background operations:
 * Running operations in the background does not guarantee their immediate execution.
 * In general, background operations may take longer than regular ones.
 * Background operations can run on [preemptible](../../compute/concepts/preemptible-vm.md) virtual machines and resources.
-* Cells with running background operations have read-only access to project storage. If there are conflicts after the calculations are complete, you will be prompted either to save the calculation output or to revert to the previous variable values.
 * Any background operations are suspended if there is an attempt to call interactive functions (such as, `input()` or `getpass()`).
 * Different pricing policies apply to background operations. For more information, see [{#T}](../pricing.md).
+* Cells with running background operations have read-only access to project storage. If there is a conflict in variable values after a background operation completes, {{ ml-platform-name }} will ask whether to save the computation result or to roll back to the previous values.
+
+   {% note tip %}
+
+   Use object storage to save data during a background operation (such as logs or intermediate results). For a description of S3 storage usage in {{ ml-platform-name }} projects, see [{#T}](../operations/data/connect-to-s3.md).
+
+   {% endnote %}
 
 ## Running background operations {#run}
 
@@ -19,7 +25,7 @@ To run a background operation, add the `#pragma async` comment to the cell.
 To run a test background operation:
 1. Specify a test model, such as:
 
-   ```
+   ```python
    mnist = tf.keras.datasets.mnist
 
    (x_train, y_train),(x_test, y_test) = mnist.load_data()
@@ -36,7 +42,7 @@ To run a test background operation:
 
 1. Start model training by adding the `#pragma async` comment at the beginning of the cell:
 
-   ```
+   ```python
    #pragma async
    model = create_model()
    model.compile(optimizer='adam',

@@ -17,11 +17,7 @@ For individuals:
 * Address.
 * Country.
 
-{% note info %}
 
-To provide additional user details in your billing account contact [technical support](../support/overview.md#response-time).
-
-{% endnote %}
 
 
 ## Updating details {#how-to-update}
@@ -43,3 +39,4 @@ To check and update user details, follow these steps:
 1. Update the details. For more information, see [Help for Yandex Balance](https://yandex.ru/support/balance/operations/change-data.html).
 
 When deploying the product in the future, you will not need to provide the details again.
+

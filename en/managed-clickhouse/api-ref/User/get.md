@@ -10,7 +10,7 @@ To get the list of available ClickHouse User resources, make a [list](/docs/mana
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/users/{userName}
+GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path parameters {#path_params}
@@ -35,21 +35,25 @@ userName | <p>Required. Name of the ClickHouse User resource to return. To get t
   "settings": {
     "readonly": "integer",
     "allowDdl": true,
-    "insertQuorum": "integer",
+    "allowIntrospectionFunctions": true,
     "connectTimeout": "integer",
+    "connectTimeoutWithFailover": "integer",
     "receiveTimeout": "integer",
     "sendTimeout": "integer",
+    "timeoutBeforeCheckingExecutionSpeed": "integer",
+    "insertQuorum": "integer",
     "insertQuorumTimeout": "integer",
+    "insertQuorumParallel": true,
+    "insertNullAsDefault": true,
     "selectSequentialConsistency": true,
+    "deduplicateBlocksInDependentMaterializedViews": true,
+    "replicationAlterPartitionsSync": "integer",
     "maxReplicaDelayForDistributedQueries": "integer",
     "fallbackToStaleReplicasForDistributedQueries": true,
-    "replicationAlterPartitionsSync": "integer",
     "distributedProductMode": "string",
     "distributedAggregationMemoryEfficient": true,
     "distributedDdlTaskTimeout": "integer",
     "skipUnavailableShards": true,
-    "compile": true,
-    "minCountToCompile": "integer",
     "compileExpressions": true,
     "minCountToCompileExpression": "integer",
     "maxBlockSize": "integer",
@@ -72,6 +76,8 @@ userName | <p>Required. Name of the ClickHouse User resource to return. To get t
     "maxMemoryUsageForUser": "integer",
     "maxNetworkBandwidth": "integer",
     "maxNetworkBandwidthForUser": "integer",
+    "maxPartitionsPerInsertBlock": "integer",
+    "maxConcurrentQueriesForUser": "integer",
     "forceIndexByDate": true,
     "forcePrimaryKey": true,
     "maxRowsToRead": "integer",
@@ -99,6 +105,10 @@ userName | <p>Required. Name of the ClickHouse User resource to return. To get t
     "maxRowsInJoin": "integer",
     "maxBytesInJoin": "integer",
     "joinOverflowMode": "string",
+    "joinAlgorithm": [
+      "string"
+    ],
+    "anyJoinDistinctRightTableKeys": true,
     "maxColumnsToRead": "integer",
     "maxTemporaryColumns": "integer",
     "maxTemporaryNonConstColumns": "integer",
@@ -111,13 +121,15 @@ userName | <p>Required. Name of the ClickHouse User resource to return. To get t
     "countDistinctImplementation": "string",
     "inputFormatValuesInterpretExpressions": true,
     "inputFormatDefaultsForOmittedFields": true,
+    "inputFormatNullAsDefault": true,
+    "dateTimeInputFormat": "string",
+    "inputFormatWithNamesUseHeader": true,
     "outputFormatJsonQuote_64BitIntegers": true,
     "outputFormatJsonQuoteDenormals": true,
+    "dateTimeOutputFormat": "string",
     "lowCardinalityAllowInNativeFormat": true,
+    "allowSuspiciousLowCardinalityTypes": true,
     "emptyResultForAggregationByEmptySet": true,
-    "joinedSubqueryRequiresAlias": true,
-    "joinUseNulls": true,
-    "transformNullIn": true,
     "httpConnectionTimeout": "integer",
     "httpReceiveTimeout": "integer",
     "httpSendTimeout": "integer",
@@ -125,7 +137,27 @@ userName | <p>Required. Name of the ClickHouse User resource to return. To get t
     "sendProgressInHttpHeaders": true,
     "httpHeadersProgressInterval": "integer",
     "addHttpCorsHeader": true,
-    "quotaMode": "string"
+    "cancelHttpReadonlyQueriesOnClientClose": true,
+    "maxHttpGetRedirects": "integer",
+    "joinedSubqueryRequiresAlias": true,
+    "joinUseNulls": true,
+    "transformNullIn": true,
+    "quotaMode": "string",
+    "flattenNested": true,
+    "formatRegexp": "string",
+    "formatRegexpEscapingRule": "string",
+    "formatRegexpSkipUnmatched": true,
+    "asyncInsert": true,
+    "asyncInsertThreads": "integer",
+    "waitForAsyncInsert": true,
+    "waitForAsyncInsertTimeout": "integer",
+    "asyncInsertMaxDataSize": "integer",
+    "asyncInsertBusyTimeout": "integer",
+    "asyncInsertStaleTimeout": "integer",
+    "memoryProfilerStep": "integer",
+    "memoryProfilerSampleProbability": "number",
+    "compile": true,
+    "minCountToCompile": "integer"
   },
   "quotas": [
     {
@@ -151,21 +183,25 @@ permissions[].<br>databaseName | **string**<br><p>Name of the database that the 
 settings | **object**<br><p>ClickHouse user settings. Supported settings are a limited subset of all settings described in <a href="https://clickhouse.com/docs/en/operations/settings/">ClickHouse documentation</a>.</p> 
 settings.<br>readonly | **integer** (int64)<br><p>Restricts permissions for non-DDL queries. To restrict permissions for DDL queries, use ``allowDdl`` instead.</p> <ul> <li><strong>0</strong> (default)-no restrictions.</li> <li><strong>1</strong>-only read data queries are allowed.</li> <li><strong>2</strong>-read data and change settings queries are allowed.</li> </ul> <p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/permissions-for-queries/#settings_readonly">ClickHouse documentation</a>.</p> <p>Acceptable values are 0 to 2, inclusive.</p> 
 settings.<br>allowDdl | **boolean** (boolean)<br><p>Determines whether DDL queries are allowed (e.g., <strong>CREATE</strong>, <strong>ALTER</strong>, <strong>RENAME</strong>, etc).</p> <p>Default value: <strong>true</strong>.</p> <p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/permissions-for-queries/#settings_allow_ddl">ClickHouse documentation</a>.</p> 
-settings.<br>insertQuorum | **integer** (int64)<br><p>Enables or disables write quorum for ClickHouse cluster. If the value is less than <strong>2</strong>, then write quorum is disabled, otherwise it is enabled.</p> <p>When used, write quorum guarantees that ClickHouse has written data to the quorum of <strong>insert_quorum</strong> replicas with no errors until the ``insertQuorumTimeout`` expires. All replicas in the quorum are in the consistent state, meaning that they contain linearized data from the previous <strong>INSERT</strong> queries. Employ write quorum, if you need the guarantees that the written data would not be lost in case of one or more replicas failure.</p> <p>You can use ``selectSequentialConsistency`` setting to read the data written with write quorum.</p> <p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum">ClickHouse documentation</a>.</p> <p>The minimum value is 0.</p> 
+settings.<br>allowIntrospectionFunctions | **boolean** (boolean)<br><p>Enables <a href="https://clickhouse.com/docs/en/sql-reference/functions/introspection">introspections functions</a> for query profiling.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#settings-allow_introspection_functions">ClickHouse documentation</a>.</p> 
 settings.<br>connectTimeout | **integer** (int64)<br><p>Connection timeout in milliseconds.</p> <p>Value must be greater than <strong>0</strong> (default: <strong>10000</strong>, 10 seconds).</p> <p>Value must be greater than 0.</p> 
+settings.<br>connectTimeoutWithFailover | **integer** (int64)<br><p>The timeout in milliseconds for connecting to a remote server for a Distributed table engine. Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.</p> <p>Default value: <strong>50</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#connect-timeout-with-failover-ms">ClickHouse documentation</a>.</p> <p>Value must be greater than 0.</p> 
 settings.<br>receiveTimeout | **integer** (int64)<br><p>Receive timeout in milliseconds.</p> <p>Value must be greater than <strong>0</strong> (default: <strong>300000</strong>, 300 seconds or 5 minutes).</p> <p>Value must be greater than 0.</p> 
 settings.<br>sendTimeout | **integer** (int64)<br><p>Send timeout in milliseconds.</p> <p>Value must be greater than <strong>0</strong> (default: <strong>300000</strong>, 300 seconds or 5 minutes).</p> <p>Value must be greater than 0.</p> 
+settings.<br>timeoutBeforeCheckingExecutionSpeed | **integer** (int64)<br><p>Timeout (in seconds) between checks of execution speed. It is checked that execution speed is not less that specified in ``minExecutionSpeed`` parameter.</p> <p>Default value: <strong>10</strong>.</p> 
+settings.<br>insertQuorum | **integer** (int64)<br><p>Enables or disables write quorum for ClickHouse cluster. If the value is less than <strong>2</strong>, then write quorum is disabled, otherwise it is enabled.</p> <p>When used, write quorum guarantees that ClickHouse has written data to the quorum of <strong>insert_quorum</strong> replicas with no errors until the ``insertQuorumTimeout`` expires. All replicas in the quorum are in the consistent state, meaning that they contain linearized data from the previous <strong>INSERT</strong> queries. Employ write quorum, if you need the guarantees that the written data would not be lost in case of one or more replicas failure.</p> <p>You can use ``selectSequentialConsistency`` setting to read the data written with write quorum.</p> <p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum">ClickHouse documentation</a>.</p> <p>The minimum value is 0.</p> 
 settings.<br>insertQuorumTimeout | **integer** (int64)<br><p>Quorum write timeout in milliseconds.</p> <p>If the write quorum is enabled in the cluster, this timeout expires and some data is not written to the ``insertQuorum`` replicas, then ClickHouse will abort the execution of <strong>INSERT</strong> query and return an error. In this case, the client must send the query again to write the data block into the same or another replica.</p> <p>Minimum value: <strong>1000</strong>, 1 second (default: <strong>60000</strong>, 1 minute).</p> <p>The minimum value is 1000.</p> 
+settings.<br>insertQuorumParallel | **boolean** (boolean)<br><p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum_parallel">ClickHouse documentation</a>.</p> 
+settings.<br>insertNullAsDefault | **boolean** (boolean)<br><p>Enables the insertion of default values instead of NULL into columns with not nullable data type.</p> <p>Default value: <strong>true</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#insert_null_as_default">ClickHouse documentation</a>.</p> 
 settings.<br>selectSequentialConsistency | **boolean** (boolean)<br><p>Determines the behavior of <strong>SELECT</strong> queries from the replicated table: if enabled, ClickHouse will terminate a query with error message in case the replica does not have a chunk written with the quorum and will not read the parts that have not yet been written with the quorum.</p> <p>Default value: <strong>false</strong> (sequential consistency is disabled).</p> 
+settings.<br>deduplicateBlocksInDependentMaterializedViews | **boolean** (boolean)<br><p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#settings-deduplicate-blocks-in-dependent-materialized-views">ClickHouse documentation</a>.</p> 
+settings.<br>replicationAlterPartitionsSync | **integer** (int64)<br><p>Wait mode for asynchronous actions in <strong>ALTER</strong> queries on replicated tables:</p> <ul> <li><strong>0</strong>-do not wait for replicas.</li> <li><strong>1</strong>-only wait for own execution (default).</li> <li><strong>2</strong>-wait for all replicas.</li> </ul> <p>See in-depth description in <a href="https://clickhouse.com/docs/en/sql-reference/statements/alter/#synchronicity-of-alter-queries">ClickHouse documentation</a>.</p> <p>Acceptable values are 0 to 2, inclusive.</p> 
 settings.<br>maxReplicaDelayForDistributedQueries | **integer** (int64)<br><p>Max replica delay in milliseconds. If a replica lags more than the set value, this replica is not used and becomes a stale one.</p> <p>Minimum value: <strong>1000</strong>, 1 second (default: <strong>300000</strong>, 300 seconds or 5 minutes).</p> <p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#settings-max_replica_delay_for_distributed_queries">ClickHouse documentation</a>.</p> <p>The minimum value is 1000.</p> 
 settings.<br>fallbackToStaleReplicasForDistributedQueries | **boolean** (boolean)<br><p>Enables or disables query forcing to a stale replica in case the actual data is unavailable. If enabled, ClickHouse will choose the most up-to-date replica and force the query to use the data in this replica. This setting can be used when doing <strong>SELECT</strong> query from a distributed table that points to replicated tables.</p> <p>Default value: <strong>true</strong> (query forcing is enabled).</p> <p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries">ClickHouse documentation</a>.</p> 
-settings.<br>replicationAlterPartitionsSync | **integer** (int64)<br><p>Wait mode for asynchronous actions in <strong>ALTER</strong> queries on replicated tables:</p> <ul> <li><strong>0</strong>-do not wait for replicas.</li> <li><strong>1</strong>-only wait for own execution (default).</li> <li><strong>2</strong>-wait for all replicas.</li> </ul> <p>See in-depth description in <a href="https://clickhouse.com/docs/en/sql-reference/statements/alter/#synchronicity-of-alter-queries">ClickHouse documentation</a>.</p> <p>Acceptable values are 0 to 2, inclusive.</p> 
 settings.<br>distributedProductMode | **string**<br><p>Determine the behavior of distributed subqueries.</p> <p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#distributed-product-mode">ClickHouse documentation</a>.</p> <ul> <li>DISTRIBUTED_PRODUCT_MODE_DENY: Default value. Prohibits using these types of subqueries (returns the "Double-distributed in/JOIN subqueries is denied" exception).</li> <li>DISTRIBUTED_PRODUCT_MODE_LOCAL: Replaces the database and table in the subquery with local ones for the destination server (shard), leaving the normal IN/JOIN.</li> <li>DISTRIBUTED_PRODUCT_MODE_GLOBAL: Replaces the IN/JOIN query with GLOBAL IN/GLOBAL JOIN.</li> <li>DISTRIBUTED_PRODUCT_MODE_ALLOW: Allows the use of these types of subqueries.</li> </ul> 
 settings.<br>distributedAggregationMemoryEfficient | **boolean** (boolean)<br><p>Enables of disables memory saving mode when doing distributed aggregation.</p> <p>When ClickHouse works with a distributed query, external aggregation is done on remote servers. Enable this setting to achieve a smaller memory footprint on the server that sourced such a distributed query.</p> <p>Default value: <strong>false</strong> (memory saving mode is disabled).</p> <p>See in-depth description in <a href="https://clickhouse.com/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory">ClickHouse documentation</a>.</p> 
 settings.<br>distributedDdlTaskTimeout | **integer** (int64)<br><p>Timeout for DDL queries, in milliseconds.</p> 
 settings.<br>skipUnavailableShards | **boolean** (boolean)<br><p>Enables or disables silent skipping of unavailable shards.</p> <p>A shard is considered unavailable if all its replicas are also unavailable.</p> <p>Default value: <strong>false</strong> (silent skipping is disabled).</p> <p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#settings-skip_unavailable_shards">ClickHouse documentation</a>.</p> 
-settings.<br>compile | **boolean** (boolean)<br><p>Enables or disables query compilation. If you execute a lot of structurally identical queries, then enable this setting. As a result, such queries may be executed faster due to use of queries' compiled parts.</p> <p>Use this setting in combination with ``minCountToCompile`` setting.</p> <p>Default value: <strong>false</strong> (compilation is disabled).</p> <p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#compile">ClickHouse documentation</a>.</p> 
-settings.<br>minCountToCompile | **integer** (int64)<br><p>How many structurally identical queries ClickHouse has to encounter before they are compiled.</p> <p>Minimum value: <strong>0</strong> (default: <strong>3</strong>).</p> <p>For the <strong>0</strong> value compilation is synchronous: a query waits for compilation process to complete prior to continuing execution. It is recommended to set this value only for testing purposes.</p> <p>For all other values, compilation is asynchronous: the compilation process executes in a separate thread. When a compiled part of query is ready, it will be used by ClickHouse for eligible queries, including the ones that are currently running.</p> <p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#min-count-to-compile">ClickHouse documentation</a>.</p> <p>The minimum value is 0.</p> 
 settings.<br>compileExpressions | **boolean** (boolean)<br><p>Enables or disables expression compilation. If you execute a lot of queries that contain identical expressions, then enable this setting. As a result, such queries may be executed faster due to use of compiled expressions.</p> <p>Use this setting in combination with ``minCountToCompileExpression`` setting.</p> <p>Default value: <strong>false</strong> (expression compilation is disabled).</p> 
 settings.<br>minCountToCompileExpression | **integer** (int64)<br><p>How many identical expressions ClickHouse has to encounter before they are compiled.</p> <p>Minimum value: <strong>0</strong> (default: <strong>3</strong>).</p> <p>For the <strong>0</strong> value compilation is synchronous: a query waits for expression compilation process to complete prior to continuing execution. It is recommended to set this value only for testing purposes.</p> <p>For all other values, compilation is asynchronous: the compilation process executes in a separate thread. When a compiled expression is ready, it will be used by ClickHouse for eligible queries, including the ones that are currently running.</p> <p>The minimum value is 0.</p> 
 settings.<br>maxBlockSize | **integer** (int64)<br><p>The maximum block size for reading.</p> <p>Data in ClickHouse is organized and processed by blocks (block is a set of columns' parts). The internal processing cycles for a single block are efficient enough, but there are noticeable expenditures on each block.</p> <p>This setting is a recommendation for size of block (in a count of rows) that should be loaded from tables.</p> <p>Value must be greater than <strong>0</strong> (default: <strong>65536</strong>).</p> <p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#setting-max_block_size">ClickHouse documentation</a>.</p> <p>Value must be greater than 0.</p> 
@@ -188,6 +224,8 @@ settings.<br>maxMemoryUsage | **integer** (int64)<br><p>Limits the maximum memor
 settings.<br>maxMemoryUsageForUser | **integer** (int64)<br><p>Limits the maximum memory usage (in bytes) for processing of user's queries on a single server. This setting does not take server's free RAM amount or total RAM amount into account.</p> <p>This limitation is enforced for all queries that belong to one user and run simultaneously on a single server.</p> <p>Minimal value and default value: <strong>0</strong>, no limitation is set.</p> <p>The minimum value is 0.</p> 
 settings.<br>maxNetworkBandwidth | **integer** (int64)<br><p>The maximum speed of data exchange over the network in bytes per second for a query.</p> <p>Minimal value and default value: <strong>0</strong>, no limitation is set.</p> 
 settings.<br>maxNetworkBandwidthForUser | **integer** (int64)<br><p>The maximum speed of data exchange over the network in bytes per second for all concurrently running user queries.</p> <p>Minimal value and default value: <strong>0</strong>, no limitation is set.</p> 
+settings.<br>maxPartitionsPerInsertBlock | **integer** (int64)<br><p>See in-depth description in <a href="https://clickhouse.com/docs/ru/operations/settings/query-complexity/#max-partitions-per-insert-block">ClickHouse documentation</a>.</p> 
+settings.<br>maxConcurrentQueriesForUser | **integer** (int64)<br><p>The maximum number of concurrent requests per user. Default value: 0 (no limit).</p> 
 settings.<br>forceIndexByDate | **boolean** (boolean)<br><p>If enabled, query is not executed if the ClickHouse can't use index by date. This setting has effect only for tables of the MergeTree family.</p> <p>Default value: <strong>false</strong> (setting is disabled, query executes even if ClickHouse can't use index by date).</p> <p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#settings-force_index_by_date">ClickHouse documentation</a>.</p> 
 settings.<br>forcePrimaryKey | **boolean** (boolean)<br><p>If enabled, query is not executed if the ClickHouse can't use index by primary key. This setting has effect only for tables of the MergeTree family.</p> <p>Default value: <strong>false</strong> (setting is disabled, query executes even if ClickHouse can't use index by primary key).</p> <p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#force-primary-key">ClickHouse documentation</a>.</p> 
 settings.<br>maxRowsToRead | **integer** (int64)<br><p>Limits the maximum number of rows that can be read from a table when running a query.</p> <p>Minimal value and default value: <strong>0</strong>, no limitation is set.</p> <p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/query-complexity/#max-rows-to-read">ClickHouse documentation</a>.</p> <p>The minimum value is 0.</p> 
@@ -215,6 +253,8 @@ settings.<br>setOverflowMode | **string**<br><p>Determine the behavior on exceed
 settings.<br>maxRowsInJoin | **integer** (int64)<br><p>Limit on maximum size of the hash table for JOIN, in rows.</p> <p>The minimum value is 0.</p> 
 settings.<br>maxBytesInJoin | **integer** (int64)<br><p>Limit on maximum size of the hash table for JOIN, in bytes.</p> <p>The minimum value is 0.</p> 
 settings.<br>joinOverflowMode | **string**<br><p>Determine the behavior on exceeding max_rows_in_join or max_bytes_in_join limit. Possible values: OVERFLOW_MODE_THROW, OVERFLOW_MODE_BREAK.</p> 
+settings.<br>joinAlgorithm[] | **string**<br><p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#settings-join_algorithm">ClickHouse documentation</a>.</p> 
+settings.<br>anyJoinDistinctRightTableKeys | **boolean** (boolean)<br><p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#any_join_distinct_right_table_keys">ClickHouse documentation</a>.</p> 
 settings.<br>maxColumnsToRead | **integer** (int64)<br><p>Limits the maximum number of columns that can be read from a table in a single query. If the query requires to read more columns to complete, then it will be aborted.</p> <p>Minimal value and default value: <strong>0</strong>, no limitation is set.</p> <p>The minimum value is 0.</p> 
 settings.<br>maxTemporaryColumns | **integer** (int64)<br><p>Limits the maximum number of temporary columns that must be kept in RAM at the same time when running a query, including constant columns.</p> <p>Minimal value and default value: <strong>0</strong>, no limitation is set.</p> <p>The minimum value is 0.</p> 
 settings.<br>maxTemporaryNonConstColumns | **integer** (int64)<br><p>Limits the maximum number of temporary columns that must be kept in RAM at the same time when running a query, excluding constant columns.</p> <p>Minimal value and default value: <strong>0</strong>, no limitation is set.</p> <p>The minimum value is 0.</p> 
@@ -227,13 +267,15 @@ settings.<br>minExecutionSpeedBytes | **integer** (int64)<br><p>Minimal executio
 settings.<br>countDistinctImplementation | **string**<br><p>Aggregate function to use for implementation of count(DISTINCT ...).</p> 
 settings.<br>inputFormatValuesInterpretExpressions | **boolean** (boolean)<br><p>Enables or disables SQL parser if the fast stream parser cannot parse the data.</p> <p>Enable this setting, if the data that you want to insert into a table contains SQL expressions.</p> <p>For example, the stream parser is unable to parse a value that contains <strong>now()</strong> expression; therefore an <strong>INSERT</strong> query for this value will fail and no data will be inserted into a table. With enabled SQL parser, this expression is parsed correctly: the <strong>now()</strong> expression will be parsed as SQL function, interpreted, and the current date and time will be inserted into the table as a result.</p> <p>This setting has effect only if you use <a href="https://clickhouse.com/docs/en/interfaces/formats/#data-format-values">Values</a> format when inserting data.</p> <p>Default value: <strong>true</strong> (SQL parser is enabled).</p> <p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#settings-input_format_values_interpret_expressions">ClickHouse documentation</a>.</p> 
 settings.<br>inputFormatDefaultsForOmittedFields | **boolean** (boolean)<br><p>Enables or disables replacing omitted input values with default values of the respective columns when performing <strong>INSERT</strong> queries.</p> <p>Default value: <strong>true</strong> (replacing is enabled).</p> 
+settings.<br>inputFormatNullAsDefault | **boolean** (boolean)<br><p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#input_format_null_as_default">ClickHouse documentation</a>.</p> 
+settings.<br>dateTimeInputFormat | **string**<br><p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#date_time_input_format">ClickHouse documentation</a>.</p> 
+settings.<br>inputFormatWithNamesUseHeader | **boolean** (boolean)<br><p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#input_format_with_names_use_header">ClickHouse documentation</a>.</p> 
 settings.<br>outputFormatJsonQuote_64BitIntegers | **boolean** (boolean)<br><p>Enables quoting of 64-bit integers in JSON output format.</p> <p>If this setting is enabled, then 64-bit integers (<strong>UInt64</strong> and <strong>Int64</strong>) will be quoted when written to JSON output in order to maintain compatibility with the most of the JavaScript engines. Otherwise, such integers will not be quoted.</p> <p>Default value: <strong>false</strong> (quoting 64-bit integers is disabled).</p> 
 settings.<br>outputFormatJsonQuoteDenormals | **boolean** (boolean)<br><p>Enables special floating-point values (<strong>+nan</strong>, <strong>-nan</strong>, <strong>+inf</strong> and <strong>-inf</strong>) in JSON output format.</p> <p>Default value: <strong>false</strong> (special values do not present in output).</p> 
+settings.<br>dateTimeOutputFormat | **string**<br><p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#date_time_output_format">ClickHouse documentation</a>.</p> 
 settings.<br>lowCardinalityAllowInNativeFormat | **boolean** (boolean)<br><p>Determines whether to use LowCardinality type in Native format.</p> <ul> <li><strong>true</strong> (default)-yes, use.</li> <li><strong>false</strong>-convert LowCardinality columns to regular columns when doing <strong>SELECT</strong>, and convert regular columns to LowCardinality when doing <strong>INSERT</strong>.</li> </ul> <p>LowCardinality columns (aka sparse columns) store data in more effective way, compared to regular columns, by using hash tables. If data to insert suits this storage format, ClickHouse will place them into LowCardinality column.</p> <p>If you use a third-party ClickHouse client that can't work with LowCardinality columns, then this client will not be able to correctly interpret the result of the query that asks for data stored in LowCardinality column. Disable this setting to convert LowCardinality column to regular column when creating the result, so such clients will be able to process the result.</p> <p>Official ClickHouse client works with LowCardinality columns out-of-the-box.</p> <p>Default value: <strong>true</strong> (LowCardinality columns are used in Native format).</p> 
+settings.<br>allowSuspiciousLowCardinalityTypes | **boolean** (boolean)<br><p>Allows specifying <strong>LowCardinality</strong> modifier for types of small fixed size (8 or less) in CREATE TABLE statements. Enabling this may increase merge times and memory consumption.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#allow_suspicious_low_cardinality_types">ClickHouse documentation</a>.</p> 
 settings.<br>emptyResultForAggregationByEmptySet | **boolean** (boolean)<br><p>Enables returning of empty result when aggregating without keys (with <strong>GROUP BY</strong> operation absent) on empty set (e.g., <strong>SELECT count(*) FROM table WHERE 0</strong>).</p> <ul> <li><strong>true</strong>-ClickHouse will return an empty result for such queries.</li> <li><strong>false</strong> (default)-ClickHouse will return a single-line result consisting of <strong>NULL</strong> values for aggregation functions, in accordance with SQL standard.</li> </ul> 
-settings.<br>joinedSubqueryRequiresAlias | **boolean** (boolean)
-settings.<br>joinUseNulls | **boolean** (boolean)
-settings.<br>transformNullIn | **boolean** (boolean)
 settings.<br>httpConnectionTimeout | **integer** (int64)<br><p>HTTP connection timeout, in milliseconds.</p> <p>Value must be greater than <strong>0</strong> (default: <strong>1000</strong>, 1 second).</p> 
 settings.<br>httpReceiveTimeout | **integer** (int64)<br><p>HTTP receive timeout, in milliseconds.</p> <p>Value must be greater than <strong>0</strong> (default: <strong>1800000</strong>, 1800 seconds, 30 minutes).</p> 
 settings.<br>httpSendTimeout | **integer** (int64)<br><p>HTTP send timeout, in milliseconds.</p> <p>Value must be greater than <strong>0</strong> (default: <strong>1800000</strong>, 1800 seconds, 30 minutes).</p> 
@@ -241,7 +283,27 @@ settings.<br>enableHttpCompression | **boolean** (boolean)<br><p>Enables or disa
 settings.<br>sendProgressInHttpHeaders | **boolean** (boolean)<br><p>Enables progress notifications using <strong>X-ClickHouse-Progress</strong> HTTP header.</p> <p>Default value: <strong>false</strong> (notifications disabled).</p> 
 settings.<br>httpHeadersProgressInterval | **integer** (int64)<br><p>Minimum interval between progress notifications with <strong>X-ClickHouse-Progress</strong> HTTP header, in milliseconds.</p> <p>Value must be greater than <strong>0</strong> (default: <strong>100</strong>).</p> 
 settings.<br>addHttpCorsHeader | **boolean** (boolean)<br><p>Adds CORS header in HTTP responses.</p> <p>Default value: <strong>false</strong> (header is not added).</p> 
+settings.<br>cancelHttpReadonlyQueriesOnClientClose | **boolean** (boolean)<br><p>Cancels HTTP read-only queries (e.g. SELECT) when a client closes the connection without waiting for the response.</p> <p>Default value: <strong>false</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#cancel-http-readonly-queries-on-client-close">ClickHouse documentation</a>.</p> 
+settings.<br>maxHttpGetRedirects | **integer** (int64)<br><p>Limits the maximum number of HTTP GET redirect hops for <a href="https://clickhouse.com/docs/en/engines/table-engines/special/url">URL-engine</a> tables.</p> <p>If the parameter is set to <strong>0</strong> (default), no hops is allowed.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#setting-max_http_get_redirects">ClickHouse documentation</a>.</p> 
+settings.<br>joinedSubqueryRequiresAlias | **boolean** (boolean)
+settings.<br>joinUseNulls | **boolean** (boolean)
+settings.<br>transformNullIn | **boolean** (boolean)
 settings.<br>quotaMode | **string**<br><p>Quota accounting mode. Possible values: QUOTA_MODE_DEFAULT, QUOTA_MODE_KEYED and QUOTA_MODE_KEYED_BY_IP.</p> 
+settings.<br>flattenNested | **boolean** (boolean)<br><p>Sets the data format of a <a href="https://clickhouse.com/docs/en/sql-reference/data-types/nested-data-structures/nested">nested</a> columns.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#flatten-nested">ClickHouse documentation</a>.</p> 
+settings.<br>formatRegexp | **string**<br><p>Regular expression (for Regexp format)</p> 
+settings.<br>formatRegexpEscapingRule | **string**<br><p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#format_regexp_escaping_rule">ClickHouse documentation</a>.</p> 
+settings.<br>formatRegexpSkipUnmatched | **boolean** (boolean)<br><p>See in-depth description in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#format_regexp_skip_unmatched">ClickHouse documentation</a>.</p> 
+settings.<br>asyncInsert | **boolean** (boolean)<br><p>Enables asynchronous inserts.</p> <p>Disabled by default.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#async-insert">ClickHouse documentation</a>.</p> 
+settings.<br>asyncInsertThreads | **integer** (int64)<br><p>The maximum number of threads for background data parsing and insertion.</p> <p>If the parameter is set to <strong>0</strong>, asynchronous insertions are disabled. Default value: <strong>16</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-threads">ClickHouse documentation</a>.</p> 
+settings.<br>waitForAsyncInsert | **boolean** (boolean)<br><p>Enables waiting for processing of asynchronous insertion. If enabled, server returns OK only after the data is inserted.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert">ClickHouse documentation</a>.</p> 
+settings.<br>waitForAsyncInsertTimeout | **integer** (int64)<br><p>The timeout (in seconds) for waiting for processing of asynchronous insertion.</p> <p>Default value: <strong>120</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert-timeout">ClickHouse documentation</a>.</p> 
+settings.<br>asyncInsertMaxDataSize | **integer** (int64)<br><p>The maximum size of the unparsed data in bytes collected per query before being inserted.</p> <p>If the parameter is set to <strong>0</strong>, asynchronous insertions are disabled. Default value: <strong>100000</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-max-data-size">ClickHouse documentation</a>.</p> 
+settings.<br>asyncInsertBusyTimeout | **integer** (int64)<br><p>The maximum timeout in milliseconds since the first INSERT query before inserting collected data.</p> <p>If the parameter is set to <strong>0</strong>, the timeout is disabled. Default value: <strong>200</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-busy-timeout-ms">ClickHouse documentation</a>.</p> 
+settings.<br>asyncInsertStaleTimeout | **integer** (int64)<br><p>The maximum timeout in milliseconds since the last INSERT query before dumping collected data. If enabled, the settings prolongs the ``asyncInsertBusyTimeout`` with every INSERT query as long as ``asyncInsertMaxDataSize`` is not exceeded.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-stale-timeout-ms">ClickHouse documentation</a>.</p> 
+settings.<br>memoryProfilerStep | **integer** (int64)<br><p>Memory profiler step (in bytes).</p> <p>If the next query step requires more memory than this parameter specifies, the memory profiler collects the allocating stack trace. Values lower than a few megabytes slow down query processing.</p> <p>Default value: <strong>4194304</strong> (4 MB). Zero means disabled memory profiler.</p> 
+settings.<br>memoryProfilerSampleProbability | **number** (double)<br><p>Collect random allocations and deallocations and write them into system.trace_log with 'MemorySample' trace_type. The probability is for every alloc/free regardless to the size of the allocation.</p> <p>Possible values: from <strong>0</strong> to <strong>1</strong>. Default: <strong>0</strong>.</p> 
+settings.<br>compile | **boolean** (boolean)<br><p>The setting is deprecated and has no effect.</p> 
+settings.<br>minCountToCompile | **integer** (int64)<br><p>The setting is deprecated and has no effect.</p> 
 quotas[] | **object**<br><p>Set of quotas assigned to the user.</p> 
 quotas[].<br>intervalDuration | **integer** (int64)<br><p>Duration of interval for quota in milliseconds. Minimal value is 1 second.</p> <p>The minimum value is 1000.</p> 
 quotas[].<br>queries | **integer** (int64)<br><p>The total number of queries. 0 - unlimited.</p> <p>The minimum value is 0.</p> 

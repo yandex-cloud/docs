@@ -7,7 +7,7 @@ description:
     machines and fault-tolerant <a
     href="/docs/compute/concepts/instance-groups/">instance groups</a>.
   - >-
-    You can attach disks with Linux and Windows images from <a
+    You can attach disks with Linux images from <a
     href="/marketplace">Marketplace</a>. Each disk is automatically replicated
     in its availability zone, ensuring reliable data storage. Additionally, to
     make it easier to migrate data from one disk to another, Compute Cloud

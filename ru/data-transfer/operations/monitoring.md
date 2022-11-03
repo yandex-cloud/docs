@@ -1,11 +1,12 @@
 # Мониторинг состояния трансфера
 
-Данные о состоянии трансфера доступны в консоли управления. Их можно посмотреть на вкладке **Мониторинг** страницы управления трансфером  или в сервисе [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
+Данные о состоянии трансфера доступны в консоли управления. Их можно посмотреть на вкладке **Мониторинг** страницы управления трансфером или в сервисе [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
 
 Диагностическая информация о состоянии трансфера представлена в виде графиков.
 
 
 Вы можете [настроить алерты](#monitoring-integration) в сервисе {{ monitoring-full-name }} для получения уведомлений о сбоях в работе трансфера. В {{ monitoring-full-name }} используются два порога срабатывания алерта: `Warning` и `Alarm`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monitoring/concepts/alerting.md#notification-channel).
+
 
 
 ## Мониторинг состояния трансфера {#monitoring}
@@ -48,7 +49,7 @@
 
 Объем буфера или журнала опережающей записи (там, где он поддерживается) в источнике (в байтах).
 
-### Read bytes from source (top-50 workers) {`publisher.data.bytes`}
+### Read bytes from source (top-50 workers) {publisher.data.bytes}
 `publisher.data.bytes`
 
 Объем считанных из источника данных (в байтах).
@@ -56,7 +57,7 @@
 ### Sink response time (histogram by seconds) {sinker.pusher.time.batch_push_distribution_sec}
 `sinker.pusher.time.batch_push_distribution_sec`
 
-Время выполнения полного переноса данных с учетом предварительной обработки (в секундах).
+Полное время записи в приемник батча данных с учетом предварительной обработки (в секундах).
 
 ### Read rows (parsed/unparsed) {publisher.data.*parsed_rows}
 `publisher.data.*parsed_rows`

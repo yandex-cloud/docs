@@ -1,6 +1,6 @@
 # {{ brand-voice-full-name }}
 
-{{ brand-voice-name }} technology lets you create unique voices for a speech synthesis model. Depending on the purpose of using a trained model, {{ yandex-cloud }} offers two types of {{ brand-voice-name }}.
+{{ brand-voice-name }} technology enables you to create unique voices for a speech synthesis model. Depending on the purpose of using a trained model, {{ yandex-cloud }} offers two types of {{ brand-voice-name }}.
 
 ## {{ brand-voice-name }} Full {#full}
 
@@ -10,6 +10,8 @@
 * Voicing arbitrary texts.
 
 Creating a full-fledged model with a unique voice based on the voice of your speaker requires a large amount of recorded audio. Detailed information about {{ brand-voice-name }} Full technology and the cost of creating a model is available on request.
+
+
 
 ## {{ brand-voice-name }} Adaptive {#adaptive}
 
@@ -30,6 +32,6 @@ Synthesis using {{ brand-voice-name }} Adaptive requires much less data for trai
 
 #### What's next {#what-is-next}
 
-* [{{ brand-voice-name }} API (Eng.)](../../new-v3/api-ref/grpc/).
-* [{#T}](income-data-format.md).
-* [{#T}](import-data.md).
+* [{{ brand-voice-name }} API (Eng.)](../../tts-v3/api-ref/grpc/)
+* [{#T}](income-data-format.md)
+

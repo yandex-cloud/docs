@@ -53,8 +53,10 @@ items:
         href: tutorials/sharding.md
       - name: Migrating data to {{ mmg-name }}
         href: tutorials/data-migration.md
-      - name: Performance analysis and tuning
+      - name: Performance analysis and tuning of {{ MG }}
         href: tutorials/profiling.md
+      - name: Migrating collections from {{ MG }} to {{ mmg-name }}
+        href: tutorials/mongodb-migration-with-data-transfer.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -71,6 +73,8 @@ items:
             href: concepts/using-deprecated-instances.md
       - name: Network in Yandex Managed Service for MongoDB
         href: concepts/network.md
+      - name: MongoDB editions
+        href: concepts/editions.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Storage in Yandex Managed Service for MongoDB

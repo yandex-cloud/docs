@@ -70,4 +70,4 @@ host | FQDN хоста
 | ----- | ----- |
 | `dataproc.cluster.neededAutoscalingNodesNumber`<br/>`DGAUGE`, штуки | Метрика сервиса {{ dataproc-full-name }} для масштабирования по умолчанию. |
 
-Подробнее о сервисе в документации [{{ dataproc-full-name }}](../../data-proc/).
+Подробнее о сервисе в документации [{{ dataproc-full-name }}](../../../data-proc/).

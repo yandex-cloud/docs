@@ -11,7 +11,7 @@ to the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-redis/v1/clusters
+GET https://{{ api-host-mdb }}/managed-redis/v1/clusters
 ```
  
 ## Query parameters {#query_params}
@@ -61,7 +61,7 @@ filter | <p>A filter expression that filters clusters listed in the response. Th
           "dataLens": true
         },
 
-        // `clusters[].config` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`
+        // `clusters[].config` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`
         "redisConfig_5_0": {
           "effectiveConfig": {
             "maxmemoryPolicy": "string",
@@ -239,6 +239,65 @@ filter | <p>A filter expression that filters clusters listed in the response. Th
             }
           }
         },
+        "redisConfig_7_0": {
+          "effectiveConfig": {
+            "maxmemoryPolicy": "string",
+            "timeout": "integer",
+            "password": "string",
+            "databases": "integer",
+            "slowlogLogSlowerThan": "integer",
+            "slowlogMaxLen": "integer",
+            "notifyKeyspaceEvents": "string",
+            "clientOutputBufferLimitPubsub": {
+              "hardLimit": "integer",
+              "softLimit": "integer",
+              "softSeconds": "integer"
+            },
+            "clientOutputBufferLimitNormal": {
+              "hardLimit": "integer",
+              "softLimit": "integer",
+              "softSeconds": "integer"
+            }
+          },
+          "userConfig": {
+            "maxmemoryPolicy": "string",
+            "timeout": "integer",
+            "password": "string",
+            "databases": "integer",
+            "slowlogLogSlowerThan": "integer",
+            "slowlogMaxLen": "integer",
+            "notifyKeyspaceEvents": "string",
+            "clientOutputBufferLimitPubsub": {
+              "hardLimit": "integer",
+              "softLimit": "integer",
+              "softSeconds": "integer"
+            },
+            "clientOutputBufferLimitNormal": {
+              "hardLimit": "integer",
+              "softLimit": "integer",
+              "softSeconds": "integer"
+            }
+          },
+          "defaultConfig": {
+            "maxmemoryPolicy": "string",
+            "timeout": "integer",
+            "password": "string",
+            "databases": "integer",
+            "slowlogLogSlowerThan": "integer",
+            "slowlogMaxLen": "integer",
+            "notifyKeyspaceEvents": "string",
+            "clientOutputBufferLimitPubsub": {
+              "hardLimit": "integer",
+              "softLimit": "integer",
+              "softSeconds": "integer"
+            },
+            "clientOutputBufferLimitNormal": {
+              "hardLimit": "integer",
+              "softLimit": "integer",
+              "softSeconds": "integer"
+            }
+          }
+        },
         // end of the list of possible fields`clusters[].config`
 
       },
@@ -301,7 +360,7 @@ clusters[].<br>config.<br>backupWindowStart.<br>seconds | **integer** (int32)<br
 clusters[].<br>config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 clusters[].<br>config.<br>access | **object**<br>Access policy to DB
 clusters[].<br>config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
-clusters[].<br>config.<br>redisConfig_5_0 | **object**<br>Configuration of a Redis 5.0 server. <br>`clusters[].config` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`<br>
+clusters[].<br>config.<br>redisConfig_5_0 | **object**<br>Configuration of a Redis 5.0 server. <br>`clusters[].config` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`<br>
 clusters[].<br>config.<br>redisConfig_5_0.<br>effectiveConfig | **object**<br><p>Effective settings for a Redis 5.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
 clusters[].<br>config.<br>redisConfig_5_0.<br>effectiveConfig.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
 clusters[].<br>config.<br>redisConfig_5_0.<br>effectiveConfig.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
@@ -350,7 +409,7 @@ clusters[].<br>config.<br>redisConfig_5_0.<br>defaultConfig.<br>clientOutputBuff
 clusters[].<br>config.<br>redisConfig_5_0.<br>defaultConfig.<br>clientOutputBufferLimitNormal.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>redisConfig_5_0.<br>defaultConfig.<br>clientOutputBufferLimitNormal.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>redisConfig_5_0.<br>defaultConfig.<br>clientOutputBufferLimitNormal.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
-clusters[].<br>config.<br>redisConfig_6_0 | **object**<br>Configuration of a Redis 6.0 server. <br>`clusters[].config` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`<br>
+clusters[].<br>config.<br>redisConfig_6_0 | **object**<br>Configuration of a Redis 6.0 server. <br>`clusters[].config` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`<br>
 clusters[].<br>config.<br>redisConfig_6_0.<br>effectiveConfig | **object**<br><p>Effective settings for a Redis 6.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
 clusters[].<br>config.<br>redisConfig_6_0.<br>effectiveConfig.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
 clusters[].<br>config.<br>redisConfig_6_0.<br>effectiveConfig.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
@@ -399,7 +458,7 @@ clusters[].<br>config.<br>redisConfig_6_0.<br>defaultConfig.<br>clientOutputBuff
 clusters[].<br>config.<br>redisConfig_6_0.<br>defaultConfig.<br>clientOutputBufferLimitNormal.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>redisConfig_6_0.<br>defaultConfig.<br>clientOutputBufferLimitNormal.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>redisConfig_6_0.<br>defaultConfig.<br>clientOutputBufferLimitNormal.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
-clusters[].<br>config.<br>redisConfig_6_2 | **object**<br>Configuration of a Redis 6.2 server. <br>`clusters[].config` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`<br>
+clusters[].<br>config.<br>redisConfig_6_2 | **object**<br>Configuration of a Redis 6.2 server. <br>`clusters[].config` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`<br>
 clusters[].<br>config.<br>redisConfig_6_2.<br>effectiveConfig | **object**<br><p>Effective settings for a Redis 6.2 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
 clusters[].<br>config.<br>redisConfig_6_2.<br>effectiveConfig.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
 clusters[].<br>config.<br>redisConfig_6_2.<br>effectiveConfig.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
@@ -448,6 +507,55 @@ clusters[].<br>config.<br>redisConfig_6_2.<br>defaultConfig.<br>clientOutputBuff
 clusters[].<br>config.<br>redisConfig_6_2.<br>defaultConfig.<br>clientOutputBufferLimitNormal.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>redisConfig_6_2.<br>defaultConfig.<br>clientOutputBufferLimitNormal.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
 clusters[].<br>config.<br>redisConfig_6_2.<br>defaultConfig.<br>clientOutputBufferLimitNormal.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0 | **object**<br>Configuration of a Redis 7.0 server. <br>`clusters[].config` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`<br>
+clusters[].<br>config.<br>redisConfig_7_0.<br>effectiveConfig | **object**<br><p>Effective settings for a Redis 7.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>effectiveConfig.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>effectiveConfig.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>effectiveConfig.<br>password | **string**<br><p>Authentication password.</p> <p>Value must match the regular expression ``[a-zA-Z0-9@=+?*.,!&amp;#$^&lt;&gt;_-]{8,128}``.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>effectiveConfig.<br>databases | **integer** (int64)<br><p>Number of database buckets on a single redis-server process.</p> <p>Value must be greater than 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>effectiveConfig.<br>slowlogLogSlowerThan | **integer** (int64)<br><p>Threshold for logging slow requests to server in microseconds (log only slower than it).</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>effectiveConfig.<br>slowlogMaxLen | **integer** (int64)<br><p>Max slow requests number to log.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>effectiveConfig.<br>notifyKeyspaceEvents | **string**<br><p>String setting for pub\sub functionality; subset of KEg$lshzxeAtm.</p> <p>Value must match the regular expression ``[KEg$lshzxeAtm]{0,13}``.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>effectiveConfig.<br>clientOutputBufferLimitPubsub | **object**<br><p>Redis connection output buffers limits for pubsub operations.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>effectiveConfig.<br>clientOutputBufferLimitPubsub.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>effectiveConfig.<br>clientOutputBufferLimitPubsub.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>effectiveConfig.<br>clientOutputBufferLimitPubsub.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>effectiveConfig.<br>clientOutputBufferLimitNormal | **object**<br><p>Redis connection output buffers limits for clients.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>effectiveConfig.<br>clientOutputBufferLimitNormal.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>effectiveConfig.<br>clientOutputBufferLimitNormal.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>effectiveConfig.<br>clientOutputBufferLimitNormal.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>userConfig | **object**<br><p>User-defined settings for a Redis 7.0 cluster.</p> <p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>userConfig.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>userConfig.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>userConfig.<br>password | **string**<br><p>Authentication password.</p> <p>Value must match the regular expression ``[a-zA-Z0-9@=+?*.,!&amp;#$^&lt;&gt;_-]{8,128}``.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>userConfig.<br>databases | **integer** (int64)<br><p>Number of database buckets on a single redis-server process.</p> <p>Value must be greater than 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>userConfig.<br>slowlogLogSlowerThan | **integer** (int64)<br><p>Threshold for logging slow requests to server in microseconds (log only slower than it).</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>userConfig.<br>slowlogMaxLen | **integer** (int64)<br><p>Max slow requests number to log.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>userConfig.<br>notifyKeyspaceEvents | **string**<br><p>String setting for pub\sub functionality; subset of KEg$lshzxeAtm.</p> <p>Value must match the regular expression ``[KEg$lshzxeAtm]{0,13}``.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>userConfig.<br>clientOutputBufferLimitPubsub | **object**<br><p>Redis connection output buffers limits for pubsub operations.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>userConfig.<br>clientOutputBufferLimitPubsub.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>userConfig.<br>clientOutputBufferLimitPubsub.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>userConfig.<br>clientOutputBufferLimitPubsub.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>userConfig.<br>clientOutputBufferLimitNormal | **object**<br><p>Redis connection output buffers limits for clients.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>userConfig.<br>clientOutputBufferLimitNormal.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>userConfig.<br>clientOutputBufferLimitNormal.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>userConfig.<br>clientOutputBufferLimitNormal.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>defaultConfig | **object**<br><p>Default configuration for a Redis 7.0 cluster.</p> <p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>defaultConfig.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>defaultConfig.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>defaultConfig.<br>password | **string**<br><p>Authentication password.</p> <p>Value must match the regular expression ``[a-zA-Z0-9@=+?*.,!&amp;#$^&lt;&gt;_-]{8,128}``.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>defaultConfig.<br>databases | **integer** (int64)<br><p>Number of database buckets on a single redis-server process.</p> <p>Value must be greater than 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>defaultConfig.<br>slowlogLogSlowerThan | **integer** (int64)<br><p>Threshold for logging slow requests to server in microseconds (log only slower than it).</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>defaultConfig.<br>slowlogMaxLen | **integer** (int64)<br><p>Max slow requests number to log.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>defaultConfig.<br>notifyKeyspaceEvents | **string**<br><p>String setting for pub\sub functionality; subset of KEg$lshzxeAtm.</p> <p>Value must match the regular expression ``[KEg$lshzxeAtm]{0,13}``.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>defaultConfig.<br>clientOutputBufferLimitPubsub | **object**<br><p>Redis connection output buffers limits for pubsub operations.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>defaultConfig.<br>clientOutputBufferLimitPubsub.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>defaultConfig.<br>clientOutputBufferLimitPubsub.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>defaultConfig.<br>clientOutputBufferLimitPubsub.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>defaultConfig.<br>clientOutputBufferLimitNormal | **object**<br><p>Redis connection output buffers limits for clients.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>defaultConfig.<br>clientOutputBufferLimitNormal.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>defaultConfig.<br>clientOutputBufferLimitNormal.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>redisConfig_7_0.<br>defaultConfig.<br>clientOutputBufferLimitNormal.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
 clusters[].<br>networkId | **string**
 clusters[].<br>health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: Cluster is in unknown state (we have no data)</li> <li>ALIVE: Cluster is alive and well (all hosts are alive)</li> <li>DEAD: Cluster is inoperable (it cannot perform any of its essential functions)</li> <li>DEGRADED: Cluster is partially alive (it can perform some of its essential functions)</li> </ul> 
 clusters[].<br>status | **string**<br><p>Cluster status.</p> <ul> <li>STATUS_UNKNOWN: Cluster status is unknown</li> <li>CREATING: Cluster is being created</li> <li>RUNNING: Cluster is running</li> <li>ERROR: Cluster failed</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 

@@ -79,7 +79,7 @@ items:
     href: network-load-balancer/index.yaml
   - name: Cloud Organization
     href: organization/index.yaml
-  - name: '{{ yandex-cloud }} overview'
+  - name: '{{ yandex-cloud }} Overview'
     href: overview/index.yaml
   - name: '{{ yandex-cloud }} partner program'
     href: partner/index.yaml

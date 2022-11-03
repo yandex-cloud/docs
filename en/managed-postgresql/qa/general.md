@@ -86,7 +86,7 @@ For more information, see [{#T}](../concepts/maintenance.md).
 
 #### Which version of {{ PG }} does {{ mpg-short-name }} use? {#dbms-version}
 
-{{ mpg-short-name }} supports {{ PG }} 10, 11, 12, 13, and 14, as well as PostgreSQL 10, 11, and 12 for 1C.
+{{ mpg-short-name }} supports {{ PG }} 11, 12, 13, and 14, as well as PostgreSQL 11, 12, 13, and 14 for 1C.
 
 #### Which {{ PG }} version and settings are best suited when creating databases for 1C? {#1c-version}
 
@@ -152,7 +152,7 @@ For DB hosts, you can track metrics specific to the corresponding type of DBMS. 
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}
 
 #### What limitations are imposed on {{ PG }} database clusters? {#instance-limitations}
 

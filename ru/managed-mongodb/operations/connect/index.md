@@ -9,7 +9,7 @@
 
 К хостам кластера {{ mmg-short-name }} можно подключиться:
 
-{% include [cluster-connect-note](../../../_includes/mdb/cluster-connect-note.md) %}
+{% include [cluster-connect-note](../../../_includes/mdb/mmg/cluster-connect-note.md) %}
 
 Для подключения к хостам кластера используйте порт:
 
@@ -23,6 +23,7 @@
 Если публичный доступ настроен только для некоторых хостов, [автоматическая смена первичной реплики](../../concepts/replication.md) может привести к тому, что вы не сможете подключиться к кластеру из интернета.
 
 {% endnote %}
+
 
 ## Получение SSL-сертификата {#get-ssl-cert}
 
@@ -45,6 +46,7 @@
 {% endlist %}
 
 {% include [ide-ssl-cert](../../../_includes/mdb/mdb-ide-ssl-cert.md) %}
+
 
 ## Настройка групп безопасности {#configuring-security-groups}
 
@@ -109,6 +111,7 @@
 {% endnote %}
 
 Подробнее см. в разделе [{#T}](../../concepts/network.md#security-groups).
+
 
 ## Ограничения на количество подключений {#connection-limits}
 

@@ -1,6 +1,6 @@
 # Logs
 
-{% include [qa-logs.md](../../_includes/qa-logs.md) %}
+{% include [logs](../../_qa/logs.md) %}
 
 
 #### Can I save logs myself? {#auto-logging}

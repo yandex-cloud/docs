@@ -63,7 +63,7 @@
   yc compute instance create \
     --name my-instance \
     --network-interface subnet-name=default,nat-ip-version=ipv4 \
-    --ssh-key ~/.ssh/id_rsa.pub \
+    --ssh-key ~/.ssh/id_ed25519.pub \
     --service-account-name my-robot
   ```
 
@@ -81,7 +81,7 @@
 
 - CLI
 
-  1. Подключитесь к виртуальной машине [по SSH](../vm-connect/ssh.md) или [по RDP](../vm-connect/rdp.md).
+  1. Подключитесь к виртуальной машине [по SSH](../vm-connect/ssh.md).
   1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
   1. Создайте новый профиль:
@@ -104,7 +104,7 @@
       [Время жизни IAM-токена](../../../iam/concepts/authorization/iam-token.md#lifetime) в этом случае будет меньше чем {{ iam-token-lifetime }}. Запрашивайте IAM-токен чаще, например каждый час или при каждой операции. Чтобы узнать оставшееся время жизни токена, воспользуйтесь инструкцией для API.
 - API
 
-  1. Подключитесь к виртуальной машине [по SSH](../vm-connect/ssh.md) или [по RDP](../vm-connect/rdp.md).
+  1. Подключитесь к виртуальной машине [по SSH](../vm-connect/ssh.md).
   1. Получите IAM-токен из метаданных в формате Google Compute Engine:
 
       ```bash

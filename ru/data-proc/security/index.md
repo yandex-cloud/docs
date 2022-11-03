@@ -29,6 +29,8 @@ description: "Управление доступом в сервисе по со�
 
 {% include [mdb.dataproc.agent ](../../_includes/roles-dataproc-agent.md) %}
 
+{% include [data-proc-roles](../../_includes/data-proc/data-proc-roles.md) %}
+
 ### {{ roles-viewer }} {#viewer}
 
 Пользователь с ролью `{{ roles-viewer }}` может подключаться к хостам в кластере

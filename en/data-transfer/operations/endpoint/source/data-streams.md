@@ -17,12 +17,12 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 ## Additional settings {#additional-settings}
 
-{% include [Note processing order](../../../../_includes/data-transfer/notes/kafka-yds-processing-order.md) %}
+{% include [Note processing order](../../../../_includes/data-transfer/notes/kafka-yds-evhub-processing-order.md) %}
 
 {% list tabs %}
 
 - Management console
 
-   {% include [Additional Settings](../../../../_includes/data-transfer/kf-yds-additional-settings.md) %}
+   {% include [Additional Settings](../../../../_includes/data-transfer/kf-yds-evhub-additional-settings.md) %}
 
 {% endlist %}

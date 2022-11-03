@@ -64,12 +64,12 @@ You can change the following parameters of a [{{ k8s }} cluster](../../concepts/
        {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
 
      * `--version`: {{ k8s }} version.
-     * `--latest-revision`: get all available updates for current version of master.
+     * `--latest-revision`: Get all available updates for current version of master.
      * `--auto-upgrade`: Manage automatic cluster updates.
      * Managing the maintenance window:
        * `--anytime-maintenance-window`: Perform maintenance at any time.
-       * `--daily-maintenance-window`: update daily at specified time.
-       * `--weekly-maintenance-window`: update on specified days.
+       * `--daily-maintenance-window`: Update daily at specified time.
+       * `--weekly-maintenance-window`: Update on specified days.
 
 - {{ TF }}
 
@@ -113,7 +113,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
   yc managed-kubernetes cluster add-labels k8s-demo --labels new_label=test_label
   ```
 
-  Result:
+  Command output:
 
   ```bash
   done (1s)
@@ -121,7 +121,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
   folder_id: l1m01nopqr1st2uvwxy1
   created_at: "2019-11-20T11:26:36Z"
   name: k8s-demo
-  description: My test Kubernetes cluster
+  description: My test {{ k8s }} cluster
   labels:
     new_label: test_label
   ...
@@ -147,7 +147,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
   yc managed-kubernetes cluster update k8s-demo --labels test_label=my_k8s_label
   ```
 
-  Result:
+  Command output:
 
   ```bash
   done (1s)
@@ -155,7 +155,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
   folder_id: l1m01nopqr1st2uvwxy1
   created_at: "2019-11-20T11:26:36Z"
   name: k8s-demo
-  description: My test Kubernetes cluster
+  description: My test {{ k8s }} cluster
   labels:
     test_label: my_k8s_label
   ...
@@ -175,7 +175,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
   yc managed-kubernetes cluster remove-labels k8s-demo --labels test_label
   ```
 
-  Result:
+  Command output:
 
   ```bash
   done (1s)
@@ -183,7 +183,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
   folder_id: b1g88tflru0ek1omtsu0
   created_at: "2019-11-20T11:26:36Z"
   name: k8s-demo
-  description: My test Kubernetes cluster
+  description: My test {{ k8s }} cluster
   ...
   ```
 

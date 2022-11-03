@@ -1,30 +1,10 @@
 title: Microsoft в Yandex Cloud
 href: index.yaml
 items:
-  - name: Обзор возможностей
-    href: overview.md
-  - name: Образы виртуальных машин
-    href: list-of-instances.md
   - name: Практические руководства
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Развертывание Active Directory
-        href: tutorials/active-directory.md
-      - name: Развертывание Microsoft Exchange
-        href: tutorials/exchange.md
-      - name: Развертывание Remote Desktop Services
-        href: tutorials/rds.md
-      - name: Развертывание группы доступности Always On
-        href: tutorials/mssql-alwayson.md
-      - name: >-
-          Развертывание группы доступности Always On с внутренним сетевым
-          балансировщиком
-        href: tutorials/mssql-alwayson-lb.md
-      - name: Развертывание Remote Desktop Gateway
-        href: tutorials/rds-gw.md
-      - name: Обновление редакции Windows Server до Datacenter
-        href: tutorials/edition-update-datacenter.md
       - name: Подготовка собственных образов с продуктами Microsoft
         href: prepare-image.md
       - name: Использование своей лицензии для продуктов Microsoft
@@ -35,8 +15,6 @@ items:
         href: licensing.md
       - name: Требования к учетной записи {{ yandex-cloud }}
         href: check-user-data.md
-      - name: Вопросы и ответы про лицензирование Windows
-        href: qa.md
   - name: Правила тарификации
     href: pricing.md
 base: ru/microsoft

@@ -441,31 +441,31 @@ GET foo
    `connect.php`
 
    ```php
-    <?php
+   <?php
 
-    require "Predis/Autoloader.php";
-    Predis\Autoloader::register();
+   require "Predis/Autoloader.php";
+   Predis\Autoloader::register();
 
-    $hosts = [
-        'tls://<FQDN хоста-мастера в шарде 1>:{{ port-mrd-tls }}?ssl[cafile]=/home/<домашняя директория>/.redis/{{ crt-local-file }}',
-        ...
-        'tls://<FQDN хоста-мастера в шарде N>:{{ port-mrd-tls }}?ssl[cafile]=/home/<домашняя директория>/.redis/{{ crt-local-file }}',
-    ];
+   $hosts = [
+       'tls://<FQDN хоста-мастера в шарде 1>:{{ port-mrd-tls }}?ssl[cafile]=/home/<домашняя директория>/.redis/{{ crt-local-file }}',
+       ...
+       'tls://<FQDN хоста-мастера в шарде N>:{{ port-mrd-tls }}?ssl[cafile]=/home/<домашняя директория>/.redis/{{ crt-local-file }}',
+   ];
 
-    $options = [
-        'cluster' => 'predis',
-        'parameters' => [
-            'password' => '<пароль>',
-        ],
-    ];
+   $options = [
+       'cluster' => 'predis',
+       'parameters' => [
+           'password' => '<пароль>',
+       ],
+   ];
 
-    $conn = new Predis\Client($hosts, $options);
-    $conn->set('foo', 'bar');
+   $conn = new Predis\Client($hosts, $options);
+   $conn->set('foo', 'bar');
 
-    var_dump($conn->get("foo"));
+   var_dump($conn->get("foo"));
 
-    $conn->disconnect();
-    ?>
+   $conn->disconnect();
+   ?>
    ```
 
 {% endlist %}
@@ -478,10 +478,10 @@ GET foo
 
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
-    python3 -m venv env && \
-    source env/bin/activate && \
-    pip install pip -U && \
-    pip install pyopenssl redis-py-cluster setuptools_rust
+python3 -m venv env && \
+source env/bin/activate && \
+pip install pip -U && \
+pip install pyopenssl redis-py-cluster setuptools_rust
 ```
 
 {% list tabs %}

@@ -2,6 +2,13 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+
+{% include [01.09.2022 — CVE-2022-2992 — GitLab-1532-1524-1516](../../_includes/security/security-bulletins/cve-2022-2992-GitLab-1532-1524-1516.md) %}
+
+{% include [31.08.2022 — CVE-2020-8561 — redirect-kube-apiserver](../../_includes/security/security-bulletins/cve-2020-8561-redirect-kube-apiserver.md) %}
+
+{% include [25.08.2022 — CVE-2022-2884 — github-import-in-gitlab](../../_includes/security/security-bulletins/cve-2022-2884-github-import-in-gitlab.md) %}
+
 {% include [04.07.2022 — CVE-2022-27228 — Уязвимость модуля «vote» CMS 1С-Битрикс](../../_includes/security/security-bulletins/cve-2022-27228-bitrix.md) %}
 
 {% include [21.06.2022 — CVE-2022-1680 — Захват аккаунта GitLab](../../_includes/security/security-bulletins/cve-2022-1680-gitlab.md) %}
@@ -284,7 +291,7 @@ Hystax Acura Controller: для UDP-порта 12201 в направлении i
 Были обновлены следующие образы операционных систем Linux:
 * все образы от издателя {{ yandex-cloud }}, доступные в {{ marketplace-name }};
 * образ {{ coi }};
-* образ, который используется для создания узлов в сервисе {{ managed-k8s-short-name }};
+* образ, который используется для создания узлов в сервисе {{ managed-k8s-name }};
 * образы, которые используются для создания кластеров управляемых баз данных;
 * образ, который используется для создания кластеров {{ dataproc-short-name }}.
 
@@ -381,9 +388,6 @@ Hystax Acura Controller: для UDP-порта 12201 в направлении i
 Домены из списка Public Suffix List получают свойства доменов верхнего уровня, как, например, домены .ru или .com:
 * Браузеры не будут сохранять cookie, установленные на перечисленные домены.
 * Браузеры не позволят поменять заголовок запроса `Origin` страницы на корневые домены.
-
-Больше информации можно найти в [нашем блоге](https://cloud.yandex.ru/blog/posts/2019/08/storage-domains).
-
 
 ### Влияние на сервисы {{ yandex-cloud }}
 

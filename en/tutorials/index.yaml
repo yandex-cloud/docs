@@ -26,9 +26,6 @@ links:
   - title: Network routing
     description: Configure static routes and VPN to access cloud resources
     href: routing/
-  - title: Windows in Yandex Cloud
-    description: Use Windows services in Yandex Cloud
-    href: windows/
   - title: Data visualization and analytics
     description: Collect, visualize, and analyze data from various sources
     href: datalens/

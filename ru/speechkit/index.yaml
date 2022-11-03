@@ -4,7 +4,7 @@ description:
     Сервис Yandex SpeechKit позволяет разработчикам приложений использовать
     речевые технологии Яндекса: распознавание речи (Speech-to-Text) и синтез
     речи (Text-to-Speech).
-  - Для доступа к SpeechKit используйте HTTP API.
+  - Для доступа к SpeechKit используйте API.
   - >-
     Инфраструктура Yandex Cloud <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
@@ -24,20 +24,23 @@ links:
   - title: Распознавание речи
     description: Узнайте, как происходит распознавание речи
     href: stt/
+  - title: API распознавания
+    description: Описание методов API v3 для распознавания
+    href: stt-v3/api-ref/grpc/
   - title: Синтез речи
     description: Узнайте, как преобразуется текст в речь
     href: tts/
+  - title: API синтеза
+    description: Описание методов API v3 для синтеза
+    href: tts-v3/api-ref/grpc/
   - title: SpeechKit Brand Voice
     description: Технология синтеза речи с уникальным голосом
     href: tts/brand-voice/
   - title: SpeechKit Hybrid
-    description: Голосовые технологии Yandex Cloud на собственной инфраструктуре
+    description: Голосовые технологии {{ speechkit-name }} на собственной инфраструктуре
     href: hybrid-speechkit/
   - title: Аутентификация в API
     description: Получите токен авторизации и используйте его в запросах
-    href: concepts/auth
-  - title: Справочник APIv3
-    description: Описание методов API
     href: concepts/auth
   - title: Формат ответа
     description: Заголовки ответа, коды ответа

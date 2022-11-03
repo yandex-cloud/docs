@@ -16,11 +16,17 @@ description: "In this article you will learn how to work with managed {{ k8s }} 
 * [{#T}](connect/create-static-conf.md)
 
 
-## Installing applications {#marketplace}
+## Installing applications from {{ marketplace-full-name }} {#marketplace}
 
 * [{#T}](applications/marketplace.md)
+* [{#T}](applications/crossplane.md)
+* [{#T}](applications/external-secrets-operator.md)
+* [{#T}](applications/fluentbit.md)
+* [{#T}](applications/hashicorp-vault.md)
+* [{#T}](applications/alb-ingress-controller.md)
 * [{#T}](applications/jaeger.md)
 * [{#T}](applications/metrics-provider.md)
+* [{#T}](applications/node-local-dns.md)
 
 
 ## Network scenarios {#network-scenarios}

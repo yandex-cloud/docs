@@ -10,7 +10,7 @@ Retrieves the list of operations for the specified SQL Server cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}/operations
+GET https://{{ api-host-mdb }}/mdb/sqlserver/v1/clusters/{clusterId}/operations
 ```
  
 ## Path parameters {#path_params}

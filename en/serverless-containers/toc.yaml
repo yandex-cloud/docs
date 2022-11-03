@@ -1,7 +1,7 @@
 title: Yandex Serverless Containers
 href: index.yaml
 items:
-  - name: Comparison with other Yandex Cloud services
+  - name: Comparison with other {{ yandex-cloud }} services
     href: service-comparison.md
   - name: Getting started
     href: quickstart.md
@@ -19,18 +19,46 @@ items:
             href: operations/list.md
           - name: Managing container revisions
             href: operations/manage-revision.md
-          - name: Managing container access rights
+          - name: Managing rights to access a container
             href: operations/access-rights.md
           - name: Invoking a container
             href: operations/invoke.md
           - name: Updating a container
             href: operations/update.md
+          - name: Scaling a container
+            href: operations/scale.md
           - name: Monitoring
             href: operations/monitoring.md
           - name: Viewing the execution log
             href: operations/logs.md
           - name: Deleting a container
             href: operations/delete.md
+      - name: Managing triggers
+        items:
+          - name: Getting information about a trigger
+            href: operations/trigger-list.md
+          - name: Creating a timer
+            href: operations/timer-create.md
+          - name: Creating a trigger for Message Queue
+            href: operations/ymq-trigger-create.md
+          - name: Creating a trigger for Object Storage
+            href: operations/os-trigger-create.md
+          - name: Creating a trigger for Container Registry
+            href: operations/cr-trigger-create.md
+          - name: Creating a trigger for Cloud Logging
+            href: operations/cloud-logging-trigger-create.md
+          - name: Creating a trigger for Yandex IoT Core
+            href: operations/iot-core-trigger-create.md
+          - name: Creating a trigger for budgets
+            href: operations/budget-trigger-create.md
+          - name: Creating a trigger for Data Streams
+            href: operations/data-streams-trigger-create.md
+          - name: Updating a trigger
+            href: operations/trigger-update.md
+          - name: Trigger monitoring
+            href: operations/trigger-monitoring.md
+          - name: Deleting a trigger
+            href: operations/trigger-delete.md
   - name: Concepts
     items:
       - name: Overview
@@ -39,18 +67,92 @@ items:
         href: concepts/container.md
       - name: Invoking a container
         href: concepts/invoke.md
+      - name: Networking
+        href: concepts/networking.md
       - name: Runtime environment
         href: concepts/runtime.md
+      - name: Trigger
+        items:
+          - name: Overview
+            href: concepts/trigger/index.md
+          - name: Timer
+            href: concepts/trigger/timer.md
+          - name: Trigger for Message Queue
+            href: concepts/trigger/ymq-trigger.md
+          - name: Trigger for Object Storage
+            href: concepts/trigger/os-trigger.md
+          - name: Trigger for Container Registry
+            href: concepts/trigger/cr-trigger.md
+          - name: Trigger for Cloud Logging
+            href: concepts/trigger/cloud-logging-trigger.md
+          - name: Trigger for Yandex IoT Core
+            href: concepts/trigger/iot-core-trigger.md
+          - name: Trigger for budgets
+            href: concepts/trigger/budget-trigger.md
+          - name: Trigger for Data Streams
+            href: concepts/trigger/data-streams-trigger.md
+      - name: Dead Letter Queue
+        href: concepts/dlq.md
       - name: Container logs
         href: concepts/logs.md
       - name: Backups
         href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Practical guidelines
+    items:
+      - name: Developing CRUD APIs for movie services
+        href: tutorials/movies-database.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: containers/api-ref/grpc/index.md
+          - name: ContainerService
+            href: containers/api-ref/grpc/container_service.md
+          - name: OperationService
+            href: containers/api-ref/grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Overview
+            href: containers/api-ref/index.md
+          - name: Container
+            items:
+              - name: Overview
+                href: containers/api-ref/Container/index.md
+              - name: create
+                href: containers/api-ref/Container/create.md
+              - name: delete
+                href: containers/api-ref/Container/delete.md
+              - name: deployRevision
+                href: containers/api-ref/Container/deployRevision.md
+              - name: get
+                href: containers/api-ref/Container/get.md
+              - name: getRevision
+                href: containers/api-ref/Container/getRevision.md
+              - name: list
+                href: containers/api-ref/Container/list.md
+              - name: listAccessBindings
+                href: containers/api-ref/Container/listAccessBindings.md
+              - name: listOperations
+                href: containers/api-ref/Container/listOperations.md
+              - name: listRevisions
+                href: containers/api-ref/Container/listRevisions.md
+              - name: rollback
+                href: containers/api-ref/Container/rollback.md
+              - name: setAccessBindings
+                href: containers/api-ref/Container/setAccessBindings.md
+              - name: update
+                href: containers/api-ref/Container/update.md
+              - name: updateAccessBindings
+                href: containers/api-ref/Container/updateAccessBindings.md
   - name: Questions and answers
     href: qa/index.md
 base: en/serverless-containers

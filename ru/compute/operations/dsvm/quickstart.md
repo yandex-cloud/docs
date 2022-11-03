@@ -34,10 +34,10 @@ Packages installed in each environment:
     jupyter, matplotlib,
     numpy, scipy, scikit-learn
 
-To run public JupyterLab execute:
+To run public {{ jlab }}Lab execute:
     jupyter lab --no-browser
 
-To run public Jupyter notebook execute:
+To run public {{ jlab }} notebook execute:
     jupyter notebook --no-browser
 
 Description and help:

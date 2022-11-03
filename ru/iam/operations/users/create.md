@@ -1,6 +1,6 @@
 # Добавление пользователя в облако
 
-Добавьте пользователя в вашу [организацию](../../../organization/index.yaml), чтобы [дать](../../../iam/operations/roles/grant.md) ему доступ к ресурсам {{ yandex-cloud }}.
+Добавьте пользователя в вашу [организацию](../../../organization/), чтобы [дать](../../../iam/operations/roles/grant.md) ему доступ к ресурсам {{ yandex-cloud }}.
 
 Добавить можно [пользователей с аккаунтом на Яндексе](#passport-user) и [федеративных пользователей](#federated-user). Для этого нужно быть администратором (роль `organization-manager.admin`) или владельцем (роль `organization-manager.organizations.owner`) организации.
 

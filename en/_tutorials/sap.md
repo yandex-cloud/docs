@@ -36,7 +36,7 @@ Create a VM with a public address:
 
    1. In the **Name** field, enter `vhcalnplci` as a name for your virtual machine. This host name is used in the install script.
 
-   1. Select the [availability zone](../overview/concepts/geo-scope.md): `ru-central1-a`.
+   1. Select the [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
 
    1. Under **Image/boot disk selection**, select operating system image [SLES for SAP 15 SP2](/marketplace/products/yc/sles-for-sap-15-sp2).
 
@@ -293,14 +293,14 @@ Add the SAP installation files to your virtual machine and configure the upcomin
       ```
    1. Add a line to it as below:
       ```
-      <inet> vhcalnplci vhcalnplci.ru-central1.internal. 
+      <inet> vhcalnplci vhcalnplci.{{ region-id }}.internal. 
       ```
       Use an `inet` value from the `eth0` block.
 
       Result:
       ```
       127.0.0.1 localhost
-      10.0.0.29 vhcalnplci vhcalnplci.ru-central1.internal 
+      10.0.0.29 vhcalnplci vhcalnplci.{{ region-id }}.internal 
       ```
 
 1. Check the host name:

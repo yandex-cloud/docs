@@ -7,8 +7,6 @@ items:
         href: quickstart/index.md
       - name: Creating a Linux VM
         href: quickstart/quick-create-linux.md
-      - name: Creating a Windows VM
-        href: quickstart/quick-create-windows.md
       - name: Creating instance groups
         href: quickstart/ig.md
   - name: Step-by-step instructions
@@ -19,8 +17,6 @@ items:
         items:
           - name: Creating a Linux VM
             href: operations/vm-create/create-linux-vm.md
-          - name: Creating a Windows VM
-            href: operations/vm-create/create-windows-vm.md
           - name: Creating a VM from a set of disks
             href: operations/vm-create/create-from-disks.md
           - name: Creating a VM with disks from snapshots
@@ -69,8 +65,6 @@ items:
         items:
           - name: Stopping and starting a VM
             href: operations/vm-control/vm-stop-and-start.md
-          - name: Resetting a VM user password
-            href: operations/vm-control/vm-reset-password.md
           - name: Attaching a disk to a VM
             href: operations/vm-control/vm-attach-disk.md
           - name: Detaching a disk from a VM
@@ -97,23 +91,13 @@ items:
             href: operations/vm-connect/ssh.md
           - name: Connecting to a VM via RDP
             href: operations/vm-connect/rdp.md
-          - name: Connecting to a VM via PowerShell
-            href: operations/vm-connect/powershell.md
           - name: Working with {{ yandex-cloud }} from inside a VM
             href: operations/vm-connect/auth-inside-vm.md
           - name: Installing NVIDIA drivers
             href: operations/vm-operate/install-nvidia-drivers.md
           - name: Restoring access to a VM
             href: operations/vm-connect/recovery-access.md
-      - name: Managing the password reset agent
-        items:
-          - name: Verifying agent operation
-            href: operations/vm-guest-agent/check.md
-          - name: Installing the agent
-            href: operations/vm-guest-agent/install.md
-          - name: Deleting the agent
-            href: operations/vm-guest-agent/uninstall.md
-      - name: Creating new disks
+      - name: Creating a disk
         items:
           - name: Creating an empty disk
             href: operations/disk-create/empty.md
@@ -123,23 +107,35 @@ items:
             href: operations/disk-create/nonreplicated.md
       - name: Disk management
         items:
-          - name: Creating a disk snapshot
-            href: operations/disk-control/create-snapshot.md
           - name: Updating a disk
             href: operations/disk-control/update.md
+          - name: Configuring disk snapshot schedules
+            href: operations/disk-control/configure-schedule.md
           - name: Moving a disk to another folder
             href: operations/disk-control/disk-change-folder.md
           - name: Deleting a disk
             href: operations/disk-control/delete.md
-          - name: Deleting a disk snapshot
+      - name: Disk snapshots
+        items:
+          - name: Creating snapshots
+            href: operations/disk-control/create-snapshot.md
+          - name: Deleting snapshots
             href: operations/snapshot-control/delete.md
+          - name: Creating a snapshot schedule
+            href: operations/snapshot-control/create-schedule.md
+          - name: Changing a snapshot schedule
+            href: operations/snapshot-control/update-schedule.md
+          - name: Interrupting and starting a snapshot schedule
+            href: operations/snapshot-control/stop-and-start-schedule.md
+          - name: Deleting a snapshot schedule
+            href: operations/snapshot-control/delete-schedule.md
       - name: Disk placement groups
         items:
           - name: Creating a disk placement group
             href: operations/disk-placement-groups/create.md
           - name: Removing a disk from a placement group
             href: operations/disk-placement-groups/remove-disk.md
-      - name: Creating new images
+      - name: Creating an image
         items:
           - name: Preparing a disk image
             href: operations/image-create/custom-image.md
@@ -175,7 +171,7 @@ items:
             href: operations/serial-console/index.md
           - name: Connecting to a serial console via SSH
             href: operations/serial-console/connect-ssh.md
-          - name: Connecting to a serial console via CLI
+          - name: Connecting to a serial console via the CLI
             href: operations/serial-console/connect-cli.md
           - name: Starting your terminal in the Windows serial console (SAC)
             href: operations/serial-console/windows-sac.md
@@ -229,6 +225,8 @@ items:
             href: operations/instance-groups/delete.md
       - name: Dedicated hosts
         items:
+          - name: Creating a group of dedicated hosts
+            href: operations/dedicated-host/create-host-group.md
           - name: Creating a VM in a group of dedicated hosts
             href: operations/dedicated-host/running-host-group-vms.md
           - name: Creating a VM on a dedicated host
@@ -237,6 +235,8 @@ items:
     href: ../cos/
   - name: Practical guidelines
     items:
+      - name: All guidelines
+        href: tutorials/index.md
       - name: Configuring NTP time synchronization
         href: tutorials/ntp.md
       - name: Running instance groups with auto scaling
@@ -247,8 +247,6 @@ items:
         href: tutorials/autoscale-monitoring.md
       - name: Updating an instance group under load
         href: tutorials/updating-under-load.md
-      - name: Deploying Remote Desktop Gateway
-        href: tutorials/rds-gw.md
       - name: Transferring logs from a VM instance to Yandex Cloud Logging
         href: tutorials/vm-fluent-bit-logging.md
       - name: Creating a VM backup with Hystax Acura Backup
@@ -279,8 +277,6 @@ items:
             href: concepts/vm-statuses.md
           - name: Metadata
             href: concepts/vm-metadata.md
-          - name: Resetting a Windows VM password
-            href: concepts/guest-agent.md
       - name: Graphics accelerators
         href: concepts/gpus.md
       - name: Disks and file storage
@@ -291,6 +287,8 @@ items:
             href: concepts/disk.md
           - name: Disk snapshots
             href: concepts/snapshot.md
+          - name: Creating scheduled snapshots
+            href: concepts/snapshot-schedule.md
           - name: Non-replicated disk placement groups
             href: concepts/disk-placement-group.md
           - name: File storage

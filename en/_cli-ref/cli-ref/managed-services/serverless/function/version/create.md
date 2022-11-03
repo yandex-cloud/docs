@@ -33,6 +33,7 @@ Syntax:
 |`--subnet-name`|<b>`value[,value]`</b><br/>Version subnet names.|
 |`--subnet-id`|<b>`value[,value]`</b><br/>Version subnet ids.|
 |`--add-service-account`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Adds a named service account to the version. Can be used multiple times.<br/><br/>Possible property names:<br/><ul> <li><code>alias</code>:     Specifies an alias, through which the service account can be accessed.</li> <li><code>id</code>:     Service account id</li> <li><code>name</code>:     Service account name.</li> </ul>|
+|`--secret`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Version secret.<br/><br/>Possible property names:<br/><ul> <li><code>name</code>:     Specifies the secret name</li> <li><code>id</code>:     Specifies the secret id</li> <li><code>version-id</code>:     Specifies the secret version id. If not provided, current version of the secret will be used.</li> <li><code>key</code>:     Specifies key of the entry in the secret to use.</li> <li><code>environment-variable</code>:     Specifies environment variable name that the secret value will be loaded to.</li> </ul>|
 
 #### Global Flags
 

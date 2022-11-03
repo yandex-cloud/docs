@@ -1,6 +1,6 @@
 ---
 title: Bucket
-description: Bucket is a logical entity that helps store objects. A bucket's name is used as part of the data access URL and is visible to users.  Bucket names are unique, so you can't create two buckets with the same name (even in different folders in different clouds). Keep this in mind if you plan to create buckets automatically via the API.
+description: Bucket is a logical entity that helps store objects. A bucket's name is used as part of the data access URL and is visible to users. Bucket names are unique, so you can't create two buckets with the same name (even in different folders in different clouds). Keep this in mind if you plan to create buckets automatically via the API.
 keywords:
   - what is a bucket
   - bucket
@@ -58,11 +58,9 @@ You can:
 - Configure a bucket for [static website hosting](hosting.md).
 
 - Download a [CORS configuration](cors.md) for a bucket.
-
 - Enable [bucket encryption](../operations/buckets/encrypt.md).
 
     By default, the objects added to the bucket are encrypted with the specified [{{ kms-short-name }} key](../../kms/concepts/key.md).
-
 - Set up [object lifecycles](lifecycles.md).
 
 ## Bucket access {#bucket-access}

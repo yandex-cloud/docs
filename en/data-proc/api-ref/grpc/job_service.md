@@ -276,6 +276,56 @@ job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<
 application_info | **[ApplicationInfo](#ApplicationInfo1)**<br>Attributes of YARN application. 
 
 
+### ApplicationInfo {#ApplicationInfo1}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of YARN application 
+application_attempts[] | **[ApplicationAttempt](#ApplicationAttempt1)**<br>YARN application attempts 
+
+
+### ApplicationAttempt {#ApplicationAttempt1}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of YARN application attempt 
+am_container_id | **string**<br>ID of YARN Application Master container 
+
+
+## Get {#Get}
+
+Returns the specified job.
+
+**rpc Get ([GetJobRequest](#GetJobRequest)) returns ([Job](#Job2))**
+
+### GetJobRequest {#GetJobRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the cluster to request a job from. The maximum string length in characters is 50.
+job_id | **string**<br>Required. ID of the job to return. <br>To get a job ID make a [JobService.List](#List) request. The maximum string length in characters is 50.
+
+
+### Job {#Job2}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the job. Generated at creation time. 
+cluster_id | **string**<br>ID of the Data Proc cluster that the job belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the job was started. 
+finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the job was finished. 
+name | **string**<br>Name of the job, specified in the [JobService.Create](#Create) request. 
+created_by | **string**<br>The id of the user who created the job 
+status | enum **Status**<br>Job status. <ul><li>`PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.</li><li>`PENDING`: Job is acquired by the agent and is in the queue for execution.</li><li>`RUNNING`: Job is being run in the cluster.</li><li>`ERROR`: Job failed to finish the run properly.</li><li>`DONE`: Job is finished.</li><li>`CANCELLED`: Job is cancelled.</li><li>`CANCELLING`: Job is waiting for cancellation.</li></ul>
+job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<br>Specification for the job.
+&nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob2)**<br>Specification for a MapReduce job. 
+&nbsp;&nbsp;spark_job | **[SparkJob](#SparkJob2)**<br>Specification for a Spark job. 
+&nbsp;&nbsp;pyspark_job | **[PysparkJob](#PysparkJob2)**<br>Specification for a PySpark job. 
+&nbsp;&nbsp;hive_job | **[HiveJob](#HiveJob2)**<br>Specification for a Hive job. 
+application_info | **[ApplicationInfo](#ApplicationInfo2)**<br>Attributes of YARN application. 
+
+
 ### MapreduceJob {#MapreduceJob2}
 
 Field | Description
@@ -336,122 +386,6 @@ query_type | **oneof:** `query_file_uri` or `query_list`<br>
 
 
 ### QueryList {#QueryList2}
-
-Field | Description
---- | ---
-queries[] | **string**<br>List of Hive queries. 
-
-
-### ApplicationInfo {#ApplicationInfo1}
-
-Field | Description
---- | ---
-id | **string**<br>ID of YARN application 
-application_attempts[] | **[ApplicationAttempt](#ApplicationAttempt1)**<br>YARN application attempts 
-
-
-### ApplicationAttempt {#ApplicationAttempt1}
-
-Field | Description
---- | ---
-id | **string**<br>ID of YARN application attempt 
-am_container_id | **string**<br>ID of YARN Application Master container 
-
-
-## Get {#Get}
-
-Returns the specified job.
-
-**rpc Get ([GetJobRequest](#GetJobRequest)) returns ([Job](#Job2))**
-
-### GetJobRequest {#GetJobRequest}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>Required. ID of the cluster to request a job from. The maximum string length in characters is 50.
-job_id | **string**<br>Required. ID of the job to return. <br>To get a job ID make a [JobService.List](#List) request. The maximum string length in characters is 50.
-
-
-### Job {#Job2}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the job. Generated at creation time. 
-cluster_id | **string**<br>ID of the Data Proc cluster that the job belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the job was started. 
-finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the job was finished. 
-name | **string**<br>Name of the job, specified in the [JobService.Create](#Create) request. 
-created_by | **string**<br>The id of the user who created the job 
-status | enum **Status**<br>Job status. <ul><li>`PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.</li><li>`PENDING`: Job is acquired by the agent and is in the queue for execution.</li><li>`RUNNING`: Job is being run in the cluster.</li><li>`ERROR`: Job failed to finish the run properly.</li><li>`DONE`: Job is finished.</li><li>`CANCELLED`: Job is cancelled.</li><li>`CANCELLING`: Job is waiting for cancellation.</li></ul>
-job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<br>Specification for the job.
-&nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob3)**<br>Specification for a MapReduce job. 
-&nbsp;&nbsp;spark_job | **[SparkJob](#SparkJob3)**<br>Specification for a Spark job. 
-&nbsp;&nbsp;pyspark_job | **[PysparkJob](#PysparkJob3)**<br>Specification for a PySpark job. 
-&nbsp;&nbsp;hive_job | **[HiveJob](#HiveJob3)**<br>Specification for a Hive job. 
-application_info | **[ApplicationInfo](#ApplicationInfo2)**<br>Attributes of YARN application. 
-
-
-### MapreduceJob {#MapreduceJob3}
-
-Field | Description
---- | ---
-args[] | **string**<br>Optional arguments to pass to the driver. 
-jar_file_uris[] | **string**<br>JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. 
-file_uris[] | **string**<br>URIs of resource files to be copied to the working directory of Data Proc drivers and distributed Hadoop tasks. 
-archive_uris[] | **string**<br>URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. 
-properties | **map<string,string>**<br>Property names and values, used to configure Data Proc and MapReduce. 
-driver | **oneof:** `main_jar_file_uri` or `main_class`<br>
-&nbsp;&nbsp;main_jar_file_uri | **string**<br>HCFS URI of the .jar file containing the driver class. 
-&nbsp;&nbsp;main_class | **string**<br>The name of the driver class. 
-
-
-### SparkJob {#SparkJob3}
-
-Field | Description
---- | ---
-args[] | **string**<br>Optional arguments to pass to the driver. 
-jar_file_uris[] | **string**<br>JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. 
-file_uris[] | **string**<br>URIs of resource files to be copied to the working directory of Data Proc drivers and distributed Hadoop tasks. 
-archive_uris[] | **string**<br>URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. 
-properties | **map<string,string>**<br>Property names and values, used to configure Data Proc and Spark. 
-main_jar_file_uri | **string**<br>The HCFS URI of the JAR file containing the `main` class for the job. 
-main_class | **string**<br>The name of the driver class. 
-packages[] | **string**<br>List of maven coordinates of jars to include on the driver and executor classpaths. 
-repositories[] | **string**<br>List of additional remote repositories to search for the maven coordinates given with --packages. 
-exclude_packages[] | **string**<br>List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. 
-
-
-### PysparkJob {#PysparkJob3}
-
-Field | Description
---- | ---
-args[] | **string**<br>Optional arguments to pass to the driver. 
-jar_file_uris[] | **string**<br>JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. 
-file_uris[] | **string**<br>URIs of resource files to be copied to the working directory of Data Proc drivers and distributed Hadoop tasks. 
-archive_uris[] | **string**<br>URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. 
-properties | **map<string,string>**<br>Property names and values, used to configure Data Proc and PySpark. 
-main_python_file_uri | **string**<br>URI of the file with the driver code. Must be a .py file. 
-python_file_uris[] | **string**<br>URIs of Python files to pass to the PySpark framework. 
-packages[] | **string**<br>List of maven coordinates of jars to include on the driver and executor classpaths. 
-repositories[] | **string**<br>List of additional remote repositories to search for the maven coordinates given with --packages. 
-exclude_packages[] | **string**<br>List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. 
-
-
-### HiveJob {#HiveJob3}
-
-Field | Description
---- | ---
-properties | **map<string,string>**<br>Property names and values, used to configure Data Proc and Hive. 
-continue_on_failure | **bool**<br>Flag indicating whether a job should continue to run if a query fails. 
-script_variables | **map<string,string>**<br>Query variables and their values. 
-jar_file_uris[] | **string**<br>JAR file URIs to add to CLASSPATH of the Hive driver and each task. 
-query_type | **oneof:** `query_file_uri` or `query_list`<br>
-&nbsp;&nbsp;query_file_uri | **string**<br>URI of the script with all the necessary Hive queries. 
-&nbsp;&nbsp;query_list | **[QueryList](#QueryList3)**<br>List of Hive queries to be used in the job. 
-
-
-### QueryList {#QueryList3}
 
 Field | Description
 --- | ---
@@ -553,14 +487,14 @@ name | **string**<br>Name of the job, specified in the [JobService.Create](#Crea
 created_by | **string**<br>The id of the user who created the job 
 status | enum **Status**<br>Job status. <ul><li>`PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.</li><li>`PENDING`: Job is acquired by the agent and is in the queue for execution.</li><li>`RUNNING`: Job is being run in the cluster.</li><li>`ERROR`: Job failed to finish the run properly.</li><li>`DONE`: Job is finished.</li><li>`CANCELLED`: Job is cancelled.</li><li>`CANCELLING`: Job is waiting for cancellation.</li></ul>
 job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<br>Specification for the job.
-&nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob4)**<br>Specification for a MapReduce job. 
-&nbsp;&nbsp;spark_job | **[SparkJob](#SparkJob4)**<br>Specification for a Spark job. 
-&nbsp;&nbsp;pyspark_job | **[PysparkJob](#PysparkJob4)**<br>Specification for a PySpark job. 
-&nbsp;&nbsp;hive_job | **[HiveJob](#HiveJob4)**<br>Specification for a Hive job. 
+&nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob3)**<br>Specification for a MapReduce job. 
+&nbsp;&nbsp;spark_job | **[SparkJob](#SparkJob3)**<br>Specification for a Spark job. 
+&nbsp;&nbsp;pyspark_job | **[PysparkJob](#PysparkJob3)**<br>Specification for a PySpark job. 
+&nbsp;&nbsp;hive_job | **[HiveJob](#HiveJob3)**<br>Specification for a Hive job. 
 application_info | **[ApplicationInfo](#ApplicationInfo3)**<br>Attributes of YARN application. 
 
 
-### MapreduceJob {#MapreduceJob4}
+### MapreduceJob {#MapreduceJob3}
 
 Field | Description
 --- | ---
@@ -574,7 +508,7 @@ driver | **oneof:** `main_jar_file_uri` or `main_class`<br>
 &nbsp;&nbsp;main_class | **string**<br>The name of the driver class. 
 
 
-### SparkJob {#SparkJob4}
+### SparkJob {#SparkJob3}
 
 Field | Description
 --- | ---
@@ -590,7 +524,7 @@ repositories[] | **string**<br>List of additional remote repositories to search 
 exclude_packages[] | **string**<br>List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. 
 
 
-### PysparkJob {#PysparkJob4}
+### PysparkJob {#PysparkJob3}
 
 Field | Description
 --- | ---
@@ -606,7 +540,7 @@ repositories[] | **string**<br>List of additional remote repositories to search 
 exclude_packages[] | **string**<br>List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. 
 
 
-### HiveJob {#HiveJob4}
+### HiveJob {#HiveJob3}
 
 Field | Description
 --- | ---
@@ -616,10 +550,10 @@ script_variables | **map<string,string>**<br>Query variables and their values.
 jar_file_uris[] | **string**<br>JAR file URIs to add to CLASSPATH of the Hive driver and each task. 
 query_type | **oneof:** `query_file_uri` or `query_list`<br>
 &nbsp;&nbsp;query_file_uri | **string**<br>URI of the script with all the necessary Hive queries. 
-&nbsp;&nbsp;query_list | **[QueryList](#QueryList4)**<br>List of Hive queries to be used in the job. 
+&nbsp;&nbsp;query_list | **[QueryList](#QueryList3)**<br>List of Hive queries to be used in the job. 
 
 
-### QueryList {#QueryList4}
+### QueryList {#QueryList3}
 
 Field | Description
 --- | ---

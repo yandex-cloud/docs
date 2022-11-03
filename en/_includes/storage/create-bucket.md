@@ -16,7 +16,7 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
 
-      1. Select the type of [access](../../storage/concepts/bucket.md#bucket-access).
+      1. Selected the type of [access](../../storage/concepts/bucket.md#bucket-access).
       1. Select the default [storage class](../../storage/concepts/storage-class.md).
       1. Click **Create bucket** to complete the operation.
 
@@ -24,33 +24,54 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
 
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   Before you start, retrieve the [static access keys](../../iam/operations/sa/create-access-key.md): a secret key and a key ID used for authentication in {{ objstorage-short-name }}.
-
    1. In the configuration file, describe the parameters of resources that you want to create:
 
-      * `access_key`: The ID of the static access key.
-      * `secret_key`: The value of the secret access key.
-      * `bucket`: The name of the bucket being created. Optional parameter. If omitted, a random unique bucket name is generated.
-
       
+
       ```
       provider "yandex" {
-        token     = "<OAuth>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
+        token     = "<IAM_or_OAuth_token>"
+        cloud_id  = "<cloud_ID>"
+        folder_id = "<folder_ID>"
         zone      = "{{ region-id }}-a"
       }
 
+      resource "yandex_iam_service_account" "sa" {
+        name = "<service_account_name>"
+      }
+
+      // Assigning roles to the service account
+      resource "yandex_resourcemanager_folder_iam_member" "sa-editor" {
+        folder_id = "<folder_ID>"
+        role      = "storage.editor"
+        member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
+      }
+
+      // Creating a static access key
+      resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
+        service_account_id = yandex_iam_service_account.sa.id
+        description        = "static access key for object storage"
+      }
+
+      // Creating a bucket using the key
       resource "yandex_storage_bucket" "test" {
-        access_key = "<static key ID>"
-        secret_key = "<secret key>"
-        bucket = "<bucket name>"
+        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+        bucket     = "<bucket_name>"
       }
       ```
+
 
 
 
-      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
+      Where:
+
+      * `yandex_iam_service_account` is the description of the service account that will create and use a bucket:
+         * `name`: Service account name.
+      * `yandex_storage_bucket`: Bucket description:
+         * `bucket`: Bucket name.
+
+      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket).
 
    1. Make sure that the configuration files are correct.
 
@@ -60,14 +81,14 @@ The minimum role required to create a bucket is `storage.editor`. See the [role 
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
       1. If the configuration doesn't contain any errors, run the command:
-      ```
-      terraform apply
-      ```
+         ```
+         terraform apply
+         ```
 
       1. Confirm that you want to create the resources.
 

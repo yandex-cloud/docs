@@ -1,0 +1,121 @@
+# Создание триггера для {{ objstorage-name }}
+
+Создайте [триггер для {{ objstorage-name }}](../concepts/trigger/os-trigger.md), который будет вызывать [контейнер](../concepts/container.md) {{ serverless-containers-name }} при создании, перемещении или удалении [объекта](../../storage/concepts/object.md) в бакете.
+
+## Перед началом работы {#before-begin}
+
+{% include [trigger-before-you-begin](../../_includes/serverless-containers/trigger-before-you-begin.md) %}
+
+* [Бакет](../../storage/concepts/bucket.md), при событиях с объектами в котором триггер будет запускаться. Если у вас нет бакета, [создайте его](../../storage/operations/buckets/create.md).
+
+## Создать триггер {#trigger-create}
+
+{% include [trigger-time](../../_includes/functions/trigger-time.md) %}
+
+{% list tabs %}
+
+- Консоль управления
+
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
+
+    1. Откройте сервис **{{ serverless-containers-name }}**.
+
+    1. На панели слева выберите ![image](../../_assets/functions/triggers.svg) **Триггеры**.
+
+    1. Нажмите кнопку **Создать триггер**.
+
+    1. В блоке **Базовые параметры**:
+
+        * Введите имя и описание триггера.
+        * В поле **Тип** выберите **{{ objstorage-name }}**.
+        * В поле **Запускаемый ресурс** выберите **Контейнер**.
+
+    1. В блоке **Настройки {{ objstorage-name }}**:
+
+        * В поле **Бакет** выберите бакет, для событий с объектами которого хотите создать триггер.
+        * В поле **Типы событий** выберите события, после наступления которых триггер будет запускаться.
+        * (опционально) В поле **Префикс ключа объекта** введите префикс для фильтрации.
+        * (опционально) В поле **Суффикс ключа объекта** введите суффикс для фильтрации.
+
+    1. В блоке **Настройки контейнера** выберите контейнер и укажите:
+
+        {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
+
+    1. (опционально) В блоке **Настройки повторных запросов**:
+
+        {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
+
+    1. (опционально) В блоке **Настройки Dead Letter Queue** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
+
+    1. Нажмите кнопку **Создать триггер**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы создать триггер, который вызывает контейнер, выполните команду:
+
+    ```bash
+    yc serverless trigger create object-storage \
+      --name <имя_триггера> \
+      --bucket-id <идентификатор_бакета> \
+      --prefix '<префикс_ключа_объекта>' \
+      --suffix '<суффикс_ключа_объекта>' \
+      --events 'create-object','delete-object','update-object' \
+      --invoke-container-id <идентификатор_контейнера> \
+      --invoke-container-service-account-id <идентификатор_сервисного_аккаунта> \
+      --retry-attempts 1 \
+      --retry-interval 10s \
+      --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
+      --dlq-service-account-id <идентификатор_сервисного_аккаунта>
+    ```
+
+    Где:
+
+    * `--name` — имя триггера.
+    * `--bucket-id` — идентификатор бакета.
+    * `--prefix` — [префикс](../concepts/trigger/os-trigger.md#filter) ключа объекта в бакете. Необязательный параметр. Используется для фильтрации.
+    * `--suffix` — [суффикс](../concepts/trigger/os-trigger.md#filter) ключа объекта в бакете. Необязательный параметр. Используется для фильтрации.
+    * `--events` — [события](../concepts/trigger/os-trigger.md#event), после наступления которых триггер запускается.
+    
+    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
+
+    Результат:
+
+    ```text
+    id: a1s5msktij**********
+    folder_id: b1gmit33hg**********
+    created_at: "2022-10-24T15:19:15.353909857Z"
+    name: os-trigger
+    rule:
+      object_storage:
+        event_type:
+        - OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT
+        - OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT
+        - OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT
+        bucket_id: s3-for-trigger
+        prefix: dev
+        suffix: 12.jpg
+        invoke_container:
+          container_id: bba5jb38o8**********
+          service_account_id: aje3932acd**********
+          retry_settings:
+            retry_attempts: "1"
+            interval: 10s
+          dead_letter_queue:
+            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:dlq
+            service-account-id: aje3932acd**********
+    status: ACTIVE
+    ```
+
+{% endlist %}
+
+## Проверить результат {#check-result}
+
+{% include [check-result](../../_includes/serverless-containers/check-result.md) %}
+
+## См. также {#see-also}
+
+* [Триггер для {{ objstorage-name }}, который вызывает функцию {{ sf-name }}](../../functions/operations/trigger/os-trigger-create.md).

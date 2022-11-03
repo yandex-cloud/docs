@@ -20,7 +20,7 @@ Settings of rules depend on the connection method you select:
 
 - Over the internet
    
-   [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) in your cluster to allow incoming traffic on port 6432 from any IP. To do this, create the following rule for incoming traffic:
+   [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic on port 6432 from any IP. To do this, create the following rule for incoming traffic:
 
 
    * Port range: `6432`.
@@ -28,9 +28,9 @@ Settings of rules depend on the connection method you select:
    * Source: `CIDR`.
    * CIDR blocks: `0.0.0.0/0`.
 
-- With a VM in {{ yandex-cloud }} 
+- With a VM in {{ yandex-cloud }}
    
-   1. [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) in your cluster to allow incoming traffic on port 6432 from the security group where the VM is located. To do this, create the following rule for incoming traffic in these groups:
+   1. [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic on port 6432 from the security group where the VM is located. To do this, create the following rule for incoming traffic in these groups:
 
 
    * Port range: `6432`.
@@ -38,7 +38,7 @@ Settings of rules depend on the connection method you select:
    * Source: `Security group`.
    * Security group: If a cluster and a VM are in the same security group, select `Self` (`Self`) as the value. Otherwise, specify the VM security group.
       
-   1. [Configure the security group](../../vpc/operations/security-group-update.md#add-rule) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
+   1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
 
 
    Example of rules for a VM:
@@ -71,20 +71,68 @@ Security groups must be configured correctly for all subnets that will include c
 
 For more information about security groups, see [{#T}](../concepts/network.md#security-groups).
 
+## Special FQDNs {#special-fqdns}
+
+Just like usual FQDNs, which can be requested with a [list of cluster hosts](hosts.md#list), {{ mpg-name }} provides a number of special FQDNs, which can also be used when connecting to a cluster.
+
+### Current master {#fqdn-master}
+
+A FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` always points to the current cluster master host. The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+When connecting to this FQDN, both read and write operations are allowed.
+
+{% note info %}
+
+Connect using special master host FQDNs to make sure your cluster is available even after a master fail over.
+
+{% endnote %}
+
+An example of connecting to a master host for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
+
+```bash
+psql "host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
+      port=6432 \
+      sslmode=verify-full \
+      dbname=<DB name> \
+      user=<username> \
+      target_session_attrs=read-write"
+```
+
+### The least lagging replica {#fqdn-replica}
+
+FQDN like `c-<cluster ID>.ro.{{ dns-zone }}` Points to the least lagging [replica](../concepts/replication.md). The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+**Specifics:**
+
+* When connecting to this FQDN, only read operations are allowed.
+* If there are no active replicas in a cluster, you can't connect to this FQDN: the corresponding DNS CNAME record will point to a null object (`null`).
+
+An example of connecting to the least lagging replica for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
+
+```bash
+psql "host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
+      port=6432 \
+      sslmode=verify-full \
+      dbname=<DB name> \
+      user=<username> \
+      target_session_attrs=any"
+```
+
 ## Automatic master host selection {#automatic-master-host-selection}
 
-### Using libpq {#using-libpq}
+To guarantee a connection to the master host:
 
-To guarantee a connection to the master host, specify the FQDNs of all the cluster hosts in the `host` argument and pass the `target_session_attrs=read-write` parameter. This parameter is supported by the `libpq` library starting with [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
+1. Specify in the `host` argument either:
+
+   * A [special master host FQDN](#fqdn-master) as shown in the [examples below](#connection-string).
+   * Or the FQDNs of all the cluster hosts.
+
+1. Pass in the `target_session_attrs=read-write` parameter. This parameter is supported by the `libpq` library starting with [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
 
 To upgrade the library version used by the `psql` utility:
 
 * For Debian-based Linux distributions, install the `postgresql-client-10` package or higher (for example, using an [APT repository](https://www.postgresql.org/download/linux/ubuntu/)).
-* For operating systems using RPM packages, a {{ PG }} distribution is available from a [yum repository](https://yum.postgresql.org/).
-
-### With a special master host FQDN {#using-fqdn-master}
-
-To avoid listing all the cluster hosts in a connection string, use a [special master host FQDN](#fqdn-master) as shown [in the examples below](#connection-string).
+* For those operating systems that use RPM packages, use the {{ PG }} distribution available from the [yum repository](https://yum.postgresql.org/).
 
 ## Getting an SSL certificate {#get-ssl-cert}
 
@@ -94,7 +142,7 @@ To avoid listing all the cluster hosts in a connection string, use a [special ma
 
 - Linux (Bash)
 
-  {% include [install-certificate](../../_includes/mdb/mpg/install-certificate.md) %}
+   {% include [install-certificate](../../_includes/mdb/mpg/install-certificate.md) %}
 
 - Windows (PowerShell)
 
@@ -126,13 +174,13 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
          * **URL**: Connection string:
 
             ```http
-            jdbc:postgresql://<{{ PG }} host 1:{{ port-mpg }}>,...,<{{ PG }} host N:{{ port-mpg }}>/<DB name>
+            jdbc:postgresql://<special FQDN>:{{ port-mpg }}>/<DB name>
             ```
 
-            You can also use [special FQDNs](#special-fqdns) in the connection string:
+            You can also use a list of all the cluster host FQDNs in the connection string:
 
             ```http
-            jdbc:postgresql://<special FQDN>:{{ port-mpg }}>/<DB name>
+            jdbc:postgresql://<{{ PG }} host 1:{{ port-mpg }}>,...,<{{ PG }} host N:{{ port-mpg }}>/<DB name>
             ```
 
          * Click **Download** to download the connection driver.
@@ -149,7 +197,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
       1. Select **{{ PG }}** from the DB list.
       1. Click **Next**.
       1. Specify the connection parameters on the **Main** tab:
-         * **Host**: Host FQDN or a [special FQDN](#special-fqdns).
+         * **Host**: [Special master host FQDN](#fqdn-master) or regular host FQDN.
          * **Port**: `{{ port-mpg}}`.
          * **Database**: Name of the DB to connect to.
          * Under **Authentication**, specify the DB user's name and password.
@@ -181,44 +229,3 @@ You can connect to a cluster using both regular host FQDNs (you can send a comma
 {% include [mpg-connection-strings](../../_includes/mdb/mpg-conn-strings.md) %}
 
 If the connection to the cluster and the test query are successful, the {{ PG }} version is output.
-
-## Special FQDNs {#special-fqdns}
-
-Just like usual FQDNs, which can be requested with a [list of cluster hosts](hosts.md#list), {{ mpg-name }} provides a number of special FQDNs, which can also be used when connecting to a cluster.
-
-### Current master {#fqdn-master}
-
-A FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` Always points to the current cluster master host. The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
-
-When connecting to this FQDN, both read and write operations are allowed.
-
-An example of connecting to a master host for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
-
-```bash
-psql "host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
-      port=6432 \
-      sslmode=verify-full \
-      dbname=<DB name> \
-      user=<username> \
-      target_session_attrs=read-write"
-```
-
-### The least lagging replica {#fqdn-replica}
-
-FQDN like `c-<cluster ID>.ro.{{ dns-zone }}` Points to the least lagging [replica](../concepts/replication.md). The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
-
-**Specifics:**
-
-* When connecting to this FQDN, only read operations are allowed.
-* If there are no active replicas in the cluster, you can't connect to this FQDN: the corresponding CNAME record in the DNS will point to nowhere (`null`).
-
-An example of connecting to the least lagging replica for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
-
-```bash
-psql "host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
-      port=6432 \
-      sslmode=verify-full \
-      dbname=<DB name> \
-      user=<username> \
-      target_session_attrs=any"
-```

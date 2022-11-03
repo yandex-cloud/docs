@@ -1,4 +1,6 @@
+
 {% include [get-logs-info](note-info-get-logs.md) %}
+
 
 {% list tabs %}
 
@@ -18,8 +20,8 @@
 
    ```bash
    {{ yc-dp }} job log \
-      --cluster-name <cluster name> \
-      --name <job name>
+      --cluster-name=<cluster name> \
+      --name=<job name>
    ```
 
    You can find out the cluster ID and name in a [list of clusters in the folder](../../data-proc/operations/cluster-list.md#list).

@@ -14,26 +14,30 @@ If you need to create multiple disks with the same content, use [images](image.m
 
 {% endnote %}
 
-## A disk snapshot as a {{ yandex-cloud }} resource {#concept_pdw_xtc_v2b}
+A disk snapshot only contains the data that was already written to the disk when the snapshot was created. If the disk is attached to a running VM, the cache of the apps and OS will not be included in the snapshot. For more information about preparing a VM for the creation of a disk snapshot and ensuring the integrity of the snapshot data, see the [instructions](../operations/disk-control/create-snapshot.md#prepare).
+
+You can create disk snapshots manually or automatically, according to the [schedule](snapshot-schedule.md).
+
+A single snapshot can be created for one disk at a time.
+
+
+## A disk snapshot as a {{ yandex-cloud }} resource {#snapshot-as-resource}
 
 A disk snapshot is a resource like the disk itself. Snapshots are created in a folder. Access rights to a snapshot are inherited from rights to the folder.
 
-Snapshots take up space in the storage so additional fees are charged for storing them. For more information, see [{#T}](../pricing.md).
+A snapshot takes some space in the storage, it is kept indefinitely. Storage of snapshots is charged additionally. To make sure you don't overpay, delete unused snapshots. For more information, see [{#T}](../pricing.md).
 
 Snapshot information contains the ID of the disk from which the snapshot was created. In addition, the license IDs (`product_ids`) are inherited from the source resource, which are used to calculate the disk use cost.
 
-## Backups {#backup}
+
+## Reliable and secure snapshot storage {#reliability-and-security}
 
 Snapshots are stored in {{ ydb-full-name }}, replicated in multiple availability zones, and encrypted at the database level.
 
-Snapshot storage time is unlimited. To make sure you don't overpay, delete unused snapshots.
-
-### Checking backups {#verify}
-
-#### Checking backup integrity {#integrity}
-
 The checksum is stored for blocks in the snapshot. This checksum is checked when creating a disk from a snapshot.
 
-#### Checking backup recovery {#capabilities}
-
 To test disk recovery from a snapshot, [create a VM with a disk from a snapshot](../operations/vm-create/create-from-snapshots.md) and check the integrity of your data.
+
+#### See also {#see-also}
+
+* [Instructions for disk snapshots and schedules](../operations/#snapshots)

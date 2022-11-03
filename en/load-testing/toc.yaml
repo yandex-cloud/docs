@@ -10,14 +10,20 @@ items:
         href: operations/index.md
       - name: Creating a test agent
         href: operations/create-agent.md
-      - name: Setting up security groups for test agents
+      - name: Configuring test agent security groups
         href: operations/security-groups-agent.md
-      - name: Setting up security groups for test targets
+      - name: Configuring test target security groups
         href: operations/security-groups-target.md
+      - name: Creating a test with data from a bucket
+        href: operations/create-test-bucket.md
+      - name: Transferring test logs to {{ cloud-logging-name }}
+        href: operations/logging.md
   - name: Practical guidelines
     items:
-      - name: gRPC service load testing
+      - name: Load testing of the gRPC service
         href: tutorials/loadtesting-grpc.md
+      - name: Deploying and load testing a gRPC service with scaling
+        href: tutorials/loadtesting-grpc-autoscaling.md
       - name: Using Phantom to run a fixed-load HTTPS test
         href: tutorials/loadtesting-https-phantom.md
       - name: Using Pandora to run a step-load HTTPS test
@@ -32,7 +38,7 @@ items:
         href: concepts/load-generator.md
       - name: Load profile
         href: concepts/load-profile.md
-      - name: Test data and its types
+      - name: Payloads and types
         items:
           - name: Overview
             href: concepts/payload.md
@@ -48,8 +54,12 @@ items:
             href: concepts/payloads/http-json.md
       - name: Testing threads
         href: concepts/testing-stream.md
+      - name: Autostop
+        href: concepts/auto-stop.md
       - name: Reports
         href: concepts/reports.md
+      - name: Load test results
+        href: concepts/load-test-results.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

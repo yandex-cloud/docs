@@ -18,23 +18,41 @@ items:
       - name: Остановка и запуск кластера
         href: operations/cluster-stop.md
       - name: Управление хостами кластера
-        href: operations/cluster-hosts.md
+        items:
+          - name: Просмотр хостов кластера
+            href: operations/hosts/cluster-hosts.md
+          - name: Расширение кластера
+            href: operations/hosts/cluster-expand.md
       - name: Изменение настроек кластера
         href: operations/update.md
+      - name: Управление ролями и пользователями
+        href: operations/roles-and-users.md
+      - name: Управление клиентскими процессами
+        href: operations/cluster-process.md
       - name: Использование внешних таблиц
         href: operations/external-tables.md
-      - name: Управление расширениями Greenplum
-        href: operations/cluster-extensions.md
+      - name: Расширения Greenplum
+        items:
+          - name: Управление расширениями
+            href: operations/extensions/cluster-extensions.md
+          - name: pgcrypto
+            href: operations/extensions/pgcrypto.md
       - name: Просмотр логов кластера
         href: operations/cluster-logs.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
       - name: Мониторинг состояния кластера и хостов
         href: operations/monitoring.md
+      - name: Управление ресурсными группами
+        href: operations/resource-groups.md
   - name: Практические руководства
     items:
       - name: Миграция базы данных в {{ mgp-name }}
         href: tutorials/data-migration.md
+      - name: >-
+          Создание внешней таблицы на базе таблицы из бакета {{
+          objstorage-full-name }} с помощью конфигурационного файла
+        href: tutorials/config-server-for-s3.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -45,13 +63,17 @@ items:
         href: concepts/network.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Типы хранилища
+      - name: Ресурсные группы
+        href: concepts/resource-groups.md
+      - name: Типы дисков
         href: concepts/storage.md
+      - name: Ресурсные группы
+        href: concepts/resource-groups.md
       - name: Шардирование
         href: concepts/sharding.md
       - name: Типы хранения данных
         href: concepts/tables.md
-      - name: Управление пользователями
+      - name: Пользователи и роли
         href: concepts/cluster-users.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
@@ -97,6 +119,8 @@ items:
                 href: api-ref/Cluster/create.md
               - name: delete
                 href: api-ref/Cluster/delete.md
+              - name: expand
+                href: api-ref/Cluster/expand.md
               - name: get
                 href: api-ref/Cluster/get.md
               - name: list
@@ -141,4 +165,20 @@ items:
     items:
       - name: Общие вопросы
         href: qa/general.md
+      - name: Подключение
+        href: qa/connection.md
+      - name: Резервное копирование
+        href: qa/backup.md
+      - name: Изменение кластера
+        href: qa/update.md
+      - name: Кластер и хосты {{ mgp-short-name }}
+        href: qa/cluster-hosts.md
+      - name: Работа с внешними таблицами
+        href: qa/pxf.md
+      - name: Управление пользователями
+        href: qa/users.md
+      - name: Мониторинг
+        href: qa/monitoring.md
+      - name: Все вопросы на одной странице
+        href: qa/all.md
 base: ru/managed-greenplum

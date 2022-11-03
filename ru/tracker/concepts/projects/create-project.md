@@ -3,7 +3,7 @@ sourcePath: ru/tracker/api-ref/concepts/projects/create-project.md
 ---
 # Создать проект
 
-Запрос позволяет создать [проект](../../manager/projects.md).
+Запрос позволяет создать [проект](../../manager/project-new.md).
 
 ## Формат запроса {#query}
 

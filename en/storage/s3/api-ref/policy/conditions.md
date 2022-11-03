@@ -8,7 +8,6 @@ Condition | Description
 `aws:sourceip` | Compares the request's IP address with those specified in the policy.
 `aws:useragent` | Compares the request's UserAgent with those specified in the policy.
 `aws:userid` | Compares the user ID in {{ iam-short-name }} with the one specified in the policy.
-`aws:username` | Compares the user name with the one specified in the policy.
 `s3:authtype` | Restricts incoming requests to use a specific authentication method.
 `s3:delimiter` | Sets the delimiter that user requests must contain.
 `s3:max-keys` | Sets the maximum number of keys returned per [ListBucket](../bucket/list.md) request.

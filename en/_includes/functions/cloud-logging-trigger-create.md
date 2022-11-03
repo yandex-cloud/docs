@@ -1,26 +1,12 @@
-Create a trigger for [{{ cloud-logging-name }}](../../logging/) that calls a {{ sf-name }} [function](../../functions/concepts/function.md) or {{ serverless-containers-name }} [container](../../serverless-containers/concepts/container.md) when entries are added to a [log group](../../logging/concepts/log-group.md).
+Create a trigger for [{{ cloud-logging-name }}](../../logging/) that calls a {{ sf-name }} [function](../../functions/concepts/function.md) when entries are added to a [log group](../../logging/concepts/log-group.md).
 
-## Before you start {#before-you-begin}
+For more information about creating a trigger for {{ cloud-logging-name }} that calls a container, see the [{{ serverless-containers-full-name }} documentation](../../serverless-containers/operations/cloud-logging-trigger-create.md).
 
-To create a trigger, you need:
+## Before you begin {#before-you-begin}
 
-* A function or a container the trigger will launch.
-
-   * If you don't have a function:
-
-      * [Create a function](../../functions/operations/function/function-create.md).
-      * [Create a function version](../../functions/operations/function/version-manage.md#func-version-create).
-
-   * If you don't have a container:
-
-      * [Create a container](../../serverless-containers/operations/create.md).
-      * [Create a container revision](../../serverless-containers/operations/manage-revision.md#create).
+{% include [trigger-before-you-begin](trigger-before-you-begin.md) %}
 
 * The log group that activates the trigger when records are added to it. If you don't have a log group, [create one](../../logging/operations/create-group.md).
-
-* (optional) A [Dead Letter Queue](../../functions/concepts/dlq.md) where messages that could not be processed by a function or a container will be redirected. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
-
-* [Service accounts](../../iam/concepts/users/service-accounts.md) with rights to invoke a function or a container and (optionally) write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). You can use the same service account or different ones. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -42,7 +28,7 @@ To create a trigger, you need:
 
       * Enter a name and description for the trigger.
       * In the **Type** field, select **{{ cloud-logging-name }}**.
-      * Choose what the trigger will launch — a function or a container.
+      * In the **Launched resource** field, select **Function**.
 
    1. Under **{{ cloud-logging-name }} settings**, specify:
 
@@ -58,26 +44,19 @@ To create a trigger, you need:
       * Batch size. Valid values range from 1 to 100. The default is 1.
       * Maximum wait time. Valid values range from 1 to 60 seconds. The default is 1 second.
 
-      The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function or container. However, the number of messages does not exceed the specified group size.
+      The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function. However, the number of messages does not exceed the specified group size.
 
-   1. If the trigger launches:
+   1. Under **Function settings**, select a function and specify:
 
-      * A function, select one under **Function settings** and specify:
-
-         * [Tag of the function version](../../functions/concepts/function.md#tag);
-         * A [service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the function.
-
-      * A container, select one under **Container settings** and specify:
-
-         * [A container revision](../../serverless-containers/concepts/container.md#revision);
-         * [A service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the container.
+      * [Tag of the function version](../../functions/concepts/function.md#tag);
+      * A [service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the function.
 
    1. (optional) Under **Repeat request settings**:
 
-      * In the **Interval** field, specify the time after which the function or the container will be invoked again if the current attempt fails. Values can be from 10 to 60 seconds. The default is 10 seconds.
+      * In the **Interval** field, specify the time after which the function will be invoked again if the current attempt fails. Values can be from 10 to 60 seconds. The default is 10 seconds.
       * In the **Number of attempts** field, specify the number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). Values can be from 1 to 5. The default is 1.
 
-   1. (optional) Under **Dead Letter Queue settings**, select the [Dead Letter Queue](../../functions/concepts/dlq.md) and the service account with write privileges to this queue.
+   1. (optional) Under **Dead Letter Queue settings**, select the [Dead Letter Queue](../../functions/concepts/dlq.md) and the service account with write privileges for this queue.
 
    1. Click **Create trigger**.
 
@@ -108,7 +87,7 @@ To create a trigger, you need:
    * `--name`: Trigger name.
    * `--log-group-name`: The name of the log group that will cause the function to be called when records are added.
    * `--batch-size`: Message batch size. Optional. Valid values range from 1 to 100. The default is 1.
-   * `--batch-cutoff`: Maximum waiting time. Optional. Valid values range from 0 to 60 seconds. The default is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function or container. At the same time, the number of messages does not exceed `batch-size`.
+   * `--batch-cutoff`: Maximum waiting time. Optional. Valid values range from 0 to 60 seconds. The default is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. At the same time, the number of messages does not exceed `batch-size`.
    * `--invoke-function-id`: Function ID.
    * `--invoke-function-service-account-id`: ID of the service account with rights to invoke the function.
    * `--retry-attempts`: The time after which the function will be invoked again if the current attempt fails. Optional. Values can be from 10 to 60 seconds. The default is 10 seconds.
@@ -145,6 +124,83 @@ To create a trigger, you need:
 - API
 
    You can create a trigger using the API [create](../../functions/triggers/api-ref/Trigger/create.md).
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   To create a trigger for {{ cloud-logging-name }}:
+
+   1. In the configuration file, describe the trigger parameters.
+
+      Example configuration file structure:
+
+      ```hcl
+      resource "yandex_function_trigger" "my_trigger" {
+        name        = "<trigger name>"
+        description = "<trigger description>"
+        logging {
+           group_id       = "<log group ID>"
+           resource_types = [ "<resource type>" ]
+           resource_ids   = [ "<resource ID>" ]
+           levels         = [ "INFO", "ERROR" ]
+           batch_cutoff   = 1
+           batch_size     = 1
+        function {
+           id                 = "<function ID>"
+           service_account_id = "<service account ID>"
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Trigger name. Name format:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      * `description`: Trigger description.
+      * `logging`: Logging parameters, which will activate the trigger when added to the log group, and the batch message settings:
+         * `group_id`: Log group ID.
+         * `resource_types`: Resource types: your services or {{ yandex-cloud }} services, for example, `resource_types = [ "serverless.function" ]`. You can specify more than one service at a time.
+         * `resource_ids`: IDs of your resources or {{ yandex-cloud }} resources, for example, functions `resource_ids = [ "<function ID>" ]`. You can specify multiple IDs.
+         * `levels`: Logging levels. For example, `levels = [ "INFO", "ERROR"]`.
+         * `batch_cutoff`: Maximum wait time. Acceptable values are from 0 to 60 seconds. The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function or container. At the same time, the number of messages does not exceed the specified `batch-size` group.
+         * `batch_size`: Message batch size. Acceptable values are from 1 to 100.
+      * `function`: Settings for the function, which will be activated by the trigger:
+         * `id`: Function ID.
+         * `service_account_id`: ID of the service account with rights to invoke a function.
+
+      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/function_trigger).
+
+   1. Make sure that the configuration files are correct.
+
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run the check using the command:
+
+         ```
+         terraform plan
+         ```
+
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+
+   1. Deploy the cloud resources.
+
+      1. If the configuration doesn't contain any errors, run the command:
+
+         ```
+         terraform apply
+         ```
+
+      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+
+         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+
+         ```
+         yc serverless trigger get <trigger ID>
+         ```
 
 {% endlist %}
 

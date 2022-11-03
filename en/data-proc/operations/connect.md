@@ -21,7 +21,7 @@ Settings of rules depend on the connection method you select:
 
 - SSH
 
-   * To connect to your subcluster hosts from cloud networks and the internet, [set up security groups](../../vpc/operations/security-group-update.md#add-rule) for your cluster to allow incoming traffic from any IP address on port `{{ port-ssh }}`. To do this, create the following rule for incoming traffic:
+   * To connect to your subcluster hosts from cloud networks and the internet, [set up security groups](../../vpc/operations/security-group-add-rule.md) for your cluster to allow incoming traffic from any IP address on port `{{ port-ssh }}`. To do this, create the following rule for incoming traffic:
 
       * Port range: `{{ port-ssh }}`.
       * Protocol: `TCP`.
@@ -30,7 +30,7 @@ Settings of rules depend on the connection method you select:
 
    * To connect to a cluster from an intermediate VM:
 
-      1. [Configure the security group](../../vpc/operations/security-group-update.md#add-rule) where the VM is located to allow connections to the VM and traffic between the VM and subcluster hosts. To do this, create the following rules:
+      1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to allow connections to the VM and traffic between the VM and subcluster hosts. To do this, create the following rules:
 
          * For incoming traffic:
 
@@ -46,7 +46,7 @@ Settings of rules depend on the connection method you select:
             * Source type: `CIDR`.
             * CIDR blocks: Address range of the subnet where the hosts of the cluster are located. If subclusters are in different subnets, create this rule for each subnet.
 
-      1. [Configure security groups](../../vpc/operations/security-group-update.md#add-rule) in the cluster to allow incoming traffic from the security group where the VM is located on port `{{ port-ssh }}`. To do this, create the following rule for incoming traffic:
+      1. [Configure security groups](../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic from the security group where the VM is located on port `{{ port-ssh }}`. To do this, create the following rule for incoming traffic:
 
          * Port range: `{{ port-ssh }}`.
          * Protocol: `TCP`.
@@ -55,14 +55,14 @@ Settings of rules depend on the connection method you select:
 
 - UI Proxy
 
-   To use [**UI Proxy**](../concepts/interfaces.md), [add](../../vpc/operations/security-group-update.md#add-rule) rules to the subcluster host's security group to allow incoming traffic via port `{{ port-https }}`:
+   To use [**UI Proxy**](../concepts/interfaces.md), [add](../../vpc/operations/security-group-add-rule.md) rules to the subcluster host's security group to allow incoming traffic via port `{{ port-https }}`:
 
    * Port range: `{{ port-https }}`.
    * Protocol: `TCP`.
    * Source: `CIDR`.
    * CIDR blocks: `0.0.0.0/0`.
 
-   If the connection is established via an intermediate VM, [add](../../vpc/operations/security-group-update.md#add-rule) rules to the subcluster host's security group to allow connections via this VM:
+   If the connection is established via an intermediate VM, [add](../../vpc/operations/security-group-add-rule.md) rules to the subcluster host's security group to allow connections via this VM:
 
    * For incoming traffic:
 
@@ -80,7 +80,7 @@ Settings of rules depend on the connection method you select:
 
 - Connecting with port forwarding
 
-   When using [port forwarding](../operations/connect-interfaces.md#routing), [add](../../vpc/operations/security-group-update.md#add-rule) rules to the intermediate VM security group that allow incoming and outgoing traffic via the required components' ports:
+   When using [port forwarding](../operations/connect-interfaces.md#routing), [add](../../vpc/operations/security-group-add-rule.md) rules to the intermediate VM security group that allow incoming and outgoing traffic via the required components' ports:
 
    * Port range: `<component port>`.
 
@@ -122,19 +122,27 @@ To connect to a {{ dataproc-name }} host, make sure the SSH key that you specifi
    ssh-add ~/.ssh/example-key
    ```
 
-1. Open an SSH connection to the {{ dataproc-name }} host by specifying its FQDN or IP address if public access is enabled for the host. For image 2.0, specify the `ubuntu` user, for image 1.4 — `root`. For example:
+1. Open an SSH connection to the {{ dataproc-name }} host by specifying its FQDN or IP address if public access is enabled for the host.  For image 2.0, specify the `ubuntu` user, for image 1.4 — `root`. For example:  
 
    ```bash
    ssh ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz.{{ dns-zone }}
+   ```
 
+   Result:
+
+   ```text
    ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz:~#
    ```
 
 1. Make sure that Hadoop commands are executed, for example:
 
    ```bash
-   ~# hadoop version
+   hadoop version
+   ```
 
+   Result:
+
+   ```text
    Hadoop 2.8.5
    Subversion https://github.yandex-team.ru/mdb/bigtop.git -r 78508f2a4b4f3dc8b3d295ccb50a45a4d24e81b5
    Compiled by robot-pgaas-ci on 2019-04-16T10:35Z

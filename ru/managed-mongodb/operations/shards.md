@@ -1,4 +1,4 @@
-# Управление шардами
+# Управление шардами {{ MG }}
 
 Вы можете включить [шардирование](../concepts/sharding.md) для кластера, а также добавлять и настраивать отдельные шарды.
 
@@ -81,7 +81,7 @@
                  `subnet-name=<имя подсети> \
            --mongoinfra resource-preset=<класс хоста>,`
                        `disk-size=<размер хранилища в гигабайтах>,`
-                       `disk-type=<тип хранилища>
+                       `disk-type=<тип диска>
         ```
 
         Где:
@@ -94,7 +94,7 @@
         * `--mongoinfra` — параметры хостов `MONGOINFRA`:
             * `resource-preset` — [класс хоста](../concepts/instance-types.md);
             * `disk-size` — объем хранилища в гигабайтах;
-            * `disk-type` — [тип хранилища](../concepts/storage.md).
+            * `disk-type` — [тип диска](../concepts/storage.md).
 
     * Чтобы включить расширенное шардирование кластера с использованием хостов `MONGOS` и `MONGOCFG`, выполните команду (в примере приведены не все доступные параметры):
 
@@ -109,7 +109,7 @@
                  `subnet-name=<имя подсети> \
            --mongos resource-preset=<класс хоста>,`
                    `disk-size=<размер хранилища в гигабайтах>,`
-                   `disk-type=<тип хранилища> \
+                   `disk-type=<тип диска> \
            --host type=mongocfg,`
                  `zone-id=<зона доступности>,`
                  `subnet-name=<имя подсети> \
@@ -121,7 +121,7 @@
                  `subnet-name=<имя подсети> \
            --mongocfg resource-preset=<класс хоста>,`
                      `disk-size=<размер хранилища в гигабайтах>,`
-                     `disk-type=<тип хранилища>
+                     `disk-type=<тип диска>
         ```
 
         Где:
@@ -134,11 +134,11 @@
         * `--mongos` — параметры хостов `MONGOS`:
             * `resource-preset` — [класс хоста](../concepts/instance-types.md);
             * `disk-size` — объем хранилища в гигабайтах;
-            * `disk-type` — [тип хранилища](../concepts/storage.md).
+            * `disk-type` — [тип диска](../concepts/storage.md).
         * `--mongocfg` — параметры хостов `MONGOCFG`:
             * `resource-preset` — [класс хоста](../concepts/instance-types.md);
             * `disk-size` — объем хранилища в гигабайтах;
-            * `disk-type` — [тип хранилища](../concepts/storage.md).
+            * `disk-type` — [тип диска](../concepts/storage.md).
 
 - API
 

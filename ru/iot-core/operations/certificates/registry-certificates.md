@@ -128,6 +128,10 @@
       yc iot registry certificate list --registry-name <имя_реестра>
       ```
 
+- API
+
+  Добавить сертификат реестру можно с помощью метода API [addCertificate](../../api-ref/Registry/addCertificate.md).
+
 {% endlist %}
 
 ## Удалить сертификат {#delete-cert}
@@ -229,5 +233,9 @@
       ```bash
       yc iot registry certificate list --registry-name <имя_реестра>
       ```
+
+- API
+
+  Удалить сертификат реестра можно с помощью метода API [deleteCertificate](../../api-ref/Registry/deleteCertificate.md).
 
 {% endlist %}

@@ -15,7 +15,7 @@ To get started with the service:
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
-   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based VM in the same network as the DB cluster.
+   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)-based VM in the same network as the DB cluster.
    * To be able to connect to the cluster from the internet, request public access to hosts when creating or modifying the cluster.
 
    {% note info %}
@@ -40,7 +40,7 @@ To get started with the service:
 1. Select **{{ mms-name }}**.
 1. Click **Create cluster**.
 1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
-1. When the cluster is ready, its status changes to **Running** and its state to **Alive**. This may take some time.
+1. Wait until the cluster is ready: its status on the {{ mms-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
 
 ## Connect to the DB {#connect}
 

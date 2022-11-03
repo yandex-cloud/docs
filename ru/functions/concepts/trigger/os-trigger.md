@@ -1,6 +1,6 @@
 # Триггер для {{ objstorage-name }}
 
-[Триггер](../trigger/) для {{ objstorage-name }} запускает [функцию](../function.md) {{ sf-name }} или [контейнер](../../../serverless-containers/concepts/container.md) {{ serverless-containers-name }}, когда наступает определенное событие с [объектом](../../../storage/concepts/object.md) {{ objstorage-full-name }}. Триггер должен находиться в одном облаке с бакетом, на события которого он подписан.
+[Триггер](../trigger/) для {{ objstorage-name }} запускает [функцию](../function.md) {{ sf-name }}, когда наступает определенное событие с [объектом](../../../storage/concepts/object.md) {{ objstorage-name }}. Триггер должен находиться в одном облаке с бакетом, на события которого он подписан.
 
 Триггеру для {{ objstorage-name }} необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова функции.
 
@@ -22,37 +22,16 @@
 ## Роли, необходимые для корректной работы триггера для {{ objstorage-name }} {#roles}
 
 - Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor) и выше.
-- Для работы триггера сервисному аккаунту необходима роль:
-  * `{{ roles-functions-ivoker }}` на каталог с функцией, которую вызывает триггер.
-  * `serverless.containers.invoker` на каталог с контейнером, который вызывает триггер.
+- Для работы триггера сервисному аккаунту необходима роль `{{ roles-functions-ivoker }}` на каталог с функцией, которую вызывает триггер.
 
 Подробнее об [управлении доступом](../../security/index.md).
 
-## Формат сообщения от триггера {{ objstorage-name }} {#ymq-format}
+## Формат сообщения от триггера {{ objstorage-name }} {#format}
 
-После того, как триггер сработает, он отправит в функцию или контейнер следующее сообщение: 
+После того как триггер сработает, он отправит в функцию следующее сообщение: 
 
-```json
-{
-  "messages": [
-    {
-      "event_metadata": {
-        "event_id": "bb1dd06d-a82c-49b4-af98-d8e0c5a1d8f0",
-        "event_type": "yandex.cloud.events.storage.ObjectDelete",
-        "created_at": "2019-12-19T14:17:47.847365Z",
-        "tracing_context": {
-          "trace_id": "dd52ace79c62892f",
-          "span_id": "",
-          "parent_span_id": ""
-        },
-        "cloud_id": "b1gvlrnlei4l5idm9cbj",
-        "folder_id": "b1g88tflru0ek1omtsu0"
-      },
-      "details": {
-        "bucket_id": "s3-for-trigger",
-        "object_id": "dev/0_15a775_972dbde4_orig12.jpg"
-      }
-    }
-  ]
-}
-```
+{% include [os-format](../../../_includes/functions/os-format.md) %}
+
+## См. также {#see-also}
+
+* [Триггер для {{ objstorage-name }}, который запускает контейнер {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/os-trigger.md).

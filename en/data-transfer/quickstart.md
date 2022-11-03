@@ -1,6 +1,6 @@
 # Getting started with {{ data-transfer-name }}
 
-Snapshot or increment data from a source to a target by creating [endpoints](concepts/index.md#endpoint) and configuring [transfers](concepts/index.md#transfer) between them.
+Copy or replicate data from a source to a target by creating [endpoints](concepts/index.md#endpoint) and configuring [transfers](concepts/index.md#transfer) between them.
 
 
 ## Before you begin {#before-you-begin}
@@ -61,13 +61,14 @@ Different systems can act as a source and as a target.
 
 {% include [include](../_includes/data-transfer/connectivity-marix.md) %}
 
-### Prepare sources and targets {#prepare-source-and-target}
+### Preparing sources and targets {#prepare-source-and-target}
 
 Prepare the source for sending data:
+
 * Airbyte®:
-    * [AWS CloudTrail](operations/prepare.md#source-aws)
-    * [BigQuery](operations/prepare.md#source-bigquery)
-    * [S3](operations/prepare.md#source-s3)
+   * [AWS CloudTrail](operations/prepare.md#source-aws)
+   * [BigQuery](operations/prepare.md#source-bigquery)
+   * [S3](operations/prepare.md#source-s3)
 * [{{ KF }}](operations/prepare.md#source-kf)
 * [{{ CH }}](operations/prepare.md#source-ch)
 * [{{ GP }}](operations/prepare.md#source-gp)
@@ -121,9 +122,9 @@ For more information, see [{#T}](./operations/endpoint/index.md).
 1. Select the endpoint for the source and the endpoint for the target.
 1. Enter a name for the transfer.
 1. Select the [type of transfer](./concepts/index.md#transfer-type.md):
-   * `{{ dt-type-copy-repl }}`: To create a full snapshot of the source data and keep it up-to-date.
-   * `{{ dt-type-copy }}`: To create a full snapshot of the data without receiving further updates from the source.
-   * `{{ dt-type-repl }}`: To continuously receive data updates from the source and apply them to the target (without creating a full snapshot of the source data).
+   * `{{ dt-type-copy-repl }}`: To create a full copy of the source data and keep it up-to-date.
+   * `{{ dt-type-copy }}`: To create a full copy of the data without receiving further updates from the source. You can also use this type to [replicate constantly changing tables](concepts/transfer-lifecycle.md#select-transfer-type).
+   * `{{ dt-type-repl }}`: To continuously receive data updates from the source and apply them to the target (without creating a full copy of the source data).
 1. (optional) Add a transfer description.
 1. Click **Create**.
 

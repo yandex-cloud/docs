@@ -23,12 +23,12 @@ description: "Вы можете посмотреть график монитор
 
     {% include [timeslot](../../_includes/functions/timeslot.md) %}
    
-    {% include [function-list-note](../../_includes/serverless-containers/container-list-note.md) %}
+    {% include [serverless-containers-list-note](../../_includes/serverless-containers/container-list-note.md) %}
 
     Посмотрите журнал выполнения контейнера:
 
     ```
-     yc logging read --resource-ids=<идентификатор_контейнера>
+    yc logging read --resource-ids=<идентификатор_контейнера>
     ```
     Результат:
     ```

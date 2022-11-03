@@ -10,7 +10,7 @@ Retrieves the list of available resource presets.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.{{ api-host }}/managed-mysql/v1/resourcePresets
+GET https://{{ api-host-mdb }}/managed-mysql/v1/resourcePresets
 ```
  
 ## Query parameters {#query_params}

@@ -1,6 +1,6 @@
 # Расширение x-yc-apigateway-integration:cloud_datastreams
 
- Расширение `x-yc-apigateway-integration:cloud_datastreams` позволяет обращаться к {{ yds-full-name }} для выполнения операции с [потоком](../../../data-streams/concepts/glossary.md#stream-concepts). На данный момент поддерживается только операция [PutRecord](../../../data-streams/kinesisapi/methods/putrecord.md). При выполнении этой операции в поток записывается содержимое тела запроса, который пришел в {{ api-gw-short-name }}. 
+ Расширение `x-yc-apigateway-integration:cloud_datastreams` позволяет обращаться к {{ yds-full-name }} для выполнения операции с [потоком](../../../data-streams/concepts/glossary.md#stream-concepts). На данный момент поддерживается только операция [PutRecord](../../../data-streams/kinesisapi/methods/putrecord.md). 
 
 ## Поддерживаемые параметры {#parameters}
 
@@ -8,9 +8,10 @@
 
 Параметр | Тип | Описание
 ----|----|----
-`action` | `string` | Тип операции, которая будет выполняться. Возможные значения: `PutRecord`.
+`action` | `string` | Выполняемая операция. Возможные значения: `PutRecord`.
 `stream_name` | `string` | Имя потока {{ yds-name }}.
-`partition_key` | `string` | [Ключ сегмента](../../../data-streams/concepts/glossary#partition-key). В `partition_key` осуществляется подстановка параметров.
+`partition_key` | `string` | Необязательный параметр. [Ключ сегмента](../../../data-streams/concepts/glossary#partition-key). Если не указан, запись будет выполнена в случайный сегмент. В `partition_key` осуществляется подстановка параметров.
+`payload_format_type` | `string` | Необязательный параметр. Тип содежимого записи. Если значение — `body`, в поток записывается только тело запроса, если `request` — весь [запрос](./cloud-functions.md#request_v1) в формате JSON. Значение по умолчанию — `body`.
 `service_account_id` | `string` | Идентификатор сервисного аккаунта. Используется для авторизации при выполнении операции с потоком {{ yds-name }}. Если параметр не указан, используется значение [верхнеуровнего параметра](./index.md#top-level) `service_account_id`.
 
 ## Спецификация расширения {#spec}

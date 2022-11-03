@@ -1,21 +1,30 @@
 # Как начать работать с {{ mes-name }}
 
 Чтобы начать работу с сервисом:
+
 1. [{#T}](#cluster-create).
+
+
 1. [{#T}](#configuring-security-groups).
+
+
 1. [{#T}](#connect).
+
 1. [{#T}](#connect-kibana).
 
 
 ## Перед началом работы {#before-you-begin}
 
 1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь, если вы еще не зарегистрированы.
+
 1. Если у вас еще нет каталога, создайте его:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. Подключаться к кластеру {{ ES }} можно как изнутри, так и извне {{ yandex-cloud }}:
-   * Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md) в той же сети, что и кластер.
+
+   * Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md) в той же сети, что и кластер.
+
    * Чтобы подключиться к кластеру из интернета, [запросите публичный доступ](operations/cluster-create.md#change-data-node-settings) к хостам с [ролью _Data node_](concepts/hosts-roles.md#data-node) при создании кластера.
 
 {% note info %}
@@ -37,16 +46,18 @@
    1. Выберите опцию **Публичный доступ**.
    1. Нажмите кнопку **Сохранить**.
 
-   Публичный доступ можно запросить для одного или нескольких хостов с ролью _Data node_. После создания кластера станет доступно [подключение к Kibana](#connect-kibana), расположенной на этих хостах. Может потребоваться дополнительная [настройка групп безопасности](operations/cluster-connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
+   Публичный доступ можно запросить для одного или нескольких хостов с ролью _Data node_. После создания кластера станет доступно [подключение к Kibana](#connect-kibana), расположенной на этих хостах.  Может потребоваться дополнительная [настройка групп безопасности](operations/cluster-connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру. 
 
    {% include [mes-tip-public-kibana](../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 
 1. Нажмите кнопку **Создать**.
 1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mes-name }} сменится на **Creating** и далее — на **Alive**. Это может занять некоторое время.
 
+
 ## Настройте группы безопасности {#configuring-security-groups}
 
 [Настройте группы безопасности](operations/cluster-connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
+
 
 ## Подключитесь к кластеру {#connect}
 

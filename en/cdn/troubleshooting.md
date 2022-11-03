@@ -37,3 +37,7 @@ Also check the {{ cdn-name }} status on the [{{ yandex-cloud }} special page](ht
 ## Updated settings aren't applied to the resource {#changes-not-applied}
 
 {% include [after-changes-tip](../_includes/cdn/after-changes-tip.md) %}
+
+## A CDN resource has the Not active status and content is not available to users {#resource-not-active}
+
+Enable the **End-user access to content** option in the basic resource settings. For more information, see the [instructions](operations/resources/configure-basics.md).

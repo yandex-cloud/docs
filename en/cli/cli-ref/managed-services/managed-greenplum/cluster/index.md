@@ -25,6 +25,7 @@ Aliases:
 - [yc managed-greenplum cluster remove-labels](remove-labels.md) — Remove labels from Greenplum cluster
 - [yc managed-greenplum cluster create](create.md) — Create Greenplum cluster
 - [yc managed-greenplum cluster delete](delete.md) — Delete the specified Greenplum cluster
+- [yc managed-greenplum cluster expand](expand.md) — Expands the specified Greenplum cluster
 - [yc managed-greenplum cluster list-logs](list-logs.md) — Retrieves logs for the specified Greenplum cluster
 - [yc managed-greenplum cluster list-operations](list-operations.md) — List operations for the specified Greenplum cluster
 - [yc managed-greenplum cluster start](start.md) — Start the specified Greenplum cluster

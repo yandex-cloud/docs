@@ -53,8 +53,8 @@ After creating a cluster, you can:
       +-----------+--------------------------------+-------+----------+
       |    ID     |            ZONE IDS            | CORES |  MEMORY  |
       +-----------+--------------------------------+-------+----------+
-      | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
-      |           | ru-central1-c                  |       |          |
+      | s1.micro  | {{ region-id }}-a, {{ region-id }}-b,  |     2 | 8.0 GB   |
+      |           | {{ region-id }}-c                  |       |          |
       | ...                                                           |
       +-----------+--------------------------------+-------+----------+
       ```
@@ -102,9 +102,16 @@ After creating a cluster, you can:
 
 - API
 
-   Use the API [update](../api-ref/Cluster/update.md) method and transmit the requisite values in the `configSpec.mongodbSpec_4_2.mongod.resources.resourcePresetId` parameter.
+   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Host class in the `configSpec.mongodbSpec_<{{ MG }} version>.mongod.resources.resourcePresetId` parameter.
+
+      To retrieve a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
+
+   * List of settings to update in the `updateMask` parameter.
+
+   {% [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -180,7 +187,13 @@ After creating a cluster, you can:
 
 - API
 
-   To increase your cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass the requisite values in in the call using the `configSpec.mongodbSpec_4_2.mongod.resources.diskSize` parameter.
+   To increase a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in in the call:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * New storage size in the `configSpec.mongodbSpec_<{{ MG }} version>.mongod.resources.diskSize` parameter.
+   * List of settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -222,9 +235,16 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - API
 
-   Use the API [update](../api-ref/Cluster/update.md) method and pass the requisite values in the `configSpec.mongodbSpec_4_2.mongod.config` parameter.
+   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Target {{ MG }} setting values in the `configSpec.mongodbSpec_<{{ MG }} version>.mongod.config` parameter.
+
+      All the supported settings are described in the [API reference](../api-ref/Cluster/update.md) and in [{#T}](../concepts/settings-list.md).
+
+   * List of cluster settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -282,7 +302,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
+   * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -355,23 +375,17 @@ You can change the DBMS settings of the hosts in your cluster.
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter.
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * The new backup start time, in the `configSpec.backupWindowStart` parameter.
    * Settings for access from other services in the `configSpec.access` parameter.
-   * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
+   * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-   * List of cluster configuration fields to be changed in the `updateMask` parameter.
+   * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
-   You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
-
-   {% note warning %}
-
-   This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, be sure to pass the names of the fields to be changed in the `updateMask` parameter.
-
-   {% endnote %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -484,8 +498,10 @@ You can change the DBMS settings of the hosts in your cluster.
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
    - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-   - The list of groups in the `securityGroupIds` parameter.
-   - The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+   - The list of security group IDs in the `securityGroupIds` parameter.
+   - List of cluster configuration fields to update in the `UpdateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

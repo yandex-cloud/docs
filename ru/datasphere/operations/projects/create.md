@@ -1,13 +1,14 @@
-# Создание пустого проекта
+# Создать пустой проект
 
-Проекты в {{ ml-platform-name }} — это среда разработки [JupyterLab](https://jupyter.org/), которая запускается на виртуальной машине {{ yandex-cloud }}.
+_Проект_ — это основное рабочее место пользователя, которое запускается на виртуальной машине {{ yandex-cloud }}. [Подробнее о проектах {{ ml-platform-name }}](../../concepts/project.md).
 
-Это инструкция о том, как создать пустой проект. Если у вас уже есть готовый файл `.ipynb`, вы можете создать проект из этого файла.
+В этой инструкции описано создание пустого проекта. Также вы можете [создать проект из контрольной точки](checkpoints.md#import).
 
-{% include [include](../../../_includes/datasphere/create-project.md) %}
+{% include [include](../../../_includes/datasphere/ui-create-project.md) %}
+
+Настройки созданного проекта можно [изменить](update.md): привязать сеть, сервисный аккаунт, настроить связи с другими сервисами {{ yandex-cloud }}.
 
 #### Что дальше {#what-is-next}
 
 * [{#T}](install-dependencies.md)
 * [{#T}](control-compute-resources.md)
-* [{#T}](export.md)

@@ -5,7 +5,13 @@
 * базовые атрибуты и настройки группы — имя, описание, [метки](../../../overview/concepts/services.md#labels), [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и защита от удаления;
 * [шаблон ВМ](instance-template.md) и использующиеся в нем [переменные](variables-in-the-template.md);
 * политики [распределения](policies/allocation-policy.md), [развертывания](policies/deploy-policy.md) и [масштабирования](policies/scale-policy.md);
-* настройки балансировки трафика между ВМ с помощью [{{ network-load-balancer-full-name }}](../../../network-load-balancer/index.yaml) или [{{ alb-full-name }}](../../../application-load-balancer/index.yaml).
+* настройки балансировки трафика между ВМ с помощью [{{ network-load-balancer-full-name }}](../../../network-load-balancer/) или [{{ alb-full-name }}](../../../application-load-balancer/).
+
+{% note info %}
+
+Также группу ВМ можно создать с помощью [Terraform](https://terraform.io) по описанию, схожему со спецификацией в формате YAML. Подробнее см. в [руководстве по началу работы с Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md), [инструкции по созданию группы ВМ](../../operations/instance-groups/create-fixed-group.md) и [справочнике ресурса `yandex_compute_instance_group`]({{ tf-provider-link }}/compute_instance_group).
+
+{% endnote %}
 
 ## Пример {#example}
 

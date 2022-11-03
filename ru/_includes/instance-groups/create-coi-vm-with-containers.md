@@ -158,7 +158,7 @@
             image: "redis"
             restart: always
       ssh-keys: | # Параметр для передачи SSH-ключа на ВМ.
-        yc-user:ssh-rsa ABC...d01 user@desktop.ru # Имя пользователя для подключения к ВМ.
+        yc-user:ssh-ed25519 ABC...d01 user@desktop.ru # Имя пользователя для подключения к ВМ.
    deploy_policy: # Политика развертывания ВМ в группе.
      max_unavailable: 1
      max_expansion: 0

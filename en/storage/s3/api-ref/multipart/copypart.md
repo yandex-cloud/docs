@@ -47,7 +47,7 @@ Use the headers from the table below if you need to change the default behavior 
 | Header | Description |
 | ----- | ----- |
 | `X-Amz-Copy-Source-If-Match` | Object copying criteria.<br/><br/>If the `ETag` of an object is the same as in the header, the object is copied.<br/><br/>If the criteria isn't met, {{ objstorage-name }} returns a 412 error.<br/><br/>Can be used with the `X-Amz-Copy-Source-If-Unmodified-Since` header. |
-| `X-Amz-Copy-Source-If-None-Match` | Object copying criteria.<br/><br/>If the `ETag` of the object isn't the same as in the header, the object is copied.<br/><br/>If the criteria isn't met, {{ objstorage-name }} returns a 412 error.<br/><br/>Can be used with the  `X-Amz-Copy-Source-If-Modified-Since` method. |
+| `X-Amz-Copy-Source-If-None-Match` | Object copying criteria.<br/><br/>If the `ETag` of the object isn't the same as in the header, the object is copied.<br/><br/>If the criteria isn't met, {{ objstorage-name }} returns a 412 error.<br/><br/>Can be used with the `X-Amz-Copy-Source-If-Modified-Since` method. |
 | `X-Amz-Copy-Source-If-Unmodified-Since` | Object copying criteria.<br/><br/>The object is copied if it didn't change since the specified time.<br/><br/>If the criteria isn't met, {{ objstorage-name }} returns a 412 error.<br/><br/>Can be used with the `X-Amz-Copy-Source-If-Match` header. |
 | `X-Amz-Copy-Source-If-Modified-Since` | Object copying criteria.<br/><br/>The object is copied if it changed since the specified time.<br/><br/>If the criteria isn't met, {{ objstorage-name }} returns a 412 error.<br/><br/>Can be used with the `X-Amz-Copy-Source-If-None-Match` header. |
 

@@ -492,7 +492,7 @@ You need to define the configuration for CI.
 
 1. In the `snapshot_name` field, enter a name for the snapshot of the first VM.
 In the `folder_id` field, specify the ID of the folder where the VMs are created.
-In the `subnet_name` field, specify the name of the subnet that the VMs will connect to. To find the name in the management console, open the appropriate folder and go to the Virtual Private Cloud page.
+In the `subnet_name` field, specify the name of the subnet that the VMs will connect to. To find the name in the management console, open the appropriate folder and go to the {{ vpc-name }} page.
 1. Click **Commit changes**.
 
 ## 9. Check how the application works on the VM created using CI {#test-new-vm}

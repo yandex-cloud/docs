@@ -1,4 +1,4 @@
-# Сеть и кластеры БД
+# Сеть и кластеры в {{ mmy-name }}
 
 
 При создании кластера вы можете:
@@ -28,11 +28,12 @@ FQDN можно использовать для доступа к хосту в 
 
 [Подключение к хостам кластера](../operations/connect.md) {{ mmy-short-name }} возможно:
 
-{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
+{% include [cluster-connect-note](../../_includes/mdb/mmy/cluster-connect-note.md) %}
 
 Максимальное количество подключений определяется настройкой [max_connections](./settings-list.md#setting-max-connections), которая [зависит от класса хостов](./settings-list.md#settings-instance-dependent).
 
 Помимо имен хостов для подключения к кластеру можно использовать [особые FQDN](../operations/connect.md#special-fqdns), указывающие на текущий хост-мастер и наименее отстающую реплику.
+
 
 ## Группы безопасности {#security-groups}
 
@@ -45,3 +46,4 @@ FQDN можно использовать для доступа к хосту в 
 {% endnote %}
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
+

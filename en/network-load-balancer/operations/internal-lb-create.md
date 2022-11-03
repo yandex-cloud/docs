@@ -2,11 +2,56 @@
 
 {% note info %}
 
-The internal load balancer's listener is assigned a random IP address from the range of addresses of the selected subnet.
+The internal load balancer's listener is assigned a random IP address from the range belonging to the selected [subnet](../../vpc/concepts/network.md#subnet).
 
 {% endnote %}
 
 {% list tabs %}
+
+- Management console
+
+   To create an [internal network load balancer](../concepts/internal-load-balancer.md):
+   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a load balancer.
+   1. In the list of services, select **{{ network-load-balancer-name }}**.
+   1. Click **Create a network load balancer**.
+   1. Enter a name.
+
+      {% include [name-format](../../_includes/name-format.md) %}
+
+   1. Select **Internal** as your load balancer type.
+   1. Under **Listeners**, add a [listener](../concepts/listener.md):
+      1. Click **Add listener**.
+      1. In the window that opens, set the listener parameters:
+         * **Name**.
+         * **Subnet**, in which the load balancer will redirect traffic.
+         * **Protocol**: **TCP** or **UDP**.
+
+            {% note info %}
+
+            By default, the listener uses TCP. To use UDP, [submit a request to technical support]({{ link-console-support }}/create-ticket).
+
+            {% endnote %}
+
+         * **Port** where the listener will listen for incoming traffic. Valid values: from `1` to `32767`.
+         * **Target port**, to which the load balancer will redirect traffic. Valid values: from `1` to `32767`.
+      1. Click **Add**.
+   1. Under **Target groups** add a [target group](../concepts/target-resources.md):
+      1. Click **Add target group**.
+      1. Select a target group or [create a new one](target-group-create.md):
+         * In the **Target group** field, select ![image](../../_assets/plus-sign.svg) **Create target group**.
+         * In the resulting window, enter a target group name.
+         * Add virtual machines to the target group.
+         * Click **Create**.
+      1. (optional) Under **Health check**, click **Configure**. In the resulting window, specify the [resource health check](../concepts/health-check.md) settings:
+         * **Name**.
+         * **Type**: **HTTP** or **TCP**. For health checks to use HTTP, specify the URL to check in the **Path** field.
+         * Health check **port**. Valid values: from `1` to `32767`.
+         * **Timeout**: Response timeout in seconds.
+         * **Interval**: Health check interval in seconds.
+         * **Healthy threshold**: The number of successful checks required to consider a virtual machine ready to receive traffic.
+         * **Unhealthy threshold**: The number of failed checks after which no traffic will be routed to a virtual machine.
+      1. Click **Apply**.
+   1. Click **Create**.
 
 - CLI
 
@@ -59,12 +104,12 @@ The internal load balancer's listener is assigned a random IP address from the r
          * `port`: The port to receive traffic.
          * `internal_address_spec`: The specification of the internal load balancer's listener.
             * `address`: Internal IP address from the range of the selected subnet.
-            * `subnet_id`: The subnet..
+            * `subnet_id`: The subnet ID.
 
       Example configuration file structure:
 
       
-      ```hcl
+      ```
       provider "yandex" {
           token     = "<OAuth or static key of service account>"
           folder_id = "<folder ID>"
@@ -79,7 +124,7 @@ The internal load balancer's listener is assigned a random IP address from the r
           name = "my-listener"
           port = 8080
           internal_address_spec {
-            address   = "<internal IP address>"
+            address = "<internal IP address>"
             subnet_id = "<subnet ID>"
           }
         }
@@ -87,7 +132,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
 
 
-      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure that the configuration files are correct.
 
@@ -96,7 +141,7 @@ The internal load balancer's listener is assigned a random IP address from the r
          ```
          terraform plan
          ```
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -141,7 +186,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
       {% endcut %}
 
-      For more information about resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
    1. Make sure that the configuration files are correct.
 
@@ -152,7 +197,7 @@ The internal load balancer's listener is assigned a random IP address from the r
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -208,7 +253,7 @@ The internal load balancer's listener is assigned a random IP address from the r
         --target-group target-group-id=b7rv80bfibkph3ekqqle,healthcheck-name=http,healthcheck-interval=2s,healthcheck-timeout=1s,healthcheck-unhealthythreshold=2,healthcheck-healthythreshold=2,healthcheck-http-port=80
       ```
 
-      Where `target-group-id` is the target group ID.
+      Where `target-group-id`: Target group ID.
 
       Note the format of the `healthcheck-interval` and `healthcheck-timeout` parameters: specify their values as `Ns`, where `N` is the value in seconds.
 
@@ -245,7 +290,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
       {% endcut %}
 
-      For more information about resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
    1. Make sure that the configuration files are correct.
 
@@ -256,7 +301,7 @@ The internal load balancer's listener is assigned a random IP address from the r
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
