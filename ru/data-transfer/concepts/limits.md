@@ -1,6 +1,6 @@
 ---
 title: Квоты и лимиты в {{ data-transfer-full-name }}
-description: 'Квоты и лимиты для сервиса {{ data-transfer-full-name }} не определены.'
+description: "Квоты и лимиты для сервиса {{ data-transfer-full-name }} не определены."
 
 editable: false
 ---

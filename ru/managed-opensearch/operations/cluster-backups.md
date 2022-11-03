@@ -1,6 +1,6 @@
 ---
 title: Управление резервными копиями (снапшотами) Elasticsearch
-description: 'Сервис Elasticsearch позволяет использовать механизм снапшотов Elasticsearch для управления резервными копиями данных. Для работы со снапшотами используется публичный API Elasticsearch, а для их хранения — бакет в {{ objstorage-name }}.'
+description: "Сервис Elasticsearch позволяет использовать механизм снапшотов Elasticsearch для управления резервными копиями данных. Для работы со снапшотами используется публичный API Elasticsearch, а для их хранения — бакет в {{ objstorage-name }}."
 keywords:
   - резервные копии Elasticsearch
   - снапшоты Elasticsearch
