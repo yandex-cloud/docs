@@ -275,9 +275,6 @@ items:
 #      - name: Deploying Remote Desktop Services
 #        href: windows/rds.md
 #        when: product == "yandex-cloud"
-#      - name: Deploying an Always On availability group
-#        href: windows/mssql-alwayson.md
-#        when: product == "yandex-cloud"
 #      - name: Deploying an Always On availability group with an internal network load balancer
 #        href: windows/mssql-alwayson-lb.md
 #        when: product == "yandex-cloud"

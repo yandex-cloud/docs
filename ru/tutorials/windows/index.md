@@ -12,6 +12,5 @@ description: "Различные сценарии использования Win
 {% endif %}
 * [Развертывание Remote Desktop Gateway](rds-gw.md)
 {% if product == "yandex-cloud" %}
-* [Развертывание группы доступности Always On](mssql-alwayson.md)
 * [Развертывание группы доступности Always On с внутренним сетевым балансировщиком](mssql-alwayson-lb.md)
 {% endif %}

@@ -93,7 +93,7 @@ Windows Failover Cluster uses dynamic IP addresses that are reassigned to cluste
 
 There are two ways to create a failover SQL Server cluster in {{ yandex-cloud }}:
 
-1. Using [multisubnetfailover](../tutorials/windows/mssql-alwayson.md#configure-always-on) and additional IP addresses of network interfaces where static routes are configured. Cluster nodes will be located in different subnets. To ensure this, specify multiple IP addresses in the `connection string` parameter.
+1. Using [multisubnetfailover](../tutorials/windows/mssql-alwayson-lb.md#configure-always-on) and additional IP addresses of network interfaces where static routes are configured. Cluster nodes will be located in different subnets. To ensure this, specify multiple IP addresses in the `connection string` parameter.
 1. Using an [internal network load balancer](../network-load-balancer/concepts/internal-load-balancer.md). Traffic will be redirected depending on [health checks](../network-load-balancer/concepts/health-check.md) performed on ports. However, these ports will only be [available](../network-load-balancer/concepts/internal-load-balancer.md#notes) to the {{ network-load-balancer-name }}.
 
 {% endif %}

@@ -93,7 +93,7 @@ Windows Failover Cluster использует динамические IP-адр
 
 Создать отказоустойчивый кластер SQL Server в {{ yandex-cloud }} можно двумя способами:
 
-1. Использовать [multisubnetfailover](../tutorials/windows/mssql-alwayson.md#configure-always-on) и дополнительные IP-адреса сетевых интерфейсов, на которых настроены статические маршруты. Узлы кластера будут размещаться в разных подсетях. Для этого необходимо задать несколько IP-адресов в параметре `connection string`.
+1. Использовать [multisubnetfailover](../tutorials/windows/mssql-alwayson-lb.md#configure-always-on) и дополнительные IP-адреса сетевых интерфейсов, на которых настроены статические маршруты. Узлы кластера будут размещаться в разных подсетях. Для этого необходимо задать несколько IP-адресов в параметре `connection string`.
 1. С помощью [внутреннего балансировщика нагрузки](../network-load-balancer/concepts/internal-load-balancer.md). Трафик будет перенаправляться в зависимости от [проверок состояний](../network-load-balancer/concepts/health-check.md) на портах, однако эти порты будут [доступны](../network-load-balancer/concepts/internal-load-balancer.md#notes) только для самого {{ network-load-balancer-name }}.
 
 {% endif %}

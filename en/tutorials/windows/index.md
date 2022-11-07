@@ -12,6 +12,5 @@ description: 'Various Windows use cases. Deploying Active Directory, deploying M
 {% endif %}
 * [Deploying Remote Desktop Gateway](rds-gw.md)
 {% if product == "yandex-cloud" %}
-* [Deploying an Always On availability group](mssql-alwayson.md)
 * [Deploying an Always On availability group with an internal network load balancer](mssql-alwayson-lb.md)
 {% endif %}

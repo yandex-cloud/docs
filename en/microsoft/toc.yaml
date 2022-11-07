@@ -24,9 +24,6 @@ items:
       - name: Deploying Remote Desktop Services
         href: tutorials/rds.md
         when: product == "cloud-il"
-      - name: Deploying an Always On availability group
-        href: tutorials/mssql-alwayson.md
-        when: product == "cloud-il"
       - name: Deploying an Always On availability group with an internal network load balancer
         href: tutorials/mssql-alwayson-lb.md
         when: product == "cloud-il"
