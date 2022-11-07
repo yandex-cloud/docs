@@ -2,24 +2,24 @@
 
 ## General questions {#general}
 
-{% include notitle [general](general.md) %}
+{% include notitle [general](../../_qa/managed-postgresql/general.md) %}
 
 ## Adding plugins {#connection}
 
-{% include notitle [connection](connection.md) %}
+{% include notitle [connection](../../_qa/managed-postgresql/connection.md) %}
 
 ## Editing {#update} clusters
 
-{% include notitle [update](update.md) %}
+{% include notitle [update](../../_qa/managed-postgresql/update.md) %}
 
 ## Cluster configuration {#configuration}
 
-{% include notitle [configuration](configuration.md) %}
+{% include notitle [configuration](../../_qa/managed-postgresql/configuration.md) %}
 
 ## Moving and restoring a cluster {#backup}
 
-{% include notitle [backup](backup.md) %}
+{% include notitle [backup](../../_qa/managed-postgresql/backup.md) %}
 
 ## Monitoring and logs {#monitoring}
 
-{% include notitle [monitoring](monitoring.md) %}
+{% include notitle [monitoring](../../_qa/managed-postgresql/monitoring.md) %}
