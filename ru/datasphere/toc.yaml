@@ -140,7 +140,7 @@ items:
           - name: Распределенное обучение
             href: concepts/taas.md
             when: product == "yandex-cloud"
-          - name: Интеграция с Data Proc
+          - name: Вычисления на кластерах Apache Spark™
             href: concepts/data-proc.md
             when: product == "yandex-cloud"
       - name: Ресурсы
