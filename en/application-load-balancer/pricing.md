@@ -5,12 +5,12 @@ editable: false
 # Pricing for {{ alb-full-name }}
 
 
-
 ## What goes into the cost of using {{ alb-name }} {#rules}
 
 When using the {{ alb-name }} service, you pay for the actual use of computing resources of every active load balancer. The service is charged on an hourly basis.
 
 {% include [lcu-calculation](../_includes/application-load-balancer/lcu-calculation.md) %}
+
 
 ### Example of cost calculation {#example}
 
@@ -52,11 +52,14 @@ Where:
 * $0.142080 is the cost per resource unit.
 * 720 is the number of hours in a month.
 
-## Pricing {#prices}
+
+## Pricing  {#prices}
+
 
 
 
 
 {% include [usd-lcu.md](../_pricing/application-load-balancer/usd-lcu.md) %}
+
 
 

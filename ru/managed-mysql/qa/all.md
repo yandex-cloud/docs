@@ -2,36 +2,36 @@
 
 ## Общие вопросы {#general}
 
-{% include notitle [general](general.md) %}
+{% include notitle [general](../../_qa/managed-mysql/general.md) %}
 
 ## Вопросы о {{ MY }} {#mysql}
 
-{% include notitle [mysql](mysql.md) %}
+{% include notitle [mysql](../../_qa/managed-mysql/mysql.md) %}
 
 ## Подключение {#connection}
 
-{% include notitle [connection](connection.md) %}
+{% include notitle [connection](../../_qa/managed-mysql/connection.md) %}
 
 ## Проблемы с чтением/записью в кластер {#read-write}
 
-{% include notitle [read-write](read-write.md) %}
+{% include notitle [read-write](../../_qa/managed-mysql/read-write.md) %}
 
 ## Проблемы с производительностью {#performance}
 
-{% include notitle [performance](performance.md) %}
+{% include notitle [performance](../../_qa/managed-mysql/performance.md) %}
 
 ## Изменение кластера {#updating}
 
-{% include notitle [updating](updating.md) %}
+{% include notitle [updating](../../_qa/managed-mysql/updating.md) %}
 
 ## Мониторинг и логи {#monitoring-logs}
 
-{% include notitle [monitoring](monitoring.md) %}
+{% include notitle [monitoring](../../_qa/managed-mysql/monitoring.md) %}
 
 ## Миграция/перенос {#migration}
 
-{% include notitle [migration](migration.md) %}
+{% include notitle [migration](../../_qa/managed-mysql/migration.md) %}
 
 ## Настройки параметров {{ MY }} {#configuring}
 
-{% include notitle [configuring](configuring.md) %}
+{% include notitle [configuring](../../_qa/managed-mysql/configuring.md) %}
