@@ -63,6 +63,8 @@ items:
             href: operations/data/secrets.md
           - name: Работа с контрольными точками
             href: operations/projects/checkpoints.md
+          - name: Работа с шаблонами {{ dataproc-name }}
+            href: operations/data-proc-template.md
           - name: Работа с Docker-образами
             href: operations/user-images.md
       - name: Подключение к источникам данных
@@ -155,6 +157,8 @@ items:
             href: concepts/checkpoints.md
           - name: Датасеты
             href: concepts/dataset.md
+          - name: Шаблоны {{ dataproc-name }}
+            href: concepts/data-proc-template.md
       - name: Эксплуатация моделей
         href: concepts/deploy/index.md
       - name: Квоты и лимиты

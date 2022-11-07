@@ -7,4 +7,4 @@
 * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого {{ ml-platform-name }} будет создавать и управлять кластерами. Сервисному аккаунту понадобятся следующие роли:
    * `dataproc.agent` — для создания и использования кластеров {{ dataproc-name }}.
    * `vpc.user` — для работы с сетью кластера {{ dataproc-name }}.
-   * `roles-datasphere-project-developer` — для работы с проектом {{ ml-platform-name }}.
+   * `{{ roles-datasphere-project-developer }}` — для работы с проектом {{ ml-platform-name }}.

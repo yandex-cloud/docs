@@ -37,6 +37,7 @@ description: "Страница содержит все инструкции дл
 * [{#T}](data/secrets.md)
 * [{#T}](projects/checkpoints.md)
 * [{#T}](user-images.md)
+* [{#T}](data-proc-template.md)
 
 ## Подключение к источникам данных {#connections-to-data-sources}
 
