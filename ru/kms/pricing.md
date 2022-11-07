@@ -5,7 +5,6 @@ editable: false
 # Правила тарификации для {{ kms-full-name }}
 
 
-
 Расчет стоимости использования {{ kms-name }} складывается из:
 * Количества активных версий ключа — версий в статусе `Active` и `Scheduled For Destruction`.
 
@@ -17,10 +16,13 @@ editable: false
 
 * Числа выполненных криптографических операций ([encrypt](api-ref/SymmetricCrypto/encrypt), [decrypt](api-ref/SymmetricCrypto/decrypt), [reEncrypt](api-ref/SymmetricCrypto/reEncrypt), [generateDataKey](api-ref/SymmetricCrypto/generateDataKey)).
 
-## Цены {#prices}
+## Цены  {#prices}
+
 
 
 {% include [rub.md](../_pricing/kms/rub.md) %}
+
+
 
 
 

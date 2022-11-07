@@ -8,6 +8,7 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
@@ -71,6 +72,7 @@ The following is charged:
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
+
 ### Example of cluster cost calculation {#example}
 
 For example, you created a cluster:
@@ -91,6 +93,9 @@ Cost per hour for all hosts: `3 × (2 × $0.018240 + 8 × $0.004160) + 3 × (2 �
 
 Total cost of the cluster per month (hosts and storage): `720 × $0.277440 + 100 × $0.025600 = $202.316800`
 
+
+
+
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -103,7 +108,7 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% endnote %}
 
-## Pricing {#prices}
+## Pricing  {#prices}
 
 
 All prices are shown without VAT.
@@ -114,10 +119,15 @@ All prices are shown without VAT.
 
 
 
+
 {% include [usd-host-ch.md](../_pricing/managed-clickhouse/usd-host-ch.md) %}
 
 
+
+
 ### {{ ZK }} host computing resources {#prices-zookeeper}
+
+
 
 {% note info %}
 
@@ -131,7 +141,10 @@ You can't order {{ ZK }} host resources using a CVoS.
 {% include [usd-host-zoo.md](../_pricing/managed-clickhouse/usd-host-zoo.md) %}
 
 
+
+
 ### Storage and backups {#prices-storage}
+
 
 
 
@@ -139,11 +152,15 @@ You can't order {{ ZK }} host resources using a CVoS.
 {% include [usd-storage.md](../_pricing/managed-clickhouse/usd-storage.md) %}
 
 
+
+
 ### Outgoing traffic {#prices-traffic}
 
 
 
 
+
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
 
 

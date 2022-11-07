@@ -2,28 +2,28 @@
 
 ## Общие вопросы {#general}
 
-{% include notitle [general](general.md) %}
+{% include notitle [general](../../_qa/managed-clickhouse/general.md) %}
 
 ## Вопросы о {{ CH }} {#clickhouse}
 
-{% include notitle [clickhouse](clickhouse.md) %}
+{% include notitle [clickhouse](../../_qa/managed-clickhouse/clickhouse.md) %}
 
 ## Подключение {#connection}
 
-{% include notitle [connection](connection.md) %}
+{% include notitle [connection](../../_qa/managed-clickhouse/connection.md) %}
 
 ## Изменение кластера {#cluster-update}
 
-{% include notitle [cluster-update](cluster-update.md) %}
+{% include notitle [cluster-update](../../_qa/managed-clickhouse/cluster-update.md) %}
 
 ## Настройки параметров кластера {#cluster-settings}
 
-{% include notitle [cluster-settings](cluster-settings.md) %}
+{% include notitle [cluster-settings](../../_qa/managed-clickhouse/cluster-settings.md) %}
 
 ## Перемещение и восстановление кластера {#cluster-backups}
 
-{% include notitle [cluster-backups](cluster-backups.md) %}
+{% include notitle [cluster-backups](../../_qa/managed-clickhouse/cluster-backups.md) %}
 
 ## Мониторинг и логи {#monitoring}
 
-{% include notitle [monitoring](monitoring.md) %}
+{% include notitle [monitoring](../../_qa/managed-clickhouse/monitoring.md) %}

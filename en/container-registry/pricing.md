@@ -8,6 +8,7 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+
 ## What goes into the cost of using {{ container-registry-name }} {#rules}
 
 The cost of {{ container-registry-name }} usage is based on:
@@ -35,7 +36,10 @@ The cost of 1 GB per month is fixed and doesn't depend on the number of days in 
 
 
 
+
 {% include [usd.md](../_pricing/cr/usd.md) %}
+
+
 
 
 Example of proportional calculation: let's say the user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using the formula:
@@ -47,5 +51,8 @@ Storage_cost = Cost_per_GB_per_month * 15 * 12 / 24 / 30
 
 
 
+
 {% include [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+
 

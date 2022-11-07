@@ -28,12 +28,9 @@ Charges are made as part of the {{ compute-name }} service per hour of host virt
 
 The amount of storage requested for each cluster host is charged under {{ compute-name }} based on [disk space pricing](../compute/pricing.md#prices-storage).
 
-
 ### Using {{ cloud-logging-full-name }} {#rules-logs}
 
 Receiving and storing logs is paid based on the {{ cloud-logging-full-name }} [pricing rules](../logging/pricing.md).
-
-
 
 ### Example of cost calculation {#price-example}
 
@@ -108,7 +105,9 @@ Receiving and storing logs is paid based on the {{ cloud-logging-full-name }} [p
 
 
 
+
 {% include [usd.md](../_pricing/data-proc/usd.md) %}
+
 
 
 {% note info %}
@@ -118,6 +117,7 @@ To access GPUs on {{ dataproc-name }} hosts, please submit a request to [technic
 {% endnote %}
 
 ### Egress traffic {#prices-traffic}
+
 
 
 

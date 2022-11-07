@@ -1,4 +1,4 @@
-| Service | Rate for the billable unit, without VAT |
+| Service | Rate for the billable unit,<br/>without VAT |
 |---------------------------------------------------------------------------------------| ----- |
 | [Streaming recognition](../../speechkit/stt/streaming.md) | {{ sku|USD|ai.speech.stt|string }} |
 | [Synchronous file recognition](../../speechkit/stt/request.md) | {{ sku|USD|ai.speech.stt|string }} |

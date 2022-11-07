@@ -5,10 +5,11 @@ editable: false
 # Pricing for {{ compute-name }}
 
 
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 
 ## What goes into the cost of using {{ compute-short-name }} {#rules}
 
@@ -50,15 +51,20 @@ The basic level of core performance depends on the [platform](concepts/vm-platfo
 
 {{ price-per-hour-count-per-second }}
 
+
+
 #### Operating systems {#instance-os}
 
 OS usage on a VM is also charged. The cost depends on the OS license and the amount of computing resources. The core usage type selected for the VM also matters.
 
 {{ price-per-hour-count-per-second }}
 
+
 #### Using a Microsoft license {#license-microsoft}
 
 The rules for using Microsoft licenses are described in [{#T}](../microsoft/licensing.md).
+
+
 
 
 ### Storage usage (disks, snapshots, and images) {#disk}
@@ -85,6 +91,8 @@ The {{ ig-name }} component can be used free of charge. You can create instance 
 
 All other services {{ yandex-cloud }}, such as VMs and external IP addresses, are charged as usual. Outgoing traffic [is charged](#prices-traffic) the same as in other services.
 
+
+
 ### Dedicated host usage {#dedicated-hosts}
 
 The cost of a dedicated host depends on its type (processor model, number of cores, and RAM) and doesn't depend on the number of VMs running on it.
@@ -97,7 +105,9 @@ Use of additional resources, such as images from {{ marketplace-name }} or netwo
 
 Usage prices are shown on an hourly basis (monthly for local drives). Billing occurs per second.
 
-## Pricing {#prices}
+
+
+## Pricing  {#prices}
 
 
 All prices are shown without VAT.
@@ -108,7 +118,12 @@ All prices are shown without VAT.
 
 
 
+
 {% include [usd-instance-resources.md](../_pricing/compute/usd-instance-resources.md) %}
+
+
+
+
 
 
 ### Operating systems {#prices-os}
@@ -131,12 +146,19 @@ For the following products, funds are debited once for the calendar month in adv
 
 \* The product is provided for a group of 2 vCPUs. The minimum available number of vCPUs for a VM is 4 (2 groups).
 
+
+
 ### Disks, snapshots, and images {#prices-storage}
 
 
 
 
+
 {% include [usd-storage.md](../_pricing/compute/usd-storage.md) %}
+
+
+
+
 
 
 ### Computing resources of dedicated hosts {#prices-dedicated-host}
@@ -155,7 +177,10 @@ For the following products, funds are debited once for the calendar month in adv
 {% include [usd-local-nvme.md](../_pricing/compute/usd-local-nvme.md) %}
 
 
+
+
 ### Software-accelerated network {#software-accelerated-network}
+
 
 
 
@@ -163,11 +188,15 @@ For the following products, funds are debited once for the calendar month in adv
 {% include [usd-network.md](../_pricing/compute/usd-network.md) %}
 
 
+
+
 ### Outgoing traffic {#prices-traffic}
 
 
 
 
+
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
 
 

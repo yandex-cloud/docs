@@ -8,6 +8,7 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
@@ -32,11 +33,13 @@ editable: false
 
 * Объем хранилища, выделенный для кластеров БД.
 
+    
     * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами и более:
-      * для платформ **Intel Broadwell** и **Intel Cascade Lake** — с шагом 100 ГБ;
+        * для платформ **Intel Broadwell** и **Intel Cascade Lake** — с шагом 100 ГБ;
         * для платформы **Intel Ice Lake** — с шагом {{ local-ssd-v3-step }}.
 
     * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с тремя хостами и более, с шагом 93 ГБ.
+
 
 * Объем, занимаемый резервными копиями баз данных сверх заданного хранилища для кластера.
 
@@ -45,6 +48,7 @@ editable: false
     * Количество хостов кластера не влияет на объем хранилища и, соответственно, на бесплатный объем резервных копий.
 
 Цена указывается за 1 месяц использования. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
+
 
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
@@ -58,7 +62,8 @@ editable: false
 
 {% endnote %}
 
-## Цены {#prices}
+
+## Цены  {#prices}
 
 
 Все цены указаны с включением НДС.
@@ -67,7 +72,10 @@ editable: false
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
 
+
 {% include [rub-host.md](../_pricing/managed-mysql/rub-host.md) %}
+
+
 
 
 
@@ -75,12 +83,16 @@ editable: false
 ### Хранилище и резервные копии {#prices-storage}
 
 
+
 {% include [rub-storage.md](../_pricing/managed-mysql/rub-storage.md) %}
 
 
 
 
+
+
 ### Исходящий трафик {#prices-traffic}
+
 
 
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}

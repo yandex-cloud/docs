@@ -8,6 +8,7 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+
 ## Статус кластера {#running-stopped}
 
 В зависимости от статуса кластера тарифы применяются различным образом:
@@ -35,12 +36,12 @@ editable: false
 
 Вы можете выбрать класс хостов как для хостов-брокеров {{ KF }}, так и для хостов {{ ZK }} (в соответствии с ожидаемой нагрузкой реплицирования).
 
+
 В зависимости от [типа хоста](./concepts/index.md) стоимость вычисляется по-разному:
 
 * Стандартные хосты
 
     Стоимость начисляется за каждый час работы хоста в соответствии с выделенными для него вычислительными ресурсами.
-
 
 * Выделенные хосты
 
@@ -59,12 +60,15 @@ editable: false
 
 Оплачивается объем хранилища, выделенный для кластеров.
 
+
   * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами-брокерами и более:
       * для платформы Intel Cascade Lake — с шагом 100 ГБ;
       * для платформы Intel Ice Lake — с шагом {{ local-ssd-v3-step }}.
   * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с тремя хостами-брокерами и более, с шагом 93 ГБ.
 
+
 Цена указывается за 1 месяц использования. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
+
 
 ### Пример расчета стоимости кластера {#example}
 
@@ -142,6 +146,8 @@ editable: false
 
 {% endlist %}
 
+
+
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -154,17 +160,21 @@ editable: false
 
 {% endnote %}
 
-## Цены {#prices}
+
+## Цены  {#prices}
 
 
 Все цены указаны с включением НДС.
+
 
 
 Цены на хосты [вычисляются по-разному](#rules-hosts-uptime) в зависимости от выбранного типа хостов.
 
 От типа хостов также зависит цена на быстрое локальное хранилище.
 
+
 ### Вычислительные ресурсы хостов-брокеров {{ KF }} {#prices-kafka-brokers}
+
 
 {% list tabs %}
 
@@ -178,11 +188,15 @@ editable: false
     {% include [Цена на выделенные хосты](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
      {% include notitle [RUB: dedicated broker hosts](../_pricing/managed-kafka/rub-hosts-dedicated.md) %}
-    
+  
+
 
 {% endlist %}
 
+
+
 ### Вычислительные ресурсы хостов {{ ZK }} {#prices-zookeeper}
+
 
 {% note info %}
 
@@ -207,14 +221,21 @@ editable: false
 
 {% endlist %}
 
+
+
 ### Хранилище {#prices-storage}
 
+
  {% include notitle [RUB: Storage prices](../_pricing/managed-kafka/rub-storage.md) %}
+
+
 
 ### Исходящий трафик {#prices-traffic}
 
 
+
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
 
 
 

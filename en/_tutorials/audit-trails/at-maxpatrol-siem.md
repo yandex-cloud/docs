@@ -17,7 +17,6 @@ If you no longer need these resources, [delete them](#clear-out).
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
-
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost includes:

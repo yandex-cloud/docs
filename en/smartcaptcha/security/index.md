@@ -1,3 +1,8 @@
+---
+title: Access management in {{ captcha-name }}
+description: "This section describes what resources you can assign a role for and what roles the service supports."
+---
+
 # Access management in {{ captcha-name }}
 
 In this section, you'll learn:

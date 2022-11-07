@@ -22,7 +22,6 @@ If you no longer need these resources, [delete them](#clear-out).
 
 This use case uses a folder named `example-folder` as an example.
 
-
 ### Required paid resources {#paid-resources}
 
 The cost of the infrastructure includes:
@@ -30,7 +29,6 @@ The cost of the infrastructure includes:
 * A fee for using VMs and storing an [image](../../compute/concepts/image.md) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * A fee for using public IP addresses and outgoing traffic from VMs (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * A fee for queue requests (see [{{ message-queue-name }} pricing](../../message-queue/pricing.md)).
-
 
 ## Prepare the environment {#prepare}
 

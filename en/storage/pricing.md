@@ -5,10 +5,11 @@ editable: false
 # Pricing for {{ objstorage-name }}
 
 
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 
 ## What goes into the cost of using {{ objstorage-short-name }} {#rules}
 
@@ -29,9 +30,7 @@ The cost of {{ objstorage-name }} usage is based on:
 
 Storage usage is measured in GB per month. The volume of data stored during a month is the average value over the month based on granulated per-second data. The minimum billable unit is 1 hour of storing 1 MB of data.
 
-
 {% include [ice-minimum-duration](../_includes/storage/ice-minimum-duration.md) %}
-
 
 ### Performing operations with data {#rules-operations}
 
@@ -41,7 +40,7 @@ Data operations are charged according to the following policy:
 * The minimum billable unit for GET and HEAD operations is 100.
 * You aren't charged for deleting data (the DELETE operation).
 
-## Pricing {#prices}
+## Pricing  {#prices}
 
 ### Data storage {#prices-storage}
 
@@ -50,7 +49,10 @@ The cost of 1 GB per month is fixed and doesn't depend on the number of days in 
 
 
 
+
 {% include [usd.md](../_pricing/storage/usd-used_space.md) %}
+
+
 
 
 The daily cost of data storage service is calculated as `Cost_of_1_GB_per_month / number_of_days_in_the_month`. For shorter months, the storage cost per day is higher. For longer months, it's lower.
@@ -66,11 +68,14 @@ The first 1 GB of data stored in standard storage per month is free of charge.
 
 
 
+
 > For example, if the monthly cost of storing 1 GB of data in standard storage is $0.016167 and the amount of data stored per month is 23 GB, the storage cost per month will be:
 > (23 - 1) × $0.016167 = 22 × $0.016167 = $0.355674.
 
 
+
 {% include [ice-minimum-duration](../_includes/storage/ice-minimum-duration.md) %}
+
 
 
 
@@ -96,7 +101,10 @@ The first 1 GB of data stored in standard storage per month is free of charge.
 
 
 
+
 {% include [usd.md](../_pricing/storage/usd-operations.md) %}
+
+
 
 
 {% note info %}
@@ -114,8 +122,10 @@ Each month, the first 10000 PUT and POST operations and the first 100000 GET and
 
 
 
+
 > For example, if the monthly cost of 10,000 GET operations in standard storage is $0.003129 and the amount of GET operations per month is 24,500, the total monthly cost of data operations will be:
 > ((24500 - 10,000) / 10000) × $0.003129 = (14500 / 10000) × $0.003129 = $0.00453705.
+
 
 
 ### Egress traffic {#prices-traffic}
@@ -127,10 +137,14 @@ The minimum billable unit is 1 MB. The billing period is a calendar month.
 
 
 
+
 {% include [usd.md](../_pricing/storage/usd-egress.md) %}
 
 
+
+
 The first 10 GB of outgoing traffic per month for {{ objstorage-name }} is free of charge.
+
 
 
 

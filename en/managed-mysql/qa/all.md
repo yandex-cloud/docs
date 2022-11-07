@@ -2,36 +2,36 @@
 
 ## General questions {#general}
 
-{% include notitle [general](general.md) %}
+{% include notitle [general](../../_qa/managed-mysql/general.md) %}
 
 ## Questions about {{ MY }} {#mysql}
 
-{% include notitle [mysql](mysql.md) %}
+{% include notitle [mysql](../../_qa/managed-mysql/mysql.md) %}
 
 ## Connection {#connection}
 
-{% include notitle [connection](connection.md) %}
+{% include notitle [connection](../../_qa/managed-mysql/connection.md) %}
 
 ## Cluster read/write issues {#read-write}
 
-{% include notitle [read-write](read-write.md) %}
+{% include notitle [read-write](../../_qa/managed-mysql/read-write.md) %}
 
 ## Performance issues {#performance}
 
-{% include notitle [performance](performance.md) %}
+{% include notitle [performance](../../_qa/managed-mysql/performance.md) %}
 
 ## Updating clusters {#updating}
 
-{% include notitle [updating](updating.md) %}
+{% include notitle [updating](../../_qa/managed-mysql/updating.md) %}
 
 ## Monitoring and logs {#monitoring-logs}
 
-{% include notitle [monitoring](monitoring.md) %}
+{% include notitle [monitoring](../../_qa/managed-mysql/monitoring.md) %}
 
 ## Migration/transfer {#migration}
 
-{% include notitle [migration](migration.md) %}
+{% include notitle [migration](../../_qa/managed-mysql/migration.md) %}
 
 ## Configuring {{ MY }} {#configuring}
 
-{% include notitle [configuring](configuring.md) %}
+{% include notitle [configuring](../../_qa/managed-mysql/configuring.md) %}

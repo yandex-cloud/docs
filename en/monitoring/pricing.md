@@ -5,7 +5,6 @@ editable: false
 # Pricing for {{ monitoring-full-name }}
 
 
-
 ## What goes into the cost of using {{ monitoring-short-name }} {#rules}
 
 The cost of using {{ monitoring-short-name }} includes writing custom metrics via the [API](api-ref/index.md) as well as reading metrics via the [API](api-ref/index.md).
@@ -15,6 +14,7 @@ Pricing features:
 * There is no charge for writing {{ yandex-cloud }} resource metrics collected automatically.
 * Reading metrics via the {{ monitoring-short-name }} interface and {{ yandex-cloud }} console is not charged.
 * Incoming and outgoing traffic in {{ monitoring-short-name }} is not charged.
+
 
 ### Example of cost calculation {#example}
 
@@ -61,7 +61,9 @@ Where:
 * (60 * 24 * 30) is the number of minutes in 30 days.
 * $0.0560 is the cost of reading 1 million values (up to 50 million values).
 
-## Pricing {#prices}
+
+## Pricing  {#prices}
+
 
 
 
@@ -71,4 +73,6 @@ The minimum billable unit is 1 metric value. The cost is rounded to the nearest 
 For example, the cost of writing the first 100000 values is `(100000 values / 1 million) * $0.0784 = $0.00784`, which is rounded to `$0.01`. The cost of writing 150000 values is `(150000 values / 1 million) * $0.0784 = $0.01176`, which is rounded to `$0.01`. Where `$0.0784` is the cost per 1 million values (when writing up to 50 million values).
 
 {% include [usd.md](../_pricing/monitoring/usd.md) %}
+
+
 

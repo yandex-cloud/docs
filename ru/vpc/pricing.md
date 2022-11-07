@@ -8,6 +8,7 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+
 ## Из чего складывается стоимость использования {{ vpc-short-name }} {#rules}
 
 В рамках {{ vpc-short-name }} оплачивается почасовое использование публичных IP-адресов.
@@ -16,7 +17,7 @@ editable: false
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-## Цены {{ vpc-short-name }} {#prices}
+## Цены {{ vpc-short-name }}  {#prices}
 
 ### Публичные IP-адреса {#prices-public-ip}
 
@@ -30,12 +31,16 @@ editable: false
 
 
 
+
 {% include [rub-ip.md](../_pricing/vpc/rub-ip.md) %}
 
 
 
 
+
+
 Стоимость неактивного публичного статического адреса складывается из стоимости публичного IP-адреса и стоимости резервирования неактивного публичного статического IP-адреса.
+
 
 Например, стоимость неактивного публичного статического адреса составит:
 
@@ -48,6 +53,7 @@ editable: false
 * 0,2400 ₽ — стоимость часа использования публичного IP-адреса.
 * 0,3100 ₽ — стоимость часа резервирования неактивного публичного статического IP-адреса.
 
+
 ### Использование групп безопасности {#prices-security-groups}
 
 Функциональность [групп безопасности](concepts/security-groups.md) находится на стадии [Preview](../overview/concepts/launch-stages.md) и ее использование не тарифицируется.
@@ -59,19 +65,26 @@ editable: false
 
 
 
+
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
 
 
 
 
-## Цены {{ ddos-protection-full-name }} {#prices-ddos-protection}
+
+
+
+## Цены {{ ddos-protection-full-name }}  {#prices-ddos-protection}
 
 
 Все цены указаны с учетом НДС.
 
 
 
+
 {% include [rub-ddos.md](../_pricing/vpc/rub-ddos.md) %}
+
+
 
 
 
@@ -83,7 +96,8 @@ editable: false
 В этом случае тарифицируются только 4 ГБ полезного трафика: 2 ГБ, который система DDoS Protection допустила к облачным ресурсам во время атаки, и 2 ГБ, которые были загружены, когда атака не велась. Вредоносный трафик отфильтровывается и не тарифицируется.
 
 
-## Цены {{ adv-ddos-protection }} {#prices-ddos-advanced}
+
+## Цены {{ adv-ddos-protection }}  {#prices-ddos-advanced}
 
 Услуга {{ adv-ddos-protection }} подключается по запросу через [форму](https://forms.yandex.ru/surveys/13203262.d03e905cf02195bec1093aa2b032802fe13caac0/).
 
@@ -97,20 +111,25 @@ editable: false
 
 Все цены указаны с учетом НДС.
 
+
 {% include [rub-advanced-ddos.md](../_pricing/vpc/rub-advanced-ddos.md) %}
+
+
 
 В тариф {{ adv-ddos-protection }} включены следующие услуги:
 
 {% include [rub-advanced-ddos-services.md](../_pricing/vpc/rub-advanced-ddos-services.md) %}
 
-## Цены Managed Web Application Firewall {#prices-waf}
+## Цены Managed Web Application Firewall  {#prices-waf}
 
 Все цены указаны с учетом НДС.
 
+
 {% include [rub-waf.md](../_pricing/vpc/rub-waf.md) %}
+
+
 
 В тариф Managed Web Application Firewall включены следующие услуги:
 
 {% include [waf-services.md](../_pricing/vpc/waf-services.md) %}
-
 

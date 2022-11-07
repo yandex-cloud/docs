@@ -22,11 +22,9 @@
 {% include [cli-install](../../_includes/cli-install.md) %}
 
 
-
 ## Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит плата за использование бакета (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-
 
 
 ## Подготовьте окружение {#prepare-environment}

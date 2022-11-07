@@ -7,18 +7,22 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+
 В рамках {{ network-load-balancer-full-name }} оплачиваются объем входящего трафика, обработанного балансировщиком, и количество сетевых балансировщиков.
 
 Исходящий трафик тарифицируется аналогично другим сервисам {{ yandex-cloud }}, например, [Compute Cloud](../compute/pricing.md#prices-traffic). В состав исходящего трафика также включается трафик ответов целевых ресурсов на проверки состояния.
 
-## Цены {#prices}
+## Цены  {#prices}
 
 ### Входящий и исходящий трафик {#prices-traffic}
 
 Тарифицируется трафик, поступающий на пару из IP-адреса и порта, указанную в качестве обработчика сетевого балансировщика. Остальной трафик, поступающий на балансировщик, не принимается и не тарифицируется.
 
 
+
 {% include [rub.md](../_pricing/network-load-balancer/rub-traffic.md) %}
+
+
 
 
 
@@ -30,8 +34,8 @@ editable: false
 Если у сетевого балансировщика нет подключенных целевых групп, но есть обработчик, то публичный IP-адрес обработчика тарифицируется как [неактивный публичный IP-адрес](../vpc/pricing.md#prices-public-ip).
 
 
-{% include [rub.md](../_pricing/network-load-balancer/rub-balancer.md) %}
 
+{% include [rub.md](../_pricing/network-load-balancer/rub-balancer.md) %}
 
 
 
