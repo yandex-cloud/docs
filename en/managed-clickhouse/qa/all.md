@@ -2,28 +2,28 @@
 
 ## General questions {#general}
 
-{% include notitle [general](general.md) %}
+{% include notitle [general](../../_qa/managed-clickhouse/general.md) %}
 
 ## Questions about {{ CH }} {#clickhouse}
 
-{% include notitle [clickhouse](clickhouse.md) %}
+{% include notitle [clickhouse](../../_qa/managed-clickhouse/clickhouse.md) %}
 
 ## Adding plugins {#connection}
 
-{% include notitle [connection](connection.md) %}
+{% include notitle [connection](../../_qa/managed-clickhouse/connection.md) %}
 
 ## Editing {#cluster-update} clusters
 
-{% include notitle [cluster-update](cluster-update.md) %}
+{% include notitle [cluster-update](../../_qa/managed-clickhouse/cluster-update.md) %}
 
 ## Cluster configuration {#cluster-settings}
 
-{% include notitle [cluster-settings](cluster-settings.md) %}
+{% include notitle [cluster-settings](../../_qa/managed-clickhouse/cluster-settings.md) %}
 
 ## Moving and restoring a cluster {#cluster-backups}
 
-{% include notitle [cluster-backups](cluster-backups.md) %}
+{% include notitle [cluster-backups](../../_qa/managed-clickhouse/cluster-backups.md) %}
 
 ## Monitoring and logs {#monitoring}
 
-{% include notitle [monitoring](monitoring.md) %}
+{% include notitle [monitoring](../../_qa/managed-clickhouse/monitoring.md) %}
