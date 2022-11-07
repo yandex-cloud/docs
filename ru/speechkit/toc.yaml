@@ -101,6 +101,8 @@ items:
         items:
           - name: Потоковое распознавание API v3
             href: stt/api/streaming-examples-v3.md
+          - name: Автоматическое определение языка — API v3
+            href: stt/api/stt-language-labels-example.md
           - name: Потоковое распознавание API v2
             href: stt/api/streaming-examples.md
           - name: Синхронное распознавание API v2
