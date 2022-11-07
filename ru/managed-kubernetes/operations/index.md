@@ -35,6 +35,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](applications/kyverno.md)
 * [{#T}](applications/metrics-provider.md)
 * [{#T}](applications/node-local-dns.md)
+* [{#T}](applications/thumbor.md)
 
 {% endif %}
 
