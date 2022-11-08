@@ -14,7 +14,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-[Создайте кластер-приемник {{ mmg-name }}](../../managed-mongodb/operations/cluster-create.md), вычислительная мощность и размер хранилища которого соответствуют среде, в которой развернута мигрируемая база данных.
+{% if product == "yandex-cloud" %}[Создайте кластер-приемник {{ mmg-name }}](../../managed-mongodb/operations/cluster-create.md){% else %}Создайте кластер-приемник {{ mmg-name }}{% endif %}, вычислительная мощность и размер хранилища которого соответствуют среде, в которой развернута мигрируемая база данных.
 
 Имя базы в кластере-приемнике должно совпадать с именем базы-источника.
 
@@ -22,6 +22,8 @@
 
 {% include notitle [Data migration MMG](../../_tutorials/datatransfer/managed-mongodb.md) %}
 
+{% if product == "yandex-cloud" %}
 ## См. также {#see-also}
 
 Другие способы миграции описаны в [документации {{ mmg-full-name }}](../../managed-mongodb/tutorials/data-migration.md).
+{% endif %}

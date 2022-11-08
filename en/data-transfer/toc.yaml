@@ -72,7 +72,6 @@ items:
         href: tutorials/index.md
       - name: Migrating databases to {{ mmg-full-name }}
         href: tutorials/managed-mongodb.md
-        when: product == "yandex-cloud"
       - name: Migrating databases to {{ mmy-full-name }}
         href: tutorials/managed-mysql.md
       - name: Migrating databases from {{ mmy-full-name }} to {{ MY }}

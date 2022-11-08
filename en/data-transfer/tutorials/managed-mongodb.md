@@ -14,7 +14,7 @@ For more information, see [What tasks is {{ data-transfer-full-name }} used for]
 
 ## Before you start {#before-you-begin}
 
-[Create a {{ mmg-name }} target cluster](../../managed-mongodb/operations/cluster-create.md) with the computing capacity and storage size appropriate for the environment where the migrated database is deployed.
+{% if product == "yandex-cloud" %}[Create a {{ mmg-name }} target cluster](../../managed-mongodb/operations/cluster-create.md){% else %}Create a {{ mmg-name }} target cluster{% endif %} with the computing capacity and storage size appropriate for the environment where the migrated database is deployed.
 
 The database name in the target cluster must be the same as the source database name.
 
@@ -22,6 +22,8 @@ The database name in the target cluster must be the same as the source database 
 
 {% include notitle [Data migration MMG](../../_tutorials/datatransfer/managed-mongodb.md) %}
 
+{% if product == "yandex-cloud" %}
 ## See also {#see-also}
 
 For other migration methods, see the [{{ mmg-full-name }} documentation](../../managed-mongodb/tutorials/data-migration.md).
+{% endif %}

@@ -1,12 +1,8 @@
 # Практические руководства {{ data-transfer-name }}
 
 * [{#T}](managed-clickhouse.md)
-{% if product == "yandex-cloud" %}
-{% if audience != "internal" %}
 * [{#T}](managed-greenplum.md)
-{% endif %}
 * [{#T}](managed-mongodb.md)
-{% endif %}
 * [{#T}](managed-mysql.md)
 * [{#T}](managed-mysql-to-mysql.md)
 * [{#T}](managed-postgresql.md)
