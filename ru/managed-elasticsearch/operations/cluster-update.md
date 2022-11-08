@@ -1,19 +1,19 @@
 ---
 title: Изменение настроек кластера Elasticsearch
-description: 'После создания кластера вы можете изменить настройки класса хостов, увеличить размер хранилища или изменить дополнительные настройки кластера Elasticsearch.'
+description: "После создания кластера вы можете изменить настройки класса хостов, увеличить размер хранилища или изменить дополнительные настройки кластера Elasticsearch."
 keywords:
   - настройки Elasticsearch
   - настройки кластера Elasticsearch
   - Elasticsearch
 ---
 
-# Изменение настроек кластера
+# Изменение настроек {{ ES }}-кластера
 
 После создания кластера вы можете:
 
 * [{#T}](#change-service-account).
 * [{#T}](#change-resource-preset).
-* [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
+* [{#T}](#change-disk-size).
 * [{#T}](#change-elasticsearch-config).
 * [{#T}](#change-admin-password).
 * [{#T}](#change-additional-settings).

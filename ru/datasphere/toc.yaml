@@ -58,7 +58,9 @@ items:
             href: operations/data/secrets.md
           - name: Работа с контрольными точками
             href: operations/projects/checkpoints.md
-          - name: Конфигурация окружения с помощью Docker-образа
+          - name: Работа с шаблонами {{ dataproc-name }}
+            href: operations/data-proc-template.md
+          - name: Работа с Docker-образами
             href: operations/user-images.md
       - name: Подключение к источникам данных
         items:
@@ -132,16 +134,22 @@ items:
             href: concepts/repeat.md
           - name: Распределенное обучение
             href: concepts/taas.md
-          - name: Интеграция с Data Proc
+          - name: Вычисления на кластерах Apache Spark™
             href: concepts/data-proc.md
       - name: Ресурсы
         items:
+          - name: Обзор
+            href: concepts/resources.md
           - name: Секреты
             href: concepts/secrets.md
+          - name: Docker-образы
+            href: concepts/docker.md
           - name: Контрольные точки
             href: concepts/checkpoints.md
           - name: Датасеты
             href: concepts/dataset.md
+          - name: Шаблоны {{ dataproc-name }}
+            href: concepts/data-proc-template.md
       - name: Эксплуатация моделей
         href: concepts/deploy/index.md
       - name: Квоты и лимиты

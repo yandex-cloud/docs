@@ -8,6 +8,7 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+
 ## Из чего складывается стоимость использования {{ container-registry-name }} {#rules}
 
 Расчет стоимости использования {{ container-registry-name }} учитывает:
@@ -33,7 +34,10 @@ editable: false
 Цены за ГБ в месяц фиксированны и не зависят от количества дней в месяце. Стоимость услуги хранения в день для более коротких месяцев будет выше, для более длинных — ниже.
 
 
+
 {% include [rub.md](../_pricing/cr/rub.md) %}
+
+
 
 
 
@@ -45,7 +49,10 @@ editable: false
 ```
 
 
+
 {% include [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
+
 
 
 

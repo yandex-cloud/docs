@@ -12,7 +12,7 @@
 
 You don't need to spend time creating and maintaining VMs: when you create a new [project](project.md), computing resources are automatically allocated for implementing it.
 
-The VM comes ready with the JupyterLab development environment and pre-installed packages for data analysis and ML (such as TensorFlow, Keras, and NumPy), which you can start using immediately. Full list of [pre-installed packages](preinstalled-packages.md).
+The VM comes ready with the {{ jlab }}Lab development environment and pre-installed packages for data analysis and ML (such as TensorFlow, Keras, and NumPy), which you can start using immediately. Full list of [pre-installed packages](preinstalled-packages.md).
 
 If you're missing a package, you can [install it](../operations/projects/install-dependencies.md) right from the notebook.
 

@@ -5,7 +5,6 @@ editable: false
 # Pricing for {{ message-queue-name }}
 
 
-
 ## What goes into the cost of using Yandex Message Queue {#rules}
 
 {{ message-queue-name }} charges for the number of requests to [standard queues](concepts/queue.md#standard-queues) and [FIFO queues](concepts/queue.md#fifo-queues), as well as for outgoing traffic.
@@ -19,7 +18,10 @@ editable: false
 
 
 
+
 {% include [usd.md](../_pricing/message-queue/usd.md) %}
+
+
 
 
 Payment is made for the actual number of requests. 
@@ -29,5 +31,8 @@ For pricing purposes, every 64 KB of request data is considered a separate reque
 
 
 
+
 {% include [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+
 

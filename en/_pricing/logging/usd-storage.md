@@ -1,4 +1,4 @@
-| Service | Price per 1 GB×month, with VAT |
+| Service | Cost per 1 GB×month, without VAT |
 | --- | --- |
-| Data storage, &le;1 GB×month per month | Free |
-| Data storage, >1 GB×month per month | $0.130308 |
+| Data storage, first 1 GB×month per month | Free |
+| Data storage, over 1 GB×month per month | $0.130308 |

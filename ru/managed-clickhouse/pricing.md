@@ -8,6 +8,7 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
@@ -71,6 +72,7 @@ editable: false
 
 Цена указывается за 1 месяц использования. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
 
+
 ### Пример расчета стоимости кластера {#example}
 
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
@@ -114,6 +116,7 @@ editable: false
 * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах).
 * 3,2000&nbsp;₽ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
 
+
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -135,12 +138,17 @@ editable: false
 ### Вычислительные ресурсы хостов {{ CH }} {#prices-clickhouse}
 
 
+
 {% include [rub-host-ch.md](../_pricing/managed-clickhouse/rub-host-ch.md) %}
 
 
 
 
+
+
 ### Вычислительные ресурсы хостов {{ ZK }} {#prices-zookeeper}
+
+
 
 {% note info %}
 
@@ -154,7 +162,11 @@ editable: false
 
 
 
+
+
+
 ### Хранилище и резервные копии {#prices-storage}
+
 
 
 {% include [rub-storage.md](../_pricing/managed-clickhouse/rub-storage.md) %}
@@ -162,10 +174,15 @@ editable: false
 
 
 
+
+
+
 ### Исходящий трафик {#prices-traffic}
 
 
+
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
 
 
 

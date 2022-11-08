@@ -17,13 +17,13 @@ GET https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotSchedul
  
 Parameter | Description
 --- | ---
-snapshotScheduleId | <p>ID of the SnapshotSchedule resource to list operations for.</p> 
+snapshotScheduleId | <p>ID of the snapshot schedule to list operations for.</p> <p>To get a snapshot schedule ID, make a <a href="/docs/compute/api-ref/SnapshotSchedule/list">list</a> request.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/compute/api-ref/SnapshotSchedule/listOperations#query_params">pageSize</a>, the service returns a <a href="/docs/compute/api-ref/SnapshotSchedule/listOperations#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/compute/api-ref/SnapshotSchedule/listOperations#query_params">pageSize</a>, the service returns a <a href="/docs/compute/api-ref/SnapshotSchedule/listOperations#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>Default value: 100.</p> 
 pageToken | <p>Page token. To get the next page of results, set <a href="/docs/compute/api-ref/SnapshotSchedule/listOperations#query_params">pageToken</a> to the <a href="/docs/compute/api-ref/SnapshotSchedule/listOperations#responses">nextPageToken</a> returned by a previous list request.</p> 
  
 ## Response {#responses}
@@ -74,4 +74,4 @@ operations[].<br>error.<br>code | **integer** (int32)<br><p>Error code. An enum 
 operations[].<br>error.<br>message | **string**<br><p>An error message.</p> 
 operations[].<br>error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
 operations[].<br>response | **object** <br>`operations[]` includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/compute/api-ref/SnapshotSchedule/listOperations#query_params">pageSize</a>, use the <a href="/docs/compute/api-ref/SnapshotSchedule/listOperations#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/SnapshotSchedule/listOperations#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/SnapshotSchedule/listOperations#responses">nextPageToken</a> to continue paging through the results.</p> 
+nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/compute/api-ref/SnapshotSchedule/listOperations#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/compute/api-ref/SnapshotSchedule/listOperations#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

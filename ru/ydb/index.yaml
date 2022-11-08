@@ -9,6 +9,11 @@ description:
     масштабируемость, а также строгую консистентность и поддержку
     ACID-транзакций. Для запросов используется диалект SQL (<a
     href="https://ydb.tech/ru/docs/yql/reference/">YQL</a>).
+  - >-
+    Инфраструктура Yandex Cloud <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
+    в соответствии с Федеральным законом Российской Федерации «О персональных
+    данных» № 152-ФЗ.
 nav:
   title: Yandex Managed Service for YDB
 meta:

@@ -9,6 +9,7 @@
 * [{#T}](debezium-mmy.md)
 * [{#T}](debezium-mpg.md)
 * [{#T}](kafka-connect.md)
+* [{#T}](mkf-ydb-stream.md)
 * Использование реестра схем форматов данных с {{ mkf-name }}:
 
     * [Управление схемами данных](schema-registry-overview.md)
@@ -55,9 +56,11 @@
 * [{#T}](profiling-mmy.md)
 * [{#T}](sync-mysql.md)
 * [{#T}](mmy-to-mysql-migration.md)
+* [{#T}](mmy-objs-migration.md)
 * [{#T}](sqoop-mmy.md)
 * [{#T}](./data-transfer-mmy.md)
 * [{#T}](./debezium-mmy.md)
+* [{#T}](./mmy-ydb-migration.md)
 
 ## {{ PG }} {#postgresql}
 

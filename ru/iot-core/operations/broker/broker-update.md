@@ -94,6 +94,10 @@
       yc iot broker list
       ```
 
+- API
+
+  Изменить имя брокера можно с помощью метода API [update](../../broker/api-ref/Broker/update.md).
+
 {% endlist %}
 
 ## Изменить описание брокера {#update-description}
@@ -187,6 +191,10 @@
       yc iot broker get <имя_брокера>
       ```
 
+- API
+
+  Изменить описание брокера можно с помощью метода API [update](../../broker/api-ref/Broker/update.md).
+
 {% endlist %}
 
 ## Управлять метками брокера {#manage-label}
@@ -237,7 +245,7 @@
   
   Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  Чтобы добавить метку брокера, созданного с помощью {{ TF }}:
+  Чтобы добавить метку брокеру, созданному с помощью {{ TF }}:
 
   1. Опишите в конфигурационном файле параметры ресурса, который необходимо создать:
 
@@ -293,6 +301,10 @@
       ```bash
       yc iot broker get <имя_брокера>
       ```
+
+- API
+
+  Добавить метку брокеру можно с помощью метода API [update](../../broker/api-ref/Broker/update.md).
 
 {% endlist %}
 
@@ -394,6 +406,10 @@
       yc iot broker get <имя_брокера>
       ```
 
+- API
+
+  Изменить метку брокера можно с помощью метода API [update](../../broker/api-ref/Broker/update.md).
+
 {% endlist %}
 
 ### Удалить метку {#remove-label}
@@ -485,5 +501,9 @@
       ```bash
       yc iot broker get <имя_брокера>
       ```
+
+- API
+
+  Удалить метку брокера можно с помощью метода API [update](../../broker/api-ref/Broker/update.md).
 
 {% endlist %}

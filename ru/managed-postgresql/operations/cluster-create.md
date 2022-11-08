@@ -60,6 +60,8 @@
   
   1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
+        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
+
 
   1. В блоке **Хосты** выберите параметры хостов баз данных, создаваемых вместе с кластером. Открыв блок **Расширенные настройки**, вы можете выбрать конкретные подсети для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.
 
@@ -125,6 +127,8 @@
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
 
+      {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
+
 
       Доступные [режимы работы менеджера соединений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
 
@@ -162,6 +166,8 @@
      * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
+
+     {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
      Пример структуры конфигурационного файла:
 
@@ -265,6 +271,9 @@
     * Имя кластера в параметре `name`.
     * Окружение кластера в параметре `environment`.
     * Идентификатор сети в параметре `networkId`.
+
+        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
+
     * Конфигурацию кластера в параметре `configSpec`.
     * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
         * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.

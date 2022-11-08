@@ -101,12 +101,14 @@ editable: false
 {% endlist %}
 
 
-## Цены {#prices}
+## Цены {#prices} 
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
 
+
 {% include [rub.md](../_pricing/data-proc/rub.md) %}
+
 
 
 
@@ -118,6 +120,7 @@ editable: false
 {% endnote %}
 
 ### Исходящий трафик {#prices-traffic}
+
 
 
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}

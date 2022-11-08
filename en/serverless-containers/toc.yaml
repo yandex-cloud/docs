@@ -1,7 +1,7 @@
 title: Yandex Serverless Containers
 href: index.yaml
 items:
-  - name: Comparison with other Yandex Cloud services
+  - name: Comparison with other {{ yandex-cloud }} services
     href: service-comparison.md
   - name: Getting started
     href: quickstart.md
@@ -19,7 +19,7 @@ items:
             href: operations/list.md
           - name: Managing container revisions
             href: operations/manage-revision.md
-          - name: Managing container access rights
+          - name: Managing rights to access a container
             href: operations/access-rights.md
           - name: Invoking a container
             href: operations/invoke.md
@@ -67,6 +67,8 @@ items:
         href: concepts/container.md
       - name: Invoking a container
         href: concepts/invoke.md
+      - name: Networking
+        href: concepts/networking.md
       - name: Runtime environment
         href: concepts/runtime.md
       - name: Trigger
@@ -105,6 +107,52 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: containers/api-ref/grpc/index.md
+          - name: ContainerService
+            href: containers/api-ref/grpc/container_service.md
+          - name: OperationService
+            href: containers/api-ref/grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Overview
+            href: containers/api-ref/index.md
+          - name: Container
+            items:
+              - name: Overview
+                href: containers/api-ref/Container/index.md
+              - name: create
+                href: containers/api-ref/Container/create.md
+              - name: delete
+                href: containers/api-ref/Container/delete.md
+              - name: deployRevision
+                href: containers/api-ref/Container/deployRevision.md
+              - name: get
+                href: containers/api-ref/Container/get.md
+              - name: getRevision
+                href: containers/api-ref/Container/getRevision.md
+              - name: list
+                href: containers/api-ref/Container/list.md
+              - name: listAccessBindings
+                href: containers/api-ref/Container/listAccessBindings.md
+              - name: listOperations
+                href: containers/api-ref/Container/listOperations.md
+              - name: listRevisions
+                href: containers/api-ref/Container/listRevisions.md
+              - name: rollback
+                href: containers/api-ref/Container/rollback.md
+              - name: setAccessBindings
+                href: containers/api-ref/Container/setAccessBindings.md
+              - name: update
+                href: containers/api-ref/Container/update.md
+              - name: updateAccessBindings
+                href: containers/api-ref/Container/updateAccessBindings.md
   - name: Questions and answers
     href: qa/index.md
 base: en/serverless-containers

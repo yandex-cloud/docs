@@ -5,27 +5,27 @@ sourcePath: en/_api-ref-grpc/compute/api-ref/grpc/snapshot_schedule_service.md
 
 # SnapshotScheduleService
 
-A set of methods for managing SnapshotSchedule resources.
+A set of methods for managing snapshot schedules.
 
 | Call | Description |
 | --- | --- |
-| [Get](#Get) | Returns the specified SnapshotSchedule resource. |
-| [List](#List) | Retrieves the list of SnapshotSchedule resources in the specified folder. |
+| [Get](#Get) | Returns the specified snapshot schedule. |
+| [List](#List) | Retrieves the list of snapshot schedules in the specified folder. |
 | [Create](#Create) | Creates a snapshot schedule in the specified folder. |
 | [Update](#Update) | Updates the specified snapshot schedule. |
 | [Delete](#Delete) | Deletes the specified snapshot schedule. |
-| [UpdateDisks](#UpdateDisks) | UpdateDisks of schedule |
-| [Disable](#Disable) | Disable schedule sets status InActive. |
-| [Enable](#Enable) | Enable schedule sets status Active. |
+| [UpdateDisks](#UpdateDisks) | Updates the list of disks attached to the specified schedule. |
+| [Disable](#Disable) | Disables the specified snapshot schedule. |
+| [Enable](#Enable) | Enables the specified snapshot schedule. |
 | [ListOperations](#ListOperations) | Lists operations for the specified snapshot schedule. |
-| [ListSnapshots](#ListSnapshots) | List snapshot created by schedule. |
-| [ListDisks](#ListDisks) | List disks that belong to schedule. |
+| [ListSnapshots](#ListSnapshots) | Retrieves the list of snapshots created by the specified snapshot schedule. |
+| [ListDisks](#ListDisks) | Retrieves the list of disks attached to the specified snapshot schedule. |
 
 ## Calls SnapshotScheduleService {#calls}
 
 ## Get {#Get}
 
-Returns the specified SnapshotSchedule resource. <br>To get the list of available SnapshotSchedule resources, make a [List](#List) request.
+Returns the specified snapshot schedule. <br>To get the list of available snapshot schedules, make a [List](#List) request.
 
 **rpc Get ([GetSnapshotScheduleRequest](#GetSnapshotScheduleRequest)) returns ([SnapshotSchedule](#SnapshotSchedule))**
 
@@ -33,33 +33,33 @@ Returns the specified SnapshotSchedule resource. <br>To get the list of availabl
 
 Field | Description
 --- | ---
-snapshot_schedule_id | **string**<br>ID of the SnapshotSchedule resource to return. 
+snapshot_schedule_id | **string**<br>ID of the snapshot schedule to return. <br>To get a schedule ID, make a [SnapshotScheduleService.List](#List) request. 
 
 
 ### SnapshotSchedule {#SnapshotSchedule}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the snapshot schedule policy. 
-folder_id | **string**<br>ID of the folder that the scheduler policy belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the schedule policy. The name is unique within the folder. 
-description | **string**<br>Description of the schedule policy. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
-status | enum **Status**<br> 
-schedule_policy | **[SchedulePolicy](#SchedulePolicy)**<br>schedule properties 
-retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>
-&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
-&nbsp;&nbsp;snapshot_count | **int64**<br> 
-snapshot_spec | **[SnapshotSpec](#SnapshotSpec)**<br>properties to create snapshot with. 
+id | **string**<br>ID of the snapshot schedule. 
+folder_id | **string**<br>ID of the folder that the snapshot schedule belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the snapshot schedule. <br>The name is unique within the folder. 
+description | **string**<br>Description of the snapshot schedule. 
+labels | **map<string,string>**<br>Snapshot schedule labels as `key:value` pairs. 
+status | enum **Status**<br>Status of the snapshot schedule. <ul><li>`CREATING`: The snapshot schedule is being created.</li><li>`ACTIVE`: The snapshot schedule is on: new disk snapshots will be created, old ones deleted (if [SnapshotSchedule.retention_policy](#SnapshotSchedule) is specified).</li><li>`INACTIVE`: The schedule is interrupted, snapshots won't be created or deleted.</li><li>`DELETING`: The schedule is being deleted.</li><li>`UPDATING`: Changes are being made to snapshot schedule settings or a list of attached disks.</li></ul>
+schedule_policy | **[SchedulePolicy](#SchedulePolicy)**<br>Frequency settings of the snapshot schedule. 
+retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>Retention policy of the snapshot schedule.
+&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Retention period of the snapshot schedule. Once a snapshot created by the schedule reaches this age, it is automatically deleted. 
+&nbsp;&nbsp;snapshot_count | **int64**<br>Retention count of the snapshot schedule. Once the number of snapshots created by the schedule exceeds this number, the oldest ones are automatically deleted. E.g. if the number is 5, the first snapshot is deleted after the sixth one is created, the second is deleted after the seventh one is created, and so on. 
+snapshot_spec | **[SnapshotSpec](#SnapshotSpec)**<br>Attributes of snapshots created by the snapshot schedule. 
 
 
 ### SchedulePolicy {#SchedulePolicy}
 
 Field | Description
 --- | ---
-start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>start time for the first run. 
-expression | **string**<br>cron format (* * * * *) 
+start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for creating the first snapshot. 
+expression | **string**<br>Cron expression for the snapshot schedule (UTC+0). <br>The expression must consist of five fields (`Minutes Hours Day-of-month Month Day-of-week`) or be one of nonstandard predefined expressions (e.g. `@hourly`). For details about the format, see [documentation](/docs/compute/concepts/snapshot-schedule#cron) 
 
 
 ### SnapshotSpec {#SnapshotSpec}
@@ -67,12 +67,12 @@ expression | **string**<br>cron format (* * * * *)
 Field | Description
 --- | ---
 description | **string**<br>Description of the created snapshot. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+labels | **map<string,string>**<br>Snapshot labels as `key:value` pairs. 
 
 
 ## List {#List}
 
-Retrieves the list of SnapshotSchedule resources in the specified folder.
+Retrieves the list of snapshot schedules in the specified folder.
 
 **rpc List ([ListSnapshotSchedulesRequest](#ListSnapshotSchedulesRequest)) returns ([ListSnapshotSchedulesResponse](#ListSnapshotSchedulesResponse))**
 
@@ -80,45 +80,45 @@ Retrieves the list of SnapshotSchedule resources in the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>ID of the folder to list snapshot schedules in. 
+folder_id | **string**<br>ID of the folder to list snapshot schedules in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSnapshotSchedulesResponse.next_page_token](#ListSnapshotSchedulesResponse) that can be used to get the next page of results in subsequent list requests. 
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSnapshotSchedulesResponse.next_page_token](#ListSnapshotSchedulesResponse) returned by a previous list request. 
-filter | **string**<br> 
-order_by | **string**<br>By which column the listing should be ordered and in which direction, format is "createdAt desc". "id asc" if omitted. 
+filter | **string**<br>A filter expression that filters snapshot schedules listed in the response. <br>The expression must specify: <ol><li>The field name. Currently you can use filtering only on [SnapshotSchedule.name](#SnapshotSchedule1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Example of a filter: `name=my-schedule`. 
+order_by | **string**<br>A sorting expression that sorts snapshot schedules listed in the response. <br>The expression must specify the field name from [SnapshotSchedule](#SnapshotSchedule1) and `asc`ending or `desc`ending order, e.g. `createdAt desc`. <br>Default value: `id asc`. 
 
 
 ### ListSnapshotSchedulesResponse {#ListSnapshotSchedulesResponse}
 
 Field | Description
 --- | ---
-snapshot_schedules[] | **[SnapshotSchedule](#SnapshotSchedule1)**<br>List of SnapshotSchedule resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListSnapshotSchedulesRequest.page_size](#ListSnapshotSchedulesRequest), use the `next_page_token` as the value for the [ListSnapshotSchedulesRequest.page_token](#ListSnapshotSchedulesRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+snapshot_schedules[] | **[SnapshotSchedule](#SnapshotSchedule1)**<br>List of snapshot schedules in the specified folder. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListSnapshotSchedulesRequest.page_size](#ListSnapshotSchedulesRequest), use `next_page_token` as the value for the [ListSnapshotSchedulesRequest.page_token](#ListSnapshotSchedulesRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### SnapshotSchedule {#SnapshotSchedule1}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the snapshot schedule policy. 
-folder_id | **string**<br>ID of the folder that the scheduler policy belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the schedule policy. The name is unique within the folder. 
-description | **string**<br>Description of the schedule policy. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
-status | enum **Status**<br> 
-schedule_policy | **[SchedulePolicy](#SchedulePolicy1)**<br>schedule properties 
-retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>
-&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
-&nbsp;&nbsp;snapshot_count | **int64**<br> 
-snapshot_spec | **[SnapshotSpec](#SnapshotSpec1)**<br>properties to create snapshot with. 
+id | **string**<br>ID of the snapshot schedule. 
+folder_id | **string**<br>ID of the folder that the snapshot schedule belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the snapshot schedule. <br>The name is unique within the folder. 
+description | **string**<br>Description of the snapshot schedule. 
+labels | **map<string,string>**<br>Snapshot schedule labels as `key:value` pairs. 
+status | enum **Status**<br>Status of the snapshot schedule. <ul><li>`CREATING`: The snapshot schedule is being created.</li><li>`ACTIVE`: The snapshot schedule is on: new disk snapshots will be created, old ones deleted (if [SnapshotSchedule.retention_policy](#SnapshotSchedule1) is specified).</li><li>`INACTIVE`: The schedule is interrupted, snapshots won't be created or deleted.</li><li>`DELETING`: The schedule is being deleted.</li><li>`UPDATING`: Changes are being made to snapshot schedule settings or a list of attached disks.</li></ul>
+schedule_policy | **[SchedulePolicy](#SchedulePolicy1)**<br>Frequency settings of the snapshot schedule. 
+retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>Retention policy of the snapshot schedule.
+&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Retention period of the snapshot schedule. Once a snapshot created by the schedule reaches this age, it is automatically deleted. 
+&nbsp;&nbsp;snapshot_count | **int64**<br>Retention count of the snapshot schedule. Once the number of snapshots created by the schedule exceeds this number, the oldest ones are automatically deleted. E.g. if the number is 5, the first snapshot is deleted after the sixth one is created, the second is deleted after the seventh one is created, and so on. 
+snapshot_spec | **[SnapshotSpec](#SnapshotSpec1)**<br>Attributes of snapshots created by the snapshot schedule. 
 
 
 ### SchedulePolicy {#SchedulePolicy1}
 
 Field | Description
 --- | ---
-start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>start time for the first run. 
-expression | **string**<br>cron format (* * * * *) 
+start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for creating the first snapshot. 
+expression | **string**<br>Cron expression for the snapshot schedule (UTC+0). <br>The expression must consist of five fields (`Minutes Hours Day-of-month Month Day-of-week`) or be one of nonstandard predefined expressions (e.g. `@hourly`). For details about the format, see [documentation](/docs/compute/concepts/snapshot-schedule#cron) 
 
 
 ### SnapshotSpec {#SnapshotSpec1}
@@ -126,7 +126,7 @@ expression | **string**<br>cron format (* * * * *)
 Field | Description
 --- | ---
 description | **string**<br>Description of the created snapshot. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+labels | **map<string,string>**<br>Snapshot labels as `key:value` pairs. 
 
 
 ## Create {#Create}
@@ -143,24 +143,24 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>ID of the folder to create a snapshot schedule in. 
-name | **string**<br> 
-description | **string**<br> 
-labels | **map<string,string>**<br> 
-schedule_policy | **[SchedulePolicy](#SchedulePolicy2)**<br>schedule properties 
-retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>
-&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
-&nbsp;&nbsp;snapshot_count | **int64**<br> 
-snapshot_spec | **[SnapshotSpec](#SnapshotSpec2)**<br> 
-disk_ids[] | **string**<br> 
+folder_id | **string**<br>ID of the folder to create a snapshot schedule in. <br>Snapshots are created in the same folder as the schedule, even if disks from other folders are attached to the schedule. <br>To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
+name | **string**<br>Name of the snapshot schedule. <br>The name must be unique within the folder. 
+description | **string**<br>Description of the snapshot schedule. 
+labels | **map<string,string>**<br>Snapshot schedule labels as `key:value` pairs. 
+schedule_policy | **[SchedulePolicy](#SchedulePolicy2)**<br>Frequency settings of the snapshot schedule. 
+retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>Retention policy of the snapshot schedule.
+&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Retention period of the snapshot schedule. Once a snapshot created by the schedule reaches this age, it is automatically deleted. 
+&nbsp;&nbsp;snapshot_count | **int64**<br>Retention count of the snapshot schedule. Once the number of snapshots created by the schedule exceeds this number, the oldest ones are automatically deleted. E.g. if the number is 5, the first snapshot is deleted after the sixth one is created, the second is deleted after the seventh one is created, and so on. 
+snapshot_spec | **[SnapshotSpec](#SnapshotSpec2)**<br>Attributes of snapshots created by the snapshot schedule. 
+disk_ids[] | **string**<br>List of IDs of the disks attached to the snapshot schedule. <br>To get a disk ID, make a [yandex.cloud.compute.v1.DiskService.List](/docs/compute/api-ref/grpc/disk_service#List) request. 
 
 
 ### SchedulePolicy {#SchedulePolicy2}
 
 Field | Description
 --- | ---
-start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>start time for the first run. 
-expression | **string**<br>cron format (* * * * *) 
+start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for creating the first snapshot. 
+expression | **string**<br>Cron expression for the snapshot schedule (UTC+0). <br>The expression must consist of five fields (`Minutes Hours Day-of-month Month Day-of-week`) or be one of nonstandard predefined expressions (e.g. `@hourly`). For details about the format, see [documentation](/docs/compute/concepts/snapshot-schedule#cron) 
 
 
 ### SnapshotSpec {#SnapshotSpec2}
@@ -168,7 +168,7 @@ expression | **string**<br>cron format (* * * * *)
 Field | Description
 --- | ---
 description | **string**<br>Description of the created snapshot. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+labels | **map<string,string>**<br>Snapshot labels as `key:value` pairs. 
 
 
 ### Operation {#Operation}
@@ -191,30 +191,30 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-snapshot_schedule_id | **string**<br> 
+snapshot_schedule_id | **string**<br>ID of the snapshot schedule that is being created. 
 
 
 ### SnapshotSchedule {#SnapshotSchedule2}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the snapshot schedule policy. 
-folder_id | **string**<br>ID of the folder that the scheduler policy belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the schedule policy. The name is unique within the folder. 
-description | **string**<br>Description of the schedule policy. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
-status | enum **Status**<br> 
-schedule_policy | **[SchedulePolicy](#SchedulePolicy3)**<br>schedule properties 
-retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>
-&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
-&nbsp;&nbsp;snapshot_count | **int64**<br> 
-snapshot_spec | **[SnapshotSpec](#SnapshotSpec3)**<br>properties to create snapshot with. 
+id | **string**<br>ID of the snapshot schedule. 
+folder_id | **string**<br>ID of the folder that the snapshot schedule belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the snapshot schedule. <br>The name is unique within the folder. 
+description | **string**<br>Description of the snapshot schedule. 
+labels | **map<string,string>**<br>Snapshot schedule labels as `key:value` pairs. 
+status | enum **Status**<br>Status of the snapshot schedule. <ul><li>`CREATING`: The snapshot schedule is being created.</li><li>`ACTIVE`: The snapshot schedule is on: new disk snapshots will be created, old ones deleted (if [SnapshotSchedule.retention_policy](#SnapshotSchedule2) is specified).</li><li>`INACTIVE`: The schedule is interrupted, snapshots won't be created or deleted.</li><li>`DELETING`: The schedule is being deleted.</li><li>`UPDATING`: Changes are being made to snapshot schedule settings or a list of attached disks.</li></ul>
+schedule_policy | **[SchedulePolicy](#SchedulePolicy3)**<br>Frequency settings of the snapshot schedule. 
+retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>Retention policy of the snapshot schedule.
+&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Retention period of the snapshot schedule. Once a snapshot created by the schedule reaches this age, it is automatically deleted. 
+&nbsp;&nbsp;snapshot_count | **int64**<br>Retention count of the snapshot schedule. Once the number of snapshots created by the schedule exceeds this number, the oldest ones are automatically deleted. E.g. if the number is 5, the first snapshot is deleted after the sixth one is created, the second is deleted after the seventh one is created, and so on. 
+snapshot_spec | **[SnapshotSpec](#SnapshotSpec3)**<br>Attributes of snapshots created by the snapshot schedule. 
 
 
 ## Update {#Update}
 
-Updates the specified snapshot schedule.
+Updates the specified snapshot schedule. <br>The schedule is updated only after all snapshot creations and deletions triggered by the schedule are completed.
 
 **rpc Update ([UpdateSnapshotScheduleRequest](#UpdateSnapshotScheduleRequest)) returns ([operation.Operation](#Operation1))**
 
@@ -226,24 +226,24 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-snapshot_schedule_id | **string**<br>ID of the SnapshotSchedule resource to update. 
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the SnapshotSchedule resource are going to be updated. 
-name | **string**<br>schedule properties 
-description | **string**<br> 
-labels | **map<string,string>**<br> 
-schedule_policy | **[SchedulePolicy](#SchedulePolicy3)**<br> 
-retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>
-&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
-&nbsp;&nbsp;snapshot_count | **int64**<br> 
-snapshot_spec | **[SnapshotSpec](#SnapshotSpec3)**<br> 
+snapshot_schedule_id | **string**<br>ID of the snapshot schedule to update. <br>To get the snapshot schedule ID, make a [SnapshotScheduleService.List](#List) request. 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the snapshot schedule should be updated. 
+name | **string**<br>New name for the snapshot schedule. <br>The name must be unique within the folder. 
+description | **string**<br>New description of the snapshot schedule. 
+labels | **map<string,string>**<br>Snapshot schedule labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: <ol><li>Get the current set of labels with a [SnapshotScheduleService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> 
+schedule_policy | **[SchedulePolicy](#SchedulePolicy3)**<br>New frequency settings of the snapshot schedule. 
+retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>New retention policy of the snapshot schedule.
+&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Retention period of the snapshot schedule. Once a snapshot created by the schedule reaches this age, it is automatically deleted. 
+&nbsp;&nbsp;snapshot_count | **int64**<br>Retention count of the snapshot schedule. Once the number of snapshots created by the schedule exceeds this number, the oldest ones are automatically deleted. E.g. if the number is 5, the first snapshot is deleted after the sixth one is created, the second is deleted after the seventh one is created, and so on. 
+snapshot_spec | **[SnapshotSpec](#SnapshotSpec3)**<br>New attributes of snapshots created by the snapshot schedule. 
 
 
 ### SchedulePolicy {#SchedulePolicy3}
 
 Field | Description
 --- | ---
-start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>start time for the first run. 
-expression | **string**<br>cron format (* * * * *) 
+start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for creating the first snapshot. 
+expression | **string**<br>Cron expression for the snapshot schedule (UTC+0). <br>The expression must consist of five fields (`Minutes Hours Day-of-month Month Day-of-week`) or be one of nonstandard predefined expressions (e.g. `@hourly`). For details about the format, see [documentation](/docs/compute/concepts/snapshot-schedule#cron) 
 
 
 ### SnapshotSpec {#SnapshotSpec3}
@@ -251,7 +251,7 @@ expression | **string**<br>cron format (* * * * *)
 Field | Description
 --- | ---
 description | **string**<br>Description of the created snapshot. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+labels | **map<string,string>**<br>Snapshot labels as `key:value` pairs. 
 
 
 ### Operation {#Operation1}
@@ -274,30 +274,30 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-snapshot_schedule_id | **string**<br> 
+snapshot_schedule_id | **string**<br>ID of the snapshot schedule that is being updated. 
 
 
 ### SnapshotSchedule {#SnapshotSchedule3}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the snapshot schedule policy. 
-folder_id | **string**<br>ID of the folder that the scheduler policy belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the schedule policy. The name is unique within the folder. 
-description | **string**<br>Description of the schedule policy. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
-status | enum **Status**<br> 
-schedule_policy | **[SchedulePolicy](#SchedulePolicy4)**<br>schedule properties 
-retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>
-&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
-&nbsp;&nbsp;snapshot_count | **int64**<br> 
-snapshot_spec | **[SnapshotSpec](#SnapshotSpec4)**<br>properties to create snapshot with. 
+id | **string**<br>ID of the snapshot schedule. 
+folder_id | **string**<br>ID of the folder that the snapshot schedule belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the snapshot schedule. <br>The name is unique within the folder. 
+description | **string**<br>Description of the snapshot schedule. 
+labels | **map<string,string>**<br>Snapshot schedule labels as `key:value` pairs. 
+status | enum **Status**<br>Status of the snapshot schedule. <ul><li>`CREATING`: The snapshot schedule is being created.</li><li>`ACTIVE`: The snapshot schedule is on: new disk snapshots will be created, old ones deleted (if [SnapshotSchedule.retention_policy](#SnapshotSchedule3) is specified).</li><li>`INACTIVE`: The schedule is interrupted, snapshots won't be created or deleted.</li><li>`DELETING`: The schedule is being deleted.</li><li>`UPDATING`: Changes are being made to snapshot schedule settings or a list of attached disks.</li></ul>
+schedule_policy | **[SchedulePolicy](#SchedulePolicy4)**<br>Frequency settings of the snapshot schedule. 
+retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>Retention policy of the snapshot schedule.
+&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Retention period of the snapshot schedule. Once a snapshot created by the schedule reaches this age, it is automatically deleted. 
+&nbsp;&nbsp;snapshot_count | **int64**<br>Retention count of the snapshot schedule. Once the number of snapshots created by the schedule exceeds this number, the oldest ones are automatically deleted. E.g. if the number is 5, the first snapshot is deleted after the sixth one is created, the second is deleted after the seventh one is created, and so on. 
+snapshot_spec | **[SnapshotSpec](#SnapshotSpec4)**<br>Attributes of snapshots created by the snapshot schedule. 
 
 
 ## Delete {#Delete}
 
-Deletes the specified snapshot schedule. <br>Deleting a snapshot schedule removes its data permanently and is irreversible. However, deleting a schedule does not delete any snapshots previously made by the schedule. You must delete snapshots separately.
+Deletes the specified snapshot schedule. <br>Deleting a snapshot schedule removes its data permanently and is irreversible. However, deleting a schedule does not delete any snapshots created by the schedule. You must delete snapshots separately. <br>The schedule is deleted only after all snapshot creations and deletions triggered by the schedule are completed.
 
 **rpc Delete ([DeleteSnapshotScheduleRequest](#DeleteSnapshotScheduleRequest)) returns ([operation.Operation](#Operation2))**
 
@@ -309,7 +309,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-snapshot_schedule_id | **string**<br>ID of the snapshot schedule to delete. 
+snapshot_schedule_id | **string**<br>ID of the snapshot schedule to delete. <br>To get a snapshot schedule ID, make a [SnapshotScheduleService.List](#List) request. 
 
 
 ### Operation {#Operation2}
@@ -332,12 +332,12 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-snapshot_schedule_id | **string**<br> 
+snapshot_schedule_id | **string**<br>ID of the snapshot schedule that is being deleted. 
 
 
 ## UpdateDisks {#UpdateDisks}
 
-UpdateDisks of schedule
+Updates the list of disks attached to the specified schedule. <br>The schedule is updated only after all snapshot creations and deletions triggered by the schedule are completed.
 
 **rpc UpdateDisks ([UpdateSnapshotScheduleDisksRequest](#UpdateSnapshotScheduleDisksRequest)) returns ([operation.Operation](#Operation3))**
 
@@ -349,9 +349,9 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-snapshot_schedule_id | **string**<br>ID of the snapshot schedule to update. 
-remove[] | **string**<br>List of disk ids to remove from the specified schedule. 
-add[] | **string**<br>List of disk ids to add to the specified schedule 
+snapshot_schedule_id | **string**<br>ID of the snapshot schedule to update. <br>To get a snapshot schedule ID, make a [SnapshotScheduleService.List](#List) request. 
+remove[] | **string**<br>List of IDs of the disks to detach from the specified schedule. <br>To get an ID of a disk attached to the schedule, make a [SnapshotScheduleService.ListDisks](#ListDisks) request. 
+add[] | **string**<br>List of IDs of the disks to attach to the specified schedule. <br>To get a disk ID, make a [yandex.cloud.compute.v1.DiskService.List](/docs/compute/api-ref/grpc/disk_service#List) request. 
 
 
 ### Operation {#Operation3}
@@ -374,33 +374,33 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-snapshot_schedule_id | **string**<br> 
+snapshot_schedule_id | **string**<br>ID of the snapshot schedule that is being updated. 
 
 
 ### SnapshotSchedule {#SnapshotSchedule4}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the snapshot schedule policy. 
-folder_id | **string**<br>ID of the folder that the scheduler policy belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the schedule policy. The name is unique within the folder. 
-description | **string**<br>Description of the schedule policy. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
-status | enum **Status**<br> 
-schedule_policy | **[SchedulePolicy](#SchedulePolicy4)**<br>schedule properties 
-retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>
-&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
-&nbsp;&nbsp;snapshot_count | **int64**<br> 
-snapshot_spec | **[SnapshotSpec](#SnapshotSpec4)**<br>properties to create snapshot with. 
+id | **string**<br>ID of the snapshot schedule. 
+folder_id | **string**<br>ID of the folder that the snapshot schedule belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the snapshot schedule. <br>The name is unique within the folder. 
+description | **string**<br>Description of the snapshot schedule. 
+labels | **map<string,string>**<br>Snapshot schedule labels as `key:value` pairs. 
+status | enum **Status**<br>Status of the snapshot schedule. <ul><li>`CREATING`: The snapshot schedule is being created.</li><li>`ACTIVE`: The snapshot schedule is on: new disk snapshots will be created, old ones deleted (if [SnapshotSchedule.retention_policy](#SnapshotSchedule4) is specified).</li><li>`INACTIVE`: The schedule is interrupted, snapshots won't be created or deleted.</li><li>`DELETING`: The schedule is being deleted.</li><li>`UPDATING`: Changes are being made to snapshot schedule settings or a list of attached disks.</li></ul>
+schedule_policy | **[SchedulePolicy](#SchedulePolicy4)**<br>Frequency settings of the snapshot schedule. 
+retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>Retention policy of the snapshot schedule.
+&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Retention period of the snapshot schedule. Once a snapshot created by the schedule reaches this age, it is automatically deleted. 
+&nbsp;&nbsp;snapshot_count | **int64**<br>Retention count of the snapshot schedule. Once the number of snapshots created by the schedule exceeds this number, the oldest ones are automatically deleted. E.g. if the number is 5, the first snapshot is deleted after the sixth one is created, the second is deleted after the seventh one is created, and so on. 
+snapshot_spec | **[SnapshotSpec](#SnapshotSpec4)**<br>Attributes of snapshots created by the snapshot schedule. 
 
 
 ### SchedulePolicy {#SchedulePolicy4}
 
 Field | Description
 --- | ---
-start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>start time for the first run. 
-expression | **string**<br>cron format (* * * * *) 
+start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for creating the first snapshot. 
+expression | **string**<br>Cron expression for the snapshot schedule (UTC+0). <br>The expression must consist of five fields (`Minutes Hours Day-of-month Month Day-of-week`) or be one of nonstandard predefined expressions (e.g. `@hourly`). For details about the format, see [documentation](/docs/compute/concepts/snapshot-schedule#cron) 
 
 
 ### SnapshotSpec {#SnapshotSpec4}
@@ -408,12 +408,12 @@ expression | **string**<br>cron format (* * * * *)
 Field | Description
 --- | ---
 description | **string**<br>Description of the created snapshot. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+labels | **map<string,string>**<br>Snapshot labels as `key:value` pairs. 
 
 
 ## Disable {#Disable}
 
-Disable schedule sets status InActive. <br>When schedule os disabled snapshots will not be created or deleted according to retention policy.
+Disables the specified snapshot schedule. <br>The [SnapshotSchedule.status](#SnapshotSchedule5) is changed to `INACTIVE`: the schedule is interrupted, snapshots won't be created or deleted. <br>The schedule is disabled only after all snapshot creations and deletions triggered by the schedule are completed.
 
 **rpc Disable ([DisableSnapshotScheduleRequest](#DisableSnapshotScheduleRequest)) returns ([operation.Operation](#Operation4))**
 
@@ -425,7 +425,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-snapshot_schedule_id | **string**<br>ID of the snapshot schedule to disable. 
+snapshot_schedule_id | **string**<br>ID of the snapshot schedule to disable. <br>To get a snapshot schedule ID, make a [SnapshotScheduleService.List](#List) request. 
 
 
 ### Operation {#Operation4}
@@ -448,33 +448,33 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-snapshot_schedule_id | **string**<br> 
+snapshot_schedule_id | **string**<br>ID of the snapshot schedule that is being disabled. 
 
 
 ### SnapshotSchedule {#SnapshotSchedule5}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the snapshot schedule policy. 
-folder_id | **string**<br>ID of the folder that the scheduler policy belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the schedule policy. The name is unique within the folder. 
-description | **string**<br>Description of the schedule policy. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
-status | enum **Status**<br> 
-schedule_policy | **[SchedulePolicy](#SchedulePolicy5)**<br>schedule properties 
-retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>
-&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
-&nbsp;&nbsp;snapshot_count | **int64**<br> 
-snapshot_spec | **[SnapshotSpec](#SnapshotSpec5)**<br>properties to create snapshot with. 
+id | **string**<br>ID of the snapshot schedule. 
+folder_id | **string**<br>ID of the folder that the snapshot schedule belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the snapshot schedule. <br>The name is unique within the folder. 
+description | **string**<br>Description of the snapshot schedule. 
+labels | **map<string,string>**<br>Snapshot schedule labels as `key:value` pairs. 
+status | enum **Status**<br>Status of the snapshot schedule. <ul><li>`CREATING`: The snapshot schedule is being created.</li><li>`ACTIVE`: The snapshot schedule is on: new disk snapshots will be created, old ones deleted (if [SnapshotSchedule.retention_policy](#SnapshotSchedule5) is specified).</li><li>`INACTIVE`: The schedule is interrupted, snapshots won't be created or deleted.</li><li>`DELETING`: The schedule is being deleted.</li><li>`UPDATING`: Changes are being made to snapshot schedule settings or a list of attached disks.</li></ul>
+schedule_policy | **[SchedulePolicy](#SchedulePolicy5)**<br>Frequency settings of the snapshot schedule. 
+retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>Retention policy of the snapshot schedule.
+&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Retention period of the snapshot schedule. Once a snapshot created by the schedule reaches this age, it is automatically deleted. 
+&nbsp;&nbsp;snapshot_count | **int64**<br>Retention count of the snapshot schedule. Once the number of snapshots created by the schedule exceeds this number, the oldest ones are automatically deleted. E.g. if the number is 5, the first snapshot is deleted after the sixth one is created, the second is deleted after the seventh one is created, and so on. 
+snapshot_spec | **[SnapshotSpec](#SnapshotSpec5)**<br>Attributes of snapshots created by the snapshot schedule. 
 
 
 ### SchedulePolicy {#SchedulePolicy5}
 
 Field | Description
 --- | ---
-start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>start time for the first run. 
-expression | **string**<br>cron format (* * * * *) 
+start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for creating the first snapshot. 
+expression | **string**<br>Cron expression for the snapshot schedule (UTC+0). <br>The expression must consist of five fields (`Minutes Hours Day-of-month Month Day-of-week`) or be one of nonstandard predefined expressions (e.g. `@hourly`). For details about the format, see [documentation](/docs/compute/concepts/snapshot-schedule#cron) 
 
 
 ### SnapshotSpec {#SnapshotSpec5}
@@ -482,12 +482,12 @@ expression | **string**<br>cron format (* * * * *)
 Field | Description
 --- | ---
 description | **string**<br>Description of the created snapshot. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+labels | **map<string,string>**<br>Snapshot labels as `key:value` pairs. 
 
 
 ## Enable {#Enable}
 
-Enable schedule sets status Active.
+Enables the specified snapshot schedule. <br>The [SnapshotSchedule.status](#SnapshotSchedule6) is changed to `ACTIVE`: new disk snapshots will be created, old ones deleted (if [SnapshotSchedule.retention_policy](#SnapshotSchedule6) is specified).
 
 **rpc Enable ([EnableSnapshotScheduleRequest](#EnableSnapshotScheduleRequest)) returns ([operation.Operation](#Operation5))**
 
@@ -499,7 +499,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-snapshot_schedule_id | **string**<br>ID of the snapshot schedule to enable. 
+snapshot_schedule_id | **string**<br>ID of the snapshot schedule to enable. <br>To get a snapshot schedule ID, make a [SnapshotScheduleService.List](#List) request. 
 
 
 ### Operation {#Operation5}
@@ -522,33 +522,33 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-snapshot_schedule_id | **string**<br> 
+snapshot_schedule_id | **string**<br>ID of the snapshot schedule that is being enabled. 
 
 
 ### SnapshotSchedule {#SnapshotSchedule6}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the snapshot schedule policy. 
-folder_id | **string**<br>ID of the folder that the scheduler policy belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the schedule policy. The name is unique within the folder. 
-description | **string**<br>Description of the schedule policy. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
-status | enum **Status**<br> 
-schedule_policy | **[SchedulePolicy](#SchedulePolicy6)**<br>schedule properties 
-retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>
-&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
-&nbsp;&nbsp;snapshot_count | **int64**<br> 
-snapshot_spec | **[SnapshotSpec](#SnapshotSpec6)**<br>properties to create snapshot with. 
+id | **string**<br>ID of the snapshot schedule. 
+folder_id | **string**<br>ID of the folder that the snapshot schedule belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+name | **string**<br>Name of the snapshot schedule. <br>The name is unique within the folder. 
+description | **string**<br>Description of the snapshot schedule. 
+labels | **map<string,string>**<br>Snapshot schedule labels as `key:value` pairs. 
+status | enum **Status**<br>Status of the snapshot schedule. <ul><li>`CREATING`: The snapshot schedule is being created.</li><li>`ACTIVE`: The snapshot schedule is on: new disk snapshots will be created, old ones deleted (if [SnapshotSchedule.retention_policy](#SnapshotSchedule6) is specified).</li><li>`INACTIVE`: The schedule is interrupted, snapshots won't be created or deleted.</li><li>`DELETING`: The schedule is being deleted.</li><li>`UPDATING`: Changes are being made to snapshot schedule settings or a list of attached disks.</li></ul>
+schedule_policy | **[SchedulePolicy](#SchedulePolicy6)**<br>Frequency settings of the snapshot schedule. 
+retention_policy | **oneof:** `retention_period` or `snapshot_count`<br>Retention policy of the snapshot schedule.
+&nbsp;&nbsp;retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Retention period of the snapshot schedule. Once a snapshot created by the schedule reaches this age, it is automatically deleted. 
+&nbsp;&nbsp;snapshot_count | **int64**<br>Retention count of the snapshot schedule. Once the number of snapshots created by the schedule exceeds this number, the oldest ones are automatically deleted. E.g. if the number is 5, the first snapshot is deleted after the sixth one is created, the second is deleted after the seventh one is created, and so on. 
+snapshot_spec | **[SnapshotSpec](#SnapshotSpec6)**<br>Attributes of snapshots created by the snapshot schedule. 
 
 
 ### SchedulePolicy {#SchedulePolicy6}
 
 Field | Description
 --- | ---
-start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>start time for the first run. 
-expression | **string**<br>cron format (* * * * *) 
+start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp for creating the first snapshot. 
+expression | **string**<br>Cron expression for the snapshot schedule (UTC+0). <br>The expression must consist of five fields (`Minutes Hours Day-of-month Month Day-of-week`) or be one of nonstandard predefined expressions (e.g. `@hourly`). For details about the format, see [documentation](/docs/compute/concepts/snapshot-schedule#cron) 
 
 
 ### SnapshotSpec {#SnapshotSpec6}
@@ -556,7 +556,7 @@ expression | **string**<br>cron format (* * * * *)
 Field | Description
 --- | ---
 description | **string**<br>Description of the created snapshot. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+labels | **map<string,string>**<br>Snapshot labels as `key:value` pairs. 
 
 
 ## ListOperations {#ListOperations}
@@ -569,8 +569,8 @@ Lists operations for the specified snapshot schedule.
 
 Field | Description
 --- | ---
-snapshot_schedule_id | **string**<br>ID of the SnapshotSchedule resource to list operations for. 
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSnapshotScheduleOperationsResponse.next_page_token](#ListSnapshotScheduleOperationsResponse) that can be used to get the next page of results in subsequent list requests. 
+snapshot_schedule_id | **string**<br>ID of the snapshot schedule to list operations for. <br>To get a snapshot schedule ID, make a [SnapshotScheduleService.List](#List) request. 
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSnapshotScheduleOperationsResponse.next_page_token](#ListSnapshotScheduleOperationsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. 
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSnapshotScheduleOperationsResponse.next_page_token](#ListSnapshotScheduleOperationsResponse) returned by a previous list request. 
 
 
@@ -579,7 +579,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation6)**<br>List of operations for the specified snapshot schedule. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListSnapshotScheduleOperationsRequest.page_size](#ListSnapshotScheduleOperationsRequest), use the `next_page_token` as the value for the [ListSnapshotScheduleOperationsRequest.page_token](#ListSnapshotScheduleOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListSnapshotScheduleOperationsRequest.page_size](#ListSnapshotScheduleOperationsRequest), use `next_page_token` as the value for the [ListSnapshotScheduleOperationsRequest.page_token](#ListSnapshotScheduleOperationsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Operation {#Operation6}
@@ -600,7 +600,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 ## ListSnapshots {#ListSnapshots}
 
-List snapshot created by schedule.
+Retrieves the list of snapshots created by the specified snapshot schedule.
 
 **rpc ListSnapshots ([ListSnapshotScheduleSnapshotsRequest](#ListSnapshotScheduleSnapshotsRequest)) returns ([ListSnapshotScheduleSnapshotsResponse](#ListSnapshotScheduleSnapshotsResponse))**
 
@@ -608,17 +608,17 @@ List snapshot created by schedule.
 
 Field | Description
 --- | ---
-snapshot_schedule_id | **string**<br>ID of the SnapshotSchedule resource to list snapshots for. 
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSnapshotScheduleSnapshotsResponse.next_page_token](#ListSnapshotScheduleSnapshotsResponse) that can be used to get the next page of results in subsequent list requests. 
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSnapshotScheduleSnapshotsResponse.next_page_token](#ListSnapshotScheduleSnapshotsResponse) returned by a previous list request. 
+snapshot_schedule_id | **string**<br>ID of the snapshot schedule to list created snapshots for. <br>To get a snapshot schedule ID, make a [SnapshotScheduleService.List](#List) request. 
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSnapshotScheduleOperationsResponse.next_page_token](#ListSnapshotScheduleOperationsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. 
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSnapshotScheduleOperationsResponse.next_page_token](#ListSnapshotScheduleOperationsResponse) returned by a previous list request. 
 
 
 ### ListSnapshotScheduleSnapshotsResponse {#ListSnapshotScheduleSnapshotsResponse}
 
 Field | Description
 --- | ---
-snapshots[] | **[Snapshot](#Snapshot)**<br>List of snapshots for the specified snapshot schedule. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListSnapshotScheduleSnapshotsRequest.page_size](#ListSnapshotScheduleSnapshotsRequest), use the `next_page_token` as the value for the [ListSnapshotScheduleSnapshotsRequest.page_token](#ListSnapshotScheduleSnapshotsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+snapshots[] | **[Snapshot](#Snapshot)**<br>List of snapshots created by the specified snapshot schedule. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListSnapshotScheduleSnapshotsRequest.page_size](#ListSnapshotScheduleSnapshotsRequest), use `next_page_token` as the value for the [ListSnapshotScheduleSnapshotsRequest.page_token](#ListSnapshotScheduleSnapshotsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Snapshot {#Snapshot}
@@ -640,7 +640,7 @@ source_disk_id | **string**<br>ID of the source disk used to create this snapsho
 
 ## ListDisks {#ListDisks}
 
-List disks that belong to schedule.
+Retrieves the list of disks attached to the specified snapshot schedule.
 
 **rpc ListDisks ([ListSnapshotScheduleDisksRequest](#ListSnapshotScheduleDisksRequest)) returns ([ListSnapshotScheduleDisksResponse](#ListSnapshotScheduleDisksResponse))**
 
@@ -648,8 +648,8 @@ List disks that belong to schedule.
 
 Field | Description
 --- | ---
-snapshot_schedule_id | **string**<br>ID of the SnapshotSchedule resource to list disks for. 
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSnapshotScheduleDisksResponse.next_page_token](#ListSnapshotScheduleDisksResponse) that can be used to get the next page of results in subsequent list requests. 
+snapshot_schedule_id | **string**<br>ID of the snapshot schedule to list attached disks for. <br>To get a snapshot schedule ID, make a [SnapshotScheduleService.List](#List) request. 
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSnapshotScheduleDisksResponse.next_page_token](#ListSnapshotScheduleDisksResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. 
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSnapshotScheduleDisksResponse.next_page_token](#ListSnapshotScheduleDisksResponse) returned by a previous list request. 
 
 
@@ -657,8 +657,8 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-disks[] | **[Disk](#Disk)**<br>List of disks for the specified snapshot schedule. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListSnapshotScheduleDisksRequest.page_size](#ListSnapshotScheduleDisksRequest), use the `next_page_token` as the value for the [ListSnapshotScheduleDisksRequest.page_token](#ListSnapshotScheduleDisksRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+disks[] | **[Disk](#Disk)**<br>List of disks attached to the specified snapshot schedule. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListSnapshotScheduleDisksRequest.page_size](#ListSnapshotScheduleDisksRequest), use `next_page_token` as the value for the [ListSnapshotScheduleDisksRequest.page_token](#ListSnapshotScheduleDisksRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Disk {#Disk}

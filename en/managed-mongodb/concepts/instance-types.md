@@ -8,7 +8,7 @@ description: "The host class defines the processing power that is allocated to e
 The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
 
-Available [storage types](./storage.md) depend on the selected host class. For storage limitations, see [{#T}](limits.md).
+Available [disk types](./storage.md) depend on the selected host class. For storage limitations, see [{#T}](limits.md).
 
 
 ## Available host classes {#available-flavors}

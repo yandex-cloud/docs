@@ -130,6 +130,10 @@
       yc iot device password list --device-name <имя_устройства>
       ```
 
+- API
+
+  Добавить пароль устройству можно с помощью метода API [addPassword](../../api-ref/Device/addPassword.md).
+
 {% endlist %}
 
 ### Задать пароль устройству при создании {#create}
@@ -178,6 +182,10 @@
 - {{ TF }}
 
    Как задать пароль устройству при создании, читайте в разделе [{#T}](../device/device-create.md).
+
+- API
+
+  Задать пароль устройству при создании можно с помощью метода API [create](../../api-ref/Device/create.md).
 
 {% endlist %}  
 
@@ -235,6 +243,10 @@
         | areuin5t7pndvlj6n4tr | 2019-12-16 15:18:39 |
         +----------------------+---------------------+
         ```
+
+- API
+
+  Получить список паролей устройства можно с помощью метода API [listPasswords](../../api-ref/Device/listPasswords.md).
 
 {% endlist %}     
    
@@ -352,5 +364,9 @@
       ```bash
       yc iot device password list --device-name <имя_устройства>
       ```
+
+- API
+
+  Удалить пароль устройства можно с помощью метода API [deletePassword](../../api-ref/Device/deletePassword.md).
 
 {% endlist %}

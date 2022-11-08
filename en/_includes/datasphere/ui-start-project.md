@@ -1,1 +1,1 @@
-To run a project, click **Open project in JupyterLab**.
+To run a project, click **Open project in {{ jlab }}Lab**.

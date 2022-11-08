@@ -76,11 +76,11 @@ connectivity | **object**<br>Function version connectivity. If specified the ver
 connectivity.<br>networkId | **string**<br><p>Network the version will have access to. It's essential to specify network with subnets in all availability zones.</p> 
 connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones.</p> 
 namedServiceAccounts | **object**<br><p>Additional service accounts to be used by the version.</p> 
-secrets[] | **object**<br><p>Lockbox secrets to be used by the version</p> 
-secrets[].<br>id | **string**<br><p>ID of lockbox secret</p> 
-secrets[].<br>versionId | **string**<br><p>ID of secret version</p> 
-secrets[].<br>key | **string**<br><p>Key in secret's payload, which value to be delivered into function environment</p> 
-secrets[].<br>environmentVariable | **string**<br><p>environment variable in which secret's value to be delivered</p> 
+secrets[] | **object**<br><p>Yandex Lockbox secrets to be used by the version.</p> 
+secrets[].<br>id | **string**<br><p>ID of Yandex Lockbox secret.</p> 
+secrets[].<br>versionId | **string**<br><p>ID of Yandex Lockbox version.</p> 
+secrets[].<br>key | **string**<br><p>Key in secret's payload, which value to be delivered into function environment.</p> 
+secrets[].<br>environmentVariable | **string**<br><p>environment variable in which secret's value to be delivered.</p> 
 package | **object**<br>Functions deployment package. <br> includes only one of the fields `package`, `content`, `versionId`<br>
 package.<br>bucketName | **string**<br><p>Required. Name of the bucket that stores the code for the version.</p> 
 package.<br>objectName | **string**<br><p>Required. Name of the object in the bucket that stores the code for the version.</p> 

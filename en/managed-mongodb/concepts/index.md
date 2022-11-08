@@ -1,3 +1,4 @@
+---
 title: "Relationship of resources of the Yandex Managed Service for MongoDB"
 description: "The main entity operated by the Managed Service for MongoDB is a database cluster. Each cluster consists of one or more database hosts - virtual machines with deployed DBMS servers. Cluster hosts can be located in different availability zones. A cluster of several hosts automatically fault tolerant - one of the replica hosts will take over the role of master if the current master host fails."
 ---

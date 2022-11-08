@@ -126,6 +126,10 @@
       yc iot registry password list --registry-name <имя_реестра>
       ```
 
+- API
+
+  Добавить пароль реестру можно с помощью метода API [addPassword](../../api-ref/Registry/addPassword.md).
+
 {% endlist %}
 
 ### Задать пароль реестру при создании {#create}
@@ -162,6 +166,10 @@
 - {{ TF }}
 
    Как задать пароль реестру при создании, читайте в разделе [{#T}](../registry/registry-create.md).
+
+- API
+
+  Задать пароль реестру при создании можно с помощью метода API [create](../../api-ref/Registry/create.md).
 
 {% endlist %}  
 
@@ -214,6 +222,10 @@
         | are0gffs957egmoksgf4 | 2019-12-16 15:34:25 |
         +----------------------+---------------------+
         ```
+
+- API
+
+  Получить список паролей реестра можно с помощью метода API [listPasswords](../../api-ref/Registry/listPasswords.md).
 
 {% endlist %}     
    
@@ -330,5 +342,9 @@
       ```bash
       yc iot registry password list --registry-name <имя_реестра>
       ```
+
+- API
+
+  Удалить пароль реестра можно с помощью метода API [deletePassword](../../api-ref/Registry/deletePassword.md).
 
 {% endlist %}       

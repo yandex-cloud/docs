@@ -2,9 +2,9 @@
 
 ## General questions {#general}
 
-{% include notitle [general](general.md) %}
+{% include notitle [general](../../_qa/managed-mongodb/general.md) %}
 
 ## Questions about {{ MG }} {#mongodb}
 
-{% include notitle [mongodb](mongodb.md) %}
+{% include notitle [mongodb](../../_qa/managed-mongodb/mongodb.md) %}
 

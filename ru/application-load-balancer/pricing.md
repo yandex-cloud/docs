@@ -5,12 +5,12 @@ editable: false
 # Правила тарификации для {{ alb-full-name }}
 
 
-
 ## Из чего складывается стоимость использования {{ alb-name }} {#rules}
 
 При работе с сервисом {{ alb-name }} вы платите за фактическое использование вычислительных ресурсов каждого активного балансировщика. Использование сервиса тарифицируется почасно.
 
 {% include [lcu-calculation](../_includes/application-load-balancer/lcu-calculation.md) %}
+
 
 ### Пример расчета стоимости {#example}
 
@@ -52,10 +52,13 @@ editable: false
 * 17,76 ₽ — цена ресурсной единицы.
 * 720 — количество часов в месяц.
 
-## Цены {#prices}
+
+## Цены  {#prices}
+
 
 
 {% include [rub-lcu.md](../_pricing/application-load-balancer/rub-lcu.md) %}
+
 
 
 

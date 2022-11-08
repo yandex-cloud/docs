@@ -6,12 +6,6 @@ When [creating a {{ dataproc-name }} cluster](../operations/cluster-create.md), 
 <key>:<value>
 ```
 
-{% note info %}
-
-It's not possible to change key values after the cluster has been created.
-
-{% endnote %}
-
 The key can either be a simple string or contain a prefix indicating that it belongs to a [specific component](environment.md):
 
 ```text
@@ -84,3 +78,4 @@ To enable it, set `dataproc:hive.thrift.impl : spark`, and the server will be av
 
 
 The functionality is available starting with [image version 2.0.48](../release-notes/images.md#2.0.48).
+

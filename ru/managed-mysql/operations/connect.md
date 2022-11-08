@@ -2,7 +2,7 @@
 
 К хостам кластера {{ mmy-short-name }} можно подключиться:
 
-{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
+{% include [cluster-connect-note](../../_includes/mdb/mmy/cluster-connect-note.md) %}
 
 {% note warning %}
 
@@ -32,7 +32,7 @@
     * Источник — `CIDR`.
     * CIDR блоки — `0.0.0.0/0`.
 
-- С ВМ в Облаке
+- С ВМ в {{ yandex-cloud }}
 
     1. [Настройте все группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порт {{ port-mmy }}. Для этого в этих группах создайте следующее правило для входящего трафика:
 

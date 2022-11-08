@@ -121,3 +121,4 @@ To avoid delays when processing user requests, we recommend processing HTTP erro
 ## What's next {#whats-next}
 
 * How to connect an [invisible CAPTCHA](./invisible-captcha.md).
+* CAPTCHA in [React](./react.md).

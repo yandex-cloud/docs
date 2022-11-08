@@ -92,6 +92,10 @@
       yc iot registry list
       ```
 
+- API
+
+  Изменить имя реестра можно с помощью метода API [update](../../api-ref/Registry/update.md).
+
 {% endlist %}
 
 ## Изменить описание реестра {#update-description}
@@ -184,6 +188,10 @@
       ```bash
       yc iot registry get <имя_реестра>
       ```
+
+- API
+
+  Изменить описание реестра можно с помощью метода API [update](../../api-ref/Registry/update.md).
 
 {% endlist %}
 
@@ -292,6 +300,10 @@
       yc iot registry get <имя_реестра>
       ```
 
+- API
+
+  Добавить метку реестру можно с помощью метода API [update](../../api-ref/Registry/update.md).
+
 {% endlist %}
 
 ### Изменить метку {#update-label}
@@ -392,6 +404,10 @@
       yc iot registry get <имя_реестра>
       ```
 
+- API
+
+  Изменить метку реестра можно с помощью метода API [update](../../api-ref/Registry/update.md).
+
 {% endlist %}
 
 ### Удалить метку {#remove-label}
@@ -483,5 +499,9 @@
       ```bash
       yc iot registry get <имя_реестра>
       ```
+
+- API
+
+  Удалить метку реестра можно с помощью метода API [update](../../api-ref/Registry/update.md).
 
 {% endlist %}

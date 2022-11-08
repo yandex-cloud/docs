@@ -131,6 +131,10 @@
       yc iot device certificate list --device-name <имя_устройства>
       ```
 
+- API
+
+  Добавить сертификат устройству можно с помощью метода API [addCertificate](../../api-ref/Device/addCertificate.md).
+
 {% endlist %}
 
 ## Удалить сертификат {#delete-cert}
@@ -234,5 +238,9 @@
       ```bash
       yc iot device certificate list --device-name <имя_устройства>
       ```
+
+- API
+
+  Удалить сертификат устройства можно с помощью метода API [deleteCertificate](../../api-ref/Device/deleteCertificate.md).
 
 {% endlist %}

@@ -8,6 +8,7 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+
 ## Cluster status {#running-stopped}
 
 Prices are applied differently depending on the cluster status:
@@ -35,6 +36,7 @@ The cost is calculated for each hour of operation of the host in accordance with
 
 You can choose the host class for {{ KF }} broker hosts and {{ ZK }} hosts (as appropriate for the expected replication load).
 
+
 There are different ways to calculate the cost depending on the [host type](./concepts/index.md):
 
 * Standard hosts
@@ -58,12 +60,15 @@ The minimum billing unit is a minute (for example, 1.5 minutes of host usage cos
 
 You pay for the storage allocated for DB clusters.
 
+
 * You can only order local SSD storage (`local-ssd`) for clusters with three or more broker hosts:
    * For Intel Cascade Lake: In 100 GB increments.
    * For Intel Ice Lake: In {{ local-ssd-v3-step }} increments.
 * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
 
+
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+
 
 ### Example of cluster cost calculation {#example}
 
@@ -85,6 +90,8 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 {% endlist %}
 
+
+
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -97,17 +104,21 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% endnote %}
 
-## Pricing {#prices}
+
+## Pricing  {#prices}
 
 
 All prices are shown without VAT.
+
 
 
 Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
 
 The cost of fast local storage also depends on the type of hosts.
 
+
 ### {{ KF }} broker host computing resources {#prices-kafka-brokers}
+
 
 {% list tabs %}
 
@@ -125,7 +136,10 @@ The cost of fast local storage also depends on the type of hosts.
 
 {% endlist %}
 
+
+
 ### {{ ZK }} host computing resources {#prices-zookeeper}
+
 
 {% note info %}
 
@@ -150,15 +164,22 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 {% endlist %}
 
+
+
 ### Storage {#prices-storage}
 
+
 {% include notitle [USD: Storage prices](../_pricing/managed-kafka/usd-storage.md) %}
+
+
 
 ### Outgoing traffic {#prices-traffic}
 
 
 
 
+
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
 
 

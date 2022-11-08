@@ -46,13 +46,6 @@ To set up transfer of logs:
 
 ## Install and configure Fluent Bit {#fluent-bit-install}
 
-1. Create a folder for the service account key and copy the key there:
-
-   ```bash
-   sudo mkdir -p /etc/secret && \
-   sudo cp key.json /etc/secret
-   ```
-
 1. Download the `config.yaml` configuration file:
 
    ```bash

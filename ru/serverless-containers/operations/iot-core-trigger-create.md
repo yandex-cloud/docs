@@ -53,6 +53,57 @@
 
     1. Нажмите кнопку **Создать триггер**.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы создать триггер, который вызывает контейнер, выполните команду:
+
+    ```bash
+    yc serverless trigger create internet-of-things \
+      --name <имя_триггера> \
+      --registry-id <идентификатор_реестра> \
+      --device-id <идентификатор_устройства> \
+      --mqtt-topic '$devices/<идентификатор_устройства>/events' \
+      --invoke-container-id <идентификатор_контейнера> \
+      --invoke-container-service-account-id <идентификатор_сервисного_аккаунта> \
+      --retry-attempts 1 \
+      --retry-interval 10s \
+      --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
+      --dlq-service-account-id <идентификатор_сервисного_аккаунта>
+    ```
+    Где:
+
+    * `--name` — имя триггера.
+    * `--registry-id` — [идентификатор реестра](../../iot-core/operations/registry/registry-list.md).
+    * `--device-id` — [идентификатор устройства](../../iot-core/operations/device/device-list.md). Если вы создаете триггер для топика реестра, этот параметр можно не указывать.
+    * `--mqtt-topic` — топик, для которого вы хотите создать триггер.
+
+    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
+
+    Результат:
+
+    ```text
+    id: a1s5msktij**********
+    folder_id: b1gmit33hg**********
+    created_at: "2022-10-24T15:19:15.353909857Z"
+    name: iot-trigger
+    rule:
+      iot_message:
+        registry_id: arenou2oj4**********
+        device_id: areqjd6un3**********
+        mqtt_topic: $devices/areqjd6un**********/events
+        invoke_container:
+          container_id: bba5jb38o8**********
+          service_account_id: aje3932acd**********
+          retry_settings:
+            retry_attempts: "1"
+            interval: 10s
+    status: ACTIVE
+   ```
+
 {% endlist %}
 
 ## Проверить результат {#check-result}

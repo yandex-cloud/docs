@@ -94,6 +94,10 @@
       yc iot device list --registry-id <идентификатор реестра>
       ```
 
+- API
+
+  Изменить имя устройства можно с помощью метода API [update](../../api-ref/Device/update.md).
+
 {% endlist %}
 
 ## Изменить описание устройства {#update-description}
@@ -187,5 +191,9 @@
       ```bash
       yc iot device get <имя устройства>
       ```
+
+- API
+
+  Изменить описание устройства можно с помощью метода API [update](../../api-ref/Device/update.md).
 
 {% endlist %}

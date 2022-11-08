@@ -16,14 +16,12 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% include [before-you-begin](_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost includes:
 
 * Data stream usage costs (see [{{ yds-name }} pricing](../data-streams/pricing.md)).
 * Fees for the continuously running cluster {{ mch-name }} (see [{{ mch-name }} pricing](../managed-clickhouse/pricing.md)).
-
 
 ## Prepare the environment {#environment-preparing}
 

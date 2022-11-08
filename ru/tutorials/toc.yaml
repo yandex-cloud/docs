@@ -168,6 +168,10 @@ items:
           {{ data-transfer-full-name }}
         href: dataplatform/data-transfer-mkf-mch.md
       - name: >-
+          Поставка данных из {{ mkf-full-name }} в {{ ydb-full-name }} с помощью
+          {{ data-transfer-full-name }}
+        href: dataplatform/mkf-ydb-stream.md
+      - name: >-
           Поставка данных из {{ mmy-full-name }} в {{ mkf-full-name }} с помощью
           Debezium
         href: dataplatform/debezium-mmy.md
@@ -183,9 +187,7 @@ items:
         href: dataplatform/managed-schema-registry.md
       - name: Использование Confluent Schema Registry с {{ mkf-full-name }}
         href: dataplatform/confluent-schema-registry.md
-      - name: >-
-          Миграция базы данных из {{ PG }} в {{ CH }} с помощью {{
-          data-transfer-full-name }}
+      - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
         href: dataplatform/rdbms-to-clickhouse.md
       - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
         href: dataplatform/dp-mch-data-exchange.md
@@ -247,6 +249,14 @@ items:
           Миграция базы данных из {{ mmy-full-name }} в сторонний кластер {{ MY
           }}
         href: dataplatform/mmy-to-mysql-migration.md
+      - name: >-
+          Миграция базы данных из {{ mmy-full-name }} в {{ ydb-full-name }} с
+          помощью {{ data-transfer-full-name }}
+        href: dataplatform/mmy-ydb-migration.md
+      - name: >-
+          Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name
+          }} с помощью {{ data-transfer-full-name }}
+        href: dataplatform/mmy-objs-migration.md
       - name: Создание кластера {{ PG }} для 1С
         href: dataplatform/1c-postgresql.md
       - name: Анализ производительности и оптимизация {{ mpg-name }}
@@ -279,8 +289,6 @@ items:
         href: windows/exchange.md
       - name: Развертывание Remote Desktop Services
         href: windows/rds.md
-      - name: Развертывание группы доступности Always On
-        href: windows/mssql-alwayson.md
       - name: >-
           Развертывание группы доступности Always On с внутренним сетевым
           балансировщиком

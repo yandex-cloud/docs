@@ -17,7 +17,7 @@ Service | Description
 [ImageService](./image_service.md) | A set of methods for managing Image resources.
 [InstanceService](./instance_service.md) | A set of methods for managing Instance resources.
 [PlacementGroupService](./placement_group_service.md) | A set of methods for managing placement groups.
-[SnapshotScheduleService](./snapshot_schedule_service.md) | A set of methods for managing SnapshotSchedule resources.
+[SnapshotScheduleService](./snapshot_schedule_service.md) | A set of methods for managing snapshot schedules.
 [SnapshotService](./snapshot_service.md) | A set of methods for managing Snapshot resources.
 [ZoneService](./zone_service.md) | A set of methods to retrieve information about availability zones.
 [InstanceGroupService](./instance_group_service.md) | A set of methods for managing InstanceGroup resources.

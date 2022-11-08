@@ -165,7 +165,7 @@
        name                = "<имя кластера>"
        environment         = "<окружение, PRESTABLE или PRODUCTION>"
        network_id          = "<идентификатор сети>"
-       version             = "<версия MySQL: {{ versions.tf.str }}>"
+       version             = "<версия {{ MY }}: {{ versions.tf.str }}>"
        security_group_ids  = [ "<список групп безопасности>" ]
        deletion_protection = <защита от удаления кластера: true или false>
 
@@ -394,7 +394,7 @@
     network_id = yandex_vpc_network.mynet.id
 
     ingress {
-      description    = "MySQL"
+      description    = "{{ MY }}"
       port           = {{ port-mmy }}
       protocol       = "TCP"
       v4_cidr_blocks = [ "0.0.0.0/0" ]

@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/compute/api-ref/SnapshotSchedule/listDisks.md
 ---
 
 # Method listDisks
-List disks that belong to schedule.
+Retrieves the list of disks attached to the specified snapshot schedule.
  
 
  
@@ -17,13 +17,13 @@ GET https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotSchedul
  
 Parameter | Description
 --- | ---
-snapshotScheduleId | <p>ID of the SnapshotSchedule resource to list disks for.</p> 
+snapshotScheduleId | <p>ID of the snapshot schedule to list attached disks for.</p> <p>To get a snapshot schedule ID, make a <a href="/docs/compute/api-ref/SnapshotSchedule/list">list</a> request.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#query_params">pageSize</a>, the service returns a <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#query_params">pageSize</a>, the service returns a <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>Default value: 100.</p> 
 pageToken | <p>Page token. To get the next page of results, set <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#query_params">pageToken</a> to the <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#responses">nextPageToken</a> returned by a previous list request.</p> 
  
 ## Response {#responses}
@@ -68,7 +68,7 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/c
  
 Field | Description
 --- | ---
-disks[] | **object**<br><p>List of disks for the specified snapshot schedule.</p> 
+disks[] | **object**<br><p>List of disks attached to the specified snapshot schedule.</p> 
 disks[].<br>id | **string**<br><p>ID of the disk.</p> 
 disks[].<br>folderId | **string**<br><p>ID of the folder that the disk belongs to.</p> 
 disks[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
@@ -86,4 +86,4 @@ disks[].<br>diskPlacementPolicy | **object**<br>Placement policy configuration.
 disks[].<br>diskPlacementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
 disks[].<br>sourceImageId | **string** <br>`disks[]` includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br><p>ID of the image that was used for disk creation.</p> 
 disks[].<br>sourceSnapshotId | **string** <br>`disks[]` includes only one of the fields `sourceImageId`, `sourceSnapshotId`<br><br><p>ID of the snapshot that was used for disk creation.</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#query_params">pageSize</a>, use the <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#responses">nextPageToken</a> to continue paging through the results.</p> 
+nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/compute/api-ref/SnapshotSchedule/listDisks#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

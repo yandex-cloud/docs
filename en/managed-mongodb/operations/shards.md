@@ -82,8 +82,8 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
                `zone-id=<availability zone>,`
                `subnet-name=<subnet name> \
          --mongoinfra resource-preset=<host class>,`
-                     `disk-size=<storage size in GB>,`
-                     `disk-type=<storage type>
+                     `disk-size=<storage capacity, GB>,`
+                     `disk-type=<disk type>
       ```
 
       Where:
@@ -96,7 +96,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
       * `--mongoinfra`: `MONGOINFRA` host parameters:
          * `resource-preset`: [Host class](../concepts/instance-types.md).
          * `disk-size`: Storage size in GB.
-         * `disk-type`: [Storage type](../concepts/storage.md).
+         * `disk-type`: [Disk type](../concepts/storage.md).
 
    * To enable advanced cluster sharding using `MONGOS` and `MONGOCFG` hosts, run the command (the list of supported parameters in the example is not exhaustive):
 
@@ -110,8 +110,8 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
                `zone-id=<availability zone>,`
                `subnet-name=<subnet name> \
          --mongos resource-preset=<host class>,`
-                 `disk-size=<storage size in GB>,`
-                 `disk-type=<storage type> \
+                 `disk-size=<storage capacity, GB>,`
+                 `disk-type=<disk type> \
          --host type=mongocfg,`
                `zone-id=<availability zone>,`
                `subnet-name=<subnet name> \
@@ -122,8 +122,8 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
                `zone-id=<availability zone>,`
                `subnet-name=<subnet name> \
          --mongocfg resource-preset=<host class>,`
-                   `disk-size=<storage size in GB>,`
-                   `disk-type=<storage type>
+                   `disk-size=<storage capacity, GB>,`
+                   `disk-type=<disk type>
       ```
 
       Where:
@@ -136,11 +136,11 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
       * `--mongos`: `MONGOS` host parameters:
          * `resource-preset`: [Host class](../concepts/instance-types.md).
          * `disk-size`: Storage size in GB.
-         * `disk-type`: [Storage type](../concepts/storage.md).
+         * `disk-type`: [Disk type](../concepts/storage.md).
       * `--mongocfg`: `MONGOCFG` host parameters:
          * `resource-preset`: [Host class](../concepts/instance-types.md).
          * `disk-size`: Storage size in GB.
-         * `disk-type`: [Storage type](../concepts/storage.md).
+         * `disk-type`: [Disk type](../concepts/storage.md).
 
 - API
 
@@ -224,7 +224,7 @@ The number of shards in {{ mmg-short-name }} clusters is limited by the CPU and 
       * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
       * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

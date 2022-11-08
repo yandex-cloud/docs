@@ -23,15 +23,21 @@ The chart update period is 15 seconds.
 
       * **Requests**: The number of API gateway requests.
 
-         ![image](../../_assets/api-gateway/requests.png)
-
       * **Errors**: The number of API gateway access errors.
-
-         ![image](../../_assets/api-gateway/errors.png)
 
       * **Latency**: Amount of time its takes for an API gateway request to run.
 
-         ![image](../../_assets/api-gateway/latency.png)
+      * **Connections**: Number of web sockets connected to API gateway.
+
+      * **Disconnections**: Web socket disconnections per second.
+
+      * **Incoming messages count**: Number of incoming web socket messages.
+
+      * **Incoming messages bytes**: Incoming web socket traffic in bytes.
+
+      * **Outgoing messages count**: Number of outgoing web socket messages.
+
+      * **Outgoing messages bytes**: Outgoing web socket traffic in bytes.
 
       You can select a time period to display information for on a graph, such as an hour, three hours, a day, a week, a month, or a custom interval.
 

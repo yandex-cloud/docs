@@ -95,4 +95,8 @@
         yc iot broker list
         ```
 
+- API
+
+  Удалить брокер можно с помощью метода API [delete](../../broker/api-ref/Broker/delete.md).
+
 {% endlist %}

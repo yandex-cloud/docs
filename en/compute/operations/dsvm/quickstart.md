@@ -16,7 +16,7 @@ You can connect to a VM using the SSH protocol when it is running (the VM's stat
 
 Read more about SSH connections in [Connecting to a VM](../../quickstart/quick-create-linux.md#connect-to-vm).
 
-When connected, in the welcome message you see the commands to activate the environment and run [Jupyter Notebook](http://jupyter.org/index.html) and [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/):
+When connected, in the welcome message you see the commands to activate the environment and run [{{ jlab }} Notebook](http://jupyter.org/index.html) and [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/):
 
 ```
 #####################################################################
@@ -34,10 +34,10 @@ Packages installed in each environment:
     jupyter, matplotlib,
     numpy, scipy, scikit-learn
 
-To run public JupyterLab execute:
+To run public {{ jlab }}Lab execute:
     jupyter lab --no-browser
 
-To run public Jupyter notebook execute:
+To run public {{ jlab }} notebook execute:
     jupyter notebook --no-browser
 
 Description and help:
