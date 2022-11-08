@@ -233,7 +233,6 @@
          network_id          = "<идентификатор сети>"
          security_group_ids  = [ "<идентификаторы групп безопасности>" ]
          tls_enabled         = true
-         sharded             = <шардирование: true или false>
          deletion_protection = <защита от удаления кластера: true или false>
 
          config {
