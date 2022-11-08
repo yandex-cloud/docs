@@ -771,6 +771,7 @@
 
       config {
         password = "user1user1"
+        version  = "<версия {{ RD }}: {{ versions.tf.str }}>"
       }
 
       resources {
