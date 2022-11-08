@@ -121,7 +121,7 @@ List of elements that are available for this request.
 | `hostname` | The [FQDN](../../concepts/network.md#hostname) assigned to the VM. |
 | `Id` | ID of the VM. The ID is generated automatically when the VM is being created and is unique within {{ yandex-cloud }}. |
 | `name` | The name that was passed when creating or modifying the VM. |
-| `networkInterfaces/` | Network interfaces connected to the VM. |
+| `network-interfaces/` | Network interfaces connected to the VM. |
 | `service-accounts` | [Service accounts](../../../iam/concepts/users/service-accounts.md) linked to the VM. |
 | `service-accounts/default/token` | The [IAM token](../../../iam/concepts/authorization/iam-token.md) of the linked service account. |
 
