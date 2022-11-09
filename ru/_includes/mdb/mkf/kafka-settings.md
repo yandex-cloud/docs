@@ -12,14 +12,14 @@
 
     Кодек, используемый для сжатия сообщений:
 
-    |Консоль управления|CLI           |{{ TF }} и API                 |Описание                                        |
-    |------------------|--------------|-------------------------------|------------------------------------------------|
-    |`Uncompressed`    |`uncompressed`|`COMPRESSION_TYPE_UNCOMPRESSED`|Сжатие выключено                                |
-    |`Zstd`            |`zstd`        |`COMPRESSION_TYPE_ZSTD`        |Кодек [zstd](https://facebook.github.io/zstd/)  |
-    |`Lz4`             |`lz4`         |`COMPRESSION_TYPE_LZ4`         |Кодек [lz4](https://lz4.github.io/lz4/)         |
-    |`Snappy`          |`snappy`      |`COMPRESSION_TYPE_SNAPPY`      |Кодек [snappy](https://github.com/google/snappy)|
-    |`Gzip`            |`gzip`        |`COMPRESSION_TYPE_GZIP`        |Кодек [gzip](https://www.gzip.org)              |
-    |`Producer`        |`producer`    |`COMPRESSION_TYPE_PRODUCER`    |Кодек задается на стороне [производителя](../../../managed-kafka/concepts/producers-consumers.md)|
+    | Консоль управления, {{ TF }} и API | CLI            | Описание                                                                                         |
+    | ---------------------------------- | -------------- | ------------------------------------------------------------------------------------------------ |
+    | `COMPRESSION_TYPE_UNCOMPRESSED`    | `uncompressed` | Сжатие выключено                                                                                 |
+    | `COMPRESSION_TYPE_ZSTD`            | `zstd`         | Кодек [zstd](https://facebook.github.io/zstd/)                                                   |
+    | `COMPRESSION_TYPE_LZ4`             | `lz4`          | Кодек [lz4](https://lz4.github.io/lz4/)                                                          |
+    | `COMPRESSION_TYPE_SNAPPY`          | `snappy`       | Кодек [snappy](https://github.com/google/snappy)                                                 |
+    | `COMPRESSION_TYPE_GZIP`            | `gzip`         | Кодек [gzip](https://www.gzip.org)                                                               |
+    | `COMPRESSION_TYPE_PRODUCER`        | `producer`     | Кодек задается на стороне [производителя](../../../managed-kafka/concepts/producers-consumers.md)|
 
     По умолчанию кодек для сжатия устанавливается производителем (`COMPRESSION_TYPE_PRODUCER`).
 
@@ -184,6 +184,21 @@
     Это глобальная настройка, которая задается на уровне кластера.
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#brokerconfigs_replica.fetch.max.bytes).
+
+* **Sasl enabled mechanisms** {{ tag-all }} {#settings-sasl-enabled-mechanisms}
+
+    Механизмы шифрования, которые можно использовать при подключении к кластеру.
+
+    Можно выбрать одно или несколько значений:
+
+    | Консоль управления, {{ TF }} и API | CLI             |
+    | ---------------------------------- | --------------- |
+    | `SASL_MECHANISM_SCRAM_SHA_256`     | `SCRAM-SHA-256` |
+    | `SASL_MECHANISM_SCRAM_SHA_512`     | `SCRAM-SHA-512` |
+
+    Если настройка не задана пользователем, используется только механизм `SCRAM-SHA-512`.
+
+    Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#brokerconfigs_sasl.enabled.mechanisms).
 
 * **Socket receive buffer bytes** {{ tag-con }} {#settings-socket-receive-buffer-bytes}
 
