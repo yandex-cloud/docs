@@ -600,16 +600,16 @@ default:
       tf:
         latest: '14'
         latest-1c: '14-1c'
-        str: '11, 11-1c, 12, 12-1c, 13, 13-1c, 14, or 14-1c'
+        str: '11, 11-1c, 12, 12-1c, 13, 13-1c, 14 или 14-1c'
       cli:
         latest: '14'
         latest-1c: '14-1c'
-        str: '11, 11-1c, 12, 12-1c, 13, 13-1c, 14, or 14-1c'
+        str: '11, 11-1c, 12, 12-1c, 13, 13-1c, 14 или 14-1c'
       console:
         latest: '14'
         latest-1c: '14-1c'
-        str: '11, 11-1c, 12, 12-1c, 13, 13-1c, 14, and 14-1c'
-        str-1c: '11-1c, 12-1c, 13-1c, and 14-1c'
+        str: '11, 11-1c, 12, 12-1c, 13, 13-1c, 14 и 14-1c'
+        str-1c: '11-1c, 12-1c, 13-1c и 14-1c'
   rd: # Redis
     docs: https://redis.io/docs
   ydb: # YDB
