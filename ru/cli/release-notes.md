@@ -2,6 +2,30 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.98.0 (09.11.22) {#version0.98.0}
+
+### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mkf-name }}**
+
+* Добавлены команды группы `yc managed-kafka connector-s3-sink`, которые позволяют управлять коннекторами типа S3-Sink, а именно создавать (create) и модифицировать (update) их.
+
+* В команды `yc managed-kafka cluster create` и `yc managed-kafka cluster update` добавлен параметр для задания и изменения конфигурации Kafka-брокеров — `sasl-enabled-mechanisms`.
+
+* Исправлен баг с изменением поля `properties` у коннекторов.
+
+**{{ mpg-name }}**
+
+* В команды `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update` и `yc managed-postgresql cluster restore` добавлено значение `15` для флага `--postgresql-version string`. Оно позволяет создать кластер {{ PG }} версии 15.
+
+* Для команды `yc managed-postgresql cluster create` изменено значение по умолчанию для версии создаваемого кластера {{ PG }}. Новое значение по умолчанию — `15`.
+
+* В команду `yc managed-postgresql cluster restore` добавлена возможность восстановления кластера {{ PG }} в заданный каталог.
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.97.0 (10.10.22) {#version0.97.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -27,8 +51,6 @@
 **{{ mkf-name }}**
 
 * Прекращена поддержка {{ KF }} версий 2.1 и 2.6.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.96.0 (19.09.22) {#version0.96.0}
 
