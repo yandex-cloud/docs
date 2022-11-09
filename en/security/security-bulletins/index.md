@@ -7,13 +7,16 @@ This page contains security recommendations from {{ yandex-cloud }} experts.
 
 {% include [01.09.2022 — CVE-2022-2992 — GitLab-1532-1524-1516](../../_includes/security/security-bulletins/cve-2022-2992-GitLab-1532-1524-1516.md) %}
 
+
 {% include [31.08.2022 — CVE-2020-8561 — redirect-kube-apiserver](../../_includes/security/security-bulletins/cve-2020-8561-redirect-kube-apiserver.md) %}
+
 
 {% include [25.08.2022 — CVE-2022-2884 — github-import-in-gitlab](../../_includes/security/security-bulletins/cve-2022-2884-github-import-in-gitlab.md) %}
 
 {% include [04.07.2022 — CVE-2022-27228 — Vulnerability of the «vote» CMS 1C-Bitrix module](../../_includes/security/security-bulletins/cve-2022-27228-bitrix.md) %}
 
 {% include [21.06.2022 — CVE-2022-1680 — Critical Account Takeover Vulnerability in GitLab](../../_includes/security/security-bulletins/cve-2022-1680-gitlab.md) %}
+
 
 {% include [15.06.2022 – Ingress-nginx path sanitization](../../_includes/security/security-bulletins/cve-2021-25748-ingress-nginx-path.md) %}
 
@@ -23,6 +26,7 @@ This page contains security recommendations from {{ yandex-cloud }} experts.
 
 {% include [18.03.2022 — cr8escape](../../_includes/security/security-bulletins/cve-2022-0811-cr8escape.md) %}
 
+
 {% include [09.03.2022 — Dirty Pipe](../../_includes/security/security-bulletins/cve-2022-0847-dirty-pipe.md) %}
 
 {% include [28.02.2022 — multiple-GitLab-vulnerabilities](../../_includes/security/security-bulletins/cve-2022-0735-0549-0751-0741-4191-0738-0489.md) %}
@@ -30,6 +34,7 @@ This page contains security recommendations from {{ yandex-cloud }} experts.
 {% include [28.01.2022 — CVE-2022-0185 — heap overflow bug in legacy_parse_param](../../_includes/security/security-bulletins/cve-2022-0185.md) %}
 
 {% include [28.01.2022 — CVE-2021-4034 – Polkit's pkexec](../../_includes/security/security-bulletins/cve-2021-4034-polkit.md) %}
+
 
 ## 29.12.2021: CVE-2021-45105, CVE-2021-44832: Denial of service and remote code execution (Log4j) {#CVE-2021-45105-CVE-2021-44832}
 

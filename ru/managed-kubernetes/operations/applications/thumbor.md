@@ -20,7 +20,7 @@
    ```bash
    yc iam access-key create \
      --service-account-name <имя сервисного аккаунта для Thumbor> \
-     --output sa-key.json
+     --format json > sa-key.json
    ```
 
 1. [Задайте права доступа на чтение объектов бакета](../../../storage/operations/objects/edit-acl.md) для сервисного аккаунта.
@@ -64,7 +64,7 @@
        --set bucket_name='<имя бакета {{ objstorage-name }}>' \
        --set allow_unsafe_url='true' \
        --set root_path='<имя подкаталога в бакете>' \
-       --set saKeySecretKeyFile='sa-key.json' \
+       --set-file saAccessKeyFile='sa-key.json' \
       thumbor ./thumbor
      ```
 
@@ -82,7 +82,7 @@
        --set allow_unsafe_url='false' \
        --set security_key='<ключ безопасности для подписывания URL>' \
        --set root_path='<имя подкаталога в бакете>' \
-       --set saKeySecretKeyFile='sa-key.json' \
+       --set-file saAccessKeyFile='sa-key.json' \
       thumbor ./thumbor
      ```
 
