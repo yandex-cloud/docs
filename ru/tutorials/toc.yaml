@@ -67,7 +67,7 @@ items:
           Резервное копирование в {{ objstorage-name }} с помощью Veritas Backup
           Exec
         href: archive/object-storage-veritas.md
-      - name: Оцифровка архива в {{ vision-full-name }}
+      - name: Распознавание архива изображений в {{ vision-full-name }}
         href: archive/archive-from-vision-to-object-storage.md
   - name: Тестовая среда
     items:
