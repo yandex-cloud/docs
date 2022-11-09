@@ -27,7 +27,7 @@
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      * Назначьте роль [`audit-trails.viewer`](../security/index.md#roles) на облако, со всех ресурсов которого будут собираться аудитные логи:
+      * Назначьте роль [`audit-trails.viewer`](../security/index.md#roles) на каталог, со всех ресурсов которого будут собираться аудитные логи:
 
         ```
         yc resource-manager folder add-access-binding \
