@@ -1,12 +1,12 @@
 # Загрузка аудитных логов организации в {{ objstorage-name }}
 
-По этой инструкции вы создадите новый трейл, который будет загружать аудитные логи всех ресурсов организации в бакет {{ objstorage-name }} с включенным шифрованием.
+По этой инструкции вы создадите новый трейл, который будет загружать аудитные логи всех ресурсов организации в бакет {{ objstorage-name }}.
 
-{% note tip %}
+{% if product == "yandex-cloud" %}
 
-Для бакета с выключенным шифрованием настройка выгрузки выполняется аналогично. Только не требуется назначать роли сервиса {{ kms-full-name }}. 
+{% include [bucket-encryption-tip](../../_includes/audit-trails/bucket-encryption-tip.md) %}
 
-{% endnote %}
+{% endif %}
 
 
 ## Подготовить окружение {#before-you-begin}
@@ -14,10 +14,8 @@
 Для сбора аудитных логов организации:
 
 1. [Создайте новый бакет](../../storage/operations/buckets/create.md) для загрузки в него аудитных логов.
-1. Создайте [ключ шифрования](../../kms/operations/key.md#create) в сервисе {{ kms-short-name }}.
-1. [Включите шифрование бакета](../../storage/operations/buckets/encrypt.md#add), используя созданный ключ шифрования.
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт.
-1. Назначьте роли сервиснму аккаунту:
+1. Назначьте роли сервисному аккаунту:
 
     {% list tabs %}
 
@@ -32,13 +30,13 @@
         ```
         yc organization-manager organization add-access-binding \
           --role audit-trails.viewer \
-          --id <идентификатор организации> \
-          --service-account-id <идентификатор сервисного аккаунта>
+          --id <идентификатор_организации> \
+          --service-account-id <идентификатор_сервисного_аккаунта>
         ```
 
         Где:
-        * `role` — назначаемая роль.
-        * `id` — идентификатор организации, со всех ресурсов которой будут собираться аудитные логи.
+        * `role` — назначаемая роль;
+        * `id` — идентификатор организации, со всех ресурсов которой будут собираться аудитные логи;
         * `service-account-id` — идентификатор сервисного аккаунта.
 
       * [`storage.uploader`](../../storage/security/index.md#storage-uploader) на каталог, в котором будет находиться трейл:
@@ -46,27 +44,13 @@
         ```
         yc resource-manager folder add-access-binding \
           --role storage.uploader \
-          --id <идентификатор каталога> \
-          --service-account-id <идентификатор сервисного аккаунта>
+          --id <идентификатор_каталога> \
+          --service-account-id <идентификатор_сервисного_аккаунта>
         ```
 
         Где:
-        * `role` — назначаемая роль.
-        * `id` — идентификатор каталога, в котором будет находиться трейл.
-        * `service-account-id` — идентификатор сервисного аккаунта.
-
-      * [`kms.keys.encrypterDecrypter`](../../kms/security/index.md#service) на ключ шифрования:
-
-        ```
-        yc kms symmetric-key add-access-binding \
-          --role kms.keys.encrypterDecrypter \
-          --id <идентификатор KMS-ключа> \
-          --service-account-id <идентификатор сервисного аккаунта>
-        ```
-
-        Где:
-        * `role` — назначаемая роль.
-        * `id` — идентификатор KMS-ключа.
+        * `role` — назначаемая роль;
+        * `id` — идентификатор каталога, в котором будет находиться трейл;
         * `service-account-id` — идентификатор сервисного аккаунта.
 
     {% endlist %}
@@ -76,6 +60,13 @@
     * `audit-trails.editor` на каталог, где будет находиться трейл;
     * `audit-trails.viewer` на организацию, с которой будут собираться аудитные логи;
     * `storage.viewer` на бакет или каталог.
+
+
+{% if product == "yandex-cloud" %}
+
+{% include [bucket-encryption-section](../../_includes/audit-trails/bucket-encryption-section.md) %}
+
+{% endif %}
 
 
 ## Создать трейл {#the-trail-creation}
