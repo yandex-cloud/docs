@@ -1,4 +1,4 @@
-# Все руководства
+# Практические руководства {{ cloud-logging-name }}
 
 * [{#T}](k8s-fluent-bit-logging.md)
 * [{#T}](vm-fluent-bit-logging.md)

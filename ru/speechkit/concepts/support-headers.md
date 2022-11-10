@@ -1,4 +1,4 @@
-# Диагностика ошибок
+# Диагностика ошибок в {{ speechkit-full-name }}
 
 {% include [ask-for-support](../../_includes/ai-common/ask-for-support.md) %}
 

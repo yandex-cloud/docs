@@ -5,7 +5,7 @@ description: "Для выполнения операций через API {{ spe
 
 {% if audience=="external" %}
 
-# Аутентификация в API
+# Аутентификация в API {{ speechkit-name }}
 
 Для работы с API {{ speechkit-name }} необходимо аутентифицироваться со своего аккаунта:
 
