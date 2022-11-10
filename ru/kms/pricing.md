@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Правила тарификации для {{ kms-full-name }}
+# Правила тарификации для {{ kms-name }}
 
 {% if product == "cloud-il" %}
 
