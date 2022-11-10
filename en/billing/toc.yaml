@@ -63,6 +63,9 @@ items:
       - name: Download reporting documents
         href: operations/download-reporting-docs.md
         when: product == "yandex-cloud"
+      - name: "{{ yq-full-name }} integration"
+        href: operations/query-integration.md
+        when: product == "yandex-cloud"
   - name: Concepts
     items:
       - name: All concepts

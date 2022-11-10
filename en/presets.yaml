@@ -183,6 +183,7 @@ default:
   cdn-short-name: Cloud CDN
   cloud-desktop-short-name: Cloud Desktop
   backup-short-name: Cloud Backup
+  yq-short-name: YQ
 
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
   roles-alb-viewer: alb.viewer
