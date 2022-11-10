@@ -1,4 +1,4 @@
-# Создание триггера для {{ objstorage-name }}
+# Создание триггера для {{ objstorage-name }}, который вызывает контейнер {{ serverless-containers-name }}
 
 Создайте [триггер для {{ objstorage-name }}](../concepts/trigger/os-trigger.md), который будет вызывать [контейнер](../concepts/container.md) {{ serverless-containers-name }} при создании, перемещении или удалении [объекта](../../storage/concepts/object.md) в бакете.
 

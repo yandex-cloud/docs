@@ -1,7 +1,7 @@
 ---
 sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
 ---
-# Создание таблицы
+# Создание таблицы в AWS SDK
 
 Чтобы создать таблицу с именем `Series`, ключом партицирования `series_id` и ключом сортировки `title`:
 

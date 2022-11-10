@@ -1,0 +1,26 @@
+title: Yandex Query
+description:
+  - >-
+    <em>Yandex Query is currently at the <a
+    href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
+  - >-
+    Yandex Query is an interactive fully managed service designed for data
+    engineers and analysts to run real-time analytical and streaming queries to
+    structured and partially structured data using a common SQL dialect.
+nav:
+  title: Yandex Query
+meta:
+  title: Yandex Query
+links:
+  - title: Concepts
+    description: Learn about service concepts and features
+    href: concepts/index
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits
+  - title: Access management
+    description: Configure access rights to work with the service
+    href: security/
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

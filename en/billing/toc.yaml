@@ -46,6 +46,8 @@ items:
         href: operations/edo.md
       - name: Download reporting documents
         href: operations/download-reporting-docs.md
+      - name: '{{ yq-full-name }} integration'
+        href: operations/query-integration.md
   - name: Concepts
     items:
       - name: All concepts

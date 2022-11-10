@@ -8,6 +8,8 @@
 
    {% include [name-format](../name-format.md) %}
 
+   {% include [sa-uniq-name](sa-uniq-name.md) %}
+
 1. Чтобы назначить сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) на текущий каталог, нажмите **Добавить роль** и выберите роль, например `editor`.
 
    Чтобы назначить роль на другой ресурс, воспользуйтесь CLI или API по инструкции [{#T}](../../iam/operations/sa/assign-role-for-sa.md).

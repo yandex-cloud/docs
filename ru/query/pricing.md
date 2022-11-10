@@ -1,4 +1,4 @@
-# Правила тарификации в {{ yq-full-name }}
+# Правила тарификации для {{ yq-name }}
 
 На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ yq-full-name }} не тарифицируется.
 

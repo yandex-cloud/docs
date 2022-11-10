@@ -1,4 +1,4 @@
-# Начало работы
+# Начало работы с {{ serverless-containers-name }}
 
 В этой инструкции вы [подготовите](#prepare) Docker-образ контейнера в {{ container-registry-full-name }} и [добавите](#deploy) его в {{ serverless-containers-name }}.
 

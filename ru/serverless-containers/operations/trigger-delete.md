@@ -1,4 +1,4 @@
-# Удаление триггера
+# Удаление триггера в {{ serverless-containers-name }}
 
 {% include [trigger-list-note](../../_includes/serverless-containers/trigger-list-note.md) %}
 

@@ -1,4 +1,4 @@
-# Все практические руководства
+# Практические руководства {{ cdn-name }}
 
 * [{#T}](prefetch.md)
 * [{#T}](cdn-storage-integration.md)

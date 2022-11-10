@@ -34,6 +34,8 @@ items:
             href: operations/export-folder-bucket.md
   - name: Tutorials
     items:
+      - name: Searching for {{ yandex-cloud }} events in {{ yq-full-name }}
+        href: tutorials/query.md
       - name: Searching for {{ yandex-cloud }} events in {{ objstorage-name }}
         href: tutorials/search-bucket.md
       - name: Searching for {{ yandex-cloud }} events in {{ cloud-logging-name }}

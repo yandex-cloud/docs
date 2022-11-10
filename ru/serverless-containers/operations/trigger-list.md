@@ -1,4 +1,4 @@
-# Получение информации о триггере
+# Получение информации о триггере в {{ serverless-containers-name }}
 
 {% include [trigger-list-note](../../_includes/serverless-containers/trigger-list-note.md) %}
 

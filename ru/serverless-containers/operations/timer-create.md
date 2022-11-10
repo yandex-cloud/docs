@@ -1,4 +1,4 @@
-# Создание таймера
+# Создание таймера, который вызывает контейнер {{ serverless-containers-name }}
 
 Создайте [таймер](../concepts/trigger/timer.md) — триггер, который будет вызывать [контейнер](../concepts/container.md) {{ serverless-containers-name }} по расписанию.
 
