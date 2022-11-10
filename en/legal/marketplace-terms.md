@@ -14,11 +14,11 @@ This document contains specific Terms of Use of CloudIL Marketplace (the "Servic
 
 1.5. Software Product description may contain URL links enabling transition to websites/web pages that are not controlled by CloudIL (hereinafter referred to as the "Linked Websites"). CloudIL shall not be responsible for Linked Websites (or any hyperlinks or URLs contained thereon), including, but not limited to, their content, security, or privacy. Any access provided by CloudIL to Linked Websites is provided solely for the convenience of User, and the inclusion of any link to Linked Website does not imply that CloudIL approves Linked Website.
 
-1.6. During the preview version of the Platform, only trial versions of the Software Product are provided.
+1.6. Only trial versions of the Software Product are provided.
 
 ## 2. Pricing {#pricing}
 
-2.1. During the preview version of the Platform the Marketplace is free of charge.
+2.1. Using the Marketplace is free of charge for Users. CloudIL will notify User about switching to the paid version of the Marketplace 10 days in advance.
 
 ## 3. Software Product {#software-product}
 
@@ -82,6 +82,6 @@ Software Product
 Software Product Owner/Owner
 : means a legal entity that holds the rights to Software Product offered on Marketplace.
 
-Date of publication: 14.06.2022
+Publication date: 10.11.2022
 
-Web address: [https://cloudil.co.il/docs/legal/marketplace-terms](https://cloudil.co.il/docs/legal/marketplace-terms)
+Web address: <https://cloudil.co.il/docs/legal/marketplace-terms>

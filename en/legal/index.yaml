@@ -10,12 +10,30 @@ meta:
     - text: CloudIL legal documents
       when: product == "cloud-il"
 links:
+  - title: Services Agreement
+    href: agreement
+    when: product == "cloud-il"
+  - title: Acceptable Use Policy
+    href: aup
+    when: product == "cloud-il"
+  - title: Service Terms
+    href: service-terms
+    when: product == "cloud-il"
+  - title: Data Processing Addendum
+    href: dpa
+    when: product == "cloud-il"
+  - title: Service Level Agreement
+    href: sla
+    when: product == "cloud-il"
+  - title: Technical Support Regulation
+    href: tsr
+    when: product == "cloud-il"
+  - title: Rules for External Security Scans
+    href: pentest
+    when: product == "cloud-il"
   - title: Privacy Policy
     href: privacy
     when: product == "cloud-il"
   - title: Terms of Use
     href: terms
-    when: product == "cloud-il"
-  - title: Marketplace Terms of Use
-    href: marketplace-terms
     when: product == "cloud-il"

@@ -1,0 +1,117 @@
+# CloudIL Acceptable Use Policy
+
+This acceptable use policy ("AUP") describes prohibited uses of Customer for CloudIL Services and forms an integral part of CloudIL Services Agreement ("Agreement"). Capitalized terms used herein but not defined herein shall have the same meanings set forth in Agreement or Linked Documents.
+
+
+## 1. Prohibition to store, place, and distribute Illegal Content
+
+1.1. CloudIL may suspend Customer's right to access to Services and/or delete the relevant Customer's Content immediately without prior notice to Customer if:
+
+1.1.1. Customer performs illegal, harmful or fraudulent activities: any activities that are illegal, that violate the rights of CloudIL or third parties, or that may be harmful to CloudIL or third parties, operations or reputation of CloudIL, including disseminating, promoting or facilitating child pornography, offering or disseminating fraudulent goods, services, schemes, or promotions, make-money-fast schemes, ponzi and pyramid schemes, phishing, pharming as well as interring with the use of Services (or the equipment used to provide Services) by other customers or authorized users;
+
+1.1.2. Customer places, posts, distributes, transfers, promotes Content that infringes or misappropriates the intellectual property or proprietary rights of others;
+
+1.1.3. Customer places, posts, distributes, transfers, promotes Content that is defamatory, obscene, abusive, invasive of privacy, or otherwise objectionable, including content that constitutes child pornography, relates to bestiality, or depicts non-consensual sex acts;
+
+1.1.4. Customer places, posts, distributes, transfers, promotes Content or other computer technology that may damage, interfere with, surreptitiously intercept, or expropriate any system, program, or data, including viruses, Trojan horses, worms, time bombs, or cancelbots.
+
+1.2. CloudIL is not obliged to monitor Customer's Content. However, CloudIL will examine Customer's Content after receiving Notice regarding Illegal Content published by Customer, or if ordered to do so by a court or other authority. Each Notice is subject to consideration by CloudIL in accordance with applicable laws and regulations. CloudIL may take down Content until the legal matter notified is resolved at CloudIL' sole discretion.
+
+
+## 2. Prohibition to falsify data
+
+2.1. CloudIL may, at its' sole discretion, suspend Customer's right to access to Services and/or delete the relevant Customer's Content immediately without prior notice to Customer if:
+
+2.1.1. Customer performs actions to impersonate another person or representative of a legal entity or a community, including CloudIL employees, forum moderators, and a website owner, without sufficient rights to do so;
+
+2.1.2. Customer uses any forms and methods of unlawful representation of other persons;
+
+2.1.3. Customer provides names, addresses, phone numbers, logins, passwords, email addresses, etc. that do not belong to Customer or do not exist as identification details, unless the owners of these details authorized Customer to use them.
+
+
+## 3. Prohibition of Spamming
+
+3.1. CloudIL may, at its' sole discretion, suspend Customer's right to access Services and/or delete the relevant Customer's Content immediately without prior notice to Customer if Customer:
+
+3.1.1. performs actions to send, transfer, and somehow distribute Content without the consent of the addressee, to post and/or reproduce Spam advertisements on resources of third-parties without their consent;
+
+3.1.2. subscribes a postal address of the owner of the relevant address to any periodic mailings without prior confirmation from the owner of the address (push subscription);
+
+3.1.3. performs a periodic mailing with no explicit indication of the way to unsubscribe;
+
+3.1.4. sends information to persons who previously clearly stated their unwillingness to receive such information;
+
+3.1.5. advertises services, goods, and other materials, which distribution is limited or prohibited by applicable laws, and advertises spamming and similar services; 3.1.6. sends, transfers, and distributes lists of other people's email addresses, pyramid schemes, multilevel (network) marketing, online earning systems, chain letters, etc.
+
+
+## 4. Prohibition of Mining
+
+4.1. CloudIL may suspend Customer's right to access Services immediately without prior notice to Customer, if Customer uses Services for Mining.
+
+4.2. CloudIL may undertake any technical and organizational measures for limiting the possibility of using Services for Mining.
+
+
+## 5. Prohibition of network attacks
+
+5.1. CloudIL may suspend Customer's right to access Services immediately without prior notice to Customer, if Customer uses CloudIL Platform for network attacks.
+
+
+## 6. Prohibition to Scan Internet Hosts
+
+6.1. CloudIL may suspend Customer's right to access Services immediately without prior notice to Customer, if Customer scans Internet hosts without CloudIL permission.
+
+
+## 7. Prohibition to Platform operation interference and unauthorized access to third party data
+
+7.1. CloudIL may suspend Customer's right to access to Services immediately without prior notice to Customer, if Customer takes actions aimed at disrupting or interference in operation of CloudIL Platform and unauthorized access to third party data.
+
+
+## 8. Prohibition to use Services in breach of any law
+
+8.1. CloudIL may suspend Customer's right to access Services immediately without prior notice to Customer, if Customer uses Services:
+
+8.1.1. to create web-services or software programs entailing for violation of applicable laws and/or third-party rights;
+
+8.1.2. for any network abuse, such as an attempt to make network connections to any users, hosts, or networks unless Customer have permission to communicate with them.
+
+
+## 9. Prohibition on launching the operating system from secondary disks
+
+9.1. Customer is obliged to launch the operating system from the primary disk.
+
+9.2. CloudIL has the right to immediately, without prior notice to Customer, suspend the provision of access to Services on which Customer has launched the operating system by the secondary disk.
+
+
+## 10. Network resources use limitation
+
+10.1. CloudIL may limit access to certain network resources (gaming, bitcoin taps, etc.) in case CloudIL has reasons to believe that the use of these network resources may lead to Customer's misuse of Grant provided during Trial period or Credit Limit.
+
+10.2. If Customer is intended to use the network resources specified in Clause 10.1 hereof, Customer shall request access.
+
+10.3. CloudIL, at its discretion, determines the criteria for providing access to network resources specified in Clause 10.1 hereof.
+
+
+## 11. Monitoring and Enforcement
+
+11.1. In case of any violation of this AUP or misuse of Services, CloudIL may perform memory dumps of Virtual Machines and DB Hosts of Customer and take other steps to identify causes of relevant incidents or misuses.
+
+11.2. CloudIL reserves the right, but do not assume the obligation, to investigate any violation of this AUP.
+
+
+## 12. Definitions
+
+**"Illegal Content"** means Content that infringes the rights of third parties, particularly intellectual property rights in the broad sense (e.g. copyright or trademark rights), or personality rights, or that constitutes a criminal offence (particularly in the areas of pornography, the portrayal of violence, racism and libel).
+
+**"Mining"** means using the resources of CloudIL Platform to create cryptocurrency.
+
+**"Notice"** means a communication from a person affected by allegedly Illegal Content made publicly available by Customer.
+
+**"Spam"** means Content sent to the public at large without prior consent.
+
+________________________________________
+
+**Cloud.IL Systems LTD**
+
+Web address: <https://cloudil.co.il/docs/legal/aup>
+
+Publication date: 10.11.2022

@@ -1,0 +1,139 @@
+# Terms of Use of {{ compute-full-name }}
+
+This document contains specific terms of use of {{ compute-full-name }} ("the Service") and is an integral part of CloudIL Services Agreement ("Agreement") and Service Terms set forth at <https://cloudil.co.il/docs/legal/service-terms>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
+
+## 1. Functional Features of the Service {#features}
+
+1.1. CloudIL provides Customer with scalable virtual computing capacity to place, store, and process Customer Content, to create and run Virtual Machines and Disks, to manage them, and to use other functional features of the Service.
+
+1.2. As part of the Service, the following resources are available:
+
+(a) Virtual Machines with no virtual operating system installed;
+
+(b) Virtual Machines based on Windows and Linux;
+
+(c) Discs (CloudIL Block Storage);
+
+(d) Interrupted Virtual Machines (Interrupted VM).
+
+1.3. Customer may:
+
+(a) create Virtual Machines in Availability Zones optimal for Customer;
+
+(b) create Virtual Machines with technical parameters that are optimal for Customer;
+
+(c) use Virtual Machine Image;
+
+(d) store Customer Content and make back-up copies using Discs;
+
+(e) access Virtual Machines via SSH using a key pair, via RDP, and using a graphical console;
+
+(f) monitor the state of Virtual Machines;
+
+(g) purchase user licenses for subscription to remote desktop services for Virtual Machines;
+
+(h) use other functional features of the Service, which CloudIL makes available to Customers. Functional features of the Service are described in Documentation on Site.
+
+1.4. Service Level for the Service is determined in SLA. Interrupted VM are not subject to SLA.
+
+## 2. Pricing {#pricing}
+
+2.1. The use of the Service is chargeable.
+
+2.2. Service Fee is determined as per Service Rates and billing units specified on Site. CloudIL may change Service Rates as stipulated by Agreement.
+
+2.3. Service Fee for a Virtual Machine and Interrupted VM usage depends on the allocated computing resources, operating system, and usage time. Service Fee is calculated for the time of using the VM, from the moment it is started and to a complete stop. The time when the Virtual Machine is stopped is not charged.
+
+2.4. Service Fee for Disk usage depends on usage time (from Disc creation to Disc deletion), selected type of Disk and Disk space. The usage of Disk is charged regardless whether a Virtual Machine is running.
+
+2.5. As part of the Service, the volume of Outgoing Traffic passing through Customer's Virtual Machine or Disk, the cost of Image, Snapshot, user licenses for subscription to remote desktop services, and other additional benefits ordered and used by Customer and related to the use of the Service are charged separately.
+
+2.6. CloudIL may from time to time provide Customer with additional functional features of the Service for an additional fee.
+
+## 3. Limitations {#limitations}
+
+3.1. Customer shall monitor and ensure the security and relevance of software used in Virtual Machines, timely update software versions or make configuration changes as per the Guidelines or requirements published by developers of respective software.
+
+3.2. Customer shall counteract installing malware on Disks; software specifically developed to gain unauthorized access to information; software, databases, and other Content in violation of the intellectual property rights of third parties.
+
+3.3. If any gross violations of information protection requirements threatening the operation of Platform or third-party resources are revealed on the part of Customer, CloudIL may interrupt the operation of Virtual Machines that violate security requirements.
+
+3.4. Limitations on the use of Interruptible VM.
+
+3.4.1. Availability of Interruptible VMs to Customer is not guaranteed. Customer is able to create Interrupted VM if CloudIL has available computing resources.
+
+3.4.2. Interrupted VM use period cannot exceed Twenty-four (24) hours.
+
+3.4.3. The operation of the Interrupted VM can be completed at any time without warning.
+
+3.4.4. Interrupted VM cannot be changed to Virtual Machine.
+
+3.4.5. CloudIL is entitled to impose other restrictions on Interrupted VM, which are published in the Service documentation on Site.
+
+## 4. Software Benefits {#software-benefits}
+
+This Section governs the use of Microsoft software, which may include associated media, printed materials, and "online" or electronic documentation (individually and collectively "Products") provided by CloudIL. CloudIL does not own the Products and the use thereof is subject to certain rights and limitations of which CloudIL must inform you. Your right to use the Products is subject to the terms of your Agreement with CloudIL, and to your understanding of, compliance with, and consent to the following terms and conditions, which CloudIL does not have authority to vary, alter, or amend.
+
+**4.1. DEFINITIONS**
+
+Customer Software means software that is installed on Device that allows Device to access or utilize Products.
+
+Device means each of a computer, workstation, terminal, handheld PC, pager, telephone, personal digital assistant, "smart phone," server or other hardware where software can be installed that would allow End User to interact with Product.
+
+End User means an individual or a legal entity that obtains Software Services directly from CloudIL or indirectly through a Software Services Reseller.
+
+Redistributable Software means the software described in paragraph 4.4 (Use of Redistributable Software) below.
+
+Software Services means services that CloudIL provides to you that make available, display, run, access, or otherwise, directly or indirectly, interact with Products. CloudIL must provide these services from data center(s) through the Internet, a telephone network or a private network, on a rental, subscription or services basis, whether or not CloudIL receives a fee. Software Services exclude any services involving installation of a Product directly on any End User device to permit End User to interact with Product.
+
+**4.2. OWNERSHIP OF PRODUCTS.** Products are licensed to CloudIL from an affiliate of the Microsoft Corporation (collectively "Microsoft"). Microsoft Products are protected by copyright and other intellectual property right. Products and other Product elements including but not limited to any images, photographs, animations, video, audio, music, text and "applets" incorporated into Products are owned by Microsoft or its suppliers. You may not remote, modify or obscure any copyright laws and international copyright treaties, as well as other intellectual property laws and treaties. Your possession, access, or use of Products does not transfer any ownership of Products or any intellectual property rights to you.
+
+**4.3. USE OF CLIENT SOFTWARE.** You may use Client Software installed on your Devices as agreed with CloudIL only in accordance with the instructions, and only in connection with the services, provided to you by CloudIL. The terms of this document permanently and irrevocably supersede the terms of any Microsoft End User License Agreement that may be presented in electronic form during your use of the Client Software.
+
+**4.4. USE OF REDISTRIBUTION SOFTWARE.** In connection with Software Services provided to you by CloudIL, you may have access to certain "sample," "redistributable" and/or software development software code and tools (individually and collectively "Redistribution Software"). You may only use, copy, and/or install Redistributable Software as agreed with CloudIL and prescribed by this document and/or Agreement with CloudIL.
+
+**4.5. COPIES.** You may not make any copies of Products; provided, however, that you may (a) make one copy of Client Software on your Device as expressly authorized by CloudIL; and (b) you may make copies of certain Redistribution Software in accordance with Clause 4.4 (Use of Redistribution Software). You must erase or destroy all such Client Software and/or Redistribution Software upon termination or cancellation of your Agreement with CloudIL, upon notice from CloudIL or upon transfer of your Device to another person or entity, whichever occurs first. You may not copy any printed materials accompanying Products.
+
+**4.6. LIMITATIONS ON REVERSE ENGINEERING, DECOMPILATION AND DISASSEMBLY.** You may not reverse engineer, decompile, or disassemble Products, except and only to the extent that applicable law, notwithstanding this limitation, expressly permits such activity.
+
+**4.7. NO RENTAL.** You may not rent, lease, lend, pledge, or directly or indirectly transfer or distribute Products to any third party, and may not permit any third party to have access to and/or use the functionality of Products except for the sole purpose of accessing the functionality of Products in the form of Software Services in accordance with the terms of Agreement and any agreement between you and CloudIL.
+
+**4.8. TERMINATION.** CloudIL may terminate your rights to Products without prejudice to any other rights, if you violate these terms except when using Interrupted VM which can be interrupted unconditionally at any time. In the event of termination or cancellation of Agreement or CloudIL's agreement with Microsoft under which Products are licensed, you must stop using and/or accessing Products, and destroy all copies of Products and all of their component parts within Thirty (30) days of the termination of Agreement.
+
+**4.9. NO MICROSOFT WARRANTIES, OBLIGATIONS AND COMPENSATIONS.** Microsoft disclaims, to the extent permitted by applicable law, all warranties and any liability for damages by Microsoft or Microsoft suppliers for any damage and remedies whether direct, indirect, or consequential arising from Software Services shall be held by CloudIL only, and not by Microsoft, Microsoft affiliates or subsidiaries.
+
+**4.10. PRODUCT SUPPORT.** Any support for Software Benefits is provided to you by CloudIL or a third party on behalf of CloudIL, and is not provided by Microsoft, its affiliates or subsidiaries.
+
+**4.11. NOT FAULT TOLERANT.** Products are not fault-tolerant and are not guaranteed to be error-free or to operate uninterrupted. You must not use Products in any application or situation where Product(s) failure could lead to death or serious bodily injury of any person, or to severe physical or environmental damage.
+
+**4.12. EXPORT RESTRICTIONS.** Products are subject to US export jurisdiction. CloudIL must comply with all rules of applicable laws, including the U.S. Export Administration Regulations, International Traffic in Arms Regulations, as well as end-user, end-user and destination restrictions issued by U.S. and other governments. For additional information, please visit <http://www.microsoft.com/exporting>.
+
+**4.13. LIANILITY FOR BREACH.** In addition to any liability you may have to CloudIL, you agree that you will also be legally responsible directly to Microsoft for any breach of these terms and conditions.
+
+**4.14. INFORMATION DISCLOSURE.** You must permit CloudIL to disclose information requested by Microsoft under Agreement. Microsoft will be an intended third party beneficiary of Agreement, with the right to enforce provisions of Agreement and to verify you compliance.
+
+## 5. Definitions {#definitions}
+
+"Availability Zones" means geographically distributed data centers that host CloudIL's infrastructure used to provide Customer with computing and other resources of Platform. Information on Availability Zones is available on Site and in Management Console.
+
+"Disk" means virtual disk space used to place and store operating systems and Content.
+
+"Image" means a full copy of the structure of file system and data on Disk.
+
+"Incoming Traffic" means an amount of information from the Internet, passing through the virtual computing resources or other cloud resources of Platform provided to Customer.
+
+"Interrupted virtual machine (VM)" means an available Virtual Machine with a lower consumption cost and additional restrictions of use.
+
+"Outgoing Traffic" means an amount of information outgoing to external information systems and passing through the virtual computing resources or other cloud resources of Platform provided to Customer. Information on consumed outgoing traffic is provided to Customer as Statistics aggregated from all Services.
+
+"Snapshot" means a copy of Disk file system at a given moment.
+
+"Virtual Machine" means virtual computing resource of Platform, emulating hardware and used by Customer to remotely process Content.
+
+________________________________________
+
+**Cloud.IL Systems LTD**
+
+Web address: <https://cloudil.co.il/docs/legal/specific-terms/compute>
+
+Publication date: 10.11.2022

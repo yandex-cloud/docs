@@ -1,0 +1,129 @@
+# Data Processing Addendum
+
+by and between Customer (**"Customer"**) and CloudIL (**"CloudIL"**).
+
+The Customer and CloudIL are the parties (the **"Parties"**) of the CloudIL Services Agreement concluded either by accepting by the Customer of terms available at: <https://cloudil.co.il/docs/legal/agreement> or by signing of a written version of Customer Agreement by both Parties, specifying that CloudIL will provide certain services (the **"Services"**) to the Customer (the **"Agreement"**). This Data Processing Addendum (the **"Addendum"**) is part of the Agreement. Except as modified herein, the terms of the Agreement will remain as agreed in case of contradictions between the terms of this Addendum with the terms of the Agreement, the terms of this Addendum prevail.
+
+
+## 1. Scope and Definitions
+
+(a) This Addendum reflects the Parties' agreement with respect to the terms governing the processing and security of Customer Data under the Agreement. This Addendum will, as from the date the Parties enter into the Agreement (the **"Effective Date"**), be effective and replace any data processing arrangements previously applicable between the Parties in the area of privacy, data processing and/or data security in respect of Customer Data under the Agreement.
+
+(b) This Addendum enters into force at the entry into force of the Agreement.
+
+(c) In this Addendum, the following terms shall have the following meanings:
+
+* (i) Applicable Data Protection Law shall mean any and all applicable data protection and privacy laws, including Israeli privacy protection legislation, without limitation the Israeli Privacy Protection Law, 1981, the Privacy Protection (Data Security) Regulations, 5777-2017 ("Security Regulations") and the binding instructions and requirements of Israeli governmental authorities, including the Privacy Protection Authority, with respect to Personal Data.
+
+* (ii) Customer Data (Owner Data) means personal data submitted, stored, sent or received through or in relation with the Services by the Customer, excluding the personal data of the Customer itself and personal data received from CloudIL in order to perform the Agreement.
+
+* (iii) Customer (Owner) means the customer party that entered into the Agreement with Cloud.IL Systems Ltd.
+
+* (iv) Subprocessor means any third parties authorized by CloudIL under this Addendum to receive or have access to Customer Data in order to provide parts of the Services.
+
+* (v) Term means the period from the Effective Date until the end of the provision of Services.
+
+* (vi) Personal Data means any information relating to an identified or identifiable natural person (data subject).
+
+* (vii) Data Subject means natural personal to whom Personal Data relates, including, without limitation, Customer's employees, contractors, end-users, individuals whose data processed by the Customer at its own discretion, and any other person whose data is transmitted by Customer or anyone on its behalf, through the Services;
+
+* (viii) Processing (and "process") means any operation or set of operations which is performed on Personal Data or on sets of Personal Data, whether or not by automated means, such as collection, recording, organisation, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction.
+
+(d) "Owner", "Holder", "Data Breach", "Database" shall have the meanings given in Applicable Data Protection Law.
+
+
+## 2. Processing of Customer Data
+
+(a) **CloudIL and Customer responsibilities**: The Parties agree that CloudIL is a Holder of Customer Data; the Customer is an Owner or Holder, as applicable, of the Customer Data; and each Party will comply with the obligations applicable to it under the Applicable Data Protection Law. 
+
+If Customer is a Holder in relations with third parties, Customer warrants to CloudIL that Customer's instructions and actions with respect to Customer Data, including CloudIL's appointment as another Holder, have been authorized by the relevant owner (i.e. Customer's partner).
+
+(b) **Customer's instructions to CloudIL**: By entering into this Addendum, Customer instructs CloudIL to process Customer Data to provide the Services; as further documented in the form of the Agreement including this Addendum; and as further documented in any other written instructions given by Customer and acknowledged by CloudIL as constituting instructions for purposes of this Addendum (provided that if there are agreed change management procedures under the Agreement, these will apply to such instructions).
+
+(c) **Subject matter of the processing**: The Parties agree that the subject matter and details of the processing are as follows:
+
+* (i) Subject matter: Provision of the Services to Customer by CloudIL;
+
+* (ii) Duration of the processing and of this Addendum: The Term plus the period from expiry of the Term until deletion of all Customer's Data by CloudIL in accordance with this Addendum;
+  
+* (iii) Nature and purpose of the processing: CloudIL will process Customer's Data submitted, stored, sent or received by the Customer for the purposes of providing the Services to Customer in accordance with the Addendum.
+  
+* (iv) Categories of data: Personal data submitted, stored, sent or received by the Customer via the Services. The specific data categories processed by CloudIL shall be determined by Customer according to the scope of Services it chooses to receive     . 
+
+* (v) Customer represents and warrants to CloudIL that Customer Data does not contain any sensitive data whatsoever, unless otherwise approved in writing by CloudIL   .    
+
+* (vi) User Systems: CloudIL shall have access to its own systems and systems of third parties to the extent they are necessary for provision of the Services.
+
+(d) **Customer's Instructions**: CloudIL shall only process Customer Data in accordance with its obligations as set out in the Addendum, the Agreement and with the instructions described in Section 2, unless applicable law requires otherwise with respect to Customer Data, in which case CloudIL will inform Customer (unless that law prohibits CloudIL from doing so).  
+
+(e) **Customer's compliance**: Customer shall be solely responsible for fulfilling its obligations with regard to processing Customer Data under Applicable Data Protection Law, unless otherwise is provided in this Addendum or the Agreement. In particular, if applicable, Customer shall, at its own discretion and expense, register Databases that may be a part of Customer Data and obtain all sufficient approvals and consents for the processing and transfer of Customer Data to CloudIL as contemplated under this Addendum or Agreement, as required under the Applicable Data Protection Law.
+
+CloudIL uses reasonable security standards to protect the security of the Services but CloudIL is not responsible for and assumes no liability related to the foregoing Customer responsibilities, obligations and undertakings.
+
+
+## 3. Subprocessors
+
+(a) **Consent to Subprocessors engagement**: Customer generally authorizes CloudIL to engage any third parties as its Subprocessors. Upon Customer's request, CloudIL shall provide Customer with any relevant information regarding each existing Subprocessor.   
+
+(b) **Requirements for Subprocessor engagement**. When engaging any Subprocessor, CloudIL will ensure through a written instrument that the Subprocessor only accesses and uses Customer Data to the extent required to perform the obligations subcontracted to it, and does so in accordance with the Agreement (including this Addendum) and Applicable Data Protection Law. CloudIL will remain fully liable for all obligations subcontracted to and all acts and omissions in relation with Customer Data of the Subprocessor.
+
+(c) **Objection to Subprocessor changes**: When any new subprocessor (other than an affiliate of CloudIL) is engaged during the Term, CloudIL will, at least 30 days before such new Subprocessor processes any Customer Data, inform Customer of the engagement. Customer may object to such new Subprocessor, provided such objection is based on reasonable grounds relating to data protection, by terminating the Agreement immediately upon written notice to CloudIL, on condition that such notice is provided within 20 days of being informed of the new Subprocessor.
+
+
+## 4. Data Deletion
+
+(a) **Deletion during the Term**: CloudIL enables Customer to delete Customer Data during the Term in a manner consistent with the functionality of the Services. If the Customer uses the Services to delete any Customer Data during the Term and the Customer Data cannot be recovered by the Customer, this use will constitute an instruction to CloudIL to delete the relevant Customer Data in accordance with Applicable Data Protection Law. CloudIL will comply with this instruction as soon as reasonably practicable unless Applicable Data Protection Law allows further storage.
+
+(b) On expiry of the Term, Customer instructs CloudIL to return or delete all Customer Data in its possession or control from CloudIL's systems in accordance with Applicable Data Protection Law. CloudIL will comply with this instruction as soon as reasonably practicable, unless applicable law allows further storage of such data  . 
+
+
+## 5. Data Security
+
+(a) **CloudIL security measures**: CloudIL will implement and maintain technical and organizational measures to protect Customer Data against accidental or unlawful destruction, loss, alteration, unauthorized disclosure or access as described at <https://cloudil.co.il/docs/overview/security/> (the **"Security Measures"**). CloudIL may update or modify the Security Measures from time to time provided that such updates and modifications   maintain an adequate level of data protection.
+
+(b) **Staff**: CloudIL will take appropriate steps to ensure compliance with the Security Measures by its employees, contractors and Subprocessors to the extent applicable to their scope of performance, including ensuring that all persons authorized to process Customer Data have committed themselves to confidentiality by a written agreement.  
+
+(c) **Data Breaches**:
+
+* (i) If it becomes aware of a confirmed Data Breach, CloudIL will inform the Customer via e-mail (to the e-mail address the Customer provided to CloudIL according to the Agreement) within 48 hours, and within 24 hours regarding a severe Data Breach    , and will provide reasonable information and cooperation to the Customer to support Customer to its fulfilment of data breach reporting obligations under Applicable Data Protection Law. CloudIL shall further take such reasonably necessary measures and actions to mitigate the effects of the Data Breach and shall keep the Customer informed of all material developments in connection with the Data Breach, all at Customer's costs.
+
+* (ii) Notification under this Section will not be construed as an acknowledgement by CloudIL of any fault or liability with respect to the Data Breach. The Customer is solely responsible for complying with incident notification laws applicable to the Customer and fulfilling any third party notification obligations related to any Data Breach(s). 
+
+In the event of a Data Breach, CloudIL shall not inform any third party without first obtaining Customer's prior written consent, unless notification is required by Applicable Data Protection Law, in which case CloudIL shall to the extent permitted by such law inform Customer of that legal requirement. CloudIL shall not be considered responsible for notifying authorities or third parties directly about the Data Breach   .
+
+(d) **Customer's security responsibilities**: 
+
+* (1) Without prejudice to the CloudIL's obligations under Section 5(a)-(c), Customer acknowledges and agrees that the Security Measures provide a level of security appropriate to the risk in respect of the Customer Data. The Customer is solely responsible (i) for its use of the Services, including making appropriate use of the Services to ensure a level of security appropriate to the risk in respect of the Customer Data and backing up its Customer Data    ; and (ii) for evaluating for itself whether the Services and the CloudIL's commitments under this Section 5 meet the Customer's needs.
+
+* (2) Customer acknowledges that it is responsible for using the Services properly and for taking its own steps to maintain appropriate security, protection, and backup of Customer Data, which may include: (i) the use of encryption technology to protect Customer Data from unauthorized access; and (ii) routine back-up and archiving of Customer Data. Customer is solely responsible to perform backup, archiving and data retention of Customer Data, outside CloudIL's Services.
+
+* (3) Customer is responsible for the acts and omissions of its authorized users (**"Users"**), and to ensure that Users comply with this Addendum and the Agreement. Customer will not permit persons other than its Users to access the Services. Customer represents that it is responsible for: (i) maintaining the confidentiality of its credentials and ensuring that credentials are only used by its Users; and (ii) the acts and omissions of its Users and any person using Customer's credentials. Customer will notify CloudIL promptly in writing if Customer becomes aware of: (i) any loss, theft, or unauthorized use of any credentials; or (ii) any breach of this Agreement by any User   
+
+
+## 6. Cooperation and assistance
+
+(a) **Data Subject Rights**: During the Term CloudIL will, in a manner consistent with the functionality of the Services, enable the Customer to access, rectify and restrict processing of Customer Data and to export Customer Data. If during the Term CloudIL receives any request from a data subject in relation to Customer Data, CloudIL will advise the data subject to submit his/her request to the Customer, and the Customer will be responsible for responding to any such request.
+
+(b) **CloudIL Processing Records**: Where CloudIL is required under Applicable Data Protection Law to collect and maintain records processing, the Customer will, where requested, provide the required information to CloudIL and will ensure that all information provided is kept accurate and up-to-date. Customer acknowledges CloudIL's obligations to the Database Registrar, including the obligation to report which databases are held by CloudIL and the identity of their owner, and shall inform CloudIL about respective processing of personal data, where it is required for CloudIL's compliance with Applicable Data Protection Law.    
+
+(c) **Cost**: All cost and expenses incurred by CloudIL in the performance of the obligations stated in this Section may be passed on to the Customer on a pass-through-basis.
+
+
+## 7. Audits
+
+(a) **Audit right**. Subject to confidentiality provisions, CloudIL will allow the Customer or an independent and suitably qualified auditor appointed by the Customer to conduct inspections to verify the CloudIL's compliance with its obligations under this Addendum in accordance with Section 7(b). CloudIL will reasonably contribute to such audits     . 
+
+(b) **Terms for audits**. The following requirements apply to any audit: (i) the Customer must give a minimum thirty (30) days' notice of intention to audit, (ii) the Customer may exercise the right to audit no more than once in any calendar year; (iii) commencement of the audit shall be subject to an agreement with CloudIL of a scope of work for the audit at least ten (10) days in advance; (iv) CloudIL may restrict access to certain parts of its facilities and certain records where such restriction is necessary for commercial confidentiality or other legitimate reasons; (v) the audit shall not include penetration testing, vulnerability scanning, or other security tests; (vi) the right to audit includes the right to inspect but not copy or otherwise remove any records, other than those that relate specifically and exclusively to the Customer; (vii) any independent auditor will be required to sign such non-disclosure agreement as is reasonably required by CloudIL prior to the audit; and (viii) the Customer shall compensate CloudIL for its reasonable costs (including for the time of its personnel, other than your relationship manager) incurred in supporting any audit.
+
+
+## 8. Data Transfers
+
+(a) **Data storage and processing**: The Customer agrees that CloudIL and its Subprocessors store and process Customer's Data in Israel, where their facilities are located.
+
+(b) **Transfers of Customer Data to third countries**: If the storage and/or processing of Customer Data involves transfers of Customer Data to third countries, CloudIL will take such measures that are necessary to ensure the transfer is in compliance with Applicable Data Protection Law. The Customer hereby consents to such data transfers to further Subprocessors in third countries, given the security measures taken by CloudIL as detailed above (such approval shall be deemed as Customer's undertaking under Clause 3 to the Privacy Protection Regulations (Transfer of Data to Databases Abroad), 5761-2001).     
+
+
+## 9. Liability
+
+Each Party's liability for any breach of this Addendum shall be subject to the limitations and exclusions of liability set out in the Agreement, provided that neither Party limits or excludes any liability that cannot be limited or excluded under applicable law.
+

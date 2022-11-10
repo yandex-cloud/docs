@@ -6,10 +6,100 @@ title:
     when: product == "cloud-il"
 href: index.yaml
 items:
+  - name: Services Agreement
+    href: agreement.md
+  - name: Acceptable Use Policy
+    href: aup.md
+  - name: Service Terms
+    href: service-terms.md
+  - name: Terms for specific services
+    items:
+      - name: List
+        href: specific-terms/index.md
+      - name: Application Load Balancer
+        href: specific-terms/application-load-balancer.md
+      - name: Certificate Manager
+        href: specific-terms/certificate-manager.md
+      - name: Cloud DNS
+        href: specific-terms/dns.md
+      - name: Cloud Marketplace
+        href: marketplace-terms.md
+      - name: Compute Cloud
+        href: specific-terms/compute.md
+      - name: Container Registry
+        href: specific-terms/container-registry.md
+      - name: Data Transfer
+        href: specific-terms/data-transfer.md
+      - name: Identity and Access Management
+        href: specific-terms/iam.md
+      - name: Key Management Service
+        href: specific-terms/kms.md
+      - name: Managed Service for ClickHouse
+        href: specific-terms/managed-clickhouse.md
+      - name: Managed Service for Kafka
+        href: specific-terms/managed-kafka.md
+      - name: Managed Service for Kubernetes
+        href: specific-terms/managed-kubernetes.md
+      - name: Managed Service for MySQL
+        href: specific-terms/managed-mysql.md
+      - name: Managed Service for PostgreSQL
+        href: specific-terms/managed-postgresql.md
+      - name: Message Queue
+        href: specific-terms/message-queue.md
+      - name: Monitoring
+        href: specific-terms/monitoring.md
+      - name: Network Load Balancer
+        href: specific-terms/network-load-balancer.md
+      - name: Object Storage
+        href: specific-terms/storage.md
+      - name: Resource Manager
+        href: specific-terms/resource-manager.md
+      - name: SpeechKit
+        href: specific-terms/speechkit.md
+      - name: Virtual Private Cloud
+        href: specific-terms/vpc.md
+  - name: Data Processing Addendum
+    href: dpa.md
+  - name: Service Level Agreement
+    href: sla.md
+  - name: Service levels for specific services
+    items:
+      - name: List
+        href: sla-levels/index.md
+      - name: Application Load Balancer
+        href: sla-levels/application-load-balancer.md
+      - name: Cloud DNS
+        href: sla-levels/dns.md
+      - name: Compute Cloud
+        href: sla-levels/compute.md
+      - name: Container Registry
+        href: sla-levels/container-registry.md
+      - name: Key Management Service
+        href: sla-levels/kms.md
+      - name: Managed databases
+        href: sla-levels/mdb.md
+      - name: Managed Service for Kafka
+        href: sla-levels/managed-kafka.md
+      - name: Managed Service for Kubernetes
+        href: sla-levels/managed-kubernetes.md
+      - name: Message Queue
+        href: sla-levels/message-queue.md
+      - name: Monitoring
+        href: sla-levels/monitoring.md
+      - name: Network Load Balancer
+        href: sla-levels/network-load-balancer.md
+      - name: Object Storage
+        href: sla-levels/storage.md
+      - name: SpeechKit
+        href: sla-levels/speechkit.md
+      - name: Virtual Private Cloud
+        href: sla-levels/vpc.md
+  - name: Technical Support Regulation
+    href: tsr.md
   - name: Privacy Policy
     href: privacy.md
+  - name: Rules for External Security Scans
+    href: pentest.md
   - name: Terms of Use
     href: terms.md
-  - name: Marketplace Terms of Use
-    href: marketplace-terms.md
 
