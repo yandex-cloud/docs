@@ -5,18 +5,18 @@ title:
     when: product == "cloud-il"
 description:
   - text: >-
-      This document describes the underlying concepts of the Yandex Cloud API
-      architecture. 
-
-      It will be useful for developers who want to use Yandex Cloud APIs to automate
-      repeatable tasks, build plugins, and other applications.
+      Here you can find out about the underlying concepts of the Yandex Cloud
+      API architecture.
+    
+      This will be useful if you are looking to use the Yandex Cloud API
+      to build automation systems, plugins, and other apps.
     when: product == "yandex-cloud"
   - text: >-
-      This document describes the underlying concepts of the CloudIL API
-      architecture. 
-
-      It will be useful for developers who want to use CloudIL APIs to automate
-      repeatable tasks, build plugins, and other applications.
+      Here you can find out about the underlying concepts of the CloudIL
+      API architecture.
+      
+      This will be useful if you are looking to use the CloudIL API
+      to build automation systems, plugins, and other apps.
     when: product == "cloud-il"
 meta:
   title:
