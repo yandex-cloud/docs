@@ -5,7 +5,7 @@ description: "В сервисе {{ monitoring-full-name }} действуют л
 editable: false
 ---
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ monitoring-name }}
 
 В сервисе {{ monitoring-full-name }} действуют следующие ограничения:
 

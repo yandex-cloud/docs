@@ -1,4 +1,4 @@
-# Создание триггера для {{ yds-name }}
+# Создание триггера для {{ yds-name }}, который вызывает контейнер {{ serverless-containers-name }}
 
  Создайте [триггер для {{ yds-name }}](../concepts/trigger/data-streams-trigger.md), который будет вызывать [контейнер](../concepts/container.md) {{ serverless-containers-name }} при отправке данных в [поток](../../data-streams/concepts/glossary.md#stream-concepts). 
 

@@ -1,4 +1,4 @@
-# Создание триггера для бюджетов
+# Создание триггера для бюджетов, который вызывает контейнер {{ serverless-containers-name }}
 
 Создайте [триггер для бюджетов](../concepts/trigger/budget-trigger.md), который будет вызывать [контейнер](../concepts/container.md) {{ serverless-containers-name }} при превышении пороговых значений.
 

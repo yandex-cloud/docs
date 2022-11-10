@@ -1,0 +1,1 @@
+Data from a stream source is passed as an infinite stream. In the above example, data being handled is intentionally limited with the `LIMIT N` clause to stop data processing and output the results to the console.

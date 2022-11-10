@@ -1,4 +1,4 @@
-# Yandex DDoS Protection
+# {{ ddos-protection-full-name }} в {{ vpc-name }}
 
 {{ ddos-protection-full-name }} — это компонент сервиса {{ vpc-short-name }} для защиты облачных ресурсов от DDoS-атак. DDoS Protection предоставляется в партнерстве с Qrator Labs. 
 

@@ -1,4 +1,4 @@
-# Создать целевую группу
+# Создать целевую группу {{ network-load-balancer-name }}
 
 {% list tabs %}
 

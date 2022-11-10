@@ -4,7 +4,7 @@ description: "В разделе описано, как с использован
 sourcePath: overlay/quickstart/document-api/aws-cli/index.md
 ---
 
-# Обзор
+# Работа с AWS CLI в {{ ydb-name }}. Обзор
 
 В разделе описано, как с использованием AWS CLI выполнить следующие операции в YDB:
 

@@ -1,4 +1,4 @@
-# Все практические руководства
+# Практические руководства {{ api-gw-name }}
 
 * [{#T}](java-servlet-todo-list.md)
 * [{#T}](alice-shareable-todolist.md)

@@ -1,4 +1,4 @@
-# Все руководства
+# Практические руководства {{ managed-k8s-name }}
 
 * [{#T}](new-kubernetes-project.md)
 * [{#T}](container-registry.md)

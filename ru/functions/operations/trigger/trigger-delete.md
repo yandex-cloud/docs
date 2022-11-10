@@ -1,4 +1,4 @@
-# Удаление триггера
+# Удаление триггера в {{ sf-name }}
 
 {% include [trigger-list-note](../../../_includes/functions/trigger-list-note.md) %}
 

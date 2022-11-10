@@ -1,4 +1,4 @@
-# Создание триггера для {{ container-registry-name }}
+# Создание триггера для {{ container-registry-name }}, который вызывает контейнер {{ serverless-containers-name }}
 
 Создайте [триггер для {{ container-registry-name }}](../concepts/trigger/cr-trigger.md), который будет вызывать [контейнер](../concepts/container.md) {{ serverless-containers-name }} при создании и удалении [Docker-образов](../../container-registry/concepts/docker-image.md) {{ container-registry-name }} или их тегов.
 

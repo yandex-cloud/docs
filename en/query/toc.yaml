@@ -1,0 +1,111 @@
+title: Yandex Query
+stage: preview
+href: index.yaml
+items:
+  - name: Getting started
+    items:
+      - name: Sample analysis of data from {{objstorage-full-name}}
+        href: quickstart/yellow-taxi.md
+      - name: Sample analysis of streaming data
+        href: quickstart/streaming-example.md
+      - name: Sample unified analysis of streaming and analytical data
+        href: quickstart/unified-example.md
+  - name: Concepts
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Terms and definitions
+        href: concepts/glossary.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+      - name: Query processing
+        href: concepts/request-processing.md
+      - name: Batch processing
+        items:
+          - name: Description
+            href: concepts/batch-processing.md
+          - name: Data partitioning
+            href: concepts/partitioning.md
+          - name: Extended partitioning
+            href: concepts/partition-projection.md
+      - name: Streaming data processing
+        items:
+          - name: Description
+            href: concepts/stream-processing.md
+          - name: Streaming processing windows
+            href: concepts/stream-processing-windows.md
+      - name: Unified analysis of streaming and analytical data
+        href: concepts/unified-processing.md
+  - name: Step-by-step instructions
+    items:
+      - name: Working with connections
+        href: operations/connection.md
+      - name: Working with data bindings
+        href: operations/binding.md
+      - name: Working with queries
+        href: operations/query.md
+  - name: Data sources and targets
+    items:
+      - name: Data formats and compression algorithms
+        href: sources-and-sinks/formats.md
+      - name: Working with {{objstorage-full-name}}
+        items:
+          - name: Reading data using connections
+            href: sources-and-sinks/object-storage.md
+          - name: Reading data using bindings
+            href: sources-and-sinks/object-storage-binding.md
+          - name: Writing data
+            href: sources-and-sinks/object-storage-write.md
+      - name: Working with Data Streams
+        items:
+          - name: Reading data using connections
+            href: sources-and-sinks/data-streams.md
+          - name: Reading data using bindings
+            href: sources-and-sinks/data-streams-binding.md
+          - name: Writing data
+            href: sources-and-sinks/data-streams-write.md
+      - name: Writing metrics to {{monitoring-full-name}}
+        href: sources-and-sinks/monitoring.md
+  - name: Use cases
+    items:
+      - name: Analyzing Cloud Logging logs
+        href: tutorials/cloud-logging.md
+      - name: Analyzing CDC Debezium streams
+        href: tutorials/debezium.md
+      - name: >-
+          Viewing {{datalens-full-name}} reports based on data from
+          {{objstorage-full-name}}
+        href: tutorials/datalens.md
+      - name: Analyzing audit logs {{at-full-name}}
+        href: tutorials/audit-trails.md
+      - name: Analyzing files with Billing details
+        href: tutorials/billing.md
+  - name: Working with YQL
+    items:
+      - name: Overview
+        href: yql-tutorials/index.md
+      - name: Selecting data from all columns
+        href: yql-tutorials/select-all-columns.md
+      - name: Selecting data from specific columns
+        href: yql-tutorials/select-specific-columns.md
+      - name: Sorting and filtering
+        href: yql-tutorials/sort-filter.md
+      - name: Data aggregation
+        href: yql-tutorials/basic-aggregation.md
+      - name: Operations with streaming data
+        href: yql-tutorials/streaming-query.md
+      - name: Additional selection criteria
+        href: yql-tutorials/conditional-values.md
+      - name: Working with JSON
+        href: yql-tutorials/json.md
+      - name: Running a streaming data query
+        href: yql-tutorials/streaming-query.md
+  - name: HTTP API
+    items:
+      - name: Overview
+        href: api/overview.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+base: en/query

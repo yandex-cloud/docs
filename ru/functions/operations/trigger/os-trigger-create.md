@@ -1,4 +1,4 @@
-# Создание триггера для {{ objstorage-name }}
+# Создание триггера для {{ objstorage-name }}, который вызывает функцию {{ sf-name }}
 
 Создайте [триггер для {{ objstorage-name }}](../../concepts/trigger/os-trigger.md), который будет вызывать [функцию](../../concepts/function.md) {{ sf-name }} при создании, перемещении или удалении [объекта](../../../storage/concepts/object.md) в бакете.
 

@@ -3,7 +3,7 @@ title: "Язык запросов в {{ monitoring-full-name }}"
 description: "В этом разделе описан язык запросов {{monitoring-full-name}}. Он используется для преобразования метрик при настройке дашбордов и алертов, а также в API-методе MetricsData.read."
 ---
 
-# Язык запросов
+# Язык запросов в {{ monitoring-name }}
 
 В этом разделе описан язык запросов {{monitoring-full-name}}. Он используется для преобразования метрик при настройке [дашбордов](./visualization/dashboard.md) и [алертов](./alerting.md), а также в API-методе [MetricsData.read](../api-ref/MetricsData/read.md).
 

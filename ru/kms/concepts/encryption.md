@@ -1,4 +1,4 @@
-# Шифрование
+# Шифрование и расшифровка в {{ kms-short-name }}
 
 Криптоматериал, содержащийся в версиях ключей, недоступен в открытом виде вне сервиса {{ kms-short-name }}. Шифрование и расшифровка в {{ kms-short-name }} осуществляется посредством двух криптографических операций: [encrypt](../api-ref/SymmetricCrypto/encrypt) и [decrypt](../api-ref/SymmetricCrypto/decrypt).
 
