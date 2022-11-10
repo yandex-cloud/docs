@@ -1,4 +1,4 @@
-# Изменение триггера
+# Изменение триггера в {{ serverless-containers-name }}
 
 Вы можете изменить [имя](#update-name) или [описание](#update-description) триггера.
 

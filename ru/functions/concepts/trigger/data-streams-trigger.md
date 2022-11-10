@@ -1,4 +1,4 @@
-# Триггер для {{ yds-name }}
+# Триггер для {{ yds-name }}, который вызывает функцию {{ sf-name }}
 
 {% if audience == "external" %} [Триггер](../trigger/) для {{ yds-name }} запускает [функцию](../function.md) {{ sf-name }} при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts). {% endif %}
 

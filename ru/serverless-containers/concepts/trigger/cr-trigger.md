@@ -1,4 +1,4 @@
-# Триггер для {{ container-registry-name }}
+# Триггер для {{ container-registry-name }}, который вызывает контейнер {{ serverless-containers-name }}
 
 [Триггер](../trigger/) для {{ container-registry-name }} запускает [контейнер](../container.md) {{ serverless-containers-name }}, когда с [Docker-образом](../../../container-registry/concepts/docker-image.md) {{ container-registry-name }} происходят определенные события. Триггер должен находиться в одном облаке с [реестром](../../../container-registry/concepts/registry.md), на события которого он подписан.
 

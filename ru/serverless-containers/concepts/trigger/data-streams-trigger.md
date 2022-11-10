@@ -1,4 +1,4 @@
-# Триггер для {{ yds-name }}
+# Триггер для {{ yds-name }}, который вызывает контейнер {{ serverless-containers-name }}
 
 {% if audience == "external" %} [Триггер](../trigger/) для {{ yds-name }} запускает [контейнер](../container.md) {{ serverless-containers-name }} при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts). {% endif %}
 

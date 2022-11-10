@@ -1,4 +1,4 @@
-# Триггер для {{ cloud-logging-name }}
+# Триггер для {{ cloud-logging-name }}, который вызывает функцию {{ sf-name }}
 
 [Триггер](../trigger/) для {{ cloud-logging-name }} запускает [функцию](../function.md) {{ sf-name }}, когда в [лог-группу](../../../logging/concepts/log-group.md) добавляют записи.
 

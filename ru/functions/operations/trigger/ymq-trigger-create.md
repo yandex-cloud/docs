@@ -1,4 +1,4 @@
-# Создание триггера для {{ message-queue-short-name }}
+# Создание триггера для {{ message-queue-short-name }}, который передает сообщения в функцию {{ sf-name }}
 
 Создайте [триггер](../../concepts/trigger/ymq-trigger.md) для очереди сообщений сервиса {{ message-queue-short-name }} и обрабатывайте их с помощью [функции](../../concepts/function.md) {{ sf-name }}.
 

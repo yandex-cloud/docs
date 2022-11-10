@@ -1,4 +1,4 @@
-# Создание триггера для {{ yds-name }}
+# Создание триггера для {{ yds-name }}, который вызывает функцию {{ sf-name }}
 
 {% if audience == "external" %} Создайте [триггер для {{ yds-name }}](../../concepts/trigger/data-streams-trigger.md), который будет вызывать [функцию](../../concepts/function.md) {{ sf-name }} при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts). {% endif %}
 
