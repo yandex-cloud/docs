@@ -1,4 +1,4 @@
-# Все практические руководства
+# Практические руководства {{ alb-name }}
 
 * [{#T}](virtual-hosting.md)
 {% if product == "yandex-cloud" %}

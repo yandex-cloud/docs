@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ interconnect-name }}
 
 ## {{ interconnect-full-name }}
 
