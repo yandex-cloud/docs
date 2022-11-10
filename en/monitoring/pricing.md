@@ -8,7 +8,7 @@ editable: false
 
 {% note info %}
 
-The prices listed below will take effect on November 14, 2022, when {{ monitoring-short-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+The prices listed below will take effect on November 16, 2022, when {{ monitoring-short-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
 
 {% endnote %}
 
@@ -79,7 +79,7 @@ Where:
 
 {% endif %}
 
-## Pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices}
+## Pricing {% if product == "cloud-il" %}starting November 16, 2022{% endif %} {#prices}
 
 {% if product == "yandex-cloud" %}
 

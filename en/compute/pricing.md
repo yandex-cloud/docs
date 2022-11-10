@@ -8,7 +8,7 @@ editable: false
 
 {% note info %}
 
-The prices listed below will take effect on November 14, 2022, when {{ compute-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+The prices listed below will take effect on November 16, 2022, when {{ compute-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
 
 {% endnote %}
 
@@ -153,7 +153,7 @@ Usage prices are shown on an hourly basis (monthly for local drives). Billing oc
 {% endif %}
 
 
-## Pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices}
+## Pricing {% if product == "cloud-il" %}starting November 16, 2022{% endif %} {#prices}
 
 {% if region != "int" %}
 

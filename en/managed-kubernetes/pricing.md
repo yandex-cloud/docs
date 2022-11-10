@@ -8,7 +8,7 @@ editable: false
 
 {% note info %}
 
-The prices listed below will take effect on November 14, 2022, when {{ managed-k8s-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+The prices listed below will take effect on November 16, 2022, when {{ managed-k8s-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
 
 {% endnote %}
 
@@ -24,7 +24,7 @@ In {{ managed-k8s-name }}, you're charged for using [masters](concepts/index.md#
 
 Nodes are charged according to [pricing for {{ compute-full-name }}](../compute/pricing.md).
 
-## Pricing{% if product == "cloud-il" %} starting November 14, 2022{% endif %} {#prices}
+## Pricing{% if product == "cloud-il" %} starting November 16, 2022{% endif %} {#prices}
 
 ### Master {#master}
 

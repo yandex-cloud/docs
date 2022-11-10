@@ -7,7 +7,7 @@ editable: false
 
 {% note info %}
 
-The prices listed below will take effect on November 14, 2022, when {{ vpc-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+The prices listed below will take effect on November 16, 2022, when {{ vpc-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
 
 {% endnote %}
 
@@ -27,7 +27,7 @@ In {{ vpc-short-name }}, you pay for the hourly use of public IP addresses.
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-## {{ vpc-short-name }} pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices}
+## {{ vpc-short-name }} pricing {% if product == "cloud-il" %}starting November 16, 2022{% endif %} {#prices}
 
 ### Public IP addresses {#prices-public-ip}
 
@@ -133,7 +133,7 @@ All prices are shown without VAT.
 
 {% if product == "yandex-cloud" %}
 
-## {{ ddos-protection-full-name }} pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices-ddos-protection}
+## {{ ddos-protection-full-name }} pricing {% if product == "cloud-il" %}starting November 16, 2022{% endif %} {#prices-ddos-protection}
 
 {% if region != "int" %}
 
@@ -183,7 +183,7 @@ In this case, only 4 GB of filtered traffic are billed: 2 GB that DDoS Protectio
 
 {% if region == "ru" %}
 
-## {{ adv-ddos-protection }} pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices-ddos-advanced}
+## {{ adv-ddos-protection }} pricing {% if product == "cloud-il" %}starting November 16, 2022{% endif %} {#prices-ddos-advanced}
 
 {% note warning "Important" %}
 
@@ -211,7 +211,7 @@ The {{ adv-ddos-protection }} plan includes the following services:
 
 {% include [rub-advanced-ddos-services.md](../_pricing/vpc/rub-advanced-ddos-services.md) %}
 
-## Managed Web Application Firewall pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices-waf}
+## Managed Web Application Firewall pricing {% if product == "cloud-il" %}starting November 16, 2022{% endif %} {#prices-waf}
 
 All prices are shown with VAT.
 
