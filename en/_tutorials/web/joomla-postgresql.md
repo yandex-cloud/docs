@@ -1,7 +1,5 @@
 # Joomla-based website with PostgreSQL
 
-
-
 In these instructions, you'll learn how to deploy a website in Joomla CMS on a database running PostgreSQL in the {{ yandex-cloud }} infrastructure.
 
 To set up a static website on Joomla:

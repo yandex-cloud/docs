@@ -1,6 +1,5 @@
 # Integration with a corporate DNS zone
 
-
 To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, follow the steps below:
 1. Set up a work environment.
 

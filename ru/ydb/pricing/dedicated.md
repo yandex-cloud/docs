@@ -1,6 +1,9 @@
 # Правила тарификации для режима {{ ydb-name }} с выделенными инстансами
 
+
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 
 {% include [pricing-status.md](../_includes/pricing/pricing-status.md) %}
 
@@ -41,6 +44,7 @@
 
 Цена указывается за 1 месяц использования. Минимальная единица тарификации — 1 ГБ в час (например, стоимость хранения 1 ГБ в течение 1,5 часов равна стоимости хранения в течение 2 часов).
 
+
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
 {% include [cvos](../../_includes/mdb/cvos.md) %}
@@ -53,11 +57,15 @@
 
 {% endnote %}
 
-## Цены {#prices}
+
+## Цены  {#prices}
+
 
 Все цены указаны с включением НДС. Цены за месяц указаны из расчета для месяца в 30 календарных дней. Для более коротких месяцев цена соответственно выше, для более длинных — ниже.
 
+
 ### Вычислительные ресурсы хостов {#prices-compute-units}
+
 
 
 {% include notitle [rub-compute-units.md](../../_pricing/ydb/rub-compute-units.md) %}
@@ -65,7 +73,10 @@
 
 
 
+
+
 ### Хранилище и резервные копии {#prices-storage}
+
 
 
 {% include notitle [rub-storage.md](../../_pricing/ydb/rub-storage.md) %}
@@ -73,10 +84,14 @@
 
 
 
+
+
 ### Исходящий трафик {#prices-traffic}
 
 
+
 {% include notitle [rub-egress-traffic.md](../../_pricing/rub-egress-traffic.md) %}
+
 
 
 

@@ -1,6 +1,5 @@
 # Static volume provisioning
 
-
 Create a [pod](../../concepts/index.md#pod) with a statically provisioned [volume](../../concepts/volume.md):
 1. [Create a PersistentVolume](#create-pv).
 1. [Create a PersistentVolumeClaim](#create-claim).

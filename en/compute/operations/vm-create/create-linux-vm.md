@@ -6,7 +6,6 @@ description: "Following this guide, you will be able to create a virtual machine
 # Creating a VM from a public Linux image
 
 
-
 {% list tabs %}
 
 - Management console

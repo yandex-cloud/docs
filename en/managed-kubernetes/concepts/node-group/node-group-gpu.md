@@ -11,10 +11,9 @@ You can create node groups with graphics accelerators (GPUs) in {{ k8s }} cluste
 
   By default, the cloud has a zero [quota]({{ link-console-quotas }}) for using VMs with GPUs. To change the quota, contact [technical support]({{ link-console-support }}).
 
+* The cluster is in the `{{ region-id }}-a` and `{{ region-id }}-b` [availability zones](../../../overview/concepts/geo-scope.md), where VMs with GPUs are available.
 
-* The cluster is in the `{{ region-id }}-a` and `{{ region-id }}-b` zones.
-
-  VMs with GPUs are available in these [zones](../../../overview/concepts/geo-scope.md). When requesting a GPU quota, keep in mind which zones you're going to run your {{ k8s }} clusters in.
+  When requesting a GPU quota, keep in mind which zones you're going to run your {{ k8s }} clusters in.
 
 
 ## Billing {#pricing}

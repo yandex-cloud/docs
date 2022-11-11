@@ -1,6 +1,5 @@
 # Creating {{ CH }} clusters
 
-
 {{ CH }} clusters are one or more database hosts that replication can be configured between.
 
 {% note info %}

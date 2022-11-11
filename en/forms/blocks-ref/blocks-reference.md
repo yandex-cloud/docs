@@ -32,7 +32,6 @@ This section is about prompt blocks and parameters:
 
 - [One answer](radiobutton.md)
 
-- [Payment](payment.md)
 
 
 - [Departments](departments.md)

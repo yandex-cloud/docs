@@ -8,6 +8,7 @@
 {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
 
+
 {% list tabs %}
 
 - Консоль управления

@@ -26,6 +26,7 @@ GPU работает в режиме [TCC](https://docs.nvidia.com/nsight-visual
 ВМ с GPU нельзя создавать в зоне доступности `ru-central1-c`. Подробнее см. в разделе [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
 
 
+
 ## Графические ускорители (GPU) {#gpu}
 
 Графические ускорители подходят для задач машинного обучения (Machine Learning, ML), искусственного интеллекта (Artificial Intelligence, AI) и обработки трехмерной графики (3D Rendering).

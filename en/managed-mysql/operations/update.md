@@ -1,6 +1,5 @@
 # Changing cluster settings
 
-
 After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).

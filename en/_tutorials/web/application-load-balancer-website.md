@@ -1,7 +1,5 @@
 # Fault-tolerant website with load balancing by {{ alb-full-name }}
 
-
-
 Create and set up a website with load balancing by [{{ alb-name }}](../../application-load-balancer/concepts/index.md) between three availability zones and fault tolerance in one zone.
 
 1. [Before you start](#before-you-begin).

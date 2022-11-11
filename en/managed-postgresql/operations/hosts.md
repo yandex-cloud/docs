@@ -1,6 +1,5 @@
 # Managing hosts in a cluster
 
-
 You can add and remove cluster hosts and manage their settings.
 
 ## Getting a list of cluster hosts {#list}

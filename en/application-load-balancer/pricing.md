@@ -11,7 +11,6 @@ When using the {{ alb-name }} service, you pay for the actual use of computing r
 
 {% include [lcu-calculation](../_includes/application-load-balancer/lcu-calculation.md) %}
 
-
 ### Example of cost calculation {#example}
 
 A load balancer located in one availability zone, ran for an hour with the following indicators:
@@ -29,6 +28,7 @@ Where:
 * 500 / 200 = 2.5 ~ 3 is the number of resource units that contain 500 new connections.
 * 20 / 22 = 0.9090... ~ 1 is the number of resource units that contain 20 MB of traffic per second.
 * 2 is the minimum number of resource units in the zone.
+
 
 Calculating the cost per hour:
 > 
@@ -51,6 +51,7 @@ Calculating the cost per month (30 days) with the same hourly load:
 Where:
 * $0.142080 is the cost per resource unit.
 * 720 is the number of hours in a month.
+
 
 
 ## Pricing  {#prices}

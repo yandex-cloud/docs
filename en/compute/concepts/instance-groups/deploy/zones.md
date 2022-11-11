@@ -1,6 +1,5 @@
 # Allocating instances across zones
 
-
 Allocation of instances across zones depends on the [group scaling type](../scale.md).
 
 ## In manually scaled groups {#fixed-scale}
