@@ -1,6 +1,5 @@
 # Changing cluster settings
 
-
 After creating a cluster, you can:
 
 * [Change service account settings](#change-service-account).

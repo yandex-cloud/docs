@@ -1,6 +1,5 @@
 # Managing hosts in a cluster
 
-
 You can add and remove cluster hosts and manage {{ CH }} settings for individual clusters.
 
 {% note warning %}

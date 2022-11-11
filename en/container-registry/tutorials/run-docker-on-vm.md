@@ -1,6 +1,5 @@
 # Running a Docker image on a VM
 
-
 This example describes the steps required to run a Docker image on a VM using a registry.
 1. Create a service account and assign it the role `container-registry.images.puller` for the registry from the [example](../quickstart/index.md):
 

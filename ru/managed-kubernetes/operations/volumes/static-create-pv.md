@@ -1,6 +1,5 @@
 # Статическая подготовка тома
 
-
 Создайте [под](../../concepts/index.md#pod) со статически подготовленным [томом](../../concepts/volume.md):
 1. [Создайте объект PersistentVolume](#create-pv).
 1. [Создайте объект PersistentVolumeClaim](#create-claim).

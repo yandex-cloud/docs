@@ -8,6 +8,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
 
+
 {% list tabs %}
 
 - Management console

@@ -1,6 +1,11 @@
 # Pricing policy for {{ ydb-name }} Serverless mode
 
+
+
+
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 
 When you use {{ ydb-name }} in Serverless mode, you are billed for each request made to the database. Users don't have to indicate the resources they need: the database quickly adapts to changes in the user load. Apart from requests, the user pays for the data stored in {{ ydb-name }} on an hourly basis. Other operations, such as restoring data from backups, are charged additionally.
 
@@ -60,7 +65,7 @@ You can force a database backup, saving a copy to [{{ objstorage-full-name }}](.
 
 {% note warning %}
 
-If you export data using the ```ydb tools dump``` utility, billing is based on the rates for the `ReadTable` operation.
+If you export data using the `ydb tools dump` utility, billing is based on the rates for the `ReadTable` operation.
 
 {% endnote %}
 
@@ -70,11 +75,13 @@ You can restore databases and individual tables from the backups stored in Objec
 
 {% note warning %}
 
-If you restore data using the ```ydb tools restore``` utility, billing is based on the cost of writing a row to the DB for each restored row.
+If you restore data using the `ydb tools restore` utility, billing is based on the cost of writing a row to the DB for each restored row.
 
 {% endnote %}
 
-## Pricing {#prices}
+## Pricing  {#prices}
+
+
 
 
 
@@ -93,3 +100,6 @@ If you restore data using the ```ydb tools restore``` utility, billing is based 
 
 {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
 
+
+
+

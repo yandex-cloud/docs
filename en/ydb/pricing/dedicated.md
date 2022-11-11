@@ -1,6 +1,9 @@
 # Pricing rules for {{ ydb-name }} dedicated mode
 
+
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 
 {% include [pricing-status.md](../_includes/pricing/pricing-status.md) %}
 
@@ -40,8 +43,6 @@ The following is charged:
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
 
-## Pricing {#prices}
-
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
@@ -55,7 +56,12 @@ You currently can't order storage or web traffic this way.
 
 {% endnote %}
 
+
+## Pricing  {#prices}
+
+
 ### Host computing resources {#prices-compute-units}
+
 
 
 
@@ -63,7 +69,10 @@ You currently can't order storage or web traffic this way.
 {% include notitle [usd-compute-units.md](../../_pricing/ydb/usd-compute-units.md) %}
 
 
+
+
 ### Storage and backups {#prices-storage}
+
 
 
 
@@ -71,11 +80,15 @@ You currently can't order storage or web traffic this way.
 {% include notitle [usd-storage.md](../../_pricing/ydb/usd-storage.md) %}
 
 
+
+
 ### Outgoing traffic {#prices-traffic}
 
 
 
 
+
 {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
+
 
 

@@ -86,6 +86,7 @@ When you edit VM resources, the PCI topology might change. Keep this in mind whe
 
 ## Adding a GPU to an existing VM {#add-gpu}
 
+
 To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform and specify the number of GPUs.
 
 {% list tabs %}

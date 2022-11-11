@@ -1,7 +1,6 @@
 # Развертывание группы доступности Always On с внутренним сетевым балансировщиком
 
 
-
 {% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
 
 

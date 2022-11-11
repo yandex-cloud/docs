@@ -118,7 +118,7 @@ If you aren't sure which prompt block is right for your form, use the table:
 | Phone number | [{#T}](blocks-ref/phone.md) |
 | A link, like the link to a social media profile. | [{#T}](blocks-ref/link.md) |
 | A file uploaded by the user, like a photo. | [{#T}](blocks-ref/file.md) |
-| Money transfer, For example, as payment for attending an event. | [{#T}](blocks-ref/payment.md) |
+|  |
 | A response selected from the suggested options, like a product color. | [{#T}](blocks-ref/dropdown.md)<br/> [{#T}](blocks-ref/radiobutton.md) |
 | Multiple responses selected from the suggested options, like a request for multiple services. | [{#T}](blocks-ref/multiple.md) |
 | A name of a city or country, like the user's place of residence. | [{#T}](blocks-ref/cities.md) |

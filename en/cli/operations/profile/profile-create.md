@@ -1,6 +1,5 @@
 # Creating a profile
 
-
 There are two ways to create a profile:
 - [Creating an empty profile and adding parameters manually](#create).
 

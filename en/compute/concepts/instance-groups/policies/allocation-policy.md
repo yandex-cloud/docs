@@ -1,6 +1,5 @@
 # Allocation policy
 
-
 When creating an instance group, you can choose the {{ yandex-cloud }} regions and availability zones to host your instances.
 
 A region is a specific geographic location where you can deploy instances. Each region consists of one or more zones. Only one region is currently available. [More about the geo scope of {{ yandex-cloud }}](../../../../overview/concepts/geo-scope.md).
