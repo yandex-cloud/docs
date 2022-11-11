@@ -1,6 +1,20 @@
 # Pricing rules for {{ ydb-name }} dedicated mode
 
+{% if product == "cloud-il" %}
+
+{% note info %}
+
+The prices listed below will take effect on November 14, 2022, when {{ ydb-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+
+{% endnote %}
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% endif %}
 
 {% include [pricing-status.md](../_includes/pricing/pricing-status.md) %}
 
@@ -40,13 +54,7 @@ The following is charged:
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
 
-## Pricing {#prices}
-
-{% if region != "int" %}
-
-All prices are shown with VAT. Prices are given for a 30-day month. For shorter months, the price is higher. For longer months, it's lower.
-
-{% endif %}
+{% if product == "yandex-cloud" %}
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
@@ -60,7 +68,19 @@ You currently can't order storage or web traffic this way.
 
 {% endnote %}
 
+{% endif %}
+
+## Pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices}
+
+{% if region != "int" %}
+
+All prices are shown with VAT. Prices are given for a 30-day month. For shorter months, the price is higher. For longer months, it's lower.
+
+{% endif %}
+
 ### Host computing resources {#prices-compute-units}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -80,7 +100,17 @@ You currently can't order storage or web traffic this way.
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-compute-units.md](../../_pricing/ydb/ils-compute-units.md) %}
+
+{% endif %}
+
 ### Storage and backups {#prices-storage}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -100,7 +130,17 @@ You currently can't order storage or web traffic this way.
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-storage.md](../../_pricing/ydb/ils-storage.md) %}
+
+{% endif %}
+
 ### Outgoing traffic {#prices-traffic}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -120,3 +160,10 @@ You currently can't order storage or web traffic this way.
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-egress-traffic.md](../../_pricing/ils-egress-traffic.md) %}
+
+{% endif %}

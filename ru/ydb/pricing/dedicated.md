@@ -1,6 +1,20 @@
 # Правила тарификации для режима {{ ydb-name }} с выделенными инстансами
 
+{% if product == "cloud-il" %}
+
+{% note info %}
+
+Цены, указанные ниже, начнут действовать 14 ноября 2022 года, когда сервис {{ ydb-name }} [станет общедоступным](../overview/concepts/launch-stages.md). До этого использование сервиса не тарифицируется.
+
+{% endnote %}
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% endif %}
 
 {% include [pricing-status.md](../_includes/pricing/pricing-status.md) %}
 
@@ -41,6 +55,8 @@
 
 Цена указывается за 1 месяц использования. Минимальная единица тарификации — 1 ГБ в час (например, стоимость хранения 1 ГБ в течение 1,5 часов равна стоимости хранения в течение 2 часов).
 
+{% if product == "yandex-cloud" %}
+
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
 {% include [cvos](../../_includes/mdb/cvos.md) %}
@@ -53,11 +69,19 @@
 
 {% endnote %}
 
-## Цены {#prices}
+{% endif %}
+
+## Цены {% if product == "cloud-il" %}c 14 ноября 2022 года{% endif %} {#prices}
+
+{% if region != "int" %}
 
 Все цены указаны с включением НДС. Цены за месяц указаны из расчета для месяца в 30 календарных дней. Для более коротких месяцев цена соответственно выше, для более длинных — ниже.
 
+{% endif %}
+
 ### Вычислительные ресурсы хостов {#prices-compute-units}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -77,7 +101,17 @@
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-compute-units.md](../../_pricing/ydb/ils-compute-units.md) %}
+
+{% endif %}
+
 ### Хранилище и резервные копии {#prices-storage}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -97,7 +131,17 @@
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-storage.md](../../_pricing/ydb/ils-storage.md) %}
+
+{% endif %}
+
 ### Исходящий трафик {#prices-traffic}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -117,3 +161,10 @@
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-egress-traffic.md](../../_pricing/ils-egress-traffic.md) %}
+
+{% endif %}

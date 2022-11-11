@@ -1,6 +1,20 @@
 # Pricing policy for {{ ydb-name }} Serverless mode
 
+{% if product == "cloud-il" %}
+
+{% note info %}
+
+The prices listed below will take effect on November 14, 2022, when {{ ydb-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+
+{% endnote %}
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% endif %}
 
 When you use {{ ydb-name }} in Serverless mode, you are billed for each request made to the database. Users don't have to indicate the resources they need: the database quickly adapts to changes in the user load. Apart from requests, the user pays for the data stored in {{ ydb-name }} on an hourly basis. Other operations, such as restoring data from backups, are charged additionally.
 
@@ -60,7 +74,7 @@ You can force a database backup, saving a copy to [{{ objstorage-full-name }}](.
 
 {% note warning %}
 
-If you export data using the ```ydb tools dump``` utility, billing is based on the rates for the `ReadTable` operation.
+If you export data using the `ydb tools dump` utility, billing is based on the rates for the `ReadTable` operation.
 
 {% endnote %}
 
@@ -70,11 +84,13 @@ You can restore databases and individual tables from the backups stored in Objec
 
 {% note warning %}
 
-If you restore data using the ```ydb tools restore``` utility, billing is based on the cost of writing a row to the DB for each restored row.
+If you restore data using the `ydb tools restore` utility, billing is based on the cost of writing a row to the DB for each restored row.
 
 {% endnote %}
 
-## Pricing {#prices}
+## Pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -109,5 +125,15 @@ If you restore data using the ```ydb tools restore``` utility, billing is based 
 {% if region == "int" %}
 
 {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include notitle [ils-serverless](../../_pricing/ydb/ils-serverless.md) %}
+
+{% include notitle [ils-egress-traffic.md](../../_pricing/ils-egress-traffic.md) %}
 
 {% endif %}
