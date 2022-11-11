@@ -46,7 +46,7 @@
 
 - [Один вариант](radiobutton.md)
 
-{% if locale == "ru" %}
+{% if locale == "ru" and audience == "external" %}
 
 - [Оплата](payment.md)
 

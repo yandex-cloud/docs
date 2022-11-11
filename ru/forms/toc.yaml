@@ -123,6 +123,7 @@ items:
       href: blocks-ref/radiobutton.md
     - name: Оплата
       href: blocks-ref/payment.md
+      when: audience == "external"
     - name: Отделы
       when: audience == "external"
       href: blocks-ref/departments.md
