@@ -12,12 +12,6 @@ keywords:
 
 # Сайт на базе Joomla с БД PostgreSQL
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 С помощью этой инструкции вы научитесь разворачивать сайт на базе CMS Joomla с базой данных под управлением СУБД {{ PG }} в инфраструктуре {{ yandex-cloud }}.
 
 Чтобы настроить статический веб-сайт на Joomla:

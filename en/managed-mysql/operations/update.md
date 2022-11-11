@@ -1,11 +1,5 @@
 # Changing cluster settings
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).

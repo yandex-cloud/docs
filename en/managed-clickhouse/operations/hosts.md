@@ -1,11 +1,5 @@
 # Managing hosts in a cluster
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 You can add and remove cluster hosts and manage {{ CH }} settings for individual clusters.
 
 {% note warning %}

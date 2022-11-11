@@ -1,11 +1,5 @@
 # Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ alb-full-name }}
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 Создайте и настройте веб-сайт с балансировкой нагрузки через [{{ alb-name }}](../../application-load-balancer/concepts/index.md) между тремя зонами доступности, защищенный от сбоев в одной зоне.
 
 1. [Подготовьте облако к работе](#before-you-begin).

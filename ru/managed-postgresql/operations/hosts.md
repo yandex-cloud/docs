@@ -1,11 +1,5 @@
 # Управление хостами {{ PG }}-кластера
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 Вы можете добавлять и удалять хосты кластера, а также управлять их настройками.
 
 ## Получить список хостов в кластере {#list}

@@ -6,12 +6,6 @@ description: "Following this guide, you will be able to create a virtual machine
 # Creating a VM from a public Linux image
 
 {% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
-{% if product == "cloud-il" %}
 This section provides guidelines for creating a VM with a Linux OS. To create a Windows-based VM, follow the instructions [{#T}](create-windows-vm.md).
 {% endif %}
 

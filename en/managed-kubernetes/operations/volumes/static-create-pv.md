@@ -1,11 +1,5 @@
 # Static volume provisioning
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 Create a [pod](../../concepts/index.md#pod) with a statically provisioned [volume](../../concepts/volume.md):
 1. [Create a PersistentVolume](#create-pv).
 1. [Create a PersistentVolumeClaim](#create-claim).

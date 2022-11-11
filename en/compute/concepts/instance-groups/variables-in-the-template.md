@@ -1,11 +1,5 @@
 # Variables in an instance template
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 {{ ig-name }} lets you create a group of instances of the same type from a [template](instance-template.md). To use different characteristics for such instances, use the substitution mechanism for the system and user-defined variables in the template.
 
 A _system variable_ is a value that {{ ig-name }} calculates during instance creation and inserts it into the template for further use.

@@ -20,6 +20,12 @@ VMs with GPUs can't be created in `ru-central1-c`. For more information, see [{#
 
 {% endif %}
 
+{% if product == "cloud-il" %}
+
+{% include [gpu-zones-il](../../_includes/compute/gpu-zones-il.md) %}
+
+{% endif %}
+
 ## Graphics accelerators (GPUs){#gpu}
 
 Graphics accelerators are suitable for machine learning (ML), artificial intelligence (AI), and 3D rendering tasks.

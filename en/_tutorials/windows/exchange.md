@@ -1,11 +1,5 @@
 # Deploying Microsoft Exchange
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 This scenario describes how to deploy Microsoft Exchange servers in {{ yandex-cloud }}. Two Microsoft Exchange mail servers, two Active Directory servers, and two Edge Transport services will be installed in `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. A network load balancer is used to distribute load across servers. A separate VM with internet access in the `{{ region-id }}`-c availability zone will manage all the servers.
 
 1. [Before you start](#before-you-begin).

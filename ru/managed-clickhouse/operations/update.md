@@ -1,11 +1,5 @@
 # Изменение настроек {{ CH }}-кластера
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 После создания кластера вы можете:
 
 * [Изменить настройки сервисного аккаунта](#change-service-account).

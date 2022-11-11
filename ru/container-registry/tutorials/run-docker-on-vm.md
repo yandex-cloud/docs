@@ -1,11 +1,5 @@
 # Запуск Docker-образа на виртуальной машине
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 В этом руководстве описаны шаги, необходимые для запуска Docker-образа на ВМ с использованием реестра {{ cos-full-name }}.
 
 Для запуска Docker-образа на ВМ с использованием реестра:

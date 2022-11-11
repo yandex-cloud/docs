@@ -7,12 +7,6 @@ description: "Следуя данной инструкции вы сможете
 
 {% if product == "cloud-il" %}
 
-{% include [one-az-disclaimer](../../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
-{% if product == "cloud-il" %}
-
 В этом разделе приведена инструкция для создания виртуальной машины с операционной системой Linux. Для создания виртуальной машины на базе Windows воспользуйтесь инструкцией [{#T}](create-windows-vm.md).
 
 {% endif %}

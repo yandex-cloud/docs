@@ -1,11 +1,5 @@
 # Создать автоматически масштабируемую группу виртуальных машин
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 Вы можете создать автоматически масштабируемую группу однотипных виртуальных машин. Управление размером такой группой будет осуществляться автоматически. Подробнее читайте в разделе [{#T}](../../concepts/instance-groups/scale.md#auto-scale).
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}

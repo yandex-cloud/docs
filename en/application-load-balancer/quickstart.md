@@ -1,11 +1,5 @@
 # Getting started with {{ alb-full-name }}
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 This instruction will help you create your first L7 load balancer, connect a target group to it, and set up traffic to the test application backend.
 
 ## Before you begin {#before-begin}

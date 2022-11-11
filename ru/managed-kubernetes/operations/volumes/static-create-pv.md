@@ -1,11 +1,5 @@
 # Статическая подготовка тома
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 Создайте [под](../../concepts/index.md#pod) со статически подготовленным [томом](../../concepts/volume.md):
 1. [Создайте объект PersistentVolume](#create-pv).
 1. [Создайте объект PersistentVolumeClaim](#create-claim).

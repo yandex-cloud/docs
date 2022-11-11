@@ -1,11 +1,5 @@
 # Creating {{ CH }} clusters
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 {{ CH }} clusters are one or more database hosts that replication can be configured between.
 
 {% note info %}

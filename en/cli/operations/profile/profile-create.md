@@ -1,11 +1,5 @@
 # Creating a profile
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 There are two ways to create a profile:
 - [Creating an empty profile and adding parameters manually](#create).
 

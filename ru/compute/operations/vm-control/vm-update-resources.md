@@ -88,6 +88,12 @@
 
 ## Добавить GPU к существующей виртуальной машине {#add-gpu}
 
+{% if product == "cloud-il" %}
+
+{% include [gpu-zones-il](../../../_includes/compute/gpu-zones-il.md) %}
+
+{% endif %}
+
 Чтобы добавить [GPU](../../concepts/gpus.md) к существующей виртуальной машине, измените платформу и укажите количество GPU.
 
 {% list tabs %}

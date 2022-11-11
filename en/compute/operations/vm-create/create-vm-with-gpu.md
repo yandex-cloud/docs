@@ -10,6 +10,12 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
 {% endif %}
 
+{% if product == "cloud-il" %}
+
+{% include [gpu-zones-il](../../../_includes/compute/gpu-zones-il.md) %}
+
+{% endif %}
+
 {% list tabs %}
 
 - Management console

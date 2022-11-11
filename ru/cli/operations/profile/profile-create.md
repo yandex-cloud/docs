@@ -1,11 +1,5 @@
 # Создание профиля
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 Создать профиль можно двумя способами:
 - [Создание пустого профиля и добавление параметров вручную](#create).
     

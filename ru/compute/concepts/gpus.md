@@ -30,6 +30,12 @@ GPU работает в режиме [TCC](https://docs.nvidia.com/nsight-visual
 
 {% endif %}
 
+{% if product == "cloud-il" %}
+
+{% include [gpu-zones-il](../../_includes/compute/gpu-zones-il.md) %}
+
+{% endif %}
+
 ## Графические ускорители (GPU) {#gpu}
 
 Графические ускорители подходят для задач машинного обучения (Machine Learning, ML), искусственного интеллекта (Artificial Intelligence, AI) и обработки трехмерной графики (3D Rendering).

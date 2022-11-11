@@ -1,11 +1,5 @@
 # Scaling policy
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 When creating an instance group, you can choose how to increase and decrease the number of instances in the group.
 
 The policy is defined in the `scale_policy` key in the YAML file.

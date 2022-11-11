@@ -1,11 +1,5 @@
 # Распределение виртуальных машин по зонам
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 Распределение виртуальных машин по зонам зависит от [типа масштабирования группы](../scale.md). 
 
 ## В группах с ручным масштабированием {#fixed-scale}

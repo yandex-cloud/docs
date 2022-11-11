@@ -1,11 +1,5 @@
 # Настройки DHCP для работы с корпоративным DNS-сервером
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 Если вам необходимо, чтобы виртуальные машины разрешали имена в приватной корпоративной зоне DNS, используйте [опции DHCP](../../vpc/concepts/dhcp-options.md) в конфигурации [подсетей](../../vpc/operations/subnet-create.md). Например, для узлов подсети можно указать DNS-суффикс и DNS-сервер.
 
 Для выполнения данного сценария у вас уже должен быть развернут корпоративный DNS-сервер, доступный для виртуальных машин в облаке. Вы можете также выполнить {% if product == "cloud-il" %}[развертывание Active Directory](../../tutorials/windows/active-directory.md){% else %}развертывание Active Directory{% endif %}, чтобы создать инфраструктуру с DNS-сервером:

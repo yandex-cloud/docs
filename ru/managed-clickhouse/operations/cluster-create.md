@@ -1,11 +1,5 @@
 # Создание {{ CH }}-кластера
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 {{ CH }}-кластер — это один или несколько хостов базы данных, между которыми можно настроить репликацию.
 
 {% note info %}

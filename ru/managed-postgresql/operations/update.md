@@ -1,11 +1,5 @@
 # Изменение настроек {{ PG }}-кластера
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 После создания кластера вы можете:
 
 * [Изменить класс хостов](#change-resource-preset).

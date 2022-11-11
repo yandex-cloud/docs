@@ -1,11 +1,5 @@
 # Allocating instances across zones
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 Allocation of instances across zones depends on the [group scaling type](../scale.md).
 
 ## In manually scaled groups {#fixed-scale}

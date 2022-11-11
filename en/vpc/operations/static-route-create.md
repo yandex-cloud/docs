@@ -5,12 +5,6 @@ description: "The default static route (0.0.0.0/0) acts on machines with public 
 
 # Creating static routes
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 {% note info %}
 
 The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you need to [create a NAT instance](../../tutorials/routing/nat-instance.md), create it in a separate subnet.

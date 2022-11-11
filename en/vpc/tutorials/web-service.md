@@ -1,11 +1,5 @@
 # Architecture and protection of a basic internet service
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 This scenario describes how the infrastructure of a basic internet service with multiple VMs is built. Access to VMs will be restricted using security groups. A network load balancer will distribute the load across web app servers.
 
 To create the infrastructure of an internet service:

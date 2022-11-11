@@ -10,6 +10,12 @@
 
 {% endif %}
 
+{% if product == "cloud-il" %}
+
+{% include [gpu-zones-il](../../../_includes/compute/gpu-zones-il.md) %}
+
+{% endif %}
+
 {% list tabs %}
 
 - Консоль управления

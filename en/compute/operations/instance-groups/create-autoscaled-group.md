@@ -1,11 +1,5 @@
 # Creating an automatically scaled instance group
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 You can create an automatically scaled group of identical instances. The size of this group will be managed automatically. For more information, see [{#T}](../../concepts/instance-groups/scale.md#auto-scale).
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}

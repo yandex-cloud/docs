@@ -2,8 +2,6 @@
 
 {% if product == "cloud-il" %}
 
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
 {% include [windows-trial](../../_includes/compute/windows-trial.md) %}
 
 {% endif %}

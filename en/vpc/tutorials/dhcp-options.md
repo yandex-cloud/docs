@@ -1,11 +1,5 @@
 # DHCP settings for working with a corporate DNS server
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 If you want your VMs to resolve names in a private corporate DNS zone, use the [DHCP options](../concepts/dhcp-options.md) in the [subnet](../operations/subnet-create.md) configuration. For example, you can specify a DNS suffix and DNS server for subnet nodes.
 
 To run this scenario, make sure you have a corporate DNS server deployed that is available for the VMs in the cloud. You can also [deploy Active Directory](../../tutorials/windows/active-directory.md) to create an infrastructure with a DNS server:

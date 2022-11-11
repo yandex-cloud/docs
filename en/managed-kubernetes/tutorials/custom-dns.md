@@ -1,11 +1,5 @@
 # Integration with a corporate DNS zone
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, follow the steps below:
 1. Set up a work environment.
 

@@ -1,11 +1,5 @@
 # Deploying an Always On availability group with an internal network load balancer
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 The use case describes how to deploy an Always On availability group in {{ yandex-cloud }} and enable load balancing between the nodes using an internal network load balancer. Network interfaces will be set up to combine multiple subnets into a single common subnet. This means that you don't need [Multisubnet Failover]({{ ms.docs }}/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15). The primary IP address will be assigned to the replica written to. The same replica will have an open port, and the load balancer will route traffic to this port. Since the port specified for connecting to the load balancer becomes unavailable, an additional non-standard port will be used to receive traffic.
 
 To create and configure an Always On availability group with an internal network load balancer:

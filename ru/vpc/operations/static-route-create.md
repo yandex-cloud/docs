@@ -5,12 +5,6 @@ description: "Статический маршрут по умолчанию (0.0
 
 # Создать статический маршрут
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 {% note info %}
 
 Статический маршрут по умолчанию (`0.0.0.0/0`) действует на машины с публичными IP-адресами. Если вам требуется [создать NAT-инстанс](../../tutorials/routing/nat-instance.md), создайте его в отдельной подсети.

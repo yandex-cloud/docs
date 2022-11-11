@@ -1,11 +1,5 @@
 # Развертывание Microsoft Exchange
 
-{% if product == "cloud-il" %}
-
-{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
-
-{% endif %}
-
 {% if product == "yandex-cloud" %}
 
 {% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}

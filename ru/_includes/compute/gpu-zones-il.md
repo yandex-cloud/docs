@@ -1,0 +1,1 @@
+GPU есть только в [зоне доступности](../../overview/concepts/geo-scope.md) `il1-a`. В зонах `il1-b` и `il1-c` GPU появятся позже.
