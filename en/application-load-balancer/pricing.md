@@ -20,8 +20,6 @@ When using the {{ alb-name }} service, you pay for the actual use of computing r
 
 {% include [lcu-calculation](../_includes/application-load-balancer/lcu-calculation.md) %}
 
-{% if product == "yandex-cloud" %}
-
 ### Example of cost calculation {#example}
 
 A load balancer located in one availability zone, ran for an hour with the following indicators:
@@ -39,6 +37,8 @@ Where:
 * 500 / 200 = 2.5 ~ 3 is the number of resource units that contain 500 new connections.
 * 20 / 22 = 0.9090... ~ 1 is the number of resource units that contain 20 MB of traffic per second.
 * 2 is the minimum number of resource units in the zone.
+
+{% if product == "yandex-cloud" %}
 
 Calculating the cost per hour:
 > {% if region == "ru" %}8 × ₽2.22 = ₽17.76{% endif %}
@@ -60,6 +60,28 @@ Calculating the cost per month (30 days) with the same hourly load:
 
 Where:
 * {% if region == "ru" %}₽17.76{% endif %}{% if region == "kz" %}₸88.80{% endif %}{% if region == "int" %}$0.142080{% endif %} is the cost per resource unit.
+* 720 is the number of hours in a month.
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+Calculating the cost per hour:
+> 8 × ₪0.1127 = ₪0.9016
+>
+> Total: ₪0.9016 is the cost of using a load balancer per hour.
+
+Where:
+* 8 is the number of resource units.
+* ₪0.1127 is the cost per resource unit.
+
+Calculating the cost per month (30 days) with the same hourly load:
+> ₪0.9016 × 720 = ₪649.1520
+>
+> Total: ₪649.1520 is the cost of using the load balancer per month.
+
+Where:
+* ₪0.9016 is the cost per resource unit.
 * 720 is the number of hours in a month.
 
 {% endif %}
