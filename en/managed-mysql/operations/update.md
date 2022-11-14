@@ -4,7 +4,7 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [{#T}](#change-disk-size){% if audience != "internal" %} (unavailable for non-replicated SSD [storage](../concepts/storage.md)){% endif %}.
+* [{#T}](#change-disk-size){% if audience != "internal" %} (unavailable for non-replicated SSD [storage](../concepts/storage.md)){% endif %}.
 
 * [Changing settings{{ MY }}](#change-mysql-config).
 
@@ -357,7 +357,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   {% if product == "yandex-cloud" %}*`--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).{% endif %}
+   {% if product == "yandex-cloud" %}* `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).{% endif %}
 
    * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
 

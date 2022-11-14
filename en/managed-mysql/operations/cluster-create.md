@@ -153,10 +153,10 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         --resource-preset <host class> \
         --user name=<username>,password=<user password> \
         --database name=<database name> \
-        --disk-size <storage size, GB> \
-        --disk-type <local-ssd | local-hdd> \
+        --disk-size <storage size in GB> \
+        --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
         --security-group-ids <list of security group IDs> \
-        --deletion-protection=<cluster deletion protection: true or false> \
+        --deletion-protection=<cluster deletion protection: true or false>
       ```
 
       {% endif %}
@@ -393,7 +393,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    {% if audience != "internal" %}
 
    * Named `my-mysql`.
-   * Versions `{{ versions.cli.latest }}`.
+   * Version `{{ versions.cli.latest }}`.
    * In the `production` environment.
    * In the `default` network.
    * In the security group with the ID `{{ security-group }}`.
@@ -406,7 +406,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    {% else %}
 
    * Named `my-mysql`.
-   * Versions `{{ versions.cli.latest }}`.
+   * Version `{{ versions.cli.latest }}`.
    * In the `production` environment.
    * With one `{{ host-class }}` host in the `man` availability zone.
    * With 20 GB of local SSD storage (`local-ssd`).
@@ -469,7 +469,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    Create a {{ mmy-name }} cluster and a network for it with test characteristics:
 
    * Named `my-mysql`.
-   * Versions `{{ versions.tf.latest }}`.
+   * Version `{{ versions.tf.latest }}`.
    * In the `PRESTABLE` environment.
    * In the cloud with the ID `{{ tf-cloud-id }}`.
    * In the folder with the ID `{{ tf-folder-id }}`.

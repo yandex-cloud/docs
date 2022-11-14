@@ -94,6 +94,9 @@ items:
         href: tutorials/data-migration.md
       - name: Migrating databases from {{ mmy-name }} to {{ MY }}
         href: tutorials/mmy-to-mysql-migration.md
+      - name: >-
+          Delivering data to {{ mkf-full-name }} using {{ data-transfer-full-name }}
+        href: tutorials/cdc-data-transfer.md
       - name: Delivering data to {{ mkf-full-name }} using Debezium
         href: tutorials/cdc-debezium.md
   - name: Access management
