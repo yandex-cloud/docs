@@ -51,6 +51,8 @@ items:
             href: operations/function/function-monitoring.md
           - name: Просмотр журнала выполнения
             href: operations/function/function-logs.md
+          - name: Запись в журнал выполнения
+            href: operations/function/logs-write.md
           - name: Удаление функции
             href: operations/function/function-delete.md
       - name: Управление триггером
@@ -131,8 +133,8 @@ items:
             href: concepts/trigger/mail-trigger.md
       - name: Dead Letter Queue
         href: concepts/dlq.md
-      - name: Лог-группа
-        href: concepts/log-group.md
+      - name: Логи функции
+        href: concepts/logs.md
       - name: Резервное копирование
         href: concepts/backup.md
       - name: Квоты и лимиты
