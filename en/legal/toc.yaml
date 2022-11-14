@@ -24,6 +24,12 @@ items:
         href: specific-terms/dns.md
       - name: Cloud Marketplace
         href: marketplace-terms.md
+      - name: Cloud Marketplace (published 14.06.2022)
+        hidden: true
+        href: archive/marketplace-terms-20220614.md
+      - name: Cloud Marketplace (published 20.05.2022)
+        hidden: true
+        href: archive/marketplace-terms-20220520.md
       - name: Compute Cloud
         href: specific-terms/compute.md
       - name: Container Registry
@@ -98,8 +104,23 @@ items:
     href: tsr.md
   - name: Privacy Policy
     href: privacy.md
+  - name: Privacy Policy (published 14.06.2022)
+    hidden: true
+    href: archive/privacy-20220614.md
+  - name: Privacy Policy (published 20.05.2022)
+    hidden: true
+    href: archive/privacy-20220520.md
   - name: Rules for External Security Scans
     href: pentest.md
   - name: Terms of Use
     href: terms.md
+  - name: Terms of Use (published 29.06.2022)
+    hidden: true
+    href: archive/terms-20220629.md
+  - name: Terms of Use (published 14.06.2022)
+    hidden: true
+    href: archive/terms-20220614.md
+  - name: Terms of Use (published 20.05.2022)
+    hidden: true
+    href: archive/terms-20220520.md
 

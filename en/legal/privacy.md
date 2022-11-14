@@ -193,3 +193,7 @@ We may change this Privacy Policy from time to time at our sole discretion. If s
 Publication date: 10.11.2022
 
 Web address: <https://cloudil.co.il/docs/legal/privacy>
+
+*Previous version of the document: <https://cloudil.co.il/docs/legal/archive/privacy-20220614>*
+
+*Previous version of the document: <https://cloudil.co.il/docs/legal/archive/privacy-20220520>*
