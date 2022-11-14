@@ -98,8 +98,6 @@ You can create a QL chart using one of the following methods:
 
       After the query runs, a visualization of your data will be displayed.
 
-      {% include [datalens-monitoring-ch-example](../../../_includes/datalens/datalens-monitoring-ch-example.md) %}
-
       QL charts built on the {{ monitoring-short-name }} data can be parameterized similarly to SQL charts. This type of charts also has mandatory global parameters created automatically when building a QL chart. You can override default values of these parameters.
 
       | Parameter | Data type | Description |

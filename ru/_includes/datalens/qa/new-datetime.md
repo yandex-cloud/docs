@@ -11,7 +11,7 @@
 * С {% if audience == "internal" %}24 августа{% else %}6 сентября{% endif %} 2022 года:
    * Переименовали исходный тип даты и времени в [Дата и время (устаревший)](../../../datalens/concepts/data-types.md#datetime-old).
    * Добавили новый тип [Дата и время](../../../datalens/concepts/data-types.md#datetime), без приведения к UTC.
-   * Добавили новые функции приведения [GENERICDATETIME](../../../datalens/function-ref/GENERICDATETIME.md) и [GENERICDATETIME_PARSE](../../../datalens/function-ref/GENERICDATETIME_PARSE.md), без автоматических преобразований внутри.
+   {% if audience == "draft" %}* Добавили новые функции приведения [GENERICDATETIME](../../../datalens/function-ref/GENERICDATETIME.md) и [GENERICDATETIME_PARSE](../../../datalens/function-ref/GENERICDATETIME_PARSE.md), без автоматических преобразований внутри.{% endif %}
    * Ввели новый литерал `##...##` для обозначения константных значений без приведения к UTC.
 
 * {% if audience == "internal" %}5{% else %}12{% endif %} октября 2022 года:

@@ -80,12 +80,6 @@ DATEADD(#2018-01-12#, "day", 6)
 
 Вы можете привести исходный тип данных в тип `Дата и время (устаревший)` с помощью функций [DATETIME](../function-ref/DATETIME.md) и [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md).
 
-{% note info %}
-
-При использовании поля с типом `Дата и время (устаревший)` вы увидите предупреждение в правом верхнем углу чарта. Подробнее о том, как перейти к новому типу `Дата и время`, см. раздел [{#T}]{% if audience == "internal" %}(../faq.md#new-datetime){% else %}(../qa/index.md#new-datetime){% endif %}
-
-{% endnote %}
-
 #### Пример записи {#datetime-old-example}
 
 ```sql
