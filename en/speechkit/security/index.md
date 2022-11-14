@@ -30,13 +30,12 @@ In this section, you'll learn:
 For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} service documentation.
 
 
-
-### Roles of other  services {#integration-roles}
+### Roles of other services {#integration-roles}
 
 When working with {{ speechkit-name }}, you may need roles of other services, for example, to upload results and source materials to an {{ objstorage-name }} bucket.
 
 {% include [roles-integration](../../_includes/roles-integration-roles-speechkit.md) %}
-
+
 
 ### Primitive roles {#primitive-roles}
 

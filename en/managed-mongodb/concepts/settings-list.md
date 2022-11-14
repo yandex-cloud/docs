@@ -1,6 +1,6 @@
 # {{ MG }} settings
 
-For {{ mmg-name }} clusters, you can configure settings that relate to {{ MG }}.
+When [creating](../operations/cluster-create.md) or [editing](../operations/update.md#change-mongod-config) a {{ mmg-name }} cluster, you can specify settings that pertain to {{ MG }}.
 
 The label next to the setting name helps determine which interface is used to set the value of this setting: the management console, CLI, API, or {{ TF }}. The {{ tag-all }} label indicates that all of the above interfaces are supported.
 
@@ -11,7 +11,7 @@ Depending on the selected interface, the same setting is represented differently
 
 The following settings are only available for the {{ mmg-name }} cluster Enterprise version.
 
-* [Audit log](#setting-audit-log);
+* [Audit log](#setting-audit-log).
 * [Security](#setting-security).
 
 In a sharded cluster, some settings are only available to certain [host roles](sharding.md#shard-management).

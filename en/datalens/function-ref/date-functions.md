@@ -92,14 +92,6 @@ If the additional parameter `firstday` is specified, this day is considered the 
 
 
 
-## [GENERICNOW](GENERICNOW.md)
-
-**Syntax:**`GENERICNOW()`
-
-Returns the current date and time, depending on the data source and connection type.
-
-
-
 ## [HOUR](HOUR.md)
 
 **Syntax:**`HOUR( datetime )`

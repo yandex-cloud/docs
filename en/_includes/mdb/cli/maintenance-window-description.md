@@ -1,5 +1,3 @@
-`--maintenance-window`: Settings for the maintenance window (including disabled clusters):
-
 * `type`: Maintenance type:
    * `anytime`: Anytime.
    * `weekly`: By schedule.

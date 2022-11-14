@@ -71,7 +71,7 @@ The `%` and `px` options let you make a table cell break (by word). This may inc
 
 ![image](../../_assets/datalens/operations/chart/table-column-setting.png)
 
-{% endcut %}
+{% endcut %}
 
 {% note info %}
 
@@ -120,11 +120,12 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
    * **Align**: Left or right alignment of the indicator position in a column. Only applies if all numbers in a column are either positive or negative.
    * **Scale**: Sets the indicator scale. If you set it manually, specify the **min** and **max** values. Make sure the **min** value is less than or equal to `0` and the **max** value is larger than or equal to `0`.
 
+   
    {% cut "Sample linear indicator settings" %}
 
    ![image](../../_assets/datalens/operations/chart/table-linear-indicator-setting.png)
 
-   {% endcut %}
+   {% endcut %}
 
 1. Click **Apply**.
 
@@ -132,7 +133,7 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 
 ![image](../../_assets/datalens/operations/chart/table-linear-indicator.png)
 
-{% endcut %}
+{% endcut %}
 
 ## Recommendations {#recomendations}
 
@@ -141,20 +142,22 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 * Place dimensions on the left and measures on the right. This facilitates information perception.
 * Make sure column names you use are short and easy to read.
 * Enable the display of totals at the bottom of a table. If the **Pagination** option is selected, the `Total` row is placed on the last page.
-
+  
+  
   {% cut "Table with totals and pagination" %}
 
   ![table-pagination](../../_assets/datalens/visualization-ref/table-chart/table-pagination.png)
 
-  {% endcut %}
+  {% endcut %}
 
 * When posting a table on a dashboard, enable auto height in the widget settings. This will help you save dashboard space.
 
+  
   {% cut "Setting up auto height" %}
 
   ![table-auto-height](../../_assets/datalens/visualization-ref/table-chart/table-auto-height.png)
 
-  {% endcut %}
+  {% endcut %}
 
   If you use a filter, the table height will automatically adapt to the number of rows.
 
@@ -174,12 +177,12 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 
   * Subtotal amount of sales by product category: the `CategorySales` measure with the formula `SUM(SUM([Sales]) WITHIN [ProductCategory])`.
   * Total sales: the `TotalSales` measure with the formula `SUM(SUM([Sales]) TOTAL)`.
-
+    
     {% cut "Sample table" %}
 
     ![table-sum](../../_assets/datalens/visualization-ref/table-chart/table-sum.png)
 
-    {% endcut %}
+    {% endcut %}
 
   * Maximum order count per month grouped by product category: the `MaxCountByCategory` measure with the formula `MAX(COUNTD([OrderID] INCLUDE [ProductCategory]))`.
 

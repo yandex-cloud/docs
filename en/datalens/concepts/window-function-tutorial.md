@@ -4,11 +4,13 @@
 
 The difference is that when calculating window functions, the rows are not combined into one but continue to be separate. The result of the calculation is displayed in each row. The original number of rows doesn't change. For more detail on data aggregate and grouping in {{ datalens-short-name }}, please review [{#T}](aggregation-tutorial.md#datalens-aggregation).
 
+
+
 These examples will use [Selling.csv](https://disk.yandex.com/d/pT2f56G7bNaFvg) containing sales data by city as the data source to process.
 
 ## Applying window functions {#usage-window-function}
 
-In {{ datalens-short-name }}, only [measures](dataset/data-model.md#field) can be the arguments of window functions. The groups of values that a function is calculated for are specified as a list of [dimensions](dataset/data-model.md#field) and are called windows. [Groupings](#grouping) may only use the dimensions involved in building a chart. These include all the dimensions in one chart section.
+In {{ datalens-short-name }} , only [measures](dataset/data-model.md#field) can be the arguments of window functions. The groups of values that a function is calculated for are specified as a list of [dimensions](dataset/data-model.md#field) and are called windows. [Groupings](#grouping) may only use the dimensions involved in building a chart. These include all the dimensions in one chart section.
 
 Let's take a look at the `Selling` table with data on sales in cities:
 
@@ -66,7 +68,7 @@ Let's review the most complicated window function example. Let's a build a datas
 
    * Top-3 — `IF([Sales Rank] <= 3, 1, 0)`
 
-   The subcategories that make it into the top 3 based on sales for each date will have the `[Top-3]` metric equal to `1` whereas for the remaining categories on the same date, it will be equal to `0`.
+   The subcategories that make it into the top 3 based on sales for each date will have the `[Top-3]` metric equal to `1`whereas for the remaining categories on the same date, it will be equal to `0`.
 
    ![image](../../_assets/datalens/concepts/tutorial/window-func-13.png)
 
@@ -84,13 +86,14 @@ Let's review the most complicated window function example. Let's a build a datas
 
    * Drag the `Date` dimension under **X**.
    * Drag the `Sales` metric under **Y**.
-   * Drag the `Sub-Category` dimension under **Colors**.
+   * Drag the `Sub-Category` dimension  under **Colors**.
    * Under **filters**, we'll keep the filter for `Show Category` equal to `1`.
    * In the **Y** axis settings, select that **Null values** are to be **Displayed as 0**.
 
       ![image](../../_assets/datalens/concepts/tutorial/window-func-15.png)
 
 {% endcut %}
+
 
 ## Grouping in window functions {#grouping}
 
@@ -146,7 +149,7 @@ In this case, splitting into windows is performed for all dimensions that are in
 For example, for a chart with grouping by the `City` and `Category` dimensions, the following measures are the same:
 
 * `SUM(SUM([Sales]) AMONG [Category])` and `SUM(SUM([Sales]) WITHIN [City])`
-* `SUM(SUM([Sales]) AMONG [City], [Category])`and `SUM(SUM([Sales]) TOTAL)`
+* `SUM(SUM([Sales]) AMONG [City], [Category])`and `SUM(SUM([Sales]) TOTAL)`.
 
 This option is provided only for convenience and is used when you don't know which dimensions the chart will be built across in advance, but you need to exclude certain dimensions from the window grouping.
 
@@ -203,6 +206,8 @@ To understand what aggregate function to select for converting dimensions into m
 
 If you need to get a string measure with a value determined by grouping and sorting data in a window function, use the [ANY](../function-ref/ANY.md) aggregate function.
 
+
+
 Let's take a look at examples of creating measures for a window function. We'll build a dataset from a [connection](../tutorials/data-from-ch-to-sql-chart.md#create-connection) to the demo DB (the `MS_SalesMiniTable` table) and use it as our data source.
 
 **Example 1**
@@ -243,6 +248,7 @@ As a result, we should get a pivot table with the IDs of the last sales for the 
 1. Place the `last_shop_order` measure in the **Measures** section.
 
    ![image](../../_assets/datalens/concepts/tutorial/window-func-measure-last.png)
+
 
 ## Questions and answers {#qa}
 

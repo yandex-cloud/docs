@@ -6,11 +6,19 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
-### Release 20.09.22 {#200922}
+### Release 05.10.22 {#051022}
 
-Improved Moscow district and medication recognition accuracy in the `general:rc` model. The fixes are available for testing.
+Upgrades to the [September 20 release](#200922) are available in the `general` model.
 
 ## Previous versions {#previous}
+
+### Release 20.09.22 {#200922}
+
+In the `general:rc` model:
+* Improved recognition quality for Moscow neighborhoods and medications in Russian.
+* Added language classification in auto recognition mode.
+
+The fixes are available for testing.
 
 ### Release 29.06.22 {#290622}
 

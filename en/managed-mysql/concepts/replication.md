@@ -1,34 +1,62 @@
 # Replication
 
-{{ mmy-name }} clusters use [semi-sync replication](https://dev.mysql.com/doc/refman/5.7/en/replication-semisync.html): by default, the master waits for a transaction to be completed in at least one replica. The difference between {{ mmy-name }} semi-sync replication and standard replication is that if all semi-sync replicas are down, the cluster doesn't switch to asynchronous replication. Instead, it disables replication altogether until at least one replica is available.
+{{ mmy-name }} clusters use [semi-sync replication](https://dev.mysql.com/doc/refman/5.7/en/replication-semisync.html): by default, the master waits for a transaction to be completed in at least one replica.
 
-If the replica and the master are located in different availability zones, with semi-sync replication, the latency of transaction confirmation can't be less than the round-trip time (RTT) between data centers that are located in these availability zones. As a result, when writing to a single thread with [AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_autocommit) mode enabled, the performance of this kind of cluster can significantly drop. To achieve maximum performance, we recommend that you write to multiple threads wherever possible, [disable AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/en/commit.html), and group requests into transactions.
+{% note info %}
 
-Replication in {{ mmy-name }} also uses global transaction identifiers ([GTID](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-concepts.html)). They help maintain data consistency across cluster hosts.
+You can change the number of replicas required for a transaction to complete in the [Rpl semi sync master wait for slave count](settings-list.md#setting-rpl-wait-slave-count) setting.
+
+{% endnote %}
 
 {% include [non-replicating-hosts](../../_includes/mdb/non-replicating-hosts.md) %}
 
+## Managing replication procedures {#replication}
 
-## Specifics of replication in {{ mmy-name }} {#features}
+### Recommended cluster configuration {#replication-auto}
 
-If a cluster is single-host or if all replicas, except for the master, are completely unavailable (the status of the hosts is `DEAD`), replication doesn't work. As soon as a replica appears or becomes available in the cluster, semi-sync replication is performed in stages:
+Once a {{ MY }} cluster with multiple hosts is created, it contains one master host and replicas. Replicas use the host master as the replication source.
 
-1. When a replica becomes available, asynchronous replication is immediately enabled from the master. The master remains fully available for reads and writes and replica lag is gradually reduced.
-1. As soon as the lag is less than 100 MB, synchronous replication is enabled. The master becomes unavailable for writes until the data is fully synced with the replica: this process can take from one to tens of seconds depending on network performance.
-1. Once data on the master and replica is fully synced, the hosts are made fully available again and replicated synchronously.
+Example auto replicated cluster configuration:
 
-### Manual management of replication threads {#manual-source}
+![image](../../_assets/mdb/mmy-replicas-auto.svg)
 
-When you manually manage replication threads, other hosts in the cluster can be the replication source for any replica in the cluster.
+In this example, a master and two replicas are located in different availability zones. In this case:
 
-For replicas that have the replication source set manually and explicitly, fully asynchronous replication from the source host is used. These replicas may not become a master when the master host is changed automatically or manually.
+* Each transaction is saved to a minimum of two hosts.
+* The cluster is fault-tolerant to a host disconnecting in one availability zone and to two successive disconnections.
+
+If a replica and the master are located in different availability zones, transaction commit latency can't be less than the round-trip time (RTT) between data centers located in these availability zones. As a result, for single-thread writes with [AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_autocommit) enabled, cluster performance may drop considerably. For maximum performance, we recommend using several threads for write operations where possible as well as disabling [AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/en/commit.html) and grouping queries into transactions.
+
+Specifics of automatic replication in {{ mmy-name }}:
+
+* If the master host fails, its replica becomes the new master.
+* When the master changes, the replication source for all replica hosts automatically switches to the new master host.
+
+For more information about selecting the master host, see [{#T}](#master-failover).
+
+### Manual cluster configuration management {#manual-source}
+
+With manual management, other cluster hosts may serve as replication sources for any cluster replica. Replicas that have their [replication sources set](../operations/hosts.md#update) manually are referred to as _cascading_ replicas. Cascading replicas use asynchronous replication from a source host. Therefore, a cascading replica cannot become the master if the master host fails or is switched over manually.
+
+A cluster of two hosts, including one cascading replica, is not fault tolerant.
+
+Example cluster configuration with cascading replication and hosts in two availability zones:
+
+![image](../../_assets/mdb/mmy-cascade-replicas.svg)
 
 Assigning a replication source for the cluster hosts lets you:
 
 - Fully manage the replication process in the cluster without using automatic replication.
-- Configure replication for a {{ MY }} cluster with a tree topology, in which some replicas are managed automatically using {{ mmy-name }} tools and others manually. This will reduce the load on the master host's network.
+- Configure cascading replication for a {{ MY }} cluster with a tree topology, in which some replicas are managed automatically using {{ mmy-name }} tools and others manually. This will reduce the load on the master host's network.
 - Allocate some replicas for analytical load, since they won't become a master under any condition.
 
-### Assigning a different host as a master if the primary master fails {#master-failover}
+## Selecting a master if the primary master fails {#master-failover}
 
-If the master host fails, any of the cluster hosts available for replication becomes a new master. If the master assignment priority is set for the cluster hosts, the host with the highest priority is selected as a new master.
+If the master host fails, any of the cluster hosts available for replication becomes a new master. To affect master selection in a {{ MY }} cluster, [set the required priority values](../operations/hosts.md#update) for the cluster's hosts. The host with the highest priority will become the master, or in a cluster with several replicas of equal priority, the replica with the least lag with respect to the master will be selected. Replicas lagging more than the value of the [Mdb priority choice max lag](settings-list.md#setting-mdb-priority-choice-max-lag) setting (60 seconds, by default) will be excluded from the selection.
+
+You can set the priority for the host:
+
+* When [creating a cluster](../operations/cluster-create.md) via the YC CLI, API, or {{ TF }};
+* When [changing the host settings](../operations/hosts.md#update).
+
+The lowest priority is `0` (default), the highest is `100`.

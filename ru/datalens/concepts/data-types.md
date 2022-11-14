@@ -80,12 +80,6 @@ DATEADD(#2018-01-12#, "day", 6)
 
 Вы можете привести исходный тип данных в тип `Дата и время (устаревший)` с помощью функций [DATETIME](../function-ref/DATETIME.md) и [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md).
 
-{% note info %}
-
-При использовании поля с типом `Дата и время (устаревший)` вы увидите предупреждение в правом верхнем углу чарта. Подробнее о том, как перейти к новому типу `Дата и время`, см. раздел [{#T}](../qa/index.md#new-datetime)
-
-{% endnote %}
-
 #### Пример записи {#datetime-old-example}
 
 ```sql
@@ -111,7 +105,7 @@ DATETRUNC(#2018-07-12 11:07:13#, "month", 4)
 
 При использовании в формулах необходимо задавать дату и время с помощью удвоенного знака решетки `##`. Например `DATEADD(##2018-01-12 01:02:03##, "second", 6)`.
 
-Вы можете привести исходный тип данных в тип `Дата и время` с помощью функций [GENERICDATETIME](../function-ref/GENERICDATETIME.md) и [GENERICDATETIME_PARSE](../function-ref/GENERICDATETIME_PARSE.md).
+Вы можете привести исходный тип данных в тип `Дата и время` с помощью функций [DATETIME](../function-ref/DATETIME.md) и [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md).
 
 #### Пример записи {#datetime-example-tmp}
 

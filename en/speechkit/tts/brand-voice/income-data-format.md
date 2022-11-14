@@ -109,8 +109,7 @@ The file encoding is UTF-8.
 |---|---|
 | 0.wav | Did \*\*the cat\*\* go {place=outside}? |
 | 1.wav | Did \*\*the cat\*\* go {place=to look for a sausage}? |
-| 2.wav | We are offering the wonderful book {book_name=Russian folk tales} for just \{price=
-one thousand one hundred rubles}. |
+| 2.wav | We are offering the wonderful book {book_name=Russian folk tales} for just \{price=one thousand one hundred rubles}. |
 | 3.wav | We are offering the wonderful book {book_name=Alice's Adventures in Wonderland} for just \{price=two dollars and ninety-nine cents}. |
 | 4.wav | We are offering the wonderful book {book_name=Eugene Onegin} for just \{price=five hundred rubles forty-eight kopecks}. |
 | 5.wav | You are scheduled for {date=tomorrow} at \{time=fifteen oh clock}. |

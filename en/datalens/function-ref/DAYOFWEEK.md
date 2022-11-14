@@ -30,7 +30,7 @@ If the additional parameter `firstday` is specified, this day is considered the 
 
 
 **Argument types:**
-- `datetime` — `Date | Datetime | Datetime (deprecated)`
+- `datetime` — `Date | Datetime`
 - `firstday` — `String`
 
 

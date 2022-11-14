@@ -2,8 +2,7 @@
 
 Streaming mode allows you to simultaneously send audio for recognition and get recognition results over the same connection. You can also get intermediate recognition results when the speaker has not yet finished the utterance. After a pause, {{ speechkit-name }} returns the final results and starts recognizing the next utterance.
 
-> Voice assistants and smart speakers work using this recognition mode. When you activate the assistant, it starts transmitting speech to the server for recognition. The server processes the data and returns the intermediate and final recognition results of each utterance. The intermediate results are used to show the recognition progress. After the final results, the assistant performs an action, such as playing music or calling another person.
-
+> Voice assistants and smart speakers work using this recognition mode. When you activate the assistant, it starts transmitting speech to the server for recognition. The server processes the data and returns the intermediate and final results of each utterance recognition. The intermediate results are used to show the recognition progress. After the final results, the assistant performs an action, such as playing music or calling another person.
 
 
 {% note warning %}
@@ -11,7 +10,7 @@ Streaming mode allows you to simultaneously send audio for recognition and get r
 Streaming mode is designed for real-time audio recognition. To recognize a recorded audio file, use [synchronous](request.md) or [asynchronous](transcribation.md) audio recognition.
 
 {% endnote %}
-
+
 
 ## Streaming recognition restrictions {#session-restrictions}
 
@@ -33,8 +32,7 @@ To use the service, create an application that will send audio fragments and pro
 
 ### Client application interface code {#create-client-app}
 
-
-{{ speechkit-name }} has two streaming recognition API versions: [API v3](../v3/api-ref/grpc/) and [API v2](api/streaming-api.md). We recommend using API v3 for new projects.
+{{ speechkit-name }} has two streaming recognition API versions: [API v3](../v3/api-ref/grpc/) and [API v2](api/streaming-api.md). We recommend using API v3 for new projects.
 
 For the application to access the service, clone the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi/) repository and generate the client interface code for the used programming language from the [API v2](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) or [API v3](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v3/stt_service.proto) specification file.
 
@@ -52,8 +50,7 @@ It is easier to use a service account to authorize the application. When authori
 
 To recognize speech, the application must first send a message with recognition settings:
 * For API v3: The [RecognizeStreaming](../v3/api-ref/grpc/stt_service#RecognizeStreaming) message with the `session_options` type.
-   
-* For API v2: The `StreamingRecognitionRequest` message with the [RecognitionConfig](api/streaming-api#specification-msg) type.
+   * For API v2: The `StreamingRecognitionRequest` message with the [RecognitionConfig](api/streaming-api#specification-msg) type.
 
 When the session is set up, the server will wait for messages with audio fragments (chunks). Send the `RecognizeStreaming` message with the [session_options](../v3/api-ref/grpc/stt_service#RecognizeStreaming) type or the `StreamingRecognitionRequest` message with the [audio_content](api/streaming-api#audio-msg) type in API v2. Take the following recommendations into account when sending messages:
 
@@ -78,6 +75,5 @@ The {{ speechkit-name }} server returns recognition results and specifies their 
 * [{#T}](../concepts/auth.md)
 * [API v3 reference](../v3/api-ref/grpc/stt_service)
 * [{#T}](api/streaming-examples-v3.md)
-   
-* [{#T}](api/streaming-api.md)
-* [{#T}](api/streaming-examples.md)
+   * [{#T}](api/streaming-api.md)
+* [{#T}](api/streaming-examples.md)

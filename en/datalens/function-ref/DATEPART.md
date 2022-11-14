@@ -32,7 +32,7 @@ If you select `"dayofweek"`, you can use the additional parameter `firstday` to 
 
 
 **Argument types:**
-- `datetime` — `Date | Datetime | Datetime (deprecated)`
+- `datetime` — `Date | Datetime`
 - `unit` — `String`
 - `firstday` — `String`
 

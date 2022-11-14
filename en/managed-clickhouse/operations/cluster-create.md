@@ -74,7 +74,13 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
-   1. Under **Hosts**, select the parameters of database hosts created together with the cluster. To change the added host, hover over the host line and click ![image](../../_assets/pencil.svg).
+   1. Under **Hosts**, select the parameters of database hosts created together with the cluster. To change the settings of a host, click the ![pencil](../../_assets/pencil.svg) icon in the line with its number:
+
+      * **Availability zone**: Select an [availability zone](../../overview/concepts/geo-scope.md).
+      * **Subnet**: Specify a [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
+      * **Public access**: Allow [access](connect.md) to the host from the internet.
+
+      To add hosts to the cluster, click **Add host**.
 
    1. If necessary, configure additional cluster settings:
 
@@ -116,13 +122,16 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
         --name <cluster name> \
         --environment <environment: prestable or production> \
         --network-name <network name> \
-        --host type=<clickhouse or zookeeper>,zone-id=<availability zone>,subnet-id=<subnet ID> \
+        --host type=<clickhouse or zookeeper>,`
+             `zone-id=<availability zone>,`
+             `subnet-id=<subnet ID>,`
+             `assign-public-ip=<public host access: true or false> \
         --clickhouse-resource-preset <host class> \
         --clickhouse-disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
-        --clickhouse-disk-size <storage size in gigabytes> \
+        --clickhouse-disk-size <storage size in GB> \
         --user name=<username>,password=<user password> \
         --database name=<database name> \
-        --security-group-ids <security group ID list> \
+        --security-group-ids <list of security group IDs> \
         --yandexquery-access=<access via {{ yq-full-name }}: true or false> \
         --deletion-protection=<cluster deletion protection: true or false>
       ```
@@ -253,9 +262,10 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
         }
 
         host {
-          type      = "CLICKHOUSE"
-          zone      = "<availability zone>"
-          subnet_id = yandex_vpc_subnet.<subnet name in {{ TF }}>.id
+          type             = "CLICKHOUSE"
+          zone             = "<availability zone>"
+          subnet_id        = yandex_vpc_subnet.<subnet name in {{ TF }}>.id
+          assign_public_ip = <public host access: true or false>
         }
       }
       ```
@@ -314,6 +324,8 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
    * Network ID, in the `networkId` parameter.
    * Security group identifiers, in the `securityGroupIds` parameter.
+
+   To allow [connection](connect.md) to cluster hosts from the internet, pass the `true` value in the `hostSpecs.assignPublicIp` parameter.
 
    If necessary, enable user and database management via SQL:
    * `configSpec.sqlUserManagement`: Set `true` to enable [managing users via SQL](cluster-users.md#sql-user-management).

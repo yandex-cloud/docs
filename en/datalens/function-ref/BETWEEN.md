@@ -20,9 +20,9 @@ Returns `TRUE` if `value` is in the range from `low` to `high`.
 The option `value NOT BETWEEN low AND high` returns the opposite value.
 
 **Argument types:**
-- `value` — `Date | Datetime | Datetime (deprecated) | Fractional number | Integer | String`
-- `low` — `Date | Datetime | Datetime (deprecated) | Fractional number | Integer | String`
-- `high` — `Date | Datetime | Datetime (deprecated) | Fractional number | Integer | String`
+- `value` — `Date | Datetime | Fractional number | Integer | String`
+- `low` — `Date | Datetime | Fractional number | Integer | String`
+- `high` — `Date | Datetime | Fractional number | Integer | String`
 
 
 **Return type**: `Boolean`

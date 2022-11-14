@@ -4,10 +4,7 @@ _Speech recognition (speech-to-text, STT)_ is the process of converting speech t
 
 {% include [api-concepts](../../_includes/speechkit/api-concepts.md) %}
 
-
-
 ## Recognition methods {#stt-ways}
-
 
 
 {{ speechkit-name }} provides two ways of improving the quality of speech recognition:
@@ -16,8 +13,6 @@ _Speech recognition (speech-to-text, STT)_ is the process of converting speech t
 1. Audio file recognition. {{ speechkit-name }} Can recognize audio recordings in [synchronous](request.md) and [asynchronous](transcribation.md) mode.
    * Synchronous mode has strict limitations on the size and duration of a file and is suitable for recognizing single-channel audio fragments of up to {{ stt-short-audioLength }}.
    * Asynchronous mode can process multi-channel audio fragments. Maximum recording duration: {{ stt-long-audioLength }}.
-
-
 
 
 ### Which recognition to choose {#choose-stt}
@@ -31,7 +26,7 @@ _Speech recognition (speech-to-text, STT)_ is the process of converting speech t
 | **Maximum duration of audio data** | {{ stt-streaming-audioLength }} | {{ stt-short-audioLength }} | {{ stt-long-audioLength }} |
 | **Maximum amount of transmitted data** | {{ stt-streaming-fileSize }} | {{ stt-short-fileSize }} | {{ stt-long-fileSize }} |
 | **Number of recognition channels** | 1 | 1 | 2 |
-
+
 
 ## Recognition process {#process}
 
@@ -53,16 +48,14 @@ The accuracy of speech recognition is also affected by:
 * Utterance complexity and length.
 
 
-
 {% include [accuracy](../../_includes/speechkit/accuracy.md)%}
-
+
 
 #### See also {#see-also}
 
 * [{#T}](../formats.md)
 * [{#T}](models.md)
-* [How to work with streaming speech recognition](streaming.md)
-   
+* [{#T}](streaming.md)
 * [{#T}](request.md)
 * [{#T}](transcribation.md)
-* [{#T}](additional-training.md)
+* [{#T}](additional-training.md)

@@ -48,19 +48,17 @@ If the pattern phrases suggest that the glossary terms may be in possessive case
 Then the `templates.tsv` file may contain entries like
 
 ```
-Hello, are you {first-name=first-names.tsv} {middle-name=middle-names.tsv} {last-name=last-names.tsv}?
-Hello, can I talk to {first-name=first-names-ablative.tsv} {middle-name=middle-names-ablative.tsv} representative?
+Hello, are you {first-name=first-names.tsv}{middle-name=middle-names.tsv} {last-name=last-names.tsv}?
+Hello, can I talk to {first-name=first-names-ablative.tsv}{middle-name=middle-names-ablative.tsv} representative?
 ```
 
 ### Importing retraining data {#import-data}
 
-To transmit retraining data to the {{ speechkit-name }} command, contact your manager. 
-
+To transmit retraining data to the {{ speechkit-name }} command, contact your manager.
 
 
 ### Model availability dates {#commitments}
 
 
-
 Changes to a `general:rc` model are usually made over a period of 4 weeks as in any standard release roll-out cycle.
-
+

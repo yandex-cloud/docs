@@ -1,9 +1,9 @@
 ---
-title: Dashboards in Yandex DataLens
-description: 'Dashboard in Yandex DataLens — a page or a set of pages on which widgets are located. Allows you to collect charts in one place, add explanatory captions and titles to them. New dashboard pages can be created using the tab element. DataLens allows you to display your dashboard in full screen mode.'
+title: "{{ datalens-full-name }} dashboard"
+description: "Dashboards in {{ datalens-full-name }} are pages or sets of pages that contain widgets. They let you group charts in one place and add explanatory text and titles. You can create new dashboard pages using the tab element. {{ datalens-name }} lets you display the dashboard in full-screen mode."
 ---
 
-# Yandex DataLens dashboard
+# {{ datalens-full-name }} dashboards
 
 _Dashboards_ are pages or sets of pages that contain widgets. They let you group charts in one place and add explanatory text and titles.
 You can create new dashboard pages using the **tab** element.
@@ -12,7 +12,9 @@ You can create new dashboard pages using the **tab** element.
 
 {{ datalens-short-name }} lets you display the dashboard in full-screen mode. This mode hides part of the interface elements and expands the widget area on the screen.
 
-By default, on the mobile version of the dashboard, {{ datalens-short-name }} displays the charts one after another using the following sorting rule: left-to-right, top-to-bottom. In the tab settings, you can change the order of displaying charts and selectors in the mobile version or mailing lists.
+By default, on the mobile version of the dashboard, {{ datalens-short-name }} displays the charts one after another using the following sorting rule: left-to-right, top-to-bottom. In the tab settings, you can change the order of displaying charts and selectors in the mobile version or mailing lists. 
+
+
 
 ## Widgets {#widget}
 
@@ -20,10 +22,10 @@ _Widgets_ are dashboard elements. You can create links between selectors and cha
 
 {{ datalens-full-name }} offers the following types of widgets:
 
-- [Chart](#chart)
-- [Selector](#selector)
-- [Text](#text)
-- [Title](#title)
+* [Chart](#chart)
+* [Selector](#selector)
+* [Text](#text)
+* [Title](#title)
 
 ### Chart {#chart}
 
@@ -42,7 +44,7 @@ A selector works within a single dashboard tab.
 
 ### Text {#text}
 
-A widget represented as text. It lets you place things like a set of links or explanatory captions on a dashboard. The [Markdown markup language](https://en.wikipedia.org/wiki/Markdown) is supported.
+A widget represented as text. It lets you place things like a set of links or explanatory captions on a dashboard. The [Markdown markup language](https://ru.wikipedia.org/wiki/Markdown) is supported.
 For more information about Markdown, see [{#T}](markdown.md).
 
 ### Title {#title}
@@ -61,6 +63,7 @@ The field used by the selector to filter on must be included in the dataset used
 
 The link type determines how values in selectors and charts are filtered. The type is set in the links window in the dashboard edit mode.  
 You can use the following types of links for a pair of widgets:
+
 * **Link**, for widgets that mutually affect each other.
 * **Incoming link**, when a widget is affected by a widget.
 * **Outgoing link**, when a widget affects another widget.
@@ -76,11 +79,11 @@ You can't create a link with [{#T}](#text) and [{#T}](#title) widgets.
 Some widgets can't affect other widgets. Possible types of links between widgets are shown in the table:
 
 | Affects/Affected | Selector | Charts |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | **Selector** | Link<br/>Incoming link<br/>Outgoing link<br/>Ignore | Outgoing link<br/>Ignore |
 | **Chart** | Incoming link<br/>Ignore | — |
 
-## An alias {#alias}
+## An alias{#alias}
 
 An alias is a link between fields of different datasets, which determines how widgets impact each other when you link them.
 
@@ -103,6 +106,10 @@ For more information about how to create aliases, see [{#T}](../operations/dashb
 
 You can delete links from an alias where more than two fields are linked. Delete a field from the alias if its associated link between datasets or widgets is not required on a dashboard tab. For more information, see [{#T}](../operations/dashboard/edit-alias.md).
 
+
+
+
+
 ## Publishing dashboards {#public-access}
 
 You can grant any internet user access to a dashboard using [{{ datalens-public }}](datalens-public.md). This dashboard becomes public and any user can view it without authorization.
@@ -112,10 +119,17 @@ You can grant any internet user access to a dashboard using [{{ datalens-public 
 To share a dashboard containing Yandex Metrica or AppMetrica data, use one of the following methods:
 
 {% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
+
+
+
+
+
+
 
 ## Access management {#access-management}
 
-You can configure dashboard permissions. For more information, see [{#T}](../security/index.md).
+You can configure dashboard permissions.  For more information, see [{#T}](../security/index.md). 
+
 
 ## Auto-update {#auto-update}
 
@@ -128,6 +142,8 @@ The following limitations apply to auto-update:
 
    * If the tab isn't selected as the current tab, it's not considered active and the data is not updated.
    * If the tab is selected as the current tab, but the browser is running in the background, the tab is considered active and the data is updated.
+
+
 
 ## Diagnostics {#diagnostics}
 
@@ -154,6 +170,8 @@ Values above the optimal level are highlighted (in orange or red). To get recomm
 
 For some chart types, additional metrics are displayed:
 
+
+
 * **Columns / Rows**: Number of table columns and rows (for **Table** and **Pivot table** charts).
 * **Yandex Maps API**: Time to load modules required by Yandex Maps (for **Map** charts).
 
@@ -165,3 +183,4 @@ The **Data sources** section displays information about the sources used in a ch
 * Link to source.
 * Request body in JSON format.
 * SQL query text sent to source (only if the SQL query is successful and its results are rendered in the chart).
+

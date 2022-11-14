@@ -8,6 +8,18 @@ For more information about voice models, see [About the technology](tts/index.md
 
 ## Current version {#current}
 
+### Release 07.10.22 {#071022}
+
+The `general` branch has new voices and languages available for testing:
+* `lea` female voice: German.
+* `madi` male voice: Kazakh.
+* `madirus` male voice: Russian.
+* `nigora` female voice: Uzbek.
+
+The `general` branch also has voices `amira` and `john` available now.
+
+## Previous versions {#previous}
+
 ### Release 09.06.22 {#090622}
 
 1. Intonations and emphasis have been improved in all voices.
@@ -18,8 +30,6 @@ For more information about voice models, see [About the technology](tts/index.md
    * You can now apply pauses when using TTS markup. Using the `<[small]>` tag, you can set the duration of a pause in a synthesized text, for example: `Hello, <[small]>`. The duration of a pause can have the following values: `tiny`, `small`, `medium`, `large`, `huge`.
 
 1. Support for `filipp:deprecated` was ceased. `filipp:deprecated` and `filipp` sound the same now.
-
-## Previous versions {#previous}
 
 ### Release 19.05.22 {#190522}
 
@@ -41,7 +51,7 @@ For more information about voice models, see [About the technology](tts/index.md
 
 1. Added the ability to synthesize audio files in MP3 format. This feature is available in API v3 and when using premium voices in API v1.
 
-1. For new voices, role (extended emotional tone) support was added (see the `emotion` parameter in [API v1](tts/request.md#body_params) and `role` in [API v3](new-v3/api-ref/grpc/tts_service#Hints)). Different roles are available for different voices. For a complete list of values, see [{#T}](tts/voices.md). If an incorrect role is selected, the service will return an error.
+1. For new voices, mode (extended emotional tone) support was added (see the `emotion` parameter in [API v1](tts/request.md#body_params) and `role` in [API v3](new-v3/api-ref/grpc/tts_service#Hints)). Different modes are available for different voices. For a complete list of values, see [{#T}](tts/voices.md). If an incorrect mode is selected, the service will return an error.
 
 1. Degraded quality of emphasis placement has been corrected for `alena` and `filipp`. Emphasis placement and synthesized voice perception have been improved for all voices.
 
