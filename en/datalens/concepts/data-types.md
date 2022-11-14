@@ -119,7 +119,7 @@ Date with a specified time (the value is not converted to [UTC]{% if lang == "ru
 
 When you use date and time in formulas, make sure to use a double hash `##` around it. For example, `DATEADD(#2018-01-12 01:02:03#, "second", 6)`.
 
-You can convert the source data type to `Date and time` using the [GENERICDATETIME](../function-ref/GENERICDATETIME.md) and [GENERICDATETIME_PARSE](../function-ref/GENERICDATETIME_PARSE.md) functions.
+You can convert the source data type to `Date and time` using the [DATETIME](../function-ref/DATETIME.md) and [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md) functions.
 
 #### Example notation {#datetime-example-tmp}
 
