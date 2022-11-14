@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ mch-full-name }}
-description: "Access management in the service for creating and managing {{ CH }} databases. The section describes which resources can be assigned a role, which roles act in the service, which roles are required for this or that action."
+description: "Access management in the {{ CH }} database creation and management service. The section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
 ---
 
 # Access management in {{ mch-name }}
@@ -22,23 +22,61 @@ To allow access to {{ mch-name }} service resources (DB clusters and hosts, clus
 
 ## What roles exist in the service {#roles-list}
 
-{% include [roles-mdb](../../_includes/roles-mdb.md) %}
+### {{ roles-mdb-admin }} {#mdb-admin}
 
-## What roles do I need {#required-roles}
+{% include [roles-mdb-admin](../../_includes/roles-mdb-admin.md) %}
 
-The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For instance, assign `{{ roles-editor }}` instead of `{{ roles-viewer }}`.
+### {{ roles-mdb-viewer }} {#mdb-viewer}
 
-| Action | Methods | Required roles |
------ | ----- | -----
-| **View data** | |
-| View information about the cluster and related resources | `get`, `list` | `{{ roles-viewer }}` for the folder hosting the cluster |
-| **Manage resources** | |
-| Create clusters and backups in the folder | `create` | `{{ roles-mdb-admin }}` or `{{ roles-editor }}` for the folder |
-| Creating clusters with hosts that have public access enabled | `create` | Or `{{ roles-vpc-public-admin }}` along with `{{ roles-mdb-admin }}`, or `{{ roles-editor }}` for the folder |
-| Change and delete clusters and related resources | `update`, `delete` | `{{ roles-mdb-admin }}` or `{{ roles-editor }}` for the folder hosting the cluster |
-| **Manage resource access** | |
-| [Add](../operations/cluster-users.md#adduser), [edit](../operations/cluster-users.md#updateuser), [remove](../operations/cluster-users.md#removeuser) cluster users | `create`, `update`, `delete` | `{{ roles-editor }}` for the folder hosting the cluster |
-| [Grant a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view the roles assigned for a folder or cloud. | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `{{ roles-admin }}` for this folder or cloud |
+{% include [roles-mdb-viewer](../../_includes/roles-mdb-viewer.md) %}
+
+### {{ roles-mdb-auditor }} {#mdb-auditor}
+
+{% include [roles-mdb-auditor](../../_includes/roles-mdb-auditor.md) %}
+
+### {{ roles-cloud-member }} {#resmgr-clouds-member}
+
+{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
+
+### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
+
+{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
+
+{% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
+
+### {{ roles-viewer }} {#viewer}
+
+{% include [roles-viewer](../../_includes/roles-viewer.md) %}
+
+### {{ roles-editor }} {#editor}
+
+{% include [roles-editor](../../_includes/roles-editor.md) %}
+
+### {{ roles-admin }} {#admin}
+
+{% include [roles-admin](../../_includes/roles-admin.md) %}
+
+### {{ roles.mch.admin }} {#mch-admin}
+
+{% include [roles-mch-admin](../../_includes/roles-mch-admin.md) %}
+
+### {{ roles.mch.auditor }} {#mch-auditor}
+
+{% include [roles-mch-auditor](../../_includes/roles-mch-auditor.md) %}
+
+### {{ roles.mch.editor }} {#mch-editor}
+
+{% include [roles-mch-editor](../../_includes/roles-mch-editor.md) %}
+
+### {{ roles.mch.viewer }} {#mch-viewer}
+
+{% include [roles-mch-viewer](../../_includes/roles-mch-viewer.md) %}
+
+## Roles required {#required-roles}
+
+To use the service, you need the `editor` [role](../../iam/concepts/access-control/roles.md) or higher to the folder where a cluster is created. The `viewer` role only enables you to view the cluster list.
+
+You can always assign a role with more permissions. For example, assign the `admin` role instead of `editor`.
 
 ## What's next {#whats-next}
 

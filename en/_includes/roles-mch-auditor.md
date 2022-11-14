@@ -1,0 +1,1 @@
+The `{{ roles.mch.auditor }}` role enables you to view information about clusters and quotas.

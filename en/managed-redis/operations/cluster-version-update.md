@@ -37,7 +37,7 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 {% note alert %}
 
 * After updating the DBMS, the cluster can't be rolled back to the previous version.
-* The success of {{ RD }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you first [upgrade a test cluster](#before-update) that uses the same data and settings.
+* The success of a {{ RD }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you first [upgrade a test cluster](#before-update) that uses the same data and settings.
 
 {% endnote %}
 
@@ -84,11 +84,11 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * The {{ RD }} version number in the `configSpec.version` parameter.
    * List of cluster configuration fields to be changed in the `updateMask` parameter.
 
-      {% include [updateMask note](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

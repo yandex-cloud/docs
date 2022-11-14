@@ -18,7 +18,7 @@ MONTH( datetime )
 Returns the number of the month in the year of the specified date `datetime`.
 
 **Argument types:**
-- `datetime` — `Date | Datetime | Datetime (deprecated)`
+- `datetime` — `Date | Datetime`
 
 
 **Return type**: `Integer`

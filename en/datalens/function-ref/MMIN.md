@@ -56,7 +56,7 @@ Window functions with a similar behavior: [MSUM](MSUM.md), [MCOUNT](MCOUNT.md), 
 See also [MIN](MIN.md), [RMIN](RMIN.md).
 
 **Argument types:**
-- `value` — `Boolean | Date | Datetime | Datetime (deprecated) | Fractional number | Integer | String | UUID`
+- `value` — `Boolean | Date | Datetime | Fractional number | Integer | String | UUID`
 - `rows_1` — `Integer`
 - `rows_2` — `Integer`
 

@@ -6,8 +6,6 @@ _Speech synthesis_ in {{ speechkit-full-name }} lets you convert any text to spe
 
 
 
-
-
 ## Synthesis options {#features}
 
 {% include [api-concepts](../../_includes/speechkit/api-concepts.md) %}
@@ -28,7 +26,7 @@ _Speech synthesis_ in {{ speechkit-full-name }} lets you convert any text to spe
 | [Template synthesis](brand-voice/index.md#adaptive) | No | ` text_template` parameter |
 | [Pricing method](../pricing.md#rules-tts) | Total number of characters in the requests | By request |
 | Automatic splitting of long phrases | Not required | `unsafe_mode` parameter |
-
+
 
 ## Languages and voices {#langs}
 
@@ -36,7 +34,7 @@ You can select a voice to convert your text to speech. Each voice corresponds to
 
 If no voice suits your business, {{ speechkit-name }} can create a unique one specifically for you. For more information, see [{#T}](brand-voice/index.md).
 
-{{ speechkit-name }} can synthesize speech in different languages. Each voice is designed to synthesize speech in a specific language. Voices can also read text in a <q>foreign</q> language, but the quality of the synthesized speech will be poorer in this case: <q>the speaker</q> will pronounce the text with an accent, and there may be errors in word synthesis. 
+{{ speechkit-name }} can synthesize speech in different languages. Each voice is designed to synthesize speech in a specific language. Voices can also read text in a <q>foreign</q> language, but the quality of the synthesized speech will be poorer in this case: <q>the speaker</q> will pronounce the text with an accent, and there may be errors in word synthesis.
 
 ### Mode {#role}
 
@@ -44,12 +42,10 @@ The synthesized speech will sound different, depending on the selected mode. Mod
 
 ## Controlling pronunciation {#markup}
 
-
 To control pronunciation in the synthesized speech, mark up the source text. {{ speechkit-name }} can synthesize speech from text marked up using [Speech Synthesis Markup Language](https://en.wikipedia.org/wiki/Speech_Synthesis_Markup_Language) (SSML) or TTS markup. These markup methods enable you to set the length of pauses, the pronunciation of individual sounds, and more. SSML and TTS markup have different data transmission parameters:
 
 * SSML is only supported in API v1 requests. To transmit text in SSML format, include the `ssml` parameter in the call body and use the `<speak>` tag as a wrapper for the text. For more information about SSML tags, see [{#T}](ssml.md).
-* TTS markup is supported in API v1 and API v3. In API v1 requests, transmit the text marked up according to TTS rules in the `text` parameter in the request body. API v3 requires no special parameters and considers any transmitted text as marked up according to TTS rules. For more information about TTS markup, see [{#T}](tts-markup.md).
-
+* TTS markup is supported in API v1 and API v3. In API v1 requests, transmit the text marked up according to TTS rules in the `text` parameter in the request body. API v3 requires no special parameters and considers any transmitted text as marked up according to TTS rules. For more information about TTS markup, see [{#T}](tts-markup.md).
 
 ## Synthesis settings {#settings}
 
@@ -86,12 +82,11 @@ For a full list of available formats and their characteristics, see [{#T}](../fo
 #### See also {#see-also}
 
 
-
 * Try synthesizing speech using demo on the [service page](https://cloud.yandex.com/services/speechkit#demo).
 * Review the parameters of the [API v1](request.md) method and [API v3](../tts-v3/api-ref/grpc/) requests.
 * See examples of using the {{ speechkit-name }} API:
    * [{#T}](api/tts-ogg.md)
    * [{#T}](api/tts-wav.md)
    * [{#T}](api/tts-ssml.md)
-
+
 

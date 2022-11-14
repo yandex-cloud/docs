@@ -57,7 +57,7 @@ Window functions with a similar behavior: [RSUM](RSUM.md), [RCOUNT](RCOUNT.md), 
 See also [MIN](MIN.md), [MMIN](MMIN.md).
 
 **Argument types:**
-- `value` — `Boolean | Date | Datetime | Datetime (deprecated) | Fractional number | Integer | String | UUID`
+- `value` — `Boolean | Date | Datetime | Fractional number | Integer | String | UUID`
 - `direction` — `String`
 
 

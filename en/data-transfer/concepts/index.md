@@ -115,4 +115,3 @@ For more information about the `createIndex()` function, see the [{{ MG }} docum
 ### {{ yds-full-name }} {#yds}
 
 By default, a separate table is created for every partition when data is transferred from {{ yds-name }} to {{ CH }}. For all data to be entered in a single table, specify conversion rules in the [advanced endpoint settings for the source](../operations/endpoint/source/data-streams.md#additional-settings).
-

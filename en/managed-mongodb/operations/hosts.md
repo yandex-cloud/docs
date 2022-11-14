@@ -241,7 +241,7 @@ To [resync a host](https://docs.mongodb.com/manual/tutorial/resync-replica-set-m
 
 During this operation:
 
-1. The host stops accepting write requests. If the host was a `PRIMARY` replica, {{ mmg-short-name }} will try to make it a `SECONDARY` [replica](https://docs.mongodb.com/manual/reference/method/rs.stepDown/#rs.stepDown).  If the operation fails, it is aborted.
+1. The host stops accepting write requests. If the host was a `PRIMARY` replica, {{ mmg-short-name }} will try to make it a `SECONDARY` [replica](https://docs.mongodb.com/manual/reference/method/rs.stepDown/#rs.stepDown). If the operation fails, it is aborted.
 
 1. The MongoDB instance on the host stops and all data is deleted.
 

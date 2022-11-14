@@ -1,0 +1,1 @@
+The `{{ roles-mdb-viewer }}` role enables you to view information about the cluster's managed databases and their runtime logs.

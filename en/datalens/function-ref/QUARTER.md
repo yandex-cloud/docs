@@ -18,7 +18,7 @@ QUARTER( datetime )
 Returns the number of the quarter (from `1` to `4`) of the year of the specified date `datetime`.
 
 **Argument types:**
-- `datetime` — `Date | Datetime | Datetime (deprecated)`
+- `datetime` — `Date | Datetime`
 
 
 **Return type**: `Integer`

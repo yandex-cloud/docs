@@ -267,7 +267,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    
    * Named `my-mysql`.
-   * Versions `{{ versions.cli.latest }}`.
+   * Version `{{ versions.cli.latest }}`.
    * In the `production` environment.
    * In the `default` network.
    * In the security group with the ID `{{ security-group }}`.
@@ -312,7 +312,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    Create a {{ mmy-name }} cluster and a network for it with test characteristics:
 
    * Named `my-mysql`.
-   * Versions `{{ versions.tf.latest }}`.
+   * Version `{{ versions.tf.latest }}`.
    * In the `PRESTABLE` environment.
    * In the cloud with the ID `{{ tf-cloud-id }}`.
    * In the folder with the ID `{{ tf-folder-id }}`.

@@ -10,34 +10,37 @@ There are no quotas for {{ datalens-short-name }}.
 
 {% endnote %}
 
+
+
 | Type of limit | Value |
 ----- | -----
 | Number of DataLens instances per organization or cloud | 1 |
 | Maximum CSV file size | 200 MB |
-| The maximum number of rows of [materialized data](../../datalens/concepts/dataset/settings.md#materialization)<br> per dataset | 100,000,000 |
+| The maximum number of rows of [materialized data](../../datalens/concepts/dataset/settings.md#materialization) <br>per dataset | 100000000 |
 | Maximum number of tables in a single dataset | 32 |
-| Maximum number of fields in a single dataset | 1,200 |
+| Maximum number of fields in a single dataset | 1200 |
+
 
 #### Chart data limits {#datalens-chart-data-limits}
 
-Charts in {{ datalens-short-name }} can only display a limited amount of data. If the number of rows (columns and cells for pivot tables) in a dataset exceeds the established limit, the chart will not be built. Therefore, to build a chart from data in a large dataset, select a part of the data to display based on the limits below using [filters](../../datalens/concepts/dataset/settings.md#default-setting):
+Charts in {{ datalens-short-name }} can only display a limited amount of data. If the number of rows (columns and cells for pivot tables) in a dataset exceeds the established limit, no chart will be built. Therefore, to build a chart from data in a large dataset, select a part of the data to display based on the limits below using [filters](../../datalens/concepts/dataset/settings.md#default-setting):
 
 | Chart type | Limit |
 ----- | -----
 | **Charts** |
-| Line chart | 75,000 rows |
-| Stacked area chart<br/>Normalized area chart | 75,000 rows |
-| Column chart<br/>Normalized column chart | 75,000 rows |
-| Bar chart<br/>Normalized bar chart | 75,000 rows |
-| Scatter chart | 75,000 rows |
-| Pie chart | 1,000 rows |
-| Tree chart | 1,000 rows |
+| Line chart | 75000 rows |
+| Stacked area chart<br/>Normalized area chart | 75000 rows |
+| Column chart<br/>Normalized column chart | 75000 rows |
+| Bar chart<br/>Normalized bar chart | 75000 rows |
+| Scatter chart | 75000 rows |
+| Pie chart | 1000 rows |
+| Tree chart | 1000 rows |
 | **Tables** |
-| Table | 100,000 rows |
-| Pivot table | 100,000 cells |
+| Table | 100000 rows |
+| Pivot table | 100000 cells |
 | Pivot table | 800 columns |
 | **Geomaps** |
-| Point map | 40,000 rows |
-| Background map | 40,000 rows |
-| Heat map | 40,000 rows |
-| Polyline map | 40,000 rows |
+| Point map | 40000 rows |
+| Background map | 40000 rows |
+| Heat map | 40000 rows |
+| Polyline map | 40000 rows |

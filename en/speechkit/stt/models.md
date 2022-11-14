@@ -5,7 +5,6 @@ A recognition model is a model that is trained to recognize speech in a specific
 The main supported model for each type of recognition is the `general` model. It recognizes speech on any topic in a given language, including short and long utterances, names, addresses, dates, and numbers.
 
 
-
 ## Version tags {#tags}
 
 Three versions of the `general` model are available at the same time. You can select the desired version by tag:
@@ -19,12 +18,11 @@ Three versions of the `general` model are available at the same time. You can se
 Versions available by the `general:deprecated` tag stop being supported when new models are released: {{ speechkit-name }} guarantees two weeks of support for the previous version after updating the version by the `general` tag.
 
 {% endnote %}
-
+
 
 ## Supported recognition languages {#languages}
 
-
-The list of languages that the model can recognize depends on the recognition mode.
+The list of languages that the model can recognize depends on the recognition mode.
 
 Specify the language in [ISO 639-1](https://www.iso.org/iso-639-language-codes.html) format. All available language code values are case insensitive.
 
@@ -32,8 +30,8 @@ Specify the language in [ISO 639-1](https://www.iso.org/iso-639-language-codes.h
 
 - Data streaming recognition
 
-   | Code | Language  |
-   |---|---| 
+   | Code | Language |
+   |---|---|
    | `auto` | Automatic language recognition |
    | `de-DE` | German |
    | `en-US` | English |
@@ -51,12 +49,11 @@ Specify the language in [ISO 639-1](https://www.iso.org/iso-639-language-codes.h
 
    For more information about streaming recognition features and API integration, see [Streaming recognition](streaming.md#specification-msg).
 
-
 - Synchronous recognition
 
    The `general` model is available for Russian.
 
-   | Code | Language  |
+   | Code | Language |
    |---|---|
    | `ru-RU` | Russian (default) |
 
@@ -65,32 +62,30 @@ Specify the language in [ISO 639-1](https://www.iso.org/iso-639-language-codes.h
 - Asynchronous recognition
 
    For [asynchronous recognition](transcribation.md), a language model that can operate in two modes is available:
-   1. In standard mode, recognition is processed in a standard priority queue. The standard mode works when the `general` model is selected.
+   1. In standard mode, recognition is processed in a standard priority queue. This mode works when the `general` model is selected.
    1. In deferred mode, the audio file to be recognized is placed in a low priority queue and processed at the least busy time. [Special pricing](../pricing.md#prices-stt) applies to deferred recognition. The time required to process an audio file in deferred mode is 24 hours or less. Recognition in deferred mode is available when the `deferred-general` model is specified.
 
    You can use asynchronous recognition for audio files in the following languages:
 
-   | Code | Language  |
+   | Code | Language |
    |---|---|
    | `kk-KK` | Kazakh |
    | `ru-RU` | Russian (default) |
 
    In the API request, specify the `lang` parameter value. Learn more about configuring API requests for [asynchronous recognition](transcribation.md#sendfile-params).
-
+
 
 {% endlist %}
 
-
 ## Recognition accuracy {#speed_and_accuracy}
 
-{% include [accuracy](../../_includes/speechkit/accuracy.md)%}
+{% include [accuracy](../../_includes/speechkit/accuracy.md)%}
 
 #### See also {#see-also}
 
 * [{#T}](../formats.md)
 * [{#T}](models.md)
 * [{#T}](streaming.md)
-   
-* [{#T}](request.md)
+   * [{#T}](request.md)
 * [{#T}](transcribation.md)
-* [{#T}](additional-training.md)
+* [{#T}](additional-training.md)

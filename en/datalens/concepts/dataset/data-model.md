@@ -1,44 +1,44 @@
 ---
-title: "Data model in Yandex DataLens"
-description: "The article describes the data model of the Yandex DataLens service. One or more tables are used as a data source. If several tables are available in the source, they can be joined using the JOIN operator. The union is performed by creating a link. In a link, you specify the fields of the source table and the fields of the table to be joined to."
+title: "Data model in {{ datalens-full-name }}"
+description: "The article describes a data model used in {{ datalens-full-name }} . One or more tables are used as the data source. If multiple tables are available in the data source, you can merge them using the JOIN operator. When the tables are joined, a link is created between them. When you create a link, you specify the fields from the source table and merged table."
 ---
 
-# Data model
+# Data model in {{ datalens-name }}
 
 Data in a dataset is represented as fields.
 
 ## Data source {#source}
 
-One or more tables are used as the data source. If multiple tables are available in the data source, you can merge them using the JOIN operator.
+One or more tables are used as the data source. If there are multiple tables in the source, you can join them with a [JOIN](https://en.wikipedia.org/wiki/Join_(SQL)).
 When the tables are joined, a link is created between them. When you create a link, you specify the fields from the source table and merged table.
 
 Tables are linked automatically by the first match in the field name and field data type.
 
 In this case, you can:
+- Edit fields in the link.
+- Add new links or delete existing links.
+- Change the type of a `JOIN` (`INNER`, `LEFT`, `RIGHT`, or `FULL`) in the link.
 
-* Edit fields in the link.
-* Add new links or delete existing links.
-* Change the type of the JOIN operator used in the link (INNER, LEFT, RIGHT, FULL).
+A `JOIN` is used if a query made from a chart accesses fields of two or more dataset tables.
 
-The JOIN operator is used if the query made from the chart accesses the fields of two or more tables of the dataset.
+A `JOIN` is not used if:
+- The dataset contains one table.
+- The dataset contains multiple tables, but the query accesses the fields of only one of those tables.
 
-The JOIN operator is not used if:
-
-* The dataset contains one table.
-* The dataset contains multiple tables, but the query accesses the fields of only one of those tables.
+For more information about optimization when using a `JOIN`, see [{#T}](../data-join.md#join-optimization).
 
 ## Data fields {#field}
 
 The fields define the structure and format of the dataset. The following types of fields are available:
 
 - **Dimension**. Contains values that define data characteristics, such as city, date of purchase, or product category. The aggregation function is not applied to fields with a dimension, otherwise the field becomes an measure. In the interface, dimensions are displayed in green.
-- **Measure**. Contains numeric values that aggregation functions (information) are applied to, such as the amount of clicks and the number of click-throughs. If you remove the aggregation function from this field, it becomes a dimension. In the interface, measures are displayed in blue.
- 
+- **Measure**. Contains numeric values that aggregation functions (information) are applied to. such as the amount of clicks and the number of click-throughs. If you remove the aggregation function from this field, it becomes a dimension. In the interface, measures are displayed in blue.
+
 In the dataset creation interface and wizard, you can duplicate fields, create fields, and use [aggregation functions](#aggregation).
 
 {% note warning %}
 
-The maximum number of fields in a single dataset is 500.
+The maximum number of fields in a single dataset is 1200.
 
 {% endnote %}
 
@@ -73,6 +73,6 @@ To learn more about data types, see [{#T}](../data-types.md).
 
 #### See also {#see-also}
 
-- [{#T}](../../operations/dataset/create.md)
-- [{#T}](../../operations/dataset/create-calculated-field.md)
-- [{#T}](../../operations/dataset/materialize.md)
+* [{#T}](../../operations/dataset/create.md)
+* [{#T}](../../operations/dataset/create-calculated-field.md)
+   * [{#T}](../../operations/dataset/materialize.md)

@@ -87,7 +87,7 @@
 
         {% endnote %}
 
-    * При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
+      * При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
 
   
   1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
@@ -103,7 +103,7 @@
 
   1. При необходимости задайте сервисные настройки кластера:
 
-    {% include [mch-extra-settings](../../_includes/mdb/mch/extra-settings-web-console.md) %}
+      {% include [mch-extra-settings](../../_includes/mdb/mch/extra-settings-web-console.md) %}
 
   1. Нажмите кнопку **Создать кластер**.
 

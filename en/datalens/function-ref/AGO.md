@@ -50,7 +50,7 @@ See also [AT_DATE](AT_DATE.md), [LAG](LAG.md).
 
 **Argument types:**
 - `measure` — `Any`
-- `date_dimension` — `Date | Datetime | Datetime (deprecated)`
+- `date_dimension` — `Date | Datetime`
 - `unit` — `Integer | String`
 - `number` — `Integer`
 
@@ -87,4 +87,4 @@ AGO(SUM([Sales]), [Order Date], 1)
 
 #### Data source support {#data-source-support}
 
-`Materialized Dataset`, `ClickHouse 19.13`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.
+`Materialized Dataset`, `ClickHouse 19.13`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

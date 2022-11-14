@@ -1,7 +1,7 @@
 title: Yandex DataLens
 description:
   - >-
-    Yandex DataLens is a business analytics service. It lets you connect to
+    Yandex DataLens is a business analytics service It lets you connect to
     various data sources, visualize data, create dashboards, and share the
     results.
   - >-
@@ -14,8 +14,8 @@ links:
   - title: Getting started
     description: Getting started with DataLens
     href: quickstart
-  - title: Practical guidelines
-    description: See usage examples and tutorials for using DataLens
+  - title: Tutorials
+    description: Review the tutorials for examples of using the DataLens service
     href: tutorials/
   - title: Concepts
     description: Learn about basic concepts and service functions

@@ -28,10 +28,8 @@ Audio features in this format:
 {{ speechkit-short-name }} recognizes MP3 without audio file quality and header restrictions.
 
 
-
 {% note warning %}
 
 MP3 format is not supported by API v2 recognition in [streaming](./stt/api/streaming-api.md) or [synchronous](./stt/api/request-api.md) modes.
 
 {% endnote %}
-

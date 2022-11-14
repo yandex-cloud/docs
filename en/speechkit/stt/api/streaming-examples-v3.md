@@ -58,18 +58,17 @@ To implement an example from this section:
    1. Create a file (for example, `test.py`) in the root of the `output` directory and add the following code to it:
 
       
-
       ```python
       #coding=utf8
       import argparse
-      
+
       import grpc
-      
+
       import yandex.cloud.ai.stt.v3.stt_pb2 as stt_pb2
       import yandex.cloud.ai.stt.v3.stt_service_pb2_grpc as stt_service_pb2_grpc
-      
+
       CHUNK_SIZE = 4000
-      
+
       def gen(audio_file_name):
           # Specify the recognition settings.
           recognize_options = stt_pb2.StreamingOptions(
@@ -93,29 +92,29 @@ To implement an example from this section:
                   audio_processing_type=stt_pb2.RecognitionModelOptions.REAL_TIME
               )
           )
-      
+
           # Send a message with recognition settings.
           yield stt_pb2.StreamingRequest(session_options=recognize_options)
-      
+
           # Read the audio file and send its contents in portions.
           with open(audio_file_name, 'rb') as f:
               data = f.read(CHUNK_SIZE)
               while data != b'':
                   yield stt_pb2.StreamingRequest(chunk=stt_pb2.AudioChunk(data=data))
                   data = f.read(CHUNK_SIZE)
-      
+
       def run(iam_token, audio_file_name):
           # Establish a connection with the server.
           cred = grpc.ssl_channel_credentials()
           channel = grpc.secure_channel('stt.{{ api-host }}:443', cred)
           stub = stt_service_pb2_grpc.RecognizerStub(channel)
-      
+
           # Send data for recognition.
           it = stub.RecognizeStreaming(gen(audio_file_name), metadata=(
               ('authorization', f'Bearer {iam_token}'),
               ('x-node-alias', 'speechkit.stt.rc')
           ))
-      
+
           # Process the server responses and output the result to the console.
           try:
               for r in it:
@@ -130,7 +129,7 @@ To implement an example from this section:
           except grpc._channel._Rendezvous as err:
               print(f'Error code {err._state.code}, message: {err._state.details}')
               raise err
-      
+
       if __name__ == '__main__':
           parser = argparse.ArgumentParser()
           parser.add_argument('--token', required=True, help='IAM token')
@@ -138,8 +137,6 @@ To implement an example from this section:
           args = parser.parse_args()
           run(args.token, args.path)
       ```
-
-
 
       Where:
 

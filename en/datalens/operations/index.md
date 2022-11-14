@@ -3,11 +3,11 @@
 ## Creating a connection {#creating-connection}
 
 - [{#T}](connection/create-clickhouse.md)
-- [{#T}](connection/create-csv.md)
 - [{#T}](connection/create-google-sheets.md)
 - [{#T}](connection/create-mysql.md)
 - [{#T}](connection/create-postgresql.md)
 - [{#T}](connection/create-mssql-server.md)
+
 - [{#T}](connection/create-oracle.md)
 - [{#T}](connection/create-ydb.md)
 - [{#T}](connection/create-greenplum.md)
@@ -20,14 +20,13 @@
 
 - [{#T}](dataset/create.md)
 - [{#T}](dataset/join-data.md)
-- [{#T}](dataset/join-data-csv.md)
 - [{#T}](dataset/create-field.md)
 - [{#T}](dataset/create-calculated-field.md)
 - [{#T}](dataset/create-filter.md)
 - [{#T}](dataset/update-field.md)
 - [{#T}](dataset/add-data.md)
-- [{#T}](dataset/materialize.md)
-- [{#T}](dataset/manage-access.md)
+ - [{#T}](dataset/materialize.md)
+ - [{#T}](dataset/manage-access.md)
 - [{#T}](dataset/manage-row-level-security.md)
 - [{#T}](dataset/add-parameter-dataset.md)
 
@@ -55,6 +54,12 @@
 - [{#T}](dashboard/manage-access.md)
 - [{#T}](dashboard/auto-update.md)
 
+
+
+
+
 ## Working with organizations {#working-with-organizations}
 
 - [{#T}](organizations/change-organization.md)
+
+

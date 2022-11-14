@@ -11,19 +11,19 @@ items:
         href: tutorials/data-from-csv-visualization.md
       - name: Creating and publishing a chart with a map of Moscow from a CSV file
         href: tutorials/data-from-csv-to-public-visualization.md
-      - name: Analyzing a retail chain's sales from a ClickHouse database
+      - name: Analyzing a retail chain's sales from a {{ CH }} database
         href: tutorials/data-from-ch-visualization.md
       - name: Analyzing public data on road accidents in Russia
         href: tutorials/data-from-csv-geo-visualization.md
       - name: >-
-          Analyzing sales and locations of pizzerias based on data from
-          Clickhouse DB and Marketplace
+          Analyzing sales and locations of pizzerias based on data from {{ CH }}
+          DB and Marketplace
         href: tutorials/data-from-ch-to-geolayers-visualization.md
-      - name: Web analytics with a connection to Yandex Metrica
+      - name: Web analytics with a connection to Yandex.Metrica
         href: tutorials/data-from-metrica-visualization.md
       - name: >-
-          Web analytics with funnels and cohorts calculated based on Yandex
-          Metrica data
+          Web analytics with funnels and cohorts calculated based on
+          Yandex.Metrica data
         href: tutorials/data-from-metrica-yc-visualization.md
       - name: Mobile app analytics based on AppMetrica data
         href: tutorials/data-from-appmetrica-visualization.md
@@ -31,7 +31,7 @@ items:
         href: tutorials/data-from-podcasts.md
       - name: Visualizing data with a QL chart
         href: tutorials/data-from-ch-to-sql-chart.md
-      - name: Data visualization {{ monitoring-name }}
+      - name: Visualizing {{ monitoring-full-name }} data
         href: tutorials/data-from-monitoring-visualization.md
       - name: Building customer journey charts based on AppMetrica data
         href: tutorials/data-from-appmetrica-yc-visualization.md
@@ -39,7 +39,7 @@ items:
     items:
       - name: Service overview
         href: concepts/index.md
-      - name: Organizations in DataLens
+      - name: Organizations in {{ datalens-name }}
         href: concepts/organizations.md
       - name: Connection
         href: concepts/connection.md
@@ -63,14 +63,12 @@ items:
             href: concepts/chart/measure-values.md
       - name: Dashboards
         href: concepts/dashboard.md
-      - name: Combining data
+      - name: Joining data
         href: concepts/data-join.md
-      - name: Using Markdown in DataLens
+      - name: Using Markdown in {{ datalens-name }}
         href: concepts/markdown.md
-      - name: DataLens Public
+      - name: '{{ datalens-name }} Public'
         href: concepts/datalens-public.md
-      - name: Aggregations in DataLens
-        href: concepts/aggregation-tutorial.md
       - name: Calculated fields
         items:
           - name: Overview
@@ -93,32 +91,30 @@ items:
         href: operations/index.md
       - name: Working with connections
         items:
-          - name: Creating a ClickHouse connection
+          - name: Creating a {{ CH }} connection
             href: operations/connection/create-clickhouse.md
-          - name: Creating a connection to a CSV file
-            href: operations/connection/create-csv.md
           - name: Creating a Google Sheets connection
             href: operations/connection/create-google-sheets.md
-          - name: Creating a MySQL connection
+          - name: Creating a {{ MY }} connection
             href: operations/connection/create-mysql.md
-          - name: Creating a PostgreSQL connection
+          - name: Creating a {{ PG }} connection
             href: operations/connection/create-postgresql.md
-          - name: Creating an MS SQL Server connection
+          - name: Creating a {{ MS }} connection
             href: operations/connection/create-mssql-server.md
           - name: Creating an Oracle Database connection
             href: operations/connection/create-oracle.md
-          - name: Creating a YDB connection
+          - name: Creating a {{ ydb-short-name }} connection
             href: operations/connection/create-ydb.md
-          - name: Creating a Yandex Monitoring connection
+          - name: Creating a {{ GP }} connection
+            href: operations/connection/create-greenplum.md
+          - name: Creating a {{ monitoring-full-name }} connection
             href: operations/connection/create-monitoring.md
           - name: Creating a Yandex Metrica API connection
             href: operations/connection/create-metrica-api.md
           - name: Creating an AppMetrica connection
             href: operations/connection/create-appmetrica.md
-          - name: Creating a Yandex Cloud Billing connection
+          - name: Creating a {{ yandex-cloud }} Billing connection
             href: operations/connection/create-cloud-billing.md
-          - name: Creating a Greenplum connection
-            href: operations/connection/create-greenplum.md
           - name: Managing connection access
             href: operations/connection/manage-access.md
       - name: Working with datasets
@@ -127,8 +123,6 @@ items:
             href: operations/dataset/create.md
           - name: Combining data from multiple tables
             href: operations/dataset/join-data.md
-          - name: Combining data from multiple CSV connections
-            href: operations/dataset/join-data-csv.md
           - name: Creating a data field
             href: operations/dataset/create-field.md
           - name: Creating a calculated data field
@@ -163,7 +157,7 @@ items:
             href: operations/chart/publish.md
           - name: Managing chart access
             href: operations/chart/manage-access.md
-          - name: Adding guid as a parameter
+          - name: Adding ID as a parameter
             href: operations/chart/add-guid.md
           - name: Adding parameters to a chart
             href: operations/chart/add-parameter-chart.md
@@ -195,21 +189,21 @@ items:
             href: operations/permission/revoke.md
           - name: Request permissions
             href: operations/permission/request.md
-      - name: Working with DataLens Marketplace
+      - name: Working with {{ datalens-name }} Marketplace
         items:
           - name: Adding a product from Marketplace
             href: operations/marketplace/add-marketplace-product.md
           - name: Removing a product from Marketplace
             href: operations/marketplace/delete-marketplace-product.md
-          - name: Creating and using a connector (for partners)
+          - name: Creating and connecting a connector (for partners)
             href: operations/marketplace/create-connector-for-partners.md
       - name: Working with organizations
         items:
-          - name: Switching between DataLens instances
+          - name: Switching between {{ datalens-name }} instances
             href: operations/organizations/change-organization.md
   - name: Access management
     items:
-      - name: Managing access to DataLens
+      - name: Managing access to {{ datalens-name }}
         href: security/index.md
       - name: Managing access at the data row level
         href: security/row-level-security.md
@@ -367,8 +361,6 @@ items:
             href: function-ref/DAY.md
           - name: DAYOFWEEK
             href: function-ref/DAYOFWEEK.md
-          - name: GENERICNOW
-            href: function-ref/GENERICNOW.md
           - name: HOUR
             href: function-ref/HOUR.md
           - name: MINUTE
@@ -603,10 +595,6 @@ items:
             href: function-ref/DB_CAST.md
           - name: FLOAT
             href: function-ref/FLOAT.md
-          - name: GENERICDATETIME
-            href: function-ref/GENERICDATETIME.md
-          - name: GENERICDATETIME_PARSE
-            href: function-ref/GENERICDATETIME_PARSE.md
           - name: GEOPOINT
             href: function-ref/GEOPOINT.md
           - name: GEOPOLYGON
@@ -671,7 +659,7 @@ items:
             href: function-ref/SUM_IF_WINDOW.md
       - name: Function Availability
         href: function-ref/availability.md
-  - name: Tutorial on functions
+  - name: Function tutorials
     items:
       - name: Aggregate functions
         href: concepts/aggregation-tutorial.md
@@ -694,7 +682,7 @@ items:
     items:
       - name: Questions and answers
         href: qa/index.md
-      - name: DataLens errors
+      - name: '{{ datalens-name }} errors'
         href: troubleshooting/errors/all.md
       - name: Access denied
         hidden: true
@@ -714,9 +702,6 @@ items:
       - name: Columns in JOIN have different types
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md
-      - name: Could not create \<object type>
-        hidden: true
-        href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
       - name: Data is not available because materialization is not yet complete
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
@@ -760,7 +745,7 @@ items:
       - name: Received too many result data rows
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-ROW_COUNT_LIMIT.md
-      - name: Referenced connection \<connection id> cannot be loaded access denied
+      - name: Referenced connection <connection id> cannot be loaded access denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_ACCESS_DENIED.md
       - name: Request size limit exceeded
@@ -791,4 +776,7 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-NO_AGG.md
+      - name: Could not create <object type>
+        hidden: true
+        href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
 base: en/datalens
