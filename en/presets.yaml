@@ -630,6 +630,10 @@ default:
   # Up-to-date Kubernetes API documentation
   k8s-api-link: https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
 
+  k8s-versions-rapid: '1.20, 1.21, 1.22, 1.23'
+  k8s-versions-regular: '1.20, 1.21, 1.22'
+  k8s-versions-stable: '1.20, 1.21, 1.22'
+
   # Terraform providers
   tf-provider-link: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources
   tf-provider-dt-endpoint: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/datatransfer_endpoint
@@ -891,3 +895,6 @@ cloud-il:
   region-id: il1
   registry: cr.cloudil.com
   pem-path: /certs/CA.pem
+  k8s-versions-rapid: '1.21, 1.22, 1.23'
+  k8s-versions-regular: '1.21, 1.22, 1.23'
+  k8s-versions-stable: '1.21, 1.22, 1.23'
