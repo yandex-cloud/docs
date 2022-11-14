@@ -28,7 +28,7 @@ To get started with the service:
 
 ## Before you begin {#before-you-begin}
 
-1. Go to the [management console ]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
