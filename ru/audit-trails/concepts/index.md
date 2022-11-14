@@ -24,8 +24,10 @@ description: "{{ at-full-name }} позволяет собирать аудит�
 
 Сервисы {{ yandex-cloud }}, аудитные логи которых собирает {{ at-name }}:
 
+* {{ alb-full-name }}
 * {{ at-full-name }}
 * {{ certificate-manager-full-name }}
+* {{ dns-full-name }}
 {% if product == "yandex-cloud" %}
 * {{ cloud-logging-full-name }}
 {% endif %}

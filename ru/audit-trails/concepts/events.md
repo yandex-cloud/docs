@@ -17,8 +17,10 @@ cloudil.audit.<имя сервиса>.<имя события>
 
 Ниже описаны события для сервисов:
 
+* [{{ alb-name }}](#alb)
 * [{{ at-name }}](#audit-trails)
 * [{{ certificate-manager-name }}](#certificate-manager)
+* [{{ dns-name }}](#dns)
 {% if product == "yandex-cloud" %}
 * [{{ cloud-logging-name }}](#cloud-logging-name)
 {% endif %}
@@ -45,6 +47,43 @@ cloudil.audit.<имя сервиса>.<имя события>
 * [{{ ydb-short-name }}](#ydb)
 {% endif %}
 
+## {{ alb-name }} {#alb}
+
+Имя сервиса — `apploadbalancer`.
+
+Имя события | Описание
+--- | ---
+`AddBackendGroupBackend` | Добавление бэкенда в группу бэкендов
+`AddLoadBalancerListener` | Добавление обработчика в балансировщик
+`AddLoadBalancerSniMatch` | Добавление SNI-обработчика в балансировщик
+`AddTargetGroupTargets` | Добавление ВМ в целевую группу
+`CreateBackendGroup` | Создание группы бэкендов
+`CreateHttpRouter` | Создание HTTP-роутера
+`CreateLoadBalancer` | Создание балансировщика
+`CreateTargetGroup` | Создание целевой группы
+`CreateVirtualHost` | Создание виртуального хоста
+`DeleteBackendGroup` | Удаление группы бэкендов
+`DeleteHttpRouter` | Удаление HTTP-роутера
+`DeleteLoadBalancer` | Удаление балансировщика
+`DeleteTargetGroup` | Удаление целевой группы
+`DeleteVirtualHost` | Удаление виртуального хоста
+`RemoveBackendGroupBackend` | Удаление бэкенда из группы бэкендов
+`RemoveLoadBalancerListener` | Удаление обработчика из балансировщика
+`RemoveLoadBalancerSniMatch` | Удаление SNI-обработчика из балансировщика
+`RemoveTargetGroupTargets` | Удаление ВМ из целевой группы
+`RemoveVirtualHostRoute` | Удаление маршрута виртуального хоста
+`StartLoadBalancer` | Запуск балансировщика
+`StopLoadBalancer` | Остановка балансировщика
+`UpdateBackendGroup` | Изменение группы бэкендов
+`UpdateBackendGroupBackend` | Изменение бэкенда в группе бэкендов
+`UpdateHttpRouter` | Изменение HTTP-роутера
+`UpdateLoadBalancer` | Изменение балансировщика
+`UpdateLoadBalancerListener` | Изменение обработчика в балансировщике
+`UpdateLoadBalancerSniMatch` | Изменение SNI-обработчика в балансировщике
+`UpdateTargetGroup` | Изменение целевой группы
+`UpdateVirtualHost` | Изменение виртуального хоста
+`UpdateVirtualHostRoute` | Изменение маршрута виртуального хоста
+
 ## {{ at-name }} {#audit-trails}
 
 Имя сервиса — `audittrails`.
@@ -55,7 +94,7 @@ cloudil.audit.<имя сервиса>.<имя события>
 `DeleteTrail` | Удаление трейла
 `SetTrailAccessBindings` | Назначение привязок прав доступа для трейла
 `UpdateTrail` | Изменение трейла
-`UpdateTrailAccessBindings` | Обновление привязок прав доступа для трейла
+`UpdateTrailAccessBindings` | Изменение привязок прав доступа для трейла
 
 ## {{ certificate-manager-name }} {#certificate-manager}
 
@@ -66,8 +105,21 @@ cloudil.audit.<имя сервиса>.<имя события>
 `CreateCertificate` | Создание сертификата
 `UpdateCertificate` | Изменение сертификата
 `DeleteCertificate` | Удаление сертификата
-`UpdateCertificateAccessBindings` | Обновление привязок прав доступа для сертификата
+`UpdateCertificateAccessBindings` | Изменение привязок прав доступа для сертификата
 `SetCertificateAccessBindings` | Назначение привязок прав доступа для сертификата
+
+## {{ dns-name }} {#dns}
+
+Имя сервиса — `dns`.
+
+Имя события | Описание
+--- | ---
+`CreateDnsZone` | Создание зоны DNS
+`DeleteDnsZone` | Удаление зоны DNS
+`SetDnsZoneAccessBindings` | Назначение привязок прав доступа к зоне DNS
+`UpdateDnsZone` | Изменение зоны DNS
+`UpdateDnsZoneAccessBindings` | Изменение привязок прав доступа к зоне DNS
+`UpdateRecordSets` | Изменение набора записей
 
 {% if product == "yandex-cloud" %}
 ## {{ cloud-logging-name }} {#cloud-logging-name}
@@ -80,7 +132,7 @@ cloudil.audit.<имя сервиса>.<имя события>
 `UpdateLogGroup` | Изменение лог-группы
 `DeleteLogGroup` | Удаление лог-группы
 `SetLogGroupAccessBindings` | Назначение привязок прав доступа для лог-группы
-`UpdateLogGroupAccessBindings` | Обновление привязок прав доступа для лог-группы
+`UpdateLogGroupAccessBindings` | Изменение привязок прав доступа для лог-группы
 {% endif %}
 
 ## {{ compute-name }} {#compute}
@@ -129,7 +181,7 @@ cloudil.audit.<имя сервиса>.<имя события>
 `instancegroup.StopInstanceGroup` | Остановка группы ВМ
 `instancegroup.StopInstanceGroupInstances` | Остановка ВМ из группы
 `instancegroup.UpdateInstanceGroup` | Изменение группы ВМ
-`instancegroup.UpdateInstanceGroupAccessBindings` | Обновление ролей для группы ВМ
+`instancegroup.UpdateInstanceGroupAccessBindings` | Изменение ролей для группы ВМ
 
 ## {{ iam-name }} {#iam}
 
@@ -158,7 +210,7 @@ cloudil.audit.<имя сервиса>.<имя события>
 `UpdateFederation` | Обновление федерации
 `UpdateKey` | Обновление пары ключей
 `UpdateServiceAccount` | Обновление сервисного аккаунта
-`UpdateServiceAccountAccessBindings` | Обновление списка привязок прав доступа
+`UpdateServiceAccountAccessBindings` | Изменение привязок прав доступа
 
 \* Событие попадает в аудитный лог, только если [область сбора аудитных логов](./trail.md#collecting-area) трейла — `Организация`.
 
@@ -177,7 +229,7 @@ cloudil.audit.<имя сервиса>.<имя события>
 `SetPrimarySymmetricKeyVersion` | Выбор основной версии симметричного ключа
 `SetSymmetricKeyAccessBindings` | Выбор привязок прав доступа для симметричного ключа
 `UpdateSymmetricKey` | Изменение симметричного ключа
-`UpdateSymmetricKeyAccessBindings` | Обновление привязок прав доступа для симметричного ключа
+`UpdateSymmetricKeyAccessBindings` | Изменение привязок прав доступа для симметричного ключа
 
 ## {{ lockbox-name }} {#lockbox}
 
@@ -195,7 +247,7 @@ cloudil.audit.<имя сервиса>.<имя события>
 `ScheduleVersionDestruction` | Распланирование уничтожения версии секрета
 `SetSecretAccessBindings` | Выбор привязок прав доступа для секрета
 `UpdateSecret` | Изменение секрета
-`UpdateSecretAccessBindings` | Обновление привязок прав доступа для секрета
+`UpdateSecretAccessBindings` | Изменение привязок прав доступа для секрета
 
 \* Указанное событие по умолчанию не входит в аудитный лог. Чтобы добавить это событие в аудитный лог, обратитесь в [службу технической поддержки]({{ link-console-support }}). Шаблон обращения:
 «Просьба включить запись событий data plane Lockbox в audit trail `<id трейла>`».
@@ -412,8 +464,14 @@ cloudil.audit.<имя сервиса>.<имя события>
 
 Имя события | Описание
 --- | ---
+`CreateGroup` | Создание группы пользователей
 `CreateMembership` | Добавление пользователя в организацию
+`DeleteGroup` | Удаление группы пользователей
 `DeleteMembership` | Удаление пользователя из организации
+`SetGroupAccessBindings` | Назначение привязок прав доступа к группе пользователей
+`UpdateGroup` | Изменение группы пользователей
+`UpdateGroupAccessBindings` | Изменение привязок прав доступа к группе пользователей
+`UpdateGroupMembers` | Изменение состава участников группы пользователей
 
 ## {{ resmgr-name }} {#resmgr}
 
@@ -426,9 +484,9 @@ cloudil.audit.<имя сервиса>.<имя события>
 `DeleteCloud` | Удаление облака
 `DeleteFolder` | Удаление каталога
 `UpdateCloud` | Изменение облака
-`UpdateCloudAccessBindings` | Обновление привязок прав доступа для облака
+`UpdateCloudAccessBindings` | Изменение привязок прав доступа для облака
 `UpdateFolder` | Обновление каталога
-`UpdateFolderAccessBindings` | Обновление привязок прав доступа для каталога ^*^
+`UpdateFolderAccessBindings` | Изменение привязок прав доступа для каталога ^*^
 
 \* Событие может не попадать в аудитный лог, если права сервисному аккаунту были назначены через [консоль]({{ link-console-main }}).
 
@@ -480,7 +538,7 @@ cloudil.audit.<имя сервиса>.<имя события>
 `DeleteDatabase` | Удаление базы данных
 `MoveDatabase` | Перемещение базы данных
 `RestoreBackup` | Восстановление базы данных из бэкапа
-`StartDatabase` | Запуск базы данных 
+`StartDatabase` | Запуск базы данных
 `StopDatabase` | Остановка базы данных
 `UpdateDatabase` | Изменение базы данных
 {% endif %}
