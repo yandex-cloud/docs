@@ -227,6 +227,8 @@ default:
   roles-cloud-owner: resource-manager.clouds.owner
   roles-cloud-member: resource-manager.clouds.member
   roles-mdb-admin: mdb.admin
+  roles-mdb-auditor: mdb.auditor
+  roles-mdb-viewer: mdb.viewer
   roles:
     gitlab:
       admin: gitlab.admin
@@ -246,6 +248,14 @@ default:
       auditor: managed-elasticsearch.auditor
       editor: managed-elasticsearch.editor
       viewer: managed-elasticsearch.viewer
+    mch:
+      admin: managed-clickhouse.admin
+      auditor: managed-clickhouse.auditor
+      editor: managed-clickhouse.editor
+      oncall: managed-clickhouse.onCall
+      support: managed-clickhouse.support
+      supportadmin: managed-clickhouse.supportAdmin
+      viewer: managed-clickhouse.viewer
   roles-speechkit-stt: ai.speechkit-stt.user
   roles-speechkit-tts: ai.speechkit-tts.user
   roles-admin: admin

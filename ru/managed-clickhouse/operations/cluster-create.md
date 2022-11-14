@@ -103,7 +103,7 @@
 
         {% endnote %}
 
-    * При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
+      * При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
 
   {% if audience != "internal" %}
 
@@ -121,7 +121,7 @@
 
   1. При необходимости задайте сервисные настройки кластера:
 
-    {% include [mch-extra-settings](../../_includes/mdb/mch/extra-settings-web-console.md) %}
+      {% include [mch-extra-settings](../../_includes/mdb/mch/extra-settings-web-console.md) %}
 
   1. Нажмите кнопку **Создать кластер**.
 

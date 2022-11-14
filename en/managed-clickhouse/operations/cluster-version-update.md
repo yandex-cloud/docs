@@ -2,7 +2,7 @@
 
 You can change the {{ CH }} version used by the cluster to any of the [supported {{ mch-name }} versions](../concepts/update-policy.md#versioning-policy), but you can't switch:
 
-* From versions 22.0 and higher to a version lower than 22.0.
+* From version 22.0 and higher to a version lower than 22.0.
 * To a version lower than {{ mch-ck-version }} if the cluster was created with {{ CK }} support.
 
 To learn more about updates within one version and host maintenance, see [{#T}](../concepts/maintenance.md).
@@ -39,7 +39,7 @@ To learn more about updates within one version and host maintenance, see [{#T}](
 
 Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 
-1. See the {{ CH }} [changelog]({{ ch.docs }}/whats-new/changelog/) to check which updates might affect your applications.
+1. See the [change log]({{ ch.docs }}/whats-new/changelog/) for {{ CH }} to check which updates might affect your applications.
 1. Try changing versions on a test cluster (you can try deploying it from a backup of the main cluster). Please note that when you deploy a cluster from a backup, only MergeTree engine tables are recovered.
 1. [Make a backup](cluster-backups.md#create-backup) of the main cluster before changing the version.
 
@@ -126,10 +126,16 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
-   Use the API [update](../api-ref/Cluster/update.md) method and pass the required value in the `configSpec.clickhouse.config.version` request parameter.
+   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
+   * The cluster ID in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Required value in the `configSpec.clickhouse.config.version` parameter.
+   * List of settings to update (`configSpec.clickhouse.config.version` in this case) in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
