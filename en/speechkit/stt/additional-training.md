@@ -48,13 +48,13 @@ If the pattern phrases suggest that the glossary terms may be in possessive case
 Then the `templates.tsv` file may contain entries like
 
 ```
-Hello, are you {first-name=first-names.tsv} {middle-name=middle-names.tsv} {last-name=last-names.tsv}?
-Hello, can I talk to {first-name=first-names-ablative.tsv} {middle-name=middle-names-ablative.tsv} representative?
+Hello, are you {first-name=first-names.tsv}{middle-name=middle-names.tsv} {last-name=last-names.tsv}?
+Hello, can I talk to {first-name=first-names-ablative.tsv}{middle-name=middle-names-ablative.tsv} representative?
 ```
 
 ### Importing retraining data {#import-data}
 
-To transmit retraining data to the {{ speechkit-name }} command, {% if product == "yandex-cloud" %}contact your manager.{% endif %} {% if product == "cloud-il" %}contact [support](../../support/overview.md).{% endif %}
+To transmit retraining data to the {{ speechkit-name }} command, {% if product == "yandex-cloud" %}contact your manager.{% endif %}{% if product == "cloud-il" %}contact [support](../../support/overview.md).{% endif %}
 
 {% if audience == "draft" %}
 

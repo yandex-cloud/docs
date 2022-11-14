@@ -34,8 +34,8 @@ Specify the language in [ISO 639-1](https://www.iso.org/iso-639-language-codes.h
 
 - Data streaming recognition
 
-   | Code | Language  |
-   |---|---| 
+   | Code | Language |
+   |---|---|
    | `auto` | Automatic language recognition |
    | `de-DE` | German |
    | `en-US` | English |
@@ -58,7 +58,7 @@ Specify the language in [ISO 639-1](https://www.iso.org/iso-639-language-codes.h
 
    The `general` model is available for Russian.
 
-   | Code | Language  |
+   | Code | Language |
    |---|---|
    | `ru-RU` | Russian (default) |
 
@@ -67,12 +67,12 @@ Specify the language in [ISO 639-1](https://www.iso.org/iso-639-language-codes.h
 - Asynchronous recognition
 
    For [asynchronous recognition](transcribation.md), a language model that can operate in two modes is available:
-   1. In standard mode, recognition is processed in a standard priority queue. The standard mode works when the `general` model is selected.
+   1. In standard mode, recognition is processed in a standard priority queue. This mode works when the `general` model is selected.
    1. In deferred mode, the audio file to be recognized is placed in a low priority queue and processed at the least busy time. [Special pricing](../pricing.md#prices-stt) applies to deferred recognition. The time required to process an audio file in deferred mode is 24 hours or less. Recognition in deferred mode is available when the `deferred-general` model is specified.
 
    You can use asynchronous recognition for audio files in the following languages:
 
-   | Code | Language  |
+   | Code | Language |
    |---|---|
    | `kk-KK` | Kazakh |
    | `ru-RU` | Russian (default) |

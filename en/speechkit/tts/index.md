@@ -41,7 +41,7 @@ You can select a voice to convert your text to speech. Each voice corresponds to
 
 If no voice suits your business, {{ speechkit-name }} can create a unique one specifically for you. For more information, see [{#T}](brand-voice/index.md).
 
-{{ speechkit-name }} can synthesize speech in different languages. Each voice is designed to synthesize speech in a specific language. Voices can also read text in a <q>foreign</q> language, but the quality of the synthesized speech will be poorer in this case: <q>the speaker</q> will pronounce the text with an accent, and there may be errors in word synthesis. 
+{{ speechkit-name }} can synthesize speech in different languages. Each voice is designed to synthesize speech in a specific language. Voices can also read text in a <q>foreign</q> language, but the quality of the synthesized speech will be poorer in this case: <q>the speaker</q> will pronounce the text with an accent, and there may be errors in word synthesis.
 
 ### Mode {#role}
 

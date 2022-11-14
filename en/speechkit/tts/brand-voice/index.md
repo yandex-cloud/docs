@@ -32,7 +32,7 @@ Synthesis using {{ brand-voice-name }} Adaptive requires much less data for trai
 
 #### What's next {#what-is-next}
 
-* [{{ brand-voice-name }} API (Eng.)](../../tts-v3/api-ref/grpc/)
+* [{{ brand-voice-name }} API](../../tts-v3/api-ref/grpc/)
 * [{#T}](income-data-format.md)
 
 {% endif %}

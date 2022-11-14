@@ -9,7 +9,6 @@ _Speech recognition (speech-to-text, STT)_ is the process of converting speech t
 Service is available at `{{ api-host-sk }}` with `x-node-alias: speechkit.stt.stable` request header.
 
 {% endif %}
-
 ## Recognition methods {#stt-ways}
 
 {% if product == "yandex-cloud" %}
@@ -74,9 +73,9 @@ The accuracy of speech recognition is also affected by:
 
 * [{#T}](../formats.md)
 * [{#T}](models.md)
-* [How to work with streaming speech recognition](streaming.md)
-   {% if product == "yandex-cloud" %}
+* [{#T}](streaming.md)
+{% if product == "yandex-cloud" %}
 * [{#T}](request.md)
 * [{#T}](transcribation.md)
 * [{#T}](additional-training.md)
-   {% endif %}
+{% endif %}

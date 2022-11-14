@@ -31,7 +31,7 @@ For more information about service roles, see [{#T}](../../iam/concepts/access-c
 
 {% if product == "yandex-cloud" %}
 
-### Roles of other  services {#integration-roles}
+### Roles of other services {#integration-roles}
 
 When working with {{ speechkit-name }}, you may need roles of other services, for example, to upload results and source materials to an {{ objstorage-name }} bucket.
 

@@ -8,9 +8,9 @@ The input data is validated using a [{{ ml-platform-full-name }}](../../../datas
 
 1. In this folder, [create a project](../../../datasphere-old/operations/projects/create.md) {{ ml-platform-name }}.
 
-1. Go to the **File Browser** ![File Browser](../../../_assets/datasphere/jupyterlab/folder.svg) tab
+1. Go to the **File Browser** ![File Browser](../../../_assets/datasphere/jupyterlab/folder.svg) tab.
 
-1. Upload a ZIP archive containing audio files and a table in [TSV]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/TSV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Tab-separated_values){% endif %} format containing the transcripts of the audio recordings by dragging the files to the **File Browser** ![File Browser](../../../_assets/datasphere/jupyterlab/folder.svg) tab.
+1. Upload a ZIP archive containing audio files and a table in [TSV] {% if lang == "ru" %}(https://ru.wikipedia.org/wiki/TSV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Tab-separated_values){% endif %} format containing the transcripts of the audio recordings by dragging the files to the **File Browser** ![File Browser](../../../_assets/datasphere/jupyterlab/folder.svg) tab.
 
    If you recorded the data over the course of several days, break it down into several archives. Name each archive to correspond to the date when the recording was made, such as `12.12.2021.zip`. If an archive containing the recordings made in a single day is larger than 2 GB, break the data and the transcript table into several pieces, keeping the date in the name of each archive, such as `12.12.2021-1.zip` and `12.12.2021-2.zip`
 

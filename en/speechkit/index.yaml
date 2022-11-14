@@ -17,8 +17,7 @@ description:
       - >-
         The service is subject to the <a href="https://yandex.com/legal/cloud_sla">Service
         Level Agreement</a>. The service level is defined in the
-        <a href="https://yandex.com/legal/cloud_sla_speechkit">Service Level for Yandex
-        Compute Cloud</a>.
+        <a href="https://yandex.com/legal/cloud_sla_speechkit">Service Level for Yandex SpeechKit</a>.
     when: product == "yandex-cloud"
   - text:
       - >-

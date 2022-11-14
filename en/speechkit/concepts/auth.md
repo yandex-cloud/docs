@@ -5,7 +5,7 @@ description: "To perform operations using the {{ speechkit-full-name }} API, you
 
 {% if audience=="external" %}
 
-# Authentication in the {{ speechkit-name }} API
+# Authentication in the API
 
 To work with the {{ speechkit-name }} API, you need to authenticate using your:
 
@@ -17,7 +17,7 @@ To work with the {{ speechkit-name }} API, you need to authenticate using your:
    1. [Get an IAM token](../../iam/operations/iam-token/create.md).
    1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) that your account has the `{{ roles-speechkit-stt }}` role or higher for.
    1. {% include [iam-token-usage](../../_includes/iam-token-usage-speechkit-v3.md) %}
-{% endif %}
+      {% endif %}
 
 - Federated account
 

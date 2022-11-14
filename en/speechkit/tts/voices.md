@@ -8,7 +8,9 @@ This section provides a list of voices available in the service and their charac
    {% if product == "yandex-cloud" %}* Supported API version.{% endif %}
 
 {% if product == "yandex-cloud" %}
+
 You can listen to voice samples on the [SpeechKit page]{% if lang == "ru" %}(https://cloud.yandex.ru/services/speechkit){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/speechkit){% endif %}.
+
 {% endif %}
 
 ## Supported voices {#premium}
@@ -31,7 +33,7 @@ The table lists the properties of the supported voices that use deep neural netw
 | `uz-UZ` | Uzbek | `nigora` | F | — | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
 
 {% if product == "yandex-cloud" %}
-The `oksana` and `alena` voices were created from the recordings of a single voice artist. The voice `oksana` is no longer on the supported voice list. The voice `alena` in `good` mode is used instead. The voice `oksana` is available for legacy projects.
+The `oksana` and `alena` voices were created from the recordings of a single voice artist. The voice `oksana` is no longer on the supported voice list, the voice `alena` in `good` mode is used instead. The voice `oksana` is available for legacy projects.
 {% endif %}
 
 If existing voices are not suitable for your project, {{ speechkit-name }} can create a voice specifically for you. For more information about creating unique voices, see [{#T}](brand-voice/index.md).

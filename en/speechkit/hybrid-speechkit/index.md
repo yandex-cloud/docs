@@ -8,4 +8,5 @@
 For recommended hardware configurations and the required software list, see [{#T}](system-requirements.md).
 {% endif %}
 
+
 To access {{ sk-hybrid-name }}, [submit a request]{% if product == "yandex-cloud" %}{% if lang == "ru" %}(https://cloud.yandex.ru/services/speechkit#contact-form){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/speechkit#contact-form){% endif %}{% endif %}{% if product == "cloud-il" %}(https://cloudil.co.il/services/speechkit#contact-form){% endif %}.
