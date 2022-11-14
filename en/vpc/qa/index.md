@@ -64,7 +64,7 @@ Subnets can only use private addresses from IPv4 ranges defined by [RFC 1918](ht
 
 {% if product == "yandex-cloud" %}
 
-{% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
+{% include [fz-152.md](../../_qa/fz-152.md) %}
 
 {% endif %}
 

@@ -153,7 +153,7 @@ _Кластер БД_ — это один или более хостов БД, �
 
 {% if product == "yandex-cloud" %}
 
-{% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
+{% include [fz-152.md](../../_qa/fz-152.md) %}
 
 {% endif %}
 

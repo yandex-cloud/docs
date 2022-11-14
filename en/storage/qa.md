@@ -109,7 +109,7 @@ This is why we can't specify a particular response time value. However, we do no
 
 {% if product == "yandex-cloud" %}
 
-{% include [qa-fz-152.md](../_includes/qa-fz-152.md) %}
+{% include [fz-152.md](../_qa/fz-152.md) %}
 
 {% endif %}
 
