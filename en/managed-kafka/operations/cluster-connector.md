@@ -21,9 +21,24 @@ You can:
    1. In the list of services, select **{{ mkf-name }}**.
    1. Select a cluster and open the **Connectors** tab.
 
+* CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To get a list of connectors, run the command:
+
+   ```bash
+   {{ yc-mdb-kf }} connector list
+     --cluster-name <cluster name>
+   ```
+
 * API
 
-   Use the [list](../api-ref/Connector/list.md) API method and pass the cluster ID in the `clusterId` request parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   Use the [list](../api-ref/Connector/list.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -62,7 +77,48 @@ You can:
 
    1. Click **Create**.
 
+* CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To create a Mirrormaker connector:
+
+   1. View a description of the CLI command to create a Mirrormaker connector:
+
+      ```bash
+      {{ yc-mdb-kf }} mirrormaker create --help
+      ```
+
+   2. Create a Mirrormaker connector:
+
+      ```bash
+      {{ yc-mdb-kf }} mirrormaker create <connector name> \
+        --cluster-id <cluster ID> \
+        --tasks-max <task limit> \
+        --direction <replication direction: egress or ingress> \
+        --replication-factor <replication factor> \
+        --topics <topic template> \
+        --this-cluster-alias <cluster indication prefix> \
+        --external-cluster `
+          ` alias=<external cluster indication prefix>, `
+          ` bootstrap-servers=<list of FQDNs of broker hosts>, `
+          ` security-protocol=<security protocol>, `
+          ` sasl-mechanism=<encryption mechanism>, `
+          ` sasl-username=<username>, `
+          ` sasl-password=<user password>, `
+          ` ssl-truststore-certificates=<PEM certificate contents> \
+        --properties <key1:value1,key2:value2,...,keyN:valueN>
+      ```
+
+      The `--direction` parameter takes the value:
+      * `egress`: If the current cluster is a source cluster.
+      * `ingress`: If the current cluster is a target cluster.
+
 * {{ TF }}
+
+   1. Check the list of [Mirrormaker](#settings-mm2) connector settings.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -84,11 +140,12 @@ You can:
           source_cluster {
             alias = "<cluster indication prefix>"
             external_cluster {
-              bootstrap_servers = "<list of FQDNs of broker hosts>"
-              sasl_username     = "<username>"
-              sasl_password     = "<user password>"
-              sasl_mechanism    = "<encryption mechanism>"
-              security_protocol = "<security protocol>"
+              bootstrap_servers           = "<list of FQDNs of broker hosts>"
+              sasl_username               = "<username>"
+              sasl_password               = "<user password>"
+              sasl_mechanism              = "<encryption mechanism>"
+              security_protocol           = "<security protocol>"
+              ssl-truststore-certificates = "<PEM certificate contents>"
             }
           }
           target_cluster {
@@ -131,6 +188,93 @@ You can:
    1. Edit the connector properties as needed.
    1. Click **Save**.
 
+* CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To update Mirrormaker connector settings:
+
+   1. View a description of the CLI command to edit a Mirrormaker connector:
+
+      ```bash
+      {{ yc-mdb-kf }} mirrormaker update --help
+      ```
+
+   2. Update a Mirrormaker connector:
+
+      ```bash
+      {{ yc-mdb-kf }} mirrormaker create <connector name> \
+        --cluster-id <cluster ID> \
+        --tasks-max <task limit> \
+        --direction <replication direction: egress or ingress> \
+        --replication-factor <replication factor> \
+        --topics <topic template> \
+        --this-cluster-alias <cluster indication prefix> \
+        --external-cluster `
+          ` alias=<external cluster indication prefix>, `
+          ` bootstrap-servers=<list of FQDNs of broker hosts>, `
+          ` security-protocol=<security protocol>, `
+          ` sasl-mechanism=<encryption mechanism>, `
+          ` sasl-username=<username>, `
+          ` sasl-password=<user password>, `
+          ` ssl-truststore-certificates=<PEM certificate contents> \
+        --properties <key1:value1,key2:value2,...,keyN:valueN>
+      ```
+
+      The `--direction` parameter takes the value:
+      * `egress`: If the current cluster is a source cluster.
+      * `ingress`: If the current cluster is a target cluster.
+
+* {{ TF }}
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+   1. Edit the parameter values in the `yandex_mdb_kafka_connector` resource description:
+
+      ```hcl
+      resource "yandex_mdb_kafka_connector" "<connector name>" {
+        cluster_id = "<cluster ID>"
+        name       = "<connector name>"
+        tasks_max  = <task limit>
+        properties = {
+          <advanced properties>
+        }
+        connector_config_mirrormaker {
+          topics             = "<topic template>"
+          replication_factor = <replication factor>
+          source_cluster {
+            alias = "<cluster indication prefix>"
+            external_cluster {
+              bootstrap_servers           = "<list of FQDNs of broker hosts>"
+              sasl_username               = "<username>"
+              sasl_password               = "<user password>"
+              sasl_mechanism              = "<encryption mechanism>"
+              security_protocol           = "<security protocol>"
+              ssl-truststore-certificates = "<PEM certificate contents>"
+            }
+          }
+          target_cluster {
+            alias = "<cluster indication prefix>"
+            this_cluster {}
+          }
+        }
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_connect).
+
 * API
 
    Use the [update](../api-ref/Connector/update.md) API method and pass the following in the request:
@@ -158,6 +302,27 @@ To pause a connector:
    1. Select a cluster and open the **Connectors** tab.
    1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired connector and select **Pause**.
 
+* CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To pause a connector:
+
+   1. View a description of the CLI command to pause a connector:
+
+      ```bash
+      {{ yc-mdb-kf }} connector pause --help
+      ```
+
+   1. Pause a connector:
+
+      ```bash
+      {{ yc-mdb-kf }} connector pause <connector name> \
+        --cluster-id <cluster ID>
+      ```
+
 * API
 
    Use the [pause](../api-ref/Connector/pause.md) API method and pass the following in the request:
@@ -177,6 +342,27 @@ To pause a connector:
    1. In the list of services, select **{{ mkf-name }}**.
    1. Select a cluster and open the **Connectors** tab.
    1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired connector and select **Resume**.
+
+* CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To resume a connector:
+
+   1. View a description of the CLI command to resume a connector:
+
+      ```bash
+      {{ yc-mdb-kf }} connector resume --help
+      ```
+
+   1. Resume a connector:
+
+      ```bash
+      {{ yc-mdb-kf }} connector resume <connector name> \
+        --cluster-id <cluster ID>
+      ```
 
 * API
 
@@ -198,6 +384,27 @@ To pause a connector:
    1. Select a cluster and open the **Connectors** tab.
    1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired connector and select **Delete**.
    1. Click **Delete**.
+
+* CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To delete a connector:
+
+   1. View a description of the CLI command to delete a connector:
+
+      ```bash
+      {{ yc-mdb-kf }} connector delete --help
+      ```
+
+   1. Delete a connector:
+
+      ```bash
+      {{ yc-mdb-kf }} connector delete <connector name> \
+        --cluster-id <cluster ID>
+      ```
 
 * {{ TF }}
 
@@ -255,6 +462,7 @@ To pause a connector:
       * **Security protocol**: Select a protocol for connecting the connector:
          * `PLAINTEXT`, `SASL_PLAINTEXT`: For non-SSL connections.
          * `SSL`, `SASL_SSL`: For SSL connections.
+      * **PEM certificate**: Upload a PEM certificate to access the external cluster.
 
    * Under **Target cluster**, specify the parameters for connecting to the target cluster:
       * **Alias**: A prefix to indicate the target cluster in the connector settings.
@@ -269,6 +477,7 @@ To pause a connector:
       * **Security protocol**: Select a protocol for connecting the connector:
          * `PLAINTEXT`, `SASL_PLAINTEXT`: For non-SSL connections.
          * `SSL`, `SASL_SSL`: For SSL connections.
+      * **PEM certificate**: Upload a PEM certificate to access the external cluster.
 
 * {{ TF }}
 
@@ -292,6 +501,7 @@ To pause a connector:
          * **security_protocol**: A connector connection protocol:
             * `PLAINTEXT`, `SASL_PLAINTEXT`: For non-SSL connections.
             * `SSL`, `SASL_SSL`: For SSL connections.
+         * **ssl_truststore_certificates**: PEM certificate contents.
 
 {% endlist %}
 
@@ -315,7 +525,7 @@ To pause a connector:
 
    {% if audience != "internal" %}
 
-   * (Optional) **Access key ID**, **Secret key**: [Service account key ID and body](../../iam/operations/authorized-key/create.md).
+   * (Optional) **Access key ID**, **Secret key**: [ID and contents of the AWS compatible key](../../iam/concepts/authorization/access-key.md).
 
    {% endif %}
 

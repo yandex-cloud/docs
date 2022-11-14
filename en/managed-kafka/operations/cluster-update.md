@@ -74,7 +74,7 @@ To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
 
       * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
       * The new cluster configuration in the `configSpec` parameter. Specify the value `"unmanagedTopics": true` in the configuration.
-      * List of configuration fields to update in the `UpdateMask` parameter.
+      * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
       {% include [Node API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -181,7 +181,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Broker host class in the `configSpec.kafka.resources.resourcePresetId` parameter.
    * Number of broker hosts in the `configSpec.brokersCount` parameter.
-   * The list of settings to update in the `updateMask` parameter.
+   * List of settings to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -264,7 +264,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * {{ ZK }} host class in the `configSpec.zookeeper.resources.resourcePresetId` parameter.
-   * The list of settings to update in the `updateMask` parameter.
+   * List of settings to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -369,7 +369,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New storage settings in the `configSpec.kafka.resources` parameter (`configSpec.zookeeper.resources` for {{ ZK }} hosts).
-   * The list of settings to update in the `updateMask` parameter.
+   * List of settings to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -416,7 +416,9 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    You can change the following settings:
 
-   * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
+
+        {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
    * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
 
@@ -463,7 +465,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
 
-   * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
+   * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
 
    * Cluster access configuration settings for [{{ data-transfer-full-name }}](../../data-transfer/) in Serverless mode: in the `configSpec.access.dataTransfer` parameter.
 
@@ -473,7 +475,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
       {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-   * List of configuration fields to update in the `UpdateMask` parameter.
+   * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -561,8 +563,9 @@ You can't change the disk type for {{ KF }} clusters after creation.
    * New values of [settings {{ KF }}](../concepts/settings-list.md#cluster-settings) in the parameter:
       * `configSpec.kafka.kafkaConfig_2_8` if you use {{ KF }} `2.8`;
       * `configSpec.kafka.kafkaConfig_3_0` if you are using {{ KF }} version `3.0`.
+      * `configSpec.kafka.kafkaConfig_3_1` if you are using {{ KF }} version `3.1`.
 
-   * The list of settings to update in the `updateMask` parameter.
+   * List of settings to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -679,7 +682,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    - The list of security group IDs in the `securityGroupIds` parameter.
-   - The list of settings to update in the `updateMask` parameter.
+   - List of settings to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
