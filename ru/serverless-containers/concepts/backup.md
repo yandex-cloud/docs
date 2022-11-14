@@ -7,7 +7,7 @@
 * [списки триггеров](#trigger-list);
 * [информацию о триггерах](#trigger-get).
 
-О резервном копировании Docker-образов, которые используются для создания ревизий контейнеров, читайте в [документации {{ container-registry-full-name }}](../../container-registry/concepts/backup.md).
+О резервном копировании [Docker-образов](../../container-registry/concepts/docker-image.md), которые используются для создания ревизий контейнеров, читайте в [документации {{ container-registry-full-name }}](../../container-registry/concepts/backup.md).
 
 ## Получить список контейнеров {#containers-list}
 

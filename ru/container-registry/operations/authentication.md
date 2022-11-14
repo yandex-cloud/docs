@@ -44,7 +44,7 @@ docker login \
 Где:
 * `username` — тип токена. Допустимые значения: {% if product == "yandex-cloud" %}`oauth`, {% endif %}`iam` или `json_key`.
 * `password` — тело токена.
-* `{{ registry }}` — эндпоинт, к которому будет обращаться Docker при работе с реестром образов. Если его не указать, запрос пойдет в сервис по умолчанию — [Docker Hub](https://hub.docker.com).
+* `{{ registry }}` — эндпоинт, к которому будет обращаться {% if lang == "ru" %}[Docker](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker{% endif %} при работе с реестром образов. Если его не указать, запрос пойдет в сервис по умолчанию — [Docker Hub](https://hub.docker.com).
 
 ## Аутентифицироваться как пользователь {#user}
 
@@ -127,7 +127,7 @@ docker login \
    * Команда `cat key.json` записывает содержимое файла с ключом в поток вывода.
    * Флаг `--password-stdin` позволяет читать пароль из потока ввода.
 
-   Результат:
+   Результат выполнения команды:
 
    ```text
    Login Succeeded

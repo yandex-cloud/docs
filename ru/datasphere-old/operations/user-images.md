@@ -8,7 +8,7 @@
 
 ## Требования к Docker-образу {#requirements}
 
-Чтобы Docker-образ запускался и корректно работал в {{ ml-platform-name }}, он должен содержать:
+Чтобы {% if lang == "ru" %}[Docker-образ](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker-образ{% endif %} запускался и корректно работал в {{ ml-platform-name }}, он должен содержать:
 
 * установку Python 3.7 или Python 3.8;
 * установку pip;

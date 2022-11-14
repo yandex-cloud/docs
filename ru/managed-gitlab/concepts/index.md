@@ -1,8 +1,8 @@
 # Взаимосвязь ресурсов в {{ mgl-name }}
 
-[{{ GL }}](https://about.gitlab.com/) — это веб-инструмент жизненного цикла DevOps с открытым исходным кодом. Он представляет собой систему управления репозиториями кода для [Git](https://git-scm.com/) с системой отслеживания ошибок, [CI/CD]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/CI/CD){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/CI/CD){% endif %} пайплайном, собственной Wiki и другими функциями.
+[{{ GL }}](https://about.gitlab.com/) — это веб-инструмент жизненного цикла {% if lang == "ru" %}[DevOps](https://cloud.yandex.ru/blog/posts/2022/03/what-is-devops){% else %}DevOps{% endif %} с открытым исходным кодом. Он представляет собой систему управления репозиториями кода для [Git](https://git-scm.com/) с системой отслеживания ошибок, [CI/CD]{% if lang == "ru" %}(https://cloud.yandex.ru/blog/posts/2022/10/ci-cd){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/CI/CD){% endif %} пайплайном, собственной Wiki и другими функциями.
 
-{{ mgl-name }} позволяет настроить развертывание приложений на виртуальных машинах [{{ compute-full-name }}](../../compute/), а также поддерживает интеграцию с [{{ container-registry-full-name }}](../../container-registry/) и [{{ managed-k8s-full-name }}](../../managed-kubernetes/).
+{{ mgl-name }} позволяет настроить развертывание приложений на [виртуальных машинах](../../compute/concepts/vm.md) [{{ compute-full-name }}](../../compute/), а также поддерживает интеграцию с [{{ container-registry-full-name }}](../../container-registry/) и [{{ managed-k8s-full-name }}](../../managed-kubernetes/).
 
 Схема работы {{ mgl-name }}:
 
@@ -15,10 +15,10 @@ _Инстанс_ {{ GL }} — основная сущность, которой 
 ## Конфигурация инстанса {#config}
 
 При создании инстанса указываются:
-* тип инстанса — количество ядер (vCPU) и объем памяти (RAM);
-* подсеть;
-* размер хранилища;
-* имя в домене `.gitlab.yandexcloud.net` — адрес вашего экземпляра {{ GL }} в интернете;
-* данные администратора:
-  * электронная почта;
-  * логин.
+* Тип инстанса — [количество ядер (vCPU) и объем памяти (RAM)](../../compute/concepts/vm-platforms.md).
+* [Подсеть](../../vpc/concepts/network.md#subnet).
+* Размер хранилища.
+* Имя в домене `.gitlab.yandexcloud.net` — адрес вашего экземпляра {{ GL }} в интернете.
+* Данные администратора:
+  * Электронная почта.
+  * Логин.

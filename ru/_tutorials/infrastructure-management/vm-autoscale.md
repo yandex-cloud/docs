@@ -1,6 +1,6 @@
 # Работа с группой виртуальных машин с автоматическим масштабированием
 
-Чтобы создать [группу виртуальных машин с автоматическим масштабированием](../../compute/concepts/instance-groups/scale.md#auto-scale) и [сетевым балансировщиком нагрузки](../../network-load-balancer/concepts/index.md), необходимо выполнить следующие действия.
+Чтобы создать [группу ВМ с автоматическим масштабированием](../../compute/concepts/instance-groups/scale.md#auto-scale) и [сетевым балансировщиком нагрузки](../../network-load-balancer/concepts/index.md), необходимо выполнить следующие действия.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -31,7 +31,7 @@
         yc iam service-account create --name for-autoscale
         ```
 
-        Результат:
+        Результат выполнения команды:
 
         ```bash
         id: ajelabcde12f33nol1v5
@@ -75,7 +75,7 @@
         yc vpc network create --name yc-auto-network
         ```
 
-        Результат:
+        Результат выполнения команды:
 
         ```bash
         id: enpabce123hde4ft1r3t
@@ -93,7 +93,7 @@
           --zone {{ region-id }}-a
         ```
 
-        Результат:
+        Результат выполнения команды:
 
         ```bash
         id: e1lnabc23r1c9d0efoje
@@ -114,7 +114,7 @@
           --zone {{ region-id }}-b
         ```
 
-        Результат:
+        Результат выполнения команды:
 
         ```bash
         id: b1csa2b3clideftjb121
@@ -135,7 +135,7 @@
 
 ## Создайте группу ВМ с автоматическим масштабированием и сетевым балансировщиком нагрузки {#create-vm-group}
 
-1. Все ВМ группы создаются из образа [{{ coi }}](../../cos/concepts/index.md). Каждая ВМ содержит Docker-контейнер с веб-сервером, который эмулирует нагрузку на сервис.
+1. Все ВМ группы создаются из образа [{{ coi }}](../../cos/concepts/index.md). Каждая ВМ содержит {% if lang == "ru" %}[Docker-контейнер](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker-контейнер{% endif %} с веб-сервером, который эмулирует нагрузку на сервис.
 
    {% include [get-latest-coi](../../_includes/container-registry/get-latest-coi.md) %}
 
@@ -191,7 +191,6 @@
    ```
 
 1. Замените в файле `specification.yaml` значения в угловых скобках на реальные, на основе выполнения предыдущих шагов.
-
 1. Создайте группу ВМ с именем `auto-group` с помощью спецификации `specification.yaml`:
 
    {% list tabs %}
@@ -204,7 +203,7 @@
      yc compute instance-group create --file=specification.yaml
      ```
 
-     Результат:
+     Результат выполнения команды:
 
      ```bash
      done (2m45s)
@@ -239,7 +238,7 @@
      yc compute instance-group list-instances auto-group
      ```
 
-     Результат:
+     Результат выполнения команды:
 
      ```bash
      +----------------------+---------------------------+----------------+--------------+------------------------+----------------+
@@ -291,7 +290,7 @@
        --target-group healthcheck-name=tcp,healthcheck-tcp-port=80,target-group-id=cl0hmabc1nd2hdefgb7k
      ```
 
-     Результат:
+     Результат выполнения команды:
 
      ```bash
      done (16s)
@@ -328,7 +327,7 @@
      yc load-balancer network-load-balancer list
      ```
 
-     Результат:
+     Результат выполнения команды:
      
      {% if product == "yandex-cloud" %}
 
@@ -382,7 +381,7 @@
      sh request.sh
      ```
 
-     Результат:
+     Результат выполнения команды:
 
      ```bash
      projects/b0g12ga82bcv0cdeferg/zones/{{ region-id }}-b
@@ -429,7 +428,7 @@
      sh load.sh
      ```
 
-     Результат:
+     Результат выполнения команды:
 
      ```bash
      Running 10m test @ http://130.193.56.111/burn-cpu?time=5000&load=20
@@ -481,7 +480,7 @@
      yc load-balancer network-load-balancer delete group-balancer
      ```
 
-     Результат:
+     Результат выполнения команды:
 
      ```bash
      done (15s)
@@ -512,7 +511,7 @@
      yc compute instance-group delete auto-group
      ```
 
-     Результат:
+     Результат выполнения команды:
 
      ```bash
      done (1m20s)
@@ -546,7 +545,7 @@
         yc vpc subnet delete e1lnabc23r1c9d0efoje
         ```
 
-        Результат:
+        Результат выполнения команды:
 
         ```bash
         done (1s)
@@ -565,7 +564,7 @@
         yc vpc subnet delete b1csa2b3clideftjb121
         ```
 
-        Результат:
+        Результат выполнения команды:
 
         ```bash
         done (1s)
@@ -602,7 +601,7 @@
      yc vpc network delete yc-auto-network
      ```
 
-     Результат:
+     Результат выполнения команды:
 
      ```bash
      id: enpabce123hde4ft1r3t
@@ -634,7 +633,7 @@
      yc iam service-account delete for-autoscale
      ```
 
-     Результат:
+     Результат выполнения команды:
 
      ```bash
      done (2s)

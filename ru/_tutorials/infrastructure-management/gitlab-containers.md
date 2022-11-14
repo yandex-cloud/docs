@@ -1,7 +1,7 @@
 [{{ GL }}](https://about.gitlab.com/) — инструмент [непрерывной интеграции (Continuous integration, CI)]({{ links.wiki.ci }}).
 
 В этом руководстве описаны:
-* Сборка приложения в Docker-контейнер.
+* Сборка приложения в {% if lang == "ru" %}[Docker-контейнер](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker-контейнер{% endif %}.
 * Развертывание приложения из контейнера в [кластере {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) через {{ GL }} с помощью инструментов {{ yandex-cloud }}.
 
 После каждого коммита в {{ GL }}:
