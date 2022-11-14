@@ -3,32 +3,31 @@
 ## Creating a connection {#creating-connection}
 
 - [{#T}](connection/create-clickhouse.md)
-- [{#T}](connection/create-csv.md)
-- [{#T}](connection/create-google-sheets.md)
+{% if product == "yandex-cloud" %}- [{#T}](connection/create-google-sheets.md){% endif %}
 - [{#T}](connection/create-mysql.md)
 - [{#T}](connection/create-postgresql.md)
 - [{#T}](connection/create-mssql-server.md)
-- [{#T}](connection/create-oracle.md)
-- [{#T}](connection/create-ydb.md)
-- [{#T}](connection/create-greenplum.md)
-- [{#T}](connection/create-metrica-api.md)
-- [{#T}](connection/create-appmetrica.md)
-- [{#T}](connection/create-cloud-billing.md)
-- [{#T}](connection/manage-access.md)
+{% if product == "cloud-il" %}- [{#T}](connection/create-big-query.md){% endif %}
+{% if product == "yandex-cloud" %}- [{#T}](connection/create-oracle.md){% endif %}
+{% if product == "yandex-cloud" %}- [{#T}](connection/create-ydb.md){% endif %}
+{% if product == "yandex-cloud" %}- [{#T}](connection/create-greenplum.md){% endif %}
+{% if product == "yandex-cloud" %}- [{#T}](connection/create-metrica-api.md){% endif %}
+{% if product == "yandex-cloud" %}- [{#T}](connection/create-appmetrica.md){% endif %}
+{% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](connection/create-cloud-billing.md){% endif %}{% endif %}
+{% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](connection/manage-access.md){% endif %}{% endif %}
 
 ## Working with a dataset {#working-with-datasets}
 
 - [{#T}](dataset/create.md)
 - [{#T}](dataset/join-data.md)
-- [{#T}](dataset/join-data-csv.md)
 - [{#T}](dataset/create-field.md)
 - [{#T}](dataset/create-calculated-field.md)
 - [{#T}](dataset/create-filter.md)
 - [{#T}](dataset/update-field.md)
 - [{#T}](dataset/add-data.md)
-- [{#T}](dataset/materialize.md)
-- [{#T}](dataset/manage-access.md)
-- [{#T}](dataset/manage-row-level-security.md)
+{% if product == "yandex-cloud" %}{% if audience != "internal" %} - [{#T}](dataset/materialize.md){% endif %}{% endif %}
+{% if product == "yandex-cloud" %}{% if audience != "internal" %} - [{#T}](dataset/manage-access.md){% endif %}{% endif %}
+{% if product == "yandex-cloud" %}- [{#T}](dataset/manage-row-level-security.md){% endif %}
 - [{#T}](dataset/add-parameter-dataset.md)
 
 ## Creating and configuring charts {#creating-and-configuring-charts}
@@ -38,8 +37,8 @@
 - [{#T}](chart/create-multidataset-chart.md)
 - [{#T}](chart/add-hierarchy.md)
 - [{#T}](chart/config-chart-navigator.md)
-- [{#T}](chart/publish.md)
-- [{#T}](chart/manage-access.md)
+{% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](chart/publish.md){% endif %}{% endif %}
+{% if product == "yandex-cloud" %}- [{#T}](chart/manage-access.md){% endif %}
 - [{#T}](chart/add-guid.md)
 - [{#T}](chart/add-parameter-chart.md)
 - [{#T}](chart/chart-null-settings.md)
@@ -51,10 +50,18 @@
 - [{#T}](dashboard/add-selector.md)
 - [{#T}](dashboard/create-alias.md)
 - [{#T}](dashboard/edit-alias.md)
-- [{#T}](dashboard/publish.md)
-- [{#T}](dashboard/manage-access.md)
+{% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](dashboard/publish.md){% endif %}{% endif %}
+{% if product == "yandex-cloud" %}- [{#T}](dashboard/manage-access.md){% endif %}
 - [{#T}](dashboard/auto-update.md)
+
+{% if product == "yandex-cloud" %}
+
+{% if audience == "external" %}
 
 ## Working with organizations {#working-with-organizations}
 
 - [{#T}](organizations/change-organization.md)
+
+{% endif %}
+
+{% endif %}

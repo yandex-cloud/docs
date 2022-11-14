@@ -551,9 +551,9 @@ default:
   gl: # GitLab
     docs: https://docs.gitlab.com
   gp: # Greenplum
-   docs:
-     org: https://docs.greenplum.org
-     pivotal: https://gpdb.docs.pivotal.io
+    docs:
+      org: https://docs.greenplum.org
+      pivotal: https://gpdb.docs.pivotal.io
   kf: # Kafka
     docs: https://kafka.apache.org/documentation/
   # Kubernetes

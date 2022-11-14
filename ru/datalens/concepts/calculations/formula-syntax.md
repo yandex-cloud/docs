@@ -59,7 +59,7 @@ DATETRUNC([datetime], 'month')
   [City] + " " + "city"
   ```
 
-Операторы [сложения (+)](../../function-ref/OP_PLUS#description), [вычитания (-)](../../function-ref/OP_MINUS#description) и [умножения (*)](../../function-ref/OP_MULT#description) имеют различное поведение в зависимости от типа аргументов.
+Операторы [сложения (+)](../../function-ref/OP_PLUS.md#description), [вычитания (-)](../../function-ref/OP_MINUS.md#description) и [умножения (*)](../../function-ref/OP_MULT.md#description) имеют различное поведение в зависимости от типа аргументов.
 
 - Возведение в степень: `^`.
 

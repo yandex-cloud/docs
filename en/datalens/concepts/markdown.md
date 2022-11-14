@@ -1,25 +1,27 @@
 # Using Markdown in DataLens
 
-{{ datalens-short-name }} lets you use the Markdown markup language in the [{#T}](dashboard.md#text) widget on the dashboard.
+{{ datalens-short-name }} allows you to use the Markdown markup language in the [{#T}](dashboard.md#text) widget on the dashboard.
+
 You can insert explanatory text, links, tables, images, or use formatting to highlight key points.
 
 In text widgets, you can use the following elements:
 
-- [Headings](#headings)
+- [Headers](#headings)
 - [Bold and italics](#emphasizing)
 - [Lists](#lists)
-  - [Simple unordered list](#unordered-list)
-  - [Nested unordered list](#unordered-sublist)
-  - [Simple ordered list](#ordered-list)
-  - [Nested ordered list](#ordered-sublist)
+   - [Simple unordered list ](#unordered-list)
+   - [Nested unordered list](#unordered-sublist)
+   - [Simple ordered list](#ordered-list)
+   - [Nested ordered list](#ordered-sublist)
 - [Tables](#tables)
 - [Links](#links)
 - [Code formatting](#code)
-  - [Inline code snippet](#inline-code)
-  - [Code block](#codeblock)
+   - [Inline code snippet](#inline-code)
+   - [Code block](#codeblock)
 - [Image](#image)
+- [Cuts](#cuts)
 
-## Headings {#headings}
+## Headers {#headings}
 
 You can use four levels of headings in the widget.
 Use `#` to mark up headings.
@@ -33,28 +35,29 @@ Syntax example:
 #### Level 4 heading
 ```
 
-## Highlighted text {#emphasizing}
+
+## Highlighting text {#emphasizing}
 
 Use formatting to highlight key points in your text:
 
 * To make text **bold**, use double `*`:
 
-  ```markdown
-  This text will be **bold**.
-  ```
+   ```markdown
+   This text will be **bold**.
+   ```
 
 * To make text _italic_, use `_`:
 
-  ```markdown
-  This text will be _italic_.
-  ```
+   ```markdown
+   This text will be _italic_.
+   ```
 
-* To combine _**bold and italics**_, use double `*` and `_` at the same time:
+* To combine _****bold and italics****_, use double `*` and `_` at the same time:
 
-  ```markdown
-  This text will be _**bold and italic**_.
-  This text will be **_bold and italic_**.
-  ```
+   ```markdown
+   This text will be _**bold and italic**_.
+   This text will be **_bold and italic_**.
+   ```
 
 ## Lists {#lists}
 
@@ -124,8 +127,8 @@ For example, the following markup:
 
 ```markdown
 1. First item
-   1. Nested item
-   1. Nested item
+    1. Nested item
+    1. Nested item
 1. Second item
 ```
 
@@ -134,8 +137,7 @@ will be displayed as:
 1. First item
 
    1.1. Nested item<br>
-   1.2. Nested item
-
+   1.2 Nested item
 1. Second item
 
 ## Tables {#tables}
@@ -159,8 +161,31 @@ Text | Text | Text
 will be displayed as:
 
 | Left-aligned | Right-aligned | Centered |
-| :--- | ---: | :---: |
+:--- | ---: | :---:
 | Text | Text | Text |
+
+To add a line break or a more complex element (such as a list or code block) to a table cell, use an alternative markup:
+```
+#|
+|| **Header1** | **Header2** ||
+|| Text | Text ||
+|#
+```
+
+Sample markup with line breaks and a list:
+```
+#|
+||Text
+on two lines
+|
+- Item 1
+- Item 2
+- Item 3
+- Item 4||
+|#
+```
+{% if product == "yandex-cloud" %}See learn more in the [YFM documentation](https://ydocs.tech/en/syntax/tables/multiline).{% endif %}
+
 
 ## Links {#links}
 
@@ -168,19 +193,49 @@ You can use links to enter information related to the dashboard or charts.
 For example, you can add links to other dashboards and specify data sources.
 
 A link consists of two parts:
-
-  * `[text]` is the link text.
-  * `(link)` is the URL or path to the file referenced.
+* `[text]` is the link text.
+* `(link)` is the URL or path to the file referenced.
 
 For example, the following markup:
 
+{% if product == "yandex-cloud" %}
+
 ```markdown
-[link to yandex.com](https://yandex.com).
+[link to yandex.ru](https://yandex.ru).
 ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+```markdown
+[link to DataLens](https://datalens.cloudil.co.il).
+```
+
+{% endif %}
 
 will be displayed as:
 
-[link to yandex.com](https://yandex.com).
+{% if product == "yandex-cloud" %}
+
+[link to yandex.ru](https://yandex.ru).
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+[link to DataLens](https://datalens.cloudil.co.il).
+
+{% endif %}
+
+{% if audience == "internal" %}
+
+Ticket keys and usernames are converted to links in Tracker and Staff.
+
+For example, `SOMEQUEUE-123` is converted to the link `https://st.yandex-team.ru/SOMEQUEUE-123` specifying the status and assignee, 
+while `@login` or `login@` is converted to the link `https://staff.yandex-team.ru/login` with the username.
+
+{% endif %}
 
 ## Code formatting {#code}
 
@@ -200,12 +255,12 @@ will be displayed as:
 
 A sentence with a `code snippet`.
 
+
 ### Code block {#codeblock}
 
 Use triple <code>`</code> and the programming language name to format your snippet as a code block.
 
 For example, the following markup:
-
 ```markdown
     ```kotlin
     val a: Int = 1
@@ -219,19 +274,48 @@ val a: Int = 1
 ```
 
 ## Image {#image}
-
-To insert an image in the widget, use [{{ objstorage-full-name }}](../../storage/quickstart.md). You can use it for free for up to 1 GB of standard storage per month.
+{% if audience != "internal" %}
+ To insert an image in the widget, use [{{ objstorage-full-name }}](../../storage/quickstart.md). You can use it for free for up to 1 GB of standard storage per month.
+{% endif %}
+{% if audience == "internal" %}
+To insert an image in the widget, use any Yandex service. For example, upload it to [Jing](https://jing.yandex-team.ru/).
+{% endif %}
 
 To upload an image to the widget:
-
-1. Open the [management console]({{ link-console-main }}) and select **{{ objstorage-short-name }}** in the menu on the left.
-1. [Create a bucket](../../storage/operations/buckets/create.md) with public access.
-1. [Upload an image](../../storage/operations/objects/upload.md) to the bucket.
-1. Go to the resulting object and click **Get link**.
+{% if audience != "internal" %}
+1. Open the [management console] ({{ link-console-main }}) **{{ objstorage-short-name }}** and select Connections in the menu on the left.
+3. [Create a bucket ](../../storage/operations/buckets/create.md)with public access.
+4. [Upload the image](../../storage/operations/objects/upload.md) to the bucket 
+5. Go to the resulting object and click **Get link**.
+   {% endif %}
+   
 1. Copy the link to the image.
-1. Go to your {{ service-name }} dashboard and create a widget named **Text**.
-1. Paste the following code in the widget:
+2. Go to your {{ datalens-name }} dashboard and create a widget named **Text**.
+3. Paste the following code in the widget:
+   ```markdown
+   ![alt text](https://image_link "Text of a hint displayed when hovering over the image" =100x200)
+   ```
 
-    ```markdown
-    ![alt text](https://image_link "Text of a hint displayed when hovering over the image")
-    ```
+## Cuts {#cuts}
+
+Use cuts to hide content. For example, additional information or long blocks of code.
+
+For example, the following markup:
+
+```markdown
+
+{% cut "Title of the text to cut" %}
+
+The content to be displayed when you click it.
+
+{% endcut %}
+
+```
+
+will be displayed as:
+
+{% cut "Title of the text to cut" %}
+
+The content to be displayed when you click it.
+
+{% endcut %}

@@ -6,7 +6,7 @@ Tables are a great tool for detailed analysis (a deep dive into figures) and pro
 
 A table is a good choice for quantitative comparison, where you can see different values of multiple categories or dimensions. The table below shows three different measures by three categories.
 
-![table-chart](../../_assets/datalens/visualization-ref/table-chart/table-chart.png)
+{% if product == "yandex-cloud" %}![table-chart](../../_assets/datalens/visualization-ref/table-chart/table-chart.png){% endif %}
 
 {% cut "Source table" %}
 
@@ -66,12 +66,13 @@ To create a table:
 * `px`: Column width in pixels.
 
 The `%` and `px` options let you make a table cell break (by word). This may increase the number of rows in a cell.
-
+{% if product == "yandex-cloud" %}
 {% cut "Sample column width settings" %}
 
 ![image](../../_assets/datalens/operations/chart/table-column-setting.png)
 
 {% endcut %}
+{% endif %}
 
 {% note info %}
 
@@ -120,19 +121,22 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
    * **Align**: Left or right alignment of the indicator position in a column. Only applies if all numbers in a column are either positive or negative.
    * **Scale**: Sets the indicator scale. If you set it manually, specify the **min** and **max** values. Make sure the **min** value is less than or equal to `0` and the **max** value is larger than or equal to `0`.
 
+   {% if product == "yandex-cloud" %}
    {% cut "Sample linear indicator settings" %}
 
    ![image](../../_assets/datalens/operations/chart/table-linear-indicator-setting.png)
 
    {% endcut %}
+   {% endif %}
 
 1. Click **Apply**.
-
+{% if product == "yandex-cloud" %}
 {% cut "Sample chart with a linear indicator" %}
 
 ![image](../../_assets/datalens/operations/chart/table-linear-indicator.png)
 
 {% endcut %}
+{% endif %}
 
 ## Recommendations {#recomendations}
 
@@ -141,20 +145,24 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 * Place dimensions on the left and measures on the right. This facilitates information perception.
 * Make sure column names you use are short and easy to read.
 * Enable the display of totals at the bottom of a table. If the **Pagination** option is selected, the `Total` row is placed on the last page.
-
+  
+  {% if product == "yandex-cloud" %}
   {% cut "Table with totals and pagination" %}
 
   ![table-pagination](../../_assets/datalens/visualization-ref/table-chart/table-pagination.png)
 
   {% endcut %}
+  {% endif %}
 
 * When posting a table on a dashboard, enable auto height in the widget settings. This will help you save dashboard space.
 
+  {% if product == "yandex-cloud" %}
   {% cut "Setting up auto height" %}
 
   ![table-auto-height](../../_assets/datalens/visualization-ref/table-chart/table-auto-height.png)
 
   {% endcut %}
+  {% endif %}
 
   If you use a filter, the table height will automatically adapt to the number of rows.
 
@@ -162,11 +170,11 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 
   If no value is set in the filter, a table displays all rows depending on the limit to the number of rows per page.
 
-  ![table-auto-height-2](../../_assets/datalens/visualization-ref/table-chart/table-auto-height-2.png)
+  {% if product == "yandex-cloud" %}![table-auto-height-2](../../_assets/datalens/visualization-ref/table-chart/table-auto-height-2.png){% endif %}
 
   If the number of displayed rows decreases when using the filter, the table height is reduced automatically.
 
-  ![table-auto-height-3](../../_assets/datalens/visualization-ref/table-chart/table-auto-height-3.png)
+  {% if product == "yandex-cloud" %}![table-auto-height-3](../../_assets/datalens/visualization-ref/table-chart/table-auto-height-3.png){% endif %}
 
   {% endcut %}
 
@@ -174,12 +182,13 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 
   * Subtotal amount of sales by product category: the `CategorySales` measure with the formula `SUM(SUM([Sales]) WITHIN [ProductCategory])`.
   * Total sales: the `TotalSales` measure with the formula `SUM(SUM([Sales]) TOTAL)`.
-
+    {% if product == "yandex-cloud" %}
     {% cut "Sample table" %}
 
     ![table-sum](../../_assets/datalens/visualization-ref/table-chart/table-sum.png)
 
     {% endcut %}
+    {% endif %}
 
   * Maximum order count per month grouped by product category: the `MaxCountByCategory` measure with the formula `MAX(COUNTD([OrderID] INCLUDE [ProductCategory]))`.
 

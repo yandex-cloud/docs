@@ -8,7 +8,7 @@ When you add a measure to a chart section, two auxiliary fields are added to the
 
 ## Using Measure Names and Measure Values in charts {#usage}
 
-Look at practical examples of using `Measure Names` and `Measure Values` in charts. As a data source in our examples, we'll use a direct [connection](../../quickstart.md#create-connection) to a demo database (the dataset is based on the `SampleSuperstore` table).
+Look at practical examples of using `Measure Names` and `Measure Values` in charts. {% if product == "yandex-cloud" %}As a data source in our examples, we'll use a direct [connection](../../quickstart.md#create-connection) to a demo database (the dataset is based on the `SampleSuperstore` table).{% endif %}
 
 **Example 1**
 

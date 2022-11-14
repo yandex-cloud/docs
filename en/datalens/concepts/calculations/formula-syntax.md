@@ -45,43 +45,43 @@ In addition to fields, operators, and functions, expressions can include constan
 
 Operators available in expressions:
 
-- Arithmetic: `+`, `-`, `*`, `/`.
+- Arithmetic: `+`,` -`,` *`, `/`.
 
-  ```
-  ([Sales per Order] * [OrderCount]) - [Profit]
-  ```
+   ```
+   ([Sales per Order] * [OrderCount]) - [Profit]
+   ```
 
-  ```
-  ([Profit] / [Cost Price]) * 100
-  ```
+   ```
+   ([Profit] / [Cost Price]) * 100
+   ```
 
-  ```
-  [City] + " " + "city"
-  ```
+   ```
+   [City] + " " + "city"
+   ```
 
-  [Addition (+)](../../function-ref/OP_PLUS#description), [subtraction (-)](../../function-ref/OP_MINUS#description), and [multiplication (*)](../../function-ref/OP_MULT#description) operators behave differently depending on the argument type.
+[Addition (+)](../../function-ref/OP_PLUS.md#description), [subtraction (-)](../../function-ref/OP_MINUS.md#description), and [multiplication (*)](../../function-ref/OP_MULT.md#description) operators behave differently depending on the argument type.
 
 - Exponentiation: `^`.
 
-  ```
-  [Mass] * [Speed] ^ 2
-  ```
+   ```
+   [Mass] * [Speed] ^ 2
+   ```
 
 - Remainder of a division: `%`.
 
-  ```
-  [Sales] % 10 + [Cost Price] % 10
-  ```
+   ```
+   [Sales] % 10 + [Cost Price] % 10
+   ```
 
-- Boolean: `AND`, `OR`, `NOT`, `IN`, `LIKE`, `IS TRUE`, `IS FALSE`, and `BETWEEN`.
+- Boolean: `AND`, `OR`, `NOT`, `IN`, `LIKE`, `IS TRUE`, `IS FALSE`, `BETWEEN`.
 
-- Comparisons: `=`, `!=`, `<`, `<=`, `>`, and `>=`.
+- Comparisons: `=`, `!=`, `<`, `<=`, `>`, `>=`.
 
-  Comparison operators let you create logical chains:
+   Comparison operators let you create logical chains:
 
-  ```
-  1 > x > -4 > y != 8
-  ```
+   ```
+   1 > x > -4 > y != 8
+   ```
 
 Full description of [all operators](../../function-ref/operator-functions.md).
 
@@ -102,16 +102,16 @@ Comments are used to add explanations or to ignore parts of formulas:
 
 - One-line comment.
 
-  ```
-  -- This is a one-line comment
-  ```
+   ```
+   -- This is a one-line comment
+   ```
 
 - Block comment.
 
-  ```
-  /* This is a block
-  comment */
-  ```
+   ```
+   /* This is a block
+   comment */
+   ```
 
 ## Logical operations {#logical-operations}
 
@@ -119,76 +119,78 @@ Logical functions are used for branching calculations in expressions:
 
 - `CASE`.
 
-  ```
-  CASE [ProductID]
-      WHEN 1 THEN "Bananas"
-      WHEN 2 THEN "Apples"
-      WHEN 3 THEN "Pears"
-      ELSE "Other"
-  END
-  ```
+   ```
+   CASE [ProductID]
+       WHEN 1 THEN "Bananas"
+       WHEN 2 THEN "Apples"
+       WHEN 3 THEN "Pears"
+       ELSE "Other"
+   END
+   ```
 
-  ```
-  CASE( 
-      [Color],
-      "R", "Red",
-      "G", "Green",
-      "B", "Blue",
-      "Not RGB" 
-  )
-  ```
+   ```
+   CASE( 
+       [Color],
+       "R", "Red",
+       "G", "Green",
+       "B", "Blue",
+       "Not RGB" 
+   )
+   ```
 
-  Full description of the [CASE](../../function-ref/CASE.md) logical function.
+   Full description of the [CASE](../../function-ref/CASE.md).
 
 - `IF`.
 
-  ```
-  IF([MassIndex] BETWEEN 18.5 AND 25, "Normally", "Not normal")
-  ```
+   ```
+   IF([MassIndex] BETWEEN 18.5 AND 25, "Normally", "Not normal")
+   ```
 
-  ```
-  IF
-      [Year] % 400 = 0 OR ([Year] % 4 = 0 AND [Year] % 100 != 0)
-          THEN "Leap year"
-      ELSE "Ordinary year"
-  END
-  ```
+   ```
+   IF
+       [Year] % 400 = 0 OR ([Year] % 4 = 0 AND [Year] % 100 != 0)
+           THEN "Leap year"
+       ELSE "Ordinary year"
+   END
+   ```
+{% if product == "yandex-cloud" %}
+```
+IF
+    [City] = "Moscow"
+        THEN "This is the Capital"
+    ELSEIF [City] = "St. Petersburg"
+        THEN "This is the northern Capital"
+    ELSE "Other city"
+END
+```
 
-  ```
-  IF
-      [City] = "Moscow"
-          THEN "This is the Capital"
-      ELSEIF [City] = "St. Petersburg"
-          THEN "This is the northern Capital"
-      ELSE "Other city"
-  END
-  ```
+{% endif %}
 
-  Full description of the [IF](../../function-ref/IF.md) logical function.
+Full description of the [IF](../../function-ref/CASE.md).
 
-- `IFNULL`, `ISNULL`, and `ZN`.
+- `IFNULL`, `ISNULL`, `ZN`.
 
-  ```
-  IFNULL([Cost Price], 10) * [OrderCount]
-  ```
+   ```
+   IFNULL([Cost Price], 10) * [OrderCount]
+   ```
 
-  Full description of the [IFNULL](../../function-ref/IFNULL.md) logical function.
+   Full description of the [IFNULL](../../function-ref/IFNULL.md).
 
-  ```
-  IF(ISNULL([Product Name]) = TRUE, "Unnamed", [Product Name] + " " + [ProductID])
-  ```
+   ```
+   IF(ISNULL([Product Name]) = TRUE, "Unnamed", [Product Name] + " " + [ProductID])
+   ```
 
-  Full description of the [ISNULL](../../function-ref/ISNULL.md) logical function.
+   Full description of the [ISNULL](../../function-ref/ISNULL.md).
 
-  ```
-  ZN([Total Sales]) - ZN([Total Cost])
-  ```
+   ```
+   ZN([Total Sales]) - ZN([Total Cost])
+   ```
 
-  Full description of the [ZN](../../function-ref/ZN.md) logical function.
+   Full description of the [ZN](../../function-ref/ZN.md).
 
 ## Strings {#strings}
 
-The following [string functions](../../function-ref/string-functions.md) are used for processing text data:
+The following [string functions](../../function-ref/string-functions.md):
 
 ```
 CONCAT([Total Sales], "$")
@@ -228,7 +230,7 @@ REPLACE([ShopAddress], "\n", " ")
 
 {% note info %}
 
-Special characters such as `\n`, `\t`, and `\r` do not affect the display of the source data.
+Special characters such as `\n`, `\t`, and `\r `do not affect the display of the source data.
 
 {% endnote %}
 
@@ -248,11 +250,11 @@ DATETIME(STR([Order Date]) + "-" + STR([Order Time]))
 GEOPOINT([Latitude],[Longitude])
 ```
 
-Full description of the [type conversion](../../function-ref/type-conversion-functions.md) functions.
+Full description of the [type conversion](../../function-ref/type-conversion-functions.md).
 
 ## Aggregation {#aggregation}
 
-To calculate the resulting values, use [aggregate functions](../../function-ref/aggregation-functions.md):
+To calculate the resulting values, use [aggregate functions](../../function-ref/aggregation-functions.md).
 
 ```
 AVG([Check Total]) * COUNTD([CustomerID])
@@ -270,7 +272,7 @@ IF
 END
 ```
 
-[Window functions](../../function-ref/window-functions.md) let you aggregate values from a group of strings, without combining these strings into one. This distinguishes them from aggregate functions. You can also use window functions to calculate values for one string in the context of values from other strings.
+[Window features](../../function-ref/window-functions.md) let you aggregate values from a group of strings, without combining these strings into one. This distinguishes them from aggregate functions. You can also use window functions to calculate values for one string in the context of values from other strings.
 
 ```
 SUM([Sales] WITHIN [PaymentType]) / SUM([Sales] TOTAL)
@@ -284,7 +286,7 @@ MSUM([Sales per Order], 1 WITHIN [ProductID] ORDER BY [Price])
 RANK_DENSE(AVG([Price]), "desc" WITHIN [ShopID] BEFORE FILTER BY [PaymentType])
 ```
 
-Window functions support [grouping](../../function-ref/window-functions.md#syntax-grouping) and [sorting](../../function-ref/window-functions.md#syntax-order-by) of records and the [BEFORE FILTER BY](../../function-ref/window-functions.md#syntax-before-filter-by) option.
+Window functions support [grouping](../../function-ref/window-functions.md#syntax-grouping) and[ sorting](../../function-ref/window-functions.md#syntax-order-by) of records and the [BEFORE FILTER BY](../../function-ref/window-functions.md#syntax-before-filter-by).
 
 ## Text markup {#text-markup}
 
@@ -299,4 +301,3 @@ To use numeric constants when marking up URLs, convert them to the `String` type
 ```
 URL("https://example.com/?value=" + STR([Value]), [Value]))
 ```
-

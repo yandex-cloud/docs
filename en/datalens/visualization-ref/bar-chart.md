@@ -2,7 +2,7 @@
 
 This chart displays the values of one or more measures by each category, using horizontal bars. The length of a bar determines the measure value: the longer the bar, the larger the value.  For example, you can compare sales of products by their subcategory.
 
-![horizontal-bar-chart](../../_assets/datalens/visualization-ref/horizontal-bar-chart/horizontal-bar-chart.png)
+{% if product == "yandex-cloud" %}![horizontal-bar-chart](../../_assets/datalens/visualization-ref/horizontal-bar-chart/horizontal-bar-chart.png){% endif %}
 
 {% cut "Source table" %}
 
@@ -27,7 +27,7 @@ This chart displays the values of one or more measures by each category, using h
 
 A chart with grouping by dimension lets you compare two or more categories by a single measure. For example, with grouping by delivery type you can compare the cost of products delivered by a courier to those with pickup. Categories are highlighted in different colors and the length of the bar indicates the measure value.
 
-![horizontal-bar-chart-groupped-1](../../_assets/datalens/visualization-ref/horizontal-bar-chart/horizontal-bar-chart-groupped-1.png)
+{% if product == "yandex-cloud" %}![horizontal-bar-chart-groupped-1](../../_assets/datalens/visualization-ref/horizontal-bar-chart/horizontal-bar-chart-groupped-1.png){% endif %}
 
 {% cut "Source table" %}
 
@@ -44,7 +44,7 @@ A chart with grouping by dimension lets you compare two or more categories by a 
 
 Use a chart with grouping to compare two or more measures, such as the number of orders and the number of products. The bar length corresponds to the measure value.
 
-![horizontal-bar-chart-groupped-2](../../_assets/datalens/visualization-ref/horizontal-bar-chart/horizontal-bar-chart-groupped-2.png)
+{% if product == "yandex-cloud" %}![horizontal-bar-chart-groupped-2](../../_assets/datalens/visualization-ref/horizontal-bar-chart/horizontal-bar-chart-groupped-2.png){% endif %}
 
 {% cut "Source table" %}
 
@@ -146,7 +146,7 @@ To color columns in a chart based on the value of a measure:
 
      Columns in the chart will take on colors as a function of the measure values.
 
-     ![image](../../_assets/datalens/operations/chart/bar-colors-1.png)
+     {% if product == "yandex-cloud" %}![image](../../_assets/datalens/operations/chart/bar-colors-1.png){% endif %}
 
    - Two or more measures
 
@@ -154,7 +154,7 @@ To color columns in a chart based on the value of a measure:
 
      The columns on the chart will take on colors depending on the values of all the measures listed in section **X**.
 
-     ![image](../../_assets/datalens/operations/chart/bar-colors-2.png)
+     {% if product == "yandex-cloud" %}![image](../../_assets/datalens/operations/chart/bar-colors-2.png){% endif %}
 
    {% endlist %}
 

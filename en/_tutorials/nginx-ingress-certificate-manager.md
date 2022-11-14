@@ -34,7 +34,7 @@ The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yand
 
 The infrastructure support cost includes:
 
-* Using the master and outgoing {{ managed-k8s-short-name }} traffic (see [{{ managed-k8s-short-name }} pricing](../managed-kubernetes/pricing.md)).
+* Using the master and outgoing {{ managed-k8s-name }} traffic (see [{{ managed-k8s-short-name }} pricing](../managed-kubernetes/pricing.md)).
 * Using {{ managed-k8s-short-name }} cluster nodes (see [{{ compute-name }} pricing](../compute/pricing.md)).
 * Using public IPs (see [{{ vpc-name }} pricing](../vpc/pricing.md)).
 * Incoming traffic (processed by the load balancer) and using a network load balancer (see [{{ network-load-balancer-short-name }} pricing](../network-load-balancer/pricing.md)).

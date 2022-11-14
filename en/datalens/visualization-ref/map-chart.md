@@ -9,7 +9,7 @@ You can use a map to display layers of different types:
 * Lines Lines are used to show links between objects in the area. For example, airline flights or cargo transportation routes.
 * Heat map Shows the density of points on a map. It's helpful when you need to display a large number of points and their cocentration areas.
 
-![image](../../_assets/datalens/visualization-ref/map/map.png)
+{% if product == "yandex-cloud" %}![image](../../_assets/datalens/visualization-ref/map/map.png){% endif %}
 
 To create maps, make sure the data source contains either [Geopoint](../concepts/data-types.md#geopoint) coordinates or [Geopolygon](../concepts/data-types.md#geopolygon) areas.
 

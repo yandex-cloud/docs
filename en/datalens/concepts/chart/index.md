@@ -4,25 +4,24 @@ _Charts_ are the visualization of data from a dataset in the form of a table, di
 
 {{ datalens-short-name }} includes two types of charts:
 
-* [Dataset-based charts](#dataset-based-charts)
+* {% if product == "yandex-cloud" %}[Dataset-based charts]{% endif %}{% if product == "cloud-il" %}[Charts in a wizard]{% endif %}(#dataset-based-charts)
 * [QL charts](#sql-charts)
 
-## Dataset-based charts {#dataset-based-charts}
+## {% if product == "yandex-cloud" %}Dataset-based charts{% endif %}{% if product == "cloud-il" %}Charts in a wizard{% endif %} {#dataset-based-charts}
 
-Charts are created in a wizard based on data from one or multiple datasets (see [multi-dataset charts](#multi-dataset-charts)).
+Charts are created in a wizard based on data from one or more datasets (see [multi-dataset charts](#multi-dataset-charts)).
 You can create an unlimited number of charts based on a single dataset.
 
 The workspace in the wizard interface is divided into three main panels:
-
 1. A dataset panel where available fields are displayed: **Dimensions** and **Measures**. You can add a [calculated field](../calculations/index.md) to the list.
-1. A visualization setup panel that you can use to select a [chart type](../../visualization-ref/index.md). Each type has its own set of sections (such as X-axis, Y-axis, and filters) where you can drag and drop fields. Learn more in [{#T}](settings.md).
+1. A visualization setup panel that you can use to select a [chart type](../../visualization-ref/index.md). Each type has its own set of sections (such as X-axis, Y-axis, and filters) where you can drag and drop fields. For more information, see [{#T}](settings.md).
 1. A preview panel where the visualization is displayed.
 
 Charts let you quickly analyze and test hypotheses. You can also save charts and add them to dashboards as widgets.
 
 {% note warning %}
 
-{{ datalens-short-name }} limits the number of data rows displayed in charts. Read about them in the section [{#T}](../limits.md).
+{{ datalens-short-name }} limits the number of data rows displayed in charts. For more information, see [{#T}](../limits.md).
 
 {% endnote %}
 
@@ -31,7 +30,7 @@ Charts let you quickly analyze and test hypotheses. You can also save charts and
 Multi-dataset charts display data from multiple datasets.
 
 Queries for each dataset are processed independently of each other. You cannot create calculated fields from fields in multiple datasets.
-When you add a second dataset {{ datalens-short-name }}, the link is automatically created based on the first match for the field name and field data type.
+When you add a second {{ datalens-short-name }} dataset, a link is automatically created based on the first match for the field name and field data type.
 
 In this case, you can:
 
@@ -41,18 +40,18 @@ In this case, you can:
 
 {% note info %}
 
-  Datasets used in the chart may be non-linked.
+Datas in a chart don't have to be linked.
 
 {% endnote %}
 
-Specifics of working with linked datasets in the chart, except for geochart layers:
+Features of working with linked datasets in charts, except for geochart layers:
 
 * One chart can use any measures from datasets, regardless of their links.
 * One chart can only use linked dimensions.
 * Filters by linked dimensions are applied to all datasets.
 * Filters by non-linked dimensions are applied only to their own dataset.
 
-Working with linked datasets in geovisualizations on different layers:
+Features of working with linked datasets in geovisualizations on different layers:
 
 * A geolayer can use any measures from datasets regardless of their links
 * A geolayer can only use its linked dimensions.
@@ -64,40 +63,191 @@ Working with linked datasets in geovisualizations on different layers:
 
 ## QL charts {#sql-charts}
 
-_QL charts_ are charts created from a connection if the connection target is a database. Use a SQL query to build these charts. The query is executed using the original database's SQL flavor, which helps expand visualization capabilities by using database-specific transactions.
+{% if audience != "internal" %}
 
-Executing a SQL query does not set up a separate [Dataset](../dataset/index.md) object, but rather generates one on the fly and displays it in the preview panel.
+_QL charts_ are charts created from a connection if the connection source is a database. Use a SQL query to build these charts. The query is run using the source database's SQL dialect, which helps expand visualization capabilities by using database-specific transactions.
 
-Unlike [regular charts](#dataset-based-charts), the logic of using the wizard in QL charts favors the SQL query, that is, the wizard only displays data from a query.
+{% else %}
 
-QL chart features:
+_QL charts_ are charts created from a connection if the connection source is a database, {{ prometheus-name }}, or {{ monitoring-short-name }}. To create such charts, direct queries to the source are used. Depending on the chart type, the query can be run in the source database's SQL dialect, as well as the {{ prometheus-name }} or {{ monitoring-short-name }} query languages. This helps you to expand visualization capabilities by using language-specific transactions.
 
-* They reduce database workload by using direct queries.
-* They are only suitable for `SELECTs`.
-* They enable the use of the `JOIN`, `GROUP BY`, and `SORT BY` operators as well as aggregate functions in a SQL query.
-* They enable the parameterization of any part of a SQL query.
-* They support a limited set of [visualizations types](../../visualization-ref/index.md).
-* They have [public access](#public-access) restrictions.
-* They do not support data [materialization](../dataset/settings.md#materializaton).
-* They do not use [RLS](../../security/row-level-security.md) or [calculated fields](../calculations/index.md).
+{% endif %}
+
+Running a query does not create a separate [Dataset](../dataset/index.md) object: a chart is generated on the fly and displayed in the preview panel.
+
+Unlike [dataset-based charts](#dataset-based-charts), the logic of a visualization area in QL charts favors queries against the source, that is, the visualization area only displays the data queried.
+
+{% if audience != "internal" %}
+
+QL charts:
+
+* Reduce database workload by using direct queries.
+* Are only suitable for `SELECT` queries.
+* Enable the use of `JOIN`, `GROUP BY`, and `SORT BY` queries and aggregate functions in SQL queries.
+* Enable the parameterization of any part of a SQL query.
+* Support a limited number of [visualization types](../../visualization-ref/index.md).
+   {% if product == "yandex-cloud" %}* Don't support data [materialization](../dataset/settings.md#materialization).{% endif %}
+* They do not support {% if product == "yandex-cloud" %}[RLS](../../security/row-level-security.md) and {% endif %}[calculated fields](../calculations/index.md).
 
 {% include [datalens-sql-ch-example](../../../_includes/datalens/datalens-sql-ch-example.md) %}
+
+{% else %}
+
+The following types of QL charts are supported:
+
+* **SQL**. They let you build visualizations with flexible dataset management based on parameterization of an SQL query to the source DB.
+
+   SQL chart specifics:
+
+   * Reduce database workload by using direct queries.
+   * Are only suitable for `SELECT` queries.
+   * Enable the use of `JOIN`, `GROUP BY`, and `SORT BY` queries and aggregate functions in SQL queries.
+   * Enable the parameterization of any part of a SQL query.
+   * Support a limited set of [visualizations types](../../visualization-ref/index.md).
+   * They do not support [RLS](../../security/row-level-security.md) and [calculated fields](../calculations/index.md).
+
+      {% include [datalens-sql-ch-example](../../../_includes/datalens/datalens-sql-ch-example.md) %}
+
+{% if product == "yandex-cloud" %}* **{{ prometheus-name }}**. They let you create a chart based on {{ prometheus-name }} data (see the [example](https://datalens.yandex-team.ru/ql/ssvptrd5tqh0k)). You can't build a dataset on top of this source. You can only work with it using QL charts.{% endif %}
+
+{% if product == "yandex-cloud" %}* **{{ monitoring-short-name }}**. They let you create a chart based on {{ monitoring-full-name }} data (see the [example](https://datalens.yandex-team.ru/ql/99c6irbpsmam1)). You can't build a dataset on top of this source. You can only work with it using QL charts. You can also `export` a chart from {{ monitoring-short-name }} to {{ datalens-short-name }}. You can edit, save, and place it on a dashboard.{% endif %}
+
+{% endif %}
 
 To create a QL chart, see the [instructions](../../operations/chart/create-sql-chart.md).
 
 ## Chart types {#chart-types}
 
-All types of {{ datalens-full-name }} charts are presented in the [Visualization Reference](../../visualization-ref/index.md).
+You can find all the {{ datalens-full-name }} chart types in the [Visualization reference](../../visualization-ref/index.md).
+
+{% if audience == "internal" %}
+
+## Alert settings {#alerting}
+
+{% note alert %}
+
+Currently, alerts only run in MVP testing mode:
+
+* You can only create alerts in **Line charts** (except for charts created in the **Old Wizard**).
+* Alerts use UTC time.
+* You can't disable alerts.
+
+{% endnote %}
+
+Alerts are notifications about chart events.
+
+They are sent when a chart value exceeds the established threshold when checking it. The chart status is checked once every 15 minutes. If the chart value stays beyond the threshold for several checks in a row, only one alert is sent. You can't create a check for a missing value.
+
+A chart must include a time series. Use `relative dates` to make sure your chart changes with time. By default, the chart time is in UTC.
+
+You can set up an alert for one or more lines. The lines must be plotted along the same Y-axis. For lines plotted along the second Y-axis, you need to create a new alert. Use `id`, `name`, or `title` as the line ID. If the `name` or `title` is dynamic (for example, it is based on the date), add the `id` of a time series to identify it uniquely.
+
+To learn more about creating alerts, see the `instructions`.
+
+## Setting up a comment feed {#comment-feed-setting}
+
+A comment feed is a chart setting that lets you use same comments in different charts. We recommend using the comment feed ID from another chart as a feed. If you set an arbitrary value as a feed, a new comment feed is created that will be available in the chart.
+
+The ID of a comment feed created in the wizard is the same as the chart ID. Therefore, the chart where this channel is used as a feed shows all the comments from the source chart.
+
+{% note info %}
+
+When you use a feed, comments from the feed can be edited by any user who has access to the chart.
+
+{% endnote %}
+
+To learn more about how to use a feed to copy comments, see the `instructions`.
+
+{% endif %}
+
+{% if audience == "internal" %}
+
+## Versioning {#versioning}
+
+Chart versioning is the ability to store the history of chart configuration changes using versions. A list of versions is available to users with the lowest level of **{{ permission-read }}** access to the chart.
+
+{% note info %}
+
+Currently, versioning is only supported for [dataset-based](#dataset-based-charts) charts.
+
+{% endnote %}
+
+To go to the list of versions, click the ![image](../../../_assets/datalens/horizontal-ellipsis.svg) icon at the top of the screen and select **Change history**.
+
+![image](../../../_assets/datalens/concepts/version-list.png)
+
+To select a version from the list, click it. The version number will be displayed as the value of the `revId` parameter in the chart address string. Clicking on a link with the version number in the `revId` parameter will open the relevant version of the chart directly.
+
+### Version types {#version-types}
+
+The following distinct versions are available:
+
+* **Actual**. The most recently saved version of a chart. All users can see chart versions on dashboards, as well as when directly navigating to charts or opening them for editing from the dashboard context menu. Only one version of a chart can be actual.
+
+   ![image](../../../_assets/datalens/concepts/current-version.png)
+
+   If a user has **{{ permission-write }}** permissions, they can make any chart version actual.
+
+   {% note warning %}
+
+   When updating any version, except a draft, a new chart version is created.
+
+   {% endnote %}
+
+* **Draft**. A version with unsaved chart changes. The main users do not see changes being made to a draft. This enables you to hide chart edits until a version update. A chart can only have one draft.
+
+   ![image](../../../_assets/datalens/concepts/draft-version.png)
+
+   You can share a draft version of a chart. For this, pass the revision number in the `revId` parameter in a link (such as `?revId=zac5m4edoaqqr`).
+   To create a draft after editing a chart, click the down arrow in the upper-right corner and select **Save as draft**.
+
+* **Not actual**. A version that is neither actual nor a draft.
+
+   ![image](../../../_assets/datalens/concepts/old-version.png)
+
+### Creating a new version {#version-create}
+
+A new version is automatically created when you click **Save and make actual** in chart edit mode. Here are the chart configuration changes that result in a new version:
+
+* Changing chart settings that can be accessed by clicking ![image](../../../_assets/datalens/gear.svg) at the top of the screen.
+* Adding, renaming, or deleting chart fields.
+* Adding or deleting fields in chart sections.
+
+### Limitations {#restrictions}
+
+* The change history only contains a list of chart versions and includes: version type, save date and time, and the author of the edits.
+* Chart versions don't include changes to access permissions (this operation is performed separately from chart edits).
+* Versions do not display a list of changes. You can only view the saved status of the chart configuration.
+* [Alerts](#alerting) only apply to the actual version.
+
+[Comments](#comment-feed-setting) that you set up will be shown in all versions.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+{% if audience != "internal" %}
 
 ## Publishing a chart {#public-access}
 
 You can grant any internet user access to a chart using [{{ datalens-public }}](../datalens-public.md). This chart becomes public and any user can view it without authorization.
 
+Granting public access to a chart increases the number of DB queries, so keep in mind that the load on the database will increase.
+
 To grant public access to a chart:
 
 {% include [share-note](../../../_includes/datalens/datalens-share-note.md) %}
 
-{% include [publish-chart](../../../_includes/datalens/operations/datalens-public-chart.md) %}
+1. On the navigation page, find the chart and open it.
+1. At the top of the wizard interface, click ![image](../../../_assets/datalens/share.svg).
+1. In the window that opens, enable **Access via link**. {{ datalens-short-name }} automatically grants access to related objects.
+1. Copy the public link and click **Apply**.
+
+{% endif %}
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
 
 ## Access management {#access-management}
 
@@ -109,15 +259,12 @@ To configure chart permissions:
 
 For more information about types of permissions, see [{#T}](../../security/index.md).
 
+{% endif %}
+
 #### See also {#see-also}
 
-* [{#T}](../../visualization-ref/line-chart.md#create-diagram)
-* [{#T}](../../visualization-ref/pivot-table-chart.md#create-diagram)
-* [{#T}](../../visualization-ref/table-chart.md#create-diagram)
-* [{#T}](../../visualization-ref/area-chart.md#create-diagram)
-* [{#T}](../../visualization-ref/column-chart.md#create-diagram)
-* [{#T}](../../visualization-ref/bar-chart.md#create-diagram)
-* [{#T}](../../visualization-ref/pie-chart.md#create-diagram)
-* [{#T}](../../visualization-ref/map-chart.md)
-* [{#T}](../../operations/chart/create-sql-chart.md)
-* [{#T}](../../operations/chart/publish.md)
+- [{#T}](../../operations/chart/create-chart.md)
+- [{#T}](../../operations/chart/create-sql-chart.md)
+- [{#T}](../../visualization-ref/index.md)
+{% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](../../operations/chart/publish.md){% endif %}{% endif %}
+

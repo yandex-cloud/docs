@@ -8,7 +8,7 @@
 
 ## Использование Measure Names и Measure Values в чартах {#usage}
 
-Рассмотрим использование полей `Measure Names` и `Measure Values` в чартах на примерах. В качестве источника данных для примеров будет использоваться прямое [подключение](../../quickstart.md#create-connection) к демонстрационной БД (датасет построен на основе таблицы `SampleSuperstore`).
+Рассмотрим использование полей `Measure Names` и `Measure Values` в чартах на примерах. {% if product == "yandex-cloud" %}В качестве источника данных для примеров будет использоваться прямое [подключение](../../quickstart.md#create-connection) к демонстрационной БД (датасет построен на основе таблицы `SampleSuperstore`).{% endif %}
 
 **Пример 1**
 

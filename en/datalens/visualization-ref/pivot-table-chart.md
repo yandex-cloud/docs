@@ -6,7 +6,7 @@ Unlike a flat [table](table-chart.md), categories in a pivot table can be stored
 
 Pivot tables make it easier to work with large amounts of data and let you analyze the relationship between different measures. For example, you can use this type of table to analyze product sales depending on the delivery type by brand and product category over a specific year.
 
-![pivot-table-chart](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-chart.png)
+{% if product == "yandex-cloud" %}![pivot-table-chart](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-chart.png){% endif %}
 
 {% cut "Source table" %}
 
@@ -100,15 +100,16 @@ The **Total** row is displayed in the table. Values in the row are calculated us
 * You can color table cells depending on the values of a measure. This will emphasize them.
 * Use tables for their intended purpose only. Don't try to replace all visual data representation forms with them.
 * When posting a table on a dashboard, enable auto height in the widget settings. This will help you save dashboard space.
-
+  {% if product == "yandex-cloud" %}
   {% cut "Setting up auto height" %}
 
   ![pivot-table-auto-height](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-auto-height.png)
 
   {% endcut %}
+  {% endif %}
 
   If you use a filter, the table height will automatically adapt to the number of rows.
-
+  {% if product == "yandex-cloud" %}
   {% cut "Using a filter with the auto height option enabled" %}
 
   If no value is set in the filter, a table displays all rows depending on the limit to the number of rows per page.
@@ -120,17 +121,19 @@ The **Total** row is displayed in the table. Values in the row are calculated us
   ![pivot-table-auto-height-3](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-auto-height-3.png)
 
   {% endcut %}
+  {% endif %}
 
 * Represent totals (or subtotals) as a column. To do this, use calculated fields based on [window functions](../concepts/window-function-tutorial.md) or [LOD expressions](../concepts/lod-aggregation.md). For example:
 
   * Subtotal amount of sales by product category: the `CategorySales` measure with the formula `SUM(SUM([Sales]) WITHIN [ProductCategory])`.
   * Total sales: the `TotalSales` measure with the formula `SUM(SUM([Sales]) TOTAL)`.
-
+    {% if product == "yandex-cloud" %}
     {% cut "Sample table" %}
 
     ![pivot-table-sum](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-sum.png)
 
     {% endcut %}
+    {% endif %}
 
   * Maximum order count per month grouped by product category: the `MaxCountByCategory` measure with the formula `MAX(COUNTD([OrderID] INCLUDE [ProductCategory]))`.
 

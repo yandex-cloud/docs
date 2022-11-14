@@ -2,7 +2,7 @@
 
 By default, in {{ datalens-short-name }}, [aggregate functions](../function-ref/aggregation-functions.md) are calculated with grouping by dimensions involved in the building of the chart (that is, located in one of its sections). You can change the grouping for an aggregate function if you specify the [level of detail](../function-ref/aggregation-functions.md#syntax-lod). By managing the level of detail, you can add or exclude dimensions from grouping and use nested aggregations. For more information about how data aggregation and groupings work in {{ datalens-short-name }}, see [{#T}](aggregation-tutorial.md).
 
-A direct [connection](../quickstart.md#create-connection) to a demo database (the dataset is based on the `SampleSuperstore` table) will be used as your data source in the examples.
+{% if product == "yandex-cloud" %}A direct [connection](../quickstart.md#create-connection) to a demo database (the dataset is based on the `SampleSuperstore` table) will be used as your data source in the examples.{% endif %}
 
 ## Grouping in LOD expressions {#lod-grouping}
 

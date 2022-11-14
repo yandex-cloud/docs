@@ -2,7 +2,7 @@
 
 A polyline map is a type of geolayer on a **Map** chart that lets you draw polylines on the map. A polyline consists of points connected in a certain order. A polyline map is used, for example, to show the path of a moving object.
 
-![polyline-map-chart](../../_assets/datalens/visualization-ref/polyline-map-chart/polyline-map-chart.png)
+{% if product == "yandex-cloud" %}![polyline-map-chart](../../_assets/datalens/visualization-ref/polyline-map-chart/polyline-map-chart.png){% endif %}
 
 To build a polyline map, you need the following data:
 
@@ -14,11 +14,11 @@ You can color polyline segments in one of the following ways:
 
 * In a gradient by measure (for a example, an average speed in a point).
 
-  ![polyline-map-chart-2](../../_assets/datalens/visualization-ref/polyline-map-chart/polyline-map-chart-2.png)
+  {% if product == "yandex-cloud" %}![polyline-map-chart-2](../../_assets/datalens/visualization-ref/polyline-map-chart/polyline-map-chart-2.png){% endif %}
 
 * In discrete colors by dimension (for example, by trip name).
 
-  ![polyline-map-color-dimensions](../../_assets/datalens/visualization-ref/polyline-map-chart/polyline-map-color-dimensions.png)
+  {% if product == "yandex-cloud" %}![polyline-map-color-dimensions](../../_assets/datalens/visualization-ref/polyline-map-chart/polyline-map-color-dimensions.png){% endif %}
 
 ## Sections in the wizard {#wizard-sections}
 

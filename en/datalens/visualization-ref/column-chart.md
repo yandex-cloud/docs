@@ -103,7 +103,7 @@ To display an X-axis grouped column chart:
      1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension to the **Colors** section.
      1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension to the **X** section. The sequence of dimensions affects the grouping order.
 
-     ![two-measures](../../_assets/datalens/visualization-ref/bar-chart/two-measures.png)
+     {% if product == "yandex-cloud" %}![two-measures](../../_assets/datalens/visualization-ref/bar-chart/two-measures.png){% endif %}
 
    {% endlist %}
 

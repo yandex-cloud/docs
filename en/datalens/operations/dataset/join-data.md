@@ -45,5 +45,4 @@ You can [add data to a dataset using a SQL query](add-data.md) and combine them 
 #### See also {#see-also}
 
 - [{#T}](../../concepts/data-join.md#ui-join)
-- [{#T}](join-data-csv.md)
 

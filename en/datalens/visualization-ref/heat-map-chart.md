@@ -6,7 +6,7 @@ A heat map is most effective when working with a dataset that contains a lot of 
 
 A heat map helps find dependencies that can be hidden due to overlapping map points (like on a [point](point-map-chart.md) map). For example, you can use a heat map to determine the districts where customers order for delivery most often.
 
-![heat-map](../../_assets/datalens/visualization-ref/heatmap/heatmap.png)
+{% if product == "yandex-cloud" %}![heat-map](../../_assets/datalens/visualization-ref/heatmap/heatmap.png){% endif %}
 
 ## Sections in the wizard {#wizard-sections}
 

@@ -11,7 +11,7 @@ If a map with the selected scale only contains a single point, it's not clustere
 
 Clustering on a map improves visualization when there is a large number of points. For example, if you want to show the location of all stores in a city on a map with clustering, points on the map won't overlap.
 
-![point-chart](../../_assets/datalens/visualization-ref/cluster-point-map/cluster-point-map.png)
+{% if product == "yandex-cloud" %}![point-chart](../../_assets/datalens/visualization-ref/cluster-point-map/cluster-point-map.png){% endif %}
 
 ## Sections in the wizard {#wizard-sections}
 
