@@ -20,15 +20,15 @@ Behaves differently depending on the argument types. Possible options are listed
 |:------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <code>Fractional number &#124; Integer</code>                                             | <code>Fractional number &#124; Integer</code>                                             | The sum of the numbers `value_1` and `value_2`.                                                                                                                                  |
 | `Date`                                                                                    | <code>Fractional number &#124; Integer</code>                                             | The date that is `value_2` days greater than `value_1` (rounded down to an integer number of days).                                                                              |
-| <code>Datetime &#124; Datetime (deprecated)</code>                                        | <code>Fractional number &#124; Integer</code>                                             | The date with time, `value_2` days greater than `value_1`. If `value_2` contains a fractional part, it is converted hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`). |
+| `Datetime`                                                                                | <code>Fractional number &#124; Integer</code>                                             | The date with time, `value_2` days greater than `value_1`. If `value_2` contains a fractional part, it is converted hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`). |
 | `String`                                                                                  | `String`                                                                                  | The merging (concatenation) of strings `value_1` and `value_2`.                                                                                                                  |
 | <code>Array of fractional numbers &#124; Array of integers &#124; Array of strings</code> | <code>Array of fractional numbers &#124; Array of integers &#124; Array of strings</code> | The merging (concatenation) of arrays `value_1` and `value_2`.                                                                                                                   |
 
 Changing the order of arguments does not affect the result.
 
 **Argument types:**
-- `value_1` — `Array of fractional numbers | Array of integers | Array of strings | Date | Datetime | Datetime (deprecated) | Fractional number | Integer | Markup | String`
-- `value_2` — `Array of fractional numbers | Array of integers | Array of strings | Date | Datetime | Datetime (deprecated) | Fractional number | Integer | Markup | String`
+- `value_1` — `Array of fractional numbers | Array of integers | Array of strings | Date | Datetime | Fractional number | Integer | Markup | String`
+- `value_2` — `Array of fractional numbers | Array of integers | Array of strings | Date | Datetime | Fractional number | Integer | Markup | String`
 
 
 **Return type**: Depends on argument types

@@ -10,7 +10,7 @@ Window functions are calculated in the same way as aggregations, but they do not
 Aggregate functions are calculated from groups of values that are determined by the dimension fields used in a data query: entries with matching dimension values are grouped. Window functions are also calculated over groups of entries called _windows_. In this case, you should specify grouping parameters in the function call as a list of dimensions to be included (`WITHIN ...`) or excluded (`AMONG ...`) from the grouping.
 ## Usage Restrictions {#usage-restrictions}
 
-1. The first argument in window functions can only be {% if product == "yandex-cloud" %}[measures](../concepts/dataset/data-model.md#field){% else %}measures{% endif %}.
+1. The first argument in window functions can only be [measures](../concepts/dataset/data-model.md#field).
 For the `AVG_IF`, `COUNT_IF`, `SUM_IF` window functions, the first argument (`expression` in the function description) must always be a measure.
     Example:
 
@@ -22,7 +22,7 @@ For other window functions, the first (and only) argument (`value` in the functi
     - Valid: `SUM(SUM([Profit]) TOTAL)`.
     - Not valid: `RANK([Profit] TOTAL)`, where `[Profit]` is a non-aggregated expression.
 
-1. For grouping window functions, only the {% if product == "yandex-cloud" %}[dimensions](../concepts/dataset/data-model.md#field){% else %}dimensions{% endif %} used to build the chart can be applied. Only the dimensions used to build the chart set the {% if product == "yandex-cloud" %}[grouping when calculating a measure](../concepts/aggregation-tutorial.md#aggregation-in-charts){% else %}grouping when calculating a measure{% endif %}. These dimensions define how values are split into groups and therefore have fixed values in each group.
+1. For grouping window functions, only the [dimensions](../concepts/dataset/data-model.md#field) used to build the chart can be applied. Only the dimensions used to build the chart set the [grouping when calculating a measure](../concepts/aggregation-tutorial.md#aggregation-in-charts). These dimensions define how values are split into groups and therefore have fixed values in each group.
 
 If you specify a dimension that was not used to build the chart, it won't have a fixed value and the value can be different in each group row. As a result, it will be impossible to determine which value of this dimension must be used to calculate the measure. This limitation applies to the `WITHIN` and `AMONG` grouping types.
 

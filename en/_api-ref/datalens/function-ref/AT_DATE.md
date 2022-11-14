@@ -39,8 +39,8 @@ See also [AGO](AGO.md), [LAG](LAG.md).
 
 **Argument types:**
 - `measure` — `Any`
-- `date_dimension` — `Date | Datetime | Datetime (deprecated)`
-- `date_expr` — `Date | Datetime | Datetime (deprecated)`
+- `date_dimension` — `Date | Datetime`
+- `date_expr` — `Date | Datetime`
 
 
 **Return type**: Same type as (`measure`)
@@ -65,4 +65,4 @@ AT_DATE(SUM([Sales]), [Order Date], DATETRUNC([Order Date], "month"))
 
 #### Data source support {#data-source-support}
 
-`Materialized Dataset`, `ClickHouse 19.13`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.
+`Materialized Dataset`, `ClickHouse 19.13`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

@@ -35,7 +35,7 @@ editable: false
 Returns a string that contains top `amount` grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
 **Argument types:**
-- `expression` — `Array of fractional numbers | Array of integers | Array of strings | Boolean | Date | Datetime | Datetime (deprecated) | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
+- `expression` — `Array of fractional numbers | Array of integers | Array of strings | Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
 - `amount` — `Integer`
 - `separator` — `String`
 

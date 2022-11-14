@@ -93,14 +93,6 @@ editable: false
 
 
 
-## [GENERICNOW](GENERICNOW.md)
-
-**Синтаксис:**`GENERICNOW()`
-
-Возвращает текущую дату и время в зависимости от источника данных и типа соединения.
-
-
-
 ## [HOUR](HOUR.md)
 
 **Синтаксис:**`HOUR( datetime )`

@@ -103,8 +103,6 @@ items:
         href: function-ref/DAY.md
       - name: DAYOFWEEK
         href: function-ref/DAYOFWEEK.md
-      - name: GENERICNOW
-        href: function-ref/GENERICNOW.md
       - name: HOUR
         href: function-ref/HOUR.md
       - name: MINUTE
@@ -139,7 +137,6 @@ items:
       - name: TOPONYM_TO_GEOPOLYGON
         href: function-ref/TOPONYM_TO_GEOPOLYGON.md
         when: audience == "external"
-    when: product == "yandex-cloud"
   - name: Logical functions
     items:
       - name: Overview
@@ -344,10 +341,6 @@ items:
         href: function-ref/DB_CAST.md
       - name: FLOAT
         href: function-ref/FLOAT.md
-      - name: GENERICDATETIME
-        href: function-ref/GENERICDATETIME.md
-      - name: GENERICDATETIME_PARSE
-        href: function-ref/GENERICDATETIME_PARSE.md
       - name: GEOPOINT
         href: function-ref/GEOPOINT.md
       - name: GEOPOLYGON

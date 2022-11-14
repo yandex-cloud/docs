@@ -35,7 +35,7 @@ editable: false
 Returns the median value.
 
 **Argument types:**
-- `value` — `Date | Datetime | Datetime (deprecated) | Fractional number | Integer`
+- `value` — `Date | Datetime | Fractional number | Integer`
 
 
 **Return type**: Same type as (`value`)

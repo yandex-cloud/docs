@@ -27,7 +27,7 @@ Supported units:
 - `"year"`.
 
 **Argument types:**
-- `datetime` — `Date | Datetime | Datetime (deprecated)`
+- `datetime` — `Date | Datetime`
 - `unit` — `String`
 - `number` — `Integer`
 

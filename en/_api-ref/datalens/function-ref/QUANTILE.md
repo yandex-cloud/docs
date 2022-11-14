@@ -35,7 +35,7 @@ editable: false
 Returns the precise `quant`-level quantile (`quant` should be in range from 0 to 1).
 
 **Argument types:**
-- `value` — `Date | Datetime | Datetime (deprecated) | Fractional number | Integer`
+- `value` — `Date | Datetime | Fractional number | Integer`
 - `quant` — `Fractional number | Integer`
 
 
