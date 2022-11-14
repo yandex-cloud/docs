@@ -1,8 +1,8 @@
-# Migrating databases to {{ mms-full-name }}
+# Migrating databases from a third-party {{ MS }} cluster to {{ mms-full-name }}
 
 You can migrate a database from a third-party {{ MS }} _source cluster_ to a {{ mms-short-name }} _target cluster_ using a [logical import]({{ ms.docs }}/sql/relational-databases/replication/snapshot-replication) of a database snapshot or [transactional replication]({{ ms.docs }}/sql/relational-databases/replication/transactional/transactional-replication). Both methods have their limitations:
 
-- [Migrating with logical import](#snapshot):
+- [Migrating by logical import](#snapshot):
 
    - Creating a snapshot uses table locking.
    - The snapshot import process is relatively slow compared to transactional replication.
@@ -40,16 +40,17 @@ Create the necessary resources:
 
       This file describes:
 
-      - [network](../../vpc/concepts/network.md#network).
-      - [subnet](../../vpc/concepts/network.md#subnet).
+      - [Network](../../vpc/concepts/network.md#network).
+      - [Subnet](../../vpc/concepts/network.md#subnet).
       - [Security group](../../vpc/concepts/security-groups.md) and rule enabling cluster connections.
       - {{ mms-name }} cluster with public internet access.
 
    1. Specify the infrastructure settings under `locals` in the `sqlserver-data-migration.tf` configuration file.
 
-      - `username` and `password`: Database owner username and password.
       - `sql_server_version`: {{ MS }} version.
+      - `sql_server_collation`: Value of the **SQL Server Collation** setting. It must be the same as the value of **SQL Server Collation** on the source cluster.
       - `db_name`: Target cluster database name.
+      - `username` and `password`: Database owner username and password.
 
       When [migrating by logical import](#snapshot), comment out and replicate the `user` section. Specify the account credentials of all the source cluster users that utilize **SQL Server Authentication**.
 
@@ -72,11 +73,11 @@ Create the necessary resources:
 
 {% endlist %}
 
-## Migrating with logical import {#snapshot}
+## Migrating by logical import {#snapshot}
 
 You can transfer data from a {{ MS }} cluster to a {{ mms-short-name }} cluster with [sqlpackage]({{ ms.docs }}/sql/tools/sqlpackage/sqlpackage-download). It will create a {{ MS }} database snapshot with a table schema and data and import it into a {{ mms-short-name }} cluster.
 
-To migrate a database from the source {{ MS }} cluster to the target {{ mms-name }} cluster with logical import:
+To migrate a database from the source {{ MS }} cluster to the target {{ mms-name }} cluster by logical import:
 
 1. [Set up the source cluster](#configure-source).
 1. [Create a snapshot of the database from the source cluster](#create-snapshot).
@@ -156,7 +157,7 @@ For more information, see the [{{ MS }} documentation]({{ ms.docs }}/sql/tools/s
 
 ## Migrating with transactional replication {#replication}
 
-You can transfer data from a {{ MS }} to a {{ mms-name }} cluster with minimum downtime using [transactional replication]({{ ms.docs }}/sql/relational-databases/replication/transactional/transactional-replication). This type of replication is supported starting from {{ MS }} 2016 and lets you migrate data to newer versions of SQL Server in clusters{{ mms-name }}.
+You can transfer data from a {{ MS }} to a {{ mms-name }} cluster with minimum downtime using [transactional replication]({{ ms.docs }}/sql/relational-databases/replication/transactional/transactional-replication). This type of replication is supported as of {{ MS }} 2016 and lets you migrate data to newer versions of SQL Server in {{ mms-name }} clusters.
 
 When performing transactional replication:
 
