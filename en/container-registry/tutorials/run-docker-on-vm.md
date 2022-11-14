@@ -1,7 +1,42 @@
 # Running a Docker image on a VM
 
-This example describes the steps required to run a Docker image on a VM using a registry.
-1. Create a service account and assign it the role `container-registry.images.puller` for the registry from the [example](../quickstart/index.md):
+This tutorial describes the steps required to run a Docker image on a VM using the {{ cos-full-name }} registry.
+
+To run a Docker image on a VM using the registry:
+1. [Before you start](#before-begin).
+1. [Create a service account](#create-sa).
+1. [Create a VM](#create-vm).
+1. [Build and upload the Docker image to {{ container-registry-name }}](#create-image).
+1. [Download the Docker image to a VM](#run).
+1. [Check the results](#check-result).
+
+If you no longer need these resources, [delete them](#clear-out).
+
+## Before you begin {#before-begin}
+
+{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
+
+{% if product == "yandex-cloud" %}
+
+### Required paid resources {#paid-resources}
+
+The cost of this infrastructure includes:
+* A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* A fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* A fee for storing the Docker image in the registry and for outgoing traffic (see [{{ cos-full-name }} pricing](../../cos/pricing.md)).
+
+{% endif %}
+
+### Configure the environment {#prepare}
+
+1. [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} command-line interface.
+1. [Prepare](../../compute/operations/vm-connect/ssh.md) an SSH key for VM access.
+1. [Create](../../container-registry/operations/registry/registry-create.md) a registry in {{ cos-name }} to store the Docker image.
+1. [Install](https://www.docker.com) Docker.
+
+## Create a service account {#create-sa}
+
+1. Create a service account and grant it the `container-registry.images.puller` role to the previously created registry:
 
    {% list tabs %}
 
@@ -12,53 +47,63 @@ This example describes the steps required to run a Docker image on a VM using a 
      1. Click **Create service account**.
      1. Enter the service account name and click **Create**.
      1. In the list of services, select **{{ container-registry-name }}**.
-     1. To the right of the registry name, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Configure ACL**.
-     1. In the window that opens, select the service account and click **Add**.
-     1. In the **Permissions** drop-down list, select the role `container-registry.images.puller`.
+     1. Select the registry and click the row with its name.
+     1. Click the **Access bindings** tab.
+     1. In the top right-hand corner, click **Assign roles**.
+     1. Click **+ Select subject** and add the service account by supplying its ID.
+     1. Click **Add role** and select `container-registry.images.puller`.
      1. Click **Save**.
 
    - CLI
 
-     1. Create a service account:
+     {% include [cli-install](../../_includes/cli-install.md) %}
 
-        {% include [cli-install](../../_includes/cli-install.md) %}
+     1. View a description of the CLI command to create a service account:
+
+        ```bash
+        yc iam service-account create --help
+        ```
+
+     1. Create a service account:
 
         {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
         ```bash
-        yc iam service-account create --name service-acc
+        yc iam service-account create --name <service_account_name>
         ```
 
-        Command output:
+        Command result:
 
-        ```bash
+        ```text
         id: ajelabcde12f33nol1v5
         folder_id: b0g12ga82bcv0cdeferg
         created_at: "2020-11-30T14:32:18.900092Z"
-        name: service-acc
+        name: myservice-acc
         ```
 
      1. Assign the role to the service account:
 
         ```bash
-        yc <service name> <resource> add-access-binding <resource name>|<resource ID> \
-          --role <role ID> \
-          --subject serviceAccount:<service account ID>
+        yc <service_name> <resource> add-access-binding <resource_name>|<resource_ID> \
+          --role <role_ID> \
+          --subject serviceAccount:<service_account_ID>
         ```
 
         Where:
-        * `<service name>`: Name of a `container` service.
+        * `<service_name>`: `container` service name.
         * `<resource>`: Category of the `registry` resource.
-        * `<resource name>`: Name of the resource that the role is assigned for. You can specify a resource by its name or ID.
-        * `<resource ID>`: ID of the `crpc9qeoft236r8tfalm` registry the role is assigned for.
-        * `<role ID>`: ID of the `container-registry.images.puller` role.
-        * `<service account ID>`: ID of the `ajelabcde12f33nol1v5` service account that is assigned the role.
+        * `<resource_name>`: Name of the resource to grant the role to. You can specify a resource by its name or ID.
+        * `<resource_ID>`: `crpc9qeoft236r8tfalm` registry ID to assign the role to.
+        * `<role_ID>`: `container-registry.images.puller` role ID.
+        * `<service_account_ID>`: ID of the service account (such as `ajelabcde12f33nol1v5`) being granted the role.
 
    - API
 
      Use the `updateAccessBindings` method for the `registry` resource.
 
    {% endlist %}
+
+## Create a VM {#create-vm}
 
 1. Create a VM with a public IP address and link the service account you created to it:
 
@@ -96,11 +141,11 @@ This example describes the steps required to run a Docker image on a VM using a 
           * **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
           * **No address**: Don't assign a public IP address.
 
-        {% if product == "yandex-cloud" %}
+          {% if product == "yandex-cloud" %}
 
-        * (optional) Enable [DDoS protection](../../vpc/ddos-protection/).
+          * (optional) Enable [DDoS protection](../../vpc/ddos-protection/).
 
-        {% endif %}
+          {% endif %}
 
      1. Under **Access**, specify the information required to access the instance:
         * Enter the username in the **Login** field.
@@ -111,8 +156,8 @@ This example describes the steps required to run a Docker image on a VM using a 
 
           {% endnote %}
 
-        * In the **SSH key** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
-      1. Click **Create VM**.
+        * In the **SSH key** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh#creating-ssh-keys) file.
+     1. Click **Create VM**.
 
    - CLI
 
@@ -123,17 +168,17 @@ This example describes the steps required to run a Docker image on a VM using a 
         ```
 
      1. Prepare the key pair (public and private keys) for SSH access to the VM.
-     1. Select a public [image](../../compute/operations/images-with-pre-installed-software/get-list.md) based on a Linux OS (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
+     1. Select in {{ marketplace-name }} a public [image](../../compute/operations/images-with-pre-installed-software/get-list.md) based on a Linux OS (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
 
         {% include [standard-images](../../_includes/standard-images.md) %}
 
-     1. Select a subnet:
+     1. View a list of available subnets:
 
         ```bash
         yc vpc subnet list
         ```
 
-        Command output:
+        Command result:
 
         ```text
         +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
@@ -153,7 +198,7 @@ This example describes the steps required to run a Docker image on a VM using a 
           --zone {{ region-id }}-a \
           --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
           --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
-          --ssh-key ~/.ssh/id_rsa.pub
+          --ssh-key ~/.ssh/id_ed25519.pub
           --service-account-name service-acc
         ```
 
@@ -167,9 +212,9 @@ This example describes the steps required to run a Docker image on a VM using a 
         * `image-family`: An [image family](../../compute/concepts/image.md#family), such as `centos-7`. This option lets you install the latest version of the operating system from the specified family.
         * Public IP. To create a VM without a public IP address, disable the `nat-ip-version=ipv4` option.
         * `ssh-key`: Path to the public SSH key. The VM will automatically create a user named `yc-user` for this key.
-        * `service-account-name`: The name of the service account created in the previous step.
+        * `service-account-name`: Name of the service account created in the previous step.
 
-        A VM called `first-instance` will be created.
+        This will create a VM called `first-instance`.
 
    - API
 
@@ -205,10 +250,10 @@ This example describes the steps required to run a Docker image on a VM using a 
           "https://vpc.{{ api-host }}/vpc/v1/subnets?folderId=${FOLDER_ID}"
         {
           "subnets": [
-          {
-            "v4CidrBlocks": [
-              "10.130.0.0/24"
-            ],
+            {
+              "v4CidrBlocks": [
+                "10.130.0.0/24"
+              ],
             "id": "b0c6n43ftldh30l0vfg2",
             "folderId": "b1gvmob95yysaplct532",
             "createdAt": "2018-09-23T12:15:00Z",
@@ -234,7 +279,7 @@ This example describes the steps required to run a Docker image on a VM using a 
             "cores": "2"
           },
           "metadata": {
-            "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-rsa AAAAB3N... user@example.com"
+            "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
           },
           "bootDiskSpec": {
             "diskSpec": {
@@ -279,7 +324,6 @@ This example describes the steps required to run a Docker image on a VM using a 
         * `serviceAccountId`: ID of the service account created in the previous step.
 
         Read more about the request body format in the [API reference](../../compute/api-ref/Instance/create.md).
-
      1. Create a VM:
 
         ```bash
@@ -293,38 +337,40 @@ This example describes the steps required to run a Docker image on a VM using a 
 
   {% endlist %}
 
-1. Add variables for convenience:
-   * Your VM's public IP address in `${PUBLIC_IP}`:
+## Build and upload the Docker image to {{ container-registry-name }} {#create-image}
+
+1. To make command execution easier, add the following variables:
+   * Username and your VM's public IP as `${PUBLIC_IP}`:
 
      ```bash
      export PUBLIC_IP=<username>@<VM_public_IP_address>
      ```
 
-   * Registry ID from the [example](../quickstart/index.md) in the `${REGISTRY_ID}` variable:
+   * ID of the previously created registry in `crpc9qeoft236r8tfalm` format as `${REGISTRY_ID}`:
 
      ```bash
-     export REGISTRY_ID=crpc9qeoft236r8tfalm
+     export REGISTRY_ID=<registry_ID>
      ```
 
-1. Log in to the registry under your username:
+1. Authenticate as yourself:
 
    {% list tabs %}
 
    {% if product == "yandex-cloud" %}
 
-   - With an OAuth token
+   - Using an OAuth token
 
      1. If you don't have an OAuth token, get one by following this [link]({{ link-cloud-oauth }}).
      1. Run the command:
- 
+
         ```bash
         echo <oauth token> | docker login --username oauth --password-stdin {{ registry }}
         ```
 
-        Command output:
+        Command result:
 
-        ```bash
-        Login Succeeded
+        ```text
+        Login succeeded
         ```
 
    {% endif %}
@@ -344,10 +390,11 @@ This example describes the steps required to run a Docker image on a VM using a 
         yc iam create-token | docker login --username iam --password-stdin {{ registry }}
         ```
 
-        Command output:
+        Command result:
 
-        ```bash
-        Login succeeded
+        ```text
+        ...
+        Login Succeeded
         ```
 
    - Using a Docker Credential helper
@@ -359,9 +406,9 @@ This example describes the steps required to run a Docker image on a VM using a 
         yc container registry configure-docker
         ```
 
-        Command output:
+        Command result:
 
-        ```bash
+        ```text
         Credential helper is configured in '/home/<user>/.docker/config.json'
         ```
 
@@ -385,9 +432,21 @@ This example describes the steps required to run a Docker image on a VM using a 
 
    {% endlist %}
 
-1. Create a file named Dockerfile and add the following lines to it:
+1. Create a file called Dockerfile:
 
    ```bash
+   touch .dockerfile
+   ```
+
+1. Open Dockerfile in a text editor, such as:
+
+   ```bash
+   nano .dockerfile
+   ```
+
+1. Add the lines below to the file:
+
+   ```text
    FROM ubuntu:latest
    CMD echo "Hi, I'm inside"
    ```
@@ -395,7 +454,15 @@ This example describes the steps required to run a Docker image on a VM using a 
 1. Build a Docker image:
 
    ```bash
-   docker build . -t {{ registry }}/${REGISTRY_ID}/ubuntu:hello
+   docker build . -t {{ registry }}/${REGISTRY_ID}/ubuntu:hello -f .dockerfile
+   ```
+
+   Command result:
+
+   ```text
+   ...
+   Successfully built b68ee9b6b1af
+   Successfully tagged cr.yandex/crpmnjr98tm54bejc46m/ubuntu:hello
    ```
 
 1. Push the built Docker image to {{ container-registry-name }}:
@@ -404,9 +471,9 @@ This example describes the steps required to run a Docker image on a VM using a 
    docker push {{ registry }}/${REGISTRY_ID}/ubuntu:hello
    ```
 
-   Command output:
+   Command result:
 
-   ```bash
+   ```text
    The push refers to repository [{{ registry }}/crpc9qeoft236r8tfalm/ubuntu]
    cc9d18e90faa: Pushed
    0c2689e3f920: Pushed
@@ -414,28 +481,34 @@ This example describes the steps required to run a Docker image on a VM using a 
    hello: digest: sha256:42068479274f1d4c7ea095482430dcba24dcfe8c23ebdf6d32305928e55071cf size: 943
    ```
 
-1. [Log in to the VM via SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) and authenticate as the service account associated with this machine:
+## Download the Docker image on the VM {#run}
+
+1. [Use SSH to connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM.
+1. [Authenticate](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) under the service account tied to the machine:
 
    ```bash
-   ssh ${PUBLIC_IP} \
-   curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | cut -f1 -d',' | cut -f2 -d':' | tr -d '"' | sudo docker login --username iam --password-stdin {{ registry }}
+   curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | \
+   cut -f1 -d',' | \
+   cut -f2 -d':' | \
+   tr -d '"' | \
+   sudo docker login --username iam --password-stdin {{ registry }}
    ```
 
-   Command output:
+   Command result:
 
-   ```bash
+   ```text
    Login succeeded
    ```
 
 1. Download the Docker image to the VM:
 
    ```bash
-   ssh ${PUBLIC_IP} docker pull {{ registry }}/${REGISTRY_ID}/ubuntu:hello
+   docker pull {{ registry }}/${REGISTRY_ID}/ubuntu:hello
    ```
 
-   Command output:
+   Command result:
 
-   ```bash
+   ```text
    hello: Pulling from crpc9qeoft236r8tfalm/ubuntu
    6a5697faee43: Pulling fs layer
    ba13d3bc422b: Pulling fs layer
@@ -445,14 +518,23 @@ This example describes the steps required to run a Docker image on a VM using a 
    {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
    ```
 
-1. Run the Docker image on the VM:
+## Check the results {#check-result}
 
-   ```bash
-   ssh ${PUBLIC_IP} docker run {{ registry }}/${REGISTRY_ID}/ubuntu:hello
-   ```
+Run the Docker image on the VM:
 
-   Command output:
+```bash
+docker run {{ registry }}/${REGISTRY_ID}/ubuntu:hello
+```
 
-   ```bash
-   Hi, I'm inside
-   ```
+Command result:
+
+```text
+Hi, I'm inside
+```
+
+## How to delete created resources {#clear-out}
+
+To stop paying for the resources created:
+* Delete [VM](../../compute/operations/vm-control/vm-delete.md).
+* Delete the [static public IP](../../vpc/operations/address-delete.md) if you reserved one.
+* Delete the [Docker image](../../container-registry/operations/docker-image/docker-image-delete.md) stored in {{ cos-name }} and the [registry](../../container-registry/operations/registry/registry-delete.md).
