@@ -31,24 +31,16 @@ To get started, create a connection to {{objstorage-full-name}}:
 
 ### Creating a data source in {{datalens-full-name}} {#create_connection_lens}
 
-To create a connection, you'll need a [service account](../../iam/concepts/users/service-accounts.md) with the **viewer** [role](../../iam/operations/sa/assign-role-for-sa.md).
+To create a connection, you'll need a [service account](../../iam/concepts/users/service-accounts.md) with the **editor** [role](../../iam/operations/sa/assign-role-for-sa.md).
 
 
 To create a {{ yq-full-name }} connection:
-
-{% if yq_version > 0.1 %}
 
 1. Go to the [connections page](https://datalens.yandex.ru/connections).
 
 1. Click **Create connection**.
 
 1. Select the **{{ yq-full-name }}** connection.
-
-{% else %}
-
-1. Follow the [link](https://datalens.yandex.ru/connections/new/yq) to the connection creation wizard.
-
-{% endif %}
 
 1. Select the folder to create a {{yq-full-name}} connection in.
 1. Specify the connection parameters:
