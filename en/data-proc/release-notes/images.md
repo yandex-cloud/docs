@@ -1,8 +1,16 @@
-# Image revision history {{ dataproc-full-name }}
+# {{ dataproc-full-name }} image releases
 
 For a complete listing of current and deprecated {{ dataproc-name }} images, please see [{#T}](../concepts/environment.md).
 
 {% if product == "yandex-cloud" %}
+
+## 2.0.50 {#2.0.50}
+
+* The results of running user scenarios are now sent to the `masternode` by default.
+
+## 2.0.49 {#2.0.49}
+
+* Fixed an error when user-defined settings were ignored in Hive Metastore Server.
 
 ## 2.0.48 {#2.0.48}
 

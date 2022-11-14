@@ -6,6 +6,12 @@ When [creating a {{ dataproc-name }} cluster](../operations/cluster-create.md), 
 <key>:<value>
 ```
 
+{% note info %}
+
+Once a cluster is created, you can't change the key values.
+
+{% endnote %}
+
 The key can either be a simple string or contain a prefix indicating that it belongs to a [specific component](environment.md):
 
 ```text
