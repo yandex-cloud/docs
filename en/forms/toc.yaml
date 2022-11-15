@@ -3,9 +3,9 @@ href: index.yaml
 items:
 - name: Getting started
   items:
-    - name: Choose a version of Yandex Forms
+    - name: How to choose a Yandex Forms version
       href: go-to-forms.md
-    - name: Create your first form
+    - name: Create the first form
       href: quick-guide.md
     - name: Enable Yandex Forms for business
       href: enable-forms.md
@@ -20,43 +20,41 @@ items:
       href: overview.md
     - name: Personal forms
       href: personal-forms.md
-    - name: Yandex Forms for business
+    - name: Forms for business
       href: forms-for-org.md
 - name: Create a form
   items:
     - name: Overview
       href: new-form.md
-    - name: Add prompts
+    - name: Add questions
       href: add-questions.md
-    - name: Make a test
+    - name: Run a test
       href: tests.md
-    - name: Customize the form appearance
+    - name: Customizing the appearance of form
       href: appearance.md
     - name: Configure conditions for submitting a response
       href: send-condition.md
     - name: Customize the result page
       href: success-page.md
-    - name: Response validation
+    - name: Validate a response
       href: option-validation.md
     - name: Use an external response validator
       when: audience == "internal"
       href: validation.md
-- name: Integration with other services
+- name: Configure integration with other services
   items:
     - name: Overview
       href: notifications.md
-    - name: Send message
+    - name: Send an email
       href: send-mail.md
-    - name: Publish the form on Yandex.Zen
-      when: audience == "external" and locale == "ru" 
-      href: forms-lite.md
-    - name: Connect Yandex.Metrica
+    - name: Enable Metrica
       href: metrica.md
-    - name: Create a task in Yandex Tracker
+    - name: Creating an issue in Tracker
       href: create-task.md
     - name: Add a response to Wiki
       href: send-wiki.md
-    - name: Send an HTTP request
+# Топик переименован, т.к. со словом http в имени он не конвертируется в нормальную страницу
+    - name: Send the HTTP request
       href: send-request.md
     - name: Variables in integration settings
       href: vars.md
@@ -73,12 +71,12 @@ items:
           href: pre-fill.md
         - name: GET parameters
           href: get-params.md
-        - name: postMessage method
+        - name: The postMessage method
           when: audience == "internal"
           href: postmessage.md
-        - name: Get question and response IDs
+        - name: Get IDs for questions and responses
           href: question-id.md
-    - name: Translate the form into other languages
+    - name: Localize forms into foreign languages
       when: audience == "internal"
       href: localize.md
 - name: Get responses
@@ -87,80 +85,80 @@ items:
   href: forms-settings.md
 - name: Configure access
   href: access.md
-- name: Prompt blocks reference
+- name: Response reference
   items:
     - name: Overview
       href: blocks-ref/blocks-reference.md
-    - name: Catalog of services
-      when: audience == "internal"
-      href: blocks-ref/abc.md
-    - name: Cities and countries
-      href: blocks-ref/cities.md
-    - name: Date
-      href: blocks-ref/date.md
-    - name: Departments
-      when: audience == "external"
-      href: blocks-ref/departments.md
+    - name: Wiki
+      href: blocks-ref/wiki.md
     - name: Drop-down list
       href: blocks-ref/dropdown.md
-    - name: Email
-      href: blocks-ref/email.md
-    - name: File
-      href: blocks-ref/file.md
-    - name: Integer
-      href: blocks-ref/integer.md
-    - name: Link
-      href: blocks-ref/link.md
+    - name: Cities and countries
+      href: blocks-ref/cities.md
+    - name: Yes/No
+      href: blocks-ref/yes-no.md
+    - name: Data from Staff
+      when: audience == "internal"
+      href: blocks-ref/staff.md
+    - name: Date
+      href: blocks-ref/date.md
     - name: Long text
       href: blocks-ref/long-text.md
-    - name: Multiple answers
-      href: blocks-ref/multiple.md
-    - name: Number
-      href: blocks-ref/number.md
-    - name: One answer
-      href: blocks-ref/radiobutton.md
-    - name: Payment
-      href: blocks-ref/payment.md
+    - name: TIN
+      href: blocks-ref/inn.md
+    - name: Service catalog
+      when: audience == "internal"
+      href: blocks-ref/abc.md
+    - name: Commands
+      when: audience == "external"
+      href: blocks-ref/teams.md
+    - name: Short text
+      href: blocks-ref/short-text.md
     - name: People
       when: audience == "external"
       href: blocks-ref/people.md
-    - name: Phone
-      href: blocks-ref/phone.md
-    - name: Rate on a scale
+    - name: Several options
+      href: blocks-ref/multiple.md
+    - name: One answer
+      href: blocks-ref/radiobutton.md
+    - name: Billing
+      href: blocks-ref/payment.md
+    - name: Departments
+      when: audience == "external"
+      href: blocks-ref/departments.md
+    - name: Rating on a scale
       href: blocks-ref/rating.md
-    - name: Series of questions
+    - name: Email
+      href: blocks-ref/email.md
+    - name: Questions series
       href: blocks-ref/series.md
+    - name: The list from YT
+      when: audience == "internal"
+      href: blocks-ref/yt.md
+    - name: Link
+      href: blocks-ref/link.md
     - name: Text with no questions
       href: blocks-ref/no-question.md
-    - name: Short text
-      href: blocks-ref/short-text.md
-    - name: Staff data
-      when: audience == "internal"
-      href: blocks-ref/staff.md
-    - name: Teams
-      when: audience == "external"
-      href: blocks-ref/teams.md
+    - name: Phone
+      href: blocks-ref/phone.md
     - name: Tests and quizzes
       items:
         - name: Overview
           href: blocks-ref/tests-ref.md
-        - name: Multiple answers
+        - name: One answer
+          href: blocks-ref/test-single.md
+        - name: Several options
           href: blocks-ref/test-multiple.md
         - name: Number
           href: blocks-ref/test-number.md
-        - name: One answer
-          href: blocks-ref/test-single.md
-    - name: TIN
-      href: blocks-ref/inn.md
-    - name: Wiki
-      href: blocks-ref/wiki.md
-    - name: Yes / No
-      href: blocks-ref/yes-no.md
-    - name: YT list
-      when: audience == "internal"
-      href: blocks-ref/yt.md
-- name: Pricing rules
+    - name: File
+      href: blocks-ref/file.md
+    - name: Integer
+      href: blocks-ref/integer.md
+    - name: Number
+      href: blocks-ref/number.md
+- name: Pricing policy
   when: audience == "external"
   href: pricing.md
-- name: Support
+- name: Technical support
   href: feedback.md
