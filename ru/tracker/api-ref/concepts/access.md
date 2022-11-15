@@ -175,7 +175,7 @@ IAM-токен действует не больше {{iam-token-lifetime}} и о
     from yandex_tracker_client import TrackerClient
     client = TrackerClient(token=<token>, org_id=<org_id>)
     ```
-    Здесь `<token>` — ваш OAuth-токен, а `<org_id>` — идентификатор организации.
+    Здесь `<token>` — ваш OAuth-токен, а `<org_id>` — идентификатор организации. Чтобы узнать идентификатор организации, перейдите на [страницу настроек {{ tracker-name }}]({{ link-settings }}). Идентификатор указан в поле **ID организации для API**.
 
 В клиенте используйте такой же формат данных, как в API {{ tracker-name }}.
 
