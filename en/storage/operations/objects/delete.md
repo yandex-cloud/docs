@@ -1,5 +1,18 @@
 # Deleting an object
 
+
+{% if product == "yandex-cloud" %}
+
+## Deleting an unlocked object {#wo-object-lock}
+
+{% endif %}
+
+{% note info %}
+
+To delete an object with an incomplete [multipart upload](../../concepts/multipart.md), follow these [instructions](deleting-multipart.md).
+
+{% endnote %}
+
 {% list tabs %}
 
 - Management console
@@ -16,13 +29,18 @@
       You can delete a folder with objects. This is an asynchronous operation. Once run, objects are gradually deleted from the bucket instead of all at once. During this time, you can perform other operations in the management console, including upload new objects to the folder being deleted. For more information, see [Folder](../../concepts/object.md#folder).
 
       {% endnote %}
+
    1. Confirm the deletion.
 
 - {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
+   {% if audience != "internal" %}
+
    For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   {% endif %}
 
    To delete an object created with {{ TF }} from a bucket:
 
@@ -77,3 +95,76 @@
       You can verify the changes in the [management console]({{ link-console-main }}).
 
 {% endlist %}
+
+
+{% if product == "yandex-cloud" %}
+
+## Deleting an object version with an object lock {#w-object-lock}
+
+{% list tabs %}
+
+- AWS CLI
+
+   1. Get information about an object lock:
+
+      ```bash
+      aws --endpoint-url=https://{{ s3-storage-host }}/ \
+        s3api head-object \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        --version-id <version_ID>
+      ```
+
+      Where:
+
+      * `bucket`: Your bucket's name.
+      * `key`: Object [key](../../concepts/object.md#key).
+      * `version-id`: Object version ID.
+
+      If an object version is locked, the command returns the lock details:
+
+      ```json
+      {
+        ...
+        "ObjectLockMode": "<type_of_object_lock_with_retention_period>",
+        "ObjectLockRetainUntilDate": "<object_lock_retain_until_date_and_time>",
+        "ObjectLockLegalHoldStatus": "<status_of_legal_hold>",
+        ...
+      }
+      ```
+
+      Where:
+
+      * `ObjectLockMode`: [Type](../../concepts/object-lock.md#types) of object lock set for a certain period:
+
+         * `GOVERNANCE`: An object lock with a predefined retention period that can be managed. Users with the `storage.admin` role can delete an object version.
+         * `COMPLIANCE`: An object lock with a predefined retention period with strict compliance. An object version can't be deleted.
+
+      * `ObjectLockRetainUntilDate`: Date and time until which an object is to be locked, specified in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). For example, `Mon, 12 Dec 2022 09:00:00 GMT`. Can only be set together with the `object-lock-mode` parameter.
+
+      * `ObjectLockLegalHoldStatus`: Status of [legal hold](../../concepts/object-lock.md#types):
+
+         * `ON`: Enabled. An object version can't be deleted. Users with the `storage.uploader` role can [remove a lock](edit-object-lock.md#remove-legal-hold).
+         * `OFF`: Disabled.
+
+   1. If you have the `storage.admin` role and `"ObjectLockMode": "GOVERNANCE"` is set, delete an object version:
+
+      ```bash
+      aws --endpoint-url=https://{{ s3-storage-host }}/ \
+        s3api delete-object \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        --version-id <version_ID> \
+        --bypass-governance-retention
+      ```
+
+      Where:
+
+      * `bucket`: Your bucket's name.
+      * `key`: Object [key](../../concepts/object.md#key).
+      * `version-id`: Object version ID.
+      * `bypass-governance-retention`: Flag that shows that a lock is bypassed.
+
+{% endlist %}
+
+{% endif %}

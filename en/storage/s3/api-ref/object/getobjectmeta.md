@@ -43,9 +43,9 @@ In addition to [common response headers](../common-response-headers.md), you can
 | Header | Description |
 ----- | -----
 | `X-Amz-Meta-*` | Object user-defined metadata. |
-| `X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/>Has the `COLD` value if the object is in cold storage{% if product == "yandex-cloud" and audience != "internal" %}, or `ICE` if in ice storage.{% endif %}<br/><br/>If the object is stored in standard storage, there's no header. |
+| `X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/>Has the `COLD` value if the object is in cold storage, or `ICE` if in ice storage.<br/><br/>If the object is stored in standard storage, there's no header. |
 | `X-Amz-Server-Side-Encryption` | Encryption algorithm used to encrypt the object. Returned if the object was loaded with enabled [encryption](../../../operations/buckets/encrypt.md). |
-| `X-Amz-Server-Side-Encryption-Aws-Kms-Key-Id` | ID of the {% if audience != "internal" %}[key {{ kms-short-name }}](../../../../kms/concepts/key.md){% else %}key {{ kms-short-name }}{% endif %}. Returned if the object was loaded with enabled [encryption](../../../operations/buckets/encrypt.md). |
+| `X-Amz-Server-Side-Encryption-Aws-Kms-Key-Id` | [{{ kms-short-name }} key](../../../../kms/concepts/key.md) ID. Returned if the object was loaded with enabled [encryption](../../../operations/buckets/encrypt.md). |
 
 {% endif %}
 
@@ -54,7 +54,7 @@ In addition to [common response headers](../common-response-headers.md), you can
 | Header | Description |
 ----- | -----
 | `X-Amz-Meta-*` | Object user-defined metadata. |
-| `X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/>Has the `COLD` value if the object is in cold storage{% if product == "yandex-cloud" and audience != "internal" %}, or `ICE` if in ice storage.{% endif %}<br/><br/>If the object is stored in standard storage, there's no header. |
+| `X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/>The value is `COLD` if the object is stored in cold storage.<br/><br/>If it is stored in standard storage, the header is omitted. |
 
 {% endif %}
 

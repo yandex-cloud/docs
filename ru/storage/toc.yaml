@@ -186,6 +186,7 @@ items:
           - name: goofys
             href: tools/goofys.md
       - name: FTP
+        when: audience != "internal"
         items:
           - name: Docker-контейнер для (S)FTP(S)
             href: tools/sftps.md

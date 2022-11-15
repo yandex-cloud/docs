@@ -19,7 +19,11 @@ Aside from {% if audience != "internal" %}[{{ iam-short-name }}](../../../iam/){
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
+   {% if audience != "internal" %}
+
    For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   {% endif %}
 
    To edit an object ACL:
 

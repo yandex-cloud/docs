@@ -11,7 +11,7 @@
 ## Установка {#install}
 
 1. [Установите Docker](https://docs.docker.com/get-docker/).
-1. [Аутентифицируйтесь в {{ container-registry-name }}](https://cloud.yandex.ru/docs/container-registry/operations/authentication).
+1. [Аутентифицируйтесь в {{ container-registry-name }}](../../container-registry/operations/authentication.md).
 1. Скачайте контейнер:
 
    ```bash

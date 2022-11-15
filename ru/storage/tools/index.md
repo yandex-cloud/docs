@@ -26,3 +26,9 @@
   * [GeeseFS](geesefs.md)   
   * [s3fs](s3fs.md)
   * [goofys](goofys.md)
+  
+{% if audience != "internal" %}
+* FTP
+
+  * [Docker-контейнер для (S)FTP(S)](sftps.md)
+{% endif %}  

@@ -8,6 +8,13 @@ You cannot upload objects greater than 5 GB in size via the management console (
 
 {% endnote %}
 
+
+{% if product == "yandex-cloud" %}
+
+## Regular uploads {#simple}
+
+{% endif %}
+
 {% list tabs %}
 
 - Management console
@@ -27,18 +34,33 @@ You cannot upload objects greater than 5 GB in size via the management console (
 
 - AWS CLI
 
-   To load all objects from the local directory, use the following command:
+   To upload a single object, run the command:
 
    ```bash
    aws --endpoint-url=https://{{ s3-storage-host }}/ \
-   s3 cp --recursive <path to local directory>/ s3://<bucket name>/<prefix>/
+     s3 cp <path_to_local_file>/ s3://<bucket_name>/<object_key>
    ```
 
    Where:
 
-   * `<path to local directory>`: Path to the folder on your device that contains the files to copy.
-   * `<bucket name>`: Name of your bucket.
+   * `<path_to_local_file>`: Path to the file on your device to upload to the bucket.
+   * `<bucket_name>`: Your bucket's name.
+   * `<object_key>`: [Key](../../concepts/object.md#key) to store the object in the bucket with.
+
+   To load all objects from the local directory, use the following command:
+
+   ```bash
+   aws --endpoint-url=https://{{ s3-storage-host }}/ \
+     s3 cp --recursive <path_to_local_directory>/ s3://<bucket_name>/<prefix>/
+   ```
+
+   Where:
+
+   * `<path_to_local_directory>`: Path to the directory on your device to copy the files from.
+   * `<bucket_name>`: Your bucket's name.
    * `<prefix>`: ID of a folder in storage, described in [{#T}](../../concepts/object.md#folder).
+
+   The `aws s3 cp` command is high-level, its functionality is limited. For more information, see the [AWS CLI reference](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html). All the upload functionality that {{ objstorage-name }} supports can be used when running the [aws s3api put-object](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-object.html){% if product == "yandex-cloud" %} command (see sample operations with [object locks](../../concepts/object-lock.md) [below](#w-object-lock)){% endif %}.
 
 - {{ TF }}
 
@@ -46,7 +68,7 @@ You cannot upload objects greater than 5 GB in size via the management console (
 
    If you do not have {{ TF }} yet, {% if audience != "internal" %}[install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}install it and configure the {{ yandex-cloud }} provider{% endif %}.
 
-   Before you start, retrieve the {% if audience != "internal" %}[static access keys](../../../iam/operations/sa/create-access-key.md){% else %}static access keys{% endif %}: a secret key and a key ID used for authentication in {{ objstorage-short-name }}.
+   Before you start, retrieve the {% if audience != "internal" %}[static access keys](../../../iam/operations/sa/create-access-key.md){% else %} static access keys{% endif %}: a secret key and a key ID used for authentication in {{ objstorage-short-name }}.
 
    To create an object in an existing bucket:
 
@@ -98,3 +120,88 @@ You cannot upload objects greater than 5 GB in size via the management console (
          Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
 
 {% endlist %}
+
+
+{% if product == "yandex-cloud" %}
+
+## Uploading an object version with an object lock {#w-object-lock}
+
+If a bucket has [versioning](../buckets/versioning.md) and [object locks](../buckets/configure-object-lock.md) enabled, you can specify the object lock settings when uploading an object:
+
+{% list tabs %}
+
+- AWS CLI
+
+   ```bash
+   aws --endpoint-url=https://{{ s3-storage-host }}/ \
+     s3api put-object \
+     --body <path_to_local_file> \
+     --bucket <bucket_name> \
+     --key <object_key> \
+     --object-lock-mode <type_of_object_lock_with_retention_period> \
+     --object-lock-retain-until-date <object_lock_retain_until_date_and_time> \
+     --object-lock-legal-hold-status <status_of_legal_hold>
+   ```
+
+   Where:
+
+   * `body`: Path to the file on your device to upload to the bucket.
+   * `bucket`: Your bucket's name.
+   * `key`: [Key](../../concepts/object.md#key) to store the object in the bucket with.
+   * `object-lock-mode`: [Type](../../concepts/object-lock.md#types) of object lock set for a certain period:
+
+      * `GOVERNANCE`: An object lock with a predefined retention period that can be managed.
+      * `COMPLIANCE`: An object lock with a predefined retention period with strict compliance.
+
+   * `object-lock-retain-until-date` Date and time until which an object is to be locked, specified in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). For example, `Mon, 12 Dec 2022 09:00:00 GMT`. Can only be set together with the `object-lock-mode` parameter.
+
+   * `object-lock-legal-hold-status`: [Legal hold](../../concepts/object-lock.md#types) status:
+
+      * `ON`: Enabled.
+      * `OFF`: Disabled.
+
+   You can place an object version only under an object lock with a retention period (the `object-lock-mode` and `object-lock-retain-until-date` parameters), only under a legal hold (`object-lock-legal-hold-status`), or under both. For more information about their combined use, see [{#T}](../../concepts/object-lock.md#types).
+
+{% endlist %}
+
+If a bucket already has the [default object locks set for a certain period](../../concepts/object-lock.md#default) configured, you should upload any objects to it with their [MD5 hash](https://{{ lang }}.wikipedia.org/wiki/MD5) specified:
+
+{% list tabs %}
+
+- AWS CLI
+
+   1. Calculate a file's MD5 hash and encode it with [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64):
+
+      ```bash
+      md5=($(md5sum <path_to_local_file>))
+      md5_base64=$(echo $md5 | base64)
+      ```
+
+   1. Upload an object to the bucket:
+
+      ```bash
+      aws --endpoint-url=https://{{ s3-storage-host }}/ \
+        s3api put-object \
+        --body <path_to_local_file> \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        --content-md5 $md5_base64
+      ```
+
+      Where:
+
+      * `body`: Path to the file on your device to upload to the bucket.
+      * `bucket`: Your bucket's name.
+      * `key`: [Key](../../concepts/object.md#key) to store the object in the bucket with.
+      * `content-md5`: Object's encoded MD5 hash.
+
+      You can also add the following parameters to the command:
+
+      * `object-lock-mode` and `object-lock-retain-until-date` to place an object version under an object lock for a certain period with a configuration different from the bucket's object lock default settings.
+      * `object-lock-legal-hold-status` to place an object version under a legal hold.
+
+      For more information about these parameters, see the instructions above.
+
+{% endlist %}
+
+{% endif %}

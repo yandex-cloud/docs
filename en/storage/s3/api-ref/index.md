@@ -3,7 +3,7 @@
 {{ objstorage-name }} HTTP API provides the following services:
 
 | Service | Description |
-| ------- | --------- |
+-------|---------
 | [Bucket](bucket.md) | Manages the buckets. |
 | [Object](object.md) | Performs object management. |
 | [Multipart upload](multipart.md) | Controls uploading of large objects. |
@@ -22,7 +22,7 @@
 {% if audience != "internal" %}
 
 | Method | Description |
-| ----- | ----- |
+----- | -----
 | [create](bucket/create.md) | Creates a bucket. |
 | [getBucketEncryption](bucket/getbucketencryption.md) | Checks whether the bucket is encrypted. |
 | [getMeta](bucket/getmeta.md) | Checks the existence of a bucket and access to it. |
@@ -40,7 +40,7 @@
 {% else %}
 
 | Method | Description |
-| ----- | ----- |
+----- | -----
 | [create](bucket/create.md) | Creates a bucket. |
 | [getMeta](bucket/getmeta.md) | Checks the existence of a bucket and access to it. |
 | [listObjects](bucket/listobjects.md) | Returns a list of bucket objects. |
@@ -59,7 +59,7 @@
 {% if product == "cloud-il" %}
 
 | Method | Description |
-| ----- | ----- |
+----- | -----
 | [create](bucket/create.md) | Creates a bucket. |
 | [getMeta](bucket/getmeta.md) | Checks the existence of a bucket and access to it. |
 | [listObjects](bucket/listobjects.md) | Returns a list of bucket objects. |
@@ -74,7 +74,7 @@
 ### Object service {#object-service}
 
 | Method | Description |
-| ----- | ----- |
+----- | -----
 | [upload](object/upload.md) | Uploads an object to {{ objstorage-name }}. |
 | [get](object/get.md) | Retrieves an object from {{ objstorage-name }}. |
 | [copy](object/copy.md) | Copies an object stored in {{ objstorage-name }}. |
@@ -87,7 +87,7 @@
 ### Multipart upload service {#multipart-upload-service}
 
 | Method | Description |
-| ----- | ----- |
+----- | -----
 | [startUpload](multipart/startupload.md) | Starts multipart upload. |
 | [uploadPart](multipart/uploadpart.md) | Uploads a part of an object. |
 | [copyPart](multipart/copypart.md) | Copies part of an object. |
@@ -99,7 +99,7 @@
 ### Static Website Hosting service {#static-website-hosting-service}
 
 | Method | Description |
-| ----- | ----- |
+----- | -----
 | [upload](hosting/upload.md) | Uploads a bucket configuration for static website hosting to {{ objstorage-name }}. |
 | [get](hosting/get.md) | Returns a bucket configuration for static website hosting from {{ objstorage-name }}. |
 | [delete](hosting/delete.md) | Deletes a bucket configuration for static website hosting. |
@@ -107,7 +107,7 @@
 ### CORS service {#cors-service}
 
 | Method | Description |
-| ----- | ----- |
+----- | -----
 | [upload](cors/upload.md) | Uploads a CORS configuration for a bucket. |
 | [get](cors/get.md) | Returns a CORS configuration for a bucket. |
 | [delete](cors/delete.md) | Deletes a CORS configuration for a bucket. |
@@ -115,7 +115,7 @@
 ### Lifecycles service {#lifecycles-service}
 
 | Method | Description |
-| ----- | ----- |
+----- | -----
 | [upload](lifecycles/upload.md) | Uploads an object lifecycle configuration to {{ objstorage-name }}. |
 | [get](lifecycles/get.md) | Returns an object lifecycle configuration from {{ objstorage-name }}. |
 | [delete](lifecycles/delete.md) | Deletes an object lifecycle configuration from {{ objstorage-name }}. |
@@ -123,7 +123,7 @@
 ### ACL service {#acl-service}
 
 | Method | Description |
-| ----- | ----- |
+----- | -----
 | [objectGetAcl](acl/objectget.md) | Returns the access control list for an object. |
 | [objectPutAcl](acl/objectput.md) | Uploads an access control list for an object. |
 | [bucketGetAcl](acl/bucketget.md) | Returns the access control list for a bucket. |
@@ -132,13 +132,11 @@
 ### Bucket Policy service {#bucket-policy}
 
 | Method | Description |
-| ----- | ----- |
+----- | -----
 | [GetBucketPolicy](policy/get.md) | Returns the access policy for the specified bucket. |
 | [PutBucketPolicy](policy/put.md) | Applies the access policy to the specified bucket. |
 | [DeleteBucketPolicy](policy/delete.md) | Removes the access policy from the specified bucket. |
 
 ## See also {#see-also}
-
 * [{#T}](../../s3/index.md)
 * [{#T}](../../tools/index.md)
-
