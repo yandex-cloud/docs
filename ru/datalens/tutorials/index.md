@@ -1,5 +1,5 @@
 ---
-title: Сценарии использования {{ datalens-full-name }}
+title: "Сценарии использования {{ datalens-full-name }}"
 description: "В разделе описаны сценарии использования сервиса {{ datalens-full-name }}. Визуализация данных из CSV-файла, создание и публикация диаграммы с картой Москвы из CSV-файла, анализ продаж сети магазинов из БД ClickHouse, анализ открытых данных ДТП на дорогах России"
 ---
 
@@ -7,7 +7,7 @@ description: "В разделе описаны сценарии использо
 
 Ниже описаны руководства по работе с сервисом {{ datalens-full-name }}:
 
-{% if audience != "internal" %} 
+{% if audience != "internal" %}
 
 * [Визуализация данных из CSV-файла](data-from-csv-visualization.md)
 * [Создание и публикация диаграммы с картой Москвы из CSV-файла](data-from-csv-to-public-visualization.md)

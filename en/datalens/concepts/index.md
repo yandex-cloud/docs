@@ -1,5 +1,5 @@
 ---
-title: {{ datalens-full-name}}. Overview
+title: "{{ datalens-full-name}}. Overview"
 description: "{{ datalens-full-name }} is a business analytics service. It lets you connect to various data sources, visualize data, create dashboards, and share the results."
 ---
 
