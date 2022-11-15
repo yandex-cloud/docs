@@ -116,7 +116,7 @@ Packer позволяет создавать [образы дисков вирт
    scp packer_<версия Packer>_linux_amd64.zip <Логин>@<Публичный IP-адрес ВМ>:~/
    ```
 
-1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу `PuTTY` для Windows.
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по протоколу {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу `PuTTY` для Windows.
 1. Создайте новую директорию, переместите в нее исполняемые файлы Packer и распакуйте архив:
 
    ```

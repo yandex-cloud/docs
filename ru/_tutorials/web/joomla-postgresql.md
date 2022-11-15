@@ -63,7 +63,7 @@ keywords:
 1. Укажите данные для доступа на ВМ:
    * В поле **Логин** введите имя пользователя.
    * В поле **SSH ключ** вставьте содержимое файла открытого ключа.
-     Пару ключей для подключения по SSH необходимо создать самостоятельно. Для создания ключей используйте сторонние инструменты, например утилиты `ssh-keygen` в Linux и macOS или [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) в Windows.
+     Пару ключей для подключения по {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} необходимо создать самостоятельно. Для создания ключей используйте сторонние инструменты, например утилиты `ssh-keygen` в Linux и macOS или [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) в Windows.
 1. Нажмите кнопку **Создать ВМ**.
 
 Создание ВМ может занять несколько минут.

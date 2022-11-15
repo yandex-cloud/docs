@@ -83,7 +83,7 @@
 
 ## Проверьте доступность бакета {#check-availability}
 
-1. После того, как кластер перейдет в статус **Alive**, {% if audience != "internal" %}[подключитесь по SSH](../../data-proc/operations/connect.md#data-proc-ssh){% else %}подключитесь по SSH{% endif %} от имени пользователя `ubuntu` к любому из его хостов.
+1. После того, как кластер перейдет в статус **Alive**, {% if audience != "internal" %}[подключитесь](../../data-proc/operations/connect.md#data-proc-ssh) по {% if lang == "ru" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}{% else %}подключитесь по SSH{% endif %} от имени пользователя `ubuntu` к любому из его хостов.
 
 1. Чтобы убедиться в успешном монтировании бакета, выполните команду:
 

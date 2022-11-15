@@ -117,7 +117,7 @@
 ## Создайте и настройте виртуальную машину {#VM-setup}
 
 1. {% if audience != "internal" %}В той же [облачной сети](../../vpc/concepts/network.md), где расположен кластер, [создайте](../../compute/operations/vm-create/create-linux-vm.md) ВМ на основе Linux. {% else %}В той же облачной сети, где расположен кластер, создайте ВМ на основе Linux. {% endif %}
-1. {% if audience != "internal" %}[Подключитесь](../../compute/operations/vm-connect/ssh.md){% else %}Подключитесь{% endif %} к ВМ по SSH. 
+1. {% if audience != "internal" %}[Подключитесь](../../compute/operations/vm-connect/ssh.md){% else %}Подключитесь{% endif %} к ВМ по {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}. 
 1. Подключите [DEB-репозиторий]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
     ```bash

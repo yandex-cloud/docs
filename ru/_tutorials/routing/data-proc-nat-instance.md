@@ -189,7 +189,7 @@
 
 ## Настройте NAT для кластера {{ dataproc-name }} {#setup-nat}
 
-1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к NAT-инстансу по SSH.
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к NAT-инстансу по {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
 
 1. Чтобы включить маршрутизацию, добавьте в конец файла `/etc/sysctl.conf` следующие строки:
 

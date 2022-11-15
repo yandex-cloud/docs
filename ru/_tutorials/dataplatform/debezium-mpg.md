@@ -18,7 +18,7 @@
 
 {% if audience != "internal" %}
 
-1. Настройте группы безопасности так, чтобы к кластерам можно было подключаться из интернета и созданной виртуальной машины, а к ней — из интернета по SSH:
+1. Настройте группы безопасности так, чтобы к кластерам можно было подключаться из интернета и созданной виртуальной машины, а к ней — из интернета по {% if lang == "ru" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}:
 
     * [Настройка групп безопасности кластера {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
     * [Настройка групп безопасности кластера {{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).

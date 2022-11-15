@@ -78,7 +78,7 @@
 
     {% if audience != "internal" %}
     
-    В этот конфигурационный файл также [добавьте открытые части SSH-ключей](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), чтобы можно было подключаться к виртуальным машинам по SSH.
+    В этот конфигурационный файл также [добавьте открытые части SSH-ключей](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), чтобы можно было подключаться к виртуальным машинам по {% if lang == "ru" %}[SSH](../../../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
 
     {% else %}
     

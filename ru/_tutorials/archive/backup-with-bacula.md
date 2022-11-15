@@ -94,7 +94,7 @@ Bacula состоит из нескольких компонентов:
       * В поле **Логин** введите имя пользователя.
       * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
 
-        Пару ключей для подключения по SSH необходимо создать самостоятельно, см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+        Пару ключей для подключения по {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} необходимо создать самостоятельно, см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
   1. Нажмите кнопку **Создать ВМ**.
   1. Дождитесь перехода ВМ в статус `RUNNING`.
 

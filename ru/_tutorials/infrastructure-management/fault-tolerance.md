@@ -48,6 +48,7 @@
 ### Подготовьте контейнеры приложения TodoList {#create-app}
 
 Чтобы подготовить приложение для запуска в {{ yandex-cloud }}:
+
 1. [Аутентифицируйтесь](../../container-registry/operations/authentication.md) в {{ container-registry-name }}:
 
    ```bash
@@ -149,7 +150,8 @@
    * `folder_id` — каталог, в котором будет развернуто {{ load-testing-name }} Tool.
    * `yc_token`- OAuth-токен пользователя, от имени которого будет развернуто {{ load-testing-name }} Tool.
    * `overload_token` — токен для подключения к `<overload.yandex.net>`. Для получения токена нужно аутентифицироваться, после чего нажать справа вверху на свой профиль и в выпадающем меню выбрать **My api token**.
-1. Подключитесь к созданной ВМ по SSH. Адрес для подключения указан в выводе команды `terraform apply`.
+   
+1. Подключитесь к созданной ВМ по {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}. Адрес для подключения указан в выводе команды `terraform apply`.
 1. Запустите {{ load-testing-name }} Tool:
 
    ```bash

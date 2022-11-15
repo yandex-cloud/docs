@@ -89,7 +89,7 @@
 
 ### Установите дополнительное ПО {#install-extra-software}
 
-1. (Опционально) Установите на локальный компьютер утилиты для скачивания и загрузки файлов по протоколу SSH, например:
+1. (Опционально) Установите на локальный компьютер утилиты для скачивания и загрузки файлов по протоколу {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}, например:
 
     * [WinSCP]{% if lang == "ru" %}(https://winscp.net/eng/docs/lang:ru){% endif %}{% if lang == "en" %}(https://winscp.net/eng/index.php){% endif %}
     * [Putty SCP](https://www.putty.org/)

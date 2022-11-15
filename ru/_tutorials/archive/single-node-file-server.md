@@ -71,7 +71,7 @@
 1. Укажите данные для доступа на виртуальную машину:
 
     * В поле **Логин** введите имя пользователя.
-    * В поле **SSH ключ** вставьте содержимое файла открытого ключа. Пару ключей для подключения по SSH необходимо [создать самостоятельно](../../compute/operations/images-with-pre-installed-software/operate.md#creating-ssh-keys).
+    * В поле **SSH ключ** вставьте содержимое файла открытого ключа. Пару ключей для подключения по {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} необходимо [создать самостоятельно](../../compute/operations/images-with-pre-installed-software/operate.md#creating-ssh-keys).
 
 1. Нажмите кнопку **Создать ВМ**.
 

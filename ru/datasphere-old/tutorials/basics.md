@@ -2,7 +2,7 @@
 
 {% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
 
-{{ ml-platform-full-name }} позволяет анализировать данные и строить модели машинного обучения, используя привычный интерфейс Jupyter Notebook. Этот сценарий использования познакомит вас с возможностями сервиса на примере работы с ноутбуком для набора данных [2017 Kaggle ML & DS Survey](https://www.kaggle.com/kaggle/kaggle-survey-2017) (опрос пользователей [Kaggle](https://www.kaggle.com/) 2017 года).
+{{ ml-platform-full-name }} позволяет {% if lang == "ru" and audience != "internal" %}[анализировать данные](../../glossary/data-analytics.md){% else %}анализировать данные{% endif %} и строить модели машинного обучения, используя привычный интерфейс Jupyter Notebook. Этот сценарий использования познакомит вас с возможностями сервиса на примере работы с ноутбуком для набора данных [2017 Kaggle ML & DS Survey](https://www.kaggle.com/kaggle/kaggle-survey-2017) (опрос пользователей [Kaggle](https://www.kaggle.com/) 2017 года).
 
 Чтобы познакомиться с сервисом:
 

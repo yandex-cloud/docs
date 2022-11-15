@@ -2,7 +2,7 @@
 
 {% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
 
-Популярные пакеты для анализа данных и машинного обучения уже предустановлены и готовы к использованию, см. [список](../../concepts/preinstalled-packages.md).
+Популярные пакеты для {% if lang == "ru" and audience != "internal" %}[анализа данных](../../../glossary/data-analytics.md){% else %}анализа данных{% endif %} и машинного обучения уже предустановлены и готовы к использованию, см. [список](../../concepts/preinstalled-packages.md).
 
 Вы можете установить недостающие пакеты с помощью пакетного менеджера pip.
 

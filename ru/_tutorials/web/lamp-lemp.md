@@ -130,7 +130,7 @@
      * В поле **Логин** введите имя пользователя.
      * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
 
-       Пару ключей для подключения по SSH необходимо создать самостоятельно, см. раздел [{#T}](../../compute/operations/vm-connect/ssh.md).
+       Пару ключей для подключения по {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} необходимо создать самостоятельно, см. раздел [{#T}](../../compute/operations/vm-connect/ssh.md).
 
      {% note alert %}
 

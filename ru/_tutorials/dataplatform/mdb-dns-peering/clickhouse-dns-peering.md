@@ -26,7 +26,7 @@
 
 {% if audience != "internal" %}
 
-1. [Подключитесь](../../../compute/operations/vm-connect/ssh.md#vm-connect) к виртуальным машинам `cluster-vm` и `other-vm` по SSH.
+1. [Подключитесь](../../../compute/operations/vm-connect/ssh.md#vm-connect) к виртуальным машинам `cluster-vm` и `other-vm` по {% if lang == "ru" %}[SSH](../../../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
 
 {% else %}
 

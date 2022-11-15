@@ -49,9 +49,9 @@
 1. В блоке **Сетевые настройки** выберите, к какой подсети необходимо подключить ВМ при создании.
 1. Укажите данные для доступа на ВМ:
    * В поле **Логин** введите имя пользователя.
-   * В поле **SSH ключ** скопируйте содержимое файла открытого ключа.
+   * В поле **SSH-ключ** скопируйте содержимое файла открытого ключа.
 
-     Пару ключей для подключения по SSH необходимо [создать самостоятельно](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Для создания ключей используйте сторонние инструменты, например утилиты `ssh-keygen` в Linux и macOS или [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) в Windows.
+     Пару ключей для подключения по {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} необходимо [создать самостоятельно](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Для создания ключей используйте сторонние инструменты, например утилиты `ssh-keygen` в Linux и macOS или [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) в Windows.
 1. Нажмите кнопку **Создать ВМ**.
 
 Создание ВМ может занять несколько минут. Когда ВМ перейдет в статус `RUNNING`, вы можете перейти к ее настройке.
