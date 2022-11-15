@@ -88,6 +88,20 @@ items:
   - name: Правила тарификации
     href: pricing.md
     when: stage != "preview"
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/managed-opensearch/toc.yaml
+      - name: REST (англ.)
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref/mdb/opensearch/toc.yaml
   - name: История изменений
     href: release-notes.md
     when: stage != "preview"
