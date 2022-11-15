@@ -80,10 +80,9 @@ The rules for using Microsoft licenses are described in [{#T}](../microsoft/lice
 
 {% endif %}
 
-
-{% if product == "yandex-cloud" and region == "ru" %}
-
 #### Example of cost calculation {#example-of-cost-calculation}
+
+{% if product == "yandex-cloud" %}
 
 Let's compare the cost of running VMs on the Intel Broadwell [platform](concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).
 
@@ -94,20 +93,48 @@ Two VMs were created running Linux OS:
 Both VMs have been running for 30 days.
 
 Cost formula for a virtual machine with 2 × 5% vCPU cores at {% if region == "ru" %}₽0.3100{% endif %}{% if region == "int" %}$0.002480{% endif %}{% if region == "kz" %}₸1.5500{% endif %} per hour of CPU core time and {% if region == "ru" %}₽0.7800{% endif %}{% if region == "int" %}$0.006240{% endif %}{% if region == "kz" %}₸3.9000{% endif %} per hour of 2 GB of RAM:
-> 5% vCPU = 2 × {% if region == "ru" %}₽0.3100{% endif %}{% if region == "int" %}$0.002480{% endif %}{% if region == "kz" %}₸1.5500{% endif %}/hour * 30 days * 24 hours = {% if region == "ru" %}₽446.4000{% endif %}{% if region == "int" %}$3.571200{% endif %}{% if region == "kz" %}₸1116.0000{% endif %}
+> 5% vCPU: 2 × {% if region == "ru" %}₽0.3100{% endif %}{% if region == "int" %}$0.002480{% endif %}{% if region == "kz" %}₸1.5500{% endif %}/hour × 30 days × 24 hours = {% if region == "ru" %}₽446.4000{% endif %}{% if region == "int" %}$3.571200{% endif %}{% if region == "kz" %}₸1116.0000{% endif %}
 >
-> 2 GB RAM = {% if region == "ru" %}₽0.7800{% endif %}{% if region == "int" %}$0.006240{% endif %}{% if region == "kz" %}₸3.9000{% endif %}/hour * 30 days * 24 hours = {% if region == "ru" %}₽561.6000{% endif %}{% if region == "int" %}$4.492800{% endif %}{% if region == "kz" %}₸2808.0000{% endif %}
+> 2 GB RAM: {% if region == "ru" %}₽0.7800{% endif %}{% if region == "int" %}$0.006240{% endif %}{% if region == "kz" %}₸3.9000{% endif %}/hour × 30 days × 24 hours = {% if region == "ru" %}₽561.6000{% endif %}{% if region == "int" %}$4.492800{% endif %}{% if region == "kz" %}₸2808.0000{% endif %}
 >
->Total: {% if region == "ru" %}₽446.4000{% endif %}{% if region == "int" %}$3.571200{% endif %}{% if region == "kz" %}₸2232.0000{% endif %} + {% if region == "ru" %}₽561.6000{% endif %}{% if region == "int" %}$4.492800{% endif %}{% if region == "kz" %}₸2808.0000{% endif %} = {% if region == "ru" %}₽1008.0000{% endif %}{% if region == "int" %}$8.064000{% endif %}{% if region == "kz" %}₸5040.0000{% endif %}
+> Total: {% if region == "ru" %}₽446.4000{% endif %}{% if region == "int" %}$3.571200{% endif %}{% if region == "kz" %}₸2232.0000{% endif %} + {% if region == "ru" %}₽561.6000{% endif %}{% if region == "int" %}$4.492800{% endif %}{% if region == "kz" %}₸2808.0000{% endif %} = {% if region == "ru" %}₽1008.0000{% endif %}{% if region == "int" %}$8.064000{% endif %}{% if region == "kz" %}₸5040.0000{% endif %}
 
 Cost formula for a virtual machine with 2 × 100% vCPU cores at {% if region == "ru" %}₽1.1200{% endif %}{% if region == "int" %}$0.008960{% endif %}{% if region == "kz" %}₸5.6000{% endif %} per hour of CPU core time and {% if region == "ru" %}₽0.7800{% endif %}{% if region == "int" %}$0.006240{% endif %}{% if region == "kz" %}₸3.9000{% endif %} per hour of 2 GB of RAM:
-> 100% vCPU = 2 × {% if region == "ru" %}₽1.1200{% endif %}{% if region == "int" %}$0.008960{% endif %}{% if region == "kz" %}₸5.6000{% endif %}/hour * 30 days * 24 hours = {% if region == "ru" %}₽1612.8000{% endif %}{% if region == "int" %}$12.451200{% endif %}{% if region == "kz" %}₸8064.0000{% endif %}
+> 100% vCPU: 2 × {% if region == "ru" %}₽1.1200{% endif %}{% if region == "int" %}$0.008960{% endif %}{% if region == "kz" %}₸5.6000{% endif %}/hour × 30 days × 24 hours = {% if region == "ru" %}₽1612.8000{% endif %}{% if region == "int" %}$12.451200{% endif %}{% if region == "kz" %}₸8064.0000{% endif %}
 >
-> 2 GB RAM = {% if region == "ru" %}₽0.7800{% endif %}{% if region == "int" %}$0.006240{% endif %}{% if region == "kz" %}₸3.9000{% endif %}/hour * 30 days * 24 hours = {% if region == "ru" %}₽561.6000{% endif %}{% if region == "int" %}$4.492800{% endif %}{% if region == "kz" %}₸2808.0000{% endif %}
+> 2 GB RAM: {% if region == "ru" %}₽0.7800{% endif %}{% if region == "int" %}$0.006240{% endif %}{% if region == "kz" %}₸3.9000{% endif %}/hour × 30 days × 24 hours = {% if region == "ru" %}₽561.6000{% endif %}{% if region == "int" %}$4.492800{% endif %}{% if region == "kz" %}₸2808.0000{% endif %}
 >
->Total: {% if region == "ru" %}₽1612.8000{% endif %}{% if region == "int" %}$12.451200{% endif %}{% if region == "kz" %}₸8064.0000{% endif %} + {% if region == "ru" %}₽561.6000{% endif %}{% if region == "int" %}$4.492800{% endif %}{% if region == "kz" %}₸2808.0000{% endif %} = {% if region == "ru" %}₽2174.4000{% endif %}{% if region == "int" %}$17.395200{% endif %}{% if region == "kz" %}₸10872.0000{% endif %}
+> Total: {% if region == "ru" %}₽1612.8000{% endif %}{% if region == "int" %}$12.451200{% endif %}{% if region == "kz" %}₸8064.0000{% endif %} + {% if region == "ru" %}₽561.6000{% endif %}{% if region == "int" %}$4.492800{% endif %}{% if region == "kz" %}₸2808.0000{% endif %} = {% if region == "ru" %}₽2174.4000{% endif %}{% if region == "int" %}$17.395200{% endif %}{% if region == "kz" %}₸10872.0000{% endif %}
 
 As you can see, the cost of the VM using 5% vCPU is about half as much as that of the VM using 100% vCPU.
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+Let's compare the cost of running VMs on the Intel Ice Lake [platform](concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).
+
+Two VMs were created running Linux OS:
+* 2 × 20% of vCPU and 2 GB RAM
+* 2 × 100% of vCPU and 2 GB RAM
+
+Both VMs have been running for 30 days.
+
+Cost formula for a virtual machine with 2 × 20% vCPU cores at ₪0.0223 per hour of CPU core time and 2 GB of RAM at ₪0.0142 per hour each:
+> 20% vCPU: 2 × ₪0.0223/hour × 30 days × 24 hours = ₪32.1120
+>
+> 2 GB RAM: 2 × ₪0.0142/hour × 30 days × 24 hours = ₪20.4480
+>
+> Total: ₪32.1120 + ₪20.4480 = ₪52.5600
+
+Cost formula for a virtual machine with 2 × 100% vCPU cores at ₪0.0533 per hour of CPU core time and 2 GB of RAM at ₪0.0142 per hour each:
+> 100% vCPU: 2 × ₪0.0533/hour × 30 days × 24 hours = ₪76.7520
+>
+> 2 GB RAM: 2 × ₪0.0142/hour × 30 days × 24 hours = ₪20.4480
+>
+> Total: ₪76.7520 + ₪20.4480 = ₪97.2000
+
+As you can see, the cost of the VM using 20% vCPU is about half as much as that of the VM using 100% vCPU.
 
 {% endif %}
 
