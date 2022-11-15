@@ -21,6 +21,7 @@ items:
             href: operations/community/link-channel.md
           - name: Привязать платежный аккаунт
             href: operations/community/link-ba.md
+            when: product == "yandex-cloud"
           - name: Удалить сообщество
             href: operations/community/delete.md
       - name: Управление проектом
