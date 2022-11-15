@@ -6,7 +6,7 @@ Each [node](../concepts/index.md#node-group) needs resources to run the componen
 
 #### Can I change resources for each node in a {{ k8s }} cluster? {#change-resources}
 
-You can change resources only for a node group. You can create groups with different configurations in a {{ k8s }} cluster{% if product == "yandex-cloud" %} and place them in different [availability zones](../../overview/concepts/geo-scope.md){% endif %}. For more information, see [{#T}](../operations/node-group/node-group-update.md).
+You can change resources only for a node group. You can create groups with different configurations in a {{ k8s }} cluster and place them in different [availability zones](../../overview/concepts/geo-scope.md). For more information, see [{#T}](../operations/node-group/node-group-update.md).
 
 #### Who monitors the scaling of a {{ k8s }} cluster? {#scaling}
 

@@ -16,7 +16,7 @@ A region is a specific geographic location where you can deploy instances. Each 
 
 | Region | Zones | Location |
 | ----- | ----- | ----- |
-| `{{ region-id }}` | `{{ region-id }}-a` | Tirat Carmel, Israel |
+| `{{ region-id }}` | `{{ region-id }}-a`<br/>`{{ region-id }}-b`<br/>`{{ region-id }}-c` | Lod, Jerusalem, and Tirat Carmel (Israel). |
 
 {% endif %}
 

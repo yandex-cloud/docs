@@ -40,7 +40,7 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all nodes
         * In the **Public IP** field, choose a method for assigning an IP address:
           * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
           * **No address**: Don't assign a public IP address.
-        * Specify how nodes should be distributed across {% if product == "yandex-cloud" %}availability zones and {% endif %}networks.
+        * Specify how nodes should be distributed across availability zones and networks.
      1. Under **Access**, specify the information required to access the node:
         * Enter the username in the **Login** field.
         * In the **SSH key** field, paste the contents of the [public key](../../operations/node-connect-ssh.md#creating-ssh-keys) file.

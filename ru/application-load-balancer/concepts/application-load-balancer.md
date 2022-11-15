@@ -36,17 +36,13 @@
 
 {% endif %}
 
-Чтобы {{ alb-name }} обеспечивал доступность балансировщика{% if product == "yandex-cloud" %}, как указано в [документе об уровне обслуживания сервиса]{% if region == "ru" or region == "kz" %}(https://yandex.ru/legal/cloud_sla_apploadbalancer/){% endif %}{% if region == "int" %}(https://yandex.com/legal/cloud_sla_apploadbalancer/){% endif %}{% endif %}, в подсетях балансировщика должно быть доступно достаточное количество [внутренних IP-адресов](../../vpc/concepts/address.md#internal-addresses). Рекомендуется рассчитывать размер подсетей так, чтобы на каждую {% if product == "yandex-cloud" %}[ресурсную единицу](../pricing.md){% endif %}{% if product == "cloud-il" %}ресурсную единицу{% endif %} пикового потребления приходилось минимум по два свободных IP-адреса.
-
-{% if product == "yandex-cloud" %}
+Чтобы {{ alb-name }} обеспечивал доступность балансировщика{% if product == "yandex-cloud" %}, как указано в [документе об уровне обслуживания сервиса]{% if region == "ru" or region == "kz" %}(https://yandex.ru/legal/cloud_sla_apploadbalancer/){% endif %}{% if region == "int" %}(https://yandex.com/legal/cloud_sla_apploadbalancer/){% endif %}{% endif %}, в подсетях балансировщика должно быть доступно достаточное количество [внутренних IP-адресов](../../vpc/concepts/address.md#internal-addresses). Рекомендуется рассчитывать размер подсетей так, чтобы на каждую [ресурсную единицу](../pricing.md) пикового потребления приходилось минимум по два свободных IP-адреса.
 
 > Например, балансировщик расположен в двух зонах доступности, на каждую из них в пиковые часы приходится:
 > 
 > {% include [lcu-example](../../_includes/application-load-balancer/lcu-example.md) %}
 > 
 > Эти показатели соответствуют 8 ресурсным единицам (см. [расчет](../pricing.md#example)) в каждой зоне доступности. Значит, в каждой подсети рекомендуется иметь хотя бы 8 × 2 = 16 свободных адресов. Желательно указать для балансировщика подсети размером не меньше /27.
-
-{% endif %}
 
 ## Обработчик {#listener}
 

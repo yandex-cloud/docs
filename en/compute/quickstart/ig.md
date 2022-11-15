@@ -30,7 +30,7 @@ To create an instance group:
 
    * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. All operations in {{ ig-name }} are performed on behalf of the service account.
 
-1. In the **Allocation** section, select the desired availability zones. {% if product == "yandex-cloud" %}Group instances may reside in different availability zones and regions. {% endif %}[More about the geo scope of {{ yandex-cloud }}](../../overview/concepts/geo-scope.md).
+1. In the **Allocation** section, select the desired availability zones. Group instances may reside in different availability zones and regions. [More about the geo scope of {{ yandex-cloud }}](../../overview/concepts/geo-scope.md).
 1. In the **Instance template** section, click **Define** to set the base instance configuration:
    * Under **Basic parameters**:
       * Enter a description for the basic instance.

@@ -62,8 +62,6 @@
 
      Результат:
      
-     {% if product == "yandex-cloud" %}
-     
      ```
      done (1m40s)
      id: a5d88ep483cmbfm63g9t
@@ -83,27 +81,6 @@
      log_group_id: eolul9ap0bv02i8bsp87
      created_at: "2021-04-26T12:12:13.624832586Z"
      ```
-     
-     {% endif %}
-
-     {% if product == "cloud-il" %}
-
-     ```
-     done (1m40s)
-     id: a5d88ep483cmbfm63g9t
-     name: test-balancer2
-     folder_id: aoe197919j8elpeg1lkp
-     status: ACTIVE
-     region_id: il1
-     network_id: c64l1c06d15178sa87k0
-     allocation_policy:
-       locations:
-       - zone_id: il1-a
-         subnet_id: buc4gsmpj8hvramg61g8
-     created_at: "2022-06-02T12:12:13.624832586Z"
-     ```
-
-     {% endif %}
  
   1. Добавьте обработчик для L7-балансировщика:
 

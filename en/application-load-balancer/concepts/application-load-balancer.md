@@ -36,17 +36,13 @@ The recommended size of the subnets where the load balancer is hosted depends on
 
 {% endif %}
 
-For {{ alb-name }} to provide load balancer availability{% if product == "yandex-cloud" %} as specified in the [service level agreement]{% if region == "ru" or region == "kz" %}(https://yandex.ru/legal/cloud_sla_apploadbalancer/){% endif %}{% if region == "int" %}(https://yandex.com/legal/cloud_sla_apploadbalancer/){% endif %}{% endif %}, load balancer subnets must have a sufficient number of [internal IP addresses](../../vpc/concepts/address.md#internal-addresses) available. We recommend sizing the subnets to have at least two free IPs per {% if product == "yandex-cloud" %}[resource unit](../pricing.md){% endif %}{% if product == "cloud-il" %}resource unit{% endif %} at peak load.
-
-{% if product == "yandex-cloud" %}
+For {{ alb-name }} to provide load balancer availability{% if product == "yandex-cloud" %} as specified in the [service level agreement]{% if region == "ru" or region == "kz" %}(https://yandex.ru/legal/cloud_sla_apploadbalancer/){% endif %}{% if region == "int" %}(https://yandex.com/legal/cloud_sla_apploadbalancer/){% endif %}{% endif %}, load balancer subnets must have a sufficient number of [internal IP addresses](../../vpc/concepts/address.md#internal-addresses) available. We recommend sizing the subnets to have at least two free IPs per [resource unit](../pricing.md) at peak load.
 
 > For instance, a load balancer is located in two availability zones with each handling the following load during peak hours:
 >
 > {% include [lcu-example](../../_includes/application-load-balancer/lcu-example.md) %}
 >
 > This corresponds to 8 resource units (see the [calculation](../pricing.md#example)) in each availability zone. Therefore, we recommend having at least 8 x 2 = 16 available addresses in each subnet. A load balancer subnet should be at least /27.
-
-{% endif %}
 
 ## Listener {#listener}
 

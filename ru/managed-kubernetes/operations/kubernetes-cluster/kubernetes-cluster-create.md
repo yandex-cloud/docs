@@ -19,7 +19,7 @@
 
 1. Убедитесь, что у вас достаточно [свободных ресурсов в облаке](../../concepts/limits.md).
 1. Если у вас еще нет [сети](../../../vpc/concepts/network.md#network), [создайте ее](../../../vpc/operations/network-create.md).
-1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md){% if product == "yandex-cloud" %} в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер {{ k8s }} и [группа узлов](../../concepts/index.md#node-group){% endif %}.
+1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md) в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер {{ k8s }} и [группа узлов](../../concepts/index.md#node-group).
 1. Создайте [сервисные аккаунты](../../../iam/operations/sa/create.md):
    * Сервисный аккаунт с ролью [{{ roles-editor }}](../../../resource-manager/security/index.md#roles-list) на каталог, в котором создается кластер {{ k8s }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
    * Сервисный аккаунт с ролью [{{ roles-cr-puller }}](../../../container-registry/security/index.md#required-roles) на каталог с [реестром](../../../container-registry/concepts/registry.md) [Docker-образов](../../../container-registry/concepts/docker-image.md). От его имени узлы будут скачивать из реестра необходимые Docker-образы.
@@ -313,8 +313,6 @@
 
 {% endlist %}
 
-{% if product == "yandex-cloud" %}
-
 ### Создание регионального кластера {#example-regional-cluster}
 
 {% list tabs %}
@@ -327,9 +325,9 @@
   * В облаке с идентификатором `{{ tf-cloud-id }}`.
   * В каталоге с идентификатором `{{ tf-folder-id }}`.
   * В новой сети `mynet` с новыми подсетями:
-    * `mysubnet-a` в зоне доступности ru-central1-a с диапазоном `10.5.0.0/16`.
-    * `mysubnet-b` в зоне доступности ru-central1-b с диапазоном `10.6.0.0/16`.
-    * `mysubnet-c` в зоне доступности ru-central1-c с диапазоном `10.7.0.0/16`.
+    * `mysubnet-a` в зоне доступности {{ region-id }}-a с диапазоном `10.5.0.0/16`.
+    * `mysubnet-b` в зоне доступности {{ region-id }}-b с диапазоном `10.6.0.0/16`.
+    * `mysubnet-c` в зоне доступности {{ region-id }}-c с диапазоном `10.7.0.0/16`.
   * С новым сервисным аккаунтом `myaccount`, имеющим права `k8s.clusters.agent`, `vpc.publicAdmin` и `container-registry.images.puller`.
   * С ключом шифрования {{ kms-name }} `kms-key`.
   * В новой группе безопасности `k8s-main-sg`, содержащей [правила для служебного трафика](../connect/security-groups.md#rules-internal).
@@ -360,7 +358,7 @@
     master {
       version = local.k8s_version
       regional {
-        region = "ru-central1"
+        region = "{{ region-id }}"
         location {
           zone      = yandex_vpc_subnet.mysubnet-a.zone
           subnet_id = yandex_vpc_subnet.mysubnet-a.id
@@ -390,17 +388,17 @@
   resource "yandex_vpc_network" "mynet" { name = "mynet" }
   resource "yandex_vpc_subnet" "mysubnet-a" {
     v4_cidr_blocks = ["10.5.0.0/16"]
-    zone           = "ru-central1-a"
+    zone           = "{{ region-id }}-a"
     network_id     = yandex_vpc_network.mynet.id
   }
   resource "yandex_vpc_subnet" "mysubnet-b" {
     v4_cidr_blocks = ["10.6.0.0/16"]
-    zone           = "ru-central1-b"
+    zone           = "{{ region-id }}-b"
     network_id     = yandex_vpc_network.mynet.id
   }
   resource "yandex_vpc_subnet" "mysubnet-c" {
     v4_cidr_blocks = ["10.7.0.0/16"]
-    zone           = "ru-central1-c"
+    zone           = "{{ region-id }}-c"
     network_id     = yandex_vpc_network.mynet.id
   }
   resource "yandex_iam_service_account" "myaccount" {
@@ -480,5 +478,3 @@
   {% endcut %}
 
 {% endlist %}
-
-{% endif %}

@@ -2,9 +2,6 @@
 
 This article provides a set of recommendations for using the {{ yandex-cloud }} network load balancer.
 
-
-{% if product == "yandex-cloud" %}
-
 #### Create your resources in multiple availability zones {#targets-in-different-azs}
 
 Create cloud resources in multiple availability zones. This way you can maintain the availability of your applications in case one of the zones becomes unavailable.
@@ -12,9 +9,6 @@ Create cloud resources in multiple availability zones. This way you can maintain
 #### Use the same amount of cloud resources in different availability zones {#equal-performance}
 
 The same amount of cloud resources should be hosted in each availability zone. If there are three VMs in the `{{ region-id }}-a` availability zone, then the `{{ region-id }}-b` and `{{ region-id }}-c` availability zones should also host three VMs each.
-
-{% endif %}
-
 
 #### Create cloud resources with redundancy {#redundancy}
 
