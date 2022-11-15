@@ -1,4 +1,4 @@
-# Стартовый грант
+# Стартовый грант для личных и бизнес-аккаунтов
 
 {% include [grant-amount](_includes/grant-amount.md) %}
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Правила тарификации
+# Правила тарификации {{ yandex-cloud }}
 
 {% if product == "yandex-cloud" %}
 

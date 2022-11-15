@@ -1,4 +1,4 @@
-# Пробный период
+# Пробный период для новых клиентов
 
 {% include [free-trial-conditions](../../_includes/free-trial-conditions.md) %}
 
