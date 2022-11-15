@@ -113,19 +113,19 @@
 
   1. Назначьте роль. Например, для организации с идентификатором `bpf3crucp1v28b74p3rk`:
 
-    ```bash
-    export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
-    export IAM_TOKEN=CggaATEVAgA...
-    curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
-    ```
+      ```bash
+      export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
+      export IAM_TOKEN=CggaATEVAgA...
+      curl -X POST \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${IAM_TOKEN}" \
+          -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+      ```
 
-  Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса в документации {{ iam-full-name }} и {{ resmgr-full-name }}:
-  * [{#T}](../iam/operations/sa/set-access-bindings.md)
-  * [{#T}](../resource-manager/operations/cloud/set-access-bindings.md)
-  * [{#T}](../resource-manager/operations/folder/set-access-bindings.md)
+     Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса в документации {{ iam-full-name }} и {{ resmgr-full-name }}:
+     * [{#T}](../iam/operations/sa/set-access-bindings.md)
+     * [{#T}](../resource-manager/operations/cloud/set-access-bindings.md)
+     * [{#T}](../resource-manager/operations/folder/set-access-bindings.md)
 
 - {{ TF }}
 
@@ -302,13 +302,13 @@
 
   1. Отзовите роль, удалив указанную привязку прав доступа:
 
-    ```bash
-    export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
-    export IAM_TOKEN=CggaATEVAgA...
-    curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
-    ```
+      ```bash
+      export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
+      export IAM_TOKEN=CggaATEVAgA...
+      curl -X POST \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${IAM_TOKEN}" \
+          -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+      ```
 
 {% endlist %}

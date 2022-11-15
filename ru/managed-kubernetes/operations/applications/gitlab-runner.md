@@ -1,6 +1,6 @@
 # Установка {{ GLR }}
 
-[{{ GLR }}](https://docs.gitlab.com/runner/) — приложение с открытыми исходным кодом, которое выполняет задания конвеерной обработки {{ GL }} CI/CD по инструкциям из специального файла `.gitlab-ci.yml`. Оно позволяет запускать автоматизированные сборки внутри [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
+[{{ GLR }}](https://docs.gitlab.com/runner/) — приложение с открытым исходным кодом, которое выполняет задания конвеерной обработки {{ GL }} [CI/CD](https://cloud.yandex.ru/blog/posts/2022/10/ci-cd) по инструкциям из специального файла `.gitlab-ci.yml`. Оно позволяет запускать автоматизированные сборки внутри [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
 
 ## Перед началом работы {#before-you-begin}
 

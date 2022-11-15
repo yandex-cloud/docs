@@ -24,6 +24,9 @@ links:
   - title: CLI Yandex Cloud
     description: Интерфейс командной строки
     href: cli/
+  - title: Cloud Apps
+    description: Приложения на базе стека serverless
+    href: cloud-apss/
   - title: Cloud Backup
     description: Резервное копирование ресурсов Yandex Cloud
     href: backup/

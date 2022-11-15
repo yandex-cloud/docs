@@ -31,6 +31,8 @@ items:
             href: operations/buckets/edit-acl.md
           - name: Enabling logging
             href: operations/buckets/enable-logging.md
+          - name: Configuring object locks
+            href: operations/buckets/configure-object-lock.md
       - name: Objects
         items:
           - name: Uploading an object
@@ -41,6 +43,8 @@ items:
             href: operations/objects/download.md
           - name: Getting a public link to an object
             href: operations/objects/link-for-download.md
+          - name: Configuring an object lock
+            href: operations/objects/edit-object-lock.md
           - name: Deleting an object
             href: operations/objects/delete.md
           - name: Deleting all objects
@@ -76,7 +80,7 @@ items:
       - name: Analyzing logs in DataLens
         href: tutorials/storage-logs-analysis.md
       - name: >-
-          Using initialization actions to configure GeeseFS in {{
+          Using initialization scripts to configure GeeseFS in {{
           dataproc-full-name }}
         href: tutorials/data-proc-init-actions-geesefs.md
   - name: Concepts
@@ -89,6 +93,10 @@ items:
         href: concepts/object.md
       - name: Bucket versioning
         href: concepts/versioning.md
+      - name: Object locks
+        href: concepts/object-lock.md
+      - name: Encryption
+        href: concepts/encryption.md
       - name: Object lifecycles
         href: concepts/lifecycles.md
       - name: CORS

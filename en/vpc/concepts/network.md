@@ -33,5 +33,4 @@ Subnet IP address ranges cannot overlap within the same cloud network. The first
 
 Traffic can be transmitted between subnets of the same network, but not subnets of different networks. To transfer traffic between subnets of different networks, use public IP addresses.
 
-
-To have a resource connected to a subnet, make sure it resides in the same availability zone as the subnet. You cannot move subnets to different availability zones
+To have a resource connected to a subnet, make sure it resides in the same availability zone as the subnet. You cannot move subnets to different availability zones.

@@ -13,7 +13,7 @@
 
 Чтобы настроить удаленный хост: 
 1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с операционной системой Ubuntu 16.04 LTS.
-1. Подключитесь к этой виртуальной машине по SSH:
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к этой виртуальной машине по [SSH](../../glossary/ssh-keygen.md):
 
     ```bash
     ssh -A ubuntu@remote-run

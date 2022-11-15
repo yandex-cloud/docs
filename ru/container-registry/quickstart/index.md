@@ -31,7 +31,7 @@
 
    Полученный `ID` далее будет использоваться для обращения к созданному реестру.
 1. Аутентифицируйтесь в {{ container-registry-name }} с помощью [Docker Credential helper](../operations/authentication.md#cred-helper):
-   1. Сконфигурируйте Docker для использования `docker-credential-yc`:
+   1. Сконфигурируйте [Docker](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers) для использования `docker-credential-yc`:
 
       ```bash
       yc container registry configure-docker

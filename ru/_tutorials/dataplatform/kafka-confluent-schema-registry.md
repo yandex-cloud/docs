@@ -80,7 +80,7 @@
 
 ## Установите и настройте Confluent Schema Registry на виртуальной машине {#configure-vm}
 
-1. [Подключитесь к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md).
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по [SSH](../../glossary/ssh-keygen.md).
 
 1. Подключите репозиторий Confluent Schema Registry:
 

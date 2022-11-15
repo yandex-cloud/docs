@@ -61,7 +61,7 @@ We still can block an IP address or stop a VM if we receive complaints on spam b
 Subnets can only use private addresses from IPv4 ranges defined by [RFC 1918](https://tools.ietf.org/html/rfc1918).
 
 
-{% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
+{% include [fz-152.md](../../_qa/fz-152.md) %}
 
 
 {% include [logs](../../_qa/logs.md) %}

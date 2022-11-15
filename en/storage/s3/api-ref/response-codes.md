@@ -1,6 +1,6 @@
 ---
 title: "Response and error codes. {{ objstorage-name }} API (S3)"
-description: "Describes the response and error codes in the {{ objstorage-name }} API (S3). Successful response - if no errors are encountered, {{ objstorage-name }} responds with 2xx HTTP codes. The response code and body depend on the request and are discussed in the request descriptions. Response with an error - if an error occurs {{ objstorage-name }} responds with a message with the appropriate HTTP code and optional XML description. Error codes, and their meanings are detailed."
+description: "Here you will find the error and response codes in the {{ objstorage-name }} API (S3). Successful response: If there are no errors, {{ objstorage-name }} returns 2xx HTTP codes. The response code and body depend on the request and are given in the request descriptions. Error response: In the event of an error, {{ objstorage-name }} returns a message with the appropriate HTTP code and its additional description in XML format. The error codes and their meaning are described in detail."
 ---
 
 # Responses
@@ -40,6 +40,7 @@ In case of an error, {{ objstorage-name }} returns a message with the appropriat
 | 307 | `Redirect` | The specified bucket should temporarily be accessed using the address returned in the response. |
 | 307 | `TemporaryRedirect` | Redirect while the DNS is being updated. |
 | 400 | `BadDigest` | The hash passed in the `Content-MD5` header doesn't match the one calculated on the {{ objstorage-name }} side. |
+| 400 | `CloudTotalAliveSizeQuotaExceed` | After uploading the object, the [quota](../../concepts/limits.md) will be exceeded. [Request a quota increase]({{ link-console-quotas }}) or delete unnecessary objects and then upload the object again. |
 | 400 | `CredentialsNotSupported` | Credentials are not supported. |
 | 400 | `EntityTooSmall` | The size of an uploaded object is smaller than the minimum allowed size. |
 | 400 | `EntityTooLarge` | The size of an uploaded object is greater than the maximum allowed size. |
@@ -71,7 +72,7 @@ In case of an error, {{ objstorage-name }} returns a message with the appropriat
 | 400 | `RequestIsNotMultiPartContent` | The request must contain `multipart/form-data` type data. |
 | 400 | `RequestTimeout` | A read/write timeout. |
 | 400 | `TokenRefreshRequired` | Refresh your token. |
-| 400 | `TooManyBuckets` | Exceeded the bucket number limit. |
+| 400 | `TooManyBuckets` | After creating the bucket, the [quota](../../concepts/limits.md) will be exceeded. [Request a quota increase]({{ link-console-quotas }}) or delete unnecessary buckets and then create the bucket again. |
 | 400 | `UnexpectedContent` | The request shouldn't contain content. |
 | 400 | `UnresolvableGrantByEmailAddress` | The email address provided doesn't match any recorded account. |
 | 400 | `UserKeyMustBeSpecified` | The request must contain the header specified in the error description. |
@@ -86,7 +87,7 @@ In case of an error, {{ objstorage-name }} returns a message with the appropriat
 | 403 | `SignatureDoesNotMatch` | The provided request signature doesn't match the one calculated by {{ objstorage-name }}. |
 | 404 | `NoSuchBucket` | The specified bucket does not exist. |
 | 404 | `NoSuchKey` | The specified key does not exist. |
-| 404 | `NoSuchUpload` | The specified multipart upload does not exist.<br/><br/>This error occurs in the following cases:<br/>- An Invalid upload ID is specified.<br/>- Upload is aborted.<br/>- Upload is complete. |
+| 404 | `NoSuchUpload` | The specified multipart upload does not exist.<br/><br/>This error occurs in the following cases:<br/>— An invalid upload ID is specified.<br/>— The upload is aborted.<br/>— The upload is complete. |
 | 405 | `MethodNotAllowed` | The HTTP method is not allowed for the specified resource. |
 | 409 | `BucketAlreadyExists` | A bucket with the same name already exists. Choose a different name. |
 | 409 | `BucketNotEmpty` | The bucket you are trying to delete is not empty. |

@@ -1,47 +1,47 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/issues/get-links.md
+sourcePath: ru/tracker/api-ref/concepts/issues/get-links.md
 ---
-# Get issue links
+# Получить связи задачи
 
-Use this request to get information about issue links. The issue is selected when its ID or key is specified.
+Запрос позволяет получить информацию о связях задачи. Задача выбирается при указании идентификатора или ключа задачи.
 
-## Request format {#section_rnm_x4j_p1b}
+## Формат запроса {#section_rnm_x4j_p1b}
 
-Before making the request, [get permission to access the API](../access.md).
+Перед выполнением запроса [получите доступ к API](../access.md).
 
-To get a list of issue links, use an HTTP `GET` request:
+Для получения списка связей задачи используйте HTTP-запрос с методом `GET`:
 
 ```json
 GET /{{ ver }}/issues/<issue-id>/links
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}
+{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}  
 
-> Example: Request for issue links
->
->- Use the HTTP GET method.
->
->```
->GET /v2/issues/JUNE-2/links HTTP/1.1
->Host: {{ host }}
->Authorization: OAuth <OAuth token>
->{{ org-id }}
->```
+> Запрос связей задачи:
+> 
+> - Используется HTTP-метод GET.
+> 
+> ```
+> GET /v2/issues/JUNE-2/links HTTP/1.1
+> Host: {{ host }}
+> Authorization: OAuth <OAuth-токен>
+> {{ org-id }}
+> ```
 
-## Response format {#section_xc3_53j_p1b}
+## Формат ответа {#section_xc3_53j_p1b}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    The response body contains the results in JSON format.
+    Тело ответа содержит результаты в формате JSON.
 
     ```json
     [
@@ -51,8 +51,8 @@ Authorization: OAuth <OAuth token>
             "type": {
                 "self": "{{ host }}/v2/linktypes/subtask",
                 "id": "subtask",
-                "inward": "Sub-issue",
-                "outward": "Parent issue"
+                "inward": "Подзадача",
+                "outward": "Родительская задача"
             },
             "direction": "outward",
             "object": {
@@ -63,82 +63,81 @@ Authorization: OAuth <OAuth token>
             },
             "createdBy": {
                 "self": "{{ host }}/v2/users/1120000000049224",
-                "id": "<employee ID>",
-                "display": "<employee name displayed>"
+                "id": "<id сотрудника>",
+                "display": "<отображаемое имя сотрудника>"
             },
             "updatedBy": {
                 "self": "{{ host }}/v2/users/1120000000049224",
-                "id": "<employee ID>",
-                "display": "<employee name displayed>"
+                "id": "<id сотрудника>",
+                "display": "<отображаемое имя сотрудника>"
             },
             "createdAt": "2017-06-11T05:16:01.421+0000",
             "updatedAt": "2017-06-11T05:16:01.421+0000",
             "assignee": {
                 "self": "{{ host }}/v2/users/1120000000049224",
-                "id": "<employee ID>",
-                "display": "<employee name displayed>"
+                "id": "<id сотрудника>",
+                "display": "<отображаемое имя сотрудника>"
             },
             "status": {
                 "self": "{{ host }}/v2/statuses/1",
                 "id": "1",
                 "key": "open",
-                "display": "Open"
+                "display": "Открыт"
             }
         },
         ...
     ]
     ```
 
-    #### Response parameters {#answer-params}
+    #### Параметры ответа {#answer-params}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Address of the API resource with information about the link. | String |
-    | id | Link ID. | Number |
-    | [type](#type) | Block with information about the link type. | Object |
-    | direction | Link type of the issue specified in the request in relation to the issue specified in the [object](#object-param) field. Possible values:<ul><li>`outward`: The issue specified in the request is the main one for the issue in the [object](#object-param) field.</li><li>`inward`: The issue specified in the [object](#object-param) field is the main one for the issue in the request.</li></ul> | String |
-    | [object](#object-block) {#object-param} | Block with information about the linked issue. | Object |
-    | [createdBy](#created-by) | Block with information about the user who created the link. | Object |
-    | [updatedBy](#updated-by) | Block with information about the user who edited the linked issue last. | Object |
-    | createdAt | Link creation date and time. | String |
-    | updatedAt | Link update date and time. | String |
-    | [assignee](#assignee) | Assignee of the linked issue. | Object |
-    | [status](#status) | Status of the linked issue. | Object |
+    Параметр | Описание | Тип данных
+    ----- | ----- | -----
+    self | Адрес ресурса API, который содержит информацию о связи. | Строка
+    id | Идентификатор связи. | Число
+    [type](#type) | Блок с информацией о типе связи. | Объект
+    direction | Тип связи задачи, указанной в запросе, по отношению к задаче в поле [object](#object-param). Возможны следующие значения:<ul><li>`outward` — задача, указанная в запросе, является основной для задачи в поле [object](#object-param).</li><li>`inward` — задача в поле [object](#object-param) является основной для задачи, указанной в запросе.</li></ul> | Строка
+    [object](#object-block) {#object-param} | Блок с информацией о связанной задаче. | Объект
+    [createdBy](#created-by) | Блок с информацией о создателе связи. | Объект
+    [updatedBy](#updated-by) | Блок с информацией о последнем изменившем связанную задачу пользователе. | Объект
+    createdAt | Дата и время создания связи. | Строка
+    updatedAt | Дата и время изменения связи. | Строка
+    [assignee](#assignee) | Исполнитель связанной задачи. | Объект
+    [status](#status) | Статус связанной задачи. | Объект
 
-    **Object fields** `type` {#type}
+    **Поля объекта** `type` {#type}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Link to the link type. | String |
-    | id | ID of the link type. | String |
-    | inward | Name of the link type of the issue specified in the [object](#object-param) field in relation to the issue specified in the request. | String |
-    | outward | Name of the link type of the issue specified in the request in relation to the issue specified in the [object](#object-param) field. | String |
+    Параметр | Описание | Тип данных
+    ----- | ----- | -----
+    self | Ссылка на тип связи. | Строка
+    id | Идентификатор типа связи. | Строка
+    inward | Название типа связи задачи в поле [object](#object-param) по отношению к задаче, указанной в запросе. | Строка
+    outward | Название типа связи задачи, указанной в запросе, по отношению к задаче в поле [object](#object-param). | Строка
 
-    **Object fields** `object` {#object-block}
+    **Поля объекта** `object` {#object-block}
 
     {% include [issue](../../../_includes/tracker/api/issue.md) %}
 
-    **Object fields** `createdBy` {#created-by}
+    **Поля объекта** `createdBy` {#created-by}
 
     {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Object fields** `updatedBy` {#updated-by}
+    **Поля объекта** `updatedBy` {#updated-by}
 
     {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Object fields** `assignee` {#assignee}
+    **Поля объекта** `assignee` {#assignee}
 
     {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Object fields** `status` {#status}
+    **Поля объекта** `status` {#status}
 
     {% include [status](../../../_includes/tracker/api/status.md) %}
 
-- Request failed
+- Запрос выполнен с ошибкой
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
 
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
-

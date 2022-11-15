@@ -1,6 +1,6 @@
 # Список предустановленного ПО
 
-В {{ ml-platform-short-name }} уже предустановлены пакеты для анализа данных и машинного обучения. Если какого-то пакета вам не хватает, вы можете [установить его](../operations/projects/install-dependencies.md) прямо из ячейки ноутбука.
+В {{ ml-platform-short-name }} уже предустановлены пакеты для [анализа данных](../../glossary/data-analytics.md) и машинного обучения. Если какого-то пакета вам не хватает, вы можете [установить его](../operations/projects/install-dependencies.md) прямо из ячейки ноутбука.
 
 {% include [packs](../../_includes/datasphere/migration/preinstalled-packs.md) %}
 

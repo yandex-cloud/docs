@@ -13,7 +13,6 @@ This optimizes data operations. For more information, see [{#T}](#types-lookup-t
 You can change the field data type in the dataset interface and in the wizard.
 
 
-
 {% note warning %}
 
 When you upload a CSV file as a `data source`, {{ datalens-short-name }} tries to automatically detect the types of data in its fields.  
@@ -22,7 +21,7 @@ If it can't identify the data type, DataLens sets the `String` data type for the
 You can use the dataset interface or the wizard to change the field data type.
 
 {% endnote %}
-
+
 
 ## Geopoint {#geopoint}
 
@@ -76,7 +75,6 @@ DATEADD(#2018-01-12#, "day", 6)
 ```
 
 
-
 ## Date and time (deprecated) {#datetime-old}
 
 Date with specified time (the value is converted to [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)).
@@ -109,7 +107,7 @@ DATETRUNC(#2018-07-12 11:07:13#, "month", 4)
    * In all datasets, the fields of the `Date and time (deprecated)` type will be replaced with fields of the `Date and time` type.
    * Using a hash `#` will no longer convert constant values to UTC.
    * The [DATETIME](../function-ref/DATETIME.md) and [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md) functions will no longer convert expressions to UTC.
-
+
 
 ## Date and time {#datetime}
 
@@ -229,7 +227,6 @@ You cannot define an array inside {{ datalens-short-name }}.
 You can only create a tree in a **Table** chart.
 
 To store trees, use sources that support operations with arrays:
-
 
 * {{ CH }}
 * {{ PG }}

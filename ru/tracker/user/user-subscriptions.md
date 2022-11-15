@@ -4,8 +4,7 @@
 Для этого:
 
 
-1. На верхней панели {{ tracker-name }} нажмите значок ![](../../_assets/tracker/tracker-settings.png) → **Настройки уведомлений** и выберите вкладку **Подписки**. Вы также можете перейти по ссылке [https://tracker.yandex.ru/subscriptions/manage]({{ link-sub-manage }}).
-
+1. На панели слева нажмите ![](../../_assets/tracker/svg/settings.svg) **Настройки**. Затем выберите ![](../../_assets/tracker/svg/interface.svg)&nbsp;**Интерфейс** и нажмите **Настройки уведомлений**. Вы также можете перейти по ссылке [{{link-tracker}}subscriptions/manage]({{ link-sub-manage }}).
 
 1. Напротив названия очереди, компонента или версии выберите роль, для которой требуется настроить список событий. 
 

@@ -1,60 +1,60 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/issues/create-issue-field-category.md
+sourcePath: ru/tracker/api-ref/concepts/issues/create-issue-field-category.md
 ---
-# Create an issue field category
+# Создать категорию поля задачи
 
-Use this request to create a category for an issue field.
+Запрос позволяет создать категорию поля задачи.
 
-## Request format {#query}
+## Формат запроса {#query}
 
-Before making the request, [get permission to access the API](../access.md).
+Перед выполнением запроса [получите доступ к API](../access.md).
 
-To create an issue field category, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format:
+Чтобы создать категорию для поля задачи используйте HTTP-запрос с методом `POST`. Параметры запроса передаются в его теле в формате JSON:
 
 ```json
 POST /{{ ver }}/fields/categories
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 
 {
     "name": {
-        "en": "Name in English",
-        "ru": "Name in Russian"
+        "en": "Название на английском языке",
+        "ru": "Название на русском языке"
         },
-        "description": "Text description", 
+        "description": "Текстовое описание", 
     "order": 400
 }
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Request body parameters" %}
+{% cut "Параметры тела запроса" %}
 
-**Required parameters**
+**Обязательные параметры**
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| name | Category name:<ul><li>`en`: In English.</li><li>`ru`: In Russian.</li></ul> | String |
-| order | Weight of the field when displayed in the interface. Fields with a lower weight are displayed above fields with a higher weight. | Number |
+Параметр | Описание | Тип данных
+----- | ----- | -----
+name | Название категории:<ul><li>`en` — на английском языке;</li><li>`ru` — на русском языке.</li></ul>| Строка
+order | Вес поля при отображении в интерфейсе. Поля с меньшим весом отображаются выше полей с большим весом. | Число
 
-**Additional parameters**
+**Дополнительные параметры**
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| description | Category description. | String |
+Параметр | Описание | Тип данных
+----- | ----- | -----
+description | Описание категории. | Строка
 
 {% endcut %}
 
-## Response format {#answer}
+## Формат ответа {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
     {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
 
-    The response body contains information about the updated project in JSON format.
+    Тело ответа содержит информацию об измененном проекте в формате JSON.
 
     ```json
     {
@@ -65,20 +65,20 @@ Authorization: OAuth <OAuth token>
     }
     ```
 
-    {% cut "Response parameters" %}
+    {% cut "Параметры ответа" %}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | id | Unique ID of the category. | String |
-    | name | Category name in Russian. | String |
-    | self | Address of the API resource with information about the category. | String |
-    | version | Category version. Each change to the field increases the version number. | Number |
+    Параметр | Описание | Тип данных
+    ----- | ----- | -----
+    id | Уникальный идентификатор категории. | Строка
+    name | Название категории на русском языке. | Строка
+    self | Адрес ресурса API, который содержит информацию о категории. | Строка
+    version | Версия категории. Каждое изменение поля увеличивает номер версии. | Число
 
     {% endcut %}
 
-- Request failed
+- Запрос выполнен с ошибкой
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
 
     {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 
@@ -91,8 +91,7 @@ Authorization: OAuth <OAuth token>
     {% include [error](../../../_includes/tracker/api/answer-error-422.md) %}
 
     {% include [error](../../../_includes/tracker/api/answer-error-500.md) %}
-
+    
     {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

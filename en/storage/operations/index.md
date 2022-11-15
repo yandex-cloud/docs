@@ -1,6 +1,6 @@
 ---
-title: How to work with {{ objstorage-full-name }} (S3). Instructions
-description: "In the article you will learn how to work with {{ objstorage-full-name }} (S3) in {{ yandex-cloud }}. You will learn how to work with buckets (create, delete and edit them), objects (upload, download, receive download links, delete objects), place static sites (set up hosting, custom domain, set up https protocol)."
+title: "Instructions for operations with {{ objstorage-full-name }} (S3)"
+description: "In this article, you'll learn how to work with {{ objstorage-full-name }} (S3) in {{ yandex-cloud }}. Find out how to use buckets (create, delete, and edit them) and objects (upload and download objects, get download links, and delete objects), as well as how to host static websites (set up hosting and your own domain and configure HTTPS)."
 ---
 
 # Step-by-step instructions for {{ objstorage-name }}
@@ -11,8 +11,14 @@ description: "In the article you will learn how to work with {{ objstorage-full-
 * [{#T}](buckets/delete.md)
 * [{#T}](buckets/limit-max-volume.md)
 * [{#T}](buckets/bucket-availability.md)
+* [{#T}](buckets/encrypt.md)
+* [{#T}](buckets/lifecycles.md)
+* [{#T}](buckets/cors.md)
+* [{#T}](buckets/policy.md)
+* [{#T}](buckets/versioning.md)
 * [{#T}](buckets/edit-acl.md)
 * [{#T}](buckets/enable-logging.md)
+* [{#T}](buckets/configure-object-lock.md)
 
 ## Objects {#objects}
 
@@ -20,12 +26,13 @@ description: "In the article you will learn how to work with {{ objstorage-full-
 * [{#T}](objects/info.md)
 * [{#T}](objects/download.md)
 * [{#T}](objects/link-for-download.md)
+* [{#T}](objects/edit-object-lock.md)
 * [{#T}](objects/delete.md)
 * [{#T}](objects/delete-all.md)
 * [{#T}](objects/deleting-multipart.md)
 * [{#T}](objects/edit-acl.md)
 
-## Static website hosting {#hosting}
+## Hosting static sites {#hosting}
 
 * [{#T}](hosting/setup.md)
 * [{#T}](hosting/own-domain.md)

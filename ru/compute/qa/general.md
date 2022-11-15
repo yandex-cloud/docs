@@ -82,7 +82,7 @@ IP-адреса, FQDN и другую информацию можно узнат
 
 
 
-{% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
+{% include [fz-152.md](../../_qa/fz-152.md) %}
 
 
 

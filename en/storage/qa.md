@@ -97,7 +97,7 @@ The {{ objstorage-name }} response time depends on multiple factors:
 This is why we can't specify a particular response time value. However, we do not consider a sharp increase in response time or a marked decrease in the speed of sending data to be the norm, and keep working to improve the technical characteristics of {{ objstorage-name }}.
 
 
-{% include [qa-fz-152.md](../_includes/qa-fz-152.md) %}
+{% include [fz-152.md](../_qa/fz-152.md) %}
 
 
 {% include [logs.md](../_qa/logs.md) %}

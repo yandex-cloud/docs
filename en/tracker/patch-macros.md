@@ -1,63 +1,62 @@
 ---
-sourcePath: en/tracker/api-ref/patch-macros.md
+sourcePath: ru/tracker/api-ref/patch-macros.md
 ---
-# Edit a macro
+# Редактировать макрос
 
-Use this request to edit macro parameters.
+Запрос позволяет изменить параметры макроса.
 
-## Request format {#section_a32_zrg_sfb}
+## Формат запроса {#section_a32_zrg_sfb}
 
-Before making the request, [get permission to access the API](concepts/access.md).
+Перед выполнением запроса [получите доступ к API](concepts/access.md).
 
-To edit macro parameters, use an HTTP `PATCH` request:
+Чтобы изменить параметры макроса, используйте HTTP-запрос с методом `PATCH`:
 
 ```json
 PATCH /{{ ver }}/queues/<queue-id>/macros/<macros-id>
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <токен>
 {{ org-id }}
 
 {
-  "name": "Test macro 1",
-  "body": "Test comment\nnot_var{{currentDateTime}}\nnot_var{{issue.author}}",
-  "fieldChanges": <Object or array>
+  "name": "Тестовый макрос 1",
+  "body": "Тестовый комментарий\nnot_var{{currentDateTime}}\nnot_var{{issue.author}}",
+  "fieldChanges": <Объект или массив>
 }
 ```
 
 {% include [headings](../_includes/tracker/api/headings.md) %}
 
-{% cut "Resource" %}
+{% cut "Ресурс" %}
 
-| Parameter | Description | Data type |
-| -------- | -------- | ---------- |
-| \<queue-id> | Queue ID or key. The queue key is case-sensitive. | String |
-| \<macros-id> | Macro ID. | String |
+Параметр | Описание | Тип данных
+-------- | -------- | ----------
+\<queue-id> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка
+\<macros-id> | Идентификатор макроса. | Строка
 
-{% endcut %}
+{% endcut %} 
 
-{% cut "Request body parameters" %}
+{% cut "Параметры тела запроса" %}
 
-**Required parameters**
+**Обязательные параметры**
 
-| Parameter | Value | Data type |
-| ----- | ----- | ----- |
-| name | Macro name. | String |
+Параметр | Значение | Тип данных
+----- | ----- | -----
+name | Название макроса.| Строка
 
-**Additional parameters**
+**Дополнительные параметры**
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| body | [Message](manager/create-macroses.md) to be created when executing the macro. Format: ``` <Message text>\n<variable> ```<br/>where:<ul><li> `<Message text>`: Text to be created in the **Comment** field when executing the macro.</li><li>``\n``: Line break symbol.</li><li>Variable that may contain:<br/>`not_var{{currentUser}}`: Name of the user who ran the macro. <br/>`not_var{{currentDateTime.date}}`: Macro execution date.<br/> `not_var{{currentDateTime}}`:  Macro execution date and time.<br/> `{{issue.<field_key>}}`: Key of the issue field to be displayed in the message. Full list of issue fields: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>To delete a message, use the construction `"body": {"unset":1}` | String |
-| fieldChanges | Object or array with new settings for macro actions. The object structure may vary depending on the type of [changes](#dl_qnp_vhm_5fb). | Object or array |
-
-**Object structure** `fieldChanges` {#fieldChanges}
+Параметр | Описание | Тип данных
+----- | ----- | -----
+body | [Сообщение](manager/create-macroses.md), которое будет создано при выполнении макроса. Формат: ``` <Текст сообщение>\n<переменная> ```<br/>где:<ul><li> `<Текст сообщения>`— текст, который будет создан в поле **Комментарий** при выполнении макроса.</li><li>``\n`` — символ переноса строки.</li><li>Переменная, которая может содержать:<br/>`not_var{{currentUser}}` — имя пользователя, который выполнил макрос; <br/>`not_var{{currentDateTime.date}}` — дату выполнения макроса;<br/> `not_var{{currentDateTime}}` — дату и время выполнения макроса;<br/> `{{issue.<ключ_поля>}}` — ключ поля задачи, значение которого отразится в сообщении. Полный список полей задачи: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>Чтобы удалить сообщение, используйте конструкцию `"body": {"unset":1}` | Строка
+fieldChanges | Объект или массив с информацией о новых настройках действий макроса. Структура объекта отличается в зависимости от типа [изменений](#dl_qnp_vhm_5fb). | Объект или массив
+ 
+**Структура объекта** `fieldChanges` {#fieldChanges}
 
 {% list tabs %}
 
-- Add new action
+- Добавить действие
 
-  Add a macro action. Use the `add` parameter to add a field and its value to the list of available fields.
-
+  Добавить действие макроса. Параметр `add` позволяет добавить поле и его значение в список имеющихся.
     ```json
     "fieldChanges": {
           "add": [
@@ -68,28 +67,25 @@ Authorization: OAuth <token>
                     ...
                   ]
     ```
-
-  **Request body**
-
-  Parameter | Description | Data type
+  **Тело запроса**
+  Параметр | Описание | Тип данных
   ----- | ----- | -----
-  [fieldChanges](#fieldChanges) | Object with new settings for macro actions. | Object
+  [fieldChanges](#fieldChanges) | Объект с информацией о новых настройках действий макроса. | Объект
 
-  **Array object** `fieldChanges` {#fieldChanges}
-  Parameter | Description | Data type
+  **Объект массива** `fieldChanges` {#fieldChanges}
+  Параметр | Описание | Тип данных
   ----- | ----- | -----
-  [add](#add) | Array with new macro action's parameters. | Array
+  [add](#add) | Массив с информацией о параметрах нового действия макроса. | Массив
 
-  **Array objects** `add` {#add}
-  Parameter | Description | Data type
+  **Объекты массива** `add` {#add}
+  Параметр | Описание | Тип данных
   ----- | ----- | -----
-  field | Issue field ID.<br/><br/>[Full list of issue fields]({{ link-admin-fields }}) | String
-  value | Issue field value. | String
+  field | Идентификатор поля задачи.<br/><br/>[Полный список полей задачи]({{ link-admin-fields }}) | Строка
+  value | Значение поля задачи. | Строка
 
-- Replace an action
+- Заменить действие
 
-  Replace a macro action with a new one. Use the `replace` parameter to replace a field and its value, which are set using the `target` parameter, with new ones using the `replacement` parameter.
-
+  Заменить действие макроса на новое. Параметр `replace` позволяет заменить поле и его значение, заданные с помощью параметра `target` на новые, заданные с помощью параметра `replacement`.
     ```json
     "fieldChanges": {
              "replace": [
@@ -107,32 +103,31 @@ Authorization: OAuth <token>
     }
     ```
 
-  **Request body**
-
-  Parameter | Description | Data type
+  **Тело запроса**
+  Параметр | Описание | Тип данных
   ----- | ----- | -----
-  [fieldChanges](#fieldChanges) | Object with new settings for macro actions. | Object
+  [fieldChanges](#fieldChanges) | Объект с информацией о новых настройках действий макроса. | Объект
 
-  **Object parameters** `fieldChanges` {#fieldChanges}
-  Parameter | Description | Data type
+  **Параметры объекта** `fieldChanges` {#fieldChanges}
+  Параметр | Описание | Тип данных
   ----- | ----- | -----
-  [replace](#replace) | Array with action parameters to be replaced with new ones. | Array
+  [replace](#replace) | Массив с информацией о параметрах действия, которые нужно заменить на новые. | Массив
 
-  **Object array** `replace` {#replace}
-  Parameter | Description | Data type
+  **Массив объекта** `replace` {#replace}
+  Параметр | Описание | Тип данных
   ----- | ----- | -----
-  [target](#target-replacement) | Object with action parameters to be replaced. | Object
-  [replacement](#target-replacement) | Object with new action parameters. | Object
+  [target](#target-replacement) | Объект с информацией о параметрах действия, которые нужно заменить. | Объект
+  [replacement](#target-replacement) | Объект с информацией о новых параметрах действия. | Объект
 
-  **Object parameters** `target` and `replacement` {#target-replacement}
-  Parameter | Description | Data type
+  **Параметры объектов** `target` и `replacement` {#target-replacement}
+  Параметр | Описание | Тип данных
   ----- | ----- | -----
-  field | Issue field ID.<br/><br/>[Full list of issue fields]({{ link-admin-fields }}) | String
-  value | Issue field value. | String
+  field | Идентификатор поля задачи.<br/><br/>[Полный список полей задачи]({{ link-admin-fields }}) | Строка
+  value | Значение поля задачи. | Строка
 
-- Replace all actions
+- Заменить все действия
 
-  Replace all macro actions with new ones. Only the fields and values specified in the array are retained.
+  Заменить все действия макроса на новые. Сохранятся только те поля и значения, которые указаны в массиве.
 
     ```json
     "fieldChanges": [
@@ -144,21 +139,20 @@ Authorization: OAuth <token>
     ]
     ```
 
-  **Request body**
-
-  Parameter | Description | Data type
+  **Тело запроса**
+  Параметр | Описание | Тип данных
   ----- | ----- | -----
-  [fieldChanges](#fieldChanges) | Object or array with new settings for macro actions. | Object or array
+  [fieldChanges](#fieldChanges) | Объект или массив с информацией о новых настройках действий макроса. | Объект или массив
 
-  **Array parameters** `fieldChanges`{#fieldChanges}
-  Parameter | Description | Data type
+  **Параметры массива** `fieldChanges`{#fieldChanges}
+  Параметр | Описание | Тип данных
   ----- | ----- | -----
-  field | Issue field ID.<br/><br/>[Full list of issue fields]({{ link-admin-fields }}) | String
-  value | Issue field value. | String
+  field | Идентификатор поля задачи.<br/><br/>[Полный список полей задачи]({{ link-admin-fields }}) | Строка
+  value | Значение поля задачи. | Строка
 
-- Remove an action
+- Удалить действие
 
-  Remove a macro action. You can use the `replace` parameter to remove a field and its value.
+  Удалить действие макроса. Параметр `replace` позволяет удалить поле и его значение.
 
     ```json
     "fieldChanges": {
@@ -172,37 +166,35 @@ Authorization: OAuth <token>
     }
     ```
 
-  **Request body**
-
-  Parameter | Description | Data type
+  **Тело запроса**
+  Параметр | Описание | Тип данных
   ----- | ----- | -----
-  [fieldChanges](#fieldChanges) | Object with new settings for macro actions. | Object
+  [fieldChanges](#fieldChanges) | Объект с информацией о новых настройках действий макроса. | Объект
 
-  **Object field** `fieldChanges`
-
-  Parameter | Description | Data type
+  **Поле объекта** `fieldChanges`
+  Параметр | Описание | Тип данных
   ----- | ----- | -----
-  [remove](#remove) | Array with information about the fields and values of the macro action to remove. | Array
+  [remove](#remove) | Массив с информацией о полях и значениях действия макроса, которые нужно удалить. | Массив
 
-  **Array parameters** `remove` {#remove}
-  Parameter | Description | Data type
+  **Параметры массива** `remove` {#remove}
+  Параметр | Описание | Тип данных
   ----- | ----- | -----
-  field | Issue field ID.<br/><br/>[Full list of issue fields]({{ link-admin-fields }}) | String
-  value | Issue field value. | String
+  field | Идентификатор поля задачи.<br/><br/>[Полный список полей задачи]({{ link-admin-fields }}) | Строка
+  value | Значение поля задачи. | Строка
 
 {% endlist %}
 
 {% endcut %}
 
-## Response format {#section_evq_j5l_sfb}
+## Формат ответа {#section_evq_j5l_sfb}
 
 {% list tabs %}
 
-- Request executed successfully
-
+- Запрос выполнен успешно
+  
     {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
-
-    The response body contains a JSON object with all macro parameters, including the updated ones.
+  
+    Тело ответа содержит JSON-объект со всеми параметрами макроса, включая измененные.
 
     ```json
       {
@@ -212,16 +204,16 @@ Authorization: OAuth <token>
           "self": "{{ host }}/v2/queues/TEST", 
           "id": "1",
           "key": "TEST",
-          "display": "Test queue"
+          "display": "Тестовая очередь"
            },
-        "name": "Test macro 1",
-        "body": "Test comment\nnot_var{{currentDateTime}}\nnot_var{{issue.author}}",
+        "name": "Тестовый макрос 1",
+        "body": "Тестовый комментарий\nnot_var{{currentDateTime}}\nnot_var{{issue.author}}",
         "fieldChanges": [
           {
             "field": {
                "self": "{{ host }}/v2/fields/tags", 
                "id": "tags",
-               "display": "Tags"
+               "display": "Теги"
               },
             "value": [
                     "tag1"
@@ -232,41 +224,41 @@ Authorization: OAuth <token>
       }
     ```
 
-    {% cut "Response parameters" %}
+    {% cut "Параметры ответа" %}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Address of the API resource with macro parameters. | String |
-    | id | Macro ID. | Number |
-    | [queue](#queue) | Object with information about the queue whose issues that the macro is applied to. | Object |
-    | name | Macro name. | String |
-    | body | [Message](manager/create-macroses.md) to be created when executing the macro. Format: ``` <Message text>\n<variable> ```<br/>where:<ul><li> `<Message text>`: Text to be created in the **Comment** field when executing the macro.</li><li> ``\n``: Line break symbol.</li><li> Variable that may contain:<br/>`not_var{{currentUser}}`: Name of the user who ran the macro.<br/> `not_var{{currentDateTime.date}}`: Macro execution date. <br/>`not_var{{currentDateTime}}`: Macro execution date and time.<br/>`{{issue.<field_key>}}`: Key of the issue field to be displayed in the message. Full list of issue fields: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>To delete the message, use the construction `"body": {"unset":1}` | String |
-    | [fieldChanges](#fieldChanges) | Array with information about the issue fields that the macro will trigger changes to. | Array of objects |
+    Параметр | Описание | Тип данных
+    ----- | ----- | -----
+    self | Адрес ресурса API, который содержит параметры макроса. | Строка
+    id | Идентификатор макроса. | Число
+    [queue](#queue) | Объект с информацией об очереди, к задачам которой применяется макрос. | Объект
+    name | Название макроса. | Строка
+    body | [Сообщение](manager/create-macroses.md), которое будет создано при выполнении макроса. Формат: ``` <Текст сообщение>\n<переменная> ```<br/>где:<ul><li> `<Текст сообщения>`— текст, который будет создан в поле **Комментарий** при выполнении макроса.</li><li> ``\n`` — символ переноса строки.</li><li> Переменная, которая может содержать:<br/>`not_var{{currentUser}}` — имя пользователя, который выполнил макрос;<br/> `not_var{{currentDateTime.date}}` — дату выполнения макроса; <br/>`not_var{{currentDateTime}}` — дату и время выполнения макроса;<br/>`{{issue.<ключ_поля>}}` — ключ поля задачи, значение которого отразится в сообщении. Полный список полей задачи: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>Чтобы удалить сообщение, используйте конструкцию `"body": {"unset":1}` | Строка
+    [fieldChanges](#fieldChanges) | Массив с информацией о полях задачи, изменения которых запустит макрос. | Массив объектов
 
-    **Object fields** `queue` {#queue}
-
+    **Поля объекта** `queue` {#queue}
+    
     {% include [queue](../_includes/tracker/api/queue.md) %}
 
-    **Array objects** `fieldChanges` {#fieldChanges}
+    **Объекты массива** `fieldChanges` {#fieldChanges}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | [field](#field) | Object with information about the issue field. | Object |
-    | value | Array of issue field values. | Array of objects |
+    Параметр | Описание | Тип данных
+    ----- | ----- | -----    
+    [field](#field) | Объект с информацией о поле задачи. | Объект
+    value | Массив со значениями поля задачи. | Массив объектов
 
-    **Object fields** `field` {#field}
+    **Поля объекта** `field` {#field}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Address of the API resource with information about the issue field. | String |
-    | id | Issue field ID. | String |
-    | display | Issue field name displayed. | String |
+    Параметр | Описание | Тип данных
+    ----- | ----- | ----- 
+    self | Адрес ресурса API, который содержит информацию о поле задачи. | Строка
+    id | Идентификатор поля задачи. | Строка
+    display | Отображаемое название поля задачи. | Строка
 
     {% endcut %}
 
-- Request failed
+- Запрос выполнен с ошибкой
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
 
     {% include [answer-error-400](../_includes/tracker/api/answer-error-400.md) %}
 
@@ -279,6 +271,5 @@ Authorization: OAuth <token>
     {% include [answer-error-500](../_includes/tracker/api/answer-error-500.md) %}
 
     {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
-
+  
 {% endlist %}
-

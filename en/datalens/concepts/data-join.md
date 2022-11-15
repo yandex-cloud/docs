@@ -63,7 +63,6 @@ You can add a selector to a dashboard to modify query output in its associated w
 Before creating a link, make sure that the field used by the selector as a filter is included in the dataset the chart is built from. Otherwise, the link will not work. For more information, see the instructions [{#T}](../operations/dashboard/create-alias.md).
 
 
-
 ## Optimizing data when joining tables {#join-optimization}
 
 In some charts based on a dataset with [joined tables](#ui-join), you can only use fields from a single table. In this case, {{ datalens-short-name }} optimizes a query to a source. No `JOIN` is used, and the query only returns data from one table without filtering data based on others. This allows reducing the amount of requested data and the query execution time. However, data returned by an optimized query may differ from that you expect.
@@ -241,4 +240,4 @@ If we only use a pair of joined tables (the first and the second, the first and 
 ![image](../../_assets/datalens/concepts/joins/case-5-chart-opt-2.png)
 
 {% endcut %}
-
+

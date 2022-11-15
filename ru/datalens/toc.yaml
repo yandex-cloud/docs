@@ -321,18 +321,6 @@ items:
             href: function-ref/VAR.md
           - name: VARP
             href: function-ref/VARP.md
-      - name: Географические функции
-        items:
-          - name: Обзор
-            href: function-ref/geographical-functions.md
-          - name: GEOCODE
-            href: function-ref/GEOCODE.md
-          - name: GEOINFO
-            href: function-ref/GEOINFO.md
-          - name: TOPONYM_TO_GEOPOINT
-            href: function-ref/TOPONYM_TO_GEOPOINT.md
-          - name: TOPONYM_TO_GEOPOLYGON
-            href: function-ref/TOPONYM_TO_GEOPOLYGON.md
       - name: Логические функции
         items:
           - name: Обзор

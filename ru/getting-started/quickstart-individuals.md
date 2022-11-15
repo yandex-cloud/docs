@@ -1,4 +1,6 @@
-{% include [start](_includes/quickstart-start.md) %}
+# Начало работы для физических лиц
+
+{% include notitle [start](_includes/quickstart-start.md) %}
 
 ## Создание платежного аккаунта {#new-account}
 

@@ -4,6 +4,8 @@
 
 1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
+1. Затем нажмите ![](../../_assets/tracker/svg/interface.svg)&nbsp;**Интерфейс**.
+
 1. В блоке **Стартовая страница** выберите из списка опцию **Дашборд** и укажите, какой дашборд вы хотите использовать в качестве стартовой страницы.
 
     {% note tip %}
@@ -11,5 +13,3 @@
     Если нужного вам дашборда не оказалось в списке, убедитесь, что у вас [есть к нему доступ](share-dashboard.md#section_k2z_1nk_pz), и [добавьте его в избранное](share-dashboard.md#section_gnx_s3l_pz).
 
     {% endnote %}
-
-1. Нажмите кнопку **Сохранить**.

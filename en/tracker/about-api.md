@@ -1,22 +1,22 @@
 ---
-title: Yandex Tracker API. Overview
-description: Yandex Tracker API is designed for web services and applications that work with the tasks of your organization on behalf of a user. In this case, API capabilities depend on the access rights of the user on whose behalf the requests are made. You can control Tracker using HTTP REST API requests.
-sourcePath: en/tracker/api-ref/about-api.md
+title: {{ tracker-full-name }} API. Обзор
+description: {{ tracker-full-name }} API предназначен для веб-сервисов и приложений, которые работают с задачами вашей организации от имени пользователя. При этом возможность выполнять те или иные действия через API зависит от прав доступа пользователя, от имени которого выполняются запросы. Вы можете управлять {{ tracker-name }} с помощью HTTP-запросов к REST API.
+sourcePath: ru/tracker/api-ref/about-api.md
 ---
-# {{ api-name }}. Overview
 
-You can manage {{ tracker-name }} using HTTP requests to the REST API.
+# {{ api-name }}. Обзор
 
-{{ api-name }} is designed for web services and apps that work with your organization's issues on behalf of a user. The actions available in the API depend on the access rights of the user on whose behalf requests are made.
+Вы можете управлять {{ tracker-name }} с помощью HTTP-запросов к REST API.
 
-{{ api-name }} lets you:
+{{ api-name }} предназначен для веб-сервисов и приложений, которые работают с задачами вашей организации от имени пользователя. При этом возможность выполнять те или иные действия через API зависит от прав доступа пользователя, от имени которого выполняются запросы.
 
-- Search, create, and edit issues.
-- Create and edit issue boards.
-- View queue settings.
-- Add and edit issue fields.
+{{ api-name }} позволяет:
 
-Before getting started with {{ api-name }}, familiarize yourself with the [general query format](common-format.md).
+- искать, создавать и редактировать задачи;
+- создавать и редактировать доски задач;
+- просматривать настройки очереди;
+- добавлять и редактировать поля задач.
 
-To learn about allowing apps access to {{ api-name }}, see [{#T}](concepts/access.md).
+Перед тем как начать работу с {{ api-name }}, ознакомьтесь с [общим форматом запросов](common-format.md). 
 
+О том, как получить доступ приложений к {{ api-name }}, читайте в разделе [{#T}](concepts/access.md).

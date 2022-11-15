@@ -1,18 +1,18 @@
 # deleteBucketEncryption method
 
-Removes encryption from the bucket. For more information about bucket encryption, see [{#T}](../../../operations/buckets/encrypt.md).
+Removes encryption from the bucket. For more information about bucket encryption, see [{#T}](../../../concepts/encryption.md).
 
 ## Request {#request}
 
-```http
-DELETE /{bucket}?encryption HTTP/1.1
+```
+DELETE /{bucket}?encryption HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
---- | ---
-`bucket` | Bucket name.
+| Parameter | Description |
+----- | -----
+| `bucket` | Bucket name. |
 
 ### Headers {#request-headers}
 

@@ -1,5 +1,5 @@
 ---
-title: Организации в {{ datalens-full-name }}
+title: "Организации в {{ datalens-full-name }}"
 description: "Организация — сервис {{ yandex-cloud }}, который позволяет управлять списком сотрудников, обеспечивает единую авторизацию в сервисах Yandex Cloud и предоставляет возможность назначения ролей. Теперь {{ datalens-full-name }} создается на уровне организации, что облегчает взаимодействие с другими сервисами Yandex Cloud."
 ---
 
@@ -38,3 +38,4 @@ description: "Организация — сервис {{ yandex-cloud }}, кот
 #### См. также {#see-also}
 
 * [{#T}](../operations/organizations/change-organization.md)
+

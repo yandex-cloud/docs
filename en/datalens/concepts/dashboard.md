@@ -15,7 +15,6 @@ You can create new dashboard pages using the **tab** element.
 By default, on the mobile version of the dashboard, {{ datalens-short-name }} displays the charts one after another using the following sorting rule: left-to-right, top-to-bottom. In the tab settings, you can change the order of displaying charts and selectors in the mobile version or mailing lists. 
 
 
-
 ## Widgets {#widget}
 
 _Widgets_ are dashboard elements. You can create links between selectors and chart widgets.
@@ -108,8 +107,6 @@ You can delete links from an alias where more than two fields are linked. Delete
 
 
 
-
-
 ## Publishing dashboards {#public-access}
 
 You can grant any internet user access to a dashboard using [{{ datalens-public }}](datalens-public.md). This dashboard becomes public and any user can view it without authorization.
@@ -119,8 +116,6 @@ You can grant any internet user access to a dashboard using [{{ datalens-public 
 To share a dashboard containing Yandex Metrica or AppMetrica data, use one of the following methods:
 
 {% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
-
-
 
 
 
@@ -129,7 +124,7 @@ To share a dashboard containing Yandex Metrica or AppMetrica data, use one of th
 ## Access management {#access-management}
 
 You can configure dashboard permissions.  For more information, see [{#T}](../security/index.md). 
-
+
 
 ## Auto-update {#auto-update}
 
@@ -142,7 +137,6 @@ The following limitations apply to auto-update:
 
    * If the tab isn't selected as the current tab, it's not considered active and the data is not updated.
    * If the tab is selected as the current tab, but the browser is running in the background, the tab is considered active and the data is updated.
-
 
 
 ## Diagnostics {#diagnostics}
@@ -171,7 +165,6 @@ Values above the optimal level are highlighted (in orange or red). To get recomm
 For some chart types, additional metrics are displayed:
 
 
-
 * **Columns / Rows**: Number of table columns and rows (for **Table** and **Pivot table** charts).
 * **Yandex Maps API**: Time to load modules required by Yandex Maps (for **Map** charts).
 
@@ -183,4 +176,4 @@ The **Data sources** section displays information about the sources used in a ch
 * Link to source.
 * Request body in JSON format.
 * SQL query text sent to source (only if the SQL query is successful and its results are rendered in the chart).
-
+

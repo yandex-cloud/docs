@@ -65,6 +65,33 @@ OS usage on a VM is also charged. The cost depends on the OS license and the amo
 The rules for using Microsoft licenses are described in [{#T}](../microsoft/licensing.md).
 
 
+#### Example of cost calculation {#example-of-cost-calculation}
+
+
+Let's compare the cost of running VMs on the Intel Broadwell [platform](concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).
+
+Two VMs were created running Linux OS:
+* 2 × 5% of vCPU and 2 GB RAM
+* 2 × 100% of vCPU and 2 GB RAM
+
+Both VMs have been running for 30 days.
+
+Cost formula for a virtual machine with 2 × 5% vCPU cores at $0.002480 per hour of CPU core time and $0.006240 per hour of 2 GB of RAM:
+> 5% vCPU: 2 × $0.002480/hour × 30 days × 24 hours = $3.571200
+>
+> 2 GB RAM: $0.006240/hour × 30 days × 24 hours = $4.492800
+>
+> Total: $3.571200 + $4.492800 = $8.064000
+
+Cost formula for a virtual machine with 2 × 100% vCPU cores at $0.008960 per hour of CPU core time and $0.006240 per hour of 2 GB of RAM:
+> 100% vCPU: 2 × $0.008960/hour × 30 days × 24 hours = $12.451200
+>
+> 2 GB RAM: $0.006240/hour × 30 days × 24 hours = $4.492800
+>
+> Total: $12.451200 + $4.492800 = $17.395200
+
+As you can see, the cost of the VM using 5% vCPU is about half as much as that of the VM using 100% vCPU.
+
 
 
 ### Storage usage (disks, snapshots, and images) {#disk}

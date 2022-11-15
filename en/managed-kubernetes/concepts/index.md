@@ -39,7 +39,6 @@ _Masters_ are components that manage {{ k8s }} clusters.
 
 They run {{ k8s }} control processes that include the {{ k8s }} API server, scheduler, and main resource controllers. The master lifecycle is managed by the service when creating or deleting a {{ k8s }} cluster. The master is responsible for global solutions that are run on all {{ k8s }} cluster nodes. These include scheduling workloads (such as containerized applications), managing the lifecycle of workloads, and scaling.
 
-
 There are two types of masters that differ by their location in [availability zones](../../overview/concepts/geo-scope.md):
 * _Zonal_: A master created in a subnet in one availability zone.
 * _Regional_: A master created and distributed in three subnets in each availability zone. If a zone becomes unavailable, the regional master remains functional.
@@ -49,8 +48,6 @@ There are two types of masters that differ by their location in [availability zo
   The internal IP address of a regional master is only available within a single {{ vpc-full-name }} cloud network.
 
   {% endnote %}
-
-
 
 ## Node group {#node-group}
 
@@ -68,9 +65,7 @@ When you create a group of nodes, you can configure the following VM parameters:
 
   For more information about kernel parameters, see the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
 
-
 You can create groups with different configurations in a {{ k8s }} cluster and place them in different availability zones.
-
 
 ### Connecting to group nodes {#node-connect-ssh}
 

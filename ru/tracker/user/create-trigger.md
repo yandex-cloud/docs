@@ -6,9 +6,9 @@
 
 {% endnote %}
 
-1. Откройте [страницу очереди](../user/queue.md).
+1. {% include [go to settings](../../_includes/tracker/transition-page.md) %}
 
-1. Слева от имени очереди выберите ![](../../_assets/tracker/icon-settings.png) → **Администрирование**.
+1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **Настройки очереди**.
 
 1. На панели слева выберите **Автоматизация** → **Триггеры** и нажмите кнопку **Создать триггер**.
 

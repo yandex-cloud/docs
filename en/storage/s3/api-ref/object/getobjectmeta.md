@@ -44,7 +44,7 @@ In addition to [common response headers](../common-response-headers.md), you can
 | `X-Amz-Meta-*` | Object user-defined metadata. |
 | `X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/>Has the `COLD` value if the object is in cold storage, or `ICE` if in ice storage.<br/><br/>If the object is stored in standard storage, there's no header. |
 | `X-Amz-Server-Side-Encryption` | Encryption algorithm used to encrypt the object. Returned if the object was loaded with enabled [encryption](../../../operations/buckets/encrypt.md). |
-| `X-Amz-Server-Side-Encryption-Aws-Kms-Key-Id` | ID of the [key {{ kms-short-name }}](../../../../kms/concepts/key.md). Returned if the object was loaded with enabled [encryption](../../../operations/buckets/encrypt.md). |
+| `X-Amz-Server-Side-Encryption-Aws-Kms-Key-Id` | [{{ kms-short-name }} key](../../../../kms/concepts/key.md) ID. Returned if the object was loaded with enabled [encryption](../../../operations/buckets/encrypt.md). |
 
 
 

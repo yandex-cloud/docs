@@ -1,46 +1,46 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/queues/delete-queue.md
+sourcePath: ru/tracker/api-ref/concepts/queues/delete-queue.md
 ---
-# Delete a queue
+# Удалить очередь
 
-Use this request to delete queues.
+Запрос позволяет удалить очередь.
 
-## Request format {#query}
+## Формат запроса {#query}
 
-Before making the request, [get permission to access the API](../access.md).
+Перед выполнением запроса [получите доступ к API](../access.md).
 
-To delete a queue, use an HTTP `DELETE` request.
+Чтобы удалить очередь, используйте HTTP-запрос с методом `DELETE`.
 
 ```
 DELETE /{{ ver }}/queues/<queue-id>
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <токен>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Resource" %}
+{% cut "Ресурс" %}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String or number |
+Параметр | Описание | Тип данных
+----- | ----- | -----
+\<queue-id\> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка или число
 
 {% endcut %}
 
-## Response format {#answer}
+## Формат ответа {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
-  {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %}
+  {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %} 
+  
+  Тело ответа отсутствует.
 
-  The response body is missing.
+- Запрос выполнен с ошибкой
 
-- Request failed
-
-    If the request is processed incorrectly, the API returns a response with an error code:
+    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
 
     {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
 
@@ -51,4 +51,3 @@ Authorization: OAuth <token>
     {% include [answer-error-503](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

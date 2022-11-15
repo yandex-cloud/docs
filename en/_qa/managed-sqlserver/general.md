@@ -155,6 +155,6 @@ For DB hosts, you can track metrics specific to the corresponding type of DBMS. 
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
 
-{% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
+{% include [fz-152.md](../../_qa/fz-152.md) %}
 
 {% include [logs](../logs.md) %}

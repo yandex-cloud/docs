@@ -15,6 +15,8 @@ items:
     href: certificate-manager/index.yaml
   - name: '{{ yandex-cloud }} CLI'
     href: cli/index.yaml
+  - name: Cloud Apps
+    href: cloud-apps/index.yaml
   - name: Cloud Logging
     href: logging/index.yaml
   - name: Compute Cloud
@@ -97,6 +99,8 @@ items:
     href: storage/index.yaml
   - name: '{{ yandex-cloud }} technical support'
     href: support/index.yaml
+  - name: Serverless Containers
+    href: serverless-containers/index.yaml
   - name: Tracker
     href: tracker/index.yaml
   - name: Translate

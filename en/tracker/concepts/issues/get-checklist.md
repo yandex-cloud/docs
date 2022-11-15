@@ -1,56 +1,55 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/issues/get-checklist.md
+sourcePath: ru/tracker/api-ref/concepts/issues/get-checklist.md
 ---
-# Get checklist parameters
+# Получить параметры чеклиста
 
-Use this request to get the parameters of an issue's [checklist](../../user/checklist.md).
+Запрос позволяет получить параметры [чеклиста](../../user/checklist.md) в задаче.
 
-## Request format {#query}
+## Формат запроса {#query}
 
-Before making the request, [get permission to access the API](../access.md).
+Перед выполнением запроса [получите доступ к API](../access.md).
 
-To get checklist parameters, use an HTTP `GET` request:
+Чтобы получить параметры чеклиста, используйте HTTP-запрос с методом `GET`:
 
 ```json
 GET /{{ ver }}/issues/<issue-id>/checklistItems
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Resource" %}
+{% cut "Ресурс" %}
 
-| Parameter | Description | Data type |
-| --- | --- | --- |
-| \<issues-id\> | Issue ID or key | String |
+Параметр | Описание | Тип данных
+--- | --- | ---
+\<issues-id\> | Идентификатор или ключ задачи | Строка
 
 {% endcut %}
 
-## Response format {#answer}
+## Формат ответа {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    The response body contains information about the checklist items in JSON format.
-
+    Тело ответа содержит информацию о пунктах чеклиста в формате JSON.
     ```json
     {
         "id": "5fde5f0a1aee261dd3b62edb",
-        "text": "Checklist item",
-        "textHtml": "Item text in HTML format",
+        "text": "пункт чеклиста",
+        "textHtml": "текст пункта в формате HTML",
         "checked": false,
         "assignee": {
             "id": 1134669209,
-            "display": "First and Last name",
+            "display": "Имя Фамилия",
             "passportUid": 1134669209,
             "login": "user_login",
-            "firstName": "First name",
-            "Lastname": "Last name",
+            "firstName": "Имя",
+            "lastName": "Фамилия",
             "email": "user_login@example.com",
             "trackerUid": 1134669209
         },
@@ -63,52 +62,53 @@ Authorization: OAuth <OAuth token>
     }
     ```
 
-    {% cut "Response parameters" %}
+    {% cut "Параметры ответа" %}
+    
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    id | Идентификатор пункта чеклиста. | Строка
+    text | Текст пункта чеклиста. | Строка
+    textHtml | Текст пункта чеклиста в формате HTML. | Строка
+    checked | Признак выполнения пункта чеклиста:<ul><li>`true` — пункт отмечен как выполненный;</li><li>`false` — пункт не отмечен как выполненный.</li></ul> | Логический
+    [assignee](#assignee) | Исполнитель пункта чеклиста. | Объект
+    [deadline](#deadline) | Крайний срок исполнения пункта чеклиста. | Объект
+    checklistItemType | Тип пункта чеклиста. | Строка
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | id | ID of the checklist item. | String |
-    | text | Text of the checklist item. | String |
-    | textHtml | Text of the checklist item in HTML format. | String |
-    | checked | Flag indicating that the checklist item is completed:<ul><li>`true`: The item is marked as completed.</li><li>`false`: The item is not marked as completed.</li></ul> | Boolean |
-    | [assignee](#assignee) | Assignee of the checklist item. | Object |
-    | [deadline](#deadline) | Deadline for the checklist item. | Object |
-    | checklistItemType | Type of the checklist item. | String |
 
-    **Object fields** `assignee` {#assignee}
+    **Поля объекта** `assignee` {#assignee}
+    
+    Параметр | Описание | Тип данных
+    ----- | ----- | -----
+    id | Идентификатор пользователя. | Число
+    display | Отображаемое имя пользователя. | Строка
+    passportUid | Уникальный идентификатор аккаунта пользователя на Яндексе. | Число
+    login | Логин пользователя. | Строка
+    firstName | Имя пользователя. | Строка
+    lastName | Фамилия пользователя. | Строка
+    email | Адрес пользователя. | Строка
+    trackerUid | Уникальный идентификатор аккаунта пользователя в {{ tracker-name }}. | Число
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | id | User ID. | Number |
-    | display | User's name displayed. | String |
-    | passportUid | Unique ID of the user's Yandex account. | Number |
-    | login | Username of the user. | String |
-    | firstName | User's first name. | String |
-    | lastName | Last name of the user. | String |
-    | email | User's email address. | String |
-    | trackerUid | Unique ID of the user's {{ tracker-name }} account. | Number |
 
-    **Object fields** `deadline` {#deadline}
-
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | date | Deadline in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | Date |
-    | deadlineType | The `deadline` parameter data type. | String |
-    | isExceeded | Flag indicating if the deadline has passed: <ul><li>`true`: Passed.</li><li>`false`: Not passed.</li></ul> | Boolean |
-
+    **Поля объекта** `deadline` {#deadline}
+    
+    Параметр | Описание | Тип данных
+    ----- | ----- | -----
+    date | Предельный срок в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. | Дата
+    deadlineType | Тип данных параметра `deadline`. | Строка
+    isExceeded | Признак наступления дедлайна: <ul><li>`true` — предельный срок наступил;</li><li>`false` — предельный срок не наступил.</li></ul> | Логический
+    
     {% endcut %}
+    
+- Запрос выполнен с ошибкой
 
-- Request failed
-
-    If the request is processed incorrectly, the API returns a response with an error code:
-
+    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    
     {% include [error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
     {% include [error-401](../../../_includes/tracker/api/answer-error-401.md) %}
-
+    
     {% include [error-403](../../../_includes/tracker/api/answer-error-403.md) %}
-
+    
     {% include [error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
-

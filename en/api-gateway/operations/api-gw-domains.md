@@ -35,7 +35,7 @@ To connect a domain to an API gateway:
 
       1. [Create](../../certificate-manager/operations/managed/cert-create.md) a certificate from Let's Encrypt<sup>®</sup>.
       1. [Confirm](../../certificate-manager/operations/managed/cert-validate.md) your domain privileges.
-      1. When the certificate status changes to `Issued`, [create](../../certificate-manager/operations/domain/domain-create.md) your domain. In the **Certificate** field, select the certificate that you created in Step 3.1.
+      1. Wait for the certificate to change its status to `Issued`.
 
       {% note info %}
 
@@ -49,6 +49,6 @@ To connect a domain to an API gateway:
 
       1. Select the API gateway.
       1. In the window that opens, go to **Domains**.
-      1. Click **Connect** and select the domain.
+      1. Click **Connect**, select a certificate, and enter a domain name (FQDN).
 
 {% endlist %}

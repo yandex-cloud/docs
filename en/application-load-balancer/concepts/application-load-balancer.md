@@ -31,13 +31,11 @@ You can disable the load balancer in the selected availability zones. In this ca
 
 For {{ alb-name }} to provide load balancer availability as specified in the [service level agreement](https://yandex.com/legal/cloud_sla_apploadbalancer/), load balancer subnets must have a sufficient number of [internal IP addresses](../../vpc/concepts/address.md#internal-addresses) available. We recommend sizing the subnets to have at least two free IPs per [resource unit](../pricing.md) at peak load.
 
-
 > For instance, a load balancer is located in two availability zones with each handling the following load during peak hours:
 >
 > {% include [lcu-example](../../_includes/application-load-balancer/lcu-example.md) %}
 >
 > This corresponds to 8 resource units (see the [calculation](../pricing.md#example)) in each availability zone. Therefore, we recommend having at least 8 x 2 = 16 available addresses in each subnet. A load balancer subnet should be at least /27.
-
 
 ## Listener {#listener}
 

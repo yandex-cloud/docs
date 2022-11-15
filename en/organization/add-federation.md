@@ -1,6 +1,6 @@
 # SAML-compatible identity federations
 
-{{ yandex-cloud }} supports [SAML 2.0](https://wiki.oasis-open.org/security/saml/)-based identity federations. This is a popular markup language to enable Single Sign-On (SSO), a technology that lets users access multiple apps without having to enter their username and password every time. For example, whenever you visit a website and see the _Sign in with Yandex_, _Google_ or _Facebook_ buttons, these are examples of the Single Sign-On system at work.
+{{ yandex-cloud }} supports [SAML 2.0](https://wiki.oasis-open.org/security)-based identity federations. This is a popular markup language to enable Single Sign-On (SSO), a technology that lets users access multiple apps without having to enter their username and password every time. For example, whenever you visit a website and see the _Sign in with Yandex_, _Google_ or _Facebook_ buttons, these are examples of the Single Sign-On system at work.
 
 This approach is called _identity federation_, it's when all the information about usernames and passwords is stored by a trusted _Identity Provider (IdP)_. While a service provider (SP), such {{ yandex-cloud }}, sends users to the identity provider's (IdP's) server for authentication.
 
@@ -8,7 +8,7 @@ If your company has a user and access management system (for example, Active Dir
 
 ## Configuring up federations in {{ org-full-name }} {#federation-usage}
 
-Using identity federations, you can configure a Single Sign-On system (Single Sign-On, SSO) and use corporate accounts to authorize in {{ org-name }}. In this case, your corporate account management system acts as an identity provider (IdP).
+Using identity federations, you can configure a Single Sign-On system (Single Sign-On, SSO) and use corporate accounts to authorize in {{org-name}}. In this case, your corporate account management system acts as an identity provider (IdP).
 
 In {{ org-name }}, you can create an identity federation with any credential management service (identity provider) that supports the [SAML]({{ link-saml }}) protocol.
 
@@ -28,11 +28,10 @@ You can set up identity federations for different identity providers:
 
 {% include [federated-user-auth](../_includes/iam/federated-user-auth.md) %}
 
-
 The authentication process is shown in the diagram:
 
 ![image](../_assets/iam/federations/saml-authentication.svg)
-
+
 1. The user opens a console login link in the browser.
 
 1. If this is the first time the user authenticates, the console redirects them to the IdP server for authentication.

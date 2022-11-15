@@ -1,40 +1,40 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/issues/issue-worklog.md
+sourcePath: ru/tracker/api-ref/concepts/issues/issue-worklog.md
 ---
-# Get all records for an issue
+# Получить все записи по задаче
 
-Use this request to get data about the time spent on an issue.
+Запрос позволяет получить данные о времени, затраченном на выполнение задачи.
 
-## Request format {#section_ssn_dyb_ffb}
+## Формат запроса {#section_ssn_dyb_ffb}
 
-To get records of time spent on issues, use an HTTP `GET` request:
+Чтобы получить записи о затраченном на задачу времени, используйте HTTP-запрос с методом `GET`:
 
 ```json
 GET /{{ ver }}/issues/<issue-id>/worklog
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <токен>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Resource" %}
+{% cut "Ресурс" %}
 
-| Parameter | Description | Data type |
-| --- | --- | --- |
-| \<issues-id\> | Issue ID or key. | String |
+Параметр | Описание | Тип данных
+--- | --- | ---
+\<issues-id\> | Идентификатор или ключ задачи. | Строка
 
 {% endcut %}
 
-## Response format {#section_egr_qcc_ffb}
+## Формат ответа {#section_egr_qcc_ffb}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
-    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %} 
 
-     The response body contains a JSON array with records of the time spent on the issue.
+     Тело ответа содержит JSON-массив с записями о времени, затраченном на выполнение задачи.
 
     ```json
     [
@@ -46,9 +46,9 @@ Authorization: OAuth <token>
         "self": "{{ host }}/v2/issues/TEST-324",
         "id": "515ec9eae4b09cfa984e2047",
         "key": "TEST-324",
-        "display": "important issue"
+        "display": "важная задача"
         },
-      "comment": "important comment",
+      "comment": "важный комментарий",
       "createdBy": {
         "self": "{{ host }}/v2/users/1120000000014909",
         "id": "veikus",
@@ -68,52 +68,52 @@ Authorization: OAuth <token>
     ]
     ```
 
-    {% cut "Response parameters" %}
+    {% cut "Параметры ответа" %}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with a record of the time spent on the issue. | String |
-    | id | ID of the record of time spent. | String |
-    | version | Record version. Each change to the record increases its version number. | String |
-    | [issue](#issue) | Block with information about the issue. | Object |
-    | comment | Text of the comment to the record. The comment is saved to the Time Spent report. | String |
-    | [createdBy](#createdBy) | Object with information about the user who added the record. | Object |
-    | [updatedBy](#updatedBy) | Object with information about the user who edited the record. | Object |
-    | createdAt | Record creation date and time in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
-    | updatedAt | Record update date and time in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
-    | start | Date and time when work on the issue started, in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
-    | duration | Time spent, in ```PnYnMnDTnHnMnS, PnW``` format, according to the [ISO 8601]({{ link-iso-8601 }}). | String |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит запись о затраченном времени. | Строка
+    id | Идентификатор записи о затраченном времени. | Строка
+    version | Версия записи. Каждое изменение записи увеличивает номер версии. | Строка
+    [issue](#issue) | Блок с информацией о задаче. | Объект
+    comment | Текст комментария к записи. Комментарий сохранится в Отчёте по затратам времени. | Строка
+    [createdBy](#createdBy) | Объект с информацией о создателе записи. | Объект
+    [updatedBy](#updatedBy) | Объект с информацией о пользователе, внесшем изменение в запись. | Объект
+    createdAt | Дата и время создания записи в формате: ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` | Строка
+    updatedAt | Дата и время обновления записи в формате: ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` | Строка
+    start | Дата и время начала работы над задачей в формате: ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` | Строка
+    duration | Затраченное время в формате ```PnYnMnDTnHnMnS, PnW``` в соответствии с [ISO 8601]({{ link-iso-8601 }}). | Строка
 
-    **Object fields** `issue` {#issue}
+    **Поля объекта** `issue` {#issue}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the issue. | String |
-    | id | Issue ID. | String |
-    | key | Issue key. | String |
-    | display | Issue name displayed. | String |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит информацию о задаче. | Строка
+    id | Идентификатор задачи. | Строка
+    key | Ключ задачи. | Строка
+    display | Отображаемое название задачи. | Строка
 
-    **Object fields** `createdBy` {#createdBy}
+    **Поля объекта** `createdBy` {#createdBy}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the user. | String |
-    | id | User ID. | String |
-    | display | User's name displayed. | String |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит информацию о пользователе. | Строка
+    id | Идентификатор пользователя. | Строка
+    display | Отображаемое имя пользователя. | Строка
 
-    **Object fields** `updatedBy` {#updatedBy}
+    **Поля объекта** `updatedBy` {#updatedBy}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the user. | String |
-    | id | User ID. | String |
-    | display | User's name displayed. | String |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит информацию о пользователе. | Строка
+    id | Идентификатор пользователя. | Строка
+    display | Отображаемое имя пользователя. | Строка
 
     {% endcut %}
 
-- Request failed
+- Запрос выполнен с ошибкой
 
-    If a request fails, the response message contains details of the errors encountered:
+    Если запрос не был успешно обработан, ответное сообщение содержит информацию о возникших ошибках:
 
     {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 
@@ -126,4 +126,3 @@ Authorization: OAuth <token>
     {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

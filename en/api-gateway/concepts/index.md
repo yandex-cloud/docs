@@ -1,6 +1,6 @@
 ---
-title: "Relationship of resources of the Yandex API Gateway service"
-description: "An API gateway is an interface for interacting with services within Yandex Cloud or on the Internet. An API gateway is set declaratively using a specification. A specification is a JSON or YAML file with a description of an API gateway according to the OpenAPI 3.0 standard. In the service The API Gateway specification has been updated with extensions that you can use to integrate with other cloud platforms."
+title: "Relationships between {{ api-gw-full-name }} resources"
+description: "API gateway is an interface for interacting with services in Yandex Cloud or on the internet. API gateways are set in a declarative way using specifications. A specification is a JSON or YAML file with an API gateway description based on the OpenAPI 3.0 standard. In {{ api-gw-name }}, the specification is supplemented with extensions that you can use for integrating with other cloud platforms."
 ---
 
 # Relationships between resources in {{ api-gw-name }}
@@ -46,9 +46,9 @@ Integrations are supported for the following events:
 * Sending messages via a web socket.
 * Closing a connection.
 
-To set up integrations, there are [special extensions](../concepts/extensions/websocket.md) of the OpenAPI specification.
+To set up integrations, there are [special extensions](extensions/websocket.md) of the OpenAPI specification.
 
-You can manage web sockets using the [API](../api-ref/authentication.md) that receives information about a connection, sends data to the client's side, and closes the connection.
+You can manage web sockets using the [API](../api-ref/websocket/authentication.md) that receives information about a connection, sends data to the client's side, and closes the connection.
 
 For limits related to WebSocket support, see [Quotas and limits](../concepts/limits.md).
 
