@@ -47,6 +47,8 @@ keywords:
 
 * Резервные копии хранятся в объектном хранилище в виде бинарных файлов и шифруются с помощью [GPG]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/GnuPG){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/GNU_Privacy_Guard){% endif %}. У каждого кластера свои ключи шифрования.
 
+* {% include [backup-wal](../../_includes/mdb/mpg/backup-wal.md) %}
+
 * Срок хранения резервных копий существующего кластера зависит от способа их создания:
 
     * Автоматические резервные копии по умолчанию хранятся 7 дней. При [создании](../operations/cluster-create.md) кластера или [изменении](../operations/update.md#change-additional-settings) его настроек можно задать другой срок хранения в диапазоне от 7 до 60 дней.
