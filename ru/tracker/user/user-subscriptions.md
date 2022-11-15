@@ -19,7 +19,7 @@
 
 {% endif %}
 
-1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}. Затем выберите ![](../../_assets/tracker/svg/interface.svg)&nbsp;**Интерфейс** и нажмите **Настройки уведомлений**. Вы также можете перейти по ссылке [{{link-tracker}}subscriptions/manage]({{ link-sub-manage }}).
+1. На панели слева нажмите ![](../../_assets/tracker/svg/settings.svg) **Настройки**. Затем выберите ![](../../_assets/tracker/svg/interface.svg)&nbsp;**Интерфейс** и нажмите **Настройки уведомлений**. Вы также можете перейти по ссылке [{{link-tracker}}subscriptions/manage]({{ link-sub-manage }}).
 
 1. Напротив названия очереди, компонента или версии выберите роль, для которой требуется настроить список событий. 
 
