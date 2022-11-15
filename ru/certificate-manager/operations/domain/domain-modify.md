@@ -1,4 +1,4 @@
-# Изменение описания домена
+# Изменить описание домена
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}
 

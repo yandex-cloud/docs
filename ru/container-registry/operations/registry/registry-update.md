@@ -4,7 +4,7 @@
 * [Имя реестра](#update-name).
 * [Метку реестра](#update-label).
 
-Для обращения к [реестру](../../concepts/registry.md) используйте его идентификатор или имя. Как узнать идентификатор или имя реестра, читайте в разделе [Получить информацию об имеющихся реестрах](registry-list.md).
+Для обращения к [реестру](../../concepts/registry.md) используйте его идентификатор или имя. Как узнать идентификатор или имя реестра, читайте в разделе [{#T}](registry-list.md).
 
 ## Изменить имя реестра {#update-name}
 
@@ -13,7 +13,7 @@
 - Консоль управления
 
   Чтобы изменить имя [реестра](../../concepts/registry.md):
-  1. Откройте раздел **{{ container-registry-name }}** в каталоге, где требуется изменить реестр.
+  1. Откройте раздел **{{ container-registry-name }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить реестр.
   1. Нажмите значок ![image](../../../_assets/vertical-ellipsis.svg) в строке реестра, который требуется изменить.
   1. В открывшемся меню нажмите кнопку **Изменить**.
   1. В открывшемся окне укажите нужное имя реестра.
@@ -29,7 +29,7 @@
   yc container registry update my-reg --new-name new-reg
   ```
 
-  Результат:
+  Результат выполнения команды:
 
   ```bash
   id: crp3qleutgksvd1prhvb
@@ -57,7 +57,7 @@
   yc container registry update new-reg --labels new_label=test_label
   ```
 
-  Результат:
+  Результат выполнения команды:
 
   ```bash
   id: crp3qleutgksvd1prhvb
