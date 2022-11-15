@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method create
-Creates an OpenSearch cluster.
+Creates an OpenSearch cluster in the specified folder.
  
 
  
@@ -101,47 +101,47 @@ Field | Description
 folderId | **string**<br><p>Required. ID of the folder to create the OpenSearch cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 name | **string**<br><p>Required. Name of the OpenSearch cluster. The name must be unique within the folder.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 description | **string**<br><p>Description of the OpenSearch cluster.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Custom labels for the OpenSearch cluster as ``key:value`` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary".</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
+labels | **object**<br><p>Custom labels for the OpenSearch cluster as ``key:value`` pairs. For example, ``"project": "mvp"`` or ``"source": "dictionary"``.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 environment | **string**<br><p>Deployment environment of the OpenSearch cluster.</p> <ul> <li>PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li> </ul> 
-configSpec | **object**<br><p>Required. Cluster configuration and resources for hosts that should be created for the OpenSearch cluster.</p> 
+configSpec | **object**<br><p>Required. OpenSearch cluster configuration.</p> 
 configSpec.<br>version | **string**<br><p>OpenSearch version.</p> 
 configSpec.<br>adminPassword | **string**<br><p>Required. OpenSearch admin password.</p> 
-configSpec.<br>opensearchSpec | **object**<br><p>OpenSearch configuration</p> <p>OpenSearch create-time configuration</p> 
-configSpec.<br>opensearchSpec.<br>plugins[] | **string**<br><p>Cluster plugins</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[] | **object**
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>name | **string**<br><p>Required. Required. Name of the group to be created.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>resources | **object**<br><p>Resources allocated to data node hosts.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.).</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>hostsCount | **string** (int64)<br><p>Number of nodes in the group</p> <p>The minimum value is 1.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>zoneIds[] | **string**<br><p>IDs of the availability zone for hosts</p> <p>The maximum number of elements is 10. The maximum string length in characters for each value is 50.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>subnetIds[] | **string**<br><p>IDs of the subnetworks in respective zones.</p> <p>The maximum number of elements is 10. The maximum string length in characters for each value is 50.</p> 
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>assignPublicIp | **boolean** (boolean)
-configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>roles[] | **string**
-configSpec.<br>dashboardsSpec | **object**<br><p>Dashboards configuration</p> <p>Dashboards create-time configuration</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[] | **object**
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>name | **string**<br><p>Required. Required. Name of the group to be created.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>resources | **object**<br><p>Resources allocated to data node hosts.</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.).</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>hostsCount | **string** (int64)<br><p>Number of nodes in the group</p> <p>The minimum value is 1.</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>zoneIds[] | **string**<br><p>IDs of the availability zone for hosts</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>subnetIds[] | **string**<br><p>IDs of the subnetworks in respective zones.</p> <p>The maximum number of elements is 10. The maximum string length in characters for each value is 50.</p> 
-configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>assignPublicIp | **boolean** (boolean)
-configSpec.<br>access | **object**<br><p>Access for other services.</p> 
-configSpec.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer. NOTE: Do not propagate to public API until Data Transfer integration is required.</p> 
-configSpec.<br>access.<br>serverless | **boolean** (boolean)<br><p>Allow access for Serverless. NOTE: Do not propagate to public API until Serverless integration is required.</p> 
+configSpec.<br>opensearchSpec | **object**<br><p>OpenSearch configuration.</p> <p>OpenSearch create-time configuration.</p> 
+configSpec.<br>opensearchSpec.<br>plugins[] | **string**<br><p>Names of the cluster plugins.</p> 
+configSpec.<br>opensearchSpec.<br>nodeGroups[] | **object**<br><p>OpenSearch type host groups of the cluster.</p> 
+configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>name | **string**<br><p>Required. Name of the group.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
+configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>resources | **object**<br><p>Resources allocated to the hosts.</p> <p>A list of computational resources allocated to a host.</p> 
+configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources allocated to a host.</p> 
+configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage used by the host, in bytes.</p> 
+configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage used by the host: ``network-hdd``, ``network-ssd`` or ``local-ssd``.</p> 
+configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>hostsCount | **string** (int64)<br><p>Number of hosts in the group.</p> <p>The minimum value is 1.</p> 
+configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>zoneIds[] | **string**<br><p>IDs of the availability zones the hosts belong to.</p> <p>The maximum number of elements is 10. The maximum string length in characters for each value is 50.</p> 
+configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>subnetIds[] | **string**<br><p>IDs of the subnets that the hosts belong to.</p> <p>The maximum number of elements is 10. The maximum string length in characters for each value is 50.</p> 
+configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether a public IP is assigned to the hosts in the group.</p> 
+configSpec.<br>opensearchSpec.<br>nodeGroups[].<br>roles[] | **string**<br><p>Roles of the hosts in the group.</p> 
+configSpec.<br>dashboardsSpec | **object**<br><p>Dashboards configuration.</p> <p>Dashboards create-time configuration.</p> 
+configSpec.<br>dashboardsSpec.<br>nodeGroups[] | **object**<br><p>Dashboards type host groups of the cluster.</p> 
+configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>name | **string**<br><p>Required. Name of the group.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
+configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>resources | **object**<br><p>Resources allocated to the hosts.</p> <p>A list of computational resources allocated to a host.</p> 
+configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources allocated to a host.</p> 
+configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage used by the host, in bytes.</p> 
+configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage used by the host: ``network-hdd``, ``network-ssd`` or ``local-ssd``.</p> 
+configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>hostsCount | **string** (int64)<br><p>Number of hosts in the group.</p> <p>The minimum value is 1.</p> 
+configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>zoneIds[] | **string**<br><p>IDs of the availability zones the hosts belong to.</p> 
+configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>subnetIds[] | **string**<br><p>IDs of the subnets that the hosts belong to.</p> <p>The maximum number of elements is 10. The maximum string length in characters for each value is 50.</p> 
+configSpec.<br>dashboardsSpec.<br>nodeGroups[].<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether a public IP is assigned to the hosts in the group.</p> 
+configSpec.<br>access | **object**<br><p>Access policy for external services.</p> <p>Access policy for external services.</p> 
+configSpec.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Determines whether the access to Data Transfer is allowed.</p> 
+configSpec.<br>access.<br>serverless | **boolean** (boolean)<br><p>Determines whether the access to Serverless is allowed.</p> 
 networkId | **string**<br><p>Required. ID of the network to create the cluster in.</p> <p>The maximum string length in characters is 50.</p> 
-securityGroupIds[] | **string**<br><p>User security groups</p> 
-serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 
-deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
-maintenanceWindow | **object**<br><p>Window of maintenance operations</p> 
-maintenanceWindow.<br>anytime | **object** <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
-maintenanceWindow.<br>weeklyMaintenanceWindow | **object** <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
-maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**
-maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in UTC</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
+securityGroupIds[] | **string**<br><p>User security groups.</p> 
+serviceAccountId | **string**<br><p>ID of the service account used to access Object Storage.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Determines whether the cluster is protected from being deleted.</p> 
+maintenanceWindow | **object**<br><p>Cluster maintenance window. Should be defined by either one of the two options.</p> <p>An OpenSearch cluster maintenance window. Should be defined by either one of the two options.</p> 
+maintenanceWindow.<br>anytime | **object**<br>An any-time maintenance window. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
+maintenanceWindow.<br>weeklyMaintenanceWindow | **object**<br>A weekly maintenance window. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
+maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br><p>Day of the week.</p> <ul> <li>MON: Monday</li> <li>TUE: Tuesday</li> <li>WED: Wednesday</li> <li>THU: Thursday</li> <li>FRI: Friday</li> <li>SAT: Saturday</li> <li>SUN: Sunday</li> </ul> 
+maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in the UTC timezone.</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

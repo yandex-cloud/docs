@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method deleteDashboardsNodeGroup
-
+Deletes a Dashboards type host group.
  
 
  
@@ -16,8 +16,8 @@ DELETE https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/das
  
 Parameter | Description
 --- | ---
-clusterId | <p>Required. Required. ID of the OpenSearch cluster.</p> <p>The maximum string length in characters is 50.</p> 
-name | <p>Required. The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
+clusterId | <p>Required. ID of the OpenSearch cluster to delete the Dashboards type host group in.</p> <p>To get the ID, use a <a href="/docs/managed-opensearch/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+name | <p>Required. Name of the Dashboards type host group to delete.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

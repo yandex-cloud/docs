@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method deleteOpenSearchNodeGroup
-
+Deletes an OpenSearch type host group.
  
 
  
@@ -16,8 +16,8 @@ DELETE https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/ope
  
 Parameter | Description
 --- | ---
-clusterId | <p>Required. Required. ID of the OpenSearch cluster.</p> <p>The maximum string length in characters is 50.</p> 
-name | 
+clusterId | <p>Required. ID of the OpenSearch cluster to delete the OpenSearch type host group in.</p> <p>To get the ID, use a <a href="/docs/managed-opensearch/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+name | <p>Name of the OpenSearch type host group to delete.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

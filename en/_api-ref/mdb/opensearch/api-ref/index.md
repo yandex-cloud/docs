@@ -7,6 +7,6 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 Resource | Description
 --- | ---
-[Backup](Backup/index.md) | 
+[Backup](Backup/index.md) | A set of methods for managing backups.
 [Cluster](Cluster/index.md) | A set of methods for managing OpenSearch clusters.
-[ResourcePreset](ResourcePreset/index.md) | A set of methods for managing ResourcePreset resources.
+[ResourcePreset](ResourcePreset/index.md) | A set of methods for managing resource presets.

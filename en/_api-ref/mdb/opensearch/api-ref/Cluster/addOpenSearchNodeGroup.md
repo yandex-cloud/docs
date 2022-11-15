@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method addOpenSearchNodeGroup
-Add an OpenSearch node group
+Creates an OpenSearch type host group.
  
 
  
@@ -16,7 +16,7 @@ POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/opens
  
 Parameter | Description
 --- | ---
-clusterId | <p>Required. The maximum string length in characters is 50.</p> 
+clusterId | <p>Required. ID of the OpenSearch cluster to create the OpenSearch type host group in.</p> <p>To get the ID, use a <a href="/docs/managed-opensearch/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  
@@ -47,17 +47,17 @@ clusterId | <p>Required. The maximum string length in characters is 50.</p>
  
 Field | Description
 --- | ---
-nodeGroupSpec | **object**
-nodeGroupSpec.<br>name | **string**<br><p>Required. Required. Name of the group to be created.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
-nodeGroupSpec.<br>resources | **object**<br><p>Resources allocated to data node hosts.</p> 
-nodeGroupSpec.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.).</p> 
-nodeGroupSpec.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-nodeGroupSpec.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> 
-nodeGroupSpec.<br>hostsCount | **string** (int64)<br><p>Number of nodes in the group</p> <p>The minimum value is 1.</p> 
-nodeGroupSpec.<br>zoneIds[] | **string**<br><p>IDs of the availability zone for hosts</p> <p>The maximum number of elements is 10. The maximum string length in characters for each value is 50.</p> 
-nodeGroupSpec.<br>subnetIds[] | **string**<br><p>IDs of the subnetworks in respective zones.</p> <p>The maximum number of elements is 10. The maximum string length in characters for each value is 50.</p> 
-nodeGroupSpec.<br>assignPublicIp | **boolean** (boolean)
-nodeGroupSpec.<br>roles[] | **string**
+nodeGroupSpec | **object**<br><p>Configuration of the new host group.</p> <p>Configuration of the host group.</p> 
+nodeGroupSpec.<br>name | **string**<br><p>Required. Name of the group.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
+nodeGroupSpec.<br>resources | **object**<br><p>Resources allocated to the hosts.</p> <p>A list of computational resources allocated to a host.</p> 
+nodeGroupSpec.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources allocated to a host.</p> 
+nodeGroupSpec.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage used by the host, in bytes.</p> 
+nodeGroupSpec.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage used by the host: ``network-hdd``, ``network-ssd`` or ``local-ssd``.</p> 
+nodeGroupSpec.<br>hostsCount | **string** (int64)<br><p>Number of hosts in the group.</p> <p>The minimum value is 1.</p> 
+nodeGroupSpec.<br>zoneIds[] | **string**<br><p>IDs of the availability zones the hosts belong to.</p> <p>The maximum number of elements is 10. The maximum string length in characters for each value is 50.</p> 
+nodeGroupSpec.<br>subnetIds[] | **string**<br><p>IDs of the subnets that the hosts belong to.</p> <p>The maximum number of elements is 10. The maximum string length in characters for each value is 50.</p> 
+nodeGroupSpec.<br>assignPublicIp | **boolean** (boolean)<br><p>Determines whether a public IP is assigned to the hosts in the group.</p> 
+nodeGroupSpec.<br>roles[] | **string**<br><p>Roles of the hosts in the group.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

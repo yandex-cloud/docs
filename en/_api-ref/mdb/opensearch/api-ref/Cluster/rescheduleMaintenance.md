@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method rescheduleMaintenance
-Reschedule planned maintenance operation.
+Reschedules a planned maintenance operation.
  
 
  
@@ -16,7 +16,7 @@ POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}:resch
  
 Parameter | Description
 --- | ---
-clusterId | <p>Required. Required. ID of the OpenSearch cluster to maintenance reschedule.</p> <p>The maximum string length in characters is 50.</p> 
+clusterId | <p>Required. ID of the OpenSearch cluster to reschedule the maintenance operation for.</p> <p>To get the ID, use a <a href="/docs/managed-opensearch/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  
@@ -30,8 +30,8 @@ clusterId | <p>Required. Required. ID of the OpenSearch cluster to maintenance r
  
 Field | Description
 --- | ---
-rescheduleType | **string**<br><p>Required. Required. The type of reschedule request.</p> 
-delayedUntil | **string** (date-time)<br><p>The time for SPECIFIC_TIME reschedule. Limited by two weeks since first time scheduled.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+rescheduleType | **string**<br><p>Required. The type of the reschedule request.</p> <ul> <li>RESCHEDULE_TYPE_UNSPECIFIED: Time of the maintenance is not specified.. - IMMEDIATE: Start the maintenance operation immediately.</li> <li>NEXT_AVAILABLE_WINDOW: Start the maintenance operation within the next available maintenance window.</li> <li>SPECIFIC_TIME: Start the maintenance operation at the specific time.</li> </ul> 
+delayedUntil | **string** (date-time)<br><p>The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to a moment in the past if [reschedule_type.IMMEDIATE] reschedule type is selected.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method stop
-Stop the specified OpenSearch cluster.
+Stops the specified OpenSearch cluster.
  
 
  
@@ -16,7 +16,7 @@ POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}:stop
  
 Parameter | Description
 --- | ---
-clusterId | <p>Required. Required. ID of the OpenSearch cluster to stop.</p> <p>The maximum string length in characters is 50.</p> 
+clusterId | <p>Required. ID of the OpenSearch cluster to stop. To get the cluster ID, use a <a href="/docs/managed-opensearch/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

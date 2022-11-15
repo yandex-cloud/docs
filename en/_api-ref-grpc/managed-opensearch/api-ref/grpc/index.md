@@ -5,7 +5,7 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 
 Service | Description
 --- | ---
-[BackupService](./backup_service.md) | 
+[BackupService](./backup_service.md) | A set of methods for managing backups.
 [ClusterService](./cluster_service.md) | A set of methods for managing OpenSearch clusters.
-[ResourcePresetService](./resource_preset_service.md) | A set of methods for managing ResourcePreset resources.
+[ResourcePresetService](./resource_preset_service.md) | A set of methods for managing resource presets.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

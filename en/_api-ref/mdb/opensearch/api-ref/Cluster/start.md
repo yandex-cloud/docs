@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method start
-Start the specified OpenSearch cluster.
+Starts the specified OpenSearch cluster.
  
 
  
@@ -16,7 +16,7 @@ POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}:start
  
 Parameter | Description
 --- | ---
-clusterId | <p>Required. Required. ID of the OpenSearch cluster to start.</p> <p>The maximum string length in characters is 50.</p> 
+clusterId | <p>Required. ID of the OpenSearch cluster to start. To get the cluster ID, use a <a href="/docs/managed-opensearch/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

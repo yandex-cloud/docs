@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method updateOpenSearchNodeGroup
-
+Updates an OpenSearch type host group.
  
 
  
@@ -16,8 +16,8 @@ PATCH https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/open
  
 Parameter | Description
 --- | ---
-clusterId | <p>Required. Required. ID of the OpenSearch cluster.</p> <p>The maximum string length in characters is 50.</p> 
-name | <p>Required. Required. Name of the group to be updated.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
+clusterId | <p>Required. ID of the OpenSearch cluster to update the OpenSearch type host group in.</p> <p>To get the ID, use a <a href="/docs/managed-opensearch/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+name | <p>Required. Name of the OpenSearch type host group to be updated.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
  
 ## Body parameters {#body_params}
  
@@ -41,14 +41,14 @@ name | <p>Required. Required. Name of the group to be updated.</p> <p>The maximu
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-nodeGroupSpec | **object**
-nodeGroupSpec.<br>resources | **object**<br><p>Resources allocated to data node hosts.</p> 
-nodeGroupSpec.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.).</p> 
-nodeGroupSpec.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-nodeGroupSpec.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> 
-nodeGroupSpec.<br>hostsCount | **string** (int64)<br><p>Number of nodes in the group.</p> 
-nodeGroupSpec.<br>roles[] | **string**<br><p>Opensearch roles applicable to the node group.</p> 
+updateMask | **string**<br><p>Field mask that specifies which fields of the host group configuration should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+nodeGroupSpec | **object**<br><p>New configuration for the host group.</p> 
+nodeGroupSpec.<br>resources | **object**<br><p>Resources allocated to the hosts.</p> <p>A list of computational resources allocated to a host.</p> 
+nodeGroupSpec.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources allocated to a host.</p> 
+nodeGroupSpec.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage used by the host, in bytes.</p> 
+nodeGroupSpec.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage used by the host: ``network-hdd``, ``network-ssd`` or ``local-ssd``.</p> 
+nodeGroupSpec.<br>hostsCount | **string** (int64)<br><p>Number of hosts in the group.</p> 
+nodeGroupSpec.<br>roles[] | **string**<br><p>Roles of the host group.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

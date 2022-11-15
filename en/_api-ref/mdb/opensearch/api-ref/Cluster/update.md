@@ -16,7 +16,7 @@ PATCH https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}
  
 Parameter | Description
 --- | ---
-clusterId | <p>Required. ID of the OpenSearch Cluster resource to update. To get the OpenSearch cluster ID, use a <a href="/docs/managed-opensearch/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+clusterId | <p>Required. ID of the OpenSearch cluster resource to update. To get the OpenSearch cluster ID, use a <a href="/docs/managed-opensearch/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  
@@ -62,27 +62,27 @@ clusterId | <p>Required. ID of the OpenSearch Cluster resource to update. To get
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>Field mask that specifies which fields of the OpenSearch cluster should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+updateMask | **string**<br><p>Field mask that specifies which fields of the OpenSearch cluster resource should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Only the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
 description | **string**<br><p>New description of the OpenSearch cluster.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Custom labels for the OpenSearch cluster as ``key:value`` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary".</p> <p>The new set of labels will completely replace the old ones. To add a label, request the current set with the <a href="/docs/managed-opensearch/api-ref/Cluster/get">get</a> method, then send an <a href="/docs/managed-opensearch/api-ref/Cluster/update">update</a> request with the new label added to the set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
+labels | **object**<br><p>Custom labels for the OpenSearch cluster as ``key:value`` pairs. For example, ``"project": "mvp"`` or ``"source": "dictionary"``.</p> <p>The new set of labels completely replaces the old one. To add a label, request the current set with the <a href="/docs/managed-opensearch/api-ref/Cluster/get">get</a> method, then send an <a href="/docs/managed-opensearch/api-ref/Cluster/update">update</a> request with the new label added to the set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 configSpec | **object**<br><p>New cluster configuration</p> 
 configSpec.<br>version | **string**<br><p>OpenSearch version.</p> 
 configSpec.<br>adminPassword | **string**<br><p>Required. OpenSearch admin password.</p> 
-configSpec.<br>opensearchSpec | **object**<br><p>OpenSearch configuration</p> 
-configSpec.<br>opensearchSpec.<br>plugins[] | **string**<br><p>Cluster plugins</p> 
-configSpec.<br>dashboardsSpec | **object**<br><p>Dashboards configuration</p> <p>Dashboards configuration</p> 
-configSpec.<br>access | **object**<br><p>Access for other services.</p> 
-configSpec.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer. NOTE: Do not propagate to public API until Data Transfer integration is required.</p> 
-configSpec.<br>access.<br>serverless | **boolean** (boolean)<br><p>Allow access for Serverless. NOTE: Do not propagate to public API until Serverless integration is required.</p> 
-name | **string**<br><p>The new name of the Opensearch cluster. The name must be unique within the folder. The name must be 1-63 characters long and match the regular expression ``^[a-zA-Z0-9_-]+$``.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
+configSpec.<br>opensearchSpec | **object**<br><p>OpenSearch configuration.</p> 
+configSpec.<br>opensearchSpec.<br>plugins[] | **string**<br><p>Names of the cluster plugins.</p> 
+configSpec.<br>dashboardsSpec | **object**<br><p>Dashboards configuration.</p> <p>Dashboards configuration.</p> 
+configSpec.<br>access | **object**<br><p>Access policy for external services.</p> <p>Access policy for external services.</p> 
+configSpec.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Determines whether the access to Data Transfer is allowed.</p> 
+configSpec.<br>access.<br>serverless | **boolean** (boolean)<br><p>Determines whether the access to Serverless is allowed.</p> 
+name | **string**<br><p>New name for the cluster. The name must be unique within the folder.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
-serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 
-deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
-maintenanceWindow | **object**<br><p>Window of maintenance operations</p> 
-maintenanceWindow.<br>anytime | **object** <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
-maintenanceWindow.<br>weeklyMaintenanceWindow | **object** <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
-maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**
-maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in UTC</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
+serviceAccountId | **string**<br><p>ID of the service account used to access Object Storage.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Determines whether the cluster is protected from being deleted.</p> 
+maintenanceWindow | **object**<br><p>Cluster maintenance window. Should be defined by either one of the two options.</p> <p>An OpenSearch cluster maintenance window. Should be defined by either one of the two options.</p> 
+maintenanceWindow.<br>anytime | **object**<br>An any-time maintenance window. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
+maintenanceWindow.<br>weeklyMaintenanceWindow | **object**<br>A weekly maintenance window. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
+maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br><p>Day of the week.</p> <ul> <li>MON: Monday</li> <li>TUE: Tuesday</li> <li>WED: Wednesday</li> <li>THU: Thursday</li> <li>FRI: Friday</li> <li>SAT: Saturday</li> <li>SUN: Sunday</li> </ul> 
+maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in the UTC timezone.</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
