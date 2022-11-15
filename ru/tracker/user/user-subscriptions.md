@@ -3,9 +3,11 @@
 Для подписок на изменения очередей, компонентов или версий можно выбрать роли и настроить события, уведомления о которых вы хотите получать.
 Для этого:
 
+{% if audience == "old" %}  
+
 {% if audience == "external" %}
 
-1. На верхней панели {{ tracker-name }} нажмите значок ![](../../_assets/tracker/tracker-settings.png) → **Настройки уведомлений** и выберите вкладку **Подписки**. Вы также можете перейти по ссылке [https://tracker.yandex.ru/subscriptions/manage]({{ link-sub-manage }}).
+1. На верхней панели {{ tracker-name }} нажмите значок ![](../../_assets/tracker/tracker-settings.png) → **Настройки уведомлений** и выберите вкладку **Подписки**. Вы также можете перейти по ссылке [{{link-tracker}}subscriptions/manage]({{ link-sub-manage }}).
 
 {% else %}
 
@@ -14,6 +16,10 @@
 1. Перейдите на вкладку **Подписки**. Вы также можете перейти по ссылке [https://st.yandex-team.ru/subscriptions/manage]({{ link-sub-manage }}).
 
 {% endif %}
+
+{% endif %}
+
+1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}. Затем выберите ![](../../_assets/tracker/svg/interface.svg)&nbsp;**Интерфейс** и нажмите **Настройки уведомлений**. Вы также можете перейти по ссылке [{{link-tracker}}subscriptions/manage]({{ link-sub-manage }}).
 
 1. Напротив названия очереди, компонента или версии выберите роль, для которой требуется настроить список событий. 
 
