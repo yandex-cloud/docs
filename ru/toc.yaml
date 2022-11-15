@@ -24,6 +24,7 @@ items:
     when: product == "yandex-cloud"
   - name: Cloud Apps
     href: cloud-apps/index.yaml
+    when: audience == "external" and product == "yandex-cloud"
   - name: Cloud Backup
     href: backup/index.yaml
     when: product == "yandex-cloud"
@@ -158,6 +159,9 @@ items:
     when: product == "yandex-cloud" or product == "cloud-il"
   - name: Техническая поддержка {{ yandex-cloud }}
     href: support/index.yaml
+    when: audience == "external" and product == "yandex-cloud"
+  - name: Serverless Containers
+    href: serverless-containers/index.yaml
     when: audience == "external" and product == "yandex-cloud"
   - name: Tracker
     href: tracker/index.yaml

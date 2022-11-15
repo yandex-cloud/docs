@@ -10,6 +10,7 @@ ignore:
   - "en/backup/*"
   - "en/billing-folder-report/*"
   - "en/cdn/*"
+  - "en/cloud-apps/*"
   - "en/cloud-desktop/*"
   - "en/cos/*"
   - "en/data-streams/*"

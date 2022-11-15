@@ -1,0 +1,27 @@
+title: Yandex Cloud Apps
+description:
+  - >-
+    <em>The Yandex Cloud Apps service is at <a href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
+  -  Yandex Cloud Apps is a service that enables one-click deployment of a serverless stack-based application.
+  -  Such an application would consist of two mutually integrated Yandex Cloud resources. A user may change resource settings depending on his or her intended use of the application. 
+meta:
+  title: Cloud Apps
+links:
+  - title: Demo Telegram Bot
+    description: Telegram bot
+    href: telegram-bot
+  - title: Django Container
+    description: Django-based website
+    href: django-container
+  - title: Image Resizer
+    description: Modifies image resolution
+    href: image-resizer
+  - title: Metrics Collector
+    description: Records resource usage information in Monitoring
+    href: metrics-collector
+  - title: VM Watchdog
+    description: Starts and stops VMs on a schedule
+    href: vm-watchdog.m
+  - title: Instance Group Scheduled Scaler
+    description: Modifies the size of a VM group on a schedule
+    href: yc-ig-scheduled-scale

@@ -47,6 +47,10 @@ links:
     description: Интерфейс командной строки
     href: cli/
     when: product == "cloud-il"
+  - title: Cloud Apps
+    description: Приложения на базе стека serverless
+    href: cloud-apss/
+    when: audience == "external" and product == "yandex-cloud"
   - title: Cloud Backup
     description: Резервное копирование ресурсов Yandex Cloud
     href: backup/

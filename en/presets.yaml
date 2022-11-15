@@ -97,6 +97,7 @@ default:
   sk-hybrid-name: SpeechKit Hybrid
   network-load-balancer-name: Network Load Balancer
   message-queue-name: Message Queue
+  cloud-apps-name: Cloud Apps
   cloud-logs-name: Cloud Logs
   cloud-logging-name: Cloud Logging
   container-registry-name: Container Registry
