@@ -37,7 +37,7 @@ items:
       href: disable-tracker.md
 - name: Yandex Tracker mobile app
   href: mobile.md
-- name: Practical guides
+- name: Tutorials
   items:
     - name: Setting up Yandex Tracker for a development team
       items:
@@ -74,7 +74,7 @@ items:
           href: support-process-group.md
         - name: Tracking the time it takes to process a request
           href: support-process-sla.md
-        - name: Collecting requests statistics
+        - name: Collecting request statistics
           href: support-process-dashboards.md
         - name: Configuring integration with third-party platforms
           href: support-process-integration.md
@@ -94,7 +94,7 @@ items:
   items:
     - name: Overview
       href: queue-intro.md
-    - name: Creating a queue
+    - name: Create a queue
       href: manager/create-queue.md
     - name: Queue templates
       href: manager/workflows.md
@@ -102,19 +102,19 @@ items:
       href: user/queue.md
     - name: Changing basic queue settings
       href: manager/edit-queue-general.md
-    - name: Configuring issue types and statuses
+    - name: Changing basic queue settings
       items:
         - name: Overview
           href: manager/workflow.md
         - name: Configuring issue types
           href: manager/add-ticket-type.md
-        - name: Create a workflow
+        - name: Creating a workflow
           href: manager/add-workflow.md
         - name: Setting up statuses
           href: manager/workflow-status-edit.md
         - name: Configuring transitions
           href: manager/workflow-action-edit.md
-        - name: Configuring resolutions
+        - name: Setting up resolutions
           href: manager/create-resolution.md
     - name: Local issue fields
       href: local-fields.md
@@ -126,12 +126,12 @@ items:
       href: manager/queue-advanced.md
     - name: Viewing the history of queue changes
       href: manager/queue-history.md
-    - name: Deleting a queue
+    - name: Delete a queue
       when: audience == "external"
       href: manager/delete-queue.md
 - name: Working with issues
   items:
-    - name: Creating an issue
+    - name: Create an issue
       items:
         - name: Overview
           href: user/create-ticket.md
@@ -141,7 +141,7 @@ items:
           href: user/create-ticket-with-forms.md
         - name: Cloning an issue
           href: user/clone.md
-    - name: Editing an issue
+    - name: Edit an issue
       items:
         - name: Overview
           href: user/edit-ticket.md
@@ -155,17 +155,17 @@ items:
           href: user/attach-file.md
         - name: Formatting text in issues
           href: user/markup.md
-        - name: Executing macros
+        - name: Running a macro
           href: user/macroses.md
         - name: Voting for an issue
           href: user/votes.md
-        - name: Moving an issue to another queue
+        - name: Move an issue to another queue
           href: user/move-ticket.md
         - name: Changing multiple issues
           href: manager/bulk-change.md
     - name: Setting up an issue reminder
       href: user/reminder.md
-    - name: Specifying time spent
+    - name: Registering time spent
       href: user/time-spent.md
     - name: Adding issue fields
       href: user/create-param.md
@@ -195,43 +195,45 @@ items:
       href: manager/create-project.md
     - name: List of project issues
       href: manager/project-list.md
-    - name: Gantt charts
+    - name: Gantt chart
       href: manager/gantt-project.md
 - name: Agile development tools
   items:
     - name: Overview
       href: manager/agile.md
-    - name: Creating a board
+    - name: Create a board
       href: manager/create-agile-board.md
     - name: Working with an agile board
       href: user/agile.md
-    - name: Editing and deleting a board
+    - name: Editing or deleting a board
       href: manager/edit-agile-board.md
+    - name: Backlog
+      href: manager/backlog.md
     - name: Sprints
       href: manager/create-agile-sprint.md
     - name: Epics
       href: manager/epic.md
     - name: Collaborative workload estimation
       href: manager/planning-poker.md
-    - name: Burn down chart
+    - name: Burn down charts
       href: manager/burndown.md
 - name: Issue boards (beta)
   items: 
     - name: Overview
       href: manager/agile-new.md
-    - name: Creating a board
+    - name: Create a board
       href: manager/agile-new-create.md
     - name: Working with an agile board
       href: manager/agile-new-use.md
-    - name: Configuring boards
+    - name: Setting up a board
       href: manager/agile-new-set.md
-- name: Searching for issues
+- name: Find issues
   items:
-    - name: Searching for issues by key or name
+    - name: Finding issues by key or name
       href: user/search-task.md
-    - name: Searching for my issues
+    - name: Finding my issues
       href: user/default-filters.md
-    - name: Searching for issues in queues
+    - name: Finding issues in queues
       href: manager/quick-filters.md
     - name: Creating an issue filter
       href: user/create-filter.md
@@ -247,7 +249,7 @@ items:
       href: user/notification-digest.md
     - name: Subscribing other users to queue updates
       href: manager/subscriptions.md
-    - name: Notification settings
+    - name: Email notification settings
       items:
         - name: Overview
           href: user/notification-settings.md
@@ -255,8 +257,9 @@ items:
           href: user/user-notifications.md
         - name: Notifications about your subscriptions
           href: user/user-subscriptions.md
-#    - name: Отправлять уведомления на почтовые ящики в вашем домене
-#      href: manager/mail-notifications.md
+    - name: Sending notifications to mailboxes in your domain
+      when: audience == "external"
+      href: manager/mail-notifications.md
     - name: Filtering incoming emails
       when: audience == "internal"
       href: user/email-filtering.md
@@ -278,7 +281,7 @@ items:
           href: user/startpage-dashboard.md
     - name: Queue statistics
       href: manager/statistics.md
-    - name: Gantt charts
+    - name: Gantt chart
       href: manager/gantt.md
 - name: Automation and templates
   items:
@@ -288,7 +291,7 @@ items:
       items:
         - name: Overview
           href: user/trigger.md
-        - name: Creating a trigger
+        - name: Creating triggers
           href: user/create-trigger.md
         - name: Setting trigger conditions
           href: user/set-condition.md
@@ -334,11 +337,11 @@ items:
       href: sla-head.md
     - name: Configuring rules
       href: manager/sla.md
-    - name: Work schedules
+    - name: Work schedule
       href: manager/schedule.md
 - name: Integration with other services
   items:
-    - name: Mail
+    - name: Email
       href: manager/queue-mail.md
     - name: Yandex Forms
       href: manager/forms-integration.md
@@ -387,6 +390,7 @@ items:
 - name: Developer tools
   items:
     - name: Plugin for IDE
+      when: audience == "internal"
       href: idea-plugin.md
     - name: API
       href: user/API.md
@@ -395,31 +399,31 @@ items:
     - name: Connecting repositories
       when: audience == "external"
       href: manager/add-repository.md
-- name: Pricing
+- name: Pricing policy
   when: audience == "external"
   items:
-    - name: Pricing
+    - name: Billing
       href: pricing.md
     - name: Setting up a billing account
       href: billing-account.md
-    - name: Topping up your personal account
+    - name: Paying for services
       href: pay-the-bill.md
-    - name: Viewing service detalization
+    - name: Viewing service usage details
       href: check-charges.md
 - name: API reference
   items: null
   include:
     repo: docs
-    path: en/tracker/api-ref/toc.yaml
-- name: FAQ
+    path: ru/tracker/api-ref/toc.yaml
+- name: Questions and answers
   when: audience == "external"
   items:
     - name: General questions
       href: faq.md
-    - name: Payments
+    - name: Billing
       href: payment.md
-- name: FAQ
+- name: Questions and answers
   when: audience == "internal"
   href: faq.md
-- name: Support
+- name: Technical support
   href: troubleshooting.md

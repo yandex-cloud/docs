@@ -67,6 +67,7 @@ default:
   link-get-token: https://oauth.yandex.com/
   link-OAuth-dev-guide: https://yandex.com/dev/oauth/doc/dg/concepts/about.html
   link-register-application: https://yandex.com/dev/oauth/doc/dg/tasks/register-client.html
+  link-register-application-platforms: https://yandex.ru/dev/id/doc/dg/oauth/tasks/register-client.html
   link-oauth-token: https://yandex.com/dev/oauth/doc/dg/tasks/get-oauth-token.html
   link-web-oauth: https://yandex.com/dev/oauth/doc/dg/reference/web-client.html#web-client__request-url
   link-yandex_tracker_client: https://github.com/yandex/yandex_tracker_client
