@@ -79,7 +79,7 @@ items:
   - name: API reference
     items:
       - name: Authentication in the API
-        href: api-ref/authentication.md
+        href: api-ref/apigateway/authentication.md
       - name: gRPC
         items: null
         include:
@@ -90,5 +90,19 @@ items:
         include:
           repo: docs
           path: en/_api-ref/serverless/apigateway/toc.yaml
+  - name: Websocket API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/websocket/authentication.md
+      - name: gRPC
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/functions/api-gateway/websocket/toc.yaml
+      - name: REST
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref/serverless/apigateway/websocket/toc.yaml
   - name: Questions and answers
     href: qa/index.md
