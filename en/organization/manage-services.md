@@ -6,13 +6,19 @@ Use {{ org-full-name }} to expand the capabilities of your business. Create a [c
 
 Collaboration services and business intelligence tools are available to all organizations. To use [{{ yandex-cloud }} services]({{ link-cloud-services }}), create a cloud.
 
+{% note info %}
+
+All clouds and services can be managed by users with the `organization-manager.organizations.owner` role. For information on assigning roles to users, see [Roles](roles.md#admin).
+
+{% endnote %}
+
 To go to cloud and service management:
 
-1. [Log in]({{ link-passport }}) to the organization's administrator account.
+1. [Log in]({{link-passport}}) to the organization's administrator or owner account.
 
-1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-1. In the left panel, select [Clouds and services]({{ link-org-services }}) ![icon-services](../_assets/organization/icon-services.svg).
+1. In the left panel, select [Clouds and services]({{link-org-services}}) ![icon-services](../_assets/organization/icon-services.svg).
 
    The page displays a list of clouds connected to the organization as well as services, such as {{ tracker-full-name }}, {{ wiki-full-name }}, {{ forms-full-name }}, and {{ datalens-full-name }}.
 
@@ -38,11 +44,11 @@ Use {{ org-full-name }} to expand the capabilities of your business. To use [{{ 
 
 To go to cloud management:
 
-1. [Log in]({{ link-passport }}) to the organization's administrator account.
+1. [Log in]({{link-passport}}) to the organization's administrator or owner account.
 
-1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-1. In the left panel, select [Clouds and services]({{ link-org-services }}) ![icon-services](../_assets/organization/icon-services.svg). The page displays a list of clouds connected to the organization.
+1. In the left panel, select [Clouds and services]({{link-org-services}}) ![icon-services](../_assets/organization/icon-services.svg). The page displays a list of clouds connected to the organization.
 
 1. To open a cloud in the {{ yandex-cloud }} console, click the cloud name.
 

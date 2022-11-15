@@ -888,6 +888,7 @@ cloud-il:
   link-datalens-main: https://datalens.cloudil.co.il/
   link-org-main: https://org.cloudil.co.il/
   link-org-users: https://org.cloudil.co.il/users
+  link-passport-login: https://accounts.google.com
   link-support-mail: support@cloudil.co.il
   login-example: login@gmail.com
   dns-mx-host: mx.cloudil.com
