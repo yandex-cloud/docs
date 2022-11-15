@@ -58,7 +58,7 @@
 
 - {{ MY }}
 
-    [Подключитесь](./connect.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных и выполните команду:
+    [Подключитесь](./connect.md) по {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} к хосту подкластера {{ dataproc-name }} для хранения данных и выполните команду:
 
     ```bash
     MYSQL_VER="8.0.25" && \

@@ -42,7 +42,7 @@
 
    {% endnote %}
 
-1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к ВМ по SSH.
+1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к ВМ по {% if lang == "ru" and audience != "internal" %}[SSH](../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
 
 1. Установите необходимые зависимости и клиент {{ PG }}:
 

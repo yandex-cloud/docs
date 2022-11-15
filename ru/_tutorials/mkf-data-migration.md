@@ -156,7 +156,7 @@
 
 1. Создайте в кластере-источнике пользователя `admin-source` с правом управления топиками через Admin API.
 
-1. {% if audience != "internal" %}[Подключитесь к виртуальной машине по SSH](../compute/operations/vm-connect/ssh.md){% else %}Подключитесь к виртуальной машине по SSH{% endif %}.
+1. {% if audience != "internal" %}[Подключитесь](../compute/operations/vm-connect/ssh.md) к виртуальной машине по {% if lang == "ru" %}[SSH](../glossary/ssh-keygen.md){% else %}SSH{% endif %}{% else %}Подключитесь к виртуальной машине по SSH{% endif %}.
 
     1. Установите JDK:
 

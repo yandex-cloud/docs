@@ -52,7 +52,7 @@
            * Источник — `CIDR`.
            * CIDR блоки — `0.0.0.0/0`.
 
-            Это правило позволяет подключаться к ВМ по протоколу SSH.
+            Это правило позволяет [подключаться](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по протоколу {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
 
         * Для исходящего трафика:
             * Диапазон портов — `{{ port-any }}`.

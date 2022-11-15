@@ -26,7 +26,7 @@
     {% if audience != "internal" %}
 
     1. [Создайте виртуальную машину](../../../compute/operations/vm-create/create-linux-vm.md) с публичным IP-адресом в той же виртуальной сети, что и кластер.
-    1. Подключитесь к созданной виртуальной машине [через SSH](../../../compute/operations/vm-connect/ssh.md).
+    1. [Подключитесь](../../../compute/operations/vm-connect/ssh.md) к созданной виртуальной машине через {% if lang == "ru" %}[SSH](../../../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
     1. Из виртуальной машины подключитесь к {{ RD }} с помощью одного из примеров строк подключений.
 
     {% else %}
