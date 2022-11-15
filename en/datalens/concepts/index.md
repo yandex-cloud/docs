@@ -1,5 +1,5 @@
 ---
-title: {{ datalens-full-name}}. Overview
+title: "{{ datalens-full-name}}. Overview"
 description: "{{ datalens-full-name }} is a business analytics service. It lets you connect to various data sources, visualize data, create dashboards, and share the results."
 ---
 
@@ -9,13 +9,12 @@ description: "{{ datalens-full-name }} is a business analytics service. It lets 
 With {{ datalens-full-name }}, you can track your product and business metrics directly from data sources to make data-based decisions.
 
 
-
 {% note warning %}
 
 The number of {{ datalens-short-name }} instances in one [cloud {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md#cloud): 1.
 
 {% endnote %}
-
+
 
 ## Relationship between entities {#component-interrelation}
 

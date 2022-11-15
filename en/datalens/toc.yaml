@@ -379,18 +379,6 @@ items:
             href: function-ref/WEEK.md
           - name: YEAR
             href: function-ref/YEAR.md
-      - name: Geographical functions
-        items:
-          - name: Overview
-            href: function-ref/geographical-functions.md
-          - name: GEOCODE
-            href: function-ref/GEOCODE.md
-          - name: GEOINFO
-            href: function-ref/GEOINFO.md
-          - name: TOPONYM_TO_GEOPOINT
-            href: function-ref/TOPONYM_TO_GEOPOINT.md
-          - name: TOPONYM_TO_GEOPOLYGON
-            href: function-ref/TOPONYM_TO_GEOPOLYGON.md
       - name: Logical functions
         items:
           - name: Overview

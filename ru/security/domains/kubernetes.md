@@ -36,7 +36,7 @@
 * Проекты отделены разными облаками.
 * Команды разработки отделены отдельным каталогами.
 * Сервис представлен отдельным кластером {{ k8s }}.
-* Микросервисы отделены пространствами имен.
+* [Микросервисы](https://cloud.yandex.ru/blog/posts/2022/03/microservice-architecture) отделены пространствами имен.
 
 ## Сетевая безопасность {{ managed-k8s-name }} {#network-security}
 
@@ -261,7 +261,7 @@ Starboard Operator — это бесплатный инструмент, кот�
 * ![](../../_assets/overview/solution-library-icon.svg)[Анализ логов безопасности {{ k8s }} в ELK: аудит-логи, policy engine, falco.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
 * ![](../../_assets/overview/solution-library-icon.svg)[Пример настройки ролевых моделей и политик в {{ managed-k8s-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/auth_and_access/role-model-example)
 
-Для контроля соответствия требованиям Pod Security Standarts также можно использовать  следующие инструменты в рамках CI/CD:
+Для контроля соответствия требованиям Pod Security Standarts также можно использовать следующие инструменты в рамках [CI/CD](https://cloud.yandex.ru/blog/posts/2022/10/ci-cd):
 
 * [Kyverno CLI](https://kyverno.io/docs/kyverno-cli/)
 * [The gator CLI](https://open-policy-agent.github.io/gatekeeper/website/docs/gator)

@@ -1,6 +1,6 @@
 # Docker-контейнер для монтирования бакета {{ objstorage-name }} к (S)FTP(S)-серверу
 
-Для доступа к бакету по протоколу FTP, [FTPS](https://{{ lang }}.wikipedia.org/wiki/FTPS) или [SFTP](https://ru.wikipedia.org/wiki/SFTP) можно развернуть сервер с помощью публичного Docker-контейнера, предоставляемого {{ objstorage-name }}.
+Для доступа к бакету по протоколу FTP, [FTPS](https://{{ lang }}.wikipedia.org/wiki/FTPS) или [SFTP](https://ru.wikipedia.org/wiki/SFTP) можно развернуть сервер с помощью публичного [Docker-контейнера](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers), предоставляемого {{ objstorage-name }}.
 
 В контейнере реализованы связки FUSE-клиента {{ objstorage-name }} [GeeseFS](geesefs.md) и серверов: для FTP и FTPS — [vsftpd](https://security.appspot.com/vsftpd.html), для SFTP — sftp-server (входит в состав [OpenSSH](https://www.openssh.com/)).
 
@@ -11,7 +11,7 @@
 ## Установка {#install}
 
 1. [Установите Docker](https://docs.docker.com/get-docker/).
-1. [Аутентифицируйтесь в {{ container-registry-name }}](https://cloud.yandex.ru/docs/container-registry/operations/authentication).
+1. [Аутентифицируйтесь в {{ container-registry-name }}](../../container-registry/operations/authentication.md).
 1. Скачайте контейнер:
 
    ```bash

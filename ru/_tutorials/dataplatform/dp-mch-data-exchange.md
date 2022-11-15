@@ -43,7 +43,7 @@
             * **ZEPPELIN**
             * **ZOOKEEPER**
     1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) для подключения к кластерам {{ mch-name }} и {{ dataproc-name }}.
-    1. [Подключитесь к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md) и настройте подключения к кластерам:
+    1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по [SSH](../../glossary/ssh-keygen.md) и настройте подключения к кластерам:
         * [{{ mch-name }}](../../managed-clickhouse/operations/connect.md);
         * [{{ dataproc-name }}](../../data-proc/operations/connect.md).
     1. (Опционально) Чтобы экспортировать данные в [бакет {{ objstorage-full-name }}](../../storage/concepts/bucket.md):

@@ -17,7 +17,7 @@
 1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с Ubuntu 20.04 и публичным IP-адресом.
 
 
-1. Настройте группы безопасности так, чтобы к кластерам можно было подключаться из интернета и созданной виртуальной машины, а к ней — из интернета по SSH:
+1. Настройте группы безопасности так, чтобы к кластерам можно было подключаться из интернета и созданной виртуальной машины, а к ней — из интернета по [SSH](../../glossary/ssh-keygen.md):
 
     * [Настройка групп безопасности кластера {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
     * [Настройка групп безопасности кластера {{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).

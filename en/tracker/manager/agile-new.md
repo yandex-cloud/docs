@@ -1,6 +1,6 @@
 # Issue boards (beta version)
 
-New issue boards are a reworked version of the standard [boards used in {{ tracker-name }}](../user/agile.md). They help you track and manage your issues in a streamlined manner.
+New issue boards are a reworked version of the standard [boards in {{ tracker-name }}](../user/agile.md). They help you track and manage your issues in a streamlined manner.
 
 The updated boards look and work quite differently compared to their previous version:
 
@@ -10,17 +10,17 @@ The updated boards look and work quite differently compared to their previous ve
 
 * Issue grouping and issue filters have been improved.
 
-* New issue boards are integrated into the [beta version of projects](../user/personal.md#sec_beta) used in the updated interface {{ tracker-name }}.
+* New issue boards are integrated into the [beta version of projects](../user/personal.md#sec_beta) in the updated {{ tracker-name }} interface.
 
-* The new issue boards currently don't support [agile development](agile.md) tools: issue backlogs, sprints, poker planning, and burn down charts.
+* New issue boards support agile development tools: [issue backlogs](backlog.md) and [sprints](create-agile-sprint.md). Support for planning poker and burn down charts will be added in a while.
 
-* New boards currently don't let you add issue by filters. If you need this feature, you can set up a [trigger](trigger-examples.md#board) that will automatically add issues to the issue board.
+* New boards currently don't let you add issues automatically by filters. If you need this feature, you can set up a [trigger](trigger-examples.md#board) that will automatically add issues to the issue board.
 
 New issue boards are available in the beta version. All the missing features previously available on standard issue boards in {{ tracker-name }} will be added to the new boards throughout 2022.
 
 {% note warning %}
 
-Standard issue boards that use the old interface cannot be converted into new issue boards.
+Standard issue boards that use the old interface can't be converted into new issue boards.
 
 {% endnote %}
 
@@ -28,7 +28,7 @@ Standard issue boards that use the old interface cannot be converted into new is
 
 To get started with the beta version of the new issue board:
 
-* [Create a basic issue board](agile-new-create.md) and enable the **Try new boards** option.
+* [Create a standard issue board](agile-new-create.md) or a **Scrum** board by enabling the **Try new boards** option.
 
 * Create a [project in the beta version of the new interface](create-project.md#add-tickets). The project board will be created automatically.
 
@@ -43,4 +43,3 @@ You can use the board to group and filter issues, move them between columns, and
 * [Configuring issue cards](agile-new-set.md#cards)
 
 * [Using issue filters on the board](agile-new-use.md#filter)
-

@@ -19,7 +19,9 @@ Aside from [{{ iam-short-name }}](../../../iam/), {{ objstorage-name }} supports
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
+   
    For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
 
    To edit an object ACL:
 

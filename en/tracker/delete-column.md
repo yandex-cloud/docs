@@ -1,77 +1,75 @@
 ---
-sourcePath: en/tracker/api-ref/delete-column.md
+sourcePath: ru/tracker/api-ref/delete-column.md
 ---
-# Delete a column
+# Удалить колонку
 
-Use this request to delete columns.
+Запрос позволяет удалить колонку.
 
-## Request format {#query}
+## Формат запроса {#query}
 
-Before making the request, [get permission to access the API](concepts/access.md).
+Перед выполнением запроса [получите доступ к API](concepts/access.md).
 
-To delete a column, use an HTTP `DELETE` request.
+Чтобы удалить колонку, используйте HTTP-запрос с методом `DELETE`.
 
 ```
 DELETE /{{ ver }}/boards/<board-id>/columns/<column-id>
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <токен>
 {{ org-id }}
-If-Match: "<version number>"
+If-Match: "<номер версии>"
 ```
 
-{% cut "Headers" %}
+{% cut "Заголовки" %}
 
 - **Host**
 
-    API host address:
-
+    Адрес узла, предоставляющего API:
     ```
     {{ host }}
     ```
 
 - **Authorization**
 
-    OAuth token in `OAuth <token value>` format. For example:
+    OAuth-токен в формате `OAuth <значение токена>`, например:
 
     ```
     OAuth 0c4181a7c2cf4521964a72ff57a34a07
     ```
 
 
-
 - **X-Org-ID**
 
-    Organization ID.
-
+    Идентификатор организации.
+
 
 - **If-Match**
 
-    Number of the current board version.
+    Номер текущей версии доски.
 
 {% endcut %}
 
-{% cut "Resource" %}
+{% cut "Ресурс" %}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<board-id\> | Board ID | Number |
-| \<column-id\> | Column ID | Number |
+Параметр | Описание | Тип данных
+----- | ----- | -----
+\<board-id\> | Идентификатор доски | Число
+\<column-id\> | Идентификатор колонки | Число
 
 {% endcut %}
 
-## Response format {#answer}
+## Формат ответа {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
     {% include [answer-204](../_includes/tracker/api/answer-204.md) %}
+    
+    Тело ответа отсутствует.
 
-    The response body is missing.
+- Запрос выполнен с ошибкой
 
-- Request failed
-
-    If the request is processed incorrectly, the API returns a response with an error code:
+    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
 
     {% include [answer-error-403](../_includes/tracker/api/answer-error-403.md) %}
 
@@ -82,4 +80,3 @@ If-Match: "<version number>"
     {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

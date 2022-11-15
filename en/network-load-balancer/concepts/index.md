@@ -13,9 +13,7 @@ Traffic is distributed using the 5-tuple approach, i.e., based on the source IP,
 
 When creating a network load balancer, a pre-created [target group](target-resources.md) is attached to it with cloud resources that incoming traffic will be distributed across. Each cloud resource in a target group is defined by a pair of the [internal IPv4 address](../../vpc/concepts/address.md) and [subnet](../../vpc/concepts/network.md#subnet) ID. Targets within one group must be located in the same cloud network. Targets within a single availability zone must be located in the same subnet.
 
-
 By hosting resources in different availability zones, you ensure their fault tolerance: if there are targets in every availability zone and they are ready to receive traffic, the traffic is distributed across all zones. If all targets in an availability zone fail, traffic is no longer routed to this zone. Instead, it's distributed across the remaining zones.
-
 
 For detailed recommendations on how to use a load balancer, see [Best practices](../best-practices.md).
 

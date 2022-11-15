@@ -1,149 +1,151 @@
 ---
-sourcePath: en/tracker/api-ref/common-format.md
+sourcePath: ru/tracker/api-ref/common-format.md
 ---
-# General query format
+# Общий формат запросов
 
-General {{ api-name }} query format:
+Общий вид запросов к {{ api-name }}:
 
 ```
-<method> /{{ ver }}/<resources>/<resource_id>/?<param>=<value>
+<метод> /{{ ver }}/<resources>/<resource_id>/?<param>=<value>
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <токен>
 {{ org-id }}
 {
-   Request body in JSON format
+   Тело запроса в формате JSON
 } 
 ```
 
 {% note info %}
 
-{{ api-name }} sends and receives date and time parameters in the UTC±00:00 time zone. Therefore, the time and date received may differ from the time zone of the client that the request is made from.
+{{ api-name }} передает и получает параметры даты и времени в часовом поясе UTC±00:00. Поэтому полученные время и дата могут отличаться от часового пояса клиента, с которого выполняется запрос.
 
 {% endnote %}
 
-## Methods {#methods}
+## Методы {#methods}
 
-{{ api-short-name }} queries use one of the following HTTP methods:
+Запросы к {{ api-short-name }} используют один из HTTP-методов:
 
-`GET`: Get information about an object or list of objects.
+`GET` — получить информацию об объекте или списке объектов;
 
-`POST`: Create an object.
+`POST` — создать объект;
 
-`PATCH`: Change the parameters of an existing object. Requests sent via the PATCH method only change the parameters explicitly specified in the request body.
+`PATCH` — изменить параметры существующего объекта. Запросы, выполненные с помощью метода PATCH изменяют только те параметры, которые явно указаны в теле запроса;
 
-`DELETE`: Delete an object.
+`DELETE` — удалить объект.
 
-## Headers {#headings}
+## Заголовки {#headings}
 
-In requests to the {{ api-short-name }} API, specify the following headers:
+В запросах к {{ api-short-name }} указывайте заголовки:
 
-- `Host: {{ host }}`
+ - `Host: {{ host }}`
 
-- `Authorization: OAuth <your OAuth token>`: If the [OAuth 2.0 protocol](concepts/access.md#section_about_OAauth) is used.
+ - `Authorization: OAuth <ваш OAuth-токен>` — при доступе по [протоколу OAuth 2.0](concepts/access.md#section_about_OAauth).
 
-   `Authorization: Bearer <your IAM token>`: If an [IAM token](concepts/access.md#iam-token) is used.
+   `Authorization: Bearer <ваш IAM-TOKEN>` — при доступе по [IAM-токену](concepts/access.md#iam-token).
 
-- `X-Org-ID: <organization ID>`
+ - `X-Org-ID: <идентификатор организации>`
+    
+   Чтобы узнать идентификатор организации, перейдите на [страницу настроек {{ tracker-name }}]({{ link-settings }}). Идентификатор указан в поле **ID организации для API**.
+    
 
-   To find out the organization ID, go to the [{{ tracker-name }} settings]({{ link-settings }}). The ID is shown in **Organization ID for API**.
-
+## Формат тела запроса {#body} 
 
-## Request body format {#body}
+В теле запроса передается JSON-объект с идентификаторами изменяемых полей задачи и их значениями.
 
-The request body passes a JSON object with the IDs of updated fields and their values.
+- Чтобы добавить или удалить значение из массива, используйте команды `add` и `remove`:
 
-- To add or remove an array value, use the `add` or `remove` command:
   - ```json
-    {
-        "followers": { "add": ["<id user1>", "<id user2>"] }
-    }
+        {
+            "followers": { "add": ["<id сотрудника1>", "<id сотрудника2>"] }
+        }
     ```
 
-  The `add` command adds new values to the array. To overwrite the array (delete the old values and add new ones), use the `set` command.
+  Команда `add` добавляет новые значения в массив. Чтобы перезаписать массив (удалить старые значения и добавить новые), используйте команду `set`.
 
-- To reset the field value, set it to `null`. TTo reset the array, use an empty array `[]`. You can change individual values in the array using the `target` and `replacement` commands:
+- Чтобы обнулить значение поля, укажите значение `null`. Чтобы обнулить массив, используйте пустой массив `[]`. Отдельные значения в массиве можно изменить с помощью команд `target` и `replacement`:
+
   - `{"followers": null}`
   - ```json
-    {
-      "followers": {
-        "replace": [
-            {"target": "<ID1>", "replacement": "<ID2>"},
-            {"target": "<ID3>", "replacement": "<ID4>"}]
+      {
+        "followers": {
+          "replace": [
+              {"target": "<идентификатор1>", "replacement": "<идентификатор2>"},
+              {"target": "<идентификатор3>", "replacement": "<идентификатор4>"}]
+        }
       }
-    }
-    ```
+      ```
 
-- For example, to change the issue type to <q>Bug</q>, use one of these methods:
+- Например, чтобы изменить тип задачи на <q>Ошибка</q>, используйте один из способов:
+
   - `{"type": 1}`
   - `{"type": "bug"}`
   - ```json
       {
-        "type": { "id": "1" }
+          "type": { "id": "1" }
       }
       ```
   - ```json
       {
-        "type": { "name": "Bug" }
+          "type": { "name": "Ошибка" }
       }
       ```
   - ```json
       {
-        "type": {"set": "bug"}
+          "type": {"set": "bug"}
       }
       ```
 
-## Text formatting and variables {#text-format}
+## Формат текста и переменные {#text-format}
 
-When handling requests for adding or editing [comments](concepts/issues/add-comment.md), [macros](post-macros.md), [triggers](concepts/queues/create-trigger.md), and [auto actions](concepts/queues/create-autoaction.md), use special text formatting:
+При работе с запросами на создание или редактирование [комментариев](concepts/issues/add-comment.md), [макросов](post-macros.md), [триггеров](concepts/queues/create-trigger.md) и [автодействий](concepts/queues/create-autoaction.md) используйте специальный формат для оформления текста сообщения:
+* Чтобы отформатировать текст, используйте [разметку {{ yfm }}](user/markup.md).
+* Чтобы добавить перенос строки, используйте символ ``\n``.
+* Чтобы добавить значения из полей задачи, используйте [переменные](user/vars.md#variable-type).
 
-* To format text, use the dedicated [markup {{ yfm }}](user/markup.md).
-* To add a line break, enter ``\n``.
-* To add values from issue fields, use [variables](user/vars.md#variable-type).
+## Постраничное отображение результатов {#displaying-results}
 
-## Paginated result output {#displaying-results}
+Если вы запрашиваете список объектов, и количество строк в ответе больше 50, в ответе возвращается страница с указанным количеством результатов. Вы можете выполнить несколько запросов для просмотра последующих страниц. Для этого используется механизм постраничного отображения результатов.
 
-If you request an object list and the response contains more than 50 lines, the request returns a page with the specified number of results. You can make multiple requests to view subsequent pages. To do this, use paginated display.
+При постраничном отображении результаты запроса рассчитываются каждый раз при отображении новой страницы. Таким образом, если за время просмотра одной страницы в результатах запроса произошли изменения, это может повлиять на отображение следующих страниц. Например, по запросу найдено 11 задач, из которых отображено 10. В процессе просмотра результатов первой страницы одна из задач была изменена и перестала отвечать требованиям поискового запроса. В этом случае, при запросе второй страницы результатов будет возвращен пустой массив, так как оставшиеся 10 задач будут находиться на первой странице.
 
-With paginated display, the request results are calculated each time a new page is displayed. So if changes occur in the request results when viewing a certain page, this may affect the output of the following pages. For example, the request found 11 issues, 10 of which are displayed. While viewing the results of the first page, one of the issues was changed and no longer meets the requirements of the search query. In this case, when requesting the second page with the results, an empty array is returned, since the remaining 10 issues are on the first page.
+Для постраничного отображения результатов используйте в запросе следующие параметры:
 
-To enable paginated display, use the following parameters in the request:
+- **perPage (необязательный)**
 
-- **perPage (optional)**
+    Количество объектов (задач, очередей и пр.) на странице. Значение по умолчанию — 50.
 
-    The number of objects (issues, queues, and so on) on the page. Default: 50.
+- **page (необязательный)**
 
-- **page (optional)**
+    Номер страницы ответа. Значение по умолчанию — 1.
 
-    Response page number The default value is 1.
-
-The response will contain the following headers:
+В ответе будут содержаться следующие заголовки:
 
 - **X-Total-Pages**
 
-    Total number of pages with entries.
+    Общее количество страниц с записями.
 
 - **X-Total-Count**
 
-    Total number of entries in the response.
+    Общее число записей в ответе.
 
-## Examples of requests {#examples}
+## Примеры запросов {#examples}
 
-{% cut "Example 1: Change summary, description, type and priority of the issue." %}
+{% cut "Пример 1: Изменить название, описание, тип и приоритет задачи." %}
 
-- An HTTP PATCH method is used.
-- We're editing the TEST-1 issue.
-- New issue type: <q>Bug</q>.
-- New issue priority: <q>Low</q>.
+- Используется HTTP-метод PATCH.
+- Редактируется задача TEST-1.
+- Новый тип задачи: <q>Ошибка</q>.
+- Новый приоритет задачи: <q>Низкий</q>.
 
 ```
 PATCH /v2/issues/TEST-1
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 
 {
-  "summary": "New issue name",
-  "description": "New issue description",
+  "summary": "Новое название задачи",
+  "description": "Новое описание задачи",
   "type": {
       "id": "1",
       "key": "bug"
@@ -154,35 +156,33 @@ Authorization: OAuth <OAuth token>
       }
 }
 ```
-
 {% endcut %}
 
-{% cut "Example 2: Request issue data with specified fields." %}
+{% cut "Пример 2: Запрос одной задачи с указанием необходимых полей." %}
 
-- Use the HTTP GET method.
-- The response will display attachments.
+- Используется HTTP-метод GET.
+- В ответе включено отображение приложений.
 
 ```
 GET /v2/issues/JUNE-3?expand=attachments
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 ```
-
 {% endcut %}
 
-{% cut "Example 3: Create issue." %}
-
-- An HTTP POST method is used.
-- We're creating an issue named <q>Test Issue</q> in the queue with the [key](manager/create-queue.md#key) <q>TREK</q>.
-- The new issue is a sub-issue of <q>JUNE-2</q>.
-- Type of the new issue: <q>Bug</q>.
-- Assignee: <user_login>
-
+{% cut "Пример 3: Создать задачу." %}
+ 
+- Используется HTTP-метод POST.
+- Создается задача с названием <q>Test Issue</q> в очереди с [ключом](manager/create-queue.md#key) <q>TREK</q>.
+- Новая задача является подзадачей <q>JUNE-2</q>.
+- Тип создаваемой задачи – <q>Ошибка</q>.
+- Исполнитель задачи – <user_login>
+ 
 ```
 POST /v2/issues/ HTTP/1.1
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 
 {
@@ -194,19 +194,18 @@ Authorization: OAuth <OAuth token>
   "attachmentIds": [55, 56]
 }
 ```
-
 {% endcut %}
 
-{% cut "Example 4: Find users's issues from the specified queue. Response is displayed paginated." %}
+{% cut "Пример 4: Найти задачи очереди, которые назначены на заданного сотрудника. Результаты отобразить постранично." %}
 
-- An HTTP POST method is used.
-- Queue key: <q>TREK</q>.
-- Assignee: <user_login>.
+- Используется HTTP-метод POST.
+- Ключ очереди – <q>TREK</q>.
+- Исполнитель задачи – <user_login>.
 
 ```
 POST /v2/issues/_search?perPage=15
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 
 {
@@ -216,6 +215,4 @@ Authorization: OAuth <OAuth token>
   }
 }
 ```
-
 {% endcut %}
-

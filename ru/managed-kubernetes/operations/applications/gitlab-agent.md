@@ -10,7 +10,7 @@
 
 {% note info %}
 
-{{ GL }} Agent не исполняет конвейеры CI/CD. Для этой цели установите приложение [{{ GL }} Runner](/marketplace/products/yc/gitlab-runner).
+{{ GL }} Agent не исполняет конвейеры [CI/CD](https://cloud.yandex.ru/blog/posts/2022/10/ci-cd). Для этой цели установите приложение [{{ GL }} Runner](/marketplace/products/yc/gitlab-runner).
 
 {% endnote %}
 

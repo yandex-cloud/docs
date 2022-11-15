@@ -1,56 +1,55 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/issues/delete-comment.md
+sourcePath: ru/tracker/api-ref/concepts/issues/delete-comment.md
 ---
-# Delete a comment
+# Удалить комментарий
 
-Use this request to delete issue comments.
+Запрос позволяет удалить комментарий к задаче.
 
-## Request format {#section_rnm_x4j_p1b}
+## Формат запроса {#section_rnm_x4j_p1b}
 
-To delete a comment, use an HTTP `DELETE` request:
+Чтобы удалить комментарий, используйте HTTP-запрос с методом `DELETE`:
 
 ```
 DELETE /{{ ver }}/issues/<issue-id>/comments/<comment-id>
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Resource" %}
+{% cut "Ресурс" %}
 
-| Parameter | Description | Data type |
-| -------- | -------- | ---------- |
-| \<issue-id> | ID or key of the current issue. | String |
-| \<comment-id> | [Unique ID of the comment](get-comments.md#section_xc3_53j_p1b) in numeric (id) or string format (longId). | String or number |
+Параметр | Описание | Тип данных
+-------- | -------- | ----------
+\<issue-id> | Идентификатор или ключ текущей задачи. | Строка
+\<comment-id> | [Уникальный идентификатор комментария](get-comments.md#section_xc3_53j_p1b) в числовом формате (id) или формате строки (longId). | Строка или число
 
-{% endcut %}
+{% endcut %} 
 
-> Request for deleting a comment added to the `JUNE-2` issue:
->
->- An HTTP DELETE method is used.
->
->```
->DELETE /v2/issues/JUNE-2/comments/53a170e8e4b07a4c3358d60a
->Host: {{ host }}
->Authorization: OAuth <OAuth token>
->{{ org-id }}
->```
+> Запрос на удаление комментария, прикрепленного к задаче `JUNE-2`:
+> 
+> - Используется HTTP-метод DELETE.
+>  
+> ```
+> DELETE /v2/issues/JUNE-2/comments/53a170e8e4b07a4c3358d60a
+> Host: {{ host }}
+> Authorization: OAuth <OAuth-токен>
+> {{ org-id }}
+> ```
 
-## Response format {#section_xc3_53j_p1b}
+## Формат ответа {#section_xc3_53j_p1b}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
     {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %}
+    
+    Тело ответа отсутствует.
 
-    The response body is missing.
-
-- Request failed
+- Запрос выполнен с ошибкой
 
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
-

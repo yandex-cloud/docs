@@ -1,7 +1,6 @@
 # Обновление группы виртуальных машин под нагрузкой
 
-С помощью этого пошагового руководства вы настроите [группу виртуальных машин](../../compute/concepts/instance-groups/index.md) и проверите ее работу при обновлении конфигурации. Для этого:
-
+С помощью этого пошагового руководства вы настроите [группу ВМ](../../compute/concepts/instance-groups/index.md) и проверите ее работу при обновлении конфигурации. Для этого:
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте окружение](#create-environment).
 1. [Создайте группу ВМ с {{ coi }}](#create-vm-group).
@@ -19,8 +18,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки группы ВМ {{ yandex-cloud }} входит плата за:
-* Диски и постоянно запущенные ВМ – [тарифы {{compute-full-name}}](../../compute/pricing.md).
-* Использование динамического или статического внешнего IP-адреса – [тарифы {{vpc-full-name}}](../../vpc/pricing.md).
+* [Диски](../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../compute/concepts/vm.md) – [тарифы {{ compute-full-name }}](../../compute/pricing.md).
+* Использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md) – [тарифы {{ vpc-full-name }}](../../vpc/pricing.md).
 
 
 ## Подготовьте окружение {#create-environment}
@@ -31,7 +30,7 @@
 
    - Консоль управления
 
-     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать сервисный аккаунт.
+     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
      1. Выберите вкладку **Сервисные аккаунты**.
      1. Нажмите кнопку **Создать сервисный аккаунт**.
      1. Введите имя `for-load`.
@@ -48,7 +47,7 @@
         yc iam service-account create --name for-load
         ```
 
-        Результат:
+        Результат выполнения команды:
 
         ```bash
         id: ajeab0cnib1pdefe21dm
@@ -68,9 +67,8 @@
    - API
 
      Воспользуйтесь методами:
-     
-     1. [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount`, чтобы создать сервисный аккаунт `for-load`;
-     1. [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) для ресурса `Folder`, чтобы назначить сервисному аккаунту в текущем каталоге роль `editor`. 
+     1. [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount`, чтобы создать сервисный аккаунт `for-load`.
+     1. [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) для ресурса `Folder`, чтобы назначить сервисному аккаунту в текущем каталоге роль `editor`.
 
    {% endlist %}
 
@@ -81,7 +79,7 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать группу ВМ.
-     1. Выберите сервис **{{ vpc-short-name }}**.
+     1. Выберите сервис **{{ vpc-name }}**.
      1. Нажмите кнопку **Создать сеть**.
      1. Задайте имя сети `yc-auto-network`.
      1. Выберите дополнительную опцию **Создать подсети**.
@@ -95,7 +93,7 @@
         yc vpc network create --name yc-auto-network
         ```
 
-        Результат:
+        Результат выполнения команды:
 
         ```bash
         id: enpabce123hde4ft1r3t
@@ -110,7 +108,7 @@
         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone {{ region-id }}-a
         ```
 
-        Результат:
+        Результат выполнения команды:
 
         ```bash
         id: e1lnabc23r1c9d0efoje
@@ -128,7 +126,7 @@
         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.2.0/24 --zone {{ region-id }}-b
         ```
 
-        Результат:
+        Результат выполнения команды:
 
         ```bash
         id: b1csa2b3clideftjb121
@@ -143,14 +141,13 @@
    - API
 
      1. Создайте сеть с помощью метода [create](../../vpc/api-ref/Network/create.md) для ресурса `Network`.
-
      1. Создайте подсети в зонах `{{ region-id }}-a` и `{{ region-id }}-b` с помощью метода [create](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnet`.
 
    {% endlist %}
 
 ## Создайте группу ВМ с {{ coi }} {#create-vm-group}
 
-1. Все ВМ группы создаются из образа [{{ coi }}](../../cos/concepts/index.md). Каждая ВМ содержит Docker-контейнер с веб-сервером, который эмулирует нагрузку на сервис.
+1. Все ВМ группы создаются из образа [{{ coi }}](../../cos/concepts/index.md). Каждая ВМ содержит [Docker-контейнер](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers) с веб-сервером, который эмулирует нагрузку на сервис.
 
    {% list tabs %}
 
@@ -194,13 +191,13 @@
 
      1. Узнайте идентификатор последней версии [публичного образа](../../compute/operations/images-with-pre-installed-software/get-list.md) {{ coi }}.
 
-        Образ {{ coi }} в реестре [{{ container-registry-name }}](../../container-registry/) может обновляться и меняться в соответствии с релизами. При этом образ на ВМ не обновится автоматически до последней версии. Чтобы создать группу ВМ с последней версией {{ coi }}, необходимо самостоятельно проверить ее наличие:
+        Образ {{ coi }} в реестре [{{ container-registry-full-name }}](../../container-registry/) может обновляться и меняться в соответствии с релизами. При этом образ на ВМ не обновится автоматически до последней версии. Чтобы создать группу ВМ с последней версией {{ coi }}, необходимо самостоятельно проверить ее наличие:
 
         ```bash
         yc compute image get-latest-from-family container-optimized-image --folder-id standard-images
         ```
 
-        Результат:
+        Результат выполнения команды:
   
         ```bash
         id: fd8iv792kirahcnqnt0q
@@ -216,9 +213,9 @@
 
         {% include [updating-under-load-yaml-spec-init](../../_includes/instance-groups/updating-under-load-yaml-spec-init.md) %}
 
-        {% note info %}   
+        {% note info %}
 
-        Передать SSH-ключ в [метаданных ВМ](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images) можно с помощью параметра `ssh-keys` или в строке с пользовательскими метаданными `user-data`. В этом руководстве используется первый вариант.
+        Передать [SSH-ключ](../../glossary/ssh-keygen.md) в [метаданных ВМ](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images) можно с помощью параметра `ssh-keys` или в строке с пользовательскими метаданными `user-data`. В этом руководстве используется первый вариант.
 
         {% endnote %}
 
@@ -228,7 +225,7 @@
          yc compute instance-group create --file=specification.yaml
          ```
 
-         Результат:
+         Результат выполнения команды:
 
          ```bash
          done (2m18s)
@@ -243,7 +240,6 @@
    - API
 
      Воспользуйтесь методами:
-     
      1. [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) для ресурса `Image`, чтобы получить идентификатор последней версии образа `container-optimized-image` в семействе `standard-images`;
      1. [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) для ресурса `InstanceGroup`, чтобы создать группу ВМ по следующей спецификации:
      
@@ -258,7 +254,7 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
-     1. Выберите сервис **{{ compute-short-name }}**.
+     1. Выберите сервис **{{ compute-name }}**.
      1. Перейдите в раздел **Группы виртуальных машин**.
      1. Нажмите на имя группы ВМ `group-for-load`.
 
@@ -268,7 +264,7 @@
      yc compute instance-group list-instances group-for-load
      ```
 
-     Результат:
+     Результат выполнения команды:
 
      ```bash
      +----------------------+---------------------------+-----------------+-------------+----------------------+----------------+
@@ -300,19 +296,15 @@
      1. Задайте **Имя** `load-generator`.
      1. В поле **Публичный адрес** выберите значение **Автоматически**.
      1. В блоке **Обработчики** нажмите кнопку **Добавить обработчик**:
-     
         * В открывшемся окне введите **Имя обработчика** `http`.
         * В поле **Порт** укажите `80` — на нем балансировщик будет принимать входящий трафик.
         * В поле **Целевой порт** укажите `80` — на него балансировщик будет направлять трафик.
         * Нажмите кнопку **Добавить**.
-        
      1. В блоке **Целевые группы** нажмите кнопку **Добавить целевую группу**.
      1. В выпадающем списке **Целевая группа** выберите `load-generator`.
      1. В блоке целевой группы нажмите кнопку **Настроить**:
-     
         * В открывшемся окне укажите **Путь** `/hello` — по этому пути балансировщик будет отправлять запросы для проверки состояния ВМ из целевой группы.
         * Нажмите кнопку **Применить**.
-        
      1. Нажмите кнопку **Создать**.
 
    - CLI
@@ -323,7 +315,7 @@
         yc load-balancer target-group get load-generator | grep "^id"
         ```
         
-        Результат:
+        Результат выполнения команды:
         
         ```bash
         id: enpsa475ej51enuam897
@@ -338,7 +330,7 @@
           --target-group healthcheck-http-port=80,healthcheck-http-path=/hello,target-group-id=<ID целевой группы>
         ```
 
-        Результат:
+        Результат выполнения команды:
 
         ```bash
         done (14s)
@@ -354,11 +346,8 @@
    - API
 
      1. Создайте балансировщик нагрузки с помощью метода [create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) для ресурса `NetworkLoadBalancer`.
-
      1. Добавьте обработчик к балансировщику с помощью метода [addListener](../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) для ресурса `NetworkLoadBalancer`.
-
      1. Подключите целевую группу к балансировщику с помощью метода [attachTargetGroup](../../network-load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) для ресурса `NetworkLoadBalancer`.
-
      1. Подключите балансировщик к группе ВМ с помощью метода [addTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) для ресурса `TargetGroup`.
 
    {% endlist %}
@@ -379,15 +368,15 @@
      yc load-balancer network-load-balancer list
      ```
 
-     Результат:
+     Результат выполнения команды:
      
      
      ```bash
-     +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
-     |          ID          |      NAME      |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
-     +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
+     +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
+     |          ID          |      NAME      |    REGION ID    |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
+     +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
      | b0ruab1ccvpd26efgii4 | load-generator | {{ region-id }} | EXTERNAL |              1 | b0r1tabcphde28fj1dd3   | ACTIVE |
-     +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
+     +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
      ```
      
      
@@ -416,7 +405,7 @@
      yc load-balancer network-load-balancer get load-generator | grep "address"
      ```
      
-     Результат:
+     Результат выполнения команды:
 
      ```bash
        address: 84.252.133.110
@@ -452,7 +441,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
-  1. Выберите сервис **{{ compute-short-name }}**.
+  1. Выберите сервис **{{ compute-name }}**.
   1. Перейдите в раздел **Группы виртуальных машин**.
   1. Нажмите на имя группы ВМ `group-for-load`.
   1. На странице группы нажмите кнопку ![pencil](../../_assets/pencil.svg) **Изменить**.
@@ -478,7 +467,7 @@
       yc compute instance-group update --name=group-for-load --file=specification.yaml
       ```
 
-      Результат:
+      Результат выполнения команды:
 
       ```bash
       done (9m24s)
@@ -508,7 +497,7 @@
 
 Остановите работу `wrk`, нажав сочетание клавиш **Ctrl** + **C**.
 
-Результат:
+Результат выполнения команды:
 
 ```bash
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -534,7 +523,7 @@ Transfer/sec:     206.94B
       1. В списке сервисов выберите **{{ network-load-balancer-name }}**.
       1. Справа в строке балансировщика `load-generator` нажмите кнопку ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить**.
       1. В открывшемся окне нажмите кнопку **Удалить**.
-   1. Удалите группу виртуальных машин:
+   1. Удалите группу ВМ:
       1. Перейдите в корень каталога.
       1. В списке сервисов выберите **{{ compute-name }}**.
       1. Перейдите на вкладку **Группы виртуальных машин**.
@@ -571,11 +560,10 @@ Transfer/sec:     206.94B
 - API
 
   Воспользуйтесь методами:
-  
-  1. [delete](../../network-load-balancer/api-ref/NetworkLoadBalancer/delete.md) для ресурса `NetworkLoadBalancer`, чтобы удалить балансировщик `load-generator`;
-  1. [delete](../../compute/api-ref/InstanceGroup/delete.md) для ресурса `InstanceGroup`, чтобы удалить группу ВМ `load-generator`;
-  1. [delete](../../iam/api-ref/ServiceAccount/delete.md) для ресурса `ServiceAccount`, чтобы удалить сервисный аккаунт `yc-auto-sa`;
-  1. [delete](../../vpc/api-ref/Subnet/delete.md) для ресурса `Subnet`, чтобы удалить подсети `yc-auto-subnet-1` и `yc-auto-subnet-2`;
+  1. [delete](../../network-load-balancer/api-ref/NetworkLoadBalancer/delete.md) для ресурса `NetworkLoadBalancer`, чтобы удалить балансировщик `load-generator`.
+  1. [delete](../../compute/api-ref/InstanceGroup/delete.md) для ресурса `InstanceGroup`, чтобы удалить группу ВМ `load-generator`.
+  1. [delete](../../iam/api-ref/ServiceAccount/delete.md) для ресурса `ServiceAccount`, чтобы удалить сервисный аккаунт `yc-auto-sa`.
+  1. [delete](../../vpc/api-ref/Subnet/delete.md) для ресурса `Subnet`, чтобы удалить подсети `yc-auto-subnet-1` и `yc-auto-subnet-2`.
   1. [delete](../../vpc/api-ref/Network/delete.md) для ресурса `Network`, чтобы удалить сеть `yc-auto-network`.
 
 {% endlist %}

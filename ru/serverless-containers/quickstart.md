@@ -1,6 +1,6 @@
 # Начало работы с {{ serverless-containers-name }}
 
-В этой инструкции вы [подготовите](#prepare) Docker-образ контейнера в {{ container-registry-full-name }} и [добавите](#deploy) его в {{ serverless-containers-name }}.
+В этой инструкции вы [подготовите](#prepare) [Docker-образ](../container-registry/concepts/docker-image.md) контейнера в {{ container-registry-full-name }} и [добавите](#deploy) его в {{ serverless-containers-name }}.
 
 ## Подготовьте Docker-образ контейнера {#prepare}
 
@@ -9,10 +9,9 @@ Docker-образ — исполняемый пакет, который соде
 {% include [port-variable-note.md](../_includes/serverless-containers/port-variable-note.md) %}
 
 Чтобы подготовить Docker-образ контейнера:
-
 1. [Создайте](../container-registry/operations/registry/registry-create.md) реестр.
-2. [Создайте и соберите](../container-registry/operations/docker-image/docker-image-create.md) Docker-образ на основе [Dockerfile](https://docs.docker.com/engine/reference/builder/). 
-3. [Загрузите](../container-registry/operations/docker-image/docker-image-push.md) Docker-образ в реестр.
+1. [Создайте и соберите](../container-registry/operations/docker-image/docker-image-create.md) Docker-образ на основе [Dockerfile](https://docs.docker.com/engine/reference/builder/).
+1. [Загрузите](../container-registry/operations/docker-image/docker-image-push.md) Docker-образ в реестр.
 
 ### Примеры приложений и Dockerfile
 

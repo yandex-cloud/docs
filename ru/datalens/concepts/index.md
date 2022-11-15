@@ -1,5 +1,5 @@
 ---
-title: {{ datalens-full-name }}. Обзор сервиса
+title: "{{ datalens-full-name }}. Обзор сервиса"
 description: "{{ datalens-full-name }} — это сервис для бизнес-аналитики. Сервис позволяет подключаться к различным источникам данных, строить визуализации, собирать дашборды и делиться полученными результатами."
 ---
 
@@ -11,7 +11,7 @@ description: "{{ datalens-full-name }} — это сервис для бизне
 
 {% note warning %}
 
-Количество экземпляров {{ datalens-short-name }} в одном [облаке {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md#cloud) — 1. 
+Количество экземпляров {{ datalens-short-name }} в одном [облаке {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md#cloud) — 1.
 
 {% endnote %}
 
@@ -23,6 +23,7 @@ description: "{{ datalens-full-name }} — это сервис для бизне
 ![image](../../_assets/datalens/concepts/datalens.svg)
 
 {{ datalens-short-name }} состоит из следующих сущностей:
+
 - **Подключение** — набор параметров для доступа к источнику данных.
 - **Датасет** — описание набора данных из источника.
 - **Чарт** — визуализация данных из источника данных, датасета в виде таблиц, диаграмм и карт.

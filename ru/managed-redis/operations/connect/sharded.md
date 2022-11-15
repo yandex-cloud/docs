@@ -10,7 +10,7 @@
 
 {% include [IDE environment settings](../../../_includes/mdb/mrd/ide-envs.md) %}
 
-Подключаться из графических IDE к хостам кластера можно только через SSH-туннель с помощью [созданной ВМ](./index.md#connect). Перед подключением [подготовьте сертификат](./index.md#get-ssl-cert).
+Подключаться из графических IDE к хостам кластера можно только через [SSH-туннель](../../../glossary/ssh-keygen.md) с помощью [созданной ВМ](./index.md#connect). Перед подключением [подготовьте сертификат](./index.md#get-ssl-cert).
 
 {% list tabs %}
 

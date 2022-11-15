@@ -78,7 +78,7 @@ items:
   - name: API reference
     items:
       - name: Authentication in the API
-        href: api-ref/authentication.md
+        href: api-ref/apigateway/authentication.md
       - name: gRPC
         items:
           - name: Overview
@@ -119,6 +119,30 @@ items:
                 href: apigateway/api-ref/ApiGateway/update.md
               - name: updateAccessBindings
                 href: apigateway/api-ref/ApiGateway/updateAccessBindings.md
+  - name: Websocket API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/websocket/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: apigateway/websocket/api-ref/grpc/index.md
+          - name: ConnectionService
+            href: apigateway/websocket/api-ref/grpc/connection_service.md
+      - name: REST
+        items:
+          - name: Overview
+            href: apigateway/websocket/api-ref/index.md
+          - name: Connection
+            items:
+              - name: Overview
+                href: apigateway/websocket/api-ref/Connection/index.md
+              - name: disconnect
+                href: apigateway/websocket/api-ref/Connection/disconnect.md
+              - name: get
+                href: apigateway/websocket/api-ref/Connection/get.md
+              - name: send
+                href: apigateway/websocket/api-ref/Connection/send.md
   - name: Questions and answers
     href: qa/index.md
 base: en/api-gateway

@@ -1,5 +1,5 @@
 ---
-title: Объединение данных {{ datalens-full-name }}
+title: "Объединение данных {{ datalens-full-name }}"
 description: "При создании дашборда в {{ datalens-full-name }} часто используется связь, которая определяет влияние селектора на один или несколько чартов, а также на другие селекторы. Связь позволяет фильтровать значения селекторов и чартов. В статье описывается, как  объединить данные из разных датасетов для настройки связи между виджетами."
 ---
 
@@ -56,6 +56,7 @@ description: "При создании дашборда в {{ datalens-full-name 
 ### На уровне связей селекторов {#selector-join}
 
 Можно добавить на дашборд селектор, который влияет на результаты запросов в связанных с ним виджетах:
+
 * на дашборде селекторы и чарты, построенные на основе одного датасета, связываются автоматически;
 * селекторы и чарты, построенные на основе разных датасетов, можно связать вручную с помощью алиасов.
 
@@ -149,7 +150,7 @@ description: "При создании дашборда в {{ datalens-full-name 
 
 ![image](../../_assets/datalens/concepts/joins/case-1-chart-opt.png)
 
-{% endcut %} 
+{% endcut %}
 
 {% cut "LEFT/RIGHT JOIN двух таблиц" %}
 
@@ -167,7 +168,7 @@ description: "При создании дашборда в {{ datalens-full-name 
 
 Так же работает оптимизация и для оператора [RIGHT JOIN](https://ru.wikipedia.org/wiki/Join_(SQL)#RIGHT_OUTER_JOIN).
 
-{% endcut %} 
+{% endcut %}
 
 {% cut "INNER JOIN трех таблиц" %}
 
@@ -190,7 +191,7 @@ description: "При создании дашборда в {{ datalens-full-name 
 
 ![image](../../_assets/datalens/concepts/joins/case-3-chart-2.png)
 
-{% endcut %} 
+{% endcut %}
 
 {% cut "INNER JOIN одной таблицы с двумя другими" %}
 
@@ -213,7 +214,7 @@ description: "При создании дашборда в {{ datalens-full-name 
 
 ![image](../../_assets/datalens/concepts/joins/case-4-chart-opt-2.png)
 
-{% endcut %} 
+{% endcut %}
 
 {% cut "INNER JOIN четырех таблиц" %}
 
@@ -237,4 +238,4 @@ description: "При создании дашборда в {{ datalens-full-name 
 
 ![image](../../_assets/datalens/concepts/joins/case-5-chart-opt-2.png)
 
-{% endcut %} 
+{% endcut %}

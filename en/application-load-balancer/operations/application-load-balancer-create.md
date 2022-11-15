@@ -62,7 +62,6 @@ To create an L7 load balancer:
 
       Result:
 
-      
       ```
       done (1m40s)
       id: a5d88ep483cmbfm63g9t
@@ -82,8 +81,6 @@ To create an L7 load balancer:
       log_group_id: eolul9ap0bv02i8bsp87
       created_at: "2021-04-26T12:12:13.624832586Z"
       ```
-
-
 
    1. Add a listener for an L7 load balancer:
 

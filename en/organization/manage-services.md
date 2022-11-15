@@ -1,25 +1,29 @@
 
-
 # Managing clouds and services
 
 Use {{ org-full-name }} to expand the capabilities of your business. Create a [cloud](#cloud) and connect [collaboration and business intelligence services](#collaboration).
 
 Collaboration services and business intelligence tools are available to all organizations. To use [{{ yandex-cloud }} services]({{ link-cloud-services }}), create a cloud.
 
+{% note info %}
+
+All clouds and services can be managed by users with the `organization-manager.organizations.owner` role. For information on assigning roles to users, see [Roles](roles.md#admin).
+
+{% endnote %}
+
 To go to cloud and service management:
 
-1. [Log in]({{ link-passport }}) to the organization's administrator account.
+1. [Log in]({{link-passport}}) to the organization's administrator or owner account.
 
-1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-1. In the left panel, select [Clouds and services]({{ link-org-services }}) ![icon-services](../_assets/organization/icon-services.svg).
+1. In the left panel, select [Clouds and services]({{link-org-services}}) ![icon-services](../_assets/organization/icon-services.svg).
 
    The page displays a list of clouds connected to the organization as well as services, such as {{ tracker-full-name }}, {{ wiki-full-name }}, {{ forms-full-name }}, and {{ datalens-full-name }}.
 
 1. To go to a service, click the service card.
 
    To open a cloud in the {{ yandex-cloud }} console, click the cloud name.
-
 
 
 
@@ -30,7 +34,6 @@ A cloud is your organization's workspace. All the clouds connected to your organ
 A corporate administrator can create new directories and resources in the cloud, connect {{ yandex-cloud }} services, and manage relevant access. Learn more about using {{ yandex-cloud }} resources in the [{{ resmgr-full-name }} documentation](../resource-manager/concepts/resources-hierarchy.md).
 
 An organization's first cloud will connect automatically when an administrator logs in to the [{{ yandex-cloud }} console]({{ link-console-main }}). To connect an additional cloud, you need to create a [billing account](../billing/quickstart/).
-
 
 
 ## Collaboration and business intelligence services {#collaboration}
@@ -52,4 +55,4 @@ Collaboration services and business intelligence tools are available to all orga
 * [{{ datalens-full-name }}]({{ link-datalens-main }}) is a service that enables you to track product and business metrics and make data-informed decisions. In {{ datalens-full-name }}, you can connect various data sources, build visualizations and dashboards, and share results.
 
    For more information about the service and its features, see the [{{ datalens-full-name }} documentation](../datalens/).
-
+

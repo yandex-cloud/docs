@@ -27,7 +27,7 @@
 
    {% endnote %}
 
-1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к ВМ по SSH.
+1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к ВМ по [SSH](../glossary/ssh-keygen.md).
 
 1. Установите утилиту `kafkacat` — приложение с открытым исходным кодом, которое может работать как универсальный производитель или потребитель данных:
 

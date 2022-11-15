@@ -1,72 +1,71 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/issues/get-transitions.md
+sourcePath: ru/tracker/api-ref/concepts/issues/get-transitions.md
 ---
-# Get transitions
+# Получить переходы
 
-Use this request to get a list of possible issue transitions. The issue is selected when its ID or key is specified.
+Запрос позволяет получить список возможных переходов задачи. Задача выбирается при указании идентификатора или ключа задачи.
 
-## Request format {#section_rnm_x4j_p1b}
+## Формат запроса {#section_rnm_x4j_p1b}
 
-Before making the request, [get permission to access the API](../access.md).
+Перед выполнением запроса [получите доступ к API](../access.md).
 
-To get a list of possible transitions, use an HTTP `GET` request:
+Для получения списка возможных переходов используйте HTTP-запрос с методом `GET`:
 
 ```json
 GET /v2/issues/<issue-id>/transitions
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}
+{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %} 
 
-## Response format {#section_xc3_53j_p1b}
+## Формат ответа {#section_xc3_53j_p1b}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    The response body contains the results in JSON format.
+    Тело ответа содержит результаты в формате JSON.
 
     ```json
     [
         {
             "id": "resolve",
             "self": "{{ host }}/v2/issues/JUNE-2/transitions/resolve",
-            "display": "Resolve",
+            "display": "Решить",
             "to": {
                 "self": "{{ host }}/v2/statuses/1",
                 "id": "1",
                 "key": "open",
-                "display": "Open"
+                "display": "Открыт"
             }
         },
         ...
     ]
     ```
 
-  {% cut "Response parameters" %}
+  {% cut "Параметры ответа" %}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | id | Transition ID. | String |
-    | self | Address of the API resource with information about the transition. | String |
-    | display | Transition name displayed. Matches the corresponding button name in the {{ tracker-name }} interface. | String |
-    | [to](#to) | Object with information about a new issue status. | Object |
-
-    **Object fields** `to` {#to}
+    Параметр | Описание | Тип данных
+    ----- | ----- | -----
+    id | Идентификатор перехода. | Строка
+    self |  Адрес ресурса API, который содержит информацию о переходе. | Строка
+    display | Отображаемое имя перехода. Соответствует названию кнопки в интерфейсе {{ tracker-name }}. | Строка
+    [to](#to) | Объект с информацией о новом статусе задачи. | Объект
+    	
+    **Поля объекта** `to` {#to}
 
     {% include [status](../../../_includes/tracker/api/status.md) %}
-
+  
   {% endcut %}
 
-- Request failed
+- Запрос выполнен с ошибкой
 
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
-

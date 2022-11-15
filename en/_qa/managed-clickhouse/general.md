@@ -145,7 +145,7 @@ The cluster characteristics change within 30 minutes. During this period, other 
 
 
 
-{% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
+{% include [fz-152.md](../../_qa/fz-152.md) %}
 
 
 

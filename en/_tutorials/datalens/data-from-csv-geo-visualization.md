@@ -147,7 +147,7 @@ The dataset will consist of a single source: the CSV file.
 
       {% note info %}
 
-      The example is based on ready-to-use data in coordinate format. In other cases, to convert data to coordinate format, you can use the [geocoding](https://cloud.yandex.com/docs/datalens/function-ref/GEOCODE) function.
+      The example is based on ready-to-use data in coordinate format.
 
       {% endnote %}
 

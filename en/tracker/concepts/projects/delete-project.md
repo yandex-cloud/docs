@@ -1,50 +1,51 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/projects/delete-project.md
+sourcePath: ru/tracker/api-ref/concepts/projects/delete-project.md
 ---
-# Delete a project
+# Удалить проект
 
-Use this request to delete [projects](../../manager/projects.md).
+Запрос позволяет удалить [проект](../../manager/project-new.md).
 
-## Request format {#query}
+## Формат запроса {#query}
 
-Before making the request, [get permission to access the API](../access.md).
+Перед выполнением запроса [получите доступ к API](../access.md).
 
-To delete a project, use an HTTP `DELETE` request.
+Чтобы удалить проект, используйте HTTP-запрос с методом `DELETE`.
 
 ```
 DELETE /{{ ver }}/projects/<project-id>
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
+
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Resource" %}
+{% cut "Ресурс" %}
 
-| Parameter | Description | Data type |
-| -------- | -------- | ---------- |
-| \<project-id> | Project ID | Number |
+Параметр | Описание | Тип данных
+-------- | -------- | ----------
+\<project-id> | Идентификатор проекта | Число
 
 {% endcut %}
 
-## Response format {#answer}
+
+## Формат ответа {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
     {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %}
 
-- Request failed
+- Запрос выполнен с ошибкой
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
 
     {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
-
+    
     {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
-
+    
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
-
+    
 {% endlist %}
-

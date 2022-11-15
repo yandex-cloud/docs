@@ -1,103 +1,103 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/issues/search-issues.md
+sourcePath: ru/tracker/api-ref/concepts/issues/search-issues.md
 ---
-# Searching for issues
+# Найти задачи
 
-Use this request to get a list of issues that meet specific criteria.
+Запрос позволяет получить список задач, удовлетворяющих заданному критерию. 
 
-If the result contains between 50 and 10,000 lines, use [result pagination](../../common-format.md#displaying-results).
+Если количество строк в ответе от 50 до 10000, используйте [постраничное отображение результатов](../../common-format.md#displaying-results).
 
-If the number of lines in the results exceeds 10,000, use [results scrolling](#scroll).
+Если количество строк в ответе более 10000, используйте [механизм прокрутки результатов](#scroll).
 
-## Request format {#section_rnm_x4j_p1b}
+## Формат запроса {#section_rnm_x4j_p1b}
 
-Before making the request, [get permission to access the API](../access.md).
+Перед выполнением запроса [получите доступ к API](../access.md).
 
-To search for issues, use an HTTP `POST` request. The request body contains the search criteria.
+Для поиска задач используйте HTTP-запрос с методом `POST`. Тело запроса содержит критерии для поиска.
 
 ```json
 POST /v2/issues/_search
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 
 {
   "filter": {
-    "<field name>": "<field value>"
+    "<имя поля>": "<значение в поле>"
   },
-  "query": "filter in the query language",
-  "expand": "additional fields",
-  "keys": "list of issue keys",
-  "queue": "queue key"
+  "query": "фильтр на языке запросов",
+  "expand": "дополнительные поля",
+  "keys": "список ключей задач",
+  "queue": "ключ очереди"
 }
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Request parameters" %}
+{% cut "Параметры запроса" %}
 
-**Additional parameters**
+**Дополнительные параметры**
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| order | The direction and field for sorting issues. The value is specified in `[+/-]<field name>` format. Use the + or - sign to indicate the sort direction. | String |
-| expand | Additional fields to be included in the response: <ul><li>`transitions`: Workflow transitions between statuses.</li><li>`attachments`: Attachments.</li></ul> | String |
-| perPage | Number of issues per response page. Default: 50. To set up additional response output parameters, use [pagination](../../common-format.md#displaying-results). | Number |
-
-{% endcut %}
-
-{% cut "Request body parameters" %}
-
-**Additional parameters**
-
-| Parameter | Description | Format |
-| ----- | ----- | ----- |
-| filter | Parameters for filtering issues. The parameter can specify any field and value to filter by. | Object |
-| query | A filter using the [query language](../../user/query-filter.md). | String |
-| expand | Additional fields to include in the response:<ul><li>`transitions`: Workflow transitions between statuses.</li><li>`attachments`: Attached files.</li></ul> | String |
-| keys | List of issue keys. This parameter is not used in conjunction with the `filter` or `query` parameters. If you pass these parameters together, a search will only be performed by `keys`. | String |
-| queue | Queue. This parameter is not used in conjunction with the `filter` or `query` parameters. If you pass these parameters together, a search will only be performed by `queue`. | String |
-
-The `queue` and `keys` parameters can't be used in conjunction with the `filter` or `query` parameters. If they are passed together, the response will contain code 400 with a message saying `You can only use keys, a queue or a search query.`
+Параметр | Описание | Тип данных
+----- | ----- | -----
+order | Направление и поле сортировки задач. Значение указывается в формате `[+/-]<название поля>`. Знак + или - обозначает направление сортировки. | Строка
+expand |  Дополнительные поля, которые будут включены в ответ: <ul><li>`transitions` — переходы по жизненному циклу;</li><li>`attachments` — вложения.</li></ul> | Строка
+perPage | Количество задач на странице ответа. Значение по умолчанию — 50. Дополнительные параметры показа ответа можно настроить с помощью  механизма [постраничного отображения](../../common-format.md#displaying-results). | Число
 
 {% endcut %}
 
-> Request for a list of issues with additional filtering options:
->
->- An HTTP POST method is used.
->- Paginated results are enabled, and each page contains two entries.
->- The response will display attachments.
->- The response should only contain issues from the <q>JUNE</q> queue that don't have an assignee.
->
->```
->POST /v2/issues/_search?scrollType=sorted&amp;perScroll=2&expand=attachments HTTP/1.1
->Host: {{ host }}
->Authorization: OAuth <OAuth token>
->{{ org-id }}
->
->{
->  "filter": {
->    "queue": "JUNE",
->    "assignee": "Empty()"
->  }
->}
->```
+{% cut "Параметры тела запроса" %}
 
-## Response format {#section_xc3_53j_p1b}
+**Дополнительные параметры**
+
+Параметр | Описание | Формат
+----- | ----- | -----
+filter | Параметры фильтрации задач. В параметре можно указать название любого поля и значение, по которому будет производиться фильтрация. | Объект
+query | Фильтр на [языке запросов](../../user/query-filter.md). | Строка
+expand | Дополнительные поля, которые будут включены в ответ:<ul><li>`transitions` — переходы по жизненному циклу;</li><li>`attachments` — вложения.</li></ul> | Строка
+keys | Список ключей задач. Данный параметр не используется вместе с параметрами `filter` или `query`. При совместной передаче этих параметров, поиск будет производиться только по `keys`. | Строка
+queue | Очередь. Данный параметр не используется вместе с параметрами `filter` или `query`. При совместной передаче этих параметров, поиск будет производиться только по `queue`. | Строка
+
+Параметры `queue` и `keys` не используются одновременно с параметрами `filter` или `query`. При их совместной передаче ответ будет содержать код 400 с сообщением `Вы можете использовать только ключи, очередь или поисковый запрос.`
+
+{% endcut %}
+
+> Запрос списка задач с указанием дополнительных параметров фильтрации:
+> 
+> - Используется HTTP-метод POST.
+> - Включено постраничное отображение, каждая страница содержит по две записи.
+> - В ответе включено отображение приложений.
+> - Ответ должен содержать только задачи из очереди <q>JUNE</q>, в которых не указан исполнитель.
+> 
+> ```
+> POST /v2/issues/_search?scrollType=sorted&amp;perScroll=2&expand=attachments HTTP/1.1
+> Host: {{ host }}
+> Authorization: OAuth <OAuth-токен>
+> {{ org-id }}
+> 
+> {
+>   "filter": {
+>     "queue": "JUNE",
+>     "assignee": "Empty()"
+>   }
+> }
+> ```
+
+## Формат ответа {#section_xc3_53j_p1b}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    The response body contains the results in JSON format.
+    Тело ответа содержит результаты в формате JSON.
 
     {% include [answer-issue](../../../_includes/tracker/api/answer-issue.md) %}
 
-- Request failed
+- Запрос выполнен с ошибкой
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
 
     {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
@@ -109,106 +109,105 @@ The `queue` and `keys` parameters can't be used in conjunction with the `filter`
 
 {% endlist %}
 
-## Scrolling through search results {#scroll}
+## Прокрутка результатов поиска {#scroll}
 
-If search results contain more than 10,000 lines, we recommend using results scrolling.
+Если ответ на запрос поиска задач содержит более 10000 строк, рекомендуем использовать механизм прокрутки результатов.
 
-When you use scrolling, your request returns a page with search results and an ID for getting the next page.
+При использовании механизма прокрутки в ответ на запрос возвращается страница с результатами поиска и идентификатором для получения следующей страницы. 
 
-Search results can be sorted or displayed as a random list. To reduce the amount of resources required to process a large volume of issues, use scrolling without sorting.
+Результаты поиска можно отобразить в отсортированном виде или в произвольном порядке. Чтобы уменьшить количество затрачиваемых ресурсов при поиске большого количества задач, используйте механизм прокрутки без сортировки.
 
 {% note info %}
 
-Scrolling takes up more resources than [pagination](../../common-format.md#displaying-results).
+Прокрутка результатов поиска требует больше ресурсов по сравнению с [постраничным отображением результатов](../../common-format.md#displaying-results).
 
 {% endnote %}
 
-### Scrolling request parameters {#scroll-params}
+### Параметры запроса с прокруткой {#scroll-params}
 
 - **scrollType**
 
-    Scrolling type. Acceptable values:
-    - `sorted`: The sorting specified in the request is used.
-    - `unsorted`: No sorting is used.
+    Тип прокрутки. Допустимые значения:
 
-    This parameter is only used for the first request when using scrolling.
+    - `sorted` — используется указанная в запросе сортировка;
+    - `unsorted` — сортировка не используется.
 
-    This parameter isn't used in combination with the `keys` or `queue` search parameter. If you use these parameters when scrolling, the response will contain code 400 with a message saying `Results scrolling not supported`. To find issues within a queue, use the `filter` or `query` parameters.
+    Данный параметр используется только в первом из серии запросов прокрутки. 
+
+    Данный параметр не используется совместно с параметрами поиска `keys` или `queue`. При использовании прокрутки и этих параметров ответ будет содержать код 400 и сообщение `Прокрутка результатов не поддерживается`. Чтобы найти задачи очереди, используйте параметры `filter` или `query`.
 
 - **perScroll**
 
-    Maximum number of issues per response. The default value is 100. The maximum allowed value is 1000.
+    Максимальное количество задач в ответе. Значение по умолчанию — 100, максимально допустимое значение — 1000.
 
-    This parameter is only used for the first request when using scrolling.
+    Данный параметр используется только в первом из серии запросов прокрутки. 
 
-- **scrollTTLMillis (optional parameter)**
+- **scrollTTLMillis (необязательный параметр)**
 
-    Scroll context and `scrollToken` lifetime in milliseconds. The default value is 5000. The maximum allowed value is 60,000.
+    Время жизни контекста прокрутки и токена `scrollToken` в миллисекундах. Значение по умолчанию — 5000, максимально допустимое значение — 60000.
 
 - **scrollId**
 
-    Page ID.
+    Идентификатор страницы. 
 
-    This parameter is specified in the second and all subsequent requests in a scrolling sequence. The parameter value is taken from the `X-Scroll-Id` header included in the response to the previous request in a sequence.
+    Данный параметр указывается во втором и следующих запросах серии прокрутки. Значение параметра должно быть получено из заголовка `X-Scroll-Id`, который возвращается в ответе на предыдущий запрос серии.
 
 - **scrollToken**
 
-    Token that certifies that the request belongs to the current user.
+    Токен, удостоверяющий принадлежность запроса текущему пользователю.
 
-    This parameter is specified in the second and all subsequent requests in a scrolling sequence. The parameter value is taken from the `X-Scroll-Token` header included in the response to the previous request in a sequence.
+    Данный параметр указывается во втором и следующих запросах серии прокрутки. Значение параметра должно быть получено из заголовка `X-Scroll-Token`, который возвращается в ответе на предыдущий запрос серии.
+    
+    Время жизни токена соответствует значению, указанному в параметре **scrollTTLMillis**. Если время жизни токена истекло, ответ будет содержать код 403 и сообщение `Просроченная подпись`.
 
-    The token lifetime is equal to the value set in the **scrollTTLMillis** parameter. If token lifetime has expired, the response will contain code 403 with a message saying `Expired signature`.
+### Ответ на запрос с прокруткой {#scroll-response}
 
-### Responses to queries with scrolling {#scroll-response}
+При использовании прокрутки создается слепок результатов поиска. Переключение между страницами результатов осуществляется в рамках данного слепка. Таким образом, если какая-либо задача будет изменена и перестанет отвечать требованиям поискового запроса, это не повлияет на отображение задачи в слепке результатов поиска. 
 
-Using scrolling creates a snapshot of search results. You can only switch between search results pages within this snapshot. This way, if an issue is edited and no longer meets the search query criteria, it won't affect the issue's output in the search results snapshot.
+Слепок результатов поиска сохраняется, пока не будут просмотрены все страницы. Если вы не хотите загружать все результаты поиска, освободите занятые ресурсы с помощью запроса [{#T}](search-release.md).
 
-The search results snapshot is saved until all pages have been viewed. If you don't want to load all search results, free up resources currently in use with the [{#T}](search-release.md) request.
-
-The response contains the following headers:
+Ответ содержит заголовки:
 
 - **Link**
 
-    Link to go to the next page of the search results. You can only use this link to go to the next or the first page.
+    Ссылка для перехода на следующую страницу результатов поиска. Ссылку можно использовать только для перехода к следующей и к первой страницам.
 
 - **X-Scroll-Id**
 
-    Page ID.
+    Идентификатор страницы.
 
 - **X-Scroll-Token**
 
-    Token that certifies that the request belongs to the current user.
+    Токен, удостоверяющий принадлежность запроса текущему пользователю.
 
 - **X-Total-Count**
 
-    Total number of entries in the response.
+    Общее число записей в ответе.
 
-### Example {#scroll-example}
+### Пример {#scroll-example}
 
-Let's look at an example of search results with the scrolling option enabled: we need to find all issues assigned to a specific employee.
+Рассмотрим получение результатов поиска с использованием прокрутки на примере: найти все задачи, которые назначены на сотрудника. 
 
-Request conditions:
+Условия запроса:
+- Используется HTTP-метод `GET`.
+- Ключ очереди — <q>TREK</q>.
+- Исполнитель задачи — <user_login>.
+- Результаты поиска должны быть отсортированы.
 
-- An HTTP `GET` method is used.
-- Queue key: <q>TREK</q>.
-- Issue assignee: <user_login>.
-- Search results must be sorted.
+Последовательность выполнения серии запросов:
 
-Here is the request sequence:
-
-1. Create the first request using the following parameters:
+1. Создайте первый запрос серии с параметрами:
     - `scrollType=sorted`
     - `perScroll=100`
-    - `scrollTTLMillis=10000`
+    - `scrollTTLMillis=10000` 
 
-    Example:
-
+    Пример:
     ```json
     POST /v2/issues/_search?scrollType=sorted&perScroll=100&scrollTTLMillis=10000
     Host: {{ host }}
-    Authorization: OAuth <OAuth token>
+    Authorization: OAuth <OAuth-токен>
     {{ org-id }}
-    
+
     {
       "filter": {
         "queue": "TREK",
@@ -217,24 +216,23 @@ Here is the request sequence:
     }
     ```
 
-    The response will only contain the issue list and the following headers:
-    - `Link`.
+    Ответ на запрос будет содержать список задач и заголовки:
+    - `Link`;
     - `X-Total-Count`.
+    
+    Если прокрутка еще не закончена, также возвращаются заголовки:
+    - `X-Scroll-Id`. Значение используется в параметре `scrollId` для получения следующей страницы результатов.
+    - `X-Scroll-Token`. Значение используется в параметре `scrollToken` для получения следующей страницы результатов.
 
-    If scrolling is not finished, you will also get the following headers:
-    - `X-Scroll-Id`. This value is used in the `scrollId` parameter for getting the next results page.
-    - `X-Scroll-Token`. This value is used in the `scrollToken` parameter for getting the next results page.
-
-1. Create the second request in the sequence by using the `scrollId` and `scrollToken` parameters you received during the previous step.
-
-    Example:
-
+1. Создайте второй запрос серии с параметрами `scrollId` и `scrollToken`, полученными на предыдущем шаге.
+    
+    Пример:
     ```json
     POST /v2/issues/_search?scrollId=cXVlcnlU<...>&scrollToken=08e06389<...>&scrollTTLMillis=10000
     Host: {{ host }}
-    Authorization: OAuth <OAuth token>
+    Authorization: OAuth <OAuth-токен>
     {{ org-id }}
-    
+
     {
       "filter": {
         "queue": "TREK",
@@ -242,8 +240,7 @@ Here is the request sequence:
       }
     }
     ```
+    
+    На запрос будет получен ответ со следующей страницей списка задач и очередными значениями `X-Scroll-Id` и `X-Scroll-Token`, если прокрутка еще не закончена. 
 
-    Your request will result in a response containing the next issue list page and subsequent values for `X-Scroll-Id` and `X-Scroll-Token` if scrolling isn't finished by this point.
-
-1. Continue sending requests until you receive all issues.
-
+1. Продолжайте отправлять запросы до тех пор, пока не получите все задачи. 

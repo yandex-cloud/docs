@@ -110,7 +110,7 @@ Hystax Acura Backup будет выполнять действия от имен
 
 ## Создайте ВМ с Hystax Acura Backup {#create-acura-vm}
 
-1. [Сгенерируйте](../../compute/operations/vm-connect/ssh#creating-ssh-keys) пару SSH-ключей. Они понадобятся при создании ВМ.
+1. [Сгенерируйте](../../compute/operations/vm-connect/ssh#creating-ssh-keys) пару [SSH-ключей](../../glossary/ssh-keygen.md). Они понадобятся при создании ВМ.
 1. Чтобы создать ВМ с рекомендуемыми характеристиками и загрузочным диском из образа Hystax Acura Backup:
 
     {% list tabs %}

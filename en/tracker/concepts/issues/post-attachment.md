@@ -1,31 +1,30 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/issues/post-attachment.md
+sourcePath: ru/tracker/api-ref/concepts/issues/post-attachment.md
 ---
-# Attach a file
+# Прикрепить файл
 
-Use this request to attach a file to an issue.
+Запрос позволяет прикрепить файл к задаче.
 
-## Request format {#query}
+## Формат запроса {#query}
 
-Before making the request, [get permission to access the API](../access.md).
+Перед выполнением запроса [получите доступ к API](../access.md).
 
-To attach a file, use an HTTP `POST` request.
+Чтобы прикрепить файл, используйте HTTP-запрос с методом `POST`.
 
 ```
 POST /{{ ver }}/issues/<issue-id>/attachments/
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 Content-Type: multipart/form-data
 
 <file_data>
 ```
 
-{% cut "Headers" %}
+{% cut "Заголовки" %}
 
 - **Host**
-
-    Address of the node that provides the API:
+    Адрес узла, предоставляющего API:
 
     ```
     {{ host }}
@@ -33,120 +32,118 @@ Content-Type: multipart/form-data
 
 - **Authorization**
 
-    OAuth token in `OAuth <token value>` format. For example:
+    OAuth-токен в формате `OAuth <значение токена>`, например:
 
     ```
     OAuth 0c4181a7c2cf4521964a72ff57a34a07
     ```
 
 
-
 - **X-Org-ID**
 
-    Organization ID.
-
+    Идентификатор организации.
+
 
 - **Content-Type**
 
-    Request body format. Must be `multipart/form-data`.
+    Формат тела запроса. Должен иметь значение `multipart/form-data`.
 
 {% endcut %}
 
-{% cut "Resource" %}
+{% cut "Ресурс" %}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<issue-id\> | Issue ID or key | String |
-
-{% endcut %}
-
-{% cut "Request parameters" %}
-
-**Additional parameters**
-
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<filename\> | New name that a file will be stored on the server as | String |
+Параметр | Описание | Тип данных
+----- | ----- | -----
+\<issue-id\> | Идентификатор или ключ задачи | Строка
 
 {% endcut %}
 
-{% cut "Request body parameters" %}
+{% cut "Параметры запроса" %}
 
-**Required parameters**
+**Дополнительные параметры**
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<file_data\> | Binary file. The file size may not exceed 1024 Mb. | File |
+Параметр | Описание | Тип данных
+----- | ----- | -----
+\<filename\> | Новое имя файла, с которым он будет храниться на сервере | Строка
 
 {% endcut %}
 
-## Response format {#answer}
+{% cut "Параметры тела запроса" %}
+
+**Обязательные параметры**
+
+Параметр | Описание | Тип данных
+----- | ----- | -----
+\<file_data\> | Файл в бинарном формате. Размер файла не должен превышать 1024 Мбит. | Файл
+
+{% endcut %}
+
+## Формат ответа {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
     {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
 
-    The response body contains the parameters of the attached file in JSON format.
+    Тело ответа содержит параметры прикрепленного файла в формате JSON.
 
     ```json
     {
-      "self" : "<address of the API resource corresponding to the file attached>",
-      "id" : "<file ID>",
-      "name" : "<file name>",
-      "content" : "<address to download the file from>",
-      "thumbnail" : "<address to download the preview from>",
+      "self" : "<адрес ресурса API, соответствующего прикрепленному файлу>",
+      "id" : "<идентификатор файла>",
+      "name" : "<имя файла>",
+      "content" : "<адрес для скачивания файла>",
+      "thumbnail" : "<адрес для скачивания превью>",
       "createdBy" : {
-        "self" : "<resource corresponding to the file author>",
-        "id" : "<username of the file author>",
-        "display" : "<name of the file author>"
+        "self" : "<ресурс, соответствующий создателю файла>",
+        "id" : "<логин создателя>",
+        "display" : "<имя создателя>"
       },
-      "createdAt" : "<date and time when the file is added>",
-      "mimetype" : "<file data type>",
-      "size" : <file size>,
+      "createdAt" : "<дата и время добавления файла>",
+      "mimetype" : "<тип данных файла>",
+      "size" : <размер файла>,
       "metadata" : {
-        "size" : "<dimensions (for images)>"
+        "size" : "<геометрический размер (для изображений)>"
       }
     }
     ```
 
-    {% cut "Response parameters" %}
+    {% cut "Параметры ответа" %}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Address of the API resource corresponding to the attached file. | String |
-    | id | Unique ID of the file. | String |
-    | name | File name. | String |
-    | content | Address of the resource to download the file from. | String |
-    | thumbnail | Address of the resource to download the preview thumbnail from. Available for image files only. | String |
-    | [createdBy](#createdBy) | Object with information about the user who attached the file. | Object |
-    | createdAt | Date and time when the file is uploaded, in <br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` format | String |
-    | mimetype | File type, for example:<ul><li>`text/plain`: Text file.</li><li>`image/png`: Image in PNG format.</li></ul> | String |
-    | size | File size in bytes. | Integer |
-    | [metadata](#metadata) | Object with file metadata. | Object |
+    Параметр | Описание | Тип данных
+    ----- | ----- | -----
+    self | Адрес ресурса API, который соответствует прикрепленному файлу. | Строка
+    id | Уникальный идентификатор файла. | Строка
+    name | Имя файла. | Строка
+    content | Адрес ресурса для скачивания файла. | Строка
+    thumbnail | Адрес ресурса для скачивания миниатюры предпросмотра. Доступно только для графических файлов. | Строка
+    [createdBy](#createdBy) | Объект с информацией о пользователе, прикрепившем файл. | Объект
+    createdAt | Дата и время загрузки файла в формате:<br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` | Строка
+    mimetype | Тип файла, например:<ul><li>`text/plain` — текстовый файл;</li><li>`image/png` — изображение в формате png.</li></ul> | Строка
+    size | Размер файла в байтах. | Целое число
+    [metadata](#metadata) | Объект с метаданными файла. | Объект
 
-    **Object fields** `createdBy` {#createdBy}
+    **Поля объекта** `createdBy` {#createdBy}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Address of the resource corresponding to the user who uploaded the file | String |
-    | id | Username of the user | String |
-    | display | User's name (as in the interface) | String |
+    Параметр | Описание | Тип данных
+    ----- | ----- | -----
+    self | Адрес ресурса, соответствующего пользователю, загрузившему файл | Строка
+    id | Логин пользователя | Строка
+    display | Имя пользователя (как в интерфейсе) | Строка
 
-    **Object fields** `metadata` {#metadata}
+    **Поля объекта** `metadata` {#metadata}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | size | Image size in pixels | String |
+    Параметр | Описание | Тип данных
+    ----- | ----- | -----
+    size | Размер изображения в пикселях | Строка
 
     {% endcut %}
 
-- Request failed
+- Запрос выполнен с ошибкой
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
 
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
-

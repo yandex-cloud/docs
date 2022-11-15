@@ -4,7 +4,7 @@
 
 1. {% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
 1. Перейдите во вкладку ![docker](../../../_assets/datasphere/docker.svg) **Docker images**.
-1. Выберите шаблон Docker-образа с нужной версией Python. 
+1. Выберите шаблон [Docker-образа](../../concepts/docker.md) с нужной версией Python. 
 1. Нажмите **Set image to project**.
 
 {% note warning %}
