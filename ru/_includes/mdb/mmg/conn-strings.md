@@ -1,6 +1,6 @@
 ### Bash {#bash}
 
-Перед подключением установите [утилиту Mongo Shell](https://docs.mongodb.com/manual/mongo/#download-the-mongo-shell).
+Перед подключением установите [утилиту MongoDB Shell]({{ shell-link }}).
 
 {% list tabs %}
 

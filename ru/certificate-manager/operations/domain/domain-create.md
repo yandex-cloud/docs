@@ -1,4 +1,4 @@
-# Создание домена
+# Создать домен
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}
 

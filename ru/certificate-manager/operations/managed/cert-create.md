@@ -1,63 +1,60 @@
-# Создание сертификата от Let's Encrypt<sup>®</sup>
+# Создать сертификат от Let's Encrypt<sup>®</sup>
 
-Чтобы создать новый сертификат от Let's Encrypt:
+Чтобы создать новый [сертификат от Let's Encrypt](../../concepts/managed-certificate.md):
 
 {% list tabs %}
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан сертификат.
-    1. В списке сервисов выберите **{{ certificate-manager-name }}**.
-    1. Нажмите кнопку **Добавить сертификат**.
-    1. В открывшемся меню выберите **Сертификат от Let's Encrypt**.
-    1. В открывшемся окне в поле **Имя** введите имя сертифката.
-    1. (опционально) В поле **Описание** введите описание сертификата.
-    1. В поле **Домены** введите список доменов, для которых нужно создать сертификат.
-    1. Выберите [тип проверки прав на домен](../../concepts/challenges) `HTTP` или `DNS`. 
-    1. Нажмите кнопку **Создать**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан сертификат.
+  1. В списке сервисов выберите **{{ certificate-manager-name }}**.
+  1. Нажмите кнопку **Добавить сертификат**.
+  1. В открывшемся меню выберите **Сертификат от Let's Encrypt**.
+  1. В открывшемся окне в поле **Имя** введите имя сертифката.
+  1. (опционально) В поле **Описание** введите описание сертификата.
+  1. В поле **Домены** введите список доменов, для которых нужно создать сертификат.
+  1. Выберите [тип проверки прав на домен](../../concepts/challenges.md): `DNS` или `HTTP`. 
+  1. Нажмите кнопку **Создать**.
 
 - CLI
 
-    {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    1. Посмотрите описание команды:
+  1. Посмотрите описание команды:
 
-        ```bash
-        yc certificate-manager certificate request --help
-        ```
+     ```bash
+     yc certificate-manager certificate request --help
+     ```
 
-    1. Выполните команду:
+  1. Выполните команду:
 
-        ```bash
-        yc certificate-manager certificate request \
-          --name mymanagedcert \
-          --domains example.com
-        ```
+     ```bash
+     yc certificate-manager certificate request \
+       --name mymanagedcert \
+       --domains example.com
+     ```
 
-        Где:
+     Где:
+     * `--name` — имя сертификата.
+     * `--domains` — домены сертификатов.
 
-          - `--name` — имя сертификата.
-          - `--domains` — домены сертификатов.
+     Результат выполнения команды:
 
-        Результат:
-
-        ```bash
-        id: fpq6gvvm6piuegbb2nol
-        folder_id: b1g7gvsi89m34qmcm3ke
-        created_at: "2020-09-15T08:49:11.533771Z"
-        name: mymanagedcert
-        type: MANAGED
-        domains:
-        - example.com
-        status: VALIDATING
-        updated_at: "2020-09-15T08:49:11.533771Z"
-        ```
+     ```bash
+     id: fpq6gvvm6piuegbb2nol
+     folder_id: b1g7gvsi89m34qmcm3ke
+     created_at: "2020-09-15T08:49:11.533771Z"
+     ...
+     - example.com
+     status: VALIDATING
+     updated_at: "2020-09-15T08:49:11.533771Z"
+     ```
 
 - API
-  
-    Чтобы создать сертификат, воспользуйтесь методом [requestNew](../../api-ref/Certificate/requestNew.md) для ресурса [Certificate](../../api-ref/Certificate/).
+
+  Чтобы создать сертификат, воспользуйтесь методом [requestNew](../../api-ref/Certificate/requestNew.md) для ресурса [Certificate](../../api-ref/Certificate/).
 
 {% endlist %}
 

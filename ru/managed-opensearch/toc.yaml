@@ -3,6 +3,12 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
+  - name: Концепции
+    items:
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Правила тарификации
+    href: pricing.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

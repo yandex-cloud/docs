@@ -10,3 +10,4 @@ default:
     console:
       latest: '5.0'
       str: 4.2, 4.4, 5.0, 4.4-enterprise и 5.0-enterprise
+  shell-link: https://www.mongodb.com/try/download/shell
