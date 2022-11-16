@@ -11,6 +11,8 @@ default:
     console:
       latest: '5.0'
       str: '4.2, 4.4, 5.0, 4.4-enterprise и 5.0-enterprise'
+  # Ссылка для скачивания MongoDB Shell
+  shell-link: 'https://www.mongodb.com/try/download/shell'
 internal:
   policy: keep
 external:
