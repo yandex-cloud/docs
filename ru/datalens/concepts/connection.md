@@ -8,18 +8,20 @@ _Подключение_ содержит информацию о парамет
 
 * [{{ CH }}](../operations/connection/create-clickhouse.md)
 {% if audience == "internal" %} * [CH over YT](../operations/connection/chyt/create-chyt.md) {% endif %}
-* [File (CSV)](../operations/connection/create-file.md)
-* [Google Sheets](../operations/connection/create-google-sheets.md)
 * [{{ PG }}](../operations/connection/create-postgresql.md)
 * [{{ MY }}](../operations/connection/create-mysql.md)
 * [MS SQL Server](../operations/connection/create-mssql-server.md)
 * [Oracle Database](../operations/connection/create-oracle.md)
-* [{{ ydb-short-name }}](../operations/connection/create-ydb.md)
+* [Google Sheets](../operations/connection/create-google-sheets.md)
 * [Greenplum](../operations/connection/create-greenplum.md)
-{% if audience == "internal" %} * [{{ prometheus-name }}](../operations/connection/create-prometheus.md) {% endif %}
+* [{{ ydb-short-name }}](../operations/connection/create-ydb.md)
+* [{{ prometheus-name }}](../operations/connection/create-prometheus.md)
+* [File (CSV)](../operations/connection/create-file.md)
+{% if audience != "internal" %} * [Yandex Cloud Billing](../operations/connection/create-cloud-billing.md) {% endif %}
+{% if audience != "internal" %} * [Подкасты Аналитика](../operations/connection/create-podcasts.md) {% endif %}
+{% if audience != "internal" %} * [Yandex Monitoring](../operations/connection/create-monitoring.md) {% endif %}
 * [Metrica](../operations/connection/create-metrica-api.md)
 * [AppMetrica](../operations/connection/create-appmetrica.md)
-{% if audience != "internal" %} * [Yandex Cloud Billing](../operations/connection/create-cloud-billing.md) {% endif %}
 
 {% if audience == "internal" %}
 

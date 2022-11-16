@@ -122,27 +122,6 @@ items:
         items:
           - name: Создание подключения к ClickHouse
             href: operations/connection/create-clickhouse.md
-          - name: Создание подключения к файлу
-            href: operations/connection/create-file.md
-          - name: Создание подключения к Google Sheets
-            href: operations/connection/create-google-sheets.md
-          - name: Создание подключения к MySQL
-            href: operations/connection/create-mysql.md
-          - name: Создание подключения к PostgreSQL
-            href: operations/connection/create-postgresql.md
-          - name: Создание подключения к MS SQL Server
-            href: operations/connection/create-mssql-server.md
-          - name: Создание подключения к Oracle Database
-            href: operations/connection/create-oracle.md
-          - name: Создание подключения к YDB
-            href: operations/connection/create-ydb.md
-          - name: Создание подключения к Greenplum
-            href: operations/connection/create-greenplum.md
-          - name: Создание подключения к Prometheus
-            href: operations/connection/create-prometheus.md
-          - name: Создание подключения к Yandex Monitoring
-            href: operations/connection/create-monitoring.md
-            when: audience == "external"
           - name: Создание подключения к ClickHouse over YT
             when: audience == "internal"
             items:
@@ -152,13 +131,37 @@ items:
                 href: operations/connection/chyt/chyt-recommendations.md
               - name: Трассировка запроса в YT
                 href: operations/connection/chyt/chyt-datalens-tracing.md
+          - name: Создание подключения к PostgreSQL
+            href: operations/connection/create-postgresql.md
+          - name: Создание подключения к MySQL
+            href: operations/connection/create-mysql.md
+          - name: Создание подключения к MS SQL Server
+            href: operations/connection/create-mssql-server.md
+          - name: Создание подключения к Oracle Database
+            href: operations/connection/create-oracle.md
+          - name: Создание подключения к Google Sheets
+            href: operations/connection/create-google-sheets.md
+          - name: Создание подключения к Greenplum
+            href: operations/connection/create-greenplum.md
+          - name: Создание подключения к YDB
+            href: operations/connection/create-ydb.md
+          - name: Создание подключения к Prometheus
+            href: operations/connection/create-prometheus.md
+          - name: Создание подключения к файлу
+            href: operations/connection/create-file.md
+          - name: Создание подключения к Yandex Cloud Billing
+            href: operations/connection/create-cloud-billing.md
+            when: audience == "external"
+          - name: Создание подключения к подкастам Яндекс Музыки
+            href: operations/connection/create-podcasts.md
+            when: audience == "external"
+          - name: Создание подключения к Yandex Monitoring
+            href: operations/connection/create-monitoring.md
+            when: audience == "external"
           - name: Создание подключения к Metrica API
             href: operations/connection/create-metrica-api.md
           - name: Создание подключения к AppMetrica
             href: operations/connection/create-appmetrica.md
-          - name: Создание подключения к Yandex Cloud Billing
-            href: operations/connection/create-cloud-billing.md
-            when: audience == "external"
           - name: Управление доступом к подключению
             when: audience == "external"
             href: operations/connection/manage-access.md
