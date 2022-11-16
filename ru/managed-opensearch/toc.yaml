@@ -87,7 +87,6 @@ items:
     when: stage != "preview"
   - name: Правила тарификации
     href: pricing.md
-    when: stage != "preview"
   - name: Справочник API
     items:
       - name: Аутентификация в API
