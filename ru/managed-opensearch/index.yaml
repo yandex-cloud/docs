@@ -34,7 +34,6 @@ links:
     description: Описание методов HTTP API
     href: api-ref/
   - title: Квоты и лимиты
-    when: stage != "preview"
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
   - title: Управление доступом

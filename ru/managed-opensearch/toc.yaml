@@ -50,37 +50,50 @@ items:
       - name: Миграция данных из стороннего кластера {{ OS }} с помощью Reindex API
         href: tutorials/migration-via-reindex-api.md
   - name: Концепции
-    when: stage != "preview"
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+        when: stage != "preview"
       - name: Роли хостов
         href: concepts/hosts-roles.md
+        when: stage != "preview"
       - name: Редакции {{ OS }}
         href: concepts/es-editions.md
+        when: stage != "preview"
       - name: Индексы
         href: concepts/indexing.md
+        when: stage != "preview"
       - name: Поиск с помощью {{ OS }}
         href: concepts/searching.md
+        when: stage != "preview"
       - name: Классы хостов
         href: concepts/instance-types.md
+        when: stage != "preview"
       - name: Сеть в {{ mos-name }}
         href: concepts/network.md
+        when: stage != "preview"
       - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Типы хранилища
+        when: stage != "preview"
         href: concepts/storage.md
       - name: Резервные копии
+        when: stage != "preview"
         href: concepts/backup.md
       - name: Шардирование и репликация
+        when: stage != "preview"
         href: concepts/scalability-and-resilience.md
       - name: Поддержка словарей
+        when: stage != "preview"
         href: concepts/dictionaries.md
       - name: Политика управления версиями {{ OS }}
+        when: stage != "preview"
         href: concepts/update-policy.md
       - name: Настройки {{ ES }}
+        when: stage != "preview"
         href: concepts/settings-list.md
       - name: Техническое обслуживание
+        when: stage != "preview"
         href: concepts/maintenance.md
   - name: Управление доступом
     href: security/index.md
