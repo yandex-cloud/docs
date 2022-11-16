@@ -10,3 +10,9 @@ links:
   - title: Начало работы
     description: Создайте первый кластер баз данных
     href: quickstart
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing
