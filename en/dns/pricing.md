@@ -8,13 +8,13 @@ editable: false
 
 {% note info %}
 
-The prices listed below will take effect on November 16, 2022, when {{ dns-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+The prices listed below will take effect when {{ dns-name }} [becomes public](../overview/concepts/launch-stages.md) (the date will be announced later). Until then, the service can be used free of charge.
 
 {% endnote %}
 
 {% endif %}
 
-## Public DNS queries {% if product == "cloud-il" %}starting November 16, 2022{% endif %} {#public-dns-requests}
+## Public DNS queries {% if product == "cloud-il" %}(after the service becomes public){% endif %} {#public-dns-requests}
 
 {% if product == "yandex-cloud" %}
 
@@ -97,7 +97,7 @@ Where:
 
 {% endif %}
 
-## DNS zones {% if product == "cloud-il" %}starting November 16, 2022{% endif %} {#dns-zones}
+## DNS zones {% if product == "cloud-il" %}(after the service becomes public){% endif %} {#dns-zones}
 
 You are charged for user-created [public](concepts/dns-zone.md#public-zones) or [internal](concepts/dns-zone.md#private-zones) DNS zones.
 

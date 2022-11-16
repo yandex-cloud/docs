@@ -8,7 +8,7 @@ editable: false
 
 {% note info %}
 
-The prices listed below will take effect on November 16, 2022, when {{ mmy-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+The prices listed below will take effect when {{ mmy-name }} [becomes public](../overview/concepts/launch-stages.md) (the date will be announced later). Until then, the service can be used free of charge.
 
 {% endnote %}
 
@@ -78,7 +78,7 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% endif %}
 
-## Pricing {% if product == "cloud-il" %}starting November 16, 2022{% endif %} {#prices}
+## Pricing {% if product == "cloud-il" %}(after the service becomes public){% endif %} {#prices}
 
 {% if region != "int" %}
 

@@ -8,7 +8,7 @@ editable: false
 
 {% note info %}
 
-Цены, указанные ниже, начнут действовать 16 ноября 2022 года, когда сервис {{ mch-name }} [станет общедоступным](../overview/concepts/launch-stages.md). До этого использование сервиса не тарифицируется.
+Цены, указанные ниже, начнут действовать, когда сервис {{ mch-name }} [станет общедоступным](../overview/concepts/launch-stages.md) (дата будет объявлена позже). До этого использование сервиса не тарифицируется.
 
 {% endnote %}
 
@@ -170,7 +170,7 @@ editable: false
 {% endnote %}
 
 {% endif %}
-## Цены {% if product == "cloud-il" %}c 16 ноября 2022 года{% endif %}{#prices}
+## Цены {% if product == "cloud-il" %}(когда сервис станет общедоступным){% endif %}{#prices}
 
 {% if region != "int" %}
 

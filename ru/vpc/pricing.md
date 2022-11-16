@@ -8,7 +8,7 @@ editable: false
 
 {% note info %}
 
-Цены, указанные ниже, начнут действовать 16 ноября 2022 года, когда сервис {{ vpc-name }} [станет общедоступным](../overview/concepts/launch-stages.md). До этого использование сервиса не тарифицируется.
+Цены, указанные ниже, начнут действовать, когда сервис {{ vpc-name }} [станет общедоступным](../overview/concepts/launch-stages.md) (дата будет объявлена позже). До этого использование сервиса не тарифицируется.
 
 {% endnote %}
 
@@ -28,7 +28,7 @@ editable: false
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-## Цены {{ vpc-short-name }} {% if product == "cloud-il" %}c 16 ноября 2022 года{% endif %} {#prices}
+## Цены {{ vpc-short-name }} {% if product == "cloud-il" %}(когда сервис станет общедоступным){% endif %} {#prices}
 
 ### Публичные IP-адреса {#prices-public-ip}
 
@@ -140,7 +140,7 @@ editable: false
 
 {% if product == "yandex-cloud" %}
 
-## Цены {{ ddos-protection-full-name }} {% if product == "cloud-il" %}c 16 ноября 2022 года{% endif %} {#prices-ddos-protection}
+## Цены {{ ddos-protection-full-name }} {% if product == "cloud-il" %}(когда сервис станет общедоступным){% endif %} {#prices-ddos-protection}
 
 {% if region != "int" %}
 
@@ -190,7 +190,7 @@ editable: false
 
 {% if region == "ru" %}
 
-## Цены {{ adv-ddos-protection }} {% if product == "cloud-il" %}c 16 ноября 2022 года{% endif %} {#prices-ddos-advanced}
+## Цены {{ adv-ddos-protection }} {% if product == "cloud-il" %}(когда сервис станет общедоступным){% endif %} {#prices-ddos-advanced}
 
 Услуга {{ adv-ddos-protection }} подключается по запросу через [форму](https://forms.yandex.ru/surveys/13203262.d03e905cf02195bec1093aa2b032802fe13caac0/).
 
@@ -220,7 +220,7 @@ editable: false
 
 {% include [rub-advanced-ddos-services.md](../_pricing/vpc/rub-advanced-ddos-services.md) %}
 
-## Цены Managed Web Application Firewall {% if product == "cloud-il" %}c 16 ноября 2022 года{% endif %} {#prices-waf}
+## Цены Managed Web Application Firewall {% if product == "cloud-il" %}(когда сервис станет общедоступным){% endif %} {#prices-waf}
 
 Все цены указаны с учетом НДС.
 

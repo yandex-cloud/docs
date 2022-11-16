@@ -8,7 +8,7 @@ editable: false
 
 {% note info %}
 
-The prices listed below will take effect on November 16, 2022, when {{ container-registry-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+The prices listed below will take effect when {{ container-registry-name }} [becomes public](../overview/concepts/launch-stages.md) (the date will be announced later). Until then, the service can be used free of charge.
 
 {% endnote %}
 
@@ -38,7 +38,7 @@ If multiple Docker images in the same registry use the same layers, you aren't c
 
 {% endnote %}
 
-## Pricing{% if product == "cloud-il" %} starting November 16, 2022{% endif %} {#prices}
+## Pricing{% if product == "cloud-il" %} (after the service becomes public){% endif %} {#prices}
 
 ### Data storage {#prices-storage}
 
