@@ -8,12 +8,12 @@ description:
 meta:
   title: Yandex Cloud Backup
 links:
-#  - title: Начало работы
-#    description: Создайте первую политику резервного копирования
-#    href: quickstart/
-#  - title: Пошаговые инструкции
-#    description: Инструкции по выполнению рутинных операций
-#    href: operations/
+  - title: Getting started
+    description: Create a VM and attach it to a backup policy
+    href: quickstart/
+  - title: Step-by-step instructions
+    description: How to perform routine operations
+    href: operations/
   - title: Concepts
     description: Learn more about backups and backup policies, as well as a VM agent.
     href: concepts/
@@ -21,7 +21,7 @@ links:
 #    description: Технические и организационные ограничения сервиса
 #    href: concepts/limits
   - title: Access management
-    description: Configure access rights to work with the service
+    description: Set up access rights for the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations
