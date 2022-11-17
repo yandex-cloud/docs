@@ -36,10 +36,10 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* использование виртуальных машин (см. [тарифы {{ compute-short-name }}](../../compute/pricing));
-* плата за хранение данных в бакете (см. [тарифы {{ objstorage-name }}](../../storage/pricing#prices-storage));
-* плата за операции с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing#prices-operations));
-* плата за использование ключей {{ kms-short-name }} (см. [тарифы {{ kms-name }}](../../kms/pricing#prices)).
+* использование виртуальных машин (см. [тарифы {{ compute-short-name }}](../../compute/pricing.md));
+* плата за хранение данных в бакете (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage));
+* плата за операции с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-operations));
+* плата за использование ключей {{ kms-short-name }} (см. [тарифы {{ kms-name }}](../../kms/pricing.md#prices)).
 
 ## Подготовьте окружение {#prepare-environment}
 
@@ -282,11 +282,11 @@
 
      * **Назначение** — `{{ objstorage-name }}`.
      * **Бакет** — `arcsight-bucket`.
-     * **Префикс объекта** — необязательный параметр, участвует в [полном имени](../../audit-trails/concepts/format#log-file-name) файла аудитного лога.
+     * **Префикс объекта** — необязательный параметр, участвует в [полном имени](../../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
   
      {% note info %}
   
-     Используйте [префикс](../../storage/concepts/object#key), если вы храните аудитные логи и сторонние данные в одном и том же бакете. Не используйте одинаковый префикс для логов и других объектов в бакете, так как в этом случае логи и сторонние объекты могут перезаписать друг друга.
+     Используйте [префикс](../../storage/concepts/object.md#key), если вы храните аудитные логи и сторонние данные в одном и том же бакете. Не используйте одинаковый префикс для логов и других объектов в бакете, так как в этом случае логи и сторонние объекты могут перезаписать друг друга.
   
      {% endnote %}
   
@@ -364,6 +364,6 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-1. [Удалите](../../storage/operations/buckets/delete) бакет {{ objstorage-name }}.
-1. [Удалите](../../kms/operations/key#delete) ключ {{ kms-name }}.
+1. [Удалите](../../storage/operations/buckets/delete.md) бакет {{ objstorage-name }}.
+1. [Удалите](../../kms/operations/key.md#delete) ключ {{ kms-name }}.
 1. [Удалите](../../compute/operations/vm-control/vm-delete.md) промежуточную ВМ, если вы создали ее в {{ compute-short-name }}.

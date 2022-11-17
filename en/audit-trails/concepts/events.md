@@ -28,7 +28,7 @@ Below are events for services:
 * [{{ lockbox-name }}](#lockbox)
 * [{{ mch-short-name }}](#managed-service-for-clickhouse)
 {% if product == "yandex-cloud" %}
-* [{{ mgl-full-name }}](#managed-service-for-gitlab)
+* [{{ mgl-name }}](#managed-service-for-gitlab)
 * [{{ mmg-short-name }}](#managed-service-for-mongodb)
 {% endif %}
 * [{{ mmy-short-name }}](#managed-service-for-mysql)
@@ -150,7 +150,6 @@ Service name: `iam`.
 | `DeleteCertificate` | Deleting a certificate for a federation |
 | `DeleteFederation` | Deleting a federation |
 | `DeleteKey` | Deleting a key pair for a service account |
-| `DetectLeakedCredential` | Deleting secrets that are available in the public domain |
 | `DeleteServiceAccount` | Deleting a service account |
 | `DetectLeakedCredential` | Detecting a secret in a public source |
 | `UpdateAccessKey` | Updating an access key |
@@ -231,8 +230,8 @@ Service name: `mdb.clickhouse`.
 | `MoveCluster` | Moving a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `RevokeUserPermission` | Revoking a database user's privileges |
-| `StartCluster` | Starting cluster |
-| `StopCluster` | Stopping cluster |
+| `StartCluster` | Start cluster |
+| `StopCluster` | Stop cluster |
 | `UpdateCluster` | Updating clusters |
 | `UpdateClusterExternalDictionary` | Deleting an external dictionary |
 | `UpdateClusterShard` | Editing a cluster shard |
@@ -282,8 +281,8 @@ Service name: `mdb.mongodb`.
 | `MoveCluster` | Moving a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `RevokeUserPermission` | Revoking a database user's privileges |
-| `StartCluster` | Starting cluster |
-| `StopCluster` | Stopping cluster |
+| `StartCluster` | Start cluster |
+| `StopCluster` | Stop cluster |
 | `UpdateCluster` | Updating clusters |
 | `UpdateUser` | Editing a database user |
 
@@ -308,9 +307,9 @@ Service name: `mdb.mysql`.
 | `RescheduleMaintenance` | Rescheduling scheduled maintenance |
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `RevokeUserPermission` | Revoking a database user's privileges |
-| `StartCluster` | Starting cluster |
+| `StartCluster` | Start cluster |
 | `StartClusterFailover` | Launching master switching for a cluster |
-| `StopCluster` | Stopping cluster |
+| `StopCluster` | Stop cluster |
 | `UpdateCluster` | Updating clusters |
 | `UpdateClusterHosts` | Editing hosts in a cluster |
 | `UpdateUser` | Editing a database user |
@@ -334,8 +333,8 @@ Service name: `mdb.postgresql`.
 | `MoveCluster` | Moving a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `RevokeUserPermission` | Revoking a database user's privileges |
-| `StartCluster` | Starting cluster |
-| `StopCluster` | Stopping cluster |
+| `StartCluster` | Start cluster |
+| `StopCluster` | Stop cluster |
 | `UpdateCluster` | Updating clusters |
 | `UpdateClusterHosts` | Editing hosts in a cluster |
 | `UpdateDatabase` | Updating a database |
@@ -358,9 +357,9 @@ Service name: `mdb.redis`.
 | `MoveCluster` | Moving a cluster |
 | `RebalanceCluster` | Rebalancing a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
-| `StartCluster` | Starting cluster |
+| `StartCluster` | Start cluster |
 | `StartClusterFailover` | Launching master switching for a cluster |
-| `StopCluster` | Stopping cluster |
+| `StopCluster` | Stop cluster |
 | `UpdateCluster` | Updating clusters |
 
 {% endif %}

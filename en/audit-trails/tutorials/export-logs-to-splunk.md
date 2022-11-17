@@ -36,10 +36,10 @@ To be able to go through the tutorial, you need an instance of Splunk available 
 
 The infrastructure support cost includes:
 
-* Using virtual machines (see [{{ compute-short-name }} pricing](../../compute/pricing)).
-* A fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing#prices-storage)).
-* A fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing#prices-operations)).
-* A fee for using KMS keys (see [{{ kms-name }} pricing](../../kms/pricing#prices)).
+* Using virtual machines (see [{{ compute-short-name }} pricing](../../compute/pricing.md)).
+* A fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
+* A fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
+* A fee for using KMS keys (see [{{ kms-name }} pricing](../../kms/pricing.md#prices)).
 
 ## Prepare the environment {#prepare-environment}
 
@@ -108,7 +108,7 @@ The infrastructure support cost includes:
 
 - Management console
 
-   1. In the [management console]({{link-console-main}}), select the folder where you wish to create a service account.
+   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a service account.
    1. Go to the **Service accounts** tab.
    1. Click **Create service account**.
    1. Enter the name of the service account:
@@ -200,12 +200,12 @@ To be able to create the trail, please make sure you have the following roles:
    1. Under **Destination**, set up the destination object:
 
       * **Destination**: `{{ objstorage-name }}`.
-      * **Bucket**: The name of the [bucket](../../storage/operations/buckets/create) where you want to upload audit logs.
-      * **Object prefix**: An optional parameter used in the [full name](../../audit-trails/concepts/format#log-file-name) of the audit log file.
+      * **Bucket**: The name of the [bucket](../../storage/operations/buckets/create.md) where you want to upload audit logs.
+      * **Object prefix**: An optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
 
       {% note info %}
 
-      Use a [prefix](../../storage/concepts/object#key) to store audit logs and third-party data in the same bucket. Do not use the same prefix for logs and other bucket objects because that may cause logs and third-party objects to overwrite each other.
+      Use a [prefix](../../storage/concepts/object.md#key) to store audit logs and third-party data in the same bucket. Do not use the same prefix for logs and other bucket objects because that may cause logs and third-party objects to overwrite each other.
 
       {% endnote %}
 
@@ -246,7 +246,7 @@ An intermediate VM will be deployed on the subnet.
 
 - {{ TF }}
 
-   1. If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart#install-terraform).
+   1. If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Clone the [Yandex Cloud Security Solution Library repository](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-Splunk)
 
       ```
@@ -272,10 +272,10 @@ An intermediate VM will be deployed on the subnet.
 
       * `folder_id`: ID of the folder.
       * `splunk_token`: Event Collector token retrieved from Splunk.
-      * `splunk_server`: address of your Splunk server as https://<host_name_or_address>.
-      * `bucket_name`: bucket name.
-      * `bucket_folder`: name of root folder in bucket.
-      * `sa_id`: service account ID.
+      * `splunk_server`: Address of your Splunk server as https://<host_name_or_address>.
+      * `bucket_name`: Bucket name.
+      * `bucket_folder`: Name of root folder in bucket.
+      * `sa_id`: Service account ID.
       * `coi_subnet_id`: ID of subnet with NAT for the Internet enabled.
 
    1. Make sure that the configuration files are correct:
@@ -331,6 +331,6 @@ An intermediate VM will be deployed on the subnet.
 
    1. To confirm deletion, type `yes` and press **Enter**.
 
-1. [Delete](../../storage/operations/buckets/delete) the bucket {{ objstorage-name }}.
+1. [Delete](../../storage/operations/buckets/delete.md) the bucket {{ objstorage-name }}.
 
-1. [Destroy](../../kms/operations/key#delete) the {{ kms-name }} key.
+1. [Destroy](../../kms/operations/key.md#delete) the {{ kms-name }} key.
