@@ -31,7 +31,6 @@ This page contains security recommendations from {{ yandex-cloud }} experts.
 {% include [18.03.2022 — cr8escape](../../_includes/security/security-bulletins/cve-2022-0811-cr8escape.md) %}
 
 {% if product == "yandex-cloud" %}
-
 {% include [09.03.2022 — Dirty Pipe](../../_includes/security/security-bulletins/cve-2022-0847-dirty-pipe.md) %}
 
 {% include [28.02.2022 — multiple-GitLab-vulnerabilities](../../_includes/security/security-bulletins/cve-2022-0735-0549-0751-0741-4191-0738-0489.md) %}
@@ -39,7 +38,6 @@ This page contains security recommendations from {{ yandex-cloud }} experts.
 {% include [28.01.2022 — CVE-2022-0185 — heap overflow bug in legacy_parse_param](../../_includes/security/security-bulletins/cve-2022-0185.md) %}
 
 {% include [28.01.2022 — CVE-2021-4034 – Polkit's pkexec](../../_includes/security/security-bulletins/cve-2021-4034-polkit.md) %}
-
 {% endif %}
 
 ## 29.12.2021: CVE-2021-45105, CVE-2021-44832: Denial of service and remote code execution (Log4j) {#CVE-2021-45105-CVE-2021-44832}
@@ -189,11 +187,11 @@ Learn more at: https://www.securitylab.ru/vulnerability/527362.php
 1. The Log4j library is included in almost all Apache Software Foundation enterprise solutions, such as Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Kafka, Apache Dubbo, and others.
 
 2. Open-source products such as ElasticSearch, Elastic Logstash, the NSA’s Ghidra, and so on are vulnerable.
-{% if product == "yandex-cloud" %}
+   {% if product == "yandex-cloud" %}
 
 3. Hystax products are vulnerable because they use a vulnerable version of Elasticsearch Logstash.
    Hystax is working on new product releases to fix the vulnerability.
-{% endif %}
+   {% endif %}
 
 #### Impact on {{ yandex-cloud }} services
 
@@ -269,7 +267,7 @@ If you're using a deprecated {{ GL }} image from {{ marketplace-full-name }} or 
 
 * [Action needed by self-managed customers in response to CVE-2021-22205](https://about.gitlab.com/blog/2021/11/04/action-needed-in-response-to-cve2021-22205/)
 * [GitLab CE CVE-2021-22205 in the wild](https://security.humanativaspa.it/gitlab-ce-cve-2021-22205-in-the-wild/)
-{% endif %}
+   {% endif %}
 
 ## 12.10.2021: CVE-2021-25741: Risk of accessing a host's filesystem {#CVE-2021-25741}
 
@@ -321,7 +319,7 @@ A number of [CVE-2021-3156](https://nvd.nist.gov/vuln/detail/CVE-2021-3156) vuln
 The following Linux OS images were updated:
 * All images from the {{ yandex-cloud }} publisher available in {{ marketplace-name }}.
 * A {{ coi }}.
-* An image that is used to create {{ managed-k8s-short-name }} nodes.
+* An image that is used to create {{ managed-k8s-name }} nodes.
 * Images that are used to create managed database clusters.
 * An image that is used to create {{ dataproc-short-name }} clusters.
 

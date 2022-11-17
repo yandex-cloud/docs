@@ -8,17 +8,17 @@ The user is responsible for all actions made inside the {{ k8s }} node. The user
 
 {{ yandex-cloud }} is responsible for the the {{ k8s }} API security.
 
-The user is responsible for correctly choosing security settings in {{ managed-k8s-short-name }}, including selecting the [channel](../../managed-kubernetes/concepts/release-channels-and-updates.md) and the update schedule.
+The user is responsible for correctly choosing security settings in {{ managed-k8s-name }}, including selecting the [channel](../../managed-kubernetes/concepts/release-channels-and-updates.md) and the update schedule.
 
 ## Sensitive data {#critical-data}
 
-When using {{ managed-k8s-short-name }} to comply with {% if product == "yandex-cloud" %}PCI DSS or other {% endif %}security standards, it is forbidden to:
+When using {{ managed-k8s-name }} to comply with {% if product == "yandex-cloud" %}PCI DSS or other {% endif %}security standards, it is forbidden to:
 
 * Use sensitive data in names and descriptions of clusters, node groups, namespaces, services, and pods.
 * Use sensitive data in [{{ k8s }} node labels](../../managed-kubernetes/concepts/#node-labels) and [{{ yandex-cloud }} service resource labels](../../overview/concepts/services.md#labels).
 * Use sensitive data in pod manifests.
 * Use sensitive data in etcd in clear text.
-* Write sensitive data to {{ managed-k8s-short-name }} logs.
+* Write sensitive data to {{ managed-k8s-name }} logs.
 
 ## Resource model {#resource-model}
 
@@ -38,7 +38,7 @@ Less strong isolation models are also possible, for example:
 * Services have separate {{ k8s }} clusters.
 * Microservices have independent namespaces.
 
-## Network security {{ managed-k8s-short-name }} {#network-security}
+## Network security {{ managed-k8s-name }} {#network-security}
 
 We don't recommend that you grant access to the {{ k8s }} API and node groups from non-trusted networks (for example, from the internet).
 Use firewall protection when needed (for example, [security groups](../../vpc/concepts/security-groups.md)). In the section below, you can find links to instructions on how to set up firewall protection in security groups.
@@ -97,11 +97,11 @@ Benefits of {{ alb-name }} Ingress controller:
 
 For all pods, create a network policy to block network traffic to port 169.254.169.254 or use the default-deny policy from the [example](../../managed-kubernetes/operations/calico#enable-isolation). The policy must block workload node group metadata access because these node groups contain sensitive data, such as the token of the service account assigned to the node.
 
-## Authentication and access control {{ managed-k8s-short-name }} {#authentication-and-access-control}
+## Authentication and access control {{ managed-k8s-name }} {#authentication-and-access-control}
 
-The access of {{ iam-short-name }} accounts to {{ managed-k8s-short-name }} resources is managed at the following levels:
+The access of {{ iam-short-name }} accounts to {{ managed-k8s-name }} resources is managed at the following levels:
 
-* [{{ managed-k8s-short-name }}service roles](../../managed-kubernetes/security/#yc-api) (access to the {{ yandex-cloud }} API): They enable you to control clusters and node groups (for example, create a cluster, create/edit/delete a node group, and so on).
+* [{{ managed-k8s-name }}service roles](../../managed-kubernetes/security/#yc-api) (access to the {{ yandex-cloud }} API): They enable you to control clusters and node groups (for example, create a cluster, create/edit/delete a node group, and so on).
 * Service roles to access the {{ k8s }} API: They let you control cluster resources via the {{ k8s }} API (for example, perform standard actions with {{ k8s }}: create, delete, view namespaces, work with pods, deployments, create roles, and so on). Only the basic global roles at the cluster level are available: `k8s.cluster-api.cluster-admin`, `k8s.cluster-api.editor`, and `k8s.cluster-api.viewer`.
 * Primitive roles: These are global primitive {{ iam-short-name }} roles that include service roles (for example, the primitive role admin includes both the service administration role and the administrative role to access the {{ k8s }} API).
 * Standard {{ k8s }} roles: Inside the {{ k8s }} cluster, you can use {{ k8s }} tools to create both regular roles and cluster roles. This way, you can control {{ iam-short-name }} accounts access at the namespace level. To assign {{ iam-short-name }} roles at the namespace level, you can manually create RoleBinding objects in a relevant namespace, specifying the {{ iam-short-name }} ID of the cloud user in the "subjects name" field. Example:
@@ -121,17 +121,17 @@ The access of {{ iam-short-name }} accounts to {{ managed-k8s-short-name }} reso
    name: aje0jndkq855llvu04ek #cloud user ID
    ```
 
-For the {{ managed-k8s-short-name }} cluster to run, you need two service accounts: [the service account of the cluster and the service account of the node group](../../managed-kubernetes/security/index.md#sa-annotation).
+For the {{ managed-k8s-name }} cluster to run, you need two service accounts: [the service account of the cluster and the service account of the node group](../../managed-kubernetes/security/index.md#sa-annotation).
 
 {% if product == "yandex-cloud" %}
-![](../../_assets/overview/solution-library-icon.svg)[Example of setting up role models and policies in {{ managed-k8s-short-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/auth_and_access/role-model-example)
+![](../../_assets/overview/solution-library-icon.svg)[Example of setting up role models and policies in {{ managed-k8s-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/auth_and_access/role-model-example)
 
 {% endif %}
-## Secure {{ managed-k8s-short-name }} configuration {#secure-config-1}
+## Secure {{ managed-k8s-name }} configuration {#secure-config-1}
 
 ### Secure configuration {#secure-config-2}
 
-In {{ managed-k8s-short-name }}, the user is fully in control of all node group settings, but only partially in control of the [master](../../managed-kubernetes/concepts/index.md#master) settings. These settings are part of the user's overall cluster security responsibility.
+In {{ managed-k8s-name }}, the user is fully in control of all node group settings, but only partially in control of the [master](../../managed-kubernetes/concepts/index.md#master) settings. These settings are part of the user's overall cluster security responsibility.
 
 The [CIS {{ k8s }} Benchmark](https://www.cisecurity.org/benchmark/kubernetes) standard is designed to build a secure {{ k8s }} configuration, including node configurations.
 
@@ -179,7 +179,7 @@ To control file integrity on the {{ k8s }} nodes, you can also use the tools lis
 
 There exist dedicated free solutions for {{ k8s }} nodes from Google or Argus, including [file-integrity-operator](https://github.com/openshift/file-integrity-operator).
 
-## Data encryption and {{ managed-k8s-short-name }} secret management {#encryption-and-secret-management}
+## Data encryption and {{ managed-k8s-name }} secret management {#encryption-and-secret-management}
 
 At the {{ k8s }} etcd level, encrypt secrets using an in-built [mechanism from {{ yandex-cloud }}](../../managed-kubernetes/concepts/encryption.md).
 
@@ -212,7 +212,7 @@ If you need to encrypt your stored data, you can use:
 * {{ kms-name }}, for encrypting data at the application level (including when you use persistent volumes).
 * A custom method of data encryption. However, in this case, protection of the keys and of the key management procedure is the sole responsibility of the user.
 
-## Protection against malicious code in {{ managed-k8s-short-name }} {#malware-protection}
+## Protection against malicious code in {{ managed-k8s-name }} {#malware-protection}
 
 {% if product == "yandex-cloud" %}
 There are two levels where you can enable malicious code protection in {{ k8s }}:
@@ -235,9 +235,9 @@ Be sure to also use the {{ k8s }} built-in support for [AppArmor](https://kubern
 ![](../../_assets/overview/solution-library-icon.svg)[Analyzing {{ k8s }} security logs in ELK: audit logs, Policy Engine, Falco.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
 
 {% endif %}
-## Vulnerability management {{ managed-k8s-short-name }} {#vulnerability-management}
+## Vulnerability management {{ managed-k8s-name }} {#vulnerability-management}
 
-{{ yandex-cloud }} within {{ managed-k8s-short-name }} is in charge of vulnerability management and security updates on the [master](../../managed-kubernetes/concepts/index.md#master). The user must independently control vulnerabilities on the {{ k8s }} worker nodes.
+{{ yandex-cloud }} within {{ managed-k8s-name }} is in charge of vulnerability management and security updates on the [master](../../managed-kubernetes/concepts/index.md#master). The user must independently control vulnerabilities on the {{ k8s }} worker nodes.
 
 ### Scanning for vulnerabilities {#vulnerability-scanning}
 
@@ -246,7 +246,7 @@ You can break vulnerability scanning into the following levels:
 * Image-level vulnerability scanning.
 * Vulnerability scanning of the OS nodes in {{ k8s }}.
 
-Vulnerability scanning at the image level is detailed in [Protection against malicious code in {{ managed-k8s-short-name }}](#malware-protection).
+Vulnerability scanning at the image level is detailed in [Protection against malicious code in {{ managed-k8s-name }}](#malware-protection).
 
 Examples of free universal solutions for vulnerability scanning of the OS nodes in {{ k8s }} are given in [Scanning for vulnerabilities](vulnerability-management.md#vulnerability-scanning).
 
@@ -254,7 +254,7 @@ There also exist both paid and free solutions for scanning the OS nodes in {{ k8
 
 ## Security updates {#security-updates}
 
-{{ managed-k8s-short-name }} issues updates in a regular manner. To meet the Information Security standards:
+{{ managed-k8s-name }} issues updates in a regular manner. To meet the Information Security standards:
 
 * Select a relevant update channel and enable either automatic installation of updates, or manual installation immediately after publication in the selected channel.
 * Double-check that the ad settings meet the Information Security standards.
@@ -262,7 +262,7 @@ There also exist both paid and free solutions for scanning the OS nodes in {{ k8
 
 ## Backup and recovery {#backup-and-restore}
 
-Set up backups in {{ managed-k8s-short-name }} by following the [guide](../../managed-kubernetes/tutorials/backup.md). When storing your backups in {{ objstorage-name }}, follow recommendations from the [Secure configuration for {{ objstorage-name }}](secure-config.md#object-storage).
+Set up backups in {{ managed-k8s-name }} by following the [guide](../../managed-kubernetes/tutorials/backup.md). When storing your backups in {{ objstorage-name }}, follow recommendations from the [Secure configuration for {{ objstorage-name }}](secure-config.md#object-storage).
 
 ## Security policies in {{ k8s }} {#kubernetes-security-policies}
 
@@ -274,7 +274,7 @@ Examples using Kyverno:
 
 {% if product == "yandex-cloud" %}
 * ![](../../_assets/overview/solution-library-icon.svg)[Analyzing {{ k8s }} security logs in ELK: audit logs, Policy Engine, Falco.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
-* ![](../../_assets/overview/solution-library-icon.svg)[Example of setting up role models and policies in {{ managed-k8s-short-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/auth_and_access/role-model-example)
+* ![](../../_assets/overview/solution-library-icon.svg)[Example of setting up role models and policies in {{ managed-k8s-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/auth_and_access/role-model-example)
 
 {% endif %}
 To control compliance with Pod Security Standards, you can also use the following tools within CI/CD:
@@ -305,9 +305,9 @@ When using minimal images or distroless images without a shell, use [ephemeral c
 
 Data loads with different security contexts (such as different severities of data processed) must be processed on different {{ k8s }} nodes. To enable load sharing within a cluster, use different node groups with different settings for [`node labels`](https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/) and [`node taints`](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/). Be sure to combine both settings.
 
-## Collecting, monitoring, and analyzing audit logs {{ managed-k8s-short-name }} {#collection-monitoring-analysis-audit-logs}
+## Collecting, monitoring, and analyzing audit logs {{ managed-k8s-name }} {#collection-monitoring-analysis-audit-logs}
 
-Events available to the user in the {{ managed-k8s-short-name }} service can be classified as levels:
+Events available to the user in the {{ managed-k8s-name }} service can be classified as levels:
 
 {% if product == "yandex-cloud" %}
 * {{ k8s }} API events ({{ k8s }} Audit logging).
@@ -336,7 +336,7 @@ Different options for collecting and exporting pod-level events in {{ k8s }} is 
 {% if product == "yandex-cloud" %}
 Examples of collecting and exporting pod logs:
 
-* Exporting logs to {{ cloud-logging-name }} using Fluent Bit is described in the [{{ managed-k8s-short-name }}](../../managed-kubernetes/tutorials/fluent-bit-logging.md) documentation.
+* Exporting logs to {{ cloud-logging-name }} using Fluent Bit is described in the [{{ managed-k8s-name }}](../../managed-kubernetes/tutorials/fluent-bit-logging.md) documentation.
 * Exporting pod logs into Elastic or Splunk is described in the [Yandex Cloud Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/kubernetes-security/osquery-kubequery/README_RU.md).
 
 The [Filebeat](/marketplace/products/yc/filebeat) plugin for transferring logs to Elastic and [Fluent Bit with a {{ cloud-logging-name }} plugin](/marketplace/products/yc/fluent-bit) is available in {{ marketplace-name }}.
@@ -354,9 +354,9 @@ Instructions on how to export {{ monitoring-name }} metrics is given in the sect
 ![](../../_assets/overview/solution-library-icon.svg)[Exporting flow logs to {{ objstorage-full-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/cilium-s3)
 
 {% endif %}
-### {{ managed-k8s-short-name }} role model audit {#role-model-audit}
+### {{ managed-k8s-name }} role model audit {#role-model-audit}
 
-In the {{ managed-k8s-short-name }} console, you can audit the current role model used in the service. For this, go to the **Access management** tab in the service.
+In the {{ managed-k8s-name }} console, you can audit the current role model used in the service. For this, go to the **Access management** tab in the service.
 
 You can also use:
 * [KubiScan](https://github.com/cyberark/KubiScan)
