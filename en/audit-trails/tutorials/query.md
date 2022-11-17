@@ -2,15 +2,15 @@
 
 {{ at-name }} support is integrated in [{{ yq-full-name }}](../../query/). You can analyze events of {{ yandex-cloud }} resources by executing [analytical](../../query/concepts/batch-processing.md) and [streaming](../../query/concepts/stream-processing.md) {{ yql-short-name }} queries.
 
-You can execute analytical queries for logs stored [in a bucket](../operations/export-organization-bucket.md) and streaming queries for logs stored [in a {{ yds-full-name }} data stream](../operations/export-organization-bucket.md).
+You can execute analytical queries for logs stored in a [bucket](../operations/export-organization-bucket.md) and streaming queries for logs stored in a {{ yds-full-name }} [data stream](../operations/export-organization-data-streams.md).
 
 ![](../../_assets/audit-trails/tutorials/audit-trails-query.png)
 
 To connect a bucket with [audit logs](../concepts/events.md) to {{ yq-full-name }} and execute [{{ yql-short-name }}](../../query/yql-tutorials/index.md) queries:
 
-1. [Prepare the environment.](#prepare-environment)
-1. [Create a connection between a trail and {{ yq-short-name }}.](#trail-yq)
-1. [Execute a query to logs in {{ objstorage-name }}.](#perform-request)
+1. [Prepare the environment](#prepare-environment).
+1. [Create a connection between a trail and {{ yq-short-name }}](#trail-yq).
+1. [Execute a query to logs in {{ objstorage-name }}](#perform-request).
 
 If you no longer need these resources, [delete them](#clear-out).
 
@@ -170,7 +170,7 @@ A connection must be created only the first time a trail is connected to {{ yq-s
    1. Select the `logsyq` trail.
    1. Click **Process in {{ yq-short-name }}**.
    1. Create a connection.
-      * Select the `bucket-yq-sa` **service account**.
+      * Select **Service account**: `bucket-yq-sa`.
       * For the other parameters, leave the default settings.
    1. Click **Create**.
    1. In the window with data binding options, click **Create**.
