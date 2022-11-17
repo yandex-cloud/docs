@@ -236,7 +236,7 @@
         fuel_level Nullable(Float32)
     ) ENGINE = Kafka()
     SETTINGS
-        kafka_broker_list = '<FQDN хоста-брокера>:9091'
+        kafka_broker_list = '<FQDN хоста-брокера>:9091',
         kafka_topic_list = '<имя топика>',
         kafka_group_name = 'sample_group',
         kafka_format = 'JSONEachRow';
@@ -248,7 +248,7 @@
 
 ## Отправьте тестовые данные в топики {{ mkf-name }} {#send-sample-data-to-kf}
 
-1. Создайте файл `sample.json` со тестовыми данными:
+1. Создайте файл `sample.json` с тестовыми данными:
 
     ```json
     {
