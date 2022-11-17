@@ -173,7 +173,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 ### Секреты в {{ k8s }} {#k8s-secrets}
 
-Для хранения секретов, таких как пароли, OAuth-токены, SSH-ключи, используйте один из способов:
+Для хранения секретов, таких как пароли, OAuth-токены, {% if lang == "ru" and audience != "internal" %}[SSH-ключи](../../glossary/ssh-keygen.md){% else %}SSH-ключи{% endif %}, используйте один из способов:
 
 - Механизм [секретов {{ k8s }}](https://kubernetes.io/docs/concepts/configuration/secret/).
 

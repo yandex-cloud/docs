@@ -1,6 +1,6 @@
 # ViPNet Coordinator VA в {{ yandex-cloud }}
 
-Вы можете установить [ViPNet Coordinator VA](https://infotecs.ru/product/vipnet-coordinator-va.html#soft) в облаке и использовать его как VPN-шлюз для Site-to-site VPN между ресурсами облака и ресурсами удаленной площадки (on-premises).
+Вы можете установить [ViPNet Coordinator VA](https://infotecs.ru/product/vipnet-coordinator-va.html#soft) в облаке и использовать его как VPN-шлюз для Site-to-site {% if lang == "ru" and audience != "internal" %}[VPN](../../glossary/vpn.md){% else %}VPN{% endif %} между ресурсами облака и ресурсами удаленной площадки (on-premises).
 
 ViPNet Coordinator VA устанавливается на ВМ с четырьмя сетевыми интерфейсами. Один интерфейс получает [публичный](../../vpc/concepts/address.md#public-addresses) IP-адрес, на нем работает туннель до шлюза на удаленной площадке. Остальным интерфейсам можно выдать [внутренние](../../vpc/concepts/address.md#internal-addresses) адреса и подключить к разным [подсетям](../../vpc/concepts/network.md#subnet) одной зоны доступности.
 
@@ -692,7 +692,7 @@ VPN-туннель работает между двумя решениями ViP
         yc-vipnet-1#
         ```
 
-    1. Включите протоколы ICMP и SSH:
+    1. Включите протоколы ICMP и {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}:
 
         ```text
         firewall service-object add name @ICMP icmp
