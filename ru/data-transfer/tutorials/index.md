@@ -11,6 +11,8 @@
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](managed-mysql-to-ydb.md)
 * [{#T}](mkf-to-mch.md)
+* [{#T}](greenplum-to-clickhouse.md)
+* [{#T}](greenplum-to-postgresql.md)
 * [{#T}](mmy-objs-migration.md)
 * [{#T}](mkf-to-ydb.md)
 

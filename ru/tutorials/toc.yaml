@@ -264,6 +264,11 @@ items:
         href: dataplatform/postgresql-data-migration.md
       - name: Миграция базы данных из {{ mpg-name }}
         href: dataplatform/outbound-replication.md
+        # GP
+      - name: Миграция базы данных из {{ GP }} в {{ CH }}
+        href: dataplatform/greenplum-to-clickhouse.md
+      - name: Миграция базы данных из {{ GP }} в {{ PG }}
+        href: dataplatform/greenplum-to-postgresql.md
         # RD
       - name: Миграция базы данных из стороннего кластера {{ RD }} в {{ mrd-full-name }}
         href: dataplatform/redis-data-migration.md

@@ -85,6 +85,10 @@
 * [{#T}](sqoop-mpg.md)
 {% endif %}
 
+## {{ GP }} {#greenplum}
+
+* [{#T}](greenplum-to-clickhouse.md)
+* [{#T}](greenplum-to-postgresql.md)
 
 {% if product == "yandex-cloud" %}
 
