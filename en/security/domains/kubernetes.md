@@ -1,6 +1,6 @@
 # Security {{ k8s }}
 
-The section includes recommendations for {{ yandex-cloud }} users on security settings in [{{ managed-k8s-full-name }}](../../managed-kubernetes/index.yaml).
+The section includes recommendations for {{ yandex-cloud }} users on security settings in [{{ managed-k8s-full-name }}](../../managed-kubernetes/).
 
 ## Responsibility {#division-of-responsibility}
 
@@ -65,7 +65,7 @@ Restrict network access inside {{ k8s }} using the [Network Policy](https://kube
 You can use two network plugins in {{ yandex-cloud }}:
 
 * [Calico](../../managed-kubernetes/concepts/network-policy.md#calico): A basic plugin.
-* [Cilium CNI](../../managed-kubernetes/concepts/network-policy.md#cilium): An advanced plugin that uses advanced network policies applied at the [L7 layer (REST/HTTP, gRPC and Kafka)](https://docs.cilium.io/en/v1.10/gettingstarted/http/).
+* [Cilium CNI](../../managed-kubernetes/concepts/network-policy.md#cilium): An advanced plugin that uses advanced network policies applied [at the L7 layer (REST/HTTP, gRPC and Kafka)](https://docs.cilium.io/en/v1.10/gettingstarted/http/).
 
 We recommend that you use the `default deny` rule for the default incoming and outgoing traffic, allowing only relevant traffic.
 
@@ -183,19 +183,19 @@ There exist dedicated free solutions for {{ k8s }} nodes from Google or Argus, i
 
 At the {{ k8s }} etcd level, encrypt secrets using an in-built [mechanism from {{ yandex-cloud }}](../../managed-kubernetes/concepts/encryption.md).
 
-We recommend that you use SecretManager solutions to work with {{ k8s }} secrets. [{{ lockbox-name }}](../../lockbox/index.yaml) is such a solution in {{ yandex-cloud }}.
+We recommend that you use SecretManager solutions to work with {{ k8s }} secrets. [{{ lockbox-name }}](../../lockbox/) is such a solution in {{ yandex-cloud }}.
 
 {% if product == "yandex-cloud" %}
  {{ lockbox-name }} was integrated with {{ k8s }} using the [External Secrets](https://external-secrets.io/latest/) open-source project. The solution is available in {{ marketplace-name }} in the basic simplified scenario: [External Secrets Operator with Yandex Lockbox support](/marketplace/products/yc/external-secrets).
 
 Useful instructions on working with External Secrets:
 
-* [Instructions](https://external-secrets.io/latest/provider-yandex-lockbox/) to work with External Secrets and {{ lockbox-name }} from the project description.
+* [Instructions](https://external-secrets.io/latest/provider/yandex-lockbox/) to work with External Secrets and {{ lockbox-name }} from the project description.
 * [Instructions](../../lockbox/tutorials/kubernetes-lockbox-secrets.md) to work with External Secrets and {{ lockbox-name }} from the {{ yandex-cloud }} documentation.
 
-Many methods to differentiate access to secrets using this tool have been [described](https://external-secrets.io/latest/guides-multi-tenancy/#eso-as-a-service).
+Many methods to differentiate access to secrets using this tool have been [described](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service).
 
-The most secure recommended option for encrypting secrets is ESO as a Service (External Secrets Operator as a service). In this case, the global administrator has access to the namespace where ESO is installed, and administrators of specific namespaces create their respective [`SecretStore`](https://external-secrets.io/latest/api-secretstore/) objects (where they specify {{ iam-short-name }} authorized access keys for their {{ lockbox-short-name }} secrets). If this `SecretStore` object is compromised, only the authorized key of one specific namespace is compromised (rather than all of them, as in the case of Shared ClusterSecretStore).
+The most secure recommended option for encrypting secrets is ESO as a Service (External Secrets Operator as a service). In this case, the global administrator has access to the namespace where ESO is installed, and administrators of specific namespaces create their respective [`SecretStore`](https://external-secrets.io/latest/api/secretstore/) objects (where they specify {{ iam-short-name }} authorized access keys for their {{ lockbox-short-name }} secrets). If this `SecretStore` object is compromised, only the authorized key of one specific namespace is compromised (rather than all of them, as in the case of Shared ClusterSecretStore).
 
 {% endif %}
 ### Encryption in transit {#encryption-in-transist}

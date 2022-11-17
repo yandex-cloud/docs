@@ -16,9 +16,9 @@ This page contains security recommendations from {{ yandex-cloud }} experts.
 
 {% include [25.08.2022 — CVE-2022-2884 — github-import-in-gitlab](../../_includes/security/security-bulletins/cve-2022-2884-github-import-in-gitlab.md) %}
 
-{% include [04.07.2022 — CVE-2022-27228 — Vulnerability of the «vote» CMS 1C-Bitrix module](../../_includes/security/security-bulletins/cve-2022-27228-bitrix.md) %}
+{% include [04.07.2022 — CVE-2022-27228 — Vulnerability of "vote" module in CMS 1C-Bitrix](../../_includes/security/security-bulletins/cve-2022-27228-bitrix.md) %}
 
-{% include [21.06.2022 — CVE-2022-1680 — Critical Account Takeover Vulnerability in GitLab](../../_includes/security/security-bulletins/cve-2022-1680-gitlab.md) %}
+{% include [21.06.2022 — CVE-2022-1680 — GitLab account takover](../../_includes/security/security-bulletins/cve-2022-1680-gitlab.md) %}
 
 {% endif %}
 
@@ -297,7 +297,7 @@ To do this, you can use the following tools:
 
 ### More information
 
-A checklist for a secure Kubernetes configuration is available [here](../domains/checklist.md#kubernetes-security).
+A checklist for a secure Kubernetes configuration is available [here](../domains/checklist#kubernetes-security).
 
 {% if product == "yandex-cloud" %}
 ## 03.03.2021: CVE-2021-21309: Remote code execution via a vulnerability in {{ RD }}
@@ -418,9 +418,6 @@ List of domains included in Public Suffix List:
 Domains in the Public Suffix List get the properties of top-level domains, such as .ru or .com:
 * Browsers won't save the cookies set for the listed domains.
 * Browsers don't let you change the page's `Origin` request headers to root domains.
-
-For more information, see [our blog](https://cloud.yandex.ru/blog/posts/2019/08/storage-domains).
-
 
 ### Impact on {{ yandex-cloud }} services
 

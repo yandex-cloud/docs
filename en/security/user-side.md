@@ -44,7 +44,7 @@ After receiving and verifying the SAML token signature, {{ iam-short-name }} set
 To protect the cloud network infrastructure hosted in {{ yandex-cloud }}, we recommend managing incoming and outgoing traffic and dividing the virtual networks of the {{ yandex-cloud }} environment into segments based on tasks.
 
 {% if product == "yandex-cloud" %}
-For incoming traffic management, you should use a load balancer and VMs without public IPs. This reduces the attack surface and limits traffic to VMs using the appropriate protocols. You can integrate a network load balancer with Yandex DDoS Protection to safeguard your service from DDoS attacks. We recommend using virtual images or cloud services with a Web Application Firewall (WAF) to protect against Layer 7 (L7) DDoS attacks.  
+For incoming traffic management, you should use a load balancer and VMs without public IPs. This reduces the attack surface and limits traffic to VMs using the appropriate protocols. You can integrate a network load balancer with Yandex DDoS Protection to safeguard your service from DDoS attacks. We recommend using virtual images or cloud services with a Web Application Firewall (WAF) to protect against Layer 7 (L7) DDoS attacks.
 {% endif %}
 {% if product == "cloud-il" %}
 For incoming traffic management, you should use a load balancer and VMs without public IPs. This reduces the attack surface and limits traffic to VMs using the appropriate protocols.

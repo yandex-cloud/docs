@@ -26,7 +26,7 @@ See the {{ objstorage-full-name }} security guidelines in [{#T}](secure-config.m
 
 {% endnote %}
 
-{% if audience != "internal" %} To collect metrics, analyze {{ yandex-cloud }}-level events, and set up notifications, we recommend using [{{ monitoring-full-name }}](../../monitoring/index.yaml). {% endif %} It helps you track, for example, a sharp increase in the load on {{ compute-name }}, the number of {{ alb-name }} requests per second (RPS), or significant changes in event statistics in {{ iam-name }}.
+{% if audience != "internal" %} To collect metrics, analyze {{ yandex-cloud }}-level events, and set up notifications, we recommend using [{{ monitoring-full-name }}](../../monitoring/). {% endif %} It helps you track, for example, a sharp increase in the load on {{ compute-name }}, the number of {{ alb-name }} requests per second (RPS), or significant changes in event statistics in {{ iam-name }}.
 
 You can also use {{ monitoring-name }} to monitor the health of the {{ at-name }} service itself and track security events.
 
@@ -34,7 +34,7 @@ You can also use {{ monitoring-name }} to monitor the health of the {{ at-name }
 ![](../../_assets/overview/solution-library-icon.svg)[Solution: Monitoring {{ at-name }} and security events using {{ monitoring-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trail_monitoring)
 
 {% endif %}
-You can export audit logs to a {% if product == "yandex-cloud" %}log group in [{{ cloud-logging-name }}](../../logging/index.yaml) and {% endif %}to [a customer's SIEM system](#export) to analyze information about events and incidents.
+You can export audit logs to a {% if product == "yandex-cloud" %}log group in [{{ cloud-logging-name }}](../../logging/) and {% endif %}to [a customer's SIEM system](#export) to analyze information about events and incidents.
 
 {% if product == "yandex-cloud" %}
 List of important {{ yandex-cloud }}-level events for search in audit logs:

@@ -37,6 +37,11 @@ items:
         href: domains/physical-security.md
       - name: Kubernetes security
         href: domains/kubernetes.md
+  - name: Tutorials
+    items:
+      - name: ViPNet Coordinator in {{ yandex-cloud }}
+        href: tutorials/vipnet-to-yc.md
+        when: product == "yandex-cloud"
   - name: Instructions
     items: 
       - name: Deleting a passport account from {{ org-full-name }}

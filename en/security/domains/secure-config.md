@@ -42,7 +42,7 @@ When deploying virtual machines, we recommend:
 
 With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} automatically determines which part of your configuration is already deployed and what should be added or removed. For more information, see [Getting started with {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 
-We don't recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, or payment system data. Instead, you should use services for storing and using secrets in the configuration file, such as {% if product == "yandex-cloud" %}[HashiCorp Vault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }}{% endif %}{% if product == "cloud-il" %}HashiCorp Vault{% endif %} or [{{ lockbox-name }}](/services/lockbox) (to transfer secrets to the target object without using {{ TF }}).
+We don't recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, or payment system data. Instead, you should use services for storing and using secrets in the configuration file, such as {% if product == "yandex-cloud" %}[HashiCorp Vault](/marketplace/products/yc/vault-yckms)from {{ marketplace-name }}{% endif %}{% if product == "cloud-il" %}HashiCorp Vault{% endif %} or [{{ lockbox-name }}](/services/lockbox) (to transfer secrets to the target object without using {{ TF }}).
 
 If you still need to enter private information in the configuration, you should take the following security measures:
 - Specify the [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output) parameter for private information to disable outputting it to the console when running `terraform plan`and `terraform apply`.
@@ -73,7 +73,7 @@ Numerous information security standards require integrity control of critical fi
 - [Osquery](https://osquery.readthedocs.io/en/stable/deployment/file-integrity-monitoring/)
 
 {% if product == "yandex-cloud" %}
-In {{ marketplace-full-name }}, paid solutions are also available, such as [Kaspersky Security](/marketplace/products/kaspersky/kaspersky-hybrid-cloud-security-payg).
+In {{ marketplace-full-name }}, paid solutions are also available, such as [CloudGuard](/marketplace?search=payg).
 
 {% endif %}
 ### Side-channel attacks {#side-channel}
@@ -151,7 +151,7 @@ The storage period of critical data in a bucket is determined by the client's in
 
 When using {{ objstorage-short-name }} to store critical data, be sure to enable logging of actions with buckets and configure the versioning mechanism and lifecycle for objects with logs. For more information, see the {{ objstorage-short-name }} documentation, [{#T}](../../storage/concepts/server-logs.md).
 
-You can also analyze {{ objstorage-short-name }} logs in {{ datalens-short-name }}. Learn more in the article [Analyzing {{ objstorage-name }} logs using {{ datalens-short-name }}](https://cloud.yandex.ru/blog/posts/2021/04/storage-logs).
+You can also analyze {{ objstorage-short-name }} logs in {{ datalens-short-name }}.
 
 {% endif %}
 
@@ -210,7 +210,7 @@ When setting up database permissions, use the principle of least privilege.
 
 ### Backups {#ydb-backup}
 
-When creating [on-demand backups](../../ydb/pricing/serverless.md#rules-auto-backup-storage), make sure that the backup data is properly protected.
+When creating [on-demand backups](../../ydb/pricing/serverless#rules-auto-backup-storage), make sure that the backup data is properly protected.
 
 When creating backups on demand in {{ objstorage-short-name }}, follow the recommendations in the [{{ objstorage-short-name }}](#object-storage) subsection above (for example, use the built-in bucket encryption feature).
 {% endif %}
