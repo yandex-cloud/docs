@@ -1,7 +1,7 @@
 title: Yandex Cloud Functions
 href: index.yaml
 items:
-  - name: Сопоставление с другими сервисами Yandex Cloud
+  - name: "Сопоставление с другими сервисами {{ yandex-cloud }}"
     href: service-comparison.md
   - name: Начало работы
     items:

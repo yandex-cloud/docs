@@ -1,7 +1,7 @@
 title: Yandex Cloud Functions
 href: index.yaml
 items:
-  - name: Comparison with other Yandex Cloud services
+  - name: "Comparison with other {{ yandex-cloud }} services"
     href: service-comparison.md
   - name: Getting started
     items:
@@ -45,6 +45,8 @@ items:
             href: quickstart/create-trigger/budget-trigger-quickstart.md
           - name: Trigger for Data Streams
             href: quickstart/create-trigger/data-streams-trigger-quickstart.md
+          - name: Email trigger
+            href: quickstart/create-trigger/mail-trigger-quickstart.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -97,6 +99,8 @@ items:
             href: operations/trigger/budget-trigger-create.md
           - name: Creating a trigger for Data Streams
             href: operations/trigger/data-streams-trigger-create.md
+          - name: Creating a email trigger
+            href: operations/trigger/mail-trigger-create.md
           - name: Updating a trigger
             href: operations/trigger/trigger-update.md
           - name: Trigger monitoring
@@ -147,6 +151,8 @@ items:
             href: concepts/trigger/budget-trigger.md
           - name: Trigger for Data Streams
             href: concepts/trigger/data-streams-trigger.md
+          - name: Email trigger
+            href: concepts/trigger/mail-trigger.md
       - name: Dead Letter Queue
         href: concepts/dlq.md
       - name: Log group

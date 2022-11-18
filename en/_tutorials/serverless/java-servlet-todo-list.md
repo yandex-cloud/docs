@@ -320,4 +320,3 @@ Create a {% if product == "yandex-cloud" %}[function](../../functions/concepts/f
     {% endlist %}
 
 1. To open the app, follow the link in the **Service domain** field of the created API gateway.
-

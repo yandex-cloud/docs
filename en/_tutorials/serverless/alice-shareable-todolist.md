@@ -10,12 +10,12 @@ In this scenario, you'll develop a skill for Alice and deploy a web app for crea
 
 To deploy a project:
 
-1. [Prepare the environment](#prepare)
-1. [Create resources](#create-resources)
-1. [Set the project variables](#set-variables)
-1. [Deploy the project](#deploy)
-1. [Register Alice's skill](#register-skill)
-1. [Test Alice's skill](#test-skill)
+1. [Prepare the environment](#prepare).
+1. [Create resources](#create-resources).
+1. [Set the project variables](#set-variables).
+1. [Deploy the project](#deploy).
+1. [Register Alice's skill](#register-skill).
+1. [Test Alice's skill](#test-skill).
 
 ## Prepare the environment {#prepare}
 
@@ -25,7 +25,7 @@ To deploy a project:
 
 1. Install and initialize the following software programs:
     * [Yandex Cloud CLI](../../cli/quickstart.md).
-    * [{{ ydb-short-name }} CLI](https://ydb.tech/en/docs/getting_started/cli);
+    * [{{ ydb-short-name }} CLI](https://ydb.tech/en/docs/getting_started/cli).
     * [Bash command interpreter](http://www.gnu.org/software/bash/).
     * [AWS CLI](../../storage/tools/aws-cli).
     * [jq](https://stedolan.github.io/jq/download/).
@@ -49,7 +49,7 @@ To deploy a project:
 
     1. Go to the [service website]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} and log in.
 
-    1. Click **Create new client**:
+    1. Click **Create new client**.
 
     1. Select the desired name for the client app and upload an icon.
 
