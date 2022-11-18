@@ -311,7 +311,7 @@
 
 Если созданные ресурсы вам больше не нужны, удалите их:
 
-1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete-transfer).
+1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
 1. Если при создании эндпоинта для приемника вы создавали сервисный аккаунт, {% if audience != "internal" %}[удалите его](../../iam/operations/sa/delete.md){% else %}удалите его{% endif %}.
 

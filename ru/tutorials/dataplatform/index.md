@@ -28,6 +28,7 @@
 * [{#T}](fetch-data-from-rabbitmq.md)
 * [{#T}](clickhouse-hybrid-storage.md)
 * [{#T}](clickhouse-sharding.md)
+* [{#T}](yds-to-clickhouse.md)
 
 ## {{ dns-name }} {#dns}
 

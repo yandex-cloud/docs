@@ -13,4 +13,5 @@
 * [{#T}](./exchange-data-with-dp.md)
 {% endif %}
 * [{#T}](./dns-peering.md)
+* [{#T}](./yds-to-clickhouse.md)
 * [{#T}](mkf-to-mch-migration.md)

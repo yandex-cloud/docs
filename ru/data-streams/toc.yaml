@@ -15,8 +15,6 @@ items:
             href: quickstart/logstash.md
           - name: AWS CLI
             href: quickstart/aws-cli.md
-      - name: Сохранение данных в ClickHouse
-        href: quickstart/send-to-clickhouse.md
       - name: Обработка потока изменений из Debezium
         href: quickstart/debezium.md
   - name: Пошаговые инструкции
@@ -69,6 +67,8 @@ items:
         href: tutorials/log-ingestion.md
       - name: Передача данных в микросервисных архитектурах
         href: tutorials/message-broker.md
+      - name: Сохранение данных в ClickHouse
+        href: tutorials/send-to-clickhouse.md
       - name: Репликация логов в Object Storage с помощью Fluent Bit
         href: tutorials/replicate-logs-to-storage.md
   - name: Управление доступом

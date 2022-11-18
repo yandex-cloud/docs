@@ -15,6 +15,7 @@
 * [{#T}](greenplum-to-postgresql.md)
 * [{#T}](mmy-objs-migration.md)
 * [{#T}](mkf-to-ydb.md)
+* [{#T}](yds-to-clickhouse.md)
 
 {% if product == "yandex-cloud" and audience != "internal" %}
 

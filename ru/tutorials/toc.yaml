@@ -205,6 +205,8 @@ items:
         href: dataplatform/fetch-data-from-mkf.md
       - name: Получение данных из {{ RMQ }} в {{ mch-full-name }}
         href: dataplatform/fetch-data-from-rabbitmq.md
+      - name: Сохранение потока данных {{ yds-full-name }} в {{ mch-full-name }}
+        href: dataplatform/yds-to-clickhouse.md
       - name: Использование гибридного хранилища в {{ mch-full-name }}
         href: dataplatform/clickhouse-hybrid-storage.md
       - name: Шардирование таблиц {{ mch-full-name }}
