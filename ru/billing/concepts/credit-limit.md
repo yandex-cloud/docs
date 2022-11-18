@@ -54,5 +54,5 @@
 
 * Организациям и ИП:
     * [Перевод с расчетного счета](../payment/payment-methods-business.md)
-    * [Оплата банковской карты](../payment/payment-methods-card-business.md)
+    * [Оплата банковской картой](../payment/payment-methods-card-business.md)
     * [Цикл оплаты](../payment/billing-cycle-business.md)
