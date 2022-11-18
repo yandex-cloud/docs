@@ -213,6 +213,12 @@ The {{ adv-ddos-protection }} plan includes the following services:
 
 ## Managed Web Application Firewall pricing {% if product == "cloud-il" %}(after the service becomes public){% endif %} {#prices-waf}
 
+{% note warning %}
+
+The price for traffic beyond what is included in the subscription fee will increase on 01.12.2022.
+
+{% endnote %}
+
 All prices are shown with VAT.
 
 {% if product == "yandex-cloud" %}

@@ -222,6 +222,12 @@ editable: false
 
 ## Цены Managed Web Application Firewall {% if product == "cloud-il" %}(когда сервис станет общедоступным){% endif %} {#prices-waf}
 
+{% note warning "Важно" %}
+
+С 01.12.2022 изменится цена трафика, использованного сверх включенного в АП.
+
+{% endnote %}
+
 Все цены указаны с учетом НДС.
 
 {% if product == "yandex-cloud" %}
