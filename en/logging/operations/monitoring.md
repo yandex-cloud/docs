@@ -10,7 +10,7 @@ The chart update period is 15 seconds.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder where the log group is located.
+   1. In the [management console]({{ link-console-main }}), select the folder containing your log group.
    1. Select **{{ cloud-logging-name }}**.
    1. Select a log group to view its monitoring charts.
    1. Go to the **Monitoring** tab.
@@ -25,6 +25,6 @@ The chart update period is 15 seconds.
       * **Ingest requests errors**: Number of failed API requests to deliver logs to the system.
       * **Ingest requests duration**: Time to execute API requests to deliver logs to the system.
 
-      You can select the time interval to display information for: hour, three hours, day, week, month, or a custom interval.
+      You can select the period to display information for: an hour, three hours, a day, week, month, or a custom interval.
 
 {% endlist %}
