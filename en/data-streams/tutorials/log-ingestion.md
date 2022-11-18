@@ -22,7 +22,7 @@ For higher reliability, applications can just configure a log aggregator to deli
 
 ### Multiple storage systems {#multiple}
 
-The same logs are often stored in multiple storage systems at once: in {{ CH }} for fast analysis and in {{ objstorage-name }} for long-term storage. To implement this, you can set up your aggregator applications so that they send two data streams: one to {{ CH }} and the other one to {{ objstorage-name }}.
+The same logs are often stored in multiple storage systems at once: in {{ CH }} for fast {% if lang == "ru" %}[analysis](../../glossary/data-analytics.md){% else %}analysis{% endif %} and in {{ objstorage-name }} for long-term storage. To implement this, you can set up your aggregator applications so that they send two data streams: one to {{ CH }} and the other one to {{ objstorage-name }}.
 
 With data buses, this can be done even more easily: just send a log once to a data bus and then, from it, run two data transfer processes inside {{ yandex-cloud }}. This solution will also let you add a third storage system, such as {{ GP }} or {{ ES }}, at any time.
 
