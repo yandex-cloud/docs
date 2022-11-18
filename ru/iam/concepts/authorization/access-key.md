@@ -46,8 +46,8 @@
 О том, как использовать статические ключи доступа, читайте в документации сервисов, поддерживающих этот способ авторизации:
 
 * [{{ objstorage-name }}](../../../storage/s3/index.md)
-* [{{ message-queue-name }}](../../../message-queue/api-ref/index.md)
 {% if audience == "external" and product == "yandex-cloud" %}
+* [{{ message-queue-name }}](../../../message-queue/api-ref/index.md)
 * [{{ ydb-name }}](../../../ydb/docapi/tools/aws-setup.md)
 {% endif %}
 

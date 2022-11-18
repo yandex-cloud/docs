@@ -136,6 +136,7 @@ items:
         when: product == "yandex-cloud"
       - name: Автомасштабирование группы ВМ для обработки сообщений из очереди
         href: infrastructure-management/autoscale-monitoring.md
+        when: product == "yandex-cloud"
       - name: Обновление группы ВМ под нагрузкой
         href: infrastructure-management/updating-under-load.md
         when: product == "yandex-cloud"

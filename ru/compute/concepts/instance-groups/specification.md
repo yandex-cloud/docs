@@ -13,6 +13,8 @@
 
 {% endnote %}
 
+{% if product == "yandex-cloud" %}
+
 ## Пример {#example}
 
 По следующей спецификации можно создать автоматически масштабируемую группу ВМ, как в [сценарии обработки сообщений из очереди {{ message-queue-full-name }}](../../tutorials/autoscale-monitoring.md):
@@ -66,6 +68,8 @@ allocation_policy:
   - zone_id: {{ region-id }}-b
 service_account_id: ajefnb8427bhl9t0pvf8
 ```
+
+{% endif %}
 
 ## Поля {#fields}
 

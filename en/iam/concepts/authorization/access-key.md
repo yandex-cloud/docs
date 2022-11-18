@@ -46,8 +46,8 @@ Example of a private key: `YCVdheub7w9bImcGAnd3dZnf08FRbvjeUFvehGvc`.
 For information about how to use static access keys, read the documentation on the services that support this authorization method:
 
 * [{{ objstorage-name }}](../../../storage/s3/index.md)
-* [{{ message-queue-name }}](../../../message-queue/api-ref/index.md)
 {% if audience == "external" and product == "yandex-cloud" %}
+* [{{ message-queue-name }}](../../../message-queue/api-ref/index.md)
 * [{{ ydb-name }}](../../../ydb/docapi/tools/aws-setup.md)
 {% endif %}
 

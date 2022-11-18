@@ -23,6 +23,7 @@ ignore:
   - "en/iot-core/*"
   - "en/load-testing/*"
   - "en/logging/*"
+  - "en/message-queue/*"
   - "en/managed-elasticsearch/*"
   - "en/managed-gitlab/*"
   - "en/managed-greenplum/*"

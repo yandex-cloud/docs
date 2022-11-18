@@ -13,9 +13,7 @@
 * [Configuring clock synchronization using NTP](ntp.md)
 {% if product == "yandex-cloud" %}
 * [Running instance groups with auto scaling](vm-autoscale.md)
-{% endif %}
 * [Automatically scaling an instance group for handling messages from a queue in {{ message-queue-full-name }}](autoscale-monitoring.md)
-{% if product == "yandex-cloud" %}
 * [Updating an instance group under load](updating-under-load.md)
 * [Transferring logs from a VM instance to {{ cloud-logging-full-name }}](vm-fluent-bit-logging.md)
 {% endif %}

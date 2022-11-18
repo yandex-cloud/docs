@@ -23,9 +23,7 @@
 {% if product == "yandex-cloud" %}
 * [Работа с группой виртуальных машин с автоматическим масштабированием](vm-autoscale.md)
 * [Масштабирование группы виртуальных машин по расписанию](vm-scale-scheduled.md)
-{% endif %}
 * [Автоматическое масштабирование группы виртуальных машин для обработки сообщений из очереди {{ message-queue-full-name }}](autoscale-monitoring.md)
-{% if product == "yandex-cloud" %}
 * [Обновление группы виртуальных машин под нагрузкой](updating-under-load.md)
 {% endif %}
 {% if product == "cloud-il" %}

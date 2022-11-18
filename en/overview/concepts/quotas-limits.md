@@ -124,11 +124,13 @@ Quotas are listed with default values that match the quotas of the [trial period
 
 {% endif %}
 
+{% if product == "yandex-cloud" %}
 
 ### {{ message-queue-full-name }} {#mq}
 
 {% include [ymq-limits.md](../../_includes/message-queue/ymq-limits.md) %}
 
+{% endif %}
 
 {% if product == "yandex-cloud" %}
 

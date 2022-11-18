@@ -273,6 +273,7 @@ items:
         when: product == "yandex-cloud"
       - name: Automatically scaling an instance group for handling messages from a queue
         href: tutorials/autoscale-monitoring.md
+        when: product == "yandex-cloud"
       - name: Updating an instance group under load
         href: tutorials/updating-under-load.md
         when: product == "yandex-cloud"
