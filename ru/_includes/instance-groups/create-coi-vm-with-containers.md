@@ -242,7 +242,7 @@
 
 ## Проверьте группу ВМ с {{ coi }} и несколькими Docker-контейнерами {#check}
 
-1. Подключитесь к одной из созданных ВМ по [SSH](../../compute/operations/vm-connect/ssh.md#vm-connect):
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к одной из созданных ВМ по {% if lang == "ru" and audience != internal %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}:
 
    {% list tabs %}
 

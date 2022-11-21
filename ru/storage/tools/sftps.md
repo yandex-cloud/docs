@@ -39,7 +39,7 @@
      * `aws_access_key_id` – идентификатор статического ключа доступа, полученного [перед началом работы](#before-you-begin).
      * `aws_secret_access_key` – содержимое статического ключа доступа.
 
-   * Если вы будете использовать SFTP, создайте файл `authorized_keys` с открытым SSH-ключом:
+   * Если вы будете использовать SFTP, создайте файл `authorized_keys` с открытым {% if lang == "ru" and audience != internal %}[SSH-ключом](../../glossary/ssh-keygen.md){% else %}SSH-ключом{% endif %}:
 
      ```
      ssh-ed25519 AAAAB3Nz.....BdZoeQ==
