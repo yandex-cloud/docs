@@ -22,3 +22,6 @@ items:
   - name: Бизнес-аналитика
     href: business-analytics.md
     when: audience != "internal"
+  - name: MQTT-брокер
+    href: mqtt-broker.md
+    when: audience != "internal"
