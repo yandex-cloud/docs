@@ -1,6 +1,6 @@
 # Network security
 
-This section provides customers with recommendations on security settings in [{{ vpc-full-name }}](../../vpc/index.yaml).
+This section provides customers with recommendations on security settings in [{{ vpc-full-name }}](../../vpc/).
 
 
 For more information about how to configure your network infrastructure, watch our webinar [How a network works in Yandex Cloud](https://www.youtube.com/watch?v=g3cZ0o50qH0).
@@ -14,15 +14,15 @@ To control network access to your resources, use one of the following:
 
    With built-in security groups, you can manage VM access to resources and security groups in {{ yandex-cloud }} or resources on the internet. A security group is a set of rules for incoming and outgoing traffic that can be assigned to a VM's network interface. Security groups work like a stateful firewall: they monitor the status of sessions and, if a rule allows creating a session, they automatically allow response traffic. For instructions on how to set up security groups, see [{#T}](../../vpc/operations/security-group-create.md). You can specify a security group in the VM settings.
 
-   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Setting up security groups (dev/stage/prod) using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
+![](../../_assets/overview/solution-library-icon.svg)[Solution: Setting up security groups (dev/stage/prod) using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
 
 * A separate VM as a firewall based on an [NGFW](/marketplace/products/usergate/ngfw) image from {{ marketplace-name }}.
 
    ![](../../_assets/overview/solution-library-icon.svg)[Solution: Installing an NGFW on a {{ yandex-cloud }} VM: Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
 
-* The Router-on-a-Stick method based on [Cloud Interconnect](../../interconnect/index.yaml): you can connect your own firewall to the {{ yandex-cloud }} infrastructure via a dedicated channel and route traffic to cloud networks through this firewall.
+* The Router-on-a-Stick method based on [Cloud Interconnect](../../interconnect/): you can connect your own firewall to the {{ yandex-cloud }} infrastructure via a dedicated channel and route traffic to cloud networks through this firewall.
 
-To deliver traffic to an application within your cloud infrastructure, we recommend that you use a network load balancer, such as [{{ alb-full-name }}](../../application-load-balancer/index.yaml), to route your traffic through the selected ports only. We recommend that you use the network load balancer together with security groups to limit the list of IP addresses that have access to the application.
+To deliver traffic to an application within your cloud infrastructure, we recommend that you use a network load balancer, such as [{{ alb-full-name }}](../../application-load-balancer/), to route your traffic through the selected ports only. We recommend that you use the network load balancer together with security groups to limit the list of IP addresses that have access to the application.
 
 To isolate applications from each other, put resources in different security groups, and, if strict isolation is required, in different {{ vpc-short-name }}. Traffic inside a {{ vpc-short-name }} is allowed by default and is not allowed between {{ vpc-short-name }} (only via VMs with two network interfaces in different networks, VPN or Cloud Interconnect).
 
@@ -42,12 +42,12 @@ To enable administrators to establish remote connections to your cloud resources
    * ![](../../_assets/overview/solution-library-icon.svg)[Solution: Creating a site-to-site VPN connection to {{ yandex-cloud }} using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn).
 
 * A client VPN between remote devices and {{ yandex-cloud }}. As a remote access gateway, use a VM featuring a client VPN based on an [image](/marketplace?categories=network) from {{ marketplace-name }}. See the instructions in [Creating a VPN connection using OpenVPN](../../tutorials/routing/openvpn.md).
-* A dedicated private connection between a remote site and {{ yandex-cloud }} using [Cloud Interconnect](../../interconnect/index.yaml).
-{#gost-vpn}
+* A dedicated private connection between a remote site and {{ yandex-cloud }} using [Cloud Interconnect](../../interconnect/).
+   {#gost-vpn}
 * VPN on certified data cryptographic security tools:
 
    * GOST VPN. If you need to provide a secure channel on certified hardware data cryptographic security tools, contact your manager. The GOST VPN service includes the installation of a hardware cryptographic gateway on the {{ yandex-cloud }} side and, if necessary, on the client side, as well as the configuration and further support of a secure channel. Crypto gateways are available for rent. The service is provided jointly with a {{ yandex-cloud }} partner.
-   * Virtual crypto gateway. You can use certified virtual crypto gateways from Russian companies, such as InfoTeCS, S-Terra CSP, and CRYPTO-PRO. A crypto gateway works like a regular VM. You are responsible for purchasing any licenses and maintaining crypto gateways.
+   * Virtual crypto gateway. You can use certified virtual crypto gateways from Russian companies, such as [InfoTeCS](../tutorials/vipnet-to-yc.md), S-Terra CSP, and CRYPTO-PRO. A crypto gateway works like a regular VM. You are responsible for purchasing any licenses and maintaining crypto gateways.
 
 
 To access the infrastructure using control protocols (for example, SSH or RDP), create a bastion VM. You can do this using a free [Teleport](https://goteleport.com/) solution. Access to the bastion VM or VPN gateway from the internet must be restricted.

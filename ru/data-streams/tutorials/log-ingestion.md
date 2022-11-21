@@ -44,5 +44,5 @@
 1. Настройте агрегатор логов: [fluentd](../quickstart/fluentd.md) или [logstash](../quickstart/logstash.md) или другой агрегатор с поддержкой [Kinesis Data Streams API](../kinesisapi/api-ref.md).
 1. Настройте {{ data-transfer-full-name }} для передачи данных в выбранную систему хранения.
 
-    Пример настройки поставки данных из {{ yds-short-name }} приведен в [инструкции по сохранению данных в {{ CH }}](../quickstart/send-to-clickhouse.md).
+    Пример настройки поставки данных из {{ yds-short-name }} приведен в [практическом руководстве по сохранению данных в {{ CH }}](send-to-clickhouse.md).
 1. Подключите произвольную функцию обработки данных к {{ data-transfer-full-name }}. Код функции приведен в [примере](https://github.com/yandex-cloud/examples/tree/master/ydt/nginx-logs).

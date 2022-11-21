@@ -320,4 +320,3 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
     {% endlist %}
 
 1. To open the app, follow the link in the **Service domain** field of the created API gateway.
-

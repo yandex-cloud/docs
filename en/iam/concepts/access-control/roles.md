@@ -1,10 +1,10 @@
 # Roles
 
-A _role_  is a set of user permissions to perform operations with {{ yandex-cloud }} resources.
+A _role_ is a set of user permissions to perform operations with {{ yandex-cloud }} resources.
 
 There are two types of roles:
-* _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are roles like `{{ roles-admin }}`,`{{ roles-editor }}` , and `{{ roles-viewer }}`.
-* _Service roles_ contain permissions only for a specific type of resource in a particular service. The service role ID is specified in `service.resources.role` format. For example, the `{{ roles-image-user }}` role lets you use images in the {{ compute-full-name }} service.
+* _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are roles like `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}`.
+* _Service roles_ contain permissions only for a specific type of resource in a particular service. The service role ID is specified in `service.resources.role` format. For example, the role `{{ roles-image-user }}` lets you use images in the service {{ compute-full-name }}.
 
    A service role can be assigned to the resource that the role is intended for or the resource that permissions are inherited from. For example, you can assign the `{{ roles-image-user }}` role for a folder or cloud, because images inherit permissions from them.
 
@@ -80,12 +80,18 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 {% include [mdb.admin](../../../_includes/iam/roles/mdb.admin.md) %}
 
+{% include [mdb.viewer](../../../_includes/iam/roles/mdb.viewer.md) %}
+
+{% include [mdb.auditor](../../../_includes/iam/roles/mdb.auditor.md) %}
+
+
 
 ## {{ dataproc-short-name }} {#dataproc-roles}
 
 {% include [mdb.dataproc.agent](../../../_includes/roles-dataproc-agent.md) %}
 
 {% include [data-proc-roles](../../../_includes/data-proc/data-proc-roles.md) %}
+
 
 
 ## {{ data-transfer-name }} {#data-transfer-roles}
@@ -104,13 +110,11 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 {% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md) %}
 
 
-
 ## {{ ml-platform-name }} {#datasphere-roles}
 
 {% include [datasphere-user](../../../_includes/roles-datasphere-user.md) %}
 
 {% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md) %}
-
 
 
 ## {{ sf-short-name }} {#functions-roles}
@@ -126,13 +130,11 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
 
-
 ## {{ iot-name }} {#iot-roles}
 
 {% include [iot-devices-writer](../../../_includes/roles-iot-devices-writer.md) %}
 
 {% include [iot-registries-writer](../../../_includes/roles-iot-registries-writer.md) %}
-
 
 
 ## {{ cloud-logging-name }} {#logging}
@@ -157,6 +159,18 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 {% include [kms-editor](../../../_includes/roles-kms-editor.md) %}
 
 {% include [kms-viewer](../../../_includes/roles-kms-viewer.md) %}
+
+
+## {{ mes-name }} {#mes-roles}
+
+{% include [elasticsearch-viewer](../../../_includes/iam/roles/elasticsearch-viewer.md) %}
+
+{% include [elasticsearch-editor](../../../_includes/iam/roles/elasticsearch-editor.md) %}
+
+{% include [elasticsearch-admin](../../../_includes/iam/roles/elasticsearch-admin.md) %}
+
+{% include [elasticsearch-auditor](../../../_includes/iam/roles/elasticsearch-auditor.md) %}
+
 
 ## {{ monitoring-name }} {#monitoring-roles}
 

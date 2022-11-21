@@ -113,7 +113,7 @@
 * Вручную
 
     * [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
-    * [Удалите остановленный трансфер](../../data-transfer/operations/transfer.md#delete-transfer).
+    * [Удалите остановленный трансфер](../../data-transfer/operations/transfer.md#delete).
     * [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
 
 * С помощью {{ TF }}

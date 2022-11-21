@@ -29,7 +29,7 @@ In the [management console]({{ link-console-main }}), you can select the interfa
 
 
    1. In the [management console]({{ link-console-main }}), select the cloud from the list on the left.
-   1. Click  ![***](../../../_assets/pencil.svg) **Edit** in the upper-right corner.
+   1. Click ![***](../../../_assets/pencil.svg) **Edit** in the upper-right corner.
 
       ![image](../../../_assets/iam/cloud-actions-n-n.png)
 

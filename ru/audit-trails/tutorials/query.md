@@ -2,15 +2,15 @@
 
 В [{{ yq-full-name }}](../../query/) интегрирована поддержка {{ at-name }}. Вы можете анализировать события ресурсов {{ yandex-cloud }}, выполняя [аналитические](../../query/concepts/batch-processing.md) и [потоковые](../../query/concepts/stream-processing.md) запросы на языке {{ yql-short-name }}.
 
-Аналитические запросы можно выполнять для логов, которые хранятся [в бакете](../operations/export-organization-bucket.md), а потоковые — для логов [в потоке данных](../operations/export-organization-bucket.md) {{ yds-full-name }}.
+Аналитические запросы можно выполнять для логов, которые хранятся в [бакете](../operations/export-organization-bucket.md), а потоковые — для логов в [потоке данных](../operations/export-organization-data-streams.md) {{ yds-full-name }}.
 
 ![](../../_assets/audit-trails/tutorials/audit-trails-query.png)
 
 Чтобы подключить бакет с [аудитными логами](../concepts/events.md) к {{ yq-full-name }} и выполнить запросы на языке [{{ yql-short-name }}](../../query/yql-tutorials/index.md):
 
-1. [Подготовьте окружение.](#prepare-environment)
-1. [Создайте соединение между трейлом и {{ yq-short-name }}.](#trail-yq)
-1. [Выполните запрос к логам в {{ objstorage-name }}.](#perform-request)
+1. [Подготовьте окружение](#prepare-environment).
+1. [Создайте соединение между трейлом и {{ yq-short-name }}](#trail-yq).
+1. [Выполните запрос к логам в {{ objstorage-name }}](#perform-request).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -55,7 +55,7 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{link-console-main}}) перейдите в каталог `example-folder`.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `example-folder`.
     1. Перейдите на вкладку **Сервисные аккаунты**.
     1. Нажмите **Создать сервисный аккаунт**.
     1. Укажите **Имя** — `trail-sa`.

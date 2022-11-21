@@ -12,3 +12,5 @@
 1. [Проверьте корректность импорта](#check).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+{% include [No Sqoop in DataProc v2.0](../../_includes/data-proc/no-sqoop-in-dataproc2.md) %}

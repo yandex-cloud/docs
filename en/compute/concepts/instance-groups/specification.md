@@ -7,6 +7,7 @@ You can create or edit an instance group based on the specification in the [YAML
 * Policies for [allocation](policies/allocation-policy.md), [deployment](policies/deploy-policy.md), and [scaling](policies/scale-policy.md).
 * Settings for balancing the traffic between VM instances using [{{ network-load-balancer-full-name }}](../../../network-load-balancer/) or [{{ alb-full-name }}](../../../application-load-balancer/).
 
+
 ## Example {#example}
 
 You can use the specification below to create an automatically scalable VM group, as in the message [processing scenario from the {{ message-queue-full-name }} queue](../../tutorials/autoscale-monitoring.md):
@@ -60,6 +61,7 @@ allocation_policy:
   - zone_id: {{ region-id }}-b
 service_account_id: ajefnb8427bhl9t0pvf8
 ```
+
 
 ## Fields {#fields}
 

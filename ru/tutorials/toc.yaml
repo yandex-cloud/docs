@@ -197,6 +197,8 @@ items:
         href: dataplatform/fetch-data-from-mkf.md
       - name: Получение данных из {{ RMQ }} в {{ mch-full-name }}
         href: dataplatform/fetch-data-from-rabbitmq.md
+      - name: Сохранение потока данных {{ yds-full-name }} в {{ mch-full-name }}
+        href: dataplatform/yds-to-clickhouse.md
       - name: Использование гибридного хранилища в {{ mch-full-name }}
         href: dataplatform/clickhouse-hybrid-storage.md
       - name: Шардирование таблиц {{ mch-full-name }}
@@ -267,6 +269,10 @@ items:
         href: dataplatform/postgresql-data-migration.md
       - name: Миграция базы данных из {{ mpg-name }}
         href: dataplatform/outbound-replication.md
+      - name: Миграция базы данных из {{ GP }} в {{ CH }}
+        href: dataplatform/greenplum-to-clickhouse.md
+      - name: Миграция базы данных из {{ GP }} в {{ PG }}
+        href: dataplatform/greenplum-to-postgresql.md
       - name: >-
           Миграция базы данных из стороннего кластера {{ RD }} в {{
           mrd-full-name }}

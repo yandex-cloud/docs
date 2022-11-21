@@ -86,7 +86,7 @@
     * Ресурсы созданы вручную
 
         * [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
-        * [Удалите завершившийся трансфер](../../data-transfer/operations/transfer.md#delete-transfer).
+        * [Удалите завершившийся трансфер](../../data-transfer/operations/transfer.md#delete).
         * [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
 
     * Ресурсы созданы с помощью {{ TF }}
