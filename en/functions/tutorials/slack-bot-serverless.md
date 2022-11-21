@@ -1,5 +1,5 @@
 ---
-title: "How to create a Slack bot with Serverless"
+title: "How to create a Slack bot using Serverless"
 description: "In this use case, you'll learn how to use serverless technologies to create a Slack bot that will run commands in a chat and respond to user messages."
 ---
 

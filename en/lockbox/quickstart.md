@@ -1,6 +1,6 @@
 ---
 title: "Getting started with {{ lockbox-full-name }}"
-description: "In this tutorial, you will learn how to create secrets and retrieve their contents using the {{ lockbox-full-name }} secret storage service. A secret consists of a set of versions that store your data. A version contains sets of keys and values. A key is an unclassified name for a value. to which you will identify it. The value is the secret. "
+description: "In this tutorial, you'll learn how to create secrets and get their contents using {{ lockbox-full-name }}, a service for storing secrets. A secret is a set of versions that store your data. A version contains sets of keys and values. A key is a non-secret name that identifies a value. The value is your secret data."
 ---
 
 # Getting started with {{ lockbox-name }}
@@ -13,7 +13,7 @@ A secret is a set of versions that store your data. A version contains sets of k
 
 Versions can't be changed. Whenever you need to change the number of key-value pairs or their content, you must create a new version.
 
-## Creating secrets {#secrets}
+## Creating secrets {#secret}
 
 {% include [secret-create](../_includes/lockbox/secret-create.md) %}
 

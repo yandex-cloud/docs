@@ -77,6 +77,8 @@ items:
         href: tutorials/storage-logs-analysis.md
       - name: Настройка {{ mch-name }} для Graphite
         href: tutorials/clickhouse-for-graphite.md
+      - name: Сохранение потока данных {{ yds-full-name }} в {{ mch-name }}
+        href: tutorials/yds-to-clickhouse.md
       - name: Миграция базы данных из Google BigQuery в {{ mch-name }}
         href: tutorials/bigquery-to-clickhouse.md
       - name: >-

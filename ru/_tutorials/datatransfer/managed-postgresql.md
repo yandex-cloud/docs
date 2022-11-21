@@ -94,7 +94,7 @@
     * Ресурсы созданы вручную
 
         * [Удалите кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
-        * [Удалите остановленный трансфер](../../data-transfer/operations/transfer.md#delete-transfer).
+        * [Удалите остановленный трансфер](../../data-transfer/operations/transfer.md#delete).
         * [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
 
     * Ресурсы созданы с помощью {{ TF }}

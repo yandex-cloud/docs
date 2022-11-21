@@ -1,87 +1,98 @@
 # {{ yandex-cloud }} resource hierarchy
 
 
-When you get access to {{ yandex-cloud }}, you are allocated a separate workspace: a _cloud_. This is where you will create folders.
-
-Folders contain resources such as virtual machines, disks, and others. When you create a resource, you specify a folder where it is created. Nested folders are not supported for now.
+The {{ resmgr-name }} resource model is shown in the chart. Most {{ yandex-cloud }} services are based on this model.
 
 
-{{ resmgr-name }} provides the standard resource model shown in the following image. This model is used in most of the Yandex Cloud services.
-
-![image](../../_assets/resource-structure.png)
+![image](../../_assets/YC-resource-model-en.svg)
 
 
-All resources inside the cloud are isolated from outside users by default. The cloud owner can manage access rights for the cloud and its resources.
 
-Resource access rights are inherited within the cloud. Rights to access the cloud apply to all resources within the cloud. Folder access rights apply to all resources in the folder. For more information, see [{#T}](#access-rights-inheritance).
+All {{ yandex-cloud }} resources, such as VMs, disks, or networks, are placed in [folders](#folder). When creating a resource, its folder is specified.
 
-Some types of resources are not created in folders, so they have a separate logic for verifying access rights. For example, when a user manages access keys for a service account, the rights to access this service account are verified.
+Each folder belongs to a single cloud. There are no folders outside a cloud. You can't create a folder inside another folder.
 
-## Cloud as a {{ yandex-cloud }} resource {#cloud}
+A [cloud](#cloud) belongs to an organization.
+
+Organizations do not interact with each other. The resources of an organization can't interact with the resources of another organization using {{ yandex-cloud }} tools. Organization management is performed by [{{ org-full-name }}](../../organization/index.yaml).
+
+Within your organization, you can configure resource access rights at the following [levels](#access-rights-inheritance):
+
+* Organization.
+* Cloud.
+* Folder.
+* Individual resource if the service supports access control at this level.
+
+A new user (organization member) is not granted access to resources within organization clouds by default. The access rights must be granted to them explicitly by assigning the respective role for a resource or a folder, the resource's cloud or organization.
+
+
+## Resources {{ resmgr-full-name }} {#rm-resources}
+
+
+### Cloud {#cloud}
 
 A _cloud_ is an isolated space where folders are created.
 
-When a resource is created within the cloud, no one except the cloud members and owners may access the resource.
+By default, clouds are isolated from each other. For resources that support cross-cloud interaction, you can configure it separately.
 
-### Cloud owner {#owner}
+
+#### Cloud owner {#owner}
 
 When a cloud is created, the owner is assigned to it. The cloud owner is the user assigned the `{{ roles-cloud-owner }}` role for this cloud.
 
 The owner can perform any operation with the cloud and its resources.
 
-The owner can grant access to the cloud to other users: assign roles or revoke them. For example, the owner can appoint other cloud owners or denounce their owner role.
+The owner can grant access to the cloud to other users: assign [roles](../../iam/concepts/access-control/roles.md) or revoke them. For example, the owner can appoint other cloud owners or denounce their owner role.
 
 A cloud must have at least one owner. The sole owner of a cloud may not give up this role.
 
-### Cloud member {#member}
 
-The cloud member is a user assigned the `{{ roles-cloud-member }}` role for this cloud.
+#### Cloud member {#member}
 
-A user with a Yandex account requires the cloud member role to manipulate perform operations in a cloud not owned by the organization. The exception is resources with [public access](#public-access).
+The `{{ roles-cloud-member }}` role doesn't grant any rights to handle resources. This role is used in combination with other roles.
 
-> For example, if a cloud member is assigned the `{{ roles-editor }}` role for a folder inside the cloud, such user can create resources in that folder. If the cloud member role is revoked for a user, the user can no longer perform any operations.
+See a detailed description of the role in the [{{ iam-name }}](../../iam/concepts/access-control/roles.md#member) documentation.
 
-The `{{ roles-cloud-member }}` role itself doesn't grant any rights to handle resources. This role is used in combination with other roles.
 
-{% note info %}
-
-The `{{ roles-cloud-member }}` role isn't necessary for cloud owners and service accounts.
-
-{% endnote %}
-
-### Public access to the cloud {#public-access}
+#### Public access to the cloud {#public-access}
 
 You can make your cloud (and any of its resources) public by [assigning a role to the system group](../../iam/operations/roles/grant.md#access-to-all). Then to access a resource, you don't have to be a cloud member. You just need to know the resource ID. Learn more about [system groups](../../iam/concepts/access-control/system-group.md).
 
-## Folders as a {{ yandex-cloud }} resource {#folder}
 
-_A folder_ is an isolated space where {{ yandex-cloud }} resources are created and grouped.
+### Folder {#folder}
 
-Just like folders in your file system, folders in {{ yandex-cloud }} make resource management easier for you. You can group your resources into folders by the resource type, project, department that uses those resources, or any other criteria of your choice.
+A _folder_ is a space where {{ yandex-cloud }} resources are created and grouped.
 
-You can manage access rights for all resources in the folder at once. Let's say your company has employees working with virtual machines only. You can create a folder containing virtual machines only and grant employees access to this folder.
+Just like folders in your file system, {{ yandex-cloud }} folders make resource management simpler. You can group your resources into folders by the resource type, project, department that uses those resources, or any other criteria of your choice.
 
-You can view the contents of the folder in the management console. To find out which folder hosts a given resource, use the API or CLI `Get` method for this resource (the `get` command in the CLI).
 
 ## Inheritance of access rights {#access-rights-inheritance}
 
-When a user (subject) performs an operation with a resource,  {{ iam-full-name }} ({{ iam-short-name }}) service checks whether the user has the applicable access rights for this resource.
+When a user ([subject](../../iam/concepts/access-control/index.md#subject)) performs an operation with a resource, the {{ iam-short-name }} service verifies the user's access rights to this resource.
 
-Rights to access resources inside the cloud are inherited based on the following hierarchy: Cloud → Folder → Resource.
+Resource access rights are inherited:
+* Organization access rights apply to the organization's resources:
+   * Federations.
+   * Groups.
+   * Organization clouds.
+* Rights to access the cloud apply to all folders within the cloud.
+* Folder access rights apply to all resources in the folder.
 
-> For example: in the `mycloud` cloud, the `robots` folder contains the `Alice` and `Bob` service accounts.
+> For example, for an organization named `myorganization` with the following hierarchy:
 >
-> If a `mycloud` user is assigned the `{{ roles-cloud-member }}` and `{{ roles-viewer }}` roles, the user can list all the folders in the cloud and view their contents.
+> * `mycloud` cloud:
+>    * `Robots` folder:
+>       * `Alice` service account.
+>       * `Bob` service account.
 >
-> If a user is assigned the `{{ roles-editor }}` role for `Alice`, the user can manage `Alice`, but not `Bob`.
->
-> If a user is assigned the `{{ roles-admin }}` role for the `robots` folder, this user gets administrator permission to manage this folder and all its resources, including `Alice` and `Bob`.
+> If you assign a user the `resource-manager.viewer` role for the organization, they can view a list of all clouds, folders, and resources in the organization, but can't manage them.
+> If you additionally assign them the `{{ roles-editor }}` role for the `mycloud` cloud, they can manage all the cloud's resources, including the `Alice` and `Bob` service accounts, but can't grant other users access to them.
+> The `{{ roles-admin }}` role for the `robots` folder allows the user to manage all the resources in the folder, including the `Alice` and `Bob` service accounts.
 
-You can't assign roles for some resources because all their permissions are inherited from the folder. For example, currently you can't assign a role for a virtual machine. When someone tries to obtain information about the virtual machine, IAM checks their access rights for the folder hosting this virtual machine. If access rights have not been set for the folder, IAM checks that the subject has the applicable access rights for this cloud.
+You can't assign a role for some resources directly. In this case, a role is assigned for a folder, cloud, or organization. For example, currently you can't assign a role for a virtual machine. If a user makes an attempt to read information about a VM, {{ iam-short-name }} checks the user's access rights to the folder this VM belongs to. If the folder access rights are missing, {{ iam-short-name }} checks the cloud and organization access rights.
 
 #### See also {#see-also}
 
 - [{#T}](../operations/cloud/set-access-bindings.md)
 - [{#T}](../operations/folder/create.md)
 - [{#T}](../operations/folder/set-access-bindings.md)
-

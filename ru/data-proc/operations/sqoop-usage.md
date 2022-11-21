@@ -10,6 +10,8 @@
     * [Apache Hive](#apache-hive);
     * [Apache HBase](#apache-hbase).
 
+{% include [No Sqoop in DataProc v2.0](../../_includes/data-proc/no-sqoop-in-dataproc2.md) %}
+
 ## Формирование строки подключения JDBC {#jdbc-url-getting}
 
 Строка подключения JDBC имеет вид:

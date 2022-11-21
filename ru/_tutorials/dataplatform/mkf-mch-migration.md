@@ -145,7 +145,7 @@
 
 Кластер {{ mch-name }} будет использовать [формат данных JSONEachRow]({{ ch.docs }}/interfaces/formats/#jsoneachrow) при вставке в таблицы на движке `Kafka`. Этот формат преобразует строки из сообщения {{ KF }} в нужные значения столбцов.
 
-1. Создайте файл `sample.json` со тестовыми данными:
+1. Создайте файл `sample.json` с тестовыми данными:
 
     {% cut "sample.json" %}
 
@@ -368,7 +368,7 @@
 
 Если созданные ресурсы вам больше не нужны, удалите их:
 
-1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete-transfer).
+1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для источника.
 
 Остальные ресурсы удалите в зависимости от способа их создания:

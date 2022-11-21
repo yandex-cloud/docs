@@ -77,7 +77,7 @@
 
       Если вы создали эндпоинты и трансфер вручную, то:
 
-        1. [Удалите остановленный трансфер](../../data-transfer/operations/transfer.md#delete-transfer).
+        1. [Удалите остановленный трансфер](../../data-transfer/operations/transfer.md#delete).
         1. [Удалите эндпоинты для источника и приемника](../../data-transfer/operations/endpoint/index.md#delete).
 
     * С помощью {{ TF }}

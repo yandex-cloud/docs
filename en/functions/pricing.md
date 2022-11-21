@@ -32,9 +32,9 @@ Monthly cost = $0.043760 × Memory (GB) × Call processing time (Hours) + $0.128
 ### Example of cost calculation {#price-example}
 
 Example of calculating the cost of a function that has:
-* **Memory specified when creating the version:** 512 MB.
-* **Number of function calls:** 10000000.
-* **Execution time of each call:** 800 ms.
+* **Memory specified when creating the version**: 512 MB.
+* **Number of function calls**: 10000000.
+* **Execution time of each call**: 800 ms.
 
 Function cost calculation:
 

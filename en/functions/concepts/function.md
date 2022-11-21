@@ -80,5 +80,5 @@ If the number of function calls exceeds the number of provisioned instances, {{ 
 
 #### See also
 
-* [Creating a function version.](../operations/function/version-manage.md#func-version-create)
-* [Adding scaling settings.](../operations/function/function-scale.md#add)
+* [Creating a function version](../operations/function/version-manage.md#func-version-create).
+* [Adding scaling settings](../operations/function/function-scale.md#add).

@@ -32,7 +32,7 @@ items:
             href: operations/export-cloud-bucket.md
           - name: Folder
             href: operations/export-folder-bucket.md
-  - name: Tutorials
+  - name: Practical guidelines
     items:
       - name: Searching for {{ yandex-cloud }} events in {{ yq-full-name }}
         href: tutorials/query.md
@@ -50,8 +50,14 @@ items:
           Uploading audit logs to {{ mch-full-name }} and data visualiation in
           {{ datalens-full-name }}
         href: tutorials/logs-analysis.md
-      - name: Exporting audit logs to SIEM Splunk systems
-        href: tutorials/export-logs-to-splunk.md
+      - name: Exporting audit logs to SIEM
+        items:
+          - name: Exporting audit logs to MaxPatrol SIEM
+            href: tutorials/maxpatrol.md
+          - name: Exporting audit logs to SIEM Splunk systems
+            href: tutorials/export-logs-to-splunk.md
+          - name: Uploading audit logs to ArcSight SIEM
+            href: tutorials/export-logs-to-arcsight.md
   - name: Concepts
     expanded: true
     items:

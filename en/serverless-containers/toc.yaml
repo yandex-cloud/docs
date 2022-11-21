@@ -53,6 +53,8 @@ items:
             href: operations/budget-trigger-create.md
           - name: Creating a trigger for Data Streams
             href: operations/data-streams-trigger-create.md
+          - name: Creating a email trigger
+            href: operations/mail-trigger-create.md
           - name: Updating a trigger
             href: operations/trigger-update.md
           - name: Trigger monitoring
@@ -91,6 +93,8 @@ items:
             href: concepts/trigger/budget-trigger.md
           - name: Trigger for Data Streams
             href: concepts/trigger/data-streams-trigger.md
+          - name: Email trigger
+            href: concepts/trigger/mail-trigger.md
       - name: Dead Letter Queue
         href: concepts/dlq.md
       - name: Container logs

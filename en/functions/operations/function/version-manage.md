@@ -125,7 +125,7 @@ When creating a version, set the following parameters:
       * `yandex_function`: Description of the function being created and its source code.
          * `name`: Function name.
          * `description`: Text description of the function.
-         * `user_hash`: An arbitrary string that identifies the function version.  When the function changes, update this string, too. The function will update when this string is updated.
+         * `user_hash`: An arbitrary string that identifies the function version. When the function changes, update this string, too. The function will update when this string is updated.
          * `runtime`: The function [runtime environment](../../concepts/runtime/index.md).
          * `entrypoint`: Function name in the source code that will serve as an entry point to the applications.
          * `memory`: The amount of memory allocated for function execution, in MB.
@@ -253,7 +253,7 @@ When you add environment variables, a new version of the function is created. Yo
 
    * `--function-name`: The function name.
    * `--runtime`: The runtime environment.
-   * `--entrypoint`: The entry point specified in the <function file name>.<handler name> format.
+   * `--entrypoint`: The entry point specified in the `<function file name>`.`<handler name>` format.
    * `--memory`: The amount of RAM.
    * `--execution-timeout`: The maximum function execution time before the timeout is reached.
    * `--source-version-id`: The ID of the function version to copy the code of.
@@ -375,7 +375,7 @@ For more information about [networking](../../concepts/networking.md), see {{ sf
 
    * `--function-name`: The function name.
    * `--runtime`: The runtime environment.
-   * `--entrypoint`: The entry point specified in the `<function file name>.<handler name>` format.
+   * `--entrypoint`: The entry point specified in the `<function file name>`.`<handler name>` format.
    * `--memory`: The amount of RAM.
    * `--execution-timeout`: The maximum function execution time before the timeout is reached.
    * `--source-version-id`: The ID of the function version to copy the code of.
@@ -446,7 +446,7 @@ A new version of a function is created when secrets are transmitted. You can't t
 
    * `--function-name`: The function name.
    * `--runtime`: The runtime environment.
-   * `--entrypoint`: The entry point specified in the <function file name>.<handler name> format.
+   * `--entrypoint`: The entry point specified in the `<function file name>`.`<handler name>` format.
    * `--memory`: The amount of RAM.
    * `--execution-timeout`: The maximum function execution time before the timeout is reached.
    * `--service-account-id`: ID of the function version to copy the code of.

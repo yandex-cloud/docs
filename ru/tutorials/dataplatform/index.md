@@ -26,6 +26,7 @@
 * [{#T}](fetch-data-from-rabbitmq.md)
 * [{#T}](clickhouse-hybrid-storage.md)
 * [{#T}](clickhouse-sharding.md)
+* [{#T}](yds-to-clickhouse.md)
 
 ## {{ dns-name }} {#dns}
 
@@ -73,6 +74,10 @@
 * [{#T}](./debezium-mpg.md)
 * [{#T}](sqoop-mpg.md)
 
+## {{ GP }} {#greenplum}
+
+* [{#T}](greenplum-to-clickhouse.md)
+* [{#T}](greenplum-to-postgresql.md)
 
 
 ## {{ RD }} {#redis}

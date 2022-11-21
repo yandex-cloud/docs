@@ -180,7 +180,7 @@ Using functions, you can configure the bot's reactions to user actions in the ch
       * `SLACK_BOT_TOKEN`
       * `SLACK_SIGNING_SECRET`
    1. Add the variables to work with {{ ydb-name }}:
-      * `DATABASE`: The value of the **Database** field  from the **Overview** section in the `for-slack-bot` database properties. For example: `/{{ region-id }}/a1bcd23mbaomkfvsleds/etn456khb7jn1ddedfht`
+      * `DATABASE`: The value of the **Database** field from the **Overview** section in the `for-slack-bot` database properties. For example: `/{{ region-id }}/a1bcd23mbaomkfvsleds/etn456khb7jn1ddedfht`
       * `ENDPOINT`: The value of the **Endpoint** field from the **Overview** section in the `for-slack-bot` database properties. For example: `grpcs://ydb.serverless.yandexcloud.net:1234`
       * `USE_METADATA_CREDENTIALS` = 1.
 

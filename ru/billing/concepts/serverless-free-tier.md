@@ -53,6 +53,7 @@ Free tier распространяется на сервисы:
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
+
 ## {{ message-queue-full-name }} {#message-queue}
 
 {% include [not-charged-queue.md](../../_includes/pricing/price-formula/not-charged-queue.md) %}
@@ -60,7 +61,6 @@ Free tier распространяется на сервисы:
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../message-queue/pricing.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
-
 
 ## {{ iot-full-name }} {#iot}
 

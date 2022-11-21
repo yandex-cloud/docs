@@ -60,7 +60,7 @@
 1. [Настройте](../quickstart/index.md) AWS SDK.
 1. Настройте {{ data-transfer-full-name }} для передачи данных в выбранную систему хранения.
 
-    Пример настройки поставки данных из {{ yds-short-name }} приведен в [инструкции по сохранению данных в {{ CH }}](../quickstart/send-to-clickhouse.md).
+    Пример настройки поставки данных из {{ yds-short-name }} приведен в [практическом руководстве по сохранению данных в {{ CH }}](send-to-clickhouse.md).
 1. Подключите произвольную функцию обработки данных к {{ data-transfer-full-name }}. Код функции приведен в [примере](https://github.com/yandex-cloud/examples/tree/master/ydt/nginx-logs) или используйте SDK для прямого чтения данных из {{ yds-short-name }}:
     * [Go](https://docs.aws.amazon.com/sdk-for-go/api/service/kinesis/).
     * [C++](https://sdk.amazonaws.com/cpp/api/LATEST/class_aws_1_1_kinesis_1_1_kinesis_client.html).

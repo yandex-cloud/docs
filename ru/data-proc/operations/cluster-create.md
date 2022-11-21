@@ -1,6 +1,6 @@
 # Создание кластера {{ dataproc-name }}
 
-Минимально необходимая роль для создания кластера {{ dataproc-name }} — `editor`. Подробнее см. в [описании роли](../../iam/concepts/access-control/roles#editor).
+Для создания кластера {{ dataproc-name }} пользователю должны быть назначены роли `editor` и `dataproc.agent`. Подробнее см. в [описании ролей](../security/index.md#roles).
 
 ## Настройте сеть {#setup-network}
 
