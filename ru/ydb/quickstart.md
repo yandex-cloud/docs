@@ -1,5 +1,11 @@
 # Как начать работать с {{ ydb-full-name }}
 
+{% if product == "yandex-cloud" %}
+
+{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
+
+{% endif %}
+
 В этой инструкции вы создайте базу данных [{{ ydb-short-name }}]{% if lang == "en" %}(https://ydb.tech/en){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru){% endif %} в {{ yandex-cloud }} и выполните простой запрос к ней c помощью [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} или инструментов командной строки.
 
 Для работы с базой данных в {{ ydb-full-name }} также доступны:

@@ -1,5 +1,11 @@
 # Как начать работать с {{ mkf-name }}
 
+{% if product == "yandex-cloud" %}
+
+{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
+
+{% endif %}
+
 Чтобы начать работу с сервисом:
 1. [Создайте кластер](#cluster-create).
 1. [Создайте топик](#topic-create).

@@ -60,3 +60,7 @@
 {% endlist %}
 
 Подробную информацию о [платежном аккаунте](../billing/concepts/billing-account.md) и [условиях для нерезидентов РФ](../billing/qa/non-resident.md) читайте в документации сервиса Биллинг.
+
+## Грант для управляемых баз данных {#mdb}
+
+{% include [mdb-grant-amount](_includes/mdb-grant-amount.md) %}
