@@ -8,16 +8,16 @@
 1. [Подключитесь](../../managed-postgresql/operations/connect.md#connection-string) к базе данных `db1` с помощью учетной записи владельца БД.
 1. Чтобы выдать права доступа только к таблице `Products` в схеме по умолчанию `public`, выполните команду:
 
-   ```sql
-   GRANT SELECT ON public.Products TO user2;
-   ```
+    ```sql
+    GRANT SELECT ON public.Products TO user2;
+    ```
 
 1. Чтобы выдать доступ ко всем таблицам схемы `myschema`, выполните команду:
 
-   ```sql
-   GRANT SELECT ON ALL TABLES IN SCHEMA myschema TO user2;
-   GRANT USAGE ON SCHEMA myschema TO user2;
-   ```
+    ```sql
+    GRANT SELECT ON ALL TABLES IN SCHEMA myschema TO user2;
+    GRANT USAGE ON SCHEMA myschema TO user2;
+    ```
 
 Для отзыва выданных привилегий выполните команды:
 
@@ -27,3 +27,5 @@ REVOKE SELECT ON public.Products FROM user2;
 REVOKE SELECT ON ALL TABLES IN SCHEMA myschema FROM user2;
 REVOKE USAGE ON SCHEMA myschema FROM user2;
 ```
+
+{% endlist %}
