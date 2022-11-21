@@ -96,6 +96,9 @@ items:
       - name: HTTPS-тест со ступенчатой нагрузкой с помощью Pandora
         href: testing/loadtesting-https-pandora.md
         when: product == "yandex-cloud"
+      - name: Нагрузочное тестирование с нескольких агентов
+        href: testing/loadtesting-multiply.md
+        when: product == "yandex-cloud"
   - name: Управление инфраструктурой
     items:
       - name: Все руководства
