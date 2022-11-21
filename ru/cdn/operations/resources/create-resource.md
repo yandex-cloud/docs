@@ -238,7 +238,7 @@
 
 {% endlist %}
 
-Создание ресурса занимает около 15 минут.
+{% include [after-creation-tip](../../../_includes/cdn/after-creation-tip.md) %}
 
 ## Примеры {#examples}
 

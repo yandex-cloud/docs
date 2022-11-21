@@ -1400,7 +1400,7 @@
    
    {% endcut %}
 
-Через 15–20 минут после настройки DNS вы сможете проверить работу сервиса.
+{% include [after-creation-tip-tutorials](cdn/after-creation-tip-tutorials.md) %}
 
 ## Проверьте работу сервиса и переключение между версиями {#check}
 
