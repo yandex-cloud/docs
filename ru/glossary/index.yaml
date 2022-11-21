@@ -7,7 +7,7 @@ description:
 meta:
   title: Облачная терминология
 links:
-  - title: ssh-keygen
+  - title: Протокол SSH
     description: Как генерировать ключи для авторизации
     href: ssh-keygen
   - title: Виртуальная частная сеть (VPN)
@@ -28,6 +28,9 @@ links:
   - title: Бизнес-аналитика
     description: Получение и систематизация сведений о деятельности компании на всех уровнях бизнеса для принятия важных бизнес-решений
     href: business-analytics
+  - title: API
+    description: Что такое API и для чего он нужен
+    href: rest-api
   - title: MQTT-брокер
     description: Центр агрегации, обработки и пересылки данных между узлами сети
     href: mqtt-broker
