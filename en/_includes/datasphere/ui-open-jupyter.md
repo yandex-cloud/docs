@@ -1,2 +1,2 @@
-1. Click **Open project in {{ jlab }}Lab** and wait for the loading to complete.
+1. Click **Open project in {{ jlab }}Lab** and wait for it to load.
 1. Open the notebook tab.

@@ -1,4 +1,5 @@
 {% if product == "yandex-cloud" %}
+
 * **Transformation rules**
 
    The rules used by Cloud Function to process an incoming stream:
@@ -37,6 +38,7 @@
    {% endnote %}
 
 {% endif %}
+
 * **Conversion rules**:
 
    * **Data format**: Select one of the available formats:
@@ -44,5 +46,8 @@
       * `CSV`
 
    * **Data schema**: Specify the schema as a list of fields or upload a file with a description of the schema in JSON format.
+
+      {% include notitle[json-schema-sample](fields/common/ui/json-schema-sample.md) %}
+
    * **Add unmarked columns**: Select this option to have the fields missing in the schema appear in the `_rest` column.
    * **Allow null in key columns**: Select this option to allow the `null` value in key columns.

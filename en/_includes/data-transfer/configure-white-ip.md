@@ -4,6 +4,6 @@ Make sure the settings for the network hosting the cluster allow public connecti
 
 {% else %}
 
-Make sure the security groups for the network hosting the cluster allow incoming traffic from and outgoing traffic to a network called `_YTVANGANETS_`.
+Make sure the security groups for the network hosting the cluster allow incoming traffic from and outgoing traffic to a network called `_YTVANGANETS_`. To do this, set up a rule that would initiate a connection from `_YTVANGANETS_` in `_USER_`.
 
 {% endif %}
