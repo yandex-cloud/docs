@@ -1,5 +1,9 @@
 # Как начать работать с {{ mmy-name }}®
 
+
+{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
+
+
 Чтобы начать работу с сервисом:
 * [Создайте кластер БД](#cluster-create).
 * [Подключитесь к БД](#connect).

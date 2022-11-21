@@ -30,6 +30,8 @@ items:
         href: tutorials/loadtesting-https-phantom.md
       - name: HTTPS-тест со ступенчатой нагрузкой с помощью Pandora
         href: tutorials/loadtesting-https-pandora.md
+      - name: Нагрузочное тестирование с нескольких агентов
+        href: tutorials/loadtesting-multiply.md
   - name: Концепции
     items:
       - name: Обзор сервиса
@@ -58,6 +60,8 @@ items:
         href: concepts/testing-stream.md
       - name: Автостоп
         href: concepts/auto-stop.md
+      - name: Мониторинг агентов тестирования
+        href: concepts/monitoring.md
       - name: Отчеты
         href: concepts/reports.md
       - name: Результаты нагрузочного теста

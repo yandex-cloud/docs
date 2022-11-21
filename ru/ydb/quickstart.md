@@ -1,5 +1,9 @@
 # Как начать работать с {{ ydb-full-name }}
 
+
+{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
+
+
 В этой инструкции вы создайте базу данных [{{ ydb-short-name }}](https://ydb.tech/ru) в {{ yandex-cloud }} и выполните простой запрос к ней c помощью [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} или инструментов командной строки.
 
 Для работы с базой данных в {{ ydb-full-name }} также доступны:

@@ -1,5 +1,9 @@
 # Как начать работать с {{ mkf-name }}
 
+
+{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
+
+
 Чтобы начать работу с сервисом:
 1. [Создайте кластер](#cluster-create).
 1. [Создайте топик](#topic-create).
