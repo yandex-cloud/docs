@@ -174,11 +174,6 @@ items:
           include:
             repo: docs
             path: en/_api-ref-grpc/datasphere/v1/toc.yaml
-        - name: REST (англ.)
-          items: null
-          include:
-            repo: docs
-            path: en/_api-ref/datasphere/toc.yaml
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

@@ -2,7 +2,7 @@
 
 In {{ ml-platform-name }}, you can perform all basic operations on resources and notebooks using both the UI and API.
 
-The [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) uses a set of [gRPC](grpc/index) and [REST](index) methods for resource management. For more information about their implementation and interaction specifics, see the [{{ yandex-cloud }} API documentation](../../api-design-guide/concepts/standard-methods).
+The [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) uses a set of [gRPC](grpc/index) methods for resource management. For more information about their implementation and interaction specifics, see the [{{ yandex-cloud }} API documentation](../../api-design-guide/concepts/standard-methods).
 
 ## Working with projects
 With `ProjectService` methods, you can create, open, update, and delete a project. You can also view a list of projects in a particular folder.
