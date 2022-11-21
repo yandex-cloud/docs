@@ -7,6 +7,9 @@ items:
   - name: Виртуализация
     href: virtualization.md
     when: audience != "internal"
+  - name: Графический процессор (GPU)
+    href: gpu.md
+    when: audience != "internal"
   - name: Виртуальная частная сеть (VPN)
     href: vpn.md
     when: audience != "internal"

@@ -16,6 +16,9 @@ links:
   - title: Виртуализация
     description: Разделение ресурсов между виртуальными машинами
     href: virtualization
+  - title: Графический процессор (GPU)
+    description: Назначение и применение графических процессоров
+    href: gpu
   - title: Аналитика данных
     description: Цели и задачи аналитики данных
     href: data-analytics
