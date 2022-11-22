@@ -150,9 +150,9 @@ For a service whose subnet and security group differ from the agent's ones, [cre
            package: yandextank.plugins.Autostop
            autostop:
              - instances(90%,60s)      # stop the test if 90% of testing threads are used for 60 seconds, meaning there are testing issues
-         cloudloader:
+         uploader:
            enabled: true
-           package: yandextank.plugins.CloudUploader
+           package: yandextank.plugins.DataUploader
            job_name: '[example][phantom][const]'
            job_dsc: 'example'
            ver: '0.5.5'
