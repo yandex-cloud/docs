@@ -53,7 +53,7 @@ items:
             href: tts/supported-phonemes.md
       - name: "{{ brand-voice-name }}"
         items:
-          - name: О технологии "{{ brand-voice-name }}"
+          - name: "О технологии {{ brand-voice-name }}"
             href: tts/brand-voice/index.md
           - name: Формат входных данных Brand Voice Adaptive
             href: tts/brand-voice/income-data-format.md
