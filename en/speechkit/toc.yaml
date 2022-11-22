@@ -174,9 +174,6 @@ items:
         href: release-notes-tts.md
       - name: Release archive
         href: release-notes.md
-  - name: Public materials
-    href: public-talks.md
-    when: product == "yandex-cloud"
   - name: Questions and answers
     when: product == "yandex-cloud"
     items:
