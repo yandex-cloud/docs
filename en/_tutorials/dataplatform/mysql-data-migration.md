@@ -147,7 +147,7 @@ Create the necessary resources:
 
       If necessary, pass additional parameters in the create dump command:
 
-      * `--events` — If there are recurring events in your database.
+      * `--events`: If there are recurring events in your database.
       * `--routines`: If your database has stored procedures and functions.
 
       For InnoDB tables, use the `--single-transaction` option to guarantee data integrity.

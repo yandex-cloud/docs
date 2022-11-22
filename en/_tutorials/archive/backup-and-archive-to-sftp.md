@@ -470,7 +470,7 @@ To restore the settings from the backup:
    tar -xzf $SFTP_BACKUP
    ```
 
-1. Copy the configuration files from the archive to the system (`yes` — avoid entering confirmation when overwriting files):
+1. Copy the configuration files from the archive to the system (`yes`: avoid entering confirmation when overwriting files):
 
    ```bash
    yes | cp -rfp etc /

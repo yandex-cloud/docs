@@ -1,6 +1,6 @@
 # Trigger for {{ iot-short-name }}
 
-The trigger for {{ iot-short-name }} is designed for managing messages exchanged between devices and registries. The trigger is created for topics: it receives copies of messages from them and passes those copies to the {{ serverless-containers-name }} container for processing.
+The [trigger](../trigger/) for {{ iot-short-name }} is designed for managing messages exchanged between devices and registries. The trigger is created for [topics](../../../iot-core/concepts/topic/index.md): it receives copies of messages from them and passes those copies to the {{ serverless-containers-name }} container for processing.
 
 {% include [trigger](../../../_includes/iot-core/trigger.md) %}
 
@@ -13,42 +13,11 @@ A trigger for {{ iot-short-name }} needs a [service account](../../../iam/concep
 
 Read more about [access management](../../security/index.md).
 
-## {{ iot-short-name }} trigger message format {#iot-format}
+## {{ iot-short-name }} trigger message format {#format}
 
 Before the message is copied to a container, the trigger converts it to the following format:
 
-```json
-{
-    "messages": [
-        {
-            "event_metadata": {
-                 "event_id": "2153b5d2-c6af-4c69-a28d-74ce965b7613",
-                 "event_type": "yandex.cloud.events.iot.IoTMessage",
-                 "created_at": "2019-09-25T15:51:17.872320525Z"
-            },
-            "details": {
-                 "registry_id": "arenou2oj4ct42eq8g3n",
-                 "device_id": "areqjd6un3afc3cefcvm",
-                 "mqtt_topic": "$devices/areqjd6un3afc3cefcvm/events",
-                 "payload": "VGVzdCA0"
-            }
-        },
-        {
-            "event_metadata": {
-                 "event_id": "2153b5d2-c6af-4c69-a28d-74ce965b7613",
-                 "event_type": "yandex.cloud.events.iot.IoTMessage",
-                 "created_at": "2019-09-25T15:51:17.872320525Z"
-            },
-            "details": {
-                 "registry_id": "arenou2oj4ct42eq8g3n",
-                 "device_id": "areqjd6un3afc3cefcvm",
-                 "mqtt_topic": "$devices/areqjd6un3afc3cefcvm/events",
-                 "payload": "VGVzdCA0"
-            }
-        }
-    ]
-}
-```
+{% include [iot-format](../../../_includes/functions/iot-format.md) %}
 
 ## See also {#see-also_}
 

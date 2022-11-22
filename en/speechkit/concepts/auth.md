@@ -4,7 +4,7 @@ description: "To perform operations using the {{ speechkit-full-name }} API, you
 ---
 
 
-# Authentication in the API
+# Authentication in the {{ speechkit-name }} API
 
 To work with the {{ speechkit-name }} API, you need to authenticate using your:
 

@@ -12,4 +12,4 @@ If necessary, you can specify a [cloud network](../../vpc/concepts/network.md#ne
 
 {% include [network](../../_includes/functions/network.md) %}
 
-Regardless of the settings, any container is called only via the public API. You can't access the container from user resources. Learn more about [invoking a container](invoke.md).
+Regardless of the settings, any container is only invoked via a public API. You can't access the container from user resources. Learn more about [invoking a container](invoke.md).

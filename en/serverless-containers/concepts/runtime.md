@@ -11,7 +11,6 @@ Runtime environment characteristics:
 ## Supported languages and images {#image}
 
 You can write your application in any programming language and have it use any image that meets the following requirements:
-
 * The executables are compiled under Linux x86_64.
 * Available image formats: [Docker Image Manifest V 2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/) and [OCI Image Format](https://github.com/opencontainers/image-spec).
 
@@ -26,10 +25,10 @@ After receiving a request, a container instance must send a response within the 
 The table provides a list of environment variables defined in the {{ serverless-containers-name }} runtime and available to an application. You cannot override these.
 
 | Key | Value |
-| ---- | ---- |
+---- | ----
 | PORT | Network port the runtime uses to send HTTP requests to an application. |
 
-You can add other environment variables when you [create a container revision](../operations/manage-revision.md#create) or build a Docker image. Environment variables, including variable names, are [limited](./limits.md#serverless-containers-limits) to 4 KB of space.
+You can add other environment variables when you [create a container revision](../operations/manage-revision.md#create) or build a Docker image. The [limit](./limits.md#serverless-containers-limits) for maximum environment variable size, including variable names, is 4 KB.
 
 You cannot calculate environment variables. Environment variable values are string constants. You can only calculate these within application code.
 
@@ -37,7 +36,7 @@ You can retrieve environment variables using standard programming language tools
 
 ## File system {#file-system}
 
-The container image files and directories are readable on the virtual environment file system. The file system is writable. Space available for writing is limited, for more information, see [Quotas and limits](./limits.md).
+The container image files and directories are readable on the virtual environment file system. The file system is writable. The space available for writing is limited. For more detail, please see [Quotas and limits](./limits.md).
 
 The file system is stored in RAM. Data written to the file system is not saved when a container instance is stopped.
 

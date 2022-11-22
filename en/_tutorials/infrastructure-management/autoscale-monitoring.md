@@ -90,7 +90,7 @@ The cost of the infrastructure includes:
       yc iam service-account create --name queue-autoscale-sa
       ```
 
-      Where `--name` is the service account name (`queue-autoscale-sa`).
+      Where `--name`: Service account name (`queue-autoscale-sa`).
 
       Result:
 
@@ -191,11 +191,11 @@ The cost of the infrastructure includes:
 
 - API
 
-   1. Create a service account named `queue-autoscale-sa` using the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call or the [Create](../../iam/api-ref/ServiceAccount/create.md) REST API method. The response will contain the service account ID.
+   1. Create a service account named `queue-autoscale-sa` using the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call or the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method. The response will contain the service account ID.
    1. Assign the service account the `editor` role for `example-folder` using the [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#UpdateAccessBindings) gRPC API call or the [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) REST API method. In the request body, specify the service account ID.
    1. Create a [static access key](../../iam/concepts/authorization/access-key.md) to enable the service account to work with {{ message-queue-name }} and save the key to the `access_key` file:
 
-      1. Use the [AccessKeyService/Create](../../iam/api-ref/grpc/access_key_service.md#Create) gRPC API call or the [Create](../../iam/api-ref/AccessKey/create.md) REST API method.
+      1. Use the [AccessKeyService/Create](../../iam/api-ref/grpc/access_key_service.md#Create) gRPC API call or the [create](../../iam/api-ref/AccessKey/create.md) REST API method.
       1. Insert the key ID and secret key into `access_key` in the following format:
 
          ```yaml
@@ -204,8 +204,8 @@ The cost of the infrastructure includes:
          secret: <secret key>
          ```
 
-   1. Create a cloud network named `queue-autoscale-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call or the [Create](../../vpc/api-ref/Network/create.md) REST API method. The response will contain the network ID.
-   1. Create a subnet named `queue-autoscale-subnet-a` in `{{ region-id }}-a` with the `192.168.1.0/24` CIDR using the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call or the [Create](../../vpc/api-ref/Subnet/create.md) REST API method. In the request body, specify the network ID.
+   1. Create a cloud network named `queue-autoscale-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method. The response will contain the network ID.
+   1. Create a subnet named `queue-autoscale-subnet-a` in `{{ region-id }}-a` with the `192.168.1.0/24` CIDR using the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call or the [create](../../vpc/api-ref/Subnet/create.md) REST API method. In the request body, specify the network ID.
 
 {% endlist %}
 
@@ -386,7 +386,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
       {% endcut %}
 
-   * In the `subnet_id` field, specify the ID of the `queue-autoscale-subnet-a subnet`.
+   * In the `subnet_id` field, specify the ID of the `queue-autoscale-subnet-a` subnet.
 
       {% cut "How do I find out the subnet ID" %}
 
@@ -579,7 +579,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
          - CLI
 
-            Run the following command:
+            Run the command:
 
             ```bash
             yc vpc network get queue-autoscale-network
@@ -610,7 +610,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
       * In the `service_account_id` field, specify the ID of the `queue-autoscale-sa` service account.
 
-      For information about how to get the IDs of resources (except for images and networks), see step 3 of [Create an image with an application](#create-image).
+      To learn how to get the IDs of resources (except for images and networks), see step 3 in the section [Create an image with an application](#create-image).
 
    1. Create an instance group named `queue-autoscale-ig` according to the following specification:
 
@@ -618,7 +618,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
       yc compute instance-group create --file spec.yaml
       ```
 
-      Where `--file` is the path to the instance group specification file (`spec.yaml`).
+      Where `--file`: Path to the instance group specification file (`spec.yaml`).
 
 - API
 
@@ -666,7 +666,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
       * In the `service_account_id` field, specify the ID of the `queue-autoscale-sa` service account.
 
-      For information about how to get the IDs of resources (except for images and networks), see step 3 of [Create an image with an application](#create-image).
+      To learn how to get the IDs of resources (except for images and networks), see step 3 in the section [Create an image with an application](#create-image).
 
    1. Create an instance group named `queue-autoscale-ig` according to the `spec.yaml` specification. To do this, use the [InstanceGroupService/CreateFromYaml](../../compute/api-ref/grpc/instance_group_service.md#CreateFromYaml) gRPC API call or the [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) REST API method.
 

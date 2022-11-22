@@ -1,6 +1,6 @@
 Manage the TLS certificate for the NGINX Ingress controller via {{ certificate-manager-name }}.
 
-The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yandex-certificate-manager/) syncs the certificate up to the [{{ k8s }} secret](../managed-kubernetes/concepts/encryption.md). This helps control the deployed application's certificate via {{ certificate-manager-name }} by importing a self-signed certificate and updating it on your own or by issuing a Let's Encrypt<sup>®</sup> certificate that will update automatically.
+The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yandex-certificate-manager/) syncs the certificate with the [{{ k8s }} secret](../managed-kubernetes/concepts/encryption.md). This helps control the deployed application's certificate via {{ certificate-manager-name }} by importing a self-signed certificate and updating it on your own or by issuing a Let's Encrypt<sup>®</sup> certificate that will update automatically.
 
 ## Before you begin {#before-you-begin}
 
@@ -28,16 +28,14 @@ The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yand
 
 1. {% include [Install and configure kubectl](../_includes/managed-kubernetes/kubectl-install.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost includes:
 
-* Using the master and outgoing {{ managed-k8s-name }} traffic (see [{{ managed-k8s-short-name }} pricing](../managed-kubernetes/pricing.md)).
-* Using {{ managed-k8s-short-name }} cluster nodes (see [{{ compute-name }} pricing](../compute/pricing.md)).
+* Using the master and outgoing {{ managed-k8s-name }} traffic (see [{{ managed-k8s-name }} pricing](../managed-kubernetes/pricing.md)).
+* Using {{ managed-k8s-name }} cluster nodes (see [{{ compute-name }} pricing](../compute/pricing.md)).
 * Using public IPs (see [{{ vpc-name }} pricing](../vpc/pricing.md)).
 * Incoming traffic (processed by the load balancer) and using a network load balancer (see [{{ network-load-balancer-short-name }} pricing](../network-load-balancer/pricing.md)).
-
 
 ## Create a certificate in {{ certificate-manager-name }}
 
@@ -116,7 +114,7 @@ The infrastructure support cost includes:
      --from-file=authorized-key=authorized-key.json
    ```
 
-1. Create a [secret store](https://external-secrets.io/v0.5.8/api-secretstore/) called `secret-store` containing a secret named `yc-auth`:
+1. Create a [SecretStore](https://external-secrets.io/v0.5.8/api-secretstore/) called `secret-store` containing a secret named `yc-auth`:
 
    ```bash
    kubectl --namespace ns apply -f - <<< '
@@ -165,9 +163,9 @@ The infrastructure support cost includes:
 
    Where:
 
-   * `k8s-secret`: Name of secret to be used by the External Secret Operator to contain the certificate from {{ certificate-manager-name }}.
-   * `tls.crt`: Parameter of `k8s-secret` secret that will contain the certificate.
-   * `tls.key`: Parameter of `k8s-secret` secret that will contain the certificate's private key.
+   * `k8s-secret`: Name of the secret to be used by the External Secret Operator to contain the certificate from {{ certificate-manager-name }}.
+   * `tls.crt`: Parameter of the `k8s-secret` secret that will contain the certificate.
+   * `tls.key`: Parameter of the `k8s-secret` secret that will contain the certificate's private key.
 
    The following are the legal values of the `property` parameter:
 
@@ -195,7 +193,7 @@ The infrastructure support cost includes:
    EmRkb3Mtd2ViLm5yay5tZS51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC…
    ```
 
-To view the certificate in human-readable format, run the commands below:
+To view the certificate in human-readable format, run the following commands:
 
 ```bash
 kubectl -n ns get secret k8s-secret -ojson | jq '."data"."tls.crt"' -r \
@@ -251,7 +249,7 @@ Certificate:
    Update Complete. ⎈Happy Helming!⎈
    ```
 
-1. Install the controller in the standard configuration. The controller will be installed together with {{ network-load-balancer-full-name }}:
+1. Install the controller in the standard configuration. The controller will be installed with {{ network-load-balancer-full-name }}:
 
    ```bash
    helm install ingress-nginx ingress-nginx/ingress-nginx
@@ -273,7 +271,7 @@ Certificate:
    ...
    ```
 
-To be able to install the controller on your own, review the [Helm documentation](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit a [file](https://github.com/kubernetes/ingress-nginx/blob/main/charts/ingress-nginx/values.yaml) called `values.yaml`.
+To be able to install the controller on your own, review the [Helm documentation](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit the [file](https://github.com/kubernetes/ingress-nginx/blob/main/charts/ingress-nginx/values.yaml) `values.yaml`.
 
 ## Create a web resource in your cluster {#create-web-app}
 
@@ -379,7 +377,7 @@ Where `<domain_name>` is the name of the domain for which the certificate is iss
 
 ## Check resource availability {#check-service-availability}
 
-Send a GET request to the resource via HTTS by using the command below, for instance:
+Send a GET request to the resource via HTTS, for example by using this command:
 
     ```bash
     curl <domain_name> -vv  

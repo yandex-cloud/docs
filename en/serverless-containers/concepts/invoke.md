@@ -2,14 +2,14 @@
 
 You can invoke a container:
 * Using [HTTPS](#https).
-* Using a [{{ sf-full-name }} trigger](#trigger).
+* Using a [trigger](#trigger).
 * Using a [{{ api-gw-full-name }} extension](#extension).
 
 {% include [port-variable-note.md](../../_includes/serverless-containers/port-variable-note.md) %}
 
 ## HTTPS {#https}
 
-When calling a container over HTTPS, an HTTP request is passed to the application deployed in the container.
+When invoking a container over HTTPS, an HTTP request is passed to the application deployed in the container.
 
 ### Filtering message headers {#filter}
 
@@ -63,9 +63,9 @@ When being passed to the container, some HTTP request and response headers chang
 
 The IP address of the client that called the container is passed in the `X-Forwarded-For` header.
 
-## {{ sf-full-name }} trigger {#trigger}
+## Triggers {#trigger}
 
-When calling a container using a {{ sf-full-name }} trigger, the JSON description of a trigger event is passed in the body of an HTTP request to the container. Learn more about [triggers](trigger/index.md).
+When invoking a container using a trigger, the JSON description of a trigger event is passed in the body of an HTTP request to the container. Learn more about [triggers](trigger/index.md).
 
 ## {{ api-gw-full-name }} extension {#extension}
 

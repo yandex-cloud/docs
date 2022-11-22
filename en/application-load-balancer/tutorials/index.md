@@ -6,3 +6,4 @@
 * [{#T}](l7-bluegreen-deploy.md)
 * [{#T}](tls-termination.md)
 * [{#T}](logging.md)
+* [{#T}](load-testing-grpc-autoscaling.md)

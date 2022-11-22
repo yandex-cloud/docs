@@ -2,7 +2,7 @@
 
 {% include [include](../../../_includes/datasphere/install-dependencies-intro.md) %}
 
-## Before you start {#before-begin}
+## Before you begin {#before-begin}
 
 {% include [find project](../../../_includes/datasphere/ui-before-begin.md) %}
 

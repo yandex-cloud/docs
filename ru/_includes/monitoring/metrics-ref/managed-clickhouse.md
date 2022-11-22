@@ -411,7 +411,7 @@ shard | Идентификатор шарда
 ##### Системные метрики {#managed-clickhouse-config-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
-| `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, штуки | Предельное число активных кусков данных таблицы, при превышении которого ClickHouse отправляет исключение `Too many parts ....` Задается в [настройках](https://cloud.yandex.ru/docs/managed-clickhouse/concepts/settings-list#setting-merge-tree). Имеет смысл анализировать в паре с метрикой `ch_system_async_metrics_MaxPartCountForPartition`. |
+| `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, штуки | Предельное число активных кусков данных таблицы, при превышении которого ClickHouse отправляет исключение `Too many parts ....` Задается в [настройках](https://cloud.yandex.ru/docs/managed-clickhouse/concepts/settings-list#setting-merge-tree). Имеет смысл [анализировать](../../../glossary/data-analytics.md) в паре с метрикой `ch_system_async_metrics_MaxPartCountForPartition`. |
 | `ch_local_disk_parts_size`<br/>`DGAUGE`, байты | Размер партиций на локальных дисках. |
 | `ch_system_async_metrics_MaxPartCountForPartition`<br/>`DGAUGE`, штуки | Максимальное число кусков данных в разделе. | 
 | `ch_system_async_metrics_ReplicasMaxAbsoluteDelay`<br/>`DGAUGE`, секунды | Максимальное время задержки репликации. | 

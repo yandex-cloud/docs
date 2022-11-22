@@ -193,4 +193,3 @@ If all unauthorized users (the `allUsers` system group) of a cloud or folder are
         ```
 
 {% endlist %}
-

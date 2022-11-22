@@ -1,8 +1,13 @@
+---
+title: "Access management in {{ ml-platform-full-name }}"
+description: "Access management in {{ ml-platform-full-name }}, a service that provides an ML development environment. To grant access to {{ ml-platform-name }} resources,\nassign the necessary roles from the list below to the user."
+---
+
 # Access management in {{ ml-platform-name }}
 
 Access to {{ ml-platform-full-name }} is regulated by assigning permissions in an organization. Organizations are managed using [{{ org-full-name }}](../../organization/).
 
-The list of operations available to {{ ml-platform-short-name }} users is determined by the roles they have. For more information about managing access to {{ yandex-cloud }}, see [{#T}](../../iam/concepts/access-control/index.md). 
+The list of operations available to {{ ml-platform-short-name }} users is determined by the roles they have. For more information about managing access to {{ yandex-cloud }}, see [{#T}](../../iam/concepts/access-control/index.md).
 
 ## What resources you can assign roles to {#resources}
 

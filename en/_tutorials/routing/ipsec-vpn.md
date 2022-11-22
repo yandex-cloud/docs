@@ -139,14 +139,14 @@ Create a route table and add [static routes](../../vpc/concepts/static-routes.md
 
 1. Open the **{{ vpc-name }}** section in the folder where you want to create a static route.
 1. Select the network to create the route table in.
-1. Click ![image](../../_assets/plus.svg)**Create a routing table**.
+1. Click ![image](../../_assets/plus.svg) **Create a routing table**.
 1. Enter a name for the route table.
 
    {% include [name-format](../../_includes/name-format.md) %}
 
 1. Click **Add route**.
 1. In the window that opens, enter the prefix of the remote side destination subnet. In the example, this is `192.168.0.0/24`.
-1. In the **Next hop**field, enter the internal IP address of the IPSec gateway. Click **Add**.
+1. In the **Next hop** field, enter the internal IP address of the IPSec gateway. Click **Add**.
 1. Click **Create route table**.
 
 To use static routes, link the route table to a subnet. To do this:

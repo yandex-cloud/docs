@@ -150,9 +150,9 @@
             package: yandextank.plugins.Autostop
             autostop:
               - instances(90%,60s)      # завершение теста, если в течение 60 секунд будет занято 90% тестирующих потоков, что свидетельствует о возникновении проблем тестирования
-          cloudloader:
+          uploader:
             enabled: true
-            package: yandextank.plugins.CloudUploader
+            package: yandextank.plugins.DataUploader
             job_name: '[example][phantom][const]'
             job_dsc: 'example'
             ver: '0.5.5'

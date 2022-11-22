@@ -45,4 +45,6 @@ items:
     href: release-notes.md
   - name: Вопросы и ответы
     href: qa.md
+  - name: Облачная терминология
+    href: ../glossary/index.yaml
 base: ru/overview

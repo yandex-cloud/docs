@@ -178,9 +178,9 @@
               - quantile(75,100ms,10s)       # завершение теста, если в течение 10 секунд 75 процентиль превысит 100 миллисекунд (в течение 10 секунд время обработки 25% запросов превысит 100 миллисекунд).
               - instances(90%,60s)           # завершение теста, если в течение 60 секунд будет занято 90% тестирующих потоков
           core: {}
-          cloudloader:
+          uploader:
             enabled: true
-            package: yandextank.plugins.CloudUploader
+            package: yandextank.plugins.DataUploader
             job_name: '[example][pandora][step]'
             job_dsc: 'example'
             ver: '0.5.5'

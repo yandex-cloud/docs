@@ -2,7 +2,7 @@
 
 Containers enable you to launch an application in a Docker image in {{ yandex-cloud }}. After creating a container revision, you can invoke it:
 * Over HTTPS.
-* Using a {{ sf-full-name }} trigger.
+* Using a trigger.
 * Using a {{ api-gw-full-name }} extension.
 
 Learn more about [invoking a container](./invoke.md).

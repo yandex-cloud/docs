@@ -14,9 +14,16 @@ If your project uses packages and libraries that are not included in the [list o
 
 1. {% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
 1. Select the cell to deploy as a node and run it (press **Shift** + **Enter**). This will automatically create a [checkpoint](../projects/checkpoints.md) in the project.
+
+   {% note info %}
+
+   If you are working in [automatic state save mode](../../concepts/save-state.md#auto-save), you need to force a state save. To do this, press **Cmd** + **K** or **Ctrl** + **K** and [create a checkpoint](../projects/checkpoints.md#create).
+
+   {% endnote %}
+
 1. Pin the checkpoint:
    1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-   1. Under **Resources**, select **Checkpoints**.
+   1. Under **Resources**, select **Checkpoint**.
    1. In the list, choose the last added checkpoint named `Cell run` and make sure it contains the appropriate node.
    1. In the upper-right corner, click ![Pin](../../../_assets/datasphere/pin.svg) **Pin**.
    1. In the window that appears, enter the checkpoint name and click **Pin**.

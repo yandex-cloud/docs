@@ -12,7 +12,7 @@ To be able to create {{ dataproc-name }} clusters from {{ ml-platform-name }} or
 * The service account for performing operations with {{ dataproc-name }} clusters.
 * The subnet to create a new cluster in or connect an existing {{ dataproc-name }} cluster from. The integration only supports subnets created in the `{{ region-id }}-a` availability zone.
 
-The above parameters should be specified in additional project settings.
+Specify these parameters in the additional project settings.
 
 {% include [subnet-create](../../_includes/subnet-create.md) %}
 
@@ -20,7 +20,6 @@ The above parameters should be specified in additional project settings.
 
 * To create a {{ dataproc-name }} cluster, the project must be assigned a service account from which {{ ml-platform-name }} will run operations. This permission is included in the `iam.serviceAccounts.user` and `editor` roles and higher.
 * To manage {{ dataproc-name }} clusters, the service account needs the following roles:
-   * `{{ roles-datasphere-project-developer }}` or higher: To create resources in {{ ml-platform-name }}.
    * `vpc.user` to access the network specified in the project settings.
    * `mdb.admin` to create and use {{ dataproc-name }} clusters.
    * `mdb.dataproc.agent` to create and use {{ dataproc-name }} clusters.

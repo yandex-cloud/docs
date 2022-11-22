@@ -25,7 +25,7 @@ items:
             href: operations/backend-group-delete.md
       - name: HTTP routers
         items:
-          - name: Create HTTP router
+          - name: Create HTTP router for HTTP traffic
             href: operations/http-router-create.md
           - name: Edit an HTTP router
             href: operations/http-router-update.md
@@ -47,10 +47,12 @@ items:
             href: operations/application-load-balancer-stop-and-start.md
           - name: Delete an L7 load balancer
             href: operations/application-load-balancer-delete.md
-      - name: Ingress Controller for {{ managed-k8s-name }}
+      - name: Tools for {{ managed-k8s-name }}
         items:
           - name: Install an Ingress controller
             href: operations/k8s-ingress-controller-install.md
+          - name: Install a Gateway API
+            href: operations/k8s-gateway-api-install.md
           - name: Create or update resources based on configuration
             href: operations/k8s-ingress-controller-apply.md
   - name: Practical guidelines
@@ -85,14 +87,18 @@ items:
         href: concepts/target-group.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Tools
+  - name: Tools for {{ managed-k8s-name }}
     items:
-      - name: Ingress Controller for {{ managed-k8s-name }}
+      - name: Ingress controller
         items:
           - name: Overview
             href: tools/k8s-ingress-controller/index.md
           - name: How it works
             href: tools/k8s-ingress-controller/principles.md
+      - name: Gateway API
+        href: tools/k8s-gateway-api/index.md
+      - name: Required settings
+        items:
           - name: Security groups
             href: tools/k8s-ingress-controller/security-groups.md
           - name: Service accounts
@@ -235,14 +241,22 @@ items:
                 href: api-ref/VirtualHost/update.md
               - name: updateRoute
                 href: api-ref/VirtualHost/updateRoute.md
-  - name: Ingress controller reference
+  - name: Tool references for {{ managed-k8s-name }}
     items:
       - name: Overview
         href: k8s-ref/index.md
-      - name: Ingress
-        href: k8s-ref/ingress.md
-      - name: HttpBackendGroup
-        href: k8s-ref/http-backend-group.md
+      - name: Ingress controller
+        items:
+          - name: Ingress
+            href: k8s-ref/ingress.md
+          - name: HttpBackendGroup
+            href: k8s-ref/http-backend-group.md
+      - name: Gateway API
+        items:
+          - name: Gateway
+            href: k8s-ref/gateway.md
+          - name: HTTPRoute
+            href: k8s-ref/http-route.md
       - name: Service
         href: k8s-ref/service.md
   - name: Log reference

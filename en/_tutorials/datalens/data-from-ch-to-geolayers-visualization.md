@@ -291,7 +291,7 @@ Wait for the connection to be saved.
 
 1. Click **Save** in the upper-right corner.
 
-   ![ 34-map-geolayers](../../_assets/datalens/solution-09/34-map-geolayers.png)
+   ![34-map-geolayers](../../_assets/datalens/solution-09/34-map-geolayers.png)
 
 1. Go back to the dashboard (it should be open on the previous tab in your browser) and refresh the web page.
 1. Choose Saint Petersburg in the selector. After that, the dashboard, including the map and external geolayer, will only be filtered by this selector.

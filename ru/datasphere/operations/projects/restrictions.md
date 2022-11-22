@@ -16,5 +16,5 @@
 
 #### См. также {#see-also}
 
-* [{#T}](install-dependencies.md)
-* [{#T}](control-compute-resources.md)
+* [{#T}](install-dependencies.md).
+* [{#T}](control-compute-resources.md).

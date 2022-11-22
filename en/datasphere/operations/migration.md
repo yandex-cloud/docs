@@ -23,7 +23,7 @@ You can transfer your notebooks and data from the old project to the new {{ ml-p
 1. [Push](./projects/work-with-git.md#push) changes to a remote repository.
 1. In the {{ ml-platform-name }} [new interface]({{ link-datasphere-main }}), [clone](./projects/work-with-git.md#clone) the remote repository to the project.
 
-### Save the old project's files to local disk {#transfer-local}
+### Saving the old project's files to local disk {#transfer-local}
 
 1. In the [management console]({{ link-console-main }}), go to **{{ ml-platform-name }}**.
 1. Open the old project to transfer the data from.
@@ -116,7 +116,7 @@ To transfer the old project's interpreter state to the new interface using a che
 
    The link to the checkpoint is copied to the clipboard.
 1. In the new {{ ml-platform-name }} interface, create a project from a checkpoint:
-   1. Go to the [page](https://datasphere.yandex.ru/create-project-from-previous-version) for creating a project from a checkpoint.
+   1. Go to the [page](https://datasphere.yandex.ru?create-project-from-previous-version=true) for creating a project from a checkpoint.
    1. Specify the project parameters:
       * Enter a checkpoint link.
       * Enter the name of the project.

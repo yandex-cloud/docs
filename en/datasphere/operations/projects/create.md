@@ -6,8 +6,9 @@ This tutorial explains how to create an empty project. You can also [create a pr
 
 {% include [include](../../../_includes/datasphere/ui-create-project.md) %}
 
+You can [change](update.md) the settings of the created project: link a network or service account, set up links with other {{ yandex-cloud }} services.
+
 #### What's next {#what-is-next}
 
 * [{#T}](install-dependencies.md).
 * [{#T}](control-compute-resources.md).
-* [{#T}](export.md).

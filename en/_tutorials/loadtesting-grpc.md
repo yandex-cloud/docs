@@ -174,9 +174,6 @@ For a service hosted in a subnet and security group other than those of the agen
         job_name: '[pandora][config][grpc]'
         package: yandextank.plugins.DataUploader
         ver: '1.1'
-      cloudloader:
-        enabled: false
-        package: yandextank.plugins.CloudUploader
       ```
 
       {% note tip %}

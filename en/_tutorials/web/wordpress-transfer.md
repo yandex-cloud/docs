@@ -60,7 +60,7 @@ To create a VM:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM. If you don't know which availability zone you need, leave the default.
 
-1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the [LAMP](/marketplace/products/yc/lamp) — an image with a set of necessary components: Linux OS, Apache web server, MySQL DBMS, and a PHP interpreter.
+1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the [LAMP](/marketplace/products/yc/lamp): an image with a set of necessary components: Linux OS, Apache web server, MySQL DBMS, and a PHP interpreter.
 
 1. Under **Disks**, select the disk type and set the size.
 
@@ -150,7 +150,7 @@ Before you transfer your files, do the following:
         sudo apt-get install phpmyadmin php-mbstring php-gettext
         ```
 
-    1. During the installation process, select the server to install `phpMyAdmin` on. Select `Apache2` and press the **space bar** on the keyboard — the `*` symbol appears next to `Apache2`. Click **Enter**.
+    1. During the installation process, select the server to install `phpMyAdmin` on. Select `Apache2` and press the **space bar** on the keyboard: the `*` symbol appears next to `Apache2`. Click **Enter**.
 
     1. Configure access of `phpMyAdmin` to the database. To do this, answer the question `Configure database for phpmyadmin with dbconfig-common?` with `<yes>`. You can skip entering the password, the system will automatically generate it. To copy the generated password, run the command:
 

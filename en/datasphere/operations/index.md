@@ -1,5 +1,6 @@
 ---
-title: Step-by-step instructions for {{ ml-platform-name }}
+title: "Instructions for operations with {{ ml-platform-full-name }}"
+description: "The page contains all instructions on how to work with {{ ml-platform-full-name }} in {{ yandex-cloud }}. Learn how to create a project, install dependencies, run a code sample in a notebook, work with checkpoints, manage computing resources, publish a notebook, use Git, upload data from a variety of sources, and deploy a trained model as a microservice."
 ---
 
 # Step-by-step instructions for {{ ml-platform-name }}

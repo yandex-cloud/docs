@@ -1,6 +1,4 @@
-Create a trigger for a device [topic](../../iot-core/concepts/topic/index.md) or the {{ iot-name }} service registry and process copies of messages using a {{ sf-name }} [function](../../functions/concepts/function.md).
-
-For more information about creating a trigger for {{ iot-name }} that calls a container, see the [{{ serverless-containers-full-name }} documentation](../../serverless-containers/operations/iot-core-trigger-create.md).
+Create a [trigger](../../functions/concepts/trigger/iot-core-trigger.md) for a device topic or the {{ iot-name }} service registry and process copies of messages using a [{{ sf-name }} function](../../functions/concepts/function.md).
 
 {% note warning %}
 
@@ -36,22 +34,20 @@ The trigger must be in the same cloud with the registry or device it reads messa
    1. Under **Basic parameters**:
 
       * Enter a name and description for the trigger.
-      * In the **Type** field, select **Yandex IoT Core**.
+      * In the **Type** field, select **{{ iot-name }}**.
       * In the **Launched resource** field, select **Function**.
 
-   1. Under **Yandex IoT Core message settings**, specify the registry, device, and MQTT topic to create a trigger for. If you are creating a trigger for a registry topic, you don't need to specify a device or an MQTT topic.
+   1. Under **{{ iot-name }} message settings**, specify the registry, device, and MQTT topic to create a trigger for. If you are creating a trigger for a registry topic, you don't need to specify a device or an MQTT topic.
 
    1. Under **Function settings**, select a function and specify:
 
-      * [Tag of the function version](../../functions/concepts/function.md#tag);
-      * A [service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the function.
+      {% include [function-settings](function-settings.md) %}
 
    1. (optional) Under **Repeat request settings**:
 
-      * In the **Interval** field, specify the time after which the function will be invoked again if the current attempt fails. Values can be from 10 to 60 seconds. The default is 10 seconds.
-      * In the **Number of attempts** field, specify the number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). Values can be from 1 to 5. The default is 1.
+      {% include [repeat-request.md](repeat-request.md) %}
 
-   1. (optional) Under **Dead Letter Queue settings**, select the [Dead Letter Queue](../../functions/concepts/dlq.md) and the service account with write privileges for this queue.
+   1. (optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
 
    1. Click **Create trigger**.
 
@@ -61,9 +57,9 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
    {% include [default-catalogue](../default-catalogue.md) %}
 
-   To create a trigger that launches a function, run the command:
+   To create a trigger that invokes a function, run the command:
 
-   ```
+   ```bash
    yc serverless trigger create internet-of-things \
      --name <trigger name> \
      --registry-id <registry ID> \
@@ -83,16 +79,12 @@ The trigger must be in the same cloud with the registry or device it reads messa
    * `--registry-id`: [Registry ID](../../iot-core/operations/registry/registry-list.md).
    * `--device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you're creating a trigger for a registry topic, you can omit this parameter.
    * `--mqtt-topic`: The topic you want to create a trigger for.
-   * `--invoke-function-id`: Function ID.
-   * `--invoke-function-service-account-id`: Service account with rights to invoke the function.
-   * `--retry-attempts`: The time after which the function will be invoked again if the current attempt fails. Optional. Values can be from 10 to 60 seconds. The default is 10 seconds.
-   * `--retry-interval`: The number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). Optional. Values can be from 1 to 5. The default is 1.
-   * `--dlq-queue-id`: [Dead Letter Queue](../../functions/concepts/dlq.md) ID. Optional.
-   * `--dlq-service-account-id`: Service account with rights to write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). Optional.
+
+   {% include [trigger-cli-param](trigger-cli-param.md) %}
 
    Result:
 
-   ```
+   ```text
    id: a1sl0mkmimfj3uv52fr8
    folder_id: b1g88tflru0ek1omtsu0
    created_at: "2019-09-25T13:54:35.654935Z"
@@ -193,3 +185,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
 ## Checking the result {#check-result}
 
 {% include [check-result](check-result.md) %}
+
+## See also {#see-also}
+
+* [{{ iot-name }} trigger that passes messages to the {{ serverless-containers-name }} container](../../serverless-containers/operations/iot-core-trigger-create.md).

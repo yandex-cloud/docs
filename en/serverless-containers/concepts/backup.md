@@ -1,10 +1,11 @@
 # Backups
 
 Data in {{ serverless-containers-name }} is stored securely and replicated within the {{ yandex-cloud }} infrastructure. You can get:
-
-* [Container lists](#containers-list).
+* [List of containers](#containers-list).
 * [Container revision lists](#revision-list).
 * [Information about container revisions](#revision-get).
+* [Lists of triggers](#trigger-list).
+* [Information about triggers](#trigger-get).
 
 For more information about backing up Docker images used to create container revisions, see the [{{ container-registry-full-name }} documentation](../../container-registry/concepts/backup.md).
 
@@ -20,3 +21,10 @@ For more information about backing up Docker images used to create container rev
 
 {% include [container-ger](../../_includes/serverless-containers/revision-get.md) %}
 
+## Getting a list of triggers {#trigger-list}
+
+{% include [version-list](../../_includes/serverless-containers/trigger-list.md) %}
+
+## Getting information about a trigger {#trigger-get}
+
+{% include [version-list](../../_includes/serverless-containers/trigger-get.md) %}

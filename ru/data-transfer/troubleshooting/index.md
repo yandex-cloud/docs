@@ -90,6 +90,8 @@
 
 {% include [inner-tables](../../_includes/data-transfer/troubles/postgresql/inner-tables.md) %}
 
+{% include [deferrable-tables](../../_includes/data-transfer/troubles/postgresql/deferrable-constraints.md) %}
+
 
 ## {{ ydb-full-name }} {#ydb}
 

@@ -31,6 +31,8 @@ items:
             href: operations/projects/storage-resize.md
           - name: Change project settings
             href: operations/projects/update.md
+          - name: Set project limits
+            href: operations/projects/restrictions.md
           - name: Delete a notebook or project
             href: operations/projects/delete.md
           - name: Configure integration with Data Proc
