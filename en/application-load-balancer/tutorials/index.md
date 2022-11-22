@@ -9,4 +9,5 @@
 * [{#T}](tls-termination.md)
 {% if product == "yandex-cloud" %}
 * [{#T}](logging.md)
+* [{#T}](load-testing-grpc-autoscaling.md)
 {% endif %}
