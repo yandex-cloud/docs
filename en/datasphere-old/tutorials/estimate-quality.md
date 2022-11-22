@@ -31,9 +31,7 @@ To calculate the WER metric in {{ ml-platform-full-name }} using this library:
    from stt_metrics import WER, ClusterReferences
    from stt_metrics.text_transform import Lemmatizer
    ```
-
-1. Run the selected cell. To do this, choose **Run → Run Selected Cells** or press **Shift** + **Enter**.
-
+1. Run the selected cell. To do this, choose **Run → Run Selected Cells** or press **Shift**+**Enter**.
 1. Wait for the operation to complete.
 
 As a result, modules for evaluating the quality of STT models are uploaded.

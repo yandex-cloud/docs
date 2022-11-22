@@ -1,6 +1,6 @@
 ---
-title: Access management in Yandex DataSphere
-description: "Access management in the service providing an environment for ML development — Yandex DataSphere. To allow access to the resources of the DataSphere service, assign the user the necessary roles from the list given."
+title: "Access management in {{ ml-platform-full-name }}"
+description: "Access management in {{ ml-platform-full-name }}, a service that provides an ML development environment. To grant access to {{ ml-platform-name }} resources,\nassign the necessary roles from the list below to the user."
 ---
 
 # Access management in {{ ml-platform-name }}

@@ -1,6 +1,6 @@
 ---
-title: How to work with Yandex DataSphere. Instructions
-description: "From this article you will learn how to work with machine learning projects in Yandex Cloud. We will tell you how to create a machine learning project, install dependencies, run code samples on a laptop, work with checkpoints, manage computing resources, publish a laptop, work with Git."
+title: "Instructions for operations with {{ ml-platform-full-name }}"
+description: "The page contains all instructions on how to work with {{ ml-platform-full-name }} in Yandex Cloud. Learn how to create a project, install dependencies, run a code sample in a notebook, work with checkpoints, manage computing resources, publish a notebook, use Git, upload data from a variety of sources, and deploy a trained model as a microservice."
 ---
 
 # Step-by-step instructions for {{ ml-platform-name }}

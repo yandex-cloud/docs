@@ -25,7 +25,7 @@ The Docker image templates presented in {{ ml-platform-name }} already meet thes
 To create a Docker image:
 
 1. Go to the ![docker](../../_assets/datasphere/docker.svg) **Docker images** tab.
-1. Click the ![plus-sign](../../_assets/plus-sign.svg) icon.
+1. Click the ![plus-sign](../../_assets/plus-sign.svg).
 1. On the tab that opens:
    1. Enter a name for the repository, such as `cuda`.
    1. Set a tag for the image, such as `1.0.0`.

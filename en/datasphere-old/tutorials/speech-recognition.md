@@ -39,7 +39,7 @@
    ...
    ```
 
-1. Run the selected cells. To do this, choose **Run → Run Selected Cells** or press **Shift** + **Enter**.
+1. Run the selected cells. To do this, choose **Run → Run Selected Cells** or press **Shift**+**Enter**.
 1. Wait for the operation to complete.
 1. Restart the kernel. To do this, choose **Kernel → Restart kernel**.
 

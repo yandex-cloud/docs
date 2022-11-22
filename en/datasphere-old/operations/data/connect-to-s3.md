@@ -4,7 +4,7 @@
 
 You can connect to S3 object storage from the {{ jlab }} Notebook interface.
 
-1. Get an access key from your S3 storage provider. Follow these steps in {{objstorage-full-name }}:
+1. Get an access key from your S3 storage provider. Follow these steps in {{ objstorage-full-name }}:
    1. [Create a service account](../../../iam/operations/sa/create.md).
    1. To the created account, [Assign](../../../iam/operations/sa/assign-role-for-sa.md) a [role](../../../storage/security/) that allows either reads only or both reads and writes.
    1. [Create an access key](../../../iam/operations/sa/create-access-key.md) for the service account.
@@ -22,7 +22,7 @@ Once connected, the bucket is available in the list on the **S3 Mounts** ![S3 Mo
 
 {% note info %}
 
-Try not to use S3 storage in [FUSE]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Filesystem_in_Userspace){% endif %} mode for buckets with single-layer (non-recursive) folders with many files. This usage scenario decreases storage performance significantly.
+Try not to use S3 storage in [FUSE]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Filesystem_in_Userspace){% endif %} mode for buckets with single-layer (non-recursive) folders that include many files. This usage scenario decreases storage performance significantly.
 
 {% endnote %}
 

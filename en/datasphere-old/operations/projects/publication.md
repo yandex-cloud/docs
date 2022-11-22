@@ -4,7 +4,7 @@
 
 You can export a notebook as a link to an HTML report. The report saves all calculation results and cell explanations so that you can send the link to customers or publish the results on your website.
 
-## Before you start {#before-begin}
+## Before you begin {#before-begin}
 
 Make sure you save all changes. The last saved state of the notebook is exported.
 

@@ -33,7 +33,7 @@ You can create a dataset:
       ```bash
       #!:bash
       #pragma dataset init <dataset_name> --size 1Gb
-      
+
       set -e
       cd /home/jupyter/mnt/datasets/<dataset_name>
       wget https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
@@ -49,26 +49,26 @@ You can create a dataset:
 
       ```python
       #pragma dataset init <dataset_name> --size 1Gb
-      
+
       from urllib.request import urlopen
       import tarfile
       from os import remove
-      
+
       file_name = 'cifar-10-python.tar.gz'
       file_url = 'https://www.cs.toronto.edu/~kriz/' + file_name
       dest_dir = '/home/jupyter/mnt/datasets/<dataset_name>/'
       dest_file = dest_dir + file_name
-      
+
       with urlopen(file_url) as i:
         with open(dest_file, 'w+b') as o:
           o.write(i.read())
-      
+
       tar = tarfile.open(dest_file)
       tar.extractall(dest_dir)
       tar.close()
-      
+
       remove(dest_file)
-      
+
       # This prevents serialization of temporary variables
       del i, o, tar
       ```
@@ -87,7 +87,7 @@ You can create a dataset:
 
       ```python
       #pragma dataset init <dataset_name> --size 1Gb
-      
+
       from cloud_ml.storage.api import Storage
       s3 = Storage.s3(access_key=<access_key>, secret_key=<secret_key>)
       s3.get('bucket/<path_inside_bucket>/file.txt', '/home/jupyter/mnt/datasets/<dataset_name>/<path>/file.txt')
@@ -98,7 +98,7 @@ You can create a dataset:
       * `<dataset_name>` is the name of the dataset being created.
       * `<access_key>` is the ID of the storage [static access key](../../iam/operations/sa/create-access-key.md).
       * `<secret key>` is the value of the storage [secret access key](../../iam/operations/sa/create-access-key.md).
-      * `<path_inside_bucket>` is the [object key or prefix](../../storage/concepts/object.md#key).
+      * `<path_inside_buсket>` is the [object key or prefix](../../storage/concepts/object.md#key).
       * `<path>` is the file path inside the dataset.
 
    - Yandex Disk
@@ -112,11 +112,11 @@ You can create a dataset:
 
          ```python
          #pragma dataset init <dataset_name> --size 1Gb
-         
+
          from cloud_ml.storage.api import Storage
-         
+
          disk = Storage.ya_disk(application_id='<app_ID>', application_secret='<secret>')
-         
+
          # downloading contents of the remote file into the local one
          disk.get('<path_inside_Yandex_Disk>/file.txt', '/home/jupyter/mnt/datasets/<dataset_name>/<path>/file.txt')
          ```
@@ -137,9 +137,9 @@ You can create a dataset:
 
       ```python
       #pragma dataset init <dataset_name> --size 1Gb
-      
+
       client_secret = {<client_secret>}
-      
+
       gdrive = Storage.gdrive(client_secret)
       gdrive_file_id = '<file_ID>'
       dst_path = '/home/jupyter/mnt/datasets/<dataset_name>/<path>/file.txt'
@@ -166,7 +166,7 @@ You can create a dataset:
       ```bash
       #!:bash
       #pragma dataset init <dataset_name> --size 1Gb
-      
+
       set -e
       cp -r <source_directory_name> /home/jupyter/mnt/datasets/<dataset_name>
       ```

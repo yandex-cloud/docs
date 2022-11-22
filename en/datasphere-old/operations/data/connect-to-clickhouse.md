@@ -4,21 +4,19 @@
 
 In the {{ yandex-cloud }} infrastructure, [{{ CH }}](https://{{ ch-domain }}/) server clusters are deployed and supported using {{ mch-short-name }}.
 
-To utilize a {{ mch-short-name }} cluster host as a data source for {{ ml-platform-name }}:
+## Before you begin {#before-begin}
 
 1. [Create](../../../managed-clickhouse/operations/cluster-create.md) a new {{ mch-short-name }} cluster and enable public access to it from the host. You can also use an existing cluster with publicly available hosts.
 1. [Configure](../../../managed-clickhouse/operations/connect.md#configuring-security-groups) cluster security groups.
+1. Open the project {{ ml-platform-name }}:
 
-## Before you start {#before-begin}
+   {% list tabs %}
 
-If a project is already open, open the tab with a notebook.
+   - Management console
 
-If not, open the project:
+      {% include [before-begin](../../../_includes/datasphere/before-begin.md) %}
 
-1. {% include [include](../../../_includes/datasphere/first-step.md) %}
-1. Go to the **Projects** tab.
-1. Select the project you want to open and click ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
-1. Choose **Open** and wait for the project to open.
+   {% endlist %}
 
 ## Connecting to a {#connect-to-host} host
 

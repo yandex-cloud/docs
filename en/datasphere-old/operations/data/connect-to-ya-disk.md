@@ -4,7 +4,7 @@
 
 You can connect to the [Yandex Disk]{% if lang == "ru" %}(https://disk.yandex.ru){% endif %}{% if lang == "en" %}(https://disk.yandex.com){% endif %} file storage service from the {{ ml-platform-name }} interface.
 
-## Before you start {#before-begin}
+## Before you begin {#before-begin}
 
 1. [Register]{% if lang == "ru" %}(https://yandex.ru/dev/id/doc/dg/oauth/tasks/register-client.html){% endif %}{% if lang == "en" %}(https://yandex.com/dev/id/doc/dg/oauth/tasks/register-client.html){% endif %} your project as an application in Yandex OAuth:
    1. Go to the [application creation page]{% if lang == "ru" %}(https://oauth.yandex.ru/client/new){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/client/new){% endif %} and log in using your [Yandex ID]{% if lang == "ru" %}(https://yandex.ru/support/id/index.html){% endif %}{% if lang == "en" %}(https://yandex.com/support/id/index.html){% endif %}.

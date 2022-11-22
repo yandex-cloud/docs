@@ -1,12 +1,12 @@
 # Launching distributed training
 
-{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
-
 {% note info %}
 
 The distributed training feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. To access the feature, contact support.
 
 {% endnote %}
+
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
 
 [Distributed training](../concepts/taas.md) supports PyTorch and PyTorch Lighting. By default, PyTorch version 1.6.0 is installed in {{ ml-platform-name }}. Update it to version 1.9.1 so that {{ taas }} runs correctly:
 

@@ -1,4 +1,11 @@
+---
+title: "Overview"
+description: "Managing Yandex DataSphere resources using the API Basic methods for creating projects, uploading files, and working with notebooks"
+---
+
 # API overview
+
+{% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
 
 In {{ ml-platform-name }}, you can perform all basic operations on resources and notebooks using both the UI and API.
 

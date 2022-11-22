@@ -10,8 +10,8 @@ Once you create a secret, you can reference it from your code as an environment 
 
    ```python
    import os
-   os.environ # list of all environment variables
-   os.environ[‘SECRET_NAME’] # secret SECRET_NAME from environment variables
+   os.environ # list all environment variables
+   os.environ[‘SECRET_NAME’] # get the secret SECRET_NAME from environment variables
    ```
 
 - bash

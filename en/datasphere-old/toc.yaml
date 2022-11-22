@@ -156,6 +156,9 @@ items:
         href: tutorials/markup.md
       - name: Classification of images in video frames
         href: tutorials/video-recognition.md
+      - name: Deploying a model as microservice
+        href: tutorials/deploy-cells.md
+        when: audience == "draft"
       - name: Web analytics with funnels and cohorts calculated based on Yandex Metrica data
         href: tutorials/data-from-metrica-yc-visualization.md
   - name: API reference

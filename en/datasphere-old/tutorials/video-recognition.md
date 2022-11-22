@@ -58,8 +58,7 @@ To get an idea of how the problem might be solved:
    ...
    ```
 
-1. Run the selected cell. To do this, choose **Run → Run Selected Cells** or press **Shift** + **Enter**.
-
+1. Run the selected cell. To do this, choose **Run → Run Selected Cells** or press **Shift**+**Enter**.
 1. Wait for the operation to complete.
 
 The solution uses the [Keras interface](https://keras.io/about/) of the TensorFlow library with a [CNTK backend](https://docs.microsoft.com/en-us/cognitive-toolkit/). The `boto3` package is used to connect to the S3 bucket: this is your image source. The cell also sets the environment variables needed to access the CNTK backend and connect to the S3 bucket.
@@ -90,7 +89,7 @@ To upload and label the data:
 
    ```
    #!g1.1
-   
+
    session = boto3.session.Session()
    ...
    ```
@@ -207,20 +206,20 @@ There are several practical uses of the model you built:
 
    ```python
    from sparkdl import readImages, KerasImageFileTransformer
-   
+
    # load cctv image body from S3 and return image tensor
-   
+
    def load_image_body_and_process(uri):
        import PIL.image
        from keras.applications.imagenet_utils import preprocess.input
    ...
-   
+
    # load cctv images in batch (from S3 or copy to local hdfs)
-   
+
    image_uri_dataset = readImages("/cctv-in/*.jpg")
-   
+
    # create a Keras estimator that takes our saved model file and train it using Spark
-   
+
    estimator = KerasImageFileEstimator(inputCol="imageUri",
                                        outputCol="predict_car",
                                        labelCol="categoryVec",

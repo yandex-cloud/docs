@@ -4,7 +4,7 @@
 
 A checkpoint in {{ ml-platform-name }} is the [saved state](../../concepts/save-state.md). A checkpoint includes cell code, output, and variable values as well as project storage data. Data versioning is maintained if the amount of data does not exceed {{ ml-project-size }}. Checkpoints with versioned data are marked with ![](../../../_assets/datasphere/disk.svg).
 
-## Before you start {#before-begin}
+## Before you begin {#before-begin}
 
 If the project is already open, go to the notebook tab.
 
@@ -24,7 +24,7 @@ To create a checkpoint in a [standard](../../concepts/save-state.md#default-save
    Run your own code or use an [example](snippets.md#run).
 1. Wait for the code to run.
 
-In [automatic](../../concepts/save-state.md#auto-save) save state mode, you can create a checkpoint manually. To do this, in the top right-hand corner of the ![checkpoints-panel](../../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints** tab, click ![plus-sign](../../../_assets/plus-sign.svg) or use the **Cmd** + **K** or **Ctrl** + **K** shortcut.
+In the [automatic](../../concepts/save-state.md#auto-save) state saving mode, you can create a checkpoint manually. For this, in the upper-right corner of the ![checkpoints-panel](../../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints** tab, click ![plus-sign](../../../_assets/plus-sign.svg) or use the **Cmd** + **K** or **Ctrl** + **K** hotkeys.
 
 This creates a checkpoint that appears at the top of the **Checkpoints** list. The checkpoint name consists of the following elements:
 * The key of the operation after which the checkpoint was created, such as `[1]`.

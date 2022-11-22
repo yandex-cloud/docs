@@ -1,6 +1,6 @@
 ---
-title: "Yandex DataSphere. FAQ"
-description: "How to get the logs of my work in the Yandex DataSphere service? Answers to this and other questions in this article."
+title: "{{ ml-platform-full-name }}. Answers"
+description: "How do I get the logs of my activity in {{ ml-platform-full-name }}? Find the answer to this and other questions in this article."
 ---
 
 # General questions about {{ ml-platform-name }}
@@ -38,7 +38,7 @@ However, you can parallelize [special background operations](../early-access/rep
 
 Project cells in {{ ml-platform-name }} run with the minimum [resource configuration](../concepts/configurations.md): **c1.4** (4 vCPUs). You can [change configurations](../operations/projects/control-compute-resources.md#config) while using your notebook. The state of the interpreter, variables, and computation results will be saved.
 
-#### How do I resolve the error: <q>The following variables can't be serialized</q>? {#error-connection}
+#### How do I resolve the error: <q>The following variables can't be serialized</q>? {#error-variables}
 
 The error says that the system can't serialize the variable. It means that you can't move it when switching to another resource configuration. To avoid the error, run all your computations in the same configuration.
 

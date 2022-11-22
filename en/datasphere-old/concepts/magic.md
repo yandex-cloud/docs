@@ -41,7 +41,7 @@ The available configurations are described in [{#T}](configurations.md)
 
 The following restrictions apply to using bash commands:
 * Background jobs are not supported, for example, `sshd`.
-* Launching `pip` is not supported. Use the `%pip` format for pip.
+* Launching `pip` is not supported. Use the `%pip` format for `pip`.
 
 ## Additional commands {#extension}
 

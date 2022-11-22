@@ -4,7 +4,7 @@
 
 {% include [include](../../../_includes/datasphere/control-compute-resources-intro.md) %}
 
-## Before you start {#before-begin}
+## Before you begin {#before-begin}
 
 If the project is already open, go to the notebook tab.
 

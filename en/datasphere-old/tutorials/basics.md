@@ -39,7 +39,7 @@ To get started with the service:
 
    Invoking the `getcwd()` function from the `os` module returns the name of the current folder.
 
-1. Run this cell. To do this, choose **Run → Run Selected Cells** or press **Shift** + **Enter**.
+1. Run this cell. To do this, choose **Run → Run Selected Cells** or press **Shift**+**Enter**.
 
    {% note info %}
 
