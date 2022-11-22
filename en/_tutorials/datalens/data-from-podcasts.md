@@ -253,10 +253,10 @@ Set up access to {{ datalens-full-name }}:
 1. In the **Add member** field, enter "All" or the name of the user who needs extended permissions.
 1. Go to the **Current object** section and set access permissions for the **Yandex Music podcast analytics** dashboard:
 
-   * Execute — execution of requests to the object is available.
-   * Read — read only is available.
-   * Write — view and edit options are available.
-   * Admin — view, edit, and manage options are available.
+   * Execute: execution of requests to the object is available.
+   * Read: read only is available.
+   * Write: view and edit options are available.
+   * Admin: view, edit, and manage options are available.
 
    ![image](../../_assets/datalens/solution-10/31-permissions.png)
 

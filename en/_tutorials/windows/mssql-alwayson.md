@@ -136,16 +136,16 @@ Prepare the network infrastructure to host the availability group:
 
       1. Open the **{{ vpc-name }}** section in the folder to create the subnets in.
       1. Select the `ya-network` network.
-      1. Click ![image](../../_assets/plus.svg)**Create subnet**.
+      1. Click ![image](../../_assets/plus.svg) **Create subnet**.
       1. Fill out the form: enter the `ya-subnet-general` subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
       1. Enter the subnet CIDR: IP address and subnet mask: `10.0.0.0/28`.
       1. Click **Create subnet**.
 
       Repeat the steps for subnets with the following names and CIDR:
 
-      * `ya-subnet-alwayson1` — `10.0.0.16/28`;
-      * `ya-subnet-alwayson2` — `10.0.0.32/28`;
-      * `ya-subnet-alwayson3` — `10.0.0.48/28`.
+      * `ya-subnet-alwayson1`: `10.0.0.16/28`;
+      * `ya-subnet-alwayson2`: `10.0.0.32/28`;
+      * `ya-subnet-alwayson3`: `10.0.0.48/28`.
 
       To use static routes, link the route table to a subnet:
 

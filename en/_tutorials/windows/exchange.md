@@ -1,6 +1,12 @@
 # Deploying Microsoft Exchange
 
-This scenario describes how to deploy Microsoft Exchange servers in {{ yandex-cloud }}. Two Microsoft Exchange mail servers, two Active Directory servers, and two Edge Transport services will be installed in `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. A network load balancer is used to distribute load across servers. A separate VM with internet access in the `{{ region-id }}`-c availability zone will manage all the servers.
+{% if product == "yandex-cloud" %}
+
+{% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
+
+{% endif %}
+
+This scenario describes how to deploy Microsoft Exchange servers in {{ yandex-cloud }}. Two Microsoft Exchange mail servers, two Active Directory servers, and two Edge Transport services will be installed in `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. A network load balancer is used to distribute load across servers. A separate VM with internet access in the `{{ region-id }}-c` availability zone will manage all the servers.
 
 1. [Before you start](#before-you-begin).
 1. [Create a cloud network and subnets](#create-network).
@@ -21,7 +27,7 @@ This scenario describes how to deploy Microsoft Exchange servers in {{ yandex-cl
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -52,7 +58,7 @@ Create a cloud network named `exchange-network` with subnets in all the availabi
 
       To create a [cloud network](../../vpc/concepts/network.md):
 
-      1. Open the **{{ vpc-name }}** section in the folder where you want to create the cloud network.
+      1. Open the **{{ vpc-name }}** section of the folder where you want to create a cloud network.
       1. Click **Create network**.
       1. Enter the network name: `exchange-network`.
       1. Click **Create network**.
@@ -75,10 +81,10 @@ Create a cloud network named `exchange-network` with subnets in all the availabi
 
       To create a subnet:
 
-      1. Open the **{{ vpc-name }}** section in the folder where you want to create the subnet.
+      1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
       1. Click on the name of the cloud network.
       1. Click **Add subnet**.
-      1. Fill out the form: set the subnet name to `exchange-subnet-a` and select the `{{ region-id }}-a` availability zone from the drop-down list.
+      1. Fill out the form: enter `exchange-subnet-a` as the subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
       1. Enter the subnet CIDR, which is its IP address and mask: `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
       1. Click **Create subnet**.
 
@@ -94,13 +100,13 @@ Create a cloud network named `exchange-network` with subnets in all the availabi
         --zone {{ region-id }}-a \
         --network-name exchange-network \
         --range 10.1.0.0/16
-      
+
       yc vpc subnet create \
         --name exchange-subnet-b \
         --zone {{ region-id }}-b \
         --network-name exchange-network \
         --range 10.2.0.0/16
-      
+
       yc vpc subnet create \
         --name exchange-subnet-c \
         --zone {{ region-id }}-c \
@@ -122,7 +128,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
 
-Read more about the best practices for securing Active Directory on the [official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+Learn more about security best practices for Active Directory on the [official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 ## Create a VM for Active Directory {#ad-vm}
 
@@ -134,17 +140,17 @@ Create two virtual machines for Active Directory. These VMs don't have internet 
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name `ad-vm-a`.
-   1. Select the [availability zone](../../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
-   1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
+   1. Select an [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+   1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the [Windows Server 2016 Datacenter](/marketplace/products/yc/windows-server-2016-datacenter) image.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
       * Specify the number of vCPUs and amount of RAM:
-         * **vCPU** — 4.
+         * **vCPU**: 4.
          * **Guaranteed vCPU share**: 100%
          * **RAM**: 8 GB.
 
-   1. Under **Network settings**, select the `exchange-subnet-a` subnet. In the **Public address**field, select **No address**.
+   1. Under **Network settings**, select the `exchange-subnet-a` subnet. In the **Public address** field, select **No address**.
    1. Under **Access**, specify the data required to access the VM:
       * In the **Password** field, enter your password.
    1. Click **Create VM**.
@@ -163,7 +169,7 @@ Create two virtual machines for Active Directory. These VMs don't have internet 
      --network-interface subnet-name=exchange-subnet-a,ipv4-address=10.1.0.3 \
      --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
      --metadata-from-file user-data=setpass
-   
+
    yc compute instance create \
      --name ad-vm-b \
      --hostname ad-vm-b \
@@ -187,13 +193,13 @@ A file server with internet access is used to configure VMs with Active Director
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name: `fsw-vm`.
-   1. Select the `{{ region-id }}-c` [availability zone](../../overview/concepts/geo-scope.md)
-   1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
+   1. Select an [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-c`.
+   1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the [Windows Server 2016 Datacenter](/marketplace/products/yc/windows-server-2016-datacenter) image.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
       * Specify the number of vCPUs and amount of RAM:
-         * **vCPU** — 2.
+         * **vCPU**: 2.
          * **Guaranteed vCPU share**: 100%
          * **RAM**: 4 GB.
 
@@ -403,18 +409,18 @@ VMs with Active Directory don't have internet access, so they should be configur
 
       1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
       1. In the **Name** field, enter the VM name `vm-exchange-a`.
-      1. Select the [availability zone](../../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
+      1. Select an [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
       1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
       1. Under **Disks**, enter 100 GB for the size of the boot disk:
       1. Add another 250 GB SSD named `db-a`.
       1. Under **Computing resources**:
          * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
          * Specify the number of vCPUs and amount of RAM:
-            * **vCPU** — 8.
+            * **vCPU**: 8.
             * **Guaranteed vCPU share**: 100%
             * **RAM**: 32 GB.
 
-      1. Under **Network settings**, select the `exchange-subnet-a` subnet. In the **Public address**field, select **No address**.
+      1. Under **Network settings**, select the `exchange-subnet-a` subnet. In the **Public address** field, select **No address**.
       1. Under **Access**, specify the data required to access the VM:
          * In the **Password** field, enter your password.
       1. Click **Create VM**.
@@ -487,18 +493,18 @@ VMs with Active Directory don't have internet access, so they should be configur
 
       1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
       1. In the **Name** field, enter the VM name `vm-exchange-b`.
-      1. Select the [availability zone](../../overview/concepts/geo-scope.md): `{{ region-id }}-b`.
+      1. Select an [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
       1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
       1. Under **Disks**, enter 100 GB for the size of the boot disk:
       1. Add another 250 GB SSD named `db-b`.
       1. Under **Computing resources**:
          * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
          * Specify the number of vCPUs and amount of RAM:
-            * **vCPU** — 8.
+            * **vCPU**: 8.
             * **Guaranteed vCPU share**: 100%
             * **RAM**: 32 GB.
 
-      1. Under **Network settings**, select the `exchange-subnet-b` subnet. In the **Public address**field, select **No address**.
+      1. Under **Network settings**, select the `exchange-subnet-b` subnet. In the **Public address** field, select **No address**.
       1. Under **Access**, specify the data required to access the VM:
          * In the **Password** field, enter your password.
       1. Click **Create VM**.
@@ -819,13 +825,13 @@ Create a VM named `vm-edge-a`:
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name: `vm-edge-a`.
-   1. Select the [availability zone](../../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
+   1. Select an [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
       * Specify the number of vCPUs and amount of RAM:
-         * **vCPU** — 4.
+         * **vCPU**: 4.
          * **Guaranteed vCPU share**: 100%
          * **RAM**: 8 GB.
 
@@ -860,13 +866,13 @@ Create a VM named `vm-edge-b`:
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name: `vm-edge-b`.
-   1. Select the [availability zone](../../overview/concepts/geo-scope.md): `{{ region-id }}-b`.
+   1. Select an [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
       * Specify the number of vCPUs and amount of RAM:
-         * **vCPU** — 4.
+         * **vCPU**: 4.
          * **Guaranteed vCPU share**: 100%
          * **RAM**: 8 GB.
 
@@ -893,7 +899,7 @@ Create a VM named `vm-edge-b`:
 
 ## Configure Edge Transport servers {#set-up-edge-transport}
 
-### Configure the Edge Transport server in the {{ region-id }}-a zone {#edge-a}
+### Configure the Edge Transport server in the {{ region-id }}-a zone{#edge-a}
 
 1. Connect to `fsw-vm` using RDP.
 1. Connect to `vm-edge-a` using RDP. Enter `Administrator` as the username and then your password. Launch PowerShell.
@@ -920,7 +926,7 @@ Create a VM named `vm-edge-b`:
 
    ```powershell
    $Credential = Get-Credential # Username: yantoso\Administrator
-   
+
    New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.{{ region-id }}.internal\distrib' -Credential $Credential
    ```
 
@@ -943,9 +949,9 @@ Create a VM named `vm-edge-b`:
 
    ```powershell
    $Suffix = '{{ region-id }}.internal'
-   
+
    Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name Domain -Value $Suffix
-   
+
    Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name 'NV Domain' -Value $Suffix
    ```
 
@@ -996,7 +1002,7 @@ Create a VM named `vm-edge-b`:
 
    ```powershell
    $Credential = Get-Credential # Username: yantoso\Administrator
-   
+
    New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.{{ region-id }}.internal\distrib' -Credential $Credential
    ```
 
@@ -1019,9 +1025,9 @@ Create a VM named `vm-edge-b`:
 
    ```powershell
    $Suffix = '{{ region-id }}.internal'
-   
+
    Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name Domain -Value $Suffix
-   
+
    Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name 'NV Domain' -Value $Suffix
    ```
 

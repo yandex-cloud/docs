@@ -1,3 +1,17 @@
+---
+title: "Installing and deploying Active Directory (AD) in the cloud"
+description: "Step-by-step tutorial on installing and deploying Active Directory (AD) in {{ yandex-cloud }}. To deploy an Active Directory (AD) infrastructure, you need to create and set up a cloud, create a network and subnets, and create a VM for Active Directory."
+keywords:
+  - Active Directory installation
+  - Active Directory deployment
+  - AD installation
+  - active directory
+  - active directory how to get started
+  - active directory scheduling
+  - ad setup
+  - active directory setup
+---
+
 # Deploying Active Directory
 
 {% if product == "cloud-il" %}
@@ -5,6 +19,13 @@
 {% include [windows-trial](../../_includes/compute/windows-trial.md) %}
 
 {% endif %}
+
+{% if product == "yandex-cloud" %}
+
+{% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
+
+{% endif %}
+
 
 The scenario provides an example of how to deploy Active Directory in {{ yandex-cloud }}.
 
@@ -50,7 +71,7 @@ Create a cloud network named `ad-network` with subnets in all the availability z
    - Management console
 
       To create a [cloud network](../../vpc/concepts/network.md):
-      1. Open the **{{ vpc-name }}** section in the folder where you want to create the cloud network.
+      1. Open the **{{ vpc-name }}** section of the folder where you want to create a cloud network.
       1. Click **Create network**.
       1. Enter the network name `ad-network`.
       1. Click **Create network**.
@@ -76,7 +97,7 @@ Create a cloud network named `ad-network` with subnets in all the availability z
    - Management console
 
       To create a subnet:
-      1. Open the **{{ vpc-name }}** section in the folder where you want to create the subnet.
+      1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
       1. Click on the name of the cloud network.
       1. Click **Add subnet**.
       1. Fill out the form: enter `ad-subnet-a` as the subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
@@ -146,7 +167,7 @@ Create two VMs for Active Directory domain controllers. These VMs don't have int
 
       * Select the [platform](../../compute/concepts/vm-platforms.md): **Intel Ice Lake**.
       * Specify the number of vCPUs and amount of RAM:
-         * **vCPU** — 4.
+         * **vCPU**: 4.
          * **Guaranteed vCPU share**: 100%
          * **RAM**: 8 GB.
 
@@ -204,7 +225,7 @@ A file server with internet access is used to configure VMs with Active Director
 
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
       * Specify the number of vCPUs and amount of RAM:
-         * **vCPU** — 2.
+         * **vCPU**: 2.
          * **Guaranteed vCPU share**: 100%
          * **RAM**: 4 GB.
 

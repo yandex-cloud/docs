@@ -1,6 +1,6 @@
 ---
-title: Virtual hosting. How to create
-description: "This tutorial will show you how to set up virtual hosting with multiple websites and different domain names on the same IP address."
+title: "Virtual hosting: how to build it?"
+description: "From these instructions, you'll learn how to build a virtual hosting of several websites having different domain names, on a single IP."
 ---
 
 # Setting up a virtual hosting
@@ -17,7 +17,7 @@ To create a virtual hosting:
 1. [Import TLS certificates of the sites to {{ certificate-manager-name }}](#import-certificates).
 1. [Create instance groups for the sites](#create-vms).
 1. [Upload the site files to the VMs](#upload-sites-files).
-1. [Create backend groups](#create-backend-groups).
+1. [Create  backend groups](#create-backend-groups).
 1. [Create and configure HTTP routers](#create-http-routers).
 1. [Create an L7 load balancer](#create-l7-balancer).
 1. [Configure the DNS for the sites](#configure-dns).
@@ -25,7 +25,7 @@ To create a virtual hosting:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-begin}
+## Prepare your cloud {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -126,7 +126,7 @@ To create security groups:
 
 To let users access the sites using the secure HTTPS protocol (HTTP over TLS), you must have TLS certificates for the sites. To use certificates in the L7 load balancer, import the certificates to {{ certificate-manager-name }}.
 
-If your sites don't have certificates, you can [obtain them from {{ certificate-manager-name }} Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md). You don't need to do anything else after creating certificates this way, because the certificates are imported automatically.
+If your sites don't have certificates, you can [obtain them from {{ certificate-manager-name }}Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md). You don't need to do anything else after creating certificates this way, because the certificates are imported automatically.
 
 To import an existing certificate for `site-a.com`:
 
@@ -314,7 +314,7 @@ To create an HTTP router for the `default.com` site:
 
       ```
       404 Not Found
-      
+
       This is the default site.
       ```
 
@@ -374,7 +374,7 @@ To configure the DNS for `site-a.com`:
 1. Create or edit the A record for `site-a.com` so that it links to the copied IP address:
 
    ```
-   site-a.com. A <L7 load balancer IP address> 
+   site-a.com. A <L7 load balancer IP address>
    ```
 
    If you use {{ dns-name }}, follow these instructions to configure the record:

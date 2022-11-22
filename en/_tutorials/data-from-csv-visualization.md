@@ -124,7 +124,7 @@ To visualize data by gender, create a [chart](../datalens/concepts/chart/index.m
 
         ![image](../_assets/datalens/solution-01/16-Chart-Color-Set-Buttun.png)
 
-    1. Select the colors: **Female** — pink, **Male** — blue, **unknown** — orange.
+    1. Select the colors: **Female**: pink, **Male**: blue, **unknown**: orange.
 
         ![image](../_assets/datalens/solution-01/17-Chart-Color-Set1.png)
 
@@ -162,7 +162,7 @@ To visualize whether a superhero is good or bad, create a bar chart.
 
     1. Click the settings icon in the **Colors** section.
 
-    1. Select the colors: **good** — green, **neutral** — blue, **bad** — red, **unknown** — orange.
+    1. Select the colors: **good**: green, **neutral**: blue, **bad**: red, **unknown**: orange.
 
         ![image](../_assets/datalens/solution-01/21-Chart-Color-Set2.png)
 

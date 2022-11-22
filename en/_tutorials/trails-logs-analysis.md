@@ -346,6 +346,7 @@ A data stream is used to upload audit logs.
 
 {% endlist %}
 
+
 ## Create a trail {#create-trail}
 
 A trail uploads audit logs of all the resources in your folder to a {{ yds-name }} stream.
@@ -527,7 +528,7 @@ You can run queries to the `trail_data` database to search for security events o
 
    ```sql
    select * from trail_data.trail_logs_stream
-   where event_type = 'yandex.cloud.audit.resourcemanager.DeleteFolder' and JSONExtractString(details, 'folder_name') = '<folder_name>'
+   where event_type = 'yandex.cloud.audit.resourcemanager.DeleteFolder' and  JSONExtractString(details, 'folder_name') = '<folder_name>'
    ```
 
 * What actions did a specific user perform over a period of time (name ID and date are required):

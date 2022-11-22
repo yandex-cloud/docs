@@ -289,7 +289,7 @@ To prepare configuration files for {{ TF }}:
 1. Create the file `main.tf` and copy the {{ TF }}module configuration there. Set the parameters of the resources to be created:
    * `cloud_id`: cloud ID.
    * `folder_id`: ID of the folder.
-   * `oauth_token` — OAuth token.
+   * `oauth_token`: OAuth token.
    * `database_connector_bucket`: Name of the bucket with the integration function.
 
    ```hcl

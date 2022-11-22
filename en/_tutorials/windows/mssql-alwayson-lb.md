@@ -1,5 +1,11 @@
 # Deploying an Always On availability group with an internal network load balancer
 
+{% if product == "yandex-cloud" %}
+
+{% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
+
+{% endif %}
+
 The use case describes how to deploy an Always On availability group in {{ yandex-cloud }} and enable load balancing between the nodes using an internal network load balancer. Network interfaces will be set up to combine multiple subnets into a single common subnet. This means that you don't need [Multisubnet Failover]({{ ms.docs }}/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15). The primary IP address will be assigned to the replica written to. The same replica will have an open port, and the load balancer will route traffic to this port. Since the port specified for connecting to the load balancer becomes unavailable, an additional non-standard port will be used to receive traffic.
 
 To create and configure an Always On availability group with an internal network load balancer:
@@ -7,12 +13,12 @@ To create and configure an Always On availability group with an internal network
 1. [Before you start](#before-begin).
 1. [Create a network infrastructure](#prepare-network).
 1. [Create an internal network load balancer](#create-load-balancer).
-1. [Create VMs for the availability group](#create-vms)
+1. [Create VMs for the availability group](#create-vms).
 1. [Test the availability group](#test).
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-begin}
+## Prepare your cloud {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -42,7 +48,7 @@ Prepare the network infrastructure to host the availability group.
 
    - Management console
 
-      1. Open the **{{ vpc-name }}** section in the folder where you want to create the cloud network.
+      1. Open the **{{ vpc-name }}** section of the folder where you want to create a cloud network.
       1. Click **Create network**.
       1. Enter the network name: `ya-network`.
       1. Click **Create network**.
@@ -78,9 +84,9 @@ Prepare the network infrastructure to host the availability group.
 
    - Management console
 
-      1. Open the **{{ vpc-name }}** section in the folder to create the subnets in.
+      1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
       1. Select the `ya-network` network.
-      1. Click ![image](../../_assets/plus.svg)**Create subnet**.
+      1. Click ![image](../../_assets/plus.svg) **Create subnet**.
       1. Fill out the form: enter the `ya-sqlserver-rc1a` subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
       1. Enter the subnet CIDR: IP address and subnet mask: `192.168.1.0/28`.
       1. Click **Create subnet**.
@@ -90,7 +96,7 @@ Prepare the network infrastructure to host the availability group.
       * `ya-sqlserver-rc1b` in the `{{ region-id }}-b` availability zone: `192.168.1.16/28`.
       * `ya-sqlserver-rc1c` in the `{{ region-id }}-c` availability zone: `192.168.1.32/28`.
       * `ya-ilb-rc1a` in the `{{ region-id }}-a` availability zone: `192.168.1.48/28`.
-      * `ya-ad-rc1a` in the `{{ region-id }}-a` availability zone: `10.0.0.0/28`.
+      * `ya-ad-rc1a` in the`{{ region-id }}-a` availability zone: `10.0.0.0/28`.
 
    - Bash
 
@@ -104,10 +110,10 @@ Prepare the network infrastructure to host the availability group.
 
       ```
       yc vpc subnet create \
-      	 --name ya-sqlserver-rc1b \
-         --zone {{ region-id }}-b \
-         --range 192.168.1.16/28 \
-         --network-name ya-network
+        --name ya-sqlserver-rc1b \
+        --zone {{ region-id }}-b \
+        --range 192.168.1.16/28 \
+        --network-name ya-network
       ```
 
       ```
@@ -128,10 +134,10 @@ Prepare the network infrastructure to host the availability group.
 
       ```
       yc vpc subnet create \
-      	 --name ya-ad-rc1a \
-         --zone {{ region-id }}-a \
-         --range 10.0.0.0/28 \
-         --network-name ya-network
+        --name ya-ad-rc1a \
+        --zone {{ region-id }}-a \
+        --range 10.0.0.0/28 \
+        --network-name ya-network
       ```
 
    - PowerShell
@@ -170,7 +176,7 @@ Prepare the network infrastructure to host the availability group.
 
       ```
       yc vpc subnet create `
-      	 --name ya-ad-rc1a `
+         --name ya-ad-rc1a `
          --zone {{ region-id }}-a `
          --range 10.0.0.0/28 `
          --network-name ya-network
@@ -195,7 +201,7 @@ Prepare the network infrastructure to host the availability group.
    ```
    yc load-balancer network-load-balancer create `
       --name ya-loadbalancer `
-   	 --type internal
+      --type internal
    ```
 
 {% endlist %}
@@ -225,13 +231,13 @@ Prepare the network infrastructure to host the availability group.
    ```
    $inlbSubnet = yc vpc subnet get `
       --name ya-ilb-rc1a `
-   	 --format json | ConvertFrom-Json
+      --format json | ConvertFrom-Json
    ```
 
    ```
    yc load-balancer network-load-balancer add-listener `
-   	 --name ya-loadbalancer `
-   	 --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-subnet-id=$($inlbSubnet.id)
+      --name ya-loadbalancer `
+      --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-subnet-id=$($inlbSubnet.id)
    ```
 
 {% endlist %}
@@ -254,8 +260,8 @@ Prepare the network infrastructure to host the availability group.
 
    ```
    yc load-balancer network-load-balancer attach-target-group \
-   	 --name ya-loadbalancer \
-   	 --target-group target-group-id=<target_group_ID>,healthcheck-name=listener,healthcheck-tcp-port=59999
+      --name ya-loadbalancer \
+      --target-group target-group-id=<target_group_ID>,healthcheck-name=listener,healthcheck-tcp-port=59999
    ```
 
 - PowerShell
@@ -331,9 +337,9 @@ The `setpass` file must be in UTF-8 encoding.
 
 The set password is only used for testing. Use your own complex password when deploying a cluster to work in a product environment.
 
-The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements).
+The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник).
 
-Read more about the best practices for securing Active Directory [on the official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+Learn more about security best practices for Active Directory on the [official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 {% endnote %}
 
@@ -341,7 +347,7 @@ Read more about the best practices for securing Active Directory [on the officia
 
 #### Create a VM for a bastion host {#create-jump-server}
 
-Create a bastion host with a public IP address to access other VMs:
+Create a bastion host with [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) from {{ marketplace-name }} with a public IP address to access other VMs:
 
 {% list tabs %}
 
@@ -423,7 +429,7 @@ Create a bastion host with a public IP address to access other VMs:
 
 #### Create a VM for MSSQL servers {#create-ad-server}
 
-Create three VMs for MSSQL servers:
+Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) from {{ marketplace-name }} for MSSQL servers:
 
 {% list tabs %}
 
@@ -671,10 +677,10 @@ Create three VMs for MSSQL servers:
       ```
       setspn -A MSSQLSvc/ya-mssql1.yantoso.net:1433 yantoso\mssql-svc
       setspn -A MSSQLSvc/ya-mssql1.yantoso.net yantoso\mssql-svc
-      
+
       setspn -A MSSQLSvc/ya-mssql2.yantoso.net:1433 yantoso\mssql-svc
       setspn -A MSSQLSvc/ya-mssql2.yantoso.net yantoso\mssql-svc
-      
+
       setspn -A MSSQLSvc/ya-mssql3.yantoso.net:1433 yantoso\mssql-svc
       setspn -A MSSQLSvc/ya-mssql3.yantoso.net yantoso\mssql-svc
       ```
@@ -844,38 +850,38 @@ Install MSSQL on database servers:
 
       ```
       & secedit /export /cfg sec_conf_export.ini /areas user_rights
-      
+
       $secConfig = Get-Content sec_conf_export.ini | Select-Object -SkipLast 3
       $versionSection = Get-Content sec_conf_export.ini | Select-Object -Last 3
-      
+
       $SID = Get-WmiObject `
         -Class Win32_UserAccount `
         -Filter "name='mssql-svc' and domain='yantoso'" | `
           Select-Object -ExpandProperty SID
-      
+
       $isSeManageVolumePrivilegeDefined = $secConfig | `
         Select-String SeManageVolumePrivilege
-      
+
       if ($isSeManageVolumePrivilegeDefined) {
         $secConfig = $secConfig -replace '^SeManageVolumePrivilege .+', "`$0,*$SID"
       } else {
         $secConfig = $secConfig + "SeManageVolumePrivilege = *$SID"
       }
-      
+
       $isSeLockMemoryPrivilegeDefined = $secConfig | `
         Select-String SeLockMemoryPrivilege
-      
+
       if ($isSeLockMemoryPrivilegeDefined) {
         $secConfig = $secConfig -replace '^SeLockMemoryPrivilege .+', "`$0,*$SID"
       } else {
         $secConfig = $secConfig + "SeLockMemoryPrivilege = *$SID"
       }
-      
+
       $secConfig = $secConfig + $versionSection
       $secConfig | Set-Content sec_conf_import.ini
-      
+
       secedit /configure /db secedit.sdb /cfg sec_conf_import.ini /areas user_rights
-      
+
       Remove-Item sec_conf_import.ini
       Remove-Item sec_conf_export.ini
       ```
@@ -896,15 +902,15 @@ Install MSSQL on database servers:
         -LocalPort 1433 `
         -Action "Allow" `
         -Protocol "TCP"
-      
+
       New-NetFirewallRule `
         -Group "MSSQL" `
         -DisplayName "MSSQL Server AAG Custom" `
         -Name "MSSQLAAG-In-TCP" `
-      	 -LocalPort 14333 `
+        -LocalPort 14333 `
         -Action "Allow" `
         -Protocol "TCP"
-      
+
       New-NetFirewallRule `
         -Group "MSSQL" `
         -DisplayName "MSSQL HADR Default" `
@@ -912,7 +918,7 @@ Install MSSQL on database servers:
         -LocalPort 5022 `
         -Action "Allow" `
         -Protocol "TCP"
-      
+
       New-NetFirewallRule `
         -Group "MSSQL" `
         -DisplayName "MSSQL NLB Probe" `
@@ -931,7 +937,7 @@ Install MSSQL on database servers:
    - PowerShell
 
       ```
-      Mount-DiskImage -ImagePath C:\dist\<имя_образа_MSSQL_Server>.iso
+      Mount-DiskImage -ImagePath C:\dist\<name_of_MSSQL_Server_image>.iso
       ```
 
       ```
@@ -980,7 +986,7 @@ Install MSSQL on database servers:
    $IPAddress = Get-NetAdapter | Get-NetIPAddress -AddressFamily IPv4 | Select-Object -ExpandProperty IPAddress
    $InterfaceName = Get-NetAdapter | Select-Object -ExpandProperty Name
    $Gateway = Get-NetIPConfiguration | Select-Object -ExpandProperty IPv4DefaultGateway | Select-Object -ExpandProperty NextHop
-   
+
    netsh interface ip set address $InterfaceName static $IPAddress 255.255.255.192 $Gateway
    ```
 
@@ -1016,12 +1022,12 @@ Install MSSQL on database servers:
         -Node 'ya-mssql1.yantoso.net','ya-mssql2.yantoso.net','ya-mssql3.yantoso.net' `
         -NoStorage `
         -StaticAddress 192.168.1.4
-      
+
       Test-Cluster
-      
+
       Get-ClusterResource -Name 'Cluster IP Address' | `
         Stop-ClusterResource
-      
+
       Get-ClusterResource -Name 'Cluster IP Address' | `
         Set-ClusterParameter -Multiple `
           @{
@@ -1030,7 +1036,7 @@ Install MSSQL on database servers:
             "OverrideAddressMatch"=1;
             "EnableDhcp"=0
           }
-      
+
       Get-ClusterResource -Name 'Cluster Name' | Start-ClusterResource -Wait 60
       ```
 
@@ -1044,19 +1050,19 @@ Install MSSQL on database servers:
 
       ```
       $nodes = @('ya-mssql1.yantoso.net','ya-mssql2.yantoso.net','ya-mssql3.yantoso.net')
-      
+
       foreach ($node in $nodes) {
         $smo = [Microsoft.SqlServer.Management.Smo.Wmi.ManagedComputer]::new($node)
         $np = $smo.GetSmoObject("ManagedComputer[@Name=`'$node`']/ServerInstance[@Name='MSSQLSERVER']/ServerProtocol[@Name='NP']")
         $tcp = $smo.GetSmoObject("ManagedComputer[@Name=`'$node`']/ServerInstance[@Name='MSSQLSERVER']/ServerProtocol[@Name='Tcp']")
         $ipall = $smo.GetSmoObject("ManagedComputer[@Name=`'$node`']/ServerInstance[@Name='MSSQLSERVER']/ServerProtocol[@Name='Tcp']/IPAddress[@Name='IPAll']")
-      
+
         if (-not $ipall.IPAddressProperties['TcpPort'].Value -ne '1433,14333') {
           $ipall.IPAddressProperties['TcpPort'].Value = '1433,14333'
           $tcp.Alter()
           $altered = $true
         }
-      
+
         if (-not $tcp.IsEnabled) {
           $tcp.IsEnabled = $true
           $tcp.Alter()
@@ -1067,7 +1073,7 @@ Install MSSQL on database servers:
           $np.Alter()
           $altered = $true
         }
-      
+
         if ($altered) {
           Get-Service -Name 'MSSQLSERVER' -ComputerName $node | Restart-Service -Force
           Start-Sleep -Seconds 60
@@ -1089,27 +1095,27 @@ Install MSSQL on database servers:
         -LoginType "WindowsUser" `
         -Enable `
         -GrantConnectSql
-      
+
       Add-SqlLogin -Path "SQLSERVER:\SQL\ya-mssql2\Default" `
         -LoginName "yantoso\mssql-svc" `
         -LoginType "WindowsUser" `
         -Enable `
         -GrantConnectSql
-      
+
       Add-SqlLogin -Path "SQLSERVER:\SQL\ya-mssql3\Default" `
         -LoginName "yantoso\mssql-svc" `
         -LoginType "WindowsUser" `
         -Enable `
         -GrantConnectSql
-      
+
       $mssql1 = Get-Item "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default"
       $mssql1.Roles['sysadmin'].AddMember('yantoso\mssql-svc')
       $mssql1.Roles['sysadmin'].Alter()
-      
+
       $mssql2 = Get-Item "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default"
       $mssql2.Roles['sysadmin'].AddMember('yantoso\mssql-svc')
       $mssql2.Roles['sysadmin'].Alter()
-      
+
       $mssql3 = Get-Item "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default"
       $mssql3.Roles['sysadmin'].AddMember('yantoso\mssql-svc')
       $mssql3.Roles['sysadmin'].Alter()
@@ -1129,7 +1135,7 @@ Install MSSQL on database servers:
       Enable-SqlAlwaysOn -ServerInstance 'ya-mssql1.yantoso.net' -Force
       Enable-SqlAlwaysOn -ServerInstance 'ya-mssql2.yantoso.net' -Force
       Enable-SqlAlwaysOn -ServerInstance 'ya-mssql3.yantoso.net' -Force
-      
+
       Get-Service -Name 'MSSQLSERVER' -ComputerName 'ya-mssql1.yantoso.net' | Restart-Service
       Get-Service -Name 'MSSQLSERVER' -ComputerName 'ya-mssql2.yantoso.net' | Restart-Service
       Get-Service -Name 'MSSQLSERVER' -ComputerName 'ya-mssql3.yantoso.net' | Restart-Service
@@ -1152,21 +1158,21 @@ Install MSSQL on database servers:
        -Encryption Supported -EncryptionAlgorithm Aes `
        -Name AlwaysonEndpoint `
        -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default"
-      
+
       Set-SqlHADREndpoint -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default\Endpoints\AlwaysonEndpoint" -State Started
-      
+
       New-SqlHADREndpoint -Port 5022 -Owner sa `
         -Encryption Supported -EncryptionAlgorithm Aes `
         -Name AlwaysonEndpoint `
         -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default"
-      
+
       Set-SqlHADREndpoint -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default\Endpoints\AlwaysonEndpoint" -State Started
-      
+
       New-SqlHADREndpoint -Port 5022 -Owner sa `
         -Encryption Supported -EncryptionAlgorithm Aes `
         -Name AlwaysonEndpoint `
         -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default"
-      
+
       Set-SqlHADREndpoint -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default\Endpoints\AlwaysonEndpoint" -State Started
       ```
 
@@ -1185,14 +1191,14 @@ Install MSSQL on database servers:
        -FailoverMode "Automatic" `
        -AvailabilityMode "SynchronousCommit" `
        -AsTemplate -Version 13
-      
+
       $SecondaryReplica = New-SqlAvailabilityReplica `
         -Name ya-mssql2 `
         -EndpointUrl "TCP://ya-mssql2.yantoso.net:5022" `
         -FailoverMode "Automatic" `
         -AvailabilityMode "SynchronousCommit" `
         -AsTemplate -Version 13
-      
+
       $ThirdReplica = New-SqlAvailabilityReplica `
         -Name ya-mssql3 `
         -EndpointUrl "TCP://ya-mssql3.yantoso.net:5022" `
@@ -1239,7 +1245,7 @@ Install MSSQL on database servers:
 
       ```
       $NLBIPAddress = '192.168.1.62'
-      
+
       Get-Cluster | `
         Add-ClusterResource -Name 'MyAG Network Name' -Group 'MyAG' -ResourceType 'Network Name'
       Get-ClusterResource -Name 'MyAG Network Name' | `
@@ -1248,7 +1254,7 @@ Install MSSQL on database servers:
             Name = 'MyAGlistener'
             DnsName = 'MyAGlistener'
           }
-      
+
       Get-Cluster | `
         Add-ClusterResource -Name 'My AG listener IP Address' -Group 'MyAG' -ResourceType 'IP Address'
       Get-ClusterResource -Name 'My AG listener IP Address' | `
@@ -1260,17 +1266,17 @@ Install MSSQL on database servers:
             Network="Cluster Network 1"
             EnableDhcp=0
           }
-      
+
       Add-ClusterResourceDependency `
         -Resource 'MyAG Network Name' `
         -Provider 'My AG listener IP Address'
-      
+
       Stop-ClusterResource 'MyAG'
-      
+
       Add-ClusterResourceDependency `
         -Resource 'MyAG' `
         -Provider 'MyAG Network Name'
-      
+
       Start-ClusterResource 'MyAG'
       ```
 
@@ -1298,31 +1304,31 @@ Install MSSQL on database servers:
 
       ```
       $nodes = @('ya-mssql1.yantoso.net','ya-mssql2.yantoso.net','ya-mssql3.yantoso.net')
-      
+
       foreach ($node in $nodes) {
         $smo = [Microsoft.SqlServer.Management.Smo.Wmi.ManagedComputer]::new($node)
         $tcp = $smo.GetSmoObject("ManagedComputer[@Name=`'$node`']/ServerInstance[@Name='MSSQLSERVER']/ServerProtocol[@Name='Tcp']")
         $np = $smo.GetSmoObject("ManagedComputer[@Name=`'$node`']/ServerInstance[@Name='MSSQLSERVER']/ServerProtocol[@Name='NP']")
         $ipall = $smo.GetSmoObject("ManagedComputer[@Name=`'$node`']/ServerInstance[@Name='MSSQLSERVER']/ServerProtocol[@Name='Tcp']/IPAddress[@Name='IPAll']")
-      
+
         if (-not $ipall.IPAddressProperties['TcpPort'].Value -ne '1433,14333') {
           $ipall.IPAddressProperties['TcpPort'].Value = '1433,14333'
           $tcp.Alter()
           $altered = $true
         }
-      
+
         if (-not $tcp.IsEnabled) {
           $tcp.IsEnabled = $true
           $tcp.Alter()
           $altered = $true
-      
+
         }
         if (-not $np.IsEnabled) {
           $np.IsEnabled = $true
           $np.Alter()
           $altered = $true
         }
-      
+
         if ($altered) {
           Get-Service -Name 'MSSQLSERVER' -ComputerName $node | Restart-Service
           Start-Sleep -Seconds 60
@@ -1353,11 +1359,11 @@ Install MSSQL on database servers:
 
       ```
       New-SMBShare -Name SQLBackup -Path "X:\BACKUP" -FullAccess "yantoso\mssql-backups-grp"
-      
+
       $Acl = Get-Acl "X:\BACKUP"
       $AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("yantoso\mssql-backups-grp","Read", "ContainerInherit, ObjectInherit", "None", "Allow")
       $Acl.AddAccessRule($AccessRule)
-      
+
       $Acl | Set-Acl "X:\BACKUP"
       ```
 
@@ -1374,7 +1380,7 @@ Install MSSQL on database servers:
         -Database "MyDatabase" -Initialize `
         -BackupFile "MyDatabase.bak" `
         -ServerInstance "ya-mssql1.yantoso.net"
-      
+
       Backup-SqlDatabase `
         -Database "MyDatabase" -Initialize `
         -BackupFile "MyDatabase.log" `
@@ -1396,7 +1402,7 @@ Install MSSQL on database servers:
         -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.bak" `
         -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default" `
         -NORECOVERY
-      
+
       Restore-SqlDatabase `
         -Database "MyDatabase" `
         -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.log" `
@@ -1419,7 +1425,7 @@ Install MSSQL on database servers:
         -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.bak" `
         -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default" `
         -NORECOVERY
-      
+
       Restore-SqlDatabase `
         -Database "MyDatabase" `
         -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.log" `
@@ -1440,11 +1446,11 @@ Install MSSQL on database servers:
       Add-SqlAvailabilityDatabase `
        -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default\AvailabilityGroups\MyAG" `
        -Database "MyDatabase"
-      
+
       Add-SqlAvailabilityDatabase `
         -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default\AvailabilityGroups\MyAG" `
         -Database "MyDatabase"
-      
+
       Add-SqlAvailabilityDatabase `
         -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default\AvailabilityGroups\MyAG" `
         -Database "MyDatabase"
@@ -1481,7 +1487,7 @@ You can test your DB performance on any domain VM. Log in under the `yantoso\Adm
 
       ```
       Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
-      INSERT INTO MyDatabase.dbo.test (test_name) 
+      INSERT INTO MyDatabase.dbo.test (test_name)
       VALUES ('one')
       "@
       ```
@@ -1569,7 +1575,7 @@ You can test your DB performance on any domain VM. Log in under the `yantoso\Adm
 
       ```
       Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
-      INSERT INTO MyDatabase.dbo.test (test_name) 
+      INSERT INTO MyDatabase.dbo.test (test_name)
       VALUES ('two')
       "@
       ```

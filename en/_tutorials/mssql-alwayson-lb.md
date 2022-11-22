@@ -77,7 +77,7 @@ Prepare the network infrastructure to host the availability group.
 
       1. Open the **{{ vpc-name }}** section in the folder to create the subnets in.
       1. Select the `ya-network` network.
-      1. Click ![image](../_assets/plus.svg)**Create subnet**.
+      1. Click ![image](../_assets/plus.svg) **Create subnet**.
       1. Fill out the form: enter the `ya-sqlserver-rc1a` subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
       1. Enter the subnet CIDR: IP address and subnet mask: `192.168.1.0/28`.
       1. Click **Create subnet**.

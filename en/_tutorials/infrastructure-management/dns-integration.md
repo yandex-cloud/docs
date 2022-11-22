@@ -46,8 +46,8 @@ Next, let's set up two DNS forwarders in the cloud network:
 
 They will redirect DNS requests as follows:
 
-* Requests to the `corp.example.net` zone — via corporate DNS servers `172.16.1.5` and `172.16.2.5`.
-* All other requests (to the `.` zone) — via internal {{ yandex-cloud }} DNS servers to the corresponding subnets: `172.16.3.2` and `172.16.4.2`.
+* Requests to the `corp.example.net` zone: via corporate DNS servers `172.16.1.5` and `172.16.2.5`.
+* All other requests (to the `.` zone): via internal {{ yandex-cloud }} DNS servers to the corresponding subnets: `172.16.3.2` and `172.16.4.2`.
 
 To ensure fault tolerance for DNS forwarders, they will be placed behind the [internal network load balancer](../../network-load-balancer/concepts/index.md) of {{ network-load-balancer-full-name }}. All requests to DNS forwarders (both from the cloud network and from the corporate network) will pass through this load balancer.
 

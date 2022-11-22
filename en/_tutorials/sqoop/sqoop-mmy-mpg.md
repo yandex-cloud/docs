@@ -28,7 +28,7 @@ Place the clusters and the VM instance in the same [cloud network](../../vpc/con
 
    1. [Create a bucket](../../storage/operations/buckets/create.md) named `my-bucket`.
    1. [Create a service account](../../iam/operations/sa/create.md) named `bucket-sa`.
-   1. [Grant to this service account ](../../storage/operations/buckets/edit-acl.md) write permissions for `my-bucket`.
+   1. [Grant to this service account](../../storage/operations/buckets/edit-acl.md) write permissions for `my-bucket`.
 
 1. [Create a {{ dataproc-full-name }} cluster](../../data-proc/operations/cluster-create.md) in any suitable [configuration](../../data-proc/concepts/instance-types.md).
 

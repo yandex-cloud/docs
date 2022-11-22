@@ -1,9 +1,8 @@
-# Use cases
+# Tutorials
 
 * [{#T}](active-directory.md)
 {% if product == "yandex-cloud" %}
-{% if product == "cloud-il" %}* [{#T}](exchange.md){% endif %}
+* [{#T}](exchange.md)
 * [{#T}](rds.md)
-{% if product == "cloud-il" %}* [{#T}](mssql-alwayson-lb.md){% endif %}
+* [{#T}](mssql-alwayson-lb.md)
 {% endif %}
-

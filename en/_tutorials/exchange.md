@@ -138,11 +138,11 @@ Create two virtual machines for Active Directory. These VMs don't have internet 
    1. Under **Computing resources**:
       * Select the [platform](../compute/concepts/vm-platforms.md): Intel Ice Lake.
       * Specify the number of vCPUs and amount of RAM:
-         * **vCPU** — 4.
+         * **vCPU**: 4.
          * **Guaranteed vCPU share**: 100%
          * **RAM**: 8 GB.
 
-   1. Under **Network settings**, select the `exchange-subnet-a` subnet. In the **Public address**field, select **No address**.
+   1. Under **Network settings**, select the `exchange-subnet-a` subnet. In the **Public address** field, select **No address**.
    1. Under **Access**, specify the data required to access the VM:
       * In the **Password** field, enter your password.
    1. Click **Create VM**.
@@ -191,7 +191,7 @@ A file server with internet access is used to configure VMs with Active Director
    1. Under **Computing resources**:
       * Select the [platform](../compute/concepts/vm-platforms.md): Intel Ice Lake.
       * Specify the number of vCPUs and amount of RAM:
-         * **vCPU** — 2.
+         * **vCPU**: 2.
          * **Guaranteed vCPU share**: 100%
          * **RAM**: 4 GB.
 
@@ -408,11 +408,11 @@ VMs with Active Directory don't have internet access, so they should be configur
       1. Under **Computing resources**:
          * Select the [platform](../compute/concepts/vm-platforms.md): Intel Ice Lake.
          * Specify the number of vCPUs and amount of RAM:
-            * **vCPU** — 8.
+            * **vCPU**: 8.
             * **Guaranteed vCPU share**: 100%
             * **RAM**: 32 GB.
 
-      1. Under **Network settings**, select the `exchange-subnet-a` subnet. In the **Public address**field, select **No address**.
+      1. Under **Network settings**, select the `exchange-subnet-a` subnet. In the **Public address** field, select **No address**.
       1. Under **Access**, specify the data required to access the VM:
          * In the **Password** field, enter your password.
       1. Click **Create VM**.
@@ -492,11 +492,11 @@ VMs with Active Directory don't have internet access, so they should be configur
       1. Under **Computing resources**:
          * Select the [platform](../compute/concepts/vm-platforms.md): Intel Ice Lake.
          * Specify the number of vCPUs and amount of RAM:
-            * **vCPU** — 8.
+            * **vCPU**: 8.
             * **Guaranteed vCPU share**: 100%
             * **RAM**: 32 GB.
 
-      1. Under **Network settings**, select the `exchange-subnet-b` subnet. In the **Public address**field, select **No address**.
+      1. Under **Network settings**, select the `exchange-subnet-b` subnet. In the **Public address** field, select **No address**.
       1. Under **Access**, specify the data required to access the VM:
          * In the **Password** field, enter your password.
       1. Click **Create VM**.
@@ -823,7 +823,7 @@ Create a VM named `vm-edge-a`:
    1. Under **Computing resources**:
       * Select the [platform](../compute/concepts/vm-platforms.md): Intel Ice Lake.
       * Specify the number of vCPUs and amount of RAM:
-         * **vCPU** — 4.
+         * **vCPU**: 4.
          * **Guaranteed vCPU share**: 100%
          * **RAM**: 8 GB.
 
@@ -864,7 +864,7 @@ Create a VM named `vm-edge-b`:
    1. Under **Computing resources**:
       * Select the [platform](../compute/concepts/vm-platforms.md): Intel Ice Lake.
       * Specify the number of vCPUs and amount of RAM:
-         * **vCPU** — 4.
+         * **vCPU**: 4.
          * **Guaranteed vCPU share**: 100%
          * **RAM**: 8 GB.
 

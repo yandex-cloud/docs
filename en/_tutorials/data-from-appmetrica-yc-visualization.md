@@ -66,18 +66,18 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 1. Click **Create cluster**.
 1. Specify the settings for a {{ CH }} cluster.
 
-   1. **Basic parameters** — Enter `appmetrica_analysis` as the cluster name.
-   1. **Host class** — Select **burstable** as the virtual machine type and **b2.medium** as the host type.
+   1. **Basic parameters**: Enter `appmetrica_analysis` as the cluster name.
+   1. **Host class**: Select **burstable** as the virtual machine type and **b2.medium** as the host type.
 
       ![image](../_assets/datalens/solution-13/01-cluster-ch-settings.png)
 
-   1. **Storage size** — Leave the value at 10 GB.
-   1. **Database** — Enter `autoru_appmetrica` database name, as well as its username and password. Make sure to memorize the credentials.
+   1. **Storage size**: Leave the value at 10 GB.
+   1. **Database**: Enter `autoru_appmetrica` database name, as well as its username and password. Make sure to memorize the credentials.
 
       ![image](../_assets/datalens/solution-13/02-ch-settings-storage.png)
 
-   1. **Hosts** — Click the ![pencil](../../../_assets/pencil.svg) icon. Enable **Public access** and click **Save**.
-   1. **Advanced settings** — Enable 4 options:
+   1. **Hosts**: Click the ![pencil](../../../_assets/pencil.svg) icon. Enable **Public access** and click **Save**.
+   1. **Advanced settings**: Enable 4 options:
 
       * Access from {{ datalens-short-name }}
       * Access from the management console
@@ -96,7 +96,7 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 
 ### 1.3. Clone the repository to {{ ml-platform-short-name }} {#clone-repo-to-datasphere}
 
-1. In the upper-left corner, click **Git Clone** — ![git](../_assets/datasphere/jupyterlab/git.svg).
+1. In the upper-left corner, click **Git Clone**: ![git](../_assets/datasphere/jupyterlab/git.svg).
 
    ![image](../_assets/datalens/solution-13/03-cloud-jupyter-lab.png)
 
@@ -106,7 +106,7 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 
 If you don't have a Yandex Metrica tag, it doesn't have enough data, or if you want to make sure and complete all the steps in the instructions and get a result, go to step [2.1](#uploading-data-counter-from-disk) (skip step [2.2](#uploading-data-from-appmetrica)).
 
-If you have the AppMetrica app and access to it, go to step [2.2](#uploading-data-from-appmetrica) — this is recommended for experienced users who might need to edit scripts (skip step [2.1](#uploading-data-counter-from-disk)).
+If you have the AppMetrica app and access to it, go to step [2.2](#uploading-data-from-appmetrica): this is recommended for experienced users who might need to edit scripts (skip step [2.1](#uploading-data-counter-from-disk)).
 
 ### 2.1. {{ ml-platform-short-name }}. Download the test app data from Yandex.Disk {#uploading-data-counter-from-disk}
 
@@ -142,9 +142,9 @@ To set up the connection and export the data from your app, use the instructions
 1. Open the **yandex_appmetrika_cloud_case** folder →  notebook **2. upload_data_to_{{ CH }}.ipynb**.
 1. Paste data in the variables:
 
-   * Host name from step [2.3](#uploading-data-counter-to-ch) — In the **CH_HOST_NAME** variable.
-   * Username from step [1.1](#ch-connection) — In the **CH_USER** variable.
-   * Database name from step [1.1](#ch-connection) — In the **CH_DB_NAME** variable.
+   * Host name from step [2.3](#uploading-data-counter-to-ch): In the **CH_HOST_NAME** variable.
+   * Username from step [1.1](#ch-connection): In the **CH_USER** variable.
+   * Database name from step [1.1](#ch-connection): In the **CH_DB_NAME** variable.
 
      ![image](../_assets/datalens/solution-13/05-ch-parameters.png)
 
@@ -160,9 +160,9 @@ To set up the connection and export the data from your app, use the instructions
 1. Open the **yandex_appmetrika_cloud_case** folder → **Case_1.ipynb** notebook.
 1. Paste data in the variables:
 
-   * Host name from step [2.3](#uploading-data-counter-to-ch) — In the **CH_HOST_NAME** variable.
-   * Username from step [1.1](#ch-connection) — In the **CH_USER** variable.
-   * Database name from step [1.1](#ch-connection) — In the **CH_DB_NAME** variable.
+   * Host name from step [2.3](#uploading-data-counter-to-ch): In the **CH_HOST_NAME** variable.
+   * Username from step [1.1](#ch-connection): In the **CH_USER** variable.
+   * Database name from step [1.1](#ch-connection): In the **CH_DB_NAME** variable.
 
 1. Complete all the steps (the cells with the code) in the notebook.
 1. View the intermediate results.

@@ -108,9 +108,9 @@ You will get access after uploading a podcast to Yandex Music. The podcast is li
    ![image](../_assets/datalens/solution-10/05-music-dashboard-example.png)
 
    1. Each tab contains:
-   * Text widgets — headers, comments, and hints.
-   * Selectors — filters by different dimensions that can be used to filter the contents of dashboards.
-   * Charts — graphs, tables, and other visualizations.
+   * Text widgets: headers, comments, and hints.
+   * Selectors: filters by different dimensions that can be used to filter the contents of dashboards.
+   * Charts: graphs, tables, and other visualizations.
 
    ![image](../_assets/datalens/solution-10/06-dashboard-elements.png)
 
@@ -259,10 +259,10 @@ Set up access to {{ datalens-full-name }}:
 1. Permissions must be assigned to the **All** group or a specific user. If permissions are missing, click **Add**.
 1. In the **Add member** field, enter "All" or the name of the user who needs extended permissions.
 1. Go to the **Current object** section and set access permissions for the **Yandex Music podcast analytics** dashboard:
-   * Execute — execution of requests to the object is available.
-   * Read — read only is available.
-   * Write — view and edit options are available.
-   * Admin — view, edit, and manage options are available.
+   * Execute: execution of requests to the object is available.
+   * Read: read only is available.
+   * Write: view and edit options are available.
+   * Admin: view, edit, and manage options are available.
 
    ![image](../_assets/datalens/solution-10/31-permissions.png)
 

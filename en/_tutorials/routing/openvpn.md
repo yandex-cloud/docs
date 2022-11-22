@@ -1,9 +1,11 @@
 ---
-title: OpenVPN. Creating a VPN connection
+title: "OpenVPN. Creating a VPN connection"
 keywords:
   - openvpn
+  - openvpn setup
   - open vpn
   - vpn server setup
+  - vpn connection
   - vpn connection
 ---
 
@@ -41,7 +43,7 @@ If you no longer need the VPN server, [delete the VM](#clear-out).
 The cost of infrastructure support for OpenVPN includes:
 
 * A fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for using a dynamic or a static public IP (see [pricing{{ vpc-full-name }}](../../vpc/pricing.md)).
+* A fee for using a dynamic or a static public IP (see [pricing{{ vpc-full-name }}](../../vpc/pricing.md));
 * A fee for the OpenVPN Access Server license (when using more than two connections).
 
 {% endif %}
@@ -56,7 +58,7 @@ Create a [VM](../../compute/operations/vm-create/create-linux-vm.md) for the tes
 
 Create a VM to be the gateway for VPN connections:
 
-1. On the [folder page] ({{ link-console-main }}), click **Create resource** and select Virtual machine.On the folder page, click Create resource and select **Virtual machine**.
+1. On the [folder page]({{ link-console-main }}), click **Create resource** and select Virtual machine.On the folder page, click Create resource and select **Virtual machine**.
 
 1. Under **Basic parameters**:
 
@@ -117,7 +119,7 @@ If security groups are not available in your cloud, any traffic will be allowed.
 
 The openvpn user with administrator privileges was created on the `OpenVPN` server in advance. The password is generated automatically when creating a VM
 
-You can get the password in a [serial port output](../../compute/operations/vm-info/get-serial-port-output) or the serial console. The password will display in the following string:
+You can get the password in the [serial port output](../../compute/operations/vm-info/get-serial-port-output) or the serial console. The password will display in the following string:
 
 ```
 To login, please use the "openvpn" account with <`openvpn` user password> password.
@@ -125,7 +127,7 @@ To login, please use the "openvpn" account with <`openvpn` user password> passwo
 
 Log in to the admin panel using the `openvpn` username and the obtained password.
 
-If you do not get the password after [launching the VPN server](#create-vpn-server) for the first time, you need to re-create the VM running the [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server). The password will not display in a reboot.
+If you do not get the password after [launching the VPN server](#create-vpn-server) for the first time, you need to re-create the VM running [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server). The password will not display when reboot.
 
 ## Activate license {#get-license}
 
@@ -163,7 +165,7 @@ By default, a server has a self-signed certificate installed. If you need to rep
 To create a user, enter the admin panel:
 
 1. In the browser, open a URL like `https://<VM public IP address>/admin/`.
-1. Enter the `openvpn` username and password obtained from the `initial_ovpn_pass` file.
+1. Enter the `openvpn` username and password (see the section on [how to get the admin password](#get-admin-password)).
 1. Click **Agree**. This opens the main screen of the OpenVPN admin panel.
 1. Go to the **User management** tab and select **User permissions**.
 1. In the list of users, enter the name of the new user in the **New Username** field, like `test-user`.

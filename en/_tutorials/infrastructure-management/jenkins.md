@@ -88,7 +88,7 @@ To create a virtual machine with Jenkins:
 1. Under **Computing resources**:
    - Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
    - Specify the number of vCPUs and amount of RAM:
-      * **vCPU** — 2.
+      * **vCPU**: 2.
       * **Guaranteed vCPU share**: 20%
       * **RAM**: 2 GB.
 

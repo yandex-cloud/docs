@@ -6,6 +6,12 @@
 
 {% endif %}
 
+{% if product == "yandex-cloud" %}
+
+{% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
+
+{% endif %}
+
 Remote Desktop Gateway (RDGW) is a Windows Server service for accessing resources that have no internet access via a secure HTTPS communication channel.
 
 In this use case, users from the `Administrators` group are granted access to a test VM using a self-signed certificate.
@@ -21,15 +27,11 @@ To deploy the Remote Desktop Gateway infrastructure:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 {% include [ms-additional-data-note](../includes/ms-additional-data-note.md) %}
-
-If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.ru/cloud).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
 
 ### Required paid resources {#paid-resources}
@@ -51,7 +53,7 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
 
    - Management console
 
-      1. Select **{{ vpc-short-name }}** section in the folder where you want to create the cloud network.
+      1. Select **{{ vpc-short-name }}** in the folder where you want to create a cloud network.
       1. Click **Create network**.
       1. Enter the network name: `rdgw-network`.
       1. Click **Create network**.
@@ -62,7 +64,7 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
       yc vpc network create --name rdgw-network
       ```
 
-      Where `rdgw-network`: network name.
+      Where `rdgw-network` is the network name.
 
       Result:
 
@@ -82,7 +84,7 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
 
    - Management console
 
-      1. Select **{{ vpc-short-name }}** in the folder where you want to create the subnet.
+      1. Select **{{ vpc-short-name }}** in the folder to create a subnet in.
       1. Click on the name of the cloud network.
       1. Click **Add subnet**.
       1. Fill out the form: enter `rdgw-subnet` as a subnet name and select the desired availability zone from the drop-down list (for example, `{{ region-id }}-a`).
@@ -99,7 +101,7 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
         --range 10.1.0.0/16
       ```
 
-      Where `rdgw-subnet`: subnet name.
+      Where `rdgw-subnet` is the subnet name.
 
       Result:
 
@@ -124,7 +126,7 @@ Create and set up a [security group](../../vpc/concepts/security-groups.md).
 
 - Management console
 
-   1. Select the **{{ vpc-short-name }}** section in the folder to create a security group in.
+   1. Select **{{ vpc-short-name }}** in the folder where you want to create a security group.
    1. Open the **Security groups** tab.
    1. Click **Create group**.
    1. Enter the security group name: `my-rdgw-sg`.
@@ -159,7 +161,7 @@ Create and set up a [security group](../../vpc/concepts/security-groups.md).
      --rule direction=ingress,port=any,protocol=any,predefined=self_security_group,description=self `
      --rule direction=ingress,port=3389,protocol=tcp,v4-cidrs=[0.0.0.0/0],description=rdp `
      --rule direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0],description=rdgw `
-     --rule direction=egress,port=any,protocol=any,v4-cidrs=[0.0.0.0/0],description=default 
+     --rule direction=egress,port=any,protocol=any,v4-cidrs=[0.0.0.0/0],description=default
    ```
 
    Result:
@@ -194,8 +196,8 @@ Create a VM with a public address:
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter a name for the VM: `my-rds-gw`.
-   1. Select the [availability zone](../../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
-   1. Under **Image/boot disk selection**, select the **2022 Datacenter** image.
+   1. Select an [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+   1. Under **Image/boot disk** selection, click the **{{ marketplace-name }}** tab and then **Show more**. In the window that opens, select the [Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter) image.
    1. Under **Disks**, enter 60 GB for the size of the boot disk:
    1. Under **Computing resources**:
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
@@ -219,22 +221,22 @@ Create a VM with a public address:
 
       ```powershell
       #ps1
-      Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your password>" -AsPlainText -Force) 
+      Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your password>" -AsPlainText -Force)
       ```
 
    1. Create a VM and specify the created script as the metadata source. As the `security-group-ids` parameter, enter the ID of the `my-rdgw-group` security group:
 
       ```
       yc compute instance create `
-           --name my-rds-gw `
-           --hostname my-rds-gw `
-           --memory 4 `
-           --cores 2 `
-           --platform standard-v3 `
-           --zone {{ region-id }}-a `
-           --network-interface subnet-name=rdgw-subnet,ipv4-address=10.1.0.3,nat-ip-version=ipv4,security-group-ids=<id_my-rdgw-group> `
-           --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk `
-           --metadata-from-file user-data=setpass
+        --name my-rds-gw `
+        --hostname my-rds-gw `
+        --memory 4 `
+        --cores 2 `
+        --platform standard-v3 `
+        --zone {{ region-id }}-a `
+        --network-interface subnet-name=rdgw-subnet,ipv4-address=10.1.0.3,nat-ip-version=ipv4,security-group-ids=<id_my-rdgw-group> `
+        --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk `
+        --metadata-from-file user-data=setpass
       ```
 
    Result:
@@ -280,7 +282,7 @@ Create a VM with a public address:
 ## Configure the RDGW role {#role}
 
 1. [Connect](../../compute/operations/vm-connect/rdp.md) to the created VM via RDP.
-1. Install the required roles and [management snap-ins]({{ ms.docs }}/troubleshoot/windows-server/system-management-components/what-is-microsoft-management-console#more-information):
+1. Set the required roles and [management snap-ins]({{ ms.docs }}/troubleshoot/windows-server/system-management-components/what-is-microsoft-management-console#more-information):
 
    ```powershell
    Install-WindowsFeature RDS-Gateway -IncludeManagementTools
@@ -300,6 +302,7 @@ Create a VM with a public address:
    Import-Module -Name RemoteDesktopServices
    ```
 
+
 1. Create a client access policy to allow all `Administrators` local group accounts to connect to the RDGW. You can do this using a [Windows PowerShell drive]({{ ms.docs }}/powershell/scripting/samples/managing-windows-powershell-drives?view=powershell-7.1) that is created automatically when importing the role:
 
    ```powershell
@@ -310,7 +313,7 @@ Create a VM with a public address:
 
    ```
        Directory: RDS:\GatewayServer\CAP
-   
+
    Name                   Type      CurrentValue         GP   PermissibleValues PermissibleOperations
    ----                   ----      ------------         --   ----------------- ---------------------
    Default-CAP                                           -                      Get-Item, Get-ChildItem, Remove-Item,...
@@ -326,7 +329,7 @@ Create a VM with a public address:
 
    ```
        Directory: RDS:\GatewayServer\RAP
-   
+
    Name                   Type      CurrentValue         GP   PermissibleValues PermissibleOperations
    ----                   ----      ------------         --   ----------------- ---------------------
    Default-RAP                                           -                      Get-Item, Get-ChildItem, Remove-Item,...
@@ -348,7 +351,7 @@ Create a VM with a public address:
 
    ```
        Directory: RDS:\GatewayServer\RAP
-   
+
    Name                   Type      CurrentValue         GP   PermissibleValues PermissibleOperations
    ----                   ----      ------------         --   ----------------- ---------------------
    Default-RAP                                           -                      Get-Item, Get-ChildItem, Remove-Item,...
@@ -365,7 +368,7 @@ Create a VM with a public address:
 
    ```
        Directory: C:\
-   
+
    Mode                LastWriteTime         Length Name
    ----                -------------         ------ ----
    -a----         6/9/2021  11:51 AM            796 REGW.cer
@@ -383,8 +386,8 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
 
       1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
       1. In the **Name** field, enter the VM name: `test-vm`.
-      1. Select the [availability zone](../../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
-      1. Under **Image/boot disk selection**, select the **2022 Datacenter** image.
+      1. Select an [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+      1. Under **Image/boot disk** selection, click the **{{ marketplace-name }}** tab and then **Show more**. In the window that opens, select the [Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter) image.
       1. Under **Disks**, enter 60 GB for the size of the boot disk:
       1. Under **Computing resources**:
          * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
@@ -422,7 +425,7 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
       created_at: "2021-06-09T11:53:03Z"
       name: test-vm
       zone_id: {{ region-id }}-a
-      platform_id: standard-v2
+      platform_id: standard-v3
       resources:
       memory: "4294967296"
       cores: "2"
@@ -456,7 +459,7 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
    87.250.250.242 my-rds-gw
    ```
 
-1. Run the [`mstsc` utility]({{ ms.docs }}/windows-server/administration/windows-commands/mstsc) that creates remote desktop connections. In the settings on the **Advanced** tab, specify the `my-rds-gw` VM name as the gateway, the `test-vm` name as the destination node, and `Administrator` as the username.
+1. Run [the `mstsc` utility]({{ ms.docs }}/windows-server/administration/windows-commands/mstsc) that creates remote desktop connections. In the settings on the **Advanced** tab, specify the `my-rds-gw` VM name as the gateway, the `test-vm` name as the destination node, and `Administrator` as the username.
 
 ## How to delete created resources {#clear-out}
 
