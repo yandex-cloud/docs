@@ -38,7 +38,8 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
 
-{% if product == "yandex-cloud" and audience == "draft" %}
+
+{% if product == "yandex-cloud" %}
 
 ## {{ backup-full-name }} {#backup-roles}
 
