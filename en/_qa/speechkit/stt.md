@@ -30,9 +30,15 @@ Direct link, substitute the folder_id if possible: {% if lang == "ru" %}https://
 
 {% endif %}
 
+{% if audience == "external" %}
+
+If you have any issues, please contact [support]({{ link-console-support }}) and provide files and a description.
+
+{% endif %}
+
 #### Noises, beeps, silence is reproduced as a strange speech {#strange-speech}
 
-Try using [a different recognition model](../../speechkit/stt/models.md#tags), such as `general:rc`. For streaming recognition, there is a [setting](../../speechkit/stt/api/streaming-api.md#additional-settings) that reduces the sensitivity of background noise recognition.
+Try using a [different recognition model](../../speechkit/stt/models.md#tags), such as `general:rc`. For streaming recognition, there is a [setting](../../speechkit/stt/api/streaming-api.md#additional-settings) that reduces the sensitivity of background noise recognition.
 
 {% if audience == "internal" %}
 
@@ -46,7 +52,7 @@ Check the format of your recording.
 
 For LPCM, use the [config.specification.audioChannelCount](../../speechkit/stt/api/transcribation-api.md#sendfile-params) parameter equal to 2.
 
-You don't need to specify the parameter for OggOpus, since the file contains information about the number of channels. The file will be automatically split into two records.
+You don't need to specify the parameter for OggOpus, since the file contains information about the number of channels. The file will be automatically split into two recordings.
 
 The recognized text in the response is separated by the [channelTag](../../speechkit/stt/api/transcribation-api.md#get-result-response) parameter.
 
@@ -74,7 +80,7 @@ If the file is multi-channel, take into account the total recording time of all 
 
 #### Internal Server Error {#internal-server-err}
 
-Make sure the [format](../../speechkit/stt/api/request-api.md#body_params) specified in the request matches the actual file format. If the error persists, send us sample audio files that can't be recognized.
+Make sure the [format](../../speechkit/stt/api/request-api.md#body_params) you specified in the request matches the actual file format. If the error persists, send us sample audio files that can't be recognized.
 
 #### When is a response sent during recognition? {#when-response}
 
@@ -98,11 +104,11 @@ When using the [header](../../speechkit/stt/api/request-api.md#http_request) `Tr
 
 If the [streaming recognition](../../speechkit/stt/streaming.md#session-restrictions) service doesn't receive data to recognize within 5 seconds, a session is aborted. You can't change this parameter.
 
-Streaming recognition runs in real time. You can send «silence» for recognition so that the service doesn't terminate the connection.
+Streaming recognition runs in real time. You can send "silence" for recognition so that the service doesn't terminate the connection.
 
-#### How are the end of an utterance and the recognition session duration determined {#utterance-end}
+#### How are the end of an utterance and the recognition session duration determined? {#utterance-end}
 
-The end of an utterance is determined automatically by the «silence» after the utterance.
+The end of an utterance is determined automatically by the "silence" after the utterance.
 
 [The maximum duration of a session](../../speechkit/stt/streaming.md#session-restrictions) is 5 minutes.
 
