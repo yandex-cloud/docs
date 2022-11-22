@@ -10,5 +10,5 @@ _Проект_ — это основное рабочее место польз�
 
 #### Что дальше {#what-is-next}
 
-* [{#T}](install-dependencies.md)
-* [{#T}](control-compute-resources.md)
+* [{#T}](install-dependencies.md).
+* [{#T}](control-compute-resources.md).

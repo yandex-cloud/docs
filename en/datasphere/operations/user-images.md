@@ -88,6 +88,6 @@ To use an image for a project:
 To return to the default environment:
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. Under **Resources**, select **Docker**.
-1. Click ![Options](../../_assets/options.svg) next to the desired image and select **Reset image**. 
+1. Click ![Options](../../_assets/options.svg) next to the desired image and select **Reset image**.
 
 {% endif %}

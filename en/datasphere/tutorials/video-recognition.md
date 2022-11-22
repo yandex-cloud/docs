@@ -87,7 +87,7 @@ To upload and label the data:
 
    ```
    #!g1.1
-   
+
    session = boto3.session.Session()
    ...
    ```
@@ -110,7 +110,7 @@ To prepare the model and calculate the properties:
 
    ```
    #!g1.1
-   model = ResNet50(weights='imagenet', input_shape=(224, 224, 3))
+   model = ResNet50(weights='imagenet',  input_shape=(224, 224, 3))
    ...
    ```
 
@@ -165,7 +165,7 @@ To use the resulting model:
    ```
    %%time
    clf = lgb.Booster(model_file='ImageClassificationML/lightgbm_classifier.model')
-   model = ResNet50(weights='imagenet', input_shape=(224, 224, 3))
+   model = ResNet50(weights='imagenet',  input_shape=(224, 224, 3))
    ...
    ```
 
@@ -204,20 +204,20 @@ There are several practical uses of the model you built:
 
    ```python
    from sparkdl import readImages, KerasImageFileTransformer
-   
+
    # load cctv image body from S3 and return image tensor
-   
+
    def load_image_body_and_process(uri):
        import PIL.image
        from keras.applications.imagenet_utils import preprocess.input
    ...
-   
+
    # load cctv images in batch (from S3 or copy to local hdfs)
-   
+
    image_uri_dataset = readImages("/cctv-in/*.jpg")
-   
+
    # create a Keras estimator that takes our saved model file and train it using Spark
-   
+
    estimator = KerasImageFileEstimator(inputCol="imageUri",
                                        outputCol="predict_car",
                                        labelCol="categoryVec",

@@ -2,7 +2,7 @@
 
 {% include [include](../../../_includes/datasphere/ui-control-compute-resources-intro.md) %}
 
-## Before you start {#before-begin}
+## Before you begin {#before-begin}
 
 {% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
 
