@@ -1,8 +1,6 @@
-# Creating a email trigger
+# Creating an email trigger
 
-Create a [email trigger](../concepts/trigger/mail-trigger.md) to call a {{ serverless-containers-name }} [container](../concepts/container.md) when an email arrives. The service automatically generates an email address when creating the trigger.
-
-For more information about creating an email trigger to call a function, see the [{{ sf-full-name }} documentation](../../functions/operations/trigger/mail-trigger-create.md).
+Create an [email trigger](../concepts/trigger/mail-trigger.md) to call a {{ serverless-containers-name }} [container](../concepts/container.md) when an email arrives. The service automatically generates an email address when creating the trigger.
 
 ## Before you begin {#before-you-begin}
 
@@ -32,17 +30,65 @@ For more information about creating an email trigger to call a function, see the
 
    1. Under **Container settings**, select a container and specify:
 
-      * A [container revision](../concepts/container.md#revision).
-      * A [service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the container.
+      {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
    1. (optional) Under **Repeat request settings**:
 
-      * In the **Interval** field, specify the time after which the container will be invoked again if the current attempt fails. Values can be from 10 to 60 seconds. The default is 10 seconds.
-      * In the **Number of attempts** field, specify the number of invocation retries before the trigger moves a message to the Dead Letter Queue. Values can be from 1 to 5. The default is 1.
+      {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (optional) **Under Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
 
    1. Click **Create trigger**.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To create a trigger that launches a container, run the command below:
+
+   ```
+   yc serverless trigger create mail \
+     --name <trigger_name> \
+     --invoke-container-id <container_ID> \
+     --invoke-container-service-account-id <service_account_ID> \
+     --retry-attempts 1 \
+     --retry-interval 10s \
+     --dlq-queue-id <Dead_Letter_Queue_ID> \
+     --dlq-service-account-id <service_account_ID>
+   ```
+
+   Where:
+
+   * `--name`: Trigger name.
+   * `--invoke-container-id`: Container ID.
+   * `--invoke-container-service-account-id`: Service account with rights to invoke container.
+   * `--retry-attempts`: Time to retry invoking container if current attempt fails. Optional. Values can be from 10 to 60 seconds. The default is 10 seconds.
+   * `--retry-interval`: The number of invocation retries before the trigger moves a message to the Dead Letter Queue. Optional. Values can be from 1 to 5. The default is 1.
+   * `--dlq-queue-id`: Dead Letter Queue ID. Optional.
+   * `--dlq-service-account-id`: Service account with rights to write messages to the Dead Letter Queue. Optional.
+
+   Result:
+
+   ```
+   id: a1sfe084v4**********
+   folder_id: b1g88tflru**********
+   created_at: "2022-12-04T08:45:31.131391Z"
+   name: mail-trigger
+   rule:
+     mail:
+       invoke_container:
+         container_id: d4eofc7n0m**********
+         service_account_id: aje3932acd**********
+         retry_settings:
+           retry_attempts: "1"
+           interval: 10s
+         dead_letter_queue:
+           queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:dlq
+           service-account-id: aje3932acd**********
+   status: ACTIVE
+   ```
 
 {% endlist %}
 
@@ -51,3 +97,7 @@ For more information about creating an email trigger to call a function, see the
 ## Checking the result {#check-result}
 
 {% include [check-result](../../_includes/serverless-containers/check-result.md) %}
+
+## See also
+
+* [Email trigger that calls a {{ sf-name }} function](../../functions/operations/trigger/mail-trigger-create.md).
