@@ -15,7 +15,7 @@ items:
             href: stt/request.md
           - name: Asynchronous recognition
             href: stt/transcribation.md
-      - name: Recognition models
+      - name: Supported languages
         href: stt/models.md
       - name: Extending a speech recognition model
         href: stt/additional-training.md
@@ -35,7 +35,7 @@ items:
             href: tts/supported-phonemes.md
       - name: '{{ brand-voice-name }}'
         items:
-          - name: About "{{ brand-voice-name }}" technology
+          - name: About {{ brand-voice-name }} technology
             href: tts/brand-voice/index.md
           - name: Input data format for Brand Voice Adaptive
             href: tts/brand-voice/income-data-format.md
@@ -71,6 +71,8 @@ items:
         items:
           - name: Streaming recognition, API v3
             href: stt/api/streaming-examples-v3.md
+          - name: Automatic language detection, API v3
+            href: stt/api/stt-language-labels-example.md
           - name: Streaming recognition, API v2
             href: stt/api/streaming-examples.md
           - name: Synchronous recognition, API v2
@@ -119,8 +121,6 @@ items:
         href: release-notes-tts.md
       - name: Release archive
         href: release-notes.md
-  - name: Public materials
-    href: public-talks.md
   - name: Questions and answers
     items:
       - name: General questions

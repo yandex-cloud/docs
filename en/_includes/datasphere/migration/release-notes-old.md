@@ -1,9 +1,3 @@
-{% note tip %}
-
-To keep up to date with the latest changes and updates, subscribe to our [{{ ml-platform-full-name }} Community](https://t.me/yandex_datasphere) Telegram news channel.
-
-{% endnote %}
-
 ## Release 11.01.2022 {#110122}
 
 1. Added new computing resource configurations:

@@ -19,7 +19,7 @@ To create a virtual hosting:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-begin}
+## Prepare your cloud {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 

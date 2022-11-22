@@ -25,6 +25,8 @@ editable: false
 
 * объем исходящего трафика из {{ yandex-cloud }} в интернет.
 
+Входящий трафик и количество запросов к гибридному хранилищу не тарифицируются.
+
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 ### Использование хостов БД {#rules-hosts-uptime}

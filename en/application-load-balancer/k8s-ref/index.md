@@ -1,7 +1,20 @@
-# Reference for {{ alb-name }} Ingress controller for {{ managed-k8s-name }}
+# {{ alb-name }} tool reference for {{ managed-k8s-name }}
 
-A [{{ alb-name }} Ingress controller](../tools/k8s-ingress-controller/index.md) helps deploy L7 load balancers in {{ managed-k8s-full-name }} clusters. The following primary {{ k8s }} resources are used to configure the infrastructure being deployed:
+{{ alb-name }} provides tools for deploying L7 load balancers in {{ managed-k8s-full-name }} clusters: [Ingress controller](../tools/k8s-ingress-controller/index.md) and [Gateway API](../tools/k8s-gateway-api/index.md). The reference describes {{ k8s }} resource configurations used by the Ingress controller and Gateway API to deploy an infrastructure.
+
+
+## Ingress controller resources {#ingress}
 
 * [Ingress](ingress.md): Backend traffic distribution rules.
 * [HttpBackendGroup](http-backend-group.md): Combining backends into groups.
+
+
+## Gateway API resources {#gateway-api}
+
+* [Gateway](gateway.md)
+* [HTTPRoute](http-route.md)
+
+
+## Common resources {#common}
+
 * [Service](service.md): Description of {{ k8s }} services used as backends.

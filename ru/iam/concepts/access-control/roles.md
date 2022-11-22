@@ -40,6 +40,16 @@ _Роль_ — это набор разрешений, который опред
 
 
 
+## {{ backup-full-name }} {#backup-roles}
+
+{% include [roles-backup-viewer](../../../_includes/roles-backup-viewer.md) %}
+
+{% include [roles-backup-editor](../../../_includes/roles-backup-editor.md) %}
+
+{% include [roles-backup-admin](../../../_includes/roles-backup-admin.md) %}
+
+
+
 ## {{ cdn-full-name }} {#cdn-roles}
 
 {% include [roles-cdn-viewer](../../../_includes/roles-cdn-viewer.md) %}

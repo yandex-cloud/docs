@@ -1,6 +1,6 @@
-You can upload small amounts of data (up to 100 MB) to your {{ ml-platform-name }} project over the {{ jlab }}Lab interface. If you want to upload larger amounts of data, use your network storages or databases. For larger data volumes, it's also convenient to use [datasets](../../datasphere/concepts/dataset.md).
+You can upload small amounts of data (up to 100 MB) to your {{ ml-platform-name }} project through the {{ jlab }}Lab interface. If you want to upload larger amounts of data, use your network storages or databases. For larger data volumes, it's also convenient to use [datasets](../../datasphere/concepts/dataset.md).
 
-To upload data to your project over the {{ jlab }}Lab interface:
+To upload data to your project through the {{ jlab }}Lab interface:
 
 1. Under the ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section, select the directory to upload a data to.
 1. Click ![upload](../../_assets/datasphere/jupyterlab/upload.svg) at the top left.

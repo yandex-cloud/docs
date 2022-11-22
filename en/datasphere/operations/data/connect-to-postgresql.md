@@ -2,7 +2,7 @@
 
 In the {{ yandex-cloud }} infrastructure, [{{ PG }}](https://www.postgresql.org/) server clusters are deployed and supported using {{ mpg-short-name }}.
 
-## Before you start {#before-begin}
+## Before you begin {#before-begin}
 
 1. [Create](../../../managed-postgresql/operations/cluster-create.md) a new {{ mpg-short-name }} cluster and enable public access to it from the host. You can also use an existing cluster with publicly available hosts.
 1. [Configure](../../../managed-postgresql/operations/connect.md#configuring-security-groups) cluster security groups.

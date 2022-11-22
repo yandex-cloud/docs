@@ -53,7 +53,7 @@ You have to create:
 
       * **Name**: `subnet-nat`.
       * **Zone**: `{{ region-id }}-b`.
-      * **CIDR** — `192.168.100.0/24`.
+      * **CIDR**: `192.168.100.0/24`.
 
       You don't need to enable **Egress NAT** for this subnet.
 

@@ -188,21 +188,20 @@ Where:
 ## IngressSpec {#spec}
 
 ```yaml
-spec:
-  tls:
-    - hosts:
-        - <string>
-        - ...
-      secretName: <string>
-    - ...
-  rules:
-    - host: <string>
-      http:
-        paths:
-          - path: <string>
-            pathType: <string>
-            backend: <IngressBackend>
-    - ...
+tls:
+  - hosts:
+      - <string>
+      - ...
+    secretName: <string>
+  - ...
+rules:
+  - host: <string>
+    http:
+      paths:
+        - path: <string>
+          pathType: <string>
+          backend: <IngressBackend>
+  - ...
 ```
 
 Where:
@@ -284,20 +283,15 @@ Where:
 ## IngressBackend {#backend}
 
 ```yaml
-spec:
-  rules:
-    - http:
-        paths:
-          - backend:
-              service:
-                name: <string>
-                port:
-                  name: <string>
-                  number: <int32>
-              resource:
-                kind: HttpBackendGroup
-                name: <string>
-                apiGroup: alb.yc.io
+service:
+  name: <string>
+  port:
+    name: <string>
+    number: <int32>
+resource:
+  kind: HttpBackendGroup
+  name: <string>
+  apiGroup: alb.yc.io
 ```
 
 Where:

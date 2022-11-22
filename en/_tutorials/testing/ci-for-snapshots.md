@@ -445,7 +445,7 @@ You need to define the configuration for CI.
    ```
 
 1. Click **Set up CI/CD**. You will see the screen for adding a new file.
-1. GitLab automatically gives the file the name `.gitlab-ci.yml`  — don't change it. Copy the following configuration to the file:
+1. GitLab automatically gives the file the name `.gitlab-ci.yml`: don't change it. Copy the following configuration to the file:
 
    ```
    #.gitlab-ci.yml

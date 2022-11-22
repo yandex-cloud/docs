@@ -23,7 +23,7 @@ To visualize and explore data, [set up your cloud](#before-you-begin), then foll
    1. [Connect to {{ datalens-short-name }}](#datalens-connection).
    1. [Create a connection to {{ CH }} in {{ datalens-short-name }}](#creation-datalens-connection-to-ch).
    1. [Create a dataset based on the connection](#creating-dataset-based-on-connection).
-   1. [Create a stacked area chart ](#creating-area-chart).
+   1. [Create a stacked area chart](#creating-area-chart).
    1. [Create a pivot table chart](#creating-pivot-table).
 1. [Create and configure a dashboard in {{ datalens-short-name }}](#creating-configuring-dashboard):
    1. [Create a dashboard](#creating-dashboard).

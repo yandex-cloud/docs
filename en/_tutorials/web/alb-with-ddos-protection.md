@@ -172,7 +172,7 @@ To create an instance group:
    1. Under **Basic parameters**:
 
       * **Name** the instance group: `ddos-group`.
-      * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account.  All operations in {{ ig-name }} are performed on behalf of the service account.
+      * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. All operations in {{ ig-name }} are performed on behalf of the service account.
 
    1. Under **Allocation**, select multiple availability zones to ensure fault tolerance of your hosting.
    1. Under **Instance template**, click **Define** and set up the configuration for a basic instance:

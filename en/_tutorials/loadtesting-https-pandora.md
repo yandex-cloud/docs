@@ -177,9 +177,9 @@ For a service whose subnet and security group differ from the agent's ones, [cre
              - quantile(75,100ms,10s)       # complete test if 75% of requests take over 100 milliseconds to process in 10-second interval
              - instances(90%,60s)           # complete test if 90% of testing threads are busy in 60-second interval
          core: {}
-         cloudloader:
+         uploader:
            enabled: true
-           package: yandextank.plugins.CloudUploader
+           package: yandextank.plugins.DataUploader
            job_name: '[example][pandora][step]'
            job_dsc: 'example'
            ver: '0.5.5'

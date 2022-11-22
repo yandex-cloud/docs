@@ -14,17 +14,17 @@
 
    Get a list of triggers:
 
-   ```
+   ```bash
    yc serverless trigger list
    ```
 
    Result:
 
-   ```
+   ```text
    +----------------------+------------+----------------------+
    |          ID          |    NAME    |      FOLDER ID       |
    +----------------------+------------+----------------------+
-   | dd0gj5tsj2pq9at8ja8i | my-trigger | aoek49ghmknnpj1ll45e |
+   | dd0gj5tsj2********** | my-trigger | aoek49ghmk********** |
    +----------------------+------------+----------------------+
    ```
 

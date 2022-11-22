@@ -30,6 +30,10 @@ The table lists the properties of the supported voices that use deep neural netw
 | `ru-RU` | Russian | `zahar` | M | (default) neutral — `neutral` </br> happy — `good` | v1, v3 |
 | `uz-UZ` | Uzbek | `nigora` | F | — | v1, v3 |
 
-The `oksana` and `alena` voices were created from the recordings of a single voice artist. The voice `oksana` is no longer on the supported voice list, the voice `alena` in `good` mode is used instead. The voice `oksana` is available for legacy projects.
+The `oksana` and `alena` voices were created from the recordings of a single voice artist. The voice `oksana` is no longer on the supported voice list. The voice `alena` in `good` mode is used instead. The voice `oksana` is available for legacy projects.
 
-If existing voices are not suitable for your project, {{ speechkit-name }} can create a voice specifically for you. For more information about creating unique voices, see [{#T}](brand-voice/index.md).
+{% note tip %}
+
+If existing voices are not suitable for your project, {{ speechkit-name }} can create a voice specifically for you. For more information about creating unique voices, see [{{ brand-voice-full-name }}](brand-voice/index.md).
+
+{% endnote %}

@@ -3,7 +3,6 @@
 #### What is the purpose of additional grants? {#additional-grants}
 
 The program is aimed at helping partners activate their business of providing services to customers in {{ yandex-cloud }}. Therefore, we track our partners' objectives using grants. Within the first six months of obtaining partner status, you can receive two types of temporary grants under the program:
-
 * A grant for testing replicated solutions.
 * A grant for your customer's pilot.
 
@@ -20,7 +19,6 @@ You can't transfer the grant amount to your customers' sub-accounts. You can onl
 #### How do I get a grant for testing replicated solutions? {#get-test-grant}
 
 Send a request to the support service with the following information:
-
 * A description of the solution you want to implement.
 * Deadlines for its implementation and testing with a reasonable explanation.
 * The way you plan to replicate the solution to your customers.
@@ -43,7 +41,6 @@ A sub-account is an additional account for a customer's billing account. It's cr
 #### How do I get a grant for a pilot to my customer's sub-account? {#get-pilot-grant}
 
 Send a request to the support service with the following information:
-
 * The customer's billing account.
 * A brief description of the solution and what the pilot is designed for.
 * Deadlines for the pilot.
@@ -52,4 +49,3 @@ Send a request to the support service with the following information:
 * The customer's sub-account linked to your account.
 
 The support service will review your request and notify you of its decision about giving the grant and its terms and conditions (amount, validity period, and crediting period).
-

@@ -36,7 +36,7 @@ To create a secret:
       yc lockbox secret create --help
       ```
 
-   1. Run the command, specifying the folder name and cloud ID in the parameters. You can pass one or more `key` keys. If a secret will contain several values, enter them in a comma-separated list. The example shows two keys:
+   1. Run the command, specifying the folder name and [cloud ID](../../resource-manager/operations/cloud/get-id.md) in the parameters. You can pass one or more `key` keys. If a secret will contain several values, enter them in a comma-separated list. The example shows two keys:
       ```bash
       yc lockbox secret create --name <secret name> \
         --description <secret description> \

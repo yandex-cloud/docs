@@ -1,0 +1,43 @@
+title: Yandex Cloud Backup
+stage: preview
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Подключение ВМ
+        href: operations/create-vm.md
+      - name: Политики резервного копирования
+        items:
+          - name: Создать политику
+            href: operations/policy-vm/create.md
+          - name: Изменить политику
+            href: operations/policy-vm/update.md
+          - name: Удалить политику
+            href: operations/policy-vm/delete.md
+      - name: Резервные копии
+        items:
+          - name: Восстановить ВМ из копии
+            href: operations/backup-vm/recover.md
+          - name: Удалить копию
+            href: operations/backup-vm/delete.md
+  - name: Концепции
+    items:
+      - name: Обзор сервиса
+        href: concepts/index.md
+      - name: Подключение ВМ к сервису
+        href: concepts/vm-connection.md
+      - name: Политики резервного копирования
+        href: concepts/policy.md
+      - name: Резервные копии
+        href: concepts/backup.md
+      - name: Квоты
+        href: concepts/limits.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+base: ru/backup

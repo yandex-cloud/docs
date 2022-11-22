@@ -8,6 +8,8 @@
 
    {% include [name-format](../name-format.md) %}
 
+   {% include [sa-uniq-name](sa-uniq-name.md) %}
+
 1. To assign the service account a [role](../../iam/concepts/access-control/roles.md) for the current folder, click **Add role** and select a role such as `editor`.
 
    To assign a role for another resource, use the CLI or API by following the instructions [{#T}](../../iam/operations/sa/assign-role-for-sa.md).

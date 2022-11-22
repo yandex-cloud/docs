@@ -5,6 +5,8 @@ items:
     href: ssh-keygen.md
   - name: Виртуализация
     href: virtualization.md
+  - name: Графический процессор (GPU)
+    href: gpu.md
   - name: Виртуальная частная сеть (VPN)
     href: vpn.md
   - name: Аналитика данных
@@ -13,4 +15,8 @@ items:
     href: end-to-end-analytics.md
   - name: Бизнес-аналитика
     href: business-analytics.md
+  - name: API
+    href: rest-api.md
+  - name: MQTT-брокер
+    href: mqtt-broker.md
 base: ru/glossary

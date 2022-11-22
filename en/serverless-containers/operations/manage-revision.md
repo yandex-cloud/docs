@@ -52,7 +52,7 @@ When you add environment variables, a new container revision is created. You can
    ```
    yc serverless container revision deploy \
      --container-name <container_name> \
-     --image <URL_Docker-image> \
+     --image <Docker_image_URL> \
      --cores 1 \
      --memory 1GB \
      --service-account-id <service_account_ID> \
@@ -91,7 +91,7 @@ When you add environment variables, a new container revision is created. You can
       ...
       ```
 
-     Where `--environment` is environment variables in `key="value"` format. You can specify more than one pair.
+      `--environment`: Environment variables in `key="value"` format. You can specify more than one pair.
 
       For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
 

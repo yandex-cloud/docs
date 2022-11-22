@@ -1,6 +1,6 @@
 ---
-title: "How to work with Yandex Application Load Balancer. Step-by-step instructions"
-description: "Step-by-step instructions for working with Yandex Application Load Balancer in Yandex Cloud. From the article you will learn how to create and manage an L7 balancer, how to work with HTTP routers and target groups."
+title: "Working with {{ alb-full-name }} Step-by-step instructions"
+description: "Step-by-step instructions for using {{ alb-full-name }} in Yandex Cloud. In this article, you'll learn how to create L7 load balancers and manage them, and how to use HTTP routers and target groups."
 ---
 
 # Step-by-step instructions for {{ alb-name }}
@@ -30,7 +30,8 @@ description: "Step-by-step instructions for working with Yandex Application Load
 * [{#T}](application-load-balancer-stop-and-start.md)
 * [{#T}](application-load-balancer-delete.md)
 
-## Ingress controller for {{ managed-k8s-name }} {#k8s-ingress-controller}
+## Tools for {{ managed-k8s-name }} {#k8s-ingress-controller}
 
 * [{#T}](k8s-ingress-controller-install.md)
+* [{#T}](k8s-gateway-api-install.md)
 * [{#T}](k8s-ingress-controller-apply.md)
