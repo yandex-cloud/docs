@@ -1,4 +1,4 @@
-# Preparing the environment
+# Preparing the environment for {{ yds-name }}
 
 1. Log in to [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
 1. [On the billing page]({{ link-console-billing }}) make sure that you have enabled a [billing account](../../billing/concepts/billing-account.md) and that it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).

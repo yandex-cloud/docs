@@ -1,4 +1,4 @@
-# Quotas and limits
+# Quotas and limits in {{ yds-name }}
 
 {{ yds-full-name }} has the following limits:
 

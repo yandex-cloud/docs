@@ -1,4 +1,4 @@
-# Reading data from a stream
+# Reading data from a stream in AWS CLI
 
 {% list tabs %}
 
