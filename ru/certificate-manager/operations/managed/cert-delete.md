@@ -1,4 +1,4 @@
-# Удалить сертификат от Let's Encrypt<sup>®</sup>
+# Удалить сертификат от Let's Encrypt
 
 Чтобы удалить [сертификат от Let's Encrypt](../../concepts/managed-certificate.md):
 

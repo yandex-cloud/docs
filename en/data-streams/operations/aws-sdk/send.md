@@ -1,4 +1,4 @@
-# Sending data to a stream
+# Sending data to a stream in AWS SDK
 
 {% include [trigger](../../../_includes/data-streams/trigger.md) %}
 

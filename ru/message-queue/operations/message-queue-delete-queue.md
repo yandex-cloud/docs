@@ -18,10 +18,15 @@
   
   ```
   aws sqs delete-queue \
-    --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
-    --endpoint https://message-queue.{{ api-host }}/      
+    --queue-url <URL_очереди_сообщений> \
+    --endpoint <эндпоинт>/
   ```
   
+  Где:
+
+  * `queue-url` — URL очереди сообщений, например: `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue`.
+  * `endpoint` — эндпоинт, например: `https://message-queue.{{ api-host }}/`.
+
 - {{ TF }}
 
   Если вы создавали очередь сообщений с помощью {{ TF }}, вы можете удалить ее:

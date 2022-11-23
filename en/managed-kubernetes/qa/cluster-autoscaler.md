@@ -1,4 +1,4 @@
-# Cluster autoscaler
+# Questions and answers about node group autoscaling in {{ managed-k8s-name }}
 
 #### Why are there N nodes in my cluster now, but it's not getting downsized? {#not-scaling-down}
 

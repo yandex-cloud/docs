@@ -1,4 +1,4 @@
-# Deleting a stream
+# Deleting a stream in AWS SDK
 
 {% list tabs %}
 

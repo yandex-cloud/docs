@@ -1,4 +1,4 @@
-# Terms and definitions
+# Terms and definitions in {{ yds-name }}
 
 ## Data stream {#stream-concepts}
 

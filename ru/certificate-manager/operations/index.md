@@ -6,10 +6,9 @@ description: "Из статьи вы узнаете как работать с {
 # Пошаговые инструкции для {{ certificate-manager-name }}
 
 
+## Сертификат от Let's Encrypt {#managed-certificate}
 
-## Сертификат от Let's Encrypt<sup>®</sup> {#managed-certificate}
-
-- [Создать сертификат от Let's Encrypt](managed/cert-create.md)
+- [{#T}](managed/cert-create.md)
 - [{#T}](managed/cert-get-content.md)
 - [{#T}](managed/cert-validate.md)
 - [{#T}](managed/cert-update.md)

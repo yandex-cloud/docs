@@ -1,4 +1,4 @@
-# All instructions
+# Step-by-step instructions for {{ mgl-name }}
 
 ## Managing a {{ GL }} instance {#gl-instance}
 

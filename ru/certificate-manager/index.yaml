@@ -2,9 +2,9 @@ title: Yandex Certificate Manager
 description:
   - >-
     Yandex Certificate Manager — сервис для получения и обновления
-    TLS-сертификатов от Let's Encrypt<sup>®</sup>, а также для загрузки
-    собственных сертификатов, которые можно использовать для доступа к
-    статическим сайтам по протоколу HTTPS.
+    TLS-сертификатов от Let's Encrypt, а также для загрузки собственных
+    сертификатов, которые можно использовать для доступа к статическим сайтам по
+    протоколу HTTPS.
 meta:
   title: Yandex Certificate Manager
 links:

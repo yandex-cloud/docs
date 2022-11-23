@@ -7,7 +7,7 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Сертификат от Let's Encrypt®
+      - name: Сертификат от Let's Encrypt
         items:
           - name: Создание сертификата
             href: operations/managed/cert-create.md
@@ -55,7 +55,7 @@ items:
     items:
       - name: Обзор
         href: concepts/index.md
-      - name: Сертификат от Let's Encrypt®
+      - name: Сертификат от Let's Encrypt
         href: concepts/managed-certificate.md
       - name: Пользовательский сертификат
         href: concepts/imported-certificate.md

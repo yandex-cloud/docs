@@ -1,4 +1,4 @@
-# Creating a stream
+# Creating a stream in AWS SDK
 
 {% list tabs %}
 

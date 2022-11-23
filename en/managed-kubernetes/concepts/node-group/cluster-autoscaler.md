@@ -1,4 +1,4 @@
-# {{ k8s }} cluster autoscaler
+# Node group autoscaling in {{ managed-k8s-name }}
 
 Automatic [node group](../index.md#node-group) scaling is the modification of a node group's size based on requests for resources from [pods](../index.md#pod) running on nodes in this group.
 
