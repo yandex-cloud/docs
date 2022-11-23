@@ -123,4 +123,6 @@ items:
   - name: Terms of Use (published 20.05.2022)
     hidden: true
     href: archive/terms-20220520.md
+  - name: Contributor License Agreement
+    href: cla.md
 

@@ -37,3 +37,6 @@ links:
   - title: Terms of Use
     href: terms
     when: product == "cloud-il"
+  - title: Contributor License Agreement
+    href: cla
+    when: product == "cloud-il"
