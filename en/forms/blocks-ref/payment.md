@@ -1,4 +1,4 @@
-# Payment
+# Block "Payment"
 
 Using this block, a user can transfer money to a wallet in the YooMoney payment system (previously, Yandex&#160;Money). For example, as payment for attending an event.
 

@@ -1,4 +1,4 @@
-# Delete a queue
+# Delete a queue using API
 
 Use this request to delete queues.
 

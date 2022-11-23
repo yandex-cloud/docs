@@ -1,4 +1,4 @@
-# Payments
+# Payments in {{ tracker-name }}
 
 ## Do I have to pay for {{ tracker-name }}? {#have-to-pay}
 

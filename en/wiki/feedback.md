@@ -1,4 +1,4 @@
-# Support
+# {{ wiki-name }} support
 
 {% if audience == "external" %}
 

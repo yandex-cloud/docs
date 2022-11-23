@@ -1,4 +1,4 @@
-# Structuring issues
+# Structuring issues in {{ tracker-name }}
 
 Any project or process is easier to manage when your workflow is structured. The primary tools to structure your workflow are decomposition and issue grouping.
 

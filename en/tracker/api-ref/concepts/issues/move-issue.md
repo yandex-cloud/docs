@@ -1,4 +1,4 @@
-# Moving an issue to another queue
+# Moving an issue to another queue using API
 
 Use this request to move an issue to a different queue.
 

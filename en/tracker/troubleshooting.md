@@ -1,4 +1,4 @@
-# Support
+# {{ tracker-name }} support
 
 {% if audience == "external" %}
 

@@ -1,4 +1,4 @@
-# Attach a file
+# Attach a file to an issue using API
 
 Use this request to attach a file to an issue.
 

@@ -1,10 +1,10 @@
-# General questions
+# General questions about {{ tracker-name }}
 
 {% if audience == "external" %}
 
 ## How to migrate from {{ ya-360 }} to {{ org-full-name }}
 
-Starting from {{release-date }} 2021, once you activate {{ tracker-full-name }}, an organization is automatically created in {{ org-full-name }}. Your organization's admin can connect [identity federation]({{ link-org-add-federation }}) to it so that your employees can log in to {{ tracker-name }} using their corporate accounts. You're charged for using {{ tracker-name }} through [{{ yandex-cloud }} billing](../billing/).
+Starting from {{ release-date }} 2021, once you activate {{ tracker-full-name }}, an organization is automatically created in {{ org-full-name }}. Your organization's admin can connect [identity federation]({{ link-org-add-federation }}) to it so that your employees can log in to {{ tracker-name }} using their corporate accounts. You're charged for using {{ tracker-name }} through [{{ yandex-cloud }} billing](../billing/).
 
 If you activated {{ tracker-name }} before {{release-date }}, the service is linked to your company in {{ ya-360 }}. We'll gradually move all companies from {{ ya-360 }} to {{ org-full-name }}. No action is required from the organization's admin. We'll notify an organization's admin in advance before carrying out migration to {{ org-full-name }}.
 

@@ -1,4 +1,4 @@
-# Creating a trigger
+# Creating a trigger using API
 
 Use this request to create [triggers](../../user/trigger.md).
 

@@ -1,4 +1,4 @@
-# Examples
+# Examples of how triggers work in {{ tracker-name }}
 
 Let's look at some examples of how triggers work in {{ tracker-name }}:
 

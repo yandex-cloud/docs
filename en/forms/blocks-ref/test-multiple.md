@@ -1,4 +1,4 @@
-# Multiple answers
+# Block "Multiple answers"
 
 In this block, the user can select multiple responses from the options suggested. One or more responses may be correct. The user gets points for this prompt only if they select all the correct responses and no incorrect ones.
 
