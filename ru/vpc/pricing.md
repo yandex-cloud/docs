@@ -8,7 +8,7 @@ editable: false
 
 {% note info %}
 
-Цены, указанные ниже, начнут действовать, когда сервис {{ vpc-name }} [станет общедоступным](../overview/concepts/launch-stages.md) (дата будет объявлена позже). До этого использование сервиса не тарифицируется.
+Цены, указанные ниже, начнут действовать 6 декабря 2022 года. До этого использование сервиса {{ vpc-name }} не тарифицируется
 
 {% endnote %}
 
@@ -28,7 +28,7 @@ editable: false
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-## Цены {{ vpc-short-name }} {% if product == "cloud-il" %}(когда сервис станет общедоступным){% endif %} {#prices}
+## Цены {{ vpc-short-name }} {% if product == "cloud-il" %}c 6 декабря 2022 года{% endif %} {#prices}
 
 ### Публичные IP-адреса {#prices-public-ip}
 
@@ -140,7 +140,7 @@ editable: false
 
 {% if product == "yandex-cloud" %}
 
-## Цены {{ ddos-protection-full-name }} {% if product == "cloud-il" %}(когда сервис станет общедоступным){% endif %} {#prices-ddos-protection}
+## Цены {{ ddos-protection-full-name }} {% if product == "cloud-il" %}c 6 декабря 2022 года{% endif %} {#prices-ddos-protection}
 
 {% if region != "int" %}
 
@@ -190,7 +190,7 @@ editable: false
 
 {% if region == "ru" %}
 
-## Цены {{ adv-ddos-protection }} {% if product == "cloud-il" %}(когда сервис станет общедоступным){% endif %} {#prices-ddos-advanced}
+## Цены {{ adv-ddos-protection }} {% if product == "cloud-il" %}c 6 декабря 2022 года{% endif %} {#prices-ddos-advanced}
 
 Услуга {{ adv-ddos-protection }} подключается по запросу через [форму](https://forms.yandex.ru/surveys/13203262.d03e905cf02195bec1093aa2b032802fe13caac0/).
 
@@ -220,13 +220,17 @@ editable: false
 
 {% include [rub-advanced-ddos-services.md](../_pricing/vpc/rub-advanced-ddos-services.md) %}
 
-## Цены Managed Web Application Firewall {% if product == "cloud-il" %}(когда сервис станет общедоступным){% endif %} {#prices-waf}
+## Цены Managed Web Application Firewall {% if product == "cloud-il" %}c 6 декабря 2022 года{% endif %} {#prices-waf}
+
+{% if product == "yandex-cloud" %}
 
 {% note warning "Важно" %}
 
 С 01.12.2022 изменится цена трафика, использованного сверх включенного в АП.
 
 {% endnote %}
+
+{% endif %}
 
 Все цены указаны с учетом НДС.
 

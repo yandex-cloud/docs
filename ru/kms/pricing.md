@@ -8,7 +8,7 @@ editable: false
 
 {% note info %}
 
-Цены, указанные ниже, начнут действовать, когда сервис {{ kms-name }} [станет общедоступным](../overview/concepts/launch-stages.md) (дата будет объявлена позже). До этого использование сервиса не тарифицируется.
+Цены, указанные ниже, начнут действовать 6 декабря 2022 года. До этого использование сервиса {{ kms-name }} не тарифицируется
 
 {% endnote %}
 
@@ -25,7 +25,7 @@ editable: false
 
 * Числа выполненных криптографических операций ([encrypt](api-ref/SymmetricCrypto/encrypt), [decrypt](api-ref/SymmetricCrypto/decrypt), [reEncrypt](api-ref/SymmetricCrypto/reEncrypt), [generateDataKey](api-ref/SymmetricCrypto/generateDataKey)).
 
-## Цены {% if product == "cloud-il" %}(когда сервис станет общедоступным){% endif %} {#prices}
+## Цены {% if product == "cloud-il" %}с 6 декабря 2022 года{% endif %} {#prices}
 
 {% if product == "yandex-cloud" %}
 

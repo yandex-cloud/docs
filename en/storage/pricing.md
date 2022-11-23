@@ -8,7 +8,7 @@ editable: false
 
 {% note info %}
 
-The prices listed below will take effect when {{ objstorage-name }} [becomes public](../overview/concepts/launch-stages.md) (the date will be announced later). Until then, the service can be used free of charge.
+The prices listed below will take effect on December 6, 2022. Until then, {{ objstorage-name }} can be used free of charge.
 
 {% endnote %}
 
@@ -51,7 +51,7 @@ Data operations are charged according to the following policy:
 * The minimum billable unit for GET and HEAD operations is 100.
 * You aren't charged for deleting data (the DELETE operation).
 
-## Pricing {% if product == "cloud-il" %}(after the service becomes public){% endif %} {#prices}
+## Pricing {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#prices}
 
 ### Data storage {#prices-storage}
 

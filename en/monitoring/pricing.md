@@ -8,7 +8,7 @@ editable: false
 
 {% note info %}
 
-The prices listed below will take effect when {{ monitoring-short-name }} [becomes public](../overview/concepts/launch-stages.md) (the date will be announced later). Until then, the service can be used free of charge.
+The prices listed below will take effect on December 6, 2022. Until then, {{ monitoring-short-name }} can be used free of charge.
 
 {% endnote %}
 
@@ -114,7 +114,7 @@ Where:
 * (60 × 24 × 30) is the number of minutes in 30 days.
 * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽7.00{% endif %}{% if region == "kz" %}₸35.00{% endif %}{% if region == "int" %}$0.0560{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.3554{% endif %} is the cost of reading 1 million values (up to 50 million values).
 
-## Pricing {% if product == "cloud-il" %}(after the service becomes public){% endif %} {#prices}
+## Pricing {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#prices}
 
 {% if product == "yandex-cloud" %}
 

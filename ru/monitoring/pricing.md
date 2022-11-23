@@ -8,7 +8,7 @@ editable: false
 
 {% note info %}
 
-Цены, указанные ниже, начнут действовать, когда сервис {{ monitoring-short-name }} [станет общедоступным](../overview/concepts/launch-stages.md) (дата будет объявлена позже). До этого использование сервиса не тарифицируется.
+Цены, указанные ниже, начнут действовать 6 декабря 2022 года. До этого использование сервиса {{ monitoring-short-name }} не тарифицируется
 
 {% endnote %}
 
@@ -114,7 +114,7 @@ editable: false
 * (60 × 24 × 30) — количество минут в 30 днях.
 * {% if product == "yandex-cloud" %}{% if region == "ru" %}7,00 ₽{% endif %}{% if region == "kz" %}35,00 ₸{% endif %}{% if region == "int" %}0,0560 ${% endif %}{% endif %}{% if product == "cloud-il" %}0,3554 ₪{% endif %} — стоимость чтения 1 млн значений (до 50 млн значений).
 
-## Цены {% if product == "cloud-il" %}(когда сервис станет общедоступным){% endif %} {#prices}
+## Цены {% if product == "cloud-il" %}c 6 декабря 2022 года{% endif %} {#prices}
 
 {% if product == "yandex-cloud" %}
 

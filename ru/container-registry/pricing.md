@@ -8,7 +8,7 @@ editable: false
 
 {% note info %}
 
-Цены, указанные ниже, начнут действовать, когда сервис {{ container-registry-name }} [станет общедоступным](../overview/concepts/launch-stages.md) (дата будет объявлена позже). До этого использование сервиса не тарифицируется.
+Цены, указанные ниже, начнут действовать 6 декабря 2022 года. До этого использование сервиса {{ container-registry-name }} не тарифицируется
 
 {% endnote %}
 
@@ -38,7 +38,7 @@ editable: false
 
 {% endnote %}
 
-## Цены{% if product == "cloud-il" %} (когда сервис станет общедоступным){% endif %} {#prices}
+## Цены{% if product == "cloud-il" %} c 6 декабря 2022 года{% endif %} {#prices}
 
 ### Хранение данных {#prices-storage}
 
