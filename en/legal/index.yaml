@@ -37,6 +37,12 @@ links:
   - title: Terms of Use
     href: terms
     when: product == "cloud-il"
+  - title: "Code of Business Ethics & Conduct"
+    href: business-code
+    when: product == "cloud-il"
+  - title: Supplier Code of Conduct
+    href: supplier-code
+    when: product == "cloud-il"
   - title: Contributor License Agreement
     href: cla
     when: product == "cloud-il"

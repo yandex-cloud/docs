@@ -123,6 +123,10 @@ items:
   - name: Terms of Use (published 20.05.2022)
     hidden: true
     href: archive/terms-20220520.md
+  - name: "Code of Business Ethics & Conduct"
+    href: business-code.md
+  - name: Supplier Code of Conduct
+    href: supplier-code.md
   - name: Contributor License Agreement
     href: cla.md
 
