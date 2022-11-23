@@ -6,13 +6,13 @@ title:
 description:
   - text: >-
       Yandex Certificate Manager — сервис для получения и обновления
-      TLS-сертификатов от Let's Encrypt<sup>®</sup>, а также для загрузки
+      TLS-сертификатов от Let's Encrypt, а также для загрузки
       собственных сертификатов, которые можно использовать для доступа к
       статическим сайтам по протоколу HTTPS.
     when: product == "yandex-cloud"
   - text: >-
       Certificate Manager — сервис для получения и обновления
-      TLS-сертификатов от Let's Encrypt<sup>®</sup>, а также для загрузки
+      TLS-сертификатов от Let's Encrypt, а также для загрузки
       собственных сертификатов, которые можно использовать для доступа к
       статическим сайтам по протоколу HTTPS.
     when: product == "cloud-il"

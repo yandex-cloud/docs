@@ -8,7 +8,7 @@
 
 {% endnote %}
 
-Чтобы обновить сертификат от Let's Encrypt<sup>®</sup>:
+Чтобы обновить сертификат от Let's Encrypt:
 
 {% list tabs %}
 
