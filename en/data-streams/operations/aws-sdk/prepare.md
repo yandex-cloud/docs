@@ -1,4 +1,4 @@
-# Preparing the environment
+# Preparing the environment in AWS SDK
 
 Configure the environment for your programming language:
 

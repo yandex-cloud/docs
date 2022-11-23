@@ -1,6 +1,6 @@
 # Как начать работать c {{ certificate-manager-name }}
 
-В этой инструкции вы создадите свой первый [сертификат от Let's Encrypt<sup>®</sup>](../concepts/managed-certificate.md) и используете его для [настройки доступа по HTTPS](../../storage/operations/hosting/certificate.md) к статическому сайту, размещенному в {{ objstorage-full-name }}. 
+В этой инструкции вы создадите свой первый [сертификат от Let's Encrypt](../concepts/managed-certificate.md) и используете его для [настройки доступа по HTTPS](../../storage/operations/hosting/certificate.md) к статическому сайту, размещенному в {{ objstorage-full-name }}. 
 
 ## Подготовка к работе {#before-you-begin}
 
@@ -10,7 +10,7 @@
 
     {% include [create-folder](../../_includes/create-folder.md) %}
   
-1. Домен не ниже третьего уровня, для которого будет выпущен сертификат от Let's Encrypt<sup>®</sup>.
+1. Домен не ниже третьего уровня, для которого будет выпущен сертификат от Let's Encrypt.
 
     {% note info %}
 
@@ -140,6 +140,6 @@
 
 #### См. также {#see-also}
 
-- [Сертификат от Let's Encrypt<sup>®</sup>](../concepts/managed-certificate.md)
-- [Проверка прав на домен](../concepts/challenges.md)
+- [{#T}](../concepts/managed-certificate.md)
+- [{#T}](../concepts/challenges.md)
 - [Настройка HTTPS в бакете](../../storage/operations/hosting/certificate.md)

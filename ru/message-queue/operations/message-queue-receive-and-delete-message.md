@@ -10,9 +10,14 @@
   
   ```bash
   aws sqs receive-message \
-    --endpoint https://message-queue.{{ api-host }}/ \
-    --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue
+    --queue-url <URL_очереди_сообщений> \
+    --endpoint <эндпоинт>/
   ```
+  
+  Где:
+
+  * `queue-url` — URL очереди сообщений, например: `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue`.
+  * `endpoint` — эндпоинт, например: `https://message-queue.{{ api-host }}/`.
   
   Результат:
 
@@ -34,13 +39,19 @@
   }
   ```
   
-  Чтобы удалить сообщение, используйте значение параметра `receipt-handle` полученного сообщения. Выполните в терминале команду:
+  Чтобы удалить сообщение, используйте значение параметра `receipt-handle` — [идентификатор получения](../concepts/message.md) для сообщения. Выполните в терминале команду:
   
   ```bash
   aws sqs delete-message \
-    --endpoint https://message-queue.{{ api-host }}/ \
-    --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
-    --receipt-handle EAEggbjIg_8sKAM
+    --queue-url <URL_очереди_сообщений> \
+    --endpoint <эндпоинт>/ \
+    --receipt-handle <идентификатор_получения>
   ```
+ 
+  Где:
 
+  * `queue-url` — URL очереди сообщений, например: `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue`.
+  * `endpoint` — эндпоинт, например: `https://message-queue.{{ api-host }}/`.
+  * `receipt-handle` — идентификатор получения.
+  
 {% endlist %}

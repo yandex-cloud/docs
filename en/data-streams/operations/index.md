@@ -1,4 +1,4 @@
-# Step-by-step instructions
+# Step-by-step instructions for {{ yds-name }}
 
 * [Managing streams](manage-streams.md)
 

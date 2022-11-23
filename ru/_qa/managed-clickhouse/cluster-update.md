@@ -43,3 +43,7 @@ yc managed-clickhouse user update <имя пользователя> \
 #### Как увеличить лимит памяти (memory limit)? {#memory-limit}
 
 [Измените настройки пользователя](../../managed-clickhouse/operations/cluster-users.md#update-settings) и задайте нужное значение параметру `Max memory usage`.
+
+#### Как изменить тип диска? {#disk-type}
+
+Чтобы изменить тип диска, [восстановите кластер](../../managed-clickhouse/operations/cluster-backups.md#restore) из резервной копии и при задании настроек нового кластера укажите нужный тип диска.

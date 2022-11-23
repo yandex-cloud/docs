@@ -1,4 +1,4 @@
-# All tutorials
+# {{ managed-k8s-name }} practical guidelines 
 
 * [{#T}](container-registry.md)
 * [{#T}](running-pod-gpu.md)
@@ -28,3 +28,4 @@
 
 * [{#T}](marketplace/crossplane.md)
 * [{#T}](marketplace/jaeger-over-ydb.md)
+

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Quotas and limits
+# Quotas and limits in {{ mgl-name }}
 
 {{ mgl-name }} has the following limits:
 
