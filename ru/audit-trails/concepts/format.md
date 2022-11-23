@@ -75,6 +75,12 @@
 `error` | **object**<br>Статус ошибки. Объект типа [google.rpc.Status](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto):<ul><li>`code` — [код ошибки](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto);</li><li>`message` — описание ошибки;</li><li>`details` — [детали ошибки](https://github.com/googleapis/googleapis/blob/master/google/rpc/error_details.proto).</li></ul>
 `details` | **object**<br>Детали события. Определяются сервисом-источником и типом события.
 
+{% note info %}
+
+Если действие выполнил один из инфраструктурных сервисов {{ yandex-cloud }} или сотрудник поддержки, то в поле `remote address` будет значение {% if product == "yandex-cloud" %}`cloud.yandex`{% endif %}{% if product == "cloud-il" %}`cloud.il`{% endif %}, а в поле `user agent` — {% if product == "yandex-cloud" %}`Yandex Cloud`{% endif %}{% if product == "cloud-il" %}`Cloud IL`{% endif %}.
+
+{% endnote %}
+
 {% if product == "yandex-cloud" %}
 ## Представление аудитного лога {#log-name}
 
@@ -95,7 +101,7 @@
 * **Время** — значение поля `event_time` события.
 * **JSON** — JSON-объект события.
 * **Уровень** — вычисляется в зависимости от значения `event_status` события:
-  * `ERROR`  —  для значения `ERROR`;
+  * `ERROR` — для значения `ERROR`;
   * `WARN` — для значения `CANCELLED`;
   * `INFO` — в остальных случаях.
 * **Сообщение** — содержит значения полей `event_status`, `event_type`, `subject_name`, `cloud_name`, `resource_name`.
