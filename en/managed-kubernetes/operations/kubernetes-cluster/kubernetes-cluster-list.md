@@ -1,4 +1,4 @@
-# Getting information about existing clusters {{ k8s }}
+# Getting information about existing {{ managed-k8s-name }} clusters
 
 To find out the {{ k8s }} cluster `ID` or `NAME`, get a list of {{ k8s }} clusters from the folder or detailed information about the {{ k8s }} cluster.
 

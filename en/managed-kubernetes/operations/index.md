@@ -3,7 +3,7 @@ title: How to work with {{ managed-k8s-full-name }}. Instructions
 description: "In this article you will learn how to work with managed {{ k8s }} service in {{ yandex-cloud }}. We will tell about persistent volumes, manage a group of nodes, {{ k8s }} cluster."
 ---
 
-# All instructions
+# Step-by-step instructions for {{ managed-k8s-name }}
 
 * [{#T}](node-connect-ssh.md)
 * [{#T}](update-kubernetes.md)
