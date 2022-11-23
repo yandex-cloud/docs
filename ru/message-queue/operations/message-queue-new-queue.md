@@ -31,13 +31,18 @@
   
   ```bash
   aws sqs create-queue \
-    --queue-name sample-queue \
-    --endpoint https://message-queue.{{ api-host }}/
+    --queue-name <имя_очереди> \
+    --endpoint <эндпоинт>/
   ```
+    
+  Где:
+
+  * `sample-queue` — имя очереди.
+  * `endpoint` — эндпоинт, например: `https://message-queue.{{ api-host }}/`.
   
   Результат:
 
-  ```
+  ```json
   {
       "QueueUrl": "https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002n034r/sample-queue"
   }

@@ -18,10 +18,10 @@ description: "В этой инструкции вы научитесь выпо�
   
      Задайте конфигурацию AWS CLI с помощью команды `aws configure`, используя идентификатор и секретный ключ сервисного аккаунта:
   
-     ```
+     ```bash
      aws configure
-     AWS Access Key ID [****************kzJl]: <идентификатор ключа сервисного аккаунта>
-     AWS Secret Access Key [****************I3AO]: <идентификатор ключа сервисного аккаунта>
+     AWS Access Key ID [****************kzJl]: <идентификатор_ключа_сервисного_аккаунта>
+     AWS Secret Access Key [****************I3AO]: <идентификатор_ключа_сервисного_аккаунта>
      Default region name [eu-west-1]: {{ region-id }}
      Default output format [None]:
      ```
@@ -34,14 +34,24 @@ description: "В этой инструкции вы научитесь выпо�
 
    - AWS CLI
   
-     ```
+     ```bash
      aws sqs create-queue --queue-name sample-queue \
-                 --endpoint https://message-queue.{{ api-host }}/
+       --endpoint https://message-queue.{{ api-host }}/
+     ```
+
+     Где:
+
+     * `sample-queue` — имя очереди.
+     * `https://message-queue.{{ api-host }}/` — эндпоинт.
+
+     Результат:
+
+     ```json
      {
          "QueueUrl": "https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002n034r/sample-queue"
      }
      ```
-  
+
    - Консоль управления
   
      1. Откройте раздел **Message Queue**.
@@ -60,16 +70,28 @@ description: "В этой инструкции вы научитесь выпо�
 
    - AWS CLI
   
-     ```
+     ```bash
      aws sqs send-message \
        --message-body "Hello World" \
        --endpoint https://message-queue.{{ api-host }}/ \
        --queue-url https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002l034r/sample-queue
+     ```
+
+     Результат:
+     
+     ```json
      {
          "MD5OfMessageBody": "67e63db14341b5a696596634bbf19796",
          "MessageId": "765ff4d2-fa4bc83-6cfcc68e-21a49"
      }
      ```
+  
+     Где:
+
+     * `"Hello World"` — текст сообщения.
+     * `https://message-queue.{{ api-host }}/` — эндпоинт.
+     * `https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002l034r/sample-queue` — URL очереди сообщений.
+     * `sample-queue` — имя очереди.
   
    {% endlist %}
 
@@ -79,10 +101,15 @@ description: "В этой инструкции вы научитесь выпо�
 
    - AWS CLI
   
-     ```
+     ```bash
      aws sqs receive-message \
        --endpoint https://message-queue.{{ api-host }}/ \
        --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue
+     ```
+
+     Результат:
+
+     ```json
      {
          "Messages": [
              {
@@ -99,7 +126,13 @@ description: "В этой инструкции вы научитесь выпо�
          ]
      }
      ```
-  
+    
+     Где:
+
+     * `https://message-queue.{{ api-host }}/` — эндпоинт.
+     * `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue` — URL очереди сообщений.
+     * `sample-queue` — имя очереди.
+
    {% endlist %}
 
 1. Удалите сообщение из очереди.
@@ -112,12 +145,17 @@ description: "В этой инструкции вы научитесь выпо�
 
    - AWS CLI
   
-     ```
+     ```bash
      aws sqs delete-message \
        --endpoint https://message-queue.{{ api-host }}/ \
        --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
        --receipt-handle EAEggbjIg_8sKAM
      ```
+     Где:
+
+     * `https://message-queue.{{ api-host }}/` — эндпоинт.
+     * `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue` — URL очереди сообщений.
+     * `sample-queue` — имя очереди.
   
    {% endlist %}
 
@@ -127,12 +165,18 @@ description: "В этой инструкции вы научитесь выпо�
 
    - AWS CLI
   
-     ```
+     ```bash
      aws sqs delete-queue \
        --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
        --endpoint https://message-queue.{{ api-host }}/
      ```
   
+     Где:
+
+     * `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue` — URL очереди сообщений.
+     * `https://message-queue.{{ api-host }}/` — эндпоинт.
+
+
    - Консоль управления
   
      1. Откройте раздел **Message Queue**.
