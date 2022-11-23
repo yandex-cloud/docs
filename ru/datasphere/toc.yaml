@@ -22,6 +22,9 @@ items:
           - name: Привязать платежный аккаунт
             href: operations/community/link-ba.md
             when: product == "yandex-cloud"
+          - name: Посмотреть детализацию расходов
+            href: operations/community/billing-details.md
+            when: product == "yandex-cloud"
           - name: Удалить сообщество
             href: operations/community/delete.md
       - name: Управление проектом
@@ -109,7 +112,7 @@ items:
         when: product == "yandex-cloud"
       - name: Как перенести работу в новый интерфейс
         href: operations/migration.md
-        when: product == "yandex-cloud"        
+        when: product == "yandex-cloud"
   - name: Концепции
     items:
       - name: О сервисе DataSphere
@@ -153,7 +156,7 @@ items:
           - name: Секреты
             href: concepts/secrets.md
           - name: Docker-образы
-            href: concepts/docker.md            
+            href: concepts/docker.md
           - name: Контрольные точки
             href: concepts/checkpoints.md
           - name: Датасеты
