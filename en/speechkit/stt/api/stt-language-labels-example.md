@@ -1,12 +1,12 @@
 # Sample streaming speech recognition with auto language detection
 
-The example shows how you can recognize speech in LPCM format in real time using the {{ speechkit-short-name }} [API v3](../../new-v3/api-ref/grpc/) with auto language detection.
+The example shows how you can recognize speech in LPCM format in real time using the {{ speechkit-short-name }} [API v3](../../stt-v3/api-ref/grpc/) with auto language detection.
 
 The example uses the following parameters:
 
 * [Recognition language](../models#languages): `Auto` (automatic language detection).
 * Format of the audio stream: [LPCM](../../formats.md#LPCM) with a sampling rate of 8000 Hz.
-* [Number of audio channels](../../v3/api-ref/grpc/stt_service#RawAudio): 1 (default).
+* [Number of audio channels](../../stt-v3/api-ref/grpc/stt_service#RawAudio): 1 (default).
 * Other parameters were left with their default values.
 
 ## Automatic language detection {#language-labels}
@@ -17,7 +17,7 @@ The example uses the following parameters:
 
 1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the `{{ roles-speechkit-stt }}` role.
 1. [Get](../../../iam/operations/iam-token/create-for-sa#via-cli) an IAM token for the service account and save it.
-1. Download a [sample](https://{{ s3-storage-host }}/speechkit/speech.pcm) audio file for recognition or [generate](../../tts/api/tts-examples-v3) your own one.
+1. Download a [sample](https://{{ s3-storage-host }}/speechkit/speech.pcm) audio file for recognition or [generate](../../tts/api/tts-examples-v3.md) your own one.
 
 ## Create an application for streaming speech recognition {#recognition}
 
@@ -107,13 +107,13 @@ To implement an example from this section:
          def run(iam_token, audio_file_name):
              # Establish a connection with the server.
              cred = grpc.ssl_channel_credentials()
-             channel = grpc.secure_channel('stt.{{ api-host }}:443', cred)
+             channel = grpc.secure_channel('{{ api-host-sk-stt }}', cred)
              stub = stt_service_pb2_grpc.RecognizerStub(channel)
 
              # Send data for recognition.
              it = stub.RecognizeStreaming(gen(audio_file_name), metadata=(
                  ('authorization', f'Bearer {iam_token}'),
-                 ('x-node-alias', 'speechkit.stt.general')
+                 ('x-node-alias', '{{ speechkit-tts-alias }}')
              ))
 
              # Process the server responses and output the result to the console.
@@ -190,5 +190,5 @@ To implement an example from this section:
 
 #### See also {#see-also}
 
-* [API v3 reference](../../new-v3/api-ref/grpc/)
+* [API v3 reference](../../stt-v3/api-ref/grpc/)
 * [{#T}](../../concepts/auth.md)

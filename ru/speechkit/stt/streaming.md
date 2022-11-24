@@ -23,7 +23,7 @@
 | **Сценарии использования** | Телефонные ассистенты и роботы </br> Виртуальные ассистенты |
 | **Входные данные** | Голос в режиме реального времени |
 | **Принцип работы** | Обмен сообщениями с сервером в рамках одного соединения | 
-| **Поддерживаемые API** | {% if product == "yandex-cloud" %}[gRPC v2](api/streaming-api.md) </br>{% endif %} [gRPC v3](../v3/api-ref/grpc/) | 
+| **Поддерживаемые API** | {% if product == "yandex-cloud" %}[gRPC v2](api/streaming-api.md) </br>{% endif %} [gRPC v3](../stt-v3/api-ref/grpc/) | 
 | **Максимальная длительность аудиоданных** | {{ stt-streaming-audioLength }} |
 | **Максимальный объем переданных данных** | {{ stt-streaming-fileSize }} | 
 | **Количество распознаваемых каналов** | 1 | 
@@ -35,7 +35,7 @@
 ### Код интерфейса клиентского приложения {#create-client-app}
 
 {% if product == "yandex-cloud" %}
-{{ speechkit-name }} имеет две версии API потокового распознавания: [API v3](../v3/api-ref/grpc/) и [API v2](api/streaming-api.md). Для новых проектов мы рекомендуем использовать API v3.
+{{ speechkit-name }} имеет две версии API потокового распознавания: [API v3](../stt-v3/api-ref/grpc/) и [API v2](api/streaming-api.md). Для новых проектов мы рекомендуем использовать API v3.
 {% endif %}
 
 Чтобы приложение могло обращаться к сервису, склонируйте репозиторий [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi/) и сгенерируйте код интерфейса клиента для используемого языка программирования из файла спецификации {% if product == "yandex-cloud" %}[API v2](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) или {% endif %}[API v3](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v3/stt_service.proto).
@@ -53,12 +53,12 @@
 ### Запрос распознавания {#requests}
 
 Для распознавания речи приложение сначала должно отправить сообщение с настройками распознавания:
-* для API v3 — сообщение [RecognizeStreaming](../v3/api-ref/grpc/stt_service#RecognizeStreaming) с типом `session_options`.
+* для API v3 — сообщение [RecognizeStreaming](../stt-v3/api-ref/grpc/stt_service#RecognizeStreaming) с типом `session_options`.
 {% if product == "yandex-cloud" %}
 * для API v2 — сообщение `StreamingRecognitionRequest` с типом [RecognitionConfig](api/streaming-api#specification-msg).
 {% endif %}
 
-После настройки сессии сервер будет ожидать сообщений с аудиофрагментами (chunks) — отправляйте сообщение `RecognizeStreaming` с типом [session_options](../v3/api-ref/grpc/stt_service#RecognizeStreaming){% if product == "yandex-cloud" %} или сообщение `StreamingRecognitionRequest` с типом [audio_content](api/streaming-api#audio-msg) в API v2{% endif %}. При отправке сообщений учитывайте следующие рекомендации:
+После настройки сессии сервер будет ожидать сообщений с аудиофрагментами (chunks) — отправляйте сообщение `RecognizeStreaming` с типом [session_options](../stt-v3/api-ref/grpc/stt_service#RecognizeStreaming){% if product == "yandex-cloud" %} или сообщение `StreamingRecognitionRequest` с типом [audio_content](api/streaming-api#audio-msg) в API v2{% endif %}. При отправке сообщений учитывайте следующие рекомендации:
 
 * Не отправляйте аудиофрагменты слишком часто или редко. Время между отправкой сообщений в сервис должно примерно совпадать с длительностью отправляемых аудиофрагментов, но не должно превышать 5 секунд. Например, каждые 400 мс отправляйте на распознавание 400 мс аудио.
 * Максимальная длительность переданного аудио за всю сессию — {{ stt-streaming-audioLength }}.
@@ -70,7 +70,7 @@
 
 ### Результат распознавания {#results}
 
-В каждом сообщении с результатами распознавания ([StreamingResponse](../v3/api-ref/grpc/stt_service#StreamingResponse){% if product == "yandex-cloud" %} или [StreamingRecognitionResponse](api/streaming-api.md#response){% endif %}) сервер {{ speechkit-name }} возвращает один или несколько фрагментов речи, которые он успел распознать за этот промежуток (`chunks`). Для каждого фрагмента речи указывается список вариантов распознанного текста (`alternatives`). 
+В каждом сообщении с результатами распознавания ([StreamingResponse](../stt-v3/api-ref/grpc/stt_service#StreamingResponse){% if product == "yandex-cloud" %} или [StreamingRecognitionResponse](api/streaming-api.md#response){% endif %}) сервер {{ speechkit-name }} возвращает одvин или несколько фрагментов речи, которые он успел распознать за этот промежуток (`chunks`). Для каждого фрагмента речи указывается список вариантов распознанного текста (`alternatives`). 
 
 Сервер {{ speechkit-name }} возвращает результаты распознавания с указанием их типа: `partial` для промежуточных результатов или `final` для окончательных. {% if product == "yandex-cloud" %}При использовании API v2 тип результатов распознавания определяет флаг `final`: значение `False` означает, что результат может измениться при следующем ответе.{% endif %}
 
@@ -79,7 +79,7 @@
 * [{#T}](../formats.md)
 * [{#T}](models.md)
 * [{#T}](../concepts/auth.md)
-* [Справочник API v3](../v3/api-ref/grpc/stt_service)
+* [Справочник API v3](../stt-v3/api-ref/grpc/stt_service)
 * [{#T}](api/streaming-examples-v3.md)
 {% if product == "yandex-cloud" %}
 * [{#T}](api/streaming-api.md)

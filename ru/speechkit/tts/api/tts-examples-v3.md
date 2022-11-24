@@ -19,7 +19,7 @@
     ```
 
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт для работы с API {{ speechkit-short-name }}.
-1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль `{{ roles-editor }}` или выше на каталог, в котором он был создан.
+1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль `{{ roles-speechkit-tts }}` или выше на каталог, в котором он был создан.
 1. [Получите](../../../iam/operations/iam-token/create-for-sa.md) IAM-токен для сервисного аккаунта.
 1. Создайте клиентское приложение:
 
@@ -65,8 +65,6 @@
 
       1. Создайте файл в корне директории `output`, например `test.py`, и добавьте в него следующий код:
 
-          {% if product == "yandex-cloud" %}
-
           ```python
           import io
           import grpc
@@ -90,12 +88,13 @@
     
               # Установить соединение с сервером.
               cred = grpc.ssl_channel_credentials()
-              channel = grpc.secure_channel('tts.{{ api-host }}:443', cred)
+              channel = grpc.secure_channel('{{ api-host-sk-tts }}', cred)
               stub = tts_service_pb2_grpc.SynthesizerStub(channel)
 
               # Отправить данные для синтеза.
               it = stub.UtteranceSynthesis(request, metadata=(
                   ('authorization', f'Bearer {iam_token}'),
+                  ('x-node-alias', '{{ speechkit-tts-alias }}')
               ))
 
               # Собрать аудиозапись по чанкам.
@@ -121,66 +120,6 @@
               with open(args.output, 'wb') as fp:
                   audio.export(fp, format='wav')
           ```
-         {% endif %}
-         {% if product == "cloud-il" %}
-
-         ```python
-         import io
-         import grpc
-         import pydub
-         import argparse
-
-         import yandex.cloud.ai.tts.v3.tts_pb2 as tts_pb2
-         import yandex.cloud.ai.tts.v3.tts_service_pb2_grpc as tts_service_pb2_grpc
-
-         # Define request parameters.
-         def synthesize(iam_token, text) -> pydub.AudioSegment:
-             request = tts_pb2.UtteranceSynthesisRequest(
-                 text=text,
-                 output_audio_spec=tts_pb2.AudioFormatOptions(
-                     container_audio=tts_pb2.ContainerAudio(
-                         container_audio_type=tts_pb2.ContainerAudio.WAV
-                     )
-                 ),
-                 loudness_normalization_type=tts_pb2.UtteranceSynthesisRequest.LUFS
-             )
-
-             # Establish connection with server.
-             cred = grpc.ssl_channel_credentials()
-             channel = grpc.secure_channel('{{ api-host-sk }}', cred)
-             stub = tts_service_pb2_grpc.SynthesizerStub(channel)
-
-             # Send data for synthesis.
-             it = stub.UtteranceSynthesis(request, metadata=(
-                 ('authorization', f'Bearer {iam_token}'),
-                 ('x-node-alias', 'speechkit.tts.stable')
-             ))
-
-             # Create an audio file out of chunks.
-             try:
-                 audio = io.BytesIO()
-                 for response in it:
-                     audio.write(response.audio_chunk.data)
-                 audio.seek(0)
-                 return pydub.AudioSegment.from_wav(audio)
-             except grpc._channel._Rendezvous as err:
-                 print(f'Error code {err._state.code}, message: {err._state.details}')
-                 raise err
-
-
-         if __name__ == '__main__':
-             parser = argparse.ArgumentParser()
-             parser.add_argument('--token', required=True, help='IAM token')
-             parser.add_argument('--text', required=True, help='Text for synthesis')
-             parser.add_argument('--output', required=True, help='Output file')
-             args = parser.parse_args()
-
-             audio = synthesize(args.token, args.text)
-             with open(args.output, 'wb') as fp:
-                 audio.export(fp, format='wav')
-         ```
-
-         {% endif %}
 
       1. Выполните созданный в предыдущем пункте файл:
 

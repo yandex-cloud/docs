@@ -631,11 +631,17 @@ default:
   tts-v3-count: 250 символов
   ya-client-app: https://oauth.yandex.ru/client/new
   ya-oauth: https://oauth.yandex.ru/verification_code
-  ds-api-addr: datasphere.api.cloud.yandex.net:443
   taas-name: Training as a Service
   taas: TaaS
   ml-project-size: 10 ГБ
   jlab: Jupyter
+  # ML endpoints
+  ds-api-addr: datasphere.api.cloud.yandex.net:443
+  api-host-sk: api.cloud.yandex.net:443
+  api-host-sk-stt: stt.api.cloud.yandex.net:443
+  api-host-sk-tts: tts.api.cloud.yandex.net:443
+  speechkit-stt-alias: speechkit.stt.stable
+  speechkit-tts-alias: speechkit.tts.stable
 
   # Marketplace
   mp-test-product-id: f2e4tmlj4qqciunhr7e6
@@ -892,6 +898,11 @@ cloud-il:
   api-host-mdb: mdb.api.cloudil.com
 
   ds-api-addr: datasphere.api.cloudil.com:443
+  api-host-sk: node-api.datasphere.cloudil.com:443
+  api-host-sk-stt: node-api.datasphere.cloudil.com:443
+  api-host-sk-tts: node-api.datasphere.cloudil.com:443
+  speechkit-stt-alias: speechkit.stt.stable
+  speechkit-tts-alias: speechkit.tts.stable
   s3-storage-host: storage.cloudil.com
   s3-web-host: website.cloudil.com
   s3-objstorage-host: s3.cloudil.com

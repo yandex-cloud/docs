@@ -7,7 +7,7 @@ The example uses the following parameters:
 * [Language](../index.md#langs): Russian.
 * Format of the audio stream: [LPCM](../../formats.md#LPCM) with a sampling rate of 8000 Hz.
 * [Number of audio channels](../../stt-v3/api-ref/grpc/stt_service#RawAudio): 1 (default).
-* [Profanity filter](../../v3/api-ref/grpc/stt_service#TextNormalizationOptions) enabled.
+* [Profanity filter](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions) enabled.
 * Other parameters were left with their default values.
 
 To use the API, you need the `grpcio-tools` package.
@@ -105,13 +105,13 @@ To implement an example from this section:
       def run(iam_token, audio_file_name):
           # Establish a connection with the server.
           cred = grpc.ssl_channel_credentials()
-          channel = grpc.secure_channel('stt.{{ api-host }}:443', cred)
+          channel = grpc.secure_channel('{{ api-host-sk-stt }}', cred)
           stub = stt_service_pb2_grpc.RecognizerStub(channel)
 
           # Send data for recognition.
           it = stub.RecognizeStreaming(gen(audio_file_name), metadata=(
               ('authorization', f'Bearer {iam_token}'),
-              ('x-node-alias', 'speechkit.stt.rc')
+              ('x-node-alias', '{{ speechkit-tts-alias }}')
           ))
 
           # Process the server responses and output the result to the console.
@@ -142,8 +142,8 @@ To implement an example from this section:
       * `audio_encoding`: [Format](../../formats.md) of the audio stream.
       * `sample_rate_hertz`: Sampling rate.
       * `audio_channel_count`: Number of audio channels.
-      * `profanity_filter`: [Profanity filter](../../v3/api-ref/grpc/stt_service#TextNormalizationOptions).
-      * `literature_text`: [Flag to generate the recognized text in a literary style](../../v3/api-ref/grpc/stt_service#TextNormalizationOptions).
+      * `profanity_filter`: [Profanity filter](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
+      * `literature_text`: [Flag to generate the recognized text in a literary style](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
       * `language_code`: [Language](../index.md#langs) that recognition is performed for.
 
    1. Use the [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account:

@@ -17,7 +17,7 @@
 
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роль `{{ roles-speechkit-stt }}`.
 1. Для сервисного аккаунта [получите](../../../iam/operations/iam-token/create-for-sa#via-cli) и сохраните IAM-токен. 
-1. Скачайте [пример](https://{{ s3-storage-host }}/speechkit/speech.pcm) аудиофайла для распознавания или [сгенерируйте](../../tts/api/tts-examples-v3) свой.
+1. Скачайте [пример](https://{{ s3-storage-host }}/speechkit/speech.pcm) аудиофайла для распознавания или [сгенерируйте](../../tts/api/tts-examples-v3.md) свой.
 
 ## Создайте приложение для потокового распознавания речи {#recognition}
 
@@ -107,13 +107,13 @@
             def run(iam_token, audio_file_name):
                 # Установить соединение с сервером.
                 cred = grpc.ssl_channel_credentials()
-                channel = grpc.secure_channel('stt.{{ api-host }}:443', cred)
+                channel = grpc.secure_channel('{{ api-host-sk-stt }}', cred)
                 stub = stt_service_pb2_grpc.RecognizerStub(channel)
     
                 # Отправить данные для распознавания.
                 it = stub.RecognizeStreaming(gen(audio_file_name), metadata=(
                     ('authorization', f'Bearer {iam_token}'),
-                    ('x-node-alias', 'speechkit.stt.general')
+                    ('x-node-alias', '{{ speechkit-stt-alias }}')
                 ))
 
                 # Обработать ответы сервера и вывести результат в консоль.
