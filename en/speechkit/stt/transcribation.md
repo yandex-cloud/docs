@@ -8,7 +8,11 @@ Recognition results are saved on the {{ stt-long-resultsStorageTime }} server, a
 
 Asynchronous recognition can't be used for real-time dialog recognition. If you need intermediate results and minimum response time, use [streaming recognition](streaming.md).
 
-View the list of supported languages in [{#T}](models.md#tags).
+View the list of supported languages in [{#T}](models.md#languages).
+
+## Asynchronous recognition modes {#modes}
+
+{% include [async-stt-modes](../../_includes/speechkit/async-modes.md) %}
 
 ## How can I recognize long audio fragments {#long-audio-recognition}
 
