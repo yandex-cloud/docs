@@ -1,4 +1,4 @@
-# Encryption
+# Encryption in {{ objstorage-name }}
 
 When using [{{ objstorage-full-name }}](../../storage/), make sure critical data is encrypted.
 

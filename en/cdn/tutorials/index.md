@@ -1,4 +1,4 @@
-# All practical guidelines
+# {{ cdn-name }} practical guidelines
 
 * [{#T}](prefetch.md)
 * [{#T}](cdn-storage-integration.md)

@@ -1,4 +1,4 @@
-# Практические руководства в {{ dns-name }}
+# Практические руководства {{ dns-name }}
 
 * [{#T}](local-dns-cache.md)
 {% if product == "yandex-cloud" %}

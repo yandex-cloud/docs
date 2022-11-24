@@ -1,4 +1,4 @@
-# All practical guidelines
+# {{ alb-name }} practical guidelines
 
 * [{#T}](virtual-hosting.md)
 {% if product == "yandex-cloud" %}
