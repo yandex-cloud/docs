@@ -1,10 +1,15 @@
+---
+title: "Change data capture in {{ data-transfer-full-name }}"
+description: "Change data capture (CDC) lets you track changes in databases and deliver them to end users in real time."
+---
+
 # Change data capture
 
 CDC ([change data capture](https://en.wikipedia.org/wiki/Change_data_capture)) is a process of tracking changes in a database and delivering them to consumers in near real-time. CDC can be used to:
 
 * Create applications that respond to data changes in real time.
 * Deliver data from a centralized storage to microservices.
-* Collect and deliver data from a production environment to internal data storages for processing and analysis.
+* Collect and deliver data from a production environment to internal data storages for processing and {% if lang == "ru" and audience != "internal" %}[analysis](../../glossary/data-analytics.md){% else %}analysis{% endif %}.
 
 In {{ yandex-cloud }}, one way CDC can be implemented is with a transfer from the database to the message broker. All database updates are tracked by the transfer and sent to the message broker, and consumers are connected to the broker and read the incoming messages.
 

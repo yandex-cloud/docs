@@ -46,7 +46,7 @@ To create a source endpoint:
       - (optional) Add tables to the **Black list of tables**. Data from blacklisted tables isn't transferred.
       - (optional) Specify the **ID of the PostgreSQL replication slot** to connect to the DB cluster.
       - (optional) Set the **Maximum WAL size per replication slot**.
-      - (optional) In the **Target DB schema to create a  __consumer_keeper dummy table in** field, enter the name of the storage schema.
+      - (optional) In the **Target DB schema to create a __consumer_keeper dummy table in** field, enter the name of the storage schema.
       - (optional) If necessary, select the **Merge inherited tables** option to merge the contents of tables.
       - (optional) Specify the **Endpoint network interface** to connect through to the DB cluster.
 
@@ -63,7 +63,7 @@ To create a source endpoint:
       - (optional) **ID of the replication slot** to connect to the DB cluster.
       - (optional) **White list of tables**. If set, data is only transferred from whitelisted tables.
       - (optional) **Black list of tables**. Data from blacklisted tables isn't transferred.
-      - (optional) In the **PEM certificate**  field, click **Upload file** and upload the [PEM certificate](../../../managed-mysql/operations/connect.md#Configuring-an-SSL-certificate) to encrypt the data you transfer.
+      - (optional) In the **PEM certificate** field, click **Upload file** and upload the [PEM certificate](../../../managed-mysql/operations/connect.md#Configuring-an-SSL-certificate) to encrypt the data you transfer.
       - (optional) **Database time zone** in UTC.
       - (optional) **ID of the subnet** to connect through to the DB cluster.
 
@@ -81,7 +81,7 @@ To create a source endpoint:
       - (optional) Add tables to the **Black list of tables**. Data from blacklisted tables isn't transferred.
       - (optional) Specify the **ID of the PostgreSQL replication slot** to connect to the DB cluster.
       - (optional) Set the **Maximum WAL size per replication slot**.
-      - (optional) In the **Target DB schema to create a  __consumer_keeper dummy table in** field, enter the name of the storage schema.
+      - (optional) In the **Target DB schema to create a __consumer_keeper dummy table in** field, enter the name of the storage schema.
       - (optional) If necessary, select the **Merge inherited tables** option to merge the contents of tables.
       - (optional) Specify the **Endpoint network interface** to connect through to the DB cluster.
 

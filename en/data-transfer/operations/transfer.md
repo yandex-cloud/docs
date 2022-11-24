@@ -251,6 +251,9 @@ For more information about transfer states, operations applicable to transfers, 
 
 {% endlist %}
 
+When updating a transfer, its settings are applied immediately. Editing the settings of a transfer with the {{ dt-type-repl }} type and the {{ dt-status-repl }} status will result in the transfer's restart. Adding new objects to the **List of objects to transfer** for {{ dt-type-copy-repl }} transfers in the {{ dt-status-repl }} status will result in uploading the data history for these objects (tables). If a table is large, uploading the history may take a long time.
+You can't edit the list of objects for transfers in the {{ dt-status-copy }} status.
+
 ## Activating a transfer {#activate}
 
 {% list tabs %}

@@ -9,6 +9,6 @@ editable: false
 
 В сервисе {{ data-transfer-full-name }} действуют следующие ограничения:
 
-{% include [Что такое квоты и лимиты](../../_includes/quotes-limits-def.md) %}
+{% include [quotes-limits-def](../../_includes/quotes-limits-def.md) %}
 
-{% include [Квоты и лимиты DataTransfer](../../_includes/data-transfer/data-transfer-limits.md) %}
+{% include [data-transfer-limits](../../_includes/data-transfer/data-transfer-limits.md) %}

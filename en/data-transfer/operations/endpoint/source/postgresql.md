@@ -34,11 +34,12 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
      name = "<endpoint name>"
      settings {
        postgres_source {
+         security_groups = [ "list of security group IDs" ]
          connection {
            mdb_cluster_id = "<{{ mpg-name }} cluster ID>"
          }
-         database = "<name of database to transfer>"
-         user     = "<username to connect>"
+         database = "<name of database being transferred>"
+         user     = "<username for connection>"
          password {
            raw = "<user password>"
          }
@@ -85,14 +86,15 @@ For OnPremise, all fields are filled in manually.
      name = "<endpoint name>"
      settings {
        postgres_source {
+         security_groups = [ "list of security group IDs" ]
          connection {
            on_premise {
              hosts = ["<host list>"]
              port  = <connection port>
            }
          }
-         database = "<name of database to transfer>"
-         user     = "<username to connect>"
+         database = "<name of database being transferred>"
+         user     = "<username for connection>"
          password {
            raw = "<user password>"
          }
@@ -128,7 +130,7 @@ For OnPremise, all fields are filled in manually.
 
    * **Replication slot name**: Enter the ID of the PostgreSQL replication slot used to connect to the DB cluster.
 
-   * **Maximum WAL size per replication slot**: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. By default, not limited.
+   * **Maximum WAL size per replication slot**: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. Default value: 50 GB.
 
    * **DB schema for service tables**: Enter a name for the storage schema.
 
@@ -148,7 +150,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
-   * `--slot-lag-limit`: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. By default, not limited.
+   * `--slot-lag-limit`: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. Default value: 50 GB.
 
    * `--service-schema`: Name of the DB schema for service tables.
 
@@ -169,9 +171,9 @@ For OnPremise, all fields are filled in manually.
 
       {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
-   * `slot_gigabyte_lag_limit`: Maximum size of Write-Ahead Log kept in replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. By default, not limited.
+   * `slot_gigabyte_lag_limit`: Maximum size of Write-Ahead Log kept in replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. Default value: 50 GB.
 
-   * `service_schema`: DB schema name for service tables.
+   * `service_schema`: DB schema name for housekeeping tables.
 
    * `object_transfer_settings`: Schema transfer settings:
 
@@ -213,7 +215,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
-   * `slotByteLagLimit`: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. By default, not limited.
+   * `slotByteLagLimit`: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. Default value: 50 GB.
 
    * `serviceSchema`: Name of the DB schema for service tables.
 

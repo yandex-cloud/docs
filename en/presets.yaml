@@ -133,6 +133,7 @@ default:
   cloud-desktop-name: Cloud Desktop
   captcha-name: SmartCaptcha
   backup-name: Cloud Backup
+  eventhub-name: EventHub
 
   # Short names
   iam-short-name: IAM

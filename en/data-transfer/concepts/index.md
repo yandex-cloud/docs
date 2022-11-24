@@ -1,6 +1,6 @@
 ---
-title: "Relationship between {{ data-transfer-full-name }} service resources"
-description: "{{ data-transfer-full-name} } allows you to easily transfer data between databases. The service allows you to reduce the time for the migration process, minimize downtime when switching to a new database or have a permanent replica of the database."
+title: "Relationships between {{ data-transfer-full-name }} resources"
+description: "With {{ data-transfer-full-name }}, you can easily transfer data between databases. The service enables you to save time on migration, minimize downtime when switching to a new database, and maintain a database replica that is always up to date."
 ---
 
 # Relationships between resources in {{ data-transfer-name }}
@@ -21,7 +21,7 @@ The following can be the data source or target:
 
 | Service | Source | Target |
 |------------------------------------------------------------------------------------------------------------|:------------------------------------:|:------------------------------------:|
-| {{ KF }} topic: Your own topic or a topic in [{{ mkf-short-name }}](../../managed-kafka/) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
+| {{ KF }} topic: Your own topic or a topic in [{{ mkf-short-name }}](../../managed-kafka/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | AWS CloudTrail message stream | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 | Your own BigQuery database | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 | {{ CH }} database: Your own or as part of the [{{ mch-short-name }} service](../../managed-clickhouse/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
@@ -128,6 +128,7 @@ For more information about the `createIndex()` function, see the [{{ MG }} docum
 
    * Only the parent table will be transferred to the target, and it will contain the data of those child tables which were explicitly specified in the list of tables to be transferred.
    * The user can still speed up the transfer by enabling sharding in the [transfer settings](../operations/transfer#create), because child tables from the source are concurrently copied to the common table on the target.
+
 
 {% if product == "yandex-cloud" %}
 

@@ -17,6 +17,12 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
    {% include [Managed MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/managed-mongodb.md) %}
 
+- CLI
+
+   * Endpoint type: `mongo-target`.
+
+   {% include [Managed MongodDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mongodb.md) %}
+
 - Terraform
 
    * Endpoint type: `mongo_target`.
@@ -50,6 +56,10 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
+- API
+
+   {% include [Managed MongodDB API](../../../../_includes/data-transfer/necessary-settings/api/managed-mongodb.md) %}
+
 {% endlist %}
 
 {% endif %}
@@ -63,6 +73,12 @@ Connecting to the database with explicitly specified network addresses and ports
 - Management console
 
    {% include [On premise MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mongodb.md) %}
+
+- CLI
+
+   * Endpoint type: `mongo-target`.
+
+   {% include [Managed MongoDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mongodb.md) %}
 
 - Terraform
 
@@ -105,6 +121,10 @@ Connecting to the database with explicitly specified network addresses and ports
    ```
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+
+- API
+
+   {% include [On premise MongoDB API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-mongodb.md) %}
 
 {% endlist %}
 

@@ -72,7 +72,7 @@ The amount of data read from the source (in bytes).
 ### Sink response time (histogram by seconds) {sinker.pusher.time.batch_push_distribution_sec}
 `sinker.pusher.time.batch_push_distribution_sec`
 
-Time to complete a full data transfer including preprocessing (in seconds).
+Full time it takes to write a batch to the target, including data preprocessing (in seconds).
 
 ### Read rows (parsed/unparsed) {publisher.data.*parsed_rows}
 `publisher.data.*parsed_rows`
@@ -228,5 +228,4 @@ Alert parameters:
 * Alerts do not cover all transfer failures. Alert triggering does not always indicate a failure. If problems with the alerts recur, contact [technical support]({{ link-console-support }}) and specify the load, charts, metrics used, and the expected alert behavior.
 
 * Alerts can be triggered not only by transfer infrastructure problems, but also by {{ data-transfer-name }} problems. For example, due to an insufficiency of virtual machine resources for data replication. If this happens, contact [technical support]({{ link-console-support }}).
-
 {% endif %}
