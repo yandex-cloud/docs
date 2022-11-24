@@ -49,11 +49,7 @@ Learn more about [how to create a cluster in the service](../operations/data-pro
 
 ## Computing sessions {#session}
 
-In {{ dataproc-name }} clusters, your code is executed in sessions. A session stores the intermediate state until you delete the session or cluster. Each cluster has a default session. Its ID is the same as the project ID.
-
-Use the following commands to manage sessions:
-* `%create_livy_session --host $host --id $id` to create a session.
-* `%delete_livy_session $id` to delete a session.
+{% include [dataproc](../../_includes/datasphere/dataproc-sessions.md) %}
 
 ### Running Python code {#run-code}
 
