@@ -45,6 +45,16 @@ items:
             href: operations/device/device-update.md
           - name: Deleting a device
             href: operations/device/device-delete.md
+      - name: Managing brokers
+        items:
+          - name: Getting information about a broker
+            href: operations/broker/broker-list.md
+          - name: Creating a broker
+            href: operations/broker/broker-create.md
+          - name: Updating a broker
+            href: operations/broker/broker-update.md
+          - name: Deleting a broker
+            href: operations/broker/broker-delete.md
       - name: Managing certificates
         items:
           - name: Create a certificate
@@ -53,21 +63,25 @@ items:
             href: operations/certificates/registry-certificates.md
           - name: Managing device certificates
             href: operations/certificates/device-certificates.md
+          - name: Managing broker certificates
+            href: operations/certificates/broker-certificates.md
       - name: Managing passwords
         items:
           - name: Managing registry passwords
             href: operations/password/registry-password.md
           - name: Managing device passwords
             href: operations/password/device-password.md
+          - name: Managing broker passwords
+            href: operations/password/broker-password.md
   - name: Concepts
     items:
       - name: Authorization
         href: concepts/authorization.md
       - name: Relationship between service resources
         href: concepts/index.md
-      - name: MQTT broker connection parameters
+      - name: MQTT server connection parameters
         href: concepts/mqtt-properties.md
-      - name: Sending messages to an MQTT broker via gRPC
+      - name: Sending messages to an MQTT server via gRPC
         href: concepts/mqtt-grpc.md
       - name: Topic
         items:
@@ -107,10 +121,10 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: API reference
+  - name: Devices API reference
     items:
       - name: Authentication in the API
-        href: api-ref/authentication.md
+        href: api-ref/devices/authentication.md
       - name: gRPC
         items: null
         include:
@@ -121,5 +135,19 @@ items:
         include:
           repo: docs
           path: en/_api-ref/iot/devices/toc.yaml
+  - name: Broker API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/broker/authentication.md
+      - name: gRPC
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/iot-core/broker/toc.yaml
+      - name: REST
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref/iot/broker/toc.yaml
   - name: Questions and answers
     href: qa/index.md

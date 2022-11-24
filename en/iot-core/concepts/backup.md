@@ -1,12 +1,11 @@
 ---
-title: "Backups in Yandex IoT Core"
-description: "Data in the Yandex IoT Core service is securely stored and replicated in the Yandex Cloud infrastructure. You can view lists of registries, information about registers, lists of registry certificates, lists of registry devices, information about devices, lists of device certificates, lists of device aliases."
+title: "Backups in {{ iot-full-name }}"
+description: "Data in {{ iot-full-name }} is stored securely and replicated within the Yandex Cloud infrastructure. You can view lists of registries, registry certificates, and registry devices, information about registries and devices, and lists of device certificates and aliases."
 ---
 
 # Backups
 
 Data in {{ iot-name }} is stored securely and replicated within the {{ yandex-cloud }} infrastructure. You can view:
-
 * [Lists of registries](#registry-list).
 * [Information about registries](#registry-get).
 * [Lists of registry certificates](#registry-certificates-list).
@@ -48,3 +47,15 @@ Registry and device passwords are not backed up. We recommend saving them on you
 ## Getting a list of device aliases {#alias-list}
 
 {% include [alias-list](../../_includes/iot-core/alias-list.md) %}
+
+## Getting a list of brokers {#broker-list}
+
+{% include [broker-list](../../_includes/iot-core/broker-list.md) %}
+
+## Getting information about a broker {#broker-get}
+
+{% include [broker-get](../../_includes/iot-core/broker-get.md) %}
+
+## Getting a list of broker certificates {#broker-certificates-list}
+
+{% include [broker-certificates-list](../../_includes/iot-core/broker-certificates-list.md) %}

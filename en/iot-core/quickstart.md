@@ -1,6 +1,6 @@
 ---
-title: "Getting started with Yandex IoT Core"
-description: "In this tutorial, you will learn how to create X509 certificates and configure messaging between devices and registries using the Yandex IoT Core service (mqtt broker)."
+title: "Getting started with {{ iot-full-name }}"
+description: "In this tutorial, you'll learn how to create X509 certificates and configure messaging between devices and registries using {{ iot-full-name }}."
 ---
 
 # Getting started with {{ iot-name }}
@@ -12,10 +12,12 @@ To get started with {{ iot-name }}:
 * [Create a device](#create-device).
 * [Configure messaging between them](#exchange).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+{% if product == "yandex-cloud" %}
 1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+{% endif %}
 1. If you don't have a folder, [create one](../resource-manager/operations/folder/create.md).
 
 ## Create a certificate {#create-ca}
@@ -113,6 +115,7 @@ Devices and registries interact using X.509 certificates:
         -----END CERTIFICATE-----
       created_at: "2019-05-27T13:41:45.295Z"
       ```
+
 
 {% endlist %}
 

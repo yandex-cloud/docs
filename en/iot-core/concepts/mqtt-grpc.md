@@ -1,10 +1,12 @@
-# Sending messages to an MQTT broker via gRPC
+# Sending messages to an MQTT server via gRPC
 
-You can send messages to an MQTT broker on behalf of a device or registry using [gRPC](https://grpc.io/docs/). To serialize data, use [Protobuf](https://developers.google.com/protocol-buffers/docs/overview).
+You can send messages to an MQTT server on behalf of a device or registry using [gRPC](https://grpc.io/docs/). To serialize data, use [Protobuf](https://developers.google.com/protocol-buffers/docs/overview).
+
+You can send messages to broker clients in a similar way.
 
 ## Data structure
 
-To send messages to the MQTT broker from your software, set the structure of serialized data.
+To send messages to the MQTT server from your software, set the structure of serialized data.
 
 ### Data structure for sending messages on behalf of a device
 
@@ -74,7 +76,41 @@ message PublishRegistryDataResponse {
 }
 ```
 
+### Data structure for sending messages to broker clients
+
+```json
+syntax = "proto3";
+
+package yandex.cloud.iot.broker.v1;
+
+import "google/api/annotations.proto";
+import "yandex/cloud/validation.proto";
+
+option go_package = "devices";
+option java_package = "yandex.cloud.api.iot.broker.v1";
+
+// A set of methods to work with IoT Core broker messages
+service BrokerDataService {
+  // Publishes message to broker clients
+  rpc Publish (PublishBrokerDataRequest) returns (PublishBrokerDataResponse) {
+    option (google.api.http) = { post: "/iot-broker/v1/brokers/{broker_id}/publish" body: "*" };
+  }
+}
+message PublishBrokerDataRequest {
+  // ID of broker to publish message
+  string broker_id = 1 [(required) = true, (length) = "<=50"];
+
+  // Topic where message should be published
+  string topic = 2 [(required) = true, (length) = "<=1024"];
+
+  // Content of the message
+  bytes data = 3 [(length) = "<=262144"];
+}
+
+message PublishBrokerDataResponse {
+}
+```
+
 ## Use case
 
-An example of how to work with the MQTT broker using gRPC for JavaScript is given in the [code](https://github.com/yandex-cloud/examples/blob/master/iot/Scenarios/terraform/emulator_publish/publish/iot_data.js) of a function that emulates sending messages on behalf of multiple devices.
-
+An example of how to work with the MQTT server using gRPC for JavaScript is given in the [code](https://github.com/yandex-cloud/examples/blob/master/iot/Scenarios/terraform/emulator_publish/publish/iot_data.js) of a function that emulates sending messages on behalf of multiple devices.

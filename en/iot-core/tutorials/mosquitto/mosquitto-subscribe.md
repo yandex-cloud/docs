@@ -13,7 +13,7 @@ To learn about messaging, see [{#T}](mosquitto-publish.md).
 
 {% include [iot-before-begin-with-mosquitto](../../../_includes/iot-core/iot-before-begin-with-mosquitto.md) %}
 
-## Connecting to an MQTT broker {#connect-mqtt-broker}
+## Connecting to an MQTT server {#connect-mqtt-server}
 
 {% include [connect-mqtt-broker](../../../_includes/iot-core/connect-mqtt-broker.md) %}
 
@@ -22,9 +22,8 @@ To learn about messaging, see [{#T}](mosquitto-publish.md).
 You can subscribe a registry to topics of one, multiple, or all devices added to it. Let's look at all the options.
 
 Subscribe a registry to a device or devices using the following parameters:
-
-- `-h`: MQTT broker address.
-- `-p`: MQTT broker port.
+- `-h`: MQTT server address.
+- `-p`: MQTT server port.
 - `--cafile`: Path to the certificate from the certificate authority (CA).
 - `--cert`: Path to the public part of the registry certificate.
 - `--key`: Path to the private part of the registry certificate.
@@ -37,81 +36,81 @@ Subscribe a registry to a device or devices using the following parameters:
 
 - Mosquitto
 
-    - Subscribe a registry to a single device's topic:
+   - Subscribe a registry to a single device's topic:
 
-        ```
-        mosquitto_sub -h mqtt.cloud.yandex.net \
-          -p 8883 \
-          --cafile rootCA.crt \
-          --cert registry-cert.pem \
-          --key registry-key.pem \
-          -t '$devices/<device ID>/events' \
-          -q 1
-        ```
+      ```
+      mosquitto_sub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile rootCA.crt \
+        --cert registry-cert.pem \
+        --key registry-key.pem \
+        -t '$devices/<device ID>/events' \
+        -q 1
+      ```
 
-    - Subscribe a registry to a device's permanent topic:
+   - Subscribe a registry to a device's permanent topic:
 
-        ```
-        mosquitto_sub -h mqtt.cloud.yandex.net \
-          -p 8883 \
-          --cafile rootCA.crt \
-          --cert registry-cert.pem \
-          --key registry-key.pem \
-          -t '$devices/<device ID>/state' \
-          -q 1
-        ```
+      ```
+      mosquitto_sub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile rootCA.crt \
+        --cert registry-cert.pem \
+        --key registry-key.pem \
+        -t '$devices/<device ID>/state' \
+        -q 1
+      ```
 
-    - Subscribe a registry to multiple devices' topics:
+   - Subscribe a registry to multiple devices' topics:
 
-        ```
-        mosquitto_sub -h mqtt.cloud.yandex.net \
-          -p 8883 \
-          --cafile rootCA.crt \
-          --cert registry-cert.pem \
-          --key registry-key.pem \
-          -t '$devices/<first device ID>/events' \
-          -t '$devices/<second device ID>/events' \
-          -q 1
-        ```
+      ```
+      mosquitto_sub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile rootCA.crt \
+        --cert registry-cert.pem \
+        --key registry-key.pem \
+        -t '$devices/<first device ID>/events' \
+        -t '$devices/<second device ID>/events' \
+        -q 1
+      ```
 
-    - Subscribe a registry to the permanent topics of multiple devices:
+   - Subscribe a registry to the permanent topics of multiple devices:
 
-        ```
-        mosquitto_sub -h mqtt.cloud.yandex.net \
-          -p 8883 \
-          --cafile rootCA.crt \
-          --cert registry-cert.pem \
-          --key registry-key.pem \
-          -t '$devices/<first device ID>/state' \
-          -t '$devices/<second device ID>/state' \
-          -q 1
-        ```
+      ```
+      mosquitto_sub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile rootCA.crt \
+        --cert registry-cert.pem \
+        --key registry-key.pem \
+        -t '$devices/<first device ID>/state' \
+        -t '$devices/<second device ID>/state' \
+        -q 1
+      ```
 
-    - Subscribe a registry to all devices' topics:
+   - Subscribe a registry to all devices' topics:
 
-        ```
-        mosquitto_sub -h mqtt.cloud.yandex.net \
-          -p 8883 \
-          --cafile rootCA.crt \
-          --cert registry-cert.pem \
-          --key registry-key.pem \
-          -t '$registries/<registry ID>/events' \
-          -q 1
-        ```
+      ```
+      mosquitto_sub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile rootCA.crt \
+        --cert registry-cert.pem \
+        --key registry-key.pem \
+        -t '$registries/<registry ID>/events' \
+        -q 1
+      ```
 
-    - Subscribe a registry to the permanent topics of all devices:
+   - Subscribe a registry to the permanent topics of all devices:
 
-        ```
-        mosquitto_sub -h mqtt.cloud.yandex.net \
-          -p 8883 \
-          --cafile rootCA.crt \
-          --cert registry-cert.pem \
-          --key registry-key.pem \
-          -t '$registries/<registry ID>/state' \
-          -q 1
-        ```
+      ```
+      mosquitto_sub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile rootCA.crt \
+        --cert registry-cert.pem \
+        --key registry-key.pem \
+        -t '$registries/<registry ID>/state' \
+        -q 1
+      ```
 
-        The registry will only receive data from devices that send messages to the `$registries/<registry ID>/events` or '$registries/<registry ID>/state' topic.
+      The registry will only receive data from devices that send messages to the `$registries/<registry ID>/events` or `$registries/<registry ID>/state` topic.
 
 {% endlist %}
 
@@ -120,9 +119,8 @@ Subscribe a registry to a device or devices using the following parameters:
 Commands from a registry can be given to a specific device or all devices in the registry. This involves using different topics.
 
 Subscribe a device to a registry using the following parameters:
-
-- `-h`: MQTT broker address.
-- `-p`: MQTT broker port.
+- `-h`: MQTT server address.
+- `-p`: MQTT server port.
 - `--cafile`: Path to the certificate from the certificate authority (CA).
 - `--cert`: Path to the public part of the device certificate.
 - `--key`: Path to the private part of the device certificate.
@@ -135,54 +133,54 @@ Subscribe a device to a registry using the following parameters:
 
 - Mosquitto
 
-    - Subscribe a device to topics that are commands for a specific device:
+   - Subscribe a device to topics that are commands for a specific device:
 
-        ```
-        mosquitto_sub -h mqtt.cloud.yandex.net \
-          -p 8883 \
-          --cafile rootCA.crt \
-          --cert device-cert.pem \
-          --key device-key.pem \
-          -t '$devices/<device ID>/commands' \
-          -q 1
-        ```
+      ```
+      mosquitto_sub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile rootCA.crt \
+        --cert device-cert.pem \
+        --key device-key.pem \
+        -t '$devices/<device ID>/commands' \
+        -q 1
+      ```
 
-    - Subscribe a device to permanent topics that are commands for a specific device:
+   - Subscribe a device to permanent topics that are commands for a specific device:
 
-        ```
-        mosquitto_sub -h mqtt.cloud.yandex.net \
-          -p 8883 \
-          --cafile rootCA.crt \
-          --cert device-cert.pem \
-          --key device-key.pem \
-          -t '$devices/<device ID>/config' \
-          -q 1
-        ```
+      ```
+      mosquitto_sub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile rootCA.crt \
+        --cert device-cert.pem \
+        --key device-key.pem \
+        -t '$devices/<device ID>/config' \
+        -q 1
+      ```
 
-    - Subscribe a device to topics that are commands for all devices:
+   - Subscribe a device to topics that are commands for all devices:
 
-        ```
-        mosquitto_sub -h mqtt.cloud.yandex.net \
-          -p 8883 \
-          --cafile rootCA.crt \
-          --cert device-cert.pem \
-          --key device-key.pem \
-          -t '$registries/<registry ID>/commands' \
-          -q 1
-        ```
+      ```
+      mosquitto_sub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile rootCA.crt \
+        --cert device-cert.pem \
+        --key device-key.pem \
+        -t '$registries/<registry ID>/commands' \
+        -q 1
+      ```
 
-    - Subscribe a device to permanent topics that are commands for all devices:
+   - Subscribe a device to permanent topics that are commands for all devices:
 
-        ```
-        mosquitto_sub -h mqtt.cloud.yandex.net \
-          -p 8883 \
-          --cafile rootCA.crt \
-          --cert device-cert.pem \
-          --key device-key.pem \
-          -t '$registries/<registry ID>/config' \
-          -q 1
-        ```
+      ```
+      mosquitto_sub -h mqtt.cloud.yandex.net \
+        -p 8883 \
+        --cafile rootCA.crt \
+        --cert device-cert.pem \
+        --key device-key.pem \
+        -t '$registries/<registry ID>/config' \
+        -q 1
+      ```
 
-        Only devices subscribed to the `$registries/<registry ID>/commands` or '$registries/<registry ID>/config' topic will receive commands.
+      Only devices subscribed to the `$registries/<registry ID>/commands` or `$registries/<registry ID>/config` topic will receive commands.
 
 {% endlist %}

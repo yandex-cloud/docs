@@ -1,7 +1,6 @@
-Connect to the MQTT broker using the following parameters:
-
-- [Certification authority certificate]({{ ca-address }}).
-- **Broker address:** `{{ mqtt-broker-address }}`
-- **Broker port:** `{{ mqtt-broker-port }}`
-- **Protocol:** `TLSv1.2`
+To connect to the MQTT server, use the following parameters:
+* A [certificate from the certificate authority]({{ ca-address }}).
+* **Server address:** `{{ mqtt-server-address }}`.
+* **Server port:** `{{ mqtt-server-port }}`.
+* **Protocol**: `TLSv1.2`.
 
