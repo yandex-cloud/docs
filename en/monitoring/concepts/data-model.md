@@ -3,7 +3,7 @@ title: "Data model in {{ monitoring-full-name }}"
 description: "The article describes the data model of the {{ monitoring-full-name }} service. A metric is a time series that shows the change in a value over time. Text labels are used to identify metrics. A label is a characteristic of a metric in the key / value format. Each metric is identified by an unordered set labels. Typically, a label is a parameter that accepts a limited set of values."
 ---
 
-# Data model
+# Data model in {{ monitoring-name }}
 
 {{ monitoring-full-name }} stores data as [time series](https://en.wikipedia.org/wiki/Time_series).
 
@@ -46,7 +46,7 @@ The following templates are available in {{ monitoring-full-name }}:
 | Syntax | Description |
 ----- | -----
 | `label="*"` | Outputs all metrics with the specified label. For example, the `host="*"` query displays all metrics with `host` label. |
-| `label="glob"` | Displays all metrics whose label satisfy [glob expression](https://en.wikipedia.org/wiki/Glob_(programming)):<br/><br/>`*` — Any number of characters (including none). For example, `name="folder*"` displays all metrics that have the `name` label and whose value begins with the `folder` prefix.<br/><br/>`?` — One arbitrary character. For example, `name="metric?"` displays all labels that have one character after `metric`<br/><br/>`|` — All specified options. For example, `name="metric1|metric2"` displays two metrics with label values `metric1` and `metric2`. |
+| `label="glob"` | Displays all metrics whose label satisfy [glob expression]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Шаблон_поиска){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Glob_(programming)){% endif %}:<br/><br/>`*`: Any number of characters (including none). For example, `name="folder*"` displays all metrics that have the `name` label and whose value begins with the `folder` prefix.<br/><br/>`?`: One arbitrary character. For example, `name="metric?"` displays all labels that have one character after `metric`<br/><br/>`|`: All specified options. For example, `name="metric1|metric2"` displays two metrics with label values `metric1` and `metric2`. |
 
 #### See also {#see-also}
 

@@ -3,7 +3,7 @@ title: "Query language in {{ monitoring-full-name }}"
 description: "This section describes the {{monitoring-full-name}} query language. It is used to transform metrics when setting up dashboards and alerts, as well as in the MetricsData.read API method."
 ---
 
-# Query language
+# Query language in {{ monitoring-name }}
 
 This section describes the {{monitoring-full-name}} query language. It's used to convert metrics when you configure [dashboards](./visualization/dashboard.md) and [alerts](./alerting.md), as well as in the [MetricsData.read](../api-ref/MetricsData/read.md) API method.
 
@@ -22,7 +22,7 @@ The {{monitoring-full-name}} query language supports the following expressions f
 
    > The `host="*"` selector returns all metrics that have the `host` label.
 
-- `label="<glob>"`: Returns all metrics with labels whose values satisfy a [glob expression](https://en.wikipedia.org/wiki/Glob_(programming)).
+- `label="<glob>"`: Returns all metrics with labels whose values satisfy a [glob expression]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Шаблон_поиска){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Glob_(programming)){% endif %}.
    - `*`: Any number of characters (including none).
 
       > `name="folder*"` returns all metrics that have the `name` label whose value starts with the `folder` prefix.
@@ -47,58 +47,58 @@ The {{monitoring-full-name}} query language supports the following data types:
 ## Functions {#functions}
 
 - [Combine](#combine-functions)
-   - [histogram_avg](#histogram_avg)
-   - [histogram_cdfp](#histogram_cdfp)
-   - [histogram_count](#histogram_count)
-   - [histogram_percentile](#histogram_percentile)
-   - [histogram_sum](#histogram_sum)
-   - [series_avg](#series_avg)
-   - [series_max](#series_max)
-   - [series_min](#series_min)
-   - [series_percentile](#series_percentile)
-   - [series_sum](#series_sum)
+  - [histogram_avg](#histogram_avg)
+  - [histogram_cdfp](#histogram_cdfp)
+  - [histogram_count](#histogram_count)
+  - [histogram_percentile](#histogram_percentile)
+  - [histogram_sum](#histogram_sum)
+  - [series_avg](#series_avg)
+  - [series_max](#series_max)
+  - [series_min](#series_min)
+  - [series_percentile](#series_percentile)
+  - [series_sum](#series_sum)
 - [Rank](#rank-functions)
-   - [bottom_avg](#bottom_avg)
-   - [bottom_count](#bottom_count)
-   - [bottom_last](#bottom_last)
-   - [bottom_max](#bottom_max)
-   - [bottom_min](#bottom_min)
-   - [bottom_sum](#bottom_sum)
-   - [top_avg](#top_avg)
-   - [top_count](#top_count)
-   - [top_last](#top_last)
-   - [top_max](#top_max)
-   - [top_min](#top_min)
-   - [top_sum](#top_sum)
+  - [bottom_avg](#bottom_avg)
+  - [bottom_count](#bottom_count)
+  - [bottom_last](#bottom_last)
+  - [bottom_max](#bottom_max)
+  - [bottom_min](#bottom_min)
+  - [bottom_sum](#bottom_sum)
+  - [top_avg](#top_avg)
+  - [top_count](#top_count)
+  - [top_last](#top_last)
+  - [top_max](#top_max)
+  - [top_min](#top_min)
+  - [top_sum](#top_sum)
 - [Transform](#transform-functions)
-   - [abs](#abs)
-   - [asap](#asap)
-   - [ceil](#ceil)
-   - [derivative](#derivative)
-   - [diff](#diff)
-   - [drop_above](#drop_above)
-   - [drop_below](#drop_below)
-   - [drop_nan](#drop_nan)
-   - [exp](#exp)
-   - [floor](#floor)
-   - [fract](#fract)
-   - [heaviside](#heaviside)
-   - [integral](#integral)
-   - [log](#log)
-   - [moving_avg](#moving_avg)
-   - [moving_percentile](#moving_percentile)
-   - [non_negative_derivative](#non_negative_derivative)
-   - [pow](#pow)
-   - [ramp](#ramp)
-   - [replace_nan](#replace_nan)
-   - [round](#round)
-   - [shift](#shift)
-   - [sign](#sign)
-   - [sqrt](#sqrt)
-   - [trunc](#trunc)
+  - [abs](#abs)
+  - [asap](#asap)
+  - [ceil](#ceil)
+  - [derivative](#derivative)
+  - [diff](#diff)
+  - [drop_above](#drop_above)
+  - [drop_below](#drop_below)
+  - [drop_nan](#drop_nan)
+  - [exp](#exp)
+  - [floor](#floor)
+  - [fract](#fract)
+  - [heaviside](#heaviside)
+  - [integral](#integral)
+  - [log](#log)
+  - [moving_avg](#moving_avg)
+  - [moving_percentile](#moving_percentile)
+  - [non_negative_derivative](#non_negative_derivative)
+  - [pow](#pow)
+  - [ramp](#ramp)
+  - [replace_nan](#replace_nan)
+  - [round](#round)
+  - [shift](#shift)
+  - [sign](#sign)
+  - [sqrt](#sqrt)
+  - [trunc](#trunc)
 - [Other](#other-functions)
-   - [alias](#alias)
-   - [drop_empty_series](#drop_empty_series)
+  - [alias](#alias)
+  - [drop_empty_series](#drop_empty_series)
 
 ### Combine {#combine-functions}
 
@@ -350,13 +350,13 @@ Selects the real part of point values.
 
 **heaviside**(*source: timeseries_vector*): *timeseries_vector*
 
-Calculates the [Heaviside step function](https://en.wikipedia.org/wiki/Heaviside_step_function) value. The function is 1 if the point values are positive, and 0 if the point values are negative.
+Calculates the [Heaviside step function]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Функция_Хевисайда){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Heaviside_step_function){% endif %} value. The function is 1 if the point values are positive, and 0 if the point values are negative.
 
 #### integral
 
 **integral**(*source: timeseries_vector*): *timeseries_vector*
 
-Calculates an indefinite integral using the [trapezoidal rule](https://en.wikipedia.org/wiki/Trapezoidal_rule).
+Calculates an indefinite integral using the [trapezoidal rule]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Метод_трапеций){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Trapezoidal_rule){% endif %}.
 
 #### log
 
@@ -368,7 +368,7 @@ Calculates the natural logarithm.
 
 **moving_avg**(*source: timeseries_vector*, *window: duration*): *timeseries_vector*
 
-Calculates the moving average across a _window_ window width.
+Calculates the moving average across a window _window_ width.
 
 For example, the `moving_avg({...}, 1d)` query returns the moving average with a window of 1 day.
 

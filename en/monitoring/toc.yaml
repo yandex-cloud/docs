@@ -39,7 +39,7 @@ items:
             href: operations/dashboard/add-widget.md
           - name: Deleting widgets from a dashboard
             href: operations/dashboard/delete-widget.md
-          - name: Delete dashboards
+          - name: Deleting dashboards
             href: operations/dashboard/delete-dashboard.md
       - name: Working with alerts
         items:
@@ -49,6 +49,16 @@ items:
             href: operations/alert/create-channel.md
           - name: Deleting alerts
             href: operations/alert/delete-alert.md
+      - name: Working with the {{ prometheus-name }} API
+        when: product == "yandex-cloud"
+        hidden: true
+        items:
+          - name: Connecting the Remote API
+            href: operations/prometheus/index.md
+          - name: Writing metrics
+            href: operations/prometheus/remote-write.md
+          - name: Reading metrics
+            href: operations/prometheus/remote-read.md
   - name: Concepts
     items:
       - name: Service overview
@@ -103,7 +113,7 @@ items:
     href: pricing.md
   - name: API reference
     items:
-      - name: API authentication
+      - name: Authentication in the API
         href: api-ref/authentication.md
       - name: REST
         items:
@@ -145,5 +155,5 @@ items:
         href: qa/metrics-measure.md
       - name: Alerts / notifications
         href: qa/alerts.md
-      - name: All questions on the same page
+      - name: All questions on one page
         href: qa/all.md
