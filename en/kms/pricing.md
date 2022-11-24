@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Pricing for {{ kms-full-name }}
+# Pricing for {{ kms-name }}
 
 {% if product == "cloud-il" %}
 

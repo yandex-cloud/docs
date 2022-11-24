@@ -1,4 +1,4 @@
-# Getting started
+# Getting started with {{ org-name }}
 
 To get started, create an organization and add users to it.
 

@@ -1,4 +1,4 @@
-# Edit a certificate
+# Edit a user certificate
 
 After creating a certificate, you can change its name or description. To edit a certificate:
 
