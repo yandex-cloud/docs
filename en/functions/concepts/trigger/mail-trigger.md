@@ -122,6 +122,6 @@ After the trigger is activated, it sends the following message to the function:
 }
 ```
 
-## See also {#see-also_}
+## See also {#see-also}
 
 * [Email trigger that launches a {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/mail-trigger.md).

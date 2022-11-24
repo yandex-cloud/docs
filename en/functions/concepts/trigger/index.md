@@ -1,6 +1,6 @@
 ---
-title: Trigger. Overview
-description: 'Trigger — a condition, when executed, a certain function is automatically launched. Triggers allow you to automate work with other Yandex Cloud services, for example — Yandex Object Storage, Yandex Message Queue and Yandex IoT Core. '
+title: "Trigger. Overview"
+description: "Trigger — a condition, when executed, a certain function is automatically launched. Triggers allow you to automate work with other Yandex Cloud services, for example — Yandex Object Storage, Yandex Message Queue and Yandex IoT Core."
 ---
 
 # Triggers. Overview
@@ -15,10 +15,10 @@ The following types of triggers are available in {{ sf-name }}:
 * [Trigger for {{ objstorage-name }}](os-trigger.md).
 * [Trigger for {{ iot-name }}](iot-core-trigger.md).
 * [Trigger for {{ container-registry-name }}](cr-trigger.md).
-* [Trigger for {{ cloud-logs-name }}](cloudlogs-trigger.md).
 * [Trigger for {{ cloud-logging-name }}](cloud-logging-trigger.md).
 * [Trigger for budgets](budget-trigger.md).
 * [Trigger for {{ yds-name }}](data-streams-trigger.md).
+* [Email trigger](mail-trigger.md).
 
 ## Specifics of functions invoked by triggers {#invoke}
 
@@ -28,6 +28,6 @@ When a function is called by a trigger, the following specifics apply:
 - Functions are always called by triggers with the `integration=raw` query string parameter. More about [function calls](../function-invoke.md).
 - Before the trigger passes messages to a function, it changes their format. Each trigger has a specific message format. Read more about this in the trigger description.
 
-## See also {#see-also_}
+## See also {#see-also}
 
 * [Triggers that call a {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/index.md).
