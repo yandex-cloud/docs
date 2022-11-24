@@ -1,5 +1,5 @@
 ---
-title: Создание кластера Elasticsearch
+title: "Создание кластера Elasticsearch"
 description: "Кластер управляемого сервиса Elasticsearch — это группа из нескольких связанных друг с другом хостов Elasticsearch. При создании кластера Elasticsearch отдельно указываются параметры для хостов, выполняющих роль Master node, и отдельно — для хостов, выполняющих роль Data node."
 keywords:
   - создание кластера Elasticsearch

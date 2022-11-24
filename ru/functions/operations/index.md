@@ -1,5 +1,5 @@
 ---
-title: Инструкции по работе с {{ sf-full-name }}
+title: "Инструкции по работе с {{ sf-full-name }}"
 description: "Из статьи вы узнаете как работать с {{ sf-full-name }} в Yandex Cloud. Рассказываем, как управлять функцией (создание, изменение, вызов и удаление функции), как управлять триггером (создание таймера, создание триггера для {{ message-queue-name }}, {{ iot-full-name }}, {{ container-registry-name }}, Cloud Logs)."
 ---
 

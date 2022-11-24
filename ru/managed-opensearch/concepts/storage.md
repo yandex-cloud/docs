@@ -1,5 +1,5 @@
 ---
-title: Типы хранилища Elasticsearch
+title: "Типы хранилища Elasticsearch"
 description: "Сервис Elasticsearch позволяет использовать для кластеров сетевые и локальные диски. Сетевые диски реализованы на базе сетевых блоков — виртуальных дисков в инфраструктуре Yandex Cloud."
 keywords:
   - хранилище Elasticsearch

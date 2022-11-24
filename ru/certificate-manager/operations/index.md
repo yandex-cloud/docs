@@ -1,5 +1,5 @@
 ---
-title: Инструкции по работе с {{ certificate-manager-full-name }} (TLS-сертификаты)
+title: "Инструкции по работе с {{ certificate-manager-full-name }} (TLS-сертификаты)"
 description: "Из статьи вы узнаете как работать с {{ certificate-manager-full-name }} в Yandex Cloud. Рассказываем об управлении собственными сертификатами и сертификатами от Let's Encrypt. Научитесь создавать собственный домен и привязывать к нему TLS сертификаты."
 ---
 
