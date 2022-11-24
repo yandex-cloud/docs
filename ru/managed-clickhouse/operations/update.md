@@ -212,14 +212,14 @@
      {{ yc-mdb-ch }} cluster update --help
      ```
 
-  1. Укажите нужный объем хранилища в команде изменения кластера{% if audience != "internal" %} (должен быть не меньше, чем значение `disk_size` в свойствах кластера){% endif %}:
+  1. Укажите нужный размер хранилища в команде изменения кластера{% if audience != "internal" %} (должен быть не меньше, чем значение `disk_size` в свойствах кластера){% endif %}:
 
      ```bash
      {{ yc-mdb-ch }} cluster update <идентификатор или имя кластера> \
        --clickhouse-disk-size <размер хранилища в ГБ>
      ```
 
-  1. Чтобы {% if audience != "internal" %}увеличить{% else %}изменить{% endif %} объем хранилища хостов {{ ZK }}, передайте нужное значение в параметре `--zookeeper-disk-size`.
+  1. Чтобы {% if audience != "internal" %}увеличить{% else %}изменить{% endif %} размер хранилища хостов {{ ZK }}, передайте нужное значение в параметре `--zookeeper-disk-size`.
 
 - {{ TF }}
 
@@ -266,8 +266,8 @@
   Чтобы {% if audience != "internal" %}увеличить{% else %}изменить{% endif %} размер хранилища, воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-  * Нужный объем хранилища хостов {{ CH }} в параметре `configSpec.clickhouse.resources.diskSize`.
-  * Нужный объем хранилища хостов {{ ZK }} в параметре `configSpec.zookeeper.resources.diskSize`.
+  * Нужный размер хранилища хостов {{ CH }} в параметре `configSpec.clickhouse.resources.diskSize`.
+  * Нужный размер хранилища хостов {{ ZK }} в параметре `configSpec.zookeeper.resources.diskSize`.
   * Список полей конфигарации кластера, которые необходимо изменить, в параметре `updateMask`.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}

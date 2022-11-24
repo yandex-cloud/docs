@@ -164,7 +164,7 @@ description: "Вы можете создавать резервные копии
           {% if audience != "internal" %}* `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.{% endif %}
 
       * `--resource-preset` — [класс хоста](../concepts/instance-types.md#available-flavors).
-      * `--disk-size` — объем хранилища в гигабайтах.
+      * `--disk-size` — размер хранилища в гигабайтах.
       * `--disk-type` — [тип диска](../concepts/storage.md):
           {% if audience != "internal" %}
 

@@ -180,7 +180,7 @@
 
 По умолчанию для хостов {{ ZK }} задаются следующие характеристики:
 * класс хоста `b2.medium`;
-* [хранилище](../concepts/storage.md) на {% if audience != "internal" %}сетевых{% else %}локальных{% endif %} SSD-дисках (`{{ disk-type-example }}`) объемом 10 ГБ.
+* [хранилище](../concepts/storage.md) на {% if audience != "internal" %}сетевых{% else %}локальных{% endif %} SSD-дисках (`{{ disk-type-example }}`) размером 10 ГБ.
 
 {% endnote %}
 

@@ -93,7 +93,7 @@
             * `subnet-name` — {% if audience != "internal" %}[имя подсети](../../vpc/concepts/network.md#subnet){% else %}имя подсети{% endif %}.
         * `--mongoinfra` — параметры хостов `MONGOINFRA`:
             * `resource-preset` — [класс хоста](../concepts/instance-types.md);
-            * `disk-size` — объем хранилища в гигабайтах;
+            * `disk-size` — размер хранилища в гигабайтах;
             * `disk-type` — [тип диска](../concepts/storage.md).
 
     * Чтобы включить расширенное шардирование кластера с использованием хостов `MONGOS` и `MONGOCFG`, выполните команду (в примере приведены не все доступные параметры):
@@ -133,11 +133,11 @@
             * `subnet-name` — {% if audience != "internal" %}[имя подсети](../../vpc/concepts/network.md#subnet){% else %}имя подсети{% endif %}.
         * `--mongos` — параметры хостов `MONGOS`:
             * `resource-preset` — [класс хоста](../concepts/instance-types.md);
-            * `disk-size` — объем хранилища в гигабайтах;
+            * `disk-size` — размер хранилища в гигабайтах;
             * `disk-type` — [тип диска](../concepts/storage.md).
         * `--mongocfg` — параметры хостов `MONGOCFG`:
             * `resource-preset` — [класс хоста](../concepts/instance-types.md);
-            * `disk-size` — объем хранилища в гигабайтах;
+            * `disk-size` — размер хранилища в гигабайтах;
             * `disk-type` — [тип диска](../concepts/storage.md).
 
 - API
