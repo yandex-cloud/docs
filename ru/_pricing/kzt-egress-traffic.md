@@ -8,5 +8,9 @@
 
 Категория ресурса | Цена за ГБ
 --- | ---
+**До 01.12.2022** | 
 Исходящий трафик, первые 10 ГБ в месяц | {{ sku|KZT|network.egress.inet|string }}
 Исходящий трафик, свыше 10 ГБ в месяц | {{ sku|KZT|network.egress.inet|pricingRate.10|string }}
+**C 01.12.2022** | 
+Исходящий трафик, первые 100 ГБ в месяц | {{ sku|KZT|network.egress.inet|string }}
+Исходящий трафик, свыше 100 ГБ в месяц | {{ sku|KZT|network.egress.inet|pricingRate.10|string }}

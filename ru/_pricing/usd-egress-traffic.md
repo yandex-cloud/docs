@@ -8,5 +8,9 @@ The minimum charging unit is 1 MB.
 
 Resource category | Cost of 1 GB
 --- | ---
+**Until 01.12.2022** | 
+Outgoing traffic, first 10 GB per month | {{ sku|USD|network.egress.inet|string }}
+Outgoing traffic, over 10 GB per month | {{ sku|USD|network.egress.inet|pricingRate.10|string }}
+**Since 01.12.2022** |
 Outgoing traffic, first 10 GB per month | {{ sku|USD|network.egress.inet|string }}
 Outgoing traffic, over 10 GB per month | {{ sku|USD|network.egress.inet|pricingRate.10|string }}
