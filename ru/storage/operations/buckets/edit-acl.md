@@ -1,6 +1,6 @@
 # Редактирование ACL бакета
 
-Помимо {% if audience != "internal" %}[{{ iam-short-name }}](../../../iam/){% else %}{{ iam-short-name }}{% endif %}, {{ objstorage-name }} поддерживает управление доступом с помощью [ACL](../../concepts/acl.md).
+Для управления доступом к бакету {{ objstorage-name }}, помимо {% if audience != "internal" %}[{{ iam-short-name }}](../../../iam/){% else %}{{ iam-short-name }}{% endif %}, можно воспользоваться [ACL](../../concepts/acl.md).
 
 {% list tabs %}
 
