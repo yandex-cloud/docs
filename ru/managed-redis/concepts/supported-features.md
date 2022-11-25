@@ -2,6 +2,7 @@
 
 {{ mrd-name }} позволяет выполнять [любые команды Redis](https://redis.io/commands), кроме следующих:
 
+- `ACL`
 - `BGREWRITEAOF`
 - `BGSAVE`
 - `COMMAND`
