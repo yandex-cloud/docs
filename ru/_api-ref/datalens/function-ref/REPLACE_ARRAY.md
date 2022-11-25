@@ -39,4 +39,4 @@ REPLACE( array, old, new )
 
 #### Поддержка источников данных {#data-source-support}
 
-`Материализованный датасет`, `ClickHouse 19.13`, `PostgreSQL 9.3`.
+`ClickHouse 19.13`, `PostgreSQL 9.3`.

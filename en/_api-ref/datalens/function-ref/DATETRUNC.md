@@ -42,7 +42,7 @@ Only constant values are accepted for the arguments (`unit`, `number`).
 
 {% note info %}
 
-The function with three arguments is only available for the sources `Materialized Dataset`, `ClickHouse` version `19.13` or higher.
+The function with three arguments is only available for the sources `ClickHouse` version `19.13` or higher.
 
 {% endnote %}
 
@@ -68,4 +68,4 @@ DATETRUNC(#2018-07-12 11:07:13#, "month", 4) = #2018-05-01 00:00:00#
 
 #### Data source support {#data-source-support}
 
-`Materialized Dataset`, `ClickHouse 19.13`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.
+`ClickHouse 19.13`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

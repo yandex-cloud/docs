@@ -44,4 +44,4 @@ SLICE(ARRAY(1, 2, 3, 4, 5), 3, 1) = [3]
 
 #### Поддержка источников данных {#data-source-support}
 
-`Материализованный датасет`, `ClickHouse 19.13`, `PostgreSQL 9.3`.
+`ClickHouse 19.13`, `PostgreSQL 9.3`.

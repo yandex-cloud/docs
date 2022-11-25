@@ -44,4 +44,4 @@ COMPARE(1.26, 1.25, 0.001) = 1
 
 #### Data source support {#data-source-support}
 
-`Materialized Dataset`, `ClickHouse 19.13`.
+`ClickHouse 19.13`.

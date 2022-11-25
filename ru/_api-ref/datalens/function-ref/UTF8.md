@@ -32,4 +32,4 @@ UTF8([Name], "CP-1251")
 
 #### Поддержка источников данных {#data-source-support}
 
-`Материализованный датасет`, `ClickHouse 19.13`.
+`ClickHouse 19.13`.

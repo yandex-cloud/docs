@@ -49,4 +49,4 @@ COUNTD_APPROX([ClienID])
 
 #### Data source support {#data-source-support}
 
-`Materialized Dataset`, `ClickHouse 19.13`, `Oracle Database 12c (12.1)`, `YDB`.
+`ClickHouse 19.13`, `Oracle Database 12c (12.1)`, `YDB`.

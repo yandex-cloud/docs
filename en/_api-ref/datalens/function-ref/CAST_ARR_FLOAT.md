@@ -37,4 +37,4 @@ Converts `array` to an array of fractional numbers. The conversion rules are the
 
 #### Data source support {#data-source-support}
 
-`Materialized Dataset`, `ClickHouse 19.13`, `PostgreSQL 9.3`.
+`ClickHouse 19.13`, `PostgreSQL 9.3`.

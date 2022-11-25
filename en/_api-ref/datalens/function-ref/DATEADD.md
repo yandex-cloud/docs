@@ -41,7 +41,7 @@ Only constant values are accepted for the arguments (`unit`).
 
 {% note info %}
 
-For all sources except `Materialized Dataset`, `ClickHouse`, `number` takes only constant values.
+For all sources except `ClickHouse`, `number` takes only constant values.
 
 {% endnote %}
 
@@ -87,4 +87,4 @@ DATEADD(#2018-01-12 01:02:03#, "year", 6) = #2024-01-12 01:02:03#
 
 #### Data source support {#data-source-support}
 
-`Materialized Dataset`, `ClickHouse 19.13`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.
+`ClickHouse 19.13`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

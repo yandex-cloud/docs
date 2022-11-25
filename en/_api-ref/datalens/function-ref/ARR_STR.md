@@ -54,4 +54,4 @@ ARR_STR(ARRAY('a', 'b', '', NULL), ';', '*') = a;b;;*
 
 #### Data source support {#data-source-support}
 
-`Materialized Dataset`, `ClickHouse 19.13`, `PostgreSQL 9.3`.
+`ClickHouse 19.13`, `PostgreSQL 9.3`.

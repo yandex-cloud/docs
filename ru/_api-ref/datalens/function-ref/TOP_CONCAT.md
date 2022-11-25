@@ -62,4 +62,4 @@ TOP_CONCAT([Profit], 3, '; ')
 
 #### Поддержка источников данных {#data-source-support}
 
-`Материализованный датасет`, `ClickHouse 19.13`, `YDB`.
+`ClickHouse 19.13`, `YDB`.

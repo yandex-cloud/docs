@@ -61,4 +61,4 @@ ALL_CONCAT([Profit], '; ')
 
 #### Data source support {#data-source-support}
 
-`Materialized Dataset`, `ClickHouse 19.13`, `PostgreSQL 9.3`, `YDB`.
+`ClickHouse 19.13`, `PostgreSQL 9.3`, `YDB`.
