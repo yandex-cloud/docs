@@ -19,6 +19,10 @@ items:
             items:
               - name: Apache Kafka®
                 href: operations/endpoint/source/kafka.md
+              - name: AWS CloudTrail
+                href: operations/endpoint/source/aws-cloudtrail.md
+              - name: BigQuery
+                href: operations/endpoint/source/bigquery.md
               - name: ClickHouse
                 href: operations/endpoint/source/clickhouse.md
               - name: Eventhub
@@ -33,6 +37,8 @@ items:
                 href: operations/endpoint/source/oracle.md
               - name: PostgreSQL
                 href: operations/endpoint/source/postgresql.md
+              - name: S3
+                href: operations/endpoint/source/s3.md
               - name: '{{ yds-full-name }}'
                 href: operations/endpoint/source/data-streams.md
               - name: '{{ ydb-full-name }}'
@@ -65,18 +71,36 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: Transferring a database to {{ mch-full-name }}
+        href: tutorials/managed-clickhouse.md
+      - name: Migrating databases to {{ mgp-full-name }}
+        href: tutorials/managed-greenplum.md
       - name: Migrating databases to {{ mmg-full-name }}
         href: tutorials/managed-mongodb.md
+      - name: Delivering data from {{ mmy-full-name }} to {{ mkf-full-name }}
+        href: tutorials/cdc-mmy.md
       - name: Migrating databases to {{ mmy-full-name }}
         href: tutorials/managed-mysql.md
       - name: Migrating databases from {{ mmy-full-name }} to {{ MY }}
         href: tutorials/managed-mysql-to-mysql.md
+      - name: >-
+          Migrating databases from {{ mmy-full-name }} to {{
+          objstorage-full-name }}
+        href: tutorials/mmy-objs-migration.md
       - name: Migrating databases to {{ mpg-full-name }}
         href: tutorials/managed-postgresql.md
       - name: Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }}
         href: tutorials/cdc-mpg.md
-      - name: Migrating data from {{ PG }} to {{ CH }}
+      - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
         href: tutorials/rdbms-to-clickhouse.md
+      - name: Delivering data from {{ mkf-full-name }} to {{ ydb-full-name }}
+        href: tutorials/mkf-to-ydb.md
+      - name: Migrating databases from {{ GP }} to {{ CH }}
+        href: tutorials/greenplum-to-clickhouse.md
+      - name: Migrating databases from {{ mmy-full-name }} to {{ ydb-full-name }}
+        href: tutorials/managed-mysql-to-ydb.md
+      - name: Delivering data from {{ mkf-full-name }} to {{ mch-full-name }}
+        href: tutorials/mkf-to-mch.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -89,8 +113,12 @@ items:
         href: concepts/use-cases.md
       - name: Transfer lifecycle
         href: concepts/transfer-lifecycle.md
+      - name: Operations on transfers
+        href: concepts/operations.md
       - name: Change data capture
         href: concepts/cdc.md
+      - name: Sharded copy
+        href: concepts/sharded.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Troubleshooting

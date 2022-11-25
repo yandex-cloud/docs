@@ -43,4 +43,4 @@ REGEXP_MATCH("RU 912873","\w\s\d") = TRUE
 
 #### Data source support {#data-source-support}
 
-`Materialized Dataset`, `ClickHouse 19.13`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.
+`ClickHouse 19.13`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

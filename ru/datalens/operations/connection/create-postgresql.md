@@ -1,18 +1,26 @@
-# Создание подключения к PostgreSQL
+# Создание подключения к {{ PG }}
+
 
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
 
-## Подключение к PostgreSQL {#postgresql-connection}
+
+## Подключение к {{ PG }} {#postgresql-connection}
 
 Чтобы создать подключение к {{ PG }}:
+
 
 
 1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
 
 
 1. Нажмите кнопку **Создать подключение**.
+
+
+
 1. Выберите подключение **PostgreSQL**.
 1. Задайте **Имя подключения**. Имя может быть произвольным.
+
+
 1. Выберите тип подключения:
 
    {% list tabs %}
@@ -56,6 +64,8 @@
       - **Уровень доступа SQL запросов**. Позволяет использовать произвольный SQL-запрос для [формирования датасета](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
    {% endlist %}
+
+
 
 1. Нажмите **Сохранить**. Подключение появится в списке.
 

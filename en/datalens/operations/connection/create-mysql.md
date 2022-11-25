@@ -1,6 +1,9 @@
 # Creating a MySQL connection
 
+
+
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
+
 
 ## Connecting to MySQL {#mysql-connection}
 

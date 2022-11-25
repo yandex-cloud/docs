@@ -1,4 +1,4 @@
-# Creating a trigger
+# Creating a trigger in {{ tracker-name }}
 
 {% note warning %}
 

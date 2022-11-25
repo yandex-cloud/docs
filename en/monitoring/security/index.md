@@ -3,7 +3,7 @@ title: Access management in {{ monitoring-full-name }}
 description: "Access management in the monitoring service, which allows you to collect and store metrics, as well as display them in the form of graphs on dashboards — {{ monitoring-full-name }}. To allow access to the resources of the Yandex Monitoring service, assign the user the necessary roles from the list."
 ---
 
-# Access management
+# Access management in {{ monitoring-name }}
 
 {{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. If a user doesn't have any roles assigned, almost all operations are forbidden.
 

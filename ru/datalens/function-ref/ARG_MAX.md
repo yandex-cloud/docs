@@ -51,4 +51,4 @@ ARG_MAX([Sales], [Profit])
 
 #### Поддержка источников данных {#data-source-support}
 
-`Материализованный датасет`, `ClickHouse 19.13`, `YDB`.
+`ClickHouse 19.13`, `YDB`.

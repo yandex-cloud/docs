@@ -7,19 +7,26 @@
 
 {% endnote %}
 
+
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
 
-## Подключение к ClickHouse {#clickhouse-connection}
+
+## Подключение к {{ CH }} {#clickhouse-connection}
 
 Чтобы создать подключение к {{ CH }}:
+
 
 
 1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
 
 
 1. Нажмите кнопку **Создать подключение**.
+
+
+
 1. Выберите подключение **ClickHouse**.
 1. Задайте **Имя подключения**. Имя может быть произвольным.
+
 
 
 1. Выберите тип подключения:
@@ -61,13 +68,15 @@
    {% endlist %}
 
 
+
+
 1. Нажмите **Сохранить**. Подключение появится в списке.
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}
 
-## Особенности работы с подключением к ClickHouse {#ch-connection-specify}
+## Особенности работы с подключением к {{ CH }} {#ch-connection-specify}
 
-Вы можете создавать датасеты поверх представлений (VIEW) в {{ CH }}, содержащих секцию JOIN. Для этого представление должно быть создано с включенной опцией `join_use_nulls`. Рекомендуется выставлять настройку `join_use_nulls = 1` в секции `SETTINGS`:
+Вы можете создавать датасеты поверх представлений (`VIEW`) в {{ CH }}, содержащих секцию `JOIN`. Для этого представление должно быть создано с включенной опцией `join_use_nulls`. Рекомендуется выставлять настройку `join_use_nulls = 1` в секции `SETTINGS`:
 
 ```sql
 CREATE VIEW ... (

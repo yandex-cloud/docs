@@ -13,8 +13,8 @@
 - [{#T}](connection/create-greenplum.md)
 - [{#T}](connection/create-metrica-api.md)
 - [{#T}](connection/create-appmetrica.md)
- - [{#T}](connection/create-cloud-billing.md) 
- - [{#T}](connection/manage-access.md) 
+- [{#T}](connection/create-cloud-billing.md)
+- [{#T}](connection/manage-access.md)
 
 ## Работа с датасетом {#working-with-datasets}
 
@@ -25,8 +25,8 @@
 - [{#T}](dataset/create-filter.md)
 - [{#T}](dataset/update-field.md)
 - [{#T}](dataset/add-data.md)
- - [{#T}](dataset/materialize.md) 
- - [{#T}](dataset/manage-access.md) 
+ - [{#T}](dataset/materialize.md)
+ - [{#T}](dataset/manage-access.md)
 - [{#T}](dataset/manage-row-level-security.md)
 - [{#T}](dataset/add-parameter-dataset.md)
 
@@ -37,7 +37,7 @@
 - [{#T}](chart/create-multidataset-chart.md)
 - [{#T}](chart/add-hierarchy.md)
 - [{#T}](chart/config-chart-navigator.md)
- - [{#T}](chart/publish.md) 
+- [{#T}](chart/publish.md)
 - [{#T}](chart/manage-access.md)
 - [{#T}](chart/add-guid.md)
 - [{#T}](chart/add-parameter-chart.md)
@@ -50,11 +50,13 @@
 - [{#T}](dashboard/add-selector.md)
 - [{#T}](dashboard/create-alias.md)
 - [{#T}](dashboard/edit-alias.md)
- - [{#T}](dashboard/publish.md) 
+- [{#T}](dashboard/publish.md)
 - [{#T}](dashboard/manage-access.md)
 - [{#T}](dashboard/auto-update.md)
+
 
 
 ## Работа с организациями {#working-with-organizations}
 
 - [{#T}](organizations/change-organization.md)
+

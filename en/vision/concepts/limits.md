@@ -1,15 +1,14 @@
 ---
-title: Quotas and limits in Yandex Vision
-description: 'Yandex Vision has limits and quotas on the number of requests, text recognition, face detection, image classifications per second. You will learn more about the limitations of the service in this article.'
+title: "Quotas and limits in {{ vision-full-name }}"
+description: "{{ vision-full-name }} has limits and quotas on the number of requests, text recognition, face detection, and image classification attempts per second. For more information about the service restrictions, read this article."
 
 editable: false
 ---
 
 # Quotas and limits in {{ vision-name }}
 
-In the {{ vision-full-name }} service, the following limitations apply:
+{{ vision-full-name }} has the following limits:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
 {% include [vision-limits](../../_includes/vision-limits.md) %}
-

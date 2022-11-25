@@ -1,4 +1,4 @@
-# Monitoring and logs
+# Monitoring and logs in {{ mmy-name }}
 
 #### How do I view cluster and host charts? {#charts}
 

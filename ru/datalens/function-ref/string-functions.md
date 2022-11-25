@@ -1,5 +1,5 @@
 ---
-title: Строковые функции
+title: "Строковые функции"
 editable: false
 sourcePath: ru/_api-ref/datalens/function-ref/string-functions.md
 ---

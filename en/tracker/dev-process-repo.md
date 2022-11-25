@@ -1,6 +1,6 @@
 
 
-# Connecting repositories
+# Connecting repositories to {{ tracker-name }}
 
 If you're using cloud-based services such as GitHub, GitLab, or Bitbucket, you can connect your repositories to {{ tracker-name }} and then link commits to issues. This will help you track any code changes related to a particular issue.
 

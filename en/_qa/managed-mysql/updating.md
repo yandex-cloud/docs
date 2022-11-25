@@ -1,4 +1,4 @@
-# Updating clusters
+# Updating a {{ MY }} cluster
 
 
 #### How do I reduce the size of a disk? {#reduce-size}

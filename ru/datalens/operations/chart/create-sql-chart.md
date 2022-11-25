@@ -1,6 +1,7 @@
 # Создание QL-чарта
 
 
+
 Создать QL-чарт можно одним из способов:
 
 {% list tabs %}
@@ -30,6 +31,8 @@
 После выполнения запроса появится визуализация на основе ваших данных.
 
 {% include [datalens-sql-ch-example](../../../_includes/datalens/datalens-sql-ch-example.md) %}
+
+
 
 
 ## Добавление параметров селектора {#selector-parameters}

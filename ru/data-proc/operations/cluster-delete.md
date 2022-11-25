@@ -19,24 +19,24 @@ description: "Вы можете удалить кластер {{ dataproc-name }
 
 - Консоль управления
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
-    1. Нажмите на значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **Удалить**.
-    1. (Опционально) Укажите таймаут [декомиссии](../concepts/decommission.md).
-    1. Подтвердите удаление кластера.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
+  1. Нажмите на значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **Удалить**.
+  1. (Опционально) Укажите таймаут [декомиссии](../concepts/decommission.md).
+  1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы удалить кластер, выполните команду:
+  Чтобы удалить кластер, выполните команду:
 
-    ```bash
-    {{ yc-dp }} cluster delete <идентификатор или имя кластера>
-    ```
+  ```bash
+  {{ yc-dp }} cluster delete <идентификатор или имя кластера>
+  ```
 
-    Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - {{ TF }}
 

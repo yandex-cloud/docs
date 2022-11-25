@@ -1,4 +1,4 @@
-# Monitoring the state of clusters and hosts
+# Monitoring the state of {{ KF }} clusters and hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 

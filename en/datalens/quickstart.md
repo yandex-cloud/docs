@@ -6,8 +6,6 @@ In this tutorial, you'll create your first [dataset](concepts/dataset/index.md),
 
 
 
-
-
 {% include [before-you-begin](../_tutorials/includes/before-you-begin-datalens.md) %}
 
 

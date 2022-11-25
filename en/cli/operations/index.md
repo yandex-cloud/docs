@@ -3,7 +3,7 @@ title: How to work with Command Line Interface (CLI). Instructions
 description: "From the article you will learn how to work with the command line interface (CLI) in Yandex.Cloud. We will tell you how to authenticate on behalf of a user or service account, how to manage a profile (create, delete, activate, change parameters)."
 ---
 
-# All instructions
+# All CLI instructions
 
 - [{#T}](install-cli.md)
 

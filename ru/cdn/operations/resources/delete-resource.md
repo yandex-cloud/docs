@@ -3,94 +3,60 @@
 {% list tabs %}
 
 - Консоль управления
-  
+
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
-  
   1. Выберите сервис **{{ cdn-name }}**.
-  
   1. Нажмите на имя необходимого ресурса.
-  
-  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/basket.svg) **Удалить** и подтвердите удаление.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/basket.svg) **Удалить** и в открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI
-  
+
   {% include [include](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
+
   1. Посмотрите описание команды CLI для удаления ресурсов:
-  
-      ```bash
-      yc cdn resource delete --help
-      ```
+
+     ```bash
+     yc cdn resource delete --help
+     ```
 
   1. Получите список всех ресурсов в каталоге по умолчанию:
 
-      ```bash
-      yc cdn resource list --format yaml
-      ```
-  
-      Результат:
+     ```bash
+     yc cdn resource list --format yaml
+     ```
 
-      ```bash
-      id: someidkfjqjfl325fw
-      folder_id: somefolder7p3l5eobbd
-      cname: testexample.com
-      created_at: "2022-01-19T09:23:57.921365Z"
-      updated_at: "2022-01-19T10:55:30.305141Z"
-      active: true
-      options:
-        edge_cache_settings:
-          enabled: true
-          default value: "345600"
-        cache_http_headers:
-          enabled: true
-          value:
-          - content-type
-          - content-length
-          - connection
-          - server
-          - date
-          - test
-        stale:
-          enabled: true
-          value:
-          - error
-          - updating
-        allowed_http_methods:
-          value:
-          - GET
-          - POST
-          - HEAD
-          - OPTIONS
-      origin_group_id: "89783"
-      origin_group_name: My origins group
-      origin_protocol: HTTP
-      ssl_certificate:
-        type: DONT_USE
-        status: READY
-      ```
-  
+     Результат:
+
+     ```bash
+     id: someidkfjqjfl325fw
+     folder_id: somefolder7p3l5eobbd
+     cname: testexample.com
+     ...
+     ssl_certificate:
+       type: DONT_USE
+       status: READY
+     ```
+
   1. Удалите ресурс:
 
-      ```bash
-      yc cdn resource delete <идентификатор ресурса>
-      ```
-      
-      Подробнее о команде `yc cdn resource delete`  см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/delete.md).
-  
+     ```bash
+     yc cdn resource delete <идентификатор ресурса>
+     ```
+
+     Подробнее о команде `yc cdn resource delete`  см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/delete.md).
   1. Убедитесь, что удаление прошло успешно. Для этого снова посмотрите список ресурсов в каталоге:
 
-      ```bash
-      yc cdn resource list
-      ```
+     ```bash
+     yc cdn resource list
+     ```
 
 - {{ TF }}
 
   Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Чтобы удалить CDN-ресурс, созданный с помощью {{ TF }}:
-
   1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием ресурса.
 
      {% cut "Пример описания CDN-ресурса в конфигурации {{ TF }}" %}
@@ -114,35 +80,37 @@
      {% endcut %}
 
   1. В командной строке перейдите в папку, где расположен конфигурационный файл {{ TF }}.
-
   1. Проверьте конфигурацию командой:
+
      ```bash
      terraform validate
      ```
-     
+
      Если конфигурация является корректной, появится сообщение:
-     
-     ```
+
+     ```text
      Success! The configuration is valid.
      ```
 
   1. Выполните команду:
+
      ```bash
      terraform plan
      ```
-  
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
   1. Примените изменения конфигурации:
+
      ```bash
      terraform apply
      ```
-     
+
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
      Проверить удаление CDN-ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
-     ```
+     ```bash
      yc cdn resource list
      ```
+
 {% endlist %}

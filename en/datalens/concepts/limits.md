@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Quotas and limits
+# Quotas and limits in {{ datalens-name }}
 
 In {{ yandex-cloud }}, the following limits apply to services:
 

@@ -1,4 +1,4 @@
-# Mail
+# Create issues from mail
 
 You can use {{ tracker-name }} to [create issues from emails sent to the queue mailbox](../user/create-ticket-by-mail.md) or [communicate with external users](../user/comments.md#send-comment) from the issue page. This lets you [register user requests sent to the support team](../support-process-send-mail.md).
 

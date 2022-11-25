@@ -19,7 +19,7 @@
     ```
 
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт для работы с API {{ speechkit-short-name }}.
-1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль `{{ roles-editor }}` или выше на каталог, в котором он был создан.
+1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль `{{ roles-speechkit-tts }}` или выше на каталог, в котором он был создан.
 1. [Получите](../../../iam/operations/iam-token/create-for-sa.md) IAM-токен для сервисного аккаунта.
 1. Создайте клиентское приложение:
 
@@ -88,12 +88,13 @@
     
               # Установить соединение с сервером.
               cred = grpc.ssl_channel_credentials()
-              channel = grpc.secure_channel('tts.{{ api-host }}:443', cred)
+              channel = grpc.secure_channel('{{ api-host-sk-tts }}', cred)
               stub = tts_service_pb2_grpc.SynthesizerStub(channel)
 
               # Отправить данные для синтеза.
               it = stub.UtteranceSynthesis(request, metadata=(
                   ('authorization', f'Bearer {iam_token}'),
+                  ('x-node-alias', '{{ speechkit-tts-alias }}')
               ))
 
               # Собрать аудиозапись по чанкам.
@@ -119,7 +120,7 @@
               with open(args.output, 'wb') as fp:
                   audio.export(fp, format='wav')
           ```
-   
+
       1. Выполните созданный в предыдущем пункте файл:
 
           ```bash

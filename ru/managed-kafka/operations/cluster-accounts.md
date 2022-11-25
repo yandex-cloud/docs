@@ -1,13 +1,12 @@
 # Управление пользователями Apache Kafka®
 
 Пользователи в {{ KF }}:
-
 * Разграничивают права доступа [производителей и потребителей](../concepts/producers-consumers.md) данных.
-    Производитель или потребитель получает доступ только к тем [топикам](../concepts/topics.md), которые разрешены для его пользователя. Вы можете использовать одного и того же пользователя для нескольких производителей или потребителей: первые получат права на запись в определенные топики, а вторые — на чтение.
-* [Управляют топиками](./cluster-topics.md#admin-api), если при [создании кластера](./cluster-create.md) была включена настройка **Управление топиками через API**. Подробнее см. в разделе [{#T}](../concepts/topics.md).
+
+  Производитель или потребитель получает доступ только к тем [топикам](../concepts/topics.md), которые разрешены для его пользователя. Вы можете использовать одного и того же пользователя для нескольких производителей или потребителей: первые получат права на запись в определенные топики, а вторые — на чтение.
+* [Управляют топиками](cluster-topics.md#admin-api), если при [создании кластера](cluster-create.md) была включена настройка **Управление топиками через API**. Подробнее см. в разделе [{#T}](../concepts/topics.md).
 
 После [создания кластера](cluster-create.md) {{ KF }} вы можете:
-
 * [{#T}](#create-user).
 * [{#T}](#update-password).
 * [{#T}](#update-account).
@@ -29,14 +28,13 @@
 - Консоль управления
 
   Чтобы создать пользователя для производителя или потребителя в кластере:
-  
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
   1. В списке сервисов выберите **{{ mkf-name }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **Пользователи**.
   1. Нажмите кнопку **Добавить**.
   1. Введите имя пользователя и пароль.
 
-      {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
+     {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
 
   1. [Выдайте права доступа](#grant-permission) к нужным топикам.
   1. Нажмите кнопку **Добавить**.
@@ -48,74 +46,71 @@
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   Чтобы создать пользователя:
-
   1. Посмотрите описание команды CLI для создания пользователей:
 
-      ```bash
-      {{ yc-mdb-kf }} user create --help
-      ```
+     ```bash
+     {{ yc-mdb-kf }} user create --help
+     ```
 
   1. Создайте пользователя и выдайте права доступа к нужным топикам:
 
-      ```bash
-      {{ yc-mdb-kf }} user create <имя пользователя> \
-          --cluster-name <имя кластера> \
-          --password <пароль длиной не менее 8 символов> \
-          --permission topic=<имя топика>,role=<роль пользователя: producer или consumer>
-      ```
+     ```bash
+     {{ yc-mdb-kf }} user create <имя пользователя> \
+       --cluster-name <имя кластера> \
+       --password <пароль длиной не менее 8 символов> \
+       --permission topic=<имя топика>,role=<роль пользователя: producer или consumer>
+     ```
 
   Чтобы создать [пользователя-администратора](../concepts/topics.md#management) для управления топиками в кластере с включенной настройкой **Управление топиками через API**:
-
   1. Посмотрите описание команды CLI для создания пользователя:
 
-      ```bash
-      {{ yc-mdb-kf }} user create --help
-      ```
+     ```bash
+     {{ yc-mdb-kf }} user create --help
+     ```
 
   1. Создайте пользователя с ролью `admin`, действующей на все (`*`) топики кластера:
 
-      ```bash
-      {{ yc-mdb-kf }} user create <имя пользователя> \
-          --cluster-name <имя кластера> \
-          --password <пароль длиной не менее 8 символов> \
-          --permission topic=*,role=admin
-      ```
+     ```bash
+     {{ yc-mdb-kf }} user create <имя пользователя> \
+       --cluster-name <имя кластера> \
+       --password <пароль длиной не менее 8 символов> \
+       --permission topic=*,role=admin
+     ```
 
   {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
 
 - {{ TF }}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  1. В описании кластера {{ mkf-name }} добавьте блок `user`:
 
-    1. В описании кластера {{ mkf-name }} добавьте блок `user`:
-
-        ```hcl
-        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
-           user {
-             name     = "<имя пользователя>"
-             password = "<пароль>"
-             ...
-           }
-           ...
+     ```hcl
+     resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+        user {
+          name     = "<имя пользователя>"
+          password = "<пароль>"
+          ...
         }
-        ```
+        ...
+     }
+     ```
 
-        {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
+     {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
 
-    1. [Выдайте права доступа](#grant-permission) к нужным топикам.
-    1. Проверьте корректность настроек.
+  1. [Выдайте права доступа](#grant-permission) к нужным топикам.
+  1. Проверьте корректность настроек.
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Подтвердите изменение ресурсов.
+  1. Подтвердите изменение ресурсов.
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
 - API
@@ -130,8 +125,7 @@
       * Права доступа к топику в параметре `role`: `ACCESS_ROLE_PRODUCER` для производителя либо `ACCESS_ROLE_CONSUMER` для потребителя.
 
   Чтобы создать [пользователя-администратора](../concepts/topics.md#management) для управления топиками в кластере с включенной настройкой **Управление топиками через API**, при создании пользователя передайте в параметре `userSpec` блок `permission` со следующими значениями:
-
-  * `topicName`: `*`;
+  * `topicName`: `*`.
   * `role`: `ACCESS_ROLE_ADMIN`.
 
   {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
@@ -160,8 +154,8 @@
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   Чтобы изменить пароль пользователя, выполните следующую команду:
-  
-  ```
+
+  ```bash
   {{ yc-mdb-kf }} user update <имя пользователя> \
     --cluster-name <имя кластера> \
     --password <новый пароль>
@@ -171,48 +165,46 @@
 
 - {{ TF }}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  1. Найдите в описании кластера {{ mkf-name }} блок `user` для нужного пользователя.
+  1. Измените значение поля `password`:
 
-    1. Найдите в описании кластера {{ mkf-name }}  блок `user` для нужного пользователя.
-    1. Измените значение поля `password`:
-
-        ```hcl
-        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
-           user {
-             ...
-             password = "<пароль>"
-           }
-           ...
+     ```hcl
+     resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+        user {
+          ...
+          password = "<пароль>"
         }
-        ```
+        ...
+     }
+     ```
 
-        {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
+     {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
 
-    1. Проверьте корректность настроек.
+  1. Проверьте корректность настроек.
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Подтвердите изменение ресурсов.
+  1. Подтвердите изменение ресурсов.
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
 - API
 
   Воспользуйтесь методом API [update](../api-ref/User/update.md) и передайте в запросе:
-
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя пользователя в параметре `userName`. Чтобы узнать имя, [получите список пользователей в кластере](#list-accounts).
   * Название настройки `password` в параметре `updateMask`. Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки пользователя, которые не были явно указаны в запросе.
   * Новый пароль пользователя в параметре `password`.
 
-      {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
+    {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -242,28 +234,26 @@
 
 - {{ TF }}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  1. В описании кластера {{ mkf-name }} внесите изменения в блок `permission` в блоке `user`, чтобы [выдать](#grant-permission) или [отозвать](#revoke-permission) права на доступ к топикам.
+  1. Проверьте корректность настроек.
 
-    1. В описании кластера {{ mkf-name }} внесите изменения в блок `permission` в блоке `user`, чтобы [выдать](#grant-permission) или [отозвать](#revoke-permission) права на доступ к топикам.
-    1. Проверьте корректность настроек.
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  1. Подтвердите изменение ресурсов.
 
-    1. Подтвердите изменение ресурсов.
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
 - API
 
   Воспользуйтесь методом API [update](../api-ref/User/update.md) и передайте в запросе:
-
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя пользователя в параметре `userName`. Чтобы узнать имя, [получите список пользователей в кластере](#list-accounts).
   * Список настроек, которые необходимо изменить, в параметре `updateMask` (одной строкой через запятую). Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки пользователя, которые не были явно указаны в запросе.
@@ -295,16 +285,15 @@
 
         {% note info %}
 
-         Если при создании кластера была включена настройка **Управление топиками через API**, название топика следует вводить вручную. Чтобы разрешить доступ к любым топикам, укажите в поле **Топик** значение `*`.
+        Если при создании кластера была включена настройка **Управление топиками через API**, название топика следует вводить вручную. Чтобы разрешить доступ к любым топикам, укажите в поле **Топик** значение `*`.
 
-         {% endnote %}
+        {% endnote %}
 
   1. Нажмите на значок ![image](../../_assets/plus.svg) в столбце **Роли** для нужного топика и выберите роль:
      * `ACCESS_ROLE_CONSUMER`: потребителям, которые используют этого пользователя, будет разрешен доступ к топику.
      * `ACCESS_ROLE_PRODUCER`: производителям, которые используют этого пользователя, будет разрешен доступ к топику.
 
      Вы можете выбрать роли `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER` одновременно — тогда пользователь будет подходить и производителям, и потребителям.
-
   1. Чтобы выдать права на другие топики — повторите процедуру.
   1. (опционально) Если права были назначены топику по ошибке — [отзовите их](#revoke-permission).
 
@@ -315,7 +304,6 @@
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   Чтобы выдать права пользователю:
-  
   1. Получите список топиков кластера:
 
      ```bash
@@ -331,11 +319,10 @@
      ```
 
      Доступны следующие параметры `--permission`:
-
      * `topic` — имя топика, к которому нужно выдать права доступа.
      * `role` — роль пользователя: `producer`, `consumer` или `admin`.
 
-         Роль `admin` доступна только в кластере с включенным [управлением топиками через Admin API](../concepts/topics.md#management), если выбраны все топики (`topic=*`).
+       Роль `admin` доступна только в кластере с включенным [управлением топиками через Admin API](../concepts/topics.md#management), если выбраны все топики (`topic=*`).
 
      При изменении прав пользователя, существующие права удаляются и заменяются новыми. То есть в команде всегда нужно передавать полный список прав, которые должны быть у пользователя.
 
@@ -350,39 +337,37 @@
 
 - {{ TF }}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  1. В описании кластера {{ mkf-name }} добавьте блок `permission` в блок `user`:
 
-    1. В описании кластера {{ mkf-name }} добавьте блок `permission` в блок `user`:
-
-        ```hcl
-        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
-           user {
-             name     = "<имя пользователя>"
-             password = "<пароль>"
-             permission {
-               topic_name = "<имя топика>"
-               role       = "<роль пользователя: ACCESS_ROLE_CONSUMER, ACCESS_ROLE_PRODUCER или ACCESS_ROLE_ADMIN>"
-             }
-           }
-           ...
+     ```hcl
+     resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+        user {
+          name     = "<имя пользователя>"
+          password = "<пароль>"
+          permission {
+            topic_name = "<имя топика>"
+            role       = "<роль пользователя: ACCESS_ROLE_CONSUMER, ACCESS_ROLE_PRODUCER или ACCESS_ROLE_ADMIN>"
+          }
         }
-        ```
+        ...
+     }
+     ```
 
-        Роль `ACCESS_ROLE_ADMIN` доступна только в кластере с включенным [управлением топиками через Admin API](../concepts/topics.md) и если выбраны все топики (`topic_name = "*"`).
+     Роль `ACCESS_ROLE_ADMIN` доступна только в кластере с включенным [управлением топиками через Admin API](../concepts/topics.md) и если выбраны все топики (`topic_name = "*"`).
+  1. Проверьте корректность настроек.
 
-    1. Проверьте корректность настроек.
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  1. Подтвердите изменение ресурсов.
 
-    1. Подтвердите изменение ресурсов.
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
 - API
@@ -418,35 +403,34 @@
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   Чтобы отозвать права доступа к нужным топикам, передайте обновленный список параметров `--permission`:
-  
-  ```
+
+  ```bash
   {{ yc-mdb-kf }} user update <имя пользователя> \
     --cluster-name <имя кластера> \
     --permission topic=<имя топика>,role=<роль пользователя: producer, consumer или admin>
   ```
-  
+
   При изменении прав пользователя, существующие права удаляются и заменяются новыми. То есть в команде всегда нужно передавать полный список прав, которые должны быть у пользователя.
-  
+
   Флаг `--permission` должен содержать хотя бы одну пару топик/роль. Чтобы отозвать у пользователя все имеющиеся права доступа, воспользуйтесь консолью или удалите пользователя.
 
 - {{ TF }}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  1. В описании кластера {{ mkf-name }} измените или удалите блок `permission` в блоке `user`.
+  1. Проверьте корректность настроек.
 
-    1. В описании кластера {{ mkf-name }} измените или удалите блок `permission` в блоке `user`.
-    1. Проверьте корректность настроек.
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  1. Подтвердите изменение ресурсов.
 
-    1. Подтвердите изменение ресурсов.
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
 - API
@@ -471,7 +455,7 @@
   1. В списке сервисов выберите **{{ mkf-name }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **Пользователи**.
   1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) для нужного пользователя и выберите пункт **Удалить**.
-  1. Подтвердите удаление и нажмите кнопку **Удалить**.
+  1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI
 
@@ -480,29 +464,28 @@
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   Чтобы удалить пользователя, выполните команду:
-  
-  ```
+
+  ```bash
   {{ yc-mdb-kf }} user delete <имя пользователя> --cluster-name <имя кластера>
   ```
 
 - {{ TF }}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  1. Удалите из описания кластера {{ mkf-name }} блок `user` с описанием нужного пользователя.
+  1. Проверьте корректность настроек.
 
-    1. Удалите из описания кластера {{ mkf-name }} блок `user` с описанием нужного пользователя.
-    1. Проверьте корректность настроек.
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  1. Подтвердите изменение ресурсов.
 
-    1. Подтвердите изменение ресурсов.
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
 - API
@@ -531,16 +514,15 @@
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   Чтобы получить список пользователей:
-  
   1. Чтобы получить список пользователей, выполните команду:
 
-     ```
+     ```bash
      {{ yc-mdb-kf }} user list --cluster-name <имя кластера>
      ```
-     
+
   1. Чтобы получить подробную информацию по конкретному пользователю, выполните команду:
-  
-     ```
+
+     ```bash
      {{ yc-mdb-kf }} user get <имя пользователя> --cluster-name <имя кластера>
      ```
 

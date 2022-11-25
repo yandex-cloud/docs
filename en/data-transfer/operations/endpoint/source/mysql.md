@@ -29,16 +29,18 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    Example configuration file structure:
 
+   
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
      name = "<endpoint name>"
      settings {
        mysql_source {
+         security_groups = [ "list of security group IDs" ]
          connection {
            mdb_cluster_id = "<{{ mmy-name }} cluster ID>"
          }
-         database = "<name of database to transfer>"
-         user     = "<username to connect>"
+         database = "<name of database being transferred>"
+         user     = "<username for connection>"
          password {
            raw = "<user password>"
          }
@@ -47,6 +49,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
      }
    }
    ```
+
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
@@ -58,7 +61,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
 ## Custom installation {#on-premise}
 
-Connecting to the database with an explicitly specified network address and port.
+For OnPremise, all fields are filled in manually.
 
 {% list tabs %}
 
@@ -80,19 +83,21 @@ Connecting to the database with an explicitly specified network address and port
 
    Example configuration file structure:
 
+   
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
      name = "<endpoint name>"
      settings {
        mysql_source {
+         security_groups = [ "list of security group IDs" ]
          connection {
            on_premise {
              hosts = ["<host list>"]
              port  = <connection port>
            }
          }
-         database = "<name of database to transfer>"
-         user     = "<username to connect>"
+         database = "<name of database being transferred>"
+         user     = "<username for connection>"
          password {
            raw = "<user password>"
          }
@@ -101,6 +106,7 @@ Connecting to the database with an explicitly specified network address and port
      }
    }
    ```
+
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
@@ -181,3 +187,7 @@ During a transfer, the database schema is transferred from the source to the tar
    This step is performed at the end of the transfer operation when it is deactivated. If the transfer keeps running in replication mode, the final stage of the transfer will be performed only when replication stops. At this stage, you can enable the migration of views and stored procedures, stored functions, and triggers.
 
    At the final stage, it is assumed that when the transfer is deactivated, there is no writing load on the source. You can ensure this by switching to <q>read-only</q> mode. At this stage, the database schema on the target is brought to a state where it will be consistent with the schema on the source.
+
+## Known limitations {#known-limitations}
+
+If you are setting up a transfer from a {{ MY }} cluster, use the cluster master server. During its operation, the transfer creates service tables in the source database. Therefore, you can't use a {{ MY }} replica as a source, because it is read-only.

@@ -1,4 +1,4 @@
-# Granting permissions
+# Granting permissions in {{ datalens-name }}
 
 Only a user with `Administration` access privileges can assign access rights to an object or folder: he or she can do so directly or by confirming a request. By default, objects inherit the access rights of the parent folder.
 

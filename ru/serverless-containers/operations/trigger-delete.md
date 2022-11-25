@@ -49,4 +49,8 @@
     status: PAUSED
     ```
 
+- API
+
+  Удалить триггер можно с помощью метода API [delete](../triggers/api-ref/Trigger/delete.md).
+
 {% endlist %}

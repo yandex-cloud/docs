@@ -153,7 +153,6 @@ CONCAT(
       ELSE "Ordinary year"
   END
   ```
-
   ```
   IF
       [City] = "Moscow"
@@ -163,6 +162,7 @@ CONCAT(
       ELSE "Other city"
   END
   ```
+
 
 Полное описание логической функции [IF](../../function-ref/CASE.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Работа с AWS SDK. Обзор
+title: "Работа с AWS SDK. Обзор"
 description: "В этом разделе описано, как с помощью AWS SDK написать простые программы, которые выполняют некоторые операции c YDB. Примеры приведены для нескольких языков программирования."
 sourcePath: overlay/quickstart/document-api/aws-sdk/index.md
 ---

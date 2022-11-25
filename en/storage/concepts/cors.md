@@ -1,4 +1,4 @@
-# CORS
+# CORS in {{ objstorage-name }}
 
 {{ objstorage-full-name }} supports [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) to objects in a bucket.
 

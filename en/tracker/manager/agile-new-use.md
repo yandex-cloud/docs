@@ -1,4 +1,4 @@
-# Working with an agile board
+# Working with an agile board in {{ tracker-name }}
 
 You can add issues to your board from any of your queues. Issues are displayed on the board as cards with general issue parameters on them. A card's appearance can be [customized](agile-new-set.md).
 

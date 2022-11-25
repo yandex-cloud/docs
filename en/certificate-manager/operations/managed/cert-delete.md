@@ -1,4 +1,4 @@
-# Delete a certificate
+# Delete the Let's Encrypt<sup>®</sup> certificate
 
 To delete a certificate:
 

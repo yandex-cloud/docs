@@ -1,4 +1,4 @@
-# Encryption
+# Encryption and decryption in {{ kms-short-name }}
 
 The crypto material contained in key versions isn't available in unencrypted form outside {{ kms-short-name }}. Encryption and decryption in {{ kms-short-name }} is performed by two cryptographic operations: [encrypt](../api-ref/SymmetricCrypto/encrypt) and [decrypt](../api-ref/SymmetricCrypto/decrypt).
 

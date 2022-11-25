@@ -1,4 +1,4 @@
-# Updating clusters
+# Updating {{ CH }} clusters
 
 #### How do I add a host to a cluster? {#add-host}
 

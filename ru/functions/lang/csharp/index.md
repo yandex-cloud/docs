@@ -1,11 +1,11 @@
 ---
-title: Разработка на CSharp в {{ sf-full-name }}. Обзор
+title: "Разработка на CSharp в {{ sf-full-name }}. Обзор"
 description: "С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на C# (CSharp), для платформы .NET Core. Сервис предоставляет среду выполнения .NET Core 3.1.417 с версией языка С# 8.0 и операционной системой Ubuntu 18.04 LTS."
 ---
 
 # Разработка на C#. Обзор
 
-С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на [C#](https://docs.microsoft.com/ru-ru/dotnet/csharp/), для платформы [.NET Core](https://docs.microsoft.com/ru-ru/dotnet/core/about). Сервис предоставляет [среду выполнения](../../concepts/runtime/index.md) .NET Core 3.1.417 с версией языка С# 8.0 и операционной системой Ubuntu 18.04 LTS.
+С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на [C#]({{ ms.docs }}/dotnet/csharp/), для платформы [.NET Core]({{ ms.docs }}/dotnet/core/about). Сервис предоставляет [среду выполнения](../../concepts/runtime/index.md) .NET Core 3.1.417 с версией языка С# 8.0 и операционной системой Ubuntu 18.04 LTS.
 
 В среду выполнения можно подключить [SDK-библиотеку](https://github.com/yandex-cloud/dotnet-sdk) для работы с API {{ yandex-cloud }}. Подробнее о способах использования SDK читайте в разделе [Использование SDK](sdk.md).
 

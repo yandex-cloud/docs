@@ -1,5 +1,5 @@
 ---
-title: Квоты и лимиты в {{ compute-full-name }}
+title: "Квоты и лимиты в {{ compute-full-name }}"
 description: "В сервисе {{ compute-name }} действуют лимиты и квоты на виртуальные машины, HDD и SSD диски. Более подробно об ограничениях в сервисе вы узнаете из данной статьи."
 
 editable: false

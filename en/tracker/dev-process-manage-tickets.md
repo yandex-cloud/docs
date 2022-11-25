@@ -1,4 +1,4 @@
-# Structuring issues
+# Structuring issues in {{ tracker-name }}
 
 There are several ways to structure issues in {{ tracker-name }}. You can apply them individually or use several at the same time.
 

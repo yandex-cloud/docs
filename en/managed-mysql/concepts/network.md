@@ -1,4 +1,4 @@
-# DB network and clusters
+# Network and clusters in {{ mmy-name }}
 
 
 When creating a cluster, you can:

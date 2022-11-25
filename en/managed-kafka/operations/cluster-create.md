@@ -1,4 +1,4 @@
-# Creating clusters
+# Creating {{ KF }} clusters
 
 A cluster in {{ mkf-name }} is one or more broker hosts where topics and their partitions are located. Producers and consumers can work with these topics by connecting to cluster hosts.
 

@@ -1,4 +1,13 @@
-В дополнение к стартовому гранту новым клиентам {{ yandex-cloud }}, зарегистрировавшим или активировавшим платежный аккаунт с 23 ноября 2022 года по 10 января 2023 года, предоставляется грант на сервисы управляемых баз данных: {{ mch-full-name }}, {{ dataproc-full-name }}, {{ mmy-full-name }}, {{ mrd-full-name }}, {{ mpg-full-name }}, {{ mgp-full-name }}, {{ mkf-full-name }}, и {{ ydb-full-name }}.  
+В дополнение к стартовому гранту новым клиентам {{ yandex-cloud }} — юридическим лицам, зарегистрировавшим или активировавшим платежный аккаунт с 23 ноября 2022 года по 10 января 2023 года, предоставляется грант на сервисы управляемых баз данных: 
+
+* [{{ mkf-full-name }}](../../managed-kafka)
+* [{{ dataproc-full-name }}](../../data-proc)
+* [{{ mch-full-name }}](../../managed-clickhouse)
+* [{{ mgp-full-name }}](../../managed-greenplum)
+* [{{ mmy-full-name }}](../../managed-mysql)
+* [{{ mpg-full-name }}](../../managed-postgresql)
+* [{{ mrd-full-name }}](../../managed-redis)
+* [{{ ydb-full-name }}](../../ydb)  
 
 Грант действует 60 дней. Размер и валюта гранта зависят от страны, в которой вы проживаете:
 

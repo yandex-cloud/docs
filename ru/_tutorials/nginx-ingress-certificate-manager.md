@@ -400,7 +400,7 @@ spec:
     *  SSL certificate verify ok.
     ```
 
-Сертификат от Let's Encrypt<sup>®</sup> должен обновляться автоматически вслед за [обновлением сертификата](https://cloud.yandex.ru/docs/certificate-manager/operations/managed/cert-update) в {{ certificate-manager-name }}.
+Сертификат от Let's Encrypt<sup>®</sup> должен обновляться автоматически вслед за [обновлением сертификата](../certificate-manager/operations/managed/cert-update.md) в {{ certificate-manager-name }}.
 
 Вы можете задать таймаут синхронизации в параметре `refreshInterval` объекта [ExternalSecret](#create-externalsecret).
 

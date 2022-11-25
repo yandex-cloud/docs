@@ -65,6 +65,10 @@
     * `--memory` — требуемая память. По умолчанию — 128 МБ.
     * `--environment` — переменные окружения в формате `key=value`. Можно указать несколько пар через запятую.
 
+- API
+
+  Добавить переменную окружения в ревизию контейнера можно с помощью метода API [deployRevision](../containers/api-ref/Container/deployRevision.md).
+
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -149,6 +153,10 @@
     1. В блоке **Настройки**, в поле **Сеть**, укажите облачную сеть, в которой будет исполняться контейнер.
     1. Нажмите кнопку **Создать ревизию**.
 
+- API
+
+  Указать облачную сеть, в которой будет исполняться контейнер, можно с помощью метода API [deployRevision](../containers/api-ref/Container/deployRevision.md).
+
 {% endlist %}
 
 ## Передать секрет {{ lockbox-name }} {#lockbox}
@@ -213,5 +221,9 @@
         * `id` — идентификатор секрета;
         * `version-id` — идентификатор версии секрета;
         * `key` — неконфиденциальный идентификатор ключа.
+
+- API
+
+  Передать секрет {{ lockbox-name }} в контейнер можно с помощью метода API [deployRevision](../containers/api-ref/Container/deployRevision.md).
 
 {% endlist %}

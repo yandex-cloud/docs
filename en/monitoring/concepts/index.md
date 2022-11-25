@@ -1,4 +1,4 @@
-# Service overview
+# {{ monitoring-name }} overview
 
 {{ monitoring-name }} lets you collect and store metrics and display them as charts on dashboards.
 
@@ -12,6 +12,6 @@ Use {{ monitoring-name }} to:
 
 ## How the service works {#how-it-works}
 
-The {{ monitoring-name }} service collects and stores metrics as [time series](https://en.wikipedia.org/wiki/Time_series). The service uses labels to identify and describe the time series characteristics. Labels indicate the resource that the metric belongs to describe the meaning of metric, and so forth. For more information, see [{#T}](data-model.md).
+The {{ monitoring-name }} service collects and stores metrics as [time series](https://en.wikipedia.org/wiki/Time_series). The service uses labels to identify and describe the time series characteristics. Labels indicate the resource that the metric belongs to, describe the meaning of metric, and so forth. For more information, see [{#T}](data-model.md).
 
 {{ monitoring-name }} displays metrics on charts. You can place a large number of interrelated charts on dashboards. For more information, see [{#T}](visualization/index.md).

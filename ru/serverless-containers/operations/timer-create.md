@@ -91,6 +91,10 @@
     status: ACTIVE
     ```
 
+- API
+
+  Создать таймер можно с помощью метода API [create](../triggers/api-ref/Trigger/create.md).
+
 {% endlist %}
 
 ## Проверить результат {#check-result}

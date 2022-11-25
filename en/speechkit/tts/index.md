@@ -12,12 +12,12 @@ _Speech synthesis_ in {{ speechkit-full-name }} lets you convert any text to spe
 
 {{ speechkit-name }} synthesis has two APIs: [API v1](request.md) (REST) and [API v3](../tts-v3/api-ref/grpc/) (gRPC).
 
-|                                                    | API v1 | API v3 |
-|----------------------------------------------------|---|---------------------------------------------|
+|  | API v1 | API v3 |
+|---------------------------------------------------|---|---|
 | Specification | REST | gRPC |
 | Selecting voice | `voice` parameter | `hint: voice` parameter |
 | Selecting language | Depends on the voice </br>`lang` parameter | Depends on the voice, not specified explicitly in the request |
-| Specifying mode | Depends on the voice  </br>`emotion` parameter | Depends on the voice </br>`hint: role` parameter |
+| Specifying mode | Depends on the voice </br>`emotion` parameter | Depends on the voice </br>`hint: role` parameter |
 | [Controlling pronunciation](#markup) | SSML </br> TTS | TTS |
 | [Pronunciation speed](#speed) | `speed` parameter | `hint: speed` parameter |
 | [Adjusting volume](#volume) | No | `loudness_normalization_type` parameter |
@@ -65,7 +65,7 @@ In [API v3](../tts-v3/api-ref/grpc/) requests, you can set the type and level of
 * [Peak normalization](https://en.wikipedia.org/wiki/Audio_normalization#Peak_normalization) `MAX_PEAK`, at which the audio signal level rises to the maximum possible digital audio value without distortion.
 * `LUFS` normalization is weighted normalization based on the [EBU R 128](https://en.wikipedia.org/wiki/EBU_R_128) standard according to which volume is normalized relative to the full digital scale.
 
-You can set the normalization type in the `loudness_normalization_type` parameter.  By default, {{ speechkit-name }} uses LUFS.
+You can set the normalization type in the `loudness_normalization_type` parameter. By default, {{ speechkit-name }} uses LUFS.
 
 The level of normalization is set in the `hint: volume` parameter. Possible values depend on the normalization type:
 * For `MAX_PEAK`, the parameter can have values in the `(0;1]` range, default value is `0.7`.

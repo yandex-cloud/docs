@@ -4,6 +4,9 @@ Type of limit | Value
 ----- | -----
 Number of registries per cloud | 10
 Number of devices per cloud | 1000
+Number of brokers per cloud | 10
+Frequency of sending messages per broker | 50 per second
+Number of clients concurrently connected to the broker | 50
 
 #### Limits {#iot-limits}
 

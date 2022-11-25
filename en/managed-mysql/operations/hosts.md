@@ -1,4 +1,4 @@
-# Managing hosts in a cluster
+# Managing hosts in a {{ MY }} cluster
 
 You can add and remove cluster hosts and manage their settings.
 

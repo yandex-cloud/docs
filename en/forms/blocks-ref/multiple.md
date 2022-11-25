@@ -1,4 +1,4 @@
-# Multiple answers
+# Block "Multiple answers"
 
 In this block, the user can select multiple responses from the options suggested. For example, they can select the services that they want to request.
 

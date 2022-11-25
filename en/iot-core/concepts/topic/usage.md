@@ -2,7 +2,7 @@
 
 You can subscribe your devices and registries to the `$<devices or registries>/<device or registry ID>/events` and `$<devices or registries>/<device or registry ID>/commands` topics.
 
-If you have devices that require a fast response to sensor readings and you may face network communication problems that cause a broken connection between your devices and the MQTT broker, subscribe your devices and registries to permanent topics like `$<devices or registries>/<device or registry ID>/state` and `$<devices or registries>/<device or registry ID>/config`. A permanent topic stores the last message sent to it and shows this message when the connection is restored (even if no devices or registries are writing data to the topic at the time of reconnection). After the connection is restored, permanent topics work like regular topics and information appears in them when a device or registry writes data to them.
+If you have devices that require a fast response to sensor readings and you may face network communication problems that cause a broken connection between your devices and the MQTT server, subscribe your devices and registries to permanent topics like `$<devices or registries>/<device or registry ID>/state` and `$<devices or registries>/<device or registry ID>/config`. A permanent topic stores the last message sent to it and shows this message when the connection is restored (even if no devices or registries are writing data to the topic at the time of reconnection). After the connection is restored, permanent topics work like regular topics and information appears in them when a device or registry writes data to them.
 
 The table below describes actions that devices and registries can perform using topics:
 
@@ -16,7 +16,7 @@ The table below describes actions that devices and registries can perform using 
 
 ## Using topic aliases {#aliases}
 
-An _alias_ is an alternate name of a [device topic](devices-topic.md) assigned by the user. Aliases can be assigned to standard topics that are already implemented in the service and topics with arbitrary subtopics.
+An _alias_ is an alternate name of a [device topic](./devices-topic.md) assigned by the user. Aliases can be assigned to standard topics that are already implemented in the service and topics with arbitrary subtopics.
 
 {% include [monitoring-topic](../../../_includes/iot-core/monitoring-topic.md) %}
 
@@ -63,7 +63,7 @@ If a filter starts with `$devices/`, it includes device topics. If it starts wit
 
 {% note info %}
 
-Subscribing to permanent topic aliases using wildcard characters is similar to subscribing to regular topics. When reconnecting to the MQTT broker, the current state of the topic is not sent to the registries or devices that are subscribed to it.
+Subscribing to permanent topic aliases using wildcard characters is similar to subscribing to regular topics. When reconnecting to the MQTT server, the current state of the topic is not sent to the registries or devices that are subscribed to it.
 
 If more than a thousand topics are included in a filter when subscribing to permanent topics using wildcard characters, data delivery for all topics is not guaranteed.
 

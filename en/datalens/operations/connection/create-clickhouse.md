@@ -7,7 +7,10 @@
 
 {% endnote %}
 
+
+
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
+
 
 ## Connecting to ClickHouse {#clickhouse-connection}
 

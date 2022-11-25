@@ -24,52 +24,31 @@
 
   1. Посмотрите описание команды CLI для редактирования группы источников:
 
-     ```
+     ```bash
      yc cdn origin-group update --help
      ```
 
   1. Получите список всех групп источников в каталоге по умолчанию:
 
-     ```
+     ```bash
      yc cdn origin-group list --format yaml
      ```
 
      Результат:
 
-     ```
+     ```bash
      - id: "90209"
        folder_id: b1g86q4m5vej8lkljme5
        name: test-group-1
-       use_next: true
-       origins:
-       - id: "561547"
-         origin_group_id: "90209"
-         source: www.example2.com
-         enabled: true
-         backup: true
-       - id: "561546"
-         origin_group_id: "90209"
-         source: www.example1.com
-         enabled: true
-     - id: "90208"
-       folder_id: b1g86q4m5vej8lkljme5
-       name: test-group
-       use_next: true
-       origins:
-       - id: "561545"
-         origin_group_id: "90208"
-         source: www.a2.com
-         enabled: true
-         backup: true
-       - id: "561544"
+     ...
          origin_group_id: "90208"
          source: www.a1.com
          enabled: true
      ```
-  
+
   1. Измените параметры группы источников, указав ее идентификатор:
 
-     ```
+     ```bash
      yc cdn origin-group update --id <идентификатор группы источников> \
        --name <новое имя группы> \
        --origin source=<IP-адрес или доменное имя нового источника>,enabled=true \
@@ -83,18 +62,11 @@
 
      Результат:
 
-     ```
+     ```bash
      id: "90209"
      folder_id: b1g86q4m5vej8lkljme5
      name: test-group-22
-     use_next: true
-     origins:
-     - id: "559307"
-       origin_group_id: "90209"
-       source: www.site2.com
-       enabled: true
-       backup: true
-     - id: "559306"
+     ...
        origin_group_id: "90209"
        source: www.site1.com
        enabled: true
@@ -117,13 +89,13 @@
   1. На панели слева выберите ![image](../../../_assets/cdn/origin-groups.svg) **Группы источников** и нажмите на имя группы, из которой хотите удалить источник.
   1. Выберите нужный источник и нажмите кнопку **Удалить** на панели внизу.
 
-      {% note info %}
+     {% note info %}
 
-      Удалить можно только резервный источник.
+     Удалить можно только резервный источник.
 
-      {% endnote %}
+     {% endnote %}
 
-  1. Подтвердите удаление.
+  1. В открывшемся окне нажмите кнопку **Удалить**.
 
 {% endlist %}
 
@@ -140,12 +112,12 @@
   1. На панели слева выберите ![image](../../../_assets/cdn/origin-groups.svg) **Группы источников** и нажмите на имя группы, из которой хотите удалить источники.
   1. Выберите нужные источники и нажмите кнопку **Удалить** на панели внизу.
 
-      {% note info %}
+     {% note info %}
 
-      Удалить можно только резервные источники.
+     Удалить можно только резервные источники.
 
-      {% endnote %}
+     {% endnote %}
 
-  1. Подтвердите удаление.
+  1. В открывшемся окне нажмите кнопку **Удалить**.
 
 {% endlist %}

@@ -1,4 +1,4 @@
-# pgcrypto
+# Using pgcrypto in {{ mpg-name }}
 
 The [pgcrypto]({{ pg-docs }}/static/pgcrypto.html) extension exposes cryptographic functions that enable database administrators to store certain data columns in an encrypted format.
 

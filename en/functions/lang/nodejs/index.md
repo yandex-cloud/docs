@@ -1,9 +1,9 @@
 ---
-title: Development on Node.js in Yandex Cloud Functions. Overview
-description: 'With the Cloud Functions service, you can run applications written in Node.js. The service provides several runtimes with different versions.'
+title: "Development on Node.js in Yandex Cloud Functions. Overview"
+description: "With the Cloud Functions service, you can run applications written in Node.js. The service provides several runtimes with different versions."
 ---
 
-# Development on Node.js. Overview
+# Developing in Node.js. Overview
 
 With {{ sf-name }}, you can run applications written in [Node.js](https://nodejs.org/en/docs/). The service provides several [runtime environments](../../concepts/runtime/index.md) with different versions:
 
@@ -21,11 +21,10 @@ Function behavior in preloaded and normal runtime environments may differ. Revie
 
 Some runtime environments have an SDK library installed by default to work with the {{ yandex-cloud }} API. For more information about how to use the SDK, see [Using the SDK](sdk.md).
 
-When creating a new [function version](../../concepts/function.md#version), {{ sf-name }} automatically installs all declared dependencies required for the function to run. For more information about requirements and restrictions, see [{#T}](dependencies.md).
+When creating a new [function version](../../concepts/function.md#version) {{ sf-name }} may automatically install all declared dependencies required for the function to run. For more information about requirements and restrictions, see [{#T}](dependencies.md).
 
 The runtime environment automatically loads your code and invokes the [request handler](handler.md) you specified. It receives an incoming request and the [invocation context](context.md) as arguments. The context contains additional information about the function parameters.
 
-{{ sf-name }} automatically captures standard application output streams and sends them to the centralized logging system available in {{ yandex-cloud }}. This system also logs service records about the start and end of each function and any errors that occur during its execution. For more information about the log format, see [{#T}](logging.md).
+{{ sf-name }} automatically captures an application's standard output streams and sends them to the centralized logging system available in {{ yandex-cloud }}. This system also logs service records about the start and end of each function and any errors that occur during its execution. For more information about the log format, see [{#T}](logging.md).
 
-To learn more about how to write in JavaScript or how certain constructs work, see the [Modern JavaScript tutorial](https://javascript.info/).
-
+To learn more about how to write in JavaScript or how certain statements work, see the [Modern JavaScript tutorial](https://javascript.info/).

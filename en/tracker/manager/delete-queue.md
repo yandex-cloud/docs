@@ -1,4 +1,4 @@
-# Deleting a queue
+# Deleting a queue in {{ tracker-name }}
 
 {% note warning %}
 

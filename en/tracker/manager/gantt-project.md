@@ -1,4 +1,4 @@
-# Gantt charts
+# Gantt charts in {{ tracker-name }} projects
 
 A project Gantt chart in {{ tracker-name }} is a tool you can use to create a calendar schedule for managing issues. Gantt charts display all issues within a project and the links between them.
 

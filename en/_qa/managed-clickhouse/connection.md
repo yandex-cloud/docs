@@ -1,4 +1,4 @@
-# Connection
+# Connection to {{ CH }}
 
 #### Is it possible to connect to individual {{ CH }} hosts? {#connect-node}
 

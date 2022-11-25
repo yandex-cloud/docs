@@ -1,4 +1,4 @@
-# Number
+# Block "Number"
 
 In this block, the user can enter an integer or a fraction, like height in meters or body temperature.
 

@@ -70,7 +70,7 @@ fqdn: epdplofgadqohn5ppkt3.auto.internal
 yc compute instance create --name my-test-inst --metadata user-data="#ps1\nnet user Administrator Passw0rd" --zone {{ region-id }}-a --public-ip --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk
 -1537967224 --async
 id: epdjte17at0fguj52ili
-description: Create instance
+description: "Create instance"
 created_at: "2019-02-13T08:49:25Z"
 created_by: ajed79hm85fu3g6g5uej
 modified_at: "2019-02-13T08:49:25Z"

@@ -1,5 +1,6 @@
 # Как начать работать c {{ datalens-short-name }}
 
+
 В этой инструкции вы создадите свой первый [датасет](concepts/dataset/index.md), для визуализации данных построите несколько [чартов](concepts/chart/index.md) и разместите их на [дашборде](concepts/dashboard.md).
 
 
@@ -107,6 +108,8 @@
 1. Сохраните дашборд. Для этого в правом верхнем углу нажмите кнопку **Сохранить**.
 
     ![add-selectors](../_assets/datalens/quickstart/08-add-selectors.png)
+
+
 
 ## Что дальше {#whats-next}
 

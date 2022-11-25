@@ -35,6 +35,10 @@
 	status: ACTIVE
 	```
 
+- API
+
+   Cоздать контейнер можно с помощью метода API [create](../../serverless-containers/containers/api-ref/Container/create.md).
+
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}

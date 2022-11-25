@@ -1,4 +1,4 @@
-# Moving and restoring a cluster
+# Moving and restoring a {{ CH }} cluster
 
 #### How do I back up a {{ CH }} database? {#backup-overview}
 

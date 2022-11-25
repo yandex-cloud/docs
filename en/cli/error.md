@@ -1,4 +1,4 @@
-# Troubleshooting
+# Troubleshooting in CLI
 
 If an error occurs during the operation, the CLI displays the corresponding message.
 

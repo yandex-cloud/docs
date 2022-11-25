@@ -1,6 +1,9 @@
 # Creating an MS SQL Server connection
 
+
+
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
+
 
 ## Connecting to MS SQL Server {#ms-sql-server-connection}
 

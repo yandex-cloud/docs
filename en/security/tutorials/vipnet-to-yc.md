@@ -78,14 +78,12 @@ On the on-premises site:
 To create a VM with several network interfaces, [have technical support]({{ link-console-support }}/create-ticket) enable the `MULTI_INTERFACE_INSTANCES_ALPHA` parameter for the cloud.
 
 
-
 ## Required paid resources {#paid-resources}
 
 The cost of the infrastructure includes:
 * A fee for VM computing resources, disks, and images (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for data storage in a bucket and operations with data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * A fee for a public IP address and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
 
 
 ## Prepare the environment {#environment-preparing}
@@ -275,7 +273,7 @@ The VM is created from the disk image prepared for {{ compute-name }}. Image req
          Result:
 
          ```bash
-         -rw-r--r-- 1 user 457853789 Aug 21 12:28 va_vipnet_base_x86_64_4.5.1-5668.ova.zip
+         -rw-r--r--   1 user  457853789 Aug 21 12:28 va_vipnet_base_x86_64_4.5.1-5668.ova.zip
          ```
 
       1. Find out the archive MD5 cheksum:
@@ -301,7 +299,7 @@ The VM is created from the disk image prepared for {{ compute-name }}. Image req
          Result:
 
          ```bash
-         Archive: va_vipnet_base_x86_64_4.5.1-5668.ova.zip
+         Archive:  va_vipnet_base_x86_64_4.5.1-5668.ova.zip
            inflating: va_vipnet_base_x86_64_4.5.1-5668.ova
          ```
 
@@ -699,7 +697,7 @@ The tutorial uses the demo versions of the keys.
       ```text
       firewall service-object add name @ICMP icmp
       firewall local add 1 rule LICMP src @any dst @any service @ICMP pass
-      firewall local add 1 rule LSSH src @any dst @any service @SSH pass
+      firewall local add 1 rule LSSH  src @any dst @any service @SSH pass
       ```
 
    1. Exit admin mode and the serial console:
