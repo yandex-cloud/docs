@@ -3,14 +3,14 @@ title: "Backups in {{ iot-full-name }}"
 description: "Data in {{ iot-full-name }} is stored securely and replicated within the Yandex Cloud infrastructure. You can view lists of registries, registry certificates, and registry devices, information about registries and devices, and lists of device certificates and aliases."
 ---
 
-# Backups
+# Backups in {{ iot-name }}
 
 Data in {{ iot-name }} is stored securely and replicated within the {{ yandex-cloud }} infrastructure. You can view:
 * [Lists of registries](#registry-list).
 * [Information about registries](#registry-get).
 * [Lists of registry certificates](#registry-certificates-list).
 * [Lists of registry devices](#device-get).
-* [Information about devices](#device-get).
+* [Information about the devices](#device-get).
 * [Lists of device certificates](#device-certificates-list).
 * [Lists of device aliases](#alias-list).
 
