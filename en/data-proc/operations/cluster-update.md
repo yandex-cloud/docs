@@ -1,4 +1,4 @@
-# Updating clusters
+# Updating {{ dataproc-name }} clusters 
 
 After creating a cluster, you can modify its basic and advanced settings.
 

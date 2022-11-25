@@ -3,7 +3,7 @@ title: "{{ mch-name }} host classes"
 description: "The host class determines the computing power allocated for each host in the {{ CH }} cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage doesn't depend on the host class."
 ---
 
-# Host classes
+# Host classes in {{ CH }}
 
 The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
 

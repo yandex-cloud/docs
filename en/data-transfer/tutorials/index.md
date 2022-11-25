@@ -1,4 +1,4 @@
-# Practical guidelines {{ data-transfer-name }}
+# {{ data-transfer-name }} practical guidelines
 
 * [{#T}](managed-clickhouse.md)
 * [{#T}](managed-greenplum.md)

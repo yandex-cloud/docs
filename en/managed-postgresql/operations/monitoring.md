@@ -3,7 +3,7 @@ title: "Monitoring the state of a PostgreSQL cluster and hosts"
 description: "You can monitor the health of a Managed Service for PostgreSQL cluster and its individual hosts using the monitoring tools in the management console. These tools provide diagnostic information in the form of graphs."
 ---
 
-# Monitoring the state of clusters and hosts
+# Monitoring the state of {{ PG }} clusters and hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 

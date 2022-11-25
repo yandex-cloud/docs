@@ -1,4 +1,4 @@
-# Managing databases
+# Managing databases in {{ mmy-name }}
 
 You can add and remove databases, view information about them, and manage some database settings using {{ mmy-name }} interfaces.
 

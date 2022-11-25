@@ -1,4 +1,4 @@
-# Cluster configuration
+# {{ CH }} cluster configuration
 
 {% if product == "yandex-cloud" %}
 

@@ -3,7 +3,7 @@ title: "Scenarios for using Yandex DataLens"
 description: "This section describes scenarios for using the Yandex DataLens service. Visualization of data from a CSV-file, creation and publication of a chart with a map of Moscow from a CSV-file, analysis of sales of a chain of stores from the ClickHouse database, analysis of open data on road accidents in Russia"
 ---
 
-# Practical Yandex DataLens guidelines
+# {{ datalens-name }} practical guidelines
 
 Below is a description of guidelines for working with {{ datalens-full-name }}:
 

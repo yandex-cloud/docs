@@ -1,4 +1,4 @@
-# Deleting clusters
+# Deleting a {{ CH }} cluster
 
 ## Before deleting a cluster {#before-you-delete}
 

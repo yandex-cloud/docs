@@ -1,4 +1,4 @@
-# Storage types
+# Storage types in {{ mmy-name }}
 
 {% if audience != "internal" %}
 

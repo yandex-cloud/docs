@@ -1,4 +1,4 @@
-# Changing cluster settings
+# Changing {{ KF }} cluster settings
 
 After creating an {{ mkf-name }} cluster, you can:
 

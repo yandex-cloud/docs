@@ -1,4 +1,4 @@
-# Storage types
+# Storage types in {{ mkf-name }}
 
 {% if audience != "internal" %}
 

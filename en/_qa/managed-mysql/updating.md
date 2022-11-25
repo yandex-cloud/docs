@@ -1,4 +1,4 @@
-# Updating clusters
+# Updating a {{ MY }} cluster
 
 {% if audience != "internal" %}
 

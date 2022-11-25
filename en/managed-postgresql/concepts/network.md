@@ -1,4 +1,4 @@
-# DB network and clusters
+# Network and clusters in {{ mpg-name }}
 
 {% if audience != "internal" %}
 

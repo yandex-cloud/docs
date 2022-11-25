@@ -1,4 +1,4 @@
-# Connecting to {{ datalens-name }}
+# Connecting to a {{ PG }} cluster from {{ datalens-name }}
 
 {% include [mdb-datalens-connector-intro](../../_includes/mdb/datalens-connector-intro.md) %}
 

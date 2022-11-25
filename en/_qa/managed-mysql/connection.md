@@ -1,4 +1,4 @@
-# Connection
+# Connection to a {{ MY }} cluster
 
 #### How do I connect to a cluster? {#how-to-connect}
 

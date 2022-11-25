@@ -1,4 +1,4 @@
-# Using deprecated host classes
+# Using deprecated host classes in {{ mch-name }}
 
 As of June 1, 2020, the `s1.nano` host class is deprecated for {{ mch-short-name }}.
 

@@ -1,4 +1,4 @@
-# Decommissioning subclusters and hosts
+# Decommissioning subclusters and hosts in {{ dataproc-name }}
 
 Decommissioning is the procedure for reducing the capacity of a cluster (the number of hosts and their class) without stopping it and interrupting the workload. {% if product == "yandex-cloud" %} Decommissioning is supported for {{ dataproc-name }} clusters version 1.2 and higher. {% endif %}
 

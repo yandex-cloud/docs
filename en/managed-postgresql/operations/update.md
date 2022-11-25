@@ -1,4 +1,4 @@
-# Changing cluster settings
+# Changing {{ PG }} cluster settings
 
 After creating a cluster, you can:
 

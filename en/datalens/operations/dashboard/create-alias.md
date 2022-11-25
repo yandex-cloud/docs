@@ -1,4 +1,4 @@
-# Creating an alias
+# Creating an alias in {{ datalens-name }}
 
 To add an [alias](../../concepts/dashboard.md#alias) for a pair of widgets:
 

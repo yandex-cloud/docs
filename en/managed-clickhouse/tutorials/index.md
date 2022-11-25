@@ -1,4 +1,4 @@
-# All use cases
+# {{ mch-name }} practical guidelines
 
 * [{#T}](../operations/insert.md)
    {% if content != "noshow" %}

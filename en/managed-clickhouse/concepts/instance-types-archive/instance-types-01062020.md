@@ -1,4 +1,4 @@
-# Host classes before June 1, 2020
+# Host classes in {{ mch-name }} before June 1, 2020
 
 The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
