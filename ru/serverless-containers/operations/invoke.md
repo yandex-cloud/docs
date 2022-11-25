@@ -51,4 +51,8 @@ curl -H "Authorization: Bearer $(yc iam create-token)" https://bba3fva6ka5g*****
 
 	Ссылка для вызова будет в поле `url`.
 
+- API
+
+  Получить ссылку для вызова контейнера можно с помощью метода API [get](../containers/api-ref/Container/get.md).
+
 {% endlist %}

@@ -1,4 +1,4 @@
-# How resources are paid for and funds are debited
+# How resources are paid for and funds are debited for individuals
 
 Individuals can top up their personal account and pay for the resources they use with a [bank card](#debit-card) linked to their billing account.
 

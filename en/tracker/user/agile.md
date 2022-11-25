@@ -1,4 +1,4 @@
-# Working with an agile board
+# Working with an agile board in {{ tracker-name }}
 
 Issues are displayed on the board as cards with general issue parameters on them. You [can customize](../manager/edit-agile-board.md#sec_layout) the appearance of cards on the board by choosing fields to display or setting colors that appear when selecting tags and components.
 

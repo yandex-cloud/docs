@@ -1,5 +1,5 @@
 ---
-title: Методы работы c сервисом Lifecycles в {{ objstorage-name }} HTTP API (S3) 
+title: "Методы работы c сервисом Lifecycles в {{ objstorage-name }} HTTP API (S3) "
 description: "Сервис Lifecycles в {{ objstorage-name }} HTTP API (S3) управляет конфигурациям жизненных циклов для объектов в бакетах. В разделе описаны методы работы с сервисом (upload, get, delete)."
 ---
 

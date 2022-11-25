@@ -52,6 +52,11 @@
 	status: ACTIVE
 	```
 
+- API
+
+  Изменить имя или описание контейнера можно с помощью метода API [update](../containers/api-ref/Container/update.md).
+
+
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -149,13 +154,17 @@
     status: ACTIVE
     ```
 
+- API
+
+  Добавить метку контейнеру можно с помощью метода API [update](../containers/api-ref/Container/update.md).
+
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
   Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  Чтобы добавить метки в контейнер, созданный с помощью {{ TF }}:
+  Чтобы добавить метку контейнеру, созданному с помощью {{ TF }}:
 
   1. Откройте файл конфигурации {{ TF }} и в ресурс `yandex_serverless_container` добавьте блок `labels`:
 
@@ -241,6 +250,10 @@
 	status: ACTIVE
     ```
 
+- API
+
+  Изменить метку контейнера можно с помощью метода API [update](../containers/api-ref/Container/update.md).
+
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -324,6 +337,10 @@
     url: https://flh7r96juaqq********.containers.cloud-preprod.yandex.net/
     status: ACTIVE
     ```
+
+- API
+
+  Удалить метку контейнера можно с помощью метода API [update](../containers/api-ref/Container/update.md).
     
 - {{ TF }}
 
@@ -331,7 +348,7 @@
 
   Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  Чтобы удалить метку контейнера, созданнго с помощью {{ TF }}:
+  Чтобы удалить метку контейнера, созданного с помощью {{ TF }}:
 
   1. Откройте файл конфигурации {{ TF }} и в ресурсе `yandex_serverless_container` удалите метку в блоке `labels`:
      ```hcl

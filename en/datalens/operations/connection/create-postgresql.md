@@ -1,8 +1,11 @@
 # Creating a PostgreSQL connection
 
-{% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
 
-## Connecting to  PostgreSQL {#postgresql-connection}
+
+{% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
+
+
+## Connecting to {{ PG }} {#postgresql-connection}
 
 To create a {{ PG }} connection:
 

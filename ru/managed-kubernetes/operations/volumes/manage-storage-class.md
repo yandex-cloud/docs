@@ -68,7 +68,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
 
 
-   Результат:
+   Результат выполнения команды:
 
    
    ```bash
@@ -83,7 +83,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
    kubectl get storageclass
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    
    ```bash
@@ -131,7 +131,7 @@ reclaimPolicy: <политика переиспользования>
    kubectl get storageclass
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```bash
    NAME                      PROVISIONER                    AGE
@@ -153,7 +153,7 @@ reclaimPolicy: <политика переиспользования>
    kubectl get storageclass
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```bash
    NAME            PROVISIONER                    AGE
@@ -175,7 +175,7 @@ reclaimPolicy: <политика переиспользования>
    kubectl get storageclass
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```bash
    NAME                 PROVISIONER                    AGE

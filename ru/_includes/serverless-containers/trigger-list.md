@@ -28,4 +28,8 @@
     +----------------------+------------+----------------------+
     ```
 
+- API
+
+  Получить список триггеров можно с помощью метода API [list](../../serverless-containers/triggers/api-ref/Trigger/list.md).
+
 {% endlist %}

@@ -1,4 +1,4 @@
-# Number
+# Block "Number"
 
 This block is for prompts that require entering a number in response. For example, you can ask users to solve an equation.
 

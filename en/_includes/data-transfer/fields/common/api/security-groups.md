@@ -1,0 +1,1 @@
+`securityGroups`: Security groups for network traffic, whose rules will apply to VMs and clusters without changing their settings. For more information, see [{#T}](../../../../../data-transfer/concepts/network.md).

@@ -1,5 +1,5 @@
 ---
-title: Управление хостами Elasticsearch
+title: "Управление хостами Elasticsearch"
 description: "Вы можете получать список хостов в кластере Elasticsearch, а также добавлять и удалять хосты кластера. Вы можете управлять хостами только с ролью Data Node."
 keywords:
   - управление хостами Elasticsearch

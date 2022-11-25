@@ -147,7 +147,7 @@ description: "Вы можете создавать резервные копии
           * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
 
       * `--resource-preset` — [класс хоста](../concepts/instance-types.md#available-flavors).
-      * `--disk-size` — объем хранилища в гигабайтах.
+      * `--disk-size` — размер хранилища в гигабайтах.
       * `--disk-type` — [тип диска](../concepts/storage.md):
           
           * `network-hdd`;

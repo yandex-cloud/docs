@@ -26,29 +26,27 @@
 
   Чтобы получить список шардов в кластере, выполните команду:
 
-  ```
+  ```bash
   {{ yc-mdb-rd }} shards list --cluster-name <имя кластера>
   ```
 
   Результат:
 
-  ```
+  ```text
   +--------------+
   |     NAME     |
   +--------------+
   | test-shard-1 |
   | test-shard-2 |
   | test-shard-3 |
-  | test-shard-4 |
-  | test-shard-5 |
   +--------------+
   ```
 
 - API
 
-    Воспользуйтесь методом API [listShards](../api-ref/Cluster/listShards.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+  Воспользуйтесь методом API [listShards](../api-ref/Cluster/listShards.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
-    Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
+  Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
 {% endlist %}
 
@@ -58,22 +56,21 @@
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы получить информацию о шарде, выполните команду:
+  Чтобы получить информацию о шарде, выполните команду:
 
-    ```bash
-    {{ yc-mdb-rd }} shards get <имя шарда> --cluster-name <имя кластера>
-    ```
+  ```bash
+  {{ yc-mdb-rd }} shards get <имя шарда> --cluster-name <имя кластера>
+  ```
 
 - API
 
-    Воспользуйтесь методом API [getShard](../api-ref/Cluster/getShard.md) и передайте в запросе:
-    
-    * Идентификатор кластера в параметре `clusterId`.
-    * Имя нужного шарда в параметре `shardName`.
+  Воспользуйтесь методом API [getShard](../api-ref/Cluster/getShard.md) и передайте в запросе:
+  * Идентификатор кластера в параметре `clusterId`.
+  * Имя нужного шарда в параметре `shardName`.
 
 {% endlist %}
 
@@ -113,57 +110,55 @@
 
   ```bash
   {{ yc-mdb-rd }} shards add --name=<имя нового шарда> \
-     --cluster-name=<имя кластера> \
-     --host zone-id=<зона доступности>,`
-           `subnet-name=<имя подсети>,`
-           `assign-public-ip=true \
-     --host zone-id=<зона доступности>,`
-           `subnet-name=<имя подсети>,`
-           `replica-priority=50
+    --cluster-name=<имя кластера> \
+    --host zone-id=<зона доступности>,`
+      `subnet-name=<имя подсети>,`
+      `assign-public-ip=true \
+    --host zone-id=<зона доступности>,`
+      `subnet-name=<имя подсети>,`
+      `replica-priority=50
   ```
 
 - {{ TF }}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [{#T}](./cluster-create.md).
+     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  1. Добавьте к описанию кластера {{ mrd-name }} нужное количество блоков `host` с указанием имени шарда в параметре `shard_name`:
 
-    1. Добавьте к описанию кластера {{ mrd-name }} нужное количество блоков `host` с указанием имени шарда в параметре `shard_name`:
+     ```hcl
+     resource "yandex_mdb_redis_cluster" "<имя кластера>" {
+       ...
+       host {
+         zone             = "<зона доступности>"
+         subnet_id        = <идентификатор подсети>
+         assign_public_ip = <публичный доступ к хосту: true или false>
+         replica_priority = <приоритет хоста>
+         shard_name       = "<имя шарда>"
+       }
+     }
+     ```
 
-        ```hcl
-        resource "yandex_mdb_redis_cluster" "<имя кластера>" {
-          ...
-          host {
-            zone             = "<зона доступности>"
-            subnet_id        = <идентификатор подсети>
-            assign_public_ip = <публичный доступ к хосту: true или false>
-            replica_priority = <приоритет хоста>
-            shard_name       = "<имя шарда>"
-          }
-        }
-        ```
+  1. Проверьте корректность настроек.
 
-    1. Проверьте корректность настроек.
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  1. Подтвердите изменение ресурсов.
 
-    1. Подтвердите изменение ресурсов.
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
 - API
 
-    Воспользуйтесь методом API [addShard](../api-ref/Cluster/addShard.md) и передайте в запросе:
+  Воспользуйтесь методом API [addShard](../api-ref/Cluster/addShard.md) и передайте в запросе:
+  * Идентификатор кластера в параметре `clusterId`.
+  * Имя шарда в параметре `shardName`.
+  * Конфигурацию хоста для шарда в массиве параметров `hostSpecs`.
 
-    * Идентификатор кластера в параметре `clusterId`.
-    * Имя шарда в параметре `shardName`.
-    * Конфигурацию хоста для шарда в массиве параметров `hostSpecs`.
-
-    Имя шарда можно запросить со [списком шардов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md).
+  Имя шарда можно запросить со [списком шардов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md).
 
 {% endlist %}
 
@@ -197,39 +192,36 @@
 
   ```bash
   {{ yc-mdb-rd }} shards delete <имя шарда> \
-     --cluster-name=<имя кластера>
+    --cluster-name=<имя кластера>
   ```
 
   Имя шарда можно запросить со [списком шардов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md).
 
 - {{ TF }}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  1. Удалите из описания кластера {{ mrd-name }} все блоки `host`, которые относятся к шарду.
+  1. Проверьте корректность настроек.
 
-    1. Удалите из описания кластера {{ mrd-name }} все блоки `host`, которые относятся к шарду.
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Проверьте корректность настроек.
+  1. Введите слово `yes` и нажмите **Enter**.
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    1. Подтвердите удаление ресурсов.
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
 - API
 
-    Воспользуйтесь методом API [deleteShard](../api-ref/Cluster/deleteShard.md) и передайте в запросе:
-    
-    * Идентификатор кластера в параметре `clusterId`.
-    * Имя удаляемого шарда в параметре `shardName`.
+  Воспользуйтесь методом API [deleteShard](../api-ref/Cluster/deleteShard.md) и передайте в запросе:
+  * Идентификатор кластера в параметре `clusterId`.
+  * Имя удаляемого шарда в параметре `shardName`.
 
-    Имя шарда можно запросить со [списком шардов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md).
+  Имя шарда можно запросить со [списком шардов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md).
 
 {% endlist %}
 
@@ -243,18 +235,17 @@
 
 - Консоль управления
 
-    Чтобы ребалансировать кластер:
+  Чтобы ребалансировать кластер:
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластер.
+  1. Выберите сервис **{{ mrd-name }}**.
+  1. Нажмите на имя нужного кластера.
+  1. На вкладке **Обзор** нажмите кнопку **Ребалансировать**.
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластер.
-    1. Выберите сервис **{{ mrd-name }}**.
-    1. Нажмите на имя нужного кластера.
-    1. На вкладке **Обзор** нажмите кнопку **Ребалансировать**.
+  {% note tip %}
 
-    {% note tip %}
+  Также можно ребалансировать кластер с помощью кнопки **Ребалансировать кластер** на вкладке **Шарды**.
 
-    Также можно ребалансировать кластер с помощью кнопки **Ребалансировать кластер** на вкладке **Шарды**.
-
-    {% endnote %}
+  {% endnote %}
 
 - CLI
 
@@ -273,6 +264,6 @@
 
 - API
 
-    Ребалансировать кластер можно с помощью метода [rebalance](../api-ref/Cluster/rebalance.md).
+  Ребалансировать кластер можно с помощью метода [rebalance](../api-ref/Cluster/rebalance.md).
 
 {% endlist %}

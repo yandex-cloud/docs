@@ -1,4 +1,6 @@
-{% include [start](_includes/quickstart-start.md) %}
+# Getting started for businesses
+
+{% include notitle [start](_includes/quickstart-start.md) %}
 
 ## Creating a billing account {#new-account}
 

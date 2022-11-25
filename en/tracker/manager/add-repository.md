@@ -1,4 +1,4 @@
-# Connecting repositories
+# Connecting repositories to {{ tracker-name }}
 
 {% note warning %}
 

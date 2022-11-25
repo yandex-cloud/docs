@@ -15,6 +15,12 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    {% include [Managed ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-clickhouse.md) %}
 
+- CLI
+
+   * Endpoint type: `clickhouse-source`.
+
+   {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-clickhouse.md) %}
+
 - Terraform
 
    * Endpoint type: `clickhouse_source`.
@@ -23,6 +29,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    Example configuration file structure:
 
+   
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
      name = "<endpoint name>"
@@ -46,7 +53,12 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
    }
    ```
 
+
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+
+- API
+
+   {% include [Managed ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/managed-clickhouse.md) %}
 
 {% endlist %}
 
@@ -60,6 +72,12 @@ Connecting to the database with explicitly specified network addresses and ports
 
    {% include [On premise ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-clickhouse.md) %}
 
+- CLI
+
+   * Endpoint type: `clickhouse-source`.
+
+   {% include [On premise ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-clickhouse.md) %}
+
 - Terraform
 
    * Endpoint type: `clickhouse_source`.
@@ -68,11 +86,14 @@ Connecting to the database with explicitly specified network addresses and ports
 
    Example configuration file structure:
 
+   
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
      name = "<endpoint name>"
      settings {
        clickhouse_source {
+         security_groups = [ "list of security group IDs" ]
+         subnet_id       = "<subnet ID>"
          connection {
            connection_options {
              on_premise {
@@ -80,7 +101,7 @@ Connecting to the database with explicitly specified network addresses and ports
                native_port = "<native interface connection port>"
                shards {
                  name  = "<shard name>"
-                 hosts = [ "list of shard host IPs or FQDNs" ]
+                 hosts = [ "shard host IP or FQDN list" ]
                }
                tls_mode {
                  enabled {
@@ -88,8 +109,8 @@ Connecting to the database with explicitly specified network addresses and ports
                  }
                }
              }
-             database = "<name of database to transfer>"
-             user     = "<username to connect>"
+             database = "<name of database being transferred>"
+             user     = "<username for connection>"
              password {
                raw = "<user password>"
              }
@@ -101,7 +122,12 @@ Connecting to the database with explicitly specified network addresses and ports
    }
    ```
 
+
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+
+- API
+
+   {% include [On premise ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-clickhouse.md) %}
 
 {% endlist %}
 
@@ -136,20 +162,23 @@ Connecting to the database with explicitly specified network addresses and ports
 
 ## Known limitations {#known-limitations}
 
-For now, transfer cannot move columns of the following types from {{ CH }}:
+Transfers will fail if {{ CH }} source tables contain the following types of columns:
 
-| Type              | Error sample                                                    |
-|-------------------|-----------------------------------------------------------------|
-| Int128            | unhandled type Int128                                           |
-| Int256            | unhandled type Int256                                           |
-| UInt128           | unhandled type UInt128                                          |
-| UInt256           | unhandled type UInt256                                          |
-| Bool              | unhandled type Bool                                             |
-| Date32            | unhandled type Date32                                           |
-| JSON              | unhandled type '<field name> <type name>'                       |
-| Array(Date)       | Can't transfer type 'Array(Date)', column '<column name>'       |
-| Array(DateTime)   | Can't transfer type 'Array(DateTime)', column '<column name>'   |
-| Array(DateTime64) | Can't transfer type 'Array(DateTime64)', column '<column name>' |
-| Map(,)            | unhandled type Map(<type name>, <type name>)                    |
+| Type | Error example |
+|---------------------|-------------------------------------------------------------------|
+| `Int128` | `unhandled type Int128` |
+| `Int256` | `unhandled type Int256` |
+| `UInt128` | `unhandled type UInt128` |
+| `UInt256` | `unhandled type UInt256` |
+| `Bool` | `unhandled type Bool` |
+| `Date32` | `unhandled type Date32` |
+| `JSON` | `unhandled type '<field name> <type name>'` |
+| `Array(Date)` | `Can't transfer type 'Array(Date)', column '<column name>'` |
+| `Array(DateTime)` | `Can't transfer type 'Array(DateTime)', column '<column name>'` |
+| `Array(DateTime64)` | `Can't transfer type 'Array(DateTime64)', column '<column name>'` |
+| `Map(,)` | `unhandled type Map(<type name>, <type name>)` |
 
-If the source tables contain columns of these types, the transfer will fail. Examples of errors are shown in the table above.
+### Supported table types
+If a {{ CH }} cluster is multi-host, you can transfer tables and materialized views based on `ReplicatedMergeTree` or `Distributed` engines only. Moreover, these tables and views must be present in all cluster hosts.
+
+If the list of included tables contains tables or views with other engines or they're missing in some cluster hosts, a transfer will fail with an error saying `the following tables have not Distributed or Replicated engines and are not yet supported`.

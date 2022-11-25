@@ -1,4 +1,4 @@
-# All use cases
+# {{ mmy-name }} practical guidelines
 
 * [{#T}](profiling-mmy.md)
 * [{#T}](data-migration.md)

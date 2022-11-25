@@ -1,4 +1,4 @@
-# Connection
+# Connection to a {{ PG }} cluster
 
 #### Is the cluster accessible from inside {{ yandex-cloud }}? {#conn-from-yc}
 

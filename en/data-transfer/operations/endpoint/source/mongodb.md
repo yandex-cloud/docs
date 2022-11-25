@@ -16,6 +16,12 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    {% include [Managed MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/managed-mongodb.md) %}
 
+- CLI
+
+   * Endpoint type: `mongo-source`.
+
+   {% include [Managed MongoDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mongodb.md) %}
+
 - Terraform
 
    * Endpoint type: `mongo_source`.
@@ -49,6 +55,10 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
+- API
+
+   {% include [Managed MongoDB API](../../../../_includes/data-transfer/necessary-settings/api/managed-mongodb.md) %}
+
 {% endlist %}
 
 
@@ -61,6 +71,12 @@ The settings are given for the OnPremise use case when all fields are filled in 
 - Management console
 
    {% include [On premise MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mongodb.md) %}
+
+- CLI
+
+   * Endpoint type: `mongo-source`.
+
+   {% include [On premise MongoDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mongodb.md) %}
 
 - Terraform
 
@@ -75,12 +91,14 @@ The settings are given for the OnPremise use case when all fields are filled in 
      name = "<endpoint name>"
      settings {
        mongo_source {
+         security_groups = [ "list of security group IDs" ]
+         subnet_id       = "<subnet ID>"
          connection {
            connection_options {
              on_premise {
-               hosts       = [ "list of replica set hosts" ]
+               hosts       = [ "replica collection host list" ]
                port        = "<connection port>"
-               replica_set = "<replica set name>"
+               replica_set = "<replica collection name>"
                tls_mode {
                  enabled {
                    ca_certificate = "<certificate in PEM format>"
@@ -101,6 +119,10 @@ The settings are given for the OnPremise use case when all fields are filled in 
    ```
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+
+- API
+
+   {% include [On premise MongoDB API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-mongodb.md) %}
 
 {% endlist %}
 

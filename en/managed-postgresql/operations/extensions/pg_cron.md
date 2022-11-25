@@ -1,4 +1,4 @@
-# pg_cron
+# Using pg_cron in {{ mpg-name }}
 
 The [pg_cron](https://github.com/citusdata/pg_cron) extension is a job scheduler that enables you to add scheduled jobs to a database and execute SQL commands directly from a job.
 

@@ -1,4 +1,4 @@
-# CORS
+# CORS in {{ cdn-name }}
 
 {{ cdn-full-name }} supports cross-domain requests through [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) (cross-origin resource sharing).
 

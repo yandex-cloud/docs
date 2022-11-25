@@ -68,4 +68,4 @@ DATE_PARSE("2019") = #2019-01-01#
 
 #### Data source support {#data-source-support}
 
-`Materialized Dataset`, `ClickHouse 19.13`.
+`ClickHouse 19.13`.

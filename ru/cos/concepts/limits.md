@@ -1,5 +1,5 @@
 ---
-title: Квоты и лимиты в Container Optimized Image
+title: "Квоты и лимиты в Container Optimized Image"
 description: "При работе с образом Container Optimized Image учитываются ограничения {{ compute-name }} и {{ container-registry-name }}."
 ---
 

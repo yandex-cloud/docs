@@ -34,11 +34,12 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
      name = "<endpoint name>"
      settings {
        mysql_target {
+         security_groups = [ "list of security group IDs" ]
          connection {
            mdb_cluster_id = "<{{ mmy-name }} cluster ID>"
          }
-         database = "<name of database to transfer>"
-         user     = "<username to connect>"
+         database = "<name of database being transferred>"
+         user     = "<username for connection>"
          password {
            raw = "<user password>"
          }
@@ -58,7 +59,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
 ## Custom installation {#on-premise}
 
-Connecting to the database with an explicitly specified network address and port.
+For OnPremise, all fields are filled in manually.
 
 {% list tabs %}
 
@@ -85,14 +86,15 @@ Connecting to the database with an explicitly specified network address and port
      name = "<endpoint name>"
      settings {
        mysql_target {
+         security_groups = [ "list of security group IDs" ]
          connection {
            on_premise {
              hosts = ["<host list>"]
              port  = <connection port>
            }
          }
-         database = "<name of database to transfer>"
-         user     = "<username to connect>"
+         database = "<name of database being transferred>"
+         user     = "<username for connection>"
          password {
            raw = "<user password>"
          }

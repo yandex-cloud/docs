@@ -6,8 +6,6 @@ editable: false
 
 
 
-
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 ## What goes into the cost of using {{ speechkit-short-name }} {#rules}
@@ -75,42 +73,30 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio that
 
 
 
-
-
-
 {% include [usd.md](../_pricing/speechkit/usd-tts.md) %}
-
+
 
 #### Brand Voice {#brand-voice}
 
 
 
 
-
-
-
 {% include [usd.md](../_pricing/speechkit/usd-brand.md) %}
-
+
 
 ### Hosting Brand Voice models {#hosting-brand-voice}
 
 
 
 
-
-
-
 {% include [usd.md](../_pricing/speechkit/usd-hosting.md) %}
-
+
 
 ### Speech recognition {#prices-stt}
 
 
 
 
-
-
-
 {% include [usd.md](../_pricing/speechkit/usd-stt.md) %}
-
-
+
+

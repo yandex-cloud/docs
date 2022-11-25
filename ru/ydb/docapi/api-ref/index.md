@@ -1,5 +1,5 @@
 ---
-title: Методы работы Yandex Managed Service for YDB с HTTP API
+title: "Методы работы Yandex Managed Service for YDB с HTTP API"
 description: "Yandex Managed Service for YDB HTTP API предоставляет следующие методы работы. Работа с таблицами (CreateTable, DeleteTable, DescribeTable, ListTables). Работа с элементами (BatchGetItem, BatchWriteItem, DeleteItem, GetItem, PutItem, Query, Scan, TransactGetItems, TransactWriteItems, UpdateItem)."
 sourcePath: overlay/docapi/api-ref/index.md
 ---

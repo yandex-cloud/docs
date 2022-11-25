@@ -5,7 +5,7 @@ description: '{{ mch-name }} has limits and quotas for the number of clusters, t
 editable: false
 ---
 
-# Quotas and limits
+# Quotas and limits in {{ mch-name }}
 
 {{ mch-name }} has the following limits:
 

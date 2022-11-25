@@ -50,4 +50,4 @@ ANY([Profit])
 
 #### Поддержка источников данных {#data-source-support}
 
-`Материализованный датасет`, `ClickHouse 19.13`, `MySQL 5.7`, `YDB`.
+`ClickHouse 19.13`, `MySQL 5.7`, `YDB`.

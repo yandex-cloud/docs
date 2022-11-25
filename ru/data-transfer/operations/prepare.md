@@ -576,6 +576,7 @@
 
 ### Источник {{ yds-full-name }} {#source-yds}
 
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `yds.editor`.
 1. [Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream).
 1. (опционально) [Создайте функцию обработки](../../functions/operations/function/function-create.md).
 
@@ -1051,7 +1052,9 @@
 
 ### Приемник {{ ydb-full-name }} {#target-ydb}
 
-Чтобы принимать данные в сервисе {{ ydb-full-name }}, подготовка не требуется.
+
+[Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `ydb.editor`.
+
 
 {% include [airbyte-trademark](../../_includes/data-transfer/airbyte-trademark.md) %}
 

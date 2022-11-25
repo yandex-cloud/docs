@@ -3,7 +3,7 @@ title: "Information about clusters in {{ mkf-name }}"
 description: "You can request detailed information about each {{ mkf-name }} cluster you create. To get a list of database clusters in a directory, go to the directory page and select the {{ mkf-name }} service."
 ---
 
-# Information about existing clusters
+# Information about existing clusters in {{ mkf-name }}
 
 You can request detailed information about each {{ mkf-name }} cluster you created.
 

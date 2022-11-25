@@ -1,4 +1,4 @@
-# Using deprecated host classes
+# Using deprecated {{ PG }} host classes
 
 Starting June 1, 2020, host classes `s1.nano` and all `m1.*` are deprecated for {{ mpg-short-name }}.
 

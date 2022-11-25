@@ -1,4 +1,4 @@
-# Managing databases
+# Managing databases in {{ mch-name }}
 
 {{ mch-name }} lets you manage cluster databases two ways:
 

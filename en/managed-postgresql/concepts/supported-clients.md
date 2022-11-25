@@ -1,4 +1,4 @@
-# Supported DBMS clients
+# Supported DBMS clients in {{ mpg-name }}
 
 {{ mpg-short-name }} guarantees support only for certain DBMS clients, but you are free to use other clients without restrictions.
 

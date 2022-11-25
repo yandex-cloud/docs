@@ -36,4 +36,9 @@
     status: ACTIVE
     ```
 
+- API
+
+  Получить информацию о ревизии контейнера можно с помощью метода API [getRevision](../../serverless-containers/containers/api-ref/Container/getRevision.md).
+
+
 {% endlist %}

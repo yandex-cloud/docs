@@ -3,7 +3,7 @@ title: "Monitoring the state of a MySQL cluster and hosts"
 description: "You can monitor the health of a Managed Service for MySQL cluster and its individual hosts using the monitoring tools in the management console. These tools provide diagnostic information in the form of graphs."
 ---
 
-# Monitoring the state of clusters and hosts
+# Monitoring the state of {{ MY }} clusters and hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 

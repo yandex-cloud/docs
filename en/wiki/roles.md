@@ -1,13 +1,13 @@
-# Roles and access rights
+# Roles and access rights in {{ wiki-name }}
 
 
 
-{{  wiki-full-name }} is a [service](../organization/manage-services.md) that can be [enabled](./enable-wiki.md) for your organization in {{ yandex-cloud }}.
+{{ wiki-full-name }} is a [service](../organization/manage-services.md) that can be [enabled](./enable-wiki.md) for your organization in {{ yandex-cloud }}.
 
 
-Each {{ org-full-name }} employee has the right to create and edit {{wiki-name }} pages. Access rights for a page or cluster can be configured by its [author](./page-management/access-setup.md).
+Each {{ org-full-name }} employee has the right to create and edit {{ wiki-name }} pages. Access rights for a page or cluster can be configured by its [author](./page-management/access-setup.md).
 
-## Page authors{#authors}
+## Page authors {#authors}
 
 A page can have one or more authors:
 
@@ -22,7 +22,7 @@ All authors have the same rights for the {{ wiki-name }} page. Authors can perfo
 
 ## Readers {#readers}
 
-Readers in {{wiki-name}} are users who aren't assigned as authors of the page.
+Readers in {{ wiki-name }} are users who aren't assigned as authors of the page.
 
 The organization's administrator and author or owner of the page can [set up rights](./page-management/access-setup.md) for these users:
 

@@ -1,4 +1,4 @@
-# {{ forms-full-name }}
+# {{ forms-name }} and {{ tracker-name }} integration
 
 You can create issues automatically based on information taken from [{{ forms-full-name }}]({{ link-forms }}) by setting up integration with {{ tracker-name }}.
 

@@ -1,3 +1,8 @@
+---
+title: "Change data capture in {{ data-transfer-full-name }}"
+description: "Change data capture (CDC) lets you track changes in databases and deliver them to end users in real time."
+---
+
 # Change data capture
 
 CDC ([change data capture](https://en.wikipedia.org/wiki/Change_data_capture)) is a process of tracking changes in a database and delivering them to consumers in near real-time. CDC can be used to:

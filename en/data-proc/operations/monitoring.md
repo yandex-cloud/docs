@@ -1,4 +1,4 @@
-# Monitoring the state of clusters and hosts
+# Monitoring the state of clusters and hosts in {{ dataproc-name }}
 
 Using monitoring tools in the management console, you can track the status of a {{ dataproc-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts.
 

@@ -8,7 +8,7 @@
 
 ## Добавить шард {#add-shard}
 
-Количество шардов в кластерах {{ mch-short-name }} ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты]({{ link-console-quotas }}) и найдите блок **{{ mch-full-name }}**.
+Количество шардов в кластерах {{ mch-name }} ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты]({{ link-console-quotas }}) и найдите блок **{{ mch-full-name }}**.
 
 {% list tabs %}
 
@@ -18,77 +18,76 @@
   1. Нажмите на имя нужного кластера и перейдите на вкладку **Шарды**.
   1. Нажмите кнопку **Добавить шард**.
   1. Укажите параметры шарда:
-
-      * имя и вес;
-      * чтобы скопировать схему со случайной реплики одного из шардов на хосты нового шарда, выберите опцию **Копировать схему данных**;
-      * нужное количество хостов.
-
+     * Имя и вес.
+     * Чтобы скопировать схему со случайной реплики одного из шардов на хосты нового шарда, выберите опцию **Копировать схему данных**.
+     * Нужное количество хостов.
   1. Нажмите кнопку **Создать шард**.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы добавить шард в кластер, выполните команду (в примере приведены не все доступные параметры):
+  Чтобы добавить шард в кластер, выполните команду (в примере приведены не все доступные параметры):
 
-    ```bash
-    {{ yc-mdb-ch }} shards add <имя нового шарда> \
-       --cluster-name=<имя кластера> \
-       --host zone-id=<зона доступности>,`
-             `subnet-name=<имя подсети>
-    ```
+  ```bash
+  {{ yc-mdb-ch }} shards add <имя нового шарда> \
+    --cluster-name=<имя кластера> \
+    --host zone-id=<зона доступности>,`
+      `subnet-name=<имя подсети>
+  ```
 
-    Где:
+  Где:
 
-    
-    * `<имя нового шарда>` — должно быть уникальным в кластере.
-        Может содержать латинские буквы, цифры, дефис и нижнее подчеркивание. Максимальная длина — 63 символа.
-    * `--cluster-name` — имя кластера.
-        Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-    * `--host` — параметры хоста:
-        * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
-        * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet).
+  
+  * `<имя нового шарда>` — должно быть уникальным в кластере.
+
+    Может содержать латинские буквы, цифры, дефис и нижнее подчеркивание. Максимальная длина — 63 символа.
+  * `--cluster-name` — имя кластера.
+
+    Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  * `--host` — параметры хоста:
+    * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
+    * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet).
 
 
 - {{ TF }}
 
-    {% note info %}
+  {% note info %}
 
-    {{ TF }} не позволяет указывать вес шардов.
+  {{ TF }} не позволяет указывать вес шардов.
 
-    {% endnote %}
+  {% endnote %}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  1. Добавьте к описанию кластера {{ mch-name }} блок `host` типа `CLICKHOUSE` с заполненным полем `shard_name` или измените существующие хосты:
 
-    1. Добавьте к описанию кластера {{ mch-name }} блок `host` типа `CLICKHOUSE` с заполненным полем `shard_name` или измените существующие хосты:
+     ```hcl
+     resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+       ...
+       host {
+         type       = "CLICKHOUSE"
+         zone       = "<зона доступности>"
+         subnet_id  = yandex_vpc_subnet.<подсеть в зоне доступности>.id
+         shard_name = "<имя шарда>"
+       }
+     }
+     ```
 
-        ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
-          ...
-          host {
-            type       = "CLICKHOUSE"
-            zone       = "<зона доступности>"
-            subnet_id  = yandex_vpc_subnet.<подсеть в зоне доступности>.id
-            shard_name = "<имя шарда>"
-          }
-        }
-        ```
+  1. Проверьте корректность настроек.
 
-    1. Проверьте корректность настроек.
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  1. Подтвердите изменение ресурсов.
 
-    1. Подтвердите изменение ресурсов.
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -111,22 +110,21 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Шарды**.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы получить список шардов в кластере, выполните команду:
+  Чтобы получить список шардов в кластере, выполните команду:
 
-    ```bash
-    {{ yc-mdb-ch }} shards list --cluster-name=<имя кластера>
-    ```
+  ```bash
+  {{ yc-mdb-ch }} shards list --cluster-name=<имя кластера>
+  ```
 
-    Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - API
 
@@ -136,7 +134,7 @@
 
 ## Изменить шард {#shard-update}
 
-Вы можете изменить вес шарда, а также [класс хоста](../concepts/instance-types.md) и объем хранилища.
+Вы можете изменить вес шарда, а также [класс хоста](../concepts/instance-types.md) и размер хранилища.
 
 {% list tabs %}
 
@@ -148,46 +146,43 @@
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы изменить шард в кластере:
+  Чтобы изменить шард в кластере:
+  1. Посмотрите описание команды CLI для изменения шарда:
 
-    1. Посмотрите описание команды CLI для изменения шарда:
+     ```bash
+     {{ yc-mdb-ch }} shards update --help
+     ```
 
-        ```bash
-        {{ yc-mdb-ch }} shards update --help
-        ```
+  1. Запустите операцию, например, изменения веса для шарда:
 
-    1. Запустите операцию, например, изменения веса для шарда:
+     ```bash
+     {{ yc-mdb-ch }} shards update <имя шарда> \
+       --cluster-name=<имя кластера> \
+       --weight=<вес шарда>
+     ```
 
-        ```bash
-        {{ yc-mdb-ch }} shards update <имя шарда> \
-           --cluster-name=<имя кластера> \
-           --weight=<вес шарда>
-        ```
+     Где:
+     * `<имя шарда>` — можно запросить со [списком шардов в кластере](#list-shards).
+     * `--cluster-name` — имя кластера.
 
-        Где:
+       Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     * `--weight` — вес шарда. Минимальное значение — `0`.
 
-        * `<имя шарда>` — можно запросить со [списком шардов в кластере](#list-shards).
-        * `--cluster-name` — имя кластера.
-        Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-        * `--weight` — вес шарда. Минимальное значение — `0`.
-
-        После успешного завершения операции CLI выведет информацию об измененном шарде.
+     После успешного завершения операции CLI выведет информацию об измененном шарде.
 
 - API
 
-    Воспользуйтесь методом API [updateShard](../api-ref/Cluster/updateShard.md) и передайте в запросе:
+  Воспользуйтесь методом API [updateShard](../api-ref/Cluster/updateShard.md) и передайте в запросе:
+  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+  * Имя шарда в параметре `shardName`.
+  * Настройки шарда в параметре `configSpec`.
+  * Список настроек, которые необходимо изменить, в параметре `updateMask`.
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-    * Имя шарда в параметре `shardName`.
-    * Настройки шарда в параметре `configSpec`.
-    * Список настроек, которые необходимо изменить, в параметре `updateMask`.
-
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
-
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -204,45 +199,41 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-
   1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
-
   1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) в строке нужного хоста и выберите пункт **Удалить**.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы удалить шард из кластера, выполните команду:
+  Чтобы удалить шард из кластера, выполните команду:
 
-    ```bash
-    {{ yc-mdb-ch }} shards delete <имя шарда> \
-       --cluster-name=<имя кластера>
-    ```
+  ```bash
+  {{ yc-mdb-ch }} shards delete <имя шарда> \
+    --cluster-name=<имя кластера>
+  ```
 
-    Имя шарда можно запросить со [списком шардов в кластере](#list-shards), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  Имя шарда можно запросить со [списком шардов в кластере](#list-shards), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  1. Удалите из описания кластера {{ mch-name }} блок `host` с описанием шарда.
+  1. Проверьте корректность настроек.
 
-    1. Удалите из описания кластера {{ mch-name }} блок `host` с описанием шарда.
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Проверьте корректность настроек.
+  1. Введите слово `yes` и нажмите **Enter**.
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    1. Подтвердите удаление ресурсов.
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
-
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

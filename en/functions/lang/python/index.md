@@ -1,9 +1,9 @@
 ---
-title: Development in Python at Yandex Cloud Functions. Overview
-description: 'With the Cloud Functions service, you can run Python applications. The service provides several runtimes with different versions.'
+title: "Development in Python at Yandex Cloud Functions. Overview"
+description: "With the Cloud Functions service, you can run Python applications. The service provides several runtimes with different versions."
 ---
 
-# Development in Python. Overview
+# Developing in Python. Overview
 
 With {{ sf-name }}, you can run applications written in [Python](https://python.org/). The service provides several [runtime environments](../../concepts/runtime/index.md) with different versions:
 
@@ -27,5 +27,4 @@ The runtime environment automatically loads your code and invokes the [request h
 
 {{ sf-name }} automatically captures an application's standard output streams and sends them to the centralized logging system available in {{ yandex-cloud }}. This system also logs service records about the start and end of each function and any errors that occur during its execution. For more information about the log format, see [{#T}](logging.md).
 
-To learn more about how to write in Python or how certain statements work, see the [official Python documentation](https://docs.python.org/3.7/).
-
+To learn more about developing in Python or how certain statements work, see the [official Python documentation](https://docs.python.org/3.7/).

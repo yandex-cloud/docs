@@ -134,12 +134,12 @@ The Yandex account or federated account are authenticated using an [IAM token](.
                  f.write(audio_content)   
       ```
 
-   Where
+   Where:
 
-   * `lang`: [language](../index.md#langs) of the text.
-   * `voice`: [voice](../voices.md) for speech synthesis.
+   * `lang`: [Language](../index.md#langs) of the text.
+   * `voice`: [Voice](../voices.md) for speech synthesis.
 
-   1. Execute the created file:
+   1. Run the created file:
 
     ```bash
     export FOLDER_ID=<folder ID>

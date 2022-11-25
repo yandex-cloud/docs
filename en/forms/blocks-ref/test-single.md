@@ -1,4 +1,4 @@
-# One answer
+# Block "One answer"
 
 In this block, the user can select only one response from the suggested options, even if multiple responses may be correct. If the user selects a correct response, they get points only for this response.
 

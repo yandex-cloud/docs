@@ -20,9 +20,9 @@ Parameters let you create interactive dashboards whose content changes depending
 Parameters are displayed as drop-down menus above dashboard widgets. When you select a parameter value, the dashboard is updated and the selected value is substituted in data queries.
 
 The following types of dashboards are available:
-- _Label value_ — The parameter takes a set of values of the specified label.
-- _Set of values_ — The parameter takes a set of fixed comma-separated values.
-- _Text field_ — The parameter takes the only value specified in the text field.
+- _Label value_: The parameter takes a set of values of the specified label.
+- _Set of values_: The parameter takes a set of fixed comma-separated values.
+- _Text field_: The parameter takes the only value specified in the text field.
 
 For parameters of the _Label value_ and _Set of values_ type, the _Multiple choice_ setting is available. It lets you select multiple parameter values at the same time.
 
@@ -30,7 +30,7 @@ For all parameter types, you can set the _Default value_ that will be used when 
 
 Creating a new dashboard parameter looks like this:
 
-![Creating a new dashboard parameter](../../../_assets/monitoring/dashboard-new-parameter.png)
+![Creating a new dashboard parameter](../../../_assets/monitoring/dashboard-new-parameter.png "Creating a new dashboard parameter")
 
 ### Parameter substitution {#templates}
 
@@ -51,7 +51,7 @@ You can only use parameter value substitution in label values when making querie
 
 Substituting parameter values in query strings looks like this:
 
-![Substituting parameter values in query strings](../../../_assets/monitoring/query-string-templating.png)
+![Substituting parameter values in query strings](../../../_assets/monitoring/query-string-templating.png "Substituting parameter values in query strings")
 
 
 ### Label value filter {#common-labels-filter}
@@ -69,11 +69,11 @@ Filtering settings and result:
 
 
 Below is a more complex example. Let's say the system has the following metrics:
-- `usage{cluster="prod", account="prodaccount"}`;
-- `usage{cluster="preprod", account="preprodaccount"}`;
-- `usage{cluster="testing", account="testingaccount"}`;
-- `usage{cluster="prod", account="multiaccount"}`;
-- `usage={cluster="testing", account="multiaccount"}`.
+- `usage{cluster="prod", account="prodaccount"}`
+- `usage{cluster="preprod", account="preprodaccount"}`
+- `usage{cluster="testing", account="testingaccount"}`
+- `usage{cluster="prod", account="multiaccount"}`
+- `usage={cluster="testing", account="multiaccount"}`
 
 Filtering settings:
 - The filter contains the `cluster=*prod*` value.

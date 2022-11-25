@@ -323,6 +323,8 @@ items:
             href: function-ref/ARR_MIN.md
           - name: ARR_PRODUCT
             href: function-ref/ARR_PRODUCT.md
+          - name: ARR_REMOVE
+            href: function-ref/ARR_REMOVE.md
           - name: ARR_STR
             href: function-ref/ARR_STR.md
           - name: ARR_SUM

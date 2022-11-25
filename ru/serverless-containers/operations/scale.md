@@ -52,6 +52,10 @@
 
     Количество подготовленных экземпляров отображается в поле `min_instances`.
 
+- API
+
+  Посмотреть настройки масштабирования контейнера можно с помощью метода API [getRevision](../containers/api-ref/Container/getRevision.md).
+
 {% endlist %}
 
 ## Добавить настройки масштабирования {#add}
@@ -114,6 +118,10 @@
 	  min_instances: "1"
     ```
 
+- API
+
+  Добавить настройки масштабирования для контейнера можно с помощью метода API [deployRevision](../containers/api-ref/Container/deployRevision.md).
+
 {% endlist %}
 
 ## Удалить настройки масштабирования {#delete}
@@ -168,5 +176,9 @@
 	service_account_id: ajeqnasj95o7********
 	status: ACTIVE
     ```
+
+- API
+
+  Удалить настройки масштабирования для контейнера можно с помощью метода API [deployRevision](../containers/api-ref/Container/deployRevision.md).
 
 {% endlist %}

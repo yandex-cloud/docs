@@ -26,6 +26,10 @@
     done (1s)
     ```
 
+- API
+
+  Сделать контейнер публичным можно с помощью метода API [setAccessBindings](../../serverless-containers/containers/api-ref/Container/setAccessBindings.md).
+
 {% endlist %}
 
 ## Сделать контейнер приватным {#private}
@@ -78,6 +82,10 @@
     +---------+--------------+-----------------------+
     ```
 
+- API
+
+  Посмотреть роли, назначенные на контейнер, можно с помощью метода API [listAccessBindings](../../serverless-containers/containers/api-ref/Container/listAccessBindings.md).
+
 {% endlist %}
 
 {% note info %}
@@ -128,6 +136,10 @@
         done (1s)
         ```
 
+- API
+
+  Назначить роли на контейнер можно с помощью метода API [setAccessBindings](../../serverless-containers/containers/api-ref/Container/setAccessBindings.md).
+
 {% endlist %}
 
 ## Отозвать роли, назначенные на контейнер {#revoke}
@@ -171,5 +183,9 @@
         ```
         done (1s)
         ```
+
+- API
+
+  Отозвать роли, назначенные на контейнер, можно с помощью метода API [updateAccessBindings](../containers/api-ref/Container/updateAccessBindings.md).
 
 {% endlist %}

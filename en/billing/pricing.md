@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Pricing policy
+# {{ yandex-cloud }} pricing policy
 
 
 In {{ yandex-cloud }}, you can use resources of both billable and non-billable services.

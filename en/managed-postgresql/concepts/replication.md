@@ -1,4 +1,4 @@
-# Replication
+# Replication in {{ mpg-name }}
 
 {{ mpg-name }} clusters use _quorum-based synchronous replication_:
 

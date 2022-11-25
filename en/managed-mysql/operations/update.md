@@ -1,4 +1,4 @@
-# Changing cluster settings
+# Changing {{ MY }} cluster settings
 
 After creating a cluster, you can:
 

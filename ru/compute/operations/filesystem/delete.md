@@ -11,10 +11,10 @@
      1. Выберите сервис **{{ compute-name }}**.
      1. На панели слева выберите ![image](../../../_assets/compute/storage.svg) **Файловые хранилища**.
      1. В строке нужного файлового хранилище нажмите ![image](../../../_assets/options-grey.svg) и выберите пункт **Удалить**.
-     1. В открывшемся окне подтвердите удаление.
-     
+     1. В открывшемся окне нажмите кнопку **Удалить**.
+
    - API
-      
+
      Используйте метод [FilesystemService/Delete](../../api-ref/grpc/filesystem_service.md#Delete) gRPC API или метод [delete](../../api-ref/Filesystem/delete.md) ресурса Filesystem REST API.
-  
+
    {% endlist %}

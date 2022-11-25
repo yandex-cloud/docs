@@ -1,4 +1,4 @@
-# Using deprecated host classes
+# Using deprecated host classes in {{ mmy-name }}
 
 Starting June 1, 2020, host classes `s1.nano` and all `m1.*` are deprecated for {{ mmy-short-name }}.
 

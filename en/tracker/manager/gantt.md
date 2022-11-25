@@ -1,4 +1,4 @@
-# Gantt charts
+# Gantt charts in {{ tracker-name }}
 
 A Gantt chart in {{ tracker-name }} is a calendar tool for planning your workflow. You can create a Gantt chart for an issue list within a queue or a filtered list of issues.
 

@@ -1,4 +1,4 @@
-# Managing ClickHouse users
+# Managing {{ CH }} users
 
 {{ mch-name }} lets you manage users and their individual settings in two ways:
 

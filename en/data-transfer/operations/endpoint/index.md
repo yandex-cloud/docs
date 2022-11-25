@@ -15,28 +15,30 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    1. (Optional) Enter a description of the endpoint.
    1. In the **Database** type field, select the appropriate value. An endpoint of the corresponding type will be created.
    1. Set the endpoint parameters:
-      * For sources:
-         * [{{ KF }}](source/kafka.md).
-         * [{{ CH }}](source/clickhouse.md).
-         * [{{ GP }}](source/greenplum.md).
-         * [{{ MG }}](source/mongodb.md).
-         * [{{ MY }}](source/mysql.md).
-         * [Oracle](source/oracle.md).
-         * [{{ PG }}](source/postgresql.md).
-
+      * Sources:
+         * Airbyte®:
+            * [AWS CloudTrail](source/aws-cloudtrail.md)
+            * [BigQuery](source/bigquery.md)
+            * [S3](source/s3.md)
+         * [{{ KF }}](source/kafka.md)
+         * [{{ CH }}](source/clickhouse.md)
+         * [{{ eventhub-name }}](source/eventhub.md)
+         * [{{ GP }}](source/greenplum.md)
+         * [{{ MG }}](source/mongodb.md)
+         * [{{ MY }}](source/mysql.md)
+         * [Oracle](source/oracle.md)
+         * [{{ PG }}](source/postgresql.md)
          * [{{ yds-full-name }}](source/data-streams.md)
-
          * [{{ ydb-full-name }}](source/ydb.md)
-
-      * For targets:
-         * [{{ CH }}](target/clickhouse.md).
-         * [{{ GP }}](target/greenplum.md).
-         * [{{ MG }}](target/mongodb.md).
-         * [{{ MY }}](target/mysql.md).
-         * [{{ objstorage-name }}](target/object-storage.md).
-         * [{{ PG }}](target/postgresql.md).
-         * [{{ ydb-name }}](target/yandex-database.md).
-
+      * Targets:
+         * [{{ KF }}](target/kafka.md)
+         * [{{ CH }}](target/clickhouse.md)
+         * [{{ GP }}](target/greenplum.md)
+         * [{{ MG }}](target/mongodb.md)
+         * [{{ MY }}](target/mysql.md)
+         * [{{ objstorage-name }}](target/object-storage.md)
+         * [{{ PG }}](target/postgresql.md)
+         * [{{ ydb-name }}](target/yandex-database.md)
    1. Click **Create**.
 
 - CLI
@@ -59,7 +61,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
       {{ yc-dt }} endpoint create --help
       ```
 
-   2. Specify the endpoint parameters in the create command (only some of the supported parameters are given in the example):
+   1. Specify the endpoint parameters in the create command (only some of the supported parameters are given in the example):
 
       ```bash
       {{ yc-dt }} endpoint create <endpoint type> \
@@ -71,29 +73,30 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
       You can view the endpoint type and parameters in the settings section for the appropriate data source or target:
 
       * Sources:
-
-         * [{{ MY }}](source/mysql.md).
-         * [{{ PG }}](source/postgresql.md).
+         * [{{ CH }}](source/clickhouse.md)
+         * [{{ MG }}](source/mongodb.md)
+         * [{{ MY }}](source/mysql.md)
+         * [{{ PG }}](source/postgresql.md)
 
       * Targets:
-
-         * [{{ MY }}](target/mysql.md).
-         * [{{ PG }}](target/postgresql.md).
+         * [{{ CH }}](target/clickhouse.md)
+         * [{{ MG }}](target/mongodb.md)
+         * [{{ MY }}](target/mysql.md)
+         * [{{ PG }}](target/postgresql.md)
 
 - {{ TF }}
+      {% note info %}
 
-   {% note info %}
-
-   You can create endpoints with {{ TF }} for {{ MY }} and {{ PG }} sources and targets only.
+   You can create endpoints with {{ TF }} only for {{ MY }}, {{ PG }}, {{MG}}, and {{CH}} sources and targets.
 
    {% endnote %}
 
+   
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    To create an endpoint:
 
-   1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
-
+   1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it doesn't exist.
       1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Create a configuration file with a description of your endpoint.
 
@@ -110,21 +113,23 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
       }
       ```
 
-      You can view the endpoint type and parameters in the settings section for the appropriate data source or target:
+   1. You can view the endpoint type and parameters in the settings section for the appropriate data source or target:
 
+      
       * Sources:
 
-         * [{{ CH }}](source/clickhouse.md).
-         * [{{ MG }}](source/mongodb.md).
-         * [{{ MY }}](source/mysql.md).
-         * [{{ PG }}](source/postgresql.md).
+         * [{{ CH }}](source/clickhouse.md)
+         * [{{ MG }}](source/mongodb.md)
+         * [{{ MY }}](source/mysql.md)
+         * [{{ PG }}](source/postgresql.md)
 
       * Targets:
 
-         * [{{ CH }}](target/clickhouse.md).
-         * [{{ MG }}](target/mongodb.md).
-         * [{{ MY }}](target/mysql.md).
-         * [{{ PG }}](target/postgresql.md).
+         * [{{ CH }}](target/clickhouse.md)
+         * [{{ MG }}](target/mongodb.md)
+         * [{{ MY }}](target/mysql.md)
+         * [{{ PG }}](target/postgresql.md)
+
 
    1. Make sure the settings are correct.
 
@@ -134,7 +139,9 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+      
+   1. For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+
 
 - API
 
@@ -154,14 +161,16 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    You can view the endpoint parameters in the settings section for the appropriate data source or target:
 
    * Sources:
-
-      * [{{ MY }}](source/mysql.md).
-      * [{{ PG }}](source/postgresql.md).
+      * [{{ CH }}](source/clickhouse.md)
+      * [{{ MG }}](source/mongodb.md)
+      * [{{ MY }}](source/mysql.md)
+      * [{{ PG }}](source/postgresql.md)
 
    * Targets:
-
-      * [{{ MY }}](target/mysql.md).
-      * [{{ PG }}](target/postgresql.md).
+      * [{{ CH }}](target/clickhouse.md)
+      * [{{ MG }}](target/mongodb.md)
+      * [{{ MY }}](target/mysql.md)
+      * [{{ PG }}](target/postgresql.md)
 
 {% endlist %}
 
@@ -175,23 +184,29 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    1. Select an endpoint and click ![pencil](../../../_assets/pencil.svg) **Edit** on the top panel.
    1. Edit the endpoint parameters:
       * Sources:
-         * [{{ KF }}](source/kafka.md).
-         * [{{ CH }}](source/clickhouse.md).
-         * [{{ GP }}](source/greenplum.md).
-         * [{{ MG }}](source/mongodb.md).
-         * [{{ MY }}](source/mysql.md).
-         * [{{ PG }}](source/postgresql.md).
-         * [{{ yds-name }}](source/data-streams.md).
-           
+         * Airbyte®:
+            * [AWS CloudTrail](source/aws-cloudtrail.md)
+            * [BigQuery](source/bigquery.md)
+            * [S3](source/s3.md)
+         * [{{ KF }}](source/kafka.md)
+         * [{{ CH }}](source/clickhouse.md)
+         * [{{ eventhub-name }}](source/eventhub.md)
+         * [{{ GP }}](source/greenplum.md)
+         * [{{ MG }}](source/mongodb.md)
+         * [{{ MY }}](source/mysql.md)
+         * [Oracle](source/oracle.md)
+         * [{{ PG }}](source/postgresql.md)
+         * [{{ yds-full-name }}](source/data-streams.md)
+         * [{{ ydb-full-name }}](source/ydb.md)
       * Targets:
-         * [{{ CH }}](target/clickhouse.md).
-         * [{{ GP }}](target/greenplum.md).
-         * [{{ MG }}](target/mongodb.md).
-         * [{{ MY }}](target/mysql.md).
-         * [{{ objstorage-name }}](target/object-storage.md).
-         * [{{ PG }}](target/postgresql.md).
-         * [{{ ydb-name }}](target/yandex-database.md).
-            
+         * [{{ KF }}](target/kafka.md)
+         * [{{ CH }}](target/clickhouse.md)
+         * [{{ GP }}](target/greenplum.md)
+         * [{{ MG }}](target/mongodb.md)
+         * [{{ MY }}](target/mysql.md)
+         * [{{ objstorage-name }}](target/object-storage.md)
+         * [{{ PG }}](target/postgresql.md)
+         * [{{ ydb-name }}](target/yandex-database.md)
    1. Click **Apply**.
 
 - {{ TF }}

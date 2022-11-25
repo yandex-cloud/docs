@@ -3,7 +3,7 @@ title: "How to remove a target group in a network balancer"
 description: "Before deleting a target group, it must be disconnected from the network balancer. Once deleted, the target group cannot be restored. Open the Load Balancer section in the directory where you want to delete the target group. In the menu that appears, click the Delete button."
 ---
 
-# Delete a target group
+# Delete a {{ network-load-balancer-name }} target group
 
 {% note alert %}
 

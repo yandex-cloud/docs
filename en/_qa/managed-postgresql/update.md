@@ -1,4 +1,4 @@
-# Updating clusters
+# Updating a {{ PG }} cluster
 
 #### Why did the cluster change its status to Updating during an unscheduled backup? {#updating-while-backup}
 

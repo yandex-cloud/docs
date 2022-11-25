@@ -5,7 +5,7 @@ description: 'The {{ dns-name }} service has limits and quotas for the number of
 editable: false
 ---
 
-# Quotas and limits
+# Quotas and limits in {{ dns-name }}
 
 {{ dns-name }} has the following limits:
 

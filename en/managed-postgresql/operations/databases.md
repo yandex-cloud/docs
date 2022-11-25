@@ -1,4 +1,4 @@
-# Managing databases
+# Managing databases in {{ mpg-name }}
 
 You can add and remove databases, as well as view information about them.
 

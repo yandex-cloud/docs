@@ -39,9 +39,9 @@ items:
                 href: operations/endpoint/source/postgresql.md
               - name: S3
                 href: operations/endpoint/source/s3.md
-              - name: Yandex Data Streams
+              - name: '{{ yds-full-name }}'
                 href: operations/endpoint/source/data-streams.md
-              - name: YDB
+              - name: '{{ ydb-full-name }}'
                 href: operations/endpoint/source/ydb.md
           - name: Настройка эндпоинтов-приемников
             items:
@@ -59,7 +59,7 @@ items:
                 href: operations/endpoint/target/object-storage.md
               - name: PostgreSQL
                 href: operations/endpoint/target/postgresql.md
-              - name: YDB
+              - name: '{{ ydb-full-name }}'
                 href: operations/endpoint/target/yandex-database.md
       - name: Управление трансфером
         href: operations/transfer.md

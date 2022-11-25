@@ -3,7 +3,7 @@ title: Access management in {{ dns-full-name }}
 description: "Access management in the service for managing DNS zones and domain names of your resources — {{ dns-full-name }}. The section describes which resources you can assign a role to, which roles operate in the service, which roles are required for this or that action."
 ---
 
-# Access management
+# Access management in {{ dns-name }}
 
 In this section, you'll learn:
 * [Which resources you can assign roles to](#resources).

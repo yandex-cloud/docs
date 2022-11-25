@@ -3,7 +3,7 @@ title: "Assigning privileges and roles to PostgreSQL users"
 description: "Atomic permissions in PostgreSQL are called privileges, permissions groups are called roles. For more information on organizing access rights, see the PostgreSQL documentation. The user created with the Managed Service for PostgreSQL cluster is the owner of the first database in the cluster. You can create other users and customize their rights as you see fit."
 ---
 
-# Assigning privileges and roles to users
+# Assigning privileges and roles to users {{ PG }}
 
 Atomic permissions in **{{ PG }}** are called _privileges_ and permission groups are called _roles_. For more information about access permissions, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/user-manag.html).
 

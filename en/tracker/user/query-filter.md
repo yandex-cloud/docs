@@ -2,7 +2,7 @@
 title: "Query language in Yandex Tracker"
 description: "This section describes the Yandex Tracker query language. The query language allows you to search for tasks by name, description and comments, filter tasks by several values of one parameter, use comparison operations and logical operators in filters, specify functions as a value for comparison, and also set the sort order of tasks in the filter results. "
 ---
-# Query language
+# Query language in {{ tracker-name }}
 
 If the basic filters don&apos;t give you enough options, use the query language to define a filter.
 

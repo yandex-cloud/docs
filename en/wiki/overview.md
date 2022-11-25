@@ -1,4 +1,4 @@
-# Service overview
+# {{ wiki-name }} overview
 
 {{ wiki-full-name }} is a service to create a corporate knowledge base for company employees to populate and update.
 

@@ -22,10 +22,10 @@ links:
     description: List of supported transfer types
     href: transfer-matrix
   - title: Getting started
-    description: Create your first project
+    description: Run your first transfer
     href: quickstart
   - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
+    description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: Learn about basic concepts and service functions
@@ -37,8 +37,8 @@ links:
     description: Technical and organizational limitations of the service
     href: concepts/limits
   - title: Access management
-    description: Configure access rights to work with the service
+    description: Set up access rights to work with the service
     href: security/
   - title: Pricing policy
-    description: Prices and rules for calculating the service cost
+    description: Service pricing and cost calculations
     href: pricing

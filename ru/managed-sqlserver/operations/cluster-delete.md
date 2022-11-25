@@ -21,27 +21,27 @@ description: "После удаления кластера баз данных S
   1. Перейдите на [страницу каталога]({{ link-console-main }}) в консоли управления.
   1. Выберите сервис **{{ mms-name }}**.
   1. Нажмите значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **Удалить кластер**.
-  1. Подтвердите удаление кластера и нажмите кнопку **Удалить**.
+  1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы удалить кластер, выполните команду:
+  Чтобы удалить кластер, выполните команду:
 
-    ```bash
-    {{ yc-mdb-ms }} cluster delete <идентификатор или имя кластера>
-    ```
+  ```bash
+  {{ yc-mdb-ms }} cluster delete <идентификатор или имя кластера>
+  ```
 
-    Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
-    {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
+  {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
-    {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
 
 - API
 

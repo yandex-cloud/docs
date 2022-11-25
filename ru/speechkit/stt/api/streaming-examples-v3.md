@@ -7,7 +7,7 @@
 * [язык](../index.md#langs) — русский;
 * формат аудиопотока — [LPCM](../../formats.md#LPCM) с частотой дискретизации 8000 Гц;
 * [количество аудиоканалов](../../stt-v3/api-ref/grpc/stt_service#RawAudio) — 1 (значение по умолчанию);
-* включен [фильтр ненормативной лексики](../../v3/api-ref/grpc/stt_service#TextNormalizationOptions);
+* включен [фильтр ненормативной лексики](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions);
 * остальные параметры оставлены по умолчанию.
 
 Работа с API выполняется с помощью пакета `grpcio-tools`.
@@ -105,13 +105,13 @@
         def run(iam_token, audio_file_name):
             # Установить соединение с сервером.
             cred = grpc.ssl_channel_credentials()
-            channel = grpc.secure_channel('stt.{{ api-host }}:443', cred)
+            channel = grpc.secure_channel('{{ api-host-sk-stt }}', cred)
             stub = stt_service_pb2_grpc.RecognizerStub(channel)
     
             # Отправить данные для распознавания.
             it = stub.RecognizeStreaming(gen(audio_file_name), metadata=(
                 ('authorization', f'Bearer {iam_token}'),
-                ('x-node-alias', 'speechkit.stt.rc')
+                ('x-node-alias', '{{ speechkit-stt-alias }}')
             ))
 
             # Обработать ответы сервера и вывести результат в консоль.
@@ -142,8 +142,8 @@
         * `audio_encoding` — [формат](../../formats.md) аудиопотока.
         * `sample_rate_hertz` — частота дискретизации аудиопотока.
         * `audio_channel_count` — количество аудиоканалов.
-        * `profanity_filter` — [фильтр ненормативной лексики](../../v3/api-ref/grpc/stt_service#TextNormalizationOptions).
-        * `literature_text` — [флаг для написания распознанного текста в литературном стиле](../../v3/api-ref/grpc/stt_service#TextNormalizationOptions).
+        * `profanity_filter` — [фильтр ненормативной лексики](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
+        * `literature_text` — [флаг для написания распознанного текста в литературном стиле](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
         * `language_code` — [язык](../index.md#langs), для которого будет выполнено распознавание.
 
     1. Задайте [IAM-токен](../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта:
@@ -177,5 +177,5 @@
 
 #### См. также {#see-also}
 
-* [Подробнее про API v3](../../tts-v3/api-ref/grpc/)
+* [Подробнее про API v3](../../stt-v3/api-ref/grpc/)
 * [{#T}](../../concepts/auth.md)

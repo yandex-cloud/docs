@@ -1,4 +1,4 @@
-# Delete a certificate
+# Delete a user certificate
 
 To delete a certificate:
 

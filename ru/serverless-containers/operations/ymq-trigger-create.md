@@ -123,6 +123,10 @@
     status: ACTIVE
     ```
 
+- API
+
+  Создать триггер для {{ message-queue-name }} можно с помощью метода API [create](../triggers/api-ref/Trigger/create.md).
+
 {% endlist %}
 
 ## Проверить результат {#check-result}

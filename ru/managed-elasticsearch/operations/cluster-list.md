@@ -1,5 +1,5 @@
 ---
-title: Информация об имеющихся кластерах Elasticsearch
+title: "Информация об имеющихся кластерах Elasticsearch"
 description: "Вы можете запросить детальную информацию о каждом созданном вами кластере {{ mes-name }}."
 keywords:
   - информация о хостах Elasticsearch

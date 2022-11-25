@@ -1,6 +1,6 @@
 ---
-title: Поддерживаемые клиенты СУБД Redis
-description: {{ mrd-short-name }} гарантирует работу только для определенных клиентов СУБД Redis, но не накладывает ограничений на использование остальных клиентов. Поддерживаются следующие клиенты Python-пакет redis, Java-клиент jedis, Node.js-пакет ioredis, Go-клиент go-redis, telnet, redis-cli.
+title: "Поддерживаемые клиенты СУБД Redis"
+description: "{{ mrd-short-name }} гарантирует работу только для определенных клиентов СУБД Redis, но не накладывает ограничений на использование остальных клиентов. Поддерживаются следующие клиенты Python-пакет redis, Java-клиент jedis, Node.js-пакет ioredis, Go-клиент go-redis, telnet, redis-cli."
 keywords:
   - клиенты redis
   - clients redis

@@ -3,7 +3,7 @@ title: "Getting started with {{ yandex-cloud }}"
 description: "With the help of this article, you will learn how to work with {{ yandex-cloud }} cloud platform. Let's take a closer look at how to create Linux and Windows virtual machines, use {{ objstorage-name }} (S3) storage services, configure networking and load balancers, manage access to resources, and create database clusters."
 ---
 
-# Getting started
+# Getting started with {{ yandex-cloud }}
 
 
 The {{ yandex-cloud }} platform has several user interfaces, such as the [management console]({{ link-console-main }}) and the [command line interface](../cli/). To access any user interface, you will need a _user account_. This can be a personal Yandex account (Yandex ID) or a Yandex 360 account. For detailed instructions, see the Help for [Yandex ID](https://yandex.com/support/passport/authorization/registration.html) and [Yandex 360](https://yandex.com/support/business/add-users.html).

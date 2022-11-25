@@ -1,5 +1,5 @@
 ---
-title: Сценарии использования {{ container-registry-full-name }}
+title: "Сценарии использования {{ container-registry-full-name }}"
 description: "Различные сценарии использования {{ container-registry-full-name }} в {{ yandex-cloud }}. Запуск Docker-образа на виртуальной машине."
 ---
 

@@ -105,6 +105,10 @@
     status: ACTIVE
     ```
 
+- API
+
+  Создать триггер для {{ container-registry-name }} можно с помощью метода API [create](../triggers/api-ref/Trigger/create.md).
+
 {% endlist %}
 
 ## Проверить результат {#check-result}

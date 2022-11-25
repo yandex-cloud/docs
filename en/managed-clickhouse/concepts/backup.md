@@ -7,7 +7,7 @@ keywords:
   - ClickHouse
 ---
 
-# Backups
+# Backups in {{ mch-name }}
 
 {{ mch-short-name }} provides automatic and manual database backups.
 

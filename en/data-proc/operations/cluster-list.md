@@ -1,4 +1,4 @@
-# Information about existing clusters
+# Information about existing clusters of {{ dataproc-name }}
 
 Detailed information about each {{ dataproc-name }} cluster created is available.
 

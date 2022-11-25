@@ -17,9 +17,8 @@ description: "Чтобы удалить целевую группу, в конс
   1. Выберите целевую группу и нажмите значок ![image](../../_assets/horizontal-ellipsis.svg).
   1. В открывшемся меню выберите пункт **Удалить**.
 
-      Чтобы выполнить это действие с несколькими группами, выделите нужные в списке и нажмите кнопку **Удалить** в нижней части экрана.
-
-  1. Подтвердите удаление.
+     Чтобы выполнить это действие с несколькими группами, выделите нужные в списке и нажмите кнопку **Удалить** в нижней части экрана.
+  1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI
 
@@ -28,60 +27,62 @@ description: "Чтобы удалить целевую группу, в конс
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Посмотрите описание команды CLI для удаления целевой группы:
-     ```
+
+     ```bash
      yc alb target-group delete --help
      ```
 
   1. Выполните команду:
-     ```
+
+     ```bash
      yc alb target-group delete <имя или идентификатор целевой группы>
      ```
 
      Чтобы проверить удаление, получите список целевых групп, выполнив команду:
-     ```
+
+     ```bash
      yc alb target-group list
      ```
 
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
-  
+
   Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-  
   1. Откройте конфигурационный файл {{ TF }} и удалите фрагмент с описанием целевой группы.
-  
-      Пример описания целевой группы в конфигурации {{ TF }}:
 
-      ```hcl
-      resource "yandex_alb_target_group" "foo" {
-        name           = "<имя целевой группы>"
+     Пример описания целевой группы в конфигурации {{ TF }}:
 
-        target {
-          subnet_id    = "<идентификатор подсети>"
-          ip_address   = "<внутренний IP-адрес ВМ 1>"
-        }
+     ```hcl
+     resource "yandex_alb_target_group" "foo" {
+       name           = "<имя целевой группы>"
 
-        target {
-          subnet_id    = "<идентификатор подсети>"
-          ip_address   = "<внутренний IP-адрес ВМ 2>"
-        }
+       target {
+         subnet_id    = "<идентификатор подсети>"
+         ip_address   = "<внутренний IP-адрес ВМ 1>"
+       }
 
-        target {
-          subnet_id    = "<идентификатор подсети>"
-          ip_address   = "<внутренний IP-адрес ВМ 3>"
-        }
-      }
-      ```
+       target {
+         subnet_id    = "<идентификатор подсети>"
+         ip_address   = "<внутренний IP-адрес ВМ 2>"
+       }
 
-      Подробную информацию о параметрах ресурса `yandex_alb_target_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-targetgroup }}).
+       target {
+         subnet_id    = "<идентификатор подсети>"
+         ip_address   = "<внутренний IP-адрес ВМ 3>"
+       }
+     }
+     ```
+
+     Подробную информацию о параметрах ресурса `yandex_alb_target_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-targetgroup }}).
   1. Примените изменения:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      Проверить изменения целевой группы можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+     Проверить изменения целевой группы можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
-      ```bash
-      yc alb target-group list
-      ```
+     ```bash
+     yc alb target-group list
+     ```
 
 {% endlist %}

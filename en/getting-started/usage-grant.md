@@ -1,4 +1,4 @@
-# Initial grant
+# Initial grant for individual and business accounts
 
 {% include [grant-amount](_includes/grant-amount.md) %}
 

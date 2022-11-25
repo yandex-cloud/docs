@@ -1,5 +1,5 @@
 ---
-title: Сценарии использования Windows в {{ yandex-cloud }}
+title: "Сценарии использования Windows в {{ yandex-cloud }}"
 description: "Различные сценарии использования Windows в облаке {{ yandex-cloud }}. Развертывание Active Directory, развертывание Microsoft Exchange, развертывание Remote Desktop Services, развертывание шлюза Remote Desktop Gateway, развертывание группы доступности Always On, развертывание группы доступности Always On с внутренним сетевым балансировщиком."
 ---
 

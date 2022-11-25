@@ -45,6 +45,16 @@ items:
             href: operations/device/device-update.md
           - name: Deleting a device
             href: operations/device/device-delete.md
+      - name: Managing brokers
+        items:
+          - name: Getting information about a broker
+            href: operations/broker/broker-list.md
+          - name: Creating a broker
+            href: operations/broker/broker-create.md
+          - name: Updating a broker
+            href: operations/broker/broker-update.md
+          - name: Deleting a broker
+            href: operations/broker/broker-delete.md
       - name: Managing certificates
         items:
           - name: Create a certificate
@@ -53,21 +63,25 @@ items:
             href: operations/certificates/registry-certificates.md
           - name: Managing device certificates
             href: operations/certificates/device-certificates.md
+          - name: Managing broker certificates
+            href: operations/certificates/broker-certificates.md
       - name: Managing passwords
         items:
           - name: Managing registry passwords
             href: operations/password/registry-password.md
           - name: Managing device passwords
             href: operations/password/device-password.md
+          - name: Managing broker passwords
+            href: operations/password/broker-password.md
   - name: Concepts
     items:
       - name: Authorization
         href: concepts/authorization.md
       - name: Relationship between service resources
         href: concepts/index.md
-      - name: MQTT broker connection parameters
+      - name: MQTT server connection parameters
         href: concepts/mqtt-properties.md
-      - name: Sending messages to an MQTT broker via gRPC
+      - name: Sending messages to an MQTT server via gRPC
         href: concepts/mqtt-grpc.md
       - name: Topic
         items:
@@ -107,10 +121,10 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: API reference
+  - name: Devices API reference
     items:
       - name: Authentication in the API
-        href: api-ref/authentication.md
+        href: api-ref/devices/authentication.md
       - name: gRPC
         items:
           - name: Overview
@@ -203,6 +217,58 @@ items:
                 href: api-ref/Registry/listPasswords.md
               - name: update
                 href: api-ref/Registry/update.md
+  - name: Broker API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/broker/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: broker/api-ref/grpc/index.md
+          - name: BrokerDataService
+            href: broker/api-ref/grpc/broker_data_service.md
+          - name: BrokerService
+            href: broker/api-ref/grpc/broker_service.md
+          - name: OperationService
+            href: broker/api-ref/grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Overview
+            href: broker/api-ref/index.md
+          - name: BrokerData
+            items:
+              - name: Overview
+                href: broker/api-ref/BrokerData/index.md
+              - name: publish
+                href: broker/api-ref/BrokerData/publish.md
+          - name: Broker
+            items:
+              - name: Overview
+                href: broker/api-ref/Broker/index.md
+              - name: addCertificate
+                href: broker/api-ref/Broker/addCertificate.md
+              - name: addPassword
+                href: broker/api-ref/Broker/addPassword.md
+              - name: create
+                href: broker/api-ref/Broker/create.md
+              - name: delete
+                href: broker/api-ref/Broker/delete.md
+              - name: deleteCertificate
+                href: broker/api-ref/Broker/deleteCertificate.md
+              - name: deletePassword
+                href: broker/api-ref/Broker/deletePassword.md
+              - name: get
+                href: broker/api-ref/Broker/get.md
+              - name: list
+                href: broker/api-ref/Broker/list.md
+              - name: listCertificates
+                href: broker/api-ref/Broker/listCertificates.md
+              - name: listOperations
+                href: broker/api-ref/Broker/listOperations.md
+              - name: listPasswords
+                href: broker/api-ref/Broker/listPasswords.md
+              - name: update
+                href: broker/api-ref/Broker/update.md
   - name: Questions and answers
     href: qa/index.md
 base: en/iot-core

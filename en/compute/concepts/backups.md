@@ -6,7 +6,7 @@ keywords:
   - data backup
 ---
 
-# Backups
+# Backups in {{ compute-name }}
 
 Data in images, snapshots, and disks that aren't attached to instances is stored securely and replicated within the {{ yandex-cloud }}  infrastructure.
 

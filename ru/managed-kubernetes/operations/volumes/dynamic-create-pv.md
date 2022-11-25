@@ -47,7 +47,7 @@
       kubectl create -f pvc-dynamic.yaml
       ```
 
-      Результат:
+      Результат выполнения команды:
 
       ```
       persistentvolumeclaim/pvc-dynamic created
@@ -59,7 +59,7 @@
       kubectl describe persistentvolumeclaim pvc-dynamic
       ```
 
-      Результат:
+      Результат выполнения команды:
 
       
       ```
@@ -108,7 +108,7 @@
    kubectl create -f pod.yaml
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```
    pod/pod created
@@ -120,7 +120,7 @@
    kubectl describe pod pod
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```
    Name:         pod
@@ -144,14 +144,14 @@
    ```
 
    После создания пода:
-   * В консоли управления в **{{ compute-full-name }}** в разделе **Диски** появится новый [диск](../../../compute/concepts/disk.md) с префиксом `k8s-csi` в имени диска.
+   * В [консоли управления]({{ link-console-main }}) в **{{ compute-name }}** в разделе **Диски** появится новый [диск](../../../compute/concepts/disk.md) с префиксом `k8s-csi` в имени диска.
    * В событиях объекта `PersistentVolumeClaim` появится информация о выделении диска:
 
      ```bash
      kubectl describe persistentvolumeclaim pvc-dynamic
      ```
 
-     Результат:
+     Результат выполнения команды:
 
      
      ```

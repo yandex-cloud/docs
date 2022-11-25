@@ -26,6 +26,6 @@ After the trigger is activated, it sends a message to the function. The message 
 }
 ```
 
-## See also {#see-also_}
+## See also {#see-also}
 
 * [Trigger for {{ yds-name }} that calls a {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/data-streams-trigger.md).

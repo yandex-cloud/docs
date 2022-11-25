@@ -1,4 +1,4 @@
-# Viewing cluster logs
+# Viewing {{ MY }} cluster logs
 
 {{ mmy-name }} lets you [get a cluster log snippet](#get-log) for the selected period and [view logs in real time](#get-log-stream).
 

@@ -1,4 +1,4 @@
-# Create a target group
+# Create an {{ alb-name }} target group
 
 Create VMs in the working folder by following the [instructions](../../compute/operations/index.md#vm-create).
 

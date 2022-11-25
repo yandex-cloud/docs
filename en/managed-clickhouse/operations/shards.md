@@ -1,4 +1,4 @@
-# Managing shards
+# Managing shards in a {{ CH }} cluster
 
 You can enable sharding for a cluster as well as add and configure individual shards.
 

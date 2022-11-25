@@ -7,7 +7,7 @@ keywords:
   - MySQL
 ---
 
-# Backups
+# Backups in {{ mmy-name }}
 
 {{ mmy-short-name }} provides automatic and manual database backups.
 

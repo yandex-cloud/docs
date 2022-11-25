@@ -1,4 +1,4 @@
-# Roles and access rights
+# Roles and access rights in {{ tracker-name }}
 
 {{ tracker-full-name }} is one of the [services](../organization/manage-services.md) you can connect to your company {{ yandex-cloud }}. The organization's admin who enabled {{ tracker-name }} also becomes [the admin of {{ tracker-name }}](#admin).
 

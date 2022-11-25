@@ -1,4 +1,4 @@
-# Stopping and starting clusters
+# Stopping and starting {{ KF }} clusters
 
 If necessary, you can stop and restart {{ KF }} clusters. When a cluster is stopped, all data in it is retained: it will be available again when you restart the cluster.
 

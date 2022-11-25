@@ -51,6 +51,10 @@
     status: ACTIVE
     ```
 
+- API
+
+  Изменить имя триггера можно с помощью метода API [update](../triggers/api-ref/Trigger/update.md).
+
 {% endlist %}
 
 ## Изменить описание триггера {#update-description}
@@ -100,5 +104,9 @@
             service-account-id: aje3lebfem**********
     status: ACTIVE
     ```
+
+- API
+
+  Изменить описание триггера можно с помощью метода API [update](../triggers/api-ref/Trigger/update.md).
 
 {% endlist %}

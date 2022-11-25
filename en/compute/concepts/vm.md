@@ -3,7 +3,7 @@ title: "Virtual machine is an analogue of a server"
 description: "A virtual machine is an analogue of a server in a cloud infrastructure. The virtual machine is created in one of the directories and inherits access rights from them. When you create a virtual machine, you can choose which of the Availability Zones will host it."
 ---
 
-# Virtual machines
+# Virtual machines in {{ compute-name }}
 
 A _VM_ is similar to a server in the cloud infrastructure.
 

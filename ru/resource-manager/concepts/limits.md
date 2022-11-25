@@ -1,5 +1,5 @@
 ---
-title: Квоты и лимиты в {{ resmgr-full-name }}
+title: "Квоты и лимиты в {{ resmgr-full-name }}"
 description: "Квоты и лимиты для сервиса {{ resmgr-full-name }} не определены."
 
 editable: false

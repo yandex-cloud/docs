@@ -1,4 +1,4 @@
-# Trial period
+# Trial period for new clients
 
 {% include [free-trial-conditions](../../_includes/free-trial-conditions.md) %}
 

@@ -1,4 +1,4 @@
-# Granting permissions
+# Granting permissions in {{ org-name }}
 
 Access management in {{ yandex-cloud }} leverages the [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC) policy. To grant a user certain privileges or access to a resource, you must assign the user the appropriate roles.
 

@@ -6,6 +6,15 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
+### Release 20.10.22 {#201022}
+
+In the `general:rc` model:
+1. Added recognition of Brazilian Portuguese, the language code is `pt-BR`.
+1. Improved speech recognition quality for all languages in auto recognition mode.
+1. Slightly improved the accuracy of recognition for Russian and Kazakh.
+
+## Previous versions {#previous}
+
 ### Release 05.10.22 {#051022}
 
 Upgrades to the [September 20 release](#200922) are available in the `general` model.

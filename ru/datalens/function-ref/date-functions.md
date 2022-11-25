@@ -1,5 +1,5 @@
 ---
-title: Функции даты и времени
+title: "Функции даты и времени"
 editable: false
 sourcePath: ru/_api-ref/datalens/function-ref/date-functions.md
 ---

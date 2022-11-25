@@ -1,4 +1,4 @@
-# All use cases
+# {{ mpg-name }} practical guidelines
 
 * [Creating a {{ PG }} cluster for <q>1C:Enterprise</q>](./1c-postgresql.md)
 * [{#T}](./sqoop.md)

@@ -1,4 +1,4 @@
-# Storage types
+# Storage types in {{ mkf-name }}
 
 
 {{ mkf-name }} lets you use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on [broker servers](brokers.md).

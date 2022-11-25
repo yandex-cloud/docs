@@ -1,4 +1,4 @@
-# Creating an alias
+# Creating an alias in {{ iot-name }}
 
 Aliases are linked to specific devices. To create an alias, you need to [find the device ID or name](../device-list.md).
 
@@ -58,7 +58,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
 
    {% include [terraform-definition](../../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To add an alias to a device created using {{ TF }}:
 
@@ -106,7 +106,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

@@ -7,7 +7,7 @@ keywords:
   - PostgreSQL
 ---
 
-# Backups
+# Backups in {{ mpg-name }}
 
 {{ mpg-short-name }} provides automatic and manual database backups.
 

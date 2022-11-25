@@ -1,4 +1,4 @@
-# Information about existing clusters
+# Information about existing {{ CH }} clusters
 
 You can request detailed information about each {{ mch-short-name }} cluster you created.
 

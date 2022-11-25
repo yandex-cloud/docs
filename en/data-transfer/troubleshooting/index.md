@@ -1,4 +1,4 @@
-# Troubleshooting
+# Troubleshooting in {{ data-transfer-name }}
 
 This section describes typical problems that may arise during [transfer](../operations/transfer.md#activate) [activation](../concepts/index.md#transfer) or operation, and the relevant resolution methods.
 
@@ -34,7 +34,7 @@ Error example:
 {"code": 13, "message": "internal"}
 ```
 
-**Troubleshooting:** Contact [support]({{ link-console-support }}) or your account manager and specify `request_id`. If you're using `curl` for API calls, add the `-v` flag to facilitate error diagnostics.
+**Troubleshooting:** Contact [support]({{ link-console-support }}) or your account manager and specify the `request_id`. If you're using `curl` for API calls, add the `-v` flag to facilitate error diagnostics.
 
 ## Network {#network}
 
@@ -63,6 +63,8 @@ Error example:
 {% include [binlog-size](../../_includes/data-transfer/troubles/mysql/binlog-size.md) %}
 
 {% include [no-new-tables](../../_includes/data-transfer/troubles/no-new-tables.md) %}
+
+{% include [aws-binlog-time](../../_includes/data-transfer/troubles/mysql/aws-binlog-time.md) %}
 
 ## {{ PG }} {#postgresql}
 

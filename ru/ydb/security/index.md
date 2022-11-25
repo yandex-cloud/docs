@@ -1,5 +1,5 @@
 ---
-title: Управление доступом в Yandex Managed Service for YDB
+title: "Управление доступом в Yandex Managed Service for YDB"
 description: "Управление доступом в сервисе по созданию и управлению базами данных Yandex Managed Service for YDB. Чтобы разрешить доступ к ресурсам сервиса YDB (базы данных и их пользователи), назначьте пользователю нужные роли из приведенного списка."
 sourcePath: overlay/security/start_auth.md
 ---

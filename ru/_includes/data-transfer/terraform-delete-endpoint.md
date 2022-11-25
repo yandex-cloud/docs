@@ -1,17 +1,15 @@
 Чтобы удалить эндпоинт, созданный с помощью {{ TF }}:
-
 1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-    О том, как создать такой файл, см. в разделе [{#T}](../../data-transfer/operations/endpoint/index.md#create).
-
+   О том, как создать такой файл, см. в разделе [{#T}](../../data-transfer/operations/endpoint/index.md#create).
 1. Убедитесь, что удаляемый эндпоинт не привязан ни к какому трансферу.
 1. Удалите описание эндпоинта.
 1. Проверьте корректность настроек.
 
-    {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+   {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-1. Подтвердите удаление ресурсов.
+1. Введите слово `yes` и нажмите **Enter**.
 
-    {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+   {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).

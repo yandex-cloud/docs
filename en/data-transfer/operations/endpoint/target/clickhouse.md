@@ -15,6 +15,12 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    {% include [Managed ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-clickhouse.md) %}
 
+- CLI
+
+   * Endpoint type: `clickhouse-target`.
+
+   {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-clickhouse.md) %}
+
 - Terraform
 
    * Endpoint type: `clickhouse_target`.
@@ -48,6 +54,10 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
+- API
+
+   {% include [Managed ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/managed-clickhouse.md) %}
+
 {% endlist %}
 
 ## Custom installation {#on-premise}
@@ -59,6 +69,12 @@ Connecting to the database with explicitly specified network addresses and ports
 - Management console
 
    {% include [On premise ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-clickhouse.md) %}
+
+- CLI
+
+   * Endpoint type: `clickhouse-target`.
+
+   {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-clickhouse.md) %}
 
 - Terraform
 
@@ -104,6 +120,10 @@ Connecting to the database with explicitly specified network addresses and ports
    ```
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+
+- API
+
+   {% include [On premise ClickHouse API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-clickhouse.md) %}
 
 {% endlist %}
 

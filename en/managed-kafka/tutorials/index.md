@@ -1,4 +1,4 @@
-# All tutorials
+# {{ mkf-name }} practical guidelines
 
 * [Configuring {{ KFC }} for {{ mkf-name }} clusters](./kafka-connect.md)
 * Using the registry of data format schemas with {{ mkf-name }}:

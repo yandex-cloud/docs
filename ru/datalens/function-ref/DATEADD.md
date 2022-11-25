@@ -42,7 +42,7 @@ DATEADD( datetime [ , unit [ , number ] ] )
 
 {% note info %}
 
-Для всех источников кроме `Материализованный датасет`, `ClickHouse` аргумент `number` принимает только константые значения.
+Для всех источников кроме `ClickHouse` аргумент `number` принимает только константые значения.
 
 {% endnote %}
 
@@ -88,4 +88,4 @@ DATEADD(#2018-01-12 01:02:03#, "year", 6) = #2024-01-12 01:02:03#
 
 #### Поддержка источников данных {#data-source-support}
 
-`Материализованный датасет`, `ClickHouse 19.13`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.
+`ClickHouse 19.13`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `YDB`.

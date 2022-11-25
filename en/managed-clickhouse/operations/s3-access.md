@@ -1,4 +1,4 @@
-# Setting up access to {{ objstorage-name }}
+# Setting up access to {{ objstorage-name }} from a {{ CH }} cluster
 
 {{ mch-name }} lets you use {{ objstorage-full-name }} to:
 * Enable [ML models](ml-models.md), [data format schemas](format-schemas.md), and your [own geobase](geobase.md).

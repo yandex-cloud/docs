@@ -3,7 +3,7 @@ title: "Information about clusters in {{ mpg-short-name }}"
 description: "You can request detailed information about each {{ mpg-short-name }} cluster you create. To get a list of database clusters in a directory, go to the directory page and select the {{ mpg-name }} service."
 ---
 
-# Information about existing clusters
+# Information about existing {{ PG }} clusters
 
 You can request detailed information about each {{ mpg-short-name }} cluster you created.
 

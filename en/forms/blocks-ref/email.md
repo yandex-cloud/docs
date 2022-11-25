@@ -1,4 +1,4 @@
-# Email
+# Block "Email"
 
 In this block, the user can enter an email address.
 

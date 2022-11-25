@@ -1,10 +1,9 @@
-# Access management
+# Access management in {{ cdn-name }}
 
 In this section, you'll learn:
-
-* [What resources you can assign roles to](#resources).
-* [What roles exist in the service](#roles-list).
-* [What roles are required](#required-roles) for particular actions.
+* [Which resources you can assign roles to](#resources).
+* [Which roles exist in the service](#roles-list).
+* [Which roles are required](#required-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -21,21 +20,21 @@ The diagram shows which roles are available in the service and how they inherit 
 Active roles in the service:
 
 * Service roles:
-    * {% include [cdn.viewer](../../_includes/iam/roles/short-descriptions/cdn.viewer.md) %}
-    * {% include [cdn.editor](../../_includes/iam/roles/short-descriptions/cdn.editor.md) %}
-    * {% include [cdn.admin](../../_includes/iam/roles/short-descriptions/cdn.admin.md) %}
+   * {% include [cdn.viewer](../../_includes/iam/roles/short-descriptions/cdn.viewer.md) %}
+   * {% include [cdn.editor](../../_includes/iam/roles/short-descriptions/cdn.editor.md) %}
+   * {% include [cdn.admin](../../_includes/iam/roles/short-descriptions/cdn.admin.md) %}
 
 * Primitive roles:
-    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+   * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
+   * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
+   * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
 ## What roles do I need {#required-roles}
 
 The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, you can assign `editor` instead of `viewer`.
 
 | Action | Required roles |
-| -------- | -------- |
+-------- | --------
 | **View data** |
 | View information about any resource | `cdn.viewer` for this resource |
 | **Manage CDN resources** |
@@ -59,12 +58,11 @@ The table below lists the roles needed to perform a given action. You can always
 | Origin shielding | `cdn.editor` for the folder with CDN resources |
 | Exporting logs | `cdn.editor` for the folder with CDN resources |
 | **Manage resource access** |
-| [Assign](../../iam/operations/roles/grant.md), [revoke](../../iam/operations/roles/revoke.md), and view roles granted for the resource | `admin` for the resource |
+| [Grant a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view roles granted for the resource | `admin` for the resource |
 
 #### What's next
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
-
+* [More information on inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

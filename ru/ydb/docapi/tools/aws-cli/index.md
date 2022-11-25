@@ -1,5 +1,5 @@
 ---
-title: Работа с AWS CLI. Обзор
+title: "Работа с AWS CLI. Обзор"
 description: "В разделе описано, как с использованием AWS CLI выполнить cоздание, добавление, чтение и обновление данных в таблице. Приведены примеры выполнения простых запросов."
 sourcePath: overlay/quickstart/document-api/aws-cli/index.md
 ---

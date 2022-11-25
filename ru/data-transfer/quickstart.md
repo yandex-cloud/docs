@@ -87,7 +87,7 @@
 * [{{ PG }}](operations/prepare.md#target-pg)
 
 
-Чтобы принимать данные в сервисе {{ ydb-name }}, подготовка не требуется.
+* [{{ ydb-full-name }}](operations/prepare.md#target-ydb)
 
 
 ## Создайте эндпоинт для источника {#source}

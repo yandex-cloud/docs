@@ -77,32 +77,21 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
       CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
       ```
 
-   1. Configure the source cluster to enable the created user to connect to the cluster's master and segment hosts.
+   1. Configure the source cluster to enable the user you created to connect to all the cluster's [master hosts](../../managed-greenplum/concepts/index.md).
 
-      Access to segment hosts is in utility mode with no requirement to communicate with masters.
+   1. If you are planning to use [sharded copy](../concepts/sharded.md), configure the source cluster to enable the user you created to connect to all the cluster's [segment hosts](../../managed-greenplum/concepts/index.md) in utility mode. To do this, make sure that the "Access from {{ data-transfer-name }}" setting is enabled for the cluster.
 
-   1. Grant the created user the privilege to perform a `SELECT` on all the database tables to be transferred and the `USAGE` privilege for the schemas of these tables:
+   1. Grant the user you created the `SELECT` privilege for the tables to be transferred and the `USAGE` privilege for the schemas these tables belong to.
 
       Privileges must be granted to entire tables. Access to certain table columns only is not supported.
 
-      You can issue the required privileges to a limited number of tables only. To do this, list all the tables to transfer in the [advanced settings](./endpoint/source/greenplum.md#additional-settings) of the {{ GP }} source endpoint.
+      Tables without the required privileges are unavailable to {{ data-transfer-name }}. These tables are processed as if they did not exist.
 
-      This example command grants privileges to all the database tables:
+      This example issues privileges to all the tables in the selected schema:
 
       ```pgsql
       GRANT SELECT ON ALL TABLES IN SCHEMA <schema name> TO <username>;
       GRANT USAGE ON SCHEMA <schema name> TO <username>;
-      ```
-
-   1. Grant the user created access privileges for the schema that will host the [transfer housekeeping objects](./endpoint/source/greenplum.md#additional-settings). In particular, the function create and run privilege for this schema is required.
-
-      To do this, run the command:
-
-      ```pgsql
-      GRANT USAGE ON SCHEMA <housekeeping schema name> TO <user login>;
-      GRANT CREATE ON SCHEMA <housekeeping schema name> TO <user login>;
-      GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA <housekeeping schema name> TO <user login>;
-      GRANT SELECT ON ALL TABLES IN SCHEMA <housekeeping schema name> TO <user login>;
       ```
 
 
@@ -116,35 +105,26 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
       CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
       ```
 
-   1. Configure the source cluster to enable the created user to connect to the cluster's master and segment hosts.
+   1. Configure the source cluster to enable the user you created to connect to all the cluster's master hosts.
 
-      Access to segment hosts is in utility mode with no requirement to communicate with masters.
+   1. If you are planning to use [sharded copy](../concepts/sharded.md), configure the source cluster to enable the user you created to connect to all the cluster's segment hosts in utility mode.
 
-   1. Grant the created user the privilege to perform a `SELECT` on all the database tables to be transferred and the `USAGE` privilege for the schemas of these tables:
+   1. Issue the user you created the `SELECT` privilege for the tables to be transferred and the `USAGE` privilege for the schemas these tables belong to.
 
       Privileges must be granted to entire tables. Access to certain table columns only is not supported.
 
-      You can issue the required privileges to a limited number of tables only. To do this, list all the tables to transfer in the [advanced settings](./endpoint/source/greenplum.md#additional-settings) of the {{ GP }} source endpoint.
+      Tables without the required privileges are unavailable to {{ data-transfer-name }}. These tables are processed as if they did not exist.
 
-      This example command grants privileges to all the database tables:
+      This example grants privileges to all the database tables:
 
       ```pgsql
       GRANT SELECT ON ALL TABLES IN SCHEMA <schema name> TO <username>;
       GRANT USAGE ON SCHEMA <schema name> TO <username>;
       ```
 
-   1. Grant the user created access privileges for the schema that will host the [transfer housekeeping objects](./endpoint/source/greenplum.md#additional-settings). In particular, the function create and run privilege for this schema is required.
-
-      To do this, run the command:
-
-      ```pgsql
-      GRANT USAGE ON SCHEMA <housekeeping schema name> TO <user login>;
-      GRANT CREATE ON SCHEMA <housekeeping schema name> TO <user login>;
-      GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA <housekeeping schema name> TO <user login>;
-      GRANT SELECT ON ALL TABLES IN SCHEMA <housekeeping schema name> TO <user login>;
-      ```
-
 {% endlist %}
+
+{{ data-transfer-name }} works with {{ GP }} differently depending on the transfer configuration and the source cluster contents. Detailed information is available in the section on [{{ GP }} source endpoint settings](../operations/endpoint/source/greenplum.md).
 
 ### {{ MG }} source {#source-mg}
 
@@ -154,7 +134,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 - {{ mmg-name }}
 
    1. Estimate the total number of databases for transfer and the total {{ mmg-name }} workload. If database workload exceeds 10,000 writes per second, create several endpoints and transfers. For more information, see [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
-   1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) with the role `readWrite` for the source database.
+   1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) with the `readWrite` role for each source database to be replicated. The `readWrite` role is required so that a transfer can write data to the `__dt_cluster_time` service collection.
 
 
 - {{ MG }}
@@ -209,7 +189,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
          });
          ```
 
-   1. Create a user with the `readWrite` role for the source database:
+   1. Create a user with the [`readWrite`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-readWrite) role for all source databases to be replicated:
 
       ```javascript
       use admin
@@ -219,21 +199,34 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
           mechanisms: ["SCRAM-SHA-1"],
           roles: [
               {
-                  db: "<name of source database>",
+                  db: "<name of source database 1>",
                   role: "readWrite"
-              }
+              },
+              {
+                  db: "<name of source database 2>",
+                  role: "readWrite"
+              },
+              ...
           ]
       });
       ```
 
-      Once started, the transfer will connect to the source on behalf of this user.
+      Once started, the transfer will connect to the source on behalf of this user. The `readWrite` role is required so that a transfer can write data to the `__dt_cluster_time` service collection.
 
-   1. When using {{ MG }} 3.4 and 3.6, to run the transfer, the user must have rights to read the `local.oplog.rs` collection. To assign a user the `clusterManager` role, which grants these rights, connect to {{ MG }} and run the following commands:
+      {% note info %}
+
+      For {{ MG }} 3.6 or older, it's enough to assign the created user the [`read`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-read) role for databases to replicate.
+
+      {% endnote %}
+
+   1. When using {{ MG }} versions 3.4 and 3.6 for a transfer, the user must have read access to the `local.oplog.rs` collection and read and write access to the `__data_transfer.__dt_cluster_time` collection. To assign a user the [`clusterAdmin`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-clusterAdmin) role granting these privileges, connect to {{ MG }} and run the following commands:
 
       ```js
       use admin;
-      db.grantRolesToUser("<username>", ["clusterManager"]);
+      db.grantRolesToUser("<username>", ["clusterAdmin"]);
       ```
+
+      To issue more granular privileges, you can assign the [`clusterMonitor`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-clusterMonitor) role required for read access to the `local.oplog.rs` and grant read and write access to the `__data_transfer.__dt_cluster_time` system collection.
 
 {% endlist %}
 
@@ -249,9 +242,9 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. [Create a user](../../managed-mysql/operations/cluster-users.md#adduser) for connecting to the source.
 
-      1. [Assign the user](../../managed-mysql/operations/grant.md#grant-role) the `ALL_PRIVILEGES` role for the source database.
+      1. [Grant the user](../../managed-mysql/operations/grant.md#grant-privilege) the `ALL_PRIVILEGES` privilege for the source database.
 
-      1. [Grant the user](../../managed-mysql/operations/grant.md#grant-privilege) the `REPLICATION CLIENT` and `REPLICATION SLAVE` privileges.
+      1. [Grant the user](../../managed-mysql/concepts/settings-list#setting-administrative-privileges) the `REPLICATION CLIENT` and `REPLICATION SLAVE` administrative privileges.
 
    1. {% include [primary-keys-mysql](../../_includes/data-transfer/primary-keys-mysql.md) %}
 
@@ -404,13 +397,29 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
          * `SELECT` for all the database tables to be transferred.
          * `SELECT` for all the database sequences to be transferred.
          * `USAGE` for the schemas of these tables and sequences.
-         * `ALL PRIVILEGES` (`CREATE` and `USAGE`) to the housekeeping table schema defined by the [endpoint parameter](./endpoint/source/postgresql.md#additional-settings) if the endpoint is going to be used for the _{{ dt-type-repl }}_ or _{{ dt-type-copy-repl }}_ transfer types.
+         * `ALL PRIVILEGES` (`CREATE` and `USAGE`) to the `__consumer_keeper` and `__data_transfer_mole_finder` housekeeping table schema defined by the [endpoint parameter](./endpoint/source/postgresql.md#additional-settings) if the endpoint is going to be used for the _{{ dt-type-repl }}_ or _{{ dt-type-copy-repl }}_ transfer types.
 
-   1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This lets replication continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, please refer to the [Troubleshooting](../troubleshooting/index.md#master-change) section.
+   1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This lets replication continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, see [Troubleshooting](../troubleshooting/index.md#master-change).
 
-   1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
+   1. {% include [primary-keys-postgresql](../../_includes/data-transfer/primary-keys-postgresql.md) %}
+
+   1. Disable the transfer of external keys at the step of creating a source endpoint. Recreate them once the transfer is completed.
+
+   1. Find and terminate DDL queries that are running for too long. To do this, make a Select from the {{ PG }} `pg_stat_activity` housekeeping table:
+
+      ```sql
+      SELECT NOW() - query_start AS duration, query, state
+      FROM pg_stat_activity
+      WHERE state != 'idle' ORDER BY 1 DESC;
+      ```
+
+      A list of queries running on the server is returned. Check queries with a large `duration`.
 
    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](./endpoint/source/postgresql.md#additional-settings).
+
+   1. To enable parallel data reads from the table, set its primary key to [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
+
+      Next, specify the number of instances and processes in the **Runtime** field of the [transfer parameters](transfer.md#create).
 
 - {{ PG }}
 
@@ -435,6 +444,12 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
       ```sql
       GRANT SELECT ON ALL TABLES IN SCHEMA <schema name> TO <username>;
       GRANT USAGE ON SCHEMA <schema name> TO <username>;
+      ```
+
+   1. Grant the created user the privileges to the `__consumer_keeper` and `__data_transfer_mole_finder` housekeeping table schema defined by the [endpoint parameter](./endpoint/source/postgresql.md#additional-settings) if the endpoint is going to be used for the _{{ dt-type-repl }}_ or _{{ dt-type-copy-repl }}_ transfer types.
+
+      ```sql
+      GRANT ALL PRIVILEGES ON SCHEMA <schema name> TO <username>;
       ```
 
    1. Install and enable the [wal2json](https://github.com/eulerto/wal2json) extension.
@@ -511,11 +526,27 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
       1. Restart PostgreSQL.
 
-   1. If the replication source is a cluster, install and enable the [pg_tm_aux](https://github.com/x4m/pg_tm_aux) extension on its hosts. This lets replication continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, please refer to the [Troubleshooting](../troubleshooting/index.md#master-change) section.
+   1. If the replication source is a cluster, install and enable the [pg_tm_aux](https://github.com/x4m/pg_tm_aux) extension on its hosts. This lets replication continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, see [Troubleshooting](../troubleshooting/index.md#master-change).
 
-   1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
+   1. {% include [primary-keys-postgresql](../../_includes/data-transfer/primary-keys-postgresql.md) %}
+
+   1. Disable the transfer of external keys at the step of creating a source endpoint. Recreate them once the transfer is completed.
+
+   1. Find and terminate DDL queries that are running for too long. To do this, make a Select from the {{ PG }} `pg_stat_activity` housekeeping table:
+
+      ```sql
+      SELECT NOW() - query_start AS duration, query, state
+      FROM pg_stat_activity
+      WHERE state != 'idle' ORDER BY 1 DESC;
+      ```
+
+      A list of queries running on the server is returned. Check queries with a large `duration`.
 
    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](./endpoint/source/postgresql.md#additional-settings).
+
+   1. To enable parallel data reads from the table, set its primary key to [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
+
+      Next, specify the number of instances and processes in the **Runtime** field of the [transfer parameters](transfer.md#create).
 
    1. If replication via [Patroni](https://github.com/zalando/patroni) is configured on the source, add an [ignore_slots](https://patroni.readthedocs.io/en/latest/SETTINGS.html?highlight=ignore_slots#dynamic-configuration-settings) block to the source configuration:
 
@@ -539,7 +570,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
 {% note info %}
 
-For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfers, please see [Transfering data from {{ PG }} to {{ CH }}](../tutorials/rdbms-to-clickhouse.md).
+For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfers, see [Asynchronously replicating data from {{ PG }} to {{ CH }}](../tutorials/rdbms-to-clickhouse.md).
 
 {% endnote %}
 
@@ -800,7 +831,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
          ```yaml
          replication:
-         replSetName: <replica set name>
+           replSetName: <replica set name>
          ```
 
       1. Restart the `mongod` service:
@@ -955,6 +986,14 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
       Once started, the transfer will connect to the target on behalf of this user.
 
+   1. If the target has the [Save transaction boundaries](endpoint/target/postgresql.md#additional-settings) option enabled, grant the created user all privileges to create the `__data_transfer_lsn` housekeeping table in the [current schema](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (usually it's `public`) on the target:
+
+      ```sql
+      GRANT ALL PRIVILEGES ON SCHEMA <schema name> TO <username>;
+      ```
+
+   1. Make sure the target has the `DROP transfer tables` cleanup policy selected.
+
 - {{ PG }}
 
    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
@@ -977,6 +1016,8 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. In the target database, enable the same extensions that are enabled in the source database.
 
+   1. Make sure the target has the `DROP transfer tables` cleanup policy selected.
+
    1. Create a user:
 
       ```sql
@@ -997,9 +1038,15 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
       Once started, the transfer will connect to the target on behalf of this user.
 
+   1. If the target has the [Save transaction boundaries](endpoint/target/postgresql.md#additional-settings) option enabled, grant the created user all privileges to create the `__data_transfer_lsn` housekeeping table in the [current schema](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (usually it's `public`) on the target:
+
+      ```sql
+      GRANT ALL PRIVILEGES ON SCHEMA <schema name> TO <username>;
+      ```
+
 {% endlist %}
 
-The service does not transfer `MATERIALIZED VIEWS`. For more detail, please review [Service specifics for sources and targets](../concepts/index.md#postgresql).
+The service does not transfer `MATERIALIZED VIEWS`. For more information, see [Service specifics for sources and targets](../concepts/index.md#postgresql).
 
 
 ### {{ ydb-full-name }} target {#target-ydb}

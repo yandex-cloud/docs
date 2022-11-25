@@ -42,4 +42,8 @@
     status: ACTIVE
     ```
 
+- API
+
+  Получить информацию о триггере можно с помощью метода API [get](../../serverless-containers/triggers/api-ref/Trigger/get.md).
+
 {% endlist %}

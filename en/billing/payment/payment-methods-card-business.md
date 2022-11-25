@@ -1,4 +1,4 @@
-# Transfer from a bank card
+# Transfer from a bank card for businesses
 
 Businesses can top up their personal accounts and pay for consumed resources using a corporate bank card that is linked to the billing account.
 

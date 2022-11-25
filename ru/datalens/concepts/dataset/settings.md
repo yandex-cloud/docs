@@ -15,6 +15,7 @@
 * [FULL](https://en.wikipedia.org/wiki/Join_(SQL)#Full_outer_join)
 
 
+
 ## Режимы работы с источником данных {#mode}
 
 Датасет может работать в одном из двух режимов, который зависит от источника данных.
@@ -72,6 +73,7 @@ AppMetrica | ![image](../../../_assets/common/yes.svg) | ![image](../../../_asse
 Минимальный доступный интервал — 1 раз в день.
 
 
+
 ## Фильтрация по умолчанию для новых чартов {#default-filters}
 
 В датасете можно [создать](../../operations/dataset/create-filter.md) фильтр по умолчанию. Он будет применен к любому новому чарту, созданному на основе данных из текущего датасета.
@@ -93,6 +95,7 @@ AppMetrica | ![image](../../../_assets/common/yes.svg) | ![image](../../../_asse
 Вы можете настроить права доступа ко всему датасету.  Подробнее в разделе [{#T}](../../operations/dataset/manage-access.md). 
 
 Также можно разграничить доступ к данным на уровне строк (_Row-level security_ или _RLS_). Подробнее в разделе [{#T}](../../operations/dataset/manage-row-level-security.md).
+
 
 ## Выполнение SQL-запросов в датасетах {#sql-request-in-datatset}
 

@@ -1,4 +1,4 @@
-# Performance diagnostics
+# Performance diagnostics in {{ mmy-name }}
 
 {{ mmy-name }} has a built-in tool for collecting session and query statistics. These metrics can be useful when [analyzing the performance and optimizing the settings](../tutorials/profiling-mmy.md) of a cluster.
 
