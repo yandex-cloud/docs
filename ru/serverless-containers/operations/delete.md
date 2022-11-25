@@ -23,6 +23,11 @@
 	```
 	done (2s)
 	```
+
+- API
+
+  Удалить контейнер можно с помощью метода API [delete](../containers/api-ref/Container/delete.md).
+
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}

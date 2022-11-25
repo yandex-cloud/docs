@@ -87,6 +87,10 @@
     status: ACTIVE
     ```
 
+- API
+
+  Создать триггер для почты можно с помощью метода API [create](../triggers/api-ref/Trigger/create.md).
+
 {% endlist %}
 
 {{ serverless-containers-name }} автоматически сгенерирует адрес электронной почты, при отправке писем на который будет запускаться триггер. Чтобы посмотреть его, [получите подробную информацию о триггере](trigger-list.md#trigger-get).
