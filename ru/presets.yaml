@@ -193,6 +193,7 @@ default:
   cdn-short-name: Cloud CDN
   cloud-desktop-short-name: Cloud Desktop
   backup-short-name: Cloud Backup
+  datalens-public: DataLens Public
 
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
   roles-alb-viewer: alb.viewer
@@ -277,6 +278,10 @@ default:
   roles-owner: owner
   roles-editor: editor
   roles-viewer: viewer
+  permission-admin: Администрирование
+  permission-write: Редактирование
+  permission-read: Просмотр
+  permission-execute: Исполнение
   subjects-allUsers: allUsers
   subjects-allAuthenticatedUsers: allAuthenticatedUsers
   subnet-id: b0rcctk2rvtr8efcch64
