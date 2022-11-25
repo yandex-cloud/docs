@@ -581,9 +581,11 @@
 ### Источник {{ yds-full-name }} {#source-yds}
 
 {% if audience == "external" and product == "yandex-cloud" %}
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `yds.editor`.
 1. [Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream).
 1. (опционально) [Создайте функцию обработки](../../functions/operations/function/function-create.md).
 {% else %}
+1. Создайте сервисный аккаунт с ролью `yds.editor`.
 1. Создайте поток данных.
 1. (опционально) Создайте функцию обработки.
 {% endif %}
@@ -1072,7 +1074,15 @@
 
 ### Приемник {{ ydb-full-name }} {#target-ydb}
 
-Чтобы принимать данные в сервисе {{ ydb-full-name }}, подготовка не требуется.
+{% if audience == "external" and product == "yandex-cloud" %}
+
+[Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `ydb.editor`.
+
+{% else %}
+
+Создайте сервисный аккаунт с ролью `ydb.editor`.
+
+{% endif %}
 
 {% include [airbyte-trademark](../../_includes/data-transfer/airbyte-trademark.md) %}
 

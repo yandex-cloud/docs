@@ -92,7 +92,7 @@
 
 {% if product == "yandex-cloud" %}
 
-Чтобы принимать данные в сервисе {{ ydb-name }}, подготовка не требуется.
+* [{{ ydb-full-name }}](operations/prepare.md#target-ydb)
 
 {% endif %}
 
